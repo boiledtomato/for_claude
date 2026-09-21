@@ -1,8 +1,736 @@
 # Zscaler Help — ZPA — Private Access (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-14 03:38 UTC
-Articles in this file: 121
+Generated: 2026-09-21 08:12 UTC
+Articles in this file: 111
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/network-connector-deployment-guide-vmware-platforms","lastmod":"2026-08-06T11:39Z","nid":"1541935"} -->
+## Network Connector Deployment Guide for VMware Platforms
+
+- Source: https://help.zscaler.com/zpa/network-connector-deployment-guide-vmware-platforms
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Network Connector Deployment Guides for Supported Platforms > Network Connector Deployment Guide for VMware Platforms
+- Last modified: 2026-08-06T11:39Z
+- Summary: How to deploy a Network Connector on VMware, including platform prerequisites and recommendations as well as post-deployment verification checks.
+
+This deployment guide provides information on prerequisites and how to deploy a Network Connector on a VMware platform. For general information regarding Network Connector deployment, see the [Network Connector Deployment Guide for Linux](https://help.zscaler.com/zpa//listpgm1/network-connector-deployment-guide-linux).
+
+- Step 1: Make Sure You Have Met All Network Connector Deployment Prerequisites
+- Step 2: Deploy the Network Connector on a VMware Platform
+- Step 3: Configure the Networking for the Deployed Network Connector
+- Step 4: Verify that the deployed Network Connector is [running and healthy](https://help.zscaler.com/zpa/managing-deployed-software-components#status-pcc). Also, check that it meets your [sizing requirements](https://help.zscaler.com/zpa/managing-deployed-software-components#VerifySizing).
+
+- Deploying on VMware vCenter
+- Deploying on VMware vSphere Hypervisor (ESXi)
+
+Before deploying a Network Connector on any supported platform, Zscaler highly recommends reading the following information and making the necessary changes to your organization's environment, where applicable.
+
+- Network Connector Specifications and Sizing Requirements
+- Network Connector Platform Prerequisites
+- Network Connector Security Guidance and Firewall Requirements
+
+After you have met all the prerequisites, you can deploy the Network Connector.
+
+The following specifications are recommended by Zscaler for each Network Connector:
+
+- Memory: 4 GB RAM
+- CPU:
+  - 2 CPU cores (Xeon E5 class) for physical machines without hyperthreading
+  - 8 CPU cores (Xeon E5 class) recommended for virtual machines (VMs) with hyperthreading; minimum 4 CPU cores (Xeon E5 class) for VMs with hyperthreading
+
+Using the [PassMark Software Pty Ltd](https://www.cpubenchmark.net/cpu_list.php) benchmark to verify the CPU Mark score, Zscaler recommends using a minimum CPU benchmark score of 2640 when choosing a CPU processor. The Intel Advanced Encryption Standard New Instructions (AES-NI) instecc3a2ruction set must also be enabled on the CPU processor.
+
+To learn more, see the [Network Connector Deployment Guide for Linux](https://help.zscaler.com/zpa/network-connector-deployment-guide-linux).
+
+- Disk Space: 64 GB (thin provisioned) for all deployment platforms
+- Network Card: 1 NIC (minimum)
+- For VMware platform deployment, the default configuration to allow the host to dynamically allocate VM resources is not recommended. Configure the VM setting to reserve the following memory and CPU allocations:
+  - Memory: 8 GB RAM
+  - CPU: total CPU GHz (the number of cores (2 or 8 cores) multiplied by the GHz per core)
+
+To learn more, refer to the [VMware documentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.resmgmt.doc/GUID-8B88D3D8-E9D9-4C05-A065-B3DE1FFFB401.html).
+
+After a Network Connector is enrolled, an outbound TLS tunnel over port 443 is established to the Private Access (ZPA) cloud infrastructure. Outbound VPN tunnels establish a gateway to VPN Service Edge using a port range from 51820 to 53000. This communication channel provides various functionality and utilizes minimal bandwidth, which includes traffic for Network Connector software upgrades (upgrades are completed based on a weekly schedule).
+
+Each Network Connector maps to a single Network Connector group. It is critical that the Network Connector is always available and running or there won't be any traffic. A Network Connector fronts the subnets configured in Network segments. For example, if you have 4 IP address ranges, they can all be mapped to the same Network Connector group. That means the Network Connector needs to route all the packets to these IP addresses. Subnets can be mapped to the same Network Connector, but you must make sure that they are reachable to each other.
+
+Before you begin any procedures within the [Network Connector Deployment Guide for Linux](https://help.zscaler.com/zpa/vpn-connector-deployment-prerequisites), make sure that you have met all the following prerequisites:
+
+- Intel x86_64/AMD64-based architecture
+- systemd
+- Root or sudo access to the system to configure a new package repository and install packages
+- DNS resolution and network access
+- For OAuth 2.0 enrollment, Manager software and Network Connector version 25.47.3 or later
+- An OAuth 2.0 enrollment token obtained from a hyperscaler marketplace or virtual image provided by Zscaler, or a Network Connector [provisioning key](https://help.zscaler.com/zpa/about-network-connector-provisioning-keys) obtained from the Zscaler Admin Console The OAuth server only supports IPv4-based communication. If a Network Connector only has an IPv6 address, it cannot access the OAuth server.
+- A Network Connector [provisioning key](https://help.zscaler.com/zpa/about-network-connector-provisioning-keys) obtained from the Zscaler Admin Console
+- A static MAC address
+- Network Connector can connect to the Zero Trust Network Access Service Edge - TCP port 443 for all Public Service Edges
+- An outbound connection to the VPN Service Edges IP address on the UDP port range from 51820 to 53000 must be allowed, not blocked. This is required to establish a VPN tunnel between the Network Connector and VPN Service Edge.
+- Gateway IP address is available in the Zscaler Admin Console after you instantiate a gateway instance in VPN Service Edges. To learn more, see [About VPN Service Edges](https://help.zscaler.com/zpa/about-vpn-service-edges).
+- Network Connector is sized appropriately. The minimum instance size can support an AWS instance size of:
+  - vCPU: 8
+  - Memory (GiB): 32
+  - Instance Storage (GB): EBS-Only
+  - Network Bandwidth (Gbps): Up to 10
+
+Zscaler recommends treating access to Network Connectors as privileged, so only authorized personnel can access a Network Connector's console. By limiting access, there is the added benefit of shielding interprocess communication within the Network Connector from attack.
+
+## Operating System Security
+
+The Network Connector is installed as an OS package. Due to the fact that vulnerabilities are regularly found in core open-source components such as DNS resolvers and the Linux Kernel, Zscaler recommends patching the OS on a regular basis or protecting Network Connectors using firewall policies.
+
+Some organizations choose to firewall or otherwise restrict outbound traffic to the internet from the data center. It is possible to deploy a Network Connector in such an environment as long as the Network Connector can reach all Zscaler data centers containing Public Service Edges for Private Access. For firewall configuration information for your deployment, see [config.zscaler.com/private.zscaler.com/zpa](https://config.zscaler.com/private.zscaler.com/zpa) (for the private.zscaler.com cloud) or [config.zscaler.com/zpatwo.net/zpa](https://config.zscaler.com/zpatwo.net/zpa) (for the zpatwo.net cloud).
+
+## Firewall Requirements and Interoperability Guidelines
+
+All Zscaler data centers containing Public Service Edges must be allowed. A partial firewall configuration can result in connectivity problems for end users. Zscaler's policy is to provide a 90-day notice for activating additional IP CIDR ranges to provide organizations with sufficient opportunity for changing control policies.
+
+Because the service enforces TLS certificate pinning for both client and server certificates, all forms of inline or man-in-the-middle TLS interception or inspection must be disabled. Network Connectors do not function if the TLS certificates presented by the Public Service Edges or Private Service Edges do not cryptographically verify against Zscaler-trusted public keys.
+
+By design, certificate verification is not configurable to maintain the integrity of the service. So ensure that *.prod.zpath.net is in your SSL bypass list for traffic originating from the Network Connector. This is necessary for allowing the Network Connector to resolve and reach Public Service Edges or Private Service Edges. If you need to allowlist additional Zscaler IP addresses, see [config.zscaler.com/private.zscaler.com/zpa](https://config.zscaler.com/private.zscaler.com/zpa) (for the private.zscaler.com cloud) or [config.zscaler.com/zpatwo.net/zpa](https://config.zscaler.com/zpatwo.net/zpa) (for the zpatwo.net cloud).  If you are using OAuth 2.0, ensure that the OAuth server FQDN`zpa-oauth.private.zscaler.com` is in the allowlist, and user devices are allowed to make an outbound connection to the `zpa-oauth.private.zscaler.com` server. If you need to allowlist additional Zscaler IP addresses, see [config.zscaler.com/private.zscaler.com/zpa](https://config.zscaler.com/private.zscaler.com/zpa) (for the private.zscaler.com cloud) or [config.zscaler.com/zpatwo.net/zpa](https://config.zscaler.com/zpatwo.net/zpa) (for the zpatwo.net cloud). To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
+
+### Firewalld Configuration for VPN Redundancy (RPM Install Only)
+
+If you install a Network Connector from an RPM and plan to use firewalld on a Network Connector that's using VPN redundancy, you must perform additional steps to modify the firewall filter rule so VPN redundancy can work properly.
+
+- See instructions.
+
+1. Log in to the Network Connector console.
+2. Enter the following command to verify whether firewalld is running: `$ systemctl status firewalld ● firewalld.service - firewalld - dynamic firewall daemon Loaded: loaded (/usr/lib/systemd/system/firewalld.service; enabled; preset: enabled) Active: active (running) since Wed 2025-08-27 16:12:04 UTC; 3min 15s ago Docs: man:firewalld(1) Main PID: 768075 (firewalld) Tasks: 2 (limit: 402811) Memory: 23.6M CPU: 292ms CGroup: /system.slice/firewalld.service └─768075 /usr/bin/python3 -s /usr/sbin/firewalld --nofork --nopid Aug 27 16:12:04 npconnector1.pdx2.dev.zpath.net systemd[1]: Starting firewalld - dynamic firewall daemon... Aug 27 16:12:04 npconnector1.pdx2.dev.zpath.net systemd[1]: Started firewalld - dynamic firewall daemon.`
+3. Ensure that `NftablesTableOwner` is set to `no` in `firewalld.conf`.
+  1. Open `/etc/firewalld/firewalld.conf` and enter the following command: `$ sudo vi /etc/firewalld/firewalld.conf`
+  2. If `NftablesTableOwner` is currently set to `yes`, change the value to `no`. If `NftablesTableOwner` doesn't exist, enter the following configuration: `# NftablesTableOwner # If set to yes, the generated nftables rule set will be owned exclusively by # firewalld. This prevents other entities from mistakenly (or maliciously) # modifying firewalld's rule set. If you intentionally modify firewalld's # rules, then you will have to set this to "no" # Defaults to "yes" NftablesTableOwner=no`
+4. Verify that the configuration was updated: `$ grep NftablesTableOwner /etc/firewalld/firewalld.conf # NftablesTableOwner NftablesTableOwner=no`
+5. Reload the firewall: `$ sudo firewall-cmd --reload`
+6. Create a Python script named `network-connector-firewall.py` with the following command: `#!/usr/bin/env python3 import dbus import dbus.mainloop.glib from gi.repository import GLib import subprocess import sys # The D-Bus interface and path for firewalld DBUS_INTERFACE = "org.fedoraproject.FirewallD1" DBUS_PATH = "/org/fedoraproject/FirewallD1" # Commands you want to run after firewalld reload PORT_COMMANDS = [ "firewall-cmd --add-port=51820/udp", "firewall-cmd --add-port=3784/udp", "firewall-cmd --add-port=4784/udp", ] RULE_COMMANDS = [ ('if ! nft list chain inet firewalld filter_FORWARD | grep -q \'iifname "npwg0" accept\'; then ' 'nft insert rule inet firewalld filter_FORWARD iifname npwg0 accept; fi'), ('if ! nft list chain inet firewalld filter_FORWARD | grep -q \'oifname "npwg0" accept\'; then ' 'nft insert rule inet firewalld filter_FORWARD oifname npwg0 accept; fi') ] def execute_shell_commands(commands): """ Helper function to execute a list of shell commands. """ for cmd in commands: try: subprocess.run(cmd, shell=True, check=True) print(f"Executed: {cmd}") except subprocess.CalledProcessError as e: print(f"Error executing '{cmd}': {e}", file=sys.stderr) def apply_firewall_rules_for_npwg0(): # Execute port-opening commands print("Running port-opening commands...") execute_shell_commands(PORT_COMMANDS) # Execute rule insertion commands print("Running rule insertion commands...") execute_shell_commands(RULE_COMMANDS) def reloaded_signal_handler(): """ This function is called when the Reloaded signal is received. """ print("Firewalld has been reloaded. Running post-reload actions.") apply_firewall_rules_for_npwg0() def main(): apply_firewall_rules_for_npwg0() # Set up the D-Bus main loop dbus.mainloop.glib.DBusGMainLoop(set_as_default=True) # Connect to the system bus bus = dbus.SystemBus() # Add a signal receiver bus.add_signal_receiver( reloaded_signal_handler, signal_name="Reloaded", dbus_interface=DBUS_INTERFACE, bus_name=DBUS_INTERFACE, path=DBUS_PATH ) print("Listening for firewalld 'Reloaded' signal...") # Start the GLib main loop loop = GLib.MainLoop() try: loop.run() except KeyboardInterrupt: print("\nStopping listener.") loop.quit() if __name__ == '__main__': main()`
+  - Learn more.
+7. Save the script to `/opt/zscaler/etc/network-connector-firewall.py` and make it an executable: `$ sudo chmod +x /opt/zscaler/etc/network-connector-firewall.py`
+8. Create a systemd service file at `/etc/systemd/system/network-connector-firewall.service` with the following command: `[Unit] Description=Network Connector Firewall Rules After=firewalld.service Requires=firewalld.service [Service] ExecStart=/opt/zscaler/etc/network-connector-firewall.py Restart=always User=root [Install] WantedBy=multi-user.target`
+9. Enable and start the `network-connector-firewall` service: `$ sudo systemctl enable network-connector-firewall $ sudo systemctl start network-connector-firewall`
+10. Check the status of the `network-connector-firewall` service: `$ systemctl status network-connector-firewall ● network-connector-firewall.service - Network Connector Firewall Rules Loaded: loaded (/etc/systemd/system/network-connector-firewall.service; enabled; preset: disabled) Active: active (running) since Thu 2025-08-28 20:47:07 UTC; 3min 34s ago Main PID: 9253 (python3) Tasks: 1 (limit: 98904) Memory: 7.3M CPU: 610ms CGroup: /system.slice/network-connector-firewall.service └─9253 python3 /usr/local/bin/network-connector-firewall.py Aug 28 20:47:07 ip-10-3-21-9.us-west-2.compute.internal systemd[1]: Started Network Connector Firewall Rules. Aug 28 20:47:07 ip-10-3-21-9.us-west-2.compute.internal network-connector-firewall.py[9254]: success Aug 28 20:47:07 ip-10-3-21-9.us-west-2.compute.internal network-connector-firewall.py[9255]: success Aug 28 20:47:08 ip-10-3-21-9.us-west-2.compute.internal network-connector-firewall.py[9256]: success`
+
+This Python script is a utility that manages and maintains custom firewall configurations for a specific network setup. It interacts with firewalld through D-Bus and listens for the reloaded signal whenever firewalld reloads its rules. It executes shell commands when the reload signal is detected or during script initialization to:
+
+- Open specific ports.Adds UDP ports (51820, 3784, 4784) using the `firewall-cmd` tool for enabling communication over these ports, typically used for services like VPNs or other networking tools.
+- Apply traffic forwarding rules. Inserts `Nftables` rules to allow all traffic in both directions on the npwg0 interface (`iifname npwg0` for incoming traffic, and `oifname npwg0` for outgoing traffic). These rules are set conditionally to prevent redundant entries and ensure forwarding functionality for the interface.
+
+The script ensures that these firewall configurations persist and are reapplied dynamically after any firewalld reload event. It runs indefinitely, monitoring signal events, unless interrupted manually. This tool is particularly useful in scenarios where maintaining consistent network rules and access is critical—such as with VPN setups, custom networking interfaces, or specific port-based services.
+
+After you have deployed a software component on a supported platform, you can complete the following networking configurations. Software components refer to App Connectors, Private Service Edges, Private Cloud Controllers, and Network Connectors.
+
+- Configure DHCP IP Addressing (App Connector, Private Service Edge, or Private Cloud Controller)
+- Configure Static IP Addressing (all software components)
+- Configure Domain Name System (DNS) Resolver (all software components)
+- Configure Network Time Protocol (NTP) Servers (App Connector, Private Service Edge, or Private Cloud Controller)
+- Configure Additional Interfaces (App Connector or Private Service Edge)
+- Configure an App Connector to Use an Explicit Proxy Server
+- Configure a Private Service Edge to Use an Explicit Proxy Server
+- Configure a Proxy Bypass (App Connector)
+- Configure Static Routing (App Connector or Private Service Edge)
+- Configure TCP Communication Sockets (App Connector)
+- Configure yum to Use an HTTP Proxy Server (App Connector or Private Service Edge)
+- Verify That Keepalive Is Enabled for TCP Sessions (App Connector)
+
+By default, virtual machine-based App Connectors, Private Service Edges, or Private Cloud Controllers are configured to use DHCP networking on their primary interface. If necessary, you can configure a static IP address for the software component.
+
+If DHCP is not available, you can configure a static IP address on a VM-based App Connector, Private Service Edge, Private Cloud Controller, or Network Connector.
+
+1. Log in to the software component's console using your admin credentials.
+2. View the IP address. `$ ip addr show`
+3. View the current connection profile.
+
+```
+$ nmcli connection show
+```
+
+1. Modify the connection profile using the following format: `<profile name>``connection.id``<new connection name>`. For example:
+
+```
+$ sudo nmcli connection modify "Profile 1" connection.id LAN autoconnect yes
+```
+
+1. Review the current connection profile.
+
+```
+$ nmcli connection show
+```
+
+1. Edit the profile using a static IP and a default gateway with the following format: `<connection ID>``ipv4.method manual ipv4.addresses``<IP addresses>``ipv4.gateway``<gateway IP>``ipv4.dns``<DNS IP>``ipv4.dns-search``<domain name>`. For example:
+
+```
+$ sudo nmcli connection modify LAN ipv4.method manual ipv4.addresses 172.30.1.88/24 ipv4.gateway 172.30.1.1 ipv4.dns 172.30.1.254 ipv4.dns-search company.com
+```
+
+1. To apply the changes, bring the connection ID back up. For example:
+
+```
+$ sudo nmcli connection up LAN
+```
+
+1. Verify the IP address.
+
+```
+$ ip addr show
+```
+
+1. Verify the default gateway.
+
+```
+$ ip route show default
+```
+
+1. Verify the DNS settings.
+
+```
+$ sudo cat /etc/resolv.conf
+```
+
+If necessary, additional changes can be made to interfaces by configuring new ones using `nmcli connection add con-name` or by renaming existing ones using `nmcli connection modify`.
+
+1. Log in to the software component's console using your admin credentials.
+2. View the IP address.
+
+```
+$ ip addr show
+```
+
+1. View the current connection profiles.
+
+```
+$ nmcli connection show
+```
+
+1. Configure the interface's IP network using either a dynamic or static Ethernet configuration.
+
+For dynamic, modify the connection profile. For example:
+
+```
+$ sudo nmcli connection modify "Profile 1" ipv4.method auto autoconnect yes
+```
+
+For static, modify the connection profile and identify the IP addresses and gateway using the following format: `<profile name>``ipv4.method manual ipv4.addresses``<address>``ipv4.gateway``<gateway IP>`. For example:
+
+```
+$ sudo nmcli connection modify "Profile 1" ipv4.method manual ipv4.addresses 192.168.2.241/24 ipv4.gateway 192.168.2.254
+```
+
+1. To apply the changes, bring the connection profile back up. For example:
+
+```
+$ sudo nmcli connection up "Profile 1"
+```
+
+1. Verify the IP address.
+
+```
+$ ip addr show
+```
+
+1. Verify the new connection.
+
+```
+$ nmcli connection show
+```
+
+To add static routes to the interface control files for an App Connector or Private Service Edge:
+
+1. Log in to the software component's console using your admin credentials.
+2. Edit the static route for an existing Ethernet connection using the following format: `<profile name>``ipv4.routes``<IP address and gateway>`. For example:
+
+```
+$ sudo nmcli connection modify "Profile 1" +ipv4.routes "192.168.2.241/24 10.10.10.1 autoconnect yes
+```
+
+1. To apply the changes, bring the connection profile down and then back up. For example:
+
+```
+$ sudo nmcli connection down "Profile 1"
+```
+
+```
+$ sudo nmcli connection up "Profile 1"
+```
+
+1. Verify the new route is added.
+
+```
+$ ip route
+```
+
+DNS resolution is critical for the successful operation of the App Connector, Private Service Edge, Private Cloud Controller, or Network Connector. These software components use DNS to discover applications, as well as enumerate each of the IP addresses that an application DNS name resolves to as a separately tracked and load-balanced server. During dynamic application discovery, DNS is used as the initial reachability check from each software component in a software component group. It is possible for software components to function in partitioned environments where a subset of App Connectors can resolve a given DNS name without additional configuration. The software components must also be able to resolve external DNS names, such as those of the Private Access (ZPA) cloud infrastructure.
+
+1. Log in to the software component's console using your admin credentials.
+2. View the current connection profile.
+
+```
+$ nmcli connection show
+```
+
+1. Modify the DNS settings using the following format: `<profile name>``ipv4.dns``<nameserver IP>`. For example:
+
+```
+$ sudo nmcli connection modify "Profile 1" +ipv4.dns 192.168.2.241 autoconnect yes
+```
+
+1. To apply the changes, bring the connection profile down and then back up. For example:
+
+```
+$ sudo nmcli connection down "Profile 1"
+```
+
+```
+$ sudo nmcli connection up "Profile 1"
+```
+
+1. Verify the nameservers record was added.
+
+```
+$ sudo cat /etc/resolv.conf
+```
+
+You cannot configure NTP servers for App Connectors running on the Amazon Web Services (AWS) or Microsoft Azure platforms.
+
+To configure App Connectors, Private Service Edges, or Private Cloud Controllers to use internal NTP servers:
+
+1. Log in to the software component's console using your admin credentials.
+2. Edit the `/etc/chrony.conf` file. Use an editor, such as vi. `$sudo vi /etc/chrony.conf`
+3. Add your internal NTP servers to the list, for example:
+
+```
+server 0.zscaler.pool.ntp.org iburst 
+server 1.zscaler.pool.ntp.org iburst 
+server 2.zscaler.pool.ntp.org iburst 
+server 3.zscaler.pool.ntp.org iburst
+```
+
+1. To apply the changes, restart the chrony daemon using the following command:
+
+```
+$ systemctl restart chronyd
+```
+
+1. To verify the NTP servers, check that NTP is working successfully using the following command:
+
+```
+$ chronyc sources
+```
+
+The proxy setting on the App Connector is used to proxy the traffic between the App Connector and the Private Service Edge. It is not used to proxy the traffic between the App Connector and internal applications.
+
+If your traffic is going through a proxy (i.e., traffic between the App Connector and the Public or Private Service Edges for Private Access), you must manually configure the App Connector to work through that proxy. The following procedure allows the App Connector to communicate with the broker by using CONNECT requests through a standard HTTP proxy server.
+
+To configure the App Connector to work through an explicit proxy:
+
+1. Log in to the App Connector console using your admin credentials.
+2. Create a file named `/opt/zscaler/var/proxy`. Use an editor, such as vi. `$ sudo vi /opt/zscaler/var/proxy`
+3. Enter the proxy information using the following format: `<Proxy Hostname or IP Address>``:``<Proxy Port>` (e.g., `192.0.2.0:0`).
+4. To apply the changes, restart the App Connector using the following command:
+
+```
+$ sudo systemctl restart zpa-connector
+```
+
+The App Connector attempts to create a TLS session through the proxy specified previously.
+
+If you want to configure yum to communicate through an HTTP proxy server, refer to the [Red Hat documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-yum).
+
+If an App Connector is configured to send traffic to a proxy, you can set up a proxy bypass on it for the traffic that needs to be exempted from the proxy (i.e., traffic between the App Connector and the Public or Private Service Edges for Private Access). To use a proxy bypass for an App Connector, a proxy bypass file needs to be added to the App Connector.
+
+To configure the App Connector to do a proxy bypass:
+
+1. Log in to the App Connector console using your admin credentials.
+2. Create a file named `opt/zscaler/var/proxy-bypass`. Use an editor, such as vi. For example:
+
+```
+$sudo vi /opt/zscaler/var/proxy-bypass
+```
+
+1. Enter the necessary bypass entries using IP addresses, subnets, domains, or domains with a prefix wildcard. For example:
+
+```
+1.2.3.4
+111.222.33.0/24
+myexampledomain.com
+*.internal.local
+```
+
+1. To apply the changes, restart the App Connector using the following command:
+
+```
+$ sudo systemctl restart zpa-connector
+```
+
+To temporarily configure TCP communication sockets using the profs interface and the `SO_KEEPALIVE` socket option for an App Connector:
+
+1. Enable **TCP Keepalive** for your segment group in the Zscaler Admin Console. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-defined-application-segments).
+
+The socket used for TCP communication is set to `SO_KEEPALIVE` and establishes an App Connector-to-server connection. Communication using this socket looks at the system value corresponding to `SO_KEEPALIVE` and performs the action according to the parameters.
+
+1. Tune your App Connector's kernel to configure the TCP parameters and choose how the keepalive packets are sent using the following commands:
+
+```
+# echo
+600
+> /proc/sys/net/ipv4/tcp_keepalive_time
+# echo
+60
+> /proc/sys/net/ipv4/tcp_keepalive_intvl
+# echo
+20
+> /proc/sys/net/ipv4/tcp_keepalive_probes
+```
+
+Default values are used if no system parameters are chosen. The values in red represent examples of values that can be configured.
+
+Changes to the App Connector's kernel to configure the TCP parameters using the profs interface are temporary and return to default after reboot.
+
+To permanently configure TCP communication sockets using the sysctl interface:
+
+1. Enable **TCP Keepalive** for your segment group in the Zscaler Admin Console. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-defined-application-segments).
+2. Edit your `/etc/sysctl.conf` using the following command:
+
+```
+# vi /etc/sysctl.conf
+```
+
+1. Tune your App Connector's kernel to configure the TCP parameters and choose how the keepalive packets are sent using the following commands:
+
+```
+net.ipv4.tcp_keepalive_time =
+60
+net.ipv4.tcp_keepalive_intvl =
+10
+net.ipv4.tcp_keepalive_probes =
+6
+```
+
+Default values are used if no system parameters are chosen. The values in red represent examples of values that can be configured.
+
+1. To load the settings, enter the following command:
+
+```
+# sysctl -p
+```
+
+The keepalive packets have the following parameters:
+
+| Parameter | Definition | Default Value |
+| --- | --- | --- |
+| `tcp_keepalive_time` | The interval between the last data packet sent (simple ACKs are not considered data) and the first keepalive probe; after the connection is marked to need keepalive, this counter is not used any further. | 7,200 seconds (2 hours) |
+| `tcp_keepalive_intvl` | The interval between subsequent keepalive probes, regardless of what the connection has exchanged in the meantime. | 75 seconds |
+| `tcp_keepalive_probes` | The number of unacknowledged probes to send before considering the connection dead and notifying the application layer. The `tcp_keepalive_probes` value is a pure number. | 9 |
+
+For example:
+
+- If the `tcp_keepalive_time value` is one hour, the keepalive routines wait for one hour before sending the first keepalive probe, and then resend it at a 75-second interval according to the `tcp_keepalive_intvl` value.
+- If the `tcp_keepalive_intvl` value is 60 seconds, the keepalive probes are sent every 60 seconds after the initial `tcp_keepalive_time` value.
+- If the `tcp_keepalive_probes` value is 7, and no ACK response is received after 7 consecutive times, then the connection is marked as broken.
+
+If there is no data communication within the `tcp_keepalive_time` value, it sends out a keepalive probe to the app server:
+
+- If ACK is returned, another keepalive probe is sent after 2 hours (`tcp_keepalive_time`) if no data communication happens in between.
+- If RST is returned, then the socket closes.
+- If there is no reply, it resends the keepalive every 75 seconds (`tcp_keepalive_intvl`) for a reply, and it retries 9 times (`tcp_keepalive_probes`). If there is no reply after 9 probes, the socket closes.
+
+To learn more about configuring a kernel, refer to the [Linux documentation](https://tldp.org/HOWTO/html_single/TCP-Keepalive-HOWTO/#configuringkernel).
+
+To see which TCP sessions have `keepalive` enabled and what their current timer is, run the `ss` command on the App Connector with the `-t` (tcp only) and `-o` (show timers) options:
+
+```
+# ss -to
+State  Recv-Q  Send-Q  Local Address:Port  Peer Address:Port
+ESTAB  0       0       10.18.4.210:42452   10.251.33.110:https  timer:(keepalive,29sec,0)
+```
+
+For sessions that have `keepalive` enabled, timer information (`timer:(<timer_name>,<expire_time>,<retrans>)`) indicates when `keepalive` will be sent. To learn more, refer to the [Linux documentation](https://www.man7.org/linux/man-pages/man8/ss.8.html).
+
+If your traffic is going through a proxy, you must manually configure the Private Service Edge to work through that proxy. The following procedure allows the Private Service Edge to communicate with the broker by using CONNECT requests through a standard HTTP proxy server.
+
+To configure the Private Service Edge to work through an explicit proxy:
+
+1. Log in to the Private Service Edge console using your admin credentials.
+2. Create a file named `/opt/zscaler/var/service-edge/proxy`. Use an editor, such as vi. `$ sudo vi /opt/zscaler/var/service-edge/proxy`
+3. Enter the proxy information using the following format: `<Proxy Hostname or IP Address>``:``<Proxy Port>` (e.g., `192.0.2.0:0`).
+4. To apply the changes, restart the Private Service Edge using the following command:
+
+```
+$ sudo systemctl restart zpa-service-edge
+```
+
+The Private Service Edge attempts to create a TLS session through the proxy specified previously.
+
+The following deployment procedure only provides additional information on prerequisites and how to deploy a Network Connector on a VMware platform with vCenter.
+
+The following additional prerequisites apply to VMware vCenter only:
+
+- VMware vCenter version ESXi 7.0 Update 2 or later.
+- Access to vCenter to deploy an OVA file as a virtual machine (VM).
+- Access to vCenter to configure the virtual NIC of the VM onto the appropriate Virtual Network or VLAN.
+- Access to vCenter to modify the vApp attributes of the VM.
+- VMware vSphere Client Integration Plugin installed (which enables the functionality needed to upload new OVA/OVF images into vSphere).
+
+To deploy a Network Connector on VMware vCenter:
+
+1. Obtain the latest VMware image from Zscaler. You can also use the following link to download the file for the vSphere Web Client: [https://dist.private.zscaler.com/vms/VMware/2026.07/zpa-network-connector-el9-2026.07.ova](https://dist.private.zscaler.com/vms/VMware/2026.07/zpa-network-connector-el9-2026.07.ova) You can download the .ova checksum from: [https://dist.private.zscaler.com/vms/VMware/2026.07/zpa-network-connector-el9-2026.07.ova.sha256sum](https://dist.private.zscaler.com/vms/VMware/2026.07/zpa-network-connector-el9-2026.07.ova.sha256sum)
+2. Connect to a vCenter Server with the vSphere Web Client and log in.
+
+See image.
+
+1. Click **Home**, then click **VMs and Templates**.
+
+See image.
+
+1. From the **Actions** menu, select **Deploy OVF Template**.
+
+See image.
+
+The **Deploy OVF Template** window appears.
+
+1. For **1 Source > 1a Select source**, complete one of the following procedures:
+  - Select **URL**, enter the following URL for the Network Connector image into the provided field, then click **Next**: `https://dist.private.zscaler.com/vms/VMware/2026.07/zpa-network-connector-el9-2026.07.ova` The image is downloaded and then uploads to vCenter. You can download the .ova checksum from: [https://dist.private.zscaler.com/vms/VMware/2026.07/zpa-network-connector-el9-2026.07.ova.sha256sum](https://dist.private.zscaler.com/vms/VMware/2026.07/zpa-network-connector-el9-2026.07.ova.sha256sum)
+  - If you've already downloaded the VMware image to your local system, select **Local file**, click **Browse** to locate the image file, and then click **Next**.
+
+See image.
+
+1. For **1 Source > 1b Review** **details**, verify that the OVF template details are correct, then click **Next**.
+
+See image.
+
+1. For **2 Destination > 2a Select name and folder**, the name and folder specified in vCenter has no impact on the Private Access (ZPA) service. Select a name and folder that is suitable for your organization, then click **Next**.
+
+See image.
+
+1. For **2 Destination > 2b Select a resource**, select the destination resource (i.e., cluster, host, vApp, or resource pool), then click **Next**.
+
+See image.
+
+1. For **2 Destination > 2c Select storage**, choose **Thin Provision** for the virtual disk format, then click **Next**. This selection generally results in smaller disk space utilization.
+
+See image.
+
+1. For **2 Destination > 2d Setup networks**, configure the **IP allocation** network settings as necessary.
+
+The Network Connector must be configured with a static private IP address. To learn more, see [Configure Static IP Addressing](https://help.zscaler.com/zpa/networking-deployed-software-components#Static_IP).
+
+You cannot configure a Network Connector with a dynamic IP address.
+
+See image.
+
+1. For **3 Ready to complete**, ensure that the **Power on after deployment** checkbox is not selected, then click **Finish**.
+
+Within the **Recent Tasks** panel, you can monitor the deployment progress.
+
+See image.
+
+After the deployment has successfully completed, ensure that the VM has not been powered on before proceeding to the next step.
+
+1. Within the **Navigator** panel, select the deployed VM, and select **Edit Settings**from the **Actions** menu.
+
+See image.
+
+The **Edit Settings** window appears.
+
+1. In the **Edit Settings** window, select the **vApp Options** tab. See image.
+2. Under **Authoring > OVF** settings: See image.
+  1. For **OVF environment transport**, select the **VMware Tools** checkbox.
+  2. For **Installation boot**, select the **Enable**checkbox.
+  3. Click **OK**.
+
+1. From the **Actions** menu, select **Power > Power On**. See image.
+2. Verify the local time on the VMware machine is correct. If not, update the time using [Network Time Protocol](https://help.zscaler.com/zpa/networking-deployed-software-components#NTP).
+3. Make any necessary network configuration changes before enrolling the Network Connector.
+4. Enroll the Network Connector using one of the following methods: The image attempts to use OAuth enrollment tokens by default but applies a provisioning key first if one is available. After the Network Connector is enrolled, verify that the deployed Network Connector is [running and healthy](https://help.zscaler.com/zpa/managing-deployed-software-components#Status-appc).
+  1. OAuth 2.0 enrollment token See instructions.
+  2. Network Connector provisioning key See instructions.
+5. Zscaler highly recommends [updating the Network Connector system software](https://help.zscaler.com/zpa/managing-deployed-software-components#Updating) before proceeding.
+
+[Image: Logging into the VMware Server using the vSphere Web Client]
+
+[Image: Accessing VMs and Templates within the VMware vSphere Web Client]
+
+[Image: Accessing the Deploy OVF Template within the VMware vSphere Web Client]
+
+[Image: Select the source location of the VMware image file]
+
+[Image: Review and verify the OVF template details]
+
+[Image: Select the name and folder for the destination]
+
+[Image: Select a resource for the destination]
+
+[Image: Select Thin Provision for the destination storage]
+
+[Image: Configure the network settings for the destination]
+
+[Image: Monitor the deployment in Recent Tasks]
+
+[Image: VMware vSphere Web Client with Actions menu]
+
+[Image: VMware vSphere Web Client with Edit Settings window]
+
+[Image: VMware vSphere Web Client with Edit Settings window]
+
+[Image: Select Power On in the VMware vSphere Web Client]
+
+The following deployment procedure only provides additional information on prerequisites and how to deploy a Network Connector on a VMware platform with vSphere Hypervisor.
+
+The following additional prerequisites apply to VMware vSphere Hypervisor (ESXi) only:
+
+- RHEL 9 deployments are only supported on ESXi 7.0 Update 2 or later.
+- VMware offers ESXi as part of a paid vSphere edition or free of charge with the vSphere Hypervisor edition. However, the free version of the platform does not include several deployment features. Specifically, the standalone vSphere Hypervisor edition is not able to parse the extended OVF attributes that allow you to provide the Network Connector provisioning key during deployment.
+- VMware vSphere Client
+- Hypervisor account
+
+To deploy a Network Connector on vSphere Hypervisor (ESXi):
+
+1. Log in to the vSphere Hypervisor (ESXi) Server with the vSphere Client.
+
+See image.
+
+1. Go to **File > Deploy OVF Template.**
+
+See image.
+
+1. Complete one of the following procedures:
+  - Enter the following URL for the Network Connector image into the provided field, then click **Next**: `https://dist.private.zscaler.com/vms/VMware/2026.07/zpa-network-connector-el9-2026.07.ova` If you use this option, the image is downloaded from the URL and uploaded to the vSphere Hypervisor (ESXi) server from the local system. You can download the .ova checksum from: [https://dist.private.zscaler.com/vms/VMware/2026.07/zpa-network-connector-el9-2026.07.ova.sha256sum](https://dist.private.zscaler.com/vms/VMware/2026.07/zpa-network-connector-el9-2026.07.ova.sha256sum)
+  - If you've already downloaded the VMware image to your local system, click **Browse** to locate the file, then click **Next**.
+2. Verify that the **OVF Template Details** are correct, then click **Next**.
+3. The **Name and Location** specified in vSphere Hypervisor (ESXi) has no impact on the Private Access service. Select a name and folder that is suitable for your organization, then click **Next**.
+4. After you are asked to select a **Storage** configuration, make sure that you select **Thin Provision** for the disk format, then click **Next**. This selection generally results in smaller disk space utilization.
+
+See image.
+
+1. Ensure that the **Power on after deployment** checkbox is selected, then click **Finish**. Within the **Recent Tasks** panel, you can monitor the deployment progress. After the deployment has successfully completed, ensure that the VM has powered on before proceeding to the next step.
+2. The Network Connector must be configured with a static private IP address. To learn more, see [Configure Static IP Addressing](https://help.zscaler.com/zpa/networking-deployed-software-components#Static_IP). You cannot configure a Network Connector with a dynamic IP address.
+3. Verify the local time on the VMware machine is correct. If not, update the time using [Network Time Protocol](https://help.zscaler.com/zpa/networking-deployed-software-components#NTP).
+4. Make any necessary network configuration changes before applying the provisioning key.
+5. Apply and populate the Network Connector provisioning key.
+
+- See instructions.
+
+1. Zscaler highly recommends [updating the Network Connector system software](https://help.zscaler.com/zpa/managing-deployed-software-components#Updating) before proceeding.
+
+[Image: VMware vSphere Client login screen]
+
+[Image: VMware vSphere Client with File menu]
+
+[Image: VMware vSphere Client with Deploy OVF Template window]
+
+1. Stop running the Network Connector service.
+
+```
+[admin@np-connector ~]$ sudo systemctl stop np-connector
+```
+
+1. Create a provisioning key file with 644 permissions at `/opt/zscaler/var/provision_key`. For example:
+
+```
+[admin@np-connector ~]$ sudo touch /opt/zscaler/var/provision_key 
+[admin@np-connector ~]$ sudo chmod 644 /opt/zscaler/var/provision_key
+```
+
+1. Copy the provisioning key from the Zscaler Admin Console, paste it into the file, and click **Save**. Use an editor, such as vi.
+
+```
+[admin@np-connector ~]$ sudo vi /opt/zscaler/var/provision_key		
+[admin@np-connector ~]$ sudo cp provision_key
+```
+
+If you are using vi, make sure it is in insert mode before you paste the key into the file.
+
+If you are unfamiliar with the vi editor, you can also use the following echo and tee commands to paste in the provisioning key:
+
+```
+echo "
+<Network Connector Provisioning Key>
+" | sudo tee /opt/zscaler/var/provision_key
+```
+
+Make sure that the key is within double quotes (").
+
+1. Enter the following command to verify the file's content:
+
+```
+[admin@np-connector ~]$ sudo cat /opt/zscaler/var/provision_key
+```
+
+The output should return the provisioning key you entered in the previous step.
+
+1. Start the np-connector service.
+
+```
+[admin@np-connector ~]$ sudo systemctl start np-connector
+```
+
+1. Stop running the np-connector service.
+
+```
+[admin@np-connector ~]$ sudo systemctl stop np-connector
+```
+
+1. Create a provisioning key file with 644 permissions at `/opt/zscaler/var/provision_key`. For example:
+
+```
+[admin@np-connector ~]$ sudo touch /opt/zscaler/var/provision_key
+[admin@np-connector ~]$ sudo chmod 644 /opt/zscaler/var/provision_key
+```
+
+1. Copy the provisioning key from the Zscaler Admin Console, paste it into the file, and click **Save**. Use an editor, such as vi.
+
+```
+[admin@np-connector ~]
+```
+
+If you are using vi, make sure it is in insert mode before you paste the key into the file.
+
+If you are unfamiliar with the vi editor, you can also use the following echo and tee commands to paste in the provisioning key:
+
+```
+echo "
+<Network Connector Provisioning Key>
+" | sudo tee /opt/zscaler/var/provision_key
+```
+
+Make sure that the key is within double quotes (").
+
+1. Enter the following command to verify the file's content:
+
+```
+[admin@np-connector ~]
+```
+
+The output should return the provisioning key you entered in the previous step.
+
+1. Start the np-connector service.
+
+```
+[admin@np-connector ~]
+```
+
+1. In the software component's virtual serial console, a login prompt appears followed by an OAuth Token value, similar to the following example: `$ OAuth Token: JDR8G-P6W5T To sign in, use a web browser to open the admin UI and enter the code JDPBF-P6W5V to authenticate. OAuth Token: JDR8G-P6W5T To sign in, use a web browser to open the admin UI and enter the code JDPBF-P6W5V to authenticate. OAuth Token: JDR8G-P6W5T To sign in, use a web browser to open the admin UI and enter the code JDPBF-P6W5V to authenticate. OAuth Token: JDR8G-P6W5T`[Image: Example Oauth Enrollment Token]
+2. Copy the OAuth token that appears. Tokens are valid for 2 hours.
+3. In the Zscaler Admin Console, add the enrollment token for your software component:
+  - App Connector
+  - Private Service Edge
+  - Private Cloud Controller
+  - Network Connector
+
+Add an App Connector and enter the OAuth enrollment token on the **Add App Connectors** page. To learn more, see [Configuring App Connectors](https://help.zscaler.com/zpa/configuring-connectors).
+
+[Image: Adding an OAuth token to an App Connector]
+
+Add a Private Service Edge and enter the OAuth enrollment token on the **Add Private Service Edge** page. To learn more, see [Configuring Private Service Edges](https://help.zscaler.com/zpa/configuring-service-edges).[Image: Adding an OAuth token to a Private Service Edge]
+
+Add a Private Cloud Controller and enter the OAuth enrollment token on the **Add Private Cloud Controller**page. To learn more, see [Configuring Private Cloud Controllers](https://help.zscaler.com/zpa/configuring-private-cloud-controllers).
+
+[Image: Adding an OAuth token to a Private Cloud Controller]
+
+Add a Network Connector and enter the OAuth enrollment token on the **Add Network Connector**page. To learn more, see [Configuring Network Connectors](https://help.zscaler.com/zpa/configuring-network-connectors).
+
+[Image: Adding an OAuth token to a Network Connector]
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -167,13 +895,13 @@ The following platforms support Network Connector software packages. Where appli
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/networking-deployed-software-components","lastmod":"2026-09-10T13:46Z","nid":"1541000"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/networking-deployed-software-components","lastmod":"2026-09-15T10:52Z","nid":"1541000"} -->
 ## Networking Deployed Software Components
 
 - Source: https://help.zscaler.com/zpa/networking-deployed-software-components
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Access Software Components > Private Access Software Component Deployment & Management > Networking Deployed Software Components
-- Last modified: 2026-09-10T13:46Z
+- Last modified: 2026-09-15T10:52Z
 - Summary: How to configure the networking for App Connectors, Private Service Edges, Private Cloud Controllers, and Network Connectors after deployment, including configuring DHCP or static IP addressing, additional interfaces, DNS, etc.
 
 After you have deployed a software component on a supported platform, you can complete the following networking configurations. Software components refer to App Connectors, Private Service Edges, Private Cloud Controllers, and Network Connectors.
@@ -193,7 +921,7 @@ After you have deployed a software component on a supported platform, you can co
 
 By default, virtual machine-based App Connectors, Private Service Edges, or Private Cloud Controllers are configured to use DHCP networking on their primary interface. If necessary, you can configure a static IP address for the software component.
 
-If DHCP is not available, you can configure a static IP address on a VM-based App Connector, Private Service Edge, Private Cloud Controller, or Network ConnectorNetwork Connector.
+If DHCP is not available, you can configure a static IP address on a VM-based App Connector, Private Service Edge, Private Cloud Controller, or Network Connector.
 
 1. Log in to the software component's console using your admin credentials.
 2. View the IP address. `$ ip addr show`
@@ -522,13 +1250,13 @@ The Private Service Edge attempts to create a TLS session through the proxy spec
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/prerequisites-browser-access-applications-managed-zscaler","lastmod":"2026-08-14T15:40Z","nid":"1528948"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/prerequisites-browser-access-applications-managed-zscaler","lastmod":"2026-09-18T02:56Z","nid":"1528948"} -->
 ## Prerequisites for Browser Access Applications Managed by Zscaler
 
 - Source: https://help.zscaler.com/zpa/prerequisites-browser-access-applications-managed-zscaler
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Browser Access > Prerequisites for Browser Access Applications Managed by Zscaler
-- Last modified: 2026-08-14T15:40Z
+- Last modified: 2026-09-18T02:56Z
 - Summary: Prerequisites for Browser Access-enabled web applications that have Zscaler-managed certificates.
 
 This article provides the requirements to use a [Browser Access application](https://help.zscaler.com/zpa/configuring-defined-application-segments#BAsteps) with a Zscaler-managed certificate. If you are defining a Browser Access application with custom certificates and configuring an FQDN, see [Defining a Browser Access Application with Different External vs. Internal Domains](https://help.zscaler.com/zpa/defining-browser-access-application-different-external-vs-internal-domains).
@@ -547,7 +1275,7 @@ When using a Zscaler-managed certificate, the following prerequisites apply:
 - Internal applications sending CORS requests to other internal applications managed by Browser Access aren't supported (e.g., `internalweb.example1.com` CORS request to the Browser Access application `images.example1.com`). Browser Access applications must be modified to add absolute external URLs.
 - If an application uses the HTTP header `Content-Security-Policy`, then the application has to accept an external FQDN in the host/origin header.
 
-## Private Access (ZPA) Access for Managed Applications
+## Private Access Access for Managed Applications
 
 Zscaler modifies HTTP headers for Browser Access applications in the following ways:
 
@@ -663,6 +1391,680 @@ These requirements are relevant for VM platforms (such as VMWare and Nutanix AHV
 | Difference From Previous Password (difok) | At least 8 characters must be different | The new password must differ from the previous password by at least 8 characters. This helps prevent reuse of similar passwords. | Old password:  Secure@Pass31phrase New password: T3ch#Hardened98passLock |
 | Maximum Consecutive Repeated Characters (max repeat) | 3 | The same character cannot appear more than 3 times consecutively. | aaa, 1111 |
 | Maximum Consecutive Characters of Same Type (max class repeat) | 4 | No more than 4 characters from the same category (letters, numbers, or symbols) can appear consecutively. | abcdef or 123456 |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-deployment-guide-amazon-web-services","lastmod":"2026-09-15T14:57Z","nid":"1545500"} -->
+## Private Cloud Controller Deployment Guide for Amazon Web Services
+
+- Source: https://help.zscaler.com/zpa/private-cloud-controller-deployment-guide-amazon-web-services
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Business Continuity Management > Private Cloud Controller Deployment Guides for Supported Platforms > Private Cloud Controller Deployment Guide for Amazon Web Services
+- Last modified: 2026-09-15T14:57Z
+- Summary: How to deploy a Private Cloud Controller on Amazon Web Services (AWS), including platform prerequisites and recommendations as well as post-deployment verification checks.
+
+This deployment guide provides information on prerequisites, how to deploy a Private Cloud Controller on Amazon Web Services (AWS), and post-deployment verification checks.
+
+- Step 1: Make Sure That You Have Met All of the Private Cloud Controller Deployment Prerequisites
+- Step 2: Deploy the Private Cloud Controller on AWS
+- Step 3: Configure the Networking for the Deployed Private Cloud Controller
+- Step 4: Verify the Status of the Deployed Private Cloud Controller
+
+After you have verified your deployment, you can perform additional tasks to maintain the system (i.e., changing your Private Cloud Controller console admin credentials or performing system software updates). To learn more, see [Managing Deployed Software Components](https://help.zscaler.com/zpa/managing-deployed-software-components).
+
+Before deploying a Private Cloud Controller on any supported platform, Zscaler highly recommends reading the following information and making the necessary changes to your organization's environment, where applicable.
+
+Each Private Cloud Controller supports between 100 to 250 Mbps of SIEM throughput. Use the information on this page to determine the Private Cloud Controller sizing requirements for your deployment. Private Cloud Controller sizing must be based on the number of users that need to be redirected and the expected SIEM throughput.
+
+- Private Cloud Controller Specifications and Sizing Requirements
+- Private Cloud Controller Platform Prerequisites
+- Private Cloud Controller Security Guidance and Firewall Requirements
+- Private Cloud Controller Zscaler Client Connector Requirements
+
+After you have met all of the prerequisites, you can deploy the Private Cloud Controller on a supported platform.
+
+The following specifications are recommended by Zscaler for up to 250 Mbps SIEM throughput based on the sizing. Refer to the following table for the sizing and relevant SIEM data throughput.
+
+- Memory (RAM), vCPU (for virtual machines), SIEM throughput, or CPU (for physical machines) cores:
+
+| Active Users | Memory | SIEM Throughput | vCPU or CPU Cores |
+| --- | --- | --- | --- |
+| Up to 2,000 | 16 GB | 100 Mbps | 4 vCPUs or 4 CPUs |
+| Up to 4,000 | 32 GB | 150 Mbps | 8 vCPUs or 8 CPUs |
+| Up to 10,000 | 64 GB | 250 Mbps | 16 vCPUs or 16 CPUs |
+
+- Disk Space: 64 GB (thin provisioned) for all deployment platforms
+- Network Card: 1 NIC (minimum)
+
+Depending on your deployment use case, each Private Cloud Controller must be able to accept incoming connections from either internal or external sources or both internal and external sources on TCP port 443. For example, if you enable Private Access (ZPA) for both remote and office users, each Private Cloud Controller needs to accept incoming connections from both internal and external endpoints running Zscaler Client Connector.
+
+Private Cloud Controllers are reachable over the internet for remote users in Business Continuity.
+
+In the scenario where a Private Cloud Controller is deployed behind a firewall, the firewall performs destination network address translation (DNAT) for the Private Cloud Controller's private IP address. In this case, the flow of traffic is from Zscaler Client Connector to the Private Cloud Controller. The firewall then translates the destination public IP address that Zscaler Client Connector connects to the private IP address of the Private Cloud Controller. The firewall advertises a public IP address on the internet. It is necessary to configure the public IP address advertised by the firewall as a publish IP address of the respective Private Cloud Controller. In the case of disaster recovery, you must add this IP address as the A record for that Private Cloud Controller.
+
+Your firewalls must be configured to let the Private Cloud Controller establish outbound connections to the IP addresses of the Public Service Edge for Private Access, and establish inbound connections from App Connectors, Private Service Edges, and Zscaler Client Connector.
+
+The following conditions apply to each Private Cloud Controller that is placed behind a firewall:
+
+- They must accept incoming connections from internal sources, remote users, and on-premises users (as applicable and dependent on your use case) on TCP port 443.
+- They must have a unique private IP address that can be reached over the internal network.
+
+After a Private Cloud Controller is enrolled, an outbound TLS tunnel over TCP port 443 is established to the Private Access cloud infrastructure. This communication channel provides various functionality and includes the following traffic:
+
+- Periodic keepalives to the Public Service Edge
+- Tenant-specific configuration and policy download
+- Private Cloud Controller software upgrades (upgrades are completed based on a weekly schedule)
+
+You can deploy additional Private Cloud Controllers at any time using the same provisioning key to add them to the existing Private Cloud Controller group, while ensuring network and internet connectivity. Private Cloud Controllers are designed to scale elastically. You can deploy additional Private Cloud Controllers in the same Private Cloud Controller group to increase the total throughput as required by your deployment. Zscaler recommends that you deploy Private Cloud Controllers in pairs (N+1), where N is the number of Private Cloud Controllers as per the sizing requirements. To learn more, see [Deploying Private Cloud Controllers](https://help.zscaler.com/zpa/deploying-private-cloud-controllers) and [Private Cloud Controller Deployment Guides for Supported Platforms](https://help.zscaler.com/zpa/business-continuity-management/private-cloud-controller-deployment-guides-supported-platforms).
+
+After deployment, ensure that the Private Cloud Controller meets your sizing requirements. If disk space fills up in the Private Cloud Controller, Zscaler recommends archiving files and creating more log space.
+
+## Understanding Private Cloud Controller Throughput
+
+Throughput numbers are aggregate (i.e., total inbound and outbound). Each Private Cloud Controller supports up to 250 Mbps SIEM throughput. Private Cloud Controllers communicate over the provided (default) gateway, which is most likely your ISP WAN broadband connection.
+
+Zscaler recommends that you check your existing VPN solution's average and peak throughput and the number of users when determining your sizing requirements. Be sure to only account for user or client VPN traffic and not any site-to-site tunnel traffic.
+
+Private Cloud Controller sizing must be based on the number of users that need to be redirected and the expected SIEM throughput. The exact throughput can vary and depends on other network factors such as your internal network setup and latency. Make sure that you have enough Private Cloud Controllers to support the connection and room for failover (N+1).
+
+To horizontally scale your deployment, Zscaler recommends that you have more Private Cloud Controllers with lower specifications rather than fewer Private Cloud Controllers with higher specifications. For example, if you have fewer Private Cloud Controllers with higher specifications and one fails, you could adversely affect more user application traffic or sessions than a smaller Private Cloud Controller that fails.
+
+Before you begin any procedures within the [Private Cloud Controller Deployment Guide for Linux](https://help.zscaler.com/zpa/private-cloud-controller-deployment-guide-linux), make sure that you have all of the following prerequisites:
+
+- Intel x86_64/AMD 64-based architecture
+- systemd
+- Root or sudo access to the system to configure a new package repository and install packages
+- DNS resolution and network access
+- For OAuth 2.0 enrollment, Manager software and Private Cloud Controller version 25.47.3 or later
+- An OAuth 2.0 enrollment token obtained from a hyperscaler marketplace, virtual image, or RPM installer provided by Zscaler, or a Private Cloud Controller [provisioning key](https://help.zscaler.com/zpa/about-private-cloud-controller-provisioning-keys) obtained from the Zscaler Admin Console The OAuth server only supports IPv4-based communication. If a Private Cloud Controller only has an IPv6 address, it cannot access the OAuth server.
+- A static MAC address
+
+Private Cloud Controllers can be deployed in different ways, so the security features for each deployment type are slightly different.
+
+## Operating System Security
+
+Some organizations choose to firewall or otherwise restrict outbound traffic to the internet from the data center. It is possible to deploy a Private Cloud Controller in such an environment as long as the Private Cloud Controller can reach all Zscaler data centers containing Public Service Edges. For firewall configuration information for your deployment, see [config.zscaler.com/private.zscaler.com/zpa](https://config.zscaler.com/private.zscaler.com/zpa) (for the private.zscaler.com cloud) or [config.zscaler.com/zpatwo.net/zpa](https://config.zscaler.com/zpatwo.net/zpa) (for the zpatwo.net cloud). To learn more, see [Understanding Zscaler Cloud Names.](https://help.zscaler.com/unified/understanding-zscaler-cloud-names)
+
+## Firewall Requirements and Interoperability Guidelines
+
+All of the Zscaler data centers containing Public Service Edges must be allowed. A partial firewall configuration will result in connectivity problems for end users. Zscaler's policy is to provide a 90-day notice for activating additional IP CIDR ranges to provide organizations with sufficient opportunity for changing control policies.
+
+Because the service enforces TLS certificate pinning for both client and server certificates, all forms of inline or man-in-the-middle TLS interception or inspection must be disabled. Private Cloud Controllers do not function if the TLS certificates presented by the Public Service Edges do not cryptographically verify against Zscaler-trusted public keys.
+
+By design, certificate verification is not configurable to maintain the integrity of the service, so ensure that *.prod.zpath.net is in your SSL bypass list for traffic originating from the Private Cloud Controller. This is necessary to allow the Private Cloud Controller to resolve and reach Public Service Edges. Private Cloud Controller requires your firewall configuration to accept incoming connections from users. Also, if you need to allowlist additional Zscaler IP addresses, refer to [config.zscaler.com/private.zscaler.com/zpa](https://config.zscaler.com/private.zscaler.com/zpa) (for the private.zscaler.com cloud) or [config.zscaler.com/zpatwo.net/zpa](https://config.zscaler.com/zpatwo.net/zpa) (for the zpatwo.net cloud). To learn more, see [Understanding Zscaler Cloud Names.](https://help.zscaler.com/unified/understanding-zscaler-cloud-names) It might be possible to allowlist based on Zscaler cloud hostnames instead of IP addresses.
+
+Private Cloud Controllers require that the [Zscaler Client Connector](https://help.zscaler.com/z-app) is at least on version 4.6 or later for Windows.
+
+After you have deployed a software component on a supported platform, you can complete the following networking configurations. Software components refer to App Connectors, Private Service Edges, Private Cloud Controllers, and Network Connectors.
+
+- Configure DHCP IP Addressing (App Connector, Private Service Edge, or Private Cloud Controller)
+- Configure Static IP Addressing (all software components)
+- Configure Domain Name System (DNS) Resolver (all software components)
+- Configure Network Time Protocol (NTP) Servers (App Connector, Private Service Edge, or Private Cloud Controller)
+- Configure Additional Interfaces (App Connector or Private Service Edge)
+- Configure an App Connector to Use an Explicit Proxy Server
+- Configure a Private Service Edge to Use an Explicit Proxy Server
+- Configure a Proxy Bypass (App Connector)
+- Configure Static Routing (App Connector or Private Service Edge)
+- Configure TCP Communication Sockets (App Connector)
+- Configure yum to Use an HTTP Proxy Server (App Connector or Private Service Edge)
+- Verify That Keepalive Is Enabled for TCP Sessions (App Connector)
+
+By default, virtual machine-based App Connectors, Private Service Edges, or Private Cloud Controllers are configured to use DHCP networking on their primary interface. If necessary, you can configure a static IP address for the software component.
+
+If DHCP is not available, you can configure a static IP address on a VM-based App Connector, Private Service Edge, Private Cloud Controller, or Network Connector.
+
+1. Log in to the software component's console using your admin credentials.
+2. View the IP address. `$ ip addr show`
+3. View the current connection profile.
+
+```
+$ nmcli connection show
+```
+
+1. Modify the connection profile using the following format: `<profile name>``connection.id``<new connection name>`. For example:
+
+```
+$ sudo nmcli connection modify "Profile 1" connection.id LAN autoconnect yes
+```
+
+1. Review the current connection profile.
+
+```
+$ nmcli connection show
+```
+
+1. Edit the profile using a static IP and a default gateway with the following format: `<connection ID>``ipv4.method manual ipv4.addresses``<IP addresses>``ipv4.gateway``<gateway IP>``ipv4.dns``<DNS IP>``ipv4.dns-search``<domain name>`. For example:
+
+```
+$ sudo nmcli connection modify LAN ipv4.method manual ipv4.addresses 172.30.1.88/24 ipv4.gateway 172.30.1.1 ipv4.dns 172.30.1.254 ipv4.dns-search company.com
+```
+
+1. To apply the changes, bring the connection ID back up. For example:
+
+```
+$ sudo nmcli connection up LAN
+```
+
+1. Verify the IP address.
+
+```
+$ ip addr show
+```
+
+1. Verify the default gateway.
+
+```
+$ ip route show default
+```
+
+1. Verify the DNS settings.
+
+```
+$ sudo cat /etc/resolv.conf
+```
+
+If necessary, additional changes can be made to interfaces by configuring new ones using `nmcli connection add con-name` or by renaming existing ones using `nmcli connection modify`.
+
+1. Log in to the software component's console using your admin credentials.
+2. View the IP address.
+
+```
+$ ip addr show
+```
+
+1. View the current connection profiles.
+
+```
+$ nmcli connection show
+```
+
+1. Configure the interface's IP network using either a dynamic or static Ethernet configuration.
+
+For dynamic, modify the connection profile. For example:
+
+```
+$ sudo nmcli connection modify "Profile 1" ipv4.method auto autoconnect yes
+```
+
+For static, modify the connection profile and identify the IP addresses and gateway using the following format: `<profile name>``ipv4.method manual ipv4.addresses``<address>``ipv4.gateway``<gateway IP>`. For example:
+
+```
+$ sudo nmcli connection modify "Profile 1" ipv4.method manual ipv4.addresses 192.168.2.241/24 ipv4.gateway 192.168.2.254
+```
+
+1. To apply the changes, bring the connection profile back up. For example:
+
+```
+$ sudo nmcli connection up "Profile 1"
+```
+
+1. Verify the IP address.
+
+```
+$ ip addr show
+```
+
+1. Verify the new connection.
+
+```
+$ nmcli connection show
+```
+
+To add static routes to the interface control files for an App Connector or Private Service Edge:
+
+1. Log in to the software component's console using your admin credentials.
+2. Edit the static route for an existing Ethernet connection using the following format: `<profile name>``ipv4.routes``<IP address and gateway>`. For example:
+
+```
+$ sudo nmcli connection modify "Profile 1" +ipv4.routes "192.168.2.241/24 10.10.10.1 autoconnect yes
+```
+
+1. To apply the changes, bring the connection profile down and then back up. For example:
+
+```
+$ sudo nmcli connection down "Profile 1"
+```
+
+```
+$ sudo nmcli connection up "Profile 1"
+```
+
+1. Verify the new route is added.
+
+```
+$ ip route
+```
+
+DNS resolution is critical for the successful operation of the App Connector, Private Service Edge, Private Cloud Controller, or Network Connector. These software components use DNS to discover applications, as well as enumerate each of the IP addresses that an application DNS name resolves to as a separately tracked and load-balanced server. During dynamic application discovery, DNS is used as the initial reachability check from each software component in a software component group. It is possible for software components to function in partitioned environments where a subset of App Connectors can resolve a given DNS name without additional configuration. The software components must also be able to resolve external DNS names, such as those of the Private Access (ZPA) cloud infrastructure.
+
+1. Log in to the software component's console using your admin credentials.
+2. View the current connection profile.
+
+```
+$ nmcli connection show
+```
+
+1. Modify the DNS settings using the following format: `<profile name>``ipv4.dns``<nameserver IP>`. For example:
+
+```
+$ sudo nmcli connection modify "Profile 1" +ipv4.dns 192.168.2.241 autoconnect yes
+```
+
+1. To apply the changes, bring the connection profile down and then back up. For example:
+
+```
+$ sudo nmcli connection down "Profile 1"
+```
+
+```
+$ sudo nmcli connection up "Profile 1"
+```
+
+1. Verify the nameservers record was added.
+
+```
+$ sudo cat /etc/resolv.conf
+```
+
+You cannot configure NTP servers for App Connectors running on the Amazon Web Services (AWS) or Microsoft Azure platforms.
+
+To configure App Connectors, Private Service Edges, or Private Cloud Controllers to use internal NTP servers:
+
+1. Log in to the software component's console using your admin credentials.
+2. Edit the `/etc/chrony.conf` file. Use an editor, such as vi. `$sudo vi /etc/chrony.conf`
+3. Add your internal NTP servers to the list, for example:
+
+```
+server 0.zscaler.pool.ntp.org iburst 
+server 1.zscaler.pool.ntp.org iburst 
+server 2.zscaler.pool.ntp.org iburst 
+server 3.zscaler.pool.ntp.org iburst
+```
+
+1. To apply the changes, restart the chrony daemon using the following command:
+
+```
+$ systemctl restart chronyd
+```
+
+1. To verify the NTP servers, check that NTP is working successfully using the following command:
+
+```
+$ chronyc sources
+```
+
+The proxy setting on the App Connector is used to proxy the traffic between the App Connector and the Private Service Edge. It is not used to proxy the traffic between the App Connector and internal applications.
+
+If your traffic is going through a proxy (i.e., traffic between the App Connector and the Public or Private Service Edges for Private Access), you must manually configure the App Connector to work through that proxy. The following procedure allows the App Connector to communicate with the broker by using CONNECT requests through a standard HTTP proxy server.
+
+To configure the App Connector to work through an explicit proxy:
+
+1. Log in to the App Connector console using your admin credentials.
+2. Create a file named `/opt/zscaler/var/proxy`. Use an editor, such as vi. `$ sudo vi /opt/zscaler/var/proxy`
+3. Enter the proxy information using the following format: `<Proxy Hostname or IP Address>``:``<Proxy Port>` (e.g., `192.0.2.0:0`).
+4. To apply the changes, restart the App Connector using the following command:
+
+```
+$ sudo systemctl restart zpa-connector
+```
+
+The App Connector attempts to create a TLS session through the proxy specified previously.
+
+If you want to configure yum to communicate through an HTTP proxy server, refer to the [Red Hat documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-yum).
+
+If an App Connector is configured to send traffic to a proxy, you can set up a proxy bypass on it for the traffic that needs to be exempted from the proxy (i.e., traffic between the App Connector and the Public or Private Service Edges for Private Access). To use a proxy bypass for an App Connector, a proxy bypass file needs to be added to the App Connector.
+
+To configure the App Connector to do a proxy bypass:
+
+1. Log in to the App Connector console using your admin credentials.
+2. Create a file named `opt/zscaler/var/proxy-bypass`. Use an editor, such as vi. For example:
+
+```
+$sudo vi /opt/zscaler/var/proxy-bypass
+```
+
+1. Enter the necessary bypass entries using IP addresses, subnets, domains, or domains with a prefix wildcard. For example:
+
+```
+1.2.3.4
+111.222.33.0/24
+myexampledomain.com
+*.internal.local
+```
+
+1. To apply the changes, restart the App Connector using the following command:
+
+```
+$ sudo systemctl restart zpa-connector
+```
+
+To temporarily configure TCP communication sockets using the profs interface and the `SO_KEEPALIVE` socket option for an App Connector:
+
+1. Enable **TCP Keepalive** for your segment group in the Zscaler Admin Console. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-defined-application-segments).
+
+The socket used for TCP communication is set to `SO_KEEPALIVE` and establishes an App Connector-to-server connection. Communication using this socket looks at the system value corresponding to `SO_KEEPALIVE` and performs the action according to the parameters.
+
+1. Tune your App Connector's kernel to configure the TCP parameters and choose how the keepalive packets are sent using the following commands:
+
+```
+# echo
+600
+> /proc/sys/net/ipv4/tcp_keepalive_time
+# echo
+60
+> /proc/sys/net/ipv4/tcp_keepalive_intvl
+# echo
+20
+> /proc/sys/net/ipv4/tcp_keepalive_probes
+```
+
+Default values are used if no system parameters are chosen. The values in red represent examples of values that can be configured.
+
+Changes to the App Connector's kernel to configure the TCP parameters using the profs interface are temporary and return to default after reboot.
+
+To permanently configure TCP communication sockets using the sysctl interface:
+
+1. Enable **TCP Keepalive** for your segment group in the Zscaler Admin Console. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-defined-application-segments).
+2. Edit your `/etc/sysctl.conf` using the following command:
+
+```
+# vi /etc/sysctl.conf
+```
+
+1. Tune your App Connector's kernel to configure the TCP parameters and choose how the keepalive packets are sent using the following commands:
+
+```
+net.ipv4.tcp_keepalive_time =
+60
+net.ipv4.tcp_keepalive_intvl =
+10
+net.ipv4.tcp_keepalive_probes =
+6
+```
+
+Default values are used if no system parameters are chosen. The values in red represent examples of values that can be configured.
+
+1. To load the settings, enter the following command:
+
+```
+# sysctl -p
+```
+
+The keepalive packets have the following parameters:
+
+| Parameter | Definition | Default Value |
+| --- | --- | --- |
+| `tcp_keepalive_time` | The interval between the last data packet sent (simple ACKs are not considered data) and the first keepalive probe; after the connection is marked to need keepalive, this counter is not used any further. | 7,200 seconds (2 hours) |
+| `tcp_keepalive_intvl` | The interval between subsequent keepalive probes, regardless of what the connection has exchanged in the meantime. | 75 seconds |
+| `tcp_keepalive_probes` | The number of unacknowledged probes to send before considering the connection dead and notifying the application layer. The `tcp_keepalive_probes` value is a pure number. | 9 |
+
+For example:
+
+- If the `tcp_keepalive_time value` is one hour, the keepalive routines wait for one hour before sending the first keepalive probe, and then resend it at a 75-second interval according to the `tcp_keepalive_intvl` value.
+- If the `tcp_keepalive_intvl` value is 60 seconds, the keepalive probes are sent every 60 seconds after the initial `tcp_keepalive_time` value.
+- If the `tcp_keepalive_probes` value is 7, and no ACK response is received after 7 consecutive times, then the connection is marked as broken.
+
+If there is no data communication within the `tcp_keepalive_time` value, it sends out a keepalive probe to the app server:
+
+- If ACK is returned, another keepalive probe is sent after 2 hours (`tcp_keepalive_time`) if no data communication happens in between.
+- If RST is returned, then the socket closes.
+- If there is no reply, it resends the keepalive every 75 seconds (`tcp_keepalive_intvl`) for a reply, and it retries 9 times (`tcp_keepalive_probes`). If there is no reply after 9 probes, the socket closes.
+
+To learn more about configuring a kernel, refer to the [Linux documentation](https://tldp.org/HOWTO/html_single/TCP-Keepalive-HOWTO/#configuringkernel).
+
+To see which TCP sessions have `keepalive` enabled and what their current timer is, run the `ss` command on the App Connector with the `-t` (tcp only) and `-o` (show timers) options:
+
+```
+# ss -to
+State  Recv-Q  Send-Q  Local Address:Port  Peer Address:Port
+ESTAB  0       0       10.18.4.210:42452   10.251.33.110:https  timer:(keepalive,29sec,0)
+```
+
+For sessions that have `keepalive` enabled, timer information (`timer:(<timer_name>,<expire_time>,<retrans>)`) indicates when `keepalive` will be sent. To learn more, refer to the [Linux documentation](https://www.man7.org/linux/man-pages/man8/ss.8.html).
+
+If your traffic is going through a proxy, you must manually configure the Private Service Edge to work through that proxy. The following procedure allows the Private Service Edge to communicate with the broker by using CONNECT requests through a standard HTTP proxy server.
+
+To configure the Private Service Edge to work through an explicit proxy:
+
+1. Log in to the Private Service Edge console using your admin credentials.
+2. Create a file named `/opt/zscaler/var/service-edge/proxy`. Use an editor, such as vi. `$ sudo vi /opt/zscaler/var/service-edge/proxy`
+3. Enter the proxy information using the following format: `<Proxy Hostname or IP Address>``:``<Proxy Port>` (e.g., `192.0.2.0:0`).
+4. To apply the changes, restart the Private Service Edge using the following command:
+
+```
+$ sudo systemctl restart zpa-service-edge
+```
+
+The Private Service Edge attempts to create a TLS session through the proxy specified previously.
+
+For AWS, you must deploy Private Cloud Controllers in your Virtual Private Clouds (VPCs). For each VPC, there should be a pair of Private Cloud Controllers deployed for resilience and scalability. The Private Cloud Controllers should be deployed across availability zones to ensure continuity of service in the event of an incident. Zscaler automatically load balances across the Private Cloud Controllers. Additional capacity can be handled by adding additional Private Cloud Controllers into each availability zone.
+
+Private Cloud Controllers should be in appropriate security groups to accept incoming connections from Zscaler Client Connector and Public Service Edges for Private Access (ZPA). The Private Cloud Controllers' security group should permit inbound and outbound access on port 443. The security group should allow inbound SSH to the AWS EC2 instance.
+
+- Deploying a Private Cloud Controller
+- Deploying a Private Cloud Controller using a Launch Template with Auto Scaling (Advanced Deployment)
+
+This procedure describes how you can deploy Private Access in AWS. If you require a more scalable solution, Zscaler recommends deploying the Private Cloud Controller [using a launch template with auto scaling](https://help.zscaler.com/zpa/private-cloud-controller-deployment-guide-amazon-web-services#deploy-launch-template-advanced).
+
+This procedure assumes that you have an Amazon Virtual Private Cloud (VPC) created and that you also have full access to create EC2 instances. It is also assumed that you already have a security group created and have edit access to it.
+
+To deploy a Private Cloud Controller on AWS:
+
+1. Log in to the AWS Management Console.
+2. In the navigation menu, select **All Services**.
+3. Click **EC2**.
+4. On the **EC2 Dashboard** page, click **Launch Instance**. The **Launch an Instance**page appears. See image.
+5. On the **Launch an Instance**page:
+  1. **Name and tags**: Enter a name for the instance.
+  2. **Application and OS Images (Amazon Machine Image)**: Search for `zscaler private cloud controller`and select the following options:
+    1. On the **Choose an Amazon Machine Image (AMI)** page, click **AWS Marketplace AMIs**.
+    2. When the **Zscaler Private Cloud Controller** AMI appears, click **Select**. See image. The **Launch an Instance**page reappears with a message stating that your AWS Marketplace subscription was successful at the top of the page.
+  3. **Instance Type**: Select an instance type that supports the Private Cloud Controller's sizing requirements.
+  4. **Key pair (login)**: Click **Create new key pair** and configure a new key pair for your instance.
+  5. **Network Settings**: Click **Edit** and select the following options:
+    1. **VPC**: Verify that the values for your VPC are suitable.
+    2. **Auto-assign Public IP**: Choose **Disable** to assign a private IP address (recommended) to the Private Cloud Controller. If you want to assign a public IP address, leave this option set to **Enable**.
+    3. **Firewall (security groups)**: Choose **Select existing security group**. Select a security group from the **Common security groups** drop-down menu.
+6. Click **Preview code** to verify the planned instance code.
+7. Click **Launch Instance**to power on the instance.
+8. Verify that the instance launched successfully and that the **Instance State** is running.
+9. Select the instance. On the **Instance Summary** page that appears, take note of the private key name (i.e., a .pem file) and public hostname or IP address for your instance. You will need this information for the next step.
+
+If the proper columns are shown, you can also see this information within the table on the **Instances** page.
+
+1. Update the security group associated with the Private Cloud Controller to temporarily allow inbound access on port 22, then complete the following steps to connect to the instance. SSH access is required to configure the provisioning key for the Private Cloud Controller.
+
+- See instructions.
+
+1. Enroll the Private Cloud Controller using one of the following methods: The image attempts to use OAuth enrollment tokens by default but applies a provisioning key first if one is available.
+  - OAuth 2.0 enrollment token See instructions.
+  - Private Cloud Controller provisioning key See instructions.
+
+After the Private Cloud Controller is enrolled, verify that the deployed Private Cloud Controller is [running and healthy](https://help.zscaler.com/zpa/managing-deployed-software-components).
+
+1. Zscaler highly recommends [updating the Private Cloud Controller system software](https://help.zscaler.com/zpa/managing-deployed-software-components#Updating) before proceeding.
+
+1. Log in to the Private Cloud Controller console using your AWS private key.
+
+After the initial boot of a Private Cloud Controller instance, it might take up to 15 minutes for the admin credentials to apply. If you receive an invalid credentials error after the initial boot, wait a few minutes and try again.
+
+1. Using a standard SSH client, enter the following command to connect to the AWS instance: `ssh -i admin@`In the following example, the private key for the AWS instance is `AWS.pem` and the Private Cloud Controller IP address is 172.16.255.255: ``ssh -i AWS.pem admin@172.16.255.25`5`
+2. When asked if you want to continue connecting, enter `yes`.
+
+1. Stop running the `zpa-pcc` service. If the provisioning key is not detected when the Private Cloud Controller first starts, the Private Cloud Controller is in a sleep cycle and looks for the key again every 24 hours.
+
+```
+$ sudo systemctl stop zpa-pcc
+```
+
+1. Create a provisioning key file with 644 permissions at `/opt/zscaler/var/pcc/provision_key`. For example:
+
+```
+$ sudo touch /opt/zscaler/var/pcc/provision_key
+$ sudo chmod 644 /opt/zscaler/var/pcc/provision_key
+```
+
+1. Copy the provisioning key from the Zscaler Admin Console, paste it into the file, and save it. Use an editor, such as vi.
+
+```
+$ sudo vi /opt/zscaler/var/pcc/provision_key
+```
+
+If you are using vi, make sure it is in insert mode before you paste the key into the file.
+
+If you are unfamiliar with the vi editor, you can also use the following `echo` and `tee` commands to paste in the provisioning key:
+
+```
+echo "
+<Private Cloud Controller Provisioning Key>
+" | sudo tee /opt/zscaler/var/pcc/provision_key
+```
+
+Make sure that the key is within double quotes (").
+
+1. Enter the following command to verify the file's content:
+
+```
+$ sudo cat /opt/zscaler/var/pcc/provision_key
+```
+
+The output should return the provisioning key you entered in the previous step.
+
+1. Start the `zpa-pcc` service.
+
+```
+start zpa-pcc
+```
+
+In AWS, make sure you disable inbound access on port 22 for the security group associated with the Private Cloud Controller.
+
+This procedure describes how you can deploy Private Access in AWS through launch templates and auto scaling configurations to create a scalable and supportable infrastructure.
+
+This procedure assumes that you have an Amazon Virtual Private Cloud (VPC) created and that you also have full access to create EC2 instances.
+
+OAuth 2.0 enrollment is unavailable with auto scaling.
+
+To deploy a Private Cloud Controller on AWS using a launch template with auto scaling:
+
+1. Log in to the AWS Management Console.
+2. In the navigation menu, select **All Services**.
+3. Click **EC2**.
+4. In the left-side navigation, under **Network & Security**, click **Security Groups**.
+5. Click **Create security group**. The **Create security group** page appears. See image.
+6. On the **Create security group** page:
+  1. **Security group name**:Enter a name for the security group.
+  2. **Description**: Enter a description of the security group.
+  3. **VPC**:Select the virtual private cloud you want to associate with the security group from the drop-down menu.
+  4. **Inbound rules**: Click **Add rule** and allow access to the public IP address on port 443.
+  5. **Outbound rules**: Allow access to 0.0.0.0/0 on all ports. If necessary, outbound access can be restricted to Private Access hosts and ports. For details regarding required IP addresses, see [config.zscaler.com/private.zscaler.com/zpa](https://config.zscaler.com/private.zscaler.com/zpa) (for the private.zscaler.com cloud) or [config.zscaler.com/zpatwo.net/zpa](https://config.zscaler.com/zpatwo.net/zpa) (for the zpatwo.net cloud).
+  6. Click **Create security group**. The new group appears on the **Security Groups** page.
+7. In the left-side navigation, under **Instances**, click **Launch Templates**.
+8. Click **Create launch template**. Within the EC2 Management Console, the **Create launch template** page appears. See image.
+9. Create a launch template on the **Create launch template** page.
+
+- See instructions.
+
+1. On the confirmation page that appears, click **Create Auto Scaling Group**. Within the EC2 Management Console, the **Create Auto Scaling Group** wizard appears.
+2. In **Step 1: Choose launch template or configuration**, the launch template you created previously is automatically selected: See image.
+  1. **Auto Scaling group name**: Enter a name for the auto scaling group.
+  2. Click **Next**.
+3. In **Step** **2: Choose instance launch options**, See image.
+  1. **Availability Zones and subnet**: Select two subnets from the drop-down menu. This is where your Private Cloud Controllers are deployed. For each VPC, there should be a pair of Private Cloud Controllers deployed for resilience and scalability.
+  2. Click **Next**.
+4. In **Step 3: Integrate with other services**, click**Next**.
+5. **In Step 4: Configure group size and scaling**: See image.
+  1. **Desired capacity**: Enter `2` for the initial number of instances to launch.
+  2. **Scaling limits**: Enter the minimum and maximum size for the scale between instances.
+  3. **Choose whether to use a target tracking policy**: Select **Target tracking scaling policy**, then set the following options:
+    1. **Scaling policy name**: Modify the name of the scaling policy, if needed.
+    2. **Metric type**: Select **Average CPU Utilization** from the drop-down menu.
+    3. **Target value**: Enter `50`. Each Private Cloud Controller is capable of passing 400 to 500 Mbps traffic. An additional Private Cloud Controller can be added when this limit is reached, which occurs when the Private Cloud Controller runs at about 50% CPU utilization. To learn more about Private Cloud Controller throughput, see Private Cloud Controller Specifications and Sizing Requirements.
+  4. Click **Next**.
+6. In **Step 5: Add notifications**, set up your notifications as needed and click **Next**. To learn more, refer to the [AWS documentation](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html#as-configure-asg-for-sns). See image.
+7. In **Step 6: Add tags**, set up your tags as needed and click **Review**. To learn more, refer to the [AWS documentation](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html). See image.
+8. In **Step 7: Review**, verify your configuration settings and click **Create Auto Scaling group**. After the Private Cloud Controllers are initialized, they'll be provisioned into the Private Cloud Controller group you specified in the Zscaler Admin Console. The provisioning is based on the provisioning key included in the script you entered in the **User data** field for the launch template. See image.
+
+1. On the **Create launch template** page:
+  1. **Launch template name**: Enter a name for the template.
+  2. **Template version description**: Enter a description of the template.
+  3. **Auto Scaling guidance**: Select the **Provide guidance to help me set up a template that I can use with EC2 Auto Scaling** checkbox.
+  4. In the **Launch template contents** section, search for `zscaler private cloud controller`.
+    1. On the **Choose an Amazon Machine Image (AMI)** page, click **AWS Marketplace AMIs**.
+    2. When the **Zscaler Private Cloud Controller** AMI appears, click **Select**.
+    3. Click **Create template with AMI** in the pane that appears on the right. The **Create launch template** page reappears with a message stating that your AWS Marketplace subscription was successful at the top of the page.
+  5. **Instance type**: Select a type that supports the Private Cloud Controller's sizing requirements.
+  6. **Key pair name**:Select the proper SSH key pair to deploy.
+  7. In the **Network settings** section:
+    1. **Firewall (security groups)**: Choose **Select existing security group**. Select the group you created previously from the **Common security groups** drop-down menu.
+    2. **Advanced network configuration**:(Optional)Expand this section and click **Add network interface** to customize your network interfaces, if necessary. However, the default settings are adequate for deployment.
+    3. **Resource tags**: (Optional) Expand this section and click **Add new tag** to add resource tags to the launch template, if necessary. To learn more, refer to the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html).
+  8. Expand the **Advanced details** section.
+  9. In the **User data** field, enter the following script: `#!/bin/bash #Stop the Private Cloud Controller service which was auto-started at boot time systemctl stop zpa-pcc #Create a file from the Private Cloud Controller provisioning key created in the Zscaler Admin Console #Make sure that the provisioning key is between double quotes echo "<Private Cloud Controller Provisioning Key>"> /opt/zscaler/var/pcc/provision_key #Run a yum update to apply the latest patches yum update -y #Start the Private Cloud Controller service to enroll it in the Private Access (ZPA) cloud systemctl start zpa-pcc #Wait for the Private Cloud Controller to download the latest build sleep 60 #Stop and then start the Private Cloud Controller for the latest build systemctl stop zpa-pcc systemctl start zpa-pcc`
+
+The domain (e.g., api.private.com) in the echo statement will depend on which Private Access cloud you are on.
+
+In the `echo` statement above, make sure that you have included the Private Cloud Controller provisioning key you copied from the Zscaler Admin Console, for example:
+
+```
+echo 
+"1|api.private.zscaler.com|IhQ9C+gJG+x1AFcO3XGlrMW1SDkIuuyRsNwfB4B+cDc2RNNPePNGuI26N/zZJ08ZjaGW5EKiIQ28rfE9TobevoQAt192+CcUgiKUCtGO7w5+2MeOmhiOTjB+Ox/PlWEoJSqqZFKR5EdNDZr+zd2/gYXTNAn8oG+BDT7NMV7YocvcnvBZG6DfOImAwtSlOSY45tJprEtoCSpT+SCsijyPCuv61QdqObIJcnA5Cs8jo6LjSqqlVYkBYgTEJgZdNKHlMkV5lxk/Ayh43A4hGLCnY+InMTj0sF7US8/NZlR/2mdAbAbmf+1ujDr/k1YgC9QQX3alr7qpHIFO/HxvyutzIu9+QXqkdCA6tL8o+RQiFrDJ7YTiQ/HxlVPlN0tKyw2K" > /opt/zscaler/var/pcc/provision_key For all other fields within this section, the default settings are adequate for deployment.
+```
+
+1. Click **Create launch template**.
+
+[Image: Launching an instance in AWS]
+
+[Image: Selecting an AMI]
+
+[Image: Creating a security group in AWS]
+
+[Image: Creating a launch template in AWS]
+
+[Image: Choosing a launch template or configuration]
+
+[Image: Choosing instance launch options]
+
+[Image: Configuring group size and scaling]
+
+[Image: Adding notifications]
+
+[Image: Adding tags]
+
+[Image: Reviewing autoscaling configuration]
+
+Verify that the deployed App Connector is
+
+[running and healthy](https://help.zscaler.com/zpa/managing-deployed-software-components#Status)
+
+. Also, check that it meets your
+
+[sizing](https://help.zscaler.com/zpa/managing-deployed-software-components#VerifySizing)
+
+requirements.
+
+1. In the software component's virtual serial console, a login prompt appears followed by an OAuth Token value, similar to the following example: `$ OAuth Token: JDR8G-P6W5T To sign in, use a web browser to open the admin UI and enter the code JDPBF-P6W5V to authenticate. OAuth Token: JDR8G-P6W5T To sign in, use a web browser to open the admin UI and enter the code JDPBF-P6W5V to authenticate. OAuth Token: JDR8G-P6W5T To sign in, use a web browser to open the admin UI and enter the code JDPBF-P6W5V to authenticate. OAuth Token: JDR8G-P6W5T`[Image: Example Oauth Enrollment Token]
+2. Copy the OAuth token that appears. Tokens are valid for 2 hours.
+3. In the Zscaler Admin Console, add the enrollment token for your software component:
+  - App Connector
+  - Private Service Edge
+  - Private Cloud Controller
+  - Network Connector
+
+Add an App Connector and enter the OAuth enrollment token on the **Add App Connectors** page. To learn more, see [Configuring App Connectors](https://help.zscaler.com/zpa/configuring-connectors).
+
+[Image: Adding an OAuth token to an App Connector]
+
+Add a Private Service Edge and enter the OAuth enrollment token on the **Add Private Service Edge** page. To learn more, see [Configuring Private Service Edges](https://help.zscaler.com/zpa/configuring-service-edges).[Image: Adding an OAuth token to a Private Service Edge]
+
+Add a Private Cloud Controller and enter the OAuth enrollment token on the **Add Private Cloud Controller**page. To learn more, see [Configuring Private Cloud Controllers](https://help.zscaler.com/zpa/configuring-private-cloud-controllers).
+
+[Image: Adding an OAuth token to a Private Cloud Controller]
+
+Add a Network Connector and enter the OAuth enrollment token on the **Add Network Connector**page. To learn more, see [Configuring Network Connectors](https://help.zscaler.com/zpa/configuring-network-connectors).
+
+[Image: Adding an OAuth token to a Network Connector]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2023,13 +3425,13 @@ To check that the VM image meets your size requirements:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-deployment-guide-vmware-platforms","lastmod":"2026-07-27T16:07Z","nid":"1529183"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-deployment-guide-vmware-platforms","lastmod":"2026-09-20T07:06Z","nid":"1529183"} -->
 ## Private Cloud Controller Deployment Guide for VMware Platforms
 
 - Source: https://help.zscaler.com/zpa/private-cloud-controller-deployment-guide-vmware-platforms
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Private Cloud Controller Deployment Guides for Supported Platforms > Private Cloud Controller Deployment Guide for VMware Platforms
-- Last modified: 2026-07-27T16:07Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: How to deploy a Private Cloud Controller on VMware, including platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites and how to deploy a [Private Cloud Controller](https://help.zscaler.com/zpa/deploying-private-cloud-controllers) on a VMware platform. For general information regarding Private Cloud Controller deployment, see [Deploying Private Cloud Controllers](https://help.zscaler.com/zpa/deploying-private-cloud-controllers).
@@ -2070,11 +3472,11 @@ The following specifications are recommended by Zscaler for up to 250 Mbps SIEM 
 
 Depending on your deployment use case, each Private Cloud Controller must be able to accept incoming connections from either internal or external sources or both internal and external sources on TCP port 443. For example, if you enable Private Access (ZPA) for both remote and office users, each Private Cloud Controller needs to accept incoming connections from both internal and external endpoints running Zscaler Client Connector.
 
-Private Cloud Controllers are reachable over the internet for remote users, in Business Continuity.
+Private Cloud Controllers are reachable over the internet for remote users in Business Continuity.
 
 In the scenario where a Private Cloud Controller is deployed behind a firewall, the firewall performs destination network address translation (DNAT) for the Private Cloud Controller's private IP address. In this case, the flow of traffic is from Zscaler Client Connector to the Private Cloud Controller. The firewall then translates the destination public IP address that Zscaler Client Connector connects to the private IP address of the Private Cloud Controller. The firewall advertises a public IP address on the internet. It is necessary to configure the public IP address advertised by the firewall as a publish IP address of the respective Private Cloud Controller. In the case of disaster recovery, you must add this IP address as the A record for that Private Cloud Controller.
 
-Your firewalls must be configured to let the Private Cloud Controller establish outbound connections to the IP addresses of the Public Service Edge for Private Access, and establish inbound connections from App Connectors, Private Service Edges, and Zscaler Client Connectors.
+Your firewalls must be configured to let the Private Cloud Controller establish outbound connections to the IP addresses of the Public Service Edge for Private Access, and establish inbound connections from App Connectors, Private Service Edges, and Zscaler Client Connector.
 
 The following conditions apply to each Private Cloud Controller that is placed behind a firewall:
 
@@ -2107,7 +3509,8 @@ Before you begin any procedures within the [Private Cloud Controller Deployment 
 - systemd
 - Root or sudo access to the system to configure a new package repository and install packages
 - DNS resolution and network access
-- A [Private Cloud Controller provisioning key](https://help.zscaler.com/zpa/about-private-cloud-controller-provisioning-keys) obtained from the Zscaler Admin Console
+- For OAuth 2.0 enrollment, Manager software and Private Cloud Controller version 25.47.3 or later
+- An OAuth 2.0 enrollment token obtained from a hyperscaler marketplace, virtual image, or RPM installer provided by Zscaler, or a Private Cloud Controller [provisioning key](https://help.zscaler.com/zpa/about-private-cloud-controller-provisioning-keys) obtained from the Zscaler Admin Console The OAuth server only supports IPv4-based communication. If a Private Cloud Controller only has an IPv6 address, it cannot access the OAuth server.
 - A static MAC address
 
 Private Cloud Controllers can be deployed in different ways, so the security features for each deployment type are slightly different.
@@ -2752,13 +4155,13 @@ Add a Network Connector and enter the OAuth enrollment token on the **Add Networ
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-deployment-prerequisites","lastmod":"2026-08-21T10:39Z","nid":"1507421"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-deployment-prerequisites","lastmod":"2026-09-15T11:56Z","nid":"1507421"} -->
 ## Private Cloud Controller Deployment Prerequisites
 
 - Source: https://help.zscaler.com/zpa/private-cloud-controller-deployment-prerequisites
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Private Cloud Controller Deployment Guides for Supported Platforms > Private Cloud Controller Deployment Prerequisites
-- Last modified: 2026-08-21T10:39Z
+- Last modified: 2026-09-15T11:56Z
 - Summary: Detailed specifications and sizing information, platform prerequisites, and best practices for Private Cloud Controllers for Private Access (ZPA), including information on various operating system (OS) security features, firewall requirements, and interoperability guidelines that must be addressed prior to Private Cloud Controller deployment.
 
 Before deploying a Private Cloud Controller on any supported platform, Zscaler highly recommends reading the following information and making the necessary changes to your organization's environment, where applicable.
@@ -2791,7 +4194,7 @@ Private Cloud Controllers are reachable over the internet for remote users in Bu
 
 In the scenario where a Private Cloud Controller is deployed behind a firewall, the firewall performs destination network address translation (DNAT) for the Private Cloud Controller's private IP address. In this case, the flow of traffic is from Zscaler Client Connector to the Private Cloud Controller. The firewall then translates the destination public IP address that Zscaler Client Connector connects to the private IP address of the Private Cloud Controller. The firewall advertises a public IP address on the internet. It is necessary to configure the public IP address advertised by the firewall as a publish IP address of the respective Private Cloud Controller. In the case of disaster recovery, you must add this IP address as the A record for that Private Cloud Controller.
 
-Your firewalls must be configured to let the Private Cloud Controller establish outbound connections to the IP addresses of the Public Service Edge for Private Access, and establish inbound connections from App Connectors, Private Service Edges, and Zscaler Client Connectors.
+Your firewalls must be configured to let the Private Cloud Controller establish outbound connections to the IP addresses of the Public Service Edge for Private Access, and establish inbound connections from App Connectors, Private Service Edges, and Zscaler Client Connector.
 
 The following conditions apply to each Private Cloud Controller that is placed behind a firewall:
 
@@ -2824,7 +4227,8 @@ Before you begin any procedures within the [Private Cloud Controller Deployment 
 - systemd
 - Root or sudo access to the system to configure a new package repository and install packages
 - DNS resolution and network access
-- A [Private Cloud Controller provisioning key](https://help.zscaler.com/zpa/about-private-cloud-controller-provisioning-keys) obtained from the Zscaler Admin Console
+- For OAuth 2.0 enrollment, Manager software and Private Cloud Controller version 25.47.3 or later
+- An OAuth 2.0 enrollment token obtained from a hyperscaler marketplace, virtual image, or RPM installer provided by Zscaler, or a Private Cloud Controller [provisioning key](https://help.zscaler.com/zpa/about-private-cloud-controller-provisioning-keys) obtained from the Zscaler Admin Console The OAuth server only supports IPv4-based communication. If a Private Cloud Controller only has an IPv6 address, it cannot access the OAuth server.
 - A static MAC address
 
 Private Cloud Controllers can be deployed in different ways, so the security features for each deployment type are slightly different.
@@ -2874,13 +4278,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-software-platform","lastmod":"2026-09-11T08:40Z","nid":"1519431"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-software-platform","lastmod":"2026-09-15T13:03Z","nid":"1519431"} -->
 ## Private Cloud Controller Software by Platform
 
 - Source: https://help.zscaler.com/zpa/private-cloud-controller-software-platform
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Private Cloud Controller Deployment Guides for Supported Platforms > Private Cloud Controller Software by Platform
-- Last modified: 2026-09-11T08:40Z
+- Last modified: 2026-09-15T13:03Z
 - Summary: The current Private Cloud Controller software downloads by platform.
 
 Private Cloud Controllers are supported on Linux operating systems. To learn more, see [Private Cloud Controller Deployment Guides for Supported Platforms](https://help.zscaler.com/zpa/business-continuity-management/private-cloud-controller-deployment-guides-supported-platforms) for detailed deployment instructions.
@@ -2892,7 +4296,7 @@ The following platform supports Private Cloud Controller software packages. Wher
 | Colocation / Data Centers |  |
 | [VMware](https://help.zscaler.com/zpa/private-cloud-controller-deployment-guide-vmware-platforms) | [OVA](https://dist.private.zscaler.com/vms/VMware/2026.07/zpa-pcc-el9-2026.07.ova) [OVA checksum](https://dist.private.zscaler.com/vms/VMware/2026.07/zpa-pcc-el9-2026.07.ova.sha256sum) |
 | Clouds |  |
-| Amazon Web Services | [Zscaler Private Access - AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-hmcupo245lq7c?sr=0-1&ref_=beagle&applicationId=AWSMPContessa) |
+| [Amazon Web Services](https://help.zscaler.com/zpa/private-cloud-controller-deployment-guide-amazon-web-services) | [Zscaler Private Access - AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-hmcupo245lq7c?sr=0-1&ref_=beagle&applicationId=AWSMPContessa) |
 | [Google Cloud Platform](https://help.zscaler.com/zpa/private-cloud-controller-deployment-guide-google-cloud-platform) | [Zscaler Private Access - GCP Marketplace](https://console.cloud.google.com/marketplace/product/zpa-gcp-marketplace/zscaler-private-access-cloud-controller?organizationId=143569286330) |
 | Microsoft Azure | [Zscaler Private Access - Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zscaler.zscaler-private-cloud-controller) |
 | Linux Operating Systems |  |
@@ -2901,13 +4305,13 @@ The following platform supports Private Cloud Controller software packages. Wher
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-amazon-web-services","lastmod":"2026-07-10T14:47Z","nid":"1484556"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-amazon-web-services","lastmod":"2026-09-18T10:52Z","nid":"1484556"} -->
 ## Private Service Edge Deployment Guide for Amazon Web Services
 
 - Source: https://help.zscaler.com/zpa/private-service-edge-deployment-guide-amazon-web-services
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Deployment Guides for Supported Platforms > Private Service Edge Deployment Guide for Amazon Web Services
-- Last modified: 2026-07-10T14:47Z
+- Last modified: 2026-09-18T10:52Z
 - Summary: How to deploy a Private Service Edge for Private Access (ZPA) on Amazon Web Services (AWS), including platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy a Private Service Edge for Private Access (ZPA) on Amazon Web Services (AWS) and post-deployment verification checks.
@@ -2991,6 +4395,8 @@ Before you begin any procedures within the [Private Service Edge Deployment Guid
 - Root or sudo access to the system to configure a new package repository and install packages
 - DNS resolution and network access
 - A [Private Service Edge provisioning key](https://help.zscaler.com/zpa/about-service-edge-provisioning-keys) obtained from the Zscaler Admin Console
+- For OAuth 2.0 enrollment, Manager software and Private Service Edge version 25.48.4 or later
+- An OAuth 2.0 enrollment token obtained from a hyperscaler marketplace, virtual image, or RPM installer provided by Zscaler, or a Private Service Edge [provisioning key](https://help.zscaler.com/zpa/about-service-edge-provisioning-keys) obtained from the Zscaler Admin Console The OAuth server only supports IPv4-based communication. If a Private Service Edge only has an IPv6 address, it cannot access the OAuth server.
 - A static MAC address
 
 Private Service Edges can be deployed in different ways (as private cloud VMs, public cloud VMs, or OS packages), so the security features for each deployment type are slightly different.
@@ -3007,7 +4413,7 @@ Some organizations choose to firewall or otherwise restrict outbound traffic to 
 
 ## Firewall Requirements and Interoperability Guidelines
 
-All of the Zscaler data centers containing Public Service Edges must be allowed. A partial firewall configuration will result in connectivity problems for end users. Zscaler’s policy is to provide a 90-day notice for activating additional IP CIDR ranges to provide organizations with sufficient opportunity for changing control policies.
+All of the Zscaler data centers containing Public Service Edges must be allowed. A partial firewall configuration will result in connectivity problems for end users. Zscaler's policy is to provide a 90-day notice for activating additional IP CIDR ranges to provide organizations with sufficient opportunity for changing control policies.
 
 Because the service enforces TLS certificate pinning for both client and server certificates, all forms of inline or man-in-the-middle TLS interception or inspection must be disabled. Private Service Edge will not function if the TLS certificates presented by the Public Service Edges do not cryptographically verify against Zscaler-trusted public keys.
 
@@ -3367,6 +4773,8 @@ Private Service Edges should be in appropriate security groups to accept incomin
 - Deploying a Private Service Edge using the Instance Wizard
 - Deploying a Private Service Edge using a Launch Template with Auto Scaling (Advanced Deployment)
 
+OAuth 2.0 enrollment is unavailable with Auto Scaling.
+
 This procedure describes how you can deploy Private Access in AWS using the instance wizard. If you require a more scalable solution, Zscaler recommends deploying the Private Service Edge using a Launch Template with Auto Scaling.
 
 This procedure assumes that you have an Amazon Virtual Private Cloud (VPC) created and that you also have full access to create EC2 instances. It is also assumed that you already have a security group created and have edit access to it.
@@ -3422,8 +4830,7 @@ After the initial boot of a Private Service Edge instance, it might take up to 1
 $ sudo systemctl stop zpa-service-edge
 ```
 
-1. Configure the App Connector to enroll in the Zscaler Government Cloud environments: For the admin.zpagov.net environment, enter: `$ sudo touch /opt/zscaler/var/gov`For the admin.zpagov.us environment, enter: `$ sudo touch /opt/zscaler/var/gov-us`
-2. Create a provisioning key file with 644 permissions, at `/opt/zscaler/var/service-edge/provision_key`. For example:
+1. Create a provisioning key file with 644 permissions, at `/opt/zscaler/var/service-edge/provision_key`. For example:
 
 ```
 $ sudo touch /opt/zscaler/var/service-edge/provision_key
@@ -3575,13 +4982,13 @@ Add a Network Connector and enter the OAuth enrollment token on the **Add Networ
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-docker","lastmod":"2026-06-02T10:53Z","nid":"1485946"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-docker","lastmod":"2026-09-17T17:33Z","nid":"1485946"} -->
 ## Private Service Edge Deployment Guide for Docker
 
 - Source: https://help.zscaler.com/zpa/private-service-edge-deployment-guide-docker
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Deployment Guides for Supported Platforms > Private Service Edge Deployment Guide for Docker
-- Last modified: 2026-06-02T10:53Z
+- Last modified: 2026-09-17T17:33Z
 - Summary: Information on how to deploy a Private Service Edge for Private Access (ZPA) on a Docker container.
 
 The Private Service Edge for Private Access (ZPA) Docker image is available on Docker Hub for both the AMD64 and ARM64 platforms:
@@ -4415,13 +5822,13 @@ If necessary, egress traffic directions can be restricted to Private Access host
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-linux","lastmod":"2026-09-11T08:32Z","nid":"1484566"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-linux","lastmod":"2026-09-18T09:35Z","nid":"1484566"} -->
 ## Private Service Edge Deployment Guide for Linux
 
 - Source: https://help.zscaler.com/zpa/private-service-edge-deployment-guide-linux
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Deployment Guides for Supported Platforms > Private Service Edge Deployment Guide for Linux
-- Last modified: 2026-09-11T08:32Z
+- Last modified: 2026-09-18T09:35Z
 - Summary: How to deploy a Private Service Edge for Private Access (ZPA) on Red Hat Enterprise Linux. It includes platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy a Private Service Edge for Private Access (ZPA) on Red Hat Enterprise Linux 9.x (and 8.x), and post-deployment verification checks.
@@ -4506,6 +5913,8 @@ Before you begin any procedures within the [Private Service Edge Deployment Guid
 - Root or sudo access to the system to configure a new package repository and install packages
 - DNS resolution and network access
 - A [Private Service Edge provisioning key](https://help.zscaler.com/zpa/about-service-edge-provisioning-keys) obtained from the Zscaler Admin Console
+- For OAuth 2.0 enrollment, Manager software and Private Service Edge version 25.48.4 or later
+- An OAuth 2.0 enrollment token obtained from a hyperscaler marketplace, virtual image, or RPM installer provided by Zscaler, or a Private Service Edge [provisioning key](https://help.zscaler.com/zpa/about-service-edge-provisioning-keys) obtained from the Zscaler Admin Console The OAuth server only supports IPv4-based communication. If a Private Service Edge only has an IPv6 address, it cannot access the OAuth server.
 - A static MAC address
 
 Private Service Edges can be deployed in different ways (as private cloud VMs, public cloud VMs, or OS packages), so the security features for each deployment type are slightly different.
@@ -4574,7 +5983,7 @@ After you have deployed a software component on a supported platform, you can co
 
 By default, virtual machine-based App Connectors, Private Service Edges, or Private Cloud Controllers are configured to use DHCP networking on their primary interface. If necessary, you can configure a static IP address for the software component.
 
-If DHCP is not available, you can configure a static IP address on a VM-based App Connector, Private Service Edge, Private Cloud Controller, or Network ConnectorNetwork Connector.
+If DHCP is not available, you can configure a static IP address on a VM-based App Connector, Private Service Edge, Private Cloud Controller, or Network Connector.
 
 1. Log in to the software component's console using your admin credentials.
 2. View the IP address. `$ ip addr show`
@@ -5107,13 +6516,13 @@ $ sudo systemctl start zpa-service-edge
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-microsoft-azure","lastmod":"2026-06-02T16:53Z","nid":"1484571"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-microsoft-azure","lastmod":"2026-09-18T10:09Z","nid":"1484571"} -->
 ## Private Service Edge Deployment Guide for Microsoft Azure
 
 - Source: https://help.zscaler.com/zpa/private-service-edge-deployment-guide-microsoft-azure
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Deployment Guides for Supported Platforms > Private Service Edge Deployment Guide for Microsoft Azure
-- Last modified: 2026-06-02T16:53Z
+- Last modified: 2026-09-18T10:09Z
 - Summary: How to deploy a Private Service Edge for Private Access (ZPA) on Microsoft Azure. It includes platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy a Private Service Edge for Private Access (ZPA) on Microsoft Azure, and post-deployment verification checks. For general information regarding Private Service Edge deployment, see [About Deploying Private Service Edges](https://help.zscaler.com/zpa/about-deploying-service-edges).
@@ -5199,6 +6608,8 @@ Before you begin any procedures within the [Private Service Edge Deployment Guid
 - Root or sudo access to the system to configure a new package repository and install packages
 - DNS resolution and network access
 - A [Private Service Edge provisioning key](https://help.zscaler.com/zpa/about-service-edge-provisioning-keys) obtained from the Zscaler Admin Console
+- For OAuth 2.0 enrollment, Manager software and Private Service Edge version 25.48.4 or later
+- An OAuth 2.0 enrollment token obtained from a hyperscaler marketplace, virtual image, or RPM installer provided by Zscaler, or a Private Service Edge [provisioning key](https://help.zscaler.com/zpa/about-service-edge-provisioning-keys) obtained from the Zscaler Admin Console The OAuth server only supports IPv4-based communication. If a Private Service Edge only has an IPv6 address, it cannot access the OAuth server.
 - A static MAC address
 
 Private Service Edges can be deployed in different ways (as private cloud VMs, public cloud VMs, or OS packages), so the security features for each deployment type are slightly different.
@@ -5215,7 +6626,7 @@ Some organizations choose to firewall or otherwise restrict outbound traffic to 
 
 ## Firewall Requirements and Interoperability Guidelines
 
-All of the Zscaler data centers containing Public Service Edges must be allowed. A partial firewall configuration will result in connectivity problems for end users. Zscaler’s policy is to provide a 90-day notice for activating additional IP CIDR ranges to provide organizations with sufficient opportunity for changing control policies.
+All of the Zscaler data centers containing Public Service Edges must be allowed. A partial firewall configuration will result in connectivity problems for end users. Zscaler's policy is to provide a 90-day notice for activating additional IP CIDR ranges to provide organizations with sufficient opportunity for changing control policies.
 
 Because the service enforces TLS certificate pinning for both client and server certificates, all forms of inline or man-in-the-middle TLS interception or inspection must be disabled. Private Service Edge will not function if the TLS certificates presented by the Public Service Edges do not cryptographically verify against Zscaler-trusted public keys.
 
@@ -5266,7 +6677,10 @@ See image.
   1. Log in to the Private Service Edge console using your admin credentials. After the initial boot of a Private Service Edge instance, it might take up to 15 minutes for the admin credentials to apply. If you receive an invalid credentials error after the initial boot, wait a few minutes and try again.
   2. Using a standard SSH client, enter the following command to connect to the Azure instance: `ssh admin@<Service Edge Public Hostname or IP Address>`In the following example, for the Azure instance, the Private Service Edge IP address is `13.88.177.20`: `ssh admin@13.88.177.20`
   3. When you are asked if you want to continue connecting, enter `yes`.
-  4. Complete the deployment of the Private Service Edge for Azure by following one of the [RHEL deployment options](https://help.zscaler.com/zpa/private-service-edge-deployment-guide-linux) within step 3.
+  4. Enroll the Private Service Edge using one of the following methods: The image attempts to use OAuth enrollment tokens by default but applies a provisioning key first if one is available.
+    - OAuth 2.0 enrollment token See instructions.
+    - Private Service Edge provisioning key See instructions.
+  5. Zscaler highly recommends updating the host OS software before proceeding.
 
 [Image: Virtual Machine in Microsoft Azure]
 
@@ -5620,17 +7034,84 @@ $ sudo systemctl restart zpa-service-edge
 ```
 
 The Private Service Edge attempts to create a TLS session through the proxy specified previously.
+
+1. In the software component's virtual serial console, a login prompt appears followed by an OAuth Token value, similar to the following example: `$ OAuth Token: JDR8G-P6W5T To sign in, use a web browser to open the admin UI and enter the code JDPBF-P6W5V to authenticate. OAuth Token: JDR8G-P6W5T To sign in, use a web browser to open the admin UI and enter the code JDPBF-P6W5V to authenticate. OAuth Token: JDR8G-P6W5T To sign in, use a web browser to open the admin UI and enter the code JDPBF-P6W5V to authenticate. OAuth Token: JDR8G-P6W5T`[Image: Example Oauth Enrollment Token]
+2. Copy the OAuth token that appears. Tokens are valid for 2 hours.
+3. In the Zscaler Admin Console, add the enrollment token for your software component:
+  - App Connector
+  - Private Service Edge
+  - Private Cloud Controller
+  - Network Connector
+
+Add an App Connector and enter the OAuth enrollment token on the **Add App Connectors** page. To learn more, see [Configuring App Connectors](https://help.zscaler.com/zpa/configuring-connectors).
+
+[Image: Adding an OAuth token to an App Connector]
+
+Add a Private Service Edge and enter the OAuth enrollment token on the **Add Private Service Edge** page. To learn more, see [Configuring Private Service Edges](https://help.zscaler.com/zpa/configuring-service-edges).[Image: Adding an OAuth token to a Private Service Edge]
+
+Add a Private Cloud Controller and enter the OAuth enrollment token on the **Add Private Cloud Controller**page. To learn more, see [Configuring Private Cloud Controllers](https://help.zscaler.com/zpa/configuring-private-cloud-controllers).
+
+[Image: Adding an OAuth token to a Private Cloud Controller]
+
+Add a Network Connector and enter the OAuth enrollment token on the **Add Network Connector**page. To learn more, see [Configuring Network Connectors](https://help.zscaler.com/zpa/configuring-network-connectors).
+
+[Image: Adding an OAuth token to a Network Connector]
+
+1. Stop running the zpa-service-edge service. If the provisioning key is not detected when the Private Service Edge first starts, the Private Service Edge is in a sleep cycle and looks for the key again every 24 hours.
+
+```
+$ sudo systemctl stop zpa-service-edge
+```
+
+1. Create a provisioning key file with 644 permissions, at `/opt/zscaler/var/service-edge/provision_key`. For example:
+
+```
+$ sudo touch /opt/zscaler/var/service-edge/provision_key
+$ sudo chmod 644 /opt/zscaler/var/service-edge/provision_key
+```
+
+1. Copy the provisioning key from the Zscaler Admin Console, paste it into the file, and save it. Use an editor, such as vi.
+
+```
+$ sudo vi /opt/zscaler/var/service-edge/provision_key
+```
+
+If you are using vi, make sure it is in insert mode before you paste the key into the file.
+
+If you are unfamiliar with the vi editor, you can also use the following echo and tee commands to paste in the provisioning key:
+
+```
+$ echo "<Service Edge Provisioning Key>" | sudo tee /opt/zscaler/var/service-edge/provision_key
+```
+
+Make sure that the key is within double quotes (").
+
+1. Enter the following command to verify the file's content:
+
+```
+$ sudo cat /opt/zscaler/var/service-edge/provision_key
+```
+
+The output should return the provisioning key you entered in the previous step.
+
+1. Start the zpa-service-edge service.
+
+```
+$ sudo systemctl start zpa-service-edge
+```
+
+In Azure, make sure you disable inbound access on port 22 for the security group associated with the Private Service Edge.
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-nutanix-ahv","lastmod":"2026-07-23T09:52Z","nid":"1529938"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-nutanix-ahv","lastmod":"2026-09-17T17:33Z","nid":"1529938"} -->
 ## Private Service Edge Deployment Guide for Nutanix AHV
 
 - Source: https://help.zscaler.com/zpa/private-service-edge-deployment-guide-nutanix-ahv
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Deployment Guides for Supported Platforms > Private Service Edge Deployment Guide for Nutanix AHV
-- Last modified: 2026-07-23T09:52Z
+- Last modified: 2026-09-17T17:33Z
 - Summary: How to deploy a Private Service Edge for Private Access (ZPA) on Nutanix AHV, including platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy a Private Service Edge for Private Access (ZPA) on Nutanix AHV, and post-deployment verification checks. For general information regarding Private Service Edge deployment for Private Access, see [About Deploying Private Service Edges](https://help.zscaler.com/zpa/about-deploying-service-edges).
@@ -5714,6 +7195,8 @@ Before you begin any procedures within the [Private Service Edge Deployment Guid
 - Root or sudo access to the system to configure a new package repository and install packages
 - DNS resolution and network access
 - A [Private Service Edge provisioning key](https://help.zscaler.com/zpa/about-service-edge-provisioning-keys) obtained from the Zscaler Admin Console
+- For OAuth 2.0 enrollment, Manager software and Private Service Edge version 25.48.4 or later
+- An OAuth 2.0 enrollment token obtained from a hyperscaler marketplace, virtual image, or RPM installer provided by Zscaler, or a Private Service Edge [provisioning key](https://help.zscaler.com/zpa/about-service-edge-provisioning-keys) obtained from the Zscaler Admin Console The OAuth server only supports IPv4-based communication. If a Private Service Edge only has an IPv6 address, it cannot access the OAuth server.
 - A static MAC address
 
 Private Service Edges can be deployed in different ways (as private cloud VMs, public cloud VMs, or OS packages), so the security features for each deployment type are slightly different.
@@ -5730,7 +7213,7 @@ Some organizations choose to firewall or otherwise restrict outbound traffic to 
 
 ## Firewall Requirements and Interoperability Guidelines
 
-All of the Zscaler data centers containing Public Service Edges must be allowed. A partial firewall configuration will result in connectivity problems for end users. Zscaler’s policy is to provide a 90-day notice for activating additional IP CIDR ranges to provide organizations with sufficient opportunity for changing control policies.
+All of the Zscaler data centers containing Public Service Edges must be allowed. A partial firewall configuration will result in connectivity problems for end users. Zscaler's policy is to provide a 90-day notice for activating additional IP CIDR ranges to provide organizations with sufficient opportunity for changing control policies.
 
 Because the service enforces TLS certificate pinning for both client and server certificates, all forms of inline or man-in-the-middle TLS interception or inspection must be disabled. Private Service Edge will not function if the TLS certificates presented by the Public Service Edges do not cryptographically verify against Zscaler-trusted public keys.
 
@@ -6319,13 +7802,13 @@ The Private Service Edge attempts to create a TLS session through the proxy spec
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-vmware","lastmod":"2026-07-23T09:56Z","nid":"1484541"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-vmware","lastmod":"2026-09-17T17:34Z","nid":"1484541"} -->
 ## Private Service Edge Deployment Guide for VMware Platforms
 
 - Source: https://help.zscaler.com/zpa/private-service-edge-deployment-guide-vmware
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Deployment Guides for Supported Platforms > Private Service Edge Deployment Guide for VMware Platforms
-- Last modified: 2026-07-23T09:56Z
+- Last modified: 2026-09-17T17:34Z
 - Summary: How to deploy a Private Service Edge for Private Access (ZPA) on VMware, including platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites and how to deploy a Private Service Edge for Private Access (ZPA) on a VMware platform. For general information regarding Private Service Edge deployment, see [About Deploying Private Service Edges](https://help.zscaler.com/zpa/about-deploying-service-edges).
@@ -6413,6 +7896,8 @@ Before you begin any procedures within the [Private Service Edge Deployment Guid
 - Root or sudo access to the system to configure a new package repository and install packages
 - DNS resolution and network access
 - A [Private Service Edge provisioning key](https://help.zscaler.com/zpa/about-service-edge-provisioning-keys) obtained from the Zscaler Admin Console
+- For OAuth 2.0 enrollment, Manager software and Private Service Edge version 25.48.4 or later
+- An OAuth 2.0 enrollment token obtained from a hyperscaler marketplace, virtual image, or RPM installer provided by Zscaler, or a Private Service Edge [provisioning key](https://help.zscaler.com/zpa/about-service-edge-provisioning-keys) obtained from the Zscaler Admin Console The OAuth server only supports IPv4-based communication. If a Private Service Edge only has an IPv6 address, it cannot access the OAuth server.
 - A static MAC address
 
 Private Service Edges can be deployed in different ways (as private cloud VMs, public cloud VMs, or OS packages), so the security features for each deployment type are slightly different.
@@ -6429,7 +7914,7 @@ Some organizations choose to firewall or otherwise restrict outbound traffic to 
 
 ## Firewall Requirements and Interoperability Guidelines
 
-All of the Zscaler data centers containing Public Service Edges must be allowed. A partial firewall configuration will result in connectivity problems for end users. Zscaler’s policy is to provide a 90-day notice for activating additional IP CIDR ranges to provide organizations with sufficient opportunity for changing control policies.
+All of the Zscaler data centers containing Public Service Edges must be allowed. A partial firewall configuration will result in connectivity problems for end users. Zscaler's policy is to provide a 90-day notice for activating additional IP CIDR ranges to provide organizations with sufficient opportunity for changing control policies.
 
 Because the service enforces TLS certificate pinning for both client and server certificates, all forms of inline or man-in-the-middle TLS interception or inspection must be disabled. Private Service Edge will not function if the TLS certificates presented by the Public Service Edges do not cryptographically verify against Zscaler-trusted public keys.
 
@@ -7258,13 +8743,13 @@ When Zscaler cloud and Admin Portal updates are deploying, some functionality wi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/release-upgrade-summary-2026","lastmod":"2026-09-11T10:10Z","nid":"1534305"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/release-upgrade-summary-2026","lastmod":"2026-09-18T10:31Z","nid":"1534305"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/release-upgrade-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Service Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-11T10:10Z
+- Last modified: 2026-09-18T10:31Z
 - Summary: Zscaler Private Access (ZPA) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for the Zscaler Admin Console. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com/).
@@ -7531,13 +9016,13 @@ The saved privileged approval request appears on the My Requests page and is rea
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/restoring-policies-and-configurations-backup","lastmod":"2026-06-08T15:42Z","nid":"1485786"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/restoring-policies-and-configurations-backup","lastmod":"2026-09-17T13:52Z","nid":"1485786"} -->
 ## Restoring Policies and Configurations from a Backup
 
 - Source: https://help.zscaler.com/zpa/restoring-policies-and-configurations-backup
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Administration > Backup & Restore > Restoring Policies and Configurations from a Backup
-- Last modified: 2026-06-08T15:42Z
+- Last modified: 2026-09-17T13:52Z
 - Summary: How to restore policies and configurations from a backup within the Zscaler Admin Console.
 
 When you restore policies and configuration settings from a backup, it overwrites all your current policies and configuration settings, including all the rules and their components. If your current configuration has a component that is not in the backup, then that component is removed when the backup is restored. Therefore, you should review the policies in the backup before restoring it.
@@ -7546,7 +9031,7 @@ If the backup was created before some of the additional features were introduced
 
 To restore policies and configurations from a backup:
 
-1. Go to **Administration** > **Backup & Restore** > **Private Applications**.
+1. Go to **Administration**>**Back Up and Restore**>**Private Access**.
 2. Locate the **Backup Name** within the table and click the **Restore**icon ().
 
 The **View Report and Restore**drawer appears.
@@ -7703,6 +9188,80 @@ The approval request is displayed as Rejected on the [My Approvals](https://help
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/zpa/reviewing-policy-recommendations-resource-groups","lastmod":"2026-09-18T10:06Z","nid":"1542954"} -->
+## Reviewing Policy Recommendations for Resource Groups
+
+- Source: https://help.zscaler.com/zpa/reviewing-policy-recommendations-resource-groups
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Microsegmentation > Policy > Reviewing Policy Recommendations for Resource Groups
+- Last modified: 2026-09-18T10:06Z
+- Summary: How to review policy recommendations for resource groups in the Zscaler Admin Console
+
+Microsegmentation provides policy recommendations for resource groups based on historical network flows. Recommendations are listed on a page within the resource group and organized by managed and unmanaged flows. You can filter managed and unmanaged flows by direction (i.e., inbound and outbound).
+
+If there are no conflicts to resolve, you can review and accept a recommendation as is, quickly applying the new policy and protecting flows. Alternatively, you can edit the recommendation, resolving conflicts as required, before applying it as a new policy or merging it with an existing policy for your organization.
+
+Policy recommendations are generated based on flows observed within the past 14 days.
+
+To review policy recommendations for resource groups:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud** > **Dashboard** > **Microsegmentation** **Application Map**.
+2. On the Application Map, configure the filters as needed, then select a resource group. See image. The drawer for the resource group opens.
+3. In the drawer, click **Review Recommended Policies**. See image. The policy recommendations page for the resource group appears.
+4. Choose to view recommendations in the **Managed**or **Unmanaged** tabs and filter the recommendations by **Inbound** or **Outbound** flows. See image.
+5. Review policy recommendations:
+  1. If the policy recommendation has no conflicts, the **Accept** toggle is enabled. To apply the policy:
+    1. Click **Review Policies**. See image. A drawer opens. You can edit the policy name. See image.
+    2. Click **Save**.
+  2. If the policy recommendation has conflicts, see Resolving Conflicts in Policy Recommendations. See image.
+
+## Resolving Conflicts in Policy Recommendations
+
+Policy recommendations can have two types of conflicts—port conflicts and policy conflicts—that you must resolve in order to accept the recommendation and apply the policy.
+
+- A port conflict means the port is not mapped to an application in the [Application Catalog](https://help.zscaler.com/zpa/about-application-catalog-microsegmentation) and must be defined in the recommended policy. Optionally, you can add the port as a manual port in the recommended policy.
+- A policy conflict means the source and destination resource groups in the recommended policy are used in an existing policy. You can either create the recommended policy as a new policy or merge it into an existing policy.
+
+A single policy recommendation can have both types of conflicts, as shown in the following steps:
+
+To resolve conflicts in a policy recommendation:
+
+1. Click the **Resolve Conflicts** icon for the policy recommendation. See image. A drawer opens.
+2. On the **Port Conflicts** tab, select the application from the [Application Catalog](https://help.zscaler.com/zpa/about-application-catalog-microsegmentation) that should be used by the port for the policy, or optionally add the port as a manual port, resolving the overlap. See image.
+3. Click the **Policy Conflicts** tab, select **Create as new policy** or **Merge into existing policy** to resolve the overlap. See image. If you select **Merge into existing policy**, details of the existing policy are displayed. See image.
+4. Click **Update**. You are redirected to the policy recommendations page for the resource group. If you selected **Create as new policy**, the **Accept** toggle is enabled. If you selected **Merge into existing policy**, the **Accept** toggle is enabled and shows **Merged**. You have the options to view the flows protected by the policy as well as edit or revert the policy recommendation. See image.
+5. Click **Review Policies**. See image. A drawer opens. You can edit the policy name in the **New Policies** or **Existing Policies** tabs, depending on your resolution, as needed. See image.
+6. Click **Save**. The policy is applied, and you are redirected to the Application Map. You can view the newly applied policy on the [Resource Policies](https://help.zscaler.com/zpa/about-microsegmentation-policies) page.
+
+[Image: A resource group selected on Microsegmentation's Application Map]
+
+[Image: Review Recommended Policies button for a resource group]
+
+[Image: Policy recommendations for a resource group]
+
+[Image: An accepted policy recommendation for a resource group]
+
+[Image: Review a new policy to be applied]
+
+[Image: A policy recommendation with port and policy conflicts]
+
+[Image: The Resolve Conflict icon for the policy recommendation]
+
+[Image: Resolving a port conflict in the policy recommendation]
+
+[Image: Resolving a policy conflict in a policy recommendation]
+
+[Image: Merging a policy recommendation into an existing policy to resolve the conflict]
+
+[Image: A merged policy recommendation with options to view protected flows, edit the policy recommendation, or revert it]
+
+[Image: Review Policies button]
+
+[Image: Review an existing policy to be applied]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/zpa/scheduling-periodic-software-updates-private-access","lastmod":"2026-09-10T12:21Z","nid":"1541003"} -->
 ## Scheduling Periodic Software Updates in Private Access
 
@@ -7767,13 +9326,13 @@ To confirm that the update was scheduled, go to the [Network Connector Groups](h
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/scim-api-examples","lastmod":"2026-06-08T12:34Z","nid":"1485146"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/scim-api-examples","lastmod":"2026-09-18T13:59Z","nid":"1485146"} -->
 ## SCIM API Examples
 
 - Source: https://help.zscaler.com/zpa/scim-api-examples
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Authentication > Identity Management > SCIM API Examples
-- Last modified: 2026-06-08T12:34Z
+- Last modified: 2026-09-18T13:59Z
 - Summary: Information about Zscaler Private Access (ZPA) cloud service API using SCIM.
 
 Using SCIM operations allows you to fetch, create, update, and delete users and groups. To perform these operations, you must enable SCIM-based provisioning and have your SCIM Service Provider Endpoint and Bearer Token. You must provide the Bearer Token to authenticate the SCIM API calls. To learn more, see [Enabling SCIM for Identity Management](https://help.zscaler.com/zpa/enabling-scim-identity-management).
@@ -8044,7 +9603,7 @@ https://{{hostname}}/scim/{{userdb}}/{{idpId}}/v2/Users/
 {{userId}}
 ```
 
-Provide the `{{userId}}`, the Internal User ID found on the SCIM Users (**Identity**> **Private Access**> **SCIM Users**) page in the Zscaler Admin Console, in the request endpoint.
+Provide the `{{userId}}`, the Internal User ID found on the SCIM Users (**Administration**> **Private Access Authentication**> **SCIM Users**) page in the Zscaler Admin Console, in the request endpoint.
 
 - Curl example
 
@@ -8107,7 +9666,7 @@ https://{{hostname}}/scim/{{userdb}}/{{idpId}}/v2/Users/
 {{userId}}
 ```
 
-Provide the `{{userId}}`, the Internal User ID found on the SCIM Users (**Identity**> **Private Access**> **SCIM Users**) page in the Zscaler Admin Console, in the request endpoint.
+Provide the `{{userId}}`, the Internal User ID found on the SCIM Users (**Administration**> **Private Access Authentication**> **SCIM Users**) page in the Zscaler Admin Console, in the request endpoint.
 
 - Curl example
 
@@ -8243,7 +9802,7 @@ https://{{hostname}}/scim/{{userdb}}/{{idpId}}/v2/Users/
 {{userId}}
 ```
 
-Provide the `{{userId}}`, the Internal User ID found on the SCIM Users (**Identity**> **Private Access**> **SCIM Users**) page in the Zscaler Admin Console, in the request endpoint.
+Provide the `{{userId}}`, the Internal User ID found on the SCIM Users (**Administration**> **Private Access Authentication**> **SCIM Users**) page in the Zscaler Admin Console, in the request endpoint.
 
 - Curl example
 
@@ -8334,7 +9893,7 @@ https://{{hostname}}/scim/{{userdb}}/{{idpId}}/v2/Users/
 {{userId}}
 ```
 
-Provide the `{{userId}}`, the Internal User ID found on the SCIM Users (**Identity**> **Private Access**> **SCIM Users**) page in the Zscaler Admin Console, in the request endpoint.
+Provide the `{{userId}}`, the Internal User ID found on the SCIM Users (**Administration**> **Private Access Authentication**> **SCIM Users**) page in the Zscaler Admin Console, in the request endpoint.
 
 - Curl example
 
@@ -8425,7 +9984,7 @@ https://{{hostname}}/scim/{{userdb}}/{{idpId}}/v2/Users/
 {{userId}}
 ```
 
-Provide the `{{userId}}`, the Internal User ID found on the SCIM Users (**Identity >** **Private Access >** **SCIM Users**) page in the Zscaler Admin Console, in the request endpoint.
+Provide the `{{userId}}`, the Internal User ID found on the SCIM Users (**Administration**> **Private Access Authentication >** **SCIM Users**) page in the Zscaler Admin Console, in the request endpoint.
 
 - Curl example
 
@@ -8508,7 +10067,7 @@ https://{{hostname}}/scim/{{userdb}}/{{idpId}}/v2/Users/
 {{userId}}
 ```
 
-Provide the `{{userId}}`, the Internal User ID found on the SCIM Users **(Identity**>**Private Access**>**SCIM Users**) page in the Zscaler Admin Console, in the request endpoint.
+Provide the `{{userId}}`, the Internal User ID found on the SCIM Users **(Administration**> **Private Access Authentication**>**SCIM Users**) page in the Zscaler Admin Console, in the request endpoint.
 
 - Curl example
 
@@ -8713,7 +10272,7 @@ https://{{hostname}}/scim/{{userdb}}/{{idpId}}/v2/Groups/
 {{groupId}}
 ```
 
-Provide the `{{groupId}}`, the Internal Group ID found on the SCIM Groups (**Identity**>**Private Access**>**SCIM Users**) page in the Zscaler Admin Console, in the request endpoint.
+Provide the `{{groupId}}`, the Internal Group ID found on the SCIM Groups (**Administration**> **Private Access Authentication**>**SCIM Users**) page in the Zscaler Admin Console, in the request endpoint.
 
 - Curl example
 
@@ -8816,7 +10375,7 @@ https://{{hostname}}/scim/{{userdb}}/{{idpId}}/v2/Groups/
 {{groupId}}
 ```
 
-Provide the `{{groupId}}`, the Internal Group ID found on the SCIM Groups (**Identity**> **Private Access**> **SCIM Groups**) page in the Zscaler Admin Console, in the request endpoint.
+Provide the `{{groupId}}`, the Internal Group ID found on the SCIM Groups (**Administration**> **Private Access Authentication**> **SCIM Groups**) page in the Zscaler Admin Console, in the request endpoint.
 
 - Curl example
 
@@ -8882,7 +10441,7 @@ https://{{hostname}}/scim/{{userdb}}/{{idpId}}/v2/Groups/
 {{groupId}}
 ```
 
-Provide the `{{groupId}}`, the Internal Group ID found on the SCIM Groups (**Identity**>**Private Access**>**SCIM Groups**) page in the Zscaler Admin Console, in the request endpoint.
+Provide the `{{groupId}}`, the Internal Group ID found on the SCIM Groups (**Administration**> **Private Access Authentication**>**SCIM Groups**) page in the Zscaler Admin Console, in the request endpoint.
 
 - Curl example
 
@@ -8948,7 +10507,7 @@ https://{{hostname}}/scim/{{userdb}}/{{idpId}}/v2/Groups/
 {{groupId}}
 ```
 
-Provide the `{{groupId}}`, the Internal Group ID found on the SCIM Groups (**Identity**> **Private Access** > **SCIM Groups**) page in the Zscaler Admin Console, in the request endpoint.
+Provide the `{{groupId}}`, the Internal Group ID found on the SCIM Groups (**Administration**> **Private Access Authentication** > **SCIM Groups**) page in the Zscaler Admin Console, in the request endpoint.
 
 - Curl example
 
@@ -9012,7 +10571,7 @@ https://{{hostname}}/scim/{{userdb}}/{{idpId}}/v2/Groups/
 {{groupId}}
 ```
 
-Provide the `{{groupId}}`, the Internal Group ID found on the SCIM Groups (**Identity**> **Private Access**> **SCIM Groups**) page in the Zscaler Admin Console, in the request endpoint.
+Provide the `{{groupId}}`, the Internal Group ID found on the SCIM Groups (**Administration**> **Private Access Authentication**> **SCIM Groups**) page in the Zscaler Admin Console, in the request endpoint.
 
 - Curl example
 
@@ -9060,7 +10619,7 @@ https://{{hostname}}/scim/{{userdb}}/{{idpId}}/v2/Groups/
 {{groupId}}
 ```
 
-Provide the `{{groupId}}`, the Internal Group ID found on the SCIM Groups (**Identity**> **Private Access** > **SCIM Groups**) page in the Zscaler Admin Console, in the request endpoint.
+Provide the `{{groupId}}`, the Internal Group ID found on the SCIM Groups (**Administration**> **Private Access Authentication** > **SCIM Groups**) page in the Zscaler Admin Console, in the request endpoint.
 
 - Curl example
 
@@ -9148,13 +10707,13 @@ After SCIM is enabled, Zscaler checks if a user is present in the SCIM database.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/scim-configuration-guide-okta","lastmod":"2026-06-08T13:02Z","nid":"1484911"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/scim-configuration-guide-okta","lastmod":"2026-09-18T14:02Z","nid":"1484911"} -->
 ## SCIM Configuration Guide for Okta
 
 - Source: https://help.zscaler.com/zpa/scim-configuration-guide-okta
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Authentication > Identity Management > SCIM Configuration Guides > SCIM Configuration Guide for Okta
-- Last modified: 2026-06-08T13:02Z
+- Last modified: 2026-09-18T14:02Z
 - Summary: How to configure Okta to use SCIM for Zscaler Private Access (ZPA).
 
 This guide provides information on how to configure and install the Zscaler Private Access (ZPA) 2.0 app in Okta. Zscaler Private Access 2.0 enables you to use SAML as your method of authentication and SCIM as your method of provisioning.
@@ -9245,7 +10804,7 @@ Fill in the additional fields if necessary.
 6. Click **Save Mappings**. See image.
 7. Click **Profile Editor**.
 8. Review the attributes to confirm that the new attribute is synced.
-9. On the SCIM Users page (Administration > Identity > Private Access > SCIM Users), click the **View** icon next to an internal user ID to confirm that the SCIM user is reflected in the Zscaler Admin Console.
+9. On the SCIM Users page (Administration > Private Access Authentication > SCIM Users), click the **View** icon next to an internal user ID to confirm that the SCIM user is reflected in the Zscaler Admin Console.
 
 [Image: Setting up SCIM provisioning in Okta]
 
@@ -9276,13 +10835,13 @@ Fill in the additional fields if necessary.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/service-edge-deployment-prerequisites","lastmod":"2026-08-24T09:47Z","nid":"1484511"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/service-edge-deployment-prerequisites","lastmod":"2026-09-15T11:54Z","nid":"1484511"} -->
 ## Private Service Edge Deployment Prerequisites
 
 - Source: https://help.zscaler.com/zpa/service-edge-deployment-prerequisites
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Deployment Guides for Supported Platforms > Private Service Edge Deployment Prerequisites
-- Last modified: 2026-08-24T09:47Z
+- Last modified: 2026-09-15T11:54Z
 - Summary: Detailed specifications and sizing information, platform prerequisites, and best practices for Private Service Edges for Private Access (ZPA), including information on various operating system (OS) security features, firewall requirements, and interoperability guidelines that must be addressed prior to Private Service Edge deployment.
 
 Before deploying a Private Service Edge for Private Access (ZPA) on any supported platform, Zscaler highly recommends reading the following information and making the necessary changes to your organization's environment, where applicable.
@@ -9357,6 +10916,8 @@ Before you begin any procedures within the [Private Service Edge Deployment Guid
 - Root or sudo access to the system to configure a new package repository and install packages
 - DNS resolution and network access
 - A [Private Service Edge provisioning key](https://help.zscaler.com/zpa/about-service-edge-provisioning-keys) obtained from the Zscaler Admin Console
+- For OAuth 2.0 enrollment, Manager software and Private Service Edge version 25.48.4 or later
+- An OAuth 2.0 enrollment token obtained from a hyperscaler marketplace, virtual image, or RPM installer provided by Zscaler, or a Private Service Edge [provisioning key](https://help.zscaler.com/zpa/about-service-edge-provisioning-keys) obtained from the Zscaler Admin Console The OAuth server only supports IPv4-based communication. If a Private Service Edge only has an IPv6 address, it cannot access the OAuth server.
 - A static MAC address
 
 Private Service Edges can be deployed in different ways (as private cloud VMs, public cloud VMs, or OS packages), so the security features for each deployment type are slightly different.
@@ -9748,18 +11309,18 @@ Verify that users can successfully connect to the VPN Service Edge. To learn mor
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/supported-versions-os-compatibility-microsegmentation","lastmod":"2026-09-11T08:58Z","nid":"1531938"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/supported-versions-os-compatibility-microsegmentation","lastmod":"2026-09-16T13:50Z","nid":"1531938"} -->
 ## Supported Versions & OS Compatibility for Microsegmentation
 
 - Source: https://help.zscaler.com/zpa/supported-versions-os-compatibility-microsegmentation
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Supported Versions & OS Compatibility for Microsegmentation
-- Last modified: 2026-09-11T08:58Z
+- Last modified: 2026-09-16T13:50Z
 - Summary: Information on version compatibility and operating systems that a user needs to deploy to use agents for Microsegmentation.
 
-To begin configuring [Microsegmentation policies](https://help.zscaler.com/zpa/about-microsegmentation-policies), you must first configure and deploy agents to your machine based on your OS.
+Before configuring [Microsegmentation policies](https://help.zscaler.com/zpa/about-microsegmentation-policies), you must configure and deploy agents to your physical or virtual machine (VM) based on your operating system (OS).
 
-To configure agents for your organization, see [About Agents](https://help.zscaler.com/zpa/about-agents),[Configuring Agent Groups](https://help.zscaler.com/zpa/configuring-agent-groups), and [Installing & Upgrading the Agent Manager](https://help.zscaler.com/zpa/installing-upgrading-agent-manager).
+To learn more, see [About Agents](https://help.zscaler.com/zpa/about-agents),[Configuring Agent Groups](https://help.zscaler.com/zpa/configuring-agent-groups), and [Installing & Upgrading the Agent Manager](https://help.zscaler.com/zpa/installing-upgrading-agent-manager).
 
 ## Minimum OS Version Compatibility
 
@@ -9767,19 +11328,21 @@ Each OS requires a specific compatible version to configure Microsegmentation. A
 
 | OS | Version | Minimum Required Agent Version |
 | --- | --- | --- |
-| Windows | Server 2012 R2 Server 2016 Server 2019 Server 2022 Server 2025 | N/A |
-| Ubuntu Distribution | 16.04.7+ LTS 18.04 LTS 20.04 LTS 22.04 LTS 24.04 LTS 26.04 LTS | N/A |
-| Red Hat Enterprise Linux (RHEL) Distribution | RHEL 7.4 (A minimum kernel version of 3.10.0-693.el7.x86_64 is required.) RHEL 7.9 (A minimum kernel version of 3.10.0-1160.88.1.el7.x86_64 is required.)  RHEL 8 RHEL 9 RHEL 10 | N/A |
 | Amazon Linux | AL2 AL 2023 | N/A |
+| Red Hat Enterprise Linux (RHEL) Distribution | RHEL 7.9 (A minimum kernel version of 3.10.0-1160.160.1.el7.x86_64 is required.) RHEL 8 RHEL 9 RHEL 10 | N/A |
 | SUSE Linux Enterprise | SLES 15 SLES 16 | Agent version 1.11.1; Agent manager version 1.11.1 |
+| Ubuntu Distribution | 16.04.7+ LTS 18.04 LTS 20.04 LTS 22.04 LTS 24.04 LTS 26.04 LTS | N/A |
+| Windows | Server 2012 R2 Server 2016 Server 2019 Server 2022 Server 2025 | N/A |
 
-If you have the appropriate agent version and compatibility for your OS, then you have access to the following Microsegmentation capabilities in the Zscaler Admin Console:
+## Supported Platforms for Kubernetes Clusters
 
-- Dashboard
-- Analytics
-- Resource Management
-- Policy
-- Agent Management
+You can use Kubernetes clusters as an alternative option to VMs when configuring agent groups for Microsegmentation. The following platforms are supported:
+
+- Amazon Elastic Kubernetes Service (Amazon EKS)
+- Azure Kubernetes Solution (AKS)
+- Google Kubernetes Engine (GKE)
+
+To learn more, see [About Kubernetes Clusters for Microsegmentation](https://help.zscaler.com/zpa/about-kubernetes-clusters-microsegmentation).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -11338,13 +12901,13 @@ pcc> run-all
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/troubleshooting-private-service-edges","lastmod":"2026-08-24T15:48Z","nid":"1485476"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/troubleshooting-private-service-edges","lastmod":"2026-09-17T17:35Z","nid":"1485476"} -->
 ## Troubleshooting Private Service Edges
 
 - Source: https://help.zscaler.com/zpa/troubleshooting-private-service-edges
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Managing & Troubleshooting > Troubleshooting Private Service Edges
-- Last modified: 2026-08-24T15:48Z
+- Last modified: 2026-09-17T17:35Z
 - Summary: Detailed information on how to troubleshoot issues with Private Service Edges for Private Access (ZPA).
 
 This article provides troubleshooting information and guidelines about Private Service Edges for Private Access (ZPA). To learn more about Private Service Edges, see [About Private Service Edges](https://help.zscaler.com/zpa/about-private-service-edges). To configure Private Service Edges, see [Configuring Private Service Edges](https://help.zscaler.com/zpa/configuring-service-edges).
@@ -12668,13 +14231,13 @@ To learn more, see [About the Log Streaming Service](https://help.zscaler.com/zp
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-business-continuity","lastmod":"2026-07-06T15:09Z","nid":"1507011"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-business-continuity","lastmod":"2026-09-17T09:53Z","nid":"1507011"} -->
 ## Understanding Business Continuity
 
 - Source: https://help.zscaler.com/zpa/understanding-business-continuity
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Understanding Business Continuity
-- Last modified: 2026-07-06T15:09Z
+- Last modified: 2026-09-17T09:53Z
 - Summary: Information on Business Continuity for Private Access (ZPA).
 
 Business Continuity for Private Access (ZPA) allows users to continue to access applications during Private Access-related cloud outages or Internet Service Provider (ISP) outages. Business Continuity helps organizations achieve uninterrupted access to applications without any manual intervention.
@@ -12706,7 +14269,7 @@ The following procedures assume the prerequisites are met and provide an overvie
 2. Add [Private Clouds](https://help.zscaler.com/zpa/about-private-clouds), [Private Cloud Controllers](https://help.zscaler.com/zpa/about-private-cloud-controllers), and [Private Cloud Controller groups](https://help.zscaler.com/zpa/about-private-cloud-controller-groups). App Connectors and Private Service Edges leverage Private Clouds and Private Cloud Controllers when the Private Access cloud is not available or reachable. Private Clouds, Private Cloud Controllers, and Private Cloud Controller groups that are managed by Zscaler are read only and cannot be configured, edited, or deleted. Private Clouds are the logical grouping of Private Cloud Controller groups, App Connector groups, Private Service Edge groups, and log receivers. If you are using [Zscaler-managed Business Continuity](https://help.zscaler.com/zia/understanding-zscaler-managed-business-continuity-cloud), you can still associate a Private Cloud Controller group, Private Service Edge group, and App Connector group to a Private Cloud. To learn more, see [Configuring Private Cloud Controllers](https://help.zscaler.com/zpa/configuring-private-cloud-controllers) and [Configuring Private Clouds](https://help.zscaler.com/zpa/configuring-private-clouds).
 3. In the Zscaler Client Connector Portal, complete the following steps:
   1. Enable Business Continuity per app profile. To learn more, see [Configuring Zscaler Client Connector App Profiles](https://help.zscaler.com/client-connector/configuring-zscaler-client-connector-app-profiles).
-  2. Go to **Infrastructure**> **Private Access** > **Business Continuity**>**Settings**, and then sync, download, and copy the thumbprint of the Business Continuity configuration. To learn more, see [About Business Continuity](https://help.zscaler.com/zscaler-client-connector/about-business-continuity).
+  2. Go to **Infrastructure**> **Business Continuity**>**Settings**, and then sync, download, and copy the thumbprint of the Business Continuity configuration. To learn more, see [About Business Continuity](https://help.zscaler.com/zscaler-client-connector/about-business-continuity).
   3. Deploy Zscaler Client Connector with the Business Continuity installation parameters. To learn more, see [Customizing Zscaler Client Connector with Install Options for EXE](https://help.zscaler.com/zscaler-client-connector/customizing-zscaler-client-connector-install-options-exe#RunZAppEXECmdLine) and [Customizing Zscaler Client Connector with Install Options for MSI](https://help.zscaler.com/zscaler-client-connector/customizing-zscaler-client-connector-install-options-msi).
 
 To learn more about how to enter and exit Business Continuity, see [Entering and Exiting Business Continuity](https://help.zscaler.com/zpa/entering-and-exiting-business-continuity).
@@ -15189,1279 +16752,4 @@ The file is transferred from the PRA File System to the privileged console.
 [Image: Selecting files to upload to the My Files page in a PRA privileged portal]
 
 [Image: Selecting files to transfer from My Files to a privileged console]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zpa/uploading-enrollment-ca-certificates-and-certificate-chain","lastmod":"2026-06-01T12:57Z","nid":"1484076"} -->
-## Uploading Enrollment (CA) Certificates and the Certificate Chain
-
-- Source: https://help.zscaler.com/zpa/uploading-enrollment-ca-certificates-and-certificate-chain
-- Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Certificate Management > Enrollment Certificates > Uploading Enrollment (CA) Certificates and the Certificate Chain
-- Last modified: 2026-06-01T12:57Z
-- Summary: How to create and upload a CA certificate chain file as well as how to upload signed CA certificates that are used for App Connector and Zscaler Client Connector enrollment for Private Access.
-
-A CA certificate is required for enrolling Zscaler Client Connector and when [configuring an App Connector](https://help.zscaler.com/zpa/configuring-connectors) for enrollment. You can upload up to 1,000 enrollment (CA) certificates. For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#private-applications).
-
-The uploaded signed certificate must include the private key.
-
-To upload the certificate chain and CA certificates for enrolling Zscaler Client Connector and App Connectors:
-
-- Step 1: Create CA Certificate Chain File
-- Step 2: Upload CA Certificate Chain File
-- Step 3: Upload Signed CA Certificates
-
-You only need to upload the certificate chain once for your CA certificates. If you have already uploaded the certificate chain, skip to [Step 3: Upload Signed CA Certificates](https://help.zscaler.com/zpa/uploading-enrollment-ca-certificates-and-certificate-chain#UploadNotPending) to upload your CA certificates.
-
-1. Download all of your intermediate certificates and the root certificate as Base64-encoded ASCII PEM-formatted files.
-2. Using a text editor, create a new certificate file (e.g., certificate_chain.pem).
-3. Within the new file, include all of the certificate information up to and including the root certificate. Also, make sure that the certificate order within the file starts from the intermediate certificate.
-  - Intermediate certificate 1
-  - Intermediate certificate 2 above that, etc.
-  - Root certificate
-
-For example, your certificate chain file should appear as follows:
-
-```
------BEGIN CERTIFICATE-----
-MIICujCCAaICAQAwdTEQMA4GA1UEChMHWnNjYWxlcjEXMBUGA1UECxMOUHJpdmF0
-ZSBBY2Nlc3MxSDBGBgNVBAMTP21vY2tjb21wYW55LmNvbS9Nb2NrIENvbXBhbnkg
-wMFowgYcxCzAJBgNVBAYTAlVTMREwDwYDVQQIEwhNYXJ5bGFuZDESMBAwMFowgYc
-MDEyMDAwMFowgYcxCzAJBgNVBAYTAlVTMREwDwYDVQQIEwhNYXJ5bGFuZDESMBAG
-v+PMGxmcJcqnBrJT3yOyzxIZow==
------END CERTIFICATE-----
------BEGIN CERTIFICATE-----
-MIIClDCCAXwCAQAwTzEQMA4GA1UEChMHWnNjYWxlcjEXMBUGA1UECxMOUHJpdmF0
-ZSBBY2Nlc3MxIjAgBgNVBAMTGW15LW1vY2tjb21wYW55LmNvbS9hZHNkc2QwggEi
-MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC2meeeh24wzQQ48o2lcbhBFYhi
-slXkLGtB8L5cRspKKaBIXiDSRf8F3jSvcEuBOeLKB1d8tjHcISnivpcOd5AUUUDh
-v+PMGxmcJcqnBrJT3yOyzxIZow==
------END CERTIFICATE-----
------BEGIN CERTIFICATE-----
-MIICtzCCAZ8CAQAwcjEQMA4GA1UEChMHWnNjYWxlcjEXMBUGA1UECxMOUHJpdmF0
-ZSBBY2Nlc3MxRTBDBgNVBAMTPG1vY2tjb21wYW55LmNvbS9Nb2NrIENvbXBhbnkg
-Q2xpZW50IFByb3Zpc2lvbmluZyBDZXJ0aWZpY2F0ZTCCASIwDQYJKoZIhvcNAQEB
-BQADggEPADCCAQoCggEBAK0vUQx3UYZ1Krlxk2uPfntu8HSDnn+Jwnj7WLkanyvJ
-YHIHKHFYNs9mHRL2JsMgV3FxOuVMde7y0cdEXOovDsIVF9y/DHNh4cDVN4fKqfcy
-CAUw7C29C79Fv1C5qfPrmAESrciIxpg0X40KPMbp1ZWVbd4=
------END CERTIFICATE-----
-```
-
-1. Make sure that you have completed Step 1.
-2. Go to **Infrastructure**>**Private Access**>**Component**>**Enrollment Certificates**.
-3. On the **Enrollment Certificates** page, upload the root certificate:
-  1. Click **Upload Certificate Chain**. The **Upload Certificate Chain** window appears.
-  2. In the **Upload Certificate Chain** window:
-    1. **Name**: Enter a name for the root certificate. The name cannot contain special characters, with the exception of periods (.), hyphens (-), and underscores ( _ ).
-    2. **Description**: (Optional) Enter a description.
-    3. **Certificate**: Click **Select File** and navigate to the root certificate.
-  3. Click **Upload**
-
-[Image: Viewing the Upload Certificate Chain window]
-
-1. On the **Enrollment Certificates** page, upload the PEM-formatted file:
-
-Prior to uploading the PEM file, you must upload the root file. If the root file is not uploaded first, then the PEM file will not upload.
-
-1. Click **Upload Certificate Chain**. The **Upload Certificate Chain** window appears.
-2. In the **Upload Certificate Chain** window:
-  1. **Name**: Enter a name for the certificate chain. The name cannot contain special characters, with the exception of periods (.), hyphens (-), and underscores ( _ ).
-  2. **Description**: (Optional) Enter a description.
-  3. **Certificate**: Click **Select File** and navigate to a Base64-encoded ASCII PEM-formatted file that includes the certificate chain of trust for your signed CA certificates.
-3. Click **Upload**.
-
-Make sure that you have uploaded the certificate chain associated to your CA certificates. If you have not done so, complete [Steps 1 and 2](https://help.zscaler.com/zpa/about-uploadingEnrollmentCertificate#UploadPending).
-
-1. Within the table, locate the **Certificate Pending**icon ([Image: Certificate Pending icon]) next to the certificate name and click the **Edit** icon.
-
-The **Upload Signed Certificate** window appears.
-
-1. In the **Upload Signed Certificate** window:
-  - **Name**: Enter a name for the signed certificate. The name cannot contain special characters, with the exception of periods (.), hyphens (-), and underscores ( _ ).
-  - **Description**: (Optional) Enter a description.
-  - **Certificate Signing Request**: The CSR text is displayed here.
-  - **Certificate**: Click **Select File** and navigate to the signed CA certificate (i.e., the .pem file).
-
-[Image: Viewing the Upload Signed Certificate window]
-
-1. Click **Upload**.
-
-After uploading the signed CA certificate, click the **Edit**icon within the table again and make sure that the **Client Certificate Type**option is set correctly. This option specifies whether the signed CA certificate is used to enroll Zscaler Client Connector, App Connectors and Private Service Edges for Private Access, or Zero Trust Browser clients:
-
-- If you are using the enrollment (CA) certificate for Zscaler Client Connector, select **Client Connector**.
-- If you are using the enrollment (CA) certificate for Zero Trust Browser clients, select **Isolation Client**.
-- If you are using the enrollment (CA) certificate for App Connectors and Private Service Edges, select **None**.
-
-[Image: Viewing the Edit Certificate window]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zpa/uploading-web-server-certificates","lastmod":"2026-06-01T13:22Z","nid":"1484061"} -->
-## Uploading (Web Server) Certificates
-
-- Source: https://help.zscaler.com/zpa/uploading-web-server-certificates
-- Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Certificate Management > Certificates > Uploading (Web Server) Certificates
-- Last modified: 2026-06-01T13:22Z
-- Summary: How to upload a Browser Access (web server) certificate within the Zscaler Admin Console.
-
-After a certificate used for web servers is uploaded, it can then be selected when [defining an application](https://help.zscaler.com/zpa/configuring-defined-application-segments#tab1) within an application segment. For defined applications with Browser Access enabled, if the certificate is signed by a public certificate authority (CA), then HTTPS should be selected as the protocol. If the certificate is self-signed, or Zscaler is unable to verify the chain of trust to the public CA, select HTTP. Private Access (ZPA) supports HTTP and HTTPS protocols, and inserts a Via header in HTTP requests (e.g., Via: 1.1 Zscaler-p.zpa-auth.net). To learn more, see [Configuring Application Segments](https://help.zscaler.com/zpa/configuring-defined-application-segments#tab1).
-
-The uploaded signed certificate must include the unencrypted private key.
-
-You can upload up to 1,000 certificates. For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#private-applications).
-
-To upload a certificate:
-
-1. Go to **Policies**>**Access Control**>**Clientless**>**Certificates**.
-2. On the **Certificates** page: You must upload a single Base64-encoded ASCII .pem file, which includes the certificate and unencrypted private key. If your PKI provided you with separate files or a file in the wrong format, you can use the following OpenSSL commands to create a single .pem file that includes the certificate and key. See instructions.
-  - Upload a web server certificate.
-  - Upload a web server certificate for a pending CSR.
-3. Click **Upload**.
-
-The following command creates a combined certificate and unencrypted private key PKCS#12 file (.pfx):
-
-```
-openssl pkcs12 -export -in
-<certificate>
-.pem -inkey
-<unencrypted private key>
-.key -out
-<combined cert and key>
-.pfx
-```
-
-For example:
-
-```
-openssl pkcs12 -export -in cert.pem -inkey unencrypted.key -out combined.pfx
-```
-
-The following command converts the PKCS#12 file (.pfx) containing the combined certificate and unencrypted private key file to PEM format (.pem):
-
-```
-openssl pkcs12 -in
-<combined cert and key>
-.pfx -out
-<combined cert and key>
-.pem -nodes
-```
-
-For example:
-
-```
-openssl pkcs12 -in combined.pfx -out combined.pem -nodes
-```
-
-1. Click **Upload Server Certificate**.
-
-The **Upload Server Certificate** drawer appears.
-
-1. In the **Upload Server Certificate** drawer: [Image: Certificates page with Upload Server Certificate drawer within Zscaler Admin Console]
-  1. **Name**: Enter a name for the web server certificate. The name cannot contain special characters, with the exception of periods (.), hyphens (-), and underscores ( _ ).
-  2. **Description**: (Optional) Enter a description.
-  3. **Certificate**: Click **Select File** and navigate to the web server certificate that was signed using your PKI (i.e., a Base64-encoded ASCII PEM-formatted file). Make sure that the .pem file also includes the unencrypted private key.
-
-1. Within the table, locate the **Certificate Pending icon** ([Image: Certificate Pending icon]) next to the certificate name and click the **Edit** icon.
-
-The **Upload Server Certificate** drawer appears.
-
-1. In the **Upload Server Certificate** drawer:
-  1. **Name**: Make sure that the correct name was entered.
-  2. **Description**: (Optional) Enter a description.
-  3. **Certificate Signing Request**: The CSR text is displayed here.
-    1. Click **Download .CSR File**.
-    2. Sign the downloaded .csr file using your public key infrastructure (PKI) to create a valid signed web server certificate.
-    3. Save the certificate in Base64-encoded ASCII PEM format (.pem).
-  4. **Certificate**: Click **Select File** and navigate to the signed web server certificate you created (i.e., the .pem file).
-
-[Image: Browser Access Certificates page with Upload Server Certificate window for pending CSR]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zpa/using-app-segment-multimatch","lastmod":"2026-09-10T10:52Z","nid":"1485951"} -->
-## Using Application Segment Multimatch
-
-- Source: https://help.zscaler.com/zpa/using-app-segment-multimatch
-- Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Application Management > Application Segments > Using Application Segment Multimatch
-- Last modified: 2026-09-10T10:52Z
-- Summary: Information about using Application Segment Multimatch in Private Access.
-
-This feature is in limited availability. To learn more, contact Zscaler Support.
-
-Multimatch allows an application request to match multiple application segments. When a user tries to access a private application without Multimatch, a request is mapped to an application segment. After the application is mapped to an application segment, the [policy](https://help.zscaler.com/zpa/about-access-policy) search is performed, and the request is either allowed or blocked based on the policy configuration.
-
-Private Access (ZPA) evaluates Multimatch across all application segments that include the same applications. When an administrator enables or disables Multimatch for an application segment, Private Access checks all other application segments that contains any overlapping domains to determine whether the change is allowed. If a domain is found in multiple application segments with different Multimatch settings, there is a conflict and the application segment cannot be updated.
-
-To learn more, see [About Access Policy](https://help.zscaler.com/zpa/about-access-policy) and [Configuring Access Policies.](https://help.zscaler.com/zpa/configuring-access-policies)
-
-## Prerequisites
-
-To use application segment Multimatch, ensure the following:
-
-- App Connectors or Private Service Edges for Private Access are upgraded to version 24.298.1 or later.
-- Zscaler Client Connector is upgraded to the following versions per OS:
-  - Windows versions:
-    - 4.7.0.88 or later
-    - 4.6.0.282 or later
-  - macOS versions: 4.5.2.98 or later
-  - iOS version 4.4.1 or later To use the Private Access Multimatch feature for iOS applications, you must enable the [Use Tunnel SDK Version 4.3 or above setting](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles) in the Zscaler Admin Console. See image.
-  - Android version: 3.10 or later
-  - Linux version: 4.2 or later
-
-## Using Multimatch
-
-By default, after a specific FQDN is configured in an application segment, the destination is removed from the wildcard application segment. The default behavior can cause unwanted access failure due to the destination matching a more specific application segment that does not have the UDP or TCP ports defined. Multimatch allows admins to create new application segments without the risk of unwanted access failure if a user attempts to access a FQDN with undefined ports. After Multimatch is enabled, the wildcard application segment catches all UDP or TCP ports that are not configured in the more specific application segment. When you have decided what application segments you want matched, you can enable Multimatch for that application segment. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-application-segments).
-
-Multimatch must be disabled if the configuration contains applications using Double Encryption and Source IP Anchor. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-application-segments).
-
-### Multimatch Validation for Application Segments
-
-When Multimatch is enabled, a Multimatch Validation window appears for you to review any impacted application segments and conflicting features. If there is a conflicting feature, a warning appears.
-
-See image.
-
-Depending on the application segments selected, you can resolve the issue by doing one of the following:
-
-- Edit an application segment and disable unsupported features.
-- Review conflicting features in a local Microtenant and select the checkboxes that appear.
-- Contact the default administrator when Multimatch includes the default application segment.
-- Cancel and disable Multimatch if an application segment belongs to another local tenant.
-
-## App Connector Selection
-
-If both wildcard and specific FQDN application segments have Multimatch enabled, the specific FQDN application segment's server group is used for App Connector selection, even if the traffic to the FQDN matches the wildcard or the specific FQDN rule.
-
-The following table shows example application segment configurations:
-
-| **Application Segment Name** | **FQDN** | **Protocol** | **Port** | **Server Group** |
-| --- | --- | --- | --- | --- |
-| Wildcard_AS | *.example.com | TCP, UDP | 1 to 52, 54 to 65535 | Server Group - All |
-| Server1_AS | server1.example.com | TCP | 443, 3389 | Server Group - Server1 |
-
-When traffic is destined for a specific FQDN and port (e.g., server1.example.com on TCP/22), the App Connectors belonging to the more specific Server Group - Server1 will proxy the traffic, even if a less specific wildcard application segment (Wildcard_AS) also matches.
-
-The App Connectors associated with the specific FQDN's application segment are typically the most appropriate for handling that traffic.
-
-The selection of the App Connector that proxies traffic is determined by the application segment's Server Group configuration, with critical differences based on whether Multimatch is enabled.
-
-- If Multimatch is disabled, the App Connector selection is primarily based on the application segment's server group configuration. For example, traffic matching Wildcard_AS would be proxied by the App Connector in Server Group - All. This selection can be overridden in an access policy.
-- If Multimatch is enabled, the App Connector linked to the specific FQDN application segment must be capable of accessing all the ports defined for that FQDN. If multiple Multimatch application segments exist for the same FQDN but with different ports, they must all use the same server group. If different server groups are used, any of them can be randomly selected to proxy the traffic to that FQDN, leading to unpredictable behavior.
-
-## Exact Match vs. Multimatch
-
-There are two application match behaviors available in Private Access: Exact Match and Multimatch. Exact match is the default behavior.
-
-### About Exact Match
-
-The default behavior of Private Access is to perform an exact match of applications. If two or more application segments cover the same destination address, Zscaler Client Connector attempts to match traffic to the more granular application segment. Consider the following example of two application segments with the overlapping domain name example.com:
-
-- Example: Exact Match
-
-If a user attempts to access server1.example.com on TCP port 3389, the destination address maps to the more specific application segment, which is Server1_AS. However, the Server1_AS application segment does not have TCP port 3389 configured, resulting in failed access.
-
-| Application Segment Name | Application | Protocol | Ports |
-| --- | --- | --- | --- |
-| Wildcard_AS | *.example.com | TCP, UDP | 1 to 52, 54 to 65535 |
-| Server1_AS | server1.example.com | TCP | 443 |
-
-In this scenario, the attempt to access server1.example.com on TCP port 3389 is dropped at the client level, traffic is not sent to the Private Access cloud, and logs aren't visible in the diagnostics. After a specific FQDN (Fully Qualified Domain Name) has been configured in an application segment, it is removed from the wildcard application segment by default. Even though server1.example.com is part of the Wildcard_AS application segment for the *example.com application on the TCP port range of 54 to 65535, this access does not match the Wildcard_AS application segment. To fix this, TCP port 3389 must be configured for the Server1_AS application segment, or Multimatch can be enabled. Enabling Multimatch changes the behavior of the wildcard application segment, and catches access to ports that have not been defined in the more specific FQDN application segment.
-
-### About Multimatch
-
-The following examples illustrate how applications are mapped to application segments, as well as how policy execution works when Multimatch is enabled or not enabled on application segments.
-
-- Multiple application segment matches
-- Behavior after inserting a block rule
-
-The primary use for Multimatch is when there are multiple possible application segment matches. The following tables show application segment configuration, the policy configuration, and how they match up.
-
-| Application Segment Configuration |  |  |  |  |
-| --- | --- | --- | --- | --- |
-| Application Segment Name | Application | Protocol | Ports | Multimatch |
-| Wildcard_AS | *.example.com | TCP, UDP | 1 to 52, 54 to 65535 | Enabled |
-| Server1_AS | server1.example.com | TCP | 443, 3389 | Enabled |
-
-| Access Policy Configuration |  |  |  |  |
-| --- | --- | --- | --- | --- |
-| # | Access Policy Name | Application Segment Name | Policy Action | User Group |
-| 1 | Allow Server1_AS for Admin | Server1_AS | Allow | Admin_Grp |
-| 2 | Allow Wildcard_AS for All | Wildcard_AS | Allow | All |
-
-| Application Match and Policy Search Results |  |  |  |  |  |  |
-| --- | --- | --- | --- | --- | --- | --- |
-| User | Group | FQDN: Protocol & Port | Matched Application Segment with Multimatch | Matched Application Segment without Multimatch | Matched Policy with Multimatch | Matched Policy Number without Multimatch |
-| user1 | Admin_Grp | server1.example.com:TCP+3389 | Wildcard_AS Server1_AS | Server1_AS | Allow Server_AS for All (#1) | Allow Server1_AS for Admin (#1) |
-| user2 | IT_Grp | server1.example.com:TCP+3389 | Wildcard_AS Server1_AS | Server1_AS | Allow Wildcard_AS for All (#2) | No policy match. Blocked by implicit default block policy. |
-| user1 | Admin_Grp | server1.example.com:TCP+22 | Wildcard_AS | N/A | Allow Wildcard_AS for All (#2) | Traffic is dropped at the client level |
-| user2 | IT_Grp | server1.example.com:TCP+22 | Wildcard_AS | N/A | Allow Wildcard_AS for All (#2) | Traffic is dropped at the client level |
-| user3 | IT_Grp | server1.example.com:TCP+80 | Wildcard_AS | N/A | Allow Wildcard_AS for All (#2) | Traffic is dropped at the client level |
-| user3 | IT_Grp | server1.example.com:TCP+443 | Wildcard_AS Server1_AS | Server1_AS | Allow Wildcard_AS for All (#2) | No policy match. Blocked by implicit default block policy. |
-
-Traffic that is dropped at the client level means that traffic matches the hostname, but it does not match the protocol and port. In this condition, traffic is not sent to the cloud for further processing. This means that policy evaluation does not occur, and the user is not able to access the application segment. In this case, traffic is not visible in the Private Access diagnostics.
-
-The following table shows how the policy search results change by inserting a block policy in the rule set.
-
-| Application Segment Configuration |  |  |  |  |
-| --- | --- | --- | --- | --- |
-| Application Segment Name | Application | Protocol | Ports | Multimatch |
-| Wildcard_AS | *.example.com | TCP, UDP | 1 to 52, 54 to 65535 | Enabled |
-| Server1_AS | server1.example.com | TCP | 443, 3389 | Enabled |
-
-| Access Policy Configuration |  |  |  |  |
-| --- | --- | --- | --- | --- |
-| # | Access Policy Name | Application Segment Name | Policy Action | User Group |
-| 1 | Allow Server1_AS for Admin | Server1_AS | Allow | Admin_Grp |
-| 2 | Block Server1_AS for All | Server1_AS | Block | All |
-| 3 | Allow Wildcard_AS for All | Wildcard_AS | Allow | All |
-
-| Application Match and Access Policy Search Results |  |  |  |  |  |  |
-| --- | --- | --- | --- | --- | --- | --- |
-| User | Group | FQDN: Protocol & Port | Matched Application Segment with Multimatch | Matched Application Segment without Multimatch | Matched Policy Number with Multimatch | Matched Policy Number without Multimatch |
-| user1 | Admin_Grp | server1.example.com:TCP+3389 | Wildcard_AS Server1_AS | Server1_AS | Allow Server1_AS for Admin (#1) | Allow Server1_AS for Admin (#1) |
-| user1 | Admin_Grp | server1.example.com:TCP+443 | Wildcard_AS Server1_AS | Server1_AS | Allow Server1_AS for Admin (#1) | Allow Server1_AS for Admin (#1) |
-| user1 | Admin_Grp | server1.example.com:TCP+22 | Wildcard_AS | N/A | Allow Wildcard_AS for All (#3) | Traffic is dropped at the client level |
-| user2 | IT_Grp | server1.example.com:TCP+22 | Wildcard_AS | N/A | Allow Wildcard_AS for All (#3) | Traffic is dropped at the client level |
-| user3 | IT_Grp | server1.example.com:TCP+80 | Wildcard_AS | N/A | Allow Wildcard_AS for All (#3) | Traffic is dropped at the client level |
-| user3 | IT_Grp | server1.example.com:TCP+443 | Wildcard_AS Server1_AS | Server1_AS | Block Server1_AS for All (#2) | Block1_AS for All (#2) |
-
-Traffic that is dropped at the client level means that traffic matches the hostname, but it does not match the protocol and port. In this condition, traffic is not sent to the cloud for further processing. This means that policy evaluation does not occur, and the user is not able to access the application segment. In this case, traffic is not visible in the Private Access diagnostics.
-
-### Matched vs. Not Matched
-
-Multiple matches apply to applications from most specific to least specific. As soon as an application is encountered that does not support Multimatch, the multimatching stops. The following examples show each possible outcome for matched and not matched results:
-
-- Example 1
-- Example 2
-- Example 3
-- Example 4
-
-| Application Match |  |  |  |
-| --- | --- | --- | --- |
-| **Application** | **Multimatch** | **Requested Domain** |  |
-| server1.db.hr.company.com | server2.ui.hr.company.com |  |  |
-| *.db.hr.company.com | Enabled | Matched | Not matched |
-| *.ui.hr.company.com | Disabled | Not matched | Matched |
-| *.hr.company.com | Enabled | Matched | Not matched |
-| *.company.com | Disabled | Not matched | Not matched |
-
-| Application Match |  |  |
-| --- | --- | --- |
-| **Application** | **Multimatch** | **Requested Domain** |
-| server1.db.hr.company.com |  |  |
-| server1.db.hr.company.com | Enabled | Matched |
-| *.db.hr.company.com | Enabled | Matched |
-| *.hr.company.com | Enabled | Matched |
-| *.company.com | Disabled | Not matched |
-| *.com | Enabled | Not matched |
-
-| Application Match |  |  |  |
-| --- | --- | --- | --- |
-| **Application** | **Multimatch** | **Requested Domain** |  |
-| server1.db.hr.company.com | server2.db.hr.company.com |  |  |
-| server1.db.hr.company.com | Disabled | Matched | Not matched |
-| *.db.hr.company.com | Enabled | Not matched | Matched |
-| *.hr.company.com | Enabled | Not matched | Matched |
-| *.company.com | Disabled | Not matched | Not matched |
-
-| Application Match |  |  |
-| --- | --- | --- |
-| **Application** | **Multimatch** | **Requested Domain** |
-| server2.ui.hr.company.com |  |  |
-| server2.ui.hr.company.com | Enabled | Matched |
-| *.ui.hr.company.com | Disabled | Not matched |
-| *.hr.company.com | Enabled | Not matched |
-| *.company.com | Disabled | Not matched |
-
-### About IP Address- and IP Subnet-Based Multimatch
-
-Even with an IP address, the default behavior of Private Access is to perform an exact match of applications. If two or more application segments cover the same destination address, Zscaler Client Connector attempts to match traffic to the more granular application segment. Consider the following examples of two application segments with overlapping IP addresses:
-
-- Example: IP-Based Exact Match
-- Example: IP-Based Multimatch
-
-| Application | Applications | Protocol | Port |
-| --- | --- | --- | --- |
-| Subnet_AS | 10.0.0.0/24 | TCP, UDP | 1 to 52, 54 to 65535 |
-| IPaddress_AS | 10.0.0.1/32 | TCP | 443 |
-
-| Rule Number | Access Policy Name | Application Segment | User Group | Action |
-| --- | --- | --- | --- | --- |
-| 1 | Allow User A to access IPaddress_AS | IPaddress_AS | User A | Allow |
-| 2 | Allow Everyone to access Subnet_AS | Subnet_AS | All | Allow |
-
-In this scenario, the host at IP address 10.0.0.1 is contained within the IPaddress_AS application segment. If user B tries to access 10.0.0.1 on TCP port 443, they match the implicit block rule. User B does not match with rule number 1 because it is restricted to only User A. User B also does not match with rule number 2 even though it is for everyone, because the moment the IP address is created, the 10.0.0.1/32 host is carved out of Subnet_AS 10.0.0.0/24.
-
-The primary use for Multimatch is when there are multiple possible application segment matches. The following tables show application segment configuration, the policy configuration, and how they match up.
-
-| Application Segment Configuration |  |  |  |  |
-| --- | --- | --- | --- | --- |
-| Application Segment Name | Application | Protocol | Port | Multimatch |
-| Subnet_AS | 10.0.0.0/24 | TCP, UDP | 1 to 52, 54 to 65535 | Enabled |
-| IPAddress_AS | 10.0.0.1/32 | TCP | 443, 3389 | Enabled |
-
-| Application Match and Policy Search Results |  |  |  |  |
-| --- | --- | --- | --- | --- |
-| # | Access Policy Name | Application Segment Name | Policy Action | User Group |
-| 1 | Allow IPAddress_AS for Admin | IPAddress_AS | Allow | Admin_Grp |
-| 2 | Allow Subnet_AS for All | Subnet_AS | Allow | All |
-
-| Application Match and Policy Search Results |  |  |  |  |  |  |
-| --- | --- | --- | --- | --- | --- | --- |
-| User | Group | IP Address: Protocol & Port | Matched Application Segment with Multimatch | Matched Application Segment without Multimatch | Matched Policy with Multimatch | Matched Policy without Multimatch |
-| user1 | Admin_Grp | 10.0.0.1:TCP+3389 | Subnet_AS IPAddress_AS | IPAddress_AS | Allow IPAddress_AS for Admin (#1) | Allow IPAddress_AS for Admin (#1) |
-| user2 | IT_Grp | 10.0.0.1:TCP+3389 | Subnet_AS IPAddress_AS | IPAddress_AS | Allow Subnet_AS for All (#2) | No policy match. Blocked by implicit default block policy. |
-| user1 | Admin_Grp | 10.0.0.1:TCP+22 | Subnet_AS | N/A | Allow Subnet_AS for All (#2) | Traffic is dropped at the client level |
-| user2 | IT_Grp | 10.0.0.1:TCP+22 | Subnet_AS | N/A | Allow Subnet_AS for All (#2) | Traffic is dropped at the client level |
-| user3 | IT_Grp | 10.0.0.1:TCP+80 | Subnet_AS | N/A | Allow Subnet_AS for All (#2) | Traffic is dropped at the client level |
-| user3 | IT_Grp | 10.0.0.1:TCP+443 | Subnet_AS IPAddress_AS | IPAddress_AS | Allow Subnet_AS for All (#2) | No policy match. Blocked by implicit default block policy. |
-
-Traffic that is dropped at the client level means that traffic matches the IP address, but it does not match the protocol and port. In this condition, traffic is not sent to the cloud for further processing. This means that policy evaluation does not occur, and the user is not able to access the application segment. In this case, traffic is not visible in the Private Access diagnostics.
-
-[Image: Multimatch Validation page]
-
-[Image: Advanced settings in the iOS app profile]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zpa/using-application-scaling","lastmod":"2026-09-10T11:39Z","nid":"1542240"} -->
-## Using Application Scaling
-
-- Source: https://help.zscaler.com/zpa/using-application-scaling
-- Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Application Management > Application Segments > Using Application Scaling
-- Last modified: 2026-09-10T11:39Z
-- Summary: Information on using application scaling for application segments for Private Access (ZPA).
-
-This feature is in limited availability. To learn more, contact Zscaler Support.
-
-Application Scaling enables organizations with large private application environments to scale beyond the standard [application limits](https://help.zscaler.com/unified/ranges-limitations#application-management). With Application Scaling enabled, tenants can scale to approximately 100,000 applications. It optimizes how application definitions are delivered and evaluated between Private Access (ZPA) and Zscaler Client Connector, reducing the amount of application data delivered to endpoints.
-
-Instead of distributing the complete application inventory to every endpoint, Private Access delivers aggregated domain information, reducing the client-side configuration footprint and improving scalability.
-
-If you are using [Source IP Anchoring](https://help.zscaler.com/zpa/configuring-source-ip-anchoring-direct) or [Zero Trust Branch](https://help.zscaler.com/zero-trust-branch/what-zero-trust-branch), continue to use the standard Private Access [application access](https://help.zscaler.com/zpa/understanding-application-access) as it is designed for those deployment scenarios.
-
-## Prerequisites
-
-To use Application Scaling, ensure the following prerequisites are met:
-
-- App Connectors or Private Service Edges for Private Access are upgraded to version 24.298.1 or later. To learn more, see [About App Connectors](https://help.zscaler.com/zpa/about-connectors) and [About Private Service Edges](https://help.zscaler.com/zpa/about-private-service-edges).
-- Zscaler Client Connector is upgraded to the following versions per OS:
-  - Windows versions:
-    - 4.7.0.88 or later
-    - 4.6.0.282 or later
-  - macOS versions: 4.5.2.98 or later
-  - iOS version 4.4.1 or later To use the App Scaling feature for iOS applications, you must enable the [Use Tunnel SDK Version 4.3 or above setting](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles#iOS-advanced) in the Zscaler Admin Console. See image.
-  - Android version: 3.10 or later
-  - Linux version: 4.2 or later
-
-## Enabling App Scaling
-
-Application Scaling is enabled at the tenant level. Contact Zscaler Support to request access.
-
-[Image: Traffic Steering Advanced settings in the Zscaler Client Connector iOS App Profile]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zpa/using-application-segment-import","lastmod":"2026-05-13T14:32Z","nid":"1540203"} -->
-## Using Application Segment Import
-
-- Source: https://help.zscaler.com/zpa/using-application-segment-import
-- Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Application Management > Application Segments > Using Application Segment Import
-- Last modified: 2026-05-13T14:32Z
-- Summary: How to use the Application Segment Import feature in the Zscaler Admin Console.
-
-Private Access (ZPA) allows you to bulk import application information to ease the process of application segment configuration. This speeds up the data entry process and eliminates the need to re-enter data if it changes over time. To learn more, see [About Application Segment Import](https://help.zscaler.com/zpa/about-application-segment-import).
-
-To bulk import application segment data:
-
-1. Go to **Policies** > **Access Control** > **Private Applications** > **Application Segment Import**.
-2. Click **Download Sample CSV**. The sample template downloads to your system. See image. If you already have a CSV file containing your data, you can import the file.
-3. Open the template file and add information for the following fields:
-  - Application Name
-  - Application FQDN/IP
-  - Server IP
-  - TCP Ports
-  - UDP Ports
-  - App Owner Contact
-  - Application Importance
-  - Hosting Location
-  - Environment
-4. Save the template.
-5. Click **Import CSV**. See image.
-6. Click **Browse File**to select your CSV file.
-7. Click **Import**. See image. The data can take some time to import. You can leave the page and return to it later. If you import a file with entries that were included in a previous import, the new entries are automatically added as additional information to the existing entries of the same name.
-
-After the data from the file is imported, the Application Segment Import page refreshes to show a table of all the application information categorized alphabetically by the Application Segment Name. A message appears confirming the number of successfully imported entries, as well as the number of failed downloads. You can click the link in the message to download a new file containing the failed entries and the reasons for their import failure.
-
-The limit of application segments that can be imported is 50,000. If you attempt to import a file with more than 50,000 entries of application segment data, the import fails. Depending on how many application segments you import, the import time can increase.
-
-After you import the data for the application segments, you can merge the application segments together. To learn more, see [Merging Imported Application Segments](https://help.zscaler.com/zpa/merging-imported-application-segments).
-
-[Image: Download Sample CSV action in the Application Segment Import page]
-
-[Image: The Import window with a CSV file selected.]
-
-[Image: Click Import CSV.]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zpa/using-pattern-matching-application-segments","lastmod":"2026-09-10T10:53Z","nid":"1485996"} -->
-## Using Pattern Matching for Application Segments
-
-- Source: https://help.zscaler.com/zpa/using-pattern-matching-application-segments
-- Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Application Management > Application Segments > Using Pattern Matching for Application Segments
-- Last modified: 2026-09-10T10:53Z
-- Summary: Information on using pattern matching for application segments for Private Access (ZPA).
-
-This feature is in limited availability. To learn more, contact Zscaler Support.
-
-Private Access (ZPA) supports patterns within FQDN-based application segments. Configuring applications with pattern definition helps to build optimal configurations. It also future proofs the configuration in the case where new servers are brought online and match the existing patterns for applications. This means no configuration changes are required in the application segment definition. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-application-segments).
-
-## Prerequisites
-
-To configure pattern matching for application segments, ensure the following prerequisites are met:
-
-- Multimatch must be enabled on the tenant and the specific application segment. To learn more, see [Using Application Segment Multimatch.](https://help.zscaler.com/zpa/using-app-segment-multimatch)
-- App Connectors are upgraded to version 24.298.1 or later. To learn more, see [About App Connector Groups](https://help.zscaler.com/zpa/about-connector-groups).
-- Zscaler Client Connector is upgraded to the following versions per OS:
-  - Windows versions:
-    - 4.7.0.88 or later
-    - 4.6.0.282 or later
-  - macOS version: 4.5.2.98 or later
-  - iOS version: 4.4.1 or later To use the Private Access pattern matching feature for iOS applications, you must enable the [Use Tunnel SDK Version 4.3 or above setting](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles) in the Zscaler Admin Console. See image.
-  - Android version: 3.10 or later
-  - Linux version: 4.2 or later
-
-## Supported Patterns of Applications in Application Segments
-
-The asterisk (*) and question mark (?) symbols are the supported characters for pattern configuration in application segments.
-
-| **Pattern Type** | **Example** |
-| --- | --- |
-| Pattern matching in the initial part of the FQDN | *.acme.com *nonprod.acme.com |
-| Pattern matching in the middle part of the application | psl*.ms.acme.com www.jira*.acme.com *w*.acme.com |
-| Matching one character with “?” | w?w.jira.acme.com w??.jira.acme.com |
-
-The maximum number of patterns an admin can configure is 500. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
-
-### App Connector Selection
-
-Pattern matching does not select the most specific application for App Connector selection. Therefore, ensure you have at least one App Connector group available for similar applications. To learn more, see [About App Connector Groups](https://help.zscaler.com/zpa/about-connector-groups).
-
-When application access matches multiple application segments for pattern matching, the App Connector selection is based on the most specific application segments that are pattern matching, regardless of the application segment that matches the access policy rule.
-
-The following table shows example application segment configurations:
-
-| Application Segment Name | Domain or Pattern Match | Protocol & Port | Multimatch | Match | Server Group Name |
-| --- | --- | --- | --- | --- | --- |
-| AS1 | important-server*.eu.example.com | TCP/22 | Yes | Yes | SG1 |
-| AS2 | important-server?.eu.example.com | TCP/22 | Yes | Yes | SG2 |
-| AS3 | important-*.eu.example.com | TCP/22 | Yes | Yes | SG3 |
-| AS4 | *.eu.example.com | All | Yes | Yes | SG4 |
-| AS5 | *.example.com | All | No | No | SG5 |
-
-When a user accesses important-server1.eu.example.com on the TCP protocol for port 22, it matches AS1, AS2, AS3, and AS4 because these are the most specific application segments with pattern matching. However, since AS4 is the wildcard application segment and AS5 does not have Multimatch enabled, the App Connector selection only applies to SG1, SG2, and SG3.
-
-[Image: Advanced settings in the iOS app profile]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zpa/using-wildcard-certificates-browser-access-applications","lastmod":"2026-05-21T08:47Z","nid":"1484096"} -->
-## Using Wildcard Certificates for Browser Access Applications
-
-- Source: https://help.zscaler.com/zpa/using-wildcard-certificates-browser-access-applications
-- Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Browser Access > Using Wildcard Certificates for Browser Access Applications
-- Last modified: 2026-05-21T08:47Z
-- Summary: Information about wildcard certificates and how they can be used when defining Browser Access-enabled web applications for Private Access.
-
-Private Access (ZPA) supports using wildcard certificates when defining Browser Access applications within an application segment. You can use a wildcard certificate for multiple fully qualified domain names (FQDNs) within a single application segment or within multiple application segments.
-
-For example, you can create two application segments:
-
-- App1 that contains app1.example.com
-- App2 that contains app2.example.com
-
-For both application segments, you use the same wildcard certificate: *.example.com.
-
-You can also use a wildcard certificate with a wildcard application. However, while the wildcard application includes subdomains, the wildcard certificate only matches against one level. For example:
-
-- A `*.example.com` wildcard application matches against `app1.example.com`, `app2.example.com`, and `app1.local.example.com`.
-- A `*.example.com` wildcard certificate matches against `app1.example.com` and `app2.example.com`, but will not match against `app1.local.example.com`. In this example, Private Access does not consider the wildcard certificate to be valid for `app1.local.example.com`.
-
-If you need to enable Browser Access for a particular subdomain, you must define a separate wildcard application (i.e., *.local.example.com) within an application segment that includes the equivalent wildcard certificate.
-
-To learn more, see [About (Web Server) Certificates](https://help.zscaler.com/zpa/about-web-server-certificates), [About Browser Access](https://help.zscaler.com/zpa/about-browser-access), and [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-defined-application-segments).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zpa/validating-client-hostname","lastmod":"2026-06-16T11:51Z","nid":"1485046"} -->
-## Validating a Client Hostname
-
-- Source: https://help.zscaler.com/zpa/validating-client-hostname
-- Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Application Management > Application Segments > Validating a Client Hostname
-- Last modified: 2026-06-16T11:51Z
-- Summary: How to validate a client hostname in the Zscaler Admin Console.
-
-Validating a client hostname allows you to enroll endpoints for [peer-to-peer connectivity](https://help.zscaler.com/zpa/administration/peer-peer-connectivity) so that you can accept incoming connections through Private Access (ZPA) from other clients. To enroll the endpoints, a regular expression of allowed hostnames is configured per tenant. This regular expression controls the endpoints to which Zscaler Client Connector allows the peer-to-peer connectivity. Endpoints whose FQDNs match this regular expression are enrolled. To learn more, see [Understanding Client-to-Client Connectivity](https://help.zscaler.com/zpa/understanding-client-client-connectivity) and [Understanding Server-to-Client Connectivity](https://help.zscaler.com/zpa/understanding-server-client-connectivity).
-
-If an application configured for Privileged Remote Access (PRA) matches a valid client hostname configured for peer-to-peer connectivity, and the user's device is also configured for peer-to-peer connectivity, then PRA is not supported.
-
-Prior to enabling peer-to-peer connectivity, the following prerequisites must be met:
-
-- Ensure that the remote user has installed Zscaler Client Connector version 3.9.0.169 or later on the destination machine that they want to establish connectivity to. Zscaler Client Connector on the destination machine must have a machine tunnel deployed. To learn more, see [Understanding Zscaler Client Connector App Downloads](https://help.zscaler.com/zscaler-client-connector/understanding-zscaler-client-connector-app-downloads).
-- Ensure that endpoints or devices have valid, complete, and unique FQDNs.
-
-To validate a client hostname:
-
-1. Go to **Policies** > **Access Control** > **Private Applications** > **Defined Application Segments**.
-2. Click the **Column** **Menu**icon ([Image: Column Menu icon]), and select **Client Hostname Validation**.
-
-See image.
-
-The **Edit Regular Expression**window appears.
-
-1. In the **Regular Expression**field, enter a valid regular expression. See image. For example, enter the regular expression `.*.example.com` to establish a peer-to-peer connection for devices joined with domains matching this regular expression (e.g., `test.example.com`). If you have the same namespace for both your applications and workstations, Zscaler recommends creating different application segments for peer-to-peer connectivity and for application access. To successfully enable remote assistance, the application segment designated for peer-to-peer connectivity must match the regular expression entered.
-2. Click **Save**.
-
-[Image: Viewing the Column Menu in the Zscaler Admin Console]
-
-[Image: Configure a regex in the Zscaler Admin Console]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-active-directory-protection-dashboard","lastmod":"2026-06-29T10:17Z","nid":"1515526"} -->
-## Viewing the Active Directory Protection Dashboard
-
-- Source: https://help.zscaler.com/zpa/viewing-active-directory-protection-dashboard
-- Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Dashboard & Diagnostics > AppProtection and Browser Protection Monitoring > Viewing the Active Directory Protection Dashboard
-- Last modified: 2026-06-29T10:17Z
-- Summary: Information on the Active Directory Protection dashboard and widgets accessible in the Zscaler Admin Console.
-
-The Active Directory Protection dashboard provides information about the Active Directory policy activity in your organization. To view the dashboard in the Zscaler Admin Console, go to Analytics > Switch to Existing Reports > Private Applications > Security > Active Directory Protection.
-
-## Dashboard Tools
-
-The Active Directory Protection dashboard displays the following information and functionality:
-
-- **Time Range Filter**: View Active Directory Protection data over a period between **1 Hour** to **14 Days**, or you can select **Custom Range**. If you use **Custom Range**, the start date must be within the last 14 days. The end date automatically sets to the system's current time. By default, the dashboard displays information for events that occurred in the last hour. This filter applies to all widgets on the dashboard.
-
-Log information in the dashboard is limited to 14 days. For longer access to the logs, use the [Log Streaming Service (LSS)](https://help.zscaler.com/zpa/about-log-streaming-service).
-
-- **Refresh Icon**: Refresh the dashboard to reflect the most current information.
-- **AppProtection Dashboard**: View the [AppProtection Dashboard](https://help.zscaler.com/zpa/viewing-appprotection-dashboard) for more information about AppProtection policy activity.
-- **Browser Protection Dashboard**: View the [Browser Protection Dashboard](https://help.zscaler.com/zpa/viewing-browser-protection-dashboard) for information about browser sessions in your organization.
-- **API Protection Dashboard**: View the [API Protection Dashboard](https://help.zscaler.com/zpa/viewing-api-protection-dashboard) for information about API traffic in API protection controls. This tab is only visible if the feature is enabled in your account.
-- **Chart Selection**: Select the charts you want to display or hide on the dashboard. A minimum of 4 charts and a maximum of 8 charts can be selected.
-
-## Widgets
-
-The Active Directory Protection dashboard provides the following widgets:
-
-- Top Users by KRB TGT Suspicious Activity
-- Top Users by KRB TGT Errors
-- Top Users by KRB TGS Errors
-- Top Users by KRB TGS Suspicious Activity
-- Top Users by LDAP Suspicious Queries
-- Top Users by SMB Suspicious Activity
-- Top Profile Violations
-- Top Control Violations
-- Top Users by Control Violations
-
-The widget displays the top 10 Kerberos TGT suspicious activity within the selected time frame and lists them by user.
-
-[Image: Kerberos TGT Suspicious Activity widget on the Active Directory Protection Dashboard in the Zscaler Admin Console]
-
-- Click on a tab to switch between a chart of unique Active Directory logins and a chart of account harvesting indications.
-- Hover over a user to view the following:
-  - **Name**: The name of the user.
-  - **Number of Top Users - KRB TGT Suspicious Activity**: Depending on the chart you've selected:
-    - **Unique Active Directory Logins**: The number of unique Active Directory logins seen for the selected user. The percentage is the total unique Active Directory logins seen by that user within the top users for that category.
-    - **Account Harvesting Indications**: The number of Active Directory login failures seen for the selected user. The percentage is the Active Directory login failures seen by that user within the top users for that category.
-- Click a user and then click **View Logs** to be directed to log information matching that user in Active Directory Protection Diagnostics.
-
-The widget displays the top 10 Kerberos TGT errors within the selected time frame and lists them by user. The error counts displayed do not include these common errors:
-
-- KDC_ERR_PREAUTH_REQUIRED (25)
-- KRB_AP_ERR_TKT_EXPIRED (32)
-- KRB_ERR_RESPONSE_TOO_BIG (52)
-- KDC_ERR_BADOPTION (13)
-- KDC_ERR_NEVER_VALID (11)
-- KRB_AP_ERR_SKEW (37)
-- KDC_ERR_ETYPE_NOSUPP (14)
-- KDC_ERR_S_PRINCIPAL_UNKNOWN (7)
-- KRB_AP_ERR_MODIFIED (41)
-
-[Image: Top Users by Kerberos TGT Errors widget on the Active Directory Protection Dashboard in the Zscaler Admin Console]
-
-- Hover over a user to view the following:
-  - **Name**: The name of the user.
-  - **Number of Top Users by KRB TGT Error(s)**: The number of errors for the selected user. The percentage is the errors held by that user within the top users for that category.
-- Click a user and then click **View Logs** to be directed to log information matching that user in Active Directory Protection Diagnostics.
-
-The widget displays the top 10 Kerberos TGS errors within the selected time frame and lists them by user. The error counts displayed do not include these common errors:
-
-- KDC_ERR_PREAUTH_REQUIRED (25)
-- KRB_AP_ERR_TKT_EXPIRED (32)
-- KRB_ERR_RESPONSE_TOO_BIG (52)
-- KDC_ERR_BADOPTION (13)
-- KDC_ERR_NEVER_VALID (11)
-- KRB_AP_ERR_SKEW (37)
-- KDC_ERR_ETYPE_NOSUPP (14)
-- KDC_ERR_S_PRINCIPAL_UNKNOWN (7)
-- KRB_AP_ERR_MODIFIED (41)
-
-[Image: Top 10 Kerberos TGS Errors widget on the Active Directory Protection Dashboard in the Zscaler Admin Console]
-
-- Hover over a user to view the following:
-  - **Name**: The name of the user.
-  - **Number of Top Users by KRB TGS Errors**: The number of errors for the selected user. The percentage is the errors held by that user within the top users for that category.
-- Click a user and then click **View Logs** to be directed to log information matching that user in Active Directory Protection Diagnostics.
-
-The widget displays the top 10 Kerberos TGS suspicious activity within the selected time frame and lists them by user.
-
-[Image: Top 10 Kerberos TGS Suspicious Activity widget on the Active Directory Protection Dashboard in the Zscaler Admin Console]
-
-- Click a tab to switch between a chart of Kerberoasting requests and a chart of Kerberos TGS activity.
-- Hover over a user to view the following:
-  - **Name**: The name of the user.
-  - **Number of Top Users by KRB TGS Suspicious Activity**: Depending on the chart you've selected:
-    - **Kerberoasting Requests**: The number of instances the user requested a ticket with a weak encryption (e.g., RC4 and DES encryption). The percentage is the total Kerberoasting requests held by that user within the top users for that category.
-    - **KRB TGS Activity**: The number of instances where the user sends a TGS request for various services in Active Directory domain. The percentage is the total Kerberos TGS activity held by that user within the top users for that category.
-- Click a section of the chart and then click **View Logs** to be directed to log information matching the control category in Active Directory Protection Diagnostics.
-
-The widget displays the top 10 LDAP suspicious queries within the selected time frame and lists them by user.
-
-[Image: Top 10 LDAP Suspicious Queries widget on the Active Directory Protection Dashboard in the Zscaler Admin Console]
-
-- Hover over a user to view the following:
-  - **Name**: The name of the user.
-  - **Number of Top Users** **by LDAP Suspicious Activity**: The number of suspicious queries for the selected user. The percentage is suspicious queries held by that user within the top users for that category.
-- Click a user and then click **View Logs** to be directed to log information matching that user in Active Directory Protection Diagnostics.
-
-The widget displays the top 10 SMB suspicious activity within the selected time frame and lists them by user. This activity data consists of session and user enumeration.
-
-[Image: Top Users by SMB Suspicious Activity widget on the Active Directory Protection Dashboard in the Zscaler Admin Console]
-
-- Hover over a user to view the following:
-  - **Name**: The name of the user.
-  - **Number of Top Users** **by SMB Suspicious Activity**: The number of suspicious activity for the selected user. The percentage is suspicious activity held by that user within the top users for that category.
-- Click a section of the chart and then click **View Logs** to be directed to log information matching the control category in Active Directory Protection Diagnostics.
-
-The widget displays the top 10 profile violations within the selected time frame and lists them by name.
-
-[Image: Top Profile Violations widget on the Active Directory Protection Dashboard in the Zscaler Admin Console]
-
-- Hover over a violation to view the following:
-  - **Name**: The profile violation name.
-  - **Number of Top Profile Violation(s)**: The number of profile violations for the selected violation. The percentage is violations held within the category.
-- Click a profile violation and then click **View Logs** to be directed to log information matching that violation in Active Directory Protection Diagnostics.
-
-This widget displays the top 10 control violations within the selected time frame and categorizes them by name. The top control violations are categorized by control number and name, in the ControlNumber:ControlName format.
-
-[Image: Top Control Violations widget on the Active Directory Protection Dashboard in the Zscaler Admin Console]
-
-Hover over a section of the chart to view the name of the control violation and the percentage of control violations held within the Top Control Violations category.
-
-The widget displays the top 10 users by control violations within the selected time frame and lists them by user.
-
-[Image: Top Users by Control Violations widget on the Active Directory Protection Dashboard in the Zscaler Admin Console]
-
-- Hover over a user to view the following:
-  - **Name**: The name of the user.
-  - **Number of Top Users by Control Violation(s)**: The top users with their number of control violations. The percentage is control violations held by that user within the top users for that category.
-- Click a user and then click **View Logs** to be directed to log information matching that user in Active Directory Protection Diagnostics.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-agent-dashboard","lastmod":"2026-09-11T07:14Z","nid":"1498186"} -->
-## Viewing the Agent Dashboard
-
-- Source: https://help.zscaler.com/zpa/viewing-agent-dashboard
-- Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Microsegmentation > Dashboard > Viewing the Agent Dashboard
-- Last modified: 2026-09-11T07:14Z
-- Summary: How to view the Agent dashboard for Microsegmentation in the Zscaler Admin Console.
-
-The Agent dashboard provides information about agent data in your organization.
-
-To view the Agent dashboard, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud** > **Dashboard** > **Microsegmentation** **Agent**.
-
-## Dashboard Tools
-
-The Agent dashboard displays the following information and functionality:
-
-- **Time Range Filter**: View agent data for a specified time period, from 1 Hour to 14 Days.
-- **Refresh Icon**: Refresh the dashboard to reflect the most current information.
-- **Agent Type**: Select the type of agent: Virtual Machines, Kubernetes Node, or Kube Connector.
-- **Agent Name**: Select an agent to view graphs of the CPU usage of the agent, system, agent memory, and system memory. You can select multiple agents.
-
-[Image: The Agent dashboard]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-and-managing-events-diagnostics","lastmod":"2026-05-15T07:06Z","nid":"1485451"} -->
-## Viewing and Managing Events Diagnostics
-
-- Source: https://help.zscaler.com/zpa/viewing-and-managing-events-diagnostics
-- Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Viewing and Managing Events Diagnostics
-- Last modified: 2026-05-15T07:06Z
-- Summary: Information about Events diagnostics and data related to the events, accessible within the Zscaler Admin Console.
-
-This article describes how to view and filter event logs for notifications. Admins subscribe to events to receive email notifications from the Zscaler Admin Console. After an event is triggered, admins receive alerts of these notifications via email. To learn more, see [About Notifications](https://help.zscaler.com/zpa/about-notifications). The Events Diagnostics page displays these notifications.
-
-## Accessing Events Diagnostics
-
-To access diagnostics for events:
-
-1. Go to **Logs**>**Insights**>**Diagnostics**.
-2. From the **Log Type**drop-down menu, select **Events**.
-
-By default, the information for all events is displayed for notifications that occurred in the last 24 hours. You can do the following:
-
-- Click the **Calendar** drop-down menu to change the time range. In the **Calendar** drop-down menu, you can select a preset range or specify a custom start and end date. If you use **Custom Range**, the start date must be within the last 14 days.
-- Click the **Time Zone** icon to change the time zone.
-- Click the **Refresh** icon to refresh the diagnostics page.
-- Click the **Settings**icon to configure the diagnostics settings.
-
-Zscaler retains logs for rolling periods of up to 6 months depending on your subscription. To learn more, see [ZPA Customer Logs and Data](https://help.zscaler.com/customer-logs-fair-use/zpa-customer-logs-and-data). You can also view your logs or stream logs in real time using the [Log Streaming Service (LSS)](https://help.zscaler.com/zpa/about-log-streaming). Data in the [dashboard](https://help.zscaler.com/zpa/dashboard-diagnostics) might be more recent than the data presented within Diagnostics for the same time range.
-
-When you use **Custom Range**, you can search for data within the past 6 months of the current date. The data retrieved begins from the moment of feature enablement.
-
-When the date range exceeds 14 days:
-
-- Not all the log fields are populated.
-- Metrics including aggregates and trends are not available.
-
-This feature and its procedures are in limited availability. To learn more, contact Zscaler Support.
-
-See image.
-
-[Image: Events Diagnostics tools]
-
-By default, the table displays the **Total**number of events. To change this, select one of the following filters:
-
-- **High Priority**: The number of high priority events.
-- **Medium Priority**: The number of medium priority events.
-- **Low Priority**: The number of low priority events.
-
-See image.
-
-[Image: Diagnostics widgets]
-
-## Configuring Settings
-
-To configure settings for diagnostics pages in the Zscaler Admin Console:
-
-1. Go to **Logs**> **Insights**> **Diagnostics**.
-2. Click the **Settings** icon ([Image: Settings icon within the diagnostics pages]). The **Settings** drawer appears.
-3. In the **Settings** drawer, select the default filter operator (i.e., **Equals** or **Contains**) from thedrop-down menu. The **Default Filter Operator** is set to **Equals** by default. See image.
-4. Click **Save** to apply your changes. The selected filter operator is saved for future sessions.
-
-[Image: Viewing the Settings drawer in the diagnostics pages]
-
-## Filtering Event Diagnostics
-
-On the Events page, you can apply filters or drill down further into the log data. By default, no filters are applied.
-
-To configure filters using the query builder:
-
-1. Click **Add Filters** and select a filter from the drop-down menu.
-  - View query builder filters.
-2. Select a Boolean operator from the drop-down menu (e.g., **Equals**, **Not Equals**).
-3. Select the fields from the drop-down menu or enter the values required for the filter. The field or value required is determined by the filter you are configuring.
-
-See image.
-
-[Image: Events Diagnostics filtering]
-
-1. Click **Apply**.
-
-You can also perform the following actions in the query builder:
-
-- Click **Add Filters**to apply more filters.
-- Click the **Delete**icon ([Image: Delete icon in the Zscaler Admin Console]) to remove an added filter, and then click **Apply**.
-- Click **Clear All**to remove all filters.
-- Click the **Copy** icon to save the filter query details. If you or another Private Access (ZPA) admin accesses **Diagnostics**, you can paste the query into the field by clicking the **Clipboard** icon.
-
-See image.
-
-[Image: Filtering tools]
-
-- **App Connector: Name**: See event logs by the App Connector.
-- **Backup Name**: See event logs by the [backup](https://help.zscaler.com/zpa/about-backup-and-restore).
-- **Cloud Connectors**: See event logs by the Cloud Connector.
-- **Event Category:**See event logs by category(i.e.,**Authentication**,**Backup Configuration**, **Connectivity and Upgrade**, **Enrollment**, **System Resource**, **Usage Metrics**).To learn more, see the Category section.
-- **Event Component:**See event logs by component (i.e., **App Connectors**, **Backup and Restore**, **Cloud Connectors**, **Private Service Edges**,and **Zscaler Client Connector**).To learn more, see the Component section.
-- **Event Name:**See event logs by the type of the event. To learn more, see the Events table.
-- **Event Priority:**See event logs by the priority of the event (i.e.,**High**, **Medium**, **Low**).
-- **Private Service Edge: Name**: See event logs by the Private Service Edge for Private Access.
-
-The table displays the following data about events:
-
-- Timestamp
-- Event
-- Category
-- Component
-- Priority
-- Action
-
-You can expand each row to see more details, or click **Expand** **All**or **Collapse** **All** to expand or collapse all rows within the table. By default, the table displays 20 transactions. You can scroll to load more transactions. Within the table, you can click the **Filter**icon ([Image: Filter icon within the Zscaler Admin Console]) next to certain field names to drill down further into the data. The filter query section within the page updates automatically to include the proper filter for the field name you selected, along with the applicable Boolean operator configuration for that field.
-
-The data and time when the event log was generated. The column sorts requests by the date and start time in descending order. You can click the **Arrow**icon ([Image: Arrow icon]) to sort the requests in ascending order.
-
-The time displayed is based on the time the event was triggered.
-
-Expanding an event provides the following:
-
-- Event Log: View, download, and copy the raw JSON for the event:
-  - Click the **View Log** icon ([Image: View Log icon]) to display the Raw JSON for the event within the Zscaler Admin Console.
-  - Click the **Download**icon ([Image: Download icon]) to download the raw JSON for the event to a text (.txt) file.
-  - Click the **Copy** icon ([Image: Copy icon]) to copy the raw JSON text for the event to your clipboard.
-
-The type of event that triggered the notification.
-
-Expanding an event provides information regarding the status and outcome of the event.
-
-The following table provides a list of events, as well as the category and component the event belongs to:
-
-| Event | Category | Component | Description |
-| --- | --- | --- | --- |
-| Application Exceeded Count Limit | Usage Metrics | App Connectors | An event indicating when the component's application count has exceeded the limit. The Application Exceeded Count Limit value must be an integer between 4,500 and 6,000. The default value is set to 4,500. |
-| Backup Completed | Backup Configuration | Backup and Restore | An event indicating when the backup is completed. To learn more, see [About Backup and Restore](https://help.zscaler.com/zpa/about-backup-and-restore) and [Restoring Policies and Configurations from a Backup](https://help.zscaler.com/zpa/restoring-policies-and-configurations-backup). |
-| Backup Failed | Backup Configuration | Backup and Restore | An event indicating when the backup has failed. To learn more, see [About Backup and Restore](https://help.zscaler.com/zpa/about-backup-and-restore) and [Restoring Policies and Configurations from a Backup](https://help.zscaler.com/zpa/restoring-policies-and-configurations-backup). |
-| Bandwidth Utilization Exceeded Limit | Usage Metrics | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges | An event indicating when the component's bandwidth utilization has exceeded the limit. The Bandwidth Utilization Exceeded Limit value must be an integer greater than or equal to 250 Mbps. The default value is set to 250. |
-| Certificate Signing Request Invalid | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating Certificate Signing Request (CSR) is invalid for the selected components. |
-| Certificate Signing Request Not Found | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when the CSR is not found for the selected components. |
-| Certificate Signing Request Not Found for Issued Certificate | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when the CSR for the selected components is not found for the issued certificate. |
-| Control Connection Disconnected | Connectivity and Upgrade | App Connectors, Private Service Edges | An event indicating when the control connection for App Connectors or Private Service Edges disconnects. This event cannot be configured and is disabled by default. To learn more, contact Zscaler Support. |
-| CPU Exceeded Limit | Usage Metrics | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges | An event indicating when the component's CPU utilization has exceeded the limit. The CPU Exceeded Limit value must be an integer between 75% and 99%. The default value is set to 75. To learn more, see [Monitoring App Connector Performance](https://help.zscaler.com/zpa/monitoring-connector-performance#cpu). |
-| CPU Starvation | System Resource | App Connectors | An event indicating when the App Connector's CPU is missing resources needed for operations. This event cannot be configured and is disabled by default. To learn more, contact Zscaler Support. |
-| Disk Space Exceeded Limit | Usage Metrics | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges | An event indicating when the component's available disk space is less than the indicated threshold. The Disk Space Exceeded Limit value must be an integer between 0 and 2,048 MB. The default value is set to 2,048. To learn more, see [Monitoring App Connector Performance](https://help.zscaler.com/zpa/monitoring-connector-performance#diskspace). |
-| Duplicate Certificate Signing Request | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating that there is a duplicate CSR for the selected components. |
-| Duplicate Serial Number | Enrollment | Zscaler Client Connector | An event indicating that there is a duplicate serial number during Zscaler Client Connector enrollment. |
-| Enrollment Certificate Expired | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when an enrollment certificate has expired for the selected component. To learn more, see [About Enrollment (CA) Certificates](https://help.zscaler.com/zpa/about-enrollment-ca-certificates). |
-| Enrollment Certificate Invalid | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating an invalid enrollment certificate for the selected components. |
-| Enrollment Completed | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when the enrollment of the component is completed. |
-| Enrollment Failed | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when the enrollment for the selected component has failed. |
-| Entity Limit Exceeded | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when an entity limit is exceeded for a component. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). |
-| File Descriptors Exhausted | Usage Metrics | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges | An event indicating when the component's file descriptors are exhausted. The File Descriptors Exhausted value must be an integer between 75% and 99%. The default value is set to 75. To learn more, see [Monitoring App Connector Performance](https://help.zscaler.com/zpa/monitoring-connector-performance#filedscrpt). |
-| Invalid Fingerprint | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when a fingerprint for the selected components is invalid. |
-| Invalid Signature | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when a signature for the selected components is invalid. |
-| Invalid System Listen IP Configuration | System Resource | Private Service Edges | An event indicating when the listen IP address configuration for a Private Service Edge is invalid. |
-| Issued Certificate Missing | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when the issued certificate is missing for the selected components. |
-| Issued Certificate Revoked | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when the issued certificate is revoked for the selected components. |
-| Last Component Disconnected | Connectivity and Upgrade | App Connectors, Private Service Edges | An event indicating when the component last disconnects for the selected component. |
-| Missing Signature | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when the signature for the selected components is missing during enrollment. |
-| Outdated Component Manager Version | Connectivity and Upgrade | App Connectors, Private Service Edges | An event indicating when the Manager version is outdated for the selected components. |
-| Provisioning Key Disabled | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when the provisioning key is disabled for the selected components. |
-| Provisioning Key Expired | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when the provisioning key is expired for the selected components. |
-| Provisioning Key Mismatched | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when the provisioning key is mismatched for the selected components. |
-| Provisioning Key Not Found | Enrollment | App Connectors, Cloud Connectors, Private Service Edges, Network Connectors | An event indicating when the provisioning key is not found for the selected components. Raw logs for this event include component name, when the component was updated, and who updated the component. This event cannot be configured. To learn more, contact Zscaler Support. |
-| Provisioning Key Utilization Exceeded Limit | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when the provisioning key has exceeded the limit for the selected components. |
-| Public Key in Certificate Signing Request and Issued Certificate Mismatched | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when the public key in the CSR and the issued certificate are mismatched for the selected components. |
-| Restore Completed | Backup Configuration | Backup and Restore | An event indicating when the restore is completed. To learn more, see [About Backup and Restore](https://help.zscaler.com/zpa/about-backup-and-restore) and [Restoring Policies and Configurations from a Backup](https://help.zscaler.com/zpa/restoring-policies-and-configurations-backup). |
-| Restore Failed | Backup Configuration | Backup and Restore | An event indicating when the restore has failed. To learn more, see [About Backup and Restore](https://help.zscaler.com/zpa/about-backup-and-restore) and [Restoring Policies and Configurations from a Backup](https://help.zscaler.com/zpa/restoring-policies-and-configurations-backup). |
-| SCIM Users Successfully Deleted | Enrollment | Zscaler Client Connector | An event indicating when SCIM users are successfully deleted. |
-| Source Port Consumption Exhausted | Usage Metrics | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges | An event indicating when the component's source TCP or UDP ports are exhausted. The exhausted values must be an integer between 75% and 99%. The default value is set to 75. |
-| System Memory Exceeded Limit | Usage Metrics | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges | An event indicating when the component's system memory has exceeded the limit. The System Memory Exceeded Limit value must be an integer between 75% and 99%. The default value is set to 75. To learn more, see [Monitoring App Connector Performance](https://help.zscaler.com/zpa/monitoring-connector-performance#memory). |
-| Timestamp Expired | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when the timestamp is expired for the selected components (e.g., an App Connector sends an old timestamp due to a Network Time Protocol error). |
-| Upgrade Complete | Connectivity and Upgrade | App Connectors, Private Service Edges | An event indicating when an upgrade is complete for the selected components. |
-| Upgrade Failed | Connectivity and Upgrade | App Connectors, Private Service Edges | An event indicating when an upgrade fails for the selected components. |
-
-The category of the event. Events are grouped by the component issues related to the following categories:
-
-- **Authentication**: Issues related to authentication.
-- **Backup Configuration**: Issues related to configuration backups and backups that are created manually or automatically.
-- **Connectivity and Upgrade**: Issues related to component connectivity and upgrades.
-- **Enrollment**: Issues related to enrollment.
-- **System Resource**: Issues related to component system resources.
-- **Usage Metrics**: Issues related to usage metrics.
-
-The component associated with the event. The following components are applicable to the events:
-
-- **App Connectors**: To learn more, see [About App Connectors](https://help.zscaler.com/zpa/about-connectors).
-- **Backup and Restore**: To learn more, see [About Backup and Restore](https://help.zscaler.com/zpa/about-backup-and-restore).
-- **Private Service Edges**: To learn more, see [About Private Service Edges](https://help.zscaler.com/zpa/about-private-service-edges).
-- **Cloud Connectors**: To learn more, see [About Cloud Connectors](https://help.zscaler.com/zpa/about-cloud-connectors).
-- **Zscaler Client Connector**: To learn more, see [What Is Zscaler Client Connector?](https://help.zscaler.com/zscaler-client-connector/what-is-zscaler-client-connector)
-
-Expanding an event provides the following:
-
-- **App Connector Name**: The name of the App Connector.
-- **App Connector ID**: The ID of the App Connector. Click the **Copy** icon to copy the ID to your clipboard.
-- **Backup Name**: The name of the backup.
-- **Backup ID**: The ID of the backup. Click the **Copy**icon to copy the ID to your clipboard.
-- **Cloud Connector Name**: The name of the Cloud Connector.
-- **Cloud Connector ID**: The ID of the Cloud Connector. Click the **Copy**icon to copy the ID to your clipboard.
-- **Private Service Edge Name**: The name of the Private Service Edge.
-- **Private Service Edge ID**: The ID of the Private Service Edge. Click the **Copy**icon to copy the ID to your clipboard.
-
-Indicates the priority of the notification (i.e., **Low**, **Medium**, and **High**).
-
-Click the **Add Notification** icon ([Image: Add Notification icon]) to open the **Add Notification** page.
-
-On the **Add Notification** page:
-
-- Step 1: General Information
-- Step 2: Events
-- Step 3: Action
-- Step 4: Review
-
-1. On the **General Information** tab, provide the necessary details for the following sections:
-
-- **Name**: The name of the notification.
-- **Status**: Indicates the status of the notification (i.e., **Enabled**or **Disabled**). By default, the status is set to **Enabled**.
-
-- Select a Component
-- Select a Category
-- Select a Priority
-
-1. Click **Next**.
-
-[Image: Add Notification page]
-
-On the **Events**tab:
-
-1. Click **Add Events**.
-2. Select the desired event.
-
-For events that require text input, enter an integer value within the supported range. To learn more, see the Events table.
-
-See image.
-
-1. Click **Next**.
-
-On the **Action**tab:
-
-- Configure the Throttling
-- Configure the Recipients
-
-1. Review your notification settings.
-2. Click **Save**.
-
-[Image: Step 2 of the Add Notification window]
-
-Select a component from the drop-down menu. The following is a list of available components. To learn more, see the Component section.
-
-Click the **Delete**icon ([Image: Delete icon]) to remove a selected component. After a component is selected, a drop-down menu appears for the **Categories**, **Priorities**, and selection of the components.
-
-After a component is selected, select the desired App Connectors, Cloud Connectors, or Private Service Edges from the list of available components:
-
-A drop-down menu is not available for the **Zscaler Client Connector**component.
-
-- **App Connectors**: Select an App Connector from the drop-down menu. You can search for a specific App Connector, select an individual App Connector, click **Select All Displayed** to select all App Connectors displayed in the drop-down menu, click **Clear All** to remove all selections, or click the **Delete**icon next to the selected App Connector to remove it. All App Connectors are selected by default.
-- **Cloud Connectors**: Select a Cloud Connector from the drop-down menu. You can search for a specific Cloud Connector, select an individual Cloud Connector, click **Select All Displayed** to select all Cloud Connectors displayed in the drop-down menu, click **Clear All** to remove all selections, or click the **Delete**icon next to the selected Cloud Connector to remove it. All Cloud Connectors are selected by default.
-- **Private Service Edges**: Select a Private Service Edge from the drop-down menu. You can search for a specific Private Service Edge, select an individual Private Service Edge, click **Select All Displayed** to select all Private Service Edges displayed in the drop-down menu, click **Clear All** to remove all selections, or click the **Delete**icon next to the selected Private Service Edge to remove it. All Private Service Edges are selected by default.
-
-Select a category from the drop-down menu. You can select an individual category, click **Select All**to select all categories displayed in the drop-down menu, or click **Clear All** to remove all selections. All categories are selected by default. To learn more, see the Categorysection.
-
-Select the priority of the notification (i.e., **Low**, **Medium**, and **High**). You can select an individual priority, click **Select All**to select all priorities displayed in the drop-down menu, or click **Clear All** to remove all selections. All priorities are selected by default.
-
-**Throttling**enforces limits and timeout durations on the notification. Throttling is set to **Disabled**by default. When **Throttling**is **Enabled**, the **Throttling Limit** and **Throttling Timeout** fields appear.
-
-- **Throttling Limit**: Enter an integer value to indicate the throttling limit.
-- **Throttling Timeout**: Enter an integer value in hours to indicate the throttling timeout.
-
-For example, the **Throttling Limit** value is 3, and the **Throttling Timeout**value is 1 hour. If the notification is set to trigger when the App Connector CPU is greater than 80%, the recipients receive only three email notifications within the last hour if the CPU of the App Connector exceeds the 80% threshold.
-
-See image.
-
-[Image: Throttling in the Add Notification page]
-
-Under the Recipients section:
-
-1. Select the recipients from the drop-down menu. You can search for a specific recipient, select an individual recipient, click **Select All Displayed** to select all recipients displayed in the drop-down menu, click **Clear All** to remove all selections, or click the **Delete** icon next to the selected recipient to remove it.
-2. In the **Distribution List** field, enter the desired distribution list alias in the following format: `example@test.com`.
-
-A maximum of 5 recipients combined (this includes both **Recipients** and **Distribution Lists**) is allowed.
-
-1. Click **Add Items** so that the distribution list receives notifications after the notification is configured.
-
-See image.
-
-1. Click **Next**.
-
-[Image: Step 3 of the Add Notification window]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-and-managing-zscaler-client-connector-download-links","lastmod":"2026-04-27T15:41Z","nid":"1484326"} -->
-## Viewing and Managing Zscaler Client Connector Download Links
-
-- Source: https://help.zscaler.com/zpa/viewing-and-managing-zscaler-client-connector-download-links
-- Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > User Portal > Viewing and Managing Zscaler Client Connector Download Links
-- Last modified: 2026-04-27T15:41Z
-- Summary: How to add or update Zscaler Client Connector download links in the Zscaler Admin Console.
-
-After you [create a user portal](https://help.zscaler.com/zpa/configuring-user-portals) for your organization, you can [add links to any applications](https://help.zscaler.com/zpa/configuring-user-portal-links) that your employees and partners are authorized to access. If the application requires that Zscaler Client Connector is installed on the user's device, you can provide links within the user portal to allow them to download the proper Zscaler Client Connector installer for their OS.
-
-You can add a download link from the Client Connector Download Links page to the proper installer for the following PC and mobile operating systems:
-
-- Apple iOS
-- Apple macOS
-- Google Android
-- Linux
-- Microsoft Windows
-
-You must determine which versions of the Zscaler Client Connector installer are approved for your organization. You are also responsible for maintaining these Zscaler Client Connector download links on the portal as newer versions become available.
-
-To add or update a Zscaler Client Connector download link:
-
-1. Go to **Policies** > **Access Control** > **Clientless** > **Client Connector Download Links**.
-2. Enter the URL of the Zscaler Client Connector installer for each OS you support. You can copy or paste the **Download Link** from the [Zscaler Client Connector App Store](https://help.zscaler.com/zscaler-client-connector/about-zscaler-client-connector-app-store), or use any other valid download URL for your organization. [Image: Viewing and managing Zscaler Client Connector download links]
-3. Click **Save**.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-api-protection-dashboard","lastmod":"2026-06-29T10:13Z","nid":"1499836"} -->
-## Viewing the API Protection Dashboard
-
-- Source: https://help.zscaler.com/zpa/viewing-api-protection-dashboard
-- Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Dashboard & Diagnostics > AppProtection and Browser Protection Monitoring > Viewing the API Protection Dashboard
-- Last modified: 2026-06-29T10:13Z
-- Summary: Information on the API Protection dashboard and widgets accessible within the Zscaler Admin Console.
-
-The API Protection dashboard provides information about the API Protection activity in your organization. To view the dashboard in the Zscaler Admin Console, go to Analytics > Switch to Existing Reports > Private Applications > Security > API Protection.
-
-See image.
-
-[Image: Viewing the API Protection dashboard]
-
-## Dashboard Tools
-
-The API Protection dashboard displays the following information and functionality:
-
-- **Time Range Filter**: View AppProtection data over a period between **1 Hour** to **14 Days**, or you can select **Custom Range**. If you use a **Custom Range**, the start date must be within the last 14 days. The end date automatically sets to the system's current time. By default, the dashboard displays information for events that occurred in the last hour. This filter applies to all widgets on the dashboard.
-- **Refresh Icon**: Refresh the dashboard to reflect the most current information.
-- **Chart Selection**: Select the charts you want to display or hide on the dashboard. A minimum of 4 charts and a maximum of 7 charts can be selected.
-
-See image.
-
-[Image: About the API Protection Dashboard tools]
-
-## Widgets
-
-The API Protection dashboard provides the following widgets:
-
-- Recent API Activities in Last 14 Days
-- Recent Blocked APIs
-- Recent API Activity with Sensitive Information
-- Recent API Traffic Violations
-- Recent API Methods
-- API Error Responses
-- Recent Users with Violations
-
-The widget displays the top 10 most recent activities for the API in the last 14 days. They are listed from the most recent API activity at the top to the least recent API activity at the bottom.
-
-[Image: Top APIs Discovered in 14 days widget]
-
-Hover over an API name to view the following:
-
-- **Name**: The name of the API.
-- **Number of Recent API Activities in last 14 Days**: The amount of times the API appeared in the past 14 days and the percentage of times the API appeared within the Top APIs Discovered in 14 Days category.
-
-Click an API name and then click **View Logs** to be directed to log information matching that API in [AppProtection Diagnostics](https://help.zscaler.com/zpa/accessing-approtection-diagnostics).
-
-The widget displays the top 10 most recent blocked APIs within the selected time frame. They are listed from the most frequent blocked APIs at the top to the least frequent APIs at the bottom.
-
-[Image: Top Blocked APIs widget]
-
-Hover over an API name to view the following:
-
-- **Name**: The name of the API.
-- **Number of Recent Blocked APIs**: The amount of times the API appeared within the selected time frame and the percentage of times the API appeared within the Number of Top Blocked APIs category.
-
-Click an API name and then click **View Logs** to be directed to log information matching that blocked API in [AppProtection Diagnostics](https://help.zscaler.com/zpa/accessing-approtection-diagnostics).
-
-The widget displays the amount of recent API activity with sensitive information categories (US Social Security numbers, Brazilian CPF numbers, and credit card numbers) in the selected time frame. Zscaler does not store the details or specific information; only the sensitive information category and how frequently it appeared in the time frame are stored.
-
-[Image: Sensitive Information Disclosure widget]
-
-Hover over an area of the chart to view the following:
-
-- Displays the percentage of sensitive information transactions that occurred within the selected time frame. Zscaler does not store the specific data for sensitive information, only the category type itself is stored.
-- **Click for more information**: Click this option to show the **View Logs** option. Click **View Logs** to be directed to log data matching that disclosed sensitive information transaction in [AppProtection Diagnostics](https://help.zscaler.com/zpa/accessing-approtection-diagnostics). Zscaler only displays the amount of transactions and does not store any details related to sensitive information.
-
-The widget displays the top 10 most recent API traffic violations and their respective violations within the selected time frame. They are listed from the most frequent API traffic violations at the top to the least frequent violations at the bottom.
-
-[Image: Top API Control Violations widget]
-
-Hover over an area of the chart to view the following:
-
-- **Name**: The name of the API control and the associated violation.
-- **Number of Recent API Traffic Violations**: The amount of times the violation with its related API traffic violation appeared within the selected time frame and the percentage of times the API control violation appeared within the Top API Traffic Violations category.
-
-Click an API control name and then click **View Logs** to be directed to log information matching that API control in [AppProtection Diagnostics](https://help.zscaler.com/zpa/accessing-approtection-diagnostics).
-
-The widget displays the top 10 API methods (i.e., GET, POST, PUT, etc.) for APIs within the selected time frame. They are listed from the most frequent method used at the top to the least frequent method used at the bottom.
-
-[Image: Top Methods widget]
-
-Hover over an area of the chart to view the following:
-
-- **Name**: The name of the API method.
-- **Number of Recent API Methods**: The amount of times the method was used within the selected time frame and the percentage of times the method appeared within the Recent API Methods category.
-
-Click a method and then click **View Logs** to be directed to log information matching that API method in [AppProtection Diagnostics](https://help.zscaler.com/zpa/accessing-approtection-diagnostics).
-
-The widget displays the top 10 most recent API error responses within the selected time frame. They are listed from the most frequent API error responses at the top to the least frequent API error responses at the bottom.
-
-[Image: Top Errors widget]
-
-Hover over an area of the chart to view the following:
-
-- **Name**: The name of the error.
-- **Total Transactions**: The complete number of transactions for the selected error within the selected time frame.
-- **Errors for this selection**: The total amount of that error type within the selected time frame and the percentage of times that error type appeared within the Top Methods category.
-- **Analyze by**: Click **Top URLs** to gain deeper insight into the top URLs for a specific error type. This widget displays the top 10 URLs for a selected error type within the selected time frame. They are listed from the most frequent URLs at the top to the least frequent URLs at the bottom.
-  - **Name**: The name of the URL.
-  - **Total Transactions**: The complete number of error transactions for the selected URL within the selected time frame.
-  - **Errors for this selection**: The total amount of errors for the selected URL in the selected time frame and the percentage of times that the error for that URL appeared with the selected error type.
-
-See image.
-
-Click an error and then click **Show in Logs** to be directed to log information matching that API error in [AppProtection Diagnostics](https://help.zscaler.com/zpa/accessing-approtection-diagnostics).
-
-The widget displays the most recent users with violations within the selected time frame. They are listed from the most frequent users with violations at the top to the least frequent users with violations at the bottom.
-
-[Image: Top Users widget]
-
-Hover over an area of the chart to view the following:
-
-- **Name**: The IdP user name for the API user.
-- **Total Transactions**: The complete number of transactions for that IdP user.
-- **Analyze by**: Click **Top URLs** to gain deeper insight into the top URLs for a specific user. This widget displays the top 10 URLs for a selected user within the selected time frame. They are listed from the most frequent URLs at the top to the least frequent URLs at the bottom.
-  - **Name**: The name of the URL.
-  - **Total Transactions**: The complete number of transactions for the selected URL within the selected time frame.
-
-See image.
-
-Click an error and then click **Show in Logs** to be directed to log information matching that API error in [AppProtection Diagnostics](https://help.zscaler.com/zpa/accessing-approtection-diagnostics).
-
-[Image: Top URLs widget within the Top Errors widget]
-
-[Image: Top URLs widget within the Top Users widget]
 <!-- /ZS-ARTICLE -->

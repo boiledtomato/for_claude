@@ -1,7 +1,7 @@
 # Zscaler Help — API / SDK (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-14 03:38 UTC
+Generated: 2026-09-21 08:12 UTC
 Articles in this file: 98
 
 ---
@@ -3794,13 +3794,13 @@ Gets a list of all locations for the specified customer.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/data-loss-prevention","lastmod":"2026-08-14T02:23Z","nid":"1402466"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/data-loss-prevention","lastmod":"2026-09-15T07:06Z","nid":"1402466"} -->
 ## Data Loss Prevention
 
 - Source: https://help.zscaler.com/legacy-apis/data-loss-prevention
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Data Loss Prevention
-- Last modified: 2026-08-14T02:23Z
+- Last modified: 2026-09-15T07:06Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 
@@ -8651,13 +8651,13 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/federate-applications","lastmod":"2026-07-20T10:46Z","nid":"1541904"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/federate-applications","lastmod":"2026-09-20T07:06Z","nid":"1541904"} -->
 ## Federate Applications
 
 - Source: https://help.zscaler.com/legacy-apis/federate-applications
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Reference Guide > Federate Applications
-- Last modified: 2026-07-20T10:46Z
+- Last modified: 2026-09-20T07:06Z
 
 To access detailed ZPA API documentation, including references and use cases, refer to the [Zscaler Help Portal](/zpa/about-zpa-api).
 
@@ -8762,13 +8762,13 @@ Federates an existing application segment from a host partner with one or more g
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/federating-applications-using-api","lastmod":"2026-07-20T10:41Z","nid":"1540989"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/federating-applications-using-api","lastmod":"2026-09-20T07:06Z","nid":"1540989"} -->
 ## Federating Applications Using API
 
 - Source: https://help.zscaler.com/legacy-apis/federating-applications-using-api
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Federating Applications Using API
-- Last modified: 2026-07-20T10:41Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: Information on federating business partner federation use cases applicable to the Zscaler Private Access (ZPA) cloud service API.
 
 This article provides information on Zscaler Private Access (ZPA) application federation use cases using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting), [Federating Defined Application Segments](https://help.zscaler.com/zpa/federating-defined-application-segments), and [Understanding Business-to-Business (B2B) Federation](https://help.zscaler.com/zpa/understanding-business-business-b2b-federation).
@@ -26074,13 +26074,13 @@ Deletes the DNAT Control policy rule information based on the specified ID
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-access-policy-details-federated-applications-using-api","lastmod":"2026-07-20T10:40Z","nid":"1540991"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-access-policy-details-federated-applications-using-api","lastmod":"2026-09-20T07:06Z","nid":"1540991"} -->
 ## Obtaining Access Policy Details for Federated Applications Using API
 
 - Source: https://help.zscaler.com/legacy-apis/obtaining-access-policy-details-federated-applications-using-api
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Obtaining Access Policy Details for Federated Applications Using API
-- Last modified: 2026-07-20T10:40Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: Information on obtaining access policy details for federated application use cases applicable to the Zscaler Private Access (ZPA) cloud service API.
 
 This article provides information on Zscaler Private Access (ZPA) access policies for federated application use cases using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting) and [Understanding Business-to-Business Federation](https://help.zscaler.com/zpa/understanding-business-business-b2b-federation).

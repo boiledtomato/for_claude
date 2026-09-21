@@ -1,7 +1,7 @@
 # Zscaler Help — Zero Trust Browser (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-14 03:38 UTC
+Generated: 2026-09-21 08:12 UTC
 Articles in this file: 53
 
 ---
@@ -72,13 +72,13 @@ On the Banners page (Policies > Access Control > Clientless > Banners), you can 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/about-isolation-profiles-for-internet-and-saas","lastmod":"2026-09-01T08:23Z","nid":"1539920"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/about-isolation-profiles-for-internet-and-saas","lastmod":"2026-09-15T21:06Z","nid":"1539920"} -->
 ## About Isolation Profiles for Internet & SaaS
 
 - Source: https://help.zscaler.com/zero-trust-browser/about-isolation-profiles-for-internet-and-saas
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > Profiles > Internet & SaaS Profiles > About Isolation Profiles for Internet & SaaS
-- Last modified: 2026-09-01T08:23Z
+- Last modified: 2026-09-15T21:06Z
 - Summary: Information about isolation profiles used for Zero Trust Browser in Internet & SaaS.
 
 When creating an Internet & SaaS (ZIA) policy with the action as Isolate, you must reference an isolation profile in the policy you're creating. These profiles determine certain attributes and specifications about how the user interacts with the isolated web page, where the isolation containers are spun up, and what the isolation experience looks like to the user.
@@ -107,13 +107,13 @@ On the Isolation Profiles page (Zero Trust Browser > Browser Isolation Internet 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/about-isolation-profiles-private-access","lastmod":"2026-09-01T08:35Z","nid":"1539921"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/about-isolation-profiles-private-access","lastmod":"2026-09-15T21:06Z","nid":"1539921"} -->
 ## About Isolation Profiles for Private Access
 
 - Source: https://help.zscaler.com/zero-trust-browser/about-isolation-profiles-private-access
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > Profiles > Private Access Profiles > About Isolation Profiles for Private Access
-- Last modified: 2026-09-01T08:35Z
+- Last modified: 2026-09-15T21:06Z
 - Summary: Information about isolation profiles used for Zero Trust Browser in Private Access.
 
 To configure Zscaler Zero Trust Browser for your application, you must use a Private Access (ZPA) isolation profile. These profiles determine certain attributes and specifications of the isolation browser. They also define how the isolation browser handles web requests, as well as the level of interaction with the user's native browser. You can use isolation profiles to create policies in Private Access to isolate specific web applications. To learn more, see [About Isolation Policy](https://help.zscaler.com/zpa/about-isolation-policy) and [Configuring Isolation Policies](https://help.zscaler.com/zpa/configuring-isolation-policies).
@@ -135,13 +135,13 @@ On the Profiles page (Zero Trust Browser > Browser Isolation Private Apps > Isol
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/about-root-certificates-zero-trust-browser-internet-and-saas","lastmod":"2026-09-01T14:02Z","nid":"1447286"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/about-root-certificates-zero-trust-browser-internet-and-saas","lastmod":"2026-09-17T11:01Z","nid":"1447286"} -->
 ## About Root Certificates for Zero Trust Browser in Internet & SaaS
 
 - Source: https://help.zscaler.com/zero-trust-browser/about-root-certificates-zero-trust-browser-internet-and-saas
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > Profiles > Profile Certificates > Internet & SaaS Root Certificates > About Root Certificates for Zero Trust Browser in Internet & SaaS
-- Last modified: 2026-09-01T14:02Z
+- Last modified: 2026-09-17T11:01Z
 - Summary: Information about the custom root certificates used for Zero Trust Browser with Internet & SaaS.
 
 [Watch a video about Custom Internet & SaaS Root Certificates for Zero Trust Browser (shows legacy UI).](https://fast.wistia.net/embed/iframe/ty0r2pt9gx)
@@ -154,13 +154,13 @@ On the Root Certificates page (Internet Access > Resources > Root Certificates),
 
 1. [Add](https://help.zscaler.com/zero-trust-browser/adding-root-certificates-isolation-zia) a new root certificate.
 2. Search for a root certificate.
-3. View a list of existing root certificates and their details. For each root certificate, you can see:
+3. Show or hide existing columns.
+4. View a list of existing root certificates and their details. For each root certificate, you can see:
   - **Certificate Name**: The name of the root certificate.
   - **Uploaded on**: The date and time the root certificate was uploaded.
   - **Expiration Date**: The expiration date of the root certificate.
   - **Type**: The type of root certificate.
   - **Certificate**: The option to download the root certificate.
-4. Customize the columns for the list.
 5. Download any root certificates that are not the default root certificate.
 6. [Edit](https://help.zscaler.com/zero-trust-browser/editing-root-certificate-isolation-zia) any root certificates that are not the default root certificate.
 7. [Delete](https://help.zscaler.com/zero-trust-browser/deleting-root-certificate-isolation-zia) any root certificates that are not the default root certificate.
@@ -171,13 +171,13 @@ On the Root Certificates page (Internet Access > Resources > Root Certificates),
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/about-root-certificates-zero-trust-browser-private-access","lastmod":"2026-09-01T11:12Z","nid":"1450586"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/about-root-certificates-zero-trust-browser-private-access","lastmod":"2026-09-17T11:24Z","nid":"1450586"} -->
 ## About Root Certificates for Zero Trust Browser in Private Access
 
 - Source: https://help.zscaler.com/zero-trust-browser/about-root-certificates-zero-trust-browser-private-access
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > Profiles > Profile Certificates > Private Access Root Certificates > About Root Certificates for Zero Trust Browser in Private Access
-- Last modified: 2026-09-01T11:12Z
+- Last modified: 2026-09-17T11:24Z
 - Summary: Information about root certificates for Zero Trust Browser in Private Access.
 
 [Watch a video about custom Private Access root certificates in Zero Trust Browser (shows legacy UI).](https://fast.wistia.net/embed/iframe/ty0r2pt9gx)
@@ -186,16 +186,13 @@ Root certificates allow admins to have more control over isolation profile authe
 
 ## About the Root Certificates Page
 
-On the Root Certificates page (Zero Trust Browser > Browser Isolation Private Apps > Root Certificate), you can do the following:
+On the Root Certificates page (Zero Trust Browser > Browser Isolation Private Apps > Root Certificates), you can do the following:
 
-1. Refresh the root certificate list.
-2. [Add](https://help.zscaler.com/zero-trust-browser/adding-root-certificates-zero-trust-browser-private-access) a new root certificate.
-3. Expand details for all root certificates in the list.
-4. View the table of the root certificates list.
-5. Modify the columns of the table. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables).
-6. Expand details for an individual root certificate in the list.
-7. [Edit](https://help.zscaler.com/zero-trust-browser/editing-root-certificate-zero-trust-browser-private-access) any custom root certificates that are not the default.
-8. [Delete](https://help.zscaler.com/zero-trust-browser/deleting-root-certificate-zero-trust-browser-private-access) any custom root certificates that are not the default and are not associated with any isolation profile.
+1. [Add](https://help.zscaler.com/zero-trust-browser/adding-root-certificates-zero-trust-browser-private-access) a new root certificate.
+2. Show or hide available columns.
+3. View the list of root certificates.
+4. [Edit](https://help.zscaler.com/zero-trust-browser/editing-root-certificate-zero-trust-browser-private-access) any custom root certificates that are not the default.
+5. [Delete](https://help.zscaler.com/zero-trust-browser/deleting-root-certificate-zero-trust-browser-private-access) any custom root certificates that are not the default and are not associated with any isolation profile.
 
 [Image: The Root Certificates page for Private Access]
 <!-- /ZS-ARTICLE -->
@@ -222,13 +219,13 @@ To allow sandboxing files for isolation users, enable this feature through the i
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/accessing-multiple-sessions-isolation","lastmod":"2026-09-08T14:34Z","nid":"1417561"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/accessing-multiple-sessions-isolation","lastmod":"2026-09-17T12:49Z","nid":"1417561"} -->
 ## Accessing Multiple Sessions In Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/accessing-multiple-sessions-isolation
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Accessing Multiple Sessions In Isolation
-- Last modified: 2026-09-08T14:34Z
+- Last modified: 2026-09-17T12:49Z
 - Summary: Information about the capability for Zero Trust Browser users to enter multiple isolation sessions at once.
 
 [Watch a video about accessing multiple sessions in isolation (shows legacy UI).](https://fast.wistia.net/embed/iframe/fdy8wmrk1q)
@@ -244,41 +241,38 @@ There is a limit of 10 active sessions per user at a time. To learn more, see [R
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/accessing-network-latency-isolation","lastmod":"2026-07-07T16:49Z","nid":"1373976"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/accessing-network-latency-isolation","lastmod":"2026-09-17T12:20Z","nid":"1373976"} -->
 ## Accessing Network Latency in Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/accessing-network-latency-isolation
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > End User Isolation Experience > Accessing Network Latency in Isolation
-- Last modified: 2026-07-07T16:49Z
+- Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Accessing Network Latency in Isolation
+- Last modified: 2026-09-17T12:20Z
 - Summary: Information about how users can access Network Latency for isolation.
 
 If you experience latency issues during your isolation session, you can check the latency information for the isolated browser in the Network Latency window.
 
 To view the Network Latency window for your active isolated session:
 
-1. Click the **Isolation Menu** icon. To learn more, see [Using the Isolation Menu in Native Browser Experience](https://help.zscaler.com/zero-trust-browser/using-isolation-menu-native-browser-experience). See image.
+1. Click the checkmark**Zero Trust Mode** icon. To learn more, see [Using the Zero Trust Mode Menu in Native Browser Experience](https://help.zscaler.com/zero-trust-browser/using-zero-trust-mode-menu-native-browser-experience). See image.
 2. Click the **Troubleshoot** icon. See image.
-3. Click **View Network Latency**. See image. The **Network Latency** window appears. This window has live, real-time statistics of network latency for WebSocket and HTTP connectivity. The percentile statistics indicate the distribution of latency across pings. You can view the logs of each type of connectivity and review the following statistics:
+3. Click **View Network Latency**. See image. The **Network Latency** window appears. This window has live, real-time statistics of network latency for WebSocket and HTTP connectivity. The percentile statistics indicate the distribution of latency across pings. You can view the logs of each type of connectivity and review the following statistics: See image.
+  - **Last value**: The last ping latency
+  - **Number of pings**: The total pings sent
+  - **Max**: The worst value logged
+  - **99%**: When 99% of pings have latency less than the indicated Last Value
+  - **75%**: When 75% of pings have latency less than the indicated Last Value
+  - **50Mean**: When 50% of pings have latency less than the indicated Last Value
+  - **Std. deviation**: The variance across pings
 
-- **Last Value**: The last ping latency
-- **Number of Pings**: The total pings sent
-- **Max**: The worst value logged
-- **99%**: When 99% of pings have latency less than the indicated Last Value
-- **75%**: When 75% of pings have latency less than the indicated Last Value
-- **50Mean**: When 50% of pings have latency less than the indicated Last Value
-- **Std. deviation**: The variance across pings
-
-See image.
-
-If you notice latency statistics that are unusually high or inconsistent, you can save the information captured in the Network Latency window to share as a report with Zscaler Support so they can further diagnose the issue.
+If you notice latency statistics that are unusually high or inconsistent, you can save the information captured in the **Network Latency** window to share as a report with Zscaler Support to further diagnose the issue.
 
 To save the Network Latency information as a report:
 
 1. Open the **Network Latency** window.
 2. Click **Export Logs**. By default, the report is saved to your device as a text file.
 
-You can then email Zscaler Support with the Network Latency report attached and note the latency issues you've experienced.
+You can email Zscaler Support with the Network Latency report attached and note the latency issues you've experienced.
 
 [Image: The Isolation Menu icon is at the right side of the page]
 
@@ -385,13 +379,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/adding-root-certificates-zero-trust-browser-internet-and-saas","lastmod":"2026-09-02T12:30Z","nid":"1447291"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/adding-root-certificates-zero-trust-browser-internet-and-saas","lastmod":"2026-09-17T11:06Z","nid":"1447291"} -->
 ## Adding Root Certificates for Zero Trust Browser in Internet & SaaS
 
 - Source: https://help.zscaler.com/zero-trust-browser/adding-root-certificates-zero-trust-browser-internet-and-saas
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > Profiles > Profile Certificates > Internet & SaaS Root Certificates > Adding Root Certificates for Zero Trust Browser in Internet & SaaS
-- Last modified: 2026-09-02T12:30Z
+- Last modified: 2026-09-17T11:06Z
 - Summary: How to add an Internet & SaaS root certificate for Zero Trust Browser.
 
 The default Zscaler Root Certificate is deployed automatically as a placeholder root certificate for any new [isolation profile](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas). However, you can add your own root certificates to use for isolation profiles instead.
@@ -399,11 +393,11 @@ The default Zscaler Root Certificate is deployed automatically as a placeholder 
 To add an Internet & SaaS (ZIA) root certificate:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Resources** > **Root Certificates**.
-2. Click **Add Root Certificate**. See image. The **Add Root Certificate**window appears.
-3. In the **Add Root Certificate** window:
+2. Click **Add Root Certificate**. See image. The **Add Root Certificate**drawer opens.
+3. In the **Add Root Certificate** drawer: See image.
   - Enter a **Name**.
   - For the **Type** of certificate, select **Browser Isolation** from the drop-down menu.
-  - For **Content**, browse your computer to choose a PEM file. See image.
+  - For **Content**, browse your computer to choose a PEM file.
 4. Click **Save**. The new root certificate appears in the page list.
 
 You can add up to 10 root certificates for your organization. After adding them, you can [edit a root certificate](https://help.zscaler.com/zero-trust-browser/editing-root-certificates-zero-trust-browser-internet-and-saas) that is not the default and not associated with an isolation profile.
@@ -417,13 +411,13 @@ To deploy root certificates to isolation profiles, see [Creating Isolation Profi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/adding-root-certificates-zero-trust-browser-private-access","lastmod":"2026-09-02T12:28Z","nid":"1450591"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/adding-root-certificates-zero-trust-browser-private-access","lastmod":"2026-09-17T11:27Z","nid":"1450591"} -->
 ## Adding Root Certificates for Zero Trust Browser in Private Access
 
 - Source: https://help.zscaler.com/zero-trust-browser/adding-root-certificates-zero-trust-browser-private-access
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > Profiles > Profile Certificates > Private Access Root Certificates > Adding Root Certificates for Zero Trust Browser in Private Access
-- Last modified: 2026-09-02T12:28Z
+- Last modified: 2026-09-17T11:27Z
 - Summary: How to add root certificates for Zero Trust Browser in Private Access.
 
 [Watch a video about Custom Private Access Root Certificates in Zero Trust Browser (shows legacy UI).](https://fast.wistia.net/embed/iframe/ty0r2pt9gx)
@@ -432,7 +426,7 @@ The default Zscaler Root Certificate is deployed automatically as a placeholder 
 
 To add a root certificate:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Browser** > **Browser Isolation Private Apps** > **Root Certificate**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Browser** > **Browser Isolation Private Apps** > **Root Certificates**.
 2. Click **Add**. See image. The **Add Root Certificate**drawer opens.
 3. In the **Add Root Certificate** drawer: See image.
   1. Enter a **Name**.
@@ -521,13 +515,13 @@ Bandwidth Control is disabled for all traffic from the isolated browser destined
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas","lastmod":"2026-09-03T07:43Z","nid":"1447211"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas","lastmod":"2026-09-17T13:52Z","nid":"1447211"} -->
 ## Creating Isolation Profiles for Internet & SaaS
 
 - Source: https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > Profiles > Internet & SaaS Profiles > Creating Isolation Profiles for Internet & SaaS
-- Last modified: 2026-09-03T07:43Z
+- Last modified: 2026-09-17T13:52Z
 - Summary: How to create an isolation profile for Internet & SaaS.
 
 [Watch a video about creating a Internet & SaaS Profile for Zero Trust Browser (shows legacy UI).](https://fast.wistia.net/embed/iframe/qjllwn7ytu)
@@ -583,7 +577,7 @@ To create an isolation profile for Internet & SaaS:
   4. On the **Regions** tab: See image.
     1. **Isolation Regions**: Select at least two regions. The isolation containers are leased to the user only from the selected regions based on the least network latency.
     2. Click **Next**.
-  5. On the **Isolation Experience** tab: See image.
+  5. On the**Experience** tab: See image.
     1. **Isolation Banner**:Select an Isolation banner. The banner you choose shows a preview in the window. Choose from existing banners, or create custom isolation banners to use for your isolation profiles. To learn more, see [Adding a Banner Theme for the Isolation End User Notification in Internet & SaaS](https://help.zscaler.com/zero-trust-browser/adding-banner-theme-isolation-end-user-notification-internet-and-saas).
     2. **Isolation Experience**: Select one of the following modes:
       - **Native browser experience**: This mode provides the user with a browsing experience similar to accessing the native web page with a typical browser. The user can customize this view.
@@ -620,13 +614,13 @@ You can use this isolation profile to create a policy in Internet & SaaS to allo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/creating-isolation-profiles-for-private-access","lastmod":"2026-09-02T12:24Z","nid":"1447731"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/creating-isolation-profiles-for-private-access","lastmod":"2026-09-16T08:44Z","nid":"1447731"} -->
 ## Creating Isolation Profiles for Private Access
 
 - Source: https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > Profiles > Private Access Profiles > Creating Isolation Profiles for Private Access
-- Last modified: 2026-09-02T12:24Z
+- Last modified: 2026-09-16T08:44Z
 - Summary: How to create an isolation profile for Private Access.
 
 [Watch a video about creating a Private Access Isolation Profile for Zero Trust Browser (shows legacy UI).](https://fast.wistia.net/embed/iframe/bbh6zk55s2)
@@ -712,13 +706,13 @@ You can use this isolation profile to create policies in Private Access to isola
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/default-isolation-profiles-zero-trust-browser","lastmod":"2026-09-01T08:14Z","nid":"1447301"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/default-isolation-profiles-zero-trust-browser","lastmod":"2026-09-15T21:06Z","nid":"1447301"} -->
 ## Default Isolation Profiles for Zero Trust Browser
 
 - Source: https://help.zscaler.com/zero-trust-browser/default-isolation-profiles-zero-trust-browser
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > Profiles > Default Isolation Profiles for Zero Trust Browser
-- Last modified: 2026-09-01T08:14Z
+- Last modified: 2026-09-15T21:06Z
 - Summary: Information about the default isolation profiles automatically created for organizations using Internet & SaaS and Private Access.
 
 Default isolation profiles are automatically created for any organization that uses [Zscaler Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) (formerly Zscaler Isolation). This allows a quick setup for your organization without manually creating the first isolation profile needed for configuring Zero Trust Browser. It is not required to use the default isolation profiles for any configuration. They are only used if your organization does not manually create any isolation profiles.
@@ -792,13 +786,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/deleting-isolation-profile-internet-and-saas","lastmod":"2026-09-02T12:23Z","nid":"1447281"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/deleting-isolation-profile-internet-and-saas","lastmod":"2026-09-16T21:06Z","nid":"1447281"} -->
 ## Deleting an Isolation Profile for Internet & SaaS
 
 - Source: https://help.zscaler.com/zero-trust-browser/deleting-isolation-profile-internet-and-saas
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > Profiles > Internet & SaaS Profiles > Deleting an Isolation Profile for Internet & SaaS
-- Last modified: 2026-09-02T12:23Z
+- Last modified: 2026-09-16T21:06Z
 - Summary: How to delete an isolation profile for Internet & SaaS.
 
 After [creating an isolation profile for Internet & SaaS (ZIA)](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas), you can [edit](https://help.zscaler.com/zero-trust-browser/editing-your-isolation-profile-internet-and-saas) or delete the profile at any time.
@@ -820,13 +814,13 @@ The page refreshes, and a temporary message appears to confirm that the isolatio
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/deleting-isolation-profile-private-access","lastmod":"2026-09-02T12:26Z","nid":"1450581"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/deleting-isolation-profile-private-access","lastmod":"2026-09-16T21:06Z","nid":"1450581"} -->
 ## Deleting an Isolation Profile for Private Access
 
 - Source: https://help.zscaler.com/zero-trust-browser/deleting-isolation-profile-private-access
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > Profiles > Private Access Profiles > Deleting an Isolation Profile for Private Access
-- Last modified: 2026-09-02T12:26Z
+- Last modified: 2026-09-16T21:06Z
 - Summary: This article provides the step-by-step process of how to delete an isolation profile for Private Access.
 
 After [creating a Private Access (ZPA) isolation profile](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access), you can delete the profile at any time.
@@ -848,13 +842,13 @@ The page refreshes and removes the deleted profile from the list.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/deleting-root-certificate-zero-trust-browser-internet-saas","lastmod":"2026-09-02T12:29Z","nid":"1447366"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/deleting-root-certificate-zero-trust-browser-internet-saas","lastmod":"2026-09-17T11:17Z","nid":"1447366"} -->
 ## Deleting a Root Certificate for Zero Trust Browser in Internet & SaaS
 
 - Source: https://help.zscaler.com/zero-trust-browser/deleting-root-certificate-zero-trust-browser-internet-saas
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > Profiles > Profile Certificates > Internet & SaaS Root Certificates > Deleting a Root Certificate for Zero Trust Browser in Internet & SaaS
-- Last modified: 2026-09-02T12:29Z
+- Last modified: 2026-09-17T11:17Z
 - Summary: How to delete a root certificate for Zero Trust Browser in Internet & SaaS.
 
 You can delete almost all root certificates, excluding the default Zscaler Root Certificate. You can't delete the default because at least one root certificate is required per isolation profile. To learn more, see [About Root Certificates for Zero Trust Browser in Internet & SaaS](https://help.zscaler.com/zero-trust-browser/about-root-certificates-zero-trust-browser-internet-and-saas).
@@ -864,8 +858,10 @@ Additionally, if any other root certificates are associated with an isolation pr
 To delete a root certificate:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Resources** > **Root Certificates**.
-2. Click the **Delete** icon for the certificate. See image. A warning message appears to confirm that you want to delete the certificate.
-3. Select the checkbox, then click **Delete**. See image.
+2. Click the **Delete** icon for the certificate. See image. The **Delete Root Certificates** window appears.
+3. In the **Delete Root Certificates** window: See image.
+  1. Enter `CONFIRM`.
+  2. Click **Delete**.
 
 [Image: The Root Certificates page]
 
@@ -874,13 +870,13 @@ To delete a root certificate:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/deleting-root-certificate-zero-trust-browser-private-access","lastmod":"2026-09-02T12:26Z","nid":"1450601"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/deleting-root-certificate-zero-trust-browser-private-access","lastmod":"2026-09-17T11:37Z","nid":"1450601"} -->
 ## Deleting a Root Certificate for Zero Trust Browser in Private Access
 
 - Source: https://help.zscaler.com/zero-trust-browser/deleting-root-certificate-zero-trust-browser-private-access
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > Profiles > Profile Certificates > Private Access Root Certificates > Deleting a Root Certificate for Zero Trust Browser in Private Access
-- Last modified: 2026-09-02T12:26Z
+- Last modified: 2026-09-17T11:37Z
 - Summary: How to delete root certificates for Zero Trust Browser in Private Access.
 
 Almost all root certificates can be deleted, excluding the default Zscaler Root Certificate. This is because at least one root certificate is required per isolation profile. To learn more, see [About Root Certificates for Zero Trust Browser in Private Access](https://help.zscaler.com/zero-trust-browser/about-root-certificates-zero-trust-browser-private-access).
@@ -889,9 +885,11 @@ Additionally, if any other custom root certificates are associated with an isola
 
 To delete a root certificate:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Browser** > **Browser Isolation Private Apps** > **Root Certificate**.
-2. Click the **Delete** icon for the certificate. If the certificate is the default or is associated with an isolation profile, the delete icon is not available. See image.
-3. A warning message appears to confirm that you want to delete the certificate. Select the checkbox, then click **Delete**. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Browser** > **Browser Isolation Private Apps** > **Root Certificates**.
+2. Click the **Delete** icon for the certificate. If the certificate is the default or is associated with an isolation profile, the delete icon is not available. See image. The **Confirm: Delete Certificate** window appears.
+3. In the **Confirm: Delete Certificate** window: See image.
+  1. Enter `CONFIRM`.
+  2. Click **Delete**.
 
 [Image: Click the Delete icon for the Root Certificate]
 
@@ -954,13 +952,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/editing-isolation-profile-internet-and-saas","lastmod":"2026-09-02T12:23Z","nid":"1447276"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/editing-isolation-profile-internet-and-saas","lastmod":"2026-09-16T21:06Z","nid":"1447276"} -->
 ## Editing an Isolation Profile for Internet & SaaS
 
 - Source: https://help.zscaler.com/zero-trust-browser/editing-isolation-profile-internet-and-saas
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > Profiles > Internet & SaaS Profiles > Editing an Isolation Profile for Internet & SaaS
-- Last modified: 2026-09-02T12:23Z
+- Last modified: 2026-09-16T21:06Z
 - Summary: How to edit an isolation profile for Internet & SaaS.
 
 After [creating an isolation profile for Internet & SaaS (ZIA)](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas), you can edit the profile at any time.
@@ -980,13 +978,13 @@ You can use this isolation profile to create policies in Internet & SaaS integra
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/editing-isolation-profile-private-access","lastmod":"2026-09-02T12:25Z","nid":"1450576"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/editing-isolation-profile-private-access","lastmod":"2026-09-16T21:06Z","nid":"1450576"} -->
 ## Editing an Isolation Profile for Private Access
 
 - Source: https://help.zscaler.com/zero-trust-browser/editing-isolation-profile-private-access
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > Profiles > Private Access Profiles > Editing an Isolation Profile for Private Access
-- Last modified: 2026-09-02T12:25Z
+- Last modified: 2026-09-16T21:06Z
 - Summary: How to edit an isolation profile for Private Access.
 
 After [creating a Private Access (ZPA) isolation profile](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access), you can edit the profile at any time.
@@ -1006,13 +1004,13 @@ You can use this isolation profile to create policies in Private Access to isola
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/editing-root-certificate-zero-trust-browser-private-access","lastmod":"2026-09-02T12:27Z","nid":"1450596"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/editing-root-certificate-zero-trust-browser-private-access","lastmod":"2026-09-17T11:31Z","nid":"1450596"} -->
 ## Editing a Root Certificate for Zero Trust Browser in Private Access
 
 - Source: https://help.zscaler.com/zero-trust-browser/editing-root-certificate-zero-trust-browser-private-access
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > Profiles > Profile Certificates > Private Access Root Certificates > Editing a Root Certificate for Zero Trust Browser in Private Access
-- Last modified: 2026-09-02T12:27Z
+- Last modified: 2026-09-17T11:31Z
 - Summary: How to edit root certificates for Zero Trust Browser in Private Access.
 
 After a root certificate is [added](https://help.zscaler.com/zero-trust-browser/adding-root-certificates-zero-trust-browser-private-access) to your organization, you can edit it at any time, even while it's associated with an isolation profile. The only root certificate you cannot edit is the default Zscaler Root Certificate. To learn more, see [About Root Certificates for Zero Trust Browser in Private Access](https://help.zscaler.com/zero-trust-browser/about-root-certificates-zero-trust-browser-private-access).
@@ -1021,9 +1019,9 @@ You cannot change the PEM file when editing a root certificate. To use a differe
 
 To edit a root certificate:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Browser** > **Browser Isolation Private Apps** > **Root Certificate**.
-2. Click the **Edit** icon for the certificate. See image. The **Edit Root Certificate** side panel appears.
-3. In the **Edit Root Certificate** side panel, edit the **Name** for the root certificate. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Browser** > **Browser Isolation Private Apps** > **Root Certificates**.
+2. Click the **Edit** icon for the certificate. See image. The **Edit Root Certificate** drawer opens.
+3. In the **Edit Root Certificate** drawer, edit the **Name** for the root certificate. See image.
 4. Click **Save**.
 
 [Image: Click Edit for the desired root certificate.]
@@ -1033,13 +1031,13 @@ To edit a root certificate:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/editing-root-certificates-zero-trust-browser-internet-and-saas","lastmod":"2026-09-02T12:29Z","nid":"1447361"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/editing-root-certificates-zero-trust-browser-internet-and-saas","lastmod":"2026-09-17T11:12Z","nid":"1447361"} -->
 ## Editing Root Certificates for Zero Trust Browser in Internet & SaaS
 
 - Source: https://help.zscaler.com/zero-trust-browser/editing-root-certificates-zero-trust-browser-internet-and-saas
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > Profiles > Profile Certificates > Internet & SaaS Root Certificates > Editing Root Certificates for Zero Trust Browser in Internet & SaaS
-- Last modified: 2026-09-02T12:29Z
+- Last modified: 2026-09-17T11:12Z
 - Summary: How to edit root certificates for Zero Trust Browser in Internet & SaaS.
 
 After a root certificate is added to your organization for Zero Trust Browser, you can edit it at any time, even while it's associated with an [isolation profile](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas). The only certificate you cannot fully edit is the default Zscaler Root Certificate. To learn more, see [About Root Certificates for Zero Trust Browser in Internet & SaaS](https://help.zscaler.com/zero-trust-browser/about-root-certificates-zero-trust-browser-internet-and-saas).
@@ -1049,8 +1047,8 @@ You cannot change the PEM file in a root certificate. To use a different PEM fil
 To edit a root certificate:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Resources** > **Root Certificates**.
-2. Click the **Edit** icon for the certificate. See image. The **Edit Root Certificate** window.
-3. In the **Edit Root Certificate** window: See image.
+2. Click the **Edit** icon for the certificate. See image. The **Edit Root Certificate** drawer opens.
+3. In the **Edit Root Certificate** drawer: See image.
   1. Edit the **Name** for the root certificate.
   2. Edit the **Type** of the root certificate. Use the drop-down menu to add or remove the selected type(s).
   3. Click **Save**.
@@ -1062,13 +1060,13 @@ To edit a root certificate:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/forwarding-traffic-from-private-access-to-internet-and-saas-profiles-in-isolation","lastmod":"2026-09-01T08:51Z","nid":"1462296"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/forwarding-traffic-from-private-access-to-internet-and-saas-profiles-in-isolation","lastmod":"2026-09-15T21:06Z","nid":"1462296"} -->
 ## Forwarding Traffic from Private Access Profiles to Internet & SaaS in Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/forwarding-traffic-from-private-access-to-internet-and-saas-profiles-in-isolation
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > Profiles > Private Access Profiles > Forwarding Traffic from Private Access Profiles to Internet & SaaS in Isolation
-- Last modified: 2026-09-01T08:51Z
+- Last modified: 2026-09-15T21:06Z
 - Summary: Information about forwarding internet traffic for Private Access isolation profiles to Internet & SaaS.
 
 An isolation session can be initiated from Internet & SaaS (ZIA) policies or Private Access (ZPA) policies. However, an isolation browser initiated from Private Access policies can send traffic only via Private Access.
@@ -1084,13 +1082,13 @@ You can enable this feature per Private Access isolation profile. To learn more,
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/mobile-user-experience-isolation","lastmod":"2026-09-09T13:55Z","nid":"1471036"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/mobile-user-experience-isolation","lastmod":"2026-09-17T12:50Z","nid":"1471036"} -->
 ## Mobile User Experience in Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/mobile-user-experience-isolation
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Mobile User Experience in Isolation
-- Last modified: 2026-09-09T13:55Z
+- Last modified: 2026-09-17T12:50Z
 - Summary: Information about Mobile User Experience in isolation.
 
 Zero Trust Browser is supported on iOS and Android mobile platforms. When traffic is generated from a mobile browser and triggers a policy on Private Access (ZPA) that has the action as Isolate, that traffic is isolated. Isolation is only intended to work on mobile browser-based applications, not native mobile applications.
@@ -1161,13 +1159,13 @@ If you have read-only mode enabled for your isolation profile and think it is a 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/secure-saas-access-unmanaged-devices-user-portal","lastmod":"2026-09-01T10:14Z","nid":"1463476"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/secure-saas-access-unmanaged-devices-user-portal","lastmod":"2026-09-15T21:06Z","nid":"1463476"} -->
 ## Secure SaaS Access from Unmanaged Devices via User Portal
 
 - Source: https://help.zscaler.com/zero-trust-browser/secure-saas-access-unmanaged-devices-user-portal
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > Profiles > Private Access Profiles > Secure SaaS Access from Unmanaged Devices via User Portal
-- Last modified: 2026-09-01T10:14Z
+- Last modified: 2026-09-15T21:06Z
 - Summary: Information about secure SaaS access from unmanaged devices via the User Portal for Private Access and Zero Trust Browser.
 
 Organizations can allow unmanaged devices access to sanctioned SaaS applications while still enforcing the [isolation policies](https://help.zscaler.com/zpa/about-isolation-policy) you define on Private Access (ZPA). The isolation containers that are created as a result of a Private Access isolation policy for Zero Trust Browser can forward to Internet & SaaS (ZIA) any internet traffic or application traffic not defined on Private Access for further processing and enforcement of necessary policies. Any traffic generated by applications defined on Private Access will continue to be forwarded via [Private Access’s ZTNA service](https://help.zscaler.com/zpa/universal-ztna-zscaler-private-access-private-service-edge).
@@ -1285,13 +1283,13 @@ Configure policies to map to the isolation profiles:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/transferring-and-viewing-files-isolation","lastmod":"2026-09-01T10:50Z","nid":"1373986"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/transferring-and-viewing-files-isolation","lastmod":"2026-09-17T12:41Z","nid":"1373986"} -->
 ## Transferring and Viewing Files in Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/transferring-and-viewing-files-isolation
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Transferring and Viewing Files in Isolation
-- Last modified: 2026-09-01T10:50Z
+- Last modified: 2026-09-17T12:41Z
 - Summary: How to transfer, download, and view files as well as print web pages in isolation.
 
 [Watch a video about transferring and viewing files in an isolated browser (shows legacy UI).](https://fast.wistia.net/embed/iframe/yfsb90jsen)
@@ -1478,13 +1476,13 @@ Each user redirected to Cloud Browser is allocated an endpoint container, and al
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-enterprise-browser","lastmod":"2026-09-09T06:42Z","nid":"1541211"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-enterprise-browser","lastmod":"2026-09-15T08:17Z","nid":"1541211"} -->
 ## Understanding Enterprise Browser
 
 - Source: https://help.zscaler.com/zero-trust-browser/understanding-enterprise-browser
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Enterprise Browser > Understanding Enterprise Browser
-- Last modified: 2026-09-09T06:42Z
+- Last modified: 2026-09-15T08:17Z
 - Summary: Information about Enterprise Browser for Zero Trust Browser.
 
 Enterprise Browser for [Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) is a dedicated, hardened Chromium browser that protects users from everyday browser-based threats and allows them to securely access SaaS applications and private web, Remote Desktop Protocol (RDP), SSH, and Virtual Network Computing (VNC) applications.
@@ -1503,7 +1501,7 @@ Enterprise Browser prevents common attacks on users that occur in daily operatio
 - Browsing internal and external websites
 - Sharing sensitive information through collaboration tools
 
-To get Enterprise Browser, contact Zscaler Support. For deployment information, refer to [https://deployztbrowser.com/docs/](https://deployztbrowser.com/docs/.%20%20%20).
+To get Enterprise Browser, contact Zscaler Support. For deployment information, refer to [https://deployztbrowser.com/docs/](https://deployztbrowser.com/docs/).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1557,20 +1555,20 @@ To learn more, see [Editing an Isolation Profile for Internet & SaaS](https://he
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-language-translate-isolation","lastmod":"2026-06-26T15:07Z","nid":"1519151"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-language-translate-isolation","lastmod":"2026-09-17T12:49Z","nid":"1519151"} -->
 ## Understanding Language Translate for Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/understanding-language-translate-isolation
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > End User Isolation Experience > Understanding Language Translate for Isolation
-- Last modified: 2026-06-26T15:07Z
+- Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Understanding Language Translate for Isolation
+- Last modified: 2026-09-17T12:49Z
 - Summary: Information about translation services provided by Google Translate for Zero Trust Browser.
 
 Zero Trust Browser is beneficial to admins who want to provide their users with a secure web page browsing experience. Isolation provides a near-native browsing experience for users by utilizing various browser capabilities, including translation services.
 
 For organizations that have global users, the majority of internet web pages can be served to them in multiple different languages. Common commercial browsers provide the ability to translate a web page from the language that appears by default into the language of the user’s browser. Isolation provides the same capability, automatically translating a web page to the user's language when they begin a new isolated session. Depending on their local browser settings, the isolation container knows which language to render on the web page.
 
-If a user would like to change the language settings, Zero Trust Browser also provides the option to manually select the desired language. After the isolation container fully renders, the user can access the translation settings by going to the [isolation menu](https://help.zscaler.com/zero-trust-browser/using-isolation-menu-native-browser-experience) or the default options in the [right-click menu](https://help.zscaler.com/zero-trust-browser/using-right-click-menu-isolation). To learn more, see [Using the Isolation Menu in Native Browser Experience](https://help.zscaler.com/zero-trust-browser/using-isolation-menu-native-browser-experience) and [Using the Right-Click Menu in Isolation](https://help.zscaler.com/zero-trust-browser/using-right-click-menu-isolation).
+If a user would like to change the language settings, Zero Trust Browser also provides the option to manually select the desired language. After the isolation container fully renders, the user can access the translation settings by going to the Zero Trust Mode menu or the default options in the right-click menu. To learn more, see [Using the Zero Trust Mode Menu in Native Browser Experience](https://help.zscaler.com/zero-trust-browser/using-zero-trust-mode-menu-native-browser-experience) and [Using the Right-Click Menu in Isolation](https://help.zscaler.com/zero-trust-browser/using-right-click-menu-isolation).
 
 The Language translate window gives users the option to translate the entire web page, or to copy and paste selected text from the web page into the translation text box. They can use the drop-down menu to translate text to any language. To learn more about the language translation service, refer to the [Google Translate website documentation](http://translate.google.com/).
 
@@ -1677,36 +1675,35 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/using-debug-mode-isolation","lastmod":"2026-07-10T21:06Z","nid":"1479256"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/using-debug-mode-isolation","lastmod":"2026-09-16T09:02Z","nid":"1479256"} -->
 ## Using Debug Mode for Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/using-debug-mode-isolation
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > End User Isolation Experience > Using Debug Mode for Isolation
-- Last modified: 2026-07-10T21:06Z
-- Summary: An article about using Debug Mode for isolation.
+- Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Using Debug Mode for Isolation
+- Last modified: 2026-09-16T09:02Z
+- Summary: Information about using Debug Mode for isolation.
 
-## Enabling Debug Mode for Users
+When an issue occurs during an isolated session, users can start Debug Mode to troubleshoot the issue. This allows users to decipher whether the issue occurring is related to the isolated session itself or something else related to their web browsing. Native browsers allow users to troubleshoot in a few ways, usually with developer tools. An end user of Zero Trust Browser, however, cannot see these details that are typically available in the native browser. Debug Mode allows users to troubleshoot the issue without revealing confidential information.
 
-Debug Mode is a feature that admins can enable for users in their isolation profiles. To learn more, see [Creating Isolation Profiles for Internet & SaaS](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) and [Creating Isolation Profiles for Private Access](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access).
-
-When an issue occurs during an isolated session, users can start Debug Mode to troubleshoot the issue. This allows users to decipher whether the issue occurring is related to the isolated session itself, or something else related to their web browsing. Native browsers allow users to troubleshoot in a few ways, usually with developer tools. An end user of Zero Trust Browser, however, cannot see these details that are typically available in the native browser. Debug Mode allows users to troubleshoot the issue without revealing confidential information.
+Admins can enable Debug Mode for users in their isolation profiles. To learn more, see [Creating Isolation Profiles for Internet & SaaS](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) and [Creating Isolation Profiles for Private Access](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access).
 
 ## Starting Debug Mode
 
 To begin a debug mode session:
 
-1. Click the **Isolation Menu** icon. To learn more, see [Using the Isolation Menu in Native Browser Experience](https://help.zscaler.com/zero-trust-browser/using-isolation-menu-native-browser-experience).
+1. Click the checkmark**Zero Trust Mode** icon. To learn more, see [Using the Zero Trust Mode Menu in Native Browser Experience](https://help.zscaler.com/zero-trust-browser/using-isolation-menu-native-browser-experience).
 2. Click the **Troubleshoot** icon.
-3. Click **Start Debug Mode**. See image.
-4. A message appears asking you to confirm starting debug mode, and notes that the current isolation session will be terminated to begin a new one. Click **Start**. See image. The web page reloads with the same URL and restarts the isolation session with debug mode activated. The blue **Debug Mode** icon appears where the **Troubleshoot Icon** is. If you have multiple tabs open for one isolation session, only the selected tab enters debug mode. The other tabs in the existing session close automatically, and any information on those tabs is lost when the session restarts. If you open new tabs while in the restarted isolated session, the new tabs are automatically in debug mode. See image.
+3. Click **Start Debug Mode**. See image. A message appears asking you to confirm starting debug mode, and notes that the current isolation session will be terminated to begin a new one.
+4. Click **Start**. See image. The web page reloads with the same URL and restarts the isolation session with debug mode activated. The blue **Debug Mode** icon appears in place of the **Troubleshoot**icon. See image. If you have multiple tabs open for one isolation session, only the selected tab enters debug mode. The other tabs in the existing session close automatically, and any information on those tabs is lost when the session restarts. If you open new tabs while in the restarted isolated session, the new tabs are automatically in debug mode.
 
 ## Stopping Debug Mode
 
 To end a debug mode session:
 
-1. Hover over the blue **Debug Mode** icon to show the red **Stop Debug Mode** icon. Click the **Stop Debug Mode** icon. See image. A message appears asking you to confirm ending debug mode. Click **Stop**. If you do not manually stop debug mode, it deactivates after a [timeout period of 10 minutes](https://help.zscaler.com/unified/ranges-limitations). If you end your isolation session while using debug mode, all data from the debugging is still captured. If you stop debug mode when there are multiple tabs open, the data from all tabs is captured. After debug mode stops, a message appears confirming it has concluded.
-2. When debug mode ends, a ZIP file is automatically generated and downloaded to your device. The ZIP file is named in the format "debug_DDMMYY: TimeinUTC" and is encrypted by a password set by the admin. It includes data for:
+1. Hover over the blue **Debug Mode** icon to show the red **Stop Debug Mode** icon, then click the **Stop Debug Mode** icon. See image. A message appears asking you to confirm ending debug mode.
+2. Click **Stop**. See image. If you do not manually stop debug mode, it deactivates after a [timeout period of 10 minutes](https://help.zscaler.com/unified/ranges-limitations). If you end your isolation session while using debug mode, all data from the debugging is still captured. If you stop debug mode when there are multiple tabs open, the data from all tabs is captured. After debug mode stops, a message appears confirming it has concluded.
+3. When debug mode ends, a ZIP file is automatically generated and downloaded to your device. The ZIP file is named in the format `debug_DDMMYY: TimeinUTC` and is encrypted by a password set by the admin. It includes data for the following:
   - **Console Logs**: Information from the website(s) accessed while in isolation.
   - **HTTP Archive format (HAR) Data**: Information about the isolated session.
   - **Netlog Data**: Information from the web browser used.
@@ -1732,6 +1729,8 @@ To end a debug mode session:
 [Image: A view of an isolated web page.]
 
 [Image: Isolation Menu - Stop debug]
+
+[Image: Stop Debug Mode confirmation window]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1784,13 +1783,13 @@ Enabling redaction does not impact files, meaning that images, PDFs, or uploaded
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/using-right-click-menu-isolation","lastmod":"2026-09-09T13:51Z","nid":"1392986"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/using-right-click-menu-isolation","lastmod":"2026-09-15T12:48Z","nid":"1392986"} -->
 ## Using the Right-Click Menu in Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/using-right-click-menu-isolation
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Using the Right-Click Menu in Isolation
-- Last modified: 2026-09-09T13:51Z
+- Last modified: 2026-09-15T12:48Z
 - Summary: How to use the right-click menu in isolation.
 
 The right-click menu in isolation replicates the typical menu of functions that users normally see in a standard browser window. Depending on where a user is on a web page and which capabilities have been enabled for their isolation profile, different options display in the right-click menu.
@@ -1919,13 +1918,13 @@ To use Sandbox with Zero Trust Browser:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/using-zero-trust-mode-menu-native-browser-experience","lastmod":"2026-08-05T07:50Z","nid":"1386451"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/using-zero-trust-mode-menu-native-browser-experience","lastmod":"2026-09-17T12:23Z","nid":"1386451"} -->
 ## Using the Zero Trust Mode Menu in Native Browser Experience
 
 - Source: https://help.zscaler.com/zero-trust-browser/using-zero-trust-mode-menu-native-browser-experience
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > End User Isolation Experience > Using the Zero Trust Mode Menu in Native Browser Experience
-- Last modified: 2026-08-05T07:50Z
+- Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Using the Zero Trust Mode Menu in Native Browser Experience
+- Last modified: 2026-09-17T12:23Z
 - Summary: Instructions for using the Zero Trust Mode menu in the native browser experience mode for Zero Trust Browser.
 
 In [Native Browser Experience Mode](https://help.zscaler.com/zero-trust-browser/user-experience-modes-isolation) for Zero Trust Browser, users can opt for a typical browser view while still benefiting from the protection of an isolated session.

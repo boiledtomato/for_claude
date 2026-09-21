@@ -1,7 +1,7 @@
 # Zscaler Help — Deployment / Operations / Terms (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-14 03:38 UTC
+Generated: 2026-09-21 08:12 UTC
 Articles in this file: 94
 
 ---
@@ -585,13 +585,13 @@ Announcement date: May 4, 2022
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/product-usage-terms/end-support-zsos24-branch-connector-deployments","lastmod":"2026-09-08T08:18Z","nid":"1543210"} -->
+<!-- ZS-ARTICLE {"url":"/product-usage-terms/end-support-zsos24-branch-connector-deployments","lastmod":"2026-09-14T08:54Z","nid":"1543210"} -->
 ## End-of-Support for ZscalerOS 24 for Branch Connector Deployments
 
 - Source: https://help.zscaler.com/product-usage-terms/end-support-zsos24-branch-connector-deployments
 - Product: Product Usage Terms & Policies
 - Path: Product Usage Terms & Policies > EOS & EOL Announcements > End-of-Support for ZscalerOS 24 for Branch Connector Deployments
-- Last modified: 2026-09-08T08:18Z
+- Last modified: 2026-09-14T08:54Z
 - Summary: End-of-Support (EOS) for ZscalerOS 24 for Branch Connector deployments.
 
 Branch Connector appliances based on ZscalerOS 24 and earlier are no longer supported:
@@ -599,12 +599,9 @@ Branch Connector appliances based on ZscalerOS 24 and earlier are no longer supp
 - Virtual appliances are no longer supported on VMware platforms, Linux KVM, and Microsoft Hyper-V.
 - Hardware appliances are no longer supported on ZT-400, ZT-600, and ZT-800.
 
-If your organization is running a Branch Connector deployment with ZscalerOS 24 or earlier, you can either:
+If your organization is running a Branch Connector deployment with ZscalerOS 24 or earlier, you must upgrade to ZscalerOS 42 or higher by December 31, 2026 to ensure service continuity. To learn more, see [How to validate if a Zscaler VM is Running ZSOS24 needs redeployment](https://community.zscaler.com/zenith/s/Guides/aSoPJ0000006QCj0AM/how-to-validate-if-a-zscaler-vm-is-running-zsos24-needs-redeployment) on Zscaler Community. No action is required for customers with Branch Connectors running ZscalerOS 42.
 
-- Migrate to ZscalerOS 42 or higher by November 30, 2026 to ensure service continuity.
-- Migrate to Zero Trust Branch appliances. Contact your Zscaler Account team to learn about the available options.
-
-No action is required for customers with Branch Connectors running ZscalerOS 42.
+This notice does not apply to Zero Trust Branch appliances.
 
 Announcement date: August 30, 2026
 <!-- /ZS-ARTICLE -->
@@ -1006,13 +1003,13 @@ As designed, Offerings may produce Outputs that reveal latent security vulnerabi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/product-usage-terms/supported-versions","lastmod":"2026-09-09T10:16Z","nid":"1269771"} -->
+<!-- ZS-ARTICLE {"url":"/product-usage-terms/supported-versions","lastmod":"2026-09-15T13:27Z","nid":"1269771"} -->
 ## Supported Versions
 
 - Source: https://help.zscaler.com/product-usage-terms/supported-versions
 - Product: Product Usage Terms & Policies
 - Path: Product Usage Terms & Policies > Software Policy & Support > Supported Versions
-- Last modified: 2026-09-09T10:16Z
+- Last modified: 2026-09-15T13:27Z
 - Summary: Matrix of the supported endpoint application versions for Zscaler.
 
 ## Zscaler Client Connector Supported Versions
@@ -1043,16 +1040,17 @@ These versions of Zscaler Client Connector for Windows are supported by Zscaler,
 
 These versions of Zscaler Client Connector for macOS are supported by Zscaler, and the following table indicates the macOS versions compatible with each supported version of Zscaler Client Connector.
 
-| Compatible OS | Supported Zscaler Client Connector Versions | Notes |  |  |
-| --- | --- | --- | --- | --- |
-| OS Version | [4.5.2 (LTS)](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2025?applicable_category=macOS&applicable_version=4.5.2) | [4.7](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2025?applicable_category=macOS&applicable_version=4.7) | [4.8](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=macOS&applicable_version=4.8) |  |
-| macOS Sonoma (14) | [Image: Supported] | [Image: Supported] | [Image: Supported] |  |
-| macOS Sequoia (15) | [Image: Supported] | [Image: Supported] | [Image: Supported] |  |
-| macOS Tahoe (26) | [Image: Supported] | [Image: Supported] | [Image: Supported] | macOS Tahoe (26.2) and later supports Zscaler Client Connector versions 4.5.2.105 and later minor versions, 4.7 and later minor versions, and 4.8 and later minor versions. |
+| Compatible OS | Supported Zscaler Client Connector Versions | Notes |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| OS Version | [4.5.2 (LTS)](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2025?applicable_category=macOS&applicable_version=4.5.2) | [4.7](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2025?applicable_category=macOS&applicable_version=4.7) | [4.8](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=macOS&applicable_version=4.8) | [4.10](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=macOS&applicable_version=4.10) |  |
+| macOS Sonoma (14) | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] |  |
+| macOS Sequoia (15) | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] |  |
+| macOS Tahoe (26) | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] | macOS Tahoe (26.2) and later supports Zscaler Client Connector versions 4.5.2.105 and later minor versions, 4.7 and later minor versions, and 4.8 and later minor versions. |
+| macOS Golden Gate (27) | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] |  |
 
 These versions of Zscaler Client Connector for Linux are supported by Zscaler, and the following table indicates the distributions compatible with each supported version of Zscaler Client Connector.
 
-| Compatible Distribution | Supported Zscaler Client Connector Versions |  |  | Notes |  |
+| Compatible Distribution | Supported Zscaler Client Connector Versions | Notes |  |  |  |
 | --- | --- | --- | --- | --- | --- |
 | Distribution (Version) | [3.7.2 (LTS)](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2025?applicable_category=Linux&applicable_version=3.7.2) | [4.2](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2025?applicable_category=Linux&applicable_version=4.2) | [4.2.1](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=Linux&applicable_version=4.2.1) | [4.2.2](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=Linux&applicable_version=4.2.2) |  |
 | AlmaLinux 9 (GNOME 40) | [Image: Not supported] | [Image: Not supported] | [Image: Not supported] | [Image: Supported] |  |
@@ -1089,6 +1087,7 @@ These versions of Zscaler Client Connector for iOS are supported by Zscaler, and
 | iOS (17) | [Image: Supported] | [Image: Supported] | [Image: Supported] |
 | iOS (18) | [Image: Supported] | [Image: Supported] | [Image: Supported] |
 | iOS (26) | [Image: Supported] | [Image: Supported] | [Image: Supported] |
+| iOS (27) | [Image: Supported] | [Image: Supported] | [Image: Supported] |
 
 These versions of Zscaler Client Connector for Android are supported by Zscaler, and the following table indicates the Android versions compatible with each supported version of Zscaler Client Connector.
 
@@ -1167,6 +1166,8 @@ Zscaler supports the following ZscalerOS versions on VMware platforms, Linux KVM
 | Linux KVM | ZscalerOS 24, ZscalerOS 42 |
 | Microsoft Hyper-V | ZscalerOS 24, ZscalerOS 42 |
 
+This does not apply to Zero Trust Branch appliances.
+
 ## Branch Connector on Hardware Appliances ZT-400, ZT-600, and ZT-800 Supported Versions
 
 Zscaler supports the following ZscalerOS versions on hardware appliances ZT-400, ZT-600, and ZT-800:
@@ -1176,6 +1177,8 @@ Zscaler supports the following ZscalerOS versions on hardware appliances ZT-400,
 | ZT-400 | ZscalerOS 24, ZscalerOS 42 |
 | ZT-600 | ZscalerOS 24, ZscalerOS 42 |
 | ZT-800 | ZscalerOS 24, ZscalerOS 42 |
+
+This does not apply to Zero Trust Branch appliances.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2124,13 +2127,13 @@ If none of the above steps help, please submit a case to [Zscaler Support](https
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/internet-saas-access-control-policies-support-troubleshooting-runbook-0","lastmod":"2026-07-29T15:26Z","nid":"1539484"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/internet-saas-access-control-policies-support-troubleshooting-runbook-0","lastmod":"2026-09-20T07:06Z","nid":"1539484"} -->
 ## Internet & SaaS Access Control Policies Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/internet-saas-access-control-policies-support-troubleshooting-runbook-0
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Internet & SaaS Access Control Policies Support Troubleshooting Runbook
-- Last modified: 2026-07-29T15:26Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: This Zscaler runbook outlines troubleshooting steps for Internet & SaaS access control policies.
 
 The Internet & SaaS Access Control Policies Support Troubleshooting Runbook provides comprehensive guidance for troubleshooting requests related to scenarios involving URL, domain, IP address, file analysis, and related vulnerabilities. It highlights various checks on third-party websites and Zscaler's tools that help you achieve clarity on the security verdicts. By following these structured steps, users can efficiently address issues related to Zscaler's access control policies and ensure proper handling of security threats.
@@ -2211,13 +2214,13 @@ Alternatively, if remote assistance cannot be enabled, download the Web Insights
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/internet-saas-dlp-policies-support-troubleshooting-runbook","lastmod":"2026-08-07T21:06Z","nid":"1532308"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/internet-saas-dlp-policies-support-troubleshooting-runbook","lastmod":"2026-09-20T07:06Z","nid":"1532308"} -->
 ## Internet & SaaS DLP Policies Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/internet-saas-dlp-policies-support-troubleshooting-runbook
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS DLP Policies Support Troubleshooting Runbook
-- Last modified: 2026-08-07T21:06Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: This Zscaler runbook outlines troubleshooting steps for Internet & SaaS Data Loss Prevention (DLP) policies.
 
 The Data Loss Prevention (DLP) Policies Support Troubleshooting Runbook serves as a comprehensive guide for configuring, fine-tuning, and troubleshooting Zscaler's DLP solutions across various scopes. It provides step-by-step methodologies to address common challenges encountered during DLP deployment and operation. The troubleshooting framework outlined in the runbook emphasizes a systematic approach by leveraging internal tools such as Web Insights logs and detailed configuration checks. By adhering to these systematic troubleshooting steps, the DLP Policy Runbook enables organizations to enhance the accuracy, effectiveness, and resilience of their data protection strategies.
@@ -2727,13 +2730,13 @@ Compare the identified file type with the policy rules. If the true type is bloc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/internet-saas-nanolog-streaming-service-nss-support-troubleshooting-runbook","lastmod":"2026-07-22T15:33Z","nid":"1533716"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/internet-saas-nanolog-streaming-service-nss-support-troubleshooting-runbook","lastmod":"2026-09-20T07:06Z","nid":"1533716"} -->
 ## Internet & SaaS Nanolog Streaming Service Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/internet-saas-nanolog-streaming-service-nss-support-troubleshooting-runbook
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Nanolog Streaming Service Support Troubleshooting Runbook
-- Last modified: 2026-07-22T15:33Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: The Internet & SaaS Nanolog Streaming Service (NSS) Support Troubleshooting Runbook outlines troubleshooting steps for diagnosing issues with Nanolog Streaming Service (NSS) deployment.
 
 Zscaler's Nanolog Streaming Service (NSS) is a family of products that enable Zscaler cloud communication with third-party security solution devices for exchanging event logs.
@@ -3706,13 +3709,13 @@ Avoid fetching bulk logs and leverage SIEM (NSS) tools for bulk logs. The time t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/internet-saas-performance-support-troubleshooting-runbook","lastmod":"2026-08-07T21:06Z","nid":"1532325"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/internet-saas-performance-support-troubleshooting-runbook","lastmod":"2026-09-20T07:06Z","nid":"1532325"} -->
 ## Internet & SaaS Performance Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/internet-saas-performance-support-troubleshooting-runbook
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Performance Support Troubleshooting Runbook
-- Last modified: 2026-08-07T21:06Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: This Zscaler runbook outlines troubleshooting steps for general Internet & SaaS performance issues, categorized into three scopes: the type of traffic impacted, whether Z-Tunnel is affected, and if the Public Service Edge is affected.
 
 The Internet & SaaS Performance Support Troubleshooting Runbook outlines a systematic approach to troubleshooting performance slowness experienced by users. It emphasizes understanding the scope of issues, including differentiating between affected traffic types and assessing user connections to the nearest Zscaler data centers. The troubleshooting steps involve validating traffic forwarding methods, configurations, collecting and analyzing data through performance tests and network diagnostic tools. By following this methodology, you can effectively identify the root causes of performance issues and implement corrective actions to optimize user experience.
@@ -4170,13 +4173,13 @@ Compile all the data collected and open a support case with [Zscaler Support](ht
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/internet-saas-security-policies-support-troubleshooting-runbook","lastmod":"2026-07-22T15:37Z","nid":"1532307"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/internet-saas-security-policies-support-troubleshooting-runbook","lastmod":"2026-09-20T07:06Z","nid":"1532307"} -->
 ## Internet & SaaS Security Policies Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/internet-saas-security-policies-support-troubleshooting-runbook
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Security Policies Support Troubleshooting Runbook
-- Last modified: 2026-07-22T15:37Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: This Zscaler runbook outlines troubleshooting steps for Internet & SaaS security policies.
 
 The Internet & SaaS Security Policies Support Troubleshooting Runbook provides comprehensive guidance for troubleshooting requests related to scenarios involving URL, domain, IP address, file analysis, and related vulnerabilities. It highlights various checks on third-party websites and Zscaler's tools that help you achieve clarity on the security verdicts. By following these structured steps, users can efficiently address issues related to Zscaler's security policies and ensure proper handling of security threats.
@@ -4545,13 +4548,13 @@ Provide the following data:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/internet-saas-traffic-forwarding-support-troubleshooting-runbook","lastmod":"2026-07-22T15:27Z","nid":"1532271"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/internet-saas-traffic-forwarding-support-troubleshooting-runbook","lastmod":"2026-09-20T07:06Z","nid":"1532271"} -->
 ## Internet & SaaS Traffic Forwarding Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/internet-saas-traffic-forwarding-support-troubleshooting-runbook
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Traffic Forwarding Support Troubleshooting Runbook
-- Last modified: 2026-07-22T15:27Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: The Internet & SaaS Traffic Forwarding Support Troubleshooting Runbook outlines troubleshooting steps for Internet & SaaS traffic forwarding performance issues.
 
 The Internet & SaaS Traffic Forwarding Support Troubleshooting Runbook provides troubleshooting steps for improving Internet & SaaS's traffic forwarding performance.
@@ -5286,13 +5289,13 @@ If none of the above steps help, submit a case to [Zscaler Support](https://help
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/private-access-app-connector-support-troubleshooting-runbook","lastmod":"2026-07-22T15:24Z","nid":"1532447"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/private-access-app-connector-support-troubleshooting-runbook","lastmod":"2026-09-20T07:06Z","nid":"1532447"} -->
 ## Private Access App Connector Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/private-access-app-connector-support-troubleshooting-runbook
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Private Access App Connector Support Troubleshooting Runbook
-- Last modified: 2026-07-22T15:24Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: The Private Access App Connector Support Troubleshooting Runbook is designed to assist in troubleshooting issues with the Private Access App Connector to maintain seamless connectivity and service. It offers clear, actionable steps for diagnosing and resolving problems while highlighting the importance of following Zscaler best practices.
 
 The Private Access App Connector Support Troubleshooting Runbook is designed to assist in identifying issues with a Private Access App Connector to maintain seamless connectivity and service. It offers clear, actionable steps for diagnosing and resolving problems while highlighting the importance of following Zscaler best practices.
@@ -6765,13 +6768,13 @@ To learn more, see [Monitoring App Connector Performance](https://help.zscaler.c
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/private-access-log-streaming-service-lss-support-troubleshooting-runbook","lastmod":"2026-07-31T13:36Z","nid":"1534147"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/private-access-log-streaming-service-lss-support-troubleshooting-runbook","lastmod":"2026-09-20T07:06Z","nid":"1534147"} -->
 ## Private Access Log Streaming Service (LSS) Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/private-access-log-streaming-service-lss-support-troubleshooting-runbook
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Private Access Log Streaming Service (LSS) Support Troubleshooting Runbook
-- Last modified: 2026-07-31T13:36Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: The Private Access Log Streaming Service (LSS) Support Troubleshooting Runbook outlines troubleshooting steps for LSS performance issues.
 
 The Private Access Log Streaming Service (LSS) Support Troubleshooting Runbook provides troubleshooting steps for improving LSS performance. It provides systematic troubleshooting steps to identify, validate, and resolve common Private Access LSS issues. Customers can reference the relevant section based on their specific problem to streamline resolution efforts.
@@ -7929,13 +7932,13 @@ Possible solutions include:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/zscaler-client-connector-performance-support-troubleshooting-runbook","lastmod":"2026-07-22T15:22Z","nid":"1532324"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/zscaler-client-connector-performance-support-troubleshooting-runbook","lastmod":"2026-09-20T07:06Z","nid":"1532324"} -->
 ## Zscaler Client Connector Performance Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/zscaler-client-connector-performance-support-troubleshooting-runbook
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Zscaler Client Connector Performance Support Troubleshooting Runbook
-- Last modified: 2026-07-22T15:22Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: This Zscaler Client Connector runbook outlines troubleshooting steps for general Internet & SaaS with Zscaler Client Connector performance issues, categorized into three scopes: the type of traffic impacted, whether Zscaler Tunnel (Z-Tunnel) is affected, and if the Public Service Edge is affected.
 
 The Zscaler Client Connector Performance Support Troubleshooting Runbook is a comprehensive guide designed to address and resolve reported slowness issues when using Zscaler Client Connector for traffic forwarding to the Zscaler cloud. As Zscaler Client Connector is a recommended forwarding method, maintaining its optimal performance is crucial for a seamless user experience. This runbook outlines essential steps for diagnosing performance bottlenecks, starting with client-side and intermediate network checks, before escalating to deeper Zscaler troubleshooting. Furthermore, it details various Zscaler Client Connector configuration modes and adjustments that you can leverage to significantly improve Internet & SaaS performance in Zscaler Client Connector deployments.
@@ -8593,13 +8596,13 @@ On the API Keys page (Administration > API > Workflow Automation API), you can d
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/about-audit-logs","lastmod":"2026-09-08T08:33Z","nid":"1455406"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/about-audit-logs","lastmod":"2026-09-16T13:42Z","nid":"1455406"} -->
 ## About Audit Logs
 
 - Source: https://help.zscaler.com/workflow-automation/about-audit-logs
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Admin, User, & Role Management > About Audit Logs
-- Last modified: 2026-09-08T08:33Z
+- Last modified: 2026-09-16T13:42Z
 - Summary: Information regarding audit logs within Workflow Automation.
 
 The Audit Logs page records and displays the actions that every admin performs in Workflow Automation and the actions that occur through the Workflow Automation APIs.
@@ -8659,13 +8662,13 @@ There are three types of actions you can view:
 - Update. The following image displays an example of an update to an incident group: See image.
 - Delete. The following image displays an example of a deleted API key: See image.
 
-[Image: Audit Logs Page]
+[Image: Audit Logs page]
 
-[Image: Viewing the Change window on the Audit Logs page displaying an example configuration for an Insert action.]
+[Image: Viewing the Change window displaying an example configuration for an Insert action]
 
-[Image: Viewing the Change window on the Audit Logs page displaying an example configuration for an Update action.]
+[Image: Viewing the Change window displaying an example configuration for an Update action]
 
-[Image: Viewing the Change window on the Audit Logs page displaying an example configuration for a Delete action.]
+[Image: Viewing the Change window displaying an example configuration for a Delete action]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -9934,13 +9937,13 @@ To add a Slack notification template:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-amazon-web-services-dlp-application-integration-using-cloud-cloud-incident-forwarding","lastmod":"2026-07-27T07:52Z","nid":"1531125"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-amazon-web-services-dlp-application-integration-using-cloud-cloud-incident-forwarding","lastmod":"2026-09-17T08:08Z","nid":"1531125"} -->
 ## Configuring the Amazon Web Services DLP Application Integration Using Cloud-to-Cloud Incident Forwarding
 
 - Source: https://help.zscaler.com/workflow-automation/configuring-amazon-web-services-dlp-application-integration-using-cloud-cloud-incident-forwarding
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Configuring the Amazon Web Services DLP Application Integration Using Cloud-to-Cloud Incident Forwarding
-- Last modified: 2026-07-27T07:52Z
+- Last modified: 2026-09-17T08:08Z
 - Summary: Information on integrating Workflow Automation DLP Application with AWS using Zscaler Cloud-to-Cloud Incident Forwarding.
 
 Workflow Automation DLP application integration with an Amazon Web Services (AWS) EC2 instance using Zscaler Cloud-to-Cloud Incident Forwarding enables your organization to send Data Loss Prevention (DLP) incident metadata and evidence files to your organization's AWS Simple Storage Service (S3) buckets in your AWS account without deploying appliances.
@@ -9959,7 +9962,7 @@ You can create AWS resources by creating a CloudFormation stack in AWS, or you c
 - a. Download the Zscaler template file from the Zscaler Admin Console.
 - b. Create the CloudFormation stack in AWS using the template file that Zscaler provides.
 
-1. Go to **Administration**>**Workflow Automation** > **Data Protection** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP** application tile. The **Tile View** icon is selected by default. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP** application tile. The **Tile View** icon is selected by default. See image.
 2. On the **Integrations**dashboard, at the top left of the dashboard, click the **List View** icon to change the format for the dashboard. See image.
 3. In the list view format, click **Connect** next to the DLP application integration. The **Zscaler DLP Integration** details page appears, displaying a **Configuration Steps** tab and a **Configuration** tab. See image.
 4. Click the **Configuration Steps** tab.
@@ -10050,7 +10053,7 @@ You can also use encryption on S3 and SNS with Customer Managed Keys (CMK) throu
 Zscaler recommends that the metadata bucket and SNS topic are always in the same region. If you want to grant S3 data bucket access so that Workflow Automation can generate presigned links, the data buckets must also be in the same region.
 
 1. Decide on the S3 bucket name prefix to use. The names of the S3 buckets are `<bucketNamePrefix>-data` and `<bucketNamePrefix>-metadata`. The bucket name prefix is also used as a property when adding a DLP Application Integration in Workflow Automation.
-2. Find your Workflow Automation environment information (Workflow Automation AWS Account ID and Role Name) and customer GUID. Go to **Administration**>**Workflow Automation** > **Data Protection** > **Advanced Account Settings** in the Zscaler Admin Console and expand the **Customer Information** section to see the **AWS Account**, **Role Name**, and **Customer GUID**. To learn more, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings). The AWS account, role name, and customer GUID are used when creating an IAM cross-account role that Workflow Automation uses to read DLP incidents. The AWS account is also used as the source owner when creating a standard SNS topic.
+2. Find your Workflow Automation environment information (Workflow Automation AWS Account ID and Role Name) and customer GUID. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation** > **Advanced Account Settings** in the Zscaler Admin Console and expand the **Customer Information** section to see the **AWS Account**, **Role Name**, and **Customer GUID**. To learn more, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings). The AWS account, role name, and customer GUID are used when creating an IAM cross-account role that Workflow Automation uses to read DLP incidents. The AWS account is also used as the source owner when creating a standard SNS topic.
 3. On the **Create topic** page in the AWS console, create a standard SNS topic.
   1. Log in to the AWS console.
   2. In the AWS console, search for `**sns**`.
@@ -10236,7 +10239,7 @@ You can use the following resource creation template to manually create the supp
 20. On the **Name, review, and create** page, enter the name for the role in the **Role name** field. See image.
 21. At the bottom right of the page, click **Create role**. A new support role is created.
 
-1. Go to **Administration**>**Workflow Automation** > **Data Protection** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP** AWS application tile. The **Tile View** icon is selected by default. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP** AWS application tile. The **Tile View** icon is selected by default. See image.
 2. (Optional) On the **Integrations**dashboard, change the format for the dashboard. Click the **List View** icon to view the integrations in a list. See image.
 3. After you select a view option, perform one of the following procedures:
   - In the tile view: In the DLP AWS application tile, click the **Add** icon. The add **Zscaler DLP Integration** page appears.
@@ -10252,19 +10255,22 @@ You can use the following resource creation template to manually create the supp
   - **S3 Bucket Name Prefix**: Copy the S3 Bucket Name Prefix output of the CloudFormation stack and enter it here or enter the S3 Bucket Name Prefix that you manually created.
   - **SNS Topic ARN**: Copy the SNS Topic ARN output of the CloudFormation stack and enter it here or enter the SNS Topic ARN that you manually created.
 7. In the Privacy Settings section: See image. If you disable Hide Evidence Data or Hide Trigger Data in the integration, but you did not enable read access to the S3 bucket when creating the CloudFormation stack, no one can generate evidence links or view trigger data in the Zscaler Admin Console.
-  - **Hide Evidence Data - Admin**: Select if you do not want admins to be able to generate presigned evidence links for an incident on the**Incident Details** page. Otherwise, they can generate evidence links.
-  - **Hide Trigger Data - Admin**: Select if you do not want admins to be able to see the trigger data for an incident on the **Incident Details** page. Otherwise, they can see the trigger data.
-  - **Hide Policy Details - Admin**: Select if you do not want the admins to be able to view the policy details for the incident on the **Incident Details** page. Otherwise, they can view the policy details for the incident.
-  - **Hide Evidence Data - End User**: Select if you do not want end users to be able to generate presigned evidence links for an incident. Otherwise, they can generate evidence links.
-  - **Hide Trigger Data - End User**: Select if you do not want end users to be able to see the trigger data for an incident. Otherwise, they can see the trigger data.
-  - **Hide Policy Details - End User**: Select if you do not want the end users responding to an incident notification to be able to view the policy details for the incident. Otherwise, they can view the policy details for the incident.
-  - **Hide Evidence Data - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to generate presigned evidence links for the incident. Otherwise, they can generate evidence links.
-  - **Hide Trigger Data - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to see the trigger data for the incident. Otherwise, they can see the trigger data.
-  - **Hide Policy Details - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to view the policy details for the incident. Otherwise, they can view the policy details for the incident.
+  - **Hide Evidence Data - Admin**: Select if you do not want admins to be able to generate presigned evidence links for an incident on the **Violation Content** tab of the**Incident Details** drawer. Otherwise, they can generate evidence links. This checkbox is selected by default.
+  - **Hide Trigger Data - Admin**: Select if you do not want admins to be able to see the trigger data for an incident on the **Violation Content** tab of the **Incident Details** drawer. Otherwise, they can see the trigger data. This checkbox is selected by default.
+  - **Hide Policy Details - Admin**: Select if you do not want the admins to be able to view any of the policy details for the incident on the **Violation Details** tab of the **Incident Details** drawer. Otherwise, they can view the policy details for the incident. This checkbox is not selected by default.
+  - **Hide Policy Details for Non-Triggered Matches - Admin**: Select if you do not want the admins to be able to view the **Non-Triggered Engines and Dictionaries** section and the **Other Matched Rules** section of the policy details for the incident on the **Violation Details** tab of the **Incident Details** drawer. Otherwise, they can view these sections of the policy details for the incident. This checkbox is only available if you do not select the **Hide Policy Details - Admin** checkbox. This checkbox is not selected by default.
+  - **Hide Evidence Data - End User**: Select if you do not want the end users responding to an incident notification to be able to generate presigned evidence links for an incident. Otherwise, they can generate evidence links. This checkbox is selected by default.
+  - **Hide Trigger Data - End User**: Select if you do not want the end users responding to an incident notification to be able to see the trigger data for an incident. Otherwise, they can see the trigger data. This checkbox is selected by default.
+  - **Hide Policy Details - End User**: Select if you do not want the end users responding to an incident notification to be able to view any of the policy details for the incident. Otherwise, they can view the policy details for the incident. This checkbox is selected by default.
+  - **Hide Policy Details for Non-Triggered Matches - End User**: Select if you do not want the end users responding to an incident notification to be able to view the **Non-Triggered Engines and Dictionaries** section and the **Other Matched Rules** section of the policy details for the incident. Otherwise, they can view these sections of the policy details for the incident. This checkbox is only available if you do not select the **Hide Policy Details - End User** checkbox.
+  - **Hide Evidence Data - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to generate presigned evidence links for the incident. Otherwise, they can generate evidence links. This checkbox is selected by default.
+  - **Hide Trigger Data - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to see the trigger data for the incident. Otherwise, they can see the trigger data. This checkbox is selected by default.
+  - **Hide Policy Details - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to view any of the policy details for the incident. Otherwise, they can view the policy details for the incident. This checkbox is selected by default.
+  - **Hide Policy Details for Non-Triggered Matches - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to view the **Non-Triggered Engines and Dictionaries** section and the **Other Matched Rules** section of the policy details for the incident. Otherwise, they can view these sections of the policy details for the incident. This checkbox is only available if you do not select the **Hide Policy Details - Manager/Approver** checkbox.
 8. Click **Validate**. The system validates the account credentials that are entered with the AWS integration. It verifies that the IAM cross-account role ARN entry is valid, and it also checks whether the format is correct for the SNS topic ARN. You can only add the integration if it passes validation. If the validation fails for any reason, or if the configuration has been created or updated with the wrong values, you must disable and enable the integration after you correct the values for the integration.
 9. Click **Add**. The **Zscaler DLP Integration** details page appears, displaying the DLP AWS integration under **Connected Accounts** with an **Enabled** status. See image.
 
-To learn more, see [Managing DLP AWS Application Integrations in Workflow Automation](https://help.zscaler.com/workflow-automation/managing-dlp-application-integrations-workflow-automation).
+To learn more, see [Managing DLP AWS Application Integrations in Workflow Automation](https://help.zscaler.com/workflow-automation/managing-dlp-aws-application-integrations-workflow-automation).
 
 Configure the DLP Cloud-to-Cloud Incident Forwarding on an AWS EC2 instance for Workflow Automation. Zscaler recommends that you use the AWS S3 storage bucket when configuring Cloud-to-Cloud Incident Forwarding in AWS.
 
@@ -10401,13 +10407,13 @@ To learn more, see [Configuring DLP Cloud-to-Cloud Incident Forwarding](https://
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-amazon-web-services-dlp-application-integration-using-zscaler-incident-receiver","lastmod":"2026-07-17T09:26Z","nid":"1531124"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-amazon-web-services-dlp-application-integration-using-zscaler-incident-receiver","lastmod":"2026-09-17T07:58Z","nid":"1531124"} -->
 ## Configuring the Amazon Web Services DLP Application Integration Using Zscaler Incident Receiver
 
 - Source: https://help.zscaler.com/workflow-automation/configuring-amazon-web-services-dlp-application-integration-using-zscaler-incident-receiver
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Configuring the Amazon Web Services DLP Application Integration Using Zscaler Incident Receiver
-- Last modified: 2026-07-17T09:26Z
+- Last modified: 2026-09-17T07:58Z
 - Summary: Information on integrating Workflow Automation DLP Application with AWS using Zscaler Incident Receiver.
 
 To configure Workflow Automation DLP application integration using Zscaler Incident Receiver, you must deploy a Zscaler Incident Receiver (ZIR) Amazon Web Services (AWS) EC2 instance. Doing so enables your organization to receive Data Loss Prevention (DLP) incident metadata files and the evidence file from ZIR and upload them to your organization's AWS Simple Storage Service (S3) buckets.
@@ -10426,7 +10432,7 @@ You can create AWS resources by creating a CloudFormation stack in AWS, or you c
 - a. Download the Zscaler template file from the Zscaler Admin Console.
 - b. Create the CloudFormation stack in AWS using the template file that Zscaler provides.
 
-1. Go to **Administration**>**Workflow Automation**>**Data Protection**> **Integrations**. The **Integrations** dashboard appears, displaying a **DLP** application tile. The **Tile View** icon is selected by default. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation**> **Integrations**. The **Integrations** dashboard appears, displaying a **DLP** application tile. The **Tile View** icon is selected by default. See image.
 2. On the **Integrations**dashboard, at the top left of the dashboard, click the **List View** icon to change the format for the dashboard. See image.
 3. In the list view format, click **Connect** next to the DLP application integration. The **Zscaler DLP Integration** details page appears, displaying a **Configuration Steps** tab and a **Configuration** tab. See image.
 4. Click the **Configuration Steps** tab.
@@ -10517,7 +10523,7 @@ You can also use encryption on S3 and SNS with Customer Managed Keys (CMK) throu
 Zscaler recommends that the metadata bucket and SNS topic are always in the same region. If you want to grant S3 data bucket access so that Workflow Automation can generate presigned links, the data buckets must also be in the same region.
 
 1. Decide on the S3 bucket name prefix to use. The names of the S3 buckets are `<bucketNamePrefix>-data` and `<bucketNamePrefix>-metadata`. The bucket name prefix is also used as a property when adding a DLP Application Integration in Workflow Automation.
-2. Find your Workflow Automation environment information (Workflow Automation AWS Account ID and Role Name) and customer GUID. Go to **Administration**>**Workflow Automation**>**Data Protection**>**Advanced Account Settings** in the Zscaler Admin Console and expand the **Customer Information** section to see the **AWS Account**, **Role Name**, and **Customer GUID**. To learn more, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings). The AWS account, role name, and customer GUID are used when creating an IAM cross-account role that Workflow Automation uses to read DLP incidents. The AWS account is also used as the source owner when creating a standard SNS topic.
+2. Find your Workflow Automation environment information (Workflow Automation AWS Account ID and Role Name) and customer GUID. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation**> **Advanced Account Settings** in the Zscaler Admin Console and expand the **Customer Information** section to see the **AWS Account**, **Role Name**, and **Customer GUID**. To learn more, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings). The AWS account, role name, and customer GUID are used when creating an IAM cross-account role that Workflow Automation uses to read DLP incidents. The AWS account is also used as the source owner when creating a standard SNS topic.
 3. On the **Create topic** page in the AWS console, create a standard SNS topic.
   1. Log in to the AWS console.
   2. In the AWS console, search for `**sns**`.
@@ -10703,31 +10709,34 @@ You can use the following resource creation template to manually create the supp
 20. On the **Name, review, and create** page, enter the name for the role in the **Role name** field. See image.
 21. At the bottom right of the page, click **Create role**. A new support role is created.
 
-1. Go to **Administration**>**Workflow Automation**>**Data Protection**> **Integrations**. The **Integrations** dashboard appears, displaying a **DLP** AWS application tile. The **Tile View** icon is selected by default. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation**> **Integrations**. The **Integrations** dashboard appears, displaying a **DLP** AWS application tile. The **Tile View** icon is selected by default. See image.
 2. (Optional) On the **Integrations**dashboard, change the format for the dashboard. Click the **List View** icon to view the integrations in a list. See image.
 3. After you select a view option, perform one of the following procedures:
   - In the tile view: In the DLP AWS application tile, click the **Add** icon. The add **Zscaler DLP Integration** page appears.
   - In the list view:
     1. Click **Connect** next to the DLP AWS application integration. The **Zscaler DLP Integration** details page appears, displaying a **Configuration Steps** tab and a **Configuration** tab. See image. The **Configuration Steps** tab provides the instructions for configuring a DLP AWS application integration and a link to download the Zscaler template file.
-    2. On the **Configuration** tab, click **Add New**. The add **Zscaler DLP integration** page appears.
-4. On the add **Zscaler DLP integration** page, in the **Zscaler DLP Integration** section, enter an **Integration Name**.
+    2. On the **Configuration** tab, click **Add New**. The add **Zscaler DLP Integration** page appears.
+4. On the add **Zscaler DLP Integration** page, in the **Zscaler DLP Integration** section, enter an **Integration Name**.
 5. In the **Account Credentials** section:
-  - **IAM Cross-Account Role ARN**: Copy the IAM cross-account role ARN output of the CloudFormation stack and enter it here or enter the IAM cross-account role ARN that you manually created.
+  - **IAM Cross-Account Role ARN**: Copy the `IAM cross-account role ARN` output of the CloudFormation stack and enter it here or enter the IAM cross-account role ARN that you manually created.
   - **IAM Cross-Account Role External ID**: The IAM cross-account role external ID is automatically populated for you, and you cannot change it. This same ID also appears as the **Customer GUID**on the **Account Settings** page in the Zscaler Admin Console. To learn more, see [Managing Account Settings.](https://help.zscaler.com/workflow-automation/managing-account-settings)
-  - **Support User Role ARN**: (Optional) If you created the support role using the CloudFormation stack or you manually created the support role, copy the support role ARN output of the CloudFormation stack and enter it here or enter the support role ARN that you manually created. Zscaler Support can assume this role and assist you with troubleshooting any integration configuration issues that you might have in your AWS account. This role is restricted and cannot access any of the incidents or the data associated with those incidents in your account.
+  - **Support User Role ARN**: (Optional) If you created a support role using the CloudFormation stack or you manually created the support role, copy the `support role ARN` output of the CloudFormation stack and enter it here or enter the `support role ARN` that you manually created. Zscaler Support can assume this role and assist you with troubleshooting any integration configuration issues that you might have in your AWS account. This role is restricted and cannot access any of the incidents or the data associated with those incidents in your account.
 6. In the **Zscaler DLP Integration** section:
-  - **S3 Bucket Name Prefix**: Copy the S3 Bucket Name Prefix output of the CloudFormation stack and enter it here or enter the S3 Bucket Name Prefix that you manually created.
-  - **SNS Topic ARN**: Copy the SNS Topic ARN output of the CloudFormation stack and enter it here or enter the SNS Topic ARN that you manually created.
+  - **S3 Bucket Name Prefix**: Copy the `S3 Bucket Name Prefix` output of the CloudFormation stack and enter it here or enter the `S3 Bucket Name Prefix` that you manually created.
+  - **SNS Topic ARN**: Copy the `SNS Topic ARN` output of the CloudFormation stack and enter it here or enter the `SNS Topic ARN` that you manually created.
 7. In the Privacy Settings section: See image. If you disable Hide Evidence Data or Hide Trigger Data in the integration, but you did not enable read access to the S3 bucket when creating the CloudFormation stack, no one can generate evidence links or view trigger data in the Zscaler Admin Console.
-  - **Hide Evidence Data - Admin**: Select if you do not want admins to be able to generate presigned evidence links for an incident on the**Incident Details** page. Otherwise, they can generate evidence links.
-  - **Hide Trigger Data - Admin**: Select if you do not want admins to be able to see the trigger data for an incident on the **Incident Details** page. Otherwise, they can see the trigger data.
-  - **Hide Policy Details - Admin**: Select if you do not want the admins to be able to view the policy details for the incident on the **Incident Details** page. Otherwise, they can view the policy details for the incident.
-  - **Hide Evidence Data - End User**: Select if you do not want end users to be able to generate presigned evidence links for an incident. Otherwise, they can generate evidence links.
-  - **Hide Trigger Data - End User**: Select if you do not want end users to be able to see the trigger data for an incident. Otherwise, they can see the trigger data.
-  - **Hide Policy Details - End User**: Select if you do not want the end users responding to an incident notification to be able to view the policy details for the incident. Otherwise, they can view the policy details for the incident.
-  - **Hide Evidence Data - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to generate presigned evidence links for the incident. Otherwise, they can generate evidence links.
-  - **Hide Trigger Data - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to see the trigger data for the incident. Otherwise, they can see the trigger data.
-  - **Hide Policy Details - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to view the policy details for the incident. Otherwise, they can view the policy details for the incident.
+  - **Hide Evidence Data - Admin**: Select if you do not want admins to be able to generate presigned evidence links for an incident on the **Violation Content** tab of the**Incident Details** drawer. Otherwise, they can generate evidence links. This checkbox is selected by default.
+  - **Hide Trigger Data - Admin**: Select if you do not want admins to be able to see the trigger data for an incident on the **Violation Content** tab of the **Incident Details** drawer. Otherwise, they can see the trigger data. This checkbox is selected by default.
+  - **Hide Policy Details - Admin**: Select if you do not want the admins to be able to view any of the policy details for the incident on the **Violation Details** tab of the **Incident Details** drawer. Otherwise, they can view the policy details for the incident. This checkbox is not selected by default.
+  - **Hide Policy Details for Non-Triggered Matches - Admin**: Select if you do not want the admins to be able to view the **Non-Triggered Engines and Dictionaries** section and the **Other Matched Rules** section of the policy details for the incident on the **Violation Details** tab of the **Incident Details** drawer. Otherwise, they can view these sections of the policy details for the incident. This checkbox is only available if you do not select the **Hide Policy Details - Admin** checkbox. This checkbox is not selected by default.
+  - **Hide Evidence Data - End User**: Select if you do not want the end users responding to an incident notification to be able to generate presigned evidence links for an incident. Otherwise, they can generate evidence links. This checkbox is selected by default.
+  - **Hide Trigger Data - End User**: Select if you do not want the end users responding to an incident notification to be able to see the trigger data for an incident. Otherwise, they can see the trigger data. This checkbox is selected by default.
+  - **Hide Policy Details - End User**: Select if you do not want the end users responding to an incident notification to be able to view any of the policy details for the incident. Otherwise, they can view the policy details for the incident. This checkbox is selected by default.
+  - **Hide Policy Details for Non-Triggered Matches - End User**: Select if you do not want the end users responding to an incident notification to be able to view the **Non-Triggered Engines and Dictionaries** section and the **Other Matched Rules** section of the policy details for the incident. Otherwise, they can view these sections of the policy details for the incident. This checkbox is only available if you do not select the **Hide Policy Details - End User** checkbox.
+  - **Hide Evidence Data - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to generate presigned evidence links for the incident. Otherwise, they can generate evidence links. This checkbox is selected by default.
+  - **Hide Trigger Data - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to see the trigger data for the incident. Otherwise, they can see the trigger data. This checkbox is selected by default.
+  - **Hide Policy Details - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to view the policy details for the incident. Otherwise, they can view the policy details for the incident. This checkbox is selected by default.
+  - **Hide Policy Details for Non-Triggered Matches - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to view the **Non-Triggered Engines and Dictionaries** section and the **Other Matched Rules** section of the policy details for the incident. Otherwise, they can view these sections of the policy details for the incident. This checkbox is only available if you do not select the **Hide Policy Details - Manager/Approver** checkbox.
 8. Click **Validate**. The system validates the account credentials that are entered with the AWS integration. It verifies that the IAM cross-account role ARN entry is valid, and it also checks whether the format is correct for the SNS topic ARN. You can only add the integration if it passes validation. If the validation fails for any reason, or if the configuration has been created or updated with the wrong values, you must disable and enable the integration after you correct the values for the integration.
 9. Click **Add**. The **Zscaler DLP Integration** details page appears, displaying the DLP AWS integration under **Connected Accounts** with an **Enabled** status. See image.
 
@@ -10868,13 +10877,13 @@ To learn more about configuring the ZIR in AWS, see [Configuring the Zscaler Inc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-azure-dlp-application-integration-using-cloud-cloud-incident-forwarding","lastmod":"2026-08-25T09:56Z","nid":"1531120"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-azure-dlp-application-integration-using-cloud-cloud-incident-forwarding","lastmod":"2026-09-17T08:23Z","nid":"1531120"} -->
 ## Configuring the Azure DLP Application Integration Using Cloud-to-Cloud Incident Forwarding
 
 - Source: https://help.zscaler.com/workflow-automation/configuring-azure-dlp-application-integration-using-cloud-cloud-incident-forwarding
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Configuring the Azure DLP Application Integration Using Cloud-to-Cloud Incident Forwarding
-- Last modified: 2026-08-25T09:56Z
+- Last modified: 2026-09-17T08:23Z
 - Summary: Information on how to configure Workflow Automation Azure DLP application integration using Cloud-to-Cloud Incident Forwarding.
 
 Workflow Automation DLP application integration with an Azure instance using Zscaler Cloud-to-Cloud Incident Forwarding enables your organization to send Data Loss Prevention (DLP) incident metadata and evidence files to your organization's Azure storage containers in your Azure account without deploying appliances.
@@ -10912,7 +10921,7 @@ You must complete the following steps to deploy the resource manager template fo
 
 Configure the DLP Cloud-to-Cloud Incident Forwarding on an Azure instance for Workflow Automation. To learn more about configuring Cloud-to-Cloud Forwarding in Azure, see [Configuring DLP Cloud-to-Cloud Incident Forwarding](https://help.zscaler.com/zia/configure-dlp-cloud-cloud-incident-forwarding).
 
-1. Go to **Administration**>**Workflow Automation** > **Data Protection** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP Azure** application tile. The **Tile View** icon is selected by default. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP Azure** application tile. The **Tile View** icon is selected by default. See image.
 2. Click anywhere within the **DLP Azure** application tile. The **Zscaler DLP Azure Integration** details page appears, displaying a **Configuration Steps** tab and a **Configuration** tab. See image.
 3. Click the **Configuration Steps** tab. Under **Azure Resource Stack Setup**, click the following links:
   1. Click the **create-app-registration-c2c.sh**link to download the Zscaler bash script.
@@ -10954,7 +10963,7 @@ For more information about the app registration process on the Microsoft Azure c
 
 1. Log in to the Microsoft Azure console.
 2. On the main page, click the**App registrations** option. You can also search for `app registrations` and select the**App registrations** option. The **Register an application**page appears. See image.
-3. On the **Register an application**page, enter the following details:
+3. On the **Register an application**page:
   - **Name**: Enter a display name for your application.
   - **Supported account types**: Select **Accounts in any organizational directory and personal Microsoft accounts**. This option allows you to register a multitenant application that can support users who have organizational and personal Microsoft accounts.
   - **Redirect URI (optional)**: From the drop-down menu, select **Web**.
@@ -10966,7 +10975,7 @@ For more information about the app registration process on the Microsoft Azure c
   - Directory (tenant) ID
 6. Next to the **Client credentials**, click **Add a certificate or secret**. The **Certificates & secrets** page appears. See image.
 7. On the **Certificates & secrets** page, click **New client secret**. The **Add a client secret** pane opens. See image.
-8. In the **Add a client secret**pane, enter the following details:
+8. In the **Add a client secret**pane:
   - **Description**: Enter a description for the client secret.
   - **Expires**: From the drop-down menu, select an expiration timeline for the client secret. You can also enter a custom timeline based on your requirements.
 9. Click **Add**. The client secret value and secret ID display on the **Certificates & secrets** page. See image.
@@ -10977,7 +10986,7 @@ To deploy the Azure resources for DLP integration:
 1. Log in to the Microsoft Azure console.
 2. On the main page, select the **Storage accounts** option. You can also search for `storage accounts` and select the **Storage accounts** option. The **Storage accounts** page appears.
 3. On the **Storage accounts**page, click **Create**. The **Create a storage account**page appears. See image.
-4. On the **Create a storage account**page, on the **Basics**tab, do the following: See image.
+4. On the **Create a storage account**page, on the **Basics**tab: See image.
   - In the **Project details** section:
     - **Subscription**: From the drop-down menu, select a subscription. The subscription associated with your account appears by default.
     - **Resource group**: From the drop-down menu, select an existing resource group. The resource group must be the same one you used for creating the VM.
@@ -10986,7 +10995,7 @@ To deploy the Azure resources for DLP integration:
     - **Region**: From the drop-down menu, select the region for the storage account.
     - **Performance**: Leave the default setting.
     - **Redundancy**: Leave the default settings.
-5. On the **Networking**tab, do the following:
+5. On the **Networking**tab:
   - In the **Network connectivity** section, in the **Network access**field, select **Enable public access from selected virtual networks and IP address**.
   - In the **Virtual networks**section:
     - **Virtual Network Subscription**: Select the subscription that you selected on the **Basics** tab.
@@ -11008,7 +11017,7 @@ To create the containers:
 1. Go to the newly created storage account.
 2. On the storage account page, go to **Data storage** > **Containers**. The **Containers** page appears.
 3. Click **Container**. The **New container** pane appears. See image.
-4. In the **New container** pane, do the following: See image. Similarly, create another container with a name consisting of your storage account name followed by `metadata`. For example, `<storageAccountName>-metadata`. Different storage containers that share a common name suffix are used for storing DLP incident data and metadata files. The name of the data bucket is set to `<storageAccountNamePrefix>-data`, and the name of the metadata bucket is set to `<storageAccountNamePrefix>-metadata`. The Zscaler DLP Incident Management service reads and stores the incident metadata file (with trigger data stripped), but it never reads or stores the incident data files. See image.
+4. In the **New container** pane: See image. Similarly, create another container with a name consisting of your storage account name followed by `metadata`. For example, `<storageAccountName>-metadata`. Different storage containers that share a common name suffix are used for storing DLP incident data and metadata files. The name of the data bucket is set to `<storageAccountNamePrefix>-data`, and the name of the metadata bucket is set to `<storageAccountNamePrefix>-metadata`. The Zscaler DLP Incident Management service reads and stores the incident metadata file (with trigger data stripped), but it never reads or stores the incident data files. See image.
   1. **Name**: Enter a name for your container. Use the name of your storage account followed by the word `data`. For example, if your storage account name is Zscaler, then make your container name `Zscaler-data`.
   2. Click **Create**.
 
@@ -11019,7 +11028,7 @@ To create a role for DLP:
 1. Go to the resource group you created.
 2. On the resource group page, in the left-side navigation, go to **Access control (IAM)**. The **Access control (IAM)**page appears. See image.
 3. On the **Access control (IAM)**page, select**Add** > **Add custom role**. The **Create a custom role** page appears. See image.
-4. On the **Create a custom role** page, do the following:
+4. On the **Create a custom role** page:
   - On the **Basics** tab, enter a name for the role in the **Custom role name** field. You can leave the other default settings on the page. See image.
   - On the **JSON** tab, click**Edit** and replace the action parameters that appear by default with the following JSON. Then click **Save**. "actions": [ "Microsoft.Storage/storageAccounts/blobServices/containers/read", "Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action", "Microsoft.EventGrid/systemTopics/eventSubscriptions/write", "Microsoft.EventGrid/systemTopics/eventSubscriptions/read", "Microsoft.EventGrid/systemTopics/eventSubscriptions/delete" ] "dataActions": [ "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read" ]See image.
 5. Click **Create**. The **Review + create** tab appears.
@@ -11031,7 +11040,7 @@ To complete role assignments:
 
 1. On the **Access control (IAM)**page, select **Add** > **Add** **role assignment**. The **Add role assignment** page appears. See image.
 2. On the **Role** tab, search for and select the role you created for DLP app registration. See image.
-3. On the **Members** tab, do the following:
+3. On the **Members** tab:
   - **Assign Access to**: Select **User, group, or service principal**.
   - **Members**: Click **Select members**. The **Select members** pane appears. See image.
     - In the **Select members** pane, from the drop-down menu, select the DLP app registration you created.
@@ -11044,7 +11053,7 @@ To create the event grid system topics for the storage account:
 1. Log in to the Microsoft Azure console.
 2. On the main page, select **Event Grid System Topics**. You can also search for `Event Grid System Topics` and select it. The **Event Grid | System topics** page appears.
 3. Click **Create**. The **Create** **Event Grid System Topic** page appears. See image.
-4. On the **Create** **Event Grid System Topic** page, on the**Basics** tab, do the following: Leave the other default settings. See image.
+4. On the **Create** **Event Grid System Topic** page, on the**Basics** tab: Leave the other default settings. See image.
   - In the **Topic Details** section:
     - **Topic Types**: From the drop-down menu, select **Storage Accounts (blob & GPv2)**.
     - **Subscription**: From the drop-down menu, select the subscription associated with your account.
@@ -11064,7 +11073,7 @@ To set up private endpoints to access the storage account:
 
 1. In the Microsoft Azure console, go to the storage account you created.
 2. From the left-side navigation, click **Front Door and CDN**. The **Front Door and CDN**page appears. See image.
-3. On the **Front Door and CDN** page, in the **New Endpoint** section, configure the following:
+3. On the **Front Door and CDN** page, in the **New Endpoint** section:
   - **Service type**: Select**Azure Front Door**.
   - **Create new/use existing profile**: Select **Create new**.
   - **Profile name**: Enter a name for your profile.
@@ -11083,7 +11092,7 @@ To set up private endpoints to access the storage account:
 
 Similarly, you can create additional private endpoints.
 
-1. Go to **Administration**>**Workflow Automation** > **Data Protection** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP** **Azure** application tile. The **Tile View** icon is selected by default. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP** **Azure** application tile. The **Tile View** icon is selected by default. See image.
 2. (Optional) On the **Integrations**dashboard, change the format for the dashboard. Click the **List View** icon to view the integrations in a list. See image.
 3. After you select a view option, perform one of the following procedures:
   - In the tile view: In the DLP Azure application tile, click the **Add** icon. The add **Zscaler DLP Azure Integration** page appears.
@@ -11098,18 +11107,21 @@ Similarly, you can create additional private endpoints.
 6. In the **Zscaler Azure DLP Integration** section:
   - **Storage Account Name**: Copy the `storageAccountName` output from the deployment of the resource manager template for DLP integration and enter it here.
   - **Custom Storage Endpoint URL**: (Optional) If you do not want Workflow Automation to access the storage account through a default public endpoint, enter a custom storage endpoint URL in the format `https://<custom endpoint>`. If you want to use a public endpoint, leave the field blank.
-  - **Event Grid System Topic Resource Id**: Copy the `systemTopicResourceID` output from the deployment of the resource manager template for DLP integration and enter it here.
+  - **Event Grid System Topic Resource ID**: Copy the `systemTopicResourceID` output from the deployment of the resource manager template for DLP integration and enter it here.
 7. In the **Privacy Settings** section: See image. If you disable **Hide Evidence Data** or **Hide Trigger Data** in the integration, but you did not enable read access to the data blob when creating the resource manager stack, no one can generate evidence links or view trigger data in the Zscaler Admin Console.
-  - **Hide Evidence Data - Admin**: Select if you do not want admins to be able to generate presigned evidence links for an incident on the**Incident Details** page. Otherwise, they can generate evidence links.
-  - **Hide Trigger Data - Admin**: Select if you do not want admins to be able to see the trigger data for an incident on the **Incident Details** page. Otherwise, they can see the trigger data.
-  - **Hide Policy Details - Admin**: Select if you do not want the admins to be able to view the policy details for the incident on the **Incident Details** page. Otherwise, they are able to view the policy details for the incident.
-  - **Hide Evidence Data - End User**: Select if you do not want end users to be able to generate presigned evidence links for an incident. Otherwise, they can generate evidence links.
-  - **Hide Trigger Data - End User**: Select if you do not want end users to be able to see the trigger data for an incident. Otherwise, they can see the trigger data.
-  - **Hide Policy Details - End User**: Select if you do not want the end users responding to an incident notification to be able to view the policy details for the incident. Otherwise, they are able to view the policy details for the incident.
-  - **Hide Evidence Data - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to generate presigned evidence links for the incident. Otherwise, they are able to generate evidence links.
-  - **Hide Trigger Data - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to see the trigger data for the incident. Otherwise, they are able to see the trigger data.
-  - **Hide Policy Details - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to view the policy details for the incident. Otherwise, they are able to view the policy details for the incident.
-8. Click **Validate**. The system validates the account credentials that are entered with the Azure integration. It also checks whether the format is correct for the **Event Grid System Topic Resource Id**. You can only add the integration if it passes validation. If the validation fails for any reason, or if the configuration has been created or updated with the wrong values, you must disable the integration, correct the values for the integration, and re-enable it.
+  - **Hide Evidence Data - Admin**: Select if you do not want admins to be able to generate presigned evidence links for an incident on the **Violation Content** tab of the**Incident Details** drawer. Otherwise, they can generate evidence links. This checkbox is selected by default.
+  - **Hide Trigger Data - Admin**: Select if you do not want admins to be able to see the trigger data for an incident on the **Violation Content** tab of the **Incident Details** drawer. Otherwise, they can see the trigger data. This checkbox is selected by default.
+  - **Hide Policy Details - Admin**: Select if you do not want the admins to be able to view any of the policy details for the incident on the **Violation Details** tab of the **Incident Details** drawer. Otherwise, they can view the policy details for the incident. This checkbox is not selected by default.
+  - **Hide Policy Details for Non-Triggered Matches - Admin**: Select if you do not want the admins to be able to view the **Non-Triggered Engines and Dictionaries** section and the **Other Matched Rules** section of the policy details for the incident on the **Violation Details** tab of the **Incident Details** drawer. Otherwise, they can view these sections of the policy details for the incident. This checkbox is only available if you do not select the **Hide Policy Details - Admin** checkbox. This checkbox is not selected by default.
+  - **Hide Evidence Data - End User**: Select if you do not want the end users responding to an incident notification to be able to generate presigned evidence links for an incident. Otherwise, they can generate evidence links. This checkbox is selected by default.
+  - **Hide Trigger Data - End User**: Select if you do not want the end users responding to an incident notification to be able to see the trigger data for an incident. Otherwise, they can see the trigger data. This checkbox is selected by default.
+  - **Hide Policy Details - End User**: Select if you do not want the end users responding to an incident notification to be able to view any of the policy details for the incident. Otherwise, they can view the policy details for the incident. This checkbox is selected by default.
+  - **Hide Policy Details for Non-Triggered Matches - End User**: Select if you do not want the end users responding to an incident notification to be able to view the **Non-Triggered Engines and Dictionaries** section and the **Other Matched Rules** section of the policy details for the incident. Otherwise, they can view these sections of the policy details for the incident. This checkbox is only available if you do not select the **Hide Policy Details - End User** checkbox.
+  - **Hide Evidence Data - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to generate presigned evidence links for the incident. Otherwise, they can generate evidence links. This checkbox is selected by default.
+  - **Hide Trigger Data - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to see the trigger data for the incident. Otherwise, they can see the trigger data. This checkbox is selected by default.
+  - **Hide Policy Details - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to view the policy details for the incident. Otherwise, they can view the policy details for the incident. This checkbox is selected by default.
+  - **Hide Policy Details for Non-Triggered Matches - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to view the **Non-Triggered Engines and Dictionaries** section and the **Other Matched Rules** section of the policy details for the incident. Otherwise, they can view these sections of the policy details for the incident. This checkbox is only available if you do not select the **Hide Policy Details - Manager/Approver** checkbox.
+8. Click **Validate**. The system validates the account credentials that are entered with the Azure integration. It also checks whether the format is correct for the **Event Grid System Topic Resource ID** You can only add the integration if it passes validation. If the validation fails for any reason, or if the configuration has been created or updated with the wrong values, you must disable the integration, correct the values for the integration, and re-enable it.
 9. Click **Add**. The **Zscaler DLP Azure Integration** details page appears, displaying the DLP integration under **Connected Accounts** with an **Enabled** status. See image.
 
 To learn more, see [Managing DLP Azure Application Integrations in Workflow Automation](https://help.zscaler.com/workflow-automation/managing-dlp-azure-application-integrations-workflow-automation).
@@ -11219,13 +11231,13 @@ To learn more, see [Managing DLP Azure Application Integrations in Workflow Auto
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-azure-dlp-application-integration-using-zscaler-incident-receiver","lastmod":"2026-08-25T09:53Z","nid":"1531119"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-azure-dlp-application-integration-using-zscaler-incident-receiver","lastmod":"2026-09-17T08:18Z","nid":"1531119"} -->
 ## Configuring the Azure DLP Application Integration Using Zscaler Incident Receiver
 
 - Source: https://help.zscaler.com/workflow-automation/configuring-azure-dlp-application-integration-using-zscaler-incident-receiver
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Configuring the Azure DLP Application Integration Using Zscaler Incident Receiver
-- Last modified: 2026-08-25T09:53Z
+- Last modified: 2026-09-17T08:18Z
 - Summary: Information on how to configure Workflow Automation Azure DLP application integration using Zscaler Incident Receiver.
 
 To configure Workflow Automation DLP application integration using Zscaler Incident Receiver (ZIR), you must deploy a ZIR Azure instance. Doing so enables your organization to receive Data Loss Prevention (DLP) incident metadata files and the evidence file from ZIR and upload them to your organization's Azure storage containers in your Azure account.
@@ -11262,7 +11274,7 @@ For more information about the app registration process on the Microsoft Azure c
 
 1. Log in to the Microsoft Azure console.
 2. On the main page, click the**App registrations** option. You can also search for `app registrations` and select the**App registrations** option. The **Register an application**page appears. See image.
-3. On the **Register an application**page, enter the following details:
+3. On the **Register an application**page:
   - **Name**: Enter a display name for your application.
   - **Supported account types**: Select **Accounts in any organizational directory and personal Microsoft accounts**. This option allows you to register a multitenant application that can support users who have organizational and personal Microsoft accounts.
   - **Redirect URI (optional)**: From the drop-down menu, select **Web**.
@@ -11274,7 +11286,7 @@ For more information about the app registration process on the Microsoft Azure c
   - Directory (tenant) ID
 6. Next to the **Client credentials**, click **Add a certificate or secret**. The **Certificates & secrets** page appears. See image.
 7. On the **Certificates & secrets** page, click **New client secret**. The **Add a client secret** pane opens. See image.
-8. In the **Add a client secret**pane, enter the following details:
+8. In the **Add a client secret**pane:
   - **Description**: Enter a description for the client secret.
   - **Expires**: From the drop-down menu, select an expiration timeline for the client secret. You can also enter a custom timeline based on your requirements.
 9. Click **Add**. The client secret value and secret ID display on the **Certificates & secrets** page. See image.
@@ -11285,7 +11297,7 @@ To create an app registration for Filewatcher, follow the preceding procedure fo
 1. Log in to the Microsoft Azure console. Ensure that your account has access to create VMs.
 2. On the main page, select the **Virtual machine**. You can also search for `virtual machines` and select the **Virtual machine**option. The **Virtual machine** page appears.
 3. On the **Virtual machines** page, click **Create** >**Virtual machine**. The **Create a virtual machine** page appears. See image.
-4. On the **Create a virtual machine** page, on the **Basics** tab, do the following:
+4. On the **Create a virtual machine** page, on the **Basics** tab:
   - In the **Project details** section:
     - **Subscription**: From the drop-down menu, select a subscription. The subscription associated with your account appears by default.
     - **Resource group**: From the drop-down menu, select an existing resource group. If you want to create a new resource group, click **Create new**.
@@ -11307,7 +11319,7 @@ To create an app registration for Filewatcher, follow the preceding procedure fo
   - In the **Inbound port rules** section: See image.
     - **Public inbound ports**: Select **Allow selected ports**.
     - **Select inbound ports**: From the drop-down menu, select **SSH (22)**.
-5. On the **Networking** tab, do the following in the **Network interface** section:
+5. On the **Networking** tab, in the **Network interface** section:
   - **Virtual Network**: From the drop-down menu, select a virtual network. If you want to create a new virtual network, click **Create new**.
   - **Subnet**: From the drop-down menu, select a subnet. The default subnet automatically populates.
   - **Public IP**: From the drop-down menu, select a public IP address. The default public IP address automatically populates. If you want to use private IP addresses, select **None.**
@@ -11324,7 +11336,7 @@ To deploy the Azure resources for DLP integration:
 1. Log in to the Microsoft Azure console.
 2. On the main page, select the **Storage accounts** option. You can also search for `storage accounts` and select the **Storage accounts** option. The **Storage accounts** page appears.
 3. On the **Storage accounts**page, click **Create**. The **Create a storage account**page appears. See image.
-4. On the **Create a storage account**page, on the **Basics**tab, do the following: See image.
+4. On the **Create a storage account**page, on the **Basics**tab: See image.
   - In the **Project details** section:
     - **Subscription**: From the drop-down menu, select a subscription. The subscription associated with your account appears by default.
     - **Resource group**: From the drop-down menu, select an existing resource group. The resource group must be the same one you used for creating the VM.
@@ -11333,7 +11345,7 @@ To deploy the Azure resources for DLP integration:
     - **Region**: From the drop-down menu, select the region for the storage account.
     - **Performance**: Leave the default setting.
     - **Redundancy**: Leave the default settings.
-5. On the **Networking**tab, do the following:
+5. On the **Networking**tab:
   - In the **Network connectivity** section, in the **Network access**field, select **Enable public access from selected virtual networks and IP address**.
   - In the **Virtual networks**section:
     - **Virtual Network Subscription**: Select the subscription that you selected on the **Basics** tab.
@@ -11355,7 +11367,7 @@ To create the containers:
 1. Go to the newly created storage account.
 2. On the storage account page, go to **Data storage** > **Containers**. The **Containers** page appears.
 3. Click **Container**. The **New container** pane appears. See image.
-4. In the **New container** pane, do the following: See image. Similarly, create two new containers with unique names followed by `metadata` and `checkpoints`, respectively. For example, `<containerName>-metadata` and `<containerName>-checkpoints`. Different storage containers that share a common name suffix are used for storing DLP incident data and metadata files. The name of the data bucket is set to `<containerNamePrefix>-data`, and the name of the metadata bucket is set to `<containerNamePrefix>-metadata`. The Zscaler DLP Incident Management service reads and stores the incident metadata file (with trigger data stripped), but it never reads or stores the incident data files. See image.
+4. In the **New container** pane: See image. Similarly, create two new containers with unique names followed by `metadata` and `checkpoints`, respectively. For example, `<containerName>-metadata` and `<containerName>-checkpoints`. Different storage containers that share a common name suffix are used for storing DLP incident data and metadata files. The name of the data bucket is set to `<containerNamePrefix>-data`, and the name of the metadata bucket is set to `<containerNamePrefix>-metadata`. The Zscaler DLP Incident Management service reads and stores the incident metadata file (with trigger data stripped), but it never reads or stores the incident data files. See image.
   1. **Name**: Enter a unique name for your container. The word `data`should follow the unique name—for example, `<containerName>-data`.
   2. Click **Create**.
 
@@ -11369,7 +11381,7 @@ To create a role for DLP:
 1. Go to the resource group you created.
 2. On the resource group page, in the left-side navigation, go to **Access control (IAM)**. The **Access control (IAM)**page appears. See image.
 3. On the **Access control (IAM)**page, select**Add** > **Add custom role**. The **Create a custom role** page appears. See image.
-4. On the **Create a custom role** page, do the following:
+4. On the **Create a custom role** page:
   - On the **Basics** tab, enter a name for the role in the **Custom role name** field. Ensure that you mention DLP in the name to differentiate it from the Filewatcher application's role. You can leave the other default settings on the page. See image.
   - On the **JSON** tab, click**Edit** and replace the action parameters that appear by default with the following JSON. Then click **Save**. "actions": [ "Microsoft.Storage/storageAccounts/blobServices/containers/read", "Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action", "Microsoft.EventGrid/systemTopics/eventSubscriptions/write", "Microsoft.EventGrid/systemTopics/eventSubscriptions/read", "Microsoft.EventGrid/systemTopics/eventSubscriptions/delete" ] "dataActions": [ "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read" ]See image.
 5. Click **Create**. The **Review + create** tab appears.
@@ -11381,7 +11393,7 @@ To complete role assignments:
 
 1. On the **Access control (IAM)**page, select **Add** > **Add** **roles assignments**. The **Add role assignment** page appears. See image.
 2. On the **Role** tab, search for and select the role you created for DLP app registration. See image.
-3. On the **Members** tab, do the following:
+3. On the **Members** tab:
   - **Assign Access to**: Select **User, group, or service principal**.
   - **Members**: Click **Select members**. The **Select members** pane appears. See image.
     - In the **Select members** pane, from the drop-down menu, select the DLP app registration you created.
@@ -11395,7 +11407,7 @@ To create a role for Filewatcher:
 2. On the storage account page, in the left-side navigation, select **Access control (IAM)**. The **Access control (IAM)**page appears.
 3. On **Access control (IAM)**page, select the **Roles** tab.
 4. Select any one of the configured basic roles that appear. Click **More**, then select **Clone**. The **Create a custom role** page appears. See image.
-5. On the **Create a custom role** page, do the following:
+5. On the **Create a custom role** page:
   - On the **Basics** tab, enter a name for the role in the **Custom role name** field. Ensure that you mention Filewatcher in the name to differentiate it from the DLP application's role. You can leave the other default settings on the page. See image.
   - On the **JSON** tab, click**Edit** and replace the action parameters that appear by default with the following JSON. Then click **Save**. `"actions": [ "Microsoft.Storage/storageAccounts/blobServices/containers/read", "Microsoft.Storage/storageAccounts/blobServices/containers/write" ], "dataActions: [ "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read", "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write", "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action", "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action" ]`See image.
 6. Click **Create**. The **Review + create** tab appears.
@@ -11407,7 +11419,7 @@ To complete role assignments:
 
 1. On the **Access control (IAM)**page, select **Add** > **Add roles assignments**. The **Add role assignment** page appears.
 2. On the **Role** tab, search for and select the role you created for Filewatcher app registration. See image.
-3. On the **Members** tab, do the following:
+3. On the **Members** tab:
   - **Assign Access to**: Select **User, group, or service principal**.
   - **Members**: Click **Select members**. The **Select members** pane appears. See image.
     - In the **Select members** pane, from the drop-down menu, select the Filewatcher app registration you created.
@@ -11420,7 +11432,7 @@ To create the event grid system topics for the storage account:
 1. Log in to the Microsoft Azure console.
 2. On the main page, select **Event Grid System Topics**. You can also search for `Event Grid System Topics` and select it. The **Event Grid | System topics** page appears.
 3. Click **Create**. The **Create** **Event Grid System Topics** page appears. See image.
-4. On the **Create** **Event Grid System Topic** page, on the**Basics** tab, do the following: Leave the other default settings. See image.
+4. On the **Create** **Event Grid System Topic** page, on the**Basics** tab: Leave the other default settings. See image.
   - In the **Topic Details** section:
     - **Topic Types**: From the drop-down menu, select **Storage Accounts (blob & GPv2)**.
     - **Subscription**: From the drop-down menu, select the subscription associated with your account.
@@ -11437,7 +11449,7 @@ You can view the newly created system topic on the **Events** tab of your storag
 1. Log in to the Microsoft Azure console.
 2. On the main page, select **Private DNS zone**. You can also search for `Private DNS zone` and select it. The **Private DNS zone** page appears.
 3. Click **Create**. The **Create Private DNS zone** page appears. See image.
-4. On the **Create Private DNS zone** page, on the **Basics** tab, do the following: See image.
+4. On the **Create Private DNS zone** page, on the **Basics** tab: See image.
   - **Subscription**: From the drop-down menu, select a subscription associated with your account.
   - **Resource group**: From the drop-down menu, select the resource group you created.
   - **Name**: Enter `privatelink.blob.core.windows.net`
@@ -11448,7 +11460,7 @@ You can view the newly created system topic on the **Events** tab of your storag
 1. Log in to the Microsoft Azure console.
 2. On the main page, select **Private endpoints**. You can also search for `Private endpoints`. The **Private Link Center | Private endpoints** page appears.
 3. Click **Create**. The **Create a private endpoint** page appears. See image.
-4. On the **Create a private endpoint** page, on the **Basics** tab, do the following: See image.
+4. On the **Create a private endpoint** page, on the **Basics** tab: See image.
   - In the **Project details** section:
     - **Subscription**: From the drop-down menu, select a subscription associated with your account.
     - **Resource group**: From the drop-down menu, select the resource group you created.
@@ -11462,7 +11474,7 @@ You can view the newly created system topic on the **Events** tab of your storag
   - **Resource type**: From the drop-down menu, select **Microsoft Storage/storage Accounts**.
   - **Resource**: From the drop-down menu, select the storage account resource you created.
   - **Target sub-resource**: From the drop-down menu, select **blob**.
-6. On the **Virtual Network** tab, do the following: See image.
+6. On the **Virtual Network** tab: See image.
   - In the **Networking** section:
     - **Virtual network**: From the drop-down menu, select the virtual network you created.
     - **Subnet**: From the drop-down menu, select **default**.
@@ -11472,7 +11484,7 @@ You can view the newly created system topic on the **Events** tab of your storag
 8. On the **Tags** tab, click **Review + create**. The**Review + create** tab appears.
 9. Review all the details you entered and then click **Create**. The deployment **Overview** page appears, displaying the deployment details. See image.
 
-1. Go to **Administration**>**Workflow Automation** > **Data Protection** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP Azure** application tile. The **Tile View** icon is selected by default. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP Azure** application tile. The **Tile View** icon is selected by default. See image.
 2. Click anywhere within the **DLP Azure** application tile. The **Zscaler DLP Azure Integration** details page appears, displaying a **Configuration Steps** tab and a **Configuration** tab. See image.
 3. Click the **Configuration Steps** tab. Under **Azure Resource Stack Setup**, click the following links: The **run-filewatcher.sh** bash script is used when installing or upgrading the container in the Filewatcher VM. See image.
   1. Click the **create-app-registration.sh**link to download the Zscaler bash script.
@@ -11553,7 +11565,7 @@ To set up private endpoints to access the storage account:
 
 1. Go to the storage account you created.
 2. From the left-side navigation, click **Front Door and CDN**. The **Front Door and CDN**page appears. See image.
-3. On the **Front Door and CDN** page, in the **New Endpoint** section, configure the following:
+3. On the **Front Door and CDN** page, in the **New Endpoint** section:
   - **Service type**: Select**Azure Front Door**.
   - **Create new/use existing profile**: Select **Create new**.
   - **Profile name**: Enter a name for your profile.
@@ -11624,7 +11636,7 @@ Before you begin:
 To install a new container:
 
 1. Download the `run-filewatcher.sh` script from the Zscaler Admin Console.
-  1. Go to **Administration**>**Workflow Automation** > **Data Protection** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP Azure** application tile. The **Tile View** icon is selected by default. See image.
+  1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP Azure** application tile. The **Tile View** icon is selected by default. See image.
   2. Click anywhere within the **DLP Azure** application tile. The **Zscaler DLP Azure Integration** details page appears, displaying a **Configuration Steps** tab and a **Configuration** tab. See image.
   3. Click the **Configuration Steps** tab. Under **Azure Resource Stack Setup**, click the **run-filewatcher.sh** link to download the Zscaler bash script. See image.
 2. In Azure, go to the Filewatcher server by pasting the **hostPublicIP** field value (if created) or **hostPrivateIP** field value that you copied from the **Outputs** page when you deployed the Filewatcher template on the command line. Then press `Enter`.
@@ -11672,7 +11684,7 @@ Before you begin:
 To upgrade a container:
 
 1. Download the `run-filewatcher.sh` script from the Zscaler Admin Console.
-  1. Go to **Administration**>**Workflow Automation** > **Data Protection** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP Azure** application tile. The **Tile View** icon is selected by default. See image.
+  1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP Azure** application tile. The **Tile View** icon is selected by default. See image.
   2. Click anywhere within the **DLP Azure** application tile. The **Zscaler DLP Azure Integration** details page appears, displaying a **Configuration Steps** tab and a **Configuration** tab. See image.
   3. Click the **Configuration Steps** tab. Under **Azure Resource Stack Setup**, click the **run-filewatcher.sh** link to download the Zscaler bash script. See image.
 2. In Azure, go to the Filewatcher server by pasting the **hostPublicIP** field value (if created) or **hostPrivateIP** field value that you copied from the **Outputs** page when you deployed the Filewatcher template on the command line. Then press `Enter`.
@@ -11697,7 +11709,7 @@ To upgrade a container:
   - Uses the existing folder in the current directory where the Incident Receiver sends the incidents by SFTP. The `envfile.txt` file must not be inside the `zscaler-files` folder.
   - The Filewatcher container uploads the files from the `zscaler-files` folder to the Azure Blob containers.
 
-1. Go to **Administration**>**Workflow Automation** > **Data Protection** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP** **Azure** application tile. The **Tile View** icon is selected by default. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP** **Azure** application tile. The **Tile View** icon is selected by default. See image.
 2. (Optional) On the **Integrations**dashboard, change the format for the dashboard. Click the **List View** icon to view the integrations in a list. See image.
 3. After you select a view option, perform one of the following procedures:
   - In the tile view: In the DLP Azure application tile, click the **Add** icon. The add **Zscaler DLP Azure Integration** page appears.
@@ -11712,17 +11724,20 @@ To upgrade a container:
 6. In the **Zscaler Azure DLP Integration** section:
   - **Storage Account Name**: Copy the `storageAccountName` output from the deployment of the resource manager template for DLP integration and enter it here.
   - **Custom Storage Endpoint URL**: (Optional) If you do not want Workflow Automation to access the storage account through a default public endpoint, enter a custom storage endpoint URL in the format `https://<custom endpoint>`. If you want to use a public endpoint, leave the field blank.
-  - **Event Grid System Topic Resource Id**: Copy the `systemTopicResourceID` output from the deployment of the resource manager template for DLP integration and enter it here.
+  - **Event Grid System Topic Resource ID**: Copy the `systemTopicResourceID` output from the deployment of the resource manager template for DLP integration and enter it here.
 7. In the **Privacy Settings** section: See image. If you disable **Hide Evidence Data** or **Hide Trigger Data** in the integration, but you did not enable read access to the data blob when creating the resource manager stack, no one can generate evidence links or view trigger data in the Zscaler Admin Console.
-  - **Hide Evidence Data - Admin**: Select if you do not want admins to be able to generate presigned evidence links for an incident on the**Incident Details** page. Otherwise, they can generate evidence links.
-  - **Hide Trigger Data - Admin**: Select if you do not want admins to be able to see the trigger data for an incident on the **Incident Details** page. Otherwise, they can see the trigger data.
-  - **Hide Policy Details - Admin**: Select if you do not want the admins to be able to view the policy details for the incident on the **Incident Details** page. Otherwise, they are able to view the policy details for the incident.
-  - **Hide Evidence Data - End User**: Select if you do not want end users to be able to generate presigned evidence links for an incident. Otherwise, they can generate evidence links.
-  - **Hide Trigger Data - End User**: Select if you do not want end users to be able to see the trigger data for an incident. Otherwise, they can see the trigger data.
-  - **Hide Policy Details - End User**: Select if you do not want the end users responding to an incident notification to be able to view the policy details for the incident. Otherwise, they are able to view the policy details for the incident.
-  - **Hide Evidence Data - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to generate presigned evidence links for the incident. Otherwise, they are able to generate evidence links.
-  - **Hide Trigger Data - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to see the trigger data for the incident. Otherwise, they are able to see the trigger data.
-  - **Hide Policy Details - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to view the policy details for the incident. Otherwise, they are able to view the policy details for the incident.
+  - **Hide Evidence Data - Admin**: Select if you do not want admins to be able to generate presigned evidence links for an incident on the **Violation Content** tab of the**Incident Details** drawer. Otherwise, they can generate evidence links. This checkbox is selected by default.
+  - **Hide Trigger Data - Admin**: Select if you do not want admins to be able to see the trigger data for an incident on the **Violation Content** tab of the **Incident Details** drawer. Otherwise, they can see the trigger data. This checkbox is selected by default.
+  - **Hide Policy Details - Admin**: Select if you do not want the admins to be able to view any of the policy details for the incident on the **Violation Details** tab of the **Incident Details** drawer. Otherwise, they can view the policy details for the incident. This checkbox is not selected by default.
+  - **Hide Policy Details for Non-Triggered Matches - Admin**: Select if you do not want the admins to be able to view the **Non-Triggered Engines and Dictionaries** section and the **Other Matched Rules** section of the policy details for the incident on the **Violation Details** tab of the **Incident Details** drawer. Otherwise, they can view these sections of the policy details for the incident. This checkbox is only available if you do not select the **Hide Policy Details - Admin** checkbox. This checkbox is not selected by default.
+  - **Hide Evidence Data - End User**: Select if you do not want the end users responding to an incident notification to be able to generate presigned evidence links for an incident. Otherwise, they can generate evidence links. This checkbox is selected by default.
+  - **Hide Trigger Data - End User**: Select if you do not want the end users responding to an incident notification to be able to see the trigger data for an incident. Otherwise, they can see the trigger data. This checkbox is selected by default.
+  - **Hide Policy Details - End User**: Select if you do not want the end users responding to an incident notification to be able to view any of the policy details for the incident. Otherwise, they can view the policy details for the incident. This checkbox is selected by default.
+  - **Hide Policy Details for Non-Triggered Matches - End User**: Select if you do not want the end users responding to an incident notification to be able to view the **Non-Triggered Engines and Dictionaries** section and the **Other Matched Rules** section of the policy details for the incident. Otherwise, they can view these sections of the policy details for the incident. This checkbox is only available if you do not select the **Hide Policy Details - End User** checkbox.
+  - **Hide Evidence Data - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to generate presigned evidence links for the incident. Otherwise, they can generate evidence links. This checkbox is selected by default.
+  - **Hide Trigger Data - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to see the trigger data for the incident. Otherwise, they can see the trigger data. This checkbox is selected by default.
+  - **Hide Policy Details - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to view the policy details for the incident. Otherwise, they can view the policy details for the incident. This checkbox is selected by default.
+  - **Hide Policy Details for Non-Triggered Matches - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to view the **Non-Triggered Engines and Dictionaries** section and the **Other Matched Rules** section of the policy details for the incident. Otherwise, they can view these sections of the policy details for the incident. This checkbox is only available if you do not select the **Hide Policy Details - Manager/Approver** checkbox.
 8. Click **Validate**. The system validates the account credentials that are entered with the Azure integration. It also checks whether the format is correct for the **Event Grid System Topic Resource Id**. You can only add the integration if it passes validation. If the validation fails for any reason, or if the configuration has been created or updated with the wrong values, you must disable the integration, correct the values for the integration, and re-enable it.
 9. Click **Add**. The **Zscaler DLP Azure Integration** details page appears, displaying the DLP integration under **Connected Accounts** with an **Enabled** status. See image.
 
@@ -11967,13 +11982,13 @@ After you configure the DLP application integration, the DLP incidents that occu
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-dlp-application-integration-using-google-cloud-platform","lastmod":"2026-07-21T13:43Z","nid":"1532057"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-dlp-application-integration-using-google-cloud-platform","lastmod":"2026-09-17T08:55Z","nid":"1532057"} -->
 ## Configuring the DLP Application Integration Using Google Cloud Platform
 
 - Source: https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-google-cloud-platform
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Configuring the DLP Application Integration Using Google Cloud Platform
-- Last modified: 2026-07-21T13:43Z
+- Last modified: 2026-09-17T08:55Z
 - Summary: How to configure DLP application integration using Google Cloud Platform.
 
 Google Cloud Platform (GCP) only supports the Cloud-to-Cloud Incident Forwarding method for DLP application integration in Workflow Automation.
@@ -12005,7 +12020,7 @@ Google is discontinuing support for the Google Cloud Deployment Manager on March
 
 To download Zscaler deployment script:
 
-1. Go to **Administration**>**Workflow Automation** > **Data Protection** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP GCP** application tile. The **Tile View** icon is selected by default. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP GCP** application tile. The **Tile View** icon is selected by default. See image.
 2. Click anywhere within the **DLP GCP** application tile. The **Zscaler DLP GCP Integration** details page appears, displaying a **Configuration Steps** tab and a **Configuration** tab. See image.
 3. Click the **Configuration Steps** tab. Under **GCP Cloud Resource Stack Setup**, click the **deployment.jinja** link to download the DLP GCP Integration cloud resource stack. See image.
 
@@ -12148,9 +12163,9 @@ gcloud iam service-accounts create "zscaler-sa-${PREFIX}" \
   --project="${PROJECT_ID}"
 ```
 
-[Image: Viewing the Service accounts page in the Google Cloud console.]
+[Image: Viewing the Service accounts page in the Google Cloud console]
 
-[Image: Viewing the Create service account page in the Google Cloud console.]
+[Image: Viewing the Create service account page in the Google Cloud console]
 
 Create the Google Cloud Storage (GCS) bucket to store data files. The data bucket includes configurations for versioning, uniform access control, and optional retention policies and Key Management Service (KMS) encryption.
 
@@ -12218,9 +12233,9 @@ if [[ -n "$RETENTION_PERIOD_DATA" ]]; then
 fi
 ```
 
-[Image: Viewing the Buckets page in the Google Cloud console.]
+[Image: Viewing the Buckets page in the Google Cloud console]
 
-[Image: Viewing the Create a bucket page in the Google Cloud console.]
+[Image: Viewing the Create a bucket page in the Google Cloud console]
 
 Create the GCS bucket to store the metadata. You can configure the metadata bucket with its own optional retention policy.
 
@@ -12288,7 +12303,7 @@ if [[ -n "$RETENTION_PERIOD_METADATA" ]]; then
 fi
 ```
 
-[Image: Viewing the Buckets page in the Google Cloud console.]
+[Image: Viewing the Buckets page in the Google Cloud console]
 
 [Image: Viewing the Create a bucket page in the Google Cloud console]
 
@@ -12416,17 +12431,17 @@ gcloud iam service-accounts add-iam-policy-binding serviceAccount:${ZSCALER_SA} 
 
 [Image: Viewing the Bucket details page in the Google Cloud console. The Permissions tab is highlighted and the Grant Access button is highlighted on the page.]
 
-[Image: Viewing the Grant access page in the Google Cloud console when granting access to a bucket.]
+[Image: Viewing the Grant access page in the Google Cloud console when granting access to a bucket]
 
 [Image: Viewing the IAM page in the Google Cloud console]
 
-[Image: Viewing the Grant access page in the Google Cloud console when granting Pub/Sub subscription management access.]
+[Image: Viewing the Grant access page in the Google Cloud console when granting Pub/Sub subscription management access]
 
-[Image: Viewing the Service accounts page in the Google Cloud console.]
+[Image: Viewing the Service accounts page in the Google Cloud console]
 
 [Image: Viewing the service account details page. The Principals with access tab is highlighted, the View by principals sub-tab is highlighted, and the Grant access button is highlighted.]
 
-[Image: Viewing the Grant access page in the Google Cloud console when granting the Service Account User role to the service account.]
+[Image: Viewing the Grant access page in the Google Cloud console when granting the Service Account User role to the service account]
 
 To create a private key:
 
@@ -12438,7 +12453,7 @@ To create a private key:
 
 [Image: Filtering the service accounts on the Service accounts page]
 
-[Image: Selecting the Create new key option on the Keys tab on the cloud resource template page.]
+[Image: Selecting the Create new key option on the Keys tab on the cloud resource template page]
 
 [Image: Selecting the JSON key type in the Create private key window]
 
@@ -12446,29 +12461,32 @@ To create a private key:
 
 To add a DLP GCP application integration using the GCP service account private key:
 
-1. Go to **Administration**>**Workflow Automation** > **Data Protection** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP** **GCP** application tile. The **Tile View** icon is selected by default. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP** **GCP** application tile. The **Tile View** icon is selected by default. See image.
 2. (Optional) On the **Integrations**dashboard, change the view format for the dashboard. Click the **List View** icon to view the **DLP** **GCP** application in a list. See image.
 3. After you select a view option, perform one of the following procedures:
   - In the tile view: In the DLP GCP application tile, click the **Add** icon. The add **Zscaler DLP GCP Integration** page appears.
   - In the list view: See image.
     1. Click **Connect** next to the DLP GCP application integration. The **Zscaler DLP GCP Integration** details page appears, displaying a **Configuration Steps** tab and a **Configuration** tab.
     2. On the **Configuration** tab, click **Add New**. The add **Zscaler DLP GCP Integration** page appears.
-4. On the add **Zscaler DLP GCP Integration** page, in the **Zscaler GCP DLP Integration** section, enter the following:
+4. On the add **Zscaler DLP GCP Integration** page, in the **Zscaler GCP DLP Integration** section:
   - **Integration Name**: Enter a name for the integration.
   - **Project ID**: From the JSON key downloaded from the GCP console, copy the `project_id` for the DLP integration and enter it here.
   - **Private Key**: From the JSON key downloaded from the GCP console, copy the `private_key` for the DLP integration and enter it here.
   - **Client Email**: From the JSON key downloaded from the GCP console, copy the `client_email` for the DLP integration and enter it here.
   - **Prefix for Bucket and Topic**: Enter a prefix for the storage bucket and topic.
 5. In the **Privacy Settings** section: See image. If you disable **Hide Evidence Data** or **Hide Trigger Data** in the integration, but you did not enable read access to the storage accounts when creating the cloud resources, no one can generate evidence links or view trigger data in the Zscaler Admin Console.
-  - **Hide Evidence Data - Admin**: Select if you do not want admins to be able to generate presigned evidence links for an incident on the**Incident Details** page. Otherwise, they can generate evidence links.
-  - **Hide Trigger Data - Admin**: Select if you do not want admins to be able to see the trigger data for an incident on the **Incident Details** page. Otherwise, they can see the trigger data.
-  - **Hide Policy Details - Admin**: Select if you do not want admins to be able to view the policy details for the incident on the **Incident Details** page. Otherwise, they can view the policy details for the incident.
-  - **Hide Evidence Data - End User**: Select if you do not want end users to be able to generate presigned evidence links for an incident. Otherwise, they can generate evidence links.
-  - **Hide Trigger Data - End User**: Select if you do not want end users to be able to see the trigger data for an incident. Otherwise, they can see the trigger data.
-  - **Hide Policy Details - End User**: Select if you do not want end users responding to an incident notification to be able to view the policy details for the incident. Otherwise, they can view the policy details for the incident.
-  - **Hide Evidence Data - Manager/Approver**: Select if you do not want approvers or managers responding to an incident escalation notification to be able to generate presigned evidence links for the incident. Otherwise, they can generate evidence links.
-  - **Hide Trigger Data - Manager/Approver**: Select if you do not want approvers or managers responding to an incident escalation notification to be able to see the trigger data for the incident. Otherwise, they can see the trigger data.
-  - **Hide Policy Details - Manager/Approver**: Select if you do not want approvers or managers responding to an incident escalation notification to be able to view the policy details for the incident. Otherwise, they can view the policy details for the incident.
+  - **Hide Evidence Data - Admin**: Select if you do not want admins to be able to generate presigned evidence links for an incident on the **Violation Content** tab of the**Incident Details** drawer. Otherwise, they can generate evidence links. This checkbox is selected by default.
+  - **Hide Trigger Data - Admin**: Select if you do not want admins to be able to see the trigger data for an incident on the **Violation Content** tab of the **Incident Details** drawer. Otherwise, they can see the trigger data. This checkbox is selected by default.
+  - **Hide Policy Details - Admin**: Select if you do not want the admins to be able to view any of the policy details for the incident on the **Violation Details** tab of the **Incident Details** drawer. Otherwise, they can view the policy details for the incident. This checkbox is not selected by default.
+  - **Hide Policy Details for Non-Triggered Matches - Admin**: Select if you do not want the admins to be able to view the **Non-Triggered Engines and Dictionaries** section and the **Other Matched Rules** section of the policy details for the incident on the **Violation Details** tab of the **Incident Details** drawer. Otherwise, they can view these sections of the policy details for the incident. This checkbox is only available if you do not select the **Hide Policy Details - Admin** checkbox. This checkbox is not selected by default.
+  - **Hide Evidence Data - End User**: Select if you do not want the end users responding to an incident notification to be able to generate presigned evidence links for an incident. Otherwise, they can generate evidence links. This checkbox is selected by default.
+  - **Hide Trigger Data - End User**: Select if you do not want the end users responding to an incident notification to be able to see the trigger data for an incident. Otherwise, they can see the trigger data. This checkbox is selected by default.
+  - **Hide Policy Details - End User**: Select if you do not want the end users responding to an incident notification to be able to view any of the policy details for the incident. Otherwise, they can view the policy details for the incident. This checkbox is selected by default.
+  - **Hide Policy Details for Non-Triggered Matches - End User**: Select if you do not want the end users responding to an incident notification to be able to view the **Non-Triggered Engines and Dictionaries** section and the **Other Matched Rules** section of the policy details for the incident. Otherwise, they can view these sections of the policy details for the incident. This checkbox is only available if you do not select the **Hide Policy Details - End User** checkbox.
+  - **Hide Evidence Data - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to generate presigned evidence links for the incident. Otherwise, they can generate evidence links. This checkbox is selected by default.
+  - **Hide Trigger Data - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to see the trigger data for the incident. Otherwise, they can see the trigger data. This checkbox is selected by default.
+  - **Hide Policy Details - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to view the policy details for the incident. Otherwise, they can view the policy details for the incident. This checkbox is selected by default.
+  - **Hide Policy Details for Non-Triggered Matches - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to view the **Non-Triggered Engines and Dictionaries** section and the **Other Matched Rules** section of the policy details for the incident. Otherwise, they can view these sections of the policy details for the incident. This checkbox is only available if you do not select the **Hide Policy Details - Manager/Approver** checkbox.
 6. Click **Validate**. The system validates the account credentials that are entered with the GCP integration. You can only add the integration if it passes validation. If the validation fails for any reason, or if the configuration has been created or updated with the wrong values, you must disable and re-enable the integration after you correct the values for the integration.
 7. Click **Add**. The **Zscaler DLP GCP Integration** details page appears, displaying the DLP integration under **Connected Accounts** with an **Enabled** status.
 
@@ -12490,17 +12508,17 @@ You can view the DLP GCP integration you added in the Zscaler Admin Console.
 
 Configure the DLP Cloud-to-Cloud Incident Forwarding on a GCP instance for Workflow Automation. To learn more about configuring Cloud-to-Cloud Incident Forwarding in GCP, see [Configuring DLP Cloud-to-Cloud Incident Forwarding](https://help.zscaler.com/zia/configure-dlp-cloud-cloud-incident-forwarding).
 
-[Image: Viewing the Integrations Dashboard in Tile View with no integrations configured]
+[Image: Viewing the Integrations dashboard in tile view with no integrations configured]
 
-[Image: Viewing the Integrations Dashboard in List View with no integrations configured]
+[Image: Viewing the Integrations dashboard in list view with no integrations configured]
 
-[Image: The Configuration Steps tab on the GCP application]
+[Image: The Configuration Steps tab on the Zscaler DLP GCP Integration details page]
 
 [Image: Viewing the Zscaler DLP GCP Integration details page with no integrations configured]
 
-[Image: Adding a Zscaler DLP GCP Integration on the add Zscaler GCP DLP Integration Page in the Zscaler Admin Console]
+[Image: Adding a Zscaler DLP GCP integration on the add Zscaler DLP GCP Integration page in the Zscaler Admin Console]
 
-[Image: DLP GCP application tile on the Integrations page in the Zscaler Admin Console]
+[Image: DLP GCP application tile on the Integrations dashboard in the Zscaler Admin Console]
 
 [Image: Zscaler DLP GCP Integration page displaying Configuration Steps and Configuration tabs]
 
@@ -12758,13 +12776,13 @@ To learn more, see [Viewing & Managing Incident Details](https://help.zscaler.co
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-admin-assignments","lastmod":"2026-09-08T12:09Z","nid":"1418066"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-admin-assignments","lastmod":"2026-09-16T06:37Z","nid":"1418066"} -->
 ## Managing Admin Assignments
 
 - Source: https://help.zscaler.com/workflow-automation/managing-admin-assignments
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Alerts and Settings > Managing Admin Assignments
-- Last modified: 2026-09-08T12:09Z
+- Last modified: 2026-09-16T06:37Z
 - Summary: How to manage admin assignments in Workflow Automation.
 
 You provision admins in the Zscaler Admin Console with either full or restricted workflow access permission to Workflow Automation. An admin with full workflow access can access certain incident groups or all incident groups based on their assignment. An admin with restricted workflow access is restricted to certain incident groups in Workflow Automation. To learn more, see [Adding Admin Roles](https://help.zscaler.com/zia/adding-admin-roles) and [Adding ZIA Admins.](https://help.zscaler.com/zia/adding-zia-admins)
@@ -12864,13 +12882,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-approvers","lastmod":"2026-09-08T11:57Z","nid":"1418006"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-approvers","lastmod":"2026-09-16T13:39Z","nid":"1418006"} -->
 ## Managing Approvers
 
 - Source: https://help.zscaler.com/workflow-automation/managing-approvers
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Admin, User, & Role Management > Managing Approvers
-- Last modified: 2026-09-08T11:57Z
+- Last modified: 2026-09-16T13:39Z
 - Summary: How to manage approvers in Workflow Automation.
 
 Adding approvers is one of the tasks for configuring Workflow Automation. Admins with access to Workflow Automation need to configure the approvers for their organization.
@@ -12910,9 +12928,9 @@ To view approvers, from the [navigation menu](https://help.zscaler.com/unified/s
 
 See image.
 
-[Image: Approvers Page - Add]
+[Image: Adding an approver on the Approvers page]
 
-[Image: Approvers Page - View]
+[Image: Viewing approvers on the Approvers page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -13102,13 +13120,13 @@ To view the details for a custom email domain:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-dlp-aws-application-integrations-workflow-automation","lastmod":"2026-07-17T12:29Z","nid":"1417866"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-dlp-aws-application-integrations-workflow-automation","lastmod":"2026-09-17T09:04Z","nid":"1417866"} -->
 ## Managing DLP Amazon Web Services Application Integrations in Workflow Automation
 
 - Source: https://help.zscaler.com/workflow-automation/managing-dlp-aws-application-integrations-workflow-automation
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Managing DLP Amazon Web Services Application Integrations in Workflow Automation
-- Last modified: 2026-07-17T12:29Z
+- Last modified: 2026-09-17T09:04Z
 - Summary: How to manage Data Loss Prevention (DLP) Amazon Web Services application integrations in Workflow Automation.
 
 Application integration is the step required to connect the source of the DLP incidents (i.e., Internet & SaaS (ZIA)) to Workflow Automation. Super admins or admins with Full or Restricted access to Workflow Automation can configure the DLP application integration. Before your organization's DLP incidents are available for review and remediation on the Incidents page in the Zscaler Admin Console, the DLP Amazon Web Services (AWS) application integration must be configured. To learn more, see [Configuring the DLP Application Integration Using Amazon Web Services](https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-amazon-web-services).
@@ -13128,7 +13146,7 @@ Ensure that you have successfully created the AWS resources through the creation
 
 To add a DLP AWS application integration in Workflow Automation:
 
-1. Go to **Administration**>**Workflow Automation** > **Data Protection** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP** AWS application tile in the **All Available Apps** section. The **Tile View** icon is selected by default. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP** AWS application tile in the **All Available Apps** section. The **Tile View** icon is selected by default. See image.
 2. (Optional) On the **Integrations**dashboard, change the view format for the dashboard. Click the **List View** icon to view the integrations in a list. See image.
 3. After you select a view option, perform one of the following procedures:
   - In the tile view: In the DLP AWS application tile, click the **Add** icon. The add **Zscaler DLP Integration** page appears.
@@ -13137,40 +13155,33 @@ To add a DLP AWS application integration in Workflow Automation:
     2. On the **Configuration** tab, click **Add New**. The add **Zscaler DLP integration** page appears.
 4. On the add **Zscaler DLP integration** page, in the **Zscaler DLP Integration** section, enter an **Integration Name**.
 5. In the **Account Credentials** section:
-
-- **IAM Cross-Account Role ARN**: Copy the `IAM Cross-account Role ARN` output of the CloudFormation stack and enter it here.
-- **IAM Cross-Account Role External ID**: The IAM Cross-account Role External ID is automatically populated for you and cannot be changed. This same ID also appears as the **Customer GUID**on the **Account Settings** page in the Zscaler Admin Console. To learn more, see [Managing Account Settings.](https://help.zscaler.com/workflow-automation/managing-account-settings)
-- **Support User Role ARN**: (Optional) If you have created a support role using the CloudFormation stack, or you have manually created the support role, copy the `Support Role ARN` output from the CloudFormation stack and enter it here or enter the `Support Role ARN` that was manually created. Zscaler Support can assume this role and assist you with troubleshooting any integration configuration issues that you might have in your AWS account. This role is restricted, and cannot access any of the incidents or the data associated with those incidents in your account. Entering a Support User Role ARN is optional.
-
-1. In the **Zscaler DLP Integration** section:
-
-- **S3 Bucket Name Prefix**: Copy the `S3 Bucket Name Prefix` output of the CloudFormation stack and enter it here.
-- **SNS Topic ARN**: Copy the `SNS Topic ARN` output of the CloudFormation stack and enter it here.
-
-1. In the Privacy Settings section:
-
-- **Hide Evidence Data - Admin**: Select if you do not want admins to be able to generate presigned evidence links for an incident on the**Incident Details** page. Otherwise, they can generate evidence links.
-- **Hide Trigger Data - Admin**: Select if you do not want admins to be able to see the trigger data for an incident on the **Incident Details** page. Otherwise, they can see the trigger data.
-- **Hide Policy Details - Admin**: Select if you do not want the admins to be able to view the policy details for the incident on the **Incident Details** page. Otherwise, they are able to view the policy details for the incident.
-- **Hide Evidence Data - End User**: Select if you do not want end users to be able to generate presigned evidence links for an incident. Otherwise, they can generate evidence links.
-- **Hide Trigger Data - End User**: Select if you do not want end users to be able to see the trigger data for an incident. Otherwise, they can see the trigger data.
-- **Hide Policy Details - End User**: Select if you do not want the end users responding to an incident notification to be able to view the policy details for the incident. Otherwise, they are able to view the policy details for the incident.
-- **Hide Evidence Data - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to generate presigned evidence links for the incident. Otherwise, they are able to generate evidence links.
-- **Hide Trigger Data - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to see the trigger data for the incident. Otherwise, they are able to see the trigger data.
-- **Hide Policy Details - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to view the policy details for the incident. Otherwise, they are able to view the policy details for the incident.
-
-See image.
-
-If you disable **Hide Evidence Data** or **Hide Trigger Data** in the integration, but you did not enable read access to the S3 bucket when creating the CloudFormation stack, no one can generate evidence links and view trigger data in the Zscaler Admin Console.
-
-1. Click **Validate**. The system validates the account credentials that are entered with the AWS integration. It verifies that the IAM Cross-Account Role ARN entry is valid, and it also checks if the format is correct for the SNS Topic ARN. The integration can only be added if it passes validation. If the validation fails for any reason or if the configuration has been created or updated with the wrong values, the admin must disable and enable the integration after they have corrected the values for the integration.
-2. Click **Add**. The **Zscaler DLP Integration** details page appears, displaying the DLP AWS integration under **Connected Accounts** with an **Enabled** status. See image.
+  - **IAM Cross-Account Role ARN**: Copy the `IAM Cross-account Role ARN` output of the CloudFormation stack and enter it here.
+  - **IAM Cross-Account Role External ID**: The IAM Cross-account Role External ID is automatically populated for you and cannot be changed. This same ID also appears as the **Customer GUID**on the **Account Settings** page in the Zscaler Admin Console. To learn more, see [Managing Account Settings.](https://help.zscaler.com/workflow-automation/managing-account-settings)
+  - **Support User Role ARN**: (Optional) If you created a support role using the CloudFormation stack or you manually created the support role, copy the `support role ARN` output of the CloudFormation stack and enter it here or enter the `support role ARN` that you manually created. Zscaler Support can assume this role and assist you with troubleshooting any integration configuration issues that you might have in your AWS account. This role is restricted and cannot access any of the incidents or the data associated with those incidents in your account.
+6. In the **Zscaler DLP Integration** section:
+  - **S3 Bucket Name Prefix**: Copy the `S3 Bucket Name Prefix` output of the CloudFormation stack and enter it here or enter the `S3 Bucket Name Prefix` that you manually created.
+  - **SNS Topic ARN**: Copy the `SNS Topic ARN` output of the CloudFormation stack and enter it here or enter the `SNS Topic ARN` that you manually created.
+7. In the Privacy Settings section: See image. If you disable **Hide Evidence Data** or **Hide Trigger Data** in the integration, but you did not enable read access to the S3 bucket when creating the CloudFormation stack, no one can generate evidence links and view trigger data in the Zscaler Admin Console.
+  - **Hide Evidence Data - Admin**: Select if you do not want admins to be able to generate presigned evidence links for an incident on the **Violation Content** tab of the**Incident Details** drawer. Otherwise, they can generate evidence links. This checkbox is selected by default.
+  - **Hide Trigger Data - Admin**: Select if you do not want admins to be able to see the trigger data for an incident on the **Violation Content** tab of the **Incident Details** drawer. Otherwise, they can see the trigger data. This checkbox is selected by default.
+  - **Hide Policy Details - Admin**: Select if you do not want the admins to be able to view any of the policy details for the incident on the **Violation Details** tab of the **Incident Details** drawer. Otherwise, they can view the policy details for the incident. This checkbox is not selected by default.
+  - **Hide Policy Details for Non-Triggered Matches - Admin**: Select if you do not want the admins to be able to view the **Non-Triggered Engines and Dictionaries** section and the **Other Matched Rules** section of the policy details for the incident on the **Violation Details** tab of the **Incident Details** drawer. Otherwise, they can view these sections of the policy details for the incident. This checkbox is only available if you do not select the **Hide Policy Details - Admin** checkbox. This checkbox is not selected by default.
+  - **Hide Evidence Data - End User**: Select if you do not want the end users responding to an incident notification to be able to generate presigned evidence links for an incident. Otherwise, they can generate evidence links. This checkbox is selected by default.
+  - **Hide Trigger Data - End User**: Select if you do not want the end users responding to an incident notification to be able to see the trigger data for an incident. Otherwise, they can see the trigger data. This checkbox is selected by default.
+  - **Hide Policy Details - End User**: Select if you do not want the end users responding to an incident notification to be able to view any of the policy details for the incident. Otherwise, they can view the policy details for the incident. This checkbox is selected by default.
+  - **Hide Policy Details for Non-Triggered Matches - End User**: Select if you do not want the end users responding to an incident notification to be able to view the **Non-Triggered Engines and Dictionaries** section and the **Other Matched Rules** section of the policy details for the incident. Otherwise, they can view these sections of the policy details for the incident. This checkbox is only available if you do not select the **Hide Policy Details - End User** checkbox.
+  - **Hide Evidence Data - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to generate presigned evidence links for the incident. Otherwise, they can generate evidence links. This checkbox is selected by default.
+  - **Hide Trigger Data - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to see the trigger data for the incident. Otherwise, they can see the trigger data. This checkbox is selected by default.
+  - **Hide Policy Details - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to view the policy details for the incident. Otherwise, they can view the policy details for the incident. This checkbox is selected by default.
+  - **Hide Policy Details for Non-Triggered Matches - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to view the **Non-Triggered Engines and Dictionaries** section and the **Other Matched Rules** section of the policy details for the incident. Otherwise, they can view these sections of the policy details for the incident. This checkbox is only available if you do not select the **Hide Policy Details - Manager/Approver** checkbox.
+8. Click **Validate**. The system validates the account credentials that are entered with the AWS integration. It verifies that the IAM Cross-Account Role ARN entry is valid, and it also checks if the format is correct for the SNS Topic ARN. You can only add the integration if it passes validation. If the validation fails for any reason or if the configuration has been created or updated with the wrong values, you must disable and enable the integration after you correct the values for the integration.
+9. Click **Add**. The **Zscaler DLP Integration** details page appears, displaying the DLP AWS integration under **Connected Accounts** with an **Enabled** status. See image.
 
 ## Editing DLP AWS Application Integrations
 
 To edit a DLP AWS application integration in Workflow Automation:
 
-1. Go to **Administration**>**Workflow Automation** > **Data Protection** > **Integrations**. The **Integrations**dashboard appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation** > **Integrations**. The **Integrations**dashboard appears.
 2. On the **Integrations**dashboard, select the view format for the dashboard. Click the **Tile View** icon to view the integrations displayed in tiles or click the **List View** icon to view the integrations in a list. The **Tile View** icon is selected by default.
 3. (Optional) On the**Integrations**dashboard, use the **Search** field to locate the DLP AWS Application Integration that you want to edit.
 4. Perform one of the following steps: The **Zscaler DLP Integration** details page appears, displaying all the existing DLP AWS app integrations along with their specific statuses (Enabled, Disabled, and Failed) under the **Connected Accounts** section. To display the deleted application integrations, select **Show Deleted Accounts** at the top right of the **Connected Accounts** section. See image.
@@ -13185,7 +13196,7 @@ To edit a DLP AWS application integration in Workflow Automation:
 
 To delete a DLP AWS application integration in Workflow Automation:
 
-1. Go to **Administration**>**Workflow Automation** > **Data Protection** > **Integrations**. The **Integrations**dashboard appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation** > **Integrations**. The **Integrations**dashboard appears.
 2. On the **Integrations**dashboard, select the view format for the dashboard. Click the **Tile View** icon to view the integrations displayed in tiles or click the **List View** icon to view the integrations in a list. The **Tile View** icon is selected by default.
 3. (Optional) On the**Integrations**dashboard, use the **Search** field to locate the DLP AWS Application Integration that you want to delete.
 4. Perform one of the following steps: The **Zscaler DLP Integration** details page appears, displaying all the DLP AWS app integrations along with their specific statuses (Enabled, Disabled, and Failed) under the **Connected Accounts** section. To display the deleted application integrations, select **Show Deleted Accounts** at the top right of the **Connected Accounts** section. See image.
@@ -13196,7 +13207,7 @@ To delete a DLP AWS application integration in Workflow Automation:
 
 To disable or enable a DLP AWS application integration in Workflow Automation:
 
-1. Go to **Administration**>**Workflow Automation** > **Data Protection** > **Integrations**. The **Integrations**dashboard appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation** > **Integrations**. The **Integrations**dashboard appears.
 2. On the **Integrations**dashboard, select the view format for the dashboard. Click the **Tile View** icon to view the integrations displayed in tiles or click the **List View** icon to view the integrations in a list. The **Tile View** icon is selected by default.
 3. (Optional) On the**Integrations**dashboard, use the **Search** field to locate the DLP AWS Application Integration that you want to disable or enable.
 4. Perform one of the following steps: The **Zscaler DLP Integration** details page appears, displaying all the DLP AWS app integrations along with their specific statuses (Enabled, Disabled, and Failed) under the **Connected Accounts** section. To display the deleted application integrations, select **Show Deleted Accounts** at the top right of the **Connected Accounts** section. See image.
@@ -13207,7 +13218,7 @@ To disable or enable a DLP AWS application integration in Workflow Automation:
 
 To view DLP AWS application integrations in Workflow Automation:
 
-1. Go to **Administration**>**Workflow Automation** > **Data Protection** > **Integrations**. The **Integrations**dashboard appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation** > **Integrations**. The **Integrations**dashboard appears.
 2. On the **Integrations**dashboard:
 
 - Filter the integrations that are displayed on the dashboard. Select **All** to display all the integrations or select **Connected** to display only those integrations that are connected. By default, all integrations are displayed. See image.
@@ -13215,7 +13226,7 @@ To view DLP AWS application integrations in Workflow Automation:
 
 1. View the list of all connected DLP AWS application integrations that have been added to your organization:
 
-In the tile view, under the **Connected Apps** section, you can view the following information:
+In the tile view, under the **Connected Apps** section, you can view:
 
 1. Status: The status of the accounts for the integration. An oval is displayed at the top of the tile listing the number of accounts that are connected and the status of **Connected**. This number does not include accounts with a Failed or Deleted status.
 2. App: The application that is associated with the integration. For example, Data Loss Prevention (DLP).
@@ -13223,7 +13234,7 @@ In the tile view, under the **Connected Apps** section, you can view the followi
 
 See image.
 
-In the list view, under the **Connected Apps** section, you can view the following information:
+In the list view, under the **Connected Apps** section, you can view:
 
 - **App Integration:** The application that is associated with the integration.
 - **Account Details**: The integration name for each account associated with the integration.
@@ -13268,13 +13279,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-dlp-azure-application-integrations-workflow-automation","lastmod":"2026-07-20T07:39Z","nid":"1452631"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-dlp-azure-application-integrations-workflow-automation","lastmod":"2026-09-17T09:08Z","nid":"1452631"} -->
 ## Managing DLP Azure Application Integrations in Workflow Automation
 
 - Source: https://help.zscaler.com/workflow-automation/managing-dlp-azure-application-integrations-workflow-automation
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Managing DLP Azure Application Integrations in Workflow Automation
-- Last modified: 2026-07-20T07:39Z
+- Last modified: 2026-09-17T09:08Z
 - Summary: How to manage Data Loss Prevention (DLP) Azure application integrations in Workflow Automation.
 
 Application integration is the step required to connect the source of the DLP incidents (i.e., Internet & SaaS (ZIA)) to Workflow Automation. Super admins or admins with Full or Restricted access to Workflow Automation can configure the DLP Azure application integration. Before your organization's DLP incidents are available for review and remediation on the Incidents page in the Zscaler Admin Console, the DLP Azure application integration must be configured. To learn more, see [Configuring the DLP Application Integration Using Azure](https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-azure).
@@ -13294,102 +13305,80 @@ Ensure that you have successfully created the Azure resources through the creati
 
 To add a DLP Azure application integration in Workflow Automation:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP** **Azure** application tile in the **All Available Apps** section. The **Tile View** icon is selected by default. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP** **Azure** application tile in the **All Available Apps** section. The **Tile View** icon is selected by default. See image.
 2. (Optional) On the **Integrations**dashboard, change the view format for the dashboard. Click the **List View** icon to view the integrations in a list. See image.
 3. After you select a view option, perform one of the following procedures:
   - In the tile view: In the DLP Azure application tile, click the **Add** icon. The add **Zscaler DLP Azure Integration** page appears.
   - In the list view:
-    1. Click **Connect** next to the DLP Azure application integration. The **Zscaler DLP Azure Integration** details page appears, displaying a **Configuration Steps** tab and a **Configuration** tab. See image. The **Configuration Steps** tab provides the instructions for configuring a DLP Azure application integration and a link to download the Zscaler template file.
+    1. Click **Connect** next to the DLP Azure application integration. The **Zscaler DLP Azure Integration** details page appears, displaying a **Configuration Steps** tab and a **Configuration** tab. See image. The **Configuration Steps** tab provides the instructions for configuring a DLP Azure application integration, a link to download the bash script, and links to download the Zscaler resource manager template files.
     2. On the **Configuration** tab, click **Add New**. The add **Zscaler DLP Azure Integration** page appears.
 4. On the add **Zscaler DLP Azure Integration** page, in the **Zscaler Azure DLP Integration** section, enter an **Integration Name**.
 5. In the **Account Credentials** section:
-
-- **Tenant ID**: Copy the `TenantId` output from the bash script for the DLP integration and enter it here.
-- **Client ID**: Copy the `applicationClientId` output from the bash script for the DLP Integration and enter it here.
-- **Client Secret**: Copy the `applicationClientSecret` output from the bash script for the DLP Integration and enter it here.
-
-1. In the **Zscaler Azure DLP Integration** section:
-
-- **Storage Account Name**: Copy the `storageAccountName` output from the deployment of the resource manager template for DLP integration and enter it here.
-- **Custom Storage Endpoint URL**: (Optional) If you do not want Workflow Automation to access the storage account through a default public endpoint, enter a custom storage endpoint URL in the format `https://<custom endpoint>`. Leave the field blank if you want to use a public endpoint.
-- **Event Grid System Topic Resource Id**: Copy the `systemTopicResourceID` output from the deployment of the resource manager template for DLP integration and enter it here.
-
-1. In the **Privacy Settings** section:
-
-- **Hide Evidence Data - Admin**: Select if you do not want admins to be able to generate presigned evidence links for an incident on the**Incident Details** page. Otherwise, they can generate evidence links.
-- **Hide Trigger Data - Admin**: Select if you do not want admins to be able to see the trigger data for an incident on the **Incident Details** page. Otherwise, they can see the trigger data.
-- **Hide Policy Details - Admin**: Select if you do not want admins to be able to view the policy details for the incident on the **Incident Details** page. Otherwise, they are able to view the policy details for the incident.
-- **Hide Evidence Data - End User**: Select if you do not want end users to be able to generate presigned evidence links for an incident. Otherwise, they can generate evidence links.
-- **Hide Trigger Data - End User**: Select if you do not want end users to be able to see the trigger data for an incident. Otherwise, they can see the trigger data.
-- **Hide Policy Details - End User**: Select if you do not want end users responding to an incident notification to be able to view the policy details for the incident. Otherwise, they are able to view the policy details for the incident.
-- **Hide Evidence Data - Manager/Approver**: Select if you do not want approvers or managers responding to an incident escalation notification to be able to generate presigned evidence links for the incident. Otherwise, they are able to generate evidence links.
-- **Hide Trigger Data - Manager/Approver**: Select if you do not want approvers or managers responding to an incident escalation notification to be able to see the trigger data for the incident. Otherwise, they are able to see the trigger data.
-- **Hide Policy Details - Manager/Approver**: Select if you do not want approvers or managers responding to an incident escalation notification to be able to view the policy details for the incident. Otherwise, they are able to view the policy details for the incident.
-
-See image.
-
-If you disable **Hide Evidence Data** or **Hide Trigger Data** in the integration, but you did not enable read access to the data blob when creating the resource manager stack, no one can generate evidence links or view trigger data in the Zscaler Admin Console.
-
-1. Click **Validate**. The system validates the account credentials that are entered with the Azure integration. It also checks whether the format is correct for the **Event Grid System Topic Resource Id**. You can only add the integration if it passes validation. If the validation fails for any reason, or if the configuration has been created or updated with the wrong values, you must disable and re-enable the integration after you correct the values for the integration.
-2. Click **Add**. The **Zscaler DLP Azure Integration** details page appears, displaying the DLP integration under **Connected Accounts** with an **Enabled** status. See image.
+  - **Tenant ID**: Copy the `TenantId` output from the bash script for the DLP integration and enter it here.
+  - **Client ID**: Copy the `applicationClientId` output from the bash script for the DLP Integration and enter it here.
+  - **Client Secret**: Copy the `applicationClientSecret` output from the bash script for the DLP Integration and enter it here.
+6. In the **Zscaler Azure DLP Integration** section:
+  - **Storage Account Name**: Copy the `storageAccountName` output from the deployment of the resource manager template for DLP integration and enter it here.
+  - **Custom Storage Endpoint URL**: (Optional) If you do not want Workflow Automation to access the storage account through a default public endpoint, enter a custom storage endpoint URL in the format `https://<custom endpoint>`. If you want to use a public endpoint, leave the field blank.
+  - **Event Grid System Topic Resource ID**: Copy the `systemTopicResourceID` output from the deployment of the resource manager template for DLP integration and enter it here.
+7. In the **Privacy Settings** section: See image. If you disable **Hide Evidence Data** or **Hide Trigger Data** in the integration, but you did not enable read access to the data blob when creating the resource manager stack, no one can generate evidence links or view trigger data in the Zscaler Admin Console.
+  - **Hide Evidence Data - Admin**: Select if you do not want admins to be able to generate presigned evidence links for an incident on the **Violation Content** tab of on the**Incident Details** drawer. page. Otherwise, they can generate evidence links. This checkbox is selected by default.
+  - **Hide Trigger Data - Admin**: Select if you do not want admins to be able to see the trigger data for an incident on the **Violation Content** tab of on the **Incident Details** drawer. page. Otherwise, they can see the trigger data. This checkbox is selected by default.
+  - **Hide Policy Details - Admin**: Select if you do not want the admins to be able to view any of the policy details for the incident on the **Violation Details** tab of on the **Incident Details** drawer. page. Otherwise, they can view the policy details for the incident. This checkbox is not selected by default.
+  - **Hide Policy Details for Non-Triggered Matches - Admin**: Select if you do not want the admins to be able to view the **Non-Triggered Engines and Dictionaries** section and the **Other Matched Rules** section of the policy details for the incident on the **Violation Details** tab of the **Incident Details** drawer. Otherwise, they can view these sections of the policy details for the incident. This checkbox is only available if you do not select the **Hide Policy Details - Admin** checkbox. This checkbox is not selected by default.
+  - **Hide Evidence Data - End User**: Select if you do not want the end users responding to an incident notification to be able to generate presigned evidence links for an incident. Otherwise, they can generate evidence links. This checkbox is selected by default.
+  - **Hide Trigger Data - End User**: Select if you do not want the end users responding to an incident notification to be able to see the trigger data for an incident. Otherwise, they can see the trigger data. This checkbox is selected by default.
+  - **Hide Policy Details - End User**: Select if you do not want the end users responding to an incident notification to be able to view any of the policy details for the incident. Otherwise, they can view the policy details for the incident. This checkbox is selected by default.
+  - **Hide Policy Details for Non-Triggered Matches - End User**: Select if you do not want the end users responding to an incident notification to be able to view the **Non-Triggered Engines and Dictionaries** section and the **Other Matched Rules** section of the policy details for the incident. Otherwise, they can view these sections of the policy details for the incident. This checkbox is only available if you do not select the **Hide Policy Details - End User** checkbox.
+  - **Hide Evidence Data - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to generate presigned evidence links for the incident. Otherwise, they can generate evidence links. This checkbox is selected by default.
+  - **Hide Trigger Data - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to see the trigger data for the incident. Otherwise, they can see the trigger data. This checkbox is selected by default.
+  - **Hide Policy Details - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to view the policy details for the incident. Otherwise, they can view the policy details for the incident. This checkbox is selected by default.
+  - **Hide Policy Details for Non-Triggered Matches - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to view the **Non-Triggered Engines and Dictionaries** section and the **Other Matched Rules** section of the policy details for the incident. Otherwise, they can view these sections of the policy details for the incident. This checkbox is only available if you do not select the **Hide Policy Details - Manager/Approver** checkbox.
+8. Click **Validate**. The system validates the account credentials that are entered with the Azure integration. It also checks whether the format is correct for the **Event Grid System Topic Resource ID**. You can only add the integration if it passes validation. If the validation fails for any reason, or if the configuration has been created or updated with the wrong values, you must disable and re-enable the integration after you correct the values for the integration.
+9. Click **Add**. The **Zscaler DLP Azure Integration** details page appears, displaying the DLP integration under **Connected Accounts** with an **Enabled** status. See image.
 
 ## Editing DLP Azure Application Integrations
 
 To edit a DLP Azure application integration in Workflow Automation:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Integrations**. The **Integrations**dashboard appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Integrations**. The **Integrations**dashboard appears.
 2. On the **Integrations**dashboard, select the view format for the dashboard. Click the **Tile View** icon to view the integrations displayed in tiles or click the **List View** icon to view the integrations in a list. The **Tile View** icon is selected by default.
 3. (Optional) On the**Integrations**dashboard, use the **Search** field to locate the DLP Azure application integration that you want to edit.
-4. Perform one of the following steps:
-  - In the tile view, click anywhere on the **DLP Azure** tile under **Connected Apps**.
-  - In the list view, click **View Details**next to the DLP Azure app integration in the **Connected Apps** section.
-
-The **Zscaler DLP Azure Integration** details page appears, displaying all the DLP Azure app integrations along with their specific statuses (Enabled, Disabled, and Failed) under the **Connected Accounts** section. To display the deleted application integrations, select **Show Deleted Accounts** at the top-right of the **Connected Accounts** section.
-
-See image.
-
-1. In the **Zscaler DLP Azure Integration** details page, click the **Edit** icon next to the connected account you want to edit. The edit **Zscaler DLP Azure Integration** page appears. See image.
-2. On the edit **Zscaler DLP Azure Integration** page, edit any of the fields that are displayed. For integrations with a Deleted status, you can only edit the data privacy field settings.
-3. Click **Validate**. The system validates the account credentials that are entered with the Azure integration. It also checks whether the format is correct for the **Event Grid System Topic Resource Id**. You can only add the integration if it passes validation. If the validation fails for any reason, or if the configuration has been created or updated with the wrong values, you must disable and re-enable the integration after you correct the values for the integration.
-4. Click **Save Changes**.
+4. Perform one of the following steps: The **Zscaler DLP Azure Integration** details page appears, displaying all the DLP Azure app integrations along with their specific statuses (Enabled, Disabled, and Failed) under the **Connected Accounts** section. To display the deleted application integrations, select **Show Deleted Accounts** at the top-right of the **Connected Accounts** section. See image.
+  - In the tile view, under **Connected Apps,**click anywhere on the **DLP Azure** tile.
+  - In the list view, in the **Connected Apps** section, click **View Details**next to the DLP Azure app integration.
+5. On the **Zscaler DLP Azure Integration** details page, click the **Edit** icon next to the connected account you want to edit. The edit **Zscaler DLP Azure Integration** page appears. See image.
+6. On the edit **Zscaler DLP Azure Integration** page, edit any of the fields that are displayed. For integrations with a Deleted status, you can only edit the data privacy field settings.
+7. Click **Validate**. The system validates the account credentials that are entered with the Azure integration. It also checks whether the format is correct for the **Event Grid System Topic Resource ID** You can only add the integration if it passes validation. If the validation fails for any reason, or if the configuration has been created or updated with the wrong values, you must disable and re-enable the integration after you correct the values for the integration.
+8. Click **Save Changes**.
 
 ## Deleting DLP Azure Application Integrations
 
 To delete a DLP Azure application integration in Workflow Automation:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Integrations**. The **Integrations**dashboard appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Integrations**. The **Integrations**dashboard appears.
 2. On the **Integrations**dashboard, select the view format for the dashboard. Click the **Tile View** icon to view the integrations displayed in tiles or click the **List View** icon to view the integrations in a list. The **Tile View** icon is selected by default.
 3. (Optional) On the**Integrations**dashboard, use the **Search** field to locate the DLP Azure application integration that you want to delete.
-4. Perform one of the following steps:
-  - In the tile view, click anywhere on the **DLP Azure** tile under **Connected Apps**.
-  - In the list view, click **View Details**next to the DLP Azure app integration in the **Connected Apps** section.
-
-The **Zscaler DLP Azure Integration** details page appears, displaying all the DLP Azure app integrations along with their specific statuses (Enabled, Disabled, and Failed) under the **Connected Accounts** section. To display the deleted application integrations, select **Show Deleted Accounts** at the top-right of the **Connected Accounts** section.
-
-See image.
-
-1. On the **Zscaler DLP Azure Integration** details page, click the **Edit** icon next to the connected account you want to delete. Only connected accounts with a status of Enabled, Disabled, or Failed can be deleted. The edit **Zscaler DLP Azure Integration** page appears.
-2. On the edit **Zscaler DLP Azure Integration** page, click **Delete Integration.**The status of the integration changes to Deleted.
+4. Perform one of the following steps: The **Zscaler DLP Azure Integration** details page appears, displaying all the DLP Azure app integrations along with their specific statuses (Enabled, Disabled, and Failed) under the **Connected Accounts** section. To display the deleted application integrations, select **Show Deleted Accounts** at the top-right of the **Connected Accounts** section. See image.
+  - In the tile view, under **Connected Apps,**click anywhere on the **DLP Azure** tile.
+  - In the list view, in the **Connected Apps** section, click **View Details**next to the DLP Azure app integration.
+5. On the **Zscaler DLP Azure Integration** details page, click the **Edit** icon next to the connected account you want to delete. Only connected accounts with a status of Enabled, Disabled, or Failed can be deleted. The edit **Zscaler DLP Azure Integration** page appears.
+6. On the edit **Zscaler DLP Azure Integration** page, click **Delete Integration.**The status of the integration changes to Deleted.
 
 To disable or enable a DLP Azure application integration in Workflow Automation:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Integrations**. The **Integrations**dashboard appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Integrations**. The **Integrations**dashboard appears.
 2. On the **Integrations**dashboard, select the view format for the dashboard. Click the **Tile View** icon to view the integrations displayed in tiles or click the **List View** icon to view the integrations in a list. The **Tile View** icon is selected by default.
 3. (Optional) On the**Integrations**dashboard, use the **Search** field to locate the DLP Azure application integration that you want to disable or enable.
-4. Perform one of the following steps:
-  - In the tile view, click anywhere on the **DLP** **Azure** tile under **Connected Apps**.
-  - In the list view, click **View Details**next to the DLP Azure app integration in the **Connected Apps** section.
-
-The **Zscaler DLP Azure Integration** details page appears, displaying all the DLP Azure app integrations along with their specific statuses (Enabled, Disabled, and Failed) under the **Connected Accounts** section. To display the deleted application integrations, select **Show Deleted Accounts** at the top-right of the **Connected Accounts** section.
-
-See image.
-
-1. On the **Zscaler DLP Azure Integration** details page, click the **Edit** icon next to a connected account with an Enabled status that you want to disable or an account with a Disabled status that you want to enable. The edit **Zscaler DLP Azure Integration** page appears.
-2. On the edit **Zscaler DLP Azure Integration** page, click **Disable Integration**or**Enable Integration.**The status of the integration changes to Disabled or Enabled.
+4. Perform one of the following steps: The **Zscaler DLP Azure Integration** details page appears, displaying all the DLP Azure app integrations along with their specific statuses (Enabled, Disabled, and Failed) under the **Connected Accounts** section. To display the deleted application integrations, select **Show Deleted Accounts** at the top-right of the **Connected Accounts** section. See image.
+  - In the tile view, under **Connected Apps,**click anywhere on the **DLP Azure** tile.
+  - In the list view, in the **Connected Apps** section, click **View Details**next to the DLP Azure app integration.
+5. On the **Zscaler DLP Azure Integration** details page, click the **Edit** icon next to a connected account with an Enabled status that you want to disable or an account with a Disabled status that you want to enable. The edit **Zscaler DLP Azure Integration** page appears.
+6. On the edit **Zscaler DLP Azure Integration** page, click **Disable Integration**or**Enable Integration.**The status of the integration changes to Disabled or Enabled.
 
 To view DLP Azure application integrations in Workflow Automation:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Integrations**. The **Integrations**dashboard appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Integrations**. The **Integrations**dashboard appears.
 2. On the **Integrations**dashboard:
 
 - Filter the integrations that are displayed on the dashboard. Select **All** to display all the integrations or select **Connected** to display only those integrations that are connected. By default, all integrations are displayed. See image.
@@ -13397,15 +13386,15 @@ To view DLP Azure application integrations in Workflow Automation:
 
 1. View the list of all DLP Azure connected application integrations that have been added to your organization:
 
-In the tile view, under the **Connected Apps** section, you can view the following information:
+In the tile view, under the **Connected Apps** section, you can view:
 
-1. App: The application that is associated with the integration. For example, Data Loss Prevention (DLP) Azure.
-2. Account Details: The integration name for each account associated with the integration.
-3. Status: The status of the accounts for the integration. A green oval is displayed at the top of the tile listing the number of accounts that are enabled and the status of **Connected**. This number does not include accounts with a Failed or Deleted status.
+1. **Status**: The status of the accounts for the integration. An oval is displayed at the top of the tile listing the number of accounts that are enabled and the status of **Connected**. This number does not include accounts with a Failed or Deleted status.
+2. **App**: The application that is associated with the integration. For example, Data Loss Prevention (DLP) Azure.
+3. **Account Details**: The integration name for each account associated with the integration.
 
 See image.
 
-In the list view, under the **Connected Apps** section, you can view the following information:
+In the list view, under the **Connected Apps** section, you can view:
 
 - **App Integration:** The application that is associated with the integration. For example, DLP Azure.
 - **Account Details**: The integration name for each account associated with the integration.
@@ -13414,16 +13403,10 @@ In the list view, under the **Connected Apps** section, you can view the followi
 
 See image.
 
-1. View additional details for the DLP Azure application integrations by performing one of the following steps:
-
-- In the tile view, click anywhere on the **DLP** **Azure** tile under **Connected Apps**.
-- In the list view, click **View Details** next to the DLP Azure application integration in the **Connected Apps** section.
-
-The **Zscaler DLP Azure Integration** details page appears, displaying a **Configuration Steps** tab and a **Configuration** tab. On the **Configuration** tab, you can view the list of DLP Azure application integration accounts along with the status of each account, and the date when each integration account was last modified. To display the deleted application integrations, select **Show Deleted Accounts** at the top-right of the **Connected Accounts** section.
-
-See image.
-
-1. On the **Configuration** tab, click the **Edit** icon next to a DLP Azure application integration account to view the specific details for that integration.
+1. View additional details for the DLP Azure application integrations by performing one of the following steps: The **Zscaler DLP Azure Integration** details page appears, displaying a **Configuration Steps** tab and a **Configuration** tab. On the **Configuration** tab, you can view the list of DLP Azure application integration accounts along with the status of each account, and the date when each integration account was last modified. To display the deleted application integrations, select **Show Deleted Accounts** at the top-right of the **Connected Accounts** section. See image.
+  - In the tile view, click anywhere on the **DLP** **Azure** tile under **Connected Apps**.
+  - In the list view, click **View Details** next to the DLP Azure application integration in the **Connected Apps** section.
+2. On the **Configuration** tab, click the **Edit** icon next to a DLP Azure application integration account to view the specific details for that integration.
 
 [Image: Viewing the Integrations dashboard in tile view with no integrations configured]
 
@@ -13456,13 +13439,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-dlp-gcp-application-integrations-workflow-automation","lastmod":"2026-07-20T08:06Z","nid":"1532120"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-dlp-gcp-application-integrations-workflow-automation","lastmod":"2026-09-17T09:13Z","nid":"1532120"} -->
 ## Managing DLP GCP Application Integrations in Workflow Automation
 
 - Source: https://help.zscaler.com/workflow-automation/managing-dlp-gcp-application-integrations-workflow-automation
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Managing DLP GCP Application Integrations in Workflow Automation
-- Last modified: 2026-07-20T08:06Z
+- Last modified: 2026-09-17T09:13Z
 - Summary: How to manage Data Loss Prevention (DLP) GCP application integrations in Workflow Automation.
 
 Application integration connects the source of Data Loss Prevention (DLP) incidents (i.e., Internet & SaaS (ZIA)) to Workflow Automation. Super admins or admins with Full or Restricted access to Workflow Automation can configure the DLP Google Cloud Platform (GCP) application integration. Before your organization's DLP incidents are available for review and remediation on the Incidents page in the Zscaler Admin Console, you must configure DLP GCP application integration. To learn more, see [Configuring the DLP Application Integration Using Google Cloud Platform](https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-google-cloud-platform).
@@ -13482,29 +13465,32 @@ Ensure that you have successfully [created cloud resources in GCP](https://help.
 
 To add a DLP GCP application integration in Workflow Automation:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP** **GCP** application tile. The **Tile View** icon is selected by default. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP** **GCP** application tile. The **Tile View** icon is selected by default. See image.
 2. (Optional) On the **Integrations**dashboard, change the view format for the dashboard. Click the **List View** icon to view the integrations in a list. See image.
 3. After you select a view option, perform one of the following procedures:
   - In the tile view: In the DLP GCP application tile, click the **Add** icon. The add **Zscaler DLP GCP Integration** page appears.
   - In the list view:
     1. Click **Connect** next to the DLP GCP application integration. The **Zscaler DLP GCP Integration** details page appears, displaying a **Configuration Steps** tab and a **Configuration** tab. The **Configuration Steps** tab provides instructions for configuring a DLP GCP application integration and a link to download the Zscaler template file.
     2. On the **Configuration** tab, click **Add New**. The add **Zscaler DLP GCP Integration** page appears. See image.
-4. On the add **Zscaler DLP GCP Integration** page, in the **Zscaler DLP GCP Integration** section, enter the following:
+4. On the add **Zscaler DLP GCP Integration** page, in the **Zscaler DLP GCP Integration** section:
   - **Integration Name**: Enter a name for the integration.
   - **Project ID**: From the JSON key downloaded from the GCP console, copy the `project_id` for the DLP integration and enter it here.
   - **Private Key**: From the JSON key downloaded from the GCP console, copy the `private_key` for the DLP integration and enter it here.
   - **Client Email**: From the JSON key downloaded from the GCP console, copy the `client_email` for the DLP integration and enter it here.
   - **Prefix for Bucket and Topic**: Enter a prefix for the storage bucket and topic.
 5. In the **Privacy Settings** section: See image. If you disable **Hide Evidence Data** or **Hide Trigger Data** for the integration, but you did not enable read access to the storage accounts when creating the cloud resources, no one can generate evidence links or view trigger data in the Zscaler Admin Console.
-  - **Hide Evidence Data - Admin**: Select if you do not want admins to be able to generate presigned evidence links for an incident on the**Incident Details** page. Otherwise, they can generate evidence links.
-  - **Hide Trigger Data - Admin**: Select if you do not want admins to be able to see the trigger data for an incident on the **Incident Details** page. Otherwise, they can see the trigger data.
-  - **Hide Policy Details - Admin**: Select if you do not want admins to be able to view the policy details for the incident on the **Incident Details** page. Otherwise, they can view the policy details for the incident.
-  - **Hide Evidence Data - End User**: Select if you do not want end users to be able to generate presigned evidence links for an incident. Otherwise, they can generate evidence links.
-  - **Hide Trigger Data - End User**: Select if you do not want end users to be able to see the trigger data for an incident. Otherwise, they can see the trigger data.
-  - **Hide Policy Details - End User**: Select if you do not want end users responding to an incident notification to be able to view the policy details for the incident. Otherwise, they can view the policy details for the incident.
-  - **Hide Evidence Data - Manager/Approver**: Select if you do not want approvers or managers responding to an incident escalation notification to be able to generate presigned evidence links for the incident. Otherwise, they can generate evidence links.
-  - **Hide Trigger Data - Manager/Approver**: Select if you do not want approvers or managers responding to an incident escalation notification to be able to see the trigger data for the incident. Otherwise, they can see the trigger data.
-  - **Hide Policy Details - Manager/Approver**: Select if you do not want approvers or managers responding to an incident escalation notification to be able to view the policy details for the incident. Otherwise, they can view the policy details for the incident.
+  - **Hide Evidence Data - Admin**: Select if you do not want admins to be able to generate presigned evidence links for an incident on the **Violation Content** tab of the**Incident Details** drawer. Otherwise, they can generate evidence links. This checkbox is selected by default.
+  - **Hide Trigger Data - Admin**: Select if you do not want admins to be able to see the trigger data for an incident on the **Violation Content** tab of the **Incident Details** drawer. Otherwise, they can see the trigger data. This checkbox is selected by default.
+  - **Hide Policy Details - Admin**: Select if you do not want the admins to be able to view any of the policy details for the incident on the **Violation Details** tab of the **Incident Details** drawer. Otherwise, they can view the policy details for the incident. This checkbox is not selected by default.
+  - **Hide Policy Details for Non-Triggered Matches - Admin**: Select if you do not want the admins to be able to view the **Non-Triggered Engines and Dictionaries** section and the **Other Matched Rules** section of the policy details for the incident on the **Violation Details** tab of the **Incident Details** drawer. Otherwise, they can view these sections of the policy details for the incident. This checkbox is only available if you do not select the **Hide Policy Details - Admin** checkbox. This checkbox is not selected by default.
+  - **Hide Evidence Data - End User**: Select if you do not want the end users responding to an incident notification to be able to generate presigned evidence links for an incident. Otherwise, they can generate evidence links. This checkbox is selected by default.
+  - **Hide Trigger Data - End User**: Select if you do not want the end users responding to an incident notification to be able to see the trigger data for an incident. Otherwise, they can see the trigger data. This checkbox is selected by default.
+  - **Hide Policy Details - End User**: Select if you do not want the end users responding to an incident notification to be able to view any of the policy details for the incident. Otherwise, they can view the policy details for the incident. This checkbox is selected by default.
+  - **Hide Policy Details for Non-Triggered Matches - End User**: Select if you do not want the end users responding to an incident notification to be able to view the **Non-Triggered Engines and Dictionaries** section and the **Other Matched Rules** section of the policy details for the incident. Otherwise, they can view these sections of the policy details for the incident. This checkbox is only available if you do not select the **Hide Policy Details - End User** checkbox.
+  - **Hide Evidence Data - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to generate presigned evidence links for the incident. Otherwise, they can generate evidence links. This checkbox is selected by default.
+  - **Hide Trigger Data - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to see the trigger data for the incident. Otherwise, they can see the trigger data. This checkbox is selected by default.
+  - **Hide Policy Details - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to view the policy details for the incident. Otherwise, they can view the policy details for the incident. This checkbox is selected by default.
+  - **Hide Policy Details for Non-Triggered Matches - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to view the **Non-Triggered Engines and Dictionaries** section and the **Other Matched Rules** section of the policy details for the incident. Otherwise, they can view these sections of the policy details for the incident. This checkbox is only available if you do not select the **Hide Policy Details - Manager/Approver** checkbox.
 6. Click **Validate**. The system validates the account credentials that are entered with the GCP integration. You can only add the integration if it passes validation. If the validation fails for any reason, or if you created or updated the configuration with the wrong values, you must disable the integration, correct the values for it, and re-enable the integration.
 7. Click **Add**. The **Zscaler DLP GCP Integration** details page appears, displaying the DLP integration under **Connected Accounts** with an **Enabled** status.
 
@@ -13512,7 +13498,7 @@ To add a DLP GCP application integration in Workflow Automation:
 
 To edit a DLP GCP application integration in Workflow Automation:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Integrations**. The **Integrations**dashboard appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Integrations**. The **Integrations**dashboard appears.
 2. On the **Integrations**dashboard, select the view format for the dashboard. Click the **Tile View** icon to view the integrations in tiles or click the **List View** icon to view the integrations in a list. The **Tile View** icon is selected by default.
 3. (Optional) On the**Integrations**dashboard, use the **Search** field to locate the DLP GCP application integration that you want to edit.
 4. Perform one of the following steps: The **Zscaler DLP GCP Integration** details page appears, displaying all the DLP GCP app integrations along with their statuses (Enabled, Disabled, or Failed) in the **Connected Accounts** section. To display the deleted application integrations, enable **Show Deleted Accounts** in the top right of the **Connected Accounts** section. See image.
@@ -13527,7 +13513,7 @@ To edit a DLP GCP application integration in Workflow Automation:
 
 To delete a DLP GCP application integration in Workflow Automation:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Integrations**. The **Integrations**dashboard appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Integrations**. The **Integrations**dashboard appears.
 2. On the **Integrations**dashboard, select the view format for the dashboard. Click the **Tile View** icon to view the integrations in tiles or click the **List View** icon to view the integrations in a list. The **Tile View** icon is selected by default.
 3. (Optional) On the**Integrations**dashboard, use the **Search** field to locate the DLP GCP application integration that you want to delete.
 4. Perform one of the following steps: The **Zscaler DLP GCP Integration** details page appears, displaying all the DLP GCP app integrations along with their statuses (Enabled, Disabled, or Failed) under the **Connected Accounts** section. To display the deleted application integrations, enable **Show Deleted Accounts** in the top right of the **Connected Accounts** section.
@@ -13538,7 +13524,7 @@ To delete a DLP GCP application integration in Workflow Automation:
 
 To disable or enable a DLP GCP application integration in Workflow Automation:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Integrations**. The **Integrations**dashboard appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Integrations**. The **Integrations**dashboard appears.
 2. On the **Integrations**dashboard, select the view format for the dashboard. Click the **Tile View** icon to view the integrations displayed in tiles or click the **List View** icon to view the integrations in a list. The **Tile View** icon is selected by default.
 3. (Optional) On the**Integrations**dashboard, use the **Search** field to locate the DLP GCP application integration that you want to disable or enable.
 4. Perform one of the following steps: The **Zscaler DLP GCP Integration** details page appears, displaying all the DLP GCP app integrations along with their statuses (Enabled, Disabled, or Failed) under the **Connected Accounts** section. To display the deleted application integrations, enable **Show Deleted Accounts** in the top right of the **Connected Accounts** section.
@@ -13549,17 +13535,17 @@ To disable or enable a DLP GCP application integration in Workflow Automation:
 
 To view DLP GCP application integrations in Workflow Automation:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Integrations**. The **Integrations**dashboard appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Integrations**. The **Integrations**dashboard appears.
 2. On the **Integrations**dashboard:
   - Filter the integrations that are displayed on the dashboard. Select **All** to display all the integrations or select **Connected** to display only those integrations that are connected. By default, all integrations are displayed. See image.
   - Change the layout of the dashboard. Click the **Tile View** icon to view the integrations in tiles or click the **List View** icon to view the integrations in a list. By default, the dashboard is displayed in the tile view. See image.
-3. View the list of all DLP GCP connected application integrations that have been added to your organization: In the tile view, under the **Connected Apps** section, you can view the following information: See image. In the list view, under the **Connected Apps** section, you can view the following information: See image.
-  1. The application that is associated with the integration. For example, Data Loss Prevention (DLP) GCP.
-  2. The integration name for each account associated with the integration.
-  3. The status of the accounts for the integration. A green oval is displayed at the top of the tile listing the number of accounts that are enabled and the status of **Connected**. This number does not include accounts with a Failed or Deleted status.
+3. View the list of all DLP GCP connected application integrations that have been added to your organization: In the tile view, under the **Connected Apps** section, you can view: See image. In the list view, under the **Connected Apps** section, you can view: See image.
+  1. The status of the accounts for the integration. An oval is displayed at the top of the tile listing the number of accounts that are enabled and the status of **Connected**. This number does not include accounts with a Failed or Deleted status.
+  2. The application that is associated with the integration. For example, Data Loss Prevention (DLP) GCP.
+  3. The integration name for each account associated with the integration.
   - **App Integration:** The application that is associated with the integration. For example, DLP GCP.
   - **Account Details**: The integration name for each account associated with the integration.
-  - **Status**: The status of the accounts for the integration. A green oval is displayed in the field listing the number of accounts that are enabled and the status of **Connected.**This number does not include accounts with a Failed or Deleted status.
+  - **Status**: The status of the accounts for the integration. An oval is displayed in the field listing the number of accounts that are enabled and the status of **Connected.**This number does not include accounts with a Failed or Deleted status.
   - **Account Connected**: The number of accounts that are connected.
 4. View additional details for the DLP GCP application integrations by performing one of the following steps: The **Zscaler DLP GCP Integration** details page appears, displaying a **Configuration Steps** tab and a **Configuration** tab. On the **Configuration** tab, you can view the list of DLP GCP application integration accounts along with the status of each account, and the date when each integration account was last modified. To display the deleted application integrations, select **Show Deleted Accounts** at the top-right of the **Connected Accounts** section. See image.
   - In the tile view, click anywhere on the **DLP** **GCP** tile under **Connected Apps**.
@@ -13817,13 +13803,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-group-mappings","lastmod":"2026-09-13T07:06Z","nid":"1418161"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-group-mappings","lastmod":"2026-09-20T07:06Z","nid":"1418161"} -->
 ## Managing Incident Group Mappings
 
 - Source: https://help.zscaler.com/workflow-automation/managing-incident-group-mappings
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Incident Group Mappings
-- Last modified: 2026-09-13T07:06Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: How to manage incident group mappings in Workflow Automation.
 
 An incident group mapping specifies the incidents that are associated with the incident group. Only admins with full access to Workflow Automation can map the incident groups. Incident groups are mapped to one or more of the attributes available in an incident transaction. These mappings can be simple or more complex to meet your requirements. After incident groups are configured, admins with full access can then assign these incident groups to the admins with restricted access who will be responsible for them. They do these assignments in the Zscaler Admin Console, on the Admin Assignment page. To learn more, see [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).

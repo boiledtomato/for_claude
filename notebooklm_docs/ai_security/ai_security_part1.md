@@ -1,8 +1,8 @@
 # Zscaler Help — AI Security (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-14 03:38 UTC
-Articles in this file: 80
+Generated: 2026-09-21 08:12 UTC
+Articles in this file: 83
 
 ---
 
@@ -882,6 +882,29 @@ To obtain the required fields, refer to the [Salesforce documentation](https://d
 - **Organization Domain:**To get the Organization Domain, from the **Setup** menu in the top right corner of the Agentforce app, search for **My Domain** and copy the value shown in the **Current My Domain URL** field.
 - **Agent ID:** To obtain an Agent ID, follow instructions from [Get the Agent ID for an Agent](https://developer.salesforce.com/docs/ai/agentforce/guide/agent-api-agent-id.html) section.
 - **Variables:**To obtain the variables, see the [Salesforce Variables documentation](https://developer.salesforce.com/docs/ai/agentforce/guide/agent-api-variables.html).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/ai-guard-api","lastmod":"2026-09-14T08:01Z","nid":"1545443"} -->
+## AI Guard API
+
+- Source: https://help.zscaler.com/secure-ai-apps-infra/ai-guard-api
+- Product: Secure AI Apps & Infrastructure
+- Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Getting Started > AI Guard API
+- Last modified: 2026-09-14T08:01Z
+- Summary: Learn where to access the API Reference Guide for AI Guard.
+
+For detailed information on all available AI Guard API policies, references, and summaries, see the [Zscaler Automation Hub API Reference Guide](https://automate.zscaler.com/docs/docs/api-reference-and-guides/api-reference/aiguard).
+
+The AI Guard API Reference Guide contains API resources for the following categories:
+
+- Detection Policies
+- Detection Policy Match Rules
+- LLM Application Credentials
+- LLM Applications
+- LLM Provider Credentials
+- LLM Providers
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -3263,13 +3286,13 @@ To register a Red Teaming broker, do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/release-upgrade-summary-2026","lastmod":"2026-09-08T11:30Z","nid":"1539124"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/release-upgrade-summary-2026","lastmod":"2026-09-15T13:29Z","nid":"1539124"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/release-upgrade-summary-2026
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-08T11:30Z
+- Last modified: 2026-09-15T13:29Z
 - Summary: Secure AI Apps & Infrastructure Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Secure AI Apps & Infrastructure.
@@ -4729,6 +4752,29 @@ To delete a policy configuration:
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/ai-guard-api","lastmod":"2026-09-14T08:01Z","nid":"1545430"} -->
+## AI Guard API
+
+- Source: https://help.zscaler.com/secure-ai-users/ai-guard-api
+- Product: Secure Access to AI Apps
+- Path: Secure Access to AI Apps Help > AI Guard for Users > Getting Started > AI Guard API
+- Last modified: 2026-09-14T08:01Z
+- Summary: Learn where to access the API Reference Guide for AI Guard.
+
+For detailed information on all available AI Guard API policies, references, and summaries, see the [Zscaler Automation Hub API Reference Guide](https://automate.zscaler.com/docs/docs/api-reference-and-guides/api-reference/aiguard).
+
+The AI Guard API Reference Guide contains API resources for the following categories:
+
+- Detection Policies
+- Detection Policy Match Rules
+- LLM Application Credentials
+- LLM Applications
+- LLM Provider Credentials
+- LLM Providers
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/secure-ai-users/ai-guard-audit-log","lastmod":"2026-07-21T13:16Z","nid":"1541874"} -->
 ## AI Guard Audit Log
 
@@ -4969,6 +5015,102 @@ If the Competition detector isn't triggering correctly, run through the followin
 [Image: Basic policy information fields which includes Policy Name and Description]
 
 [Image: Review tab for adding a policy showing the information entered previously in the process]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/best-practices-runbook-ip-detector","lastmod":"2026-09-15T13:09Z","nid":"1542965"} -->
+## Best Practices Runbook: IP Detector
+
+- Source: https://help.zscaler.com/secure-ai-users/best-practices-runbook-ip-detector
+- Product: Secure Access to AI Apps
+- Path: Secure Access to AI Apps Help > AI Guard for Users > Configuration > Best Practices > Best Practices Runbook: IP Detector
+- Last modified: 2026-09-15T13:09Z
+- Summary: Learn the best practices for configuring the Intellectual Property (IP) prompt/response detector for AI Guard as well as explanations on how it works, threshold information, and troubleshooting.
+
+AI Guard works by enforcing enterprise policies on prompts and responses between users and public AI apps, such as ChatGPT, Perplexity, Claude, etc., and between private AI apps and foundational Large Language Models (LLMs), such as OpenAI, Anthropic, etc. You set a policy by enabling one or more included detectors on prompts and responses. These detectors are activated on prompts and responses based on the policies you define in the portal.
+
+The Intellectual Property (IP) Detector flags when a user’s prompt reproduces or leaks specific sensitive content from a confidential context (numerical data, named entities, source code, proprietary text, etc.), even when rephrased, abbreviated, or written in another language.
+
+This best practices runbook contains the following information on the IP detector:
+
+- How the IP detector works.
+- How to configure the detector.
+- Choosing the correct threshold.
+- Troubleshooting and FAQ.
+
+The IP detector watches every prompt a user sends to an LLM and flags it when the user appears to be reproducing or extracting specific confidential content from the context document the customer has loaded. Unlike a topic detector (which catches what subject is being discussed), the IP detector catches whether actual private data is being reproduced.
+
+The IP detector catches the following:
+
+- **Near-verbatim reproduction**: "`Revenue grew 23% YoY to $412M`" matches context containing those exact figures.
+- **Paraphrase and synonym substitution**: "`Q3 net profit came in at 4.78 million, margin around 23 percent`" matches the context "`Q3 net profit was $4,783,210 with a margin of 23.4%.`"
+- **Abbreviated and reformatted numbers**: "`3rd ph needs 14.2 mil`" matches "`The required capital investment for Phase 3 is exactly $14.2 million.`"
+- **Named-entity carry-over**: "`Dr. Evelyn Reed filed the algorithm patent`" matches context that names the same person and event.
+- **Source code reproduction**: Partial or reformatted code copied from a confidential context is captured at the token level.
+- **Legal and contractual clause reproduction**: Paraphrasing specific clause text is detected via semantic overlap.
+- **Multilingual reproduction**: Reproducing confidential English content in French, German, or any of 28 supported languages is detected.
+
+The IP detector does not trigger on the following:
+
+- **Generic topic questions**: "`What is a typical breakup fee in M&A?`" does not trigger even if the context contains a specific breakup fee figure.
+- **Vague summarization requests**: "`Give me a TL;DR` or `Can you summarize this?`" without quoting or reproducing content.
+- **Codename mentions alone**: "`What is Project Falcon?`" is not a leak; asking about a name is not the same as revealing its contents.
+- **Educational and best-practice queries**: "`How do I manage encryption keys?`" does not trigger even when asked against a context containing key material.
+- **Incidental number overlap**: Common numbers (years, percentages used in general context) that appear in the context do not trigger on their own.
+
+To configure the IP detector in an AI Guard policy:
+
+1. In the AI Security Admin Portal left-side navigation, go to: **AI Guard** > **Policy >** **Configurations**.
+2. Click **Add More** to open the **Add New Configuration** page. To edit an existing policy, in the **Action** column, click **Edit Configuration** for a policy.
+3. Under **Basic Information**, enter: See image.
+  1. **Policy Name**
+  2. (Optional) **Description**
+4. Click **Continue to Detectors**. The **Prompt Detectors** tab opens.
+5. On the **Prompt Detectors** tab, click on the **Intellectual Property** tile. The **Configure** window appears.
+6. The following configuration options are the initial recommendations for the IP detector: See image.
+  - **Enabled**: Enables the prompt detector and is on by default. Leave **Enabled**.
+  - **Severity**: Corresponds to the severity icons in the **Prompt Detectors** column on the **Policies** page. The recommended setting is LOW for initial deployments. Raise to MEDIUM/HIGH only after a user confirms the false-positive rate is acceptable.
+  - **Threshold**: The lower the threshold setting, the more strict AI Guard is with activating the policy (i.e., allowing, blocking, or detecting the prompt). Keep the default (**0.7**) for production. For more information, refer to the next section.
+  - **Action**: What happens by default when the detector triggers: **Detect** (log only), **Allow** (pass through), or **Block** (stop the prompt).
+  - **Sensitive Context**: Enter the intellectual property information that you want to filter. For example:
+    - Sensitive Context: "Project Chimera's launch date is slated for Q4 2026, contingent on hardware finalization."
+    - Prompt that triggers that context: "Draft an update stating that the release for Chimera is planned for the end of 2026, as long as the hardware is ready in time."
+7. After configuring the prompt detectors, click **Save Changes** to close the window and click **Next** on the **Prompt Detectors** tab. The **Response Detectors** tab opens.
+8. Configuring response detectors follows the same steps as configuring prompt detectors, so refer back to the earlier steps for more information.
+9. After configuring your response detectors, click **Next**. The **Review** tab opens.
+10. The **Review** tab shows you a summary of the policy configuration you created. Click **Submit Policy** if everything looks correct.
+11. In the AI Security Admin Portal left-side navigation, go to: **AI Guard** > **Policy Testing**.
+12. Validate in **Policy Testing** with five to ten sample prompts to confirm your setup is working as expected. To learn more about policy testing, see [AI Guard Policy Testing](https://help.zscaler.com/secure-ai-users/ai-guard-policy-testing).
+
+After creating a policy and confirming it works as expected, the next step is to create a policy match. For more information on policy matching, see [Managing AI Guard Policy Control](https://help.zscaler.com/secure-ai-users/managing-ai-guard-policy-control).
+
+The **threshold** is a number between 0.0 and 1.0 that controls how confident the model must be before it calls a prompt a match. Think of it as a volume knob: turn it up and only very obvious mentions trigger. Turn it down and more borderline cases trigger too.
+
+The default for IP is **0.7**. This was chosen based on Zscaler's internal validation set, a benchmark spanning 28 languages and roughly 9,000 labeled prompts covering IP mentions. At 0.7 the detector hits the sweet spot between catching real mentions and avoiding false alarms.
+
+Zscaler strongly recommends that you leave the threshold at **0.7**. We built and validated the detector around this default.
+
+Refer to the following table when considering changing the threshold:
+
+| Range | What it means | When to use it |
+| --- | --- | --- |
+| 0.85 to 1.00 | Only near-verbatim or unmistakable reproductions trigger. | If you want to avoid false positives. Suitable for initial Block-mode roll-outs on high-value IP. |
+| 0.7 to 0.84 | Default sweet spot. Catches real reproductions including paraphrases, number reformatting, and other languages. Rejects generic summaries and topic questions. | Production deployments. Start here unless you explicitly need tighter behavior. |
+| 0.5 to 0.69 | Triggers on borderline cases, prompts that hint at or indirectly reference the confidential content. | Investigation or audit mode. NOT recommended for Block mode. |
+| Below 0.5 | Very permissive. Loose topical overlap triggers. | Not recommended for production. Useful only for internal debugging. |
+
+### FAQs
+
+- **Does it work on non-English prompts?** Yes, 28 languages are supported. The bi-encoder is multilingual.
+- **Will it trigger on a summarization request like ‘Summarize this document’?** No, not unless the input also reproduces specific content. A bare summarization request (`Give me a TL;DR`) contains no context tokens and will not trigger. A request that paraphrases specific confidential data while asking for a summary (`Repeat the Q3 revenue of $412M in a slide format`) will trigger because of the reproduced figure.
+- **How does it handle codename mentions?** Codename mentions alone are not flagged. `What is Project Falcon?` will not trigger even if the context contains detailed Project Falcon content, because the input is not reproducing any of that content.
+- **Can I export detection logs for analysis?** Yes. Go to Log Exports in the AI Security Admin Portal left navigation menu.
+- **How often is the model updated?** Retrained periodically as new false-positive patterns surface. Updates are rolled out transparently, no customer action needed. Check release notes for version updates.
+
+[Image: Competitor detector configuration page]
+
+[Image: Basic policy information fields which includes Policy Name and Description]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6242,13 +6384,13 @@ To create a Microsoft 365 Copilot application policy control:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/release-upgrade-summary-2026","lastmod":"2026-09-08T11:35Z","nid":"1539123"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/release-upgrade-summary-2026","lastmod":"2026-09-15T13:29Z","nid":"1539123"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/secure-ai-users/release-upgrade-summary-2026
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-08T11:35Z
+- Last modified: 2026-09-15T13:29Z
 - Summary: Secure Access to AI Apps Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Secure Access to AI Apps.

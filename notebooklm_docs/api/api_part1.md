@@ -1,7 +1,7 @@
 # Zscaler Help — API / SDK (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-14 03:38 UTC
+Generated: 2026-09-21 08:12 UTC
 Articles in this file: 88
 
 ---
@@ -7767,13 +7767,13 @@ Gets a list of all the cloud browser isolation profiles in the Isolation Profile
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/browser-profiles","lastmod":"2026-07-31T16:37Z","nid":"1542219"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/browser-profiles","lastmod":"2026-09-20T07:06Z","nid":"1542219"} -->
 ## Browser Profiles
 
 - Source: https://help.zscaler.com/legacy-apis/browser-profiles
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Reference Guide > Browser Profiles
-- Last modified: 2026-07-31T16:37Z
+- Last modified: 2026-09-20T07:06Z
 
 To access detailed ZPA API documentation, including references and use cases, refer to the [Zscaler Help Portal](/zpa/about-zpa-api).
 
@@ -9801,13 +9801,13 @@ Gets all configured Cloud Connector groups for the specified customer.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-nanolog-streaming-service-nss","lastmod":"2026-09-13T07:06Z","nid":"1510451"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-nanolog-streaming-service-nss","lastmod":"2026-09-20T07:06Z","nid":"1510451"} -->
 ## Cloud Nanolog Streaming Service (NSS)
 
 - Source: https://help.zscaler.com/legacy-apis/cloud-nanolog-streaming-service-nss
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Cloud Nanolog Streaming Service (NSS)
-- Last modified: 2026-09-13T07:06Z
+- Last modified: 2026-09-20T07:06Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 
@@ -29363,13 +29363,13 @@ A successful response yields code 204, meaning the server is deleted.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-tag-groups-using-api","lastmod":"2026-08-04T13:23Z","nid":"1541728"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-tag-groups-using-api","lastmod":"2026-09-20T07:06Z","nid":"1541728"} -->
 ## Configuring Tag Groups Using API
 
 - Source: https://help.zscaler.com/legacy-apis/configuring-tag-groups-using-api
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Configuring Tag Groups Using API
-- Last modified: 2026-08-04T13:23Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: Information on configuring tag groups using Zscaler Private Access (ZPA) cloud service API.
 
 This article provides information on configuring ZPA [tag groups](https://help.zscaler.com/zpa/about-tag-management-application-segments) using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).

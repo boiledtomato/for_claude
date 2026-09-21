@@ -1,8 +1,1283 @@
 # Zscaler Help — ZPA — Private Access (part 4)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-14 03:38 UTC
-Articles in this file: 43
+Generated: 2026-09-21 08:12 UTC
+Articles in this file: 56
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/uploading-enrollment-ca-certificates-and-certificate-chain","lastmod":"2026-09-17T07:54Z","nid":"1484076"} -->
+## Uploading Enrollment (CA) Certificates and the Certificate Chain
+
+- Source: https://help.zscaler.com/zpa/uploading-enrollment-ca-certificates-and-certificate-chain
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Certificate Management > Enrollment Certificates > Uploading Enrollment (CA) Certificates and the Certificate Chain
+- Last modified: 2026-09-17T07:54Z
+- Summary: How to create and upload a CA certificate chain file as well as how to upload signed CA certificates that are used for App Connector and Zscaler Client Connector enrollment for Private Access.
+
+A CA certificate is required for enrolling Zscaler Client Connector and when [configuring an App Connector](https://help.zscaler.com/zpa/configuring-connectors) for enrollment. You can upload up to 1,000 enrollment (CA) certificates. For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#private-applications).
+
+The uploaded signed certificate must include the private key.
+
+To upload the certificate chain and CA certificates for enrolling Zscaler Client Connector and App Connectors:
+
+- Step 1: Create CA Certificate Chain File
+- Step 2: Upload CA Certificate Chain File
+- Step 3: Upload Signed CA Certificates
+
+You only need to upload the certificate chain once for your CA certificates. If you have already uploaded the certificate chain, skip to [Step 3: Upload Signed CA Certificates](https://help.zscaler.com/zpa/uploading-enrollment-ca-certificates-and-certificate-chain#UploadNotPending) to upload your CA certificates.
+
+1. Download all of your intermediate certificates and the root certificate as Base64-encoded ASCII PEM-formatted files.
+2. Using a text editor, create a new certificate file (e.g., certificate_chain.pem).
+3. Within the new file, include all of the certificate information up to and including the root certificate. Also, make sure that the certificate order within the file starts from the intermediate certificate.
+  - Intermediate certificate 1
+  - Intermediate certificate 2 above that, etc.
+  - Root certificate
+
+For example, your certificate chain file should appear as follows:
+
+```
+-----BEGIN CERTIFICATE-----
+MIICujCCAaICAQAwdTEQMA4GA1UEChMHWnNjYWxlcjEXMBUGA1UECxMOUHJpdmF0
+ZSBBY2Nlc3MxSDBGBgNVBAMTP21vY2tjb21wYW55LmNvbS9Nb2NrIENvbXBhbnkg
+wMFowgYcxCzAJBgNVBAYTAlVTMREwDwYDVQQIEwhNYXJ5bGFuZDESMBAwMFowgYc
+MDEyMDAwMFowgYcxCzAJBgNVBAYTAlVTMREwDwYDVQQIEwhNYXJ5bGFuZDESMBAG
+v+PMGxmcJcqnBrJT3yOyzxIZow==
+-----END CERTIFICATE-----
+-----BEGIN CERTIFICATE-----
+MIIClDCCAXwCAQAwTzEQMA4GA1UEChMHWnNjYWxlcjEXMBUGA1UECxMOUHJpdmF0
+ZSBBY2Nlc3MxIjAgBgNVBAMTGW15LW1vY2tjb21wYW55LmNvbS9hZHNkc2QwggEi
+MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC2meeeh24wzQQ48o2lcbhBFYhi
+slXkLGtB8L5cRspKKaBIXiDSRf8F3jSvcEuBOeLKB1d8tjHcISnivpcOd5AUUUDh
+v+PMGxmcJcqnBrJT3yOyzxIZow==
+-----END CERTIFICATE-----
+-----BEGIN CERTIFICATE-----
+MIICtzCCAZ8CAQAwcjEQMA4GA1UEChMHWnNjYWxlcjEXMBUGA1UECxMOUHJpdmF0
+ZSBBY2Nlc3MxRTBDBgNVBAMTPG1vY2tjb21wYW55LmNvbS9Nb2NrIENvbXBhbnkg
+Q2xpZW50IFByb3Zpc2lvbmluZyBDZXJ0aWZpY2F0ZTCCASIwDQYJKoZIhvcNAQEB
+BQADggEPADCCAQoCggEBAK0vUQx3UYZ1Krlxk2uPfntu8HSDnn+Jwnj7WLkanyvJ
+YHIHKHFYNs9mHRL2JsMgV3FxOuVMde7y0cdEXOovDsIVF9y/DHNh4cDVN4fKqfcy
+CAUw7C29C79Fv1C5qfPrmAESrciIxpg0X40KPMbp1ZWVbd4=
+-----END CERTIFICATE-----
+```
+
+1. Make sure that you have completed Step 1.
+2. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Private Access** > **Private Infrastructure** > **Enrollment Certificates**.
+3. On the **Enrollment Certificates** page, upload the root certificate:
+  1. Click **Upload Certificate Chain**. The **Upload Certificate Chain** window appears.
+  2. In the **Upload Certificate Chain** window:
+    1. **Name**: Enter a name for the root certificate. The name cannot contain special characters, with the exception of periods (.), hyphens (-), and underscores ( _ ).
+    2. **Description**: (Optional) Enter a description.
+    3. **Certificate**: Click **Select File** and navigate to the root certificate.
+  3. Click **Upload**
+
+[Image: Viewing the Upload Certificate Chain window]
+
+1. On the **Enrollment Certificates** page, upload the PEM-formatted file:
+
+Prior to uploading the PEM file, you must upload the root file. If the root file is not uploaded first, then the PEM file will not upload.
+
+1. Click **Upload Certificate Chain**. The **Upload Certificate Chain** window appears.
+2. In the **Upload Certificate Chain** window:
+  1. **Name**: Enter a name for the certificate chain. The name cannot contain special characters, with the exception of periods (.), hyphens (-), and underscores ( _ ).
+  2. **Description**: (Optional) Enter a description.
+  3. **Certificate**: Click **Select File** and navigate to a Base64-encoded ASCII PEM-formatted file that includes the certificate chain of trust for your signed CA certificates.
+3. Click **Upload**.
+
+Make sure that you have uploaded the certificate chain associated to your CA certificates. If you have not done so, complete [Steps 1 and 2](https://help.zscaler.com/zpa/about-uploadingEnrollmentCertificate#UploadPending).
+
+1. Within the table, locate the **Certificate Pending**icon ([Image: Certificate Pending icon]) next to the certificate name and click the **Edit** icon.
+
+The **Upload Signed Certificate** window appears.
+
+1. In the **Upload Signed Certificate** window:
+  - **Name**: Enter a name for the signed certificate. The name cannot contain special characters, with the exception of periods (.), hyphens (-), and underscores ( _ ).
+  - **Description**: (Optional) Enter a description.
+  - **Certificate Signing Request**: The CSR text is displayed here.
+  - **Certificate**: Click **Select File** and navigate to the signed CA certificate (i.e., the .pem file).
+
+[Image: Viewing the Upload Signed Certificate window]
+
+1. Click **Upload**.
+
+After uploading the signed CA certificate, click the **Edit**icon within the table again and make sure that the **Client Certificate Type**option is set correctly. This option specifies whether the signed CA certificate is used to enroll Zscaler Client Connector, App Connectors and Private Service Edges for Private Access, or Zero Trust Browser clients:
+
+- If you are using the enrollment (CA) certificate for Zscaler Client Connector, select **Client Connector**.
+- If you are using the enrollment (CA) certificate for Zero Trust Browser clients, select **Isolation Client**.
+- If you are using the enrollment (CA) certificate for App Connectors and Private Service Edges, select **None**.
+
+[Image: Viewing the Edit Certificate window]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/uploading-web-server-certificates","lastmod":"2026-09-15T15:28Z","nid":"1484061"} -->
+## Uploading (Web Server) Certificates
+
+- Source: https://help.zscaler.com/zpa/uploading-web-server-certificates
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Certificate Management > Certificates > Uploading (Web Server) Certificates
+- Last modified: 2026-09-15T15:28Z
+- Summary: How to upload a Browser Access (web server) certificate within the Zscaler Admin Console.
+
+After a certificate used for web servers is uploaded, it can then be selected when [defining an application](https://help.zscaler.com/zpa/configuring-defined-application-segments#tab1) within an application segment. For defined applications with Browser Access enabled, if the certificate is signed by a public certificate authority (CA), then HTTPS should be selected as the protocol. If the certificate is self-signed, or Zscaler is unable to verify the chain of trust to the public CA, select HTTP. Private Access (ZPA) supports HTTP and HTTPS protocols, and inserts a Via header in HTTP requests (e.g., Via: 1.1 Zscaler-p.zpa-auth.net). To learn more, see [Configuring Application Segments](https://help.zscaler.com/zpa/configuring-defined-application-segments#tab1).
+
+The uploaded signed certificate must include the unencrypted private key.
+
+You can upload up to 1,000 certificates. For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#private-applications).
+
+To upload a certificate:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Private Access** > **Resources** > **Clientless Certificates**.
+2. On the **Certificates** page: You must upload a single Base64-encoded ASCII .pem file, which includes the certificate and unencrypted private key. If your PKI provided you with separate files or a file in the wrong format, you can use the following OpenSSL commands to create a single .pem file that includes the certificate and key. See instructions.
+  - Upload a web server certificate.
+  - Upload a web server certificate for a pending CSR.
+3. Click **Upload**.
+
+The following command creates a combined certificate and unencrypted private key PKCS#12 file (.pfx):
+
+```
+openssl pkcs12 -export -in
+<certificate>
+.pem -inkey
+<unencrypted private key>
+.key -out
+<combined cert and key>
+.pfx
+```
+
+For example:
+
+```
+openssl pkcs12 -export -in cert.pem -inkey unencrypted.key -out combined.pfx
+```
+
+The following command converts the PKCS#12 file (.pfx) containing the combined certificate and unencrypted private key file to PEM format (.pem):
+
+```
+openssl pkcs12 -in
+<combined cert and key>
+.pfx -out
+<combined cert and key>
+.pem -nodes
+```
+
+For example:
+
+```
+openssl pkcs12 -in combined.pfx -out combined.pem -nodes
+```
+
+1. Click **Upload Server Certificate**.
+
+The **Upload Server Certificate** drawer appears.
+
+1. In the **Upload Server Certificate** drawer: [Image: Certificates page with Upload Server Certificate drawer within Zscaler Admin Console]
+  1. **Name**: Enter a name for the web server certificate. The name cannot contain special characters, with the exception of periods (.), hyphens (-), and underscores ( _ ).
+  2. **Description**: (Optional) Enter a description.
+  3. **Certificate**: Click **Select File** and navigate to the web server certificate that was signed using your PKI (i.e., a Base64-encoded ASCII PEM-formatted file). Make sure that the .pem file also includes the unencrypted private key.
+
+1. Within the table, locate the **Certificate Pending icon** ([Image: Certificate Pending icon]) next to the certificate name and click the **Edit** icon.
+
+The **Upload Server Certificate** drawer appears.
+
+1. In the **Upload Server Certificate** drawer:
+  1. **Name**: Make sure that the correct name was entered.
+  2. **Description**: (Optional) Enter a description.
+  3. **Certificate Signing Request**: The CSR text is displayed here.
+    1. Click **Download .CSR File**.
+    2. Sign the downloaded .csr file using your public key infrastructure (PKI) to create a valid signed web server certificate.
+    3. Save the certificate in Base64-encoded ASCII PEM format (.pem).
+  4. **Certificate**: Click **Select File** and navigate to the signed web server certificate you created (i.e., the .pem file).
+
+[Image: Browser Access Certificates page with Upload Server Certificate window for pending CSR]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/using-app-segment-multimatch","lastmod":"2026-09-10T10:52Z","nid":"1485951"} -->
+## Using Application Segment Multimatch
+
+- Source: https://help.zscaler.com/zpa/using-app-segment-multimatch
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Application Management > Application Segments > Using Application Segment Multimatch
+- Last modified: 2026-09-10T10:52Z
+- Summary: Information about using Application Segment Multimatch in Private Access.
+
+This feature is in limited availability. To learn more, contact Zscaler Support.
+
+Multimatch allows an application request to match multiple application segments. When a user tries to access a private application without Multimatch, a request is mapped to an application segment. After the application is mapped to an application segment, the [policy](https://help.zscaler.com/zpa/about-access-policy) search is performed, and the request is either allowed or blocked based on the policy configuration.
+
+Private Access (ZPA) evaluates Multimatch across all application segments that include the same applications. When an administrator enables or disables Multimatch for an application segment, Private Access checks all other application segments that contains any overlapping domains to determine whether the change is allowed. If a domain is found in multiple application segments with different Multimatch settings, there is a conflict and the application segment cannot be updated.
+
+To learn more, see [About Access Policy](https://help.zscaler.com/zpa/about-access-policy) and [Configuring Access Policies.](https://help.zscaler.com/zpa/configuring-access-policies)
+
+## Prerequisites
+
+To use application segment Multimatch, ensure the following:
+
+- App Connectors or Private Service Edges for Private Access are upgraded to version 24.298.1 or later.
+- Zscaler Client Connector is upgraded to the following versions per OS:
+  - Windows versions:
+    - 4.7.0.88 or later
+    - 4.6.0.282 or later
+  - macOS versions: 4.5.2.98 or later
+  - iOS version 4.4.1 or later To use the Private Access Multimatch feature for iOS applications, you must enable the [Use Tunnel SDK Version 4.3 or above setting](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles) in the Zscaler Admin Console. See image.
+  - Android version: 3.10 or later
+  - Linux version: 4.2 or later
+
+## Using Multimatch
+
+By default, after a specific FQDN is configured in an application segment, the destination is removed from the wildcard application segment. The default behavior can cause unwanted access failure due to the destination matching a more specific application segment that does not have the UDP or TCP ports defined. Multimatch allows admins to create new application segments without the risk of unwanted access failure if a user attempts to access a FQDN with undefined ports. After Multimatch is enabled, the wildcard application segment catches all UDP or TCP ports that are not configured in the more specific application segment. When you have decided what application segments you want matched, you can enable Multimatch for that application segment. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-application-segments).
+
+Multimatch must be disabled if the configuration contains applications using Double Encryption and Source IP Anchor. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-application-segments).
+
+### Multimatch Validation for Application Segments
+
+When Multimatch is enabled, a Multimatch Validation window appears for you to review any impacted application segments and conflicting features. If there is a conflicting feature, a warning appears.
+
+See image.
+
+Depending on the application segments selected, you can resolve the issue by doing one of the following:
+
+- Edit an application segment and disable unsupported features.
+- Review conflicting features in a local Microtenant and select the checkboxes that appear.
+- Contact the default administrator when Multimatch includes the default application segment.
+- Cancel and disable Multimatch if an application segment belongs to another local tenant.
+
+## App Connector Selection
+
+If both wildcard and specific FQDN application segments have Multimatch enabled, the specific FQDN application segment's server group is used for App Connector selection, even if the traffic to the FQDN matches the wildcard or the specific FQDN rule.
+
+The following table shows example application segment configurations:
+
+| **Application Segment Name** | **FQDN** | **Protocol** | **Port** | **Server Group** |
+| --- | --- | --- | --- | --- |
+| Wildcard_AS | *.example.com | TCP, UDP | 1 to 52, 54 to 65535 | Server Group - All |
+| Server1_AS | server1.example.com | TCP | 443, 3389 | Server Group - Server1 |
+
+When traffic is destined for a specific FQDN and port (e.g., server1.example.com on TCP/22), the App Connectors belonging to the more specific Server Group - Server1 will proxy the traffic, even if a less specific wildcard application segment (Wildcard_AS) also matches.
+
+The App Connectors associated with the specific FQDN's application segment are typically the most appropriate for handling that traffic.
+
+The selection of the App Connector that proxies traffic is determined by the application segment's Server Group configuration, with critical differences based on whether Multimatch is enabled.
+
+- If Multimatch is disabled, the App Connector selection is primarily based on the application segment's server group configuration. For example, traffic matching Wildcard_AS would be proxied by the App Connector in Server Group - All. This selection can be overridden in an access policy.
+- If Multimatch is enabled, the App Connector linked to the specific FQDN application segment must be capable of accessing all the ports defined for that FQDN. If multiple Multimatch application segments exist for the same FQDN but with different ports, they must all use the same server group. If different server groups are used, any of them can be randomly selected to proxy the traffic to that FQDN, leading to unpredictable behavior.
+
+## Exact Match vs. Multimatch
+
+There are two application match behaviors available in Private Access: Exact Match and Multimatch. Exact match is the default behavior.
+
+### About Exact Match
+
+The default behavior of Private Access is to perform an exact match of applications. If two or more application segments cover the same destination address, Zscaler Client Connector attempts to match traffic to the more granular application segment. Consider the following example of two application segments with the overlapping domain name example.com:
+
+- Example: Exact Match
+
+If a user attempts to access server1.example.com on TCP port 3389, the destination address maps to the more specific application segment, which is Server1_AS. However, the Server1_AS application segment does not have TCP port 3389 configured, resulting in failed access.
+
+| Application Segment Name | Application | Protocol | Ports |
+| --- | --- | --- | --- |
+| Wildcard_AS | *.example.com | TCP, UDP | 1 to 52, 54 to 65535 |
+| Server1_AS | server1.example.com | TCP | 443 |
+
+In this scenario, the attempt to access server1.example.com on TCP port 3389 is dropped at the client level, traffic is not sent to the Private Access cloud, and logs aren't visible in the diagnostics. After a specific FQDN (Fully Qualified Domain Name) has been configured in an application segment, it is removed from the wildcard application segment by default. Even though server1.example.com is part of the Wildcard_AS application segment for the *example.com application on the TCP port range of 54 to 65535, this access does not match the Wildcard_AS application segment. To fix this, TCP port 3389 must be configured for the Server1_AS application segment, or Multimatch can be enabled. Enabling Multimatch changes the behavior of the wildcard application segment, and catches access to ports that have not been defined in the more specific FQDN application segment.
+
+### About Multimatch
+
+The following examples illustrate how applications are mapped to application segments, as well as how policy execution works when Multimatch is enabled or not enabled on application segments.
+
+- Multiple application segment matches
+- Behavior after inserting a block rule
+
+The primary use for Multimatch is when there are multiple possible application segment matches. The following tables show application segment configuration, the policy configuration, and how they match up.
+
+| Application Segment Configuration |  |  |  |  |
+| --- | --- | --- | --- | --- |
+| Application Segment Name | Application | Protocol | Ports | Multimatch |
+| Wildcard_AS | *.example.com | TCP, UDP | 1 to 52, 54 to 65535 | Enabled |
+| Server1_AS | server1.example.com | TCP | 443, 3389 | Enabled |
+
+| Access Policy Configuration |  |  |  |  |
+| --- | --- | --- | --- | --- |
+| # | Access Policy Name | Application Segment Name | Policy Action | User Group |
+| 1 | Allow Server1_AS for Admin | Server1_AS | Allow | Admin_Grp |
+| 2 | Allow Wildcard_AS for All | Wildcard_AS | Allow | All |
+
+| Application Match and Policy Search Results |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- |
+| User | Group | FQDN: Protocol & Port | Matched Application Segment with Multimatch | Matched Application Segment without Multimatch | Matched Policy with Multimatch | Matched Policy Number without Multimatch |
+| user1 | Admin_Grp | server1.example.com:TCP+3389 | Wildcard_AS Server1_AS | Server1_AS | Allow Server_AS for All (#1) | Allow Server1_AS for Admin (#1) |
+| user2 | IT_Grp | server1.example.com:TCP+3389 | Wildcard_AS Server1_AS | Server1_AS | Allow Wildcard_AS for All (#2) | No policy match. Blocked by implicit default block policy. |
+| user1 | Admin_Grp | server1.example.com:TCP+22 | Wildcard_AS | N/A | Allow Wildcard_AS for All (#2) | Traffic is dropped at the client level |
+| user2 | IT_Grp | server1.example.com:TCP+22 | Wildcard_AS | N/A | Allow Wildcard_AS for All (#2) | Traffic is dropped at the client level |
+| user3 | IT_Grp | server1.example.com:TCP+80 | Wildcard_AS | N/A | Allow Wildcard_AS for All (#2) | Traffic is dropped at the client level |
+| user3 | IT_Grp | server1.example.com:TCP+443 | Wildcard_AS Server1_AS | Server1_AS | Allow Wildcard_AS for All (#2) | No policy match. Blocked by implicit default block policy. |
+
+Traffic that is dropped at the client level means that traffic matches the hostname, but it does not match the protocol and port. In this condition, traffic is not sent to the cloud for further processing. This means that policy evaluation does not occur, and the user is not able to access the application segment. In this case, traffic is not visible in the Private Access diagnostics.
+
+The following table shows how the policy search results change by inserting a block policy in the rule set.
+
+| Application Segment Configuration |  |  |  |  |
+| --- | --- | --- | --- | --- |
+| Application Segment Name | Application | Protocol | Ports | Multimatch |
+| Wildcard_AS | *.example.com | TCP, UDP | 1 to 52, 54 to 65535 | Enabled |
+| Server1_AS | server1.example.com | TCP | 443, 3389 | Enabled |
+
+| Access Policy Configuration |  |  |  |  |
+| --- | --- | --- | --- | --- |
+| # | Access Policy Name | Application Segment Name | Policy Action | User Group |
+| 1 | Allow Server1_AS for Admin | Server1_AS | Allow | Admin_Grp |
+| 2 | Block Server1_AS for All | Server1_AS | Block | All |
+| 3 | Allow Wildcard_AS for All | Wildcard_AS | Allow | All |
+
+| Application Match and Access Policy Search Results |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- |
+| User | Group | FQDN: Protocol & Port | Matched Application Segment with Multimatch | Matched Application Segment without Multimatch | Matched Policy Number with Multimatch | Matched Policy Number without Multimatch |
+| user1 | Admin_Grp | server1.example.com:TCP+3389 | Wildcard_AS Server1_AS | Server1_AS | Allow Server1_AS for Admin (#1) | Allow Server1_AS for Admin (#1) |
+| user1 | Admin_Grp | server1.example.com:TCP+443 | Wildcard_AS Server1_AS | Server1_AS | Allow Server1_AS for Admin (#1) | Allow Server1_AS for Admin (#1) |
+| user1 | Admin_Grp | server1.example.com:TCP+22 | Wildcard_AS | N/A | Allow Wildcard_AS for All (#3) | Traffic is dropped at the client level |
+| user2 | IT_Grp | server1.example.com:TCP+22 | Wildcard_AS | N/A | Allow Wildcard_AS for All (#3) | Traffic is dropped at the client level |
+| user3 | IT_Grp | server1.example.com:TCP+80 | Wildcard_AS | N/A | Allow Wildcard_AS for All (#3) | Traffic is dropped at the client level |
+| user3 | IT_Grp | server1.example.com:TCP+443 | Wildcard_AS Server1_AS | Server1_AS | Block Server1_AS for All (#2) | Block1_AS for All (#2) |
+
+Traffic that is dropped at the client level means that traffic matches the hostname, but it does not match the protocol and port. In this condition, traffic is not sent to the cloud for further processing. This means that policy evaluation does not occur, and the user is not able to access the application segment. In this case, traffic is not visible in the Private Access diagnostics.
+
+### Matched vs. Not Matched
+
+Multiple matches apply to applications from most specific to least specific. As soon as an application is encountered that does not support Multimatch, the multimatching stops. The following examples show each possible outcome for matched and not matched results:
+
+- Example 1
+- Example 2
+- Example 3
+- Example 4
+
+| Application Match |  |  |  |
+| --- | --- | --- | --- |
+| **Application** | **Multimatch** | **Requested Domain** |  |
+| server1.db.hr.company.com | server2.ui.hr.company.com |  |  |
+| *.db.hr.company.com | Enabled | Matched | Not matched |
+| *.ui.hr.company.com | Disabled | Not matched | Matched |
+| *.hr.company.com | Enabled | Matched | Not matched |
+| *.company.com | Disabled | Not matched | Not matched |
+
+| Application Match |  |  |
+| --- | --- | --- |
+| **Application** | **Multimatch** | **Requested Domain** |
+| server1.db.hr.company.com |  |  |
+| server1.db.hr.company.com | Enabled | Matched |
+| *.db.hr.company.com | Enabled | Matched |
+| *.hr.company.com | Enabled | Matched |
+| *.company.com | Disabled | Not matched |
+| *.com | Enabled | Not matched |
+
+| Application Match |  |  |  |
+| --- | --- | --- | --- |
+| **Application** | **Multimatch** | **Requested Domain** |  |
+| server1.db.hr.company.com | server2.db.hr.company.com |  |  |
+| server1.db.hr.company.com | Disabled | Matched | Not matched |
+| *.db.hr.company.com | Enabled | Not matched | Matched |
+| *.hr.company.com | Enabled | Not matched | Matched |
+| *.company.com | Disabled | Not matched | Not matched |
+
+| Application Match |  |  |
+| --- | --- | --- |
+| **Application** | **Multimatch** | **Requested Domain** |
+| server2.ui.hr.company.com |  |  |
+| server2.ui.hr.company.com | Enabled | Matched |
+| *.ui.hr.company.com | Disabled | Not matched |
+| *.hr.company.com | Enabled | Not matched |
+| *.company.com | Disabled | Not matched |
+
+### About IP Address- and IP Subnet-Based Multimatch
+
+Even with an IP address, the default behavior of Private Access is to perform an exact match of applications. If two or more application segments cover the same destination address, Zscaler Client Connector attempts to match traffic to the more granular application segment. Consider the following examples of two application segments with overlapping IP addresses:
+
+- Example: IP-Based Exact Match
+- Example: IP-Based Multimatch
+
+| Application | Applications | Protocol | Port |
+| --- | --- | --- | --- |
+| Subnet_AS | 10.0.0.0/24 | TCP, UDP | 1 to 52, 54 to 65535 |
+| IPaddress_AS | 10.0.0.1/32 | TCP | 443 |
+
+| Rule Number | Access Policy Name | Application Segment | User Group | Action |
+| --- | --- | --- | --- | --- |
+| 1 | Allow User A to access IPaddress_AS | IPaddress_AS | User A | Allow |
+| 2 | Allow Everyone to access Subnet_AS | Subnet_AS | All | Allow |
+
+In this scenario, the host at IP address 10.0.0.1 is contained within the IPaddress_AS application segment. If user B tries to access 10.0.0.1 on TCP port 443, they match the implicit block rule. User B does not match with rule number 1 because it is restricted to only User A. User B also does not match with rule number 2 even though it is for everyone, because the moment the IP address is created, the 10.0.0.1/32 host is carved out of Subnet_AS 10.0.0.0/24.
+
+The primary use for Multimatch is when there are multiple possible application segment matches. The following tables show application segment configuration, the policy configuration, and how they match up.
+
+| Application Segment Configuration |  |  |  |  |
+| --- | --- | --- | --- | --- |
+| Application Segment Name | Application | Protocol | Port | Multimatch |
+| Subnet_AS | 10.0.0.0/24 | TCP, UDP | 1 to 52, 54 to 65535 | Enabled |
+| IPAddress_AS | 10.0.0.1/32 | TCP | 443, 3389 | Enabled |
+
+| Application Match and Policy Search Results |  |  |  |  |
+| --- | --- | --- | --- | --- |
+| # | Access Policy Name | Application Segment Name | Policy Action | User Group |
+| 1 | Allow IPAddress_AS for Admin | IPAddress_AS | Allow | Admin_Grp |
+| 2 | Allow Subnet_AS for All | Subnet_AS | Allow | All |
+
+| Application Match and Policy Search Results |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- |
+| User | Group | IP Address: Protocol & Port | Matched Application Segment with Multimatch | Matched Application Segment without Multimatch | Matched Policy with Multimatch | Matched Policy without Multimatch |
+| user1 | Admin_Grp | 10.0.0.1:TCP+3389 | Subnet_AS IPAddress_AS | IPAddress_AS | Allow IPAddress_AS for Admin (#1) | Allow IPAddress_AS for Admin (#1) |
+| user2 | IT_Grp | 10.0.0.1:TCP+3389 | Subnet_AS IPAddress_AS | IPAddress_AS | Allow Subnet_AS for All (#2) | No policy match. Blocked by implicit default block policy. |
+| user1 | Admin_Grp | 10.0.0.1:TCP+22 | Subnet_AS | N/A | Allow Subnet_AS for All (#2) | Traffic is dropped at the client level |
+| user2 | IT_Grp | 10.0.0.1:TCP+22 | Subnet_AS | N/A | Allow Subnet_AS for All (#2) | Traffic is dropped at the client level |
+| user3 | IT_Grp | 10.0.0.1:TCP+80 | Subnet_AS | N/A | Allow Subnet_AS for All (#2) | Traffic is dropped at the client level |
+| user3 | IT_Grp | 10.0.0.1:TCP+443 | Subnet_AS IPAddress_AS | IPAddress_AS | Allow Subnet_AS for All (#2) | No policy match. Blocked by implicit default block policy. |
+
+Traffic that is dropped at the client level means that traffic matches the IP address, but it does not match the protocol and port. In this condition, traffic is not sent to the cloud for further processing. This means that policy evaluation does not occur, and the user is not able to access the application segment. In this case, traffic is not visible in the Private Access diagnostics.
+
+[Image: Multimatch Validation page]
+
+[Image: Advanced settings in the iOS app profile]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/using-application-scaling","lastmod":"2026-09-15T10:34Z","nid":"1542240"} -->
+## Using Application Scaling
+
+- Source: https://help.zscaler.com/zpa/using-application-scaling
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Application Management > Application Segments > Using Application Scaling
+- Last modified: 2026-09-15T10:34Z
+- Summary: Information on using application scaling for application segments for Private Access (ZPA).
+
+This feature is in limited availability. To learn more, contact Zscaler Support.
+
+Application Scaling enables organizations with large private application environments to scale beyond the standard [application limits](https://help.zscaler.com/unified/ranges-limitations#application-management). With Application Scaling enabled, tenants can scale to approximately 100,000 applications. It optimizes how application definitions are delivered and evaluated between Private Access (ZPA) and Zscaler Client Connector, reducing the amount of application data delivered to endpoints.
+
+Instead of distributing the complete application inventory to every endpoint, Private Access delivers aggregated domain information, reducing the client-side configuration footprint and improving scalability.
+
+If you are using [Source IP Anchoring](https://help.zscaler.com/zpa/configuring-source-ip-anchoring-direct) or [Zero Trust Branch](https://help.zscaler.com/zero-trust-branch/what-zero-trust-branch), continue to use the standard Private Access [application access](https://help.zscaler.com/zpa/understanding-application-access) as it is designed for those deployment scenarios.
+
+## Prerequisites
+
+To use Application Scaling, ensure the following prerequisites are met:
+
+- App Connectors or Private Service Edges for Private Access are upgraded to version 24.298.1 or later. To learn more, see [About App Connectors](https://help.zscaler.com/zpa/about-connectors) and [About Private Service Edges](https://help.zscaler.com/zpa/about-private-service-edges).
+- Zscaler Client Connector is upgraded to the following versions per OS:
+  - Windows versions:
+    - 4.7.0.88 or later
+    - 4.6.0.282 or later
+  - macOS versions: 4.5.2.98 or later
+  - iOS version 4.4.1 or later To use the App Scaling feature for iOS applications, you must enable the [Use Tunnel SDK Version 4.3 or above setting](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles#iOS-advanced) in the Zscaler Admin Console. See image.
+  - Android version: 3.10 or later
+  - Linux version: 4.2 or later
+
+## Enabling App Scaling
+
+Application Scaling is enabled at the tenant level. Contact Zscaler Support to request access.
+
+[Image: Traffic Steering Advanced settings in the Zscaler Client Connector iOS App Profile]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/using-application-segment-import","lastmod":"2026-05-13T14:32Z","nid":"1540203"} -->
+## Using Application Segment Import
+
+- Source: https://help.zscaler.com/zpa/using-application-segment-import
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Application Management > Application Segments > Using Application Segment Import
+- Last modified: 2026-05-13T14:32Z
+- Summary: How to use the Application Segment Import feature in the Zscaler Admin Console.
+
+Private Access (ZPA) allows you to bulk import application information to ease the process of application segment configuration. This speeds up the data entry process and eliminates the need to re-enter data if it changes over time. To learn more, see [About Application Segment Import](https://help.zscaler.com/zpa/about-application-segment-import).
+
+To bulk import application segment data:
+
+1. Go to **Policies** > **Access Control** > **Private Applications** > **Application Segment Import**.
+2. Click **Download Sample CSV**. The sample template downloads to your system. See image. If you already have a CSV file containing your data, you can import the file.
+3. Open the template file and add information for the following fields:
+  - Application Name
+  - Application FQDN/IP
+  - Server IP
+  - TCP Ports
+  - UDP Ports
+  - App Owner Contact
+  - Application Importance
+  - Hosting Location
+  - Environment
+4. Save the template.
+5. Click **Import CSV**. See image.
+6. Click **Browse File**to select your CSV file.
+7. Click **Import**. See image. The data can take some time to import. You can leave the page and return to it later. If you import a file with entries that were included in a previous import, the new entries are automatically added as additional information to the existing entries of the same name.
+
+After the data from the file is imported, the Application Segment Import page refreshes to show a table of all the application information categorized alphabetically by the Application Segment Name. A message appears confirming the number of successfully imported entries, as well as the number of failed downloads. You can click the link in the message to download a new file containing the failed entries and the reasons for their import failure.
+
+The limit of application segments that can be imported is 50,000. If you attempt to import a file with more than 50,000 entries of application segment data, the import fails. Depending on how many application segments you import, the import time can increase.
+
+After you import the data for the application segments, you can merge the application segments together. To learn more, see [Merging Imported Application Segments](https://help.zscaler.com/zpa/merging-imported-application-segments).
+
+[Image: Download Sample CSV action in the Application Segment Import page]
+
+[Image: The Import window with a CSV file selected.]
+
+[Image: Click Import CSV.]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/using-pattern-matching-application-segments","lastmod":"2026-09-10T10:53Z","nid":"1485996"} -->
+## Using Pattern Matching for Application Segments
+
+- Source: https://help.zscaler.com/zpa/using-pattern-matching-application-segments
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Application Management > Application Segments > Using Pattern Matching for Application Segments
+- Last modified: 2026-09-10T10:53Z
+- Summary: Information on using pattern matching for application segments for Private Access (ZPA).
+
+This feature is in limited availability. To learn more, contact Zscaler Support.
+
+Private Access (ZPA) supports patterns within FQDN-based application segments. Configuring applications with pattern definition helps to build optimal configurations. It also future proofs the configuration in the case where new servers are brought online and match the existing patterns for applications. This means no configuration changes are required in the application segment definition. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-application-segments).
+
+## Prerequisites
+
+To configure pattern matching for application segments, ensure the following prerequisites are met:
+
+- Multimatch must be enabled on the tenant and the specific application segment. To learn more, see [Using Application Segment Multimatch.](https://help.zscaler.com/zpa/using-app-segment-multimatch)
+- App Connectors are upgraded to version 24.298.1 or later. To learn more, see [About App Connector Groups](https://help.zscaler.com/zpa/about-connector-groups).
+- Zscaler Client Connector is upgraded to the following versions per OS:
+  - Windows versions:
+    - 4.7.0.88 or later
+    - 4.6.0.282 or later
+  - macOS version: 4.5.2.98 or later
+  - iOS version: 4.4.1 or later To use the Private Access pattern matching feature for iOS applications, you must enable the [Use Tunnel SDK Version 4.3 or above setting](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles) in the Zscaler Admin Console. See image.
+  - Android version: 3.10 or later
+  - Linux version: 4.2 or later
+
+## Supported Patterns of Applications in Application Segments
+
+The asterisk (*) and question mark (?) symbols are the supported characters for pattern configuration in application segments.
+
+| **Pattern Type** | **Example** |
+| --- | --- |
+| Pattern matching in the initial part of the FQDN | *.acme.com *nonprod.acme.com |
+| Pattern matching in the middle part of the application | psl*.ms.acme.com www.jira*.acme.com *w*.acme.com |
+| Matching one character with “?” | w?w.jira.acme.com w??.jira.acme.com |
+
+The maximum number of patterns an admin can configure is 500. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
+
+### App Connector Selection
+
+Pattern matching does not select the most specific application for App Connector selection. Therefore, ensure you have at least one App Connector group available for similar applications. To learn more, see [About App Connector Groups](https://help.zscaler.com/zpa/about-connector-groups).
+
+When application access matches multiple application segments for pattern matching, the App Connector selection is based on the most specific application segments that are pattern matching, regardless of the application segment that matches the access policy rule.
+
+The following table shows example application segment configurations:
+
+| Application Segment Name | Domain or Pattern Match | Protocol & Port | Multimatch | Match | Server Group Name |
+| --- | --- | --- | --- | --- | --- |
+| AS1 | important-server*.eu.example.com | TCP/22 | Yes | Yes | SG1 |
+| AS2 | important-server?.eu.example.com | TCP/22 | Yes | Yes | SG2 |
+| AS3 | important-*.eu.example.com | TCP/22 | Yes | Yes | SG3 |
+| AS4 | *.eu.example.com | All | Yes | Yes | SG4 |
+| AS5 | *.example.com | All | No | No | SG5 |
+
+When a user accesses important-server1.eu.example.com on the TCP protocol for port 22, it matches AS1, AS2, AS3, and AS4 because these are the most specific application segments with pattern matching. However, since AS4 is the wildcard application segment and AS5 does not have Multimatch enabled, the App Connector selection only applies to SG1, SG2, and SG3.
+
+[Image: Advanced settings in the iOS app profile]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/using-wildcard-certificates-browser-access-applications","lastmod":"2026-09-18T02:53Z","nid":"1484096"} -->
+## Using Wildcard Certificates for Browser Access Applications
+
+- Source: https://help.zscaler.com/zpa/using-wildcard-certificates-browser-access-applications
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Browser Access > Using Wildcard Certificates for Browser Access Applications
+- Last modified: 2026-09-18T02:53Z
+- Summary: Information about wildcard certificates and how they can be used when defining Browser Access-enabled web applications for Private Access.
+
+Private Access (ZPA) supports using wildcard certificates when defining Browser Access applications within an application segment. You can use a wildcard certificate for multiple fully qualified domain names (FQDNs) within a single application segment or within multiple application segments.
+
+For example, you can create two application segments:
+
+- App1 that contains app1.example.com
+- App2 that contains app2.example.com
+
+For both application segments, you use the same wildcard certificate: *.example.com.
+
+You can also use a wildcard certificate with a wildcard application. However, while the wildcard application includes subdomains, the wildcard certificate only matches against one level. For example:
+
+- A `*.example.com` wildcard application matches against `app1.example.com`, `app2.example.com`, and `app1.local.example.com`.
+- A `*.example.com` wildcard certificate matches against `app1.example.com` and `app2.example.com`, but will not match against `app1.local.example.com`. In this example, Private Access does not consider the wildcard certificate to be valid for `app1.local.example.com`.
+
+If you need to enable Browser Access for a particular subdomain, you must define a separate wildcard application (i.e., *.local.example.com) within an application segment that includes the equivalent wildcard certificate.
+
+To learn more, see [About (Web Server) Certificates](https://help.zscaler.com/zpa/about-web-server-certificates), [About Browser Access](https://help.zscaler.com/zpa/about-browser-access), and [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-defined-application-segments).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/validating-client-hostname","lastmod":"2026-06-16T11:51Z","nid":"1485046"} -->
+## Validating a Client Hostname
+
+- Source: https://help.zscaler.com/zpa/validating-client-hostname
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Application Management > Application Segments > Validating a Client Hostname
+- Last modified: 2026-06-16T11:51Z
+- Summary: How to validate a client hostname in the Zscaler Admin Console.
+
+Validating a client hostname allows you to enroll endpoints for [peer-to-peer connectivity](https://help.zscaler.com/zpa/administration/peer-peer-connectivity) so that you can accept incoming connections through Private Access (ZPA) from other clients. To enroll the endpoints, a regular expression of allowed hostnames is configured per tenant. This regular expression controls the endpoints to which Zscaler Client Connector allows the peer-to-peer connectivity. Endpoints whose FQDNs match this regular expression are enrolled. To learn more, see [Understanding Client-to-Client Connectivity](https://help.zscaler.com/zpa/understanding-client-client-connectivity) and [Understanding Server-to-Client Connectivity](https://help.zscaler.com/zpa/understanding-server-client-connectivity).
+
+If an application configured for Privileged Remote Access (PRA) matches a valid client hostname configured for peer-to-peer connectivity, and the user's device is also configured for peer-to-peer connectivity, then PRA is not supported.
+
+Prior to enabling peer-to-peer connectivity, the following prerequisites must be met:
+
+- Ensure that the remote user has installed Zscaler Client Connector version 3.9.0.169 or later on the destination machine that they want to establish connectivity to. Zscaler Client Connector on the destination machine must have a machine tunnel deployed. To learn more, see [Understanding Zscaler Client Connector App Downloads](https://help.zscaler.com/zscaler-client-connector/understanding-zscaler-client-connector-app-downloads).
+- Ensure that endpoints or devices have valid, complete, and unique FQDNs.
+
+To validate a client hostname:
+
+1. Go to **Policies** > **Access Control** > **Private Applications** > **Defined Application Segments**.
+2. Click the **Column** **Menu**icon ([Image: Column Menu icon]), and select **Client Hostname Validation**.
+
+See image.
+
+The **Edit Regular Expression**window appears.
+
+1. In the **Regular Expression**field, enter a valid regular expression. See image. For example, enter the regular expression `.*.example.com` to establish a peer-to-peer connection for devices joined with domains matching this regular expression (e.g., `test.example.com`). If you have the same namespace for both your applications and workstations, Zscaler recommends creating different application segments for peer-to-peer connectivity and for application access. To successfully enable remote assistance, the application segment designated for peer-to-peer connectivity must match the regular expression entered.
+2. Click **Save**.
+
+[Image: Viewing the Column Menu in the Zscaler Admin Console]
+
+[Image: Configure a regex in the Zscaler Admin Console]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-active-directory-protection-dashboard","lastmod":"2026-06-29T10:17Z","nid":"1515526"} -->
+## Viewing the Active Directory Protection Dashboard
+
+- Source: https://help.zscaler.com/zpa/viewing-active-directory-protection-dashboard
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Dashboard & Diagnostics > AppProtection and Browser Protection Monitoring > Viewing the Active Directory Protection Dashboard
+- Last modified: 2026-06-29T10:17Z
+- Summary: Information on the Active Directory Protection dashboard and widgets accessible in the Zscaler Admin Console.
+
+The Active Directory Protection dashboard provides information about the Active Directory policy activity in your organization. To view the dashboard in the Zscaler Admin Console, go to Analytics > Switch to Existing Reports > Private Applications > Security > Active Directory Protection.
+
+## Dashboard Tools
+
+The Active Directory Protection dashboard displays the following information and functionality:
+
+- **Time Range Filter**: View Active Directory Protection data over a period between **1 Hour** to **14 Days**, or you can select **Custom Range**. If you use **Custom Range**, the start date must be within the last 14 days. The end date automatically sets to the system's current time. By default, the dashboard displays information for events that occurred in the last hour. This filter applies to all widgets on the dashboard.
+
+Log information in the dashboard is limited to 14 days. For longer access to the logs, use the [Log Streaming Service (LSS)](https://help.zscaler.com/zpa/about-log-streaming-service).
+
+- **Refresh Icon**: Refresh the dashboard to reflect the most current information.
+- **AppProtection Dashboard**: View the [AppProtection Dashboard](https://help.zscaler.com/zpa/viewing-appprotection-dashboard) for more information about AppProtection policy activity.
+- **Browser Protection Dashboard**: View the [Browser Protection Dashboard](https://help.zscaler.com/zpa/viewing-browser-protection-dashboard) for information about browser sessions in your organization.
+- **API Protection Dashboard**: View the [API Protection Dashboard](https://help.zscaler.com/zpa/viewing-api-protection-dashboard) for information about API traffic in API protection controls. This tab is only visible if the feature is enabled in your account.
+- **Chart Selection**: Select the charts you want to display or hide on the dashboard. A minimum of 4 charts and a maximum of 8 charts can be selected.
+
+## Widgets
+
+The Active Directory Protection dashboard provides the following widgets:
+
+- Top Users by KRB TGT Suspicious Activity
+- Top Users by KRB TGT Errors
+- Top Users by KRB TGS Errors
+- Top Users by KRB TGS Suspicious Activity
+- Top Users by LDAP Suspicious Queries
+- Top Users by SMB Suspicious Activity
+- Top Profile Violations
+- Top Control Violations
+- Top Users by Control Violations
+
+The widget displays the top 10 Kerberos TGT suspicious activity within the selected time frame and lists them by user.
+
+[Image: Kerberos TGT Suspicious Activity widget on the Active Directory Protection Dashboard in the Zscaler Admin Console]
+
+- Click on a tab to switch between a chart of unique Active Directory logins and a chart of account harvesting indications.
+- Hover over a user to view the following:
+  - **Name**: The name of the user.
+  - **Number of Top Users - KRB TGT Suspicious Activity**: Depending on the chart you've selected:
+    - **Unique Active Directory Logins**: The number of unique Active Directory logins seen for the selected user. The percentage is the total unique Active Directory logins seen by that user within the top users for that category.
+    - **Account Harvesting Indications**: The number of Active Directory login failures seen for the selected user. The percentage is the Active Directory login failures seen by that user within the top users for that category.
+- Click a user and then click **View Logs** to be directed to log information matching that user in Active Directory Protection Diagnostics.
+
+The widget displays the top 10 Kerberos TGT errors within the selected time frame and lists them by user. The error counts displayed do not include these common errors:
+
+- KDC_ERR_PREAUTH_REQUIRED (25)
+- KRB_AP_ERR_TKT_EXPIRED (32)
+- KRB_ERR_RESPONSE_TOO_BIG (52)
+- KDC_ERR_BADOPTION (13)
+- KDC_ERR_NEVER_VALID (11)
+- KRB_AP_ERR_SKEW (37)
+- KDC_ERR_ETYPE_NOSUPP (14)
+- KDC_ERR_S_PRINCIPAL_UNKNOWN (7)
+- KRB_AP_ERR_MODIFIED (41)
+
+[Image: Top Users by Kerberos TGT Errors widget on the Active Directory Protection Dashboard in the Zscaler Admin Console]
+
+- Hover over a user to view the following:
+  - **Name**: The name of the user.
+  - **Number of Top Users by KRB TGT Error(s)**: The number of errors for the selected user. The percentage is the errors held by that user within the top users for that category.
+- Click a user and then click **View Logs** to be directed to log information matching that user in Active Directory Protection Diagnostics.
+
+The widget displays the top 10 Kerberos TGS errors within the selected time frame and lists them by user. The error counts displayed do not include these common errors:
+
+- KDC_ERR_PREAUTH_REQUIRED (25)
+- KRB_AP_ERR_TKT_EXPIRED (32)
+- KRB_ERR_RESPONSE_TOO_BIG (52)
+- KDC_ERR_BADOPTION (13)
+- KDC_ERR_NEVER_VALID (11)
+- KRB_AP_ERR_SKEW (37)
+- KDC_ERR_ETYPE_NOSUPP (14)
+- KDC_ERR_S_PRINCIPAL_UNKNOWN (7)
+- KRB_AP_ERR_MODIFIED (41)
+
+[Image: Top 10 Kerberos TGS Errors widget on the Active Directory Protection Dashboard in the Zscaler Admin Console]
+
+- Hover over a user to view the following:
+  - **Name**: The name of the user.
+  - **Number of Top Users by KRB TGS Errors**: The number of errors for the selected user. The percentage is the errors held by that user within the top users for that category.
+- Click a user and then click **View Logs** to be directed to log information matching that user in Active Directory Protection Diagnostics.
+
+The widget displays the top 10 Kerberos TGS suspicious activity within the selected time frame and lists them by user.
+
+[Image: Top 10 Kerberos TGS Suspicious Activity widget on the Active Directory Protection Dashboard in the Zscaler Admin Console]
+
+- Click a tab to switch between a chart of Kerberoasting requests and a chart of Kerberos TGS activity.
+- Hover over a user to view the following:
+  - **Name**: The name of the user.
+  - **Number of Top Users by KRB TGS Suspicious Activity**: Depending on the chart you've selected:
+    - **Kerberoasting Requests**: The number of instances the user requested a ticket with a weak encryption (e.g., RC4 and DES encryption). The percentage is the total Kerberoasting requests held by that user within the top users for that category.
+    - **KRB TGS Activity**: The number of instances where the user sends a TGS request for various services in Active Directory domain. The percentage is the total Kerberos TGS activity held by that user within the top users for that category.
+- Click a section of the chart and then click **View Logs** to be directed to log information matching the control category in Active Directory Protection Diagnostics.
+
+The widget displays the top 10 LDAP suspicious queries within the selected time frame and lists them by user.
+
+[Image: Top 10 LDAP Suspicious Queries widget on the Active Directory Protection Dashboard in the Zscaler Admin Console]
+
+- Hover over a user to view the following:
+  - **Name**: The name of the user.
+  - **Number of Top Users** **by LDAP Suspicious Activity**: The number of suspicious queries for the selected user. The percentage is suspicious queries held by that user within the top users for that category.
+- Click a user and then click **View Logs** to be directed to log information matching that user in Active Directory Protection Diagnostics.
+
+The widget displays the top 10 SMB suspicious activity within the selected time frame and lists them by user. This activity data consists of session and user enumeration.
+
+[Image: Top Users by SMB Suspicious Activity widget on the Active Directory Protection Dashboard in the Zscaler Admin Console]
+
+- Hover over a user to view the following:
+  - **Name**: The name of the user.
+  - **Number of Top Users** **by SMB Suspicious Activity**: The number of suspicious activity for the selected user. The percentage is suspicious activity held by that user within the top users for that category.
+- Click a section of the chart and then click **View Logs** to be directed to log information matching the control category in Active Directory Protection Diagnostics.
+
+The widget displays the top 10 profile violations within the selected time frame and lists them by name.
+
+[Image: Top Profile Violations widget on the Active Directory Protection Dashboard in the Zscaler Admin Console]
+
+- Hover over a violation to view the following:
+  - **Name**: The profile violation name.
+  - **Number of Top Profile Violation(s)**: The number of profile violations for the selected violation. The percentage is violations held within the category.
+- Click a profile violation and then click **View Logs** to be directed to log information matching that violation in Active Directory Protection Diagnostics.
+
+This widget displays the top 10 control violations within the selected time frame and categorizes them by name. The top control violations are categorized by control number and name, in the ControlNumber:ControlName format.
+
+[Image: Top Control Violations widget on the Active Directory Protection Dashboard in the Zscaler Admin Console]
+
+Hover over a section of the chart to view the name of the control violation and the percentage of control violations held within the Top Control Violations category.
+
+The widget displays the top 10 users by control violations within the selected time frame and lists them by user.
+
+[Image: Top Users by Control Violations widget on the Active Directory Protection Dashboard in the Zscaler Admin Console]
+
+- Hover over a user to view the following:
+  - **Name**: The name of the user.
+  - **Number of Top Users by Control Violation(s)**: The top users with their number of control violations. The percentage is control violations held by that user within the top users for that category.
+- Click a user and then click **View Logs** to be directed to log information matching that user in Active Directory Protection Diagnostics.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-agent-dashboard","lastmod":"2026-09-11T07:14Z","nid":"1498186"} -->
+## Viewing the Agent Dashboard
+
+- Source: https://help.zscaler.com/zpa/viewing-agent-dashboard
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Microsegmentation > Dashboard > Viewing the Agent Dashboard
+- Last modified: 2026-09-11T07:14Z
+- Summary: How to view the Agent dashboard for Microsegmentation in the Zscaler Admin Console.
+
+The Agent dashboard provides information about agent data in your organization.
+
+To view the Agent dashboard, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud** > **Dashboard** > **Microsegmentation** **Agent**.
+
+## Dashboard Tools
+
+The Agent dashboard displays the following information and functionality:
+
+- **Time Range Filter**: View agent data for a specified time period, from 1 Hour to 14 Days.
+- **Refresh Icon**: Refresh the dashboard to reflect the most current information.
+- **Agent Type**: Select the type of agent: Virtual Machines, Kubernetes Node, or Kube Connector.
+- **Agent Name**: Select an agent to view graphs of the CPU usage of the agent, system, agent memory, and system memory. You can select multiple agents.
+
+[Image: The Agent dashboard]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-and-managing-events-diagnostics","lastmod":"2026-05-15T07:06Z","nid":"1485451"} -->
+## Viewing and Managing Events Diagnostics
+
+- Source: https://help.zscaler.com/zpa/viewing-and-managing-events-diagnostics
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Viewing and Managing Events Diagnostics
+- Last modified: 2026-05-15T07:06Z
+- Summary: Information about Events diagnostics and data related to the events, accessible within the Zscaler Admin Console.
+
+This article describes how to view and filter event logs for notifications. Admins subscribe to events to receive email notifications from the Zscaler Admin Console. After an event is triggered, admins receive alerts of these notifications via email. To learn more, see [About Notifications](https://help.zscaler.com/zpa/about-notifications). The Events Diagnostics page displays these notifications.
+
+## Accessing Events Diagnostics
+
+To access diagnostics for events:
+
+1. Go to **Logs**>**Insights**>**Diagnostics**.
+2. From the **Log Type**drop-down menu, select **Events**.
+
+By default, the information for all events is displayed for notifications that occurred in the last 24 hours. You can do the following:
+
+- Click the **Calendar** drop-down menu to change the time range. In the **Calendar** drop-down menu, you can select a preset range or specify a custom start and end date. If you use **Custom Range**, the start date must be within the last 14 days.
+- Click the **Time Zone** icon to change the time zone.
+- Click the **Refresh** icon to refresh the diagnostics page.
+- Click the **Settings**icon to configure the diagnostics settings.
+
+Zscaler retains logs for rolling periods of up to 6 months depending on your subscription. To learn more, see [ZPA Customer Logs and Data](https://help.zscaler.com/customer-logs-fair-use/zpa-customer-logs-and-data). You can also view your logs or stream logs in real time using the [Log Streaming Service (LSS)](https://help.zscaler.com/zpa/about-log-streaming). Data in the [dashboard](https://help.zscaler.com/zpa/dashboard-diagnostics) might be more recent than the data presented within Diagnostics for the same time range.
+
+When you use **Custom Range**, you can search for data within the past 6 months of the current date. The data retrieved begins from the moment of feature enablement.
+
+When the date range exceeds 14 days:
+
+- Not all the log fields are populated.
+- Metrics including aggregates and trends are not available.
+
+This feature and its procedures are in limited availability. To learn more, contact Zscaler Support.
+
+See image.
+
+[Image: Events Diagnostics tools]
+
+By default, the table displays the **Total**number of events. To change this, select one of the following filters:
+
+- **High Priority**: The number of high priority events.
+- **Medium Priority**: The number of medium priority events.
+- **Low Priority**: The number of low priority events.
+
+See image.
+
+[Image: Diagnostics widgets]
+
+## Configuring Settings
+
+To configure settings for diagnostics pages in the Zscaler Admin Console:
+
+1. Go to **Logs**> **Insights**> **Diagnostics**.
+2. Click the **Settings** icon ([Image: Settings icon within the diagnostics pages]). The **Settings** drawer appears.
+3. In the **Settings** drawer, select the default filter operator (i.e., **Equals** or **Contains**) from thedrop-down menu. The **Default Filter Operator** is set to **Equals** by default. See image.
+4. Click **Save** to apply your changes. The selected filter operator is saved for future sessions.
+
+[Image: Viewing the Settings drawer in the diagnostics pages]
+
+## Filtering Event Diagnostics
+
+On the Events page, you can apply filters or drill down further into the log data. By default, no filters are applied.
+
+To configure filters using the query builder:
+
+1. Click **Add Filters** and select a filter from the drop-down menu.
+  - View query builder filters.
+2. Select a Boolean operator from the drop-down menu (e.g., **Equals**, **Not Equals**).
+3. Select the fields from the drop-down menu or enter the values required for the filter. The field or value required is determined by the filter you are configuring.
+
+See image.
+
+[Image: Events Diagnostics filtering]
+
+1. Click **Apply**.
+
+You can also perform the following actions in the query builder:
+
+- Click **Add Filters**to apply more filters.
+- Click the **Delete**icon ([Image: Delete icon in the Zscaler Admin Console]) to remove an added filter, and then click **Apply**.
+- Click **Clear All**to remove all filters.
+- Click the **Copy** icon to save the filter query details. If you or another Private Access (ZPA) admin accesses **Diagnostics**, you can paste the query into the field by clicking the **Clipboard** icon.
+
+See image.
+
+[Image: Filtering tools]
+
+- **App Connector: Name**: See event logs by the App Connector.
+- **Backup Name**: See event logs by the [backup](https://help.zscaler.com/zpa/about-backup-and-restore).
+- **Cloud Connectors**: See event logs by the Cloud Connector.
+- **Event Category:**See event logs by category(i.e.,**Authentication**,**Backup Configuration**, **Connectivity and Upgrade**, **Enrollment**, **System Resource**, **Usage Metrics**).To learn more, see the Category section.
+- **Event Component:**See event logs by component (i.e., **App Connectors**, **Backup and Restore**, **Cloud Connectors**, **Private Service Edges**,and **Zscaler Client Connector**).To learn more, see the Component section.
+- **Event Name:**See event logs by the type of the event. To learn more, see the Events table.
+- **Event Priority:**See event logs by the priority of the event (i.e.,**High**, **Medium**, **Low**).
+- **Private Service Edge: Name**: See event logs by the Private Service Edge for Private Access.
+
+The table displays the following data about events:
+
+- Timestamp
+- Event
+- Category
+- Component
+- Priority
+- Action
+
+You can expand each row to see more details, or click **Expand** **All**or **Collapse** **All** to expand or collapse all rows within the table. By default, the table displays 20 transactions. You can scroll to load more transactions. Within the table, you can click the **Filter**icon ([Image: Filter icon within the Zscaler Admin Console]) next to certain field names to drill down further into the data. The filter query section within the page updates automatically to include the proper filter for the field name you selected, along with the applicable Boolean operator configuration for that field.
+
+The data and time when the event log was generated. The column sorts requests by the date and start time in descending order. You can click the **Arrow**icon ([Image: Arrow icon]) to sort the requests in ascending order.
+
+The time displayed is based on the time the event was triggered.
+
+Expanding an event provides the following:
+
+- Event Log: View, download, and copy the raw JSON for the event:
+  - Click the **View Log** icon ([Image: View Log icon]) to display the Raw JSON for the event within the Zscaler Admin Console.
+  - Click the **Download**icon ([Image: Download icon]) to download the raw JSON for the event to a text (.txt) file.
+  - Click the **Copy** icon ([Image: Copy icon]) to copy the raw JSON text for the event to your clipboard.
+
+The type of event that triggered the notification.
+
+Expanding an event provides information regarding the status and outcome of the event.
+
+The following table provides a list of events, as well as the category and component the event belongs to:
+
+| Event | Category | Component | Description |
+| --- | --- | --- | --- |
+| Application Exceeded Count Limit | Usage Metrics | App Connectors | An event indicating when the component's application count has exceeded the limit. The Application Exceeded Count Limit value must be an integer between 4,500 and 6,000. The default value is set to 4,500. |
+| Backup Completed | Backup Configuration | Backup and Restore | An event indicating when the backup is completed. To learn more, see [About Backup and Restore](https://help.zscaler.com/zpa/about-backup-and-restore) and [Restoring Policies and Configurations from a Backup](https://help.zscaler.com/zpa/restoring-policies-and-configurations-backup). |
+| Backup Failed | Backup Configuration | Backup and Restore | An event indicating when the backup has failed. To learn more, see [About Backup and Restore](https://help.zscaler.com/zpa/about-backup-and-restore) and [Restoring Policies and Configurations from a Backup](https://help.zscaler.com/zpa/restoring-policies-and-configurations-backup). |
+| Bandwidth Utilization Exceeded Limit | Usage Metrics | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges | An event indicating when the component's bandwidth utilization has exceeded the limit. The Bandwidth Utilization Exceeded Limit value must be an integer greater than or equal to 250 Mbps. The default value is set to 250. |
+| Certificate Signing Request Invalid | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating Certificate Signing Request (CSR) is invalid for the selected components. |
+| Certificate Signing Request Not Found | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when the CSR is not found for the selected components. |
+| Certificate Signing Request Not Found for Issued Certificate | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when the CSR for the selected components is not found for the issued certificate. |
+| Control Connection Disconnected | Connectivity and Upgrade | App Connectors, Private Service Edges | An event indicating when the control connection for App Connectors or Private Service Edges disconnects. This event cannot be configured and is disabled by default. To learn more, contact Zscaler Support. |
+| CPU Exceeded Limit | Usage Metrics | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges | An event indicating when the component's CPU utilization has exceeded the limit. The CPU Exceeded Limit value must be an integer between 75% and 99%. The default value is set to 75. To learn more, see [Monitoring App Connector Performance](https://help.zscaler.com/zpa/monitoring-connector-performance#cpu). |
+| CPU Starvation | System Resource | App Connectors | An event indicating when the App Connector's CPU is missing resources needed for operations. This event cannot be configured and is disabled by default. To learn more, contact Zscaler Support. |
+| Disk Space Exceeded Limit | Usage Metrics | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges | An event indicating when the component's available disk space is less than the indicated threshold. The Disk Space Exceeded Limit value must be an integer between 0 and 2,048 MB. The default value is set to 2,048. To learn more, see [Monitoring App Connector Performance](https://help.zscaler.com/zpa/monitoring-connector-performance#diskspace). |
+| Duplicate Certificate Signing Request | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating that there is a duplicate CSR for the selected components. |
+| Duplicate Serial Number | Enrollment | Zscaler Client Connector | An event indicating that there is a duplicate serial number during Zscaler Client Connector enrollment. |
+| Enrollment Certificate Expired | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when an enrollment certificate has expired for the selected component. To learn more, see [About Enrollment (CA) Certificates](https://help.zscaler.com/zpa/about-enrollment-ca-certificates). |
+| Enrollment Certificate Invalid | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating an invalid enrollment certificate for the selected components. |
+| Enrollment Completed | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when the enrollment of the component is completed. |
+| Enrollment Failed | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when the enrollment for the selected component has failed. |
+| Entity Limit Exceeded | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when an entity limit is exceeded for a component. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). |
+| File Descriptors Exhausted | Usage Metrics | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges | An event indicating when the component's file descriptors are exhausted. The File Descriptors Exhausted value must be an integer between 75% and 99%. The default value is set to 75. To learn more, see [Monitoring App Connector Performance](https://help.zscaler.com/zpa/monitoring-connector-performance#filedscrpt). |
+| Invalid Fingerprint | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when a fingerprint for the selected components is invalid. |
+| Invalid Signature | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when a signature for the selected components is invalid. |
+| Invalid System Listen IP Configuration | System Resource | Private Service Edges | An event indicating when the listen IP address configuration for a Private Service Edge is invalid. |
+| Issued Certificate Missing | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when the issued certificate is missing for the selected components. |
+| Issued Certificate Revoked | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when the issued certificate is revoked for the selected components. |
+| Last Component Disconnected | Connectivity and Upgrade | App Connectors, Private Service Edges | An event indicating when the component last disconnects for the selected component. |
+| Missing Signature | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when the signature for the selected components is missing during enrollment. |
+| Outdated Component Manager Version | Connectivity and Upgrade | App Connectors, Private Service Edges | An event indicating when the Manager version is outdated for the selected components. |
+| Provisioning Key Disabled | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when the provisioning key is disabled for the selected components. |
+| Provisioning Key Expired | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when the provisioning key is expired for the selected components. |
+| Provisioning Key Mismatched | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when the provisioning key is mismatched for the selected components. |
+| Provisioning Key Not Found | Enrollment | App Connectors, Cloud Connectors, Private Service Edges, Network Connectors | An event indicating when the provisioning key is not found for the selected components. Raw logs for this event include component name, when the component was updated, and who updated the component. This event cannot be configured. To learn more, contact Zscaler Support. |
+| Provisioning Key Utilization Exceeded Limit | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when the provisioning key has exceeded the limit for the selected components. |
+| Public Key in Certificate Signing Request and Issued Certificate Mismatched | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when the public key in the CSR and the issued certificate are mismatched for the selected components. |
+| Restore Completed | Backup Configuration | Backup and Restore | An event indicating when the restore is completed. To learn more, see [About Backup and Restore](https://help.zscaler.com/zpa/about-backup-and-restore) and [Restoring Policies and Configurations from a Backup](https://help.zscaler.com/zpa/restoring-policies-and-configurations-backup). |
+| Restore Failed | Backup Configuration | Backup and Restore | An event indicating when the restore has failed. To learn more, see [About Backup and Restore](https://help.zscaler.com/zpa/about-backup-and-restore) and [Restoring Policies and Configurations from a Backup](https://help.zscaler.com/zpa/restoring-policies-and-configurations-backup). |
+| SCIM Users Successfully Deleted | Enrollment | Zscaler Client Connector | An event indicating when SCIM users are successfully deleted. |
+| Source Port Consumption Exhausted | Usage Metrics | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges | An event indicating when the component's source TCP or UDP ports are exhausted. The exhausted values must be an integer between 75% and 99%. The default value is set to 75. |
+| System Memory Exceeded Limit | Usage Metrics | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges | An event indicating when the component's system memory has exceeded the limit. The System Memory Exceeded Limit value must be an integer between 75% and 99%. The default value is set to 75. To learn more, see [Monitoring App Connector Performance](https://help.zscaler.com/zpa/monitoring-connector-performance#memory). |
+| Timestamp Expired | Enrollment | App Connectors, Private Service Edges, Cloud Connectors | An event indicating when the timestamp is expired for the selected components (e.g., an App Connector sends an old timestamp due to a Network Time Protocol error). |
+| Upgrade Complete | Connectivity and Upgrade | App Connectors, Private Service Edges | An event indicating when an upgrade is complete for the selected components. |
+| Upgrade Failed | Connectivity and Upgrade | App Connectors, Private Service Edges | An event indicating when an upgrade fails for the selected components. |
+
+The category of the event. Events are grouped by the component issues related to the following categories:
+
+- **Authentication**: Issues related to authentication.
+- **Backup Configuration**: Issues related to configuration backups and backups that are created manually or automatically.
+- **Connectivity and Upgrade**: Issues related to component connectivity and upgrades.
+- **Enrollment**: Issues related to enrollment.
+- **System Resource**: Issues related to component system resources.
+- **Usage Metrics**: Issues related to usage metrics.
+
+The component associated with the event. The following components are applicable to the events:
+
+- **App Connectors**: To learn more, see [About App Connectors](https://help.zscaler.com/zpa/about-connectors).
+- **Backup and Restore**: To learn more, see [About Backup and Restore](https://help.zscaler.com/zpa/about-backup-and-restore).
+- **Private Service Edges**: To learn more, see [About Private Service Edges](https://help.zscaler.com/zpa/about-private-service-edges).
+- **Cloud Connectors**: To learn more, see [About Cloud Connectors](https://help.zscaler.com/zpa/about-cloud-connectors).
+- **Zscaler Client Connector**: To learn more, see [What Is Zscaler Client Connector?](https://help.zscaler.com/zscaler-client-connector/what-is-zscaler-client-connector)
+
+Expanding an event provides the following:
+
+- **App Connector Name**: The name of the App Connector.
+- **App Connector ID**: The ID of the App Connector. Click the **Copy** icon to copy the ID to your clipboard.
+- **Backup Name**: The name of the backup.
+- **Backup ID**: The ID of the backup. Click the **Copy**icon to copy the ID to your clipboard.
+- **Cloud Connector Name**: The name of the Cloud Connector.
+- **Cloud Connector ID**: The ID of the Cloud Connector. Click the **Copy**icon to copy the ID to your clipboard.
+- **Private Service Edge Name**: The name of the Private Service Edge.
+- **Private Service Edge ID**: The ID of the Private Service Edge. Click the **Copy**icon to copy the ID to your clipboard.
+
+Indicates the priority of the notification (i.e., **Low**, **Medium**, and **High**).
+
+Click the **Add Notification** icon ([Image: Add Notification icon]) to open the **Add Notification** page.
+
+On the **Add Notification** page:
+
+- Step 1: General Information
+- Step 2: Events
+- Step 3: Action
+- Step 4: Review
+
+1. On the **General Information** tab, provide the necessary details for the following sections:
+
+- **Name**: The name of the notification.
+- **Status**: Indicates the status of the notification (i.e., **Enabled**or **Disabled**). By default, the status is set to **Enabled**.
+
+- Select a Component
+- Select a Category
+- Select a Priority
+
+1. Click **Next**.
+
+[Image: Add Notification page]
+
+On the **Events**tab:
+
+1. Click **Add Events**.
+2. Select the desired event.
+
+For events that require text input, enter an integer value within the supported range. To learn more, see the Events table.
+
+See image.
+
+1. Click **Next**.
+
+On the **Action**tab:
+
+- Configure the Throttling
+- Configure the Recipients
+
+1. Review your notification settings.
+2. Click **Save**.
+
+[Image: Step 2 of the Add Notification window]
+
+Select a component from the drop-down menu. The following is a list of available components. To learn more, see the Component section.
+
+Click the **Delete**icon ([Image: Delete icon]) to remove a selected component. After a component is selected, a drop-down menu appears for the **Categories**, **Priorities**, and selection of the components.
+
+After a component is selected, select the desired App Connectors, Cloud Connectors, or Private Service Edges from the list of available components:
+
+A drop-down menu is not available for the **Zscaler Client Connector**component.
+
+- **App Connectors**: Select an App Connector from the drop-down menu. You can search for a specific App Connector, select an individual App Connector, click **Select All Displayed** to select all App Connectors displayed in the drop-down menu, click **Clear All** to remove all selections, or click the **Delete**icon next to the selected App Connector to remove it. All App Connectors are selected by default.
+- **Cloud Connectors**: Select a Cloud Connector from the drop-down menu. You can search for a specific Cloud Connector, select an individual Cloud Connector, click **Select All Displayed** to select all Cloud Connectors displayed in the drop-down menu, click **Clear All** to remove all selections, or click the **Delete**icon next to the selected Cloud Connector to remove it. All Cloud Connectors are selected by default.
+- **Private Service Edges**: Select a Private Service Edge from the drop-down menu. You can search for a specific Private Service Edge, select an individual Private Service Edge, click **Select All Displayed** to select all Private Service Edges displayed in the drop-down menu, click **Clear All** to remove all selections, or click the **Delete**icon next to the selected Private Service Edge to remove it. All Private Service Edges are selected by default.
+
+Select a category from the drop-down menu. You can select an individual category, click **Select All**to select all categories displayed in the drop-down menu, or click **Clear All** to remove all selections. All categories are selected by default. To learn more, see the Categorysection.
+
+Select the priority of the notification (i.e., **Low**, **Medium**, and **High**). You can select an individual priority, click **Select All**to select all priorities displayed in the drop-down menu, or click **Clear All** to remove all selections. All priorities are selected by default.
+
+**Throttling**enforces limits and timeout durations on the notification. Throttling is set to **Disabled**by default. When **Throttling**is **Enabled**, the **Throttling Limit** and **Throttling Timeout** fields appear.
+
+- **Throttling Limit**: Enter an integer value to indicate the throttling limit.
+- **Throttling Timeout**: Enter an integer value in hours to indicate the throttling timeout.
+
+For example, the **Throttling Limit** value is 3, and the **Throttling Timeout**value is 1 hour. If the notification is set to trigger when the App Connector CPU is greater than 80%, the recipients receive only three email notifications within the last hour if the CPU of the App Connector exceeds the 80% threshold.
+
+See image.
+
+[Image: Throttling in the Add Notification page]
+
+Under the Recipients section:
+
+1. Select the recipients from the drop-down menu. You can search for a specific recipient, select an individual recipient, click **Select All Displayed** to select all recipients displayed in the drop-down menu, click **Clear All** to remove all selections, or click the **Delete** icon next to the selected recipient to remove it.
+2. In the **Distribution List** field, enter the desired distribution list alias in the following format: `example@test.com`.
+
+A maximum of 5 recipients combined (this includes both **Recipients** and **Distribution Lists**) is allowed.
+
+1. Click **Add Items** so that the distribution list receives notifications after the notification is configured.
+
+See image.
+
+1. Click **Next**.
+
+[Image: Step 3 of the Add Notification window]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-and-managing-zscaler-client-connector-download-links","lastmod":"2026-04-27T15:41Z","nid":"1484326"} -->
+## Viewing and Managing Zscaler Client Connector Download Links
+
+- Source: https://help.zscaler.com/zpa/viewing-and-managing-zscaler-client-connector-download-links
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > User Portal > Viewing and Managing Zscaler Client Connector Download Links
+- Last modified: 2026-04-27T15:41Z
+- Summary: How to add or update Zscaler Client Connector download links in the Zscaler Admin Console.
+
+After you [create a user portal](https://help.zscaler.com/zpa/configuring-user-portals) for your organization, you can [add links to any applications](https://help.zscaler.com/zpa/configuring-user-portal-links) that your employees and partners are authorized to access. If the application requires that Zscaler Client Connector is installed on the user's device, you can provide links within the user portal to allow them to download the proper Zscaler Client Connector installer for their OS.
+
+You can add a download link from the Client Connector Download Links page to the proper installer for the following PC and mobile operating systems:
+
+- Apple iOS
+- Apple macOS
+- Google Android
+- Linux
+- Microsoft Windows
+
+You must determine which versions of the Zscaler Client Connector installer are approved for your organization. You are also responsible for maintaining these Zscaler Client Connector download links on the portal as newer versions become available.
+
+To add or update a Zscaler Client Connector download link:
+
+1. Go to **Policies** > **Access Control** > **Clientless** > **Client Connector Download Links**.
+2. Enter the URL of the Zscaler Client Connector installer for each OS you support. You can copy or paste the **Download Link** from the [Zscaler Client Connector App Store](https://help.zscaler.com/zscaler-client-connector/about-zscaler-client-connector-app-store), or use any other valid download URL for your organization. [Image: Viewing and managing Zscaler Client Connector download links]
+3. Click **Save**.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-api-protection-dashboard","lastmod":"2026-06-29T10:13Z","nid":"1499836"} -->
+## Viewing the API Protection Dashboard
+
+- Source: https://help.zscaler.com/zpa/viewing-api-protection-dashboard
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Dashboard & Diagnostics > AppProtection and Browser Protection Monitoring > Viewing the API Protection Dashboard
+- Last modified: 2026-06-29T10:13Z
+- Summary: Information on the API Protection dashboard and widgets accessible within the Zscaler Admin Console.
+
+The API Protection dashboard provides information about the API Protection activity in your organization. To view the dashboard in the Zscaler Admin Console, go to Analytics > Switch to Existing Reports > Private Applications > Security > API Protection.
+
+See image.
+
+[Image: Viewing the API Protection dashboard]
+
+## Dashboard Tools
+
+The API Protection dashboard displays the following information and functionality:
+
+- **Time Range Filter**: View AppProtection data over a period between **1 Hour** to **14 Days**, or you can select **Custom Range**. If you use a **Custom Range**, the start date must be within the last 14 days. The end date automatically sets to the system's current time. By default, the dashboard displays information for events that occurred in the last hour. This filter applies to all widgets on the dashboard.
+- **Refresh Icon**: Refresh the dashboard to reflect the most current information.
+- **Chart Selection**: Select the charts you want to display or hide on the dashboard. A minimum of 4 charts and a maximum of 7 charts can be selected.
+
+See image.
+
+[Image: About the API Protection Dashboard tools]
+
+## Widgets
+
+The API Protection dashboard provides the following widgets:
+
+- Recent API Activities in Last 14 Days
+- Recent Blocked APIs
+- Recent API Activity with Sensitive Information
+- Recent API Traffic Violations
+- Recent API Methods
+- API Error Responses
+- Recent Users with Violations
+
+The widget displays the top 10 most recent activities for the API in the last 14 days. They are listed from the most recent API activity at the top to the least recent API activity at the bottom.
+
+[Image: Top APIs Discovered in 14 days widget]
+
+Hover over an API name to view the following:
+
+- **Name**: The name of the API.
+- **Number of Recent API Activities in last 14 Days**: The amount of times the API appeared in the past 14 days and the percentage of times the API appeared within the Top APIs Discovered in 14 Days category.
+
+Click an API name and then click **View Logs** to be directed to log information matching that API in [AppProtection Diagnostics](https://help.zscaler.com/zpa/accessing-approtection-diagnostics).
+
+The widget displays the top 10 most recent blocked APIs within the selected time frame. They are listed from the most frequent blocked APIs at the top to the least frequent APIs at the bottom.
+
+[Image: Top Blocked APIs widget]
+
+Hover over an API name to view the following:
+
+- **Name**: The name of the API.
+- **Number of Recent Blocked APIs**: The amount of times the API appeared within the selected time frame and the percentage of times the API appeared within the Number of Top Blocked APIs category.
+
+Click an API name and then click **View Logs** to be directed to log information matching that blocked API in [AppProtection Diagnostics](https://help.zscaler.com/zpa/accessing-approtection-diagnostics).
+
+The widget displays the amount of recent API activity with sensitive information categories (US Social Security numbers, Brazilian CPF numbers, and credit card numbers) in the selected time frame. Zscaler does not store the details or specific information; only the sensitive information category and how frequently it appeared in the time frame are stored.
+
+[Image: Sensitive Information Disclosure widget]
+
+Hover over an area of the chart to view the following:
+
+- Displays the percentage of sensitive information transactions that occurred within the selected time frame. Zscaler does not store the specific data for sensitive information, only the category type itself is stored.
+- **Click for more information**: Click this option to show the **View Logs** option. Click **View Logs** to be directed to log data matching that disclosed sensitive information transaction in [AppProtection Diagnostics](https://help.zscaler.com/zpa/accessing-approtection-diagnostics). Zscaler only displays the amount of transactions and does not store any details related to sensitive information.
+
+The widget displays the top 10 most recent API traffic violations and their respective violations within the selected time frame. They are listed from the most frequent API traffic violations at the top to the least frequent violations at the bottom.
+
+[Image: Top API Control Violations widget]
+
+Hover over an area of the chart to view the following:
+
+- **Name**: The name of the API control and the associated violation.
+- **Number of Recent API Traffic Violations**: The amount of times the violation with its related API traffic violation appeared within the selected time frame and the percentage of times the API control violation appeared within the Top API Traffic Violations category.
+
+Click an API control name and then click **View Logs** to be directed to log information matching that API control in [AppProtection Diagnostics](https://help.zscaler.com/zpa/accessing-approtection-diagnostics).
+
+The widget displays the top 10 API methods (i.e., GET, POST, PUT, etc.) for APIs within the selected time frame. They are listed from the most frequent method used at the top to the least frequent method used at the bottom.
+
+[Image: Top Methods widget]
+
+Hover over an area of the chart to view the following:
+
+- **Name**: The name of the API method.
+- **Number of Recent API Methods**: The amount of times the method was used within the selected time frame and the percentage of times the method appeared within the Recent API Methods category.
+
+Click a method and then click **View Logs** to be directed to log information matching that API method in [AppProtection Diagnostics](https://help.zscaler.com/zpa/accessing-approtection-diagnostics).
+
+The widget displays the top 10 most recent API error responses within the selected time frame. They are listed from the most frequent API error responses at the top to the least frequent API error responses at the bottom.
+
+[Image: Top Errors widget]
+
+Hover over an area of the chart to view the following:
+
+- **Name**: The name of the error.
+- **Total Transactions**: The complete number of transactions for the selected error within the selected time frame.
+- **Errors for this selection**: The total amount of that error type within the selected time frame and the percentage of times that error type appeared within the Top Methods category.
+- **Analyze by**: Click **Top URLs** to gain deeper insight into the top URLs for a specific error type. This widget displays the top 10 URLs for a selected error type within the selected time frame. They are listed from the most frequent URLs at the top to the least frequent URLs at the bottom.
+  - **Name**: The name of the URL.
+  - **Total Transactions**: The complete number of error transactions for the selected URL within the selected time frame.
+  - **Errors for this selection**: The total amount of errors for the selected URL in the selected time frame and the percentage of times that the error for that URL appeared with the selected error type.
+
+See image.
+
+Click an error and then click **Show in Logs** to be directed to log information matching that API error in [AppProtection Diagnostics](https://help.zscaler.com/zpa/accessing-approtection-diagnostics).
+
+The widget displays the most recent users with violations within the selected time frame. They are listed from the most frequent users with violations at the top to the least frequent users with violations at the bottom.
+
+[Image: Top Users widget]
+
+Hover over an area of the chart to view the following:
+
+- **Name**: The IdP user name for the API user.
+- **Total Transactions**: The complete number of transactions for that IdP user.
+- **Analyze by**: Click **Top URLs** to gain deeper insight into the top URLs for a specific user. This widget displays the top 10 URLs for a selected user within the selected time frame. They are listed from the most frequent URLs at the top to the least frequent URLs at the bottom.
+  - **Name**: The name of the URL.
+  - **Total Transactions**: The complete number of transactions for the selected URL within the selected time frame.
+
+See image.
+
+Click an error and then click **Show in Logs** to be directed to log information matching that API error in [AppProtection Diagnostics](https://help.zscaler.com/zpa/accessing-approtection-diagnostics).
+
+[Image: Top URLs widget within the Top Errors widget]
+
+[Image: Top URLs widget within the Top Users widget]
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -410,63 +1685,48 @@ If you exclude items, then the sunburst chart, selection filter, and list adjust
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-application-map","lastmod":"2026-09-11T07:17Z","nid":"1534383"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-application-map","lastmod":"2026-09-18T10:51Z","nid":"1534383"} -->
 ## Viewing the Application Map
 
 - Source: https://help.zscaler.com/zpa/viewing-application-map
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Dashboard > Viewing the Application Map
-- Last modified: 2026-09-11T07:17Z
+- Last modified: 2026-09-18T10:51Z
 - Summary: How to view the Application Map for Microsegmentation in the Zscaler Admin Console.
 
-The Application Map provides graphed visualizations of network data in your organization. It gives a high-level view of how resource groups and their connected resources are performing, and allows the option to view granular details for each widget of information.
+The Application Map visualizes network data in your organization. It provides a high-level view of how resource groups and their connected resources are performing, as well as options to view each group in detail.
 
-To view the Application Map, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud** > **Dashboard** > **Microsegmentation** **Application Map**.
+To view the Application Map, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud** > **Dashboard** > **Microsegmentation Application Map**.
 
-[Image: The Application Map]
+On the Application Map, you can use your mouse to zoom in or out of the map and rearrange the groups. You can use filters to view data about your organization’s resource groups or VPCs/VNETs within a specific timeframe and AppZone.
 
-## Dashboard Tools
+[Image: Filter and adjust the Application Map]
 
-The Application Map dashboard displays the following information and functionality:
+The Application Map provides information about the following:
 
-- Use your mouse to zoom in or out of the graph and rearrange the graph widgets.
-- Filter the results to find detailed information for a specific Resource Group, VPC/VNET, or Public Internet.
-- Click a managed Resource Group widget to open the drawer of its full details:
-  - **General Information**
-    - Name
-    - Type
-    - Description
-    - Member Count
-    - Static Membership
-    - Dynamic Membership
-  - **Member Resources**
-    - Resource Name
-    - AppZones
-- Click an unmanaged Resource Group to open the drawer of its full details:
-  - **General Information**
-    - Name
-    - Type
-    - Description
-    - CIDRs
-    - IP Ranges
-- Click a Public Internet to open the drawer of its full details:
-  - IP Address
-  - Direction
-  - Count
-- Click a VPC/VNET to open the drawer of its full details:
-  - Cloud
-  - Subnets
+- Managed Resource Groups
+- Unmanaged Resource Groups
+- Unmapped Resource Groups
+- Public Internet
+- Private Infrastructure
+- VPC/VNET
+
+You can click a resource group to open a drawer containing its details. Additionally, when you click a resource group, the map displays information about the group’s managed and unmanaged flows, and if applicable, provides the option to review policy recommendations for the resource group based on those flows.
+
+[Image: Resource group details on the Application Map]
+
+To learn more about reviewing policy recommendations for resource groups, see [About Policy Recommendations for Resource Groups](https://help.zscaler.com/zpa/about-policy-recommendations-resource-groups) and [Reviewing Policy Recommendations for Resource Groups](https://help.zscaler.com/zpa/reviewing-policy-recommendations-resource-groups).
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-application-segments-usage","lastmod":"2026-04-21T16:16Z","nid":"1531128"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-application-segments-usage","lastmod":"2026-09-15T11:41Z","nid":"1531128"} -->
 ## Viewing Application Segments Usage
 
 - Source: https://help.zscaler.com/zpa/viewing-application-segments-usage
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Applications & Users Monitoring > Applications & Users Insights > Viewing Application Segments Usage
-- Last modified: 2026-04-21T16:16Z
+- Last modified: 2026-09-15T11:41Z
 - Summary: Viewing and understanding the application usage by users and groups in the Application Segments Usage page.
 
 Application Segments Usage insights provide visibility into which application segments are being actively used or not. These insights can help you assess and determine unused application segments for improvement consideration. The Application Segments Usage insights provide:
@@ -548,13 +1808,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-application-segments-usage-details","lastmod":"2025-08-25T21:16Z","nid":"1531129"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-application-segments-usage-details","lastmod":"2026-09-15T11:38Z","nid":"1531129"} -->
 ## Viewing Application Segments Usage Details
 
 - Source: https://help.zscaler.com/zpa/viewing-application-segments-usage-details
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Applications & Users Monitoring > Applications & Users Insights > Viewing Application Segments Usage Details
-- Last modified: 2025-08-25T21:16Z
+- Last modified: 2026-09-15T11:38Z
 - Summary: Application segments usage details include granular information for a specific application segment from the Application Segments Usage page.
 
 Application segment usage details are accessible from the following pages:
@@ -594,13 +1854,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-applications-dashboard","lastmod":"2026-07-20T10:06Z","nid":"1483451"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-applications-dashboard","lastmod":"2026-09-20T07:06Z","nid":"1483451"} -->
 ## Viewing the Applications Dashboard
 
 - Source: https://help.zscaler.com/zpa/viewing-applications-dashboard
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Applications & Users Monitoring > Viewing the Applications Dashboard
-- Last modified: 2026-07-20T10:06Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: Information on the Applications dashboard and widgets accessible within the Zscaler Admin Console.
 
 The Applications dashboard provides information about applications in your organization. To view the dashboard in the Zscaler Admin Console, go to Analytics > Switch to Existing Reports > Private Applications > Applications.
@@ -2135,13 +3395,13 @@ To download and view the reports:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-restore-activities-and-restore-reports","lastmod":"2026-06-08T15:43Z","nid":"1485871"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-restore-activities-and-restore-reports","lastmod":"2026-09-17T13:52Z","nid":"1485871"} -->
 ## Viewing Restore Activities and Restore Reports
 
 - Source: https://help.zscaler.com/zpa/viewing-restore-activities-and-restore-reports
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Administration > Backup & Restore > Viewing Restore Activities and Restore Reports
-- Last modified: 2026-06-08T15:43Z
+- Last modified: 2026-09-17T13:52Z
 - Summary: How to view restore activities and restore reports for the backup and restore feature in the Zscaler Admin Console.
 
 After a [backup](https://help.zscaler.com/zpa/about-backup-and-restore) is created [manually](https://help.zscaler.com/zpa/adding-backups-manually) or [automatically](https://help.zscaler.com/zpa/creating-scheduled-backup-configurations), you can view a list of restore activities, or you can view the post-restore reports for the particular backup.
@@ -2150,7 +3410,7 @@ After a [backup](https://help.zscaler.com/zpa/about-backup-and-restore) is creat
 
 To access a list of restore activities for a particular backup:
 
-1. Go to **Administration**> **Backup & Restore** > **Private Applications**.
+1. Go to **Administration**>**Back Up and Restore**>**Private Access**.
 2. In the table, locate the backup you want to view the restore activities and restore reports for, and click on the individual backup name in the **Backup Name** column. The **Restore Activities**drawer appears. See image.
 3. In the **Restore Activities** drawer, you can:
   - Click the **Restore**icon () to open the **View Report and Restore** drawer. In the **View Report and Restore** drawer, you can [view the inconsistency reports before restoring a backup](https://help.zscaler.com/zpa/restoring-policies-and-configurations-backup).
@@ -2237,13 +3497,13 @@ The widget displays the top application segments by bandwidth for the selected t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-users-dashboard","lastmod":"2026-07-20T10:12Z","nid":"1483761"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-users-dashboard","lastmod":"2026-09-20T07:06Z","nid":"1483761"} -->
 ## Viewing the Users Dashboard
 
 - Source: https://help.zscaler.com/zpa/viewing-users-dashboard
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Applications & Users Monitoring > Viewing the Users Dashboard
-- Last modified: 2026-07-20T10:12Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: Information on the Users dashboard and widgets accessible within the Zscaler Admin Console.
 
 The Users dashboard provides information about user activity in your organization. To view the dashboard in the Zscaler Admin Console, go to Analytics > Switch to Existing Reports > Private Applications > Users.
@@ -2886,13 +4146,13 @@ If a network cable is connected, but no link light appears, there could be an is
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zpa-private-service-edge-red-hat-enterprise-linux-9-migration","lastmod":"2026-06-29T07:06Z","nid":"1487746"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zpa-private-service-edge-red-hat-enterprise-linux-9-migration","lastmod":"2026-09-17T17:34Z","nid":"1487746"} -->
 ## Red Hat Enterprise Linux 9 Migration for Private Service Edges
 
 - Source: https://help.zscaler.com/zpa/zpa-private-service-edge-red-hat-enterprise-linux-9-migration
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Deployment Guides for Supported Platforms > Red Hat Enterprise Linux 9 Migration for Private Service Edges
-- Last modified: 2026-06-29T07:06Z
+- Last modified: 2026-09-17T17:34Z
 - Summary: Private Service Edge for Private Access (ZPA) migration steps for Red Hat Enterprise Linux 9.x.
 
 This article provides migration instructions to replace CentOS 7 instances with Red Hat Enterprise Linux 9.x (RHEL 9.x). The enrollment and provisioning of new Private Service Edges for Private Access (ZPA) can be automated in a few steps using Terraform (IaC) or Container Orchestration to further simplify deployment.

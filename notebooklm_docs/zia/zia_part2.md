@@ -1,18 +1,222 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-14 03:38 UTC
-Articles in this file: 112
+Generated: 2026-09-21 08:12 UTC
+Articles in this file: 110
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-admin-roles","lastmod":"2026-08-30T10:48Z","nid":"1399711"} -->
+<!-- ZS-ARTICLE {"url":"/zia/accessing-zscaler-snmp-mibs","lastmod":"2026-04-06T10:12Z","nid":"1400401"} -->
+## Accessing the Zscaler SNMP MIBs
+
+- Source: https://help.zscaler.com/zia/accessing-zscaler-snmp-mibs
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > SNMP MIBs > Accessing the Zscaler SNMP MIBs
+- Last modified: 2026-04-06T10:12Z
+- Summary: Information about the Simple Network Management Protocol (SNMP), management information bases, and how Zscaler supports them.
+
+The Simple Network Management Protocol (SNMP) is used for network monitoring. It collects and organizes management information about devices on IP networks. SNMP exposes this information in the management information bases (MIBs).
+
+An MIB is a database used to manage the objects within a network. The Zscaler Enterprise SNMP MIBs are downloadable as files, which define all counters and assign them within the Zscaler database. You can use the MIBs to perform health monitoring on several different instances, like the [Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/about-nanolog-streaming-service) and [Virtual Service Edge for Internet & SaaS (ZIA)](https://help.zscaler.com/zia/about-virtual-service-edge).
+
+To access the Zscaler Enterprise SNMP MIBs:
+
+- 1. Download the MIBs
+- 2. Configure the SNMP Admin User
+- 3. Load and View the MIBs
+
+The Zscaler service supports the list of MIBs in the following sections. You can download the MIB files using the links provided in each table.
+
+- Virtual Service Edge MIBs
+- NSS MIBs
+- Zscaler MIB Files
+
+| **Virtual Service Edge MIBs** |  |
+| --- | --- |
+| [VZENMIBS.tgz](https://help.zscaler.com/downloads/zia/documentation-knowledgebase/analytics/snmp-mibs/about-the-zscaler-snmp-mibs/vzenmibs.tgz) | This file contains the following MIB files: ZSCALER-OSNIC-MIB; ZSCALER-PROCESSHEALTH-MIB; ZSCALER-PROCESSWATCHDOG-MIB; ZSCALER-ROLEHEALTH-MIB; ZSCALER-SWAPINFO-MIB; ZSCALER-VSE-MIB; ZSCALER-ZSCALERNIC-MIB |
+
+| **NSS MIBs** |  |
+| --- | --- |
+| [NSSMIBS.tgz](https://help.zscaler.com/downloads/zia/documentation-knowledgebase/analytics/snmp-mibs/about-the-zscaler-snmp-mibs/nssmibs.tgz) | This file contains the following MIB files: ZSCALER-NSSFEED-MIB; ZSCALER-NSS-MIB; ZSCALER-OSNIC-MIB; ZSCALER-PROCESSHEALTH-MIB; ZSCALER-PROCESSWATCHDOG-MIB; ZSCALER-ROLEHEALTH-MIB; ZSCALER-SWAPINFO-MIB; ZSCALER-ZSCALERNIC-MIB |
+
+| **Zscaler MIB Files** | **Description** |
+| --- | --- |
+| [ZSCALER-NSSFEED-MIB.mib](https://help.zscaler.com/downloads/zia/documentation-knowledgebase/analytics/snmp-mibs/about-the-zscaler-snmp-mibs/zscaler-nssfeed-mib.mib) | This module describes information specific to NSS feeds. |
+| [ZSCALER-NSS-MIB.mib](https://help.zscaler.com/downloads/zia/documentation-knowledgebase/analytics/snmp-mibs/about-the-zscaler-snmp-mibs/zscaler-nss-mib.mib) | This module describes information specific to the NSS instance. |
+| [ZSCALER-OSNIC-MIB.mib](https://help.zscaler.com/downloads/zia/documentation-knowledgebase/analytics/snmp-mibs/about-the-zscaler-snmp-mibs/zscaler-osnic-mib.mib) | This module describes the NIC devices managed by the OS. On a Zscaler system, there are NIC devices managed by the Zscaler instances and also by the base OS. |
+| [ZSCALER-PROCESSHEALTH-MIB.mib](https://help.zscaler.com/downloads/zia/documentation-knowledgebase/analytics/snmp-mibs/about-the-zscaler-snmp-mibs/zscaler-processhealth-mib.mib) | This module describes health information for all watched processes in the Zscaler instance. |
+| [ZSCALER-PROCESSWATCHDOG-MIB.mib](https://help.zscaler.com/downloads/zia/documentation-knowledgebase/analytics/snmp-mibs/about-the-zscaler-snmp-mibs/zscaler-processwatchdog-mib.mib) | This module describes the process watchdog information for each of the managed processes of a Zscaler instance (e.g., for a SME type of instance, the watched processes are sme, smavd, smavd2, smcdsc, and sctimer). |
+| [ZSCALER-ROLEHEALTH-MIB.mib](https://help.zscaler.com/downloads/zia/documentation-knowledgebase/analytics/snmp-mibs/about-the-zscaler-snmp-mibs/zscaler-rolehealth-mib.mib) | This module describes the health information for a Zscaler instance. This includes much of the OS level information for the instance, such as CPU, memory, and also some instance-specific information (e.g., current connections on SME). |
+| [ZSCALER-SWAPINFO-MIB.mib](https://help.zscaler.com/downloads/zia/documentation-knowledgebase/analytics/snmp-mibs/about-the-zscaler-snmp-mibs/zscaler-swapinfo-mib.mib) | This module describes the status of the swap devices present on the system. |
+| [ZSCALER-VSE-MIB](https://help.zscaler.com/downloads/zia/documentation-knowledgebase/analytics/snmp-mibs/about-the-zscaler-snmp-mibs/ZSCALER-VSE-MIB.mib) | This module describes the health status of Virtual Service Edge connection to Zscaler Central Authority (CA) and Log and Reporting servers. |
+| [ZSCALER-ZSCALERNIC-MIB.mib](https://help.zscaler.com/downloads/zia/documentation-knowledgebase/analytics/snmp-mibs/about-the-zscaler-snmp-mibs/zscaler-zscalernic-mib.mib) | This module describes the NIC devices managed by the Zscaler instance. On a Zscaler system, there are NIC devices managed by the Zscaler instances and also by the base OS. |
+
+To configure the SNMP admin user, you must log in to the Virtual Service Edge with software such as Xshell or Mobaxterm. In this example, Xshell is used.
+
+The steps for configuring [NSS](https://help.zscaler.com/zia/about-nanolog-streaming-service)are identical to the Virtual Service Edge example shown in this article.
+
+1. Enter the following command to log in to the Virtual Service Edge: `ssh zsroot@<Virtual Service Edge Management IP Address>`In this example, the Virtual Service Edge management IP address is 10.66.79.165. See image.
+2. In the **SSH User Authentication**window, choose **Keyboard Interactive**and click **OK**. See image.
+3. In the window that appears, enter the **Password**, zsroot, and click **OK**. See image.
+4. After you have logged in, change the user using the sudo su command,and enter the password zsroot. See image.
+5. Check if the Virtual Service Edge service is running using the vzen status command. See image.
+6. For NSS, use the nss status command. See image.
+7. Check if SNMP is running using the top command. See image.
+8. If the SNMP (snmpd) process is running, configure an SNMP admin user using the vzen snmp-admin-configure command. Follow the prompts to configure the username, password, authentication type, and encryption type for the admin user. See image.
+
+The following sections explain how to load and view the MIBs:
+
+- a. Load the MIBs
+- b. View the MIBs
+
+Load the downloaded MIBs into your SNMP monitoring tool.
+
+Before viewing the MIBs, you need to add the SNMP admin user configured in a [previous step](https://help.zscaler.com/zia/about-the-zscaler-snmp-mibs#configure-snmp-admin) to the SNMP monitoring tool. In this example, the **iReasoning MIB Browser** is used.
+
+1. Open the MIB browser, then go to **Tools**> **Options**. See image.
+2. In the **Options** window, navigate to the **Agents**tab. Click **Add**to add the SNMP admin user. See image. The **Advanced Properties of SNMP Agents**window appears.
+3. In the **Advanced Properties of SNMP Agents**window: See image.
+  1. In the **Address** field, enter the Virtual Service Edge management IP address.
+  2. For the **SNMP Version** field, select **3**. New fields appear after selecting **3**.
+    - **USM User**: Enter the username of the SNMP admin user.
+    - **Security Level**: Select **auth, priv** for the security level.
+  3. Enter the password of the SNMP admin user in the **Auth Password** and **Privacy Password** fields.
+4. Click **Ok** to save the SNMP admin user. The Virtual Service Edge management IP address and the SNMP admin user's credentials appear in the **Agents** tab. See image.
+5. Exit the **Options** window. From the **MIB Tree**, open the folder containing the Zscaler MIBs by navigating to **iso.org.dod.internet** > **private** > **enterprises** > **zscaler**. See image.
+6. Open the folder for the MIB for which you want to view the details. Right-click on the table icon, then click **Get Bulk**. See image.
+7. From the **Results Table**, you can view the **OID**, **Value**, and **Type**of the MIB object. To view more details, double-click the entry from the **Results Table**. The details appear in the left column. For example, for the **snmpTargetSpinLock**object: See image.
+  - **OID** is .1.3.6.1.6.3.12.1.1.0.
+  - **Value** is 0.
+  - **Type**is Integer.
+
+[Image: Command used to log in to the Zscaler Virtual ZEN (VZEN)]
+
+[Image: SSH User Authentication - Keyboard Interactive window]
+
+[Image: SSH User Authentication window]
+
+[Image: Command for changing the user]
+
+[Image: Command for checking the status of the Zscaler Virtual ZEN (VZEN)]
+
+[Image: Command for checking the status of the Zscaler NSS]
+
+****[Image: Command for checking if SNMP is running]****
+
+[Image: Command for configuring an SNMP admin user]
+
+[Image: MIB browser Tools menu]
+
+[Image: MIB browser Options window]
+
+[Image: MIB browser Advanced Properties of SNMP Agents window]
+
+[Image: Agents tab in Options window]
+
+[Image: MIB Tree folder containing Zscaler MIBs]
+
+[Image: Get Bulk option for Zscaler MIB]
+
+[Image: Zscaler MIB details in the Result table]
+
+****[Image: Zscaler MIB details on the MIB browser]****
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/activating-device-control-policy-rules-configuration-indexed-documents-changes","lastmod":"2026-05-27T03:05Z","nid":"1515421"} -->
+## Activating Device Control Policy Rules, Configuration, and Indexed Documents Changes
+
+- Source: https://help.zscaler.com/zia/activating-device-control-policy-rules-configuration-indexed-documents-changes
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Configuration > Activating Device Control Policy Rules, Configuration, and Indexed Documents Changes
+- Last modified: 2026-05-27T03:05Z
+- Summary: Information on how the Zscaler Endpoint Data Loss Prevention (DLP) policies, configuratoions, and indexed documents are activated, thereby enforcing policies and other changes.
+
+You must activate any changes made to device control policy rules, endpoint configurations, and indexed documents for them to be enforced.
+
+To activate changes made to device control policy rules, configurations, or indexed documents:
+
+1. Go to **Analytics**> **Endpoint Data Scan** > **Activation**.
+2. Hover over the **Activation** menu.
+3. Click **Activate**.
+
+## About the Activation Menu
+
+The Activation menu allows you to activate the device control policy rules that you added or edited, as well as any modifications made to the Configuration and Indexed Documents tabs.
+
+The **Activation**menu displays the **Activation Status** for Policy, Configuration, and Indexed Documents changes as follows:
+
+- **No Activations Pending**: When you have activated your changes.
+- **Pending Activation**: When you have saved your changes but not activated the changes.
+
+Endpoint Data Loss Prevention (DLP) pulls the policy every 15 minutes.
+
+[Image: This image shows the Activation Status for Policy and Configuration]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/active-directory-scim-provisioning-migration-guide","lastmod":"2026-07-13T21:06Z","nid":"1486446"} -->
+## Active Directory with LDAP to SCIM Provisioning Migration Guide
+
+- Source: https://help.zscaler.com/zia/active-directory-scim-provisioning-migration-guide
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > Active Directory with LDAP to SCIM Provisioning Migration Guide
+- Last modified: 2026-07-13T21:06Z
+- Summary: This article contains information on migrating from Active Directory (AD) to SCIM Provisioning.
+
+This guide contains information on how to migrate from Active Directory (AD) with [LDAP user synchronization](https://help.zscaler.com/zia/about-ldap-user-synchronization) to SCIM provisioning in the Zscaler Admin Console.
+
+## Prerequisites
+
+Make sure the following prerequisites are met:
+
+- Set the repository type to [Active Directory](https://help.zscaler.com/zia/synchronizing-user-data-active-directory-openldap) in the Zscaler Admin Console.
+- Use [SAML](https://help.zscaler.com/zia/configuring-saml) for authentication and AD for provisioning.
+- Ensure that the AD is syncing the database to Zscaler and the identity provider (IdP).
+
+When migrating from AD to SCIM, do not change the database type in the Zscaler Admin Console from Active Directory to Hosted DB. Doing so can cause all existing user and group mappings to be deleted and creates duplicate users with SCIM provisioning.
+
+## Migrating to SCIM
+
+To migrate from AD to SCIM provisioning:
+
+1. Go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings** > **Default Settings**.
+2. Click **Sync Now**to perform a manual sync with the AD; this ensures that the Zscaler service has the latest database from the AD. See image.
+3. (Optional) Ensure that you have the latest user data from the AD in your IdP application by performing a manual sync in the IdP application.
+4. In the Zscaler Admin Console, go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings** > **Default Settings** and enable **Disable Directory Sync & Enable SCIM Provisioning**. See image.
+5. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+6. Go to the **Identity Providers**tab and click the **Edit**icon of the IdP you plan to use.
+7. In the **Provisioning Options**section, click **Enable SCIM Provisioning** and copy the **Base URL**and **Bearer Token**as you need them when configuring SCIM in your IdP application. See image Zscaler recommends that you disable **Enable SAML Auto-Provisioning**when using SCIM provisioning**.**
+8. Using the information you copied, [configure SCIM provisioning in your selected IdP application](https://help.zscaler.com/zia/authentication-administration/provisioning-authenticating-users/saml-scim). After the IdP is configured, ensure that users syncing from the IdP match those on the [Users page](https://help.zscaler.com/authentication-service/about-users) in the Zscaler Admin Console. User Management in the Zscaler Admin Console remains read-only because the **User Repository Type** is set to **Active Directory**.
+
+Make sure that you do not disable the **Disable Directory Sync & Enable SCIM Provisioning**option or change the repository types. If you are using Zscaler Authentication Bridge (ZAB), it is safe to disable the ZAB VM if there are no provisioning issues observed after a few days.
+
+If you need to revert from SCIM to AD provisioning:
+
+1. Go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings** > **Identity Providers**, and click the **Edit**icon for the IdP you used.
+2. Disable the **Enable SCIM Provisioning**option.
+3. On the **Default Settings**tab, disable the **Disable Directory Sync & Enable SCIM Provisioning**option.
+4. In the IdP application that you previously configured SCIM for, disable the SCIM configuration.
+5. In the Zscaler Admin Console, go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings** > **Default Settings**, and click **Sync Now.**
+
+[Image: Image of the Sync Now button]
+
+[Image: Image of the Disable Directory Sync & Enable SCIM Provisioning option]
+
+[Image: Image of the Enable SCIM Provisioning option]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/adding-admin-roles","lastmod":"2026-09-18T11:51Z","nid":"1399711"} -->
 ## Adding Admin Roles
 
 - Source: https://help.zscaler.com/zia/adding-admin-roles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role Management > Adding Admin Roles
-- Last modified: 2026-08-30T10:48Z
+- Last modified: 2026-09-18T11:51Z
 - Summary: How to add administrator roles in the Zscaler Admin Console.
 
 [Watch a video about Configuring Admin Roles.](https://fast.wistia.net/embed/iframe/8byizrie9e) (shows legacy UI).
@@ -317,16 +521,16 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-ai-ml-applications-rule-cloud-app-control","lastmod":"2026-08-30T22:51Z","nid":"1459041"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-ai-ml-applications-rule-cloud-app-control","lastmod":"2026-09-16T23:15Z","nid":"1459041"} -->
 ## Adding an AI & ML Applications Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-ai-ml-applications-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding an AI & ML Applications Rule for Cloud App Control
-- Last modified: 2026-08-30T22:51Z
+- Last modified: 2026-09-16T23:15Z
 - Summary: Information on how to add a rule for AI & ML Applications cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
-You can create rules to control access to specific cloud applications. Cloud applications are organized into [categories](https://help.zscaler.com/zia/cloud-app-categories) to facilitate defining rules for similar applications.
+You can create rules to control access to specific cloud applications. Cloud applications are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
 
 The AI & ML Applications category consists of artificial intelligence and machine learning applications. This includes applications such as CloudMile, Shield AI, etc. that provide AI and ML solutions. You can create rules specifically for these and other similar cloud applications.
 
@@ -337,56 +541,107 @@ You can specify which applications your users are allowed to access and define a
 To add a rule for AI & ML Applications apps:
 
 1. Go to **Policies**> **Access Control**> **Internet & SaaS** > **Cloud App Control**.
-2. In the left-side menu, select **AI & ML Applications**, then click **Add Rule**. The **AI & ML Applications**page appears. See image.
-3. On the **AI & ML Applications**page, enter the rule attributes: See image.
-  - **Rule Name**: Enter a unique name for the rule or use the default name.
-  - **Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/what-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
-  - **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
-  - **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
-  - **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/what-admin-rank), your assigned admin rank determines the rule order values you can select.
-  - **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
-4. Click **Add Criteria**and define the **Criteria**: See image.
-  - **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
-  - **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
-  - **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
-  - **Users**: Select **Any** to apply the rule to all [users](https://help.zscaler.com/zia/adding-user-account), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users or click the **Add** icon to add a new user.
-  - **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/zia/how-do-i-add-group), or select up to 32 groups. You can search for groups or click the **Add**icon to add a new group.
-  - **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/zia/how-do-i-add-department), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments or click the **Add**icon to add a new department. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic) must apply to all groups and departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.
-  - **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location or click the **Add**icon to add a new location. Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**.
-  - **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
-  - **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
-  - **Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/how-do-i-define-time-intervals), or select up to two time intervals. You can also search for a time interval or click the **Add**icon to add a new time interval.
-  - **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
-  - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
-  - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
-  - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-5. Define the **Rule Expiration**: See image.
-  - **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
-    - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
-    - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
-    - **Time Zone**: Select the time zone in which the rule should be valid.
-6. Define the **Action**: See image.
-  - **Application Access**: Choose one of the following options: The **Isolate** option is available only if Zero Trust Browser is enabled for your organization.
-    - Allow
-    - Caution
-    - Block
-    - Conditional
-    - Isolate
-  - **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
-7. (Optional) Define the notification settings:
-  - **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**.
-  - **End User Notification**: Appears only when a granular action is blocked for the selected application. Select **Show** to show the Zscaler Client Connector-based EUN message on endpoints when the user activity triggers the Cloud App Control policy rule, or select **Hide** if you don't want an EUN message to appear. This field is set to **Show** by default.
-    - **Custom Message**: Select a custom notification message that you want to show as the Zscaler Client Connector-based EUN. This field is set to the **Default** notification message if no message is selected from the drop-down menu.
-8. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+2. In the left-side menu, select **AI & ML Applications**, then click **Add Rule**. The **AI & ML Applications**page appears.
+3. On the **AI & ML Applications**page, you can configure the following sections:
+  - Criteria
+  - Actions
+  - Details
+  - Rule Expiration
+  - Notification
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 To learn how this policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
+
+In the **Criteria** section, when you click the **Add Criteria**drop-downmenu, you see the rule condition categories in gray (e.g., **Who**) and the individual rule conditions (e.g., **Users**, **Groups**,and**Departments**) under each category.
+
+See image.
+
+The conditions contain preconfigured values (e.g., **Users**, **Groups**,and**Departments**). A multi-select window with a search bar appears. You can select values by selecting the checkbox for individual items or by clicking **Select All**. After selecting the values, click outside the window to close it. To clear selected items, click the field to open the multi-select window, then use the **Remove** icon displayed for individual entries. To remove all selected values, click **Remove All**.
+
+See image.
+
+Refer to the following condition categories for details on configuring their individual conditions:
+
+- Applications
+- Who
+- Where
+- When
+- Devices & Agents
+
+You can expand or collapse all the criteria using the **Expand All** or **Collapse All** button, respectively.
+
+See image.
+
+In the **Actions** section, for **Application Access**, select one of the following actions to apply when the rule conditions are met:
+
+- Allow
+- Caution
+- Block
+- Conditional
+- Isolate
+
+See image.
+
+In the **Details** section, provide general information about the rule:
+
+- **Rule Name**: Enter a unique name for the rule or use the default name.
+- **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
+- **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
+- **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/understanding-admin-rank), your assigned admin rank determines the rule order values you can select.
+- **Edit Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/understanding-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
+- **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
+
+See image.
+
+In the **Rule Expiration** section, you can define the validity of the rule:
+
+- **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
+  - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
+  - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
+  - **Time Zone**: Select the time zone in which the rule is valid.
+
+You can use the rule expiration feature to temporarily allow or block access for a set period of time to an application if any configured rules block or allow access to it, respectively.
+
+After the rule expires, Zscaler either blocks or allows the traffic based on the default rules configured for your organization.
+
+See image.
+
+(Optional) In the **Notification** section, you can enable browser notification template or end user notifications (EUNs) to be triggered by the rule:
+
+- **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**. See image.
+- **End User Notification**: Select **Show** to show the Zscaler Client Connector-based EUN message on endpoints when the user activity triggers the Cloud App Control policy rule, or select **Hide** if you don't want an EUN message to appear. This field is set to **Show** by default. This field appears when the granular action is blocked for the selected applications. See image.
+  - **Custom Message**: Select a custom notification message that you want to show as the Zscaler Client Connector-based EUN. This field is set to the **Default** notification message if no message is selected from the drop-down menu.
+
+- **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
+- **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
+- **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
+- **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
+
+- **Users**: Select **Any** to apply the rule to all [users](https://help.zscaler.com/authentication-service/adding-users), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users.
+- **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/authentication-service/adding-user-groups), or select up to 32 groups. You can search for groups.
+- **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/authentication-service/adding-departments), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic) must apply to all groups and departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.; Contact Zscaler Support to increase the limit of **Users**, **Groups**, or **Departments**.
+
+- **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location. Contact Zscaler Support to increase the limit of **Locations**.
+- **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
+
+**Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/defining-time-intervals), or select up to two time intervals. You can also search for a time interval.
+
+- **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
+- **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
+- **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
+- **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+  - **Low**: Level with user risk scores ranging from 0 to 29
+  - **Medium**: Level with user risk scores ranging from 30 to 59
+  - **High**: Level with user risk scores ranging from 60 to 79
+  - **Critical**: Level with user risk scores ranging from 80 to 100
 
 Choose to allow the users to access the selected applications.
 
 The following applications support additional granular actions, which you can **Allow** or **Block**:
 
 - For **ChatGPT**, the granular actions include **Chatting**, **Uploading**, **Downloading**, **Deleting**, **Sharing**, and **Inviting**.
-- For **Google Gemini**, the granular actions include **Chatting**, **Downloading**, **Renaming**, and **Uploading**.
+- For **Google Gemini**, the granular actions include **Chatting**, **Downloading**, and **Renaming**.
 - For **Microsoft Copilot**, the granular actions include **Chatting**, **Deleting**, **Renaming**, **Sharing**, and **Uploading**.
 - For **Perplexity**, the granular actions include **Chatting**, **Deleting**, **Sharing**, and **Uploading**.
 - For **Poe**, the granular actions include **Chatting**, **Deleting**, **Sharing**, and **Uploading**.
@@ -394,42 +649,53 @@ The following applications support additional granular actions, which you can **
 
 If these applications are selected together, only the common granular actions among them appear. For the granular actions to work as expected for an application, enable SSL/TLS Inspection for the application.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssl-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
 - **Capture Prompts**: Enable this option to categorize and store end user prompts (up to 2 KB in size) for generative AI (Gen AI) applications. The prompts are stored in Zscaler logs for the period defined by your organization. Authorized users with access to the logs are able to view the prompts entered by end users in Gen AI applications. This allows you to control the capture of prompts at policy level based on your organizational requirements. This option appears only when you select Gen AI applications that support prompt configuration. To learn more, see [Configuring Advanced Policy Settings](https://help.zscaler.com/zia/configuring-advanced-policy-settings#gen-AI-prompt).
-- **Tenant Profiles**: Appears only when **ChatGPT** or **Claude** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). Ensure that the applications selected under the tenant profiles are not exempted from SSL/TLS Inspection.
+- **Tenant Profile**: Appears only when **ChatGPT** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). Ensure that the applications selected under the tenant profiles are not exempted from SSL/TLS Inspection.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
 Choose to display an EUN that cautions users before allowing them access to the selected applications.
 
 You can select this action for only one of the following request methods: **CONNECT**, **GET**, or **HEAD**.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssl-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
 Choose toblock the users from accessing the selected applications.
 
 Choose to conditionally allow the users to access the selected applications.
 
-- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/zidentity/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssl-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
+- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/authentication-service/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
 
 Choose to isolate all the traffic that matches the cloud app control rule through a remote browser. To learn more, see [What Is Zero Trust Browser?](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser)
 
-- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zia/creating-isolation-profile-cloud-browser-isolation) for your organization.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssl-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
+This action is available only if Zero Trust Browser is enabled for your organization.
+
+- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) for your organization.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
-- **Tenant Profiles**: Appears only when **ChatGPT** or **Claude** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). Ensure that the applications selected under the tenant profiles are not exempted from SSL/TLS Inspection.
+- **Tenant Profile**: Appears only when **ChatGPT** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). Ensure that the applications selected under the tenant profiles are not exempted from SSL/TLS Inspection.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
-[Image: Add AI & ML Applications rule page]
+[Image: Criteria menu on the AI & ML Applications page]
 
-[Image: Cloud App Control Rule section under Add AI & ML Rule]
+[Image: AI & ML Applications page - criteria multi-select window]
 
-[Image: Criteria section under Add AI & ML Rule]
+[Image: Criteria section on the AI & ML Applications page]
 
-[Image: Rule Expiration section under Add AI & ML Rule]
+[Image: Details section on the AI & ML Applications page]
 
-[Image: Action section under Add AI & ML Rule]
+[Image: Rule Expiration Section on the AI & ML Applications page]
+
+[Image: Actions section on the Add AI & ML Applications page]
+
+[Image: Notification section on the AI & ML Applications page]
+
+[Image: Notification section on the AI & ML Applications page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -512,13 +778,13 @@ For example, you can set the severity level of an event with 5 occurrences in 5 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-api-roles","lastmod":"2026-08-30T11:16Z","nid":"1411441"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-api-roles","lastmod":"2026-09-18T11:51Z","nid":"1411441"} -->
 ## Adding API Roles
 
 - Source: https://help.zscaler.com/zia/adding-api-roles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role Management > Adding API Roles
-- Last modified: 2026-08-30T11:16Z
+- Last modified: 2026-09-18T11:51Z
 - Summary: How to add Internet & SaaS API roles in the Zscaler Admin Console.
 
 [Watch a video about Adding API Roles](https://fast.wistia.net/embed/iframe/leihuwkgjo) (shows legacy UI).
@@ -533,7 +799,7 @@ You can [edit or delete](https://help.zscaler.com/zia/editing-deleting-duplicati
 
 To configure API roles, the admin must be assigned to a role that has full permission to Administration > API Configuration > Legacy API > Internet & SaaS API in the Zscaler Admin Console. To learn more, see [Adding Admin Roles](https://help.zscaler.com/zia/adding-admin-roles).
 
-Admin rank doesn't apply to API roles.
+[Admin rank](https://help.zscaler.com/zia/understanding-admin-rank) cannot be specified for API roles because the admin rank for API roles is always 7. API roles cannot make modifications to any admin users.
 
 ## Adding API Roles
 
@@ -829,30 +1095,30 @@ To add a cloud application instance:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-application-risk-profile","lastmod":"2026-05-26T05:03Z","nid":"1402266"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-application-risk-profile","lastmod":"2026-09-15T08:02Z","nid":"1402266"} -->
 ## Adding a Cloud Application Risk Profile
 
 - Source: https://help.zscaler.com/zia/adding-cloud-application-risk-profile
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Risk Profiles > Adding a Cloud Application Risk Profile
-- Last modified: 2026-05-26T05:03Z
+- Last modified: 2026-09-15T08:02Z
 - Summary: Information on how to add a cloud application risk profile in Zscaler Admin Console.
 
 The cloud application risk profile feature allows you to control how cloud applications are used in your organization. The feature consists of two parts: creating a cloud application risk profile and associating the profile with the Cloud App Control policy rules.
 
 To add a cloud application risk profile:
 
-1. Go to **Policies** > **Access Control** > **Internet & SaaS** > **Risk Profiles**.
-2. On the **Cloud Application** tab, click **Add Cloud Application Risk Profile**. The **Add Cloud Application Risk Profile**window appears.
-3. In the **Add Cloud Application Risk Profile**window: The cloud application risk profile consists of a series of `AND` operators placed between the attributes in the **Application Status**, **Hosting Information**, and **Security Information** sections. The attributes that allow multiple value selection (**Risk Index**, **Certificates Supported**, **Data Encryption in Transit**, and **SSL Cert Key Size**) consist of a series of `OR` operators placed between the values in them. For example, [Risk Index (1 (`OR`) 3 (`OR`) 5)] (`AND`) [Application Status (Sanctioned)] (`AND`) [Certificates Supported (AICPA (`OR`) GDPR)] (`AND`) [SSL Pinned (Yes)].
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Inline CASB** > **Risk Profiles**.
+2. Click **Add Cloud Application Risk Profile**. The **Add Cloud Application Risk Profile**page appears.
+3. On the **Add Cloud Application Risk Profile**page: The cloud application risk profile consists of a series of `AND` operators placed between the attributes in the **Application Status**, **Hosting Information**, and **Security Information** sections. The attributes that allow multiple value selection (**Risk Index**, **Certificates Supported**, **Data Encryption in Transit**, and **SSL Cert Key Size**) consist of a series of `OR` operators placed between the values in them. For example, [Risk Index (1 (`OR`) 3 (`OR`) 5)] (`AND`) [Application Status (Sanctioned)] (`AND`) [Certificates Supported (AICPA (`OR`) GDPR)] (`AND`) [SSL Pinned (Yes)]. See image.
   - **Profile Name**: Enter the name of the cloud application risk profile. This is displayed when configuring the Cloud App Control policy rules.
   - **Risk Index**: Select the risk index number (1–5, 1 being the lowest risk and 5 being the highest). It represents the risk score assigned to each cloud application based on the risk attribute values. You can select multiple risk indexes. All the cloud applications, including those with risk index overrides from the [Application Information](https://help.zscaler.com/zia/about-application-information) page, are evaluated in the policy if the risk index criterion matches.
   - **Application Status**: Select the application status. You can select either **Sanctioned** or **Unsanctioned**. To learn more, see [About Cloud Application Status](https://help.zscaler.com/zia/about-cloud-application-status).
   - **Tags**: Select the tags associated with the application. To learn more, see [About Cloud Application Tags](https://help.zscaler.com/zia/about-cloud-application-tags).
   - **Certificates Supported**: Select the supported certifications for the application. You can choose to either include or exclude certificates.
   - **Password Strength**: Select one of the following options that represent how secure your password is for the application:
-    - **Good**: Require users to set passwords that are at least eight characters long and contain at least one digit, one capital letter, and one special character. Only ASCII characters are allowed.
-    - **Poor**: Require users to set passwords that are at least eight characters long and contain at least one non-alphabetic character. Only ASCII characters are allowed.
+    - **Good**: Require users to set passwords that are at least 8 characters long and contain at least 1 digit, 1 capital letter, and 1 special character. Only ASCII characters are allowed.
+    - **Poor**: Require users to set passwords that are at least 8 characters long and contain at least 1 non-alphabetic character. Only ASCII characters are allowed.
     - **Unknown**: Have no restriction on the strength or complexity of the passwords.
   - **Data Encryption in Transit**: Select the data encryption versions (**SSLv2**, **SSLv3**, **TLSv1.0**, **TLSv1.1**, **TLSv1.2**, **TLSv1.3**, or **Unknown**).
   - **SSL Cert Key Size**: Select a cert key size (**256 Bits**, **384 Bits**, **768 Bits**, **1024 Bits**, **2048 Bits**, **3072 Bits**, **4096 Bits**, **8192 Bits**, or **Unknown**).
@@ -881,6 +1147,8 @@ To add a cloud application risk profile:
     - **Domain-Based Message Authentication**
     - **Malware Scanning for Content**
 4. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+[Image: Add Cloud Application Risk Profile showing fields for risk profile]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1145,13 +1413,13 @@ To configure a Cloud NSS feed for Authentication logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-dns-logs","lastmod":"2026-07-22T16:20Z","nid":"1402056"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-dns-logs","lastmod":"2026-09-20T07:06Z","nid":"1402056"} -->
 ## Adding Cloud NSS Feeds for DNS Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-dns-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for DNS Logs
-- Last modified: 2026-07-22T16:20Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: How to add Cloud NSS feeds for DNS logs in the Zscaler Admin Console.
 
 To configure a Cloud NSS feed for DNS logs:
@@ -1232,13 +1500,13 @@ To configure a Cloud NSS feed for DNS logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-email-dlp-logs","lastmod":"2026-07-22T16:57Z","nid":"1483221"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-email-dlp-logs","lastmod":"2026-09-20T07:06Z","nid":"1483221"} -->
 ## Adding Cloud NSS Feeds for Email DLP Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-email-dlp-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Email DLP Logs
-- Last modified: 2026-07-22T16:57Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: How to add Cloud NSS feeds for Email Data Loss Prevention (DLP) logs in the Zscaler Admin Console.
 
 To configure a Cloud NSS feed for Email Data Loss Prevention (DLP) logs:
@@ -1287,13 +1555,13 @@ To configure a Cloud NSS feed for Email Data Loss Prevention (DLP) logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-endpoint-dlp-logs","lastmod":"2026-07-22T16:50Z","nid":"1461941"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-endpoint-dlp-logs","lastmod":"2026-09-20T07:06Z","nid":"1461941"} -->
 ## Adding Cloud NSS Feeds for Endpoint DLP Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-endpoint-dlp-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Endpoint DLP Logs
-- Last modified: 2026-07-22T16:50Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: How to add Cloud NSS feeds for Endpoint Data Loss Prevention (DLP) logs in the Zscaler Admin Console.
 
 To configure a Cloud NSS feed for Endpoint Data Loss Prevention (DLP) logs:
@@ -1340,13 +1608,13 @@ To configure a Cloud NSS feed for Endpoint Data Loss Prevention (DLP) logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-for-firewall-logs","lastmod":"2026-07-22T15:28Z","nid":"1401966"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-for-firewall-logs","lastmod":"2026-09-20T07:06Z","nid":"1401966"} -->
 ## Adding Cloud NSS Feeds for Firewall Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-for-firewall-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Firewall Logs
-- Last modified: 2026-07-22T15:28Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: How to add Cloud NSS feeds for Firewall logs in the Zscaler Admin Console.
 
 To configure a Cloud NSS feed for Firewall logs:
@@ -1547,13 +1815,13 @@ To configure a Cloud NSS feed for SaaS Security activity logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-saas-security-logs","lastmod":"2026-07-22T16:40Z","nid":"1402066"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-saas-security-logs","lastmod":"2026-09-20T07:06Z","nid":"1402066"} -->
 ## Adding Cloud NSS Feeds for SaaS Security Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-saas-security-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for SaaS Security Logs
-- Last modified: 2026-07-22T16:40Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: How to add Cloud NSS feeds for SaaS Security logs in the Zscaler Admin Console.
 
 To configure a Cloud NSS feed for SaaS Security logs:
@@ -1801,13 +2069,13 @@ To configure a Cloud NSS feed for SCIM logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-tunnel-logs","lastmod":"2026-07-22T16:29Z","nid":"1402061"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-tunnel-logs","lastmod":"2026-09-20T07:06Z","nid":"1402061"} -->
 ## Adding Cloud NSS Feeds for Tunnel Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-tunnel-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Tunnel Logs
-- Last modified: 2026-07-22T16:29Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: How to add Cloud NSS feeds for tunnel logs in the Zscaler Admin Console.
 
 To configure a Cloud NSS feed for tunnel logs:
@@ -1862,13 +2130,13 @@ To configure a Cloud NSS feed for tunnel logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-web-logs","lastmod":"2026-07-21T15:53Z","nid":"1401861"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-web-logs","lastmod":"2026-09-20T07:06Z","nid":"1401861"} -->
 ## Adding Cloud NSS Feeds for Web Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-web-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Web Logs
-- Last modified: 2026-07-21T15:53Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: How to add Cloud NSS feeds for web logs in the Zscaler Admin Console.
 
 To configure a Cloud NSS feed for web logs:
@@ -1997,16 +2265,16 @@ To configure a Cloud NSS feed for web logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-collaboration-online-meetings-rule-for-cloud-app-control","lastmod":"2026-06-26T04:41Z","nid":"1400146"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-collaboration-online-meetings-rule-for-cloud-app-control","lastmod":"2026-09-16T23:16Z","nid":"1400146"} -->
 ## Adding a Collaboration & Online Meetings Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-collaboration-online-meetings-rule-for-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Collaboration & Online Meetings Rule for Cloud App Control
-- Last modified: 2026-06-26T04:41Z
+- Last modified: 2026-09-16T23:16Z
 - Summary: How to add a rule for Collaboration and Online Meeting cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
-You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/cloud-app-categories) to facilitate defining rules for similar applications.
+You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
 
 Organizations use cloud applications to connect users around the world. They're using applications, such as Webex and GoTo Meeting, to meet online and share information; and they're using enterprise social network applications, such as Yammer, so their teams can collaborate and share their knowledge.
 
@@ -2018,55 +2286,101 @@ When users browse these sites after their quota has been reached, the Zscaler se
 
 To add a rule for Collaboration & Online Meetings apps:
 
-1. Go to **Policies** > **Access Control** > **Internet & SaaS** > **Cloud App Control**.
-2. In the left-side menu, select **Collaboration & Online Meetings**, then click **Add Rule**. The **Collaboration & Online Meetings** page appears. See image.
-3. On the **Collaboration & Online Meetings** page, enter the rule attributes: See image.
-  - **Rule Name**: Enter a unique name for the rule or use the default name.
-  - **Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/what-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
-  - **Rule Status**:An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
-  - **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
-  - **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/what-admin-rank), your assigned admin rank determines the rule order values you can select.
-  - **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
-4. Click **Add Criteria**and define the **Criteria**: See image.
-  - **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. To allow Slack audio and video calls, you must include both **Amazon Chime** and **Slack** under **Cloud Applications** in the allow rule. To learn more, refer to the [Slack Help Center](https://slack.com/intl/en-in/help/articles/115003538426-Troubleshoot-Slack-calls-and-huddles#call-connection-issues).
-  - **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
-  - **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
-  - **Users**:Select **Any** to apply the rule to all [users](https://help.zscaler.com/zia/how-do-i-add-user-account), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users or click the **Add**icon to add a new user.
-  - **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/zia/how-do-i-add-group), or select up to 32 groups. You can search for groups or click the **Add**icon to add a new group.
-  - **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/zia/how-do-i-add-department), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments or click the **Add**icon to add a new department. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic) must apply to all groups and departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.
-  - **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location or click the **Add**icon to add a new location. Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**.
-  - **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
-  - **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
-  - **Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/how-do-i-define-time-intervals), or select up to two time intervals. You can also search for a time interval or click the **Add**icon to add a new time interval.
-  - **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
-  - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) to which the rule applies. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation** or **No Client Connector** to apply the rule to isolation traffic or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** group is available only if Zero Trust Browser (formerly Isolation) is enabled for your organization.
-  - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
-  - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-  - **User Risk Profile**: Select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
-    - **Low**: Level with user risk scores ranging from 0 to 29
-    - **Medium**: Level with user risk scores ranging from 30 to 59
-    - **High**: Level with user risk scores ranging from 60 to 79
-    - **Critical**: Level with user risk scores ranging from 80 to 100
-5. Define the **Rule Expiration**: See image.
-  - **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
-    - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
-    - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
-    - **Time Zone**: Select the time zone in which the rule should be valid.
-6. Specify the **Action**: See image.
-  - **Application Access**: Choose one of the following options: The Isolate option is available only if Zero Trust Browser is enabled for your organization.
-    - Allow
-    - Caution
-    - Block
-    - Conditional
-    - Isolate
-  - **Cascade to URL Filtering**: Enable if you want to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies** > **Common Configuration** > **Advanced** > **Advanced Settings**).
-7. (Optional) Define the **Notification** settings:
-  - **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**.
-  - **End User Notification**: Appears when a granular action is blocked for the selected application or a tenant profile is selected. Select **Show** to show the Zscaler Client Connector-based EUN message on endpoints when the user activity triggers the Cloud App Control policy rule, or select **Hide** if you don't want an EUN message to appear. This field is set to **Show** by default.
-    - **Custom Message**: Select a custom notification message that you want to show as the Zscaler Client Connector-based EUN. This field is set to the **Default** notification message if no message is selected from the drop-down menu.
-8. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+1. Go to **Policies**> **Access Control**> **Internet & SaaS** > **Cloud App Control**.
+2. In the left-side menu, select **Collaboration & Online Meetings**, then click **Add Rule**. The **Collaboration & Online Meetings**page appears.
+3. On the **Collaboration & Online Meetings**page, you can configure the following sections:
+  - Criteria
+  - Actions
+  - Details
+  - Rule Expiration
+  - Notification
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 To learn how this policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
+
+In the **Criteria** section, when you click the **Add Criteria**drop-downmenu, you see the rule condition categories in gray (e.g., **Who**) and the individual rule conditions (e.g., **Users**, **Groups**,and**Departments**) under each category.
+
+See image.
+
+The conditions contain preconfigured values (e.g., **Users**, **Groups**,and**Departments**). A multi-select window with a search bar appears. You can select values by selecting the checkbox for individual items or by clicking **Select All**. After selecting the values, click outside the window to close it. To clear selected items, click the field to open the multi-select window, then use the **Remove** icon displayed for individual entries. To remove all selected values, click **Remove All**.
+
+See image.
+
+Refer to the following condition categories for details on configuring their individual conditions:
+
+- Applications
+- Who
+- Where
+- When
+- Devices & Agents
+
+You can expand or collapse all the criteria using the **Expand All** or **Collapse All** button, respectively.
+
+See image.
+
+In the **Actions** section, for **Application Access**, select one of the following actions to apply when the rule conditions are met:
+
+- Allow
+- Caution
+- Block
+- Conditional
+- Isolate
+
+See image.
+
+In the **Details** section, provide general information about the rule:
+
+- **Rule Name**: Enter a unique name for the rule or use the default name.
+- **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
+- **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
+- **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/understanding-admin-rank), your assigned admin rank determines the rule order values you can select.
+- **Edit Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/understanding-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
+- **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
+
+See image.
+
+In the **Rule Expiration** section, you can define the validity of the rule:
+
+- **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
+  - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
+  - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
+  - **Time Zone**: Select the time zone in which the rule is valid.
+
+You can use the rule expiration feature to temporarily allow or block access for a set period of time to an application if any configured rules block or allow access to it, respectively.
+
+After the rule expires, Zscaler either blocks or allows the traffic based on the default rules configured for your organization.
+
+See image.
+
+(Optional) In the **Notification** section, you can enable browser notification template or end user notifications (EUNs) to be triggered by the rule:
+
+- **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**. See image.
+- **End User Notification**: Select **Show** to show the Zscaler Client Connector-based EUN message on endpoints when the user activity triggers the Cloud App Control policy rule, or select **Hide** if you don't want an EUN message to appear. This field is set to **Show** by default. This field appears when the granular action is blocked for the selected applications. See image.
+  - **Custom Message**: Select a custom notification message that you want to show as the Zscaler Client Connector-based EUN. This field is set to the **Default** notification message if no message is selected from the drop-down menu.
+
+- **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications. To allow Slack audio and video calls, you must include both **Amazon Chime** and **Slack** under **Cloud Applications** in the allow rule. To learn more, refer to the [Slack Help Center](https://slack.com/intl/en-in/help/articles/115003538426-Troubleshoot-Slack-calls-and-huddles#call-connection-issues).
+- **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
+- **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
+- **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
+
+- **Users**: Select **Any** to apply the rule to all [users](https://help.zscaler.com/authentication-service/adding-users), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users.
+- **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/authentication-service/adding-user-groups), or select up to 32 groups. You can search for groups.
+- **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/authentication-service/adding-departments), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic) must apply to all groups and departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.; Contact Zscaler Support to increase the limit of **Users**, **Groups**, or **Departments**.
+
+- **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location. Contact Zscaler Support to increase the limit of **Locations**.
+- **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
+
+**Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/defining-time-intervals), or select up to two time intervals. You can also search for a time interval.
+
+- **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
+- **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
+- **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
+- **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+  - **Low**: Level with user risk scores ranging from 0 to 29
+  - **Medium**: Level with user risk scores ranging from 30 to 59
+  - **High**: Level with user risk scores ranging from 60 to 79
+  - **Critical**: Level with user risk scores ranging from 80 to 100
 
 Choose to allow the users to access the selected applications.
 
@@ -2077,57 +2391,68 @@ The following applications support additional granular actions, which you can **
 - For **SharePoint Online**, the granular actions include **Sharing**, **Editing**, **Renaming**, **Creating**, **Downloading**, **Deleting**, and **Uploading**.
 - For **Microsoft Teams**, the granular actions include **Chatting** and **Screen Sharing**.
 
-If these applications are selected together, only the common granular actions among them appear. For the granular actions to work as expected for an application, ensure to enable SSL/TLS Inspection for the application.
+If these applications are selected together, only the common granular actions among them appear. For the granular actions to work as expected for an application, enable SSL/TLS Inspection for the application.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssl-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
-- **Tenant Profiles**: Appears only when **Google Calendar**, **Google Keep**, **Google Meet**, **Google Sites**, **Slack**, **Webex Teams**, **Webex Meetings**, or **Zoom** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). Ensure that the applications selected under the tenant profiles are not exempted from SSL/TLS Inspection.
+- **Tenant Profile**: Appears only when **Google Calendar**, **Google Keep**, **Google Meet**, **Google Sites**, **Slack**, **Webex Teams**, **Webex Meetings**, or **Zoom** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). Ensure that the applications selected under the tenant profiles are not exempted from SSL/TLS Inspection.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
 Choose to display an EUN that cautions users before allowing them access to the selected applications.
 
 You can select this action for only one of the following request methods: **CONNECT**, **GET**, or **HEAD**.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssl-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
 Choose toblock the users from accessing the selected applications.
 
 Choose to conditionally allow the users to access the selected applications.
 
-- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/zidentity/understanding-step-up-authentication). This option is available only if your organization is provisioned with Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssl-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/authentication-service/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
 
 Choose to isolate all the traffic that matches the cloud app control rule through a remote browser. To learn more, see [What Is Zero Trust Browser?](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser)
 
-- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zia/creating-isolation-profile-cloud-browser-isolation) for your organization.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssl-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+This action is available only if Zero Trust Browser is enabled for your organization.
+
+- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) for your organization.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
-- **Tenant Profiles**: Appears only when **Google Calendar**, **Google Keep**, **Google Meet**, **Google Sites**, **Slack**, **Webex Teams**, **Webex Meetings**, or **Zoom** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). Ensure that the applications selected under the tenant profiles are not exempted from SSL/TLS Inspection.
+- **Tenant Profile**: Appears only when **Google Calendar**, **Google Keep**, **Google Meet**, **Google Sites**, **Slack**, **Webex Teams**, **Webex Meetings**, or **Zoom** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). Ensure that the applications selected under the tenant profiles are not exempted from SSL/TLS Inspection.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
-[Image: Add Collaboration & Online Meetings Rule page]
+[Image: Criteria menu on the Collaboration & Online Meetings page]
 
-[Image: Rule Expiration Section]
+[Image: Collaboration & Online Meetings page - criteria multi-select window]
 
-[Image: Criteria Section]
+[Image: Criteria section on the Collaboration & Online Meetings page]
 
-[Image: Rule Section]
+[Image: Details section on the Collaboration & Online Meetings page]
 
-[Image: Actions Section]
+[Image: Rule Expiration Section on the Collaboration & Online Meetings page]
+
+[Image: Actions section on the Collaboration & Online Meetings page]
+
+[Image: Notification section on the Collaboration & Online Meetings page]
+
+[Image: Notification section on the Collaboration & Online Meetings page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-consumer-rule-cloud-app-control","lastmod":"2026-06-26T05:41Z","nid":"1400141"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-consumer-rule-cloud-app-control","lastmod":"2026-09-16T23:18Z","nid":"1400141"} -->
 ## Adding a Consumer Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-consumer-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Consumer Rule for Cloud App Control
-- Last modified: 2026-06-26T05:41Z
+- Last modified: 2026-09-16T23:18Z
 - Summary: Information on how to add a rule for Consumer cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
-You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/cloud-app-categories) to facilitate defining rules for similar applications.
+You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
 
 Online shopping has become the norm. This category includes applications such as eBay, Groupon, and PayPal, so you can create rules specifically for these and other similar cloud applications. You can specify which applications your users are allowed to access and define a daily quota by bandwidth or time.
 
@@ -2138,99 +2463,155 @@ When users browse these sites after their quota has been reached, the Zscaler se
 To add a rule for Consumer apps:
 
 1. Go to **Policies** > **Access Control** > **Internet & SaaS** > **Cloud App Control**.
-2. In the left-side menu, select **Consumer**, then click **Add Rule**. The **Consumer** page appears. See image.
-3. On the **Consumer** page, enter the rule attributes: See image.
-  - **Rule Name**: Enter a unique name for the rule or use the default name.
-  - **Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/what-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
-  - **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
-  - **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
-  - **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/what-admin-rank), your assigned admin rank determines the rule order values you can select.
-  - **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
-4. Click **Add Criteria**and define the **Criteria**: See image.
-  - **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
-  - **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
-  - **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
-  - **Users**: Select **Any** to apply the rule to all [users](https://help.zscaler.com/zia/adding-user-account), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users or click the **Add** icon to add a new user.
-  - **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/zia/how-do-i-add-group), or select up to 32 groups. You can search for groups or click the **Add**icon to add a new group.
-  - **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/zia/how-do-i-add-department), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments or click the **Add**icon to add a new department. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic) must apply to all Groups and Departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.
-  - **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location or click the **Add**icon to add a new location. Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**.
-  - **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
-  - **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
-  - **Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/how-do-i-define-time-intervals), or select up to two time intervals. You can also search for a time interval or click the **Add**icon to add a new time interval.
-  - **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
-  - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) to which the rule applies. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation** or **No Client Connector** to apply the rule to isolation traffic or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** group is available only if Zero Trust Browser (formerly Isolation) is enabled for your organization.
-  - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
-  - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-  - **User Risk Profile**: Select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
-    - **Low**: Level with user risk scores ranging from 0 to 29
-    - **Medium**: Level with user risk scores ranging from 30 to 59
-    - **High**: Level with user risk scores ranging from 60 to 79
-    - **Critical**: Level with user risk scores ranging from 80 to 100
-5. Define the **Rule Expiration**: See image.
-  - **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
-    - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
-    - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
-    - **Time Zone**: Select the time zone in which the rule should be valid.
-6. Specify the **Action**: See image.
-  - **Application Access**: Choose one of the following options: The **Isolate** option is available only if Zero Trust Browser is enabled for your organization.
-    - Allow
-    - Caution
-    - Block
-    - Conditional
-    - Isolate
-  - **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies** > **Common Configuration** > **Advanced** > **Advanced Settings**).
-7. (Optional) Define the **Notification** settings:
-  - **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**.
-8. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+2. In the left-side menu, select **Consumer**, then click **Add Rule**. The **Consumer**page appears.
+3. On the **Consumer**page, you can configure the following sections:
+  - Criteria
+  - Actions
+  - Details
+  - Rule Expiration
+  - Notification
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 To learn how this policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
 
-[Image: Criteria Section]
+In the **Criteria** section, when you click the **Add Criteria**drop-downmenu, you see the rule condition categories in gray (e.g., **Who**) and the individual rule conditions (e.g., **Users**, **Groups**,and**Departments**) under each category.
+
+See image.
+
+The conditions contain preconfigured values (e.g., **Users**, **Groups**,and**Departments**). A multi-select window with a search bar appears. You can select values by selecting the checkbox for individual items or by clicking **Select All**. After selecting the values, click outside the window to close it. To clear selected items, click the field to open the multi-select window, then use the **Remove** icon displayed for individual entries. To remove all selected values, click **Remove All**.
+
+See image.
+
+Refer to the following condition categories for details on configuring their individual conditions:
+
+- Applications
+- Who
+- Where
+- When
+- Devices & Agents
+
+You can expand or collapse all the criteria using the **Expand All** or **Collapse All** button, respectively.
+
+See image.
+
+In the **Actions** section, for **Application Access**, select one of the following actions to apply when the rule conditions are met:
+
+- Allow
+- Caution
+- Block
+- Conditional
+- Isolate
+
+See image.
+
+In the **Details** section, provide general information about the rule:
+
+- **Rule Name**: Enter a unique name for the rule or use the default name.
+- **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
+- **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
+- **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/understanding-admin-rank), your assigned admin rank determines the rule order values you can select.
+- **Edit Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/understanding-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
+- **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
+
+See image.
+
+In the **Rule Expiration** section, you can define the validity of the rule:
+
+- **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
+  - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
+  - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
+  - **Time Zone**: Select the time zone in which the rule is valid.
+
+You can use the rule expiration feature to temporarily allow or block access for a set period of time to an application if any configured rules block or allow access to it, respectively.
+
+After the rule expires, Zscaler either blocks or allows the traffic based on the default rules configured for your organization.
+
+See image.
+
+(Optional) In the **Notification** section, you can enable browser notification template or end user notifications (EUNs) to be triggered by the rule:
+
+- **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**. See image.
+
+- **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
+- **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
+- **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
+- **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
+
+- **Users**: Select **Any** to apply the rule to all [users](https://help.zscaler.com/authentication-service/adding-users), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users.
+- **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/authentication-service/adding-user-groups), or select up to 32 groups. You can search for groups.
+- **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/authentication-service/adding-departments), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic) must apply to all groups and departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.; Contact Zscaler Support to increase the limit of **Users**, **Groups**, or **Departments**.
+
+- **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location. Contact Zscaler Support to increase the limit of **Locations**.
+- **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
+
+**Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/defining-time-intervals), or select up to two time intervals. You can also search for a time interval.
+
+- **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
+- **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation.
+- The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
+- **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
+- **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+  - **Low**: Level with user risk scores ranging from 0 to 29
+  - **Medium**: Level with user risk scores ranging from 30 to 59
+  - **High**: Level with user risk scores ranging from 60 to 79
+  - **Critical**: Level with user risk scores ranging from 80 to 100
 
 Choose to allow the users to access the selected applications.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL Inspection](https://help.zscaler.com/zia/deploying-ssl-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
 Choose to display an EUN that cautions users before allowing them access to the selected applications.
 
 You can select this action for only one of the following request methods: **CONNECT**, **GET**, or **HEAD**.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL Inspection](https://help.zscaler.com/zia/deploying-ssl-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
 Choose toblock the users from accessing the selected applications.
 
 Choose to conditionally allow the users to access the selected applications.
 
-- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/zidentity/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS for (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL Inspection](https://help.zscaler.com/zia/deploying-ssl-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/authentication-service/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
 
 Choose to isolate all the traffic that matches the cloud app control rule through a remote browser. To learn more, see [What Is Zero Trust Browser?](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser)
 
-- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zia/creating-isolation-profile-cloud-browser-isolation) for your organization.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssl-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+This action is available only if Zero Trust Browser is enabled for your organization.
+
+- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) for your organization.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
-[Image: Cloud App Control Rule Section]
+[Image: Criteria menu on the Consumer page]
 
-[Image: Rule Expiration Section]
+[Image: Consumer page - criteria multi-select window]
 
-[Image: Actions Section]
+[Image: Criteria section on the Consumer page]
 
-[Image: Add Consumer applications rule page]
+[Image: Details section on the Consumer page]
+
+[Image: Rule Expiration Section on the Consumer page]
+
+[Image: Actions section on the Consumer page]
+
+[Image: Notification section on the Consumer page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-custom-applications-rule-cloud-app-control","lastmod":"2026-06-26T06:55Z","nid":"1440851"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-custom-applications-rule-cloud-app-control","lastmod":"2026-09-16T23:19Z","nid":"1440851"} -->
 ## Adding a Custom Applications Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-custom-applications-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Custom Applications Rule for Cloud App Control
-- Last modified: 2026-06-26T06:55Z
+- Last modified: 2026-09-16T23:19Z
 - Summary: Information about how to add a rule for Custom cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 Custom cloud applications provide greater flexibility when creating rules to control access to custom applications. This feature consists of two parts:
@@ -2246,101 +2627,157 @@ When users browse these custom sites after they reach their quota, the Zscaler s
 
 ## Adding a Rule for Custom Applications
 
-To add a rule for custom applications:
+To add a rule for Custom Applications apps:
 
-1. Go to **Policies** >**Access Control** > **Internet & SaaS**> **Cloud App Control**.
-2. In the left-side menu, select **Custom Applications**,thenclick **Add Rule**. The **Custom Applications** page appears. See image.
-3. On the **Custom Applications** page, enter the rule attributes: See image.
-  - **Rule Name**: Enter a unique name for the rule or use the default name.
-  - **Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/what-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
-  - **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
-  - **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
-  - **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/what-admin-rank), your assigned admin rank determines the rule order values you can select.
-  - **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
-4. Click **Add Criteria**and define the **Criteria**: See image.
-  - **Cloud Applications**: Select **Any** to apply the rule to all custom applications in this category, or select any number of custom cloud applications. You can also search for applications.
-  - **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
-  - **Users**: Select **Any** to apply the rule to all [users](https://help.zscaler.com/zia/adding-user-account), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users or click the **Add** icon to add a new user.
-  - **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/zia/how-do-i-add-group), or select up to 32 groups. You can search for groups or click the **Add**icon to add a new group.
-  - **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/zia/how-do-i-add-department), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments or click the **Add**icon to add a new department. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic) must apply to all Groups and Departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.
-  - **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location or click the **Add**icon to add a new location. Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**.
-  - **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
-  - **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
-  - **Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/how-do-i-define-time-intervals), or select up to two time intervals. You can also search for a time interval or click the **Add**icon to add a new time interval.
-  - **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
-  - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) to which the rule applies. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation** or **No Client Connector** to apply the rule to isolation traffic or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** group is available only if Zero Trust Browser (formerly Isolation) is enabled for your organization.
-  - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
-  - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-  - **User Risk Profile**: Select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
-    - **Low**: Level with user risk scores ranging from 0 to 29
-    - **Medium**: Level with user risk scores ranging from 30 to 59
-    - **High**: Level with user risk scores ranging from 60 to 79
-    - **Critical**: Level with user risk scores ranging from 80 to 100
-5. Define the **Rule Expiration**: See image.
-  - **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
-    - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
-    - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
-    - **Time Zone**: Select the time zone in which the rule should be valid.
-6. Specify the **Action**: See image.
-  - **Application Access**: Choose one of the following options: The **Isolate** option is available only if Zero Trust Browser is enabled for your organization.
-    - Allow
-    - Caution
-    - Block
-    - Conditional
-    - Isolate
-  - **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Administration** > **Advanced Settings**).
-7. (Optional) Define the **Notification** settings:
-  - **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**.
-8. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+1. Go to **Policies**> **Access Control**> **Internet & SaaS** > **Cloud App Control**.
+2. In the left-side menu, select **Custom Applications**,thenclick **Add Rule**. The **Custom Applications**page appears.
+3. On the **Custom Applications**page, you can configure the following sections:
+  - Criteria
+  - Actions
+  - Details
+  - Rule Expiration
+  - Notification
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 To learn how this policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
 
-Choose to allow users to access the selected applications.
+In the **Criteria** section, when you click the **Add Criteria**drop-downmenu, you see the rule condition categories in gray (e.g., **Who**) and the individual rule conditions (e.g., **Users**, **Groups**,and**Departments**) under each category.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota at each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssl-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+See image.
+
+The conditions contain preconfigured values (e.g., **Users**, **Groups**,and**Departments**). A multi-select window with a search bar appears. You can select values by selecting the checkbox for individual items or by clicking **Select All**. After selecting the values, click outside the window to close it. To clear selected items, click the field to open the multi-select window, then use the **Remove** icon displayed for individual entries. To remove all selected values, click **Remove All**.
+
+See image.
+
+Refer to the following condition categories for details on configuring their individual conditions:
+
+- Applications
+- Who
+- Where
+- When
+- Devices & Agents
+
+You can expand or collapse all the criteria using the **Expand All** or **Collapse All** button, respectively.
+
+See image.
+
+In the **Actions** section, for **Application Access**, select one of the following actions to apply when the rule conditions are met:
+
+- Allow
+- Caution
+- Block
+- Conditional
+- Isolate
+
+See image.
+
+In the **Details** section, provide general information about the rule:
+
+- **Rule Name**: Enter a unique name for the rule or use the default name.
+- **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
+- **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
+- **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/understanding-admin-rank), your assigned admin rank determines the rule order values you can select.
+- **Edit Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/understanding-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
+- **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
+
+See image.
+
+In the **Rule Expiration** section, you can define the validity of the rule:
+
+- **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
+  - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
+  - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
+  - **Time Zone**: Select the time zone in which the rule is valid.
+
+You can use the rule expiration feature to temporarily allow or block access for a set period of time to an application if any configured rules block or allow access to it, respectively.
+
+After the rule expires, Zscaler either blocks or allows the traffic based on the default rules configured for your organization.
+
+See image.
+
+(Optional) In the **Notification** section, you can enable browser notification template to be triggered by the rule:
+
+- **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**. See image.
+
+- **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
+- **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
+- **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
+- **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
+
+- **Users**: Select **Any** to apply the rule to all [users](https://help.zscaler.com/authentication-service/adding-users), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users.
+- **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/authentication-service/adding-user-groups), or select up to 32 groups. You can search for groups.
+- **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/authentication-service/adding-departments), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic) must apply to all groups and departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.; Contact Zscaler Support to increase the limit of **Users**, **Groups**, or **Departments**.
+
+- **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location. Contact Zscaler Support to increase the limit of **Locations**.
+- **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
+
+**Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/defining-time-intervals), or select up to two time intervals. You can also search for a time interval.
+
+- **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
+- **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
+- **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
+- **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+  - **Low**: Level with user risk scores ranging from 0 to 29
+  - **Medium**: Level with user risk scores ranging from 30 to 59
+  - **High**: Level with user risk scores ranging from 60 to 79
+  - **Critical**: Level with user risk scores ranging from 80 to 100
+
+Choose to allow the users to access the selected applications.
+
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
 Choose to display an EUN that cautions users before allowing them access to the selected applications.
 
 You can select this action for only one of the following request methods: **CONNECT**, **GET**, or **HEAD**.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota at each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssl-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
-Choose toblock users from accessing the selected applications.
+Choose toblock the users from accessing the selected applications.
 
 Choose to conditionally allow the users to access the selected applications.
 
-- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/zidentity/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota at each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssl-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/authentication-service/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
 
 Choose to isolate all the traffic that matches the cloud app control rule through a remote browser. To learn more, see [What Is Zero Trust Browser?](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser)
 
-- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zia/creating-isolation-profile-cloud-browser-isolation) for your organization.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota at each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS inspection](https://help.zscaler.com/zia/deploying-ssl-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+This action is available only if Zero Trust Browser is enabled for your organization.
+
+- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) for your organization.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
-[Image: Cloud App Control Rule Section]
+[Image: Criteria menu on the Custom Applications page]
 
-[Image: Criteria Section]
+[Image: Custom Applications page - criteria multi-select window]
 
-[Image: Rule Expiration Section]
+[Image: Criteria section on the Custom Applications page]
 
-[Image: Actions Section]
+[Image: Details section on the Custom Applications page]
 
-[Image: Add Custom Applications rule page]
+[Image: Rule Expiration Section on the Custom Applications page]
+
+[Image: Actions section on the Custom Applications page]
+
+[Image: Notification section on the Custom Applications page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-custom-certificate-application-specific-trust-store","lastmod":"2026-04-15T23:30Z","nid":"1401766"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-custom-certificate-application-specific-trust-store","lastmod":"2026-09-17T00:23Z","nid":"1401766"} -->
 ## Adding Custom Certificate to an Application-Specific Trust Store
 
 - Source: https://help.zscaler.com/zia/adding-custom-certificate-application-specific-trust-store
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SSL/TLS Inspection > Adding Custom Certificate to an Application-Specific Trust Store
-- Last modified: 2026-04-15T23:30Z
+- Last modified: 2026-09-17T00:23Z
 - Summary: Information on how to add a custom certificate to an application-specific trust store in the Zscaler Admin Console.
 
 Whenever Zscaler SSL/TLS Inspection is enabled to maintain secure connections on the corporate network, admins can use the organization-generated certificate to connect to any secure website. By default, the root and intermediate certificates, which are required to trust the organization's generated certificate, are already added to the end user's system certificate store.
@@ -3021,9 +3458,23 @@ aws configure set default.ca_bundle <certification in .pem format >
 
 To add a Zscaler custom certificate to the Azure CLI trust store, add the Zscaler CA certificate to the following file:
 
+The path provided is for the 32-bit (x86) installation of the Azure CLI.
+
 ```
 C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\Lib\site-packages\certifi\cacert.pem
 ```
+
+- On Windows, use the following method to configure the certificate path:
+  1. Export the Zscaler Root CA certificate to a PEM or CRT file (e.g., `C:\Certificates\ZscalerRootCA.pem`).
+  2. Click the **Start** icon.
+  3. Search for **Edit the system environment variables**.
+  4. Click **Environment Variables**. See image.
+  5. Under **User variables**, click **New**. See image.
+  6. Enter the following details:
+    - **Variable name**: `REQUESTS_CA_BUNDLE`
+    - **Variable value**: `C:\Certificates\ZscalerRootCA.pem`
+  7. Click **OK**. See image.
+  8. Restart the terminal or PowerShell to apply the changes.
 
 This process is tested and verified on Ubuntu version 22.04.
 
@@ -3068,6 +3519,12 @@ To install the Zscaler root CA certificates for Databricks Connect, export the e
 ```
 REQUESTS_CA_BUNDLE=/home/cert/Zscaler_Root_CA.crt
 ```
+
+[Image: System Properties window showing Environment Variable option]
+
+[Image: Environment Variable window showing New option]
+
+[Image: New User Variable window]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -3110,13 +3567,13 @@ To add a custom cloud application:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-custom-dlp-dictionary","lastmod":"2026-09-13T07:06Z","nid":"1400076"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-custom-dlp-dictionary","lastmod":"2026-09-20T07:06Z","nid":"1400076"} -->
 ## Adding Custom DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/adding-custom-dlp-dictionary
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Adding Custom DLP Dictionaries
-- Last modified: 2026-09-13T07:06Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: How to add a custom Data Loss Prevention (DLP) dictionary to the Zscaler service.
 
 Adding a custom Data Loss Prevention (DLP) dictionary is one of the tasks you can complete when configuring DLP policy rules. To learn more, see [Configuring Policies Using Zscaler DLP Engines](https://help.zscaler.com/zia/how-do-i-configure-policy-using-zscaler-dlp-engines).
@@ -3127,11 +3584,11 @@ You can also use Patterns and Phrases dictionaries to create parent dictionaries
 
 Parent dictionaries and sub-dictionaries are not supported for Endpoint DLP.
 
-To learn more about the ranges and limitations for custom DLP dictionaries, see [Ranges & Limitations](https://help.zscaler.com/zia/ranges-limitations).
+To learn more about the ranges and limitations for custom DLP dictionaries, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
 
 To add a custom DLP dictionary:
 
-1. Go to **Policies**> **Data Protection**> **Common Resources**> **Dictionaries & Engines**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Common Resources**> **Dictionaries & Engines**.
 2. Add one of the following dictionary types:
   - Add a Standalone DLP Dictionary
   - Add a Parent DLP Dictionary or Sub-Dictionary
@@ -3163,13 +3620,33 @@ See image.
 
 See image.
 
-- **Match Type**: This is only applicable if you are configuring a Patterns & Phrases type dictionary. Select a **Match Type** from the drop-down menu to configure how the dictionary triggers when matching patterns and phrases. For custom dictionaries that use patterns with lookaround constructs (also known as zero-length assertions), you must: Select **Match Any Patterns and Any Phrases** as the **Match Type**.; Configure at least one phrase.
+- **Match Type**: This is only applicable if you are configuring a Patterns & Phrases dictionary type. Select a **Match Type** from the drop-down menu to configure how the dictionary triggers when matching patterns and phrases. For custom dictionaries that use patterns with lookaround constructs (also known as zero-length assertions), you must: Select **Match Any Patterns and Any Phrases** as the **Match Type**.; Configure at least one phrase.
   - **Match Any**: This is the default setting. If selected, the dictionary triggers when a transaction matches any one of the dictionary’s patterns or phrases.
   - **Match All**: If selected, the dictionary triggers when a transaction matches all of the dictionary’s patterns and phrases.
   - **Match Any Patterns and Any Phrases**: If selected, the dictionary triggers when a transaction matches any one of the dictionary's patterns and any one of the dictionary's phrases. This option requires at least one phrase and one pattern to match.
+  - **Match Near or Not Near Phrases**: If selected, the dictionary triggers when phrases from two groups appear near or not near each other in a transaction.
+    - Near and Not Near Examples
 - **Description**: (Optional) Enter a description for the dictionary.
-- **Enable Proximity**: This is only applicable if you select **Match Any Patterns and Any Phrases** as the **Match Type**. You can enable proximity to define how close a phrase must be to an instance of a pattern to count as a match.
+- **Proximity**: This is only applicable if you select **Match Any Patterns and Any Phrases** or **Match Near or Not Near Phrases** as the **Match Type**. Proximity define how close a phrase must be to an instance of a pattern to count as a match.
+  - **Near**: Ensures that sensitive information from two phrase groups is accurately identified by considering the context and proximity of related terms that should be inspected together (e.g., patient name and diagnosis). If you select **Near**proximity, the service assigns a value of 0 bytes by default, and you can specify a value of up to 10,000 bytes.
+  - **Not Near**: Ensures that phrases from two phrase groups are not inspected together within the proximity range set, helping to refine the accuracy of DLP policies and reduce false positives. If you select **Not Near** proximity, you must enter a value from 1–10,000 bytes.
   - **Proximity Length**: Defines how close a phrase must be to an instance of the pattern (that the dictionary detects) to count as a match. The phrase can be located in any direction from the pattern within the document. Enter a value from 0–10,000 bytes. A proximity length of 0 disables this option (i.e., the phrase can be any distance from the pattern).
+
+| Phrases (Near) | Proximity Length | Uploaded Data | Result | Triggers |
+| --- | --- | --- | --- | --- |
+| Group 1: Apple, Orange, Grape Group 2: Peach, Berry, Mango | 10 Bytes | Apple Mango | Match (Match Count = 2) | Apple, Mango |
+| Apple | Not a match | N/A |  |  |
+| Mango | Not a match | N/A |  |  |
+| Apple Mango cccdssffjfghjgfhhgfgggh Orange | Match (Match Count = 2) | Apple, Mango |  |  |
+| Apple Mango Orange | Match (Match Count = 3) | Apple, Mango, Orange |  |  |
+
+| Phrases (Not Near) | Proximity Length | Uploaded Data | Result | Triggers |
+| --- | --- | --- | --- | --- |
+| Group 1: Apple, Orange, Grape Group 2: Peach, Berry, Mango | 10 Bytes | Apple Mango | Not a match | N/A |
+| Apple | Match | Apple |  |  |
+| Mango | Not a match | N/A |  |  |
+| Apple Mango cccdssffjfghjgfhhgfgggh Orange | Not a match | N/A |  |  |
+| Apple Mango Orange | Not a match | N/A |  |  |
 
 [Image: Selecting the Exact Data Match dictionary type]
 
@@ -3188,13 +3665,33 @@ To add a parent dictionary or sub-dictionary:
   - **Name**: Enter a name for the dictionary.
   - **Dictionary Type**: Select a type from the drop-down menu. See image. If you don't specify patterns or phrases for a parent dictionary, it acts simply as a container for sub-dictionaries. You must specify at least one pattern or phrase for each sub-dictionary.
     - **Patterns & Phrases**: If selected, the **Patterns**and **Phrases**sections appear below, where you can add patterns, phrases, and apply actions to them. To enable Unicode phrases defined in the Phrases list to be matched if they are adjacent to other characters without any delimiter in between, select the **Non-delimited Unicode Phrase matching**checkbox. For example, the phrase “クレジットカード” matches “クレジットカードのコピーをください”. Matches happen even when no spaces are detected. To learn more, see [Defining Patterns for Custom DLP Dictionaries](https://help.zscaler.com/zia/how-do-i-define-patterns-custom-dictionaries) and [Defining Phrases for Custom DLP Dictionaries](https://help.zscaler.com/zia/how-do-i-define-phrases-custom-dictionaries).
-  - **Match Type**: This is only applicable if you are configuring a Patterns & Phrases type dictionary. Select a **Match Type** from the drop-down menu to configure how the dictionary triggers when matching patterns and phrases. For custom dictionaries that use patterns with lookaround constructs (also known as zero-length assertions), you must: Select **Match Any Patterns and Any Phrases** as the **Match Type**.; Configure at least one phrase.
+  - **Match Type**: This is only applicable if you are configuring a Patterns & Phrases dictionary type. Select a **Match Type** from the drop-down menu to configure how the dictionary triggers when matching patterns and phrases. For custom dictionaries that use patterns with lookaround constructs (also known as zero-length assertions), you must: Select **Match Any Patterns and Any Phrases** as the **Match Type**.; Configure at least one phrase.
     - **Match Any**: This is the default setting. If selected, the dictionary triggers when a transaction matches any one of the dictionary’s patterns or phrases.
     - **Match All**: If selected, the dictionary triggers when a transaction matches all of the dictionary’s patterns and phrases.
     - **Match Any Patterns and Any Phrases**: If selected, the dictionary triggers when a transaction matches any one of the dictionary's patterns and any one of the dictionary's phrases. This option requires at least one phrase and one pattern to match.
+    - **Match Near or Not Near Phrases**: If selected, the dictionary triggers when phrases from two groups appear near or not near each other in a transaction.
+      - Near and Not Near Examples
   - **Description**: (Optional) Enter a description for the dictionary.
-  - **Enable Proximity**: This is only applicable if you select **Match Any Patterns and Any Phrases** as the **Match Type**. You can enable proximity to define how close a phrase must be to an instance of a pattern to count as a match.
+  - **Proximity**: This is only applicable if you select **Match Any Patterns and Any Phrases** or **Match Near or Not Near Phrases** as the **Match Type**. Proximity define how close a phrase must be to an instance of a pattern to count as a match.
+    - **Near**: Ensures that sensitive information from two phrase groups is accurately identified by considering the context and proximity of related terms that should be inspected together (e.g., patient name and diagnosis). If you select **Near**proximity, the service assigns a value of 0 bytes by default, and you can specify a value of up to 10,000 bytes.
+    - **Not Near**: Ensures that phrases from two phrase groups are not inspected together within the proximity range set, helping to refine the accuracy of DLP policies and reduce false positives. If you select **Not Near** proximity, you must enter a value from 1–10,000 bytes.
     - **Proximity Length**: Defines how close a phrase must be to an instance of the pattern (that the dictionary detects) to count as a match. The phrase can be located in any direction from the pattern within the document. Enter a value from 0–10,000 bytes. A proximity length of 0 disables this option (i.e., the phrase can be any distance from the pattern).
+
+| Phrases (Near) | Proximity Length | Uploaded Data | Result | Triggers |
+| --- | --- | --- | --- | --- |
+| Group 1: Apple, Orange, Grape Group 2: Peach, Berry, Mango | 10 Bytes | Apple Mango | Match (Match Count = 2) | Apple, Mango |
+| Apple | Not a match | N/A |  |  |
+| Mango | Not a match | N/A |  |  |
+| Apple Mango cccdssffjfghjgfhhgfgggh Orange | Match (Match Count = 2) | Apple, Mango |  |  |
+| Apple Mango Orange | Match (Match Count = 3) | Apple, Mango, Orange |  |  |
+
+| Phrases (Not Near) | Proximity Length | Uploaded Data | Result | Triggers |
+| --- | --- | --- | --- | --- |
+| Group 1: Apple, Orange, Grape Group 2: Peach, Berry, Mango | 10 Bytes | Apple Mango | Not a match | N/A |
+| Apple | Match | Apple |  |  |
+| Mango | Not a match | N/A |  |  |
+| Apple Mango cccdssffjfghjgfhhgfgggh Orange | Not a match | N/A |  |  |
+| Apple Mango Orange | Not a match | N/A |  |  |
 
 [Image: Add Patterns & Phrases]
 <!-- /ZS-ARTICLE -->
@@ -3274,16 +3771,16 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-dlp-and-endpoint-resources","lastmod":"2026-08-26T10:29Z","nid":"1541427"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-dlp-and-endpoint-resources","lastmod":"2026-09-16T11:58Z","nid":"1541427"} -->
 ## Adding DLP and Endpoint Resources
 
 - Source: https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Adding DLP and Endpoint Resources
-- Last modified: 2026-08-26T10:29Z
+- Last modified: 2026-09-16T11:58Z
 - Summary: Information on how to add DLP and endpoint resources to prevent data loss on endpoints.
 
-The page for Data Loss Prevention (DLP) and Endpoint resources (Policies > Data Protection > Policy > Endpoint DLP Resources) has slightly different names based on the Zscaler products licensed for your organization:
+The page for Data Loss Prevention (DLP) and Endpoint resources (Data Security > Endpoint DLP > Endpoint DLP Resources) has slightly different names based on the Zscaler products licensed for your organization:
 
 - If your organization has licensed only Endpoint DLP, this page is called DLP Resources.
 - If your organization has licensed only [Endpoint Context](https://help.zscaler.com/zia/about-endpoint-context), this page is called Endpoint Resources.
@@ -3313,7 +3810,7 @@ You can use the following methods to add endpoint and DLP resources:
 - Add a Single Endpoint and DLP Resource
 - Import Multiple DLP and Endpoint Resources
 
-1. Go to **Policies**> **Data Protection**> **Policy**> **Endpoint DLP Resources**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Endpoint DLP**> **Endpoint DLP Resources**.
 2. On the **DLP & Endpoint Resources** page:
   - Add a network share
   - Add a printer
@@ -3321,42 +3818,42 @@ You can use the following methods to add endpoint and DLP resources:
   - Add an application
 3. [Activate](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console) your changes.
 
-On the **Network Shares** page (Policies > Data Protection > Policy > Endpoint DLP Resources > Network Shares):
+On the **Network Shares** page (**Data Security** > **Endpoint DLP** > **Endpoint DLP Resources** > **Network Shares**):
 
 1. Click **Add Network Share**. The **Add Network Share** window appears.
 2. In the **Add Network Share** window:
   - Enter the following **Network Share Details**:
     - **Name**: The name of the network share
-    - **Server Name**: The server name where the network share resides (e.g., NetApp). You can also use regular expressions and CIDR ranges for advanced matching. For example: `filer8-dallas` (matches only the network server "filer8-dallas"); `regex:^(?i)srv*` (matches all network servers that start with "srv" and the match is case-insensitive); `regex:(?i).*\.domain$` (matches all network server names that end with ".domain"); `cidr:192.168.1.0/24` (matches network servers with an IP address starting with "192.168.1")
+    - **Server Name**: The server name where the network share resides (e.g., NetApp) You can also use regular expressions and CIDR ranges for advanced matching. For example: `filer8-dallas` (matches only the network server "filer8-dallas"); `regex:^(?i)srv*` (matches all network servers that start with "srv" and the match is case-insensitive); `regex:(?i).*\.domain$` (matches all network server names that end with ".domain"); `cidr:192.168.1.0/24` (matches network servers with an IP address starting with "192.168.1")
     - **Description**: (Optional) A description of the network share
   - Select one of the following **Directories** attributes:
     - **All files and directories on this server**: Select this option if you want to include all files and directories on the specified server.
-    - **Files in the following directories and subdirectories**: Select this option if you want to specify the directories and subdirectories to be included. If you select this option, the **Directory Paths** field appears. Add paths (e.g., `/<folder>/<subfolder>`) separated by line breaks, then click **Add Items**.
-3. Click **Add**.
+    - **Files in the following directories and subdirectories**: Select this option if you want to specify the directories and subdirectories to be included. If you select this option, the **Directory Paths** field appears. Add paths (e.g., `/<folder>/<subfolder>`) separated by line breaks, then click **Add**.
+3. Click **Save**.
 
 See image.
 
 [Image: Add Network Share window for Zscaler Endpoint DLP]
 
-On the **Printers** page (Policies > Data Protection > Endpoint DLP Resources > Printers):
+On the **Printers** page (**Data Security** > **Endpoint DLP** > **Endpoint DLP Resources** > **Printers**):
 
-1. Click **Add Printer**. The **Add Printer** window appears.
-2. In the **Add Network Share** window:
+1. Click **Add Printer**. The **Add Printer** drawer opens.
+2. In the **Add Printer** drawer:
   - **Name**: Enter a name for the printer.
   - **Domain**: Enter the name of the domain where the printer is located.
   - **Printer Name**: Enter the name of the printer as it appears in the OS list of printers.
   - **IP Address**: Enter the IP address for the printer.
   - **Description**: (Optional) Enter a description for the printer.
-3. Click **Add**.
+3. Click **Save**.
 
 See image.
 
-[Image: Add Network Printer window for Zscaler Endpoint DLP]
+[Image: Add Network Printer drawer for Zscaler Endpoint DLP]
 
-On the **Removable Storage Devices** page (Policies > Data Protection > Endpoint DLP Resources > Removable Storage Devices):
+On the **Removable Storage Devices** page (**Data Security** > **Endpoint DLP** > **Endpoint DLP Resources** > **Removable Storage Devices**):
 
-1. Click **Add Removable Storage Devices**. The **Add Removable Storage Devices** window appears.
-2. In the **Add Removable Storage Devices** window:
+1. Click **Add Removable Storage Device**. The **Add Removable Storage Device** drawer opens.
+2. In the **Add Removable Storage Device** drawer:
   - Enter the following **Removable Storage Device Details**:
     - **Name**: The name of the removable storage device
     - **Description**: (Optional) A description of the removable storage device
@@ -3368,25 +3865,26 @@ On the **Removable Storage Devices** page (Policies > Data Protection > Endpoint
 
 See image.
 
-[Image: Add Network Printer window for Zscaler Endpoint DLP]
+[Image: Add Removable Storage Device drawer for Zscaler Endpoint DLP]
 
 You can import multiple resources at the same time using a CSV file. There is a sample template available to download for each resource type.
 
+The Zscaler service doesn't support importing multiple applications.
+
 To import multiple DLP and endpoint resources:
 
-1. Go to **Policies**> **Data Protection**> **Policy**> **Endpoint DLP Resources**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**>**Endpoint DLP**>**Endpoint DLP Resources**.
 2. On the **DLP & Endpoint Resources** page:
   - Import network shares
   - Import printers
   - Import removable storage devices
-  - Import applications
 3. [Activate](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console) your changes.
 
-On the **Network Shares** page (Policies > Data Protection > Endpoint DLP Resources > Network Shares):
+On the **Network Shares** page (**Data Security** > **Endpoint DLP** > **Endpoint DLP Resources** > **Network Shares**):
 
 1. Click **Import Network Shares**. The **CSV Import - Network Shares** window appears.
 2. Click **Download csv template** to download the import network shares template.
-3. Enter your network shares in the CSV file tempate in the following format:
+3. Enter your network shares in the CSV file template in the following format:
 
 ```
 <name>,<description>,<server name>,<paths>
@@ -3398,29 +3896,19 @@ For example:
 Network share 1,imported network drive,Server 3234,"path1,path2,path3,path4,path5,path6,path7,path8"
 ```
 
-1. After you have the CSV file saved in the correct format, click **Choose a file**.
-2. Browse and select the CSV file you want to import, then click **Open**.
-3. Click **Next**.
-
-See image.
-
-1. In the **Preview** pane, confirm the details of the network shares you are importing.
-2. (Optional) Add the network shares to a group or tag. Groups and tags let you logically combine resources so that you can easily apply a rule to multiple resources at the same time. Resource groups are available if your organization licenses Endpoint Data Loss Prevention (DLP) without [Endpoint Context](https://help.zscaler.com/zia/about-endpoint-context). When your organization licenses Endpoint Context, any resource groups that you have already configured are automatically converted to [resource tag groups](https://help.zscaler.com/zia/adding-resource-tags). All policies that previously used resource groups are automatically updated to use the converted resource tag groups.
-  1. Select **Add the imported resources to a group** or **Add the imported resources to a tag**, depending on the products you have licensed for your organization. See image.
+1. After you have the CSV file saved in the correct format, drag and drop a file or click the upload icon to browse for a file.
+2. If you browse for a file, select the CSV file you want to import, then click **Open**. The **Preview** and **Total Resources**sections appear.
+3. In the **Preview** section, confirm the details of the network shares you are importing.
+4. (Optional) Add the network shares to a tag. Tags let you logically combine resources so that you can easily apply a rule to multiple resources at the same time.
+  1. Select **Add the imported resources to a tag**.
   2. Do one of the following:
-    - For groups:
-      1. To add the resources to a new group, click **New Group**, then specify a name and description for the group.
-      2. To add the resources to an existing group, click **Existing Group**, then select a group from the **Select Group** drop-down menu.
-    - For tags:
-      1. To add the resources to a new tag, click **New Tag**, then specify a name and description for the tag.
-      2. To add the resources to an existing group, click **Existing Tag**, then select a group from the **Select Tag**drop-down menu.
-3. Click **Import**. The network shares appear in the list in the **Network Shares** window.
+    - To add the resources to a new tag, click **New Tag**, then specify a name and description for the tag.
+    - To add the resources to an existing tag, click **Existing Tag**, then select a group from the **Select Tag**drop-down menu.
+5. Click **Import**. See image. The network shares appear in the list in the **Network Shares** window.
 
 [Image: A screenshot of the CSV Import Network Shares window for Zscaler Endpoint DLP]
 
-[Image: A screenshot of the CSV Import Network Shares window for Zscaler Endpoint DLP]
-
-On the **Printers** page (Policies > Data Protection > Endpoint DLP Resources > Printers):
+On the **Printers** page (**Data Security** > **Endpoint DLP** > **Endpoint DLP Resources** > **Printers**):
 
 1. Click **Import Printers**. The **CSV Import - Printers** window appears.
 2. Click **Download csv template** to download the import network printers template.
@@ -3436,29 +3924,19 @@ For example:
 Printer1,Printer outside Conference Room 1,blr/resources/folder1,1.1.1.1,printer.safemarch.com
 ```
 
-1. After you have the CSV file saved in the correct format, click **Choose a file**.
-2. Browse and select the CSV file you want to import, then click **Open**.
-3. Click **Next**.
-
-See image.
-
-1. In the **Preview** pane, confirm the details of the printers you are importing.
-2. (Optional) Add the printers to a group or tag. Groups and tags let you logically combine resources so that you can easily apply a rule to multiple resources at the same time. Resource groups are available if your organization licenses Endpoint Data Loss Prevention (DLP) without [Endpoint Context](https://help.zscaler.com/zia/about-endpoint-context). When your organization licenses Endpoint Context, any resource groups that you have already configured are automatically converted to [resource tag groups](https://help.zscaler.com/zia/adding-resource-tags). All policies that previously used resource groups are automatically updated to use the converted resource tag groups.
-  1. Select **Add the imported resources to a group** or **Add the imported resources to a tag**, depending on the products you have licensed for your organization. See image.
+1. After you have the CSV file saved in the correct format, drag and drop a file or click the upload icon to browse for a file.
+2. If you browse for a file, select the CSV file you want to import, then click **Open**. The **Preview** and **Total Resources**sections appear.
+3. In the **Preview** pane, confirm the details of the printers you are importing.
+4. (Optional) Add the printers to a tag. Tags let you logically combine resources so that you can easily apply a rule to multiple resources at the same time.
+  1. Select **Add the imported resources to a tag**.
   2. Do one of the following:
-    - For groups:
-      1. To add the resources to a new group, click **New Group**, then specify a name and description for the group.
-      2. To add the resources to an existing group, click **Existing Group**, then select a group from the **Select Group** drop-down menu.
-    - For tags:
-      1. To add the resources to a new tag, click **New Tag**, then specify a name and description for the tag.
-      2. To add the resources to an existing group, click **Existing Tag**, then select a group from the **Select Tag**drop-down menu.
-3. Click **Import**. The printers appear in the list in the **Printers** window.
+    - To add the resources to a new tag, click **New Tag**, then specify a name and description for the tag.
+    - To add the resources to an existing tag, click **Existing Tag**, then select a group from the **Select Tag**drop-down menu.
+5. Click **Import**. See image. The printers appear in the list in the **Printers** window.
 
 [Image: A screenshot of the CSV Import Printers window for Zscaler Endpoint DLP]
 
-[Image: A screenshot of the CSV Import Printers window for Zscaler Endpoint DLP]
-
-On the **Removable Storage Devices**page (Policies > Data Protection > Endpoint DLP Resources > Removable Storage Devices):
+On the **Removable Storage Devices**page (**Data Security** > **Endpoint DLP** > **Endpoint DLP Resources** > **Removable Storage Devices**):
 
 1. Click **Import Removable Storage Devices**. The **CSV Import - Removable Storage Devices** window appears.
 2. Click **Download csv template** to download the import removable storage devices template.
@@ -3474,86 +3952,40 @@ For example:
 Finance Department 1,Thumb drive for use by the Finance Deparment,11029,11926,59695
 ```
 
-1. After you have the CSV file saved in the correct format, click **Choose a file**.
-2. Browse and select the CSV file you want to import, then click **Open**.
-3. Click **Next**.
-
-See image.
-
-1. In the **Preview** pane, confirm the details of the removable storage devices you are importing.
-2. (Optional) Add the removable storage devices to a group or tag. Groups and tags let you logically combine resources so that you can easily apply a rule to multiple resources at the same time. Resource groups are available if your organization licenses Endpoint Data Loss Prevention (DLP) without [Endpoint Context](https://help.zscaler.com/zia/about-endpoint-context). When your organization licenses Endpoint Context, any resource groups that you have already configured are automatically converted to [resource tag groups](https://help.zscaler.com/zia/adding-resource-tags). All policies that previously used resource groups are automatically updated to use the converted resource tag groups.
-  1. Select **Add the imported resources to a group** or **Add the imported resources to a tag**, depending on the products you have licensed for your organization. See image.
+1. After you have the CSV file saved in the correct format, drag and drop a file or click the upload icon to browse for a file.
+2. If you browse for a file, select the CSV file you want to import, then click **Open**. The **Preview** and **Total Resources**sections appear.
+3. In the **Preview** pane, confirm the details of the removable storage devices you are importing.
+4. (Optional) Add the removable storage devices to a group or tag. Groups and tags let you logically combine resources so that you can easily apply a rule to multiple resources at the same time.
+  1. Select **Add the imported resources to a tag**.
   2. Do one of the following:
-    - For groups:
-      1. To add the resources to a new group, click **New Group**, then specify a name and description for the group.
-      2. To add the resources to an existing group, click **Existing Group**, then select a group from the **Select Group** drop-down menu.
-    - For tags:
-      1. To add the resources to a new tag, click **New Tag**, then specify a name and description for the tag.
-      2. To add the resources to an existing group, click **Existing Tag**, then select a group from the **Select Tag**drop-down menu.
-3. Click **Import**. The removable storage devices appear in the list in the **Removable Storage Devices** window.
+    - To add the resources to a new tag, click **New Tag**, then specify a name and description for the tag.
+    - To add the resources to an existing tag, click **Existing Tag**, then select a group from the **Select Tag**drop-down menu.
+5. Click **Import**. See image. The removable storage devices appear in the list in the **Removable Storage Devices** window.
 
 [Image: A screenshot of the CSV Import Removable Storage Devices window for Zscaler Endpoint DLP]
 
-[Image: A screenshot of the CSV Import Removable Storage Devices window for Zscaler Endpoint DLP]
-
-If you have licensed [Endpoint Context](https://help.zscaler.com/zia/about-endpoint-context), the Zscaler service doesn't support importing multiple applications.
-
-On the **Applications**page (Policies > Data Protection > Endpoint DLP Resources > Applications):
-
-1. Click **Import Applications**. The **CSV Import - Applications** window appears.
-2. Click **Download csv template** to download the import applications template.
-3. Enter your applications in the CSV file template in the following format:
-
-```
-<Name>,<Description>,<OS Type>,<File Name>,<Original File Name>,<Bundle ID>,<Digitally Signed>
-```
-
-For example:
-
-```
-Custom CMS Application,In-house CMS Application,WINDOWS_OS,safemarchcms,safemarchcms.exe,,ANY
-```
-
-1. After you have the CSV file saved in the correct format, click **Choose a file**.
-2. Browse and select the CSV file you want to import, then click **Open**.
-3. Click **Next**.
-
-See image.
-
-1. In the **Preview** pane, confirm the details of the applications you are importing.
-2. (Optional) Add the applications to a group. Groups let you logically combine resources so that you can easily apply a rule to multiple resources at the same time.
-  1. Select **Add the imported resources to a group**. See image.
-  2. Do one of the following:
-    - To add the resources to a new group, click **New Group**, then specify a name and description for the group.
-    - To add the resources to an existing group, click **Existing Group**, then select a group from the **Select Group** drop-down menu.
-3. Click **Import**. The applications appear in the list in the **Applications** window.
-
-[Image: A screenshot of the CSV Import Applications window for Zscaler Endpoint DLP]
-
-[Image: A screenshot of the CSV Import Applications window for Zscaler Endpoint DLP]
-
-When you add an application as a DLP and resource, you can then use the application as part of your Endpoint DLP policy rules. You can then use applications to create rules that prevent users from copying sensitive content to their clipboard from the applications. Additionally, you can add endpoint application details as part of the endpoint-related telemetry available in Endpoint Context.
+When you add an application as a DLP and endpoint resource, you can then use the application as part of your Endpoint DLP policy rules. You can then use applications to create rules that prevent users from copying sensitive content to their clipboard from the applications. Additionally, you can add endpoint application details as part of the endpoint-related telemetry available in Endpoint Context.
 
 To learn more about accessing Endpoint Context for your organization, contact Zscaler Support.
 
-On the **Applications** page (Policies > Data Protection > Endpoint DLP Resources > Applications):
+On the **Endpoint Applications** page (**Data Security** > **Endpoint DLP** > **Endpoint DLP Resources** > **Endpoint Applications**):
 
 - Add a Windows application
 - Add a macOS application
 
-1. Click **Add Windows Application**. The **Add Windows Application** window appears.
-2. In the **Add Windows Application** window:
+1. Click **Add Windows Application**. The **Add Windows Application** drawer opens.
+2. In the **Add Windows Application** drawer:
   1. Enter the following **Application Details**:
     - **Name**: Enter a unique name for the application.
     - **Description:**(Optional) Enter additional notes or information about the application. The description cannot exceed 255 characters.
   2. Enter the following **Criteria**:
     - **Original File Name**: Enter the original file name of the executable. This name is located on the **Details**tab in the **Properties**for the executable file in Windows.
-    - **Process Name**: Enter the name of the executable that runs the application.
+    - **File Name**: Enter the name of the executable that runs the application.
     - **Digitally Signed**: Select an option for whether the application file must be digitally signed by a trusted provider:
       - **Any**: The Zscaler service does not check for a digital signature.
       - **Yes**: The Zscaler service requires a digital signature.
       - **No**: The Zscaler service does not require a digital signature.
-  3. Click **Add**.
+  3. Click **Save**.
 
 See image.
 
@@ -3561,19 +3993,19 @@ The **Add Windows Application** window closes and the application appears in the
 
 [Image: The Add Windows Application Window for Zscaler Endpoint DLP]
 
-1. Click **Add macOS Application**
-2. In the **Add macOS Application** window:
+1. Click **Add macOS Application**. The **Add macOS Application** drawer opens.
+2. In the **Add macOS Application** drawer:
   1. Enter the following **Application Details**:
     - **Name**: Enter a unique name for the application.
     - **Description:**(Optional) Enter additional notes or information about the application. The description cannot exceed 255 characters.
   2. Enter the following **Criteria**:
     - **Bundle ID**: Enter the bundle identifier that uniquely identifies the application.
-    - **Process Name**: Enter the name of the executable that runs the application.
+    - **File Name**: Enter the name of the executable that runs the application.
     - **Digitally Signed**: Select an option for whether the application file must be digitally signed by a trusted provider:
       - **Any**: The Zscaler service does not check for a digital signature.
       - **Yes**: The Zscaler service requires a digital signature.
       - **No**: The Zscaler service does not require a digital signature.
-  3. Click **Add**.
+  3. Click **Save**.
 
 See image.
 
@@ -3894,13 +4326,13 @@ The **Add macOS Application** window closes and the application appears in the l
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-dns-gateways","lastmod":"2026-05-29T06:34Z","nid":"1451571"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-dns-gateways","lastmod":"2026-09-15T05:18Z","nid":"1451571"} -->
 ## Adding DNS Gateways
 
 - Source: https://help.zscaler.com/zia/adding-dns-gateways
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > Adding DNS Gateways
-- Last modified: 2026-05-29T06:34Z
+- Last modified: 2026-09-15T05:18Z
 - Summary: How to add DNS Gateways in the Zscaler Admin Console to set up DNS high availability and perform protocol translation for DNS lookup by external DNS services.
 
 In the Zscaler Admin Console, you can configure a list of DNS Gateways with primary and secondary DNS services offered by your third-party DNS providers. By using DNS Gateways, you can also control the protocols over which DNS traffic can reach the configured services.
@@ -3909,11 +4341,15 @@ A maximum of 254 DNS Gateways are supported for an organization. To learn more, 
 
 To add a DNS Gateway:
 
-1. Go to **Infrastructure**> **Internet & SaaS**> **Network Policies**> **Proxies and Gateways**.
-2. Click the **DNS Gateways** tab.
-3. Click **Add DNS Gateway**. The **Add DNS Gateway** window appears.
-4. In the **Add DNS Gateway** window: See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Resources** > **Proxies and Gateways**.
+2. Select the **DNS Gateways** tab.
+3. Click **Add DNS Gateway**. The **Add DNS Gateway** drawer appears.
+4. In the **Add DNS Gateway** drawer: See image.
   - **Name**: Enter a unique name for the DNS Gateway. Only alphanumeric characters are allowed, and the name cannot exceed 255 characters.
+  - **Failure Behavior**: Select an action that must be performed if the configured DNS service is unavailable or unhealthy:
+    - **Return Error Response**: Return an appropriate error code (SERVFAIL) to the client. If only the primary DNS service is configured, then the error code is sent when the primary DNS service fails. If both primary and secondary DNS services are configured, the error code is sent only when both services are unavailable to serve the requests. To learn more about the DNS error codes, see [DNS Insights Logs: Columns](https://help.zscaler.com/zia/dns-insights-logs-columns).
+    - **Allow and Ignore DNAT Rules**: The DNS request is sent to the originally requested DNS resolver (not specified in the DNS Gateway) using the same protocol as the original user request without applying the configured DNAT rules.
+    - **Forward to Zscaler Trusted Resolver**: Send the DNS requests to the Zscaler Trusted DNS Resolver. You can use the Zscaler Trusted DNS Resolver for failover for DNS over UDP, TCP, and DoH.; While this configuration allows you to forward your DNS traffic to the Zscaler Trusted DNS Resolver as failover behavior, you can also resolve all your DNS traffic using the Zscaler Trusted DNS Resolver. Supported Mechanisms
   - **Protocol**: Select the protocols to be used to connect to the DNS service. You can select from **DNS over HTTP** (DoH), **UDP**, and **TCP**.
   - **Primary DNS Server**: Enter the IP address or the FQDN of the primary DNS service provided by your third-party DNS service provider. For DoH, a customized URL path is supported in the DNS server's FQDN or IP address. When using a custom path, you must append the `dns-query` string to the URL path. For example, `doh.dnsserver.com/path/to/destination/dns-query` or `192.0.2.1/path/to/destination/dns-query`. Depending on the protocols selected for the gateway, the following fields for corresponding ports appear, which are optional configurations:
     - **UDP Port**: Specify the port number for UDP if the primary DNS service uses a non-default port. The default port is 53.
@@ -3923,10 +4359,6 @@ To add a DNS Gateway:
     - **UDP Port**: Specify the port number for UDP if the secondary DNS service uses a non-default port. The default port is 53.
     - **TCP Port**: Specify the port number for TCP if the secondary DNS service uses a non-default port. The default port is 53.
     - **DoH Port**: Specify the port number for DoH if the secondary DNS service uses a non-default port. The default port is 443.
-  - **Failure Behavior**: Select an action that must be performed if the configured DNS service is unavailable or unhealthy:
-    - **Return Error Response**: Return an appropriate error code (SERVFAIL) to the client. If only the primary DNS service is configured, then the error code is sent when the primary DNS service fails. If both primary and secondary DNS services are configured, the error code is sent only when both services are unavailable to serve the requests. To learn more about the DNS error codes, see [DNS Insights Logs: Columns](https://help.zscaler.com/zia/dns-insights-logs-columns).
-    - **Allow and Ignore DNAT Rules**: The DNS request is sent to the originally requested DNS resolver (not specified in the DNS Gateway) using the same protocol as the original user request without applying the configured DNAT rules.
-    - **Forward to Zscaler Trusted Resolver**: Send the DNS requests to the Zscaler Trusted DNS Resolver. You can use the Zscaler Trusted DNS Resolver for failover for DNS over UDP, TCP, and DoH.; While this configuration allows you to forward your DNS traffic to the Zscaler Trusted DNS Resolver as failover behavior, you can also resolve all your DNS traffic using the Zscaler Trusted DNS Resolver. Supported Mechanisms
 5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 A custom URL path in the FQDN or IP address of DNS servers is supported only for DoH queries and the following conditions apply:
@@ -3944,88 +4376,170 @@ The custom path is not applicable to TCP and UDP queries and cannot be specified
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-dns-over-https-services-rule-cloud-app-control","lastmod":"2026-06-26T07:30Z","nid":"1401436"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-dns-over-https-services-rule-cloud-app-control","lastmod":"2026-09-16T23:21Z","nid":"1401436"} -->
 ## Adding a DNS Over HTTPS Services Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a DNS Over HTTPS Services Rule for Cloud App Control
-- Last modified: 2026-06-26T07:30Z
+- Last modified: 2026-09-16T23:21Z
 - Summary: Information on how to add a rule for DNS Over HTTPS Services cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
-You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/cloud-app-categories) to facilitate defining rules for similar applications.
+You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
 
 DNS resolution, which was a plain text connection, is now an encrypted and secure connection with DNS Over HTTPS service. This cloud app category includes DNS server applications such as Cloudflare DNS, Google DNS, and Quad9 which support DNS resolution using the HTTPS protocol. So, you can create rules specifically for these and other similar cloud applications.
 
-## Adding a Rule for DNS Over HTTPS Services
+## Adding a Rule for DNS Over HTTPS Services Apps
 
 To add a rule for DNS Over HTTPS Services apps:
 
-1. Go to **Policies**> **Access Control**> **Internet & SaaS**> **Cloud App Control**.
-2. Select **DNS Over HTTPS Services**, then click **Add Rule**. The **DNS Over HTTPS Services**page appears. See image.
-3. On the **DNS Over HTTPS Services**page, enter the rule attributes: See image.
-  - **Rule Name**: Enter a unique name for the rule or use the default name.
-  - **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
-  - **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/what-admin-rank), your assigned admin rank determines the rule order values you can select.
-  - **Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/what-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
-  - **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
-  - **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
-4. Click **Add Criteria**and define the **Criteria**: See image.
-  - **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications.
-  - **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
-  - **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
-  - **Users**: Select **Any** to apply the rule to all [users](https://help.zscaler.com/zia/adding-user-account), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users or click the **Add** icon to add a new user.
-  - **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/zia/how-do-i-add-group), or select up to 32 groups. You can search for groups or click the **Add**icon to add a new group.
-  - **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/zia/how-do-i-add-department), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments or click the **Add**icon to add a new department. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic) must apply to all Groups and Departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.
-  - **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location or click the **Add**icon to add a new location. Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**.
-  - **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
-  - **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
-  - **Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/how-do-i-define-time-intervals), or select up to two time intervals. You can also search for a time interval or click the **Add**icon to add a new time interval.
-  - **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
-  - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) to which the rule applies. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation** or **No Client Connector** to apply the rule to the isolation traffic or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** group is available only if Zero Trust Browser (formerly Isolation) is enabled for your organization.
-  - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
-  - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-  - **User Risk Profile**: Select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
-    - **Low**: Level with user risk scores ranging from 0 to 29
-    - **Medium**: Level with user risk scores ranging from 30 to 59
-    - **High**: Level with user risk scores ranging from 60 to 79
-    - **Critical**: Level with user risk scores ranging from 80 to 100
-5. Define the **Rule Expiration**: See image.
-  - **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
-    - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
-    - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
-    - **Time Zone**: Select the time zone in which the rule should be valid.
-6. Specify the **Action**: See image.
-  - **Application Access**: Choose one of the following options: If the allow or conditional option is selected, define the following:
-    - Allow
-    - Block
-    - Conditional
-    - **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssl-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
-    - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
-    - **Cascade to URL Filtering**: Enable if you want to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies** > **Common Configuration** > **Advanced** > **Advanced Settings**).
-7. (Optional) Define the **Notification** settings:
-  - **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**.
-8. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+1. Go to **Policies**> **Access Control**> **Internet & SaaS** > **Cloud App Control**.
+2. In the left-side menu, select **DNS Over HTTPS Services**, then click **Add Rule**. The **DNS Over HTTPS Services**page appears.
+3. On the **DNS Over HTTPS Services**page, you can configure the following sections:
+  - Criteria
+  - Actions
+  - Details
+  - Rule Expiration
+  - Notification
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 To learn how this policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
 
-Choose to allow users to access the selected applications.
+In the **Criteria** section, when you click the **Add Criteria**drop-downmenu, you see the rule condition categories in gray (e.g., **Who**) and the individual rule conditions (e.g., **Users**, **Groups**,and**Departments**) under each category.
+
+See image.
+
+The conditions contain preconfigured values (e.g., **Users**, **Groups**,and**Departments**). A multi-select window with a search bar appears. You can select values by selecting the checkbox for individual items or by clicking **Select All**. After selecting the values, click outside the window to close it. To clear selected items, click the field to open the multi-select window, then use the **Remove** icon displayed for individual entries. To remove all selected values, click **Remove All**.
+
+See image.
+
+Refer to the following condition categories for details on configuring their individual conditions:
+
+- Applications
+- Who
+- Where
+- When
+- Devices & Agents
+
+You can expand or collapse all the criteria using the **Expand All** or **Collapse All** button, respectively.
+
+See image.
+
+In the **Actions** section, for **Application Access**, select one of the following actions to apply when the rule conditions are met:
+
+- Allow
+- Block
+- Conditional
+
+See image.
+
+In the **Details** section, provide general information about the rule:
+
+- **Rule Name**: Enter a unique name for the rule or use the default name.
+- **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
+- **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
+- **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/understanding-admin-rank), your assigned admin rank determines the rule order values you can select.
+- **Edit Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/understanding-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
+- **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
+
+See image.
+
+In the **Rule Expiration** section, you can define the validity of the rule:
+
+- **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
+  - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
+  - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
+  - **Time Zone**: Select the time zone in which the rule is valid.
+
+You can use the rule expiration feature to temporarily allow or block access for a set period of time to an application if any configured rules block or allow access to it, respectively.
+
+After the rule expires, Zscaler either blocks or allows the traffic based on the default rules configured for your organization.
+
+See image.
+
+(Optional) In the **Notification** section, you can enable the browser notification template to be triggered by the rule:
+
+- **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**. See image.
+
+- **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
+- **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
+- **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
+- **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
+
+- **Users**: Select **Any** to apply the rule to all [users](https://help.zscaler.com/authentication-service/adding-users), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users.
+- **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/authentication-service/adding-user-groups), or select up to 32 groups. You can search for groups.
+- **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/authentication-service/adding-departments), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic) must apply to all groups and departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.; Contact Zscaler Support to increase the limit of **Users**, **Groups**, or **Departments**.
+
+- **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location. Contact Zscaler Support to increase the limit of **Locations**.
+- **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
+
+**Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/defining-time-intervals), or select up to two time intervals. You can also search for a time interval.
+
+- **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
+- **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
+- **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
+- **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+  - **Low**: Level with user risk scores ranging from 0 to 29
+  - **Medium**: Level with user risk scores ranging from 30 to 59
+  - **High**: Level with user risk scores ranging from 60 to 79
+  - **Critical**: Level with user risk scores ranging from 80 to 100
+
+Choose to allow the users to access the selected applications.
+
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
+- **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
 Choose toblock the users from accessing the selected applications.
 
-Choose to conditionally allow the users to access the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/zidentity/understanding-step-up-authentication).
+Choose to conditionally allow the users to access the selected applications.
 
-This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
+- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/authentication-service/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
+- **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
 
-[Image: Cloud App Control Rule Section]
+[Image: Criteria menu on the DNS Over HTTPS Services page]
 
-[Image: Criteria Section]
+[Image: DNS Over HTTPS Services page - criteria multi-select window]
 
-[Image: Actions Section]
+[Image: Criteria section on the DNS Over HTTPS Services page]
 
-[Image: Rule Expiration Section]
+[Image: Details section on the DNS Over HTTPS Services page]
 
-[Image: Add DNS Over HTTPS Services Rule Window]
+[Image: Rule Expiration Section on the DNS Over HTTPS Services page]
+
+[Image: Actions section on the Add DNS Over HTTPS Services page]
+
+[Image: Notification section on the DNS Over HTTPS Services page]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/adding-domain-profiles","lastmod":"2026-09-18T14:23Z","nid":"1546012"} -->
+## Adding Domain Profiles
+
+- Source: https://help.zscaler.com/zia/adding-domain-profiles
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Adding Domain Profiles
+- Last modified: 2026-09-18T14:23Z
+- Summary: How to add domain profiles for use in Zscaler Data Loss Prevention (DLP) policy rules.
+
+Zscaler allows you to make custom sets of email [domain profiles](https://help.zscaler.com/zia/about-domain-profiles-standalone) and [recipient profiles](https://help.zscaler.com/zia/about-recipient-profiles) that you can easily use with Data Loss Prevention (DLP) tools across channels. To learn more, see [About Data Loss Prevention](https://help.zscaler.com/zia/about-data-loss-prevention), [About Data at Rest Scanning DLP](https://help.zscaler.com/zia/about-data-rest-scanning-dlp), and [About Outbound Email Policy](https://help.zscaler.com/zia/about-outbound-email-policy).
+
+To add domain profiles:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Data Security** > **Email DLP** > **Domain Profiles**.
+2. Click **Add Domain Profile**. The **Add Domain Profile** drawer appears.
+3. In the **Add Domain Profile** drawer: See image.
+  1. **Profile Name**: Enter a name for the domain profile.
+  2. **Top Personal Email Service Providers**: Select from a list of email service providers to include. You can also search for service providers using the **Search** function from the drop-down menu.
+  3. **Include Organizational Domains**: Enabling this option automatically includes the domains listed in your Organization Profile. To learn more, see [Configuring the Company Profile](https://help.zscaler.com/unified/configuring-company-profile).
+  4. **Custom Domains**: Enter one or more domain names separated by line breaks, then click **Add**.
+  5. **Description (Optional)**: Enter additional notes or information. The description cannot exceed 256 characters.
+4. Click **Save**.
+
+[Image: Add Domain Profile drawer]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4156,13 +4670,13 @@ To add an ECS prefix:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-email-label","lastmod":"2026-09-13T07:06Z","nid":"1444181"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-email-label","lastmod":"2026-09-20T07:06Z","nid":"1444181"} -->
 ## Adding an Email Label
 
 - Source: https://help.zscaler.com/zia/adding-email-label
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > Adding an Email Label
-- Last modified: 2026-09-13T07:06Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: How to add an email label for a Gmail or Microsoft Exchange client.
 
 The Zscaler service allows you to create email labels to group Gmail and Microsoft Exchange clients under the Data at Rest Scanning policy into categories based on the sensitivity of the email data.
@@ -4201,13 +4715,13 @@ The email label is created in the Zscaler Admin Console. You can [edit](https://
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-email-profiles","lastmod":"2026-09-09T21:06Z","nid":"1492726"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-email-profiles","lastmod":"2026-09-17T10:15Z","nid":"1492726"} -->
 ## Adding Email Profiles
 
 - Source: https://help.zscaler.com/zia/adding-email-profiles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Adding Email Profiles
-- Last modified: 2026-09-09T21:06Z
+- Last modified: 2026-09-17T10:15Z
 - Summary: How to add email profiles for use in Zscaler Data Loss Prevention (DLP) policy rules.
 
 Zscaler's email profiles allow you to make custom sets of email domains and recipient profiles that you can easily use with Data Loss Prevention (DLP) tools across channels. To learn more, see [About Data Loss Prevention](https://help.zscaler.com/zia/about-data-loss-prevention), [About Data at Rest Scanning DLP](https://help.zscaler.com/zia/about-data-rest-scanning-dlp), and [About Outbound Email Policy](https://help.zscaler.com/zia/about-outbound-email-policy).
@@ -4223,9 +4737,9 @@ To add email profiles:
 2. Click **Add Domain Profile**. The **Add Domain Profile** window appears.
 3. In the **Add Domain Profile** window:
   - **Profile Name**: Enter a name for the domain profile.
-  - **Top Personal Email Service Providers**: Select from a list of email service providers to include and click **Done**.
+  - **Top Personal Email Service Providers**: Select from a list of email service providers to include.
   - **Include Organizational Domains**: Selecting this option automatically includes the domains listed on your Company Profile. To learn more, see [About the Company Profile](https://help.zscaler.com/zia/about-company-profile).
-  - **Custom Domains**: Enter one or more domain names separated by line breaks, then click **Add Items**.
+  - **Custom Domains**: Enter one or more domain names separated by line breaks, then click **Add**.
   - **Include Subdomains**: Select whether to automatically include subdomains in the domain profile (e.g., `blog.example.com` is a subdomain of `example.com`).
   - **Description**: Enter additional notes or information. The description cannot exceed 256 characters.
 
@@ -4238,7 +4752,7 @@ See image.
 3. Click **Add Recipient Profile**. The **Add Recipient Profile** window appears.
 4. In the **Add Recipient Profile** window:
   - **Profile Name**: Enter a name for the recipient profile.
-  - **Recipients**: Enter one or more recipient email addresses separated by line breaks, then click **Add Items**.
+  - **Recipients**: Enter one or more recipient email addresses separated by line breaks, then click **Add**.
   - **Description**: Enter additional notes or information. The description cannot exceed 256 characters.
 
 See image.
@@ -4248,16 +4762,16 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-email-tenants","lastmod":"2026-08-25T14:21Z","nid":"1492711"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-email-tenants","lastmod":"2026-09-18T12:54Z","nid":"1492711"} -->
 ## Adding Email Tenants
 
 - Source: https://help.zscaler.com/zia/adding-email-tenants
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Adding Email Tenants
-- Last modified: 2026-08-25T14:21Z
+- Last modified: 2026-09-18T12:54Z
 - Summary: How to add email tenants for use in Zscaler Outbound Email Policy rules.
 
-Email tenants allow you to use the Zscaler service as a smart host for inspecting email content sent to external domains as part of your [outbound email policy rules](https://help.zscaler.com/zia/configuring-outbound-email-policy-rules). The email tenants you create are used as part of the mail flow rules that you configure on your email server to act on content that violates your outbound email policy rules. To learn more, see [Configuring Microsoft Exchange for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp) and [Configuring Gmail for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-gmail-zscaler-outbound-email-dlp).
+Email tenants allow you to use the Zscaler service as a smart host for inspecting email content sent to external domains as part of your [outbound email policy rules](https://help.zscaler.com/zia/configuring-outbound-email-policy-rules). The email tenants you create are used as part of the mail flow rules that you configure on your email server to act on content that violates your outbound email policy rules. To learn more, see [Configuring SEGs for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-segs-zscaler-outbound-email-dlp), [Configuring Microsoft Exchange for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp), and [Configuring Gmail for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-gmail-zscaler-outbound-email-dlp).
 
 For next-hop validation to enforce strict security checks during SMTP connections, the Zscaler service:
 
@@ -4267,54 +4781,60 @@ For next-hop validation to enforce strict security checks during SMTP connection
 
 To add an email tenant:
 
-1. Go to **Policies**> **Data Protection**> **Policy**> **Email Tenants**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Email DLP** > **Email Tenants**.
 2. Click **Add Email Tenant**. The **Add Email Tenant**page appears.
-3. On the **Add Email Tenant** page, under **Choose the Email Service Provider**, select **Secure Email Gateway**, **Gmail**, or **Exchange**.
+3. On the **Add**page, under **Choose the Email Service Provider**, select **Secure Email Gateway**, **Gmail**, or **Exchange**.
   - Configure Secure Email Gateway
   - Configure Gmail
   - Configure Exchange
 4. Click save and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-1. Under **Name Email Tenant**, enter a unique name for the tenant.
+1. Under **Name Email Tenant**, enter a unique **Tenant Name**.
 2. Under **Email Tenant Security Options**, the setting for **Outbound Email Security**is automatically selected and is not configurable.
 
 Under **Email Tenant Security Options**, the **Workflow Automation** option is available for Exchange only.
 
-1. Under **Configure Connectors and Rules**, click **Get Configuration Info**. The **Key for Transport Rules** information appears. See image.
-2. Copy the values for **Smart Host FQDN** and for **Key for Transport Rules** and save them for later configuration on the email server.
-3. Under **Email Domain Configuration**specify the information for the email domain next hop, which is where the Zscaler service sends email content after inspection:
+1. Click **Next**.
+2. Under **Configure Connectors and Rules**, click **Get Configuration Info**. The **Key for Transport Rules** information appears. See image.
+3. Copy the values for **Smart Host FQDN** and for **Key for Transport Rules** and save them for later configuration on the email server.
+4. Click **Next**.
+5. Under **Email Domain Configuration**specify the information for the email domain next hop, which is where the Zscaler service sends email content after inspection:
   - **Domain**: Select a domain from the list. The domains in the list are listed in your [company profile](https://help.zscaler.com/zia/about-company-profile).
   - **Next Hop Address**: Enter `smtp-relay.gmail.com` as the address of the relay host for the Gmail domain.
   - **Port Number**: Enter the port number for the email domain (e.g., `587`).
-4. Click **Add Domain**. The domain information is added to the email tenant. See image.
+6. Click **Save**. See image. The tenant information is added to the email tenant.
 
 [Image: Email Tenant Domain Configuration]
 
-1. Under **Name Email Tenant**, enter a unique name for the tenant.
-2. Under **Email Tenant Security Options**, the setting for **Outbound Email Security**is automatically selected and is not configurable.
-3. (Optional) Under **Email Tenant Security Options**, select **Workflow Automation**. See image. This setting allows you to review and manage quarantined emails from Zscaler Workflow Automation and is available only for Exchange Online. When you select this option, the **Authorize the SaaS Application** section becomes available.
-4. Under **Configure Connectors and Rules**, click **Get Configuration Info**. The **Key for Transport Rules** information appears. See image.
-5. Copy the values for **Smart Host FQDN** and for **Key for Transport Rules** and save them for later configuration on the email server.
-6. Under **Email Domain Configuration**specify the information for the email domain next hop, which is where the Zscaler service sends email content after inspection:
+1. Under **Name Email Tenant**, enter a unique **Tenant Name**.
+2. (Optional) Under **Email Tenant Security Options**, select **Workflow Automation**. See image. This setting allows you to review and manage quarantined emails from Workflow Automation and is available only for Exchange Online. When you select this option, the **Authorize the SaaS Application** and **Assign Role**sections become available.
+3. Click **Next**.
+4. Under **Configure Connectors and Rules**, click **Get Configuration Info**. The **Key for Transport Rules** information appears.
+5. Copy the values for **Smart Host FQDN** and for **Key for Transport Rules** and save them for later configuration on the email server. See image.
+6. Click **Next**.
+7. Under **Email Domain Configuration**specify the information for the email domain next hop, which is where the Zscaler service sends email content after inspection:
   - **Domain**: Select a domain from the list. The domains in the list are listed in your [company profile](https://help.zscaler.com/zia/about-company-profile).
   - **Next Hop Address**: Enter the address of the relay host for the email domain of the tenant you're configuring.
-    - Locate the relay host address for your Microsoft domain
+    - Locate the relay host address for your Microsoft domain.
   - **Port Number**: Enter the port number for the email domain (e.g., `25`).
-7. Click **Add Domain**. The domain information is added to the email tenant. See image.
-8. Under **Authorize the SaaS Application**, click **Provide Admin Credentials**. This option is available only if you previously selected **Workflow Automation** in the **Email Tenant Security Options** section. The Microsoft Exchange Admin Portal opens.
-9. Log in to the [Microsoft Exchange Admin Portal](https://admin.cloud.microsoft/exchange#/homepage) with your administrator account. The **Permissions requested** window opens.
-10. Click **Accept**to authorize the permissions. After successfully authorizing the SaaS Application, the Tenant ID should now be populated in the Zscaler Admin Console. See image.
-11. Under **Assign Role**, click **Assign Role**. The [Azure portal](https://portal.azure.com) opens. See image. You must assign an exchange admin role to be able to grant assignments and access.
-12. On the **All Roles** page, use the search bar to search for **Exchange Administrator**. See image.
-13. Select the checkbox next to Exchange Administrator.
-14. Click **Add Assignments**. See image.
-15. On the **Add assignments** page, click **No Member selected**. See image.
-16. In the Zscaler Admin Console, under **Authorize the SaaS Application**, copy the Zscaler Saas Connector ID. See image.
-17. In the Azure portal, on the **Select a member** page, paste the Zscaler SaaS Connector ID into the search box. See image.
-18. Select the checkbox next to your Zscaler SaaS Connector ID. See image.
-19. On the **Add assignments**page, click **Next**.
-20. Enter a justification into the text box then click **Assign**.
-21. In the Zscaler Admin Console, click **Save**.
+
+See image.
+
+1. Click **Next**.
+2. Under **Authorize the SaaS Application**, click **Provide Admin Credentials**. This option is available only if you previously selected **Workflow Automation** in the **Email Tenant Security Options** section. The Microsoft Exchange Admin Portal opens.
+3. Log in to the [Microsoft Exchange Admin Portal](https://admin.cloud.microsoft/exchange#/homepage) with your administrator account. The **Permissions requested** window opens.
+4. Click **Accept**to authorize the permissions. After successfully authorizing the SaaS Application, the Tenant ID should now be populated in the Zscaler Admin Console. See image.
+5. Under **Assign Role**, click **Assign Role**. See image. The [Azure portal](https://portal.azure.com) opens. You must assign an Exchange admin role to be able to grant assignments and access.
+6. On the **All Roles** page, use the search bar to search for **Exchange Administrator**. See image.
+7. Select the checkbox next to Exchange Administrator.
+8. Click **Add Assignments**. See image.
+9. On the **Add assignments** page, click **No Member selected**. See image.
+10. In the Zscaler Admin Console, under **Authorize the SaaS Application**, copy the Zscaler Saas Connector ID. See image.
+11. In the Azure portal, on the **Select a member** page, paste the Zscaler SaaS Connector ID into the search box. See image.
+12. Select the checkbox next to your Zscaler SaaS Connector ID. See image.
+13. On the **Add assignments**page, click **Next**.
+14. Enter a justification into the text box then click **Assign**.
+15. In the Zscaler Admin Console, click **Save**.
 
 [Image: Select SaaS Connector ID]
 
@@ -4356,17 +4876,20 @@ Under **Email Tenant Security Options**, the **Workflow Automation** option is a
 
 If your organization uses a secure email gateway (SEG) (e.g., Mimecast, Cisco IronPort), you can onboard your SEG tenant to use as part of your outbound email DLP policies. After you onboard SEG tenants on the **Email Tenants** page, you can then select those tenants when creating [outbound email policy rules](https://help.zscaler.com/zia/configuring-outbound-email-policy-rules).
 
-1. Under **Name Email Tenant**, enter a unique name for the tenant.
+1. Under **Name Email Tenant**, enter a unique **Tenant Name**.
 2. Under **Email Tenant Security Options**, the setting for **Outbound Email Security**is automatically selected and is not configurable.
-3. Under **Configure Connectors and Rules**, click **Get Configuration Info**. The **Smart Host FQDN** and **Key for Transport Rules** information appears. See image.
-4. Copy the values for **Smart Host FQDN** and for **Key for Transport Rules** and save them for later configuration on the SEG.
-5. Under **Email Domain Configuration**,click **Add Domain** then specify information for the email domain: See image.
+3. Click **Next**.
+4. Under **Configure Connectors and Rules**, click **Get Configuration Info**. The **Smart Host FQDN** and **Key for Transport Rules** information appears. See image.
+5. Copy the values for **Smart Host FQDN** and for **Key for Transport Rules** and save them for later configuration on the SEG.
+6. Click **Next**.
+7. Under **Email Domain Configuration**,click **Add Domain** then specify information for the email domain:
   - **Domain**: Select a domain from the list. The domains in the list are listed in your [company profile](https://help.zscaler.com/zia/about-company-profile). For explicitly configured domains, the Zscaler service uses the source IP address for the incoming connection to determine the mapping to the next hop. Domains that you do not explicitly configure are considered default domains. If you select **Default domain** from the list, the Zscaler service uses the source IP of the incoming connection to map messages to the corresponding next hop servers. For this routing to occur, your SEG must include the `X-Zscaler-TenantID: <tenant-key>` header in messages sent to the Zscaler smart host. To learn more, see [Configuring SEGs for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp).
   - **Next Hop Address**: Specify information for the next hop, which is where the Zscaler service sends email content after inspection. You can enter an IPv4 address, an IPv6 address, or a valid domain name.
   - **Port Number**: Enter the port number for the email domain (e.g., `587`).
   - **Client Certificate Common Name**: Enter the common name associated with the client certificate (e.g., `example.com` or `www.example.com`) then click **Add Items**. This field does not support wildcard characters for subdomain matching (e.g., `*.example.com`). However, if the common name of the connecting client has a wildcard certificate, then the configured common name should match exactly, including wildcard characters.
   - **Source IP Allow list**: Enter the IP addresses for allowed SMTP traffic (e.g., `10.20.30.0/24` allows SMTP traffic originating from 10.20.30.0 to 10.20.30.255) then click **Add Items**.
-  - **Include Subdomains**: Select whether to automatically include subdomains in the domain profile (e.g., `blog.example.com` is a subdomain of `example.com`).
+
+See image.
 
 [Image: Configure Connectors and Rules section for email tenant onboarding]
 
@@ -4437,16 +4960,16 @@ You can [edit](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-it
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-file-sharing-rule-cloud-app-control","lastmod":"2026-06-29T00:26Z","nid":"1400696"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-file-sharing-rule-cloud-app-control","lastmod":"2026-09-16T23:23Z","nid":"1400696"} -->
 ## Adding a File Sharing Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-file-sharing-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a File Sharing Rule for Cloud App Control
-- Last modified: 2026-06-29T00:26Z
+- Last modified: 2026-09-16T23:23Z
 - Summary: How to add a rule for File Sharing cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
-You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/cloud-app-categories) to facilitate defining rules for similar applications.
+You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
 
 A typical file sharing rule restricts viewing (or downloading) media files to 30 minutes or 100 MB per day and prevents users from uploading files to web servers. When users browse these sites and attempt to download media files after their quota has been reached, the Zscaler service displays a message in their browsers explaining that the content cannot be viewed because they have exceeded their daily quota limit. Similarly, when users attempt to upload files, the Zscaler service reports that this action was blocked due to corporate policy in their browsers.
 
@@ -4455,107 +4978,173 @@ A typical file sharing rule restricts viewing (or downloading) media files to 30
 To add a rule for File Sharing apps:
 
 1. Go to **Policies**> **Access Control** >**Internet & SaaS**>**Cloud App Control**.
-2. In the left-side menu, select **File Sharing**, then click **Add Rule**. The **File Sharing**page appears. See image.
-3. On the **File Sharing**page, enter the rule attributes: See image.
-  - **Rule Name**: Enter a unique name for the rule or use the default name.
-  - **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
-  - **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
-  - **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/what-admin-rank), your assigned admin rank determines the rule order values you can select.
-  - **Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/what-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
-  - **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
-4. Click **Add Criteria**and define the **Criteria**: See image.
-  - **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
-  - **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
-  - **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
-  - **Users**:Select **Any** to apply the rule to all [users](https://help.zscaler.com/zia/how-do-i-add-user-account), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users or click the **Add**icon to add a new user.
-  - **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/zia/how-do-i-add-group), or select up to 32 groups. You can search for groups or click the **Add**icon to add a new group.
-  - **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/zia/how-do-i-add-department), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments or click the **Add**icon to add a new department. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic) must apply to all groups and departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.
-  - **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location or click the **Add**icon to add a new location. Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**.
-  - **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
-  - **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
-  - **Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/how-do-i-define-time-intervals), or select up to two time intervals. You can also search for a time interval or click the **Add**icon to add a new time interval.
-  - **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
-  - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) to which the rule applies. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation** or **No Client Connector** to apply the rule to isolation traffic or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** group is available only if Zero Trust Browser (formerly Isolation) is enabled for your organization.
-  - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
-  - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-  - **User Risk Profile**: Select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
-    - **Low**: Level with user risk scores ranging from 0 to 29
-    - **Medium**: Level with user risk scores ranging from 30 to 59
-    - **High**: Level with user risk scores ranging from 60 to 79
-    - **Critical**: Level with user risk scores ranging from 80 to 100
-5. Define the **Rule Expiration**: See image.
-  - **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
-    - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
-    - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
-    - **Time Zone**: Select the time zone in which the rule should be valid.
-6. Specify the **Action** by choosing one of the following options for **Viewing** and **Uploading**(You can only choose **Allow** or **Block** for **Uploading**): The **Isolate** option is available only if Zero Trust Browser is enabled for your organization. See image.
-  - Allow
-  - Caution
-  - Block
-  - Conditional
-  - Isolate
-  - **Cascade to URL Filtering**: Enable if you want to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies** > **Common Configuration** > **Advanced** > **Advanced Settings**).
-7. (Optional) Define the **Notification** settings:
-  - **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**.
-  - **End User Notification**: Appears when a granular action is blocked for the selected application or a tenant profile is selected. Select **Show** to show the Zscaler Client Connector-based EUN message on endpoints when the user activity triggers the Cloud App Control policy rule, or select **Hide** if you don't want an EUN message to appear. This field is set to **Show** by default.
-    - **Custom Message**: Select a custom notification message that you want to show as the Zscaler Client Connector-based EUN. This field is set to the **Default** notification message if no message is selected from the drop-down menu.
-8. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+2. In the left-side menu, select **File Sharing**, then click **Add Rule**. The **File Sharing**page appears.
+3. On the **File Sharing**page, you can configure the following sections:
+  - Criteria
+  - Actions
+  - Details
+  - Rule Expiration
+  - Notification
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 To learn how this policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
 
-[Image: Add File Sharing Rule Window]
+In the **Criteria** section, when you click the **Add Criteria**drop-downmenu, you see the rule condition categories in gray (e.g., **Who**) and the individual rule conditions (e.g., **Users**, **Groups**,and**Departments**) under each category.
 
-Choose to allow the users to view and upload content on the selected applications.
+See image.
 
-Some applications, such as Box, Dropbox, OneDrive, OneDrive Business, and Google Drive, support additional granular actions that include **Downloading**, **Sharing**, **Editing**, **Inviting**, **Renaming**, **Creating**, **Deleting**, and **Form Sharing**, which you can **Allow**or **Block**. For the granular actions to work as expected for an application, ensure to enable SSL/TLS Inspection for the application.
+The conditions contain preconfigured values (e.g., **Users**, **Groups**,and**Departments**). A multi-select window with a search bar appears. You can select values by selecting the checkbox for individual items or by clicking **Select All**. After selecting the values, click outside the window to close it. To clear selected items, click the field to open the multi-select window, then use the **Remove** icon displayed for individual entries. To remove all selected values, click **Remove All**.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+See image.
+
+Refer to the following condition categories for details on configuring their individual conditions:
+
+- Applications
+- Who
+- Where
+- When
+- Devices & Agents
+
+You can expand or collapse all the criteria using the **Expand All** or **Collapse All** button, respectively.
+
+See image.
+
+In the **Actions** section, for **Application Access**, select one of the following actions to apply when the rule conditions are met:
+
+- Allow
+- Caution
+- Block
+- Conditional
+- Isolate
+
+See image.
+
+In the **Details** section, provide general information about the rule:
+
+- **Rule Name**: Enter a unique name for the rule or use the default name.
+- **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
+- **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
+- **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/understanding-admin-rank), your assigned admin rank determines the rule order values you can select.
+- **Edit Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/understanding-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
+- **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
+
+See image.
+
+In the **Rule Expiration** section, you can define the validity of the rule:
+
+- **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
+  - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
+  - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
+  - **Time Zone**: Select the time zone in which the rule is valid.
+
+You can use the rule expiration feature to temporarily allow or block access for a set period of time to an application if any configured rules block or allow access to it, respectively.
+
+After the rule expires, Zscaler either blocks or allows the traffic based on the default rules configured for your organization.
+
+See image.
+
+(Optional) In the **Notification** section, you can enable browser notification template or end user notifications (EUNs) to be triggered by the rule:
+
+- **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**. See image.
+- **End User Notification**: Select **Show** to show the Zscaler Client Connector-based EUN message on endpoints when the user activity triggers the Cloud App Control policy rule, or select **Hide** if you don't want an EUN message to appear. This field is set to **Show** by default. This field appears when the granular action is blocked for the selected applications. See image.
+  - **Custom Message**: Select a custom notification message that you want to show as the Zscaler Client Connector-based EUN. This field is set to the **Default** notification message if no message is selected from the drop-down menu.
+
+- **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
+- **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
+- **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
+- **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
+
+- **Users**: Select **Any** to apply the rule to all [users](https://help.zscaler.com/authentication-service/adding-users), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users.
+- **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/authentication-service/adding-user-groups), or select up to 32 groups. You can search for groups.
+- **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/authentication-service/adding-departments), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic) must apply to all groups and departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.; Contact Zscaler Support to increase the limit of **Users**, **Groups**, or **Departments**.
+
+- **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location. Contact Zscaler Support to increase the limit of **Locations**.
+- **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
+
+**Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/defining-time-intervals), or select up to two time intervals. You can also search for a time interval.
+
+- **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
+- **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
+- **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
+- **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+  - **Low**: Level with user risk scores ranging from 0 to 29
+  - **Medium**: Level with user risk scores ranging from 30 to 59
+  - **High**: Level with user risk scores ranging from 60 to 79
+  - **Critical**: Level with user risk scores ranging from 80 to 100
+
+Choose to allow the users to access the selected applications.
+
+The following applications support additional granular actions, which you can **Allow** or **Block**:
+
+- For **Box**, the granular actions include **Uploading**, **Creating**, **Deleting**, **Downloading**, **Editing**, **Inviting**, **Login**, **Renaming**, and **Sharing**.
+- For **Dropbox**, the granular actions include **Uploading**, **Creating**, **Deleting**, **Downloading**, **Editing**, **Inviting**, **Renaming**, and **Sharing**.
+- For **OneDrive**, the granular actions include **Uploading**, **Creating**, **Deleting**, **Downloading**, **Editing**, **Renaming**, and **Sharing**.
+- For **OneDrive (Personal)**, the granular actions include **Uploading**, **Creating**, **Deleting**, **Downloading**, **Editing**, and **Renaming**.
+- For **Google Drive**, the granular actions include **Uploading**, **Creating**, **Deleting**, **Downloading**, **Editing**, **Form Sharing**, **Renaming**, and **Sharing**.
+
+If these applications are selected together, only the common granular actions among them appear. For the granular actions to work as expected for an application, enable SSL/TLS Inspection for the application.
+
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
-- **Tenant Profiles**: Appears only when **Dropbox**, **GDrive**, or **Google Photos** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). Ensure that the applications selected under the tenant profiles are not exempted from SSL/TLS Inspection.
+- **Tenant Profile**: Appears only when **Dropbox**, **Google Drive**, or **Google Photos** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). Ensure that the applications selected under the tenant profiles are not exempted from SSL/TLS Inspection.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
-Choose to display an EUN that cautions users before allowing them to view the selected applications.
+Choose to display an EUN that cautions users before allowing them access to the selected applications.
 
 You can select this action for only one of the following request methods: **CONNECT**, **GET**, or **HEAD**.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
-Choose toblock the users from viewing and uploading content to the selected applications.
+Choose toblock the users from accessing the selected applications.
 
 Choose to conditionally allow the users to access the selected applications.
 
-- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/zidentity/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/authentication-service/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
 
-Choose to isolate viewing the content on cloud applications through a remote browser for all the traffic that matches the Cloud App Control rule. To learn more, see [What Is Zero Trust Browser?](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser)
+Choose to isolate all the traffic that matches the cloud app control rule through a remote browser. To learn more, see [What Is Zero Trust Browser?](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser)
 
-- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zia/creating-isolation-profile-cloud-browser-isolation) for your organization.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+This action is available only if Zero Trust Browser is enabled for your organization.
+
+- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) for your organization.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
-- **Tenant Profiles**: Appears only when **Dropbox**, **GDrive**, or **Google Photos** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). Ensure that the applications selected under the tenant profiles are not exempted from SSL/TLS Inspection.
+- **Tenant Profile**: Appears only when **Dropbox**, **Google Drive**, or **Google Photos** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). Ensure that the applications selected under the tenant profiles are not exempted from SSL/TLS Inspection.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
-[Image: Cloud App Control Rule Window]
+[Image: Criteria menu on the File Sharing page]
 
-[Image: Criteria Section]
+[Image: File Sharing page - criteria multi-select window]
 
-[Image: Actions Section]
+[Image: Criteria section on the File Sharing page]
 
-[Image: Rule Expiration Window]
+[Image: Details section on the File Sharing page]
+
+[Image: Rule Expiration Section on the File Sharing page]
+
+[Image: Actions section on the File Sharing page]
+
+[Image: Notification section on the File Sharing page]
+
+[Image: Notification section on the File Sharing page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-finance-rule-cloud-app-control","lastmod":"2026-08-19T05:32Z","nid":"1402141"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-finance-rule-cloud-app-control","lastmod":"2026-09-16T23:26Z","nid":"1402141"} -->
 ## Adding a Finance Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-finance-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Finance Rule for Cloud App Control
-- Last modified: 2026-08-19T05:32Z
+- Last modified: 2026-09-16T23:26Z
 - Summary: Information on how to add a rule for Finance cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
-You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/cloud-app-categories) to facilitate defining rules for similar applications.
+You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
 
 Organizations are moving to the cloud for their financial applications. The Finance category consists of applications that provide financial services such as banking, investing, and insurance. This cloud app category includes applications such as American Express at Work, Blockchain, J.P. Morgan, etc. that provide financial solutions. So, you can create rules specifically for these and other similar cloud applications. You can specify which applications your users are allowed to access and define a daily quota by bandwidth or time.
 
@@ -4566,102 +5155,157 @@ When users browse these sites after their quota has been reached, the Zscaler se
 To add a rule for Finance apps:
 
 1. Go to **Policies**> **Access Control** > **Internet & SaaS**> **Cloud App Control**.
-2. In the left-side menu, select **Finance**, then click **Add Rule**. The **Finance** page appears. See image.
-3. On the **Finance** page, enter the rule attributes: See image.
-  - **Rule Name**: Enter a unique name for the rule or use the default name.
-  - **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
-  - **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
-  - **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule’s place in the order. You can change the value, but your assigned admin rank determines the rule order values you can select if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/what-admin-rank).
-  - **Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/what-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
-  - **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
-4. Click **Add Criteria**and define the **Criteria**: See image.
-  - **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
-  - **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
-  - **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
-  - **Users**: Select **Any** to apply the rule to all [users](https://help.zscaler.com/zia/adding-user-account), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users or click the **Add** icon to add a new user.
-  - **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/zia/how-do-i-add-group), or select up to 32 groups. You can search for groups or click the **Add**icon to add a new group.
-  - **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/zia/how-do-i-add-department), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments or click the **Add**icon to add a new department. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic) must apply to all Groups and Departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.
-  - **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location or click the **Add**icon to add a new location. Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**.
-  - **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group
-  - **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
-  - **Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/how-do-i-define-time-intervals), or select up to two time intervals. You can also search for a time interval or click the **Add**icon to add a new time interval.
-  - **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
-  - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) to which the rule applies. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation** or **No Client Connector** to apply the rule to the isolation traffic or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** group is available only if Zero Trust Browser (formerly Isolation) is enabled for your organization.
-  - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
-  - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-  - **User Risk Profile**: Select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
-    - **Low**: Level with user risk scores ranging from 0 to 29
-    - **Medium**: Level with user risk scores ranging from 30 to 59
-    - **High**: Level with user risk scores ranging from 60 to 79
-    - **Critical**: Level with user risk scores ranging from 80 to 100
-5. Define the **Rule Expiration**: See image.
-  - **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
-    - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
-    - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
-    - **Time Zone**: Select the time zone in which the rule should be valid.
-6. Specify the **Action**: See image.
-  - **Application Access**: Choose one of the following options: The **Isolate** option is available only if Zero Trust Browser is enabled for your organization.
-    - Allow
-    - Caution
-    - Block
-    - Conditional
-    - Isolate
-  - **Cascade to URL Filtering**: Enable if you want to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies** > **Common Configuration** > **Advanced** > **Advanced Settings**).
-7. (Optional) Define the **Notification** settings:
-  - **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**.
-8. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+2. In the left-side menu, select **Finance**, then click **Add Rule**. The **Finance** page appears.
+3. On the **Finance**page, you can configure the following sections:
+  - Criteria
+  - Actions
+  - Details
+  - Rule Expiration
+  - Notification
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 To learn how this policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
 
-[Image: Add Finance Rule Window]
+In the **Criteria** section, when you click the **Add Criteria**drop-downmenu, you see the rule condition categories in gray (e.g., **Who**) and the individual rule conditions (e.g., **Users**, **Groups**,and**Departments**) under each category.
+
+See image.
+
+The conditions contain preconfigured values (e.g., **Users**, **Groups**,and**Departments**). A multi-select window with a search bar appears. You can select values by selecting the checkbox for individual items or by clicking **Select All**. After selecting the values, click outside the window to close it. To clear selected items, click the field to open the multi-select window, then use the **Remove** icon displayed for individual entries. To remove all selected values, click **Remove All**.
+
+See image.
+
+Refer to the following condition categories for details on configuring their individual conditions:
+
+- Applications
+- Who
+- Where
+- When
+- Devices & Agents
+
+You can expand or collapse all the criteria using the **Expand All** or **Collapse All** button, respectively.
+
+See image.
+
+In the **Actions** section, for **Application Access**, select one of the following actions to apply when the rule conditions are met:
+
+- Allow
+- Caution
+- Block
+- Conditional
+- Isolate
+
+See image.
+
+In the **Details** section, provide general information about the rule:
+
+- **Rule Name**: Enter a unique name for the rule or use the default name.
+- **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
+- **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
+- **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/understanding-admin-rank), your assigned admin rank determines the rule order values you can select.
+- **Edit Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/understanding-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
+- **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
+
+See image.
+
+In the **Rule Expiration** section, you can define the validity of the rule:
+
+- **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
+  - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
+  - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
+  - **Time Zone**: Select the time zone in which the rule is valid.
+
+You can use the rule expiration feature to temporarily allow or block access for a set period of time to an application if any configured rules block or allow access to it, respectively.
+
+After the rule expires, Zscaler either blocks or allows the traffic based on the default rules configured for your organization.
+
+See image.
+
+(Optional) In the **Notification** section, you can enable the browser notification template to be triggered by the rule:
+
+- **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**. See image.
+
+- **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
+- **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
+- **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
+- **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
+
+- **Users**: Select **Any** to apply the rule to all [users](https://help.zscaler.com/authentication-service/adding-users), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users.
+- **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/authentication-service/adding-user-groups), or select up to 32 groups. You can search for groups.
+- **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/authentication-service/adding-departments), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic) must apply to all groups and departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.; Contact Zscaler Support to increase the limit of **Users**, **Groups**, or **Departments**.
+
+- **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location. Contact Zscaler Support to increase the limit of **Locations**.
+- **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
+
+**Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/defining-time-intervals), or select up to two time intervals. You can also search for a time interval.
+
+- **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
+- **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
+- **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
+- **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+  - **Low**: Level with user risk scores ranging from 0 to 29
+  - **Medium**: Level with user risk scores ranging from 30 to 59
+  - **High**: Level with user risk scores ranging from 60 to 79
+  - **Critical**: Level with user risk scores ranging from 80 to 100
 
 Choose to allow the users to access the selected applications.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
 Choose to display an EUN that cautions users before allowing them access to the selected applications.
 
 You can select this action for only one of the following request methods: **CONNECT**, **GET**, or **HEAD**.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
 Choose toblock the users from accessing the selected applications.
 
 Choose to conditionally allow the users to access the selected applications.
 
-- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/zidentity/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/authentication-service/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
 
 Choose to isolate all the traffic that matches the cloud app control rule through a remote browser. To learn more, see [What Is Zero Trust Browser?](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser)
 
-- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zia/creating-isolation-profile-cloud-browser-isolation) for your organization.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+This action is available only if Zero Trust Browser is enabled for your organization.
+
+- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) for your organization.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
-[Image: Cloud App Control Rule Section]
+[Image: Criteria menu on the Finance page]
 
-[Image: Criteria Section]
+[Image: Finance page - criteria multi-select window]
 
-[Image: Rule Expiration Section]
+[Image: Criteria section on the Finance page]
 
-[Image: Actions Section]
+[Image: Details section on the Finance page]
+
+[Image: Rule Expiration Section on the Finance page]
+
+[Image: Actions section on the Finance page]
+
+[Image: Notification section on the Finance page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-health-care-rule-cloud-app-control","lastmod":"2026-06-29T04:24Z","nid":"1402146"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-health-care-rule-cloud-app-control","lastmod":"2026-09-16T23:29Z","nid":"1402146"} -->
 ## Adding a Health Care Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-health-care-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Health Care Rule for Cloud App Control
-- Last modified: 2026-06-29T04:24Z
+- Last modified: 2026-09-16T23:29Z
 - Summary: Information on how to add a rule for Health Care cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
-You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/cloud-app-categories) to facilitate defining rules for similar applications.
+You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
 
 Organizations are moving to the cloud for their health care applications. The Health Care category consists of applications that provide health care services. This cloud app category includes applications such as American Medical, eClinicalWorks, WonderDoc, etc. that provide health care solutions. So, you can create rules specifically for these and other similar cloud applications. You can specify which applications your users are allowed to access and define a daily quota by bandwidth or time.
 
@@ -4672,198 +5316,306 @@ When users browse these sites after their quota has been reached, the Zscaler se
 To add a rule for Health Care apps:
 
 1. Go to **Policies**> **Access Control** > **Internet & SaaS**> **Cloud App Control**.
-2. In the left-side menu, select **Health Care**, then click **Add Rule**. The **Health Care**page appears. See image.
-3. On the **Health Care**page, enter the rule attributes: See image.
-  - **Rule Name**: Enter a unique name for the rule or use the default name.
-  - **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
-  - **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
-  - **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but your assigned admin rank determines the rule order values you can select if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/what-admin-rank).
-  - **Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/what-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
-  - **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
-4. Click **Add Criteria**and define the **Criteria**: See image.
-  - **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
-  - **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
-  - **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
-  - **Users**: Select **Any** to apply the rule to all [users](https://help.zscaler.com/zia/adding-user-account), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users or click the **Add** icon to add a new user.
-  - **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/zia/how-do-i-add-group), or select up to 32 groups. You can search for groups or click the **Add**icon to add a new group.
-  - **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/zia/how-do-i-add-department), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments or click the **Add**icon to add a new department. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic) must apply to all Groups and Departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.
-  - **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location or click the **Add**icon to add a new location. Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**.
-  - **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
-  - **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
-  - **Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/how-do-i-define-time-intervals), or select up to two time intervals. You can also search for a time interval or click the **Add**icon to add a new time interval.
-  - **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
-  - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) to which the rule applies. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation** or **No Client Connector** to apply the rule to the isolation traffic or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** group is available only if Zero Trust Browser (formerly Isolation) is enabled for your organization.
-  - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
-  - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-  - **User Risk Profile**: Select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
-    - **Low**: Level with user risk scores ranging from 0 to 29
-    - **Medium**: Level with user risk scores ranging from 30 to 59
-    - **High**: Level with user risk scores ranging from 60 to 79
-    - **Critical**: Level with user risk scores ranging from 80 to 100
-5. Define the **Rule Expiration**: See image.
-  - **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
-    - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
-    - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
-    - **Time Zone**: Select the time zone in which the rule should be valid.
-6. Specify the **Action** for the rule: See image.
-  - **Application Access**: Choose one of the following options: The **Isolate** option is available only if Zero Trust Browser is enabled for your organization.
-    - Allow
-    - Caution
-    - Block
-    - Conditional
-    - Isolate
-  - **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies** > **Common Configuration** > **Advanced**> **Advanced Settings**).
-7. (Optional) Define the **Notification** settings:
-  - **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**.
-8. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+2. In the left-side menu, select **Health Care**, then click **Add Rule**. The **Health Care**page appears.
+3. On the **Health Care**page, you can configure the following sections:
+  - Criteria
+  - Actions
+  - Details
+  - Rule Expiration
+  - Notification
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 To learn how this policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
 
-[Image: Add Health Care Rule Window]
+In the **Criteria** section, when you click the **Add Criteria**drop-downmenu, you see the rule condition categories in gray (e.g., **Who**) and the individual rule conditions (e.g., **Users**, **Groups**,and**Departments**) under each category.
+
+See image.
+
+The conditions contain preconfigured values (e.g., **Users**, **Groups**,and**Departments**). A multi-select window with a search bar appears. You can select values by selecting the checkbox for individual items or by clicking **Select All**. After selecting the values, click outside the window to close it. To clear selected items, click the field to open the multi-select window, then use the **Remove** icon displayed for individual entries. To remove all selected values, click **Remove All**.
+
+See image.
+
+Refer to the following condition categories for details on configuring their individual conditions:
+
+- Applications
+- Who
+- Where
+- When
+- Devices & Agents
+
+You can expand or collapse all the criteria using the **Expand All** or **Collapse All** button, respectively.
+
+See image.
+
+In the **Actions** section, for **Application Access**, select one of the following actions to apply when the rule conditions are met:
+
+- Allow
+- Caution
+- Block
+- Conditional
+- Isolate
+
+See image.
+
+In the **Details** section, provide general information about the rule:
+
+- **Rule Name**: Enter a unique name for the rule or use the default name.
+- **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
+- **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
+- **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/understanding-admin-rank), your assigned admin rank determines the rule order values you can select.
+- **Edit Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/understanding-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
+- **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
+
+See image.
+
+In the **Rule Expiration** section, you can define the validity of the rule:
+
+- **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
+  - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
+  - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
+  - **Time Zone**: Select the time zone in which the rule is valid.
+
+You can use the rule expiration feature to temporarily allow or block access for a set period of time to an application if any configured rules block or allow access to it, respectively.
+
+After the rule expires, Zscaler either blocks or allows the traffic based on the default rules configured for your organization.
+
+See image.
+
+(Optional) In the **Notification** section, you can enable the browser notification template to be triggered by the rule:
+
+- **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**. See image.
+
+- **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
+- **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
+- **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
+- **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
+
+- **Users**: Select **Any** to apply the rule to all [users](https://help.zscaler.com/authentication-service/adding-users), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users.
+- **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/authentication-service/adding-user-groups), or select up to 32 groups. You can search for groups.
+- **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/authentication-service/adding-departments), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic) must apply to all groups and departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.; Contact Zscaler Support to increase the limit of **Users**, **Groups**, or **Departments**.
+
+- **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location. Contact Zscaler Support to increase the limit of **Locations**.
+- **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
+
+**Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/defining-time-intervals), or select up to two time intervals. You can also search for a time interval.
+
+- **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
+- **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
+- **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
+- **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+  - **Low**: Level with user risk scores ranging from 0 to 29
+  - **Medium**: Level with user risk scores ranging from 30 to 59
+  - **High**: Level with user risk scores ranging from 60 to 79
+  - **Critical**: Level with user risk scores ranging from 80 to 100
 
 Choose to allow the users to access the selected applications.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
 Choose to display an EUN that cautions users before allowing them access to the selected applications.
 
 You can select this action for only one of the following request methods: **CONNECT**, **GET**, or **HEAD**.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL Inspection](https://help.zscaler.com/zia/deploying-ssl-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
 Choose toblock the users from accessing the selected applications.
 
 Choose to conditionally allow the users to access the selected applications.
 
-- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/zidentity/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/authentication-service/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
 
 Choose to isolate all the traffic that matches the cloud app control rule through a remote browser. To learn more, see [What Is Zero Trust Browser?](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser)
 
-- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zia/creating-isolation-profile-cloud-browser-isolation) for your organization.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+This action is available only if Zero Trust Browser is enabled for your organization.
+
+- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) for your organization.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
-[Image: Cloud App Control Rule Section]
+[Image: Criteria menu on the Health Care page]
 
-[Image: Criteria Section]
+[Image: Health Care page - criteria multi-select window]
 
-[Image: Rule Expiration Section]
+[Image: Criteria section on the Health Care page]
 
-[Image: Actions Section]
+[Image: Details section on the Health Care page]
+
+[Image: Rule Expiration Section on the Health Care page]
+
+[Image: Actions section on the Health Care page]
+
+[Image: Notification section on the Health Care page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-hosting-providers-rule-cloud-app-control","lastmod":"2026-06-29T04:44Z","nid":"1400631"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-hosting-providers-rule-cloud-app-control","lastmod":"2026-09-16T23:31Z","nid":"1400631"} -->
 ## Adding a Hosting Providers Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-hosting-providers-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Hosting Providers Rule for Cloud App Control
-- Last modified: 2026-06-29T04:44Z
+- Last modified: 2026-09-16T23:31Z
 - Summary: How to add a rule for Hosting Provider cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
-You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/cloud-app-categories) to facilitate defining rules for similar applications.
+You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
 
 Hosting providers such as AWS and IBM SmartCloud are widely used, and this category allows you to create rules specifically for these and other similar services. You can specify which applications your users are allowed to access and define a daily quota by bandwidth or time.
 
 When users browse these sites after their quota has been reached, the Zscaler service displays a message that explains that the content cannot be viewed because they exceeded their daily quota.
 
-## Adding a Rule for Hosting Providers
+## Adding a Rule for Hosting Providers Apps
 
-To add a rule for Hosting Providers:
+To add a rule for Hosting Providers apps:
 
 1. Go to **Policies**> **Access Control**> **Internet & SaaS**>**Cloud App Control**.
-2. In the left-side menu, select **Hosting Providers**, then click **Add Rule**. The **Hosting Providers**page appears. See image.
-3. On the **Hosting Providers**page, enter the rule attributes: See image.
-  - **Rule Name**: Enter a unique name for the rule or use the default name.
-  - **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
-  - **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
-  - **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/what-admin-rank), your assigned admin rank determines the rule order values you can select.
-  - **Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/what-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
-  - **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
-4. Click **Add Criteria**and define the **Criteria**: See image.
-  - **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
-  - **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
-  - **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
-  - **Users**: Select **Any** to apply the rule to all [users](https://help.zscaler.com/zia/how-do-i-add-user-account), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users or click the **Add** icon to add a new user.
-  - **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/zia/how-do-i-add-group), or select up to 32 groups. You can search for groups or click the **Add**icon to add a new group.
-  - **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/zia/how-do-i-add-department), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments or click the **Add**icon to add a new department. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic) must apply to all Groups and Departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.
-  - **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location or click the **Add**icon to add a new location. Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**.
-  - **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
-  - **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
-  - **Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/how-do-i-define-time-intervals), or select up to two time intervals. You can also search for a time interval or click the **Add**icon to add a new time interval.
-  - **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
-  - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) to which the rule applies. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation** or **No Client Connector** to apply the rule to the isolation traffic or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** group is available only if Zero Trust Browser (formerly Isolation) is enabled for your organization.
-  - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
-  - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-  - **User Risk Profile**: Select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
-    - **Low**: Level with user risk scores ranging from 0 to 29
-    - **Medium**: Level with user risk scores ranging from 30 to 59
-    - **High**: Level with user risk scores ranging from 60 to 79
-    - **Critical**: Level with user risk scores ranging from 80 to 100
-5. Define the **Rule Expiration**: See image.
-  - **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
-    - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
-    - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
-    - **Time Zone**: Select the time zone in which the rule should be valid.
-6. Specify the **Action** for the rule: See image.
-  - **Application Access**: Choose one of the following options: The **Isolate** option is available only if Zero Trust Browser is enabled for your organization.
-    - Allow
-    - Caution
-    - Block
-    - Condtional
-    - Isolate
-  - **Cascade to URL Filtering**: Enable if you want to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Polices** > **Common Configuration** > **Advanced** > **Advanced Settings**).
-7. (Optional) Define the **Notification** settings:
-  - **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**.
-  - **End User Notification**: Appears only when a tenant profile is selected. Select **Show** to show the Zscaler Client Connector-based EUN message on endpoints when the user activity triggers the Cloud App Control Policy rule, or select **Hide** if you don't want an EUN message to appear. This field is set to **Show** by default.
-    - **Custom Message**: Select a custom notification message that you want to show as the Zscaler Client Connector-based EUN. This field is set to the **Default** notification message if no message is selected from the drop-down menu.
-8. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+2. In the left-side menu, select **Hosting Providers**, then click **Add Rule**. The **Hosting Providers**page appears.
+3. On the **Hosting Providers**page, you can configure the following sections:
+  - Criteria
+  - Actions
+  - Details
+  - Rule Expiration
+  - Notification
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-To learn how this policy fits into the overall order of policy enforcement, see [About Policy Enforcement](https://help.zscaler.com/zia/about-policy-enforcement).
+To learn how this policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
 
-[Image: Add Hosting Providers Rule Window]
+In the **Criteria** section, when you click the **Add Criteria**drop-downmenu, you see the rule condition categories in gray (e.g., **Who**) and the individual rule conditions (e.g., **Users**, **Groups**,and**Departments**) under each category.
+
+See image.
+
+The conditions contain preconfigured values (e.g., **Users**, **Groups**,and**Departments**). A multi-select window with a search bar appears. You can select values by selecting the checkbox for individual items or by clicking **Select All**. After selecting the values, click outside the window to close it. To clear selected items, click the field to open the multi-select window, then use the **Remove** icon displayed for individual entries. To remove all selected values, click **Remove All**.
+
+See image.
+
+Refer to the following condition categories for details on configuring their individual conditions:
+
+- Applications
+- Who
+- Where
+- When
+- Devices & Agents
+
+You can expand or collapse all the criteria using the **Expand All** or **Collapse All** button, respectively.
+
+See image.
+
+In the **Actions** section, for **Application Access**, select one of the following actions to apply when the rule conditions are met:
+
+- Allow
+- Caution
+- Block
+- Conditional
+- Isolate
+
+See image.
+
+In the **Details** section, provide general information about the rule:
+
+- **Rule Name**: Enter a unique name for the rule or use the default name.
+- **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
+- **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
+- **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/understanding-admin-rank), your assigned admin rank determines the rule order values you can select.
+- **Edit Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/understanding-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
+- **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
+
+See image.
+
+In the **Rule Expiration** section, you can define the validity of the rule:
+
+- **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
+  - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
+  - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
+  - **Time Zone**: Select the time zone in which the rule is valid.
+
+You can use the rule expiration feature to temporarily allow or block access for a set period of time to an application if any configured rules block or allow access to it, respectively.
+
+After the rule expires, Zscaler either blocks or allows the traffic based on the default rules configured for your organization.
+
+See image.
+
+(Optional) In the **Notification** section, you can enable the browser notification template to be triggered by the rule:
+
+- **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**. See image.
+
+- **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
+- **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
+- **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
+- **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
+
+- **Users**: Select **Any** to apply the rule to all [users](https://help.zscaler.com/authentication-service/adding-users), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users.
+- **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/authentication-service/adding-user-groups), or select up to 32 groups. You can search for groups.
+- **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/authentication-service/adding-departments), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic) must apply to all groups and departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.; Contact Zscaler Support to increase the limit of **Users**, **Groups**, or **Departments**.
+
+- **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location. Contact Zscaler Support to increase the limit of **Locations**.
+- **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
+
+**Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/defining-time-intervals), or select up to two time intervals. You can also search for a time interval.
+
+- **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
+- **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
+- **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
+- **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+  - **Low**: Level with user risk scores ranging from 0 to 29
+  - **Medium**: Level with user risk scores ranging from 30 to 59
+  - **High**: Level with user risk scores ranging from 60 to 79
+  - **Critical**: Level with user risk scores ranging from 80 to 100
 
 Choose to allow the users to access the selected applications.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL Inspection](https://help.zscaler.com/zia/deploying-ssl-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
-- **Tenant Profiles**: Appears only when **Amazon Web Services**, **Google App Engine**, **Google Cloud Compute**,**Google Cloud Platform**, or **IBM SmartCloud** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). You can select multiple profiles per rule for **Google Cloud Platform** only if the **Allow Cloud Storage Resources** field selection is the same for the profiles. Ensure that the applications selected under the tenant profiles are not exempted from SSL Inspection.
+- **Tenant Profile**: Appears only when **Amazon Web Services**, **Google App Engine**, **Google Cloud Compute**,**Google Cloud Platform**, or **IBM SmartCloud** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). You can select multiple profiles per rule for **Google Cloud Platform** only if the **Allow Cloud Storage Resources** field selection is the same for the profiles. Ensure that the applications selected under the tenant profiles are not exempted from SSL Inspection.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
 Choose to display an EUN that cautions users before allowing them access to the selected applications.
 
 You can select this action for only one of the following request methods: **CONNECT**, **GET**, or **HEAD**.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
 Choose toblock the users from accessing the selected applications.
 
 Choose to conditionally allow the users to access the selected applications.
 
-- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/zidentity/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/authentication-service/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
 
 Choose to isolate all the traffic that matches the cloud app control rule through a remote browser. To learn more, see [What Is Zero Trust Browser?](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser)
 
-- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zia/creating-isolation-profile-cloud-browser-isolation) for your organization.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+This action is available only if Zero Trust Browser is enabled for your organization.
+
+- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) for your organization.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
-- **Tenant Profiles**: Appears only when **Amazon Web Services**, **Google App Engine**, **Google Cloud Compute**,**Google Cloud Platform**, or **IBM SmartCloud** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). You can select multiple profiles per rule for **Google Cloud Platform** only if the **Allow Cloud Storage Resources** field selection is the same for the profiles. Ensure that the applications selected under the tenant profiles are not exempted from SSL/TLS Inspection.
+- **Tenant Profile**: Appears only when **Amazon Web Services**, **Google App Engine**, **Google Cloud Compute**,**Google Cloud Platform**, or **IBM SmartCloud** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). You can select multiple profiles per rule for **Google Cloud Platform** only if the **Allow Cloud Storage Resources** field selection is the same for the profiles. Ensure that the applications selected under the tenant profiles are not exempted from SSL Inspection.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
-[Image: Cloud App Control Rule Section]
+[Image: Criteria menu on the Hosting Providers page]
 
-[Image: Criteria Section]
+[Image: Hosting Providers page - criteria multi-select window]
 
-[Image: Rule Expiration Section]
+[Image: Criteria section on the Hosting Providers page]
 
-[Image: Actions Section]
+[Image: Details section on the Hosting Providers page]
+
+[Image: Rule Expiration Section on the Hosting Providers page]
+
+[Image: Actions section on the Hosting Providers page]
+
+[Image: Notification section on the Hosting Providers page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -5084,13 +5836,13 @@ To configure an HTTP NSS feed for Alerts:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-http-nss-feeds-dns-logs","lastmod":"2026-07-22T16:17Z","nid":"1538554"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-http-nss-feeds-dns-logs","lastmod":"2026-09-20T07:06Z","nid":"1538554"} -->
 ## Adding HTTP NSS Feeds for DNS Logs
 
 - Source: https://help.zscaler.com/zia/adding-http-nss-feeds-dns-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding HTTP NSS Feeds > Adding HTTP NSS Feeds for DNS Logs
-- Last modified: 2026-07-22T16:17Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: How to add HTTP NSS feeds for DNS logs in the Zscaler Admin Console.
 
 Before you start configuring HTTP NSS feeds, complete the tasks for your virtual appliance using the [NSS Deployment Guides](https://help.zscaler.com/zia/documentation-knowledgebase/analytics/nss/nss-deployment-guides) for your platform.
@@ -5170,13 +5922,13 @@ To configure an HTTP NSS feed for DNS logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-http-nss-feeds-email-dlp-logs","lastmod":"2026-07-22T16:56Z","nid":"1538562"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-http-nss-feeds-email-dlp-logs","lastmod":"2026-09-20T07:06Z","nid":"1538562"} -->
 ## Adding HTTP NSS Feeds for Email DLP Logs
 
 - Source: https://help.zscaler.com/zia/adding-http-nss-feeds-email-dlp-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding HTTP NSS Feeds > Adding HTTP NSS Feeds for Email DLP Logs
-- Last modified: 2026-07-22T16:56Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: How to add HTTP NSS feeds for Email Data Loss Prevention (DLP) logs in theZscaler Admin Console.
 
 Before you start configuring HTTP NSS feeds, complete the tasks for your virtual appliance using the [NSS Deployment Guides](https://help.zscaler.com/zia/documentation-knowledgebase/analytics/nss/nss-deployment-guides) for your platform.
@@ -5225,13 +5977,13 @@ To configure an HTTP NSS feed for Email Data Loss Prevention (DLP) logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-http-nss-feeds-endpoint-dlp-logs","lastmod":"2026-07-22T16:47Z","nid":"1538561"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-http-nss-feeds-endpoint-dlp-logs","lastmod":"2026-09-20T07:06Z","nid":"1538561"} -->
 ## Adding HTTP NSS Feeds for Endpoint DLP Logs
 
 - Source: https://help.zscaler.com/zia/adding-http-nss-feeds-endpoint-dlp-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding HTTP NSS Feeds > Adding HTTP NSS Feeds for Endpoint DLP Logs
-- Last modified: 2026-07-22T16:47Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: How to add HTTP NSS feeds for Endpoint Data Loss Prevention (DLP) logs in the Zscaler Admin Console.
 
 Before you start configuring HTTP NSS feeds, complete the tasks for your virtual appliance using the [NSS Deployment Guides](https://help.zscaler.com/zia/documentation-knowledgebase/analytics/nss/nss-deployment-guides) for your platform.
@@ -5279,13 +6031,13 @@ To configure an HTTP NSS feed for Endpoint Data Loss Prevention (DLP) logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-http-nss-feeds-firewall-logs","lastmod":"2026-07-22T15:21Z","nid":"1538553"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-http-nss-feeds-firewall-logs","lastmod":"2026-09-20T07:06Z","nid":"1538553"} -->
 ## Adding HTTP NSS Feeds for Firewall Logs
 
 - Source: https://help.zscaler.com/zia/adding-http-nss-feeds-firewall-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding HTTP NSS Feeds > Adding HTTP NSS Feeds for Firewall Logs
-- Last modified: 2026-07-22T15:21Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: How to add HTTP NSS feeds for Firewall logs in the Zscaler Admin Console.
 
 Before you start configuring HTTP NSS feeds, complete the tasks for your virtual appliance using the [NSS Deployment Guides](https://help.zscaler.com/zia/documentation-knowledgebase/analytics/nss/nss-deployment-guides) for your platform.
@@ -5445,13 +6197,13 @@ To configure an HTTP NSS feed for SaaS Security Activity logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-http-nss-feeds-saas-security-logs","lastmod":"2026-07-22T16:33Z","nid":"1538556"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-http-nss-feeds-saas-security-logs","lastmod":"2026-09-20T07:06Z","nid":"1538556"} -->
 ## Adding HTTP NSS Feeds for SaaS Security Logs
 
 - Source: https://help.zscaler.com/zia/adding-http-nss-feeds-saas-security-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding HTTP NSS Feeds > Adding HTTP NSS Feeds for SaaS Security Logs
-- Last modified: 2026-07-22T16:33Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: How to add HTTP NSS feeds for SaaS Security logs in the Zscaler Admin Console.
 
 Before you start configuring HTTP NSS feeds, complete the tasks for your virtual appliance using the [NSS Deployment Guides](https://help.zscaler.com/zia/documentation-knowledgebase/analytics/nss/nss-deployment-guides) for your platform.
@@ -5653,13 +6405,13 @@ To configure an HTTP NSS feed for Sandbox Verdict logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-http-nss-feeds-tunnel-logs","lastmod":"2026-07-22T16:27Z","nid":"1538555"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-http-nss-feeds-tunnel-logs","lastmod":"2026-09-20T07:06Z","nid":"1538555"} -->
 ## Adding HTTP NSS Feeds for Tunnel Logs
 
 - Source: https://help.zscaler.com/zia/adding-http-nss-feeds-tunnel-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding HTTP NSS Feeds > Adding HTTP NSS Feeds for Tunnel Logs
-- Last modified: 2026-07-22T16:27Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: How to add HTTP NSS feeds for tunnel logs in the Zscaler Admin Console.
 
 Before you start configuring HTTP NSS feeds, complete the tasks for your virtual appliance using the [NSS Deployment Guides](https://help.zscaler.com/zia/documentation-knowledgebase/analytics/nss/nss-deployment-guides) for your platform.
@@ -5840,16 +6592,16 @@ To configure an HTTP NSS feed for web logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-human-resources-rule-cloud-app-control","lastmod":"2026-06-29T04:50Z","nid":"1401546"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-human-resources-rule-cloud-app-control","lastmod":"2026-09-16T23:35Z","nid":"1401546"} -->
 ## Adding a Human Resources Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-human-resources-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Human Resources Rule for Cloud App Control
-- Last modified: 2026-06-29T04:50Z
+- Last modified: 2026-09-16T23:35Z
 - Summary: Information on how to add a rule for Human Resources cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
-You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/cloud-app-categories) to facilitate defining rules for similar applications.
+You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
 
 The Human Resources category consists of applications that support the management of employee-related resources. This cloud app category includes applications such as BambooHR, Jobvite, and Workday that provide human resources solutions. So, you can create rules specifically for these and other similar cloud applications.
 
@@ -5858,88 +6610,143 @@ The Human Resources category consists of applications that support the managemen
 To add a rule for Human Resources apps:
 
 1. Go to **Policies** > **Access Control** > **Internet & SaaS** > **Cloud App Control**.
-2. In the left-side menu, select **Human Resources**, then click **Add Rule**. The **Human Resources** page appears. See image.
-3. On the **Human Resources** page, enter the rule attributes: See image.
-  - **Rule Name**: Enter a unique name for the rule or use the default name.
-  - **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
-  - **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
-  - **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the Rule Order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/what-admin-rank), your assigned admin rank determines the Rule Order values you can select.
-  - **Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/what-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
-  - **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
-4. Click **Add Criteria**and define the **Criteria**: See image.
-  - **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
-  - **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
-  - **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
-  - **Users**: Select **Any** to apply the rule to all [users](https://help.zscaler.com/zia/adding-user-account), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users or click the **Add** icon to add a new user.
-  - **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/zia/how-do-i-add-group), or select up to 32 groups. You can search for groups or click the **Add**icon to add a new group.
-  - **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/zia/how-do-i-add-department), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments or click the **Add**icon to add a new department. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic) must apply to all Groups and Departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.
-  - **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location or click the **Add**icon to add a new location. Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**.
-  - **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group
-  - **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
-  - **Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/how-do-i-define-time-intervals), or select up to two time intervals. You can also search for a time interval or click the **Add**icon to add a new time interval.
-  - **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
-  - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) to which the rule applies. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation** or **No Client Connector** to apply the rule to isolation traffic or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** group is available only if Zero Trust Browser (formerly Isolation) is enabled for your organization.
-  - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
-  - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-  - **User Risk Profile**: Select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
-    - **Low**: Level with user risk scores ranging from 0 to 29
-    - **Medium**: Level with user risk scores ranging from 30 to 59
-    - **High**: Level with user risk scores ranging from 60 to 79
-    - **Critical**: Level with user risk scores ranging from 80 to 100
-5. Define the **Rule Expiration**: See image.
-  - **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
-    - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
-    - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
-    - **Time Zone**: Select the time zone in which the rule should be valid.
-6. Specify the **Action**: See image.
-  - **Application Access**: Choose one of the following options: The **Isolate** option is available only if Zero Trust Browser is enabled for your organization.
-    - Allow
-    - Caution
-    - Block
-    - Conditional
-    - Isolate
-  - **Cascade to URL Filtering**: Enable if you want to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**> **Common Configuration** > **Advanced** > **Advanced Settings**).
-7. (Optional) Define the notification settings:
-  - **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**.
-8. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+2. In the left-side menu, select **Human Resources**, then click **Add Rule**. The **Human Resources** page appears.
+3. On the **Human Resources**page, you can configure the following sections:
+  - Criteria
+  - Actions
+  - Details
+  - Rule Expiration
+  - Notification
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 To learn how this policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
 
-[Image: Add Human Resources Rule Window]
+In the **Criteria** section, when you click the **Add Criteria**drop-downmenu, you see the rule condition categories in gray (e.g., **Who**) and the individual rule conditions (e.g., **Users**, **Groups**,and**Departments**) under each category.
+
+See image.
+
+The conditions contain preconfigured values (e.g., **Users**, **Groups**,and**Departments**). A multi-select window with a search bar appears. You can select values by selecting the checkbox for individual items or by clicking **Select All**. After selecting the values, click outside the window to close it. To clear selected items, click the field to open the multi-select window, then use the **Remove** icon displayed for individual entries. To remove all selected values, click **Remove All**.
+
+See image.
+
+Refer to the following condition categories for details on configuring their individual conditions:
+
+- Applications
+- Who
+- Where
+- When
+- Devices & Agents
+
+You can expand or collapse all the criteria using the **Expand All** or **Collapse All** button, respectively.
+
+See image.
+
+In the **Actions** section, for **Application Access**, select one of the following actions to apply when the rule conditions are met:
+
+- Allow
+- Caution
+- Block
+- Conditional
+- Isolate
+
+See image.
+
+In the **Details** section, provide general information about the rule:
+
+- **Rule Name**: Enter a unique name for the rule or use the default name.
+- **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
+- **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
+- **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/understanding-admin-rank), your assigned admin rank determines the rule order values you can select.
+- **Edit Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/understanding-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
+- **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
+
+See image.
+
+In the **Rule Expiration** section, you can define the validity of the rule:
+
+- **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
+  - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
+  - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
+  - **Time Zone**: Select the time zone in which the rule is valid.
+
+You can use the rule expiration feature to temporarily allow or block access for a set period of time to an application if any configured rules block or allow access to it, respectively.
+
+After the rule expires, Zscaler either blocks or allows the traffic based on the default rules configured for your organization.
+
+See image.
+
+(Optional) In the **Notification** section, you can enable the browser notification template to be triggered by the rule:
+
+- **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**. See image.
+
+- **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
+- **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
+- **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
+- **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
+
+- **Users**: Select **Any** to apply the rule to all [users](https://help.zscaler.com/authentication-service/adding-users), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users.
+- **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/authentication-service/adding-user-groups), or select up to 32 groups. You can search for groups.
+- **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/authentication-service/adding-departments), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic) must apply to all groups and departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.; Contact Zscaler Support to increase the limit of **Users**, **Groups**, or **Departments**.
+
+- **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location. Contact Zscaler Support to increase the limit of **Locations**.
+- **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
+
+**Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/defining-time-intervals), or select up to two time intervals. You can also search for a time interval.
+
+- **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
+- **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
+- **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
+- **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+  - **Low**: Level with user risk scores ranging from 0 to 29
+  - **Medium**: Level with user risk scores ranging from 30 to 59
+  - **High**: Level with user risk scores ranging from 60 to 79
+  - **Critical**: Level with user risk scores ranging from 80 to 100
 
 Choose to allow the users to access the selected applications.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
 Choose to display an EUN that cautions users before allowing them access to the selected applications.
 
 You can select this action for only one of the following request methods: **CONNECT**, **GET**, or **HEAD**.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
 Choose toblock the users from accessing the selected applications.
 
 Choose to conditionally allow the users to access the selected applications.
 
-- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/zidentity/understanding-step-up-authentication). This option is available only if your organization is provisioned with Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/authentication-service/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
 
 Choose to isolate all the traffic that matches the cloud app control rule through a remote browser. To learn more, see [What Is Zero Trust Browser?](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser)
 
-- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zia/creating-isolation-profile-cloud-browser-isolation) for your organization.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+This action is available only if Zero Trust Browser is enabled for your organization.
+
+- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) for your organization.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
-[Image: Cloud App Control Rule Section]
+[Image: Criteria menu on the Human Resources page]
 
-[Image: Criteria Section]
+[Image: Human Resources page - criteria multi-select window]
 
-[Image: Rule Expiration Section]
+[Image: Criteria section on the Human Resources page]
 
-[Image: Actions Section]
+[Image: Details section on the Human Resources page]
+
+[Image: Rule Expiration Section on the Human Resources page]
+
+[Image: Actions section on the Human Resources page]
+
+[Image: Notification section on the Human Resources page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6087,16 +6894,16 @@ The **Add Index Tool Configuration** window appears.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-instant-messaging-rule-cloud-app-control","lastmod":"2026-06-29T04:55Z","nid":"1400156"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-instant-messaging-rule-cloud-app-control","lastmod":"2026-09-16T23:37Z","nid":"1400156"} -->
 ## Adding an Instant Messaging Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-instant-messaging-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding an Instant Messaging Rule for Cloud App Control
-- Last modified: 2026-06-29T04:55Z
+- Last modified: 2026-09-16T23:37Z
 - Summary: Information on how to add a rule for Instant Messaging cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
-You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/cloud-app-categories) to facilitate defining rules for similar applications.
+You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
 
 Instant messaging (IM) has become nearly as universal as email. Today, more and more people depend on this simple text-based application to stay in touch with friends and colleagues. Instant messaging introduces potential risk and liability to enterprises in several ways, such as:
 
@@ -6111,100 +6918,160 @@ You can completely block or selectively disable IM applications. Client-based IM
 To add a rule for Instant Messaging apps:
 
 1. Go to **Policies** > **Access Control** > **Internet & SaaS** > **Cloud App Control**.
-2. In the left-side menu, select **Instant Messaging**, then click **Add Rule**. The **Instant Messaging** page appears. See image.
-3. On the **Instant Messaging** page, enter the rule attributes: See image.
-  - **Rule Name**: Enter a unique name for the rule or use the default name.
-  - **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
-  - **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
-  - **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/what-admin-rank), your assigned admin rank determines the rule order values you can select.
-  - **Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/what-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
-  - **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
-4. Click **Add Criteria**and define the **Criteria**: See image.
-  - **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
-  - **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
-  - **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
-  - **Users**:Select **Any** to apply the rule to all [users](https://help.zscaler.com/zia/adding-user-account), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users or click the **Add**icon to add a new user.
-  - **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/zia/how-do-i-add-group), or select up to 32 groups. You can search for groups or click the **Add**icon to add a new group.
-  - **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/zia/how-do-i-add-department), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments or click the **Add**icon to add a new department. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic) must apply to all Groups and Departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.
-  - **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location or click the **Add**icon to add a new location. Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**.
-  - **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
-  - **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
-  - **Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/how-do-i-define-time-intervals), or select up to two time intervals. You can also search for a time interval or click the **Add**icon to add a new time interval.
-  - **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
-  - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) to which the rule applies. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation** or **No Client Connector** to apply the rule to isolation traffic or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** group is available only if Zero Trust Browser (formerly Isolation) is enabled for your organization.
-  - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
-  - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-  - **User Risk Profile**: Select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
-    - **Low**: Level with user risk scores ranging from 0 to 29
-    - **Medium**: Level with user risk scores ranging from 30 to 59
-    - **High**: Level with user risk scores ranging from 60 to 79
-    - **Critical**: Level with user risk scores ranging from 80 to 100
-5. Define the **Rule Expiration**: See image.
-  - **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
-    - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
-    - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
-    - **Time Zone**: Select the time zone in which the rule should be valid.
-6. Specify the **Action** by choosing one of the following options for **Chatting** and **File Transfers**: You can choose either **Allow** or **Block** for **File Transfers**. The **Isolate** option is available only if Zero Trust Browser is enabled for your organization. See image.
-  - Allow
-  - Caution
-  - Block
-  - Conditional
-  - Isolate
-  - **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies** > **Common Configuration** > **Advanced** > **Advanced Settings**).
-7. (Optional) Define the **Notification** settings:
-  - **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**.
-  - **End User Notification**: Appears only when a granular action is blocked for the selected application. Select **Show** to show the Zscaler Client Connector-based EUN message on endpoints when the user activity triggers the Cloud App Control policy rule, or select **Hide** if you don't want an EUN message to appear. This field is set to **Show** by default.
-    - **Custom Message**: Select a custom notification message that you want to show as the Zscaler Client Connector-based EUN. This field is set to the **Default** notification message if no message is selected from the drop-down menu.
-8. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+2. In the left-side menu, select **Instant Messaging**, then click **Add Rule**. The **Instant Messaging** page appears.
+3. On the **Instant Messaging**page, you can configure the following sections:
+  - Criteria
+  - Actions
+  - Details
+  - Rule Expiration
+  - Notification
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 To learn how this policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
 
-[Image: Add Instant Messaging Rule Window]
+In the **Criteria** section, when you click the **Add Criteria**drop-downmenu, you see the rule condition categories in gray (e.g., **Who**) and the individual rule conditions (e.g., **Users**, **Groups**,and**Departments**) under each category.
+
+See image.
+
+The conditions contain preconfigured values (e.g., **Users**, **Groups**,and**Departments**). A multi-select window with a search bar appears. You can select values by selecting the checkbox for individual items or by clicking **Select All**. After selecting the values, click outside the window to close it. To clear selected items, click the field to open the multi-select window, then use the **Remove** icon displayed for individual entries. To remove all selected values, click **Remove All**.
+
+See image.
+
+Refer to the following condition categories for details on configuring their individual conditions:
+
+- Applications
+- Who
+- Where
+- When
+- Devices & Agents
+
+You can expand or collapse all the criteria using the **Expand All** or **Collapse All** button, respectively.
+
+See image.
+
+In the **Actions** section, for **Chatting** and **File Transfers**, select one of the following actions to apply when the rule conditions are met:
+
+You can choose either **Allow** or **Block** for **File Transfers**.
+
+- Allow
+- Caution
+- Block
+- Conditional
+- Isolate
+
+See image.
+
+In the **Details** section, provide general information about the rule:
+
+- **Rule Name**: Enter a unique name for the rule or use the default name.
+- **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
+- **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
+- **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/understanding-admin-rank), your assigned admin rank determines the rule order values you can select.
+- **Edit Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/understanding-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
+- **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
+
+See image.
+
+In the **Rule Expiration** section, you can define the validity of the rule:
+
+- **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
+  - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
+  - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
+  - **Time Zone**: Select the time zone in which the rule is valid.
+
+You can use the rule expiration feature to temporarily allow or block access for a set period of time to an application if any configured rules block or allow access to it, respectively.
+
+After the rule expires, Zscaler either blocks or allows the traffic based on the default rules configured for your organization.
+
+See image.
+
+(Optional) In the **Notification** section, you can enable browser notification template or end user notifications (EUNs) to be triggered by the rule:
+
+- **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**. See image.
+- **End User Notification**: Select **Show** to show the Zscaler Client Connector-based EUN message on endpoints when the user activity triggers the Cloud App Control policy rule, or select **Hide** if you don't want an EUN message to appear. This field is set to **Show** by default. This field appears when the granular action is blocked for the selected applications. See image.
+  - **Custom Message**: Select a custom notification message that you want to show as the Zscaler Client Connector-based EUN. This field is set to the **Default** notification message if no message is selected from the drop-down menu.
+
+- **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
+- **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
+- **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
+- **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
+
+- **Users**: Select **Any** to apply the rule to all [users](https://help.zscaler.com/authentication-service/adding-users), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users.
+- **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/authentication-service/adding-user-groups), or select up to 32 groups. You can search for groups.
+- **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/authentication-service/adding-departments), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic) must apply to all groups and departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.; Contact Zscaler Support to increase the limit of **Users**, **Groups**, or **Departments**.
+
+- **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location. Contact Zscaler Support to increase the limit of **Locations**.
+- **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
+
+**Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/defining-time-intervals), or select up to two time intervals. You can also search for a time interval.
+
+- **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
+- **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
+- **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
+- **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+  - **Low**: Level with user risk scores ranging from 0 to 29
+  - **Medium**: Level with user risk scores ranging from 30 to 59
+  - **High**: Level with user risk scores ranging from 60 to 79
+  - **Critical**: Level with user risk scores ranging from 80 to 100
 
 Choose to allow the users to chat and transfer files on the selected applications.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
 Choose to display an EUN that cautions users before allowing them access to the selected applications.
 
 You can select this action for only one of the following request methods: **CONNECT**, **GET**, or **HEAD**.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
-Choose toblock the users from chatting and/or transferring files on the selected applications.
+Choose toblock the users from chatting, transferring files, or both on the selected applications.
 
 Choose to conditionally allow the users to access the selected applications.
 
-- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/zidentity/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [Isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/authentication-service/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
 
 Choose to isolate all the traffic that matches the cloud app control rule through a remote browser. To learn more, see [What Is Zero Trust Browser?](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser)
 
-- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zia/creating-isolation-profile-cloud-browser-isolation) for your organization.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+This action is available only if Zero Trust Browser is enabled for your organization.
+
+- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) for your organization.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
-[Image: Cloud App Control Rule Section]
+[Image: Criteria menu on the Instant Messaging page]
 
-[Image: Rule Expiration Section]
+[Image: Instant Messaging page - criteria multi-select window]
 
-[Image: Actions Section]
+[Image: Criteria section on the Instant Messaging page]
 
-[Image: Criteria Section]
+[Image: Details section on the Instant Messaging page]
+
+[Image: Rule Expiration Section on the Instant Messaging page]
+
+[Image: Actions section on the Instant Messaging page]
+
+[Image: Notification section on the Instant Messaging page]
+
+[Image: Notification section on the Instant Messaging page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-ip-pool","lastmod":"2026-06-17T07:06Z","nid":"1532865"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-ip-pool","lastmod":"2026-09-15T21:22Z","nid":"1532865"} -->
 ## Adding an IP Pool
 
 - Source: https://help.zscaler.com/zia/adding-ip-pool
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > Adding an IP Pool
-- Last modified: 2026-06-17T07:06Z
+- Last modified: 2026-09-15T21:22Z
 - Summary: How to add custom IP pools in the Zscaler Admin Console.
 
 You can configure custom IP pools for [Zscaler Extranet Application Support](https://help.zscaler.com/zia/understanding-extranet-application-support). Only extranet-type IP pools can be created.
@@ -6213,143 +7080,197 @@ To access Extranet Application Support, contact your Zscaler Account team.
 
 To add an IP pool:
 
-1. Go to **Policies** > **Access Control** > **Firewall** > **IP & FQDN Groups** > **IP Pool**.
-2. Click **Add IP Pool**. The **Add IP Pool**window appears.
-3. In the Add IP Pool window: See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Resources** > **IP & FQDN Groups**.
+2. Select the **IP Pool** tab.
+3. Click **Add IP Pool**. The **Add IP Pool**drawer appears.
+4. In the Add IP Pool drawer: See image.
   - **Name**: Enter a name for the IP pool.
-  - **IP Addresses**: Enter IP addresses as a subnet, or range of addresses. You can add a maximum of only one IP address range for an IP pool.
+  - **IP Addresses**: Enter IP addresses as a subnet or range of addresses. You can add a maximum of only one IP address range for an IP pool.
   - **Description**: (Optional) Enter a descriptionfor the IP pool.
-4. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+5. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-[Image: The Add IP Pool window with fields for Name, IP Addresses, and Description]
+[Image: The Add IP Pool drawer with fields for Name, IP Addresses, and Description]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-it-services-rule-cloud-app-control","lastmod":"2026-06-29T05:03Z","nid":"1400636"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-it-services-rule-cloud-app-control","lastmod":"2026-09-16T23:39Z","nid":"1400636"} -->
 ## Adding an IT Services Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-it-services-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding an IT Services Rule for Cloud App Control
-- Last modified: 2026-06-29T05:03Z
+- Last modified: 2026-09-16T23:39Z
 - Summary: Information on how to add a rule for IT Services cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
-You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/cloud-app-categories) to facilitate defining rules for similar applications.
+You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
 
 Many companies make use of identity and device management tools, such as Okta or AirWatch. This category allows you to create rules specifically for these and other similar services. You can also specify which applications your users are allowed to access and define a daily quota by bandwidth or time.
 
-When users browse to these sites after their quota has been reached, the Zscaler service displays a message that explains that the content cannot be viewed because they exceeded their daily quota.
+When users browse these sites after their quota has been reached, the Zscaler service displays a message that explains that the content cannot be viewed because they exceeded their daily quota.
 
-## Adding a Rule for IT Services
+## Adding a Rule for IT Services Apps
 
-To add a rule for IT Services:
+To add a rule for IT Services apps:
 
 1. Go to **Policies** > **Access Control** > **Internet & SaaS** > **Cloud App Control**.
-2. In the left-side menu, select **IT Services**, then Click **Add Rule**. The **IT Services** page appears. See image.
-3. On the **IT Services** page, enter the rule attributes: See image.
-  - **Rule Name**: Enter a unique name for the rule or use the default name.
-  - **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
-  - **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
-  - **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/what-admin-rank), your assigned admin rank determines the rule order values you can select.
-  - **Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/what-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
-  - **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
-4. Click **Add Criteria**and define the **Criteria**: See image.
-  - **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
-  - **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
-  - **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
-  - **Users**: Select **Any** to apply the rule to all [users](https://help.zscaler.com/zia/how-do-i-add-user-account), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users or click the **Add** icon to add a new user.
-  - **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/zia/how-do-i-add-group), or select up to 32 groups. You can search for groups or click the **Add**icon to add a new group.
-  - **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/zia/how-do-i-add-department), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments or click the **Add**icon to add a new department. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic) must apply to all Groups and Departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.
-  - **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location or click the **Add**icon to add a new location. Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**.
-  - **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
-  - **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
-  - **Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/how-do-i-define-time-intervals), or select up to two time intervals. You can also search for a time interval or click the **Add**icon to add a new time interval.
-  - **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
-  - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) to which the rule applies. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation** or **No Client Connector** to apply the rule to the isolation traffic or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** group is available only if Zero Trust Browser (formerly Isolation) is enabled for your organization.
-  - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
-  - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-  - **User Risk Profile**: Select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
-    - **Low**: Level with user risk scores ranging from 0 to 29
-    - **Medium**: Level with user risk scores ranging from 30 to 59
-    - **High**: Level with user risk scores ranging from 60 to 79
-    - **Critical**: Level with user risk scores ranging from 80 to 100
-5. Define the **Rule Expiration**: See image.
-  - **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
-    - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
-    - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
-    - **Time Zone**: Select the time zone in which the rule should be valid.
-6. Specify the **Action**: See image.
-  - **Application Access**: Choose one of the following options: The **Isolate** option is available only if Zero Trust Browser is enabled for your organization.
-    - Allow
-    - Caution
-    - Block
-    - Conditional
-    - Isolate
-  - **Cascade to URL Filtering**: Enable if you want to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies** > **Common Configuration** > **Advanced** > **Advanced Settings**).
-7. (Optional) Define the **Notification** settings:
-  - **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control Policy rule. This field appears when the application access is set to either **Caution** or **Block**.
-  - **End User Notification**: Appears only when a tenant profile is selected. Select **Show** to show the Zscaler Client Connector-based EUN message on endpoints when the user activity triggers the Cloud App Control Policy rule, or select **Hide** if you don't want an EUN message to appear. This field is set to **Show** by default.
-    - **Custom Message**: Select a custom notification message that you want to show as the Zscaler Client Connector-based EUN. This field is set to the **Default** notification message if no message is selected from the drop-down menu.
-8. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+2. In the left-side menu, select **IT Services**, then Click **Add Rule**. The **IT Services** page appears.
+3. On the **IT Services**page, you can configure the following sections:
+  - Criteria
+  - Actions
+  - Details
+  - Rule Expiration
+  - Notification
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 To learn how this policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
 
-[Image: Add IT Services Rule Window]
+In the **Criteria** section, when you click the **Add Criteria**drop-downmenu, you see the rule condition categories in gray (e.g., **Who**) and the individual rule conditions (e.g., **Users**, **Groups**,and**Departments**) under each category.
+
+See image.
+
+The conditions contain preconfigured values (e.g., **Users**, **Groups**,and**Departments**). A multi-select window with a search bar appears. You can select values by selecting the checkbox for individual items or by clicking **Select All**. After selecting the values, click outside the window to close it. To clear selected items, click the field to open the multi-select window, then use the **Remove** icon displayed for individual entries. To remove all selected values, click **Remove All**.
+
+See image.
+
+Refer to the following condition categories for details on configuring their individual conditions:
+
+- Applications
+- Who
+- Where
+- When
+- Devices & Agents
+
+You can expand or collapse all the criteria using the **Expand All** or **Collapse All** button, respectively.
+
+See image.
+
+In the **Actions** section, for **Application Access**, select one of the following actions to apply when the rule conditions are met:
+
+- Allow
+- Caution
+- Block
+- Conditional
+- Isolate
+
+See image.
+
+In the **Details** section, provide general information about the rule:
+
+- **Rule Name**: Enter a unique name for the rule or use the default name.
+- **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
+- **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
+- **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/understanding-admin-rank), your assigned admin rank determines the rule order values you can select.
+- **Edit Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/understanding-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
+- **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
+
+See image.
+
+In the **Rule Expiration** section, you can define the validity of the rule:
+
+- **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
+  - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
+  - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
+  - **Time Zone**: Select the time zone in which the rule is valid.
+
+You can use the rule expiration feature to temporarily allow or block access for a set period of time to an application if any configured rules block or allow access to it, respectively.
+
+After the rule expires, Zscaler either blocks or allows the traffic based on the default rules configured for your organization.
+
+See image.
+
+(Optional) In the **Notification** section, you can enable the browser notification template to be triggered by the rule:
+
+- **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**. See image.
+
+- **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
+- **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
+- **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
+- **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
+
+- **Users**: Select **Any** to apply the rule to all [users](https://help.zscaler.com/authentication-service/adding-users), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users.
+- **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/authentication-service/adding-user-groups), or select up to 32 groups. You can search for groups.
+- **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/authentication-service/adding-departments), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic) must apply to all groups and departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.; Contact Zscaler Support to increase the limit of **Users**, **Groups**, or **Departments**.
+
+- **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location. Contact Zscaler Support to increase the limit of **Locations**.
+- **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
+
+**Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/defining-time-intervals), or select up to two time intervals. You can also search for a time interval.
+
+- **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
+- **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
+- **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
+- **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+  - **Low**: Level with user risk scores ranging from 0 to 29
+  - **Medium**: Level with user risk scores ranging from 30 to 59
+  - **High**: Level with user risk scores ranging from 60 to 79
+  - **Critical**: Level with user risk scores ranging from 80 to 100
 
 Choose to allow the users to access the selected applications.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
-- **Tenant Profiles**: Appears only when **Google Login Services**, **Microsoft Login Services**,**Webex Login Services**, or **Zoho Login Services** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). For the **Microsoft Login Services** cloud application, you can select any one of the following profile types per rule: Ensure that the applications selected under the tenant profiles are not exempted from SSL Inspection.
+- **Tenant Profile**: Appears only when **Google Login Services**, **Microsoft Login Services**,**Webex Login Services**, or **Zoho Login Services** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). For the **Microsoft Login Services** cloud application, you can select any one of the following profile types per rule: Ensure that the applications selected under the tenant profiles are not exempted from SSL Inspection.
   - **Version 1**: You can select multiple profiles per rule only if the tenant directory ID and the **Allow Personal Office 365 Domains** field selection are the same for the profiles.
   - **Version 2**: You can select only one profile per rule.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
 Choose to display an EUN that cautions users before allowing them access to the selected applications.
 
 You can select this action for only one of the following request methods: **CONNECT**, **GET**, or **HEAD**.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
 Choose toblock the users from accessing the selected applications.
 
 Choose to conditionally allow the users to access the selected applications.
 
-- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/zidentity/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/authentication-service/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
 
 Choose to isolate all the traffic that matches the cloud app control rule through a remote browser. To learn more, see [What Is Zero Trust Browser?](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser)
 
-- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zia/creating-isolation-profile-cloud-browser-isolation) for your organization.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+This action is available only if Zero Trust Browser is enabled for your organization.
+
+- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) for your organization.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
-- **Tenant Profiles**: Appears only when **Google Login Services**, **Microsoft Login Services**,**Webex Login Services**, or **Zoho Login Services** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). For the **Microsoft Login Services** cloud application, you can select one of the following profile types per rule: Ensure that the applications selected under the tenant profiles are not exempted from SSL/TLS Inspection.
+- **Tenant Profile**: Appears only when **Google Login Services**, **Microsoft Login Services**,**Webex Login Services**, or **Zoho Login Services** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). For the **Microsoft Login Services** cloud application, you can select any one of the following profile types per rule: Ensure that the applications selected under the tenant profiles are not exempted from SSL Inspection.
   - **Version 1**: You can select multiple profiles per rule only if the tenant directory ID and the **Allow Personal Office 365 Domains** field selection are the same for the profiles.
   - **Version 2**: You can select only one profile per rule.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
-[Image: Cloud App Control Rule Section]
+[Image: Criteria menu on the IT Services page]
 
-[Image: Rule Expiration Section]
+[Image: IT Services page - criteria multi-select window]
 
-[Image: Actions Section]
+[Image: Criteria section on the IT Services page]
 
-[Image: Criteria Section]
+[Image: Details section on the IT Services page]
+
+[Image: Rule Expiration Section on the IT Services page]
+
+[Image: Actions section on the IT Services page]
+
+[Image: Notification section on the IT Services page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-legal-rule-cloud-app-control","lastmod":"2026-06-29T05:44Z","nid":"1402151"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-legal-rule-cloud-app-control","lastmod":"2026-09-16T23:40Z","nid":"1402151"} -->
 ## Adding a Legal Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-legal-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Legal Rule for Cloud App Control
-- Last modified: 2026-06-29T05:44Z
+- Last modified: 2026-09-16T23:40Z
 - Summary: Information on how to add a rule for Legal cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
-You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/cloud-app-categories) to facilitate defining rules for similar applications.
+You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
 
 The Legal category consists of applications that provide legal services. This cloud app category includes applications such as Amicus Attorney, DirectLaw, Eclipse Legal Systems, etc. that provide legal solutions. So, you can create rules specifically for these and other similar cloud applications. You can specify which applications your users are allowed to access and define a daily quota by bandwidth or time.
 
@@ -6359,100 +7280,156 @@ When users browse these sites after their quota has been reached, the Zscaler se
 
 To add a rule for Legal apps:
 
-1. Go to **Policy** > **Access Control** > **Internet & SaaS** > **Cloud App Control**.
-2. In the left-side menu, select **Legal**, then click **Add Rule**. The **Legal** page appears. See image.
-3. On the **Legal** page, enter the rule attributes: See image.
-  - **Rule Name**: Enter a unique name for the rule or use the default name.
-  - **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
-  - **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
-  - **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but your assigned admin rank determines the rule order values you can select if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/what-admin-rank).
-  - **Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/what-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
-  - **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
-4. Define the **Criteria**: See image.
-  - **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
-  - **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
-  - **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
-  - **Users**: Select **Any** to apply the rule to all [users](https://help.zscaler.com/zia/adding-user-account), or select up to 32 users under General Users. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users or click the **Add** icon to add a new user.
-  - **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/zia/how-do-i-add-group), or select up to 32 groups. You can search for groups or click the **Add**icon to add a new group.
-  - **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/zia/how-do-i-add-department), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments or click the **Add**icon to add a new department. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic) must apply to all Groups and Departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.
-  - **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location or click the **Add**icon to add a new location. Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**.
-  - **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group
-  - **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
-  - **Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/how-do-i-define-time-intervals), or select up to two time intervals. You can also search for a time interval or click the **Add**icon to add a new time interval.
-  - **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
-  - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) to which the rule applies. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation** or **No Client Connector** to apply the rule to isolation traffic or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** group is available only if Zero Trust Browser (formerly Isolation) is enabled for your organization.
-  - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
-  - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-  - **User Risk Profile**: Select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
-    - **Low**: Level with user risk scores ranging from 0 to 29
-    - **Medium**: Level with user risk scores ranging from 30 to 59
-    - **High**: Level with user risk scores ranging from 60 to 79
-    - **Critical**: Level with user risk scores ranging from 80 to 100
-5. Define the **Rule Expiration**: See image.
-  - **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
-    - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
-    - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
-    - **Time Zone**: Select the time zone in which the rule should be valid.
-6. Specify the **Action**: See image.
-  - **Application Access**: Choose one of the following options: The **Isolate** option is available only if Zero Trust Browser is enabled for your organization.
-    - Allow
-    - Caution
-    - Block
-    - Conditional
-    - Isolate
-  - **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies** > **Common Configuration** > **Advanced** > **Advanced Settings**).
-7. (Optional) Define the **Notification** settings:
-  - **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**.
-8. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+1. Go to **Policies**> **Access Control**> **Internet & SaaS** > **Cloud App Control**.
+2. In the left-side menu, select **Legal**, then click **Add Rule**.
+3. The **Legal** page appears.
+4. On the **Legal**page, you can configure the following sections:
+  - Criteria
+  - Actions
+  - Details
+  - Rule Expiration
+  - Notification
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 To learn how this policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
 
-[Image: Add Legal Rule Window]
+In the **Criteria** section, when you click the **Add Criteria**drop-downmenu, you see the rule condition categories in gray (e.g., **Who**) and the individual rule conditions (e.g., **Users**, **Groups**,and**Departments**) under each category.
+
+See image.
+
+The conditions contain preconfigured values (e.g., **Users**, **Groups**,and**Departments**). A multi-select window with a search bar appears. You can select values by selecting the checkbox for individual items or by clicking **Select All**. After selecting the values, click outside the window to close it. To clear selected items, click the field to open the multi-select window, then use the **Remove** icon displayed for individual entries. To remove all selected values, click **Remove All**.
+
+See image.
+
+Refer to the following condition categories for details on configuring their individual conditions:
+
+- Applications
+- Who
+- Where
+- When
+- Devices & Agents
+
+You can expand or collapse all the criteria using the **Expand All** or **Collapse All** button, respectively.
+
+See image.
+
+In the **Actions** section, for **Application Access**, select one of the following actions to apply when the rule conditions are met:
+
+- Allow
+- Caution
+- Block
+- Conditional
+- Isolate
+
+See image.
+
+In the **Details** section, provide general information about the rule:
+
+- **Rule Name**: Enter a unique name for the rule or use the default name.
+- **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
+- **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
+- **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/understanding-admin-rank), your assigned admin rank determines the rule order values you can select.
+- **Edit Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/understanding-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
+- **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
+
+See image.
+
+In the **Rule Expiration** section, you can define the validity of the rule:
+
+- **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
+  - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
+  - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
+  - **Time Zone**: Select the time zone in which the rule is valid.
+
+You can use the rule expiration feature to temporarily allow or block access for a set period of time to an application if any configured rules block or allow access to it, respectively.
+
+After the rule expires, Zscaler either blocks or allows the traffic based on the default rules configured for your organization.
+
+See image.
+
+(Optional) In the **Notification** section, you can enable browser notification template to be triggered by the rule:
+
+- **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**. See image.
+
+- **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
+- **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
+- **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
+- **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
+
+- **Users**: Select **Any** to apply the rule to all [users](https://help.zscaler.com/authentication-service/adding-users), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users.
+- **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/authentication-service/adding-user-groups), or select up to 32 groups. You can search for groups.
+- **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/authentication-service/adding-departments), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic) must apply to all groups and departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.; Contact Zscaler Support to increase the limit of **Users**, **Groups**, or **Departments**.
+
+- **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location. Contact Zscaler Support to increase the limit of **Locations**.
+- **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
+
+**Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/defining-time-intervals), or select up to two time intervals. You can also search for a time interval.
+
+- **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
+- **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
+- **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
+- **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+  - **Low**: Level with user risk scores ranging from 0 to 29
+  - **Medium**: Level with user risk scores ranging from 30 to 59
+  - **High**: Level with user risk scores ranging from 60 to 79
+  - **Critical**: Level with user risk scores ranging from 80 to 100
 
 Choose to allow the users to access the selected applications.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
 Choose to display an EUN that cautions users before allowing them access to the selected applications.
 
 You can select this action for only one of the following request methods: **CONNECT**, **GET**, or **HEAD**.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
 Choose toblock the users from accessing the selected applications.
 
 Choose to conditionally allow the users to access the selected applications.
 
-- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/zidentity/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/authentication-service/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
 
 Choose to isolate all the traffic that matches the cloud app control rule through a remote browser. To learn more, see [What Is Zero Trust Browser?](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser)
 
-- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zia/creating-isolation-profile-cloud-browser-isolation) for your organization.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL Inspection](https://help.zscaler.com/zia/deploying-ssl-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+This action is available only if Zero Trust Browser is enabled for your organization.
+
+- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) for your organization.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
-[Image: Cloud App Control Rule Section]
+[Image: Criteria menu on the Legal page]
 
-[Image: Criteria Section]
+[Image: Legal page - criteria multi-select window]
 
-[Image: Rule Expiration Section]
+[Image: Criteria section on the Legal page]
 
-[Image: Actions Section]
+[Image: Details section on the Legal page]
+
+[Image: Rule Expiration Section on the Legal page]
+
+[Image: Actions section on the Legal page]
+
+[Image: Notification section on the Legal page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-mcas-nss-feeds","lastmod":"2026-07-22T14:48Z","nid":"1400706"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-mcas-nss-feeds","lastmod":"2026-09-20T07:06Z","nid":"1400706"} -->
 ## Adding MCAS NSS Feeds
 
 - Source: https://help.zscaler.com/zia/adding-mcas-nss-feeds
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding MCAS NSS Feeds > Adding MCAS NSS Feeds
-- Last modified: 2026-07-22T14:48Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: How to add and configure an MCAS NSS feed through the Zscaler Admin Console.
 
 In order for your MCAS NSS feed to perform optimally, the virtual machine (VM) deployed for the NSS server requires a minimum of 8GB of RAM. To learn more, see [Deploying NSS Virtual Appliances](https://help.zscaler.com/zia/deploying-nss-virtual-appliances) and [Integrating with Microsoft Cloud App Security](https://help.zscaler.com/zia/integrating-microsoft-cloud-app-security).
@@ -6885,127 +7862,204 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-productivity-crm-tools-rule-cloud-app-control","lastmod":"2026-06-29T05:49Z","nid":"1400151"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-productivity-crm-tools-rule-cloud-app-control","lastmod":"2026-09-16T23:42Z","nid":"1400151"} -->
 ## Adding a Productivity & CRM Tools Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-productivity-crm-tools-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Productivity & CRM Tools Rule for Cloud App Control
-- Last modified: 2026-06-29T05:49Z
+- Last modified: 2026-09-16T23:42Z
 - Summary: Information on how to add a rule for Productivity and CRM cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
-You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/cloud-app-categories) to facilitate defining rules for similar applications.
+You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
 
 Organizations are moving to the cloud for their business applications. This category includes applications such as Salesforce, Evernote, and Microsoft 365, so you can create rules specifically for these and other similar cloud applications. You can specify which applications your users are allowed to access and define a daily quota by bandwidth or time.
 
 When users browse these sites after their quota has been reached, the Zscaler service displays a message that explains that the content cannot be viewed because they exceeded their daily quota.
 
-## Adding a Rule for Productivity & CRM Tools
+## Adding a Rule for Productivity & CRM Tools Apps
 
-To add a rule for Productivity & CRM Tools:
+To add a rule for Productivity & CRM Tools apps:
 
 1. Go to **Policy** > **Access Control** > **Internet & SaaS** > **Cloud App Control**.
-2. In the left-side menu, select **Productivity & CRM Tools**, then click **Add Rule**. The **Productivity & CRM Tools** page appears. See image.
-3. On the **Productivity & CRM Tools** page, enter the rule attributes: See image.
-  - **Rule Name**: Enter a unique name for the rule or use the default name.
-  - **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
-  - **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
-  - **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/what-admin-rank), your assigned admin rank determines the rule order values you can select.
-  - **Admin Rank**:Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/what-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
-  - **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
-4. Define the **Criteria**: See image.
-  - **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
-  - **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
-  - **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
-  - **Users**:Select **Any** to apply the rule to all [users](https://help.zscaler.com/zia/how-do-i-add-user-account), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users or click the **Add**icon to add a new user.
-  - **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/zia/how-do-i-add-group), or select up to 32 groups. You can search for groups or click the **Add**icon to add a new group.
-  - **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/zia/how-do-i-add-department), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments or click the **Add**icon to add a new department. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic) must apply to all Groups and Departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.
-  - **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location or click the **Add**icon to add a new location. Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**.
-  - **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
-  - **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
-  - **Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/how-do-i-define-time-intervals), or select up to two time intervals. You can also search for a time interval or click the **Add**icon to add a new time interval.
-  - **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
-  - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) to which the rule applies. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation** or **No Client Connector** to apply the rule to isolation traffic or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** group is available only if Zero Trust Browser (formerly Isolation) is enabled for your organization.
-  - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
-  - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-  - **User Risk Profile**: Select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
-    - **Low**: Level with user risk scores ranging from 0 to 29
-    - **Medium**: Level with user risk scores ranging from 30 to 59
-    - **High**: Level with user risk scores ranging from 60 to 79
-    - **Critical**: Level with user risk scores ranging from 80 to 100
-5. Define the **Rule Expiration**: See image.
-  - **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
-    - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
-    - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
-    - **Time Zone**: Select the time zone in which the rule should be valid.
-6. Specify the **Action**: See image.
-  - **Application Access**: Choose one of the following options: The **Isolate** option is available only if Zero Trust Browser is enabled for your organization.
-    - Allow
-    - Caution
-    - Block
-    - Conditional
-    - Isolate
-  - **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies** > **Common Configuration** > **Advanced** > **Advanced Settings**).
-7. (Optional) Define the **Notification** settings:
-  - **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**.
-  - **End User Notification**: Appears only when a tenant profile is selected. Select **Show** to show the Zscaler Client Connector-based EUN message on endpoints when the user activity triggers the Cloud App Control policy rule, or select **Hide** if you don't want an EUN message to appear. This field is set to **Show** by default.
-    - **Custom Message**: Select a custom notification message that you want to show as the Zscaler Client Connector-based EUN. This field is set to the **Default** notification message if no message is selected from the drop-down menu.
-8. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+2. In the left-side menu, select **Productivity & CRM Tools**, then click **Add Rule**. The **Productivity & CRM Tools** page appears.
+3. On the **Productivity & CRM Tools**page, you can configure the following sections:
+  - Criteria
+  - Actions
+  - Details
+  - Rule Expiration
+  - Notification
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 To learn how this policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
 
-[Image: Add Productivity & CRM Tools Window]
+In the **Criteria** section, when you click the **Add Criteria**drop-downmenu, you see the rule condition categories in gray (e.g., **Who**) and the individual rule conditions (e.g., **Users**, **Groups**,and**Departments**) under each category.
+
+See image.
+
+The conditions contain preconfigured values (e.g., **Users**, **Groups**,and**Departments**). A multi-select window with a search bar appears. You can select values by selecting the checkbox for individual items or by clicking **Select All**. After selecting the values, click outside the window to close it. To clear selected items, click the field to open the multi-select window, then use the **Remove** icon displayed for individual entries. To remove all selected values, click **Remove All**.
+
+See image.
+
+Refer to the following condition categories for details on configuring their individual conditions:
+
+- Applications
+- Who
+- Where
+- When
+- Devices & Agents
+
+You can expand or collapse all the criteria using the **Expand All** or **Collapse All** button, respectively.
+
+See image.
+
+In the **Actions** section, for **Application Access**, select one of the following actions to apply when the rule conditions are met:
+
+- Allow
+- Caution
+- Block
+- Conditional
+- Isolate
+
+See image.
+
+In the **Details** section, provide general information about the rule:
+
+- **Rule Name**: Enter a unique name for the rule or use the default name.
+- **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
+- **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
+- **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/understanding-admin-rank), your assigned admin rank determines the rule order values you can select.
+- **Edit Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/understanding-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
+- **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
+
+See image.
+
+In the **Rule Expiration** section, you can define the validity of the rule:
+
+- **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
+  - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
+  - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
+  - **Time Zone**: Select the time zone in which the rule is valid.
+
+You can use the rule expiration feature to temporarily allow or block access for a set period of time to an application if any configured rules block or allow access to it, respectively.
+
+After the rule expires, Zscaler either blocks or allows the traffic based on the default rules configured for your organization.
+
+See image.
+
+(Optional) In the **Notification** section, you can enable browser notification template to be triggered by the rule:
+
+- **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**. See image.
+
+- **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
+- **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
+- **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
+- **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
+
+- **Users**: Select **Any** to apply the rule to all [users](https://help.zscaler.com/authentication-service/adding-users), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users.
+- **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/authentication-service/adding-user-groups), or select up to 32 groups. You can search for groups.
+- **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/authentication-service/adding-departments), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic) must apply to all groups and departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.; Contact Zscaler Support to increase the limit of **Users**, **Groups**, or **Departments**.
+
+- **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location. Contact Zscaler Support to increase the limit of **Locations**.
+- **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
+
+**Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/defining-time-intervals), or select up to two time intervals. You can also search for a time interval.
+
+- **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
+- **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
+- **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
+- **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+  - **Low**: Level with user risk scores ranging from 0 to 29
+  - **Medium**: Level with user risk scores ranging from 30 to 59
+  - **High**: Level with user risk scores ranging from 60 to 79
+  - **Critical**: Level with user risk scores ranging from 80 to 100
 
 Choose to allow the users to access the selected applications.
 
 - **Embedded AI**: Select **Allow** to use the embedded AI applications on Atlassian sites or **Block** to prevent the use of embedded AI applications on Atlassian sites. By default, this feature is set to **Allow**. These options appear only if Gen AI is enabled for your organization.
   - **Embedded AI Prompts**: Enabling this feature allows Zscaler to store end-user prompts up to 2 KB in size in logs for up to 6 months, or for the period defined by your organization. Authorized users with access to Zscaler logs are able to view the prompts entered by end users in the Gen AI applications embedded in the Atlassian application.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
-- **Tenant Profiles**: Appears only when **Google Analytics** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). Ensure that **Google Analytics** is not exempted from SSL/TLS Inspection.
+- **Tenant Profile**: Appears only when **Google Analytics** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). Ensure that **Google Analytics** is not exempted from SSL/TLS Inspection.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
 Choose to display an EUN that cautions users before allowing them access to the selected applications.
 
 You can select this action for only one of the following request methods: **CONNECT**, **GET**, or **HEAD**.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
-
-If you continue to the Atlassian sites from the caution EUN message, use of embedded AI applications is allowed, but Zscaler doesn't store embedded AI prompts by default on these sites.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
 Choose toblock the users from accessing the selected applications.
 
 Choose to conditionally allow the users to access the selected applications.
 
-- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/zidentity/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA)or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
+- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/authentication-service/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
 
 Choose to isolate all the traffic that matches the cloud app control rule through a remote browser. To learn more, see [What Is Zero Trust Browser?](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser)
 
-- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zia/creating-isolation-profile-cloud-browser-isolation) for your organization.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
+This action is available only if Zero Trust Browser is enabled for your organization.
+
+- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) for your organization.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
-- **Tenant Profiles**: Appears only when **Google Analytics** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). Ensure that **Google Analytics** is not exempted from SSL/TLS Inspection.
+- **Tenant Profile**: Appears only when **Google Analytics** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). Ensure that **Google Analytics** is not exempted from SSL/TLS Inspection.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
-[Image: Cloud App Control Rule Section]
+[Image: Criteria menu on the Productivity & CRM Tools page]
 
-[Image: Criteria Section]
+[Image: Productivity & CRM Tools page - criteria multi-select window]
 
-[Image: Rule Expiration Section]
+[Image: Criteria section on the Productivity & CRM Tools page]
 
-[Image: Actions Section]
+[Image: Details section on the Productivity & CRM Tools page]
+
+[Image: Rule Expiration Section on the Productivity & CRM Tools page]
+
+[Image: Actions section on the Productivity & CRM Tools page]
+
+[Image: Notification section on the Productivity & CRM Tools page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-resource-tags","lastmod":"2026-08-05T21:06Z","nid":"1541431"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-recipient-profiles","lastmod":"2026-09-18T14:21Z","nid":"1546011"} -->
+## Adding Recipient Profiles
+
+- Source: https://help.zscaler.com/zia/adding-recipient-profiles
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Adding Recipient Profiles
+- Last modified: 2026-09-18T14:21Z
+- Summary: How to add recipient profiles for use in Zscaler Data Loss Prevention (DLP) policy rules.
+
+Zscaler allows you to make custom sets of email [recipient profiles](https://help.zscaler.com/zia/about-recipient-profiles) and [domain profiles](https://help.zscaler.com/zia/about-domain-profiles-standalone) that you can easily use with Data Loss Prevention (DLP) tools across channels. To learn more, see [About Data Loss Prevention](https://help.zscaler.com/zia/about-data-loss-prevention), [About Data at Rest Scanning DLP](https://help.zscaler.com/zia/about-data-rest-scanning-dlp), and [About Outbound Email Policy](https://help.zscaler.com/zia/about-outbound-email-policy).
+
+To add recipient profiles:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Data Security** > **Email DLP** > **Recipient Profiles**.
+2. Click **Add Recipient Profile**. The **Add Recipient Profile** drawer appears.
+3. In the **Add Recipient Profile** drawer: See image.
+  1. **Profile Name**: Enter a name for the profile.
+  2. **Recipients**: Enter one or more recipient email addresses separated by line breaks, then click **Add**.
+  3. **Description (Optional)**: Enter additional notes or information. The description cannot exceed 256 characters.
+4. Click **Save**.
+
+[Image: Add Recipient Profile drawer]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/adding-resource-tags","lastmod":"2026-09-16T12:43Z","nid":"1541431"} -->
 ## Adding Resource Tags
 
 - Source: https://help.zscaler.com/zia/adding-resource-tags
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Context > Adding Resource Tags
-- Last modified: 2026-08-05T21:06Z
+- Last modified: 2026-09-16T12:43Z
 - Summary: Information on how to add DLP and endpoint resource tags to use in Endpoint Data Loss Prevention (DLP) policy rules and for Endpoint Context.
 
 Grouping [DLP & Endpoint resources](https://help.zscaler.com/zia/about-endpoint-dlp-resources) allows you to apply Endpoint Data Loss Prevention (DLP) policy rules to multiple resources at the same time. Additionally, you can use tags to build custom application lists for [Endpoint Context](https://help.zscaler.com/zia/about-endpoint-context). After you create a resource tag group, you add that group to the [Endpoint DLP policy rules that you configure](https://help.zscaler.com/zia/configuring-endpoint-dlp-policy-rules). For example, suppose that you work at a company with corporate headquarters in the United States, but you want to apply a country-specific set of endpoint policy rules to the network printers in your Canadian branch office. In that case, you can create a DLP resource group that includes all network printers in the branch office, and then you apply the policy rules to the resource group you created.
@@ -7015,7 +8069,7 @@ Grouping [DLP & Endpoint resources](https://help.zscaler.com/zia/about-endpoint-
 
 To add a DLP and endpoint resource tag:
 
-1. Go to **Policies**> **Data Protection**> **Policy**> **Endpoint DLP Resources**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Endpoint DLP**> **Endpoint DLP Resources**.
 2. On the **DLP & Endpoint Resources** page:
   - Create a network share tag
   - Create a network printers tag
@@ -7023,73 +8077,62 @@ To add a DLP and endpoint resource tag:
   - Create an endpoint application tag
 3. [Activate](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console) your changes.
 
-On the **Network Shares** page:
+On the **Network Share Tags** page (**Data Security**> **Endpoint DLP**> **Endpoint DLP Resources**> **Network Share Tags**):
 
-1. Click the **Network Share Tags**tab, then click **Add Tag**. The **Add Tag - Network Shares** window appears.
+1. Click **Add Tag**. The **Add Tag - Network Shares** window appears.
 2. In the **Add Tag - Network Shares** window:
   1. Enter the following **Basic information**:
     - **Name**: The name of the network share tag
     - **Description**: (Optional) A description of the network share tag
-  2. Click **Next**. See image.
-  3. Select the network shares you want to add to the tag, then click **Add Tag**. See image. The new tag appears in the list of network share tags on the **Network Share Tags**page. See image.
+  2. Select the network shares you want to add to the tag, then click **Add Tag**. See image. The new tag appears in the list of network share tags on the **Network Share Tags**page. See image.
 
 [Image: The Add Tag - Network Shares window for DLP & Endpoint Resources]
 
-[Image: The Add Tag - Network Shares window for DLP & Endpoint Resources]
+[Image: The Network Share Tags window for DLP & Endpoint Resources]
 
-[Image: The Add Tag - Network Shares window for DLP & Endpoint Resources]
+On the **Printer Tags** page (**Data Security**> **Endpoint DLP**> **Endpoint DLP Resources**> **Printer Tags**):
 
-On the **Printers** page (Policies > Data Protection > Endpoint DLP Resources > Printers):
-
-1. Click the **Printer Tags** tab, then click **Add Tag**. The **Add Tag - Printers** window appears.
+1. Click **Add Tag**. The **Add Tag - Printers** window appears.
 2. In the **Add Tag - Printers** window:
   1. Enter the following **Basic information**:
     - **Name**: The name of the printer tag
     - **Description**: (Optional) A description of the printer tag
-  2. Click **Next**. See image.
-  3. Select the network printers you want to add to the tag, then click **Add Tag**. See image. The new tag appears in the list of printer tags on the **Printer Tags**page. See image.
+  2. Select the network printers you want to add to the tag, then click **Add Tag**. See image. The new tag appears in the list of printer tags on the **Printer Tags**page. See image.
 
 [Image: The Add Tag - Printers window for DLP & Endpoint Resources]
 
-[Image: The Add Tag - Printers window for DLP & Endpoint Resources]
+[Image: The Printer Tags window for DLP & Endpoint Resources]
 
-[Image: The Add Tag - Printers window for DLP & Endpoint Resources]
+On the **Removable Storage Device Tags**(**Data Security**> **Endpoint DLP**> **Endpoint DLP Resources**> **Removable Storage Device Tags**) page:
 
-On the **Removable Storage Devices** (Policies > Data Protection > Endpoint DLP Resources > Removable Storage Devices) page:
-
-1. Click the **Removable Storage Device Tags**tab, then click **Add Tag**. The **Add Tag - Removable Storage Devices** window appears.
+1. Click **Add Tag**. The **Add Tag - Removable Storage Devices** window appears.
 2. In the **Add Tag - Removable Storage Devices** window:
   1. Enter the following **Basic information**:
     - **Name**: The name of the storage device tag
     - **Description**: (Optional) A description of the storage device tag
-  2. Click **Next**. See image.
-  3. Select the storage devices you want to add to the tag, then click **Add Tag**. See image. The new tag appears in the list of removable storage device tags on the **Removable Storage Device Tags**page. See image.
+  2. Select the storage devices you want to add to the tag, then click **Add Tag**. See image. The new tag appears in the list of removable storage device tags on the **Removable Storage Device Tags**page. See image.
 
 [Image: The Add Tag - Removable Storage Devices window for DLP & Endpoint Resources]
 
-[Image: The Add Tag - Removable Storage Devices window for DLP & Endpoint Resources]
-
-[Image: The Add Tag - Removable Storage Devices window for DLP & Endpoint Resources]
+[Image: The Removable Storage Device Tags window for DLP & Endpoint Resources]
 
 To access this feature, contact your Zscaler Account team.
 
-The **Endpoint Application Tags** tab contains both prebuilt lists of applications by category or theme from Zscaler, such as “Certificate Pinned” or “AI Browsers”, but can also contain custom application lists specific to your organization. You can click **Edit**on an existing customize prebuilt lists.
+The **Endpoint Application Tags** tab contains both prebuilt lists of applications by category or theme from Zscaler, such as “Certificate Pinned” or “AI Browsers”, but can also contain custom application lists specific to your organization. You can click **Edit**on an existing customized prebuilt list.
 
-On the **Applications** (Policies > Data Protection > Endpoint DLP Resources > Applications) page:
+On the **Endpoint Application Tags** page (**Data Security**> **Endpoint DLP**> **Endpoint DLP Resources**> **Endpoint Application Tags**):
 
-1. Click the **Application Tags** tab, then click **Add Endpoint Application Tag**. The **Add Endpoint Application Tag** window appears.
-2. In the **Add Endpoint Application Tag** window:
-  1. Enter the following **Basic information**:
+1. Click **Add Endpoint Application Tag**. The **Add Endpoint Application Tag** drawer opens.
+2. In the **Add Endpoint Application Tag** drawer:
+  1. Enter the following basic information:
     - **Name**: The name of the application tag
     - **Description**: (Optional) A description of the application tag
-  2. In the **Endpoint Applications**drop-down menu, select applications to which you want to apply the tag. See image.
-  3. Click **Add**. See image. The new tag appears in the list of application tags on the **Endpoint Application Tags**page. See image.
+  2. In the **Endpoint Applications**drop-down menu, select applications to which you want to apply the tag, then click **Apply**. See image.
+  3. Click **Add**. The new tag appears in the list of application tags on the **Endpoint Application Tags**page. See image.
 
-[Image: The Add Tag - Applications window for DLP & Endpoint Resources]
+[Image: The Add Endpoint Application Tag drawer for DLP & Endpoint Resources]
 
-[Image: The Add Tag - Applications window for DLP & Endpoint Resources]
-
-[Image: The Add Tag - Applications window for DLP & Endpoint Resources]
+[Image: An application tag on the Endpoint Application Tags page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -7256,20 +8299,20 @@ To add a root certificate for proxy chaining:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-rule-label","lastmod":"2026-09-01T21:07Z","nid":"1402206"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-rule-label","lastmod":"2026-09-16T07:56Z","nid":"1402206"} -->
 ## Adding a Rule Label
 
 - Source: https://help.zscaler.com/zia/adding-rule-label
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Adding a Rule Label
-- Last modified: 2026-09-01T21:07Z
+- Last modified: 2026-09-16T07:56Z
 - Summary: Information on how to add a rule label in the Zscaler Admin Console.
 
-Zscaler's rule label feature allows you to logically group all your organization's policies. The feature consists of two parts, creating rule labels and associating the labels with all the policy rules.
+Zscaler's rule label feature allows you to logically group all your organization's policies. The feature consists of two parts: creating rule labels and associating the labels with all the policy rules.
 
 To add a rule label:
 
-1. Go to **Policies > Common Configuration > Resources > Rule Labels**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Resources** > **Rule Labels**.
 2. Click **Add Rule Label**.
 
 The **Add Rule Label** window appears.
@@ -7288,13 +8331,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-rules-bandwidth-control-policy","lastmod":"2026-08-21T08:23Z","nid":"1399881"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-rules-bandwidth-control-policy","lastmod":"2026-09-15T09:18Z","nid":"1399881"} -->
 ## Adding Rules to the Bandwidth Control Policy
 
 - Source: https://help.zscaler.com/zia/adding-rules-bandwidth-control-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Bandwidth Control & Classes > Adding Rules to the Bandwidth Control Policy
-- Last modified: 2026-08-21T08:23Z
+- Last modified: 2026-09-15T09:18Z
 - Summary: Information on how to add rules to the Bandwidth Control policy in the Zscaler Admin Console.
 
 [Watch a video about Bandwidth Control](https://fast.wistia.net/embed/iframe/z9h2f81rrs) (shows legacy UI).
@@ -7303,78 +8346,138 @@ Adding rules to the [Bandwidth Control](https://help.zscaler.com/zia/about-bandw
 
 You can also define the [bandwidth classes](https://help.zscaler.com/zia/about-bandwidth-classes) that you want to include in the Bandwidth Control policy. This can be done before or while you're adding the rules.
 
-## Adding Rules to the Bandwidth Control Policy
+## Policy Execution
 
-You must first enable Bandwidth Control for the location before you can add rules to the Bandwidth Control policy. To learn how to enable Bandwidth Control for a location, see Step 1 in [Configuring the Bandwidth Control Policy](https://help.zscaler.com/zia/configuring-bandwidth-control-policy#1).
+The Bandwidth Control policy supports different rule conditions, grouped into categories. A series of `AND` and `OR` logical operators are applied between these criteria to form a combination of rule set that is used to evaluate for traffic matches. The logical relationship between the categories is `AND`, and the rule conditions within each category have their own set of logical operators applied, explained as follows:
 
-To add rules to the Bandwidth Control policy:
+- **Where**: [ Locations `AND` Location Groups ] `AND`
+- **When**: Time `AND`
+- **What**: [ Protocols `AND` Bandwidth Classes ] `AND`
 
-1. Go to **Infrastructure**> **Internet & SaaS**>**Network Policies**> **Rules**.
-2. Click **Add Rule**. You can also copy an existing rule by clicking the [Duplicate icon](https://help.zscaler.com/zia/editing-deleting-duplicating-items). The **Add Rule**window appears. See image.
-3. In the **Add Rule**window, enter the **Bandwidth Control Rule**attributes: See image.
-  - **Rule Order:** Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you have enabled [Admin Rank](https://help.zscaler.com/zia/6.1/about-admin-rank), your assigned admin rank determines the rule order values you can select.
-  - **Rule Name:**Enter a name for the rule.
-  - **Admin Rank:** Enter a value from 0 to 7 (0 is the highest rank). Your assigned [Admin Rank](https://help.zscaler.com/zia/6.1/about-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule's Admin Rank determines the value you can select in the rule order so that a rule with a higher Admin Rank always precedes a rule with a lower Admin Rank.
-  - **Rule Status:** An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
-  - **Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
-4. Define the **Criteria**: See image.
-  - **Bandwidth Classes:**Select the [bandwidth classes](https://help.zscaler.com/zia/about-bandwidth-classes) to which you want to apply this rule. You first must add URLs or cloud applications to predefined or custom bandwidth classes. Select any number of bandwidth classes. You can also search for bandwidth classes or click the **Add** icon to add a new bandwidth class.
-  - **Locations:** Select**Any** to apply this rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can search for a location or click the **Add** icon to add a new location. You must enable Bandwidth Control for these locations and specify the download and upload bandwidth limits for each location. Contact Zscaler Support to increase the limit of **Locations**.
-  - **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
-  - **Time:**Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/about-time-intervals), or select up to two time intervals. You can also search for a time interval or click the **Add** icon to add a new time interval.
-  - **Protocols**: If you have the Firewall subscription, select the protocols to which the rule applies: Zscaler inspects bidirectional WebSocket traffic carrying supported text-based content across applications. Contact Zscaler Support to enable this feature.
-    - **DNS over HTTPS**: Bandwidth from DNS over HTTPS websites.
-    - **FTP over HTTP**: Bandwidth from FTP over HTTP websites.
-    - **HTTP**: Bandwidth from HTTP websites. HTTP/2 traffic is covered under HTTPS. To enable HTTP/2 support, contact Zscaler Support. When enabled, enforcement occurs per HTTP/2 stream; there is no separate protocol selection required.
-    - **HTTP Proxy**: Bandwidth from HTTP proxy servers.
-    - **HTTPS**: Bandwidth from HTTP websites encrypted by SSL/TLS.
-    - **Native FTP**: Bandwidth from native FTP servers.
-    - **SSL/TLS**: Bandwidth from SSL/TLS traffic that isn't decrypted. For example, bandwidth from hosts you've [exempted from SSL/TLS Inspection](https://help.zscaler.com/zia/understanding-ssltls-inspection).
-    - **Tunnel**: Bandwidth from unidentified encrypted traffic. For example, bandwidth from tunneling applications (e.g., Telnet or SSH) that are encapsulated in HTTP or HTTPS.
-    - **Tunnel SSL/TLS**: Undecodable protocol within an SSL/TLS connection.
-    - **WebSocket**: Bandwidth from WebSocket websites.
-    - **WebSocket SSL/TLS**: Bandwidth from WebSocket websites encrypted by SSL/TLS.
-5. Define the **Action**: See image.
-  - **Min. Bandwidth:**Select the minimum percentage of a location’s [bandwidth](https://help.zscaler.com/zia/about-bandwidth-control) you want to be guaranteed for each selected bandwidth class. This percentage includes bandwidth for uploads and downloads.
-  - **Max. Bandwidth:**Select the maximum percentage of a location’s [bandwidth](https://help.zscaler.com/zia/about-bandwidth-control) you want to be guaranteed for each selected bandwidth class. This percentage includes bandwidth for uploads and downloads.
-6. **Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
-7. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+## Prerequisites
 
-The Bandwidth Control policy has two predefined rules that you can edit or delete, and a default rule that you can edit but not delete. You can also edit or delete any administrator-defined rule.
+Before adding rules to the Bandwidth Control policy, ensure that you have configured the resources that the policy references, per your requirements:
+
+- [Locations](https://help.zscaler.com/zia/about-locations) to which the IPS Control policy rules apply.
+- [Location groups](https://help.zscaler.com/zia/about-location-groups)
+- [Time intervals](https://help.zscaler.com/zia/about-time-intervals)
+- [Bandwidth Classes](https://help.zscaler.com/zia/about-bandwidth-classes)
+
+## Adding a Bandwidth Control Policy Rule
+
+To add a Bandwidth Control policy rule:
+
+1. Go to **Internet & SaaS** > **Policy** > **Bandwidth Control**.
+2. Click **Add Rule**. The **Add Rule** page appears. See Image.
+3. On the **Add Rule** page, you can configure the following sections:
+  - Criteria
+  - Actions
+  - Details
+4. Save and [activate the change.](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console)
+
+In the **Criteria**section, when you click **Add Criteria**, you see the rule condition categories in gray (e.g., Protocols) and the individual rule conditions under each category.
+
+See image.
+
+After you click on the various conditions, you notice that all the conditions contain preconfigured values (e.g., Locations and Bandwidth Classes). For conditions with preconfigured values, a multi-select window with a search bar appears. You can select values by selecting the checkbox for individual items or by clicking **Select All**. After selecting the values, click outside the window to close it.
+
+To clear selected items, click the field to open the multi-select window, then use the **Remove** icon displayed for individual entries. To remove all selected values, click **Remove All**.
+
+See image.
+
+Refer to the following condition categories for details on configuring their individual conditions:
+
+- Where
+- When
+- What
+
+To remove an individual condition from the rule, click the **Delete** icon. You can expand or collapse individual criteria tiles as needed.
+
+In the **Actions** section, select the minimum and maximum percentages to apply when the rule conditions are met:
+
+- **Min. Bandwidth:**Select the minimum percentage of a location’s [bandwidth](https://help.zscaler.com/zia/about-bandwidth-control) you want to be guaranteed for each selected bandwidth class. This percentage includes bandwidth for uploads and downloads.
+- **Max. Bandwidth:**Select the maximum percentage of a location’s [bandwidth](https://help.zscaler.com/zia/about-bandwidth-control) you want to be guaranteed for each selected bandwidth class. This percentage includes bandwidth for uploads and downloads.
+
+See image.
+
+In the **Bandwidth Control Rule** section, provide general information about the rule:
+
+- **Rule Name**: A system-generated rule name is automatically populated, and the name can be edited. The name cannot exceed 63 characters.
+- **Description**: (Optional) Click **Add Description** and enter additional notes or information about the rule in the text field. You can adjust this field's size as needed, depending on your content length. The description cannot exceed 10,240 characters.
+- **Rule Label**: (Optional) Click **Add Rule Label** and select a [label](https://help.zscaler.com/zia/about-rule-labels) from the drop-down menu.
+- **Rule Order**: A rule order is automatically assigned and displayed. It determines the rule's position in the ascending order of evaluation used for all rules within the policy. You can modify the rule order, but if you enable [Admin Rank](https://help.zscaler.com/zia/about-admin-rank), your assigned admin rank determines the rule order values you can select. To modify the rule order: See image.
+  1. Click **Edit**.
+  2. In the **Edit Rule Order** drawer that appears, enter the required rule order under **Current Rule**. You can review the existing rules shown in the drawer and modify your current rule order. You can also adjust the number of rules displayed per page and navigate through the next and previous pages.
+  3. Click **Apply**.
+- **Admin Rank**: Click **Edit** and select an admin rank 0 to 7 (0 is the highest rank) from the drop-down menu. This option appears if you enable [Admin Ranking](https://help.zscaler.com/zia/about-admin-rank) on the [Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings) page. Your assigned admin rank determines the values you can select (e.g., you cannot select a rank higher than your own). The rule's admin rank determines the value you can select for rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
+- **Rule Status**:By default, the status is **Disabled**. You need to enable the rule to activate and enforce it on your traffic. Disabled rules can have a rule order assigned. During evaluation, the service skips the disabled rules and moves to the successive ones.
+
+See image.
+
+- **Locations:** Select**Any** to apply this rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can search for a location or click the **Add** icon to add a new location. You must enable Bandwidth Control for these locations and specify the download and upload bandwidth limits for each location.
+- **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
+
+Contact Zscaler Support to increase the default limit for **Locations**.
+
+If you do not select specific location groups, the field is set to **Any**by default, and this criterion is ignored during policy evaluation.
+
+**Time**: Select up to two [time intervals](https://help.zscaler.com/zia/defining-time-intervals) during which the rule applies. By default, the field is set to **Always**.
+
+- **Bandwidth Classes:**Select the [Bandwidth Classes](https://help.zscaler.com/zia/about-bandwidth-classes) to which you want to apply this rule. You first must add URLs or cloud applications to predefined or custom bandwidth classes. Select any number of bandwidth classes. You can also search for bandwidth classes or click the **Add** icon to add a new bandwidth class.
+- **Protocols**: If you have the Firewall subscription, select the protocols to which the rule applies:
+  - **DNS over HTTPS**: Bandwidth from DNS over HTTPS websites.
+  - **FTP over HTTP**: Bandwidth from FTP over HTTP websites.
+  - **HTTP**: Bandwidth from HTTP websites.
+  - **HTTP Proxy**: Bandwidth from HTTP proxy servers.
+  - **HTTPS**: Bandwidth from HTTP websites encrypted by SSL/TLS.
+  - **Native FTP**: Bandwidth from native FTP servers.
+  - **SSL/TLS**: Bandwidth from SSL/TLS traffic that isn't decrypted. For example, bandwidth from hosts you've [exempted from SSL/TLS Inspection](https://help.zscaler.com/zia/understanding-ssltls-inspection).
+  - **Tunnel**: Bandwidth from unidentified encrypted traffic. For example, bandwidth from tunneling applications (e.g., Telnet or SSH) that are encapsulated in HTTP or HTTPS.
+  - **Tunnel SSL/TLS**: Undecodable protocol within an SSL/TLS connection.
+  - **WebSocket**: Bandwidth from WebSocket websites.
+  - **WebSocket SSL/TLS**: Bandwidth from WebSocket websites encrypted by SSL/TLS.
+
+The Bandwidth Control Policy has two predefined rules that you can edit or delete, and a default rule that you can edit but not delete. You can also edit or delete any administrator-defined rule.
 
 To learn how this policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
 
-[Image: Add Rule Window in Bandwidth Control page]
-
-[Image: Details Section in Add Rule page]
-
-[Image: Criteria Section in Add Rule page]
+[Image: Bandwidth Control Edit Rule Order section]
 
 [Image: Bandwidth Control Rule Action Section]
+
+[Image: Bandwidth Control Policy showing Add rule details section]
+
+[Image: Bandwidth Control Add criteria section]
+
+[Image: Bandwidth Control criteria section fields with predefined values]
+
+[Image: Bandwidth Control Rules Overview showing rule name, admin rank, description, etc,.]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-rules-cloud-app-control-policy","lastmod":"2026-06-26T03:41Z","nid":"1399401"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-rules-cloud-app-control-policy","lastmod":"2026-09-16T23:11Z","nid":"1399401"} -->
 ## Adding Rules to the Cloud App Control Policy
 
 - Source: https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding Rules to the Cloud App Control Policy
-- Last modified: 2026-06-26T03:41Z
+- Last modified: 2026-09-16T23:11Z
 - Summary: How to create rules to control access to specific cloud applications.
 
 [Click to watch a video about Cloud App Control Policy, including how to add rules to the Cloud App Control policy](https://fast.wistia.net/embed/iframe/0bvxqh6pko) (shows legacy UI).
 
-You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/cloud-app-categories) to facilitate defining rules for similar applications.
+You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
 
 Additionally, you can define a daily quota by bandwidth or time. When users browse these sites after their quota has been reached, the Zscaler service displays a message that explains that the content cannot be viewed because they exceeded their daily quota.
 
 ## Policy Execution
 
-The Cloud App Control rules consist of a series of logical operators between their criteria. The rules are triggered based on the result of the following logical operations between the criteria:
+The Cloud App Control policy supports different rule conditions, grouped into categories. A series of `AND` and `OR` logical operators are applied between these criteria to form a combination of rule sets that are used to evaluate for traffic matches. The logical relationship between the categories is `AND`, and the rule conditions within each category have their own set of logical operators applied, explained as follows:
 
-[Cloud Applications (`OR`) Cloud Application Risk Profile] (`AND`) [Users (`OR`) Groups (`OR`) Departments] (`AND`) [Location Groups (`OR`) Locations] (`AND`) Time (`AND`) [Device Groups (`OR`) Devices] (`AND`) Device Trust Level (`AND`) User Agent (`AND`) User Risk Profile.
+- **Applications**: [ Cloud Applications `OR` Cloud Application Instances `OR` Cloud Application Risk Profile ]
+- **Who, Where, & When**: [ (Groups `OR` Users `OR` Departments) `AND` (Location Groups `OR` Locations) `AND` Time ]
+- **Devices & Agents**: [ Devices `OR` Device Groups `OR` Device Trust Level `OR` CONNECT User-Agent `OR` User Risk Profile ]
 
 ## Adding a Cloud App Control Rule
 
@@ -7382,7 +8485,7 @@ To add a rule, you can go to **Policies**>**Access Control**> **Internet & SaaS*
 
 See image.
 
-Click a cloud application category from the following list to learn more about creating rules for the category.
+Select a cloud application category from the following list to learn more about creating rules for the category:
 
 - [AI & ML Applications](https://help.zscaler.com/zia/adding-ai-ml-applications-rule-cloud-app-control)
 - [Collaboration & Online Meetings](https://help.zscaler.com/zia/adding-collaboration-online-meetings-rule-for-cloud-app-control)
@@ -7408,20 +8511,20 @@ The Cloud App Control policy rules can also be applied to IoT devices from a [lo
 
 Zscaler provides the Allow Unauthenticated Traffic for IoT Classifications predefined rules for the preceding cloud application categories. You can enable these rules to temporarily allow unauthenticated traffic that could be blocked by other rules, so that the Zscaler AI/ML can classify devices. These rules are disabled by default and cannot be deleted. You can modify the Rule Order, Rule Status, Rule Label, and Description for these rules and cannot edit other attributes.
 
-For information on the order in which the service enforces all policies, including this policy, see [About Policy Enforcement](https://help.zscaler.com/zia/about-policy-enforcement).
+For information on the order in which the service enforces all policies, including this policy, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
 
 [Image: The list of cloud app category names]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-saas-application-tenants","lastmod":"2026-08-05T23:53Z","nid":"1401256"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-saas-application-tenants","lastmod":"2026-09-18T09:52Z","nid":"1401256"} -->
 ## Adding SaaS Application Tenants
 
 - Source: https://help.zscaler.com/zia/adding-saas-application-tenants
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > Adding SaaS Application Tenants
-- Last modified: 2026-08-05T23:53Z
+- Last modified: 2026-09-18T09:52Z
 - Summary: How to add a SaaS application tenant for Data at Rest Scanning.
 
 [Watch a video about SaaS Application Tenants](https://fast.wistia.net/embed/iframe/net3zjd13m) (shows legacy UI).
@@ -7430,11 +8533,11 @@ Zscaler Data at Rest Scanning provides visibility and security for [sanctioned S
 
 To add a SaaS application tenant for SaaS Security or SSPM - Essential and Advanced:
 
-1. Go to **Policies** >**Common Configuration** > **Out-of-Band CASB** > **SaaS Application Tenants**.
+1. Go to **Data Security**>**DSPM** > **Configuration** > **SaaS Application Tenants**.
 2. Click **Add SaaS Application Tenant**. The **Add SaaS Application Tenant** page appears.
 3. Under **Choose the SaaS Application Provider**, search for or choose from one of the sanctioned SaaS applications. See image.
 4. Under **Name the SaaS Application Tenant**, enter a name for the SaaS application tenant. It must be unique. This name is displayed when configuring the Data at Rest Scanning DLP policy, Malware Detection policy, Workflow Automation, or Scan Configuration depending on the functionality available for that specific application.
-5. Under **Onboard SaaS Application for**, select the checkbox for the functionality you want to enable. You can choose from **App Governance**, **DLP and Malware scanning SaaS API**, **SSPM Scan**, or **Workflow Automation** if the app supports the functionality. See image. To learn more about the different onboarding functionalities, see [Connecting Your Platforms to 3rd-Party App Governance](https://help.zscaler.com/zia/connecting-your-platforms-3rd-party-app-governance), [About Data at Rest Scanning Malware Detection](https://help.zscaler.com/zia/about-data-rest-scanning-malware-detection), [What Is Advanced Posture Management?](https://help.zscaler.com/zia/what-advanced-posture-management), and [What Is Workflow Automation?](https://help.zscaler.com/workflow-automation/what-workflow-automation) The App Governance functionality cannot be enabled for Okta, Salesforce, and Slack tenants using the **App Governance** checkbox. You must onboard these tenants from the 3rd-Party App Governance Admin Portal. To learn more, see [Connecting Your Platforms to 3rd-Party App Governance](https://help.zscaler.com/zia/connecting-your-platforms-3rd-party-app-governance).
+5. Under **Select Features**, select the checkbox for the functionality you want to enable. You can choose from **DLP and Malware scanning SaaS API**, **SSPM Scan**, or **Workflow Automation** if the app supports the functionality. See image. To learn more about the different onboarding functionalities, see [Connecting Your Platforms to 3rd-Party App Governance](https://help.zscaler.com/zia/connecting-your-platforms-3rd-party-app-governance), [About Data at Rest Scanning Malware Detection](https://help.zscaler.com/zia/about-data-rest-scanning-malware-detection), [What Is Advanced Posture Management?](https://help.zscaler.com/zia/what-advanced-posture-management), and [What Is Workflow Automation?](https://help.zscaler.com/workflow-automation/what-workflow-automation) The App Governance functionality cannot be enabled for Okta, Salesforce, and Slack tenants using the **App Governance** checkbox. You must onboard these tenants from the 3rd-Party App Governance Admin Portal. To learn more, see [Connecting Your Platforms to 3rd-Party App Governance](https://help.zscaler.com/zia/connecting-your-platforms-3rd-party-app-governance).
 6. If you selected **DLP and Malware Scanning SaaS API** for onboarding, you need to specify your quarantine location for supported file share applications. See image.
   1. Under **DLP Quarantine Location**, enter a valid folder path or URL of the designated quarantine location for relocating the files (e.g., `/home/quarantine_folder`).
   2. Under **DLP Admin Email ID**, enter the admin email address for the application.
@@ -9694,16 +10797,16 @@ The following list includes details and limitations of the Zoom DLP and Malware 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-sales-marketing-rule-cloud-app-control","lastmod":"2026-06-29T05:58Z","nid":"1400161"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-sales-marketing-rule-cloud-app-control","lastmod":"2026-09-16T23:43Z","nid":"1400161"} -->
 ## Adding a Sales & Marketing Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-sales-marketing-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Sales & Marketing Rule for Cloud App Control
-- Last modified: 2026-06-29T05:58Z
+- Last modified: 2026-09-16T23:43Z
 - Summary: Information on how to add a rule for Sales and Marketing cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
-You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/cloud-app-categories) to facilitate defining rules for similar applications.
+You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
 
 Organizations are moving to the cloud for their sales and marketing applications. This category includes applications such as Marketo and SuccessFactors, so you can create rules specifically for these and other similar cloud applications. You can specify which applications your users are allowed to access and define a daily quota by bandwidth or time.
 
@@ -9714,88 +10817,143 @@ When users browse to these sites after their quota has been reached, the Zscaler
 To add a rule for Sales & Marketing apps:
 
 1. Go to **Policies** > **Access Control**>**Internet & SaaS** > **Cloud App Control**.
-2. In the left-side menu, select **Sales and Marketing**, then click **Add Rule**. The **Sales and Marketing** page appears. See image.
-3. On the **Sales and Marketing** page, enter the rule attributes: See image.
-  - **Rule Name**: Enter a unique name for the rule or use the default name.
-  - **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
-  - **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
-  - **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/what-admin-rank), your assigned admin rank determines the rule order values you can select.
-  - **Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/what-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
-  - **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
-4. Click **Add Criteria**and define the **Criteria**: See image.
-  - **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
-  - **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
-  - **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
-  - **Users**:Select **Any** to apply the rule to all [users](https://help.zscaler.com/zia/adding-user-account), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users or click the **Add**icon to add a new user.
-  - **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/zia/how-do-i-add-group), or select up to 32 groups. You can search for groups or click the **Add**icon to add a new group.
-  - **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/zia/how-do-i-add-department), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments or click the **Add**icon to add a new department. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic) must apply to all Groups and Departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.
-  - **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location or click the **Add**icon to add a new location. Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**.
-  - **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
-  - **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
-  - **Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/how-do-i-define-time-intervals), or select up to two time intervals. You can also search for a time interval or click the **Add**icon to add a new time interval.
-  - **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
-  - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) to which the rule applies. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation** or **No Client Connector** to apply the rule to isolation traffic or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** group is available only if Zero Trust Browser (formerly Isolation) is enabled for your organization.
-  - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
-  - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-  - **User Risk Profile**: Select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
-    - **Low**: Level with user risk scores ranging from 0 to 29
-    - **Medium**: Level with user risk scores ranging from 30 to 59
-    - **High**: Level with user risk scores ranging from 60 to 79
-    - **Critical**: Level with user risk scores ranging from 80 to 100
-5. Define the **Rule Expiration**: See image.
-  - **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
-    - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
-    - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
-    - **Time Zone**: Select the time zone in which the rule should be valid.
-6. Specify the **Action**: See image.
-  - **Application Access**: Choose one of the following options: The **Isolate** option is available only if Zero Trust Browser is enabled for your organization.
-    - Allow
-    - Caution
-    - Block
-    - Conditional
-    - Isolate
-  - **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies** > **Common Configuration** > **Advanced**> **Advanced Settings**).
-7. (Optional) Define the notification settings:
-  - **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**.
-8. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+2. In the left-side menu, select **Sales and Marketing**, then click **Add Rule**. The **Sales and Marketing** page appears.
+3. On the **Sales and Marketing**page, you can configure the following sections:
+  - Criteria
+  - Actions
+  - Details
+  - Rule Expiration
+  - Notification
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 To learn how this policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
 
-[Image: Add Sales & Marketing Rule Window]
+In the **Criteria** section, when you click the **Add Criteria**drop-downmenu, you see the rule condition categories in gray (e.g., **Who**) and the individual rule conditions (e.g., **Users**, **Groups**,and**Departments**) under each category.
+
+See image.
+
+The conditions contain preconfigured values (e.g., **Users**, **Groups**,and**Departments**). A multi-select window with a search bar appears. You can select values by selecting the checkbox for individual items or by clicking **Select All**. After selecting the values, click outside the window to close it. To clear selected items, click the field to open the multi-select window, then use the **Remove** icon displayed for individual entries. To remove all selected values, click **Remove All**.
+
+See image.
+
+Refer to the following condition categories for details on configuring their individual conditions:
+
+- Applications
+- Who
+- Where
+- When
+- Devices & Agents
+
+You can expand or collapse all the criteria using the **Expand All** or **Collapse All** button, respectively.
+
+See image.
+
+In the **Actions** section, for **Application Access**, select one of the following actions to apply when the rule conditions are met:
+
+- Allow
+- Caution
+- Block
+- Conditional
+- Isolate
+
+See image.
+
+In the **Details** section, provide general information about the rule:
+
+- **Rule Name**: Enter a unique name for the rule or use the default name.
+- **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
+- **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
+- **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/understanding-admin-rank), your assigned admin rank determines the rule order values you can select.
+- **Edit Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/understanding-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
+- **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
+
+See image.
+
+In the **Rule Expiration** section, you can define the validity of the rule:
+
+- **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
+  - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
+  - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
+  - **Time Zone**: Select the time zone in which the rule is valid.
+
+You can use the rule expiration feature to temporarily allow or block access for a set period of time to an application if any configured rules block or allow access to it, respectively.
+
+After the rule expires, Zscaler either blocks or allows the traffic based on the default rules configured for your organization.
+
+See image.
+
+(Optional) In the **Notification** section, you can enable the browser notification template to be triggered by the rule:
+
+- **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**. See image.
+
+- **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
+- **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
+- **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
+- **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
+
+- **Users**: Select **Any** to apply the rule to all [users](https://help.zscaler.com/authentication-service/adding-users), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users.
+- **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/authentication-service/adding-user-groups), or select up to 32 groups. You can search for groups.
+- **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/authentication-service/adding-departments), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic) must apply to all groups and departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.; Contact Zscaler Support to increase the limit of **Users**, **Groups**, or **Departments**.
+
+- **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location. Contact Zscaler Support to increase the limit of **Locations**.
+- **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
+
+**Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/defining-time-intervals), or select up to two time intervals. You can also search for a time interval.
+
+- **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
+- **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
+- **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
+- **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+  - **Low**: Level with user risk scores ranging from 0 to 29
+  - **Medium**: Level with user risk scores ranging from 30 to 59
+  - **High**: Level with user risk scores ranging from 60 to 79
+  - **Critical**: Level with user risk scores ranging from 80 to 100
 
 Choose to allow the users to access the selected applications.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
 Choose to display an EUN that cautions users before allowing them access to the selected applications.
 
 You can select this action for only one of the following request methods: **CONNECT**, **GET**, or **HEAD**.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
 Choose toblock the users from accessing the selected applications.
 
 Choose to conditionally allow the users to access the selected applications.
 
-- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/zidentity/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/authentication-service/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
 
 Choose to isolate all the traffic that matches the cloud app control rule through a remote browser. To learn more, see [What Is Zero Trust Browser?](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser)
 
-- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zia/creating-isolation-profile-cloud-browser-isolation) for your organization.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+This action is available only if Zero Trust Browser is enabled for your organization.
+
+- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) for your organization.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
-[Image: Cloud App Control Rule Section]
+[Image: Criteria menu on the Sales & Marketing page]
 
-[Image: Criteria Section]
+[Image: Sales & Marketing page - criteria multi-select window]
 
-[Image: Rule Expiration Section]
+[Image: Criteria section on the Sales & Marketing page]
 
-[Image: Actions Section]
+[Image: Details section on the Sales & Marketing page]
+
+[Image: Rule Expiration Section on the Sales & Marketing page]
+
+[Image: Actions section on the Sales & Marketing page]
+
+[Image: Notification section on the Sales & Marketing page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -9879,16 +11037,16 @@ To add an SD-WAN partner API role:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-social-networking-rule-cloud-app-control","lastmod":"2026-06-29T06:06Z","nid":"1400166"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-social-networking-rule-cloud-app-control","lastmod":"2026-09-16T23:45Z","nid":"1400166"} -->
 ## Adding a Social Networking Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-social-networking-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Social Networking Rule for Cloud App Control
-- Last modified: 2026-06-29T06:06Z
+- Last modified: 2026-09-16T23:45Z
 - Summary: How to add a rule for Social Networking cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
-You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/cloud-app-categories) to facilitate defining rules for similar applications.
+You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
 
 Your organization can control access to and usage of social network sites to guard against:
 
@@ -9905,218 +11063,336 @@ You can configure rules to control access to the most popular social networking 
 To add a rule for Social Networking apps:
 
 1. Go to **Policy**>**Access Control**> **Internet & SaaS** >**Cloud App Control**.
-2. In the left-side menu, select **Social Networking**, then click **Add Rule**. The **Social Networking**page appears. See image.
-3. On the **Social Networking**page, enter the rule attributes: See image.
-  - **Rule Name**: Enter a unique name for the rule or use the default name.
-  - **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
-  - **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
-  - **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/what-admin-rank), your assigned admin rank determines the rule order values you can select.
-  - **Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/what-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
-  - **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
-4. Define the **Criteria**: See image.
-  - **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
-  - **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
-  - **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
-  - **Users**:Select **Any** to apply the rule to all [users](https://help.zscaler.com/zia/adding-user-account), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users or click the **Add**icon to add a new user.
-  - **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/zia/how-do-i-add-group), or select up to 32 groups. You can search for groups or click the **Add**icon to add a new group.
-  - **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/zia/how-do-i-add-department), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments or click the **Add**icon to add a new department. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic) must apply to all groups and departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.
-  - **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location or click the **Add**icon to add a new location. Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**.
-  - **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
-  - **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
-  - **Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/how-do-i-define-time-intervals), or select up to two time intervals. You can also search for a time interval or click the **Add**icon to add a new time interval.
-  - **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
-  - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) to which the rule applies. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation** or **No Client Connector** to apply the rule to isolation traffic or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** group is available only if Zero Trust Browser (formerly Isolation) is enabled for your organization.
-  - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
-  - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-  - **User Risk Profile**: Select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
-    - **Low**: Level with user risk scores ranging from 0 to 29
-    - **Medium**: Level with user risk scores ranging from 30 to 59
-    - **High**: Level with user risk scores ranging from 60 to 79
-    - **Critical**: Level with user risk scores ranging from 80 to 100
-5. Define the **Rule Expiration**: See image.
-  - **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
-    - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
-    - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
-    - **Time Zone**: Select the time zone in which the rule should be valid.
-6. Specify the **Action** by choosing one of the following options for **Viewing** and **Posting**: You can choose either **Allow** or **Block** for **Posting**. The **Isolate** option is available only if Zero Trust Browser is enabled for your organization. See image.
-  - Allow
-  - Caution
-  - Block
-  - Conditional
-  - Isolate
-  - **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies** > **Common Configuration** > **Advanced**> **Advanced Settings**).
-7. (Optional) Define the **Notification** settings:
-  - **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**.
-  - **End User Notification**: Appears when a granular action is blocked for the selected application or a tenant profile is selected. Select **Show** to show the Zscaler Client Connector-based EUN message on endpoints when the user activity triggers the Cloud App Control policy rule, or select **Hide** if you don't want an EUN message to appear. This field is set to **Show** by default.
-    - **Custom Message**: Select a custom notification message that you want to show as the Zscaler Client Connector-based EUN. This field is set to the **Default** notification message if no message is selected from the drop-down menu.
-8. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+2. In the left-side menu, select **Social Networking**, then click **Add Rule**. The **Social Networking**page appears.
+3. On the **Social Networking**page, you can configure the following sections:
+  - Criteria
+  - Actions
+  - Details
+  - Rule Expiration
+  - Notification
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 To learn how this policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
 
-[Image: Add Social Networking Rule Window]
+In the **Criteria** section, when you click the **Add Criteria**drop-downmenu, you see the rule condition categories in gray (e.g., **Who**) and the individual rule conditions (e.g., **Users**, **Groups**,and**Departments**) under each category.
+
+See image.
+
+The conditions contain preconfigured values (e.g., **Users**, **Groups**,and**Departments**). A multi-select window with a search bar appears. You can select values by selecting the checkbox for individual items or by clicking **Select All**. After selecting the values, click outside the window to close it. To clear selected items, click the field to open the multi-select window, then use the **Remove** icon displayed for individual entries. To remove all selected values, click **Remove All**.
+
+See image.
+
+Refer to the following condition categories for details on configuring their individual conditions:
+
+- Applications
+- Who
+- Where
+- When
+- Devices & Agents
+
+You can expand or collapse all the criteria using the **Expand All** or **Collapse All** button, respectively.
+
+See image.
+
+In the **Actions** section, for **Viewing** and **Posting**, select one of the following actions to apply when the rule conditions are met:
+
+You can choose either **Allow** or **Block** for **Posting**.
+
+- Allow
+- Caution
+- Block
+- Conditional
+- Isolate
+
+See image.
+
+In the **Details** section, provide general information about the rule:
+
+- **Rule Name**: Enter a unique name for the rule or use the default name.
+- **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
+- **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
+- **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/understanding-admin-rank), your assigned admin rank determines the rule order values you can select.
+- **Edit Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/understanding-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
+- **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
+
+See image.
+
+In the **Rule Expiration** section, you can define the validity of the rule:
+
+- **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
+  - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
+  - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
+  - **Time Zone**: Select the time zone in which the rule is valid.
+
+You can use the rule expiration feature to temporarily allow or block access for a set period of time to an application if any configured rules block or allow access to it, respectively.
+
+After the rule expires, Zscaler either blocks or allows the traffic based on the default rules configured for your organization.
+
+See image.
+
+(Optional) In the **Notification** section, you can enable browser notification template or end user notifications (EUNs) to be triggered by the rule:
+
+- **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**. See image.
+- **End User Notification**: Select **Show** to show the Zscaler Client Connector-based EUN message on endpoints when the user activity triggers the Cloud App Control policy rule, or select **Hide** if you don't want an EUN message to appear. This field is set to **Show** by default. This field appears when the granular action is blocked for the selected applications. See image.
+  - **Custom Message**: Select a custom notification message that you want to show as the Zscaler Client Connector-based EUN. This field is set to the **Default** notification message if no message is selected from the drop-down menu.
+
+- **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
+- **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
+- **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
+- **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
+
+- **Users**: Select **Any** to apply the rule to all [users](https://help.zscaler.com/authentication-service/adding-users), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users.
+- **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/authentication-service/adding-user-groups), or select up to 32 groups. You can search for groups.
+- **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/authentication-service/adding-departments), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic) must apply to all groups and departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.; Contact Zscaler Support to increase the limit of **Users**, **Groups**, or **Departments**.
+
+- **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location. Contact Zscaler Support to increase the limit of **Locations**.
+- **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
+
+**Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/defining-time-intervals), or select up to two time intervals. You can also search for a time interval.
+
+- **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
+- **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
+- **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
+- **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+  - **Low**: Level with user risk scores ranging from 0 to 29
+  - **Medium**: Level with user risk scores ranging from 30 to 59
+  - **High**: Level with user risk scores ranging from 60 to 79
+  - **Critical**: Level with user risk scores ranging from 80 to 100
 
 Choose to allow the users to view and post on the selected applications.
 
-The **LinkedIn** application supports additional granular actions that include **Posting**, **Chatting**, **Sharing**, **Editing**, **Commenting**, **Uploading**, and **Creating**, which you can **Allow** or **Block**. For the granular actions to work as expected for an application, ensure to enable SSL/TLS Inspection for the application.
+The **LinkedIn** application supports additional granular actions that include **Posting**,**Chatting**,**Commenting**,**Creating**,**Editing**,**Sharing**,and**Uploading**, which you can **Allow** or **Block**. For the granular actions to work as expected for an application, ensure to enable SSL/TLS Inspection for the application.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
-- **Tenant Profiles**: Appears only when **Google+** or **Google Groups** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). Ensure that the applications selected under the tenant profiles are not exempted from SSL/TLS Inspection.
+- **Tenant Profile**: Appears only when **Google+** or **Google Groups** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). Ensure that the applications selected under the tenant profiles are not exempted from SSL/TLS Inspection.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
 Choose to display an EUN that cautions users before allowing them access to the selected applications.
 
 You can select this action for only one of the following request methods: **CONNECT**, **GET**, or **HEAD**.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
 Choose toblock the users from viewing and posting on the selected applications.
 
 Choose to conditionally allow the users to access the selected applications.
 
-- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/zidentity/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/authentication-service/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
 
 Choose to isolate all the traffic that matches the cloud app control rule through a remote browser. To learn more, see [What Is Zero Trust Browser?](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser)
 
-- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zia/creating-isolation-profile-cloud-browser-isolation) for your organization.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+This action is available only if Zero Trust Browser is enabled for your organization.
+
+- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) for your organization.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
-- **Tenant Profiles**: Appears only when **Google+** or **Google Groups** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). Ensure that the applications selected under the tenant profiles are not exempted from SSL/TLS Inspection.
+- **Tenant Profile**: Appears only when **Google+** or **Google Groups** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). Ensure that the applications selected under the tenant profiles are not exempted from SSL/TLS Inspection.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
-[Image: Cloud App Control Rule Section]
+[Image: Criteria menu on the Social Networking page]
 
-[Image: Criteria Section]
+[Image: Social Networking page - criteria multi-select window]
 
-[Image: Rule Expiration Section]
+[Image: Criteria section on the Social Networking page]
 
-[Image: Actions Section]
+[Image: Details section on the Social Networking page]
+
+[Image: Rule Expiration Section on the Social Networking page]
+
+[Image: Actions section on the Social Networking page]
+
+[Image: Notification section on the Social Networking page]
+
+[Image: Notification section on the Social Networking page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-streaming-media-rule-cloud-app-control","lastmod":"2026-06-29T06:16Z","nid":"1400171"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-streaming-media-rule-cloud-app-control","lastmod":"2026-09-16T23:46Z","nid":"1400171"} -->
 ## Adding a Streaming Media Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-streaming-media-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Streaming Media Rule for Cloud App Control
-- Last modified: 2026-06-29T06:16Z
+- Last modified: 2026-09-16T23:46Z
 - Summary: Information on how to add a rule for Streaming Media cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
-You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/cloud-app-categories) to facilitate defining rules for similar applications.
+You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
 
 A typical streaming media rule restricts viewing (or downloading) media files to 30 minutes or 100 MB per day, and prevents users from uploading files to web servers. When users browse these sites and attempt to download media files after their quota has been reached, the Zscaler service displays a message in their browsers explaining that the content cannot be viewed because they have exceeded their daily quota limit. Similarly, when users attempt to upload files, the Zscaler service reports that this action was blocked due to corporate policy, in their browsers.
 
 Additionally, Zscaler provides support for YouTube for Schools, which enables schools to access educational videos on YouTube EDU and specify which videos students are allowed to access. When a school signs up for YouTube for Schools, it is provided a unique ID. For example, you can create a Streaming Media Policy rule that allows YouTube access to students and associates a tenant profile with the YouTube School ID. When a student makes an HTTP request to YouTube, the cloud inserts a custom header with the school’s ID, so YouTube can identify the school and display the videos selected by the school administration.
 
-You can create different YouTube for Schools rules for different schools or locations, so one set of schools can use one filter and another set of schools can use a different filter. You can also create YouTube for Schools rules for students and create a YouTube rule without the filter for school admins. Internet & SaaS (ZIA) logs YouTube for Schools transactions separately from YouTube transactions. When you view the transactions log in the Analyze tab, the YouTube for Schools transactions displays YouTube EDU in the Application field.
+You can create different YouTube for Schools rules for different schools or locations, so one set of schools can use one filter and another set of schools can use a different filter. You can also create YouTube for Schools rules for students and create a YouTube rule without the filter for school admins. Internet & SaaS (ZIA) logs YouTube for Schools transactions separately from YouTube transactions. When you view the transactions log on the Analyze tab, the YouTube for Schools transactions displays YouTube EDU in the Application field.
 
 ## Adding a Rule for Streaming Media Apps
 
 To add a rule for Streaming Media apps:
 
 1. Go to **Policies** > **Access Control** > **Internet & SaaS** > **Cloud App Control**.
-2. In the left-side menu, select **Streaming Media**, then click **Add Rule**. The **Streaming Media** page appears. See image.
-3. On the **Streaming Media** page, enter the rule attributes: See image.
-  - **Rule Name**: Enter a unique name for the rule or use the default name.
-  - **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
-  - **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
-  - **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/what-admin-rank), your assigned admin rank determines the rule order values you can select.
-  - **Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/what-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
-  - **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
-4. Define the **Criteria**: See image.
-  - **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
-  - **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
-  - **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
-  - **Users**:Select **Any** to apply the rule to all [users](https://help.zscaler.com/zia/how-do-i-add-user-account), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users or click the **Add**icon to add a new user.
-  - **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/zia/how-do-i-add-group), or select up to 32 groups. You can search for groups or click the **Add**icon to add a new group.
-  - **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/zia/how-do-i-add-department), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments or click the **Add**icon to add a new department. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic) must apply to all Groups and Departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.
-  - **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location or click the **Add**icon to add a new location. Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**.
-  - **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
-  - **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
-  - **Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/how-do-i-define-time-intervals), or select up to two time intervals. You can also search for a time interval or click the **Add**icon to add a new time interval.
-  - **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
-  - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) to which the rule applies. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation** or **No Client Connector** to apply the rule to isolation traffic or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** group is available only if Zero Trust Browser (formerly Isolation) is enabled for your organization.
-  - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
-  - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-  - **User Risk Profile**: Select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
-    - **Low**: Level with user risk scores ranging from 0 to 29
-    - **Medium**: Level with user risk scores ranging from 30 to 59
-    - **High**: Level with user risk scores ranging from 60 to 79
-    - **Critical**: Level with user risk scores ranging from 80 to 100
-5. Define the **Rule Expiration**: See image.
-  - **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
-    - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
-    - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
-    - **Time Zone**: Select the time zone in which the rule should be valid.
-6. Specify the **Action** by choosing one of the following options for **Viewing**/**Listening**and **Uploading**: You can choose either **Allow** or **Block** for **Uploading**. The **Isolate** option is available only if Zero Trust Browser is enabled for your organization. See image.
-  - Allow
-  - Caution
-  - Block
-  - Conditional
-  - Isolate
-  - **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies** > **Common Configuration** > **Advanced** > **Advanced Settings**).
-7. (Optional) Define the **Notification** settings:
-  - **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**.
-  - **End User Notification**: Appears when a granular action is blocked for the selected application or a tenant profile is selected. Select **Show** to show the Zscaler Client Connector-based EUN message on endpoints when the user activity triggers the Cloud App Control policy rule, or select **Hide** if you don't want an EUN message to appear. This field is set to **Show** by default.
-    - **Custom Message**: Select a custom notification message that you want to show as the Zscaler Client Connector-based EUN. This field is set to the **Default** notification message if no message is selected from the drop-down menu.
-8. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+2. In the left-side menu, select **Streaming Media**, then click **Add Rule**. The **Streaming Media** page appears.
+3. On the **Streaming Media**page, you can configure the following sections:
+  - Criteria
+  - Actions
+  - Details
+  - Rule Expiration
+  - Notification
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 To learn how this policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
 
-[Image: Add Streaming Media Rule Window]
+In the **Criteria** section, when you click the **Add Criteria**drop-downmenu, you see the rule condition categories in gray (e.g., **Who**) and the individual rule conditions (e.g., **Users**, **Groups**,and**Departments**) under each category.
+
+See image.
+
+The conditions contain preconfigured values (e.g., **Users**, **Groups**,and**Departments**). A multi-select window with a search bar appears. You can select values by selecting the checkbox for individual items or by clicking **Select All**. After selecting the values, click outside the window to close it. To clear selected items, click the field to open the multi-select window, then use the **Remove** icon displayed for individual entries. To remove all selected values, click **Remove All**.
+
+See image.
+
+Refer to the following condition categories for details on configuring their individual conditions:
+
+- Applications
+- Who
+- Where
+- When
+- Devices & Agents
+
+You can expand or collapse all the criteria using the **Expand All** or **Collapse All** button, respectively.
+
+See image.
+
+In the **Actions** section, for **Viewing**/**Listening**and **Uploading**, select one of the following actions to apply when the rule conditions are met:
+
+- Allow
+- Caution
+- Block
+- Conditional
+- Isolate
+
+See image.
+
+In the **Details** section, provide general information about the rule:
+
+- **Rule Name**: Enter a unique name for the rule or use the default name.
+- **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
+- **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
+- **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/understanding-admin-rank), your assigned admin rank determines the rule order values you can select.
+- **Edit Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/understanding-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
+- **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
+
+See image.
+
+In the **Rule Expiration** section, you can define the validity of the rule:
+
+- **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
+  - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
+  - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
+  - **Time Zone**: Select the time zone in which the rule is valid.
+
+You can use the rule expiration feature to temporarily allow or block access for a set period of time to an application if any configured rules block or allow access to it, respectively.
+
+After the rule expires, Zscaler either blocks or allows the traffic based on the default rules configured for your organization.
+
+See image.
+
+(Optional) In the **Notification** section, you can enable browser notification template or end user notifications (EUNs) to be triggered by the rule:
+
+- **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**. See image.
+- **End User Notification**: Select **Show** to show the Zscaler Client Connector-based EUN message on endpoints when the user activity triggers the Cloud App Control policy rule, or select **Hide** if you don't want an EUN message to appear. This field is set to **Show** by default. This field appears when the granular action is blocked for the selected applications. See image.
+  - **Custom Message**: Select a custom notification message that you want to show as the Zscaler Client Connector-based EUN. This field is set to the **Default** notification message if no message is selected from the drop-down menu.
+
+- **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
+- **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
+- **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
+- **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
+
+- **Users**: Select **Any** to apply the rule to all [users](https://help.zscaler.com/authentication-service/adding-users), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users.
+- **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/authentication-service/adding-user-groups), or select up to 32 groups. You can search for groups.
+- **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/authentication-service/adding-departments), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic) must apply to all groups and departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.; Contact Zscaler Support to increase the limit of **Users**, **Groups**, or **Departments**.
+
+- **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location. Contact Zscaler Support to increase the limit of **Locations**.
+- **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
+
+**Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/defining-time-intervals), or select up to two time intervals. You can also search for a time interval.
+
+- **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
+- **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
+- **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
+- **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+  - **Low**: Level with user risk scores ranging from 0 to 29
+  - **Medium**: Level with user risk scores ranging from 30 to 59
+  - **High**: Level with user risk scores ranging from 60 to 79
+  - **Critical**: Level with user risk scores ranging from 80 to 100
 
 Choose to allow the users to view, listen, or upload content to the selected applications.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
-- **Tenant Profile**: Appears only when **Google Video** or **YouTube** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). The rule to allow specific YouTube channels, categories, or both using the relevant tenant profiles does not mean that other YouTube channels and categories are blocked. To block other YouTube channels and categories, create a separate rule to block YouTube. Access to certain content on YouTube might be blocked even though they seem to belong to a YouTube category that is allowed access because YouTube might suitably categorize those contents under other categories. For example, an organization has a Streaming Media Policy rule that allows access only to contents related to Music on YouTube by associating a tenant profile with Music as the YouTube category. However, the users of this organization might be blocked to access certain Music as it's categorized under the Entertainment category. Ensure that the applications selected under the tenant profiles are not exempted from SSL/TLS Inspection.
+- **Tenant Profile**: Appears only when **Google Video** or **YouTube** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). The rule to allow specific YouTube channels, categories, or both using the relevant tenant profiles does not mean that other YouTube channels and categories are blocked. To block other YouTube channels and categories, create a separate rule to block YouTube. Access to certain content on YouTube might be blocked even though it seems to belong to a YouTube category that is allowed access, because YouTube might suitably categorize that content under other categories. For example, an organization has a Streaming Media Policy rule that allows access only to content related to Music on YouTube by associating a tenant profile with Music as the YouTube category. However, the users of this organization might be blocked from accessing certain music as it's categorized under the Entertainment category. Ensure that the applications selected under the tenant profiles are not exempted from SSL/TLS Inspection.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
 Choose to display an EUN that cautions users before allowing them access to the selected applications.
 
 You can select this action for only one of the following request methods: **CONNECT**, **GET**, or **HEAD**.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
 Choose to block the users from viewing, listening, or uploading content to the selected applications.
 
 Choose to conditionally allow the users to access the selected applications.
 
-- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/zidentity/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/authentication-service/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
 
 Choose to isolate all the traffic that matches the cloud app control rule through a remote browser. To learn more, see [What Is Zero Trust Browser?](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser)
 
-- **Isolation Profile**: Appears when you select Isolate. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zia/creating-isolation-profile-cloud-browser-isolation) for your organization.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+This action is available only if Zero Trust Browser is enabled for your organization.
+
+- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) for your organization.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
-- **Tenant Profile**: Appears only when Google Video or YouTube is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). The rule to allow specific YouTube channels, categories, or both using the relevant tenant profiles does not mean that other YouTube channels and categories are blocked. To block other YouTube channels and categories, create a separate rule to block YouTube. Access to certain content on YouTube might be blocked even though they seem to belong to a YouTube category that is allowed access, because YouTube might suitably categorize those contents under other categories. For example, an organization has a Streaming Media Policy rule that allows access only to contents related to Music on YouTube by associating a tenant profile with Music as the YouTube category. However, the users of this organization might be blocked from accessing certain music as it's categorized under the Entertainment category. Ensure that the applications selected under the tenant profiles are not exempted from SSL/TLS Inspection.
+- **Tenant Profile**: Appears only when **Google Video** or **YouTube** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). The rule to allow specific YouTube channels, categories, or both using the relevant tenant profiles does not mean that other YouTube channels and categories are blocked. To block other YouTube channels and categories, create a separate rule to block YouTube. Access to certain content on YouTube might be blocked even though it seems to belong to a YouTube category that is allowed access, because YouTube might suitably categorize that content under other categories. For example, an organization has a Streaming Media Policy rule that allows access only to content related to Music on YouTube by associating a tenant profile with Music as the YouTube category. However, the users of this organization might be blocked from accessing certain music as it's categorized under the Entertainment category. Ensure that the applications selected under the tenant profiles are not exempted from SSL/TLS Inspection.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
-[Image: Cloud App Control Rule Section]
+[Image: Criteria menu on the Streaming Media page]
 
-[Image: Criteria Section]
+[Image: Streaming Media page - criteria multi-select window]
 
-[Image: Rule Expiration Section]
+[Image: Criteria section on the Streaming Media page]
 
-[Image: Actions Section]
+[Image: Details section on the Streaming Media page]
+
+[Image: Rule Expiration Section on the Streaming Media page]
+
+[Image: Actions section on the Streaming Media page]
+
+[Image: Notification section on the Streaming Media page]
+
+[Image: Notification section on the Streaming Media page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-system-development-rule-cloud-app-control","lastmod":"2026-06-29T06:23Z","nid":"1400176"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-system-development-rule-cloud-app-control","lastmod":"2026-09-16T23:47Z","nid":"1400176"} -->
 ## Adding a System & Development Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-system-development-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a System & Development Rule for Cloud App Control
-- Last modified: 2026-06-29T06:23Z
+- Last modified: 2026-09-16T23:47Z
 - Summary: Information on how to add a rule for System and Development cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
-You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/cloud-app-categories) to facilitate defining rules for similar applications.
+You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
 
 System and development rules aid in managing the system and development applications.
 
@@ -10125,93 +11401,151 @@ System and development rules aid in managing the system and development applicat
 To add a rule for System & Development apps:
 
 1. Go to **Policies** > **Access Control**> **Internet & SaaS** >**Cloud App Control**.
-2. In the left-side menu, select **System & Development**, then click **Add Rule**. The **System & Development** page appears. See image.
-3. On the **System & Development** page, enter the rule attributes: See image.
-  - **Rule Name**: Enter a unique name for the rule or use the default name.
-  - **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the Rule Order. The service skips it and moves to the next rule.
-  - **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
-  - **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/what-admin-rank), your assigned admin rank determines the rule order values you can select.
-  - **Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/what-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
-  - **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
-4. Click **Add Criteria**and define the **Criteria**: See image.
-  - **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
-  - **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
-  - **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
-  - **Users**:Select **Any** to apply the rule to all [users](https://help.zscaler.com/zia/adding-user-account), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users or click the **Add**icon to add a new user.
-  - **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/zia/how-do-i-add-group), or select up to 32 groups. You can search for groups or click the **Add**icon to add a new group.
-  - **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/zia/how-do-i-add-department), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments or click the **Add**icon to add a new department. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic) must apply to all groups and departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.
-  - **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location or click the **Add**icon to add a new location.
-  - **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group. Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**.
-  - **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
-  - **Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/how-do-i-define-time-intervals), or select up to two time intervals. You can also search for a time interval or click the **Add**icon to add a new time interval.
-  - **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
-  - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) to which the rule applies. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation** or **No Client Connector** to apply the rule to isolation traffic or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** group is available only if Zero Trust Browser (formerly Isolation) is enabled for your organization.
-  - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
-  - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-  - **User Risk Profile**: Select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
-    - **Low**: Level with user risk scores ranging from 0 to 29
-    - **Medium**: Level with user risk scores ranging from 30 to 59
-    - **High**: Level with user risk scores ranging from 60 to 79
-    - **Critical**: Level with user risk scores ranging from 80 to 100
-5. Define the **Rule Expiration**: See image.
-  - **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
-    - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
-    - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
-    - **Time Zone**: Select the time zone in which the rule should be valid.
-6. Specify the action by choosing one of the following options for **Viewing**and**Uploading**(You can only choose **Allow** or **Block** for **Uploading**): The **Isolate** option is available only if Zero Trust Browser is enabled for your organization. See image.
-  - Allow
-  - Caution
-  - Block
-  - Conditional
-  - Isolate
-  - **Cascade to URL Filtering**: Enable if you want to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies** > **Common Configuration** > **Advanced**> **Advanced Settings**).
-7. (Optional) Define the notification settings:
-  - **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**.
-  - **End User Notification**: Appears when a granular action is blocked for the selected application or a tenant profile is selected. Select **Show** to show the Zscaler Client Connector-based EUN message on endpoints when the user activity triggers the Cloud App Control policy rule, or select **Hide** if you don't want an EUN message to appear. This field is set to **Show** by default.
-    - **Custom Message**: Select a custom notification message that you want to show as the Zscaler Client Connector-based EUN. This field is set to the **Default** notification message if no message is selected from the drop-down menu.
-8. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+2. In the left-side menu, select **System & Development**, then click **Add Rule**. The **System & Development** page appears.
+3. On the **System & Development** page, enter the rule attributes:
+  - Criteria
+  - Actions
+  - Details
+  - Rule Expiration
+  - Notification
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 To learn how this policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
 
-[Image: Add System & Development Rule Window]
+In the **Criteria** section, when you click the **Add Criteria**drop-downmenu, you see the rule condition categories in gray (e.g., **Who**) and the individual rule conditions (e.g., **Users**, **Groups**,and**Departments**) under each category.
+
+See image.
+
+The conditions contain preconfigured values (e.g., **Users**, **Groups**,and**Departments**). A multi-select window with a search bar appears. You can select values by selecting the checkbox for individual items or by clicking **Select All**. After selecting the values, click outside the window to close it. To clear selected items, click the field to open the multi-select window, then use the **Remove** icon displayed for individual entries. To remove all selected values, click **Remove All**.
+
+See image.
+
+Refer to the following condition categories for details on configuring their individual conditions:
+
+- Applications
+- Who
+- Where
+- When
+- Devices & Agents
+
+You can expand or collapse all the criteria using the **Expand All** or **Collapse All** button, respectively.
+
+See image.
+
+In the **Actions** section, for **Viewing**and**Uploading**(You can only choose **Allow** or **Block**), select one of the following actions to apply when the rule conditions are met:
+
+- Allow
+- Caution
+- Block
+- Conditional
+- Isolate
+
+See image.
+
+In the **Details** section, provide general information about the rule:
+
+- **Rule Name**: Enter a unique name for the rule or use the default name.
+- **Add Description**: (Optional) Enter additional notes or information. The description cannot exceed 10,240 characters.
+- **Add Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
+- **Edit Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [Admin Rank](https://help.zscaler.com/zia/understanding-admin-rank), your assigned admin rank determines the rule order values you can select.
+- **Edit Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/understanding-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
+- **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
+
+See image.
+
+In the **Rule Expiration** section, you can define the validity of the rule:
+
+- **Enable Rule Expiration**: Enable this option to set a validity period for the rule.
+  - **Start Date and Time**: Select a start date and time. The rule is valid starting on this date and time.
+  - **End Date and Time**: Select an end date and time. The rule ceases to be valid on this date and time.
+  - **Time Zone**: Select the time zone in which the rule is valid.
+
+You can use the rule expiration feature to temporarily allow or block access for a set period of time to an application if any configured rules block or allow access to it, respectively.
+
+After the rule expires, Zscaler either blocks or allows the traffic based on the default rules configured for your organization.
+
+See image.
+
+(Optional) In the **Notification** section, you can enable browser notification template or end user notifications (EUNs) to be triggered by the rule:
+
+- **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**. See image.
+- **End User Notification**: Select **Show** to show the Zscaler Client Connector-based EUN message on endpoints when the user activity triggers the Cloud App Control policy rule, or select **Hide** if you don't want an EUN message to appear. This field is set to **Show** by default. This field appears when the granular action is blocked for the selected applications. See image.
+  - **Custom Message**: Select a custom notification message that you want to show as the Zscaler Client Connector-based EUN. This field is set to the **Default** notification message if no message is selected from the drop-down menu.
+
+- **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
+- **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
+- **Cloud Application Risk Profile**: Select a profile to which the rule applies. You can either select the **Cloud Application Risk Profile** or the **Cloud Applications** field for the rule.
+- **Adaptive Access Profile**: This field shows the adaptive access profile that you want to enforce for the policy. The profiles contain contextual parameters that are constantly monitored for dynamic access control. This option is currently not functional in the Zscaler Admin Console. However, you can contact your Zscaler Account team to subscribe to [Experience Center](https://help.zscaler.com/unified/upgrading-zscaler-experience-center) to use this feature. To learn more, see [Understanding Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
+
+- **Users**: Select **Any** to apply the rule to all [users](https://help.zscaler.com/authentication-service/adding-users), or select up to 32 users under **General Users**. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Users** to apply this rule to all unauthenticated users, or select specific types of unauthenticated users. You can search for users.
+- **Groups**: Select **Any** to apply the rule to all [groups](https://help.zscaler.com/authentication-service/adding-user-groups), or select up to 32 groups. You can search for groups.
+- **Departments**:Select **Any** to apply the rule to all [departments](https://help.zscaler.com/authentication-service/adding-departments), or select up to 32 departments. If you've enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can select **Special Departments** to apply this rule to all unauthenticated transactions. You can search for departments. Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic) must apply to all groups and departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.; Contact Zscaler Support to increase the limit of **Users**, **Groups**, or **Departments**.
+
+- **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location. Contact Zscaler Support to increase the limit of **Locations**.
+- **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
+
+**Time**:Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/defining-time-intervals), or select up to two time intervals. You can also search for a time interval.
+
+- **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) to which the rule applies. You can also search for a device. Selecting no value ignores this criterion in the policy evaluation.
+- **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
+- **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
+- **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+  - **Low**: Level with user risk scores ranging from 0 to 29
+  - **Medium**: Level with user risk scores ranging from 30 to 59
+  - **High**: Level with user risk scores ranging from 60 to 79
+  - **Critical**: Level with user risk scores ranging from 80 to 100
 
 Choose to allow the users to view or upload content to the selected applications.
 
 The **GitHub** application supports additional granular actions that include **Creating**, **Editing**, **Sharing**, **Commenting**, and **Reaction**, which you can **Allow** or **Block**. For the granular actions to work as expected for an application, ensure to enable SSL/TLS Inspection for the application.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
-- **Tenant Profiles**: Appears only when **GitHub**, **Google App Maker**, or **Google Developers** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). For GitHub, you can select only one tenant profile. Ensure that the applications selected under the tenant profiles are not exempted from SSL/TLS Inspection.
+- **Tenant Profile**: Appears only when **GitHub**, **Google App Maker**, or **Google Developers** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). For GitHub, you can select only one tenant profile. Ensure that the applications selected under the tenant profiles are not exempted from SSL/TLS Inspection.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
-Choose to display an EUN that cautions users before viewing or uploading content to the selected applications.
+Choose to display an EUN that cautions users before allowing them access to the selected applications.
 
 You can select this action for only one of the following request methods: **CONNECT**, **GET**, or **HEAD**.
 
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
 Choose toblock the users from viewing or uploading content to the selected applications.
 
 Choose to conditionally allow the users to access the selected applications.
 
-- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/zidentity/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+- **Conditional Access**: Allows access to the selected applications by enforcing step-up authentication. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication satisfies the additional authentication levels. In the **Authentication** **Level** field, select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console before configuring a policy in the Zscaler Admin Console to select this option. When you try to access applications that require additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/authentication-service/understanding-step-up-authentication). This option is available only if your organization is provisioned with the Authentication Service for end users and the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) is Zscaler Client Connector. However, if your traffic is routed via a Private Service Edge for Internet & SaaS (ZIA) or Virtual Service Edge for Internet & SaaS, conditional access is not supported and the user access to the applications is blocked with a notification from the browser. Conditional access doesn't apply to [isolation](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) traffic. To enable this feature, you can raise a provisioning support ticket.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
 
-Choose to isolate all the traffic that matches the cloud app control rule through a remote browser. To learn more, see [What Is Zero Trust Branch?](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser)
+Choose to isolate all the traffic that matches the cloud app control rule through a remote browser. To learn more, see [What Is Zero Trust Browser?](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser)
 
-- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zia/creating-isolation-profile-cloud-browser-isolation) for your organization.
-- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100,000 MB.
+This action is available only if Zero Trust Browser is enabled for your organization.
+
+- **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) for your organization.
+- **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
-- **Tenant Profiles**: Appears only when **GitHub**, **Google App Maker**, or **Google Developers** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). For GitHub, you can select only one tenant profile. Ensure that the applications selected under the tenant profiles are not exempted from SSL/TLS Inspection.
+- **Tenant Profile**: Appears only when **GitHub**, **Google App Maker**, or **Google Developers** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). For GitHub, you can select only one tenant profile. Ensure that the applications selected under the tenant profiles are not exempted from SSL/TLS Inspection.
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
 
-[Image: Cloud App Control Rule Section]
+[Image: Criteria menu on the System & Development page]
 
-[Image: Criteria Section]
+[Image: System & Development page - criteria multi-select window]
 
-[Image: Rule Expiration Section]
+[Image: Criteria section on the System & Development page]
 
-[Image: Actions Section]
+[Image: Details section on the System & Development page]
+
+[Image: Rule Expiration Section on the System & Development page]
+
+[Image: Actions section on the System & Development page]
+
+[Image: Notification section on the System & Development page]
+
+[Image: Notification section on the System & Development page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -10446,13 +11780,13 @@ To configure a TCP NSS feed for Authentication logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-dns-logs","lastmod":"2026-07-22T16:15Z","nid":"1399086"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-dns-logs","lastmod":"2026-09-20T07:06Z","nid":"1399086"} -->
 ## Adding TCP NSS Feeds for DNS Logs
 
 - Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-dns-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for DNS Logs
-- Last modified: 2026-07-22T16:15Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: How to add TCP NSS feeds for DNS logs in the Zscaler Admin Console.
 
 You can configure up to 16 TCP Nanolog Streaming Service (NSS) feeds to specify the data from the DNS logs that the NSS sends to the security information and event management (SIEM) system. For each feed, you can configure multiple filter types. For example, you can configure separate feeds for each location or for different policy rules. A large number of filters or complex filters, such as string searches, can impact the NSS performance.
@@ -10534,13 +11868,13 @@ To configure a TCP NSS feed for DNS logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-email-dlp-logs","lastmod":"2026-07-22T16:53Z","nid":"1483216"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-email-dlp-logs","lastmod":"2026-09-20T07:06Z","nid":"1483216"} -->
 ## Adding TCP NSS Feeds for Email DLP Logs
 
 - Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-email-dlp-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Email DLP Logs
-- Last modified: 2026-07-22T16:53Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: How to add TCP NSS feeds for Email Data Loss Prevention (DLP) logs in the Zscaler Admin Console.
 
 You can configure up to 16 TCP Nanolog Streaming Service (NSS) feeds to specify the data from the Email Data Loss Prevention (DLP) logs that the NSS sends to the security information and event management (SIEM) system.
@@ -10590,13 +11924,13 @@ To configure a TCP NSS feed for Email DLP logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-endpoint-dlp-logs","lastmod":"2026-07-22T16:44Z","nid":"1461931"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-endpoint-dlp-logs","lastmod":"2026-09-20T07:06Z","nid":"1461931"} -->
 ## Adding TCP NSS Feeds for Endpoint DLP Logs
 
 - Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-endpoint-dlp-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Endpoint DLP Logs
-- Last modified: 2026-07-22T16:44Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: How to add TCP NSS feeds for Endpoint Data Loss Prevention (DLP) logs in the Zscaler Admin Console.
 
 You can configure up to 16 TCP Nanolog Streaming Service (NSS) feeds to specify the data from the Endpoint Data Loss Prevention (DLP) logs that the NSS sends to the security information and event management (SIEM) system.
@@ -10644,13 +11978,13 @@ To configure a TCP NSS feed for Endpoint DLP logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-firewall-logs","lastmod":"2026-07-22T14:53Z","nid":"1399076"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-firewall-logs","lastmod":"2026-09-20T07:06Z","nid":"1399076"} -->
 ## Adding TCP NSS Feeds for Firewall Logs
 
 - Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-firewall-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Firewall Logs
-- Last modified: 2026-07-22T14:53Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: How to add TCP NSS feeds for Firewall logs in the Zscaler Admin Console.
 
 You can configure up to TCP 8 Nanolog Streaming Service (NSS) feeds to specify the data from the Firewall logs that the NSS sends to the security information and event management (SIEM) system. For each feed, you can configure multiple filter types. For example, you can configure separate feeds for each location or for different policy rules. A large number of filters or complex filters, such as string searches, can impact the NSS performance.
@@ -11060,636 +12394,4 @@ To configure a TCP NSS feed for Sandbox verdict logs:
 - **Sandbox Verdicts**: Use this filter to limit the logs based on the verdict of the Sandbox analysis. This filter includes verdicts related to [Sandbox](https://help.zscaler.com/zia/configuring-sandbox-policy) (e.g., Sandbox Adware), [Advanced Threat Protection](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy) (e.g., Suspicious Content), and [Malware Protection](https://help.zscaler.com/zia/configuring-malware-protection-policy) (e.g., Trojan) policies. Optionally, select **Benign** to limit the logs to non-malicious verdicts. Multiple selections are allowed.
 - **Tactic**: Use this filter to limit the logs based on the MITRE ATT&CK tactic (e.g., TAC028). You can enter multiple tactics. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears. If you do not specify tactics in this filter, verdicts associated with any possible MITRE ATT&CK tactic are displayed.
 - **Technique**: Use this filter to limit the logs based on the MITRE ATT&CK technique (e.g., T1005). You can enter multiple techniques. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears. If you do not specify techniques in this filter, verdicts associated with any possible MITRE ATT&CK technique are displayed.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-scim-logs","lastmod":"2026-06-23T07:00Z","nid":"1534220"} -->
-## Adding TCP NSS Feeds for SCIM Logs
-
-- Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-scim-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for SCIM Logs
-- Last modified: 2026-06-23T07:00Z
-- Summary: How to add TCP NSS feeds for SCIM logs in the Zscaler Admin Console.
-
-The initial SCIM Nanolog Streaming Service (NSS) feed takes up to 5 hours to stream to the NSS and your security information and event management (SIEM) system. However, this delay does not occur if you have already configured and are streaming [Audit Logs](https://help.zscaler.com/zia/adding-nss-feeds-admin-audit-logs).
-
-You can configure up to 8 TCP Nanolog Streaming Service (NSS) feeds that define the SCIM logs that the NSS sends to the security information and event management (SIEM) system. You can also configure multiple types of filters. Many filters or complex filters, such as string searches, can impact the performance of the NSS.
-
-Ensure that you enable appropriate role permissions for Log Streaming in the Authentication Service.
-
-Before you start configuring a feed for SCIM logs, consider the [guidelines for configuring feeds](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats).
-
-To configure a TCP NSS feed for SCIM logs:
-
-1. Go to **Logs**>**Logs Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
-2. On the **NSS Feeds** tab, click **Add TCP NSS Feed**. The **Add TCP NSS Feed** window appears.
-3. In the**Add TCP NSS Feed** window: See image.
-  - **Feed Name:**Enter or edit the name of the feed. Each feed is a connection between the NSS and your SIEM system.
-  - **NSS Type**: **NSS for Web** is selected by default.
-  - **NSS Server**: Select an NSS server from the list. A [configured NSS server](https://help.zscaler.com/zia/adding-nss-servers) is required to add an NSS feed.
-  - **Status:**The NSS feed is **Enabled** by default. Choose **Disabled** if you want to activate it at a later time.
-  - **SIEM Destination Type**: Select the type of destination:
-    - **SIEM IP Address**:Enter the IP address of the SIEM system to which the logs are streamed.
-    - **SIEM FQDN**: Enter the destination for the TCP connection to which the logs are streamed. This allows failover from one IP to the other without manual intervention, but rather relying on updating the DNS entry. The NSS re-resolves the FQDN only when the existing connection goes down. This feature cannot be used for DNS-based load balancing.
-  - **SIEM TCP Port**: Enter the port number of the SIEM system to which the logs are streamed. Ensure that the SIEM system is configured to accept the feed from the NSS.
-  - **SIEM Rate**: Leave as **Unlimited**, unless you need to throttle the output stream due to licensing or other constraints.
-    - **SIEM Rate Limit (Events per Second)**: This is only applicable if you selected **Limited** under SIEM Rate. Enter an appropriate rate limit for the events per second that you want streamed to your SIEM system. This number must be between 100 and 1,000,000. A limit that is too low for the traffic volume causes log loss.
-  - **Log Type**:Choose **SCIM**.
-  - **Feed Output Type**:The output is a comma-separated (**CSV**) list by default. Choose **Tab-separated**to create a tab-separated list. Choose **Custom**to use a different delimiter, such as a dash, and enter the delimiter when you specify the feed output format. This menu also lists feed output types for specific SIEM systems.
-  - **Feed Escape Character**: The Zscaler service hex encodes all non-printable ASCII characters that are in URLs when it sends logs to the NSS. Any URL character that is less than 0x21, or above 0x7E, is encoded as `%HH`. This ensures that your SIEM system is able to parse the URLs in case they contain non-printable characters. For example, a `\n` char in a URL is encoded as `%0A`, and a space is encoded as `%20`. In this field, you can specify additional characters that you want to encode. For example, type a comma (,) to encode it as `%2C`. This is useful if you are using this character as your delimiter and want to ensure it does not cause erroneous delimitation. Note that the service encodes characters in URLs, hostnames, and referrer URLs only. If custom encoding was done for a record, the `%s{eedone}` field is `YES` for that record.
-  - **Feed Output Format**:These are the fields that are displayed in the output. You can edit the default list and if you chose **Custom**as the **Feed Output Type**, change the delimiter as well. To learn more about the available fields and their syntax, see [NSS Feed Output Format: SCIM Logs](https://help.zscaler.com/zia/nss-feed-output-format-zidentity-authentication-logs).
-  - **Time Zone**:By default, this is set to the organization's time zone. The time zone you set applies to the time field in the output file. The time zone automatically adjusts to changes in daylight savings in the specific time zone. The configured time zone can be output to the logs as a separate field. The list of time zones is derived from the IANA Time Zone database. Direct GMT offsets can also be specified.
-  - **Duplicate Logs**: To ensure that no logs are skipped during downtime, specify the number of minutes that the NSS sends duplicate logs. Zscaler recommends setting the number to 5 minutes, or more if required. This allows the NSS to send up to 60 minutes (one hour) of logs to the SIEM system after the connection is restored. To learn more, see [General Guidelines for NSS Feeds and Feed Formats](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats#duplicate-logs-example).
-4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-[Image: The NSS configurations for SCIM logs in the Add TCP NSS Feed window]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-tunnel-logs","lastmod":"2026-07-22T16:23Z","nid":"1400956"} -->
-## Adding TCP NSS Feeds for Tunnel Logs
-
-- Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-tunnel-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Tunnel Logs
-- Last modified: 2026-07-22T16:23Z
-- Summary: How to add NSS feeds for tunnel logs in the Zscaler Admin Console.
-
-You can configure up to 16 TCP Nanolog Streaming Service (NSS) feeds to specify the data from the tunnel logs that the NSS sends to the security information and event management (SIEM) system.
-
-You can select multiple tunnel log record types (e.g., IKE Phase 2, Sample) to send in a single NSS feed. You can configure common filters that apply to all record types based on locations, VPN credentials, and source and destination IP addresses.
-
-Before configuring an NSS feed for tunnel logs, consider the [General Guidelines for NSS Feeds and Feed Formats](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats).
-
-To configure a TCP NSS feed for tunnel logs:
-
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
-2. On the **NSS Feeds** tab, click **Add TCP NSS Feed**. The **Add TCP NSS Feed** window appears.
-3. In the **Add TCP NSS Feed** window:
-  - **Feed Name**: Enter or edit the name of the feed. Each feed is a connection between the NSS and your SIEM.
-  - **NSS Type**: **NSS for Web** is selected by default.
-  - **NSS Server**:Select an NSS server from the list. A [configured NSS server](https://help.zscaler.com/zia/adding-nss-servers) is required to add an NSS feed.
-  - **Status**:The NSS feed is **Enabled** by default. Choose **Disabled** if you want to activate it at a later time.
-  - **SIEM Destination Type**: Select the type of destination:
-    - **SIEM IP Address**:Appears when **IP Address** is selected as the destination type. Enter the IP address of the SIEM to which the logs are streamed.
-    - **SIEM FQDN**: Appears when **FQDN** is selected as the destination type. Enter the destination for the TCP connection to which the logs are streamed. This allows failover from one IP to the other without manual intervention, but rather relying on updating the DNS entry. The NSS re-resolves the FQDN only when the existing connection goes down. This feature cannot be used for DNS-based load balancing.
-  - **SIEM TCP Port**: Enter the port number of the SIEM to which the logs are streamed. Ensure that the SIEM is configured to accept the feed from the NSS.
-  - **SIEM Rate**: Leave as **Unlimited**, unless you need to throttle the output stream due to licensing or other constraints.
-    - **SIEM Rate Limit (Events per Second)**: This is only applicable if you selected **Limited** under SIEM Rate. Enter an appropriate rate limit for the events per second that you want streamed to your SIEM. This number must be between 100 and 1,000,000. A limit that is too low for the traffic volume causes log loss.
-  - **Log Type**:Choose **Tunnel**.
-  - **Record Type**: Specify the tunnel log record types to send in the single NSS feed:
-    - **IKE Phase 1**: Details for IPSec Phase 1 negotiation (applies to IPSec only).
-    - **IKE Phase 2**: Details for IPSec Phase 2 negotiation (applies to IPSec only).
-    - **Sample**: Statistics collected in 60-second sample windows (applies to both GRE and IPSec).
-    - **Tunnel Event**: Status change events (applies to both GRE and IPSec).
-  - **Feed Output Type**:The output is a comma-separated (**CSV**) list by default. Choose **Tab-separated**to create a tab-separated list. Choose **Custom**to use a different delimiter, such as a dash, and enter the delimiter when you specify the feed output format. This menu also lists feed output types for specific SIEMs.
-  - **Time Zone**:By default, this is set to the organization's time zone. The time zone you set applies to the time field in the output file. The time zone automatically adjusts to changes in daylight savings in the specific time zone. The configured time zone can be output to the logs as a separate field. The list of time zones is derived from the IANA Time Zone database. Direct GMT offsets can also be specified.
-  - **Duplicate Logs**: To ensure that no logs are skipped during downtime, specify the number of minutes that the NSS sends duplicate logs. Zscaler recommends setting the number to 5 minutes, or more if required. This allows the NSS to send up to 60 minutes (one hour) of logs to the SIEM after the connection is restored. To learn more, see [General Guidelines for NSS Feeds and Feed Formats](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats#duplicate-logs-example).
-  - **Feed Output Format**:These are the fields that are displayed in the output. You can edit the default list, and if you choose **Custom**as the **Feed Output Type**, change the delimiter as well. To learn more about the available fields and their syntax, see [NSS Feed Output Format: Tunnel Logs](https://help.zscaler.com/zia/nss-feed-output-format-tunnel-logs).
-4. Define the filters:
-  - **Tunnel Type**: You can limit the logs based on the tunnel types:
-    - **EAS Client Tunnel**: The tunnel type for the extranet broker connection.
-    - **Extranet**: IPSec tunnels that connect a business partner’s data center to the Zscaler service. The partner (i.e., Extranet Resource) establishes the connection to Zscaler. To learn more, see [About Extranet](https://help.zscaler.com/zia/about-extranet).
-    - **GRE**: Generic Routing Encapsulation tunnels.
-    - **IPSec IKEv1**: IPSec tunnels that use the Internet Key Exchange Version 1 negotiation process.
-    - **IPSec IKEv2**: IPSec tunnels that use the Internet Key Exchange Version 2 negotiation process.
-    - **Z-Tunnel 2.0**: Tunnel that uses DTLS, TLS, or UDP to send packets to the Zscaler service. Note that only Zscaler Cloud & Branch Connector supports UDP.
-  - **Locations**: Use this filter to limit the logs to specific [locations](https://help.zscaler.com/zia/about-locations) from which transactions were generated. You can search for locations. Click **Select All** to select all results. Deleted locations appear with a strikethrough line. Select **Hide Deleted** to hide these deleted locations from the list.
-  - **VPN Credentials**:For IPSec tunnels, you can limit the logs to specific tunnel VPN credentials. You can search for VPN credentials. There is no limit to the number of VPN credentials that you can select. VPN credentials that are deleted after they are selected appear with a strikethrough line.
-  - **Source IPs**:You can limit the logs based on the tunnel's source IP address. You can enter: You can enter multiple entries. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-    - An IP address (e.g., 198.51.100.100)
-    - A range of IP addresses (e.g., 192.0.2.1-192.0.2.10)
-    - An IP address with a netmask (e.g., 203.0.113.0/24)
-  - **Destination VIPs**:You can limit the logs based on the tunnel's destination VIP address. You can enter: You can enter multiple entries. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-    - An IP address (e.g., 198.51.100.100)
-    - A range of IP addresses (e.g., 192.0.2.1-192.0.2.10)
-    - An IP address with a netmask (e.g., 203.0.113.0/24)
-  - **Tunnel Source Port**:You can limit the logs based on the tunnel's source ports. You can specify individual ports or a range of ports (e.g., 1–65535). You can enter multiple entries. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-web-logs","lastmod":"2026-07-21T15:42Z","nid":"1399066"} -->
-## Adding TCP NSS Feeds for Web Logs
-
-- Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-web-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Web Logs
-- Last modified: 2026-07-21T15:42Z
-- Summary: How to add TCP NSS feeds for web logs in the Zscaler Admin Console.
-
-You can configure up to 8 TCP Nanolog Streaming Service (NSS) feeds that define the web logs that the NSS sends to the security information and event management (SIEM) system. You can also configure multiple filter types. For example, if an admin selects the location *HQ* and the department *Finance*, the NSS selects logs that belong to both the HQ location and Finance department. A large number of filters or complex filters, such as string searches, can impact the NSS performance.
-
-Before you start configuring a feed for web logs, consider the [guidelines for configuring feeds](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats).
-
-To configure a TCP NSS feed for web logs:
-
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
-2. On the **NSS Feeds** tab, click **Add TCP NSS Feed**. The **Add TCP NSS Feed** window appears.
-3. In the**Add TCP NSS Feed** window:
-  - **Feed Name:**Enter or edit the name of the feed. Each feed is a connection between the NSS and your SIEM.
-  - **NSS Type**: **NSS for Web** is selected by default.
-  - **NSS Server**: Select an NSS server from the list. A [configured NSS server](https://help.zscaler.com/zia/adding-nss-servers) is required to add an NSS feed.
-  - **Status:**The NSS feed is **Enabled** by default. Choose **Disabled** if you want to activate it at a later time.
-  - **SIEM Destination Type**: Select the type of destination:
-    - **SIEM IP Address**:Appears when **IP Address** is selected as the destination type.Enter the IP address of the SIEM to which the logs are streamed.
-    - **SIEM FQDN**: Appears when **FQDN** is selected as the destination type. Enter the destination for the TCP connection to which the logs are streamed. This allows failover from one IP to the other without manual intervention, but rather relying on updating the DNS entry. The NSS re-resolves the FQDN only when the existing connection goes down. This feature cannot be used for DNS-based load balancing.
-  - **SIEM TCP Port**: Enter the port number of the SIEM to which the logs are streamed. Ensure that the SIEM is configured to accept the feed from the NSS.
-  - **SIEM Rate**: Leave as **Unlimited**, unless you need to throttle the output stream due to licensing or other constraints.
-    - **SIEM Rate Limit (Events per Second)**: This is only applicable if you selected **Limited** under SIEM Rate. Enter an appropriate rate limit for the events per second that you want streamed to your SIEM. This number must be between 100 and 1,000,000. A limit that is too low for the traffic volume causes log loss.
-  - **Log Type**:Choose **Web Log**.
-  - **Feed Output Type**:The output is a comma-separated (**CSV**) list by default. Choose **Tab-separated**to create a tab-separated list. Choose **Custom**to use a different delimiter, such as a dash, and enter the delimiter when you specify the feed output format. This menu also lists feed output types for specific SIEMs.
-  - **Feed Escape Character**: The Zscaler service hex encodes all non-printable ASCII characters that are in URLs when it sends logs to the NSS. Any URL character that is less than 0x21, or above 0x7E, is encoded as `%HH`. This ensures that your SIEM is able to parse the URLs in case they contain non-printable characters. For example, a `\n` char in a URL is encoded as `%0A`, and a space is encoded as `%20`. In this field, you can specify additional characters that you want to encode. For example, enter a comma (`,`) to encode it as `%2C`. This is useful if you are using this character as your delimiter and want to ensure it does not cause erroneous delimitation. Note that the service encodes characters in URLs, hostnames, and referrer URLs only. If custom encoding was done for a record, the `%s{eedone}` field is `YES` for that record.
-  - **Feed Output Format**:These are the fields that are displayed in the output. You can edit the default list and if you chose **Custom**as the **Feed Output Type**, change the delimiter as well. To learn more about the available fields and their syntax, see [NSS Feed Output Format: Web Logs](https://help.zscaler.com/zia/nss-feed-output-format-web-logs).
-  - **Time Zone**:By default, this is set to the organization's time zone. The time zone you set applies to the time field in the output file. The time zone automatically adjusts to changes in daylight savings in the specific time zone. The configured time zone can be output to the logs as a separate field. The list of time zones is derived from the IANA Time Zone database. Direct GMT offsets can also be specified.
-  - **Duplicate Logs**: To ensure that no logs are skipped during downtime, specify the number of minutes that the NSS sends duplicate logs. Zscaler recommends setting the number to 5 minutes, or more if required. This allows the NSS to send up to 60 minutes (one hour) of logs to the SIEM after the connection is restored. To learn more, see [General Guidelines for NSS Feeds and Feed Formats](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats#duplicate-logs-example).
-4. Define the filters:
-  - Action
-  - Who
-  - From Where
-  - Transaction
-  - To Where
-  - Security
-  - File Type
-  - DLP
-5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-- **Policy Action**: Use this filter to limit the logs to transactions that were either allowed or blocked. Transactions wherein the service displayed a Caution page are considered blocked transactions; if users proceeded with the transactions, they are considered allowed.
-- **Policy Reason**: Use this filter to limit the logs based on the policy that the Zscaler service applied. These are the policy reason strings that are in transaction drilldown. They indicate which policy caused a block, or if allowed, the conditions under which they were allowed, such as **Allowed due to override**and**Internet Access cautioned**. Multiple selections are allowed.
-
-- **Users**: Use this filter to limit the logs to specific users who generated transactions. You can search for users by username or email address. Click **Select All** to select all results. Deleted users appear with a strikethrough line. Select **Hide Deleted** to hide these deleted users from the list.
-- **Departments**: Use this filter to limit the logs to specific departments that generated transactions. You can search for departments. Click **Select All** to select all results. Deleted departments appear with a strikethrough line. Select **Hide Deleted** to hide these deleted departments from the list.
-
-- **Locations**: Use this filter to limit the logs to specific [locations](https://help.zscaler.com/zia/about-locations) from which transactions were generated. You can search for locations. Click **Select All** to select all results. Deleted locations appear with a strikethrough line. Select **Hide Deleted** to hide these deleted locations from the list.
-- **Location Groups**: Use this filter to limit the logs to specific [location groups](https://help.zscaler.com/zia/about-location-groups) from which transactions were generated. You can search for location groups. Multiple selections are allowed.
-- **Client IP Addresses**: Use this filter to limit the logs based on a client’s private IP address. You can enter: You can enter multiple entries. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-  - An IP address (e.g., 198.51.100.100)
-  - A range of IP addresses (e.g., 192.0.2.1-192.0.2.10)
-  - An IP address with a netmask (e.g., 203.0.113.0/24)
-- **Public IP Addresses**: Use this filter to limit the logs based on a client’s public IP address. The internal IP address is available if traffic forwarding is forwarded to the service through a GRE or VPN tunnel or from the XFF header. If the internal IP address is not available, the value is the same as the client IP address. You can enter: You can enter multiple entries. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-  - An IP address (e.g., 198.51.100.100)
-  - A range of IP addresses (e.g., 192.0.2.1-192.0.2.10)
-  - An IP address with a netmask (e.g., 203.0.113.0/24)
-- **Traffic Forwarding**: Use this filter to limit the logs based on the traffic forwarding method used to send traffic to the Zscaler service. Choose one or more of the listed methods or choose **Any**.
-
-- **Direction**: Use this filter to limit the logs to either inbound or outbound traffic.
-- **User Agents**: Use this filter to limit the logs to transactions associated with the user-agent string that the browser included in its GET request. Choose from the list of predefined user-agent strings or enter custom user-agent strings. Multiple selections are allowed.
-- **Custom User Agent Strings**: Use this filter to limit the logs to specific user-agent strings. A user-agent string contains browser and system information that the destination server can use to provide appropriate content.
-- **Protocol Types**: Use this filter to limit the logs to specific protocols. Supported protocols are HTTP, HTTPS, and FTP. Multiple selections are allowed.
-- **Request Methods**: Use this filter to limit the logs based on the HTTP request method obtained from the client request. Multiple selections are allowed.
-- **Response Codes**: Use this filter to limit the logs based on the HTTP response code obtained from the server or generated by the Public Service Edge for Internet & SaaS (ZIA). Multiple selections are allowed.
-- **Request Sizes**: Use this filter to limit the logs based on HTTP request size. Enter either a specific size or a range with a dash. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., **10KB-1MB, 200**). You can enter multiple entries. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-- **Response Sizes**: Use this filter to limit the logs based on HTTP response size. Enter either a specific size or a range with a dash. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., **10KB-1MB, 200**). You can enter multiple entries. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-- **Transaction Sizes**: Use this filter to limit the logs based on transaction size, which is the header and body request or response size, or the request and response size. Enter either a specific size or a range with a dash. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., **10KB-1MB, 200)**. You can enter multiple entries. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-- **Referer URLs**: Use this filter to limit the logs based on the Referer URL in the HTTP header. You can use wildcards based on the rules: Multiple strings are allowed. Enter one string per line, then click **Add Items**. String search is not case-sensitive. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-  - *string -> Suffix matching match URLs ending with ‘string’
-  - String* -> Prefix matching match URLs beginning with ‘string’
-  - *string* -> Substring matching match URLs containing ‘string’
-  - String -> Exact matching match URLs that are exactly ‘string’
-
-- **URL Filter Type**: Use this filter to limit the logs based on URLs in HTTP Requests. You can specify either a **Hostname** or the **Full URL**. You can use wildcards based on the rules:
-  - String -> Exact matching match URLs that are exactly ‘string’
-  - *string* -> Substring matching match URLs containing ‘string’
-  - String* -> Prefix matching match URLs beginning with ‘string’
-  - *string -> Suffix matching match URLs ending with ‘string’
-- **Hostnames**: This is only applicable if you select **Hostname** under **URL Filter Type**. Use this filter to limit the logs based on specific hostnames. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-- **Full URLs**: This is only applicable if you select **Full URL** under **URL Filter Type**. Use this filter to limit the logs based on specific URLs. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-- **URL Classes**: Use this filter to limit the logs to specific [URL classes](https://help.zscaler.com/zia/about-url-categories). Select those that you want to include. Multiple selections are allowed.
-  - **Include**: Use this filter to include selected URL classes in the logs. This filter is enabled by default. The default value for this filter is **Any**.
-  - **Exclude**: Use this filter to exclude selected URL classes from the logs. The default value for this filter is **None.**
-- **URL Super Categories**: Use this filter to limit the logs to specific [URL super categories](https://help.zscaler.com/zia/about-url-categories). Select those that you want to include. Multiple selections are allowed.
-  - **Include**: Use this filter to include selected URL super categories in the logs. This filter is enabled by default. The default value for this filter is **Any**.
-  - **Exclude**: Use this filter to exclude selected URL super categories from the logs. The default value for this filter is **None.**
-- **URL Categories**:Use this filter to limit the logs to specific [URL categories](https://help.zscaler.com/zia/about-url-categories). Select those that you want to include. Multiple selections are allowed. The **URL Categories** filter falls under the same filter class as the **Advanced Threats** filter. This means if you select at least one advanced threat, then you must also select the specific URL categories that you want included in the logs. When you select at least one advanced threat, the default **Any** option in the **URL Categories** filter does not apply. In this case, you must select all the options in the **URL Categories** filter to include any possible URL categories in the logs.
-  - **Include**: Use this filter to include selected URL categories in the logs. This filter is enabled by default. The default value for this filter is **Any**.
-  - **Exclude**: Use this filter to exclude selected URL categories from the logs. The default value for this filter is **None.**
-- **Server IP Addresses**: Use this filter to limit the logs based on the destination server’s IP address. You can enter: You can enter multiple entries. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-  - An IP address (e.g., 198.51.100.100)
-  - A range of IP addresses (e.g., 192.0.2.1-192.0.2.10)
-  - An IP address with a netmask (e.g., 203.0.113.0/24)
-- **Cloud Application Classes**: Use this filter to limit the logs to the selected [cloud application classes](https://help.zscaler.com/zia/cloud-app-categories). Multiple selections are allowed.
-- **Cloud Applications**: Use this filter to limit the logs to selected [cloud applications](https://help.zscaler.com/zia/cloud-app-categories). Multiple selections are allowed. The Miscellaneous <Cloud Application Category> Apps (e.g., Miscellaneous Finance Apps) option in this filter represents all the newly added lesser-known predefined applications for the category (e.g., Finance). Use the Search function to view and select the available Miscellaneous <Cloud Application Category> Apps options. To view the list of supported applications for each category, see [Viewing Supported Cloud Applications](https://help.zscaler.com/zia/understanding-cloud-app-categories).
-  - **Include**: Use this filter to include selected cloud applications in the logs. This filter is enabled by default. The default value for this filter is **Any**.
-  - **Exclude**: Use this filter to exclude selected cloud applications from the logs. The default value for this filter is **None.**
-- **Application Segment**: Use this filter to limit the logs to specific [application segments](https://help.zscaler.com/zpa/about-applications). The default option for this filter is **Any**.
-
-- **Malware Classes**: Use this filter to limit the logs based on malware class or name. Multiple selections are allowed.
-- **Malware Names**: Use this filter to limit the logs based on specific malware or viruses that were detected. You can specify multiple malware or virus names. Use the Search function to search for either. Use the guidelines:
-  - *string -> Suffix matching match malware names ending with ‘string’
-  - String* -> Prefix matching match malware names beginning with ‘string’
-  - *string* -> Substring matching match malware names containing ‘string’
-  - String -> Exact matching match malware names that are exactly ‘string’ Multiple strings are allowed. Enter one string per line. String search is not case-sensitive.
-- **Advanced Threats**: Use this filter to limit the logs based on the types of advanced threats that were detected. Multiple selections are allowed. The **Advanced Threats** filter falls under the same filter class as the **URL Categories** filter. This means if you select at least one URL category, then you must also select the specific advanced threats that you want included in the logs. When you select at least one URL category, the default **Any** option in the **Advanced Threats** filter does not apply. In this case, you must select all the options in the **Advanced Threats** filter to include any possible advanced threats in the logs.
-- **AI/ML Detection Source**: Use this filter to limit the logs based on the AI/ML detection source for the transaction. Multiple selections are allowed.
-- **Threat Names**: Use this filter to limit the logs based on specific threats that were detected. You can specify multiple threat names. Use the Search function to search with the guidelines: Multiple strings are allowed. Enter one string per line. String search is not case-sensitive. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-  - *string -> Suffix matching match threat names ending with ‘string’
-  - String* -> Prefix matching match threat names beginning with ‘string’
-  - *string* -> Substring matching match threat names containing ‘string’
-  - String -> Exact matching match threat names that are exactly ‘string’
-- **Suspicious Content**: Use this filter to limit the logs based on the [Page Risk Index score](https://help.zscaler.com/zia/about-advanced-threats-protection) of a transaction. Enter either a single value or a range of values, between 0 and 100. Multiple values are allowed. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-
-- **Download File Type Category**: Use this filter to limit the logs based on the [category of the type of file downloaded](https://help.zscaler.com/zia/about-file-type-control) during the transaction. Multiple selections are allowed.
-- **Download File Type**: Use this filter to limit the logs based on the [type of file downloaded](https://help.zscaler.com/zia/about-file-type-control) during the transaction. Multiple selections are allowed.
-- **Upload File Type Category**: Use this filter to limit the logs based on the [category of the type of file uploaded](https://help.zscaler.com/zia/about-file-type-control) during the transaction. Multiple selections are allowed.
-- **Upload File Type**: Use this filter to limit the logs based on the [type of file uploaded](https://help.zscaler.com/zia/about-file-type-control) during the transaction. Multiple selections are allowed.
-- **Download User-Defined File Type**: Use this filter to limit the logs based on the [user-defined type of file downloaded](https://help.zscaler.com/zia/configuring-file-type-control-policy) during the transaction. Multiple selections are allowed. To learn more, see [Configuring Custom File Types](https://help.zscaler.com/zia/configuring-custom-file-types).
-- **Upload User-Defined File Type**: Use this filter to limit the logs based on the [user-defined type of file uploaded](https://help.zscaler.com/zia/configuring-file-type-control-policy) during the transaction. Multiple selections are allowed. To learn more, see [Configuring Custom File Types](https://help.zscaler.com/zia/configuring-custom-file-types).
-- **Unscannable Type**: Use this filter to limit the logs based on an unscannable file type. Multiple selections are allowed. The following options appear under this filter:
-  - **Encrypted File**: Encrypted or password-protected (e.g., GZIP, PDF)
-  - **Undetectable File**: Unable to determine the file type, based on multiple methods
-  - **Unscannable File**: Unscannable (e.g., corrupt archive)
-
-- **DLP Engines**: Use this filter to limit the logs to transactions in which data leakage was detected based on specific [DLP engines](https://help.zscaler.com/zia/about-dlp-engines). Multiple selections are allowed.
-- **DLP Dictionaries**: Use this filter to limit the logs to transactions in which data leakage was detected based on specific [DLP dictionaries](https://help.zscaler.com/zia/about-dlp-dictionaries). Multiple selections are allowed.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/adding-tenant-profiles","lastmod":"2026-09-07T08:29Z","nid":"1401746"} -->
-## Adding Tenant Profiles
-
-- Source: https://help.zscaler.com/zia/adding-tenant-profiles
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Tenant Restriction > Adding Tenant Profiles
-- Last modified: 2026-09-07T08:29Z
-- Summary: Information on how to add a tenant profile in the Zscaler Admin Console.
-
-Zscaler's tenancy restriction feature allows you to restrict access either to personal accounts, business accounts, or both for certain cloud applications. The feature consists of two parts: creating [tenant profiles](https://help.zscaler.com/zia/about-tenant-profiles) and associating the profiles with the [Cloud App Control policy rules](https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy).
-
-To add a tenant profile:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Inline CASB** > **Tenant Profiles**.
-2. Click **Add Tenant Profile**. The **Add Tenant Profile** drawer appears.
-3. In the **Cloud Application** field, select one of the following applications and configure it accordingly: Allowing a specific tenant automatically blocks other tenants for most of the cloud applications, and subsequent policies are not evaluated. However, for YouTube and Amazon Web Services, subsequent policies are evaluated, so an explicit block policy is required to block other tenants for them.; Ensure to select these cloud applications as a criterion in an SSL/TLS Inspection rule if their tenant profiles are associated with a cloud application rule. In the SSL/TLS Inspection rule, for the following cloud applications, do as follows:**Office 365**:Select **Microsoft Login Services** as the cloud application with a rule order higher than Office 365 One Click Rule.; **Google Apps**:Select **Google Login Services** as the cloud application.; **Webex Teams/Webex Meetings**: Select **Webex Login Services** as the cloud application. See image.
-  - Amazon Web Services
-  - ChatGPT
-  - Claude
-  - Dropbox
-  - GitHub
-  - Google
-  - Google Cloud Platform
-  - IBM Smart Cloud
-  - Microsoft Login Services
-  - Slack
-  - Webex Login Services
-  - YouTube
-  - Zoho Login Services
-  - Zoom
-4. In the **Tenant Profile Name** field, enter a unique name for the tenant profile. This name is displayed while configuring the respective Cloud App Control policy rules.
-5. **Description**: (Optional) Enter any additional comments or information. The description cannot exceed 10,240 characters.
-6. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-To configure the tenant profile for YouTube, in the **YouTube Configuration** field, select one of the following configuration types:
-
-- YouTube Category ID
-- YouTube Channel ID
-- YouTube School ID
-
-To learn more about associating tenant profiles of YouTube with the Cloud App Control policy rule, see [Adding a Streaming Media Rule for Cloud App Control](https://help.zscaler.com/zia/adding-streaming-media-rule-cloud-app-control).
-
-In the **YouTube Category ID** field, select the required categories from the following list of categories:
-
-- Action/Adventure
-- Anime/Animation
-- Autos & Vehicles
-- Classics
-- Comedy
-- Documentary
-- Drama
-- Education
-- Entertainment
-- Family
-- Film & Animation
-- Foreign
-- Gaming
-- Horror
-- Howto & Style
-- Movies
-- Music
-- News & Politics
-- Nonprofits & Activism
-- People & Blogs
-- Pets & Animals
-- Science & Technology
-- Sci-fi/Fantasy
-- Shorts
-- Short Movies
-- Shows
-- Sports
-- Thriller
-- Trailers
-- Travel & Events
-- Videoblogging
-
-You can select any number of YouTube category IDs and also search for YouTube category IDs.
-
-In the **YouTube Channel ID** field, enter the YouTube channel IDs (e.g., `UCSylwuqCXM_W13ARfzASm3Q`) you want to add to this tenant profile, and click **Add Items**.
-
-To enter multiple entries, press `Enter` after each entry, then click **Add Items**. You can add up to 200 YouTube channel IDs. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). For item lists, you can filter the list by searching for a word, phrase, or number contained in an item, and you can remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-
-In the **YouTube School ID** field, enter the IDs YouTube assigned to your school network (e.g., `UC1xagwHTcYzlpIriGARvPig`), which you want to add to this tenant profile, and click **Add Items**.
-
-To enter multiple entries, press `Enter` after each entry, then click **Add Items**. You can add up to 100 YouTube school IDs. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). For item lists, you can filter the list by searching for a word, phrase, or number contained in an item, and you can remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-
-To configure the tenant profile for Google apps:
-
-1. In the **Domains** field, enter the domains (e.g., `www.zscaler.com`) you want to add to this tenant profile and click **Add Items**. To enter multiple entries, press `Enter` after each entry, then click **Add Items**. You can add up to 100 domains. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). For item lists, you can filter the list by searching for a word, phrase, or number contained in an item, and you can remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-2. In the **Allow Consumer Access** field, select **Yes** to allow consumer access to the domains in the tenant profile. This field is set to **No** by default.
-3. In the **Allow Visitor Access** field, select **Yes** to allow visitors access to the domains in the tenant profile. This field is set to **No** by default.
-
-The service intercepts any google.com (or associated Google app) request and adds the HTTP header X-GoogApps-Allowed-Domains (values of the **Domains** field), which identifies the domains from which users can access Google services. This prevents users from accessing Gmail and other Google apps from other domains.
-
-This feature does not affect Google apps that do not require users to sign in, such as Google search. But a user who signs in from Google search with an account that is not placed on the allowlist is blocked.
-
-For additional information from Google, refer to [here](https://support.google.com/a/answer/1668854?hl=en-uk&hlrm=en) and [here](http://support.google.com/a/answer/9230591?hl=en-IE).
-
-To learn more about associating tenant profiles of Google apps with the Cloud App Control policy rule, see [Adding Rules to the Cloud App Control Policy](https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy).
-
-You can configure the following tenant profile types for Microsoft Login Services:
-
-- Version 1
-- Version 2
-
-The version of the tenant profiles can be changed only when the profiles are not associated with any policy.
-
-The Zscaler service inserts the following headers when a tenant profile is associated with the [Cloud App Control](https://help.zscaler.com/zia/adding-it-services-rule-cloud-app-control) policy rule and there is an incoming request to login.microsoftonline.com, login.microsoft.com, login.windows.net, or login.live.com:
-
-- **Restrict-Access-Context**: Identifies the Microsoft Entra tenant that is enforcing the tenant restriction policy. The value of the **Tenant Directory ID**field is inserted into this header.
-- **Restrict-Access-To-Tenants**: Identifies the Microsoft tenant's users that are allowed access. The values of the **Office 365 Tenants or Tenant IDs**field are inserted into this header.
-- **sec-Restrict-Tenant-Access-Policy**: Restricts access to Microsoft personal accounts when configured. The value of the **Allow Personal Office 365 Domains** field is inserted into this header only for login.live.com traffic when the field is set to **No**.
-
-To learn more about Microsoft Tenant Restrictions, refer to the [Microsoft Tenant Restriction documentation](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/tenant-restriction-v2-is-now-public-preview/ba-p/3094113#:~:text=Tenant%20restrictions%20V2%20let%20an,accounts%20created%20in%20unknown%20tenants) and [Microsoft documentation](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/tenant-restrictions).
-
-The following caveats apply to the Microsoft Login Services tenant profile:
-
-- Add only one tenant directory ID per tenant profile.
-- Entry of wildcard domains is not allowed in the tenant profile.
-- Associate multiple tenant profiles with a Cloud App Control policy rule only if their tenant directory IDs are the same.
-
-To learn more about associating tenant profiles of Microsoft Login Services with the Cloud App Control policy rule, see [Adding an IT Services Rule for Cloud App Control](https://help.zscaler.com/zia/adding-it-services-rule-cloud-app-control).
-
-To configure Version 1 tenant profile for Microsoft Login Services:
-
-1. In the **Tenant Directory ID** field, enter the tenant directory ID (e.g., `f4c77d8d-6bb8-41a2-a3c9-69dd3edaa158`). This field specifies the Microsoft Entra tenant ID that is enforcing the tenant restriction policy.
-2. In the **Office 365 Tenants or Tenant IDs** field, enter the tenant names or tenant IDs (e.g., `corp1.safemarch.com` or `784b1673-628c-56e3-c3b2-5d2f0d59524m`) that you want to add to this tenant profile, and click **Add Items**. This field specifies the Microsoft tenant's users that are allowed access. Do not exempt these domains from [authentication](https://help.zscaler.com/zia/configuring-advanced-settings#auth-exemption). To enter multiple entries, press `Enter` after each entry, then click **Add Items**. You can add one tenant directory per tenant profile and up to 500 Office 365 tenant names. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). For item lists, you can filter the list by searching for a word, phrase, or number contained in an item, and you can remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-3. In the **Allow Personal Office 365 Domains** field, select **No** to block the personal Office 365 domains in the tenant profile. The Zscaler service inserts the sec-Restrict-Tenant-Access-Policy header when this field is set as **No** and users attempt to sign in to Microsoft personal account. This header is inserted only for login.live.com traffic. This field is set to **Yes**by default. To learn more about allowing personal accounts for Microsoft applications, refer to the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/tenant-restrictions#blocking-consumer-applications).
-
-In the **Tenant Directory ID:Policy ID** field, enter the tenant directory ID of your organization (Microsoft Entra tenant ID) followed by the policy ID with a colon in between (e.g., `f4c77d8d-6bb8-41a2-a3c9-69dd3edaa158:quadsj`) to configure the Version 2 tenant profile for Microsoft Login Services. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/governance/policy/overview).
-
-The **Tenant Directory ID** and **Policy ID**are GUIDs from your tenant on the Azure Active Directory portal. You can find these GUIDs as follows:
-
-- **Tenant Directory ID**: Log in as an administrator to the Azure Active Directory portal, select **Azure Active Directory**, and then select **Properties**.
-- **Policy ID**: Call the following API endpoint: `/crosstenantaccesspolicy/default`. Use the `id` field value in the Response preview. See image.
-
-[Image: Azure Active Directory XTAP API Response]
-
-To configure the tenant profile for Slack:
-
-1. In the **Workspace ID** field, enter your workspace ID (e.g., `T2DQ3J9AA`). If an incorrect value is entered in this field, Slack might allow traffic to any Slack workspace, resulting in a security gap. To approve Slack workspaces for your network, refer to the [Slack help](https://slack.com/intl/en-in/help/articles/360024821873-Approve-Slack-workspaces-for-your-network) page.
-2. In the **Allowed Workspace ID** field, enter the allowed workspace IDs you want to add to this tenant profile, and click **Add Items**. To enter multiple entries, press `Enter` after each entry, then click **Add Items**. You can add up to 256 allowed workspace IDs. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). For item lists, you can filter the list by searching for a word, phrase, or number contained in an item, and you can remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-
-The service intercepts requests related to Slack and adds the following headers:
-
-- X-Slack-Allowed-Workspaces-Requester (value of the **Your Workspace ID** field)
-- X-Slack-Allowed-Workspaces (values of the **Allowed Workspace ID** field)
-
-To learn more about associating tenant profiles of Slack with the Cloud App Control policy rule, see [Adding a Collaboration & Online Meetings Rule for Cloud App Control](https://help.zscaler.com/zia/adding-collaboration-online-meetings-rule-for-cloud-app-control).
-
-To configure the tenant profile for Amazon Web Services, in the **Account IDs** field, enter the account IDs (e.g., `123456789012`) you want to add to the tenant profile and click **Add Items**.
-
-To enter multiple entries, press `Enter` after each entry, then click **Add Items**. You can add up to 512 account IDs. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). For item lists, you can filter the list by searching for a word, phrase, or number contained in an item, and you can remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-
-To learn more about associating tenant profiles of Amazon Web Services with the Cloud App Control policy rule, see [Adding a Hosting Providers Rule for Cloud App Control](https://help.zscaler.com/zia/adding-hosting-providers-rule-cloud-app-control).
-
-- Internet & SaaS (ZIA) supports the following AWS login methods:
-  - Sign in to the AWS Management Console as a root user or IAM user.
-  - Sign in as a federated identity.
-  - Sign in through the AWS Command Line Interface and other programmatic methods like API and SDK (Software Development Kit).
-- The Zscaler service supports the tenancy restrictions for Amazon Web Services through CLI. However, the tenancy restrictions via CLI are not supported for the following services:
-  - Amazon Auto Scaling
-  - Amazon Bedrock
-  - Amazon Braket
-  - Amazon Chime
-  - Amazon Cloud Directory
-  - Amazon CloudSearch
-  - Amazon Comprehend
-  - Amazon DynamoDB
-  - Amazon EMR
-  - Amazon Elastic Block Store
-  - Amazon Elastic Container Service
-  - Amazon Elastic File System
-  - Amazon Elastic Kubernetes Service
-  - Amazon Elastic Load Balancing
-  - Amazon Elastic Transcoder
-  - Amazon Elasticsearch Service
-  - Amazon EventBridge
-  - Amazon Fraud Detector
-  - Amazon FSx
-  - Amazon Kendra
-  - Amazon Lex
-  - Amazon Lightsail
-  - Amazon Macie
-  - Amazon MSK
-  - Amazon Polly
-  - Amazon S3
-  - Amazon SES
-  - Amazon Simple Queue Service
-  - Amazon SNS
-  - Amazon Textract
-  - Amazon Transcribe
-  - Amazon Translate
-  - Amazon WorkDocs (Amazon Zocalo)
-  - Amazon WorkMail
-  - Amazon Workspaces
-  - AWS Cloud Financial Management
-  - AWS Data Exchange
-  - AWS DataSync
-  - AWS Identity and Access Management
-  - AWS Key Management Service
-  - AWS Managed Services
-  - AWS Network Firewall
-  - AWS Resource Access Manager
-  - AWS Snow Family
-  - AWS Storage Gateway
-  - AWS VPN
-
-To configure the tenant profile for Dropbox, in the **Dropbox Team ID** field, enter the team IDs (e.g., `4875936`) you want to add to this tenant profile, and click **Add Items**.
-
-To enter multiple entries, press `Enter` after each entry, then click **Add Items**. You can add up to 100 team IDs. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). For item lists, you can filter the list by searching for a word, phrase, or number contained in an item, and you can remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-
-The service intercepts requests related to Dropbox and adds the HTTP header X-Dropbox-allowed-Team-Ids (values of the **Dropbox Team ID** field). This header's value is the business account's team ID, which can be obtained from the network control section of the Dropbox Business admin console. You must enable network control for tenancy restriction. To learn more about network control, refer to the [Dropbox help](https://help.dropbox.com/security/network-control) page.
-
-To learn more about associating tenant profiles of Dropbox with the Cloud App Control policy rule, see [Adding a File Sharing Rule for Cloud App Control](https://help.zscaler.com/zia/adding-file-sharing-rule-cloud-app-control).
-
-To configure the tenant profile for Webex Teams and Webex Meetings, in the **Webex Tenants(Webex Teams and Meetings)** field, enter the tenants (e.g., `zscaler.com`) you want to add to this tenant profile and click **Add Items**.
-
-To enter multiple entries, press `Enter` after each entry, then click **Add Items**. You can add up to 100 tenants. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). For item lists, you can filter the list by searching for a word, phrase, or number contained in an item, and you can remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-
-The service intercepts incoming requests to the following domains and adds the HTTP header CiscoSpark-Allowed-Domains (values of the **Webex Tenants(Webex Teams and Meetings)** field):
-
-- identity.webex.com
-- identity-eu.webex.com
-- idbroker.webex.com
-- idbroker-secondary.webex.com
-- idbroker-b-us.webex.com
-- idbroker-eu.webex.com
-- atlas-a.wbx2.com
-
-To learn more about Webex Tenant Restrictions, refer to the [Webex documentation](https://help.webex.com/en-US/article/m0jby2/Configure-a-List-of-Allowed-Domains-to-Access-Webex-While-on-Your-Corporate-Network#task_B58EAD2F2BE2C599F06E0B836DB118D8).
-
-To learn more about associating tenant profiles of Webex Login Services with the Cloud App Control policy rule, see [Adding an IT Services Rule for Cloud App Control](https://help.zscaler.com/zia/adding-it-services-rule-cloud-app-control).
-
-To configure the tenant profile for Zoho Login Services, in the **Zoho ID** field, enter your Zoho ID (e.g., `100001`) you want to add to this tenant profile and click **Add Items**.
-
-To enter multiple entries, press `Enter` after each entry, then click **Add Items**. You can add up to 128 IDs. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). For item lists, you can filter the list by searching for a word, phrase, or number contained in an item, and you can remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-
-Contact Zoho support to get your Zoho ID.
-
-To learn more about associating tenant profiles of Zoho Login Services with the Cloud App Control policy rule, see [Adding an IT Services Rule for Cloud App Control](https://help.zscaler.com/zia/adding-it-services-rule-cloud-app-control).
-
-To configure the tenant profile for the Google Cloud Platform:
-
-1. In the **Allowed Organization IDs** field, enter the allowed organization IDs (e.g., `123456789012`) you want to add to this tenant profile and click **Add Items**. To learn more, refer to the [Google Cloud documentation](https://cloud.google.com/resource-manager/docs/organization-restrictions/configure-organization-restrictions). To enter multiple entries, press `Enter` after each entry, then click **Add Items**. You can add up to 100 tenants. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). For item lists, you can filter the list by searching for a word, phrase, or number contained in an item, and you can remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-2. In the **Allow Cloud Storage Resources** field, select **Yes** to allow the users to access the public cloud storage resources. This field is set to **No**by default.
-
-To learn more about associating Google Cloud Platform tenant profiles with the Cloud App Control policy rule, see [Adding a Hosting Providers Rule for Cloud App Control](https://help.zscaler.com/zia/adding-hosting-providers-rule-cloud-app-control).
-
-To configure a tenant profile for Zoom, in the **Policy Label** field, enter the policy label associated with the X-ZoomApps-Policy header for Zoom.
-
-Contact Zoom Support for the policy label.
-
-To learn more about associating Zoom tenant profiles with the Cloud App Control policy rule, see [Adding a Collaboration & Online Meetings Rule for Cloud App Control](https://help.zscaler.com/zia/adding-collaboration-online-meetings-rule-for-cloud-app-control).
-
-You can associate only one Zoom tenant profile with the Cloud App Control policy rule.
-
-To configure a tenant profile for IBM SmartCloud, in the **IBM Account IDs** field, enter the account IDs (e.g., `1234567890123456`) associated with the IBM-Cloud-Tenant header for IBM SmartCloud and click **Add Items**. To learn more, refer to the [IBM Cloud documentation](https://www.ibm.com/blog/how-to-limit-access-to-specific-ibm-cloud-accounts/).
-
-To enter multiple entries, press `Enter` after each entry, then click **Add Items**. You can add up to 100 account IDs per profile. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). For item lists, you can filter the list by searching for a word, phrase, or number contained in an item, and you can remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-
-The service intercepts incoming requests to cloud.ibm.com and its subdomain (*cloud.ibm.com) and adds the HTTP header IBM-Cloud-Tenant (values of the **IBM Account IDs** field).
-
-To learn more about associating IBM SmartCloud tenant profiles with the Cloud App Control policy rule, see [Adding a Hosting Providers Rule for Cloud App Control](https://help.zscaler.com/zia/adding-hosting-providers-rule-cloud-app-control).
-
-To configure a tenant profile for GitHub, in the **Enterprise Slug for GitHub** field, enter the enterprise slug (e.g., `avocado-corp`) associated with the sec-GitHub-allowed-enterprise header for GitHub. To learn more, refer to the [GitHub documentation](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-your-enterprise-account/creating-an-enterprise-account#upgrading-an-organization-to-an-enterprise-account).
-
-You can add only one enterprise slug per profile. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
-
-To learn more about associating GitHub tenant profiles with the Cloud App Control policy rule, see [Adding a System & Development Rule for Cloud App Control](https://help.zscaler.com/zia/adding-system-development-rule-cloud-app-control).
-
-To configure a tenant profile for ChatGPT, in the **Workspace ID for ChatGPT** field, enter the workspace ID (e.g., `437adf77-4085-4b22-b7b1-de7b6f5ec6c0`) associated with the ChatGPT-Allowed-Workspace-Id header for ChatGPT and click **Add Items**. To learn more, refer to the [ChatGPT documentation](https://help.openai.com/en/articles/8798594-what-is-a-workspace-how-do-i-access-my-chatgpt-team-workspace).
-
-To enter multiple entries, press `Enter` after each entry, then click **Add Items**. You can add up to 16 workspace IDs per profile. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). For item lists, you can filter the list by searching for a word, phrase, or number contained in an item, and you can remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-
-The service intercepts requests related to chatgpt.com and its subdomain (*chatgpt.com) and adds the HTTP header ChatGPT-Allowed-Workspace-Id (values of the **Workspace ID for ChatGPT** field).
-
-To learn more about associating ChatGPT tenant profiles with the Cloud App Control policy rule, see [Adding an AI & ML Applications Rule for Cloud App Control](https://help.zscaler.com/zia/adding-ai-ml-applications-rule-cloud-app-control).
-
-To configure a tenant profile for Claude, in the **Workspace ID for Claude** field, enter the workspace ID (e.g., `550e8400-e29b-41d4-a716-446655440000`) associated with the anthropic-allowed-org-ids header for Claude and click **Add Items**. To learn more, refer to the [Claude documentation](https://support.claude.com/en/articles/13198485-enforce-network-level-access-control-with-tenant-restrictions).
-
-To enter multiple entries, press `Enter` after each entry, then click **Add Items**. You can add up to 16 workspace IDs per profile. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). For item lists, you can filter the list by searching for a word, phrase, or number contained in an item, and you can remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-
-The service intercepts requests related to claude.ai and its subdomain (claude.ai*) and adds the HTTP header anthropic-allowed-org-ids (values of the **Workspace ID for Claude** field).
-
-To learn more about associating Claude tenant profiles with the Cloud App Control policy rule, see [Adding an AI & ML Applications Rule for Cloud App Control](https://help.zscaler.com/zia/adding-ai-ml-applications-rule-cloud-app-control).
-
-[Image: Add Tenant Profile drawer]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/adding-threat-categories","lastmod":"2026-06-02T00:22Z","nid":"1403206"} -->
-## Adding Threat Categories
-
-- Source: https://help.zscaler.com/zia/adding-threat-categories
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > IPS Control > Adding Threat Categories
-- Last modified: 2026-06-02T00:22Z
-- Summary: How to add custom IPS threat categories that can have IPS signatures associated with them for use in policies in the Zscaler Admin Console.
-
-Threat categories group common threats (e.g., viruses, botnets, exploits) together, which can be detected and controlled by Zscaler's signature-based intrusion detection. In addition to the predefined threat categories provided by Zscaler, you can define custom [threat categories](https://help.zscaler.com/zia/about-threat-categories) and add [custom IPS signature rules](https://help.zscaler.com/zia/about-custom-signature-rules) to them.
-
-To add a custom threat category,
-
-1. Go to **Policies** > **Cybersecurity** > **Inline Security**> **Custom IPS Signatures**. The **Threat Categories** tab is selected.
-2. On the **Threat Categories** tab, click**Add Threat Category**. The**Add Threat Category** window appears.
-3. In the **Add Threat Category**window: See image.
-  - **Name**: Enter a unique name for the threat category. The name can contain any characters, including spaces, within a character limit of 255.
-  - **Description**: (Optional) Enter a description for the threat category. The description cannot exceed 255 characters.
-4. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-[Image: Adding a custom threat category by specifying name and description]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/adding-urls-allowlist","lastmod":"2026-04-24T03:21Z","nid":"1399311"} -->
-## Adding URLs to the Allowlist
-
-- Source: https://help.zscaler.com/zia/adding-urls-allowlist
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > Adding URLs to the Allowlist
-- Last modified: 2026-04-24T03:21Z
-- Summary: How to place URLs on the allowlist in Malware Protection, Advanced Threats Protection, and URL Filtering policies.
-
-There might be trusted websites of partners or vendors whose webmail or file downloads might otherwise be blocked due to anti-virus, anti-spyware, anti-malware, or URL filtering policies. You can exempt URLs from security scans, URL filtering, or both.
-
-The allowlist applies to [Malware Protection](https://help.zscaler.com/zia/about-malware-protection), [Advanced Threat Protection](https://help.zscaler.com/zia/about-advanced-threat-protection), [Sandbox](https://help.zscaler.com/zia/about-sandbox), and [URL Filtering](https://help.zscaler.com/zia/about-url-filtering) policies. To learn more about how security exceptions impact policy enforcement, see [About Policy Enforcement](https://help.zscaler.com/zia/how-does-zscaler-service-enforce-policies).
-
-You can allowlist URLs completely by exempting them from security scans and URL filtering.
-
-## Adding URLs to Allowlist for Security Scans
-
-Adding URLs to the allowlist for security scans allows users to download content from these URLs without inspecting the traffic.
-
-To add URLs to the allowlist for security policies:
-
-1. Go to one of the following pages:
-  - **Policies**> **Cybersecurity**> **Inline Security**> **Malware Protection**.
-  - **Policies**>**Cybersecurity**> **Inline Security**> **Advanced Threat Protection**
-2. Click the **Security Exceptions** tab.
-3. In **Do Not Scan Content from these URLs**, enter the URLs you want to allowlist and click **Add Items**. You can enter multiple entries by pressing `Enter` after each entry. You can add up to 1,024 URLs. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). For guidance on entering URLs, see the [URL format guidelines](https://help.zscaler.com/zia/url-format-guidelines). For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-
-This allowlist also applies to the [Sandbox](https://help.zscaler.com/zia/about-sandbox) policy.
-
-1. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-## Adding URLs to Allowlist for URL Filtering
-
-Adding URLs to the allowlist for URL filtering allows access to the content without being blocked by other URL Filtering policy rules.
-
-To add URLs to allowlist for URL Filtering policy:
-
-1. Add the URLs you want to allowlist to a [custom URL category](https://help.zscaler.com/zia/adding-custom-url-categories).
-2. [Configure a URL Filtering rule](https://help.zscaler.com/zia/configuring-url-filtering-policy) to allow the custom URL category.
-
-Ensure that the rule order of this rule is higher than the URL Filtering rule that blocks these URLs.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/adding-urls-denylist","lastmod":"2026-07-02T05:05Z","nid":"1398821"} -->
-## Adding URLs to the ATP URL Allowlist or Denylist
-
-- Source: https://help.zscaler.com/zia/adding-urls-denylist
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Advanced Threat Protection > Adding URLs to the ATP URL Allowlist or Denylist
-- Last modified: 2026-07-02T05:05Z
-- Summary: How to place URLs on the allowlist and denylist using the Zscaler Advanced Threats Protection policy.
-
-Manage URLs by adding them to the allowlist or denylist with the [Advanced Threat Protection policy](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy). You can grant specific URLs permissions to access designated websites, browsers, or applications by adding them to the allowlist. URLs that have been added to the allowlist are accessible even if they would otherwise be blocked by other security measures or policies. You can also add specific URLs to the denylist to block access to these URLs and prevent users from accessing potentially malicious content.
-
-To add a URL to the allowlist or denylist:
-
-1. Go to **Policies** > **Cybersecurity** > **Inline Security** > **Advanced Threat Protection**.
-2. On the **Advanced Threats Policy**page, under **Blocked Malicious URLs**, enter the URLs you want to block for your organization. See image. You can view the list of blocked malicious URLs on the [Advanced Threat Protection policy](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy#Malicious) page. Also, you can see the blocked URLs accessed by the users on the [Insights Logs](https://help.zscaler.com/zia/about-insights-logs) page. If you need further assistance, contact Zscaler Support.
-3. Optional: To add a comment to a URL, enter two forward slashes (//) after each URL entry. Separate each entry by pressing `Shift+Enter`.
-4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-To learn how this policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
-
-[Image: Add URLs you Blocked Malicious URLs list in Advanced Threat Protection]
 <!-- /ZS-ARTICLE -->

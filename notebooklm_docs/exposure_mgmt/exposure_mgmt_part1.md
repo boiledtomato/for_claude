@@ -1,21 +1,21 @@
 # Zscaler Help — Risk & Exposure Management (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-14 03:38 UTC
-Articles in this file: 201
+Generated: 2026-09-21 08:12 UTC
+Articles in this file: 202
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/about-assets-aem","lastmod":"2026-04-12T07:06Z","nid":"1538662"} -->
+<!-- ZS-ARTICLE {"url":"/aem/about-assets-aem","lastmod":"2026-09-16T10:07Z","nid":"1538662"} -->
 ## About Assets in AEM
 
 - Source: https://help.zscaler.com/aem/about-assets-aem
 - Product: Asset Exposure Management
 - Path: Asset Exposure Management (AEM) Help > Remediate for AEM > About Assets in AEM
-- Last modified: 2026-04-12T07:06Z
+- Last modified: 2026-09-16T10:07Z
 - Summary: Information on the Assets page in the Zscaler Asset Exposure Management (AEM) application of the SecOps platform.
 
-The Assets page provides a centralized view of your organization's assets in the Zscaler Asset Exposure Management (AEM) app.Each asset represents a single asset in your environment, unified (i.e., merged) and enriched with information from multiple sources. On this page, you can explore asset details and statuses, view the sources and records from which it was merged, view the findings it contains, and view the tickets it's related to.
+The Assets page provides a centralized view of your organization's assets in Asset Exposure Management (AEM).Each asset represents a single asset in your environment, unified (i.e., merged) and enriched with information from multiple sources. On this page, you can explore asset details and statuses, view the sources and records from which it was merged, view the findings it contains, and view the tickets it's related to.
 
 The Assets page provides the following benefits and enables you to:
 
@@ -32,17 +32,18 @@ On the Assets page (Assets > Assets), you can do the following:
 2. Search for specific assets by entering keywords in the search bar.
 3. [Save your view](https://help.zscaler.com/aem/creating-managing-saved-views) for quick access after making adjustments to it (e.g., applying filters, adjusting columns, or grouping).
 4. [Filter](https://help.zscaler.com/aem/using-filters) assets by **Asset Is Crown Jewel, State**, **Owner ID**, or **Source**.
-5. Explore the **Overview**charts to gain high-level insights into the assets and their risk level in your environment. The charts are adjusted by the selected view and filters.
+5. Configure the [EASM discovery profile](https://help.zscaler.com/aem/configuring-discovery-settings) to scan and monitor your external attack surface.
+6. Explore the **Overview**charts to gain high-level insights into the assets and their risk level in your environment. The charts are adjusted by the selected view and filters.
   - **Number of Assets by Risk Score**: Displays the number of assets in the different risk score ranges (in increments of 0.5). The X-axis represents the max severity score of active findings related to the asset, and the colors represent the risk category. You can hover over the bars to view the number of assets and the exact score range.
   - **Asset Count by Type**: Presents the asset count categorized by asset type, displaying the 5 most frequently occurring types.
   - **Asset Count by Operating System**: Displays the number of assets categorized by operating system, displaying the 5 most frequently occurring types.
-6. [Group assets](https://help.zscaler.com/aem/grouping-data-entity-pages) by fields such as **Asset State**, **Asset ID**, or **Asset Owner ID**.
-7. Refresh the page to reflect the most current information.
-8. Export the list of assets and their associated details as a CSV file.
-9. [Modify the columns displayed in the table.](https://help.zscaler.com/aem/managing-table-columns)
-10. Select all assets on the page.
-11. Click an asset to open individual asset drawers. When the default **Active**saved view is selected, you can see the following details for each asset:
-  - **ID**: The asset's ID on the in the Zscaler Security Operations (SecOps) platform.
+7. [Group assets](https://help.zscaler.com/aem/grouping-data-entity-pages) by fields such as **Asset State**, **Asset ID**, or **Asset Owner ID**.
+8. Refresh the page to reflect the most current information.
+9. Export the list of assets and their associated details as a CSV file.
+10. [Modify the columns displayed in the table.](https://help.zscaler.com/aem/managing-table-columns)
+11. Select all assets on the page.
+12. Click an asset to open individual asset drawers. When the default **Active**saved view is selected, you can see the following details for each asset:
+  - **ID**: The asset's ID in the Security Operations Platform.
   - **Type**: The asset type (e.g., **Windows Workstation**, **Web Application**, **Container Image**).
   - **Name**: The asset's name.
   - **Risk Score**: The risk level of findings associated with the asset. The risk score is initially set by the default [reconciliation function](https://help.zscaler.com/aem/attribute-reconciliation-default-functions), and reflects the highest severity score among the findings. The default can be customized through [Data Unification](https://help.zscaler.com/aem/what-data-unification).
@@ -56,7 +57,7 @@ On the Assets page (Assets > Assets), you can do the following:
   - **Total Findings**: The sum of the active findings per severity.
   - **Tags**: Tags pulled from your sources that include information about the asset that can be [extracted](https://help.zscaler.com/aem/configuring-field-unification) and used to enrich the asset data.
 
-[Image: about assets operational view]
+[Image: Assets Page]
 
 The Assets page includes system views with predefined filter selections, providing quick access to common data scopes:
 
@@ -1374,24 +1375,24 @@ For more complex policy scenarios not supported by the template, use the Advance
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/viewing-managing-assets-aem","lastmod":"2026-04-12T07:06Z","nid":"1538663"} -->
+<!-- ZS-ARTICLE {"url":"/aem/viewing-managing-assets-aem","lastmod":"2026-09-16T10:26Z","nid":"1538663"} -->
 ## Viewing & Managing Assets in AEM
 
 - Source: https://help.zscaler.com/aem/viewing-managing-assets-aem
 - Product: Asset Exposure Management
 - Path: Asset Exposure Management (AEM) Help > Remediate for AEM > Viewing & Managing Assets in AEM
-- Last modified: 2026-04-12T07:06Z
+- Last modified: 2026-09-16T10:26Z
 - Summary: How to view and manage asset details in the Zscaler Asset Exposure Management (AEM) application in the SecOps platform.
 
-An asset in the Zscaler Asset Exposure Management (AEM) app represents a single asset in your environment, unified (i.e., merged) and enriched with information from multiple sources. Selecting an asset on the Assets page opens its drawer, where you can view detailed information and perform multiple actions for the asset. To learn more, see About Assets in AEM.
+An asset in Asset Exposure Management (AEM) represents a single asset in your environment, unified (i.e., merged) and enriched with information from multiple sources. Selecting an asset on the Assets page opens its drawer, where you can view detailed information and perform multiple actions for the asset. To learn more, see [About Assets in AEM](https://help.zscaler.com/aem/about-assets-aem).
 
-The actions you can perform in the asset drawer depend on your user role in the AEM app. To learn more, see [Understanding System Roles](https://help.zscaler.com/aem/understanding-system-roles) and [Creating Custom Roles](https://help.zscaler.com/aem/creating-custom-roles).
+The actions you can perform in the asset drawer depend on your user role in AEM. To learn more, see [Understanding System Roles](https://help.zscaler.com/aem/understanding-system-roles) and [Creating Custom Roles](https://help.zscaler.com/aem/creating-custom-roles).
 
 The asset drawer can be configured by admins and might look different in your account. The information provided in this article refers to the default asset drawer settings.
 
 To view the asset drawer:
 
-1. In the Zscaler Security Operations (SecOps) platform, click **Assets**in the top navigation bar. See image.
+1. In the [SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Assets**. See image.
 2. Click the asset you want to view. See image. A drawer appears with the following details and tabs:
   - Top Panel
   - Details
@@ -1418,8 +1419,10 @@ On the **Details**tab, you can view:
 - **Asset Type**: The classification or category that the asset belongs to, such as server, workstation, or application.
 - **Sources**: The sources that the findings on the asset were detected.
 - **Assignee**: The agent or team responsible for handling the asset.
+- **Is False Positive**: Indicates if the asset is a false positive. You can set this field to `True` if the asset was incorrectly identified by [EASM](https://help.zscaler.com/aem/understanding-zscaler-easm-capabilities). This field is only available for EASM assets.
 - **Risk Mass**: The asset's cumulative risk exposure, calculated by summing the severity scores of active findings for each severity level (i.e., Critical, High, Medium, Low), and rounding the result. This indicator can be used to prioritize assets with similar risk profiles.
 - **Has PII Data**: Indicates whether the asset contains Personally Identifiable Information (PII), highlighting its sensitivity and compliance requirements.
+- **Discovery Chain**: The asset's full discovery path, including the seed asset, intermediate nodes, and the current asset in a sequence, along with the services and attributes used to identify assets in each discovery hop as applicable. The discovery path enables source traceability and provides attestation of auto-attributed assets based on a seed, allowing you to validate your assets using the investigative trail provided. The discovery chain is only available for assets ingested using [Zscaler's EASM capabilities](https://help.zscaler.com/aem/understanding-zscaler-easm-capabilities). When an asset is discovered in more than one way by EASM, the discovery path with the highest confidence is shown.
 
 On the **Asset Merging**tab, you can view the original source records that the asset was merged from.
 
@@ -1449,9 +1452,9 @@ Additionally, you can perform the following actions:
 
 Clicking a ticket opens its drawer. To return to the asset drawer, click the asset name in the top-left corner of the ticket drawer.
 
-[Image: vulnerabilities > assets table]
+[Image: The Assets page]
 
-[Image: asset drawer]
+[Image: Click an asset to view its details]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -8220,6 +8223,97 @@ You can integrate AI Security with the following cloud storage services:
 - [Amazon S3](https://help.zscaler.com/ai-asset-mgmt/integrating-amazon-s3)
 - [Azure Blob Storage](https://help.zscaler.com/ai-asset-mgmt/integrating-azure-blob-storage)
 - [Amazon Security Lake](https://help.zscaler.com/ai-asset-mgmt/integrating-amazon-security-lake)
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/integrating-ai-security-jira","lastmod":"2026-09-14T21:46Z","nid":"1543021"} -->
+## Integrating AI Security with Jira
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/integrating-ai-security-jira
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Administration > External Integrations > ITSM Tools > Integrating AI Security with Jira
+- Last modified: 2026-09-14T21:46Z
+- Summary: How to integrate AI Security with Jira and send alert notifications.
+
+AI Security leverages Jira APIs to automatically create tickets when sensitive data or any misconfigurations are detected in your cloud resources. You can integrate AI Security with Jira to leverage the alert data logs from the cloud storage services and create incidents for further evaluation.
+
+AI Security can be integrated with Jira cloud versions, provided there is support for the required authentication mechanism and APIs to create a Jira task.
+
+## Prerequisites
+
+You must first complete the OAuth configuration before integrating AI Security with Jira.
+
+- 1. Configure the OAuth app.
+- 2. Set up the API permissions.
+- 3. Authorize AI Security to access the Jira APIs.
+
+## IntegratingAI Security with Jira
+
+To integrate AI Security with Jira:
+
+1. Go to **Administration**> **External** **Integrations**.
+2. On the **ITSM integrations**page, click **Add**. See image.
+3. Under **Integration Details**: See image.
+  - For **Integration Name**, enter a unique name for the integration.
+  - For **IT Service**, select **Jira**.
+4. Click **Next**.
+5. Under **ITSM Details**: See image. You are redirected back to the Atlassian login page. If you're not able to log in, then you see the *Authorization in Process* message in the AI Security Admin Portal, and the following message on the Atlassian Developer console: See image. Check and use the correct **Client ID** and **Client Secret** values for the authorization to be successful.
+  - **Client ID**: Paste the Client ID that you copied while configuring the OAuth app.
+  - **Client Secret**: Paste the Client Secret that you copied while configuring the OAuth app.
+  - Click **Authorize**to validate the Jira connection.
+6. On the Atlassian Developer console, click **Accept** to grant the required permissions to the OAuth client app to perform API operations in Jira. See image. You are again redirected back to the AI Security Admin Portal and a message is displayed indicating the authorization is successful.
+7. Select the required Jira project from the drop-down menu.
+8. Click **Next**.
+9. Review the integration details. Click the **Edit** icon if you want to make any changes. See image.
+10. Click **Finish**.
+
+The integration is added, and the details are displayed on the **Integrations** page.
+
+1. Sign in to the [Atlassian Developer console](https://id.atlassian.com/login?continue=https%3A%2F%2Fdeveloper.atlassian.com%2Fconsole%2Fmyapps%2F).
+2. Click **Create** and select **OAuth 2.0 integration**. See image.
+3. Under **Create a New OAuth 2.0 (3LO) integration**, enter a name for the application. See image.
+4. Accept the terms and conditions, then click **Create**. The application is created and displayed under **Console** > **My apps**.
+
+1. On the Atlassian Developer console, click **Permissions**.
+2. Click **Add** for the Jira API. See image. The button name changes to **Configuration**.
+3. Click **Configuration** to view the list of Jira APIs.
+4. Select the scope for the required Jira features that you want to use for this integration. For example, select `read:jira-work` to read the Jira project, issue data, etc. See image.
+5. Click **Save**.
+
+1. Go to the AI Security Admin Portal and copy the application URL. See image.
+2. On the Atlassian Developer console, click **Authorization** in the left-side navigation.
+3. Click **Add**.
+4. For **Callback URL**, paste the application URL you copied from the AI Security Admin Portal. See image.
+5. Click **Save Changes**.
+6. Next, click **Settings** in the left-side navigation.
+7. Copy the **Client ID** and **Client Secret**. You need to use these values while adding the Jira integration in the AI Security Admin Portal. See image.
+
+[Image: Add a Jira integration]
+
+[Image: Select Jira in the Integration Details section.]
+
+[Image: Configure Jira details in the ITSM Details section.]
+
+[Image: Review the integration settings]
+
+[Image: Select OAuth integration]
+
+[Image: Provide a name for the integration]
+
+[Image: Add Jira API]
+
+[Image: Set up the permissions]
+
+[Image: Enter the DSPM app URL]
+
+[Image: Copy the client ID and secret]
+
+[Image: Error message on the Atlassian Developer console.]
+
+[Image: Grant access to the app]
+
+[Image: Copy the app URL]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -15336,13 +15430,13 @@ On the Identity Findings page (Identities > Identity Findings), you can do the f
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/identity-protection/about-tenants","lastmod":"2026-05-17T07:06Z","nid":"1538950"} -->
+<!-- ZS-ARTICLE {"url":"/identity-protection/about-tenants","lastmod":"2026-09-18T02:43Z","nid":"1538950"} -->
 ## About Tenants
 
 - Source: https://help.zscaler.com/identity-protection/about-tenants
 - Product: Identity Protection
 - Path: Identity Protection Help > Tenants > About Tenants
-- Last modified: 2026-05-17T07:06Z
+- Last modified: 2026-09-18T02:43Z
 - Summary: Information on how the Tenants page helps you monitor a tenant's activity in Identity Protection.
 
 You can view a consolidated list of tenant accounts and their identities on the Tenants page. You can also review the [identity findings](https://help.zscaler.com/identity-protection/about-identity-findings) for each tenant and the total number of critical or high-severity findings so that you can take the necessary action. Only tenants in an active state are displayed on the Tenants page.
@@ -15359,23 +15453,23 @@ On the Tenants page (Identities > Tenants), you can do the following:
 1. Select from system-saved views or [views you previously saved](https://help.zscaler.com/identity-protection/managing-saved-views).
 2. Search for a tenant.
 3. [Save the current view](https://help.zscaler.com/identity-protection/managing-saved-views).
-4. Apply [filters](https://help.zscaler.com/identity-protection/using-filters) to view specific information.
-5. View the number of tenants grouped by severity level (**Critical**, **High**, **Medium**, and **Low**).
-6. View total identity findings across all tenants.
-7. View total active identity providers (IdP) with identity findings.
-8. Group tenants by category such as tenant first seen, tenant last seen, tenant tags, etc.
-9. Refresh the tenant table to reflect the most current information.
+4. [Apply filters](https://help.zscaler.com/unified/using-filters) to view specific information.
+5. View the number of tenants grouped by severity level (e.g., **Critical**, **High**, **Medium**, and **Low**).
+6. View the total identity findings across all tenants.
+7. View the total active identity providers with identity findings.
+8. Group tenants by category (e.g., **Tenant First Seen**, **Tenant Last Seen**, **Tenant Tags**, etc).
+9. Refresh the table to reflect the most current information.
 10. Export the list of tenants and their associated details as a CSV file.
-11. Modify the columns displayed in the table.
+11. [Modify the columns displayed in the table](https://help.zscaler.com/unified/managing-table-columns).
 12. View the list of tenants. Click a tenant to [view detailed information](https://help.zscaler.com/identity-protection/viewing-tenant-details). For each tenant in the list, you can see:
   - **ID**: The unique identifier of the tenant.
   - **Name**: The name of the tenant.
   - **Severity Score**: The severity score of the tenant.
-  - **Total Identity Findings**: The total number of **Critical**, **High**, **Medium**, and **Low**identity findings for the tenant.
+  - **Total Identity Findings**: The total number of critical, high, medium, and low identity findings for the tenant.
   - **Sources**: The source of the identity finding (e.g., **ITDR Change Detection AD**, **ITDR Domains AD**, etc.).
   - **Last Seen**: The date of the most recent activity.
   - **State**: The state of the tenant's account (**Active**or **Inactive**).
-  - **Identity Provider**: The IdP configured for the tenant (e.g., **AD**, **Entra ID**, etc.).
+  - **Identity Provider**: The identity provider configured for the tenant (e.g., **AD**, **Entra ID**, etc.).
   - **Next Scan**: The date and time of the next scan for a data sync.
 
 [Image: Tenants page in the Identities app.]
@@ -15439,6 +15533,65 @@ You can use the Server Agent Settings section to configure and control server ag
 - **Configuration**: Configure server agents to detect weak passwords, set custom keywords, simulate attacks, strengthen password security locally. This enhances detection capabilities within domain infrastructure.
 
 To learn more, see [About Server Agent Settings](https://help.zscaler.com/itdr/about-server-agent-settings).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/step-step-configuration-guide-identity-protection","lastmod":"2026-09-15T22:10Z","nid":"1543189"} -->
+## Step-by-Step Configuration Guide for Identity Protection
+
+- Source: https://help.zscaler.com/identity-protection/step-step-configuration-guide-identity-protection
+- Product: Identity Protection
+- Path: Identity Protection Help > Step-by-Step Configuration Guide for Identity Protection
+- Last modified: 2026-09-15T22:10Z
+- Summary: How to configure Identity Protection, set up identity scans, and configure threat detection.
+
+This guide explains the configuration steps that you need to complete to begin using Identity Protection for your organization.
+
+Before you begin configuring Identity Protection, Zscaler recommends reading the following articles:
+
+- [What Is Identity Protection?](https://help.zscaler.com/identity-protection/what-identity-protection)
+- [Understanding Identity Protection Architecture](https://help.zscaler.com/identity-protection/understanding-identity-protection-architecture)
+- [What Is the Security Operations Platform?](https://help.zscaler.com/unified/what-security-operations-platform)
+- [MITRE ATT&CK Overview](https://attack.mitre.org/)
+
+## Configuring Identity Protection
+
+To configure Identity Protection, complete the following steps:
+
+- Step 1: Set Up Your Account
+- Step 2: Configure Users & Roles
+- Step 3: Assess the Security Threats
+- Step 4: Monitor Threats Using Dashboards and Reports
+- Step 5: Remediate Identity Risks
+
+After your organization is provisioned for the Security Operations Platform (SecOps Platform), you will receive an email at your registered email address with a username and password to sign in to the SecOps Platform Admin Portal. To learn more, see [Signing In to the Security Operations Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal).
+
+Add users and assign roles to control their level of access to the SecOps Platform. To learn more, see [User Management](https://help.zscaler.com/unified/getting-started-security-operations-platform/security-operations-platform-administration/account-management/user-management).
+
+Identity Protection includes comprehensive charts, tables, and graphs that provide visibility into the identity threats in your organization. You can use the interconnected data points to easily switch from macro to micro views, and drill down to view granular details (e.g., click identity findings on the dashboard to show the identity details).
+
+Use the following basic workflow to assess threat risks:
+
+- a. Evaluate overall findings.
+- b. View a list of users.
+- c. View a list of tenants.
+- d. Assess identity‑related security risks.
+- e. Review the alerts associated with identity findings.
+
+TheFindings Overview dashboard provides a high-level view of the identity findings and their overall security posture in your organization. Findings are categorized by severity, type, affected tenants, identity providers, remediation ease, exploitability, and impacted assets. This helps security teams prioritize the most critical and easily exploitable findings and remediate them immediately. To learn more, see About Findings Overview.
+
+View a list of users, their identity types, and the total number of critical or high-severity findings to take the necessary action. To learn more, see [About Users in the Security Operations Platform](https://help.zscaler.com/unified/about-users-security-operations-platform).
+
+View a list of tenant accounts and the total identity findings with their severity levels for all active tenants. To learn more, see [About Tenants](https://help.zscaler.com/identity-protection/about-tenants).
+
+View a list of identity-related security issues detected across connected identity sources, such as Active Directory or Entra ID. These findings help you analyze misconfigurations, exposed credentials, and other risks. To learn more, see [About Identity Findings](https://help.zscaler.com/identity-protection/about-identity-findings).
+
+View alerts from all source applications on the Alerts page. To learn more, see [About Alerts](https://help.zscaler.com/identity-protection/about-alerts).
+
+After you've examined the identity data, you can set up custom [dashboards and reports](https://help.zscaler.com/unified/getting-started-security-operations-platform/security-operations-platform-analytics) to better analyze threat data in your organization.
+
+View the identity findings categorized by tenant, admins, user types, ease of remediation, etc. To learn more, see About Remediation.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -15618,44 +15771,4 @@ See image.
 [Image: The Identities tab on Tenants page.]
 
 [Image: The MITRE ATT&CK tab on Tenants page.]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/identity-protection/what-identity-protection","lastmod":"2026-08-30T23:23Z","nid":"1535399"} -->
-## What Is Identity Protection?
-
-- Source: https://help.zscaler.com/identity-protection/what-identity-protection
-- Product: Identity Protection
-- Path: Identity Protection Help > What Is Identity Protection?
-- Last modified: 2026-08-30T23:23Z
-- Summary: Information on what Identity Protection is and why it is used.
-
-Identity has become the new target for attackers because human and non-human identities have permissions to access critical applications, assets, and sensitive data. Security teams are overwhelmed by fragmented findings and disconnected tools, and risks are increasing faster than the time it takes to resolve them. When an identity is compromised, security teams need more details, such as who the identity is, what it can access, whether it is over-privileged, whether its credentials are weak or exposed, and whether its behavior deviates from normal. This information can help security teams to prioritize, take immediate action, and reduce the risks.
-
-Identity Protection helps organizations move from fragmented visibility to actionable identity security. It detects anomalous activities such as compromised credentials, suspicious logins, sensitive data theft, etc., and provides continuous and unified visibility into identity risks.
-
-Identity Protection is part of the Zscaler Security Operations (SecOps) platform and works alongside Unified Vulnerability Management (UVM), Asset Exposure Management (AEM), and Security Operations Center (SOC) Workbench to deliver a cohesive security operations experience. This allows you to unify disparate identity data from multiple systems to get a complete view of users, understand their posture, dynamically measure identity risks, and mitigate identity attacks.
-
-## Key Features and Benefits
-
-Identity Protection includes the following features and benefits:
-
-- **Detect Risks Associated with Identities**: Detect compromised accounts, suspicious sign‑ins, leaked credentials, and anomalies in authentication activities to stop threats before they escalate.
-- **Mitigate Identity Attacks**: Detect and contain identity-based attacks before they can cause harm.
-- **Strengthen Identity Posture**: Find and fix weak passwords, exposed credentials, and excessive privileges.
-- **Single Identity View**: Unify identity data from disparate sources into one view. Correlates signals from sign‑ins, credentials, permissions, and behavior to display findings related to identities.
-- **Drive Broader SecOps Outcomes**: Prioritize threats and exposures associated with risky identities to accelerate response and reduce future risk.
-- **Reports and Dashboards**: Custom dashboards and reports to view specific results as required.
-
-## How Does Identity Protection Work?
-
-Identity Protection takes a proactive and integrated approach to secure user identities.
-
-Identity Protection consists of the core capabilities:
-
-- **Identity Risk Detection**: Detect anomalies in authentication activity, suspicious sign‑ins, and compromised credentials. The correlated signals are mapped into the SecOps platform, providing visibility into risks across assets, vulnerabilities, and exposures.
-- **Data Ingestion via Connectors:**Identity Protection uses connectors to ingest data from sources such as posture scans, change detections, alerts, and identity records. These connectors also integrate with identity providers like Okta and Microsoft Entra, enabling the system to consume identity data directly from the customer's IdP and bring it into the protection framework.
-- **Data Fabric as the Backbone:**Data Fabric is the backbone of the SecOps platform. It ensures that all incoming identity signals are normalized, correlated, and enriched. This allows the platform to unify disparate data streams and provide security teams with a coherent view of identity-related risks across the environment.
-- **Custom Configuration:** Manage and fine-tune identity protection through the SecOps platform. Within the Settings page, you can adjust scan configurations and review clear explanations for each option. When deeper configuration is required, certain links redirect you to the legacy ITDR experience, ensuring continuity for advanced tasks while maintaining a modern interface for routine adjustments.
 <!-- /ZS-ARTICLE -->

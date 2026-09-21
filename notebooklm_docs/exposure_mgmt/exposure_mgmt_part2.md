@@ -1,8 +1,48 @@
 # Zscaler Help — Risk & Exposure Management (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-14 03:38 UTC
-Articles in this file: 159
+Generated: 2026-09-21 08:12 UTC
+Articles in this file: 160
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/what-identity-protection","lastmod":"2026-08-30T23:23Z","nid":"1535399"} -->
+## What Is Identity Protection?
+
+- Source: https://help.zscaler.com/identity-protection/what-identity-protection
+- Product: Identity Protection
+- Path: Identity Protection Help > What Is Identity Protection?
+- Last modified: 2026-08-30T23:23Z
+- Summary: Information on what Identity Protection is and why it is used.
+
+Identity has become the new target for attackers because human and non-human identities have permissions to access critical applications, assets, and sensitive data. Security teams are overwhelmed by fragmented findings and disconnected tools, and risks are increasing faster than the time it takes to resolve them. When an identity is compromised, security teams need more details, such as who the identity is, what it can access, whether it is over-privileged, whether its credentials are weak or exposed, and whether its behavior deviates from normal. This information can help security teams to prioritize, take immediate action, and reduce the risks.
+
+Identity Protection helps organizations move from fragmented visibility to actionable identity security. It detects anomalous activities such as compromised credentials, suspicious logins, sensitive data theft, etc., and provides continuous and unified visibility into identity risks.
+
+Identity Protection is part of the Zscaler Security Operations (SecOps) platform and works alongside Unified Vulnerability Management (UVM), Asset Exposure Management (AEM), and Security Operations Center (SOC) Workbench to deliver a cohesive security operations experience. This allows you to unify disparate identity data from multiple systems to get a complete view of users, understand their posture, dynamically measure identity risks, and mitigate identity attacks.
+
+## Key Features and Benefits
+
+Identity Protection includes the following features and benefits:
+
+- **Detect Risks Associated with Identities**: Detect compromised accounts, suspicious sign‑ins, leaked credentials, and anomalies in authentication activities to stop threats before they escalate.
+- **Mitigate Identity Attacks**: Detect and contain identity-based attacks before they can cause harm.
+- **Strengthen Identity Posture**: Find and fix weak passwords, exposed credentials, and excessive privileges.
+- **Single Identity View**: Unify identity data from disparate sources into one view. Correlates signals from sign‑ins, credentials, permissions, and behavior to display findings related to identities.
+- **Drive Broader SecOps Outcomes**: Prioritize threats and exposures associated with risky identities to accelerate response and reduce future risk.
+- **Reports and Dashboards**: Custom dashboards and reports to view specific results as required.
+
+## How Does Identity Protection Work?
+
+Identity Protection takes a proactive and integrated approach to secure user identities.
+
+Identity Protection consists of the core capabilities:
+
+- **Identity Risk Detection**: Detect anomalies in authentication activity, suspicious sign‑ins, and compromised credentials. The correlated signals are mapped into the SecOps platform, providing visibility into risks across assets, vulnerabilities, and exposures.
+- **Data Ingestion via Connectors:**Identity Protection uses connectors to ingest data from sources such as posture scans, change detections, alerts, and identity records. These connectors also integrate with identity providers like Okta and Microsoft Entra, enabling the system to consume identity data directly from the customer's IdP and bring it into the protection framework.
+- **Data Fabric as the Backbone:**Data Fabric is the backbone of the SecOps platform. It ensures that all incoming identity signals are normalized, correlated, and enriched. This allows the platform to unify disparate data streams and provide security teams with a coherent view of identity-related risks across the environment.
+- **Custom Configuration:** Manage and fine-tune identity protection through the SecOps platform. Within the Settings page, you can adjust scan configurations and review clear explanations for each option. When deeper configuration is required, certain links redirect you to the legacy ITDR experience, ensuring continuity for advanced tasks while maintaining a modern interface for routine adjustments.
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -6768,13 +6808,13 @@ You can retrieve the URL from the browser address bar while logged in to your JF
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-jira-issues-connector","lastmod":"2026-08-03T14:41Z","nid":"1541622"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-jira-issues-connector","lastmod":"2026-09-20T07:06Z","nid":"1541622"} -->
 ## Configuring the Jira Issues Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-jira-issues-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the Jira Issues Connector
-- Last modified: 2026-08-03T14:41Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: How to configure the Jira Issues connector, including setting up authentication and data retrieval filters and specifications.
 
 Jira enables organizations to handle complex workflows and manage their work.
@@ -11613,13 +11653,13 @@ Your cloud name is located in the URL that the admin uses to log in to the Zscal
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-zscaler-advanced-detection-connector","lastmod":"2026-08-26T09:06Z","nid":"1543059"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-zscaler-advanced-detection-connector","lastmod":"2026-09-17T11:46Z","nid":"1543059"} -->
 ## Configuring the Zscaler Advanced Detection Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-zscaler-advanced-detection-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the Zscaler Advanced Detection Connector
-- Last modified: 2026-08-26T09:06Z
+- Last modified: 2026-09-17T11:46Z
 - Summary: How to configure the Zscaler Advanced Detection connector.
 
 Zscaler Advanced Detections uses expert-driven Internet & SaaS (ZIA) detections to find behavioral patterns that match adversarial techniques within your Zscaler-specific threats. When an attacker infiltrates your security environment, Zscaler Advanced Detection analyzes the raw telemetry — not just alerts — using two primary classes of analytics:
@@ -11643,7 +11683,7 @@ See image.
 
 ## Prerequisites
 
-To configure the Zscaler Advanced Detections connector, ensure you have active Internet & SaaS and SOC Workbench subscriptions. To learn more, see [Viewing Subscriptions](https://help.zscaler.com/unified/viewing-subscriptions).
+To configure the Zscaler Advanced Detections connector, ensure you have active Internet & SaaS and Agentic SOC subscriptions. To learn more, see [Viewing Subscriptions](https://help.zscaler.com/unified/viewing-subscriptions).
 
 ## Configuring the Connector
 
@@ -11655,7 +11695,7 @@ To create the Zscaler Advanced Detections data source in the Security Operations
 
 For complete configuration instructions, see [Creating Data Sources](https://help.zscaler.com/unified/creating-data-sources).
 
-Your Zscaler Account team sets up the Zscaler Advanced Detections connector on your behalf. You do not need to configure or adjust your user roles for SOC Workbench.
+Your Zscaler Account team sets up the Zscaler Advanced Detections connector on your behalf. You do not need to configure or adjust your user roles for Agentic SOC.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -13397,13 +13437,13 @@ When a ticket includes many findings, Remediation Copilot might run in limited-c
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/viewing-findings-uvm","lastmod":"2026-07-13T21:06Z","nid":"1531067"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/viewing-findings-uvm","lastmod":"2026-09-16T10:17Z","nid":"1531067"} -->
 ## Viewing Findings in UVM
 
 - Source: https://help.zscaler.com/uvm/viewing-findings-uvm
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Remediate for UVM > Viewing Findings in UVM
-- Last modified: 2026-07-13T21:06Z
+- Last modified: 2026-09-16T10:17Z
 - Summary: How to view findings details in the Unified Vulnerability Management (UVM) app in the SecOps Platform.
 
 Unified Vulnerability Management (UVM) findings represent vulnerabilities or misconfigurations detected on assets and linked to specific sources. Selecting a finding on the Findings page opens its drawer, where you can view detailed information. To learn more, see [About Findings](https://help.zscaler.com/uvm/about-findings-operational-view-uvm). The actions you can perform in the finding drawer depend on your user role in the UVM app. To learn more, see [Understanding System Roles](https://help.zscaler.com/uvm/understanding-system-roles) and [Creating Custom Roles](https://help.zscaler.com/uvm/creating-custom-roles).
@@ -13441,11 +13481,12 @@ Additionally, you can perform the following actions:
 On the **Details**tab, you can view:
 
 - **Asset**: The related asset affected by the finding.
-- **Ticket**: The related ticket that aggregated the finding.
+- **Ticket**: The related ticket that aggregated the findings.
 - **Sources**: The source that reported the finding.
 - **CVE ID**: If applicable, the CVE ID linked to the issue, with a direct link to the National Vulnerability Database (NVD) for further information.
 - **First Seen**: The date the finding was first detected.
 - **Last Seen**: The most recent date the finding was detected.
+- **Is False Positive**: Indicates if the finding is a false positive. You can set this field to `True` if the finding was incorrectly identified by [EASM](https://help.zscaler.com/uvm/understanding-zscaler-easm-capabilities). This field is only available for EASM findings.
 - **Description**: The description of the finding as provided by the source.
 - **Score Explanation**: A detailed breakdown of the factors that contributed to the finding's severity score and how the score was calculated, including risk and mitigation criteria. To learn more, see [Understanding Severity Score](https://help.zscaler.com/uvm/understanding-severity-score).
 
@@ -13477,13 +13518,13 @@ On the **Finding Evidence** tab, you can view:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/viewing-managing-assets-uvm","lastmod":"2026-07-15T21:06Z","nid":"1531065"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/viewing-managing-assets-uvm","lastmod":"2026-09-16T10:27Z","nid":"1531065"} -->
 ## Viewing & Managing Assets in UVM
 
 - Source: https://help.zscaler.com/uvm/viewing-managing-assets-uvm
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Remediate for UVM > Viewing & Managing Assets in UVM
-- Last modified: 2026-07-15T21:06Z
+- Last modified: 2026-09-16T10:27Z
 - Summary: How to view and manage asset details in the Unified Vulnerability Management (UVM) application in the SecOps Platform.
 
 A Unified Vulnerability Management (UVM) asset represents a single asset in your environment, unified (i.e., merged) and enriched with information from multiple sources. Selecting an asset on the Assets page opens its drawer, where you can view detailed information and perform multiple actions for the asset. To learn more, see [About Assets in UVM](https://help.zscaler.com/uvm/about-assets-operational-view-uvm).
@@ -13522,6 +13563,7 @@ On the **Details**tab, you can view:
 - **Asset Type**: The classification or category that the asset belongs to, such as server, workstation, or application.
 - **Sources**: The sources that the findings on the asset were detected on.
 - **Assignee**: The agent or team responsible for handling the asset.
+- **Is False Positive**: Indicates if the asset is a false positive. You can set this field to `True` if the asset was incorrectly identified by [EASM](https://help.zscaler.com/uvm/understanding-zscaler-easm-capabilities). This field is only available for EASM assets.
 - **Risk Mass**: The asset's cumulative risk exposure, calculated by summing the severity scores of active findings for each severity level (i.e., Critical, High, Medium, Low), and rounding the result. This indicator can be used to prioritize assets with similar risk profiles.
 - **Has PII Data**: Indicates whether the asset contains Personally Identifiable Information (PII), highlighting its sensitivity and compliance requirements.
 - **Discovery Chain**: The asset's full discovery path, featuring the seed asset, intermediate nodes, and the current asset in a sequence, along with the services and attributes used to identify assets in each discovery hop as applicable. It enables source traceability and provides attestation of auto-attributed assets based on a seed, allowing you to self-validate your assets using the investigative trail provided. The discovery chain is only available for assets ingested using [Zscaler's EASM capabilities](https://help.zscaler.com/uvm/understanding-zscaler-easm-capabilities). When an asset is discovered in more than one way by EASM, the discovery path with the highest confidence is shown.

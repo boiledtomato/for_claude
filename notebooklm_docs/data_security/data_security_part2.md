@@ -1,8 +1,462 @@
 # Zscaler Help — Data Security — DSPM (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-14 03:38 UTC
-Articles in this file: 20
+Generated: 2026-09-21 08:12 UTC
+Articles in this file: 24
+
+---
+
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-data-discovery-dashboard","lastmod":"2026-07-28T04:27Z","nid":"1477746"} -->
+## Viewing the Data Discovery Dashboard
+
+- Source: https://help.zscaler.com/dspm/viewing-data-discovery-dashboard
+- Product: Data Security Posture Management (DSPM)
+- Path: Data Security Posture Management (DSPM) Help > Dashboards > Viewing the Data Discovery Dashboard
+- Last modified: 2026-07-28T04:27Z
+- Summary: Information about the aggregated scan results displayed on the DSPM Data Discovery dashboard in the Zscaler Admin Console.
+
+[Watch a video about the DSPM data discovery dashboard](https://fast.wistia.net/embed/iframe/0s27bvrf53) (shows legacy UI).
+
+The DSPM Data Discovery dashboard provides a high-level overview of your cloud accounts' data security posture. The dashboard includes interactive widgets that visually depict the number of data stores scanned, sensitive data discovered, top accounts and data stores that contain the maximum amount of sensitive data, number of DLP engines and dictionaries used to classify the sensitive data, geographic location of your cloud accounts along with the resources containing sensitive data, and data types. All of this information helps you prioritize and take the necessary action. Some of the data displayed on this dashboard are clickable, and you can go to other pages (Alerts, Policies, Resource Inventory, etc.) to gather more context and information for further analysis.
+
+To view the Data Discovery dashboard:
+
+1. Go to **Analytics** > **Data Security** >**DSPM** > **Data Discovery**.
+2. On the **Data Discovery Dashboard** page, you can view the following widgets:
+  - Data Stores Discovered and Scanned
+  - Top Accounts by Sensitive Data
+  - Top Data Stores by Sensitive Data
+  - Data Insights
+  - Data Regions
+
+The total number of data stores that are discovered and scanned. Click the number to view additional details on the [Resource Inventory](https://help.zscaler.com/dspm/about-resource-inventory) page.
+
+See image.
+
+The following tabs include additional details:
+
+- **Gen AI Classification**: The chart displays the files classified using generative AI. Click each circle to view a specific file type discovered in different data stores. Click the number to view additional details on the [Resource Inventory](https://help.zscaler.com/dspm/about-resource-inventory) page. See image.
+- **DLP Engines**: The chart displays the number of DLP engines used for data classification. Click each circle to view the total number of files classified in different data stores and triggers in various regions. Click the number to view additional details on the [Resource Inventory](https://help.zscaler.com/dspm/about-resource-inventory) page. See image.
+
+[Image: Total data stores that are discovered and scanned]
+
+The top accounts with the maximum amount of sensitive data. The accounts are displayed in descending order based on the amount of sensitive data and alerts triggered for each account. Click the **Cloud Account** name to view additional details on the [Resource Inventory](https://help.zscaler.com/dspm/about-resource-inventory) page.
+
+See image.
+
+The top data stores with the maximum amount of sensitive data. The data stores are displayed in descending order based on the amount of sensitive data and alerts triggered for each account. Click the **Data Store** name to view the graph on the [Resource Inventory](https://help.zscaler.com/dspm/about-resource-inventory) page.
+
+See image.
+
+The different data types discovered in the data stores.
+
+See image.
+
+A world map shows the geographic regions where all of your cloud accounts and data stores are located.
+
+See image.
+
+- Select the **Show sensitive data only** checkbox to view only those regions with data stores containing sensitive data.
+- Click the numbers on the map to view the cloud accounts, data stores, and data types in that region. See image.
+
+The size of the circles is relative to each other. A bigger circle indicates that the region has more number of sensitive records when compared to the region represented by a smaller circle. The number in the circle indicates that there are multiple regions in the same geographical location.
+
+[Image: Accounts with the maximum amount of sensitive data]
+
+[Image: Data stores with the maximum amount of sensitive data]
+
+[Image: Types of files and documents discovered]
+
+[Image: Cloud accounts discovered in various locations]
+
+[Image: World map shows regions where cloud accounts are located]
+
+[Image: Data discovered by Gen AI]
+
+[Image: DLP engines used for data classification]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-graph-ai-services","lastmod":"2026-04-24T21:06Z","nid":"1524201"} -->
+## Viewing the Graph for AI Services
+
+- Source: https://help.zscaler.com/dspm/viewing-graph-ai-services
+- Product: Data Security Posture Management (DSPM)
+- Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the Graph for AI Services
+- Last modified: 2026-04-24T21:06Z
+- Summary: Information on the Resource Inventory graph for AI services that have access to sensitive data.
+
+The graph for an AI service is a visual representation of the data scan result for the service. It depicts the access path for the AI service (Azure AI Foundry Hub or AWS Bedrock Knowledge Base) where it has access to the storage account containing sensitive data. DSPM also detects if the AI service is publicly exposed to the internet, including the public exposure path, and the list of entities that can access the AI service. These details are helpful to quickly evaluate and remediate the issues, protect the sensitive data, and maintain a strong security posture.
+
+You can view graphs for the following AI services:
+
+- AWS Bedrock Custom Model
+- AWS Bedrock Imported Model
+- AWS Bedrock Knowledge Base
+- AWS Bedrock Agent
+- Azure AI Foundry Hub
+- Azure AI Foundry
+- Azure OpenAI
+
+To view the graph for an AI service:
+
+1. Go to **Analytics**>**Data Security**> **DSPM**>**Resource Inventory.**
+2. Click any AI service name to view the AI service's details page.
+3. In the AI service's details page, select the **Risk Explorer** tab. You can see the graph for the selected service:
+
+- Azure AI Foundry Hub
+- AWS Bedrock Knowledge Base
+
+The following image is a sample of an Azure AI Foundry Hub graph:
+
+[Image: Azure AI Foundry Hub has access to sensitive records.]
+
+Click the nodes to view additional details of each entity:
+
+- 1. Public Internet
+- 2. Primary Resource
+- 3. Storage Account
+- 4. Resource with Sensitive Data
+- 5. Sensitive Records
+- 6. Services
+- 7. Managed Identity
+- 8. Users
+- 9. External
+- 10. Applications
+
+The following image is a sample of an AWS Bedrock Knowledge Base graph:
+
+[Image: AWS Bedrock Knowledge Base has access to sensitive data records.]
+
+Click the nodes to view additional details of each entity:
+
+- 1. Primary Resource
+- 2. Resource
+- 3. Resource with Sensitive Data
+- 4. Sensitive Data Records
+- 5. Roles
+- 6. Federated
+- 7. Users
+- 8. Services
+- 9. External
+
+View details of AWS Bedrock Knowledge Base.
+
+- **Resource Category**: The type of data store.
+- **Resource Type**: The type of primary resource.
+- **Account ID**: The unique identifier of the account to which the primary resource belongs.
+- **Account Name**: The name of the account in which the resource is located.
+- **Organization ID**: The unique identifier of the organization to which the project belongs.
+- **Region**: The region where the resource is located.
+- **Latest Scan Status**: The status of the last scan.
+- **Last Completed Scan**: The status of the last scan.
+- **Triggers**: Number of alerts raised for the resource.
+- **Matched Files**: The number of files that matched the DLP engines.
+- **DLP Engines**: The [DLP engines](https://help.zscaler.com/dspm/understanding-dlp-engines-and-dictionaries) that match sensitive records.
+- **DLP Dictionaries**: The dictionaries associated with the DLP engines.
+- **Document Categories**: The category of document detected in the resource.
+- **Document Types**: The number of documents detected in the resource.
+- **ARN**: Copy the Amazon Resource Name (ARN) to identify this resource in the AWS account.
+- **Tags**: The tags associated with the resource.
+- **Posture**: The [security posture](https://help.zscaler.com/dspm/understanding-security-posture-state)of the resource.
+
+[Image: Details of the primary source with blurred out sensitive information.]
+
+View details of the Amazon Bedrock resource types.
+
+[Image: A list of resource types available in the AWS Bedrock Knowledge Base.]
+
+View the list of users who can access the resource.
+
+[Image: A list of users and their access level to a resource, and blurred out sensitive information.]
+
+View the identity and access management (IAM) roles that has permissions to access the resource.
+
+[Image: A list of IAM roles that have permission to access the resource, and blurred out sensitive information.]
+
+View the services that can access the resource.
+
+[Image: A list of services that can access the resource, and blurred out sensitive information.]
+
+View the external entities that can access the resource. These entities are part of a different cloud account that is not onboarded into the Zscaler Admin Console.
+
+[Image: A list of external entities that can access the resource, and blurred out sensitive information.]
+
+View the federated identities that can access the resource.
+
+[Image: A list of federated identities that can access the resource, and blurred out sensitive information.]
+
+View details of the resources that contain sensitive data.
+
+[Image: Lists the resources that contain sensitive data records.]
+
+View details of the sensitive record.
+
+[Image: The sensitive data records for an AWS Bedrock Knowledge Base with blurred out sensitive information.]
+
+The storage account that contains the sensitive records.
+
+[Image: The scan result for the storage account.]
+
+View the details of the storage account.
+
+[Image: View Azure storage account details]
+
+The details of the sensitive record, including the DLP engines and dictionaries that match the record, the security posture of the record, ID and tags, and the timestamp of the last completed scan.
+
+[Image: The details of the file containing credit card numbers.]
+
+The reason why the AI service is publicly exposed to the internet.
+
+[Image: Details of how the Azure AI Foundry instance is exposed to the internet.]
+
+The users who can access the AI service.
+
+[Image: Viewing the list of users and their access levels to access the AI service]
+
+The external entities that can access the AI service. These entities are part of a different cloud account that is not onboarded to the DSPM Admin Portal.
+
+[Image: Viewing the external entities that can access the AI service.]
+
+The applications that can access the AI service.
+
+[Image: Applications that can access the AI service.]
+
+The services that can access the AI service.
+
+[Image: The services that can access the AI service.]
+
+The managed identities (service principals) that can access the AI service.
+
+[Image: The managed identities that can access the AI service.]
+
+View details of the primary resource.
+
+[Image: View the primary resource details]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-graph-aws-data-stores","lastmod":"2026-04-24T21:06Z","nid":"1519996"} -->
+## Viewing the Graph for AWS Data Stores
+
+- Source: https://help.zscaler.com/dspm/viewing-graph-aws-data-stores
+- Product: Data Security Posture Management (DSPM)
+- Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the Graph for AWS Data Stores
+- Last modified: 2026-04-24T21:06Z
+- Summary: Information on the Resource Inventory graph that depict the AWS data stores containing sensitive data.
+
+The Resource Inventory graph for AWS data stores is a visual representation of the scan result. The graph provides in-depth details of the [AWS resource](https://help.zscaler.com/dspm/supported-data-stores) that contains sensitive data, the DLP engines and dictionaries that match the sensitive data, whether it is publicly exposed to the internet, including the public exposure path, the list of entities that can access the resource, and the vulnerabilities and malware detected in the resource. These details are helpful to quickly evaluate and remediate the issues, protect the data, and maintain the security posture.
+
+You can view graphs for the following AWS data stores:
+
+- Simple Storage Service (S3)
+- AWS EC2 instances
+- RDS instance and clusters (MySQL, PostgreSQL, Aurora MySQL, Aurora PostgreSQL)
+- AWS Dynamo DB tables
+- NoSQL data stores (DynamoDB tables)
+- Unmanaged PostgreSQL, MySQL server, MS SQL servers and databases, Oracle Instance, and Oracle PDB
+- AWS Bedrock Knowledge Base
+- AWS Databricks
+
+The following graph depicts the scan results for an AWS EC2 instance.
+
+[Image: Graph that shows all the resources associated with an EC2 instance.]
+
+The graph includes the following nodes:
+
+- 1. Public Exposure Path
+- 2. Primary Resource
+- 3. Volumes
+- 4. CVE
+- 5. Impacted Volume
+- 6. Sensitive Records
+- 7. Roles
+- 8. External
+- 9. Users
+- 10. Services
+- 11. Federated
+
+View the details of the primary resource:
+
+- **Resource Category**: The type of data store.
+- **Resource Type**: The primary resource.
+- **Account ID**: The unique identifier of the account in which the resource is located.
+- **Account Name**: The name of the account in which the resource is located.
+- **Organization ID**: The unique identifier of the organization to which the account belongs.
+- **Region**: The region where the organization is located.
+- **Latest Scan Status**: The status of the last scan.
+- **Last Completed Scan**: The date and time when the last scan was completed.
+- **Triggers**: The number of alerts raised for this resource.
+- **Matched Files**: The number of files that matched the DLP engines.
+- **DLP Engines**: The [DLP engines](https://help.zscaler.com/dspm/understanding-dlp-engines-and-dictionaries) that match the sensitive records.
+- **DLP Dictionaries**: The dictionaries associated with the DLP engines.
+- **Document Types**: The number of documents detected in the resource.
+- **ARN**: Copy the Amazon Resource Name (ARN) to identify this resource in the AWS account.
+- **Tags**: The tags associated with the resource.
+- **Posture**: The [security posture](https://help.zscaler.com/dspm/understanding-security-posture-state) of the resource.
+- **Metadata**: Click to view the metadata for the resource.
+
+[Image: AWS resource properties along with the scan details.]
+
+View the details of the EBS volume that contains sensitive data.
+
+[[Image: Details of the volume associated with the primary resource.]](https://help.zscaler.com/dspm/understanding-security-posture-state)
+
+View all the volumes, including those that do not contain any sensitive data and the ones that are not scanned.
+
+[Image: The list of EBS volumes associated with the primary resource]
+
+View the services that can access the resource.
+
+[Image: The service that is associated with the primary resource]
+
+View the list of users who can access the resource.
+
+[Image: Users who can access the primary resource]
+
+View the identity and access management (IAM) roles that has permissions to access the resource.
+
+[Image: Roles that have access to the primary resource]
+
+View the publicly exposed resources. Click **Show Public Exposure Path** to view another graph that depicts how the resource is publicly exposed. To learn more, see [Viewing the Public Exposure Path](https://help.zscaler.com/dspm/viewing-public-exposure-path). See image.
+
+[Image: The entity that has publicly exposed the primary resource]
+
+View the common vulnerabilities and exposure (CVE) details. Click **View All CVEs** to see the [vulnerability details](https://help.zscaler.com/dspm/viewing-vulnerability-details).
+
+[Image: View the vulnerabilities classified by severity]
+
+View the details of a sensitive record.
+
+[Image: The file that contains sensitive data.]
+
+[Image: The public exposure graph with the entities that are misconfigured.]
+
+View the federated identities that can access the resource.
+
+[Image: The federated entities that can access the primary resource]
+
+View the external entities that can access the resource. These entities are part of a different cloud account that is not onboarded to the DSPM Admin Portal.
+
+[Image: External users that can access the primary resource]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-graph-azure-data-stores","lastmod":"2026-09-15T03:18Z","nid":"1519951"} -->
+## Viewing the Graph for Azure Data Stores
+
+- Source: https://help.zscaler.com/dspm/viewing-graph-azure-data-stores
+- Product: Data Security Posture Management (DSPM)
+- Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the Graph for Azure Data Stores
+- Last modified: 2026-09-15T03:18Z
+- Summary: Information on the Resource Inventory graph that depicts AWS data stores containing sensitive data.
+
+The Resource Inventory graph for Azure data stores is a visual representation of the scan result. The graph provides in-depth details of the [Azure resource](https://help.zscaler.com/dspm/supported-data-stores) that contains sensitive data, the DLP engines and dictionaries that match the sensitive data, whether it is publicly exposed to the internet, including the public exposure path, the list of entities that can access the resource, and the vulnerabilities and malware detected in the resource. These details are helpful to quickly evaluate and remediate the issues, protect the data, and maintain the security posture.
+
+You can view graphs for the following Azure data stores:
+
+| **Managed Data Stores** | **Unmanaged Data Stores** |
+| --- | --- |
+| Storage accounts and associated containers (Blobs); Azure Virtual Machines; SQL Databases and Servers; PostgreSQL Flexible Server; Azure Databricks; Azure File Share; Azure Table Storage; Azure OpenAI; Azure Cosmos DB | Unmanaged MS SQL Server Databases; Unmanaged PostgreSQL Databases; Unmanaged Oracle Databases; Unmanaged MySQL Databases; Microsoft Foundry |
+
+The following graph depicts the scan results for an Azure virtual machine.
+
+[Image: Graph for an Azure virtual machine and all the associated resources.]
+
+The graph includes the following nodes:
+
+- 1. Public Exposure Path
+- 2. Primary Resource
+- 3. Resources
+- 4. Resource with Sensitive Data
+- 5. Sensitive Records
+- 6. Services
+- 7. Third-Party Application
+- 8. Users
+- 9. Internal Application
+- 10. User-Assigned Managed Identity
+- 11. External
+- 12. Microsoft Application
+- 13. System-Assigned Managed Identity
+- 14. AI Agent Identity
+
+- **Resource Category**: The type of data store.
+- **Resource Type**: The primary resource.
+- **Subscription ID**: The unique identifier of the subscription in which the resource is stored.
+- **Subscription Name**: The name of the subscription in which the resource is stored.
+- **Tenant ID**: The unique identifier of the tenant to which the subscription belongs.
+- **Region**: The region where the resource is located.
+- **Latest Scan Status**: The status of the last scan.
+- **Last Completed Scan**: The date and time when the last scan was completed.
+- **Triggers**: The number of sensitive records in the resource.
+- **Matched Files**: The number of files that matched the DLP engines.
+- **DLP Engines**: The [DLP engines](https://help.zscaler.com/dspm/understanding-dlp-engines-and-dictionaries) that match the sensitive records.
+- **DLP Dictionaries**: The dictionaries associated with the DLP engines.
+- **Document Types**: The number of documents detected in the resource.
+- **Document Categories**: The document categories to which the detected document belongs.
+- **ID**: Copy the tenant ID to identify this resource in the Azure tenant.
+- **Tags**: The tags associated with the resource.
+- **Posture**: The [security posture](https://help.zscaler.com/dspm/understanding-security-posture-state) of the resource.
+- **Metadata**: Click to view the metadata for the resource.
+
+[Image: Details of the Azure virtual machine]
+
+View the publicly exposed resources. Click **Show Public Exposure Path** to view another graph that shows how the resource is publicly exposed due to misconfigurations or vulnerabilities in the associated resources. To learn more, see [Viewing the Public Exposure Path](https://help.zscaler.com/dspm/viewing-public-exposure-path).
+See image.
+
+[Image: The details of the network interface that is misconfigured]
+
+View the details of the database that contains sensitive data.
+
+[Image: Details of the database that contains sensitive data]
+
+View the details of the sensitive record.
+
+View all the associated resources (servers, managed and unmanaged databases), including those that do not contain any sensitive data and the ones that are not scanned.
+
+[Image: All the resources that are associated with the primary resource.]
+
+View the Microsoft applications that can access the resource.
+
+[Image: The Microsoft applications that can access the primary resource]
+
+View the external entities that can access the resource. These entities are part of a different cloud account that is not onboarded to the DSPM Admin Portal.
+
+[Image: The list of external users who can access the primary resource.]
+
+View the user-assigned managed entities that can access the primary resource.
+
+[Image: The user-assigned managed identities that can access the primary resource]
+
+View the list of users who can access the resource.
+
+[Image: The list of users who can access the primary resource.]
+
+View the Azure services that can access the resource.
+
+[Image: The list of Azure services that can access the primary resource.]
+
+[Image: Public exposure graph shows the misconfigured entity that caused the resource to be publicly exposed.]
+
+View the system-assigned managed entities that can access the primary resource.
+
+[Image: System-assigned managed identities with Service Principals as the entity type]
+
+View the internal applications registered with your Azure tenant that can access the resource.
+
+[Image: Internal application with Service Principals as the entity type]
+
+View the third-party applications that can access the resource.
+
+[Image: Third-party application with Service Principals as the entity type]
+
+View the AI agent identities that can access the resource.
+
+[Image: AI Agent Identity with Service Principals as the entity type]
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -524,13 +978,13 @@ To view the onboarding issues:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-onboarding-status","lastmod":"2026-04-24T22:31Z","nid":"1520571"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-onboarding-status","lastmod":"2026-09-14T22:28Z","nid":"1520571"} -->
 ## Viewing the Onboarding Status
 
 - Source: https://help.zscaler.com/dspm/viewing-onboarding-status
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > Cloud Account Management > Viewing the Onboarding Status
-- Last modified: 2026-04-24T22:31Z
+- Last modified: 2026-09-14T22:28Z
 - Summary: How to view the onboarding status for a cloud account in the Zscaler Admin Console.
 
 DSPM runs a health validation service to check if the onboarding templates are deployed successfully and roles and permissions are configured for each account. After the validation is completed, the onboarding status of the target accounts and [orchestrator accounts](https://help.zscaler.com/dspm/understanding-orchestrator) are displayed on the Overview tab.
@@ -572,7 +1026,7 @@ On the **Overview**tab, you can view the following details:
   - **Bucket Account ID**: The AWS account ID where the S3 bucket is present.
   - **Status**: The status (**Enabled** or **Failed**) of the CloudTrail configuration.
 
-[Image: The Overview tab for an AWS account that shows the account status, orchestrator account, and CloudTrail details.]
+[Image: Overview tab for an AWS account that shows account status and details about the orchestrator, CloudTrail, and S3 bucket]
 
 [Image: View the notification banner at the top of the Overview tab.]
 <!-- /ZS-ARTICLE -->
@@ -814,20 +1268,20 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-resource-inventory-graph","lastmod":"2026-04-27T21:06Z","nid":"1478111"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-resource-inventory-graph","lastmod":"2026-09-15T00:23Z","nid":"1478111"} -->
 ## Viewing the Resource Inventory Graph
 
 - Source: https://help.zscaler.com/dspm/viewing-resource-inventory-graph
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the Resource Inventory Graph
-- Last modified: 2026-04-27T21:06Z
+- Last modified: 2026-09-15T00:23Z
 - Summary: Viewing the resource details and its associated vulnerabilities as a graph in the Zscaler Admin Console.
 
 After DSPM completes the [data scan](https://help.zscaler.com/dspm/about-scan-settings) of the resources, the scan results are displayed in the form of graphs that are visually appealing and highly interactive. The graphs consist of interactive nodes that provide contextual information (e.g., cloud account name, primary resource type, ID, file path, number of files containing sensitive data, access levels) about the primary resource and the associated secondary resources.
 
 The graphs also include attack paths that show how the resource is compromised either through public exposure, malware, by an IAM entity (user, service, role) with access privileges, vulnerabilities, etc. This information helps you analyze the issues in detail and remediate them immediately.
 
-The following nodes and attack paths are depicted in the Resource Inventory graph:
+The Resource Inventory graph includes the following nodes and attack paths:
 
 - List of Nodes
 - Attack Paths
@@ -843,21 +1297,22 @@ To view the Resource Inventory graph for a resource:
 
 [Image: Select the resource name]
 
-The following table explains each node and the entity it represents on the graph.
+The following table lists the nodes represented on the graph:
 
 | Node | Description |
 | --- | --- |
 | Account | The cloud account that contains the resource with sensitive data. |
-| Applications | The applications that can access the resource. |
+| AI Agent Identity | The AI agent identity that can access the resource. |
 | Auto Scaling Group | A logical group that contains a collection of EC2 instances for automatic scaling and management. |
 | AWS Elastic Network Interface (ENI) | A networking component (virtual card interface) attached to an EC2 instance for enabling network connectivity. |
 | External | The external entities that can access the resource. |
 | Federated | The federated entities that can access the resource. |
 | Group | A logical container that consists of several users who are assigned the same role. |
 | Instance Profile | A container for an IAM role that is used to pass the role information to an EC2 instance when the instance starts. |
+| Internal Application | The internal application that can access the resource. |
 | Internet Gateway | A virtual private cloud (VPC) component that enables resources in your public subnets (e.g., EC2 instances) to connect to the internet. |
 | Load Balancer | Distributes incoming application traffic across multiple targets, such as EC2 instances, in multiple availability zones. |
-| Managed Identity | The managed entities that can access the resource. |
+| Microsoft Application | The Microsoft application that can access the resource. |
 | Network Access Control List (ACL) | The ACL defines which accounts and groups are granted access to S3 buckets along with the type of access. |
 | Organization | The onboarded AWS organization comprising all the resources that are scanned by DSPM. |
 | Organization Unit | A logical unit comprising a list of cloud accounts in a tenant. |
@@ -866,11 +1321,14 @@ The following table explains each node and the entity it represents on the graph
 | Roles | The roles assigned to users and groups to perform various actions in the DSPM Admin Portal. |
 | Route Table | A set of rules called routes that determine the destination of the network traffic from your subnet or gateway. |
 | Security Group | Controls the inbound and outbound traffic for the cloud resource. |
-| Services | The services (e.g., Azure App Services) that have access to the resource. |
 | Service Accounts | The service accounts that have access to the resource. |
+| Services | The services (e.g., Azure App Services) that have access to the resource. |
 | Subnet | A range of IP addresses used to launch the resources in your VPC. You can connect a subnet to the internet, other VPCs, etc., and route traffic to and from your subnets using route tables. |
+| System-Assigned Managed Identity | The system-assigned managed identity that can access the resource. |
+| Third-Party Application | The third-party application that can access the resource. |
 | [Unmanaged Database](https://help.zscaler.com/dspm/about-unmanaged-database) | Databases that are deployed on virtual machines in the cloud. DSPM scans these databases for sensitive data. |
 | User | The IAM users who can access the resource. |
+| User-Assigned Managed Identity | The user-assigned managed identity that can access the resource. |
 | Web Application Firewall (WAF) | Allows to monitor the HTTP(S) requests and control access to your data. |
 
 - **Public Exposure Path**: Represents the misconfigurations in the primary and associated resources that could allow adversaries to gain initial access or perform lateral movement.
@@ -1089,13 +1547,13 @@ To view the events related to a resource:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-user-access-path","lastmod":"2026-04-22T21:06Z","nid":"1482986"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-user-access-path","lastmod":"2026-09-15T09:54Z","nid":"1482986"} -->
 ## Viewing the User Access Path
 
 - Source: https://help.zscaler.com/dspm/viewing-user-access-path
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the User Access Path
-- Last modified: 2026-04-22T21:06Z
+- Last modified: 2026-09-15T09:54Z
 - Summary: Information about the graph that depicts the user access to cloud resources.
 
 The user access path includes details of identity and access management (IAM) entities that can access the primary resource containing sensitive data. The nodes in the graph are interactive. You can click each node to view granular details of each entity.
@@ -1117,7 +1575,9 @@ Click the IAM nodes to see:
 - **Entity Type**: The type of IAM entity.
 - **Account ID**: The account ID of the entity.
 - **Access Level**: The permissions assigned to the entity.
-- **Last Activity**: The date and time the IAM entity last accessed the primary resource. See image.
+- **Last Activity**: The date and time the IAM entity last accessed the primary resource.
+
+See image.
 
 Click **ARN** to view the additional details.
 See image.
@@ -1137,7 +1597,7 @@ See image.
 
 [Image: View the Resource Inventory graph]
 
-The Resource Inventory graph displays the sensitive records found in the primary resource along with users, external, applications, managed identity, and services that have access to this primary resource.
+The Resource Inventory graph displays the sensitive records found in the primary resource along with entity entitlements such as users, external application, internal application, third-party application, Microsoft application, system-assigned managed identity, user-assigned managed identity, AI agent identity, and services that have access to this primary resource.
 See image.
 
 Click the IAM nodes to see:
@@ -1145,7 +1605,9 @@ Click the IAM nodes to see:
 - **Entity Name**: The name of the Azure entity.
 - **Entity Type**: The type of IAM entity.
 - **Access Level**: The permissions assigned to the entity.
-- **Last Activity**: The date and time the IAM entity last accessed the primary resource. See image.
+- **Last Activity**: The date and time the IAM entity last accessed the primary resource.
+
+See image.
 
 Click **Entity Name**to view the additional details.
 See image.

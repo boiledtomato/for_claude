@@ -1,18 +1,18 @@
 # Zscaler Help — Branch / Cellular / Cloud Connector (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-14 03:38 UTC
+Generated: 2026-09-21 08:12 UTC
 Articles in this file: 159
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-amazon-web-services-account-groups","lastmod":"2026-09-08T14:17Z","nid":"1479491"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-amazon-web-services-account-groups","lastmod":"2026-09-17T13:10Z","nid":"1479491"} -->
 ## About Amazon Web Services Account Groups
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-account-groups
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > AWS Partner Integrations > About Amazon Web Services Account Groups
-- Last modified: 2026-09-08T14:17Z
+- Last modified: 2026-09-17T13:10Z
 - Summary: Information about Amazon Web Services account groups and their functionality.
 
 Amazon Web Services (AWS) account groups enable Zscaler Cloud Connector to be aware of other accounts it can get the workload tags from. Therefore, the Cloud Connector is not tied to the account where it is deployed.
@@ -52,14 +52,14 @@ On the Groups page (Infrastructure > Connectors > Cloud > Management > Partner I
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-amazon-web-services-accounts","lastmod":"2026-09-08T14:05Z","nid":"1463456"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-amazon-web-services-accounts","lastmod":"2026-09-17T13:08Z","nid":"1463456"} -->
 ## About Amazon Web Services Accounts
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-accounts
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > AWS Partner Integrations > About Amazon Web Services Accounts
-- Last modified: 2026-09-08T14:05Z
-- Summary: Information about the AWS Partner Integrations page in the Zscaler Admin Console.
+- Last modified: 2026-09-17T13:08Z
+- Summary: Information about the AWS Accounts page in the Zscaler Admin Console.
 
 Amazon Web Services (AWS) partner integrations enable you to add AWS accounts by allowing the Zscaler service to fetch metadata from those accounts. An AWS account has credentials that provide access to a single AWS account. Adding an AWS account allows you to use user-defined tags in Zscaler security policies.
 
@@ -73,7 +73,7 @@ Partner integrations provide the following benefits and enable you to:
 
 ## About the Accounts Page
 
-On the Accounts page (Infrastructure > Connectors > Cloud > Management > Partner Integrations > AWS > Accounts), you can do the following:
+On the Accounts page (Zero Trust Cloud > Common Resources > AWS > Accounts), you can do the following:
 
 1. [Add an AWS account](https://help.zscaler.com/cloud-branch-connector/adding-amazon-web-services-account).
 2. Download the CloudFormation template.
@@ -661,13 +661,13 @@ On the GCP page (Infrastructure > Connectors > Cloud > Management > Partner Inte
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-google-cloud-platform-zero-trust-gateways","lastmod":"2026-08-03T13:49Z","nid":"1540272"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-google-cloud-platform-zero-trust-gateways","lastmod":"2026-09-20T07:06Z","nid":"1540272"} -->
 ## About Google Cloud Platform Zero Trust Gateways
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-google-cloud-platform-zero-trust-gateways
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > GCP Zero Trust Gateway Management > About Google Cloud Platform Zero Trust Gateways
-- Last modified: 2026-08-03T13:49Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: Information about the Google Cloud Platform (GCP) Zero Trust Gateway page in the Zscaler Admin Console.
 
 Google Cloud Platform (GCP) Zero Trust Gateways are a Zscaler cloud native service offering in public clouds that is supported in GCP.
@@ -1556,13 +1556,13 @@ On the Upgrade Manager page (Infrastructure > Connectors > Cloud > Management > 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-vdi-devices","lastmod":"2026-08-04T21:06Z","nid":"1471691"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-vdi-devices","lastmod":"2026-09-15T14:25Z","nid":"1471691"} -->
 ## About VDI Devices
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-vdi-devices
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > About VDI Devices
-- Last modified: 2026-08-04T21:06Z
+- Last modified: 2026-09-15T14:25Z
 - Summary: Information on the VDI Devices page in the Zscaler Admin Console.
 
 In the Zscaler Admin Console, the VDI Devices page displays all the devices in your organization that have Zscaler Client Connector for VDI deployed.
@@ -1574,7 +1574,7 @@ Virtual Desktop Infrastructure (VDI) devices provide the following benefits and 
 
 ## About the VDI Devices Page
 
-On the VDI Devices page (Infrastructure > Connectors > Client > VDI Device Management > VDI Devices), you can do the following:
+On the VDI Devices page (Infrastructure > Client Connector > VDI Device Management > VDI Devices), you can do the following:
 
 1. Search for a VDI device.
 2. View a list of all VDI devices. For each device, you can see:
@@ -1630,13 +1630,13 @@ On the VDI Forwarding Profile page (Infrastructure > Connectors > Client > VDI P
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-vdi-groups","lastmod":"2026-08-04T21:06Z","nid":"1471696"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-vdi-groups","lastmod":"2026-09-15T14:29Z","nid":"1471696"} -->
 ## About VDI Groups
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-vdi-groups
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > About VDI Groups
-- Last modified: 2026-08-04T21:06Z
+- Last modified: 2026-09-15T14:29Z
 - Summary: Information on the VDI groups page of the Zscaler Admin Console.
 
 In the Zscaler Admin Console, the VDI Groups page displays a list of Virtual Desktop Infrastructure (VDI) device groups that are defined based on criteria entered by an admin. The VDI devices that have Zscaler Client Connector for VDI deployed are categorized under groups based on the match criteria.
@@ -1648,7 +1648,7 @@ VDI groups provide the following benefits and enable you to:
 
 ## About the VDI Groups Page
 
-On the VDI Groups page (Infrastructure > Connectors > Client > VDI Device Management > VDI Groups), you can do the following:
+On the VDI Groups page (Infrastructure > Client Connector > VDI Device Management > VDI Groups), you can do the following:
 
 1. [Add a VDI group](https://help.zscaler.com/cloud-branch-connector/configuring-vdi-groups).
 2. Search for a VDI group.
@@ -1676,13 +1676,13 @@ On the VDI Groups page (Infrastructure > Connectors > Client > VDI Device Manage
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-vdi-templates","lastmod":"2026-08-04T21:06Z","nid":"1471706"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-vdi-templates","lastmod":"2026-09-15T14:56Z","nid":"1471706"} -->
 ## About VDI Templates
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-vdi-templates
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > About VDI Templates
-- Last modified: 2026-08-04T21:06Z
+- Last modified: 2026-09-15T14:56Z
 - Summary: Information on the VDI Templates page in the Zscaler Admin Console.
 
 In the Zscaler Admin Console, the VDI Template page displays the current templates and allows you to create new templates. Virtual Desktop Infrastructure (VDI) templates provide the VDI provisioning URL and the VDI access token, which are required for installing Zscaler Client Connector for VDI. To learn more, see [Step-by-Step Configuration Guide for Zscaler Client Connector for VDI](https://help.zscaler.com/cloud-branch-connector/step-step-configuration-guide-zscaler-client-connector-vdi).
@@ -1694,7 +1694,7 @@ VDI templates provide the following benefits and enable you to:
 
 ## About the VDI Templates Page
 
-On the VDI Templates page (Infrastructure > Connectors > Client > VDI Templates), you can do the following:
+On the VDI Templates page (Infrastructure > Client Connector > VDI Templates), you can do the following:
 
 1. [Add a VDI template](https://help.zscaler.com/cloud-branch-connector/configuring-vdi-templates).
 2. Search for a VDI template.
@@ -2038,13 +2038,13 @@ To enable this feature, contact Zscaler Support.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-amazon-web-services-account","lastmod":"2026-09-08T14:24Z","nid":"1464091"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-amazon-web-services-account","lastmod":"2026-09-17T13:02Z","nid":"1464091"} -->
 ## Adding an Amazon Web Services Account
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-amazon-web-services-account
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > AWS Partner Integrations > Adding an Amazon Web Services Account
-- Last modified: 2026-09-08T14:24Z
+- Last modified: 2026-09-17T13:02Z
 - Summary: How to add an Amazon Web Services account on the Partner Integrations page of the Zscaler Admin Console.
 
 This article provides information on how to onboard an Amazon Web Services (AWS) account to enable tag discovery services within the Zscaler Admin Console. To learn more, see [About Amazon Web Services Accounts](https://help.zscaler.com/cloud-branch-connector/about-partner-integrations).
@@ -2088,13 +2088,13 @@ After the CloudFormation template is executed, your account is onboarded into th
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-amazon-web-services-account-group","lastmod":"2026-09-03T21:06Z","nid":"1479496"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-amazon-web-services-account-group","lastmod":"2026-09-17T13:32Z","nid":"1479496"} -->
 ## Adding an Amazon Web Services Account Group
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-amazon-web-services-account-group
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > AWS Partner Integrations > Adding an Amazon Web Services Account Group
-- Last modified: 2026-09-03T21:06Z
+- Last modified: 2026-09-17T13:32Z
 - Summary: How to add an Amazon Web Services account group on the Partner Integrations Groups page of the Zscaler Admin Console.
 
 This article provides information on how to add an Amazon Web Services (AWS) account group in the Zscaler Admin Console. To learn more, see [About Amazon Web Services Account Groups](https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-account-groups).
@@ -2486,13 +2486,13 @@ To add a GCP account:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-google-cloud-platform-zero-trust-gateway","lastmod":"2026-08-03T13:49Z","nid":"1540310"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-google-cloud-platform-zero-trust-gateway","lastmod":"2026-09-20T07:06Z","nid":"1540310"} -->
 ## Adding a Google Cloud Platform Zero Trust Gateway
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-google-cloud-platform-zero-trust-gateway
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > GCP Zero Trust Gateway Management > Adding a Google Cloud Platform Zero Trust Gateway
-- Last modified: 2026-08-03T13:49Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: Information on how to add a Google Cloud Platform (GCP) Zero Trust Gateway on the GCP Gateway page of the Zscaler Admin Console.
 
 This article provides information on adding a Google Cloud Platform (GCP) Zero Trust Gateway in the Zscaler Admin Console. To learn more, see [About Google Cloud Platform Zero Trust Gateways](https://help.zscaler.com/cloud-branch-connector/about-google-cloud-platform-zero-trust-gateways).
@@ -3180,13 +3180,13 @@ To test the SAML admin SSO, you can initiate the SAML connection from the Zscale
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-amazon-web-services-account-details","lastmod":"2026-09-08T14:37Z","nid":"1529425"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-amazon-web-services-account-details","lastmod":"2026-09-17T13:09Z","nid":"1529425"} -->
 ## Analyzing Amazon Web Services Account Details
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-amazon-web-services-account-details
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > AWS Partner Integrations > Analyzing Amazon Web Services Account Details
-- Last modified: 2026-09-08T14:37Z
+- Last modified: 2026-09-17T13:09Z
 - Summary: Information on the Amazon Web Services (AWS) account details in the Zscaler Admin Console.
 
 The Amazon Web Services (AWS) account details page provides general and management information for a selected AWS account. You can access the AWS account details page by going to the Partner Integrations page and clicking the name of an account on the [AWS Accounts](https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-accounts) page.
@@ -3262,13 +3262,13 @@ Supported regions for AWS include:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-amazon-web-services-account-group-details","lastmod":"2026-09-03T21:06Z","nid":"1529426"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-amazon-web-services-account-group-details","lastmod":"2026-09-17T13:32Z","nid":"1529426"} -->
 ## Analyzing Amazon Web Services Account Group Details
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-amazon-web-services-account-group-details
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > AWS Partner Integrations > Analyzing Amazon Web Services Account Group Details
-- Last modified: 2026-09-03T21:06Z
+- Last modified: 2026-09-17T13:32Z
 - Summary: Information on the Amazon Web Services (AWS) account group details in the Zscaler Admin Console.
 
 The Amazon Web Services (AWS) account group details page provides general and management information for a selected AWS account group. You can access the AWS account group details page by clicking the name of an account group on the [AWS Groups](https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-account-groups) page.
@@ -3913,13 +3913,13 @@ On the **Pub/Sub** tab, you can view the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-google-cloud-platform-zero-trust-gateway-details","lastmod":"2026-08-03T13:49Z","nid":"1540927"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-google-cloud-platform-zero-trust-gateway-details","lastmod":"2026-09-20T07:06Z","nid":"1540927"} -->
 ## Analyzing Google Cloud Platform Zero Trust Gateway Details
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-google-cloud-platform-zero-trust-gateway-details
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > GCP Zero Trust Gateway Management > Analyzing Google Cloud Platform Zero Trust Gateway Details
-- Last modified: 2026-08-03T13:49Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: Information on the Google Cloud Platform (GCP) Zero Trust Gateway details in the Zscaler Admin Console.
 
 The Google Cloud Platform (GCP) Gateway page provides management and operational information about the selected gateway. You can access the GCP Gateway page by selecting a GCP gateway on the [GCP Gateway](https://help.zscaler.com/cloud-branch-connector/about-google-cloud-platform-zero-trust-gateways) page.
@@ -4211,13 +4211,13 @@ Click a point on the graph to see the value for the specified time period. **Cli
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-traffic-monitoring","lastmod":"2026-09-09T10:11Z","nid":"1420531"} -->
-## Zscaler Admin ConsoleAnalyzing Traffic Monitoring
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-traffic-monitoring","lastmod":"2026-09-14T13:00Z","nid":"1420531"} -->
+## Analyzing Traffic Monitoring
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-traffic-monitoring
 - Product: Cloud & Branch Connector
-- Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Zscaler Admin ConsoleAnalyzing Traffic Monitoring
-- Last modified: 2026-09-09T10:11Z
+- Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Analyzing Traffic Monitoring
+- Last modified: 2026-09-14T13:00Z
 - Summary: Information on Traffic Monitoring page in the Zscaler Cloud & Branch Connector Admin Portal.
 
 The Traffic Monitoring page provides information on the name, group, location, throughput, and session data across services of your Cloud or Branch Connector. You can use the **Refresh**icon ([Image: Refresh Icon on the Traffic Monitoring Page in the Zscaler Cloud & Branch Connector Admin Portal]) to refresh the dashboard to view the most recent information (in the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud** > **Dashboard**).
@@ -5960,20 +5960,20 @@ If your Citrix environment uses any of the Rendezvous protocols, then it might n
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-vdi-groups","lastmod":"2026-08-04T21:06Z","nid":"1471701"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-vdi-groups","lastmod":"2026-09-15T14:46Z","nid":"1471701"} -->
 ## Configuring VDI Groups
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-vdi-groups
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > Configuring VDI Groups
-- Last modified: 2026-08-04T21:06Z
+- Last modified: 2026-09-15T14:46Z
 - Summary: How to configure a VDI group in the Zscaler Admin Console.
 
 This article provides information on how to configure a dynamic Virtual Desktop Infrastructure (VDI) group. To learn more, see [About VDI Groups](https://help.zscaler.com/cloud-branch-connector/about-vdi-groups).
 
 To add a VDI group:
 
-1. Go to **Infrastructure** > **Connectors** > **Client** > **VDI Device Management** > **VDI Groups**.
+1. Go to **Infrastructure** > **Client Connector** > **VDI Device Management** > **VDI Groups**.
 2. Click **Add Dynamic VDI Group**.
 3. On the **Add Dynamic VDI Group** page:
   1. On the **General** tab:
@@ -5998,13 +5998,13 @@ To add a VDI group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-vdi-templates","lastmod":"2026-08-04T21:06Z","nid":"1471711"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-vdi-templates","lastmod":"2026-09-15T15:00Z","nid":"1471711"} -->
 ## Configuring VDI Templates
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-vdi-templates
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > Configuring VDI Templates
-- Last modified: 2026-08-04T21:06Z
+- Last modified: 2026-09-15T15:00Z
 - Summary: Information on how to configure a VDI template in the Zscaler Admin Console.
 
 This article provides information on how to configure a Virtual Desktop Infrastructure (VDI) template. To learn more, see [About VDI Templates.](https://help.zscaler.com/cloud-branch-connector/about-vdi-agent-templates)
@@ -6012,7 +6012,7 @@ This article provides information on how to configure a Virtual Desktop Infrastr
 To add a VDI template:
 
 1. Log in to the Zscaler Admin Console.
-2. Go to **Infrastructure** > **Connectors** > **Client** > **VDI Templates**.
+2. Go to **Infrastructure** > **Client Connector** > **VDI Templates**.
 3. Click **Add VDI Template**.
 4. On the **Add VDI Template** page: The authentication type you select here must match the authentication type that Internet & SaaS is currently using.Select **IdP** only if Internet & SaaS is configured for Security Assertion Markup Language (SAML) authentication, and select **Hosted DB** only if Internet & SaaS is configured for Form-Based authentication. To learn more, see [Configuring the Default Authentication Profile](https://help.zscaler.com/zia/configuring-default-authentication-profile). See image.
   - **Name**: Enter a name for the template.
@@ -6236,13 +6236,13 @@ The partner configuration authorization is created.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-workload-discovery-workloads-amazon-web-services","lastmod":"2026-09-03T21:06Z","nid":"1470596"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-workload-discovery-workloads-amazon-web-services","lastmod":"2026-09-17T12:05Z","nid":"1470596"} -->
 ## Configuring Workload Discovery for Workloads in Amazon Web Services
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-workload-discovery-workloads-amazon-web-services
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > AWS Partner Integrations > Configuring Workload Discovery for Workloads in Amazon Web Services
-- Last modified: 2026-09-03T21:06Z
+- Last modified: 2026-09-17T12:05Z
 - Summary: Information on how to configure workload discovery for workloads in Amazon Web Services (AWS).
 
 The workload discovery service is a Zscaler-managed service that discovers workloads in your Amazon Web Services (AWS) account. The service also fetches associated metadata such as user-defined tags and cloud service provider-generated attributes. These user-defined tags and cloud service provider-generated attributes are used in security policies.
@@ -6464,13 +6464,13 @@ The Terraform deployment package:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/customizing-zscaler-client-connector-vdi-install-options-msi","lastmod":"2026-08-04T21:06Z","nid":"1472251"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/customizing-zscaler-client-connector-vdi-install-options-msi","lastmod":"2026-09-15T14:22Z","nid":"1472251"} -->
 ## Customizing Zscaler Client Connector for VDI with Install Options for MSI
 
 - Source: https://help.zscaler.com/cloud-branch-connector/customizing-zscaler-client-connector-vdi-install-options-msi
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > Customizing Zscaler Client Connector for VDI with Install Options for MSI
-- Last modified: 2026-08-04T21:06Z
+- Last modified: 2026-09-15T14:22Z
 - Summary: How to customize the Zscaler Client Connector for VDI MSI file with install options by creating and deploying a golden image, or running the MSI with command-line options.
 
 If you are deploying Zscaler Client Connector for Virtual Desktop Infrastructure (VDI) to your users using Microsoft Azure, Amazon Web Services (AWS), Citrix XenCenter, or other device management methods that support Microsoft Software Installer (MSI) files, you can download and use the MSI file. After downloading and configuring Zscaler Client Connector for VDI, you can deploy the file as is using your device management method. Alternatively, you can use the MSI file to manually install Zscaler Client Connector for VDI on a device. To learn more about the required configuration tasks, see [Step-by-Step Configuration Guide for Zscaler Client Connector for VDI](https://help.zscaler.com/cloud-branch-connector/step-step-configuration-guide-zscaler-client-connector-vdi).
@@ -11999,21 +11999,21 @@ To download the VM image:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/downloading-zscaler-client-connector-vdi","lastmod":"2026-08-04T21:06Z","nid":"1475381"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/downloading-zscaler-client-connector-vdi","lastmod":"2026-09-15T14:17Z","nid":"1475381"} -->
 ## Downloading Zscaler Client Connector for VDI
 
 - Source: https://help.zscaler.com/cloud-branch-connector/downloading-zscaler-client-connector-vdi
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > Downloading Zscaler Client Connector for VDI
-- Last modified: 2026-08-04T21:06Z
+- Last modified: 2026-09-15T14:17Z
 - Summary: How to download Zscaler Client Connector for VDI from the Zscaler Admin Console.
 
 In the Zscaler Admin Console, on the VDI App Store page, you can download Zscaler Client Connector for Virtual Desktop Infrastructure (VDI) for Windows. You can download the latest version or one of the older versions still available for download. To learn more about Zscaler Client Connector for VDI, see [What Is Zscaler Client Connector for VDI?](https://help.zscaler.com/cloud-branch-connector/what-zscaler-vdi-agent)
 
 To download Zscaler Client Connector for VDI:
 
-1. In the Zscaler Admin Console, go to **Infrastructure** > **Common Resources** > **Deployment** > **App Store for VDI**.
-2. In the **General Availability** tab, view the latest released versions. In the **Limited Availability** tab, view versions that are not yet fully qualified.
+1. In the Zscaler Admin Console, go to **Infrastructure** > **Client Connector** > **App Store for VDI**.
+2. On the **General Availability** tab, view the latest released versions. On the **Limited Availability** tab, view versions that are not yet fully qualified.
 3. Click the **Download** icon for the version you want in the**MSI URL (64 bit)** column.
 
 [Image: VDI App Store in the Zscaler Admin Console]
@@ -14375,13 +14375,13 @@ The Zscaler service provides real-time log consolidation across the globe, so yo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/step-step-configuration-guide-zscaler-client-connector-vdi","lastmod":"2026-08-03T21:06Z","nid":"1472246"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/step-step-configuration-guide-zscaler-client-connector-vdi","lastmod":"2026-09-15T14:20Z","nid":"1472246"} -->
 ## Step-by-Step Configuration Guide for Zscaler Client Connector for VDI
 
 - Source: https://help.zscaler.com/cloud-branch-connector/step-step-configuration-guide-zscaler-client-connector-vdi
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > Step-by-Step Configuration Guide for Zscaler Client Connector for VDI
-- Last modified: 2026-08-03T21:06Z
+- Last modified: 2026-09-15T14:20Z
 - Summary: Information on the configuration tasks an organization must complete to begin using Zscaler Client Connector for VDI.
 
 This guide takes you step-by-step through the configuration tasks you must complete to begin using Zscaler Client Connector for Virtual Desktop Infrastructure (VDI) for your organization.

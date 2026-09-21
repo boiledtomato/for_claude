@@ -1,7 +1,7 @@
 # Zscaler Help — ZDX — Digital Experience Monitoring (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-14 03:38 UTC
+Generated: 2026-09-21 08:12 UTC
 Articles in this file: 131
 
 ---
@@ -97,13 +97,13 @@ On the Administrators page (Administration > Admin Management > Role Based Acces
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/about-alerts","lastmod":"2026-09-10T17:38Z","nid":"1364426"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/about-alerts","lastmod":"2026-09-16T13:03Z","nid":"1364426"} -->
 ## About Alerts
 
 - Source: https://help.zscaler.com/zdx/about-alerts
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > About Alerts
-- Last modified: 2026-09-10T17:38Z
+- Last modified: 2026-09-16T13:03Z
 - Summary: Information on alerts for Digital Experience (ZDX).
 
 [Watch a video about Alerts in ZDX.](https://fast.wistia.net/embed/iframe/q2kipsz543)
@@ -578,25 +578,25 @@ On the Integrations page (Policies > Digital Experience Monitoring > Settings > 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/about-labels","lastmod":"2026-07-10T10:00Z","nid":"1461826"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/about-labels","lastmod":"2026-09-16T13:22Z","nid":"1461826"} -->
 ## About Labels
 
 - Source: https://help.zscaler.com/zdx/about-labels
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Alert Rule Configuration > About Labels
-- Last modified: 2026-07-10T10:00Z
-- Summary: Provides an overview of labels that are used to group alert rules.
+- Last modified: 2026-09-16T13:22Z
+- Summary: Provides an overview of Digital Experience (ZDX) labels that are used to group alert rules.
 
-Admins can create labels and then assign the labels as an option during alert rule configuration. After assigning the label, the label becomes part of the alert details and is seen in the delivered alert details when you configure webhooks.
+Admins can create Digital Experience (ZDX) labels and then assign the labels as an option during alert rule configuration. After assigning the label, the label becomes part of the alert details and is seen in the delivered alert details when you configure webhooks.
 
 Labels provide the following benefits and enable you to:
 
 - Create and apply multiple labels to an alert rule for grouping purposes.
 - Increase the number of alert details for ease of use when configuring webhooks.
 
-To manage and assign labels, you must have the Full Alerts permission. To learn more, see [Adding ZDX Roles](https://help.zscaler.com/zdx/adding-zdx-roles).
+To manage and assign labels, you must have Full Alerts permission. To learn more, see [Adding ZDX Roles](https://help.zscaler.com/zdx/adding-zdx-roles).
 
-On the Labels page (Policies > Digital Experience Monitoring > Labels), you can do the following:
+On the Labels page (Administration > Alerts > Labels), you can do the following:
 
 1. Search for a label.
 2. [Add a new label.](https://help.zscaler.com/zdx/managing-labels#addlabel) After creating the label, you can assign it to an alert rule in either theAdd New Alert Rule or Edit Alert Rule window. To learn more, see [Configuring an Alert Rule](https://help.zscaler.com/zdx/configuring-alert-rule) and [Editing an Alert Rule](https://help.zscaler.com/zdx/editing-alert-rule).
@@ -661,18 +661,18 @@ On the Locations page (Administration > Location Management), you can do the fol
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/about-rules","lastmod":"2026-07-17T13:56Z","nid":"1364451"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/about-rules","lastmod":"2026-09-16T13:19Z","nid":"1364451"} -->
 ## About Rules
 
 - Source: https://help.zscaler.com/zdx/about-rules
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Alert Rule Configuration > About Rules
-- Last modified: 2026-07-17T13:56Z
-- Summary: Provides an overview about alert rules in ZDX.
+- Last modified: 2026-09-16T13:19Z
+- Summary: Provides an overview about alert rules for Digital Experience (ZDX).
 
 [Watch a video about alerts and alert rules in ZDX.](https://fast.wistia.net/embed/iframe/5ozc9luba9)
 
-The Rules page for ZDX provides an overview of details of all the configured rules, including each rule's status and alert delivery method. Rules allow you to configure metrics for alert throttling when a predetermined threshold is met.
+The Rules page for Digital Experience (ZDX) provides an overview of details of all the configured rules, including each rule's status and alert delivery method. Rules allow you to configure metrics for alert throttling when a predetermined threshold is met.
 
 Rules provide the following benefits and enable you to configure rules by:
 
@@ -684,36 +684,32 @@ The predetermined threshold is defined when you create a rule for alert throttli
 
 If the rules are not muted, you can configure alerts to be sent via email or webhooks. If the rules are muted, you can view the alerts in the Zscaler Admin Console and no information is sent via email or webhooks.
 
-In the Rules page, you can use the following filters:
-
-- **All Applications & Probes**: You can filter for specific applications or probes.
-- **All Severities**: You can filter for rules configured for High, Medium, or Low severity.
-- **All Locations**: You can filter for specific locations.
-
 Apply filters to further sort the data. By default, all filters are applied and the values are set to **All**. Click **Reset** to reset the filters.
 
 ## About the Rules Page
 
-On the Rules page (Administration > Alerts > Digital Experience Management > Rules), you can view the following for all the configured rules:
+On the Rules page (Administration > Alerts > Rules), you can do the following:
 
-- **Rule Name**: The alert rule name entered at configuration
-- **Status**: This can be Enabled or Disabled.
-- **Last Triggered**: The date and time that the rule last triggered an alert.
-- **Type**: This is for an Application, Device, or Network.
-- **Application**: The application associated with this rule.
-- **Probe**: The probe configured for this application.
-- **Alert Delivery Method**: Email or webhook, if configured. If the rule is muted, or no alert delivery method has been configured, this field is empty.
+1. Apply filters to sort rules and view details or hide the filters if you do not want to display them. You can use the following filters:
+  - **All Applications & Probes**: You can filter for specific applications or probes.
+  - **All Severities**: You can filter for rules configured for High, Medium, or Low severity.
+  - **All Locations**: You can filter for specific locations.
+2. Configure a new rule by clicking **Add Alert Rule**. To learn more, see [Configuring a Rule](https://help.zscaler.com/zdx/configuring-alert-rule).
+3. View the following information for all configured alert rules:
+  - **Rule Name**: The alert rule name entered at configuration
+  - **Status**: This can be Enabled or Disabled.
+  - **Last Triggered**: The date and time that the rule last triggered an alert.
+  - **Type**: The [type of alert rule](https://help.zscaler.com/zdx/configuring-alert-rule#Configure_Rule).
+  - **Application**: The application associated with this rule.
+  - **Probe**: The probe configured for this application.
+  - **Alert Delivery Method**: Email or webhook, if configured. If the rule is muted, or no alert delivery method has been configured, this field is empty.
+4. Organize to select which rule columns to display.
+5. View criteria details of configured rules. Click the arrow to the left of the rule name to view details.
+6. Edit, mute, copy, or delete a rule. To learn more, see [Editing a Rule](https://help.zscaler.com/zdx/editing-alert-rule). The Edit icon opens the Edit a Rule window for the selected rule. The Copy icon opens the Add New Alert Rule window with editable fields and copied details of the selected rule.
+7. Configure the number of rules to display or navigate through the pages.
+8. Go to the [Templates](https://help.zscaler.com/zdx/about-templates) page to view alert rule templates for [Managed Monitoring](https://help.zscaler.com/zdx/understanding-managed-monitoring).
 
-In the Rules page, you can do the following:
-
-1. Configure a new rule by clicking **Add Alert Rule**. To learn more, see [Configuring a Rule](https://help.zscaler.com/zdx/configuring-alert-rule).
-2. Apply filters to sort rules and view details or hide the filters if you do not want to display them.
-3. Sort the rules by column name or organize to select which rule columns to display.
-4. View criteria details of configured rules. Click the arrow to the left of the rule name to view details.
-5. Edit, mute, copy, or delete a rule. To learn more, see [Editing a Rule](https://help.zscaler.com/zdx/editing-alert-rule). The Edit icon opens the Edit a Rule window for the selected rule. The Copy icon opens the Add New Alert Rule window with editable fields and copied details of the selected rule.
-6. Access the navigation menu to go to the following pages:
-  - [Alerts](https://help.zscaler.com/zdx/about-alerts)
-  - [Templates](https://help.zscaler.com/zdx/about-templates)
+After a rule is configured and if the rule's criteria [trigger an alert](https://help.zscaler.com/zdx/understanding-alert-triggers), you can view the alert on the [Alerts page](https://help.zscaler.com/zdx/about-alerts).
 
 [Image: View all configured alert rules for ZDX]
 <!-- /ZS-ARTICLE -->
@@ -784,18 +780,18 @@ On the Scripts page (Policies > Digital Experience Monitoring > Scripts), you ca
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/about-templates","lastmod":"2026-07-10T10:00Z","nid":"1488201"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/about-templates","lastmod":"2026-09-16T13:21Z","nid":"1488201"} -->
 ## About Templates
 
 - Source: https://help.zscaler.com/zdx/about-templates
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Alert Rule Configuration > About Templates
-- Last modified: 2026-07-10T10:00Z
-- Summary: Provides configuration steps on how to create a template for alert rules.
+- Last modified: 2026-09-16T13:21Z
+- Summary: Provides configuration steps on how to create a template for Digital Experience (ZDX) alert rules.
 
 [Watch a video about Templates in ZDX](https://fast.wistia.net/embed/iframe/t4mafl179c) (shows legacy UI).
 
-You can create templates to save frequently used alert rule criteria. After saving a template, you can then use it to prefill an alert rule when you configure a Zscaler Managed probe. To learn more, see [Configuring Zscaler Managed Probes](https://help.zscaler.com/zdx/configuring-zscaler-managed-probes).
+You can create Digital Experience (ZDX) templates to save frequently used alert rule criteria. After saving a template, you can then use it to prefill an alert rule when you configure a [Zscaler Managed probe](https://help.zscaler.com/zdx/configuring-zscaler-managed-probes).
 
 Templates provide the following benefits and allow you to:
 
@@ -805,7 +801,7 @@ Templates provide the following benefits and allow you to:
 
 ## About the Templates Page
 
-On the Templates page (Analytics > Digital Experience > Alerts > Alert Rules and Templates > Templates), you can do the following:
+On the Templates page (Administration > Alerts > Templates), you can do the following:
 
 1. [Add a new template](https://help.zscaler.com/zdx/managing-templates).
 2. Configure the columns to display.
@@ -825,13 +821,13 @@ On the Templates page (Analytics > Digital Experience > Alerts > Alert Rules and
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/about-webhooks","lastmod":"2026-07-07T19:18Z","nid":"1534194"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/about-webhooks","lastmod":"2026-09-16T13:18Z","nid":"1534194"} -->
 ## About Webhooks
 
 - Source: https://help.zscaler.com/zdx/about-webhooks
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > About Webhooks
-- Last modified: 2026-07-07T19:18Z
+- Last modified: 2026-09-16T13:18Z
 - Summary: Information about webhooks for ZDX.
 
 [Watch a video about Configuring Webhooks](https://fast.wistia.net/embed/iframe/sizniej3b3) (shows legacy UI).
@@ -846,7 +842,7 @@ Webhooks provide the following benefits and enable you to:
 
 ## About the Webhooks Page
 
-On the Webooks page (Policies > Digital Experience Monitoring > Webhooks), you can do the following:
+On the Webooks page (Digital Experience > Webhooks), you can do the following:
 
 1. Search for a webhook.
 2. [Add a webhook.](https://help.zscaler.com/zdx/configuring-webhooks)
@@ -858,7 +854,8 @@ On the Webooks page (Policies > Digital Experience Monitoring > Webhooks), you c
   - **Status**: The status of the webhook (**Enabled**, **Disabled**).
 5. Edit the webhook.
 6. Delete the webhook.
-7. Go to the [Data Collection](https://help.zscaler.com/zdx/about-integrations) page.
+7. Configure the number of webhooks to display or navigate through the pages.
+8. Go to the [Data Collection](https://help.zscaler.com/zdx/about-integrations) page.
 
 [Image: View the Webhooks page]
 <!-- /ZS-ARTICLE -->
@@ -2398,22 +2395,22 @@ To configure SCIM protocol for admins:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/configuring-alert-rule","lastmod":"2026-09-03T16:12Z","nid":"1364456"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/configuring-alert-rule","lastmod":"2026-09-16T13:20Z","nid":"1364456"} -->
 ## Configuring an Alert Rule
 
 - Source: https://help.zscaler.com/zdx/configuring-alert-rule
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Alert Rule Configuration > Configuring an Alert Rule
-- Last modified: 2026-09-03T16:12Z
-- Summary: How to configure alert rules for ZDX.
+- Last modified: 2026-09-16T13:20Z
+- Summary: How to configure alert rules for Digital Experience (ZDX).
 
 [Watch a video about Configuring Alerts for ZDX.](https://fast.wistia.net/embed/iframe/5ozc9luba9)
 
-You can configure alert rules to modify an expression to create criteria based on real-time user experience.
+For Digital Experience (ZDX), you can configure alert rules to modify an expression to create criteria based on real-time user experience.
 
 To configure a rule for an alert:
 
-1. Go to **Administration** > **Alerts** > **Digital Experience Management** > **Rules**.
+1. Go to **Administration** > **Alerts** > **Digital Experience** > **Rules**.
 2. Click **Add Alert Rule**. The **Add Alert Rule** window appears. See image.
 3. In the **Add New Alert Rule** window:
   - a. Configure Rule
@@ -2466,7 +2463,7 @@ See image.
 | --- | --- |
 | Application | DNS Time; Page Fetch Time; Server Processing Time; Web Request Availability; ZDX Score; ZDX Score Drops; Zscaler Time to First Byte |
 | Call Quality | MOS; ZDX Score |
-| Device | Bandwidth in mbps; Battery Level; CPU Idle; CPU Kernel Usage; CPU Usage; CPU User Usage; Disk Reads in bps; Disk Usage; Disk Writes in bps; Memory Usage; Memory Used; Received Bits in mbps; Sent Bits in mbps; Wi-Fi Signal |
+| Device | Bandwidth in mbps; Battery Level; CPU Idle; CPU Kernel Usage; CPU User Usage; CPU Utilization; Disk Reads in bps; Disk Usage; Disk Writes in bps; Memory Usage; Memory Used; Received Bits in mbps; Sent Bits in mbps; Wi-Fi Signal |
 | Incident | Impacted Devices Each incident type or subtype has a different minimum number of impacted devices. To learn more, see [Understanding Alert Triggers](https://help.zscaler.com/zdx/understanding-alert-triggers). If you select multiple incidents, the criteria are already configured for you based on their minimum thresholds. |
 | Network | Latency; Number of Hops; Packet Count; Packet Loss; ZDX Score; ZDX Score Drops |
 | Network Intelligence | Threshold Latency; Network Latency Deviation |
@@ -3512,22 +3509,22 @@ To learn more about managing your collections, see [Managing Collections](https:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/configuring-webhooks","lastmod":"2026-07-10T09:57Z","nid":"1364556"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/configuring-webhooks","lastmod":"2026-09-16T13:18Z","nid":"1364556"} -->
 ## Configuring Webhooks
 
 - Source: https://help.zscaler.com/zdx/configuring-webhooks
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Configuring Webhooks
-- Last modified: 2026-07-10T09:57Z
-- Summary: Information on configuring webhooks to deliver alerts.
+- Last modified: 2026-09-16T13:18Z
+- Summary: Information on configuring webhooks to deliver alerts for Digital Experience (ZDX).
 
 [Watch a video about Configuring Webhooks for ZDX](https://fast.wistia.net/embed/iframe/sizniej3b3) (shows legacy UI).
 
-You can configure webhooks to deliver alerts about your application, device, or network performance. You can also use webhooks in an alert rule and configure multiple alert rules to the same webhook from your third-party provider. To learn more, see [Configuring an Alert Rule](https://help.zscaler.com/zdx/configuring-alert-rule).
+You can configure webhooks for Digital Experience (ZDX) to deliver alerts about your application, device, or network performance. You can also use webhooks in an alert rule and configure multiple alert rules to the same webhook from your third-party provider. To learn more, see [Configuring an Alert Rule](https://help.zscaler.com/zdx/configuring-alert-rule).
 
 To configure a new webhook for ZDX:
 
-1. Go to **Policies**> **Digital Experience Monitoring** > **Webhooks**.
+1. Go to **Digital Experience** > **Webhooks**.
 2. Click **Add Webhook**.
 3. In the **Add Webhook** window:
   - **Name**: Enter the name of the webhook.
@@ -3884,16 +3881,16 @@ Use the search field if you're unable to find a report. Search for any character
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/editing-alert-rule","lastmod":"2026-07-10T09:59Z","nid":"1364461"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/editing-alert-rule","lastmod":"2026-09-16T13:20Z","nid":"1364461"} -->
 ## Editing an Alert Rule
 
 - Source: https://help.zscaler.com/zdx/editing-alert-rule
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Alert Rule Configuration > Editing an Alert Rule
-- Last modified: 2026-07-10T09:59Z
+- Last modified: 2026-09-16T13:20Z
 - Summary: Provide step-by-step instructions on how to edit an alert rule.
 
-After configuring an alert rule and saving it, you can edit certain rule fields. The editable fields for a rule depend on the rule type.
+After configuring an alert rule for Digital Experience (ZDX) and saving it, you can edit certain rule fields. The editable fields for a rule depend on the rule type.
 
 The ZDX Score alert rule type is no longer recommended for use. Any pre-existing ZDX Score alert rule type has migrated to an Application alert rule type. If you have an existing ZDX Score alert rule type, you must create an alert rule with the type as Application or Network and then select ZDX Score as a criteria.
 
@@ -3906,7 +3903,7 @@ The ZDX Score alert rule type is no longer recommended for use. Any pre-existing
 
 The throttling and other field values remain the same.
 
-1. Go to **Analytics** > **Digital Experience** > **Alerts** > **Alert Rules and Templates**.
+1. Go to **Administration**> **Alerts** > **Rules**.
 2. Click the **Edit** icon listed next to the details for a particular rule. The **Edit**window opens.
 3. In the **Edit**window:
   - a. Configure Rule
@@ -4365,16 +4362,16 @@ By default, the lists are sorted by the Start Time, displaying the session with 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/evaluating-individual-alert-details","lastmod":"2026-09-11T16:50Z","nid":"1414451"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/evaluating-individual-alert-details","lastmod":"2026-09-16T13:14Z","nid":"1414451"} -->
 ## Evaluating Individual Alert Details
 
 - Source: https://help.zscaler.com/zdx/evaluating-individual-alert-details
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Evaluating Individual Alert Details
-- Last modified: 2026-09-11T16:50Z
+- Last modified: 2026-09-16T13:14Z
 - Summary: Information on individual alert details where you can view the impacted devices and their respective departments and locations.
 
-Individual alert details provide in-depth information about the impacted devices and their respective departments and locations.
+Individual alert details about the Digital Experience (ZDX) can provide insight into impacted devices and their respective departments and locations.
 
 To view an individual alert's details on the Alerts page, click the **Rule Name** or the **View** icon of a selected alert.
 
@@ -4393,6 +4390,8 @@ If an alert was configured to monitor end users, the Alert Details page shows th
 - **Impacted Zscaler Locations**: The number of devices by location and the total number of impacted Zscaler locations. Click **View All** to view all impacted locations in a dialog window.
 - **Expression Triggers**: The alert rule's expression triggers as well as the average and maximum values for the time period.
 
+See image.
+
 The maximum number of devices displayed on the Alert Details page is 128 devices. In the View All dialog window, the maximum number of devices displayed is 6,000 devices.
 
 The Impacted Geolocations map displays the location of the impacted user devices. The map has the following functionality:
@@ -4406,7 +4405,7 @@ The Impacted Geolocations map displays the location of the impacted user devices
 | Double-click a pin | Zoom in to the map to view details. |
 | Zoom in/out on a pin | Zoom in to the map to view details. |
 | Drag the map | Data is displayed as per the map boundary. No additional interaction or data is loaded. |
-| Draw a fence around a pin and then click Filter Selection. | The global filter and all widgets are updated with this selection. To learn more, see [Drawing a Fence](https://help.zscaler.com/zdx/about-applications-dashboard#draw). |
+| Draw a fence around a pin and then click Filter Selection. | The global filter and all widgets are updated with this selection. To learn more, see [Drawing a Fence](https://help.zscaler.com/zdx/monitoring-applications-overview#draw). |
 
 The Impacted User Devices table displays the Device name, User ID, Department, Zscaler location, Geolocation, and the ZDX Score of the device.
 
@@ -5054,13 +5053,13 @@ After you have deleted the probe, you can delete the application on the Managed 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/managing-labels","lastmod":"2026-07-23T21:06Z","nid":"1458916"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/managing-labels","lastmod":"2026-09-16T13:22Z","nid":"1458916"} -->
 ## Managing Labels
 
 - Source: https://help.zscaler.com/zdx/managing-labels
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Alert Rule Configuration > Managing Labels
-- Last modified: 2026-07-23T21:06Z
+- Last modified: 2026-09-16T13:22Z
 - Summary: To provide instructions on how to manage labels on the Labels page for alert rules.
 
 After you have acquired the full permission for Alerts, you can manage your labels and access the Labels page for alert rules.
@@ -5073,8 +5072,8 @@ To manage your labels, you can:
 - Delete the label.
 
 1. Go to one of the following to add a label:
-  - **Policies** > **Digital Experience Monitoring** > **Labels** > **Add New Label** See image.
-  - **Analytics** > **Digital Experience**> **Alerts** > **Alert Rules and Templates** > **Add Alert Rule** > **Labels (Optional)** > **Add New Label** See image.
+  - **Administration** > **Alerts**> **Labels** > **Add New Label** See image.
+  - **Administration**> **Alerts** > **Rules**> **Add Alert Rule** > **Labels (Optional)** > **Add New Label** See image.
 2. In the **Create New Label** window:
   - **Name**: Enter the name of the label.
   - **Description** (Optional): Enter the description of the label. The Label Name and Description can each consist of a maximum 120 alphanumeric characters including: hyphen (-), space ( ), or underscore (_). See image.
@@ -5082,7 +5081,7 @@ To manage your labels, you can:
 
 You can assign the label to an alert rule in either the**Add New Alert Rule** or **Edit Alert Rule** window. To learn more, see [Configuring an Alert Rule](https://help.zscaler.com/zdx/configuring-alert-rule) and [Editing an Alert Rule](https://help.zscaler.com/zdx/editing-alert-rule).
 
-On the Labels page (Policies > Digital Experience Monitoring > Labels):
+On the Labels page (Administration > Alerts > Labels):
 
 1. Click the **View**icon on your selected label.
 2. In the **View Label** window, you can view:
@@ -5090,7 +5089,7 @@ On the Labels page (Policies > Digital Experience Monitoring > Labels):
   - **Description**: The label description. See image.
 3. Click **Cancel**.
 
-On the Labels page (Policies > Digital Experience Monitoring > Labels):
+On the Labels page (Administration > Alerts > Labels):
 
 1. Click the **Edit**icon on your selected label.
 2. In the **Edit Label** window:
@@ -5100,7 +5099,7 @@ On the Labels page (Policies > Digital Experience Monitoring > Labels):
 
 You cannot delete a label if an alert rule is tagged with it.
 
-On the Labels page (Policies > Digital Experience Monitoring > Labels):
+On the Labels page (Administration > Alerts > Labels):
 
 1. Click the **Delete**icon on your selected label.
 2. Click **Delete** in the **Delete <Label Name>** window. A confirmation on the Labels page appears briefly. See image.
@@ -5237,18 +5236,18 @@ View the job's progress on the [Device Remediation](https://help.zscaler.com/zdx
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/managing-templates","lastmod":"2026-07-10T10:00Z","nid":"1499921"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/managing-templates","lastmod":"2026-09-16T13:21Z","nid":"1499921"} -->
 ## Managing Templates
 
 - Source: https://help.zscaler.com/zdx/managing-templates
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Alert Rule Configuration > Managing Templates
-- Last modified: 2026-07-10T10:00Z
+- Last modified: 2026-09-16T13:21Z
 - Summary: To provide steps for managing or configuring templates.
 
 [Watch a video about Templates for ZDX](https://fast.wistia.net/embed/iframe/t4mafl179c) (shows legacy UI).
 
-On the Templates page, you can manage and configure templates by adding, editing, copying, or deleting a Zscaler Managed probe. You can use the template to create an alert rule with prefilled criteria. To learn more, see [Configuring a Zscaler Managed Probe](https://help.zscaler.com/zdx/configuring-zscaler-managed-probes).
+On the Templates page, you can manage and configure Digital Experience (ZDX) templates by adding, editing, copying, or deleting a [Zscaler Managed probe](https://help.zscaler.com/zdx/configuring-zscaler-managed-probes). You can use the template to create an alert rule with prefilled criteria.
 
 ## Prerequisites
 
@@ -5259,7 +5258,7 @@ Before you manage templates, ensure that:
 
 ## Managing Templates
 
-To manage your templates (Analytics > Digital Experience > Alerts > Alert Rules and Templates > Templates), you can perform the following actions:
+To manage your templates (Administration > Alerts > Templates), you can perform the following actions:
 
 - Add a new template.
 - Edit a template.
@@ -5860,18 +5859,18 @@ To learn more about monitoring the probes, see [Understanding Managed Monitoring
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/microsoft-teams-webhook-configuration-guide","lastmod":"2026-07-10T10:01Z","nid":"1440861"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/microsoft-teams-webhook-configuration-guide","lastmod":"2026-09-16T13:22Z","nid":"1440861"} -->
 ## Microsoft Teams Webhook Configuration Guide
 
 - Source: https://help.zscaler.com/zdx/microsoft-teams-webhook-configuration-guide
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Webhook Configuration Guides for Supported Platforms > Microsoft Teams Webhook Configuration Guide
-- Last modified: 2026-07-10T10:01Z
-- Summary: Information on how to configure webhooks for alerts using Microsoft Teams.
+- Last modified: 2026-09-16T13:22Z
+- Summary: Information on how to configure webhooks for Digital Experience (ZDX) alerts using Microsoft Teams.
 
 You must have a Microsoft Teams account to configure a webhook.
 
-This guide provides information on configuring webhooks using Microsoft Teams for alerts in ZDX. The following instructions provide a sample configuration that you can use based on the user’s requirements.
+This guide provides information on configuring webhooks using Microsoft Teams for Digital Experience (ZDX) alerts. The following instructions provide a sample configuration that you can use based on the user’s requirements.
 
 1. In Microsoft Teams:
   1. Select the team in which you want to add a channel for webhook notifications.
@@ -5882,7 +5881,7 @@ This guide provides information on configuring webhooks using Microsoft Teams fo
   6. Copy the Zscaler Webhook Channel’s URL from the webhook configuration page. See image.
   7. Click **Save**.
 2. [Create a webhook in the Zscaler Admin Console](https://help.zscaler.com/zdx/configuring-webhooks).
-  1. Go to **Policies**> **Digital Experience Monitoring** > **Webhooks**.
+  1. Go to **Digital Experience** > **Webhooks**.
   2. Click **Add Webhook**.
   3. Enter the following information: See image.
     - **Name**: The name of the webhook for Microsoft Teams.
@@ -5918,179 +5917,64 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/monitoring-applications-overview","lastmod":"2026-09-10T17:48Z","nid":"1355811"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/monitoring-applications-overview","lastmod":"2026-09-14T14:07Z","nid":"1545457"} -->
 ## Monitoring the Applications Overview
 
 - Source: https://help.zscaler.com/zdx/monitoring-applications-overview
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Applications > Monitoring the Applications Overview
-- Last modified: 2026-09-10T17:48Z
-- Summary: Information on the Applications Overview and widgets accessible within the ZDX Admin Portal.
+- Last modified: 2026-09-14T14:07Z
+- Summary: The Applications Overview provides information about the applications users are accessing and the impact of those applications on an organization's digital experience.
 
-The Performance Dashboard provides an overview about the Zscaler Digital Experience (ZDX) for your organization.
+The Applications Overview provides information about the applications users are accessing and the impact of those applications on your organization's digital experience. If you have [Real User Monitoring (RUM)](https://help.zscaler.com/zdx/understanding-real-user-monitoring) enabled for an application, then you can view RUM metrics (e.g., RUM Users, application details specific to RUM).
 
 See image.
 
-## Dashboard Tools
+## Overview Tools
 
-The Performance Dashboard allows you to:
+The Applications Overview allows you to:
 
-- **View performance data over time**: Use the Time Range filter to choose a specific time range to view data. The selected period applies to all data within the dashboard. The default time range is**2 Hours**.
+- **View performance data over time**: Use the Time Range filter to choose a specific time range to view data. The selected period applies to all data within the overview. The default time range is **2 Hours**.
   - **Current**: View the most current ZDX Score captured within the previous 30 minutes.
   - **2 Hours** to **48 Hours**: Specify a time interval between 2 hours and 48 hours as shown in the drop-down menu.
   - **Custom**: Specify a custom time range. The start date must be within the last 14 days, and the minimum time range is 15 minutes. You can set any time range greater than 15 minutes in 5-minute increments.
-- **Filter data**: Click the filters to select options for Departments, Zscaler Locations, User Groups, Geolocations, Location Groups, Last Mile ISPs, Operating System, and Zscaler Data Centers. Each filter allows you to include or exclude individual options. Click **Select All Displayed** to select all options at once. See image.
-
-Click the drop-down menu option to choose locations in the **Geolocations** filter. This hierarchical display includes the continent, country, states, and cities within the US, while non-US geolocations show the continent, countries, and then cities. Click **Reset** on the right side of the page to reset your selection.
-
-See image.
+- **Filter data**: Click the filters to select options for Departments, Zscaler Locations, User Groups, Geolocations, Location Groups, Last Mile ISPs, Operating Systems, Monitoring Type, Zscaler Data Centers. Each filter allows you to include or exclude individual options. Click **Select All Displayed** to select all options at once. See image.
+- **Share a ZDX Snapshot**: Click **Share Snapshot**to capture a snapshot of the current state of the Applications Overview page. Share it with other ZDX users or admins for view-only access. To learn more, see [Sharing ZDX Snapshots](https://help.zscaler.com/zdx/sharing-zdx-snapshots).
+- **Compare Applications**: Click the **Open in a New Tab** icon next to the application name to open the application page in a new tab. You can use this icon to open multiple applications and compare their details.
 
 ### Filtering
 
 To configure filters:
 
 1. Determine which options to include or exclude from each of the filter drop-down menus:
-  - **Departments**: Your departments, as defined in Internet & SaaS. To learn more, see [About Departments](https://help.zscaler.com/zia/about-departments).
-  - **Zscaler Locations**: Your locations, as defined in Internet & SaaS. To learn more, see [About Locations](https://help.zscaler.com/zia/about-locations).
+  - **Departments**: Your departments, as defined in ZDX. To learn more, see [About Departments](https://help.zscaler.com/zdx/about-departments).
+  - **Zscaler Locations**: The Zscaler locations where your devices are connected to the application.
   - **User Groups**: The names of user groups in your organization.
-  - **Geolocations**: The geographic areas where your users are located.
+  - **Geolocations**: The geographic area where users accessed the applications.
   - **Location Groups**: The names of groups based on location in your organization.
   - **Last Mile ISPs**: The Internet Service Providers (ISPs) to which your users are connecting.
   - **Operating Systems**: The operating system versions installed on user devices in your organization.
+  - **Monitoring Type**: The type of application monitoring to which your users are connecting.
   - **Zscaler Data Centers:** The data centers that the users were connected through.
 2. Click **Apply** after completing your selections.
 
-You can adjust the filters as needed or remove all of your filter selections by clicking **Reset**.
+You can adjust the filters as needed, or remove all of your filter selections by clicking **Reset**.
 
-## Widgets
+## Applications List
 
-The Performance Dashboard provides the following widgets:
+The table displays the following information about applications and the impact they have to the digital experience:
 
-- Most Impacted Applications
-- Regions by ZDX Score
-- ZDX Score
-- Page Fetch Time
-- Page Views and Load Time Trend
+- **Application**: These names are defined when you configure the application. To learn more, see [About Applications](https://help.zscaler.com/zdx/about-applications). Any disabled applications are shown in gray, and deleted applications are indicated with a strikethrough on the application name. Click a name to see more information about [each application](https://help.zscaler.com/zdx/evaluating-application-details).
+- **ZDX Score**: The application's ZDX Score from 1 to 100, with 1 being the lowest and 100 being the highest. To learn more, see [About the ZDX Score](https://help.zscaler.com/zdx/about-zdx-score).
+- **Active Users**: The number of active users accessing the application.
+- **RUM Users**: The number of RUM users accessing the RUM-enabled application.
+- **Impacted Geolocations**: The geolocation most impacted by the application. These areas are where users are accessing the application. ZDX uses a device's location service to determine a user's location. It takes the longitude and latitude coordinates from the location service and compares them to Zscaler's geographic IP database. That information is then listed, by corresponding major cities and towns, in the Zscaler Admin Console. If a user's latitude and longitude are closer to the center of another city, instead of their own city, the user's location might be misidentified as connecting from the neighboring city. If the location service is not enabled on the device, then ZDX uses the device's IP address to determine the location. ZDX currently supports Windows, macOS, Android, Android on ChromeOS, and iOS devices only.
+- **Impacted Zscaler Locations**: The Zscaler location most impacted by the application.
+- **Impacted Departments**: The department most impacted by the application.
 
-The dashboard preselects the application with the lowest score, and the rest of the page automatically tracks information based on that application. By selecting another application, the page adjusts to reflect information based on the newly selected application.
+[Image: View the Applications Overview page]
 
-Each application shows:
-
-- **Synthetic Monitoring** (blue) or **Real-User Monitoring** (orange): Synthetic monitoring indicates the application is not enabled for [Real-User Monitoring (RUM)](https://help.zscaler.com/zdx/understanding-real-user-monitoring). Real-User monitoring indicates the application is enabled for RUM.
-- **Score Trend**: The score trend of the application for the selected time period that is dependent on the type of monitoring (Synthetic Monitoring or Real-User Monitoring). The trend can be one of the following:
-  - If the application is disabled for RUM and uses only Synthetic Monitoring, then the Score Trend is based on ZDX Scores.
-  - If the application is enabled for RUM and uses only Real-User Monitoring, then the Score Trend is based on Real-User Scores.
-  - If the application is enabled for RUM and uses both Synthetic Monitoring and Real-User Monitoring, the Score Trend includes both ZDX Scores and Real-User Scores.
-- **Score**: If the application does not have RUM enabled and uses synthetic monitoring, then the score is the ZDX Score. The ZDX Score represents the total experience of all users in your organization for all locations during the selected time period. The ZDX Score is based on a scale of 1 (lowest) to 100 (highest), with the lowest numbers indicating a poor score and highest numbers indicating a good score. To learn more, see [About the ZDX Score](https://help.zscaler.com/zdx/about-zdx-score). If the application has RUM enabled, then the score is the **Real-User Score**. The Real-User Score represents the experience of all users accessing the RUM-enabled application across all locations during the selected time period. The Real-User Score uses a similar scale and categories to the ZDX Score.
-- Viewing the application: Click the **Open in New Tab** icon to view the application details. To learn more, see [Evaluating Application Details](https://help.zscaler.com/zdx/evaluating-application-details).
-
-You can use the following actions on the Most Impacted Applications menu:
-
-- Search for an application.
-- Click the **Sort** button to filter and sort applications. See image.
-- Collapse the menu.
-
-The **Regions by ZDX Score** map takes the geographic locations of all users accessing the selected application and organizes the data for the score down to the city level for major cities around the world. This information is displayed in a map. You can zoom in and out of the map to better view regions of interest.
-
-ZDX uses a device's location service to determine a user's location. It takes the longitude and latitude coordinates from the location service and compares it to Zscaler's geographic IP database. That information is then displayed in the Zscaler Admin Console in a map with major cities and towns.
-
-If a user's latitude and longitude are closer to the center of another city, instead of their own city, the user's location might be misidentified as connecting from the neighboring city. If the location service is not enabled on the device, then ZDX uses the device's IP address to determine the location.
-
-ZDX currently supports Windows, macOS, Android, Android on ChromeOS, and iOS devices only.
-
-For each marked location on the map, you can see the name of the city, the ZDX Score, and the number of users while hovering the mouse over the marked spot. Click the **Details**icon ([Image: Details icon within tooltip]) to view user information in the Users Overview specific to the location.
-
-[Image: City information in tooltip of the Regions by ZDX Score map]
-
-The ZDX Score falls into one of three classifications: Good, Okay, or Poor.
-
-To see more about a city or a set of cities, you can set up a fence on the map. To learn more, see Drawing a Fence.
-
-### Drawing a Fence
-
-Within the **Regions by ZDX Score** map, you can filter the data seen on the map by creating a fence.
-
-To draw a fence:
-
-1. Adjust the map to an area you want to view, and click **Draw Fence**.
-2. Select a portion of the map. A window with the number of locations selected appears. See image.
-3. Click **Filter Selection**. A list of the locations within the fence appears at the bottom of the map.
-4. (Optional) Deselect any locations in the **Custom fence** table you do not want to use in a filter.
-5. Click **View in Users Page** to see data filtered by these locations. The [Users Overview](https://help.zscaler.com/zdx/monitoring-users-dashboard) appears with data relevant only to those locations. After applying the fence, you can also go to the [Applications Overview](https://help.zscaler.com/zdx/monitoring-applications-dashboard) or return to the Performance Dashboard and the location fence remains as part of your filters.
-
-To redraw the fence, click **Clear Selection** in the map or **Clear Fence** at the bottom of the **Regions by ZDX Score**map. To move the map and select another region, click **Reset** above the map.
-
-See image.
-
-### Unknown Locations
-
-The Unknown Locations widget is visible in the bottom-left corner of the map when a user location is determined to be unknown. Use this widget to filter the users from unknown locations and view their details. If there are no users from unknown locations, this widget is not visible.
-
-[Image: Map shows widget for Unknown Locations]
-
-To use the Unknown Locations widget:
-
-1. Click **Filter Unknown Locations**. A **Custom fence** table appears that lists the unknown locations, the users, and their ZDX Scores. Click **Clear Fence**to clear the filter.
-2. Select the unknown locations as desired and then click **View in Users Page** to apply the **Unknown Locations** filter.
-3. The number of users from unknown locations and their ZDX Scores are visible in the Users Overview and Applications Overview.
-
-### Map Functionality
-
-The following is the functionality in the **Regions by ZDX Score**map in the Performance Dashboard:
-
-| Map Interaction | Results |
-| --- | --- |
-| Mouse over a pin | View a tooltip that shows the geolocation, ZDX Score, and number of users. Click the **Details**icon ([Image: Details icon within tooltip]) to view user and location information in the Users Overview. |
-| Zoom in/out on a pin | Zoom closer to or farther from the city/region/state/country. |
-| Double-click a pin | Zoom into the city level of a region/state/country. |
-| Drag the map | Data is displayed per the map boundary. No additional interaction or data is loaded. |
-| Draw a fence around a pin and then click **Filter Selection** | View a table that shows the location, users, and ZDX Score. |
-
-The **ZDX Score**graph shows how the ZDX Score trends over the selected time period.
-
-The overall score tracks as a line across the graph. Scores fall into three classifications:
-
-- **Good**: The score is above an acceptable threshold and ranges from 66–100. The color for this range is green.
-- **Okay**: The score is acceptable and ranges from 34–65. The color for this range is amber.
-- **Poor**: The score is below an acceptable threshold and ranges from 0–33. The color for this range is red.
-
-The graph also tracks the score of the most impacted application, as determined by the applied filters, for comparison. This lets you view the application's impact on the overall score.
-
-For comparison, you can select up to four additional applications by clicking **Add Another Application** in the application selector below the graph. In the drop-down menu, select the additional applications to view. The ZDX Score for the selected applications is displayed. Clicking a point in the graph displays the ZDX Score for the selected applications at that time; you can also click the arrow within the display to go to that application page. To remove an application, deselect it in the application selector. Selections made in the application selector for the ZDX Score are also reflected in the Page Fetch Time graph.
-
-[Image: Example of ZDX Score graph]
-
-The **Page Fetch Time** graph tracks how long it takes the selected application to transfer the fetched page to the user during the selected time period. The time is tracked in milliseconds.
-
-A line runs across the graph that indicates the 95th percentile, as identified by **P95**. It indicates that 95 percent of the fetch time is below this amount.
-
-You can select a point on the graph to see the exact date and time, the application's fetch time at that point, and the 95th percentile fetch time for comparison. To explore more about the application, click **Analyze** to view the Applications Overview and filter by the application. To learn more, see [Monitoring the Applications Overview](https://help.zscaler.com/zdx/monitoring-applications-dashboard#indivapp).
-
-For comparison, you can select up to four additional applications by clicking **Add Another Application** in the application selector below the graph. In the drop-down menu, select the additional applications to view. The Page Fetch Time for the selected applications is displayed. Clicking a point in the graph displays the Page Fetch Time for the selected applications at that time; you can also click the arrow within the display to go to that application page. To remove an application, deselect it in the application selector. Selections made in the application selector for the Page Fetch Time are also reflected in the ZDX Score graph.
-
-See image.
-
-If the selected application has RUM enabled, then the Page Views and Load Time trend are displayed. The graph captures the amount of page views and page load times across the selected time period.
-
-A line runs across the graph that indicates the 95th percentile, as identified by **P95**. It indicates that 95 percent of the page loading time is below this amount.
-
-See image.
-
-[Image: Performance Dashboard]
-
-[Image: Example of drawing a fence on the ZDX Score map]
-
-[Image: Shows buttons to clear fence in a Regions by  ZDX Score map]
-
-[Image: Example of Page Fetch Time graph]
-
-[Image: View the Page Views and Load Time Trend]
-
-[Image: Example of Geolocations filter drop-down menu in Performance Dashboard]
-
-[Image: Filter drop-down menu in Performance Dashboard]
-
-[Image: Filter or sort the most impacted applications]
+[Image: Filter drop-down menu in the Applications Dashboard]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6136,13 +6020,13 @@ Only the Super Admin, or the admin who created the view, can edit or delete a co
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/monitoring-devices-overview","lastmod":"2026-09-10T15:13Z","nid":"1529520"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/monitoring-devices-overview","lastmod":"2026-09-18T16:30Z","nid":"1529520"} -->
 ## Monitoring the Devices Overview
 
 - Source: https://help.zscaler.com/zdx/monitoring-devices-overview
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Monitoring the Devices Overview
-- Last modified: 2026-09-10T15:13Z
+- Last modified: 2026-09-18T16:30Z
 - Summary: Information on devices and their Device Health Score to determine the overall device health across an organization.
 
 The Devices overview uses existing user and device data to create a comprehensive device health scoreboard that monitors the performance of Windows and macOS devices. The dashboard provides useful data in evaluating trends to identify and understand the root causes of poor-performing devices. Then you can proactively collect device data and identify which devices require an IT admin's attention to remedy the device's poor performance (e.g., high CPU usage). With a dedicated dashboard, you can target hardware upgrades based on the device's usage for greater cost-effectiveness.
@@ -6164,7 +6048,7 @@ To monitor device performance within the Devices overview, ensure:
 
 ## Viewing the Devices Overview
 
-To access the Devices overview, go to **Analytics** > **Digital Experience** > **Devices**. You can view Thresholds to understand the device metrics.
+To access the Devices overview, go to **Analytics** > **Digital Experience** > **Devices Overview**. You can view Thresholds to understand the device metrics.
 
 Access the Summary, Device List, or Hardware Analysis tab to monitor device performance at varying levels in your organization.
 
@@ -6300,7 +6184,7 @@ See image.
 
 #### Inventory
 
-Inventory allows you to view all current hardware information (e.g., **OS**, **Vendor**, **Memory**, **Disk**) and provide a holistic view of your organization's device inventory. The device data are gathered from the previous 14 days.
+Inventory allows you to view all current hardware information (e.g., **OS**, **Vendor**, **Memory**, **Disk**) and provide a holistic view of your organization's hardware inventory. The device data are gathered from the previous 14 days.
 
 You can filter by **Vendors**, **Models**, **Operating System**, **Geolocations**, **User Groups**, or **Departments**.
 
@@ -6398,13 +6282,13 @@ In this scenario, there are two users and one device.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/monitoring-incidents-dashboard","lastmod":"2026-04-20T18:19Z","nid":"1459026"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/monitoring-incidents-dashboard","lastmod":"2026-09-18T16:36Z","nid":"1459026"} -->
 ## Monitoring the Incidents Dashboard
 
 - Source: https://help.zscaler.com/zdx/monitoring-incidents-dashboard
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Monitoring the Incidents Dashboard
-- Last modified: 2026-04-20T18:19Z
+- Last modified: 2026-09-18T16:36Z
 - Summary: Information on the Incidents dashboard and accessible data within the Zscaler Admin Console.
 
 The Incidents Dashboard displays incidents in 7 area types: Device, Wi-Fi, Last Mile ISP, Intermediate ISP, ZIA (Internet & SaaS) Public Service Edge, ZPA (Private Access), or Application. Incidents are issues that impact the device performance of multiple users. ZDX uses AI and machine learning (ML) to detect and identify incidents using the best metrics that correlate to the issues. The incidents displayed are based on the selected time range in the UI and show incidents over time, impacted users, and where on the map they occur.
@@ -6418,7 +6302,7 @@ To access the Incidents Dashboard, you must have the following:
 
 ## Incidents Dashboard
 
-To access the Incidents Dashboard, go to **Analytics** > **Digital Experience** > **Alerts** > **Incidents**.
+To access the Incidents Dashboard, go to **Analytics** > **Digital Experience** > **Incidents**.
 
 Use the filters on the Incidents Dashboard page to narrow your scope of Incidents information.
 
@@ -6675,13 +6559,13 @@ In order to be considered an incident, the following must be considered to categ
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/monitoring-network-intelligence-dashboard","lastmod":"2026-09-10T17:23Z","nid":"1529289"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/monitoring-network-intelligence-dashboard","lastmod":"2026-09-18T16:41Z","nid":"1529289"} -->
 ## Monitoring the Network Intelligence Dashboard
 
 - Source: https://help.zscaler.com/zdx/monitoring-network-intelligence-dashboard
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Monitoring the Network Intelligence Dashboard
-- Last modified: 2026-09-10T17:23Z
+- Last modified: 2026-09-18T16:41Z
 - Summary: Information on the Network Intelligence Dashboard and accessible data within the Zscaler Admin Console.
 
 Network Intelligence provides end-to-end multi-path network visibility from Last Mile Internet Service Providers (ISPs) to Zero Trust Exchange (ZTE) to applications. Zscaler Digital Experience (ZDX) runs Cloud Path probes to gather network metrics (e.g., network latency, packet loss) to establish a baseline for network latency and compares the network performance against the baseline. ZDX detects and analyzes network anomalies to create a deep analysis and allows you to investigate root causes. You can analyze and pinpoint Last Mile or Intermediate ISP issues, understand root causes, and assess their impact on end users using ML-based algorithms to extract patterns and identify anomalies, and then you can observe and determine the most optimal routing paths to data centers. With all this knowledge at your disposal, you can take proactive measures to resolve network issues to improve the overall organization's digital experience.
@@ -6693,7 +6577,7 @@ To access the Network Intelligence Dashboard, you must have the following:
 - Your ZDX subscription level supports Network Intelligence. To learn more, see [Ranges and Limitations](https://help.zscaler.com/unified/ranges-limitations#digital-experience).
 - View Only permission for the Network Intelligence Dashboard. To learn more, see [Adding ZDX Roles](https://help.zscaler.com/zdx/adding-zdx-roles).
 
-To access the Network Intelligence Dashboard, go to **Analytics** > **Digital Experience** > **Networks** > **Network Intelligence**.
+To access the Network Intelligence Dashboard, go to **Analytics** > **Digital Experience** > **Network Intelligence**.
 
 ## Overview of Network Health
 
@@ -7076,20 +6960,20 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/monitoring-self-service-dashboard","lastmod":"2026-04-14T21:06Z","nid":"1462916"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/monitoring-self-service-dashboard","lastmod":"2026-09-18T16:45Z","nid":"1462916"} -->
 ## Monitoring the Self Service Dashboard
 
 - Source: https://help.zscaler.com/zdx/monitoring-self-service-dashboard
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Monitoring the Self Service Dashboard
-- Last modified: 2026-04-14T21:06Z
+- Last modified: 2026-09-18T16:45Z
 - Summary: Overview of notification data in the Self Service Dashboard.
 
 [Watch a video about Monitoring the Self Service Dashboard](https://fast.wistia.net/embed/iframe/3lcjrdtwo6) (shows legacy UI).
 
 Self Service can help users identify the root cause of issues related to CPU usage and Wi-Fi access, allowing users to investigate potential solutions without the need to contact customer support. When enabled for your users, Self Service provides notifications when issues are detected and might need attention. Each notification contains a brief diagnosis and recommendation that might help resolve the CPU or Wi-Fi issue. To learn more about the notifications, see [Viewing Self Service User Notifications](https://help.zscaler.com/zdx/viewing-self-service-user-notifications). To learn more about configuring the notifications for your users, see [Configuring Self Service Settings](https://help.zscaler.com/zdx/configuring-self-service-settings).
 
-The Self Service Dashboard consolidates user data pulled from the user notifications, and can provide a correlation between your users and the number, type, and frequency of notifications. To access the Self Service Dashboard in the Zscaler Admin Console, go to **Analytics** > **Digital Experience** > **Users** > **Self Service**.
+The Self Service Dashboard consolidates user data pulled from the user notifications, and can provide a correlation between your users and the number, type, and frequency of notifications. To access the Self Service Dashboard in the Zscaler Admin Console, go to **Digital Experience** > **Users** > **Self Service**.
 
 ## Prerequisites
 
@@ -7267,13 +7151,13 @@ To learn more about user and device details, see [Evaluating User Details](https
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/monitoring-wi-fi-dashboard","lastmod":"2026-04-20T18:26Z","nid":"1503411"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/monitoring-wi-fi-dashboard","lastmod":"2026-09-18T16:59Z","nid":"1503411"} -->
 ## Monitoring the Wi-Fi Dashboard
 
 - Source: https://help.zscaler.com/zdx/monitoring-wi-fi-dashboard
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Monitoring the Wi-Fi Dashboard
-- Last modified: 2026-04-20T18:26Z
+- Last modified: 2026-09-18T16:59Z
 - Summary: Information about Wi-Fi access point status on user devices.
 
 The Wi-Fi Dashboard utilizes existing user and device Wi-Fi data in your organization to monitor device performance. This data can help identify specific locations in which users might have issues with their Wi-Fi access points.
@@ -7287,7 +7171,7 @@ To monitor Wi-Fi performance within the Wi-Fi Dashboard, ensure:
 
 ## Viewing the Wi-Fi Dashboard
 
-To access the Wi-Fi Dashboard, go to **Analytics**> **Digital Experience** > **Networks** > **WiFi**. Time range options are available in increments from the previous **2 Hours** to **48 Hours**, or a **Custom Range** within the last 14 Days. Use the time range filter and page filters to help narrow your scope of information:
+To access the Wi-Fi Dashboard, go to **Digital Experience** > **Networks** > **WiFi**. Time range options are available in increments from the previous **2 Hours** to **48 Hours**, or a **Custom Range** within the last 14 Days. Use the time range filter and page filters to help narrow your scope of information:
 
 - **Wi-Fi SSID**: The network Service Set Identifier. You can select up to 5 SSIDs from the drop-down menu. The SSID associated with the highest number of devices is selected by default.
 - **Departments**: See [About Departments](https://help.zscaler.com/zdx/about-departments).
@@ -7497,16 +7381,16 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/opsgenie-webhook-configuration-guide","lastmod":"2026-07-10T10:01Z","nid":"1450476"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/opsgenie-webhook-configuration-guide","lastmod":"2026-09-16T13:23Z","nid":"1450476"} -->
 ## OpsGenie Webhook Configuration Guide
 
 - Source: https://help.zscaler.com/zdx/opsgenie-webhook-configuration-guide
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Webhook Configuration Guides for Supported Platforms > OpsGenie Webhook Configuration Guide
-- Last modified: 2026-07-10T10:01Z
+- Last modified: 2026-09-16T13:23Z
 - Summary: Information on how to configure webhooks for alerts using OpsGenie.
 
-This guide provides information on configuring webhooks using OpsGenie for alerts in ZDX. The following instructions provide a sample configuration that you can use based on the user's requirements.
+This guide provides information on configuring webhooks using OpsGenie for Digital Experience (ZDX) alerts. The following instructions provide a sample configuration that you can use based on the user's requirements.
 
 ## Setting Up Integration Keys on OpsGenie
 
@@ -7527,7 +7411,7 @@ This guide provides information on configuring webhooks using OpsGenie for alert
 
 ## Setting Up Alert Webhooks on Zscaler Admin Console
 
-1. Go to **Policies**> **Digital Experience Monitoring** > **Webhooks**.
+1. Go to **Digital Experience** > **Webhooks**.
 2. Click **Add Webhook**.
 3. Enter the following information:
   1. **Name**: Enter the name of the webhook for OpsGenie.
@@ -7586,16 +7470,16 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/pagerduty-webhook-configuration-guide","lastmod":"2026-07-10T10:02Z","nid":"1376326"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/pagerduty-webhook-configuration-guide","lastmod":"2026-09-16T13:24Z","nid":"1376326"} -->
 ## PagerDuty Webhook Configuration Guide
 
 - Source: https://help.zscaler.com/zdx/pagerduty-webhook-configuration-guide
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Webhook Configuration Guides for Supported Platforms > PagerDuty Webhook Configuration Guide
-- Last modified: 2026-07-10T10:02Z
+- Last modified: 2026-09-16T13:24Z
 - Summary: Information on configuring webhooks for alerts using PagerDuty.
 
-This guide provides information on using PagerDuty for configuring webhooks for alerts in ZDX. These instructions provide a sample configuration that you can use based on user requirements.
+This guide provides information on using PagerDuty for configuring webhooks for Digital Experience (ZDX) alerts. These instructions provide a sample configuration that you can use based on user requirements.
 
 1. Create a PagerDuty account at `www.pagerduty.com`.
 2. On your PagerDuty account page:
@@ -7612,7 +7496,7 @@ This guide provides information on using PagerDuty for configuring webhooks for 
   6. **Copy** the Events API Endpoint address as the URL to use when configuring a webhook in the Zscaler Admin Console. See image.
   7. Click **Save**.
 3. [Configure a webhook in the Zscaler Admin Console.](https://help.zscaler.com/zdx/configuring-webhooks)
-  1. Go to **Policies**> **Digital Experience Monitoring** > **Webhooks**.
+  1. Go to **Digital Experience** > **Webhooks**.
   2. Click **Add Webhook**.
   3. In the **Add Webhook** window:
     - **Name**: Enter the name of the webhook for PagerDuty.
@@ -8189,13 +8073,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/release-upgrade-summary-2026","lastmod":"2026-09-11T06:46Z","nid":"1534310"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/release-upgrade-summary-2026","lastmod":"2026-09-18T08:31Z","nid":"1534310"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zdx/release-upgrade-summary-2026
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-11T06:46Z
+- Last modified: 2026-09-18T08:31Z
 - Summary: Zscaler Digital Experience (ZDX) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for Zscaler Digital Experience (ZDX). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -8261,16 +8145,16 @@ The following table provides a list of error messages you might encounter when r
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/servicenow-webhook-configuration-guide","lastmod":"2026-07-10T10:03Z","nid":"1414521"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/servicenow-webhook-configuration-guide","lastmod":"2026-09-16T13:25Z","nid":"1414521"} -->
 ## ServiceNow Webhook Configuration Guide
 
 - Source: https://help.zscaler.com/zdx/servicenow-webhook-configuration-guide
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Webhook Configuration Guides for Supported Platforms > ServiceNow Configuration Guides > ServiceNow Webhook Configuration Guide
-- Last modified: 2026-07-10T10:03Z
+- Last modified: 2026-09-16T13:25Z
 - Summary: Information on configuring webhook integration for ServiceNow Incident Management and Event Management.
 
-ZDX supports the integration of IT Service Management (ITSM) via Incident Management (IM) and IT Operations Management (ITOM) via Event Management (EM). You can configure webhooks to deliver alerts about an application, device, or network performance. You can also use webhooks in an alert rule and configure multiple alert rules for the webhook. To learn more, see [Configuring an Alert Rule](https://help.zscaler.com/zdx/configuring-alert-rule).
+Digital Experience (ZDX) supports the integration of IT Service Management (ITSM) via Incident Management (IM) and IT Operations Management (ITOM) via Event Management (EM). You can configure webhooks to deliver alerts about an application, device, or network performance. You can also use webhooks in an alert rule and configure multiple alert rules for the webhook. To learn more, see [Configuring an Alert Rule](https://help.zscaler.com/zdx/configuring-alert-rule).
 
 ## Prerequisites
 
@@ -8334,7 +8218,7 @@ In your ServiceNow Console:
 3. Click **Save**.
 4. [Activate the changes.](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console)
 
-1. Go to **Policies**> **Digital Experience Monitoring** > **Webhooks**.
+1. Go to **Digital Experience** > **Webhooks**.
 2. Click **Add Webhook**.
 3. In the **Add Webhook** window:
   - **Name**: Enter a name for the webhook.
@@ -8433,16 +8317,16 @@ Click **Save**to save your webhook configuration.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/servicenow-webhook-configuration-guide-developers","lastmod":"2026-07-10T10:03Z","nid":"1367296"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/servicenow-webhook-configuration-guide-developers","lastmod":"2026-09-16T13:25Z","nid":"1367296"} -->
 ## ServiceNow Webhook Configuration Guide for Developers
 
 - Source: https://help.zscaler.com/zdx/servicenow-webhook-configuration-guide-developers
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Webhook Configuration Guides for Supported Platforms > ServiceNow Configuration Guides > ServiceNow Webhook Configuration Guide for Developers
-- Last modified: 2026-07-10T10:03Z
+- Last modified: 2026-09-16T13:25Z
 - Summary: How to configure webhooks using ServiceNow with a ServiceNow Developer account.
 
-This guide provides information on configuring webhooks using ServiceNow for alerts in ZDX. This article provides a sample configuration that you can build upon per user requirements. The ServiceNow webhook sample configuration here uses a ServiceNow developer configuration.
+This guide provides information on configuring webhooks using ServiceNow for Digital Experience (ZDX) alerts. This article provides a sample configuration that you can build upon per user requirements. The ServiceNow webhook sample configuration here uses a ServiceNow developer configuration.
 
 ## Creating a ServiceNow Developer Account
 
@@ -8465,7 +8349,7 @@ You must create a ServiceNow Developer Account to configure instances where you 
 
 To create a webhook in the Zscaler Admin Console:
 
-1. Go to **Policies**> **Digital Experience Monitoring** > **Webhooks**.
+1. Go to **Digital Experience** > **Webhooks**.
 2. Click **Add Webhook**.
 3. In the **Add Webhook** window:
   - **Name**: Enter a name for the webhook.
@@ -9017,13 +8901,13 @@ var reqData = request.body.dataString;
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/sharing-zdx-snapshots","lastmod":"2026-04-29T09:20Z","nid":"1462931"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/sharing-zdx-snapshots","lastmod":"2026-09-18T17:32Z","nid":"1462931"} -->
 ## Sharing ZDX Snapshots
 
 - Source: https://help.zscaler.com/zdx/sharing-zdx-snapshots
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Users > Sharing ZDX Snapshots
-- Last modified: 2026-04-29T09:20Z
+- Last modified: 2026-09-18T17:32Z
 - Summary: How to share ZDX Snapshots with non-admin users.
 
 The ZDX Snapshot feature captures the current state of a UI page, and provides a URL that admins can share with ZDX users or other admins for view-only access. ZDX Snapshot enables users without Digital Experience login access to view a subset of ZDX features while bypassing the login authentication process.
@@ -9060,7 +8944,7 @@ For the user details page, the **Share Snapshot**link is enabled only when an ap
 
 ## Managing ZDX Snapshots
 
-Go to **Analytics** > **Digital Experience** > **Reports** > **Snapshots** to view a history of ZDX Snapshots from an accrued list of generated URLs. You have the option to copy or delete any of the ZDX Snapshots.
+Go to **Digital Experience** > **Reports** > **Snapshots** to view a history of ZDX Snapshots from an accrued list of generated URLs. You have the option to copy or delete any of the ZDX Snapshots.
 
 - **Name**: The unique name of a generated ZDX Snapshot.
 - **Created On**: The date and time when the ZDX Snapshot was created.
@@ -9095,16 +8979,16 @@ A ZDX Snapshot has only limited user interaction within the page, depending on w
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/slack-webhook-configuration-guide","lastmod":"2026-07-10T10:02Z","nid":"1376321"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/slack-webhook-configuration-guide","lastmod":"2026-09-16T13:24Z","nid":"1376321"} -->
 ## Slack Webhook Configuration Guide
 
 - Source: https://help.zscaler.com/zdx/slack-webhook-configuration-guide
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Webhook Configuration Guides for Supported Platforms > Slack Webhook Configuration Guide
-- Last modified: 2026-07-10T10:02Z
+- Last modified: 2026-09-16T13:24Z
 - Summary: Information on configuring webhooks using Slack.
 
-This guide provides information on configuring webhooks using Slack for alerts in ZDX per user requirements. Incoming webhooks provide a simple way to post messages from ZDX to Slack. The incoming webhook provides a unique URL that sends a JSON payload with the message text.
+This guide provides information on configuring webhooks using Slack for Digital Experience (ZDX) alerts. Incoming webhooks provide a simple way to post messages from ZDX to Slack. The incoming webhook provides a unique URL that sends a JSON payload with the message text.
 
 ## Configuring a Webhook for a Paid Slack Subscription
 
@@ -9124,7 +9008,7 @@ To configure a workflow for your Slack application to send notifications to a se
   6. In your desktop Slack app, go to **Workspace** > **Tools** > **Workflow Builder**.
   7. Select your newly created workflow and go to **Edit** > **Webhook** > **Copy URL**. See image.
 2. [Create a webhook in the Zscaler Admin Console](https://help.zscaler.com/zdx/configuring-webhooks).
-  1. Go to **Policies**> **Digital Experience Monitoring** > **Webhooks**.
+  1. Go to **Digital Experience** > **Webhooks**.
   2. Click **Add Webhook**.
   3. In the **Add Webhook** window:
     - **Name**: Enter a webhook name.
@@ -9152,7 +9036,7 @@ To configure a workflow for your free Slack application to send notifications to
   8. Select an existing channel or create a new one to send the webhook messages to.
   9. Click **Copy** for the webhook URL.
 2. [Create a webhook in the Zscaler Admin Console](https://help.zscaler.com/zdx/configuring-webhooks).
-  1. Go to **Policies**> **Digital Experience Monitoring** > **Webhooks**.
+  1. Go to **Digital Experience** > **Webhooks**.
   2. Click **Add Webhook**.
   3. In the **Add a New Webhook** window:
     - **Name**: Enter a webhook name.
@@ -9184,16 +9068,16 @@ To configure a workflow for your free Slack application to send notifications to
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/splunk-webhook-configuration-guide","lastmod":"2026-07-10T10:03Z","nid":"1390521"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/splunk-webhook-configuration-guide","lastmod":"2026-09-16T13:25Z","nid":"1390521"} -->
 ## Splunk Webhook Configuration Guide
 
 - Source: https://help.zscaler.com/zdx/splunk-webhook-configuration-guide
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Webhook Configuration Guides for Supported Platforms > Splunk Webhook Configuration Guide
-- Last modified: 2026-07-10T10:03Z
+- Last modified: 2026-09-16T13:25Z
 - Summary: How to configure webhooks using Splunk.
 
-This guide provides information on configuring webhooks using Splunk Enterprise for alerts in ZDX. The instructions provide a sample configuration that you can configure based on user requirements.
+This guide provides information on configuring webhooks using Splunk Enterprise for Digital Experience (ZDX) alerts. The instructions provide a sample configuration that you can configure based on user requirements.
 
 ## Setting Up Webhooks in the Splunk Enterprise Instance
 
@@ -9235,7 +9119,7 @@ Create a token to receive data:
 
 [To configure a webhook in the Zscaler Admin Console](https://help.zscaler.com/zdx/configuring-webhooks):
 
-1. Go to **Policies**> **Digital Experience Monitoring** > **Webhooks**.
+1. Go to **Digital Experience** > **Webhooks**.
 2. Click **Add Webhook**.
 3. In the **Add Webhook** window:
   - **Name**: Enter a webhook name for Splunk.
@@ -9780,18 +9664,18 @@ An alert status can be:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/understanding-alert-triggers","lastmod":"2026-01-23T06:06Z","nid":"1389151"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/understanding-alert-triggers","lastmod":"2026-09-16T13:17Z","nid":"1389151"} -->
 ## Understanding Alert Triggers
 
 - Source: https://help.zscaler.com/zdx/understanding-alert-triggers
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Understanding Alert Triggers
-- Last modified: 2026-01-23T06:06Z
-- Summary: Detailed information about how alerts are triggered in the ZDX Admin Portal.
+- Last modified: 2026-09-16T13:17Z
+- Summary: Detailed information about how alerts are triggered for Digital Experience (ZDX).
 
 [Watch a video about configuring alerts in ZDX.](https://fast.wistia.net/embed/iframe/5ozc9luba9)
 
-Each alert rule can be triggered differently based on the type of alert rule. Each alert rule type (Application, Device, Incident, Network, or Call Quality) has different criteria for an alert rule to trigger based on their metrics. If the criteria are met, then the alert triggers and provides notification through an [alert email](https://help.zscaler.com/zdx/understanding-alerts-email).
+Each Digital Experience (ZDX) alert rule can be triggered differently based on the type of alert rule. Each alert rule type (Application, Device, Incident, Network, or Call Quality) has different criteria for an alert rule to trigger based on their metrics. If the criteria are met, then the alert triggers and provides notification through an [alert email](https://help.zscaler.com/zdx/understanding-alerts-email).
 
 The alerts triggered have a display delay of 30 minutes.
 
@@ -9965,14 +9849,14 @@ The alert for Call Quality triggers only if all the criteria and conditions are 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/understanding-alerts-email","lastmod":"2025-07-28T07:06Z","nid":"1364566"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/understanding-alerts-email","lastmod":"2026-09-14T11:05Z","nid":"1364566"} -->
 ## Understanding the Alert Email
 
 - Source: https://help.zscaler.com/zdx/understanding-alerts-email
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Understanding the Alert Email
-- Last modified: 2025-07-28T07:06Z
-- Summary: Information about the alert email sent in ZDX.
+- Last modified: 2026-09-14T11:05Z
+- Summary: Information about the alert email sent.
 
 Alert notifications are sent via email if this option is chosen when configuring the alert rule. To learn more, see [Configuring a Rule](https://help.zscaler.com/zdx/configuring-rule).
 
@@ -9980,13 +9864,13 @@ The alert email shows the following:
 
 - **Alert Criteria Triggers**: These are the criteria selected when the alert rule was configured. If one or more alert criteria are met, then it is highlighted.
 - **Alert Start Time**: This indicates the alert start time and if the alert has ended, then the alert end time is indicated. If the alert end time has not ended, then it indicates Ongoing.
-- **Alert Rule**: The name of the alert rule. Click the name of the alert rule to view further details in the ZDX Admin Portal.
+- **Alert Rule**: The name of the alert rule. Click the name of the alert rule to view further details in the Zscaler Admin Console.
 - **Alert Severity**: The level of severity for this alert rule.
 - **Impacted**: The impacted Geolocations, Departments, OS Versions, and Devices. If the alert has ended, then devices are no longer listed.
 
 See image.
 
-Click **View Alert** to view further details in the ZDX Admin Portal.
+Click **View Alert** to view further details in the Zscaler Admin Console.
 
 ## Incident Alert Email
 
@@ -9996,7 +9880,7 @@ If you configure alerts for incidents, the alert email shows the following:
 - **Incident Type**: The type of incident (e.g., Application, Last Mile ISP).
 - **Epicenter**: The impacted epicenter displays where the center of the incident is. For example, if the incident type is Application, then the epicenter shows the area of impacted users. To learn more, see [Monitoring the Incidents Dashboard](https://help.zscaler.com/zdx/monitoring-incidents-dashboard).
 - **Alert Timeline**: This indicates the alert start time and if the alert has ended, then the incident end time is indicated. If the incident has not ended, then it indicates **Ongoing** in the **Incident Status** and no end time is shown.
-- **Alert Rule**: The name of the alert rule. Click the name of the alert rule to view further details in the ZDX Admin Portal.
+- **Alert Rule**: The name of the alert rule. Click the name of the alert rule to view further details in the Zscaler Admin Console.
 - **Impacted**: The impacted Geolocations, Devices, and Users. If the alert has ended, then devices are no longer listed.
 
 See image.
@@ -10007,7 +9891,7 @@ If you configure alerts for call quality, the alert email shows the following:
 
 - **Alert Criteria Triggers**: These are the criteria selected when the alert rule was configured. If one or more alert criteria are met, then it is highlighted.
 - **Alert Timeline**: This indicates the alert start time and if the alert has ended, then the incident end time is indicated. If the incident has not ended, then it indicates **Ongoing** in the **Incident Status** and no end time is shown.
-- **Alert Rule**: The name of the alert rule. Click the name of the alert rule to view further details in the ZDX Admin Portal.
+- **Alert Rule**: The name of the alert rule. Click the name of the alert rule to view further details in the Zscaler Admin Console.
 - **Alert Severity**: The level of severity of this alert rule.
 - **Impacted**: The impacted Geolocations, Departments, Meetings, and Users.
 
@@ -10970,16 +10854,16 @@ If all three metrics for latency, jitter, and packet loss are unavailable, the Z
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/understanding-zdx-application-fields-servicenow","lastmod":"2026-07-10T10:04Z","nid":"1456846"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/understanding-zdx-application-fields-servicenow","lastmod":"2026-09-16T13:26Z","nid":"1456846"} -->
 ## Understanding the ZDX Application Fields on ServiceNow
 
 - Source: https://help.zscaler.com/zdx/understanding-zdx-application-fields-servicenow
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Webhook Configuration Guides for Supported Platforms > ServiceNow Configuration Guides > Understanding the ZDX Application Fields on ServiceNow
-- Last modified: 2026-07-10T10:04Z
-- Summary: To describe the configurable settings and mappings module fields in the ZDX application on ServiceNow for alerting requirements.
+- Last modified: 2026-09-16T13:26Z
+- Summary: To describe the configurable settings and mappings module fields in the Digital Experience (ZDX) application on ServiceNow for alerting requirements.
 
-After assigning the Incident Management role `x_zsca2_zdx_manage.zdx_management` to your ServiceNow service user, you can configure the following in the ZDX Application on ServiceNow:
+After assigning the Incident Management role `x_zsca2_zdx_manage.zdx_management` to your ServiceNow service user, you can configure the following in the Digital Experience (ZDX) application on ServiceNow:
 
 - The **Settings** module to meet your ZDX integration needs.
 - The **Mappings** module to map categories and subcategories for incoming alerts or created incidents.
@@ -11893,13 +11777,13 @@ If you have View Only permission for Diagnostics details, you cannot use the Exp
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/viewing-hardware-overview-and-hardware-inventory","lastmod":"2026-08-18T08:24Z","nid":"1396666"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/viewing-hardware-overview-and-hardware-inventory","lastmod":"2026-09-18T17:22Z","nid":"1396666"} -->
 ## Viewing Hardware Overview and Hardware Inventory
 
 - Source: https://help.zscaler.com/zdx/viewing-hardware-overview-and-hardware-inventory
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Inventory > Viewing Hardware Overview and Hardware Inventory
-- Last modified: 2026-08-18T08:24Z
+- Last modified: 2026-09-18T17:22Z
 - Summary: Information about viewing the current status, updates, and history of user hardware or devices.
 
 Hardware Overview and Hardware Inventory allow you to view current information about your organization's devices and their hardware information based on their associated users.
@@ -11916,7 +11800,7 @@ To view Hardware Overview and Hardware Inventory data, ensure:
 
 ## Viewing Hardware Overview
 
-You can access **Hardware Overview** page by going to **Analytics** > **Digital Experience**> **Devices** > **Hardware Overview**.
+You can access **Hardware Overview** page by going to **Digital Experience**> **Hardware**> **Hardware Overview**.
 
 On the **Hardware Overview** page, you can:
 
@@ -11936,7 +11820,7 @@ On the **Hardware Overview** page, you can:
 
 ## Viewing Hardware Inventory
 
-The **Hardware Inventory** page provides a current snapshot of your users' devices. You can access the **Hardware Inventory** page by going to **Analytics** > **Digital Experience**> **Devices** > **Hardware Inventory**.
+The **Hardware Inventory** page provides a current snapshot of your users' devices. You can access the **Hardware Inventory** page by going to **Digital Experience**> **Hardware**> **Hardware Inventory**.
 
 On the **Hardware Inventory**page, you can:
 
@@ -12200,13 +12084,13 @@ The report displays up to 5,000 devices. You can use the filters to reduce the a
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/viewing-process-inventory","lastmod":"2026-05-22T07:06Z","nid":"1440651"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/viewing-process-inventory","lastmod":"2026-09-18T17:19Z","nid":"1440651"} -->
 ## Viewing Process Inventory
 
 - Source: https://help.zscaler.com/zdx/viewing-process-inventory
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Inventory > Viewing Process Inventory
-- Last modified: 2026-05-22T07:06Z
+- Last modified: 2026-09-18T17:19Z
 - Summary: Information about viewing process statistics for a user's device.
 
 Process Inventory allows you to monitor processes that might be impacting the behavior of your users' devices. Process calculations are updated in one-minute rolling intervals, and the top processes are displayed every five minutes.
@@ -12221,7 +12105,7 @@ To view the processes, ensure:
 
 ## Viewing the Process Overview
 
-To access the Process Overview page, go to **Analytics** > **Digital Experience** > **Devices** > **Process Overview**. Use the time range filter and page filters to help narrow the scope of CPU incidents based on your CPU usage threshold setting:
+To access the Process Overview page, go to **Digital Experience** > **Process**> **Process Overview**. Use the time range filter and page filters to help narrow the scope of CPU incidents based on your CPU usage threshold setting:
 
 - **Device Vendors**: The names of supported device vendors.
 - **Departments**: The names of your organization's departments.
@@ -12250,7 +12134,7 @@ To view details about a specific process:
 
 ## Viewing Process Inventory
 
-To access the Process Inventory page, go to **Analytics** > **Digital Experience** > **Devices** > **Process Inventory**. Use the time range filter and page filters to help narrow your scope for the top processes based on your threshold setting to trigger CPU incidents. The page provides a current snapshot of CPU usage that has exceeded the threshold on user devices. The table on the Process Inventory page provides the following information:
+To access the Process Inventory page, go to **Digital Experience** > **Process**> **Process Inventory**. Use the time range filter and page filters to help narrow your scope for the top processes based on your threshold setting to trigger CPU incidents. The page provides a current snapshot of CPU usage that has exceeded the threshold on user devices. The table on the Process Inventory page provides the following information:
 
 1. **Name**: The name of the process.
 2. **Devices**: The number of devices impacted.
@@ -12387,13 +12271,13 @@ To learn more about configuring the notifications for users, see [Configuring Se
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/viewing-software-inventory","lastmod":"2026-06-26T16:17Z","nid":"1391206"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/viewing-software-inventory","lastmod":"2026-09-18T17:12Z","nid":"1391206"} -->
 ## Viewing Software Inventory
 
 - Source: https://help.zscaler.com/zdx/viewing-software-inventory
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Inventory > Viewing Software Inventory
-- Last modified: 2026-06-26T16:17Z
+- Last modified: 2026-09-18T17:12Z
 - Summary: Information about viewing the history of software versions and updates for a user's device.
 
 [Watch a video about Viewing Software Inventory in ZDX.](https://fast.wistia.net/embed/iframe/yrkhm4ia2y)
@@ -12414,8 +12298,8 @@ Availability of Software Inventory data might take up to one day after Data Coll
 
 You can access the Software Inventory page by doing either of the following:
 
-- Go to **Analytics**> **Digital Experience** > **Devices** > **Software Overview**. Use the filters to help you find specific software or applications, and select the associated color-coded tile.
-- Go to **Analytics**>**Digital Experience** > **Devices** > **Software Inventory**. Use the filters to help you find specific software or applications listed within the table.
+- Go to **Digital Experience** > **Software**> **Software Overview**. Use the filters to help you find specific software or applications, and select the associated color-coded tile.
+- Go to **Digital Experience** > **Software**> **Software Inventory**. Use the filters to help you find specific software or applications listed within the table.
 
 Use the filters on the Software Overview page to narrow your scope of inventory information:
 
@@ -12517,13 +12401,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/viewing-software-patch-inventory","lastmod":"2025-05-29T19:13Z","nid":"1471776"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/viewing-software-patch-inventory","lastmod":"2026-09-18T17:08Z","nid":"1471776"} -->
 ## Viewing Software Patch Inventory
 
 - Source: https://help.zscaler.com/zdx/viewing-software-patch-inventory
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Inventory > Viewing Software Patch Inventory
-- Last modified: 2025-05-29T19:13Z
+- Last modified: 2026-09-18T17:08Z
 - Summary: Information about the distribution of software patches installed on user devices.
 
 Software Patch Inventory allows you to monitor the current distribution of software patches on user devices across your organization. Each patch is associated with a user and device, and identified as either a software or security patch update, as applicable.
@@ -12539,7 +12423,7 @@ To view software patches, first ensure:
 
 ## Viewing Software Patch Inventory
 
-To access current software patches, go to **Inventory**> **Software Patch Inventory**. The page consolidates the distribution of all software patches with their associated devices.
+To access current software patches, go to **Digital Experience > Software**> **Software Patches**. The page consolidates the distribution of all software patches with their associated devices.
 
 Use the page filters to help narrow the scope of patches, based on Zscaler location and geolocation. View the numerical counts for software patches and devices:
 
@@ -12657,16 +12541,16 @@ The following table provides a list of possible error messages and a description
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/zdx-integration-servicenow","lastmod":"2026-07-10T10:04Z","nid":"1461996"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/zdx-integration-servicenow","lastmod":"2026-09-16T13:26Z","nid":"1461996"} -->
 ## ZDX Integration on ServiceNow
 
 - Source: https://help.zscaler.com/zdx/zdx-integration-servicenow
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Webhook Configuration Guides for Supported Platforms > ServiceNow Configuration Guides > ZDX Integration on ServiceNow
-- Last modified: 2026-07-10T10:04Z
-- Summary: To provide configuration steps for ZDX integration with ServiceNow.
+- Last modified: 2026-09-16T13:26Z
+- Summary: To provide configuration steps for Digital Experience (ZDX) integration with ServiceNow.
 
-With your Incident Management service user role and webhook configured, you can integrate ServiceNow with ZDX to:
+With your Incident Management service user role and webhook configured, you can integrate ServiceNow with Digital Experience (ZDX) to:
 
 - Create Deep Tracing sessions to provide deeper granularity and process-level information for a user.
 - Run a Root Cause Analysis to help detect and identify the root cause of a drop in an application's ZDX Score.

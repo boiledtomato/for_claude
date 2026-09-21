@@ -1,18 +1,18 @@
 # Zscaler Help — Other (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-14 03:38 UTC
+Generated: 2026-09-21 08:12 UTC
 Articles in this file: 18
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/about-agentic-soc","lastmod":"2026-09-02T10:25Z","nid":"1540781"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/about-agentic-soc","lastmod":"2026-09-17T11:45Z","nid":"1540781"} -->
 ## About Agentic SOC
 
 - Source: https://help.zscaler.com/agentic-soc/about-agentic-soc
 - Product: Agentic SOC
 - Path: Agentic SOC Help > About Agentic SOC
-- Last modified: 2026-09-02T10:25Z
+- Last modified: 2026-09-17T11:45Z
 - Summary: Information on the Agentic SOC page in the Agentic SOC application of the Security Operations Platform.
 
 The Agentic SOC page is designed as a starting point in the SecOps Platform Admin Portal, providing a quick visual representation of your organization's overall security posture. You can instantly see which sources are responsible for alerts, the total number of alerts, the number of incidents created from alerts, and the triaged incidents.
@@ -94,13 +94,13 @@ On the Agents page (**Agentic SOC** > **Agents**), you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/about-alerts","lastmod":"2026-09-02T12:44Z","nid":"1534212"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/about-alerts","lastmod":"2026-09-17T11:45Z","nid":"1534212"} -->
 ## About Alerts
 
 - Source: https://help.zscaler.com/agentic-soc/about-alerts
 - Product: Agentic SOC
 - Path: Agentic SOC Help > Administration > Incidents & Alerts > About Alerts
-- Last modified: 2026-09-02T12:44Z
+- Last modified: 2026-09-17T11:45Z
 - Summary: Information on how the Zscaler Agentic SOC Alerts page helps your team monitor alert activity across your organization.
 
 Zscaler Agentic SOC alerts are designed to aggregate data from many different sources to help your Security Operations Center (SOC) team see a larger context and not be pressured into acting quickly based on an accumulation of noise. Instead of using traditional detection techniques to focus on individual alerts, you can instead focus on proactively anticipating and cutting off your adversaries’ next moves. With Agentic SOC alerts, you can take pressure off of your SOC teams and your organization as a whole by taking a proactive (instead of reactive) approach to the alerts being generated across applications.
@@ -205,13 +205,13 @@ The **Assets** page includes system views with predefined filter selections, pro
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/about-incidents","lastmod":"2026-09-02T12:36Z","nid":"1534211"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/about-incidents","lastmod":"2026-09-17T11:45Z","nid":"1534211"} -->
 ## About Incidents
 
 - Source: https://help.zscaler.com/agentic-soc/about-incidents
 - Product: Agentic SOC
 - Path: Agentic SOC Help > Administration > Incidents & Alerts > About Incidents
-- Last modified: 2026-09-02T12:36Z
+- Last modified: 2026-09-17T11:45Z
 - Summary: Information on how the Zscaler Agentic SOC Incidents page helps your team monitor incident activity across your organization.
 
 Zscaler Agentic SOC incidents are designed to quickly provide complete context for all incidents and to let you pivot to specific asset information for deeper insights, enabling your Security Operations Center (SOC) team to make faster, more effective decisions. When you open the Incidents page, it provides high-level information at a glance about the incidents affecting your organization, and you can merge, sort, update, and add comments to the incidents listed in the table. Additionally, you can drill down to get granular information about each incident, including specific recommended actions from the AI Response Agent.
@@ -258,13 +258,13 @@ For each incident in the list, you can click to see a detailed view of data abou
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/about-soc-workbench-dashboard","lastmod":"2026-09-02T12:33Z","nid":"1534209"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/about-soc-workbench-dashboard","lastmod":"2026-09-17T11:44Z","nid":"1534209"} -->
 ## About the SOC Workbench Dashboard
 
 - Source: https://help.zscaler.com/agentic-soc/about-soc-workbench-dashboard
 - Product: Agentic SOC
 - Path: Agentic SOC Help > Analytics > About the SOC Workbench Dashboard
-- Last modified: 2026-09-02T12:33Z
+- Last modified: 2026-09-17T11:44Z
 - Summary: Information on how the SOC Workbench dashboard for Agentic SOC helps your organization monitor threat activity across your organization.
 
 The SOC Workbench Dashboard is designed to provide high-level information about your organization's current risk of a data breach. The dashboard is divided into a series of tables and interactive charts and graphs. You can simply click chart data to see more detailed information. You can also use default views and custom filtering to better understand how alerts relate to actual incidents, as well as your organization’s placement within the MITRE ATT&CK framework during a specified period. Most importantly, the dashboard lets you focus on incidents instead of alerts, showing you the statuses of incidents across your organization, including which users and hosts have been affected.
@@ -296,13 +296,13 @@ On the SOC Workbench Dashboard page (Agentic SOC > Dashboard), you can do the fo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/configuring-alert-scores","lastmod":"2026-09-02T12:49Z","nid":"1534213"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/configuring-alert-scores","lastmod":"2026-09-17T11:45Z","nid":"1534213"} -->
 ## Configuring Alert Scores
 
 - Source: https://help.zscaler.com/agentic-soc/configuring-alert-scores
 - Product: Agentic SOC
 - Path: Agentic SOC Help > Administration > Incidents & Alerts > Configuring Alert Scores
-- Last modified: 2026-09-02T12:49Z
+- Last modified: 2026-09-17T11:45Z
 - Summary: Information on how to configure Zscaler Agentic SOC alert scores to help your team monitor alert activity across your organization.
 
 As you use Agentic SOC, you can customize alert scoring by creating new factors or editing existing factors for alerts, MITRE ATT&CK classifications, users, and assets.
@@ -360,13 +360,13 @@ The detail panel for the alert factor closes.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/configuring-incident-rules","lastmod":"2026-09-09T12:56Z","nid":"1534214"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/configuring-incident-rules","lastmod":"2026-09-17T11:45Z","nid":"1534214"} -->
 ## Configuring Incident Rules
 
 - Source: https://help.zscaler.com/agentic-soc/configuring-incident-rules
 - Product: Agentic SOC
 - Path: Agentic SOC Help > Administration > Incidents & Alerts > Configuring Incident Rules
-- Last modified: 2026-09-09T12:56Z
+- Last modified: 2026-09-17T11:45Z
 - Summary: Information on how to configure Zscaler Agentic SOC incident rules to help your team monitor incidents across your organization.
 
 Incident rules determine the data you see on the [Incidents page](https://help.zscaler.com/soc-workbench/about-incidents) and are a key element of Agentic SOC's focus on incidents over alerts. Incidents allow you to see connections and bring together multiple disparate alerts from different products into a single location. For example, suppose 50 people in your organization receive phishing emails. Without Agentic SOC, you'd receive numerous alerts from different products about the same phishing attempt. Agentic SOC, on the other hand, consolidates all alerts into a single incident, which significantly reduces the number of alerts. Moreover, Agentic SOC incidents help you differentiate between users who received but didn't open the phishing email vs. those who opened the email, leading to data exfiltration.
@@ -500,13 +500,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/configuring-severity-categories","lastmod":"2026-09-02T12:53Z","nid":"1541100"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/configuring-severity-categories","lastmod":"2026-09-17T11:46Z","nid":"1541100"} -->
 ## Configuring Severity Categories
 
 - Source: https://help.zscaler.com/agentic-soc/configuring-severity-categories
 - Product: Agentic SOC
 - Path: Agentic SOC Help > Administration > Incidents & Alerts > Configuring Severity Categories
-- Last modified: 2026-09-02T12:53Z
+- Last modified: 2026-09-17T11:46Z
 - Summary: How to assign severity score to severity categories for findings in Agentic SOC.
 
 Severity levels are categorical values assigned to findings based on their severity score. In Agentic SOC, you can customize severity categories by mapping severity score ranges to those categories. The configured severity categories can then be used in dashboards and charts throughout the SecOps Platform Admin Portal. Proper severity settings ensure that remediation teams can efficiently focus on high-risk vulnerabilities while aligning their processes with organizational or compliance requirements.
@@ -538,13 +538,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/creating-custom-incident","lastmod":"2026-09-02T12:42Z","nid":"1540861"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/creating-custom-incident","lastmod":"2026-09-17T11:45Z","nid":"1540861"} -->
 ## Creating a Custom Incident
 
 - Source: https://help.zscaler.com/agentic-soc/creating-custom-incident
 - Product: Agentic SOC
 - Path: Agentic SOC Help > Administration > Incidents & Alerts > Creating a Custom Incident
-- Last modified: 2026-09-02T12:42Z
+- Last modified: 2026-09-17T11:45Z
 - Summary: Information on how to create a custom incident in Zscaler Agentic SOC.
 
 Although one of Agentic SOC’s biggest benefits is its ability to use multiple AI agents to ingest vast amounts of alert data to create specific and actionable incidents, you might also want to create custom incidents based on your organization’s business needs. You can create a custom incident based on one or more alerts from the collated list available on the [Alerts page](https://help.zscaler.com/agentic-soc/about-alerts) in Agentic SOC.
@@ -574,13 +574,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/customizing-alert-and-incident-detail-pages","lastmod":"2026-09-02T12:45Z","nid":"1534217"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/customizing-alert-and-incident-detail-pages","lastmod":"2026-09-17T11:45Z","nid":"1534217"} -->
 ## Customizing Alert and Incident Detail Pages
 
 - Source: https://help.zscaler.com/agentic-soc/customizing-alert-and-incident-detail-pages
 - Product: Agentic SOC
 - Path: Agentic SOC Help > Administration > Incidents & Alerts > Customizing Alert and Incident Detail Pages
-- Last modified: 2026-09-02T12:45Z
+- Last modified: 2026-09-17T11:45Z
 - Summary: How to customize the incident and alert detail pages in Zscaler Agentic SOC.
 
 To help make Agentic SOC incident and alert data easier to parse, you can customize the detail pages you see when you click an incident on the [Incidents page](https://help.zscaler.com/agentic-soc/about-incidents) or an alert on the [Alerts page](https://help.zscaler.com/agentic-soc/about-alerts).
@@ -675,13 +675,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/customizing-incident-and-alert-statuses","lastmod":"2026-09-02T12:51Z","nid":"1541098"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/customizing-incident-and-alert-statuses","lastmod":"2026-09-17T11:45Z","nid":"1541098"} -->
 ## Customizing Incident and Alert Statuses
 
 - Source: https://help.zscaler.com/agentic-soc/customizing-incident-and-alert-statuses
 - Product: Agentic SOC
 - Path: Agentic SOC Help > Administration > Incidents & Alerts > Customizing Incident and Alert Statuses
-- Last modified: 2026-09-02T12:51Z
+- Last modified: 2026-09-17T11:45Z
 - Summary: How to customize incident and alert statuses in Zscaler Agentic SOC.
 
 To help support your Security Operations Center (SOC) team's internal workflows, Agentic SOC allows you to customize the statuses that are available for [incidents](https://help.zscaler.com/agentic-soc/about-incidents) and [alerts](https://help.zscaler.com/agentic-soc/about-alerts). Agentic SOC provides a default set of statuses for incidents and alerts, but you can configure existing statuses (e.g., reorder and rename) and create new statuses. Statuses appear in various incident and alert views in the SecOps Platform Admin Portal.
@@ -790,13 +790,13 @@ The [Alerts](https://help.zscaler.com/soc-workbench/about-alerts) page brings al
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/understanding-severity-scores","lastmod":"2026-09-02T12:52Z","nid":"1541099"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/understanding-severity-scores","lastmod":"2026-09-17T11:46Z","nid":"1541099"} -->
 ## Understanding Severity Scores
 
 - Source: https://help.zscaler.com/agentic-soc/understanding-severity-scores
 - Product: Agentic SOC
 - Path: Agentic SOC Help > Administration > Incidents & Alerts > Understanding Severity Scores
-- Last modified: 2026-09-02T12:52Z
+- Last modified: 2026-09-17T11:46Z
 - Summary: Information on how Agentic SOC severity scores are calculated.
 
 In alert management, multiple factors within categories (e.g., the product that produced an alert, whether a user is an admin, etc.) are given severity scores that are used to prioritize remediation efforts. Individual severity scores typically range from 0 to 10, where a higher score indicates greater criticality requiring immediate attention and resolution, and thus takes precedence over vulnerabilities with lower scores. Agentic SOC then adds the total score from each factor to produce the overall severity score.
@@ -812,13 +812,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/understanding-zscaler-agentic-soc","lastmod":"2026-09-02T09:31Z","nid":"1534207"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/understanding-zscaler-agentic-soc","lastmod":"2026-09-17T11:44Z","nid":"1534207"} -->
 ## Understanding Zscaler Agentic SOC
 
 - Source: https://help.zscaler.com/agentic-soc/understanding-zscaler-agentic-soc
 - Product: Agentic SOC
 - Path: Agentic SOC Help > Understanding Zscaler Agentic SOC
-- Last modified: 2026-09-02T09:31Z
+- Last modified: 2026-09-17T11:44Z
 - Summary: A high-level explanation of how Zscaler Agentic SOC works.
 
 Zscaler Agentic SOC is specifically built to eliminate gaps that traditional Security Operations Center (SOC) tools ignore. Powered by the Zscaler Data Fabric for Security, Agentic SOC transforms isolated alerts from across your security stack into a prioritized, holistic view of threats. Seamless integration with the Zero Trust Exchange (ZTE) platform provides additional threat context and initiates inline controls to automatically mitigate risk.
@@ -863,13 +863,13 @@ With specific recommended actions from the Agentic SOC Response Agent, you can r
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/viewing-incident-details","lastmod":"2026-09-02T12:37Z","nid":"1540782"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/viewing-incident-details","lastmod":"2026-09-17T11:45Z","nid":"1540782"} -->
 ## Viewing Incident Details
 
 - Source: https://help.zscaler.com/agentic-soc/viewing-incident-details
 - Product: Agentic SOC
 - Path: Agentic SOC Help > Administration > Incidents & Alerts > Viewing Incident Details
-- Last modified: 2026-09-02T12:37Z
+- Last modified: 2026-09-17T11:45Z
 - Summary: Information on how to view incident details in Zscaler Agentic SOC.
 
 As incidents are the most important and actionable element in Agentic SOC, you can find information about specific incidents in several ways. Starting with the [Agentic SOC dashboard](https://help.zscaler.com/soc-workbench/about-agentic-soc) and extending to nearly every other page in the Agentic SOC UI, you can easily access specific and actionable incident information.
@@ -924,13 +924,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/what-zscaler-agentic-soc","lastmod":"2026-09-02T09:10Z","nid":"1534206"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/what-zscaler-agentic-soc","lastmod":"2026-09-17T11:44Z","nid":"1534206"} -->
 ## What Is Zscaler Agentic SOC?
 
 - Source: https://help.zscaler.com/agentic-soc/what-zscaler-agentic-soc
 - Product: Agentic SOC
 - Path: Agentic SOC Help > What Is Zscaler Agentic SOC?
-- Last modified: 2026-09-02T09:10Z
+- Last modified: 2026-09-17T11:44Z
 - Summary: How Zscaler Agentic SOC works and fits in with other products in the Zscaler ecosystem.
 
 Security Operations Center (SOC) teams face a daily battle, wading through endless alerts coming from disparate tools—networks, endpoints, cloud environments, email security applications, identity platforms, and more. Bringing together all of these isolated alerts to understand the full picture of an attack is challenging, tedious, and often error prone. As a result, SOC analysts are overwhelmed with alert fatigue, wasting precious time chasing false positives instead of remediating real threats.

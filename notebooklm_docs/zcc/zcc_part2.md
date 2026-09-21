@@ -1,7 +1,7 @@
 # Zscaler Help — ZCC — Zscaler Client Connector (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-14 03:38 UTC
+Generated: 2026-09-21 08:12 UTC
 Articles in this file: 52
 
 ---
@@ -678,13 +678,13 @@ Zscaler Client Connector for iOS 1.5.3 is available for download from the iTunes
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/using-webview2-authentication","lastmod":"2026-05-05T13:04Z","nid":"1477906"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/using-webview2-authentication","lastmod":"2026-09-16T17:14Z","nid":"1477906"} -->
 ## Using WebView2 Authentication
 
 - Source: https://help.zscaler.com/zscaler-client-connector/using-webview2-authentication
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Platform and Authentication Management > Using WebView2 Authentication
-- Last modified: 2026-05-05T13:04Z
+- Last modified: 2026-09-16T17:14Z
 - Summary: Information about how to enable WebView2 in Zscaler Client Connector.
 
 If your organization uses advanced multi-factor authentication (MFA) for SAML or FIDO2 (Fast Identity Online 2), your users can authenticate using WebView2 in their embedded browser. Zscaler Client Connector still manages traffic for Internet & SaaS and provides access to applications through Private Access.
@@ -721,9 +721,9 @@ WebView2 launches its own set of processes, so Zscaler Client Connector must byp
 
 To enable WebView2 authentication in the Zscaler Admin Console:
 
-1. Go to **Infrastructure** > **Connectors** > **Client**.
-2. Under Platform Settings, select **Windows** and click the **Platform Settings** tab.
-3. Under **Authentication Settings**: [Image: Enabling WebView2 authentication]
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure** > **Client Connector** > **Windows**.
+2. On the **Platform Settings** tab, click **Edit**.
+3. In the **Edit Platform Settings** window, under **Authentication Settings**: [Image: Enabling WebView2 authentication]
   1. **WebView2**: Select this option to enable WebView2 authentication.
   2. **SSO using Windows Primary Account**: (Optional) Select this option to automatically log in users in an Azure AD environment using Windows as an IdP. If this option is disabled, users must enter their credentials separately to log in to Zscaler Client Connector. This option is available only for Zscaler Client Connector version 4.4 and later for Windows.
   3. **Ignore Client Cert errors for Webview2**: (Optional) Select this option to have Zscaler Client Connector continue authenticating if the IdP requires a client certificate for mutual authentication but the client device does not have a client certificate or if the client certificate is invalid. This option is available only for Zscaler Client Connector version 4.4 and later for Windows.
@@ -1057,13 +1057,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/using-zscaler-notification-framework","lastmod":"2026-06-03T11:27Z","nid":"1392841"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/using-zscaler-notification-framework","lastmod":"2026-09-18T08:56Z","nid":"1392841"} -->
 ## Using the Zscaler Notification Framework
 
 - Source: https://help.zscaler.com/zscaler-client-connector/using-zscaler-notification-framework
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Administration > Zscaler Client Connector Notifications > Using the Zscaler Notification Framework
-- Last modified: 2026-06-03T11:27Z
+- Last modified: 2026-09-18T08:56Z
 - Summary: Information on the Zscaler Notifications Framework for Zscaler Client Connector.
 
 This article provides an overview of the Zscaler Notification Framework that, when enabled, overrides the Windows-based and macOS-based notification systems. Only administrators can enable and disable the Zscaler Notification Framework in the Zscaler Admin Console.
@@ -1083,14 +1083,14 @@ This feature is required for Data Loss Prevention (DLP) notifications. To learn 
 
 To enable the Zscaler Notification Framework on Windows devices:
 
-1. Go to **Infrastructure** > **Connectors** > **Client** > **Windows**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Infrastructure** > **Client Connectors** > **Windows**.
 2. On the **App Profiles** tab, click **Add Windows Policy**. The **Add Windows Policy** window appears.
 3. In the **Add Windows Policy** window, enable **Use Zscaler Notification Framework**. [Image: Use Zscaler Notification Framework option]
 4. Click **Save**.
 
 To enable the Zscaler Notification Framework on macOS devices:
 
-1. Go to **Infrastructure** > **Connectors** > **Client** > **macOS**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Infrastructure** > **Client Connectors** > **macOS**.
 2. On the **App Profiles** tab, click **Add macOS Policy**. The **Add macOS Policy** window appears.
 3. In the **Add macOS Policy** window, enable **Use Zscaler Notification Framework**. [Image: Use Zscaler Notification Framework option]
 4. Click **Save**.
@@ -1124,13 +1124,13 @@ To verify access to applications:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-and-configuring-zdx-module-upgrades","lastmod":"2026-06-03T11:20Z","nid":"1529195"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-and-configuring-zdx-module-upgrades","lastmod":"2026-09-18T12:10Z","nid":"1529195"} -->
 ## Viewing and Configuring ZDX Module Upgrades
 
 - Source: https://help.zscaler.com/zscaler-client-connector/viewing-and-configuring-zdx-module-upgrades
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Administration > Zscaler Client Connector Store Settings > Viewing and Configuring ZDX Module Upgrades
-- Last modified: 2026-06-03T11:20Z
+- Last modified: 2026-09-18T12:10Z
 - Summary: How to view and schedule ZDX Module upgrades
 
 If you use Zscaler Digital Experience (ZDX), Zscaler regularly releases new versions of the base ZDX Module that are compatible with Zscaler Client Connector for Windows and Zscaler Client Connector for macOS. Zscaler Client Connector automatically rolls out the latest version. You can configure a delayed rollout to apply a version to selected user groups for testing purposes for up to 180 days.
@@ -1147,13 +1147,13 @@ The following options are available:
 - Unfreeze a Frozen Rollout
 - Download an Upgrade Package
 
-1. Go to **Infrastructure** > **Common Resources** > **Deployment** > **ZDX Releases**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Infrastructure** > **Client Connector** > **App Store**.
 2. Select the platform (**Windows** or **macOS**) and view the fields: [Image: View the ZDX Module tab]
   - **ZDX Module Version**: The ZDX Module version that has been rolled out.
   - **Zscaler Client Connector Min-Max Version**: The earliest and latest versions of Zscaler Client Connector that the ZDX Module version is compatible with.
   - **Devices**: The number of devices using the ZDX Module version. Click the**Information** icon to display the number.
 
-1. Go to **Infrastructure** > **Common Resources** > **Deployment** > **ZDX Releases**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Infrastructure** > **Client Connector** > **App Store**.
 2. Select **Delay Rollout** and click **Save**. See image.
 3. Select the platform (**Windows** or **macOS**) and disable the **Rollout** option for the ZDX Module version you want to delay the rollout for.
 4. Click **Submit** to confirm you want to delay the rollout. The **Edit** icon displays in the Action column.
@@ -1162,15 +1162,15 @@ The following options are available:
 
 If you want to delay a rollout beyond the 180-day maximum (e.g., you encountered issues in testing and need additional time to address them), you can freeze a delayed rollout:
 
-1. Go to **Infrastructure** > **Common Resources** > **Deployment** > **ZDX Releases**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Infrastructure** > **Client Connector** > **App Store**.
 2. Click the **Lock** icon beside the ZDX Module version. The **Request to Freeze Rollout** window appears. See image.
 3. Enter the case number (e.g., the Salesforce case number) if you know it and the reason you are freezing the rollout.
 4. Click **Submit**. The **Status** changes to **Frozen** and the **Auto Rollout In** field is cleared.
 
-1. Go to **Infrastructure** > **Common Resources** > **Deployment** > **ZDX Releases**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Infrastructure** > **Client Connector** > **App Store**.
 2. Click the **Lock** icon beside the frozen ZDX Module version, and click **Unfreeze** in the confirmation window. The rollout returns to a **Status** of **Pending** (if you unfreeze it fewer than 180 days after it was released) or is immediately rolled out (if you unfreeze it 180 or more days after it was released).
 
-1. Go to **Infrastructure** > **Common Resources** > **Deployment** > **ZDX Releases**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Infrastructure** > **Client Connector** > **App Store**.
 2. Select **Windows** and select the **ZIP URL (32 bit)** or **ZIP URL (64 bit)** download link for the ZDX Module Version package. [Image: View the ZDX Module tab] You can use the downloaded package with your MDM or Group Policy Object (GPO) to upgrade the ZDX Module based on your organization’s procedures. You can also [upgrade from the CLI](https://help.zscaler.com/zscaler-client-connector/interacting-zscaler-client-connector-remotely).
 
 [Image: View the Delay Rollout tab]
@@ -2468,13 +2468,13 @@ If the you installed Charles Proxy on a user's device before installing Zscaler 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-app-registry-keys","lastmod":"2026-07-29T17:15Z","nid":"1358826"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-app-registry-keys","lastmod":"2026-09-20T07:06Z","nid":"1358826"} -->
 ## Zscaler Client Connector: Windows Registry Keys
 
 - Source: https://help.zscaler.com/zscaler-client-connector/zscaler-app-registry-keys
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Troubleshooting > Zscaler Client Connector: Windows Registry Keys
-- Last modified: 2026-07-29T17:15Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: Information on Zscaler Client Connector registry keys with a list of all possible values and their explanation.
 
 This article defines the values for the `ZNW_State`, `ZPA_State`, `ZWS_State`, and `ZPA_AuthState` registry keys. You can navigate to Zscaler Client Connector registry keys by using the following path: `HKEY_CURRENT_USER\Software\Zscaler\App`.
@@ -2962,13 +2962,13 @@ The table below provides a list of error messages your users might see for Zscal
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-processes-allowlist","lastmod":"2026-09-13T07:06Z","nid":"1285511"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-processes-allowlist","lastmod":"2026-09-20T07:06Z","nid":"1285511"} -->
 ## Zscaler Client Connector Processes to Allowlist
 
 - Source: https://help.zscaler.com/zscaler-client-connector/zscaler-client-connector-processes-allowlist
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Interoperability > Zscaler Client Connector Processes to Allowlist
-- Last modified: 2026-09-13T07:06Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: Information on Zscaler Client Connector binaries and processes that the users' devices should allowlist.
 
 Zscaler recommends that your users' devices have inbound rules that allow the Zscaler Client Connector binaries and processes.
