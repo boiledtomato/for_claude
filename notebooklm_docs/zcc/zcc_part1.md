@@ -1,7 +1,7 @@
 # Zscaler Help — ZCC — Zscaler Client Connector (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 08:12 UTC
+Generated: 2026-09-21 22:17 UTC
 Articles in this file: 203
 
 ---
@@ -1130,7 +1130,7 @@ On the Device Management page (Infrastructure > Connectors > Client > Device Ove
   5. **Hardware Fingerprint**: The unique ID created from the device’s hardware, such as a serial number, BIOS ID, battery ID, etc.
   6. **Zscaler Client Connector Version**: The Zscaler Client Connector version installed on the devices.
   7. **App Profile Name**: A custom name that an administrator configures when creating or modifying app profiles for each OS (Windows, macOS, Linux, etc.).
-4. View a list of enrolled devices for your organization. For each enrolled device, you can view these fields. You can customize what you see on the screen. For details, refer to step 7. **User ID**: The enrolled user for the device.; **OS Type**: The device operating system.; **Device Model**: The device model.; **Zscaler Client Connector Version**: The Zscaler Client Connector version installed on the device.; **Device State**: The status of the device. To learn more, see [Device States for Enrolled Devices](https://help.zscaler.com/zscaler-client-connector/device-states-enrolled-devices).; **Zscaler Digital Experience Version**: The Zscaler Digital Experience (ZDX) version installed on the device.; **Zscaler Deception Version**: The Deception version installed on the device.; **Unique-ID**: The Zscaler-provided device's unique identifier.; **Hardware Fingerprint**: The unique ID created from the device’s hardware, such as a serial number, BIOS ID, battery ID, etc.; **Configuration Download Count**: The total number of times the app profile was updated on the device since enrollment.; **Tunnel Version**: The last Zscaler Tunnel (Z-Tunnel) version the device connected with.; **Policy Name**: The Zscaler Client Connector profile assigned to the device. To learn more, see [About Zscaler Client Connector App Profiles](https://help.zscaler.com/zscaler-client-connector/about-zscaler-client-connector-app-profiles).; **OS Version**: The version of the operating system for the device.; **Machine Hostname**: If **Collect Machine Hostname Information** is enabled, this field displays the machine hostname. When disabled, this field does not display the machine hostname.; **MAC Address**: The device's media access control address.; **Manufacturer**: The device's manufacturer.; **Owner**: If **Collect Device Owner Information** is enabled, this field displays the device owner information. For Windows and macOS, this is the locally logged in user. For Android and iOS, this is the Zscaler Client Connector username. When disabled, this field does not display device owner information.; **Last Registration Time**: The last time the user logged in to Zscaler Client Connector on the device.; **Keep Alive Time**: The keepalive occurs every 80 minutes.; **Last Deregistration Time**: The last time the user logged out of Zscaler Client Connector on the device.; **Last Configuration Download Time**: The last time the Zscaler Client Connector profile was updated. To learn more, see [Zscaler Client Connector Update Intervals](https://help.zscaler.com/zscaler-client-connector/zscaler-app-update-intervals).; **Last Seen with Client Connector Active**: The last time that Zscaler Client Connector was active on the device.; **Last Seen Connected to ZIA**: The last known date and time of connection to Internet & SaaS (ZIA).; **Zscaler Client Connector Revert Status**: Statuses include **Unknown**, **InProgress**, **PreviousBuildNotAvailable**, **RevertFailed**, and **RevertSuccess**.; **Department**: Department information synced from Internet & SaaS.; **Active Tunnel SDK Version**: The current tunnel SDK version to allow admins to track the devices switching between multiple tunnel SDK versions.; **Installation Type**: The type of installation (Strict Enforcement or General Deployment).; **Serial Number**: The device’s serial number.; **DC Location Method**: The method used to locate the nearest data center (Source IP or Device Geolocation).
+4. View a list of enrolled devices for your organization. For each enrolled device, you can view these fields. You can customize what you see on the screen. For details, refer to step 7. **User ID**: The enrolled user for the device.; **OS Type**: The device operating system.; **Device Model**: The device model.; **Zscaler Client Connector Version**: The Zscaler Client Connector version installed on the device.; **Device State**: The status of the device. To learn more, see [Device States for Enrolled Devices](https://help.zscaler.com/zscaler-client-connector/device-states-enrolled-devices).; **Zscaler Digital Experience Version**: The Digital Experience (ZDX) version installed on the device.; **Zscaler Deception Version**: The Deception version installed on the device.; **Unique-ID**: The Zscaler-provided device's unique identifier.; **Hardware Fingerprint**: The unique ID created from the device’s hardware, such as a serial number, BIOS ID, battery ID, etc.; **Configuration Download Count**: The total number of times the app profile was updated on the device since enrollment.; **Tunnel Version**: The last Zscaler Tunnel (Z-Tunnel) version the device connected with.; **Policy Name**: The Zscaler Client Connector profile assigned to the device. To learn more, see [About Zscaler Client Connector App Profiles](https://help.zscaler.com/zscaler-client-connector/about-zscaler-client-connector-app-profiles).; **OS Version**: The version of the operating system for the device.; **Machine Hostname**: If **Collect Machine Hostname Information** is enabled, this field displays the machine hostname. When disabled, this field does not display the machine hostname.; **MAC Address**: The device's media access control address.; **Manufacturer**: The device's manufacturer.; **Owner**: If **Collect Device Owner Information** is enabled, this field displays the device owner information. For Windows and macOS, this is the locally logged in user. For Android and iOS, this is the Zscaler Client Connector username. When disabled, this field does not display device owner information.; **Last Registration Time**: The last time the user logged in to Zscaler Client Connector on the device.; **Keep Alive Time**: The keepalive occurs every 80 minutes.; **Last Deregistration Time**: The last time the user logged out of Zscaler Client Connector on the device.; **Last Configuration Download Time**: The last time the Zscaler Client Connector profile was updated. To learn more, see [Zscaler Client Connector Update Intervals](https://help.zscaler.com/zscaler-client-connector/zscaler-app-update-intervals).; **Last Seen with Client Connector Active**: The last time that Zscaler Client Connector was active on the device.; **Last Seen Connected to ZIA**: The last known date and time of connection to Internet & SaaS (ZIA).; **Zscaler Client Connector Revert Status**: Statuses include **Unknown**, **InProgress**, **PreviousBuildNotAvailable**, **RevertFailed**, and **RevertSuccess**.; **Department**: Department information synced from Internet & SaaS.; **Active Tunnel SDK Version**: The current tunnel SDK version to allow admins to track the devices switching between multiple tunnel SDK versions.; **Installation Type**: The type of installation (Strict Enforcement or General Deployment).; **Serial Number**: The device’s serial number.; **DC Location Method**: The method used to locate the nearest data center (Source IP or Device Geolocation).
 5. [View the device fingerprint for each enrolled device](https://help.zscaler.com/zscaler-client-connector/viewing-device-fingerprint-enrolled-device). You can also view the [one-time password](https://help.zscaler.com/zscaler-client-connector/about-one-time-passwords-enrolled-devices) for each device.
 6. Select devices for soft removal from the Zscaler Admin Console.
 7. Create a custom view of the Device Management page by modifying the displayed columns and the number of rows.
@@ -1142,7 +1142,7 @@ On the Device Management page (Infrastructure > Connectors > Client > Device Ove
   - **Device Details (All Fields)**: Includes fields such as manufacturer, model, username, machine hostname, UDID, etc.
   - **Device Details (Custom Fields)**: Includes fields such as **User**, **OS Type**, **Device Model**, **OS Version**, and **VPN State**.
   - **Disable Reasons**: Displays the reasons a service was disabled up to the 5 most recent times the service was disabled.
-  - **Service Status**: The status of Internet & SaaS, Private Access, and Zscaler Digital Experience (ZDX). Can be in an **On**, **Off**, or **Error** state. This only applies if you have those services enabled for your organization.
+  - **Service Status**: The status of Internet & SaaS, Private Access, and Digital Experience (ZDX). Can be in an **On**, **Off**, or **Error** state. This only applies if you have those services enabled for your organization.
   - **Partner Login Details**: Includes partner device fields such as UDID, Platform, Device ID, login name, and cloud.
 
 [Image: About Device Management]
@@ -1690,7 +1690,7 @@ Zscaler Client Connector User Privacy settings provide you with the following be
 - Enable packet capture and allow non-administrator users access to log files for troubleshooting.
 - Restrict packet capture to only administrators.
 - Protect user information by disabling automatic uploading of crash reports.
-- Collect geolocation information if Zscaler Digital Experience (ZDX) is enabled on a device.
+- Collect geolocation information if Digital Experience (ZDX) is enabled on a device.
 - Provide users flexibility by allowing them to change default parameters for Zscaler Tunnel (Z-Tunnel) 2.0 or Private Access protocol settings.
 - Protect traffic from malicious PAC files by enforcing secure PAC URLs.
 
@@ -2263,7 +2263,7 @@ You can add process-based applications for each of the following platforms:
 
 To add a process-based application to bypass traffic:
 
-1. Go to **Infrastructure**> **Common Resources**> **Application >** **Process-Based**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure**> **Client Connector >** **Process Bypass**.
 2. On the **Process-Based** tab, click **Add Application**. [Image: Process-Based Application Bypass]
 3. In the **Add Application**window, complete the following fields: Press `Enter` or click the **Add**icon after each entry. You can add multiple items at the same time by separating each item with a comma and then pressing `Enter` or clicking the **Add**icon when finished.
   1. **Name**: Enter the name of the process-based application.
@@ -2299,7 +2299,7 @@ To use this feature, you must enable [Transparent Proxy-based Traffic Intercepti
 
 To add a process-based application to bypass traffic:
 
-1. Go to **Infrastructure**> **Common Resources**> **Application >** **Process-Based**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure**> **Client Connector >** **Process Bypass**.
 2. On the **Process-Based** tab, click **Add Application**. [Image: Process-Based Application Bypass]
 3. In the **Add Application**window, complete the following fields: Press `Enter` or click the **Add**icon after each entry. You can add multiple items at the same time by separating each item with a comma and then pressing `Enter` or clicking the **Add**icon when finished. [Image: Add Application macOS Process-Based Applications]
   1. **Name**: Enter the name of the process-based application.
@@ -4701,7 +4701,7 @@ Before the quota is exceeded, users can use cellular data for both personal and 
 
 To configure the monthly cellular quota for Android devices:
 
-1. Go to **Infrastructure** > **Connectors** > **Client** > **Android**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure** > **Client Connector** > **Android**.
 2. On the **App Profiles** tab, click **Add Android Policy** or edit an existing Android policy by clicking the **Edit**icon.
 3. Under Configure Cellular Quota Enforcement Settings, click **Enable Quota on Cellular Network**.
 4. Configure the following options:
@@ -5638,8 +5638,8 @@ You can configure a default global log mode for new profiles. This saves you fro
 
 To configure the default global log level:
 
-1. Go to **Infrastructure** > **Connectors** > **Client**.
-2. Under Platform Settings, select the OS and click the **Platform Settings** tab.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure** > **Client Connector** > **Select OS**.
+2. Click the **Platform Settings** tab.
 3. From the **Log Mode** drop-down menu, select a mode. For a description of each log mode, see [Configuring Zscaler Client Connector App Profiles](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-profiles). [Image: Configure global log mode in Platform Settings]
 4. Click **Save**.
 <!-- /ZS-ARTICLE -->
@@ -7187,9 +7187,9 @@ To see the collected hostname information, go to the**Enrolled Devices**page. Fo
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Support Settings > User Privacy > Configuring Zscaler Client Connector to Collect ZDX Location Information
 - Last modified: 2026-06-09T09:45Z
-- Summary: How to configure Zscaler Client Connector to collect geolocation information for users with Zscaler Digital Experience (ZDX) enabled.
+- Summary: How to configure Zscaler Client Connector to collect geolocation information for users with Digital Experience (ZDX) enabled.
 
-You can configure Zscaler Client Connector to collect geolocation information from devices enabled with Zscaler Digital Experience (ZDX). This setting works in conjunction with the ZDX settings in [Zscaler Service Entitlement](https://help.zscaler.com/zscaler-client-connector/about-zscaler-service-entitlement) and is enabled by default.
+You can configure Zscaler Client Connector to collect geolocation information from devices enabled with Digital Experience (ZDX). This setting works in conjunction with the ZDX settings in [Zscaler Service Entitlement](https://help.zscaler.com/zscaler-client-connector/about-zscaler-service-entitlement) and is enabled by default.
 
 You can access this feature only if ZDX has been enabled for the company or for select groups in **Zscaler Service Entitlement**.
 
@@ -8586,11 +8586,11 @@ To delete a suffix:
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Downloading & Deployment > Deploying Zscaler Client Connector with Jamf Pro > Deploying ZDX with Jamf Pro for iOS
 - Last modified: 2025-07-31T13:20Z
-- Summary: Zscaler Digital Experience (ZDX) enablement procedure through Jamf Pro for iOS platform.
+- Summary: Digital Experience (ZDX) enablement procedure through Jamf Pro for iOS platform.
 
 This guide is for admins only. If you are an end user, contact your organization’s administrator for deployment-related details.
 
-With Jamf Pro, you can configure and deploy Zscaler Digital Experience (ZDX) for iOS devices. Before following this guide, ensure that Zscaler Client Connector is installed on your device. To learn more, see [Deploying Zscaler Client Connector with Jamf Pro for iOS](https://help.zscaler.com/zscaler-client-connector/deploying-zscaler-client-connector-jamf-pro-ios).
+With Jamf Pro, you can configure and deploy Digital Experience (ZDX) for iOS devices. Before following this guide, ensure that Zscaler Client Connector is installed on your device. To learn more, see [Deploying Zscaler Client Connector with Jamf Pro for iOS](https://help.zscaler.com/zscaler-client-connector/deploying-zscaler-client-connector-jamf-pro-ios).
 
 This deployment guide applies to devices running iOS version 16 and later. To learn more, see [Supported Versions & Feature Compatibility](https://help.zscaler.com/zdx/supported-versions-feature-compatibility).
 
@@ -12685,7 +12685,7 @@ To enable resizing of the authentication window:
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Service Entitlement > Enabling ZDX for All Users
 - Last modified: 2024-10-23T03:51Z
-- Summary: Information on the Zscaler Service Entitlement feature and how to enable Zscaler Digital Experience (ZDX) for all users.
+- Summary: Information on the Zscaler Service Entitlement feature and how to enable Digital Experience (ZDX) for all users.
 
 You can use Zscaler Service Entitlement to enable ZDX for all users.To learn more, see <a href="/zscaler-client-connector/add-device-groups-zscaler-private-access-zpa" target="_blank">Creating Device Groups</a>. </p>
 

@@ -1,7 +1,7 @@
 # Zscaler Help — ZCC — Zscaler Client Connector (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 08:12 UTC
+Generated: 2026-09-21 22:17 UTC
 Articles in this file: 52
 
 ---
@@ -2169,9 +2169,8 @@ You need this policy token if you want to use the [STRICTENFORCEMENT install opt
 
 To view the policy token for an app profile:
 
-1. Go to **Infrastructure** > **Connectors** > **Client**.
-2. Under Platform Settings, select the OS.
-3. On the **App Profiles** tab, click the **Edit** icon beside the profile.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure** > **Client Connectors** > **Select Your OS**.
+2. On the **App Profiles** tab, click the **Edit** icon beside the profile.
 
 [Image: Configured App Profile Policies Example]
 <!-- /ZS-ARTICLE -->
@@ -2271,18 +2270,18 @@ To learn more about the end user functionality within the app, see [End User Gui
 
 [Watch a video about Zscaler Client Connector.](https://fast.wistia.net/embed/iframe/sq0jjgyieg)
 
-Zscaler is a SaaS security platform that provides fast, secure connections between you and your applications, regardless of device, location, or network. Zscaler Client Connector is an application that allows you to receive all of the benefits of the Zscaler service from your device, even when you are off your corporate network. Zscaler Client Connector forwards your traffic to the Internet & SaaS service. It also allows you to use the Private Access, Zscaler Digital Experience (ZDX), and Zscaler Endpoint Data Loss Prevention (DLP) services.
+Zscaler is a SaaS security platform that provides fast, secure connections between you and your applications, regardless of device, location, or network. Zscaler Client Connector is an application that allows you to receive all of the benefits of the Zscaler service from your device, even when you are off your corporate network. Zscaler Client Connector forwards your traffic to the Internet & SaaS service. It also allows you to use the Private Access, Digital Experience (ZDX), and Zscaler Endpoint Data Loss Prevention (DLP) services.
 
 - With the Internet & SaaS service, you can protect your internet traffic and allow your users to securely access the internet. This service scans all traffic in real time to ensure compliance with corporate policies and protection from threats. These threats include viruses, advanced threats, malware, phishing attempts, malicious sites, and more.
 - With the Private Access service, you can securely access internal applications and services from any location.
-- With the Zscaler Digital Experience (ZDX) service, Zscaler Client Connector performs synthetic probing to a desired Software as a Service (SaaS) application or internet-based service (e.g., OneDrive, Gmail, etc.) to triage and pinpoint the source of performance issues.
+- With the Digital Experience (ZDX) service, Zscaler Client Connector performs synthetic probing to a desired Software as a Service (SaaS) application or internet-based service (e.g., OneDrive, Gmail, etc.) to triage and pinpoint the source of performance issues.
 - With the Endpoint DLP service, you can protect your organization from data loss on endpoints (i.e., printing, saving to removable storage, saving to network shares, or uploading to personal cloud storage accounts.
 
 ## Using Zscaler Client Connector
 
 You must log in to Zscaler Client Connector with your user ID and complete the one-step device enrollment process. Then you can safely connect to the web and your organization's internal resources.
 
-Zscaler Client Connector automatically recognizes when you are connected to a trusted network (i.e., your corporate office network), and depending on your organization's configuration, can disable its Internet & SaaS, Private Access, Zscaler Digital Experience (ZDX), or Endpoint DLP service accordingly. It can also recognize when you connect to Wi-Fi hotspots (i.e., airports, hotels, cafés) where you must pay or accept a use policy before connecting. The app disables its services for a period of time and re-enables itself after you've had a chance to complete the steps necessary to connect.
+Zscaler Client Connector automatically recognizes when you are connected to a trusted network (i.e., your corporate office network), and depending on your organization's configuration, can disable its Internet & SaaS, Private Access, Digital Experience (ZDX), or Endpoint DLP service accordingly. It can also recognize when you connect to Wi-Fi hotspots (i.e., airports, hotels, cafés) where you must pay or accept a use policy before connecting. The app disables its services for a period of time and re-enables itself after you've had a chance to complete the steps necessary to connect.
 
 To learn more about using Zscaler Client Connector and its features, see [Using Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector).
 
@@ -2624,7 +2623,7 @@ The following table provides a list of possible error messages, an explanation o
 | Fail Open | Zscaler Client Connector is in a fail-open state because Zscaler Client Connector detected Windows safe mode activation. | Restart Windows without safe mode. |
 | Fail Close <reason> | Zscaler Client Connector is in a fail-close state because the tunnel interface cannot be started (e.g., a driver error or an endpoint FW/AV error). | Click **Retry** to resolve the error. The **Retry** option appears next to the **Status**. If the error persists, click **More** and click **Restart Service**. To learn more, see [Configuring User Access to the Restart & Repair Options for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/configuring-user-access-restart-repair-options-zscaler-app). If the error continues, contact Zscaler Support. |
 | Internal Error | Internal socket problem has been detected. | Click **Retry** to resolve the error. The **Retry** option appears next to the **Status**. If the error persists, click **More** and click **Restart Service**. To learn more, see [Configuring User Access to the Restart & Repair Options for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/configuring-user-access-restart-repair-options-zscaler-app). If the error continues, contact Zscaler Support. |
-| Installation Error | Zscaler Client Connector experienced a network error while trying to connect to the Zscaler Digital Experience (ZDX) server. | Click **Retry** to resolve the error. The **Retry** option appears next to the **Status**. If the error persists, click **More** and click **Restart Service**. To learn more, see [Configuring User Access to the Restart & Repair Options for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/configuring-user-access-restart-repair-options-zscaler-app). If the error continues, contact Zscaler Support. |
+| Installation Error | Zscaler Client Connector experienced a network error while trying to connect to the Digital Experience (ZDX) server. | Click **Retry** to resolve the error. The **Retry** option appears next to the **Status**. If the error persists, click **More** and click **Restart Service**. To learn more, see [Configuring User Access to the Restart & Repair Options for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/configuring-user-access-restart-repair-options-zscaler-app). If the error continues, contact Zscaler Support. |
 | Network Error | No network interface is detected. | Click **Retry** to resolve the error. The **Retry** option appears next to the **Status**. If the error persists, click **More** and click **Restart Service**. To learn more, see [Configuring User Access to the Restart & Repair Options for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/configuring-user-access-restart-repair-options-zscaler-app). If the error continues, contact Zscaler Support. |
 | Safe Mode | The Zscaler service is down. You'll only have access to critical resources determined by your organization. | No action required. To learn more, see [Configuring Disaster Recovery.](https://help.zscaler.com/zia/configuring-disaster-recovery) |
 | Server Error | Zscaler Client Connector is unable to connect to the ZDX cloud. | Check network connectivity. Click **Retry** to resolve the error. The **Retry** option appears next to the **Status**. If the error persists, click **More** and click **Restart Service**. To learn more, see [Configuring User Access to the Restart & Repair Options for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/configuring-user-access-restart-repair-options-zscaler-app). If the error continues, contact Zscaler Support. |

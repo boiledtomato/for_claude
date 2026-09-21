@@ -1,7 +1,7 @@
 # Zscaler Help — ZDX — Digital Experience Monitoring (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 08:12 UTC
+Generated: 2026-09-21 22:17 UTC
 Articles in this file: 131
 
 ---
@@ -5619,7 +5619,7 @@ See image.
 - Last modified: 2026-08-06T12:19Z
 - Summary: Information about how to manage the ZDX API Key Management.
 
-After your API subscription is enabled, the Zscaler Digital Experience (ZDX) API Key Management page is accessible to a ZDX admin. From there, the admin can provision and display available API keys.
+After your API subscription is enabled, the Digital Experience (ZDX) API Key Management page is accessible to a ZDX admin. From there, the admin can provision and display available API keys.
 
 If you must obtain API keys or secrets to access [Zscaler OneAPI](https://help.zscaler.com/oneapi) endpoints, see [About API Clients](https://help.zscaler.com/authentication-service/about-api-clients).
 
@@ -10182,7 +10182,7 @@ To learn more about the visualization of data traffic, see [Evaluating the Cloud
 - Last modified: 2023-10-03T19:30Z
 - Summary: Information about the integration of Microsoft Endpoint analytics in the ZDX Admin Portal.
 
-Microsoft Endpoint Analytics can help identify issues with user software or devices that might be impacting performance and reliability. After you integrate Microsoft Intune with Zscaler Digital Experience (ZDX), metrics are garnered from the Microsoft Intune API and mapped to individual ZDX users and devices to provide Endpoint Analytics scores and metrics.
+Microsoft Endpoint Analytics can help identify issues with user software or devices that might be impacting performance and reliability. After you integrate Microsoft Intune with Digital Experience (ZDX), metrics are garnered from the Microsoft Intune API and mapped to individual ZDX users and devices to provide Endpoint Analytics scores and metrics.
 
 To view Endpoint Analytics data, you should first configure the Intune application integration. To learn more, see [Configuring Microsoft Intune for ZDX](https://help.zscaler.com/zdx/configuring-microsoft-intune-zdx).
 

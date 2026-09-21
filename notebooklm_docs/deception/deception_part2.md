@@ -1,18 +1,106 @@
 # Zscaler Help — Zscaler Deception (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 08:12 UTC
-Articles in this file: 24
+Generated: 2026-09-21 22:17 UTC
+Articles in this file: 26
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/understanding-gen-ai-decoys","lastmod":"2026-08-03T00:19Z","nid":"1540649"} -->
+<!-- ZS-ARTICLE {"url":"/deception/understanding-functions-aws-deployment-script","lastmod":"2026-09-18T02:33Z","nid":"1542550"} -->
+## Understanding the Functions of the AWS Resources Used for Cloud Deception
+
+- Source: https://help.zscaler.com/deception/understanding-functions-aws-deployment-script
+- Product: Deception
+- Path: Deception Help > Deceive  > Cloud Deception > AWS > Understanding the Functions of the AWS Resources Used for Cloud Deception
+- Last modified: 2026-09-18T02:33Z
+- Summary: Information on the tasks and functions performed by the deployment script for Cloud Deception with AWS.
+
+Zscaler Deception relies on Amazon Web Services (AWS) logs to generate events in the [Deception dashboard](https://help.zscaler.com/deception/viewing-investigate-dashboard) for interactions with AWS decoys. Depending on the deployment method, the [CloudShell deployment script](https://help.zscaler.com/deception/obtaining-deployment-script-aws) of the Terraform script is responsible for creating logging resources, deploying decoys, deleting decoys, and enabling logging for the decoys via the logging resources in the AWS cloud. To collect and store logs, Deception creates various resources. The Zscaler Deception Admin Portal polls logs every 3 minutes from the logging resources to generate events.
+
+The following table lists the resources created by Deception to enable log collection and storage for AWS decoys.
+
+| Resource | Description |
+| --- | --- |
+| DB Option and Parameter groups | Enables log collection via raw DB log files for Relational Database Service (RDS) decoys. |
+| Security Group | Opens inbound connections to ports 3306 (MySQL) and 5432 (PostgreSQL). |
+| Logging Bucket | A Simple Storage Service (S3) bucket to collect logs for S3 and DynamoDB decoys enabled via CloudTrail. |
+| CloudTrail | Enables logging to Logging Bucket and listening logs for Elastic Container Registry (ECR) and Identity and Access Management (IAM) decoys. |
+| Log Access IAM User | A CLI user with access to poll logs from Logging Bucket and CloudTrial. |
+| Access Keys | Access keys for the Log Access IAM User. |
+| IAM User Policy | An access policy created for the Log Access IAM User. |
+| Health Check Lambda Function | A lambda function that is triggered every 15 minutes from the Deception Admin Portal to check if the deployed decoys are present in the AWS account. |
+| Health Check Lambda Function Access Policy | A policy created for the health check lambda function. |
+
+The Deception Admin Portal polls logs from CloudTrail and Logging S3 Bucket every 3 minutes.
+
+The following table lists the details of AWS logging resources utilized by Deception when creating various decoys.
+
+| Decoy | Description |
+| --- | --- |
+| S3 Decoy | Creates an S3 Bucket and enables logging in CloudTrail. |
+| IAM Decoy | Creates an IAM decoy user with access keys and attaches the IAM Decoy User Access Policy. |
+| RDS Decoy | Creates an RDS instance and an option or Parameter group if not available already. |
+| ECR Decoy | Creates public or private container registries. |
+| DynamoDB Decoy | Creates a DynamoDB instance and enables logging in CloudTrail. |
+| VM Image Decoy | Deploys an EC2 instance, creates a snapshot for the instance, and builds an image from the snapshot. The EC2 instance is created using the t3.small/t2.small series available in the region of deployment. It persists for a duration for 5 minutes and is terminated after the snapshot is built. |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/deception/understanding-functions-azure-deployment-script","lastmod":"2026-09-18T02:33Z","nid":"1542552"} -->
+## Understanding the Functions of the Azure Deployment Script
+
+- Source: https://help.zscaler.com/deception/understanding-functions-azure-deployment-script
+- Product: Deception
+- Path: Deception Help > Deceive  > Cloud Deception > Azure > Understanding the Functions of the Azure Deployment Script
+- Last modified: 2026-09-18T02:33Z
+- Summary: Information on the tasks and functions performed by the deployment script for Cloud Deception with Azure.
+
+Zscaler Deception relies on Azure logs to generate events in the [Deception dashboard](https://help.zscaler.com/deception/viewing-investigate-dashboard) for interactions with Azure decoys. The deployment script for Azure Cloud Deception is responsible for creating logging resources, deploying decoys, deleting decoys, and enabling logging for the decoys via the logging resources in the Azure cloud. To collect and store logs, the deployment script creates various resources. The Zscaler Deception Admin Portal polls logs every 3 minutes from the logging resources created by the deployment script to generate events.
+
+## Azure Resources Created by the Deployment Script
+
+The following table lists the resources created by the deployment script to enable log collection and storage for Azure decoys.
+
+| Resource | Description |
+| --- | --- |
+| Decoy Resource Group | A resource group in which all decoys are created. The prefix string for the Decoy Resource Group is specified while setting up Cloud Deception with Azure. |
+| Management Resource Group | A resource group in which all necessary management resources such as Function App, Logging Storage Account, App Service Plan, etc. are created to support Cloud Deception functionalities. |
+| Logging Storage Account | A storage account created for logging purposes. The appropriate diagnostic setting is enabled for all decoy resources to push all diagnostic logs to this storage account for analysis and generating alerts on the Deception dashboard. |
+| Client ID and Client Secret | A service principal that has access to polling log files from the created logging storage account. |
+| Decoy Health Check Function App | A function app that is triggered at an interval of 15 minutes from the Deception Admin Portal to check whether the deployed decoys exists in the Azure cloud. This function app does not check the actual health of the deployed Azure resources. |
+| Decoy Access Role | A role that has full access to the Decoy Resource Group. This role is associated with the user and service principal decoys created in the Deception Admin Portal. |
+| App Service Plan | A service plan created to deploy app service decoys. |
+
+## Workflows for Decoy Deployment
+
+The following table describes the workflow followed by the deployment script to deploy decoys and enable logging for them.
+
+| Decoy | Workflow |
+| --- | --- |
+| User Decoy | Create an Azure AD (Entra ID) user, associate the Decoy Access Role with it, and enable the diagnostic setting for logging. |
+| Service Principal Decoy | Create a service principal (Client ID and Client Secret), associate the Decoy Access Role with it, and enable the diagnostic setting for logging. |
+| Managed Identity Decoy | Create a user-assigned managed identity and associate the Decoy Access Role with the managed identity. |
+| App Service Decoy | Create a web app and create a managed identity for the web app, associate the Contributor and Website Contributor roles to it, and enable the diagnostic setting for logging. |
+| Storage Account Container Decoy | Create a storage account and a storage account container, upload the decoy file datasets, and enable the diagnostic setting for logging. |
+| Storage Account File Share Decoy | Create a storage account and create a file share with the `TransactionOptimized` access tier, upload the decoy file datasets, and enable the diagnostic setting for logging. |
+| Key Vault Decoy | Create a key vault, add passwords or keys of the created user or service principal decoys as decoy datasets in the vault, and enable the diagnostic setting for logging. |
+| Azure Resource Manager (ARM) Template Decoy | Create a deployment template for selected decoys (user, service principal, key vault, or Azure file share decoys). This template does not deploy any actual resources but creates an entry for template deployment in the history. |
+| Container Registry Decoy | Create an empty container registry and enable the diagnostic setting for logging. |
+| Virtual Machine (VM) Image Decoy | Deploy a VM instance, create a snapshot, and build a disk image from the snapshot. A Standard VM instance is deployed to create the snapshot. The VM instance persists for a duration of 5 minutes and is terminated after the snapshot is built. For public VM image decoys, a shareable link is also created for adding it as a lure in landmines. |
+
+To learn how to obtain the deployment script for Azure Cloud Deception, see [Obtaining the Deployment Script for Azure](https://help.zscaler.com/deception/obtaining-deployment-script-azure).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/deception/understanding-gen-ai-decoys","lastmod":"2026-09-18T02:33Z","nid":"1542564"} -->
 ## Understanding Gen AI Decoys
 
 - Source: https://help.zscaler.com/deception/understanding-gen-ai-decoys
 - Product: Deception
 - Path: Deception Help > Deceive  > Gen AI Decoys > Understanding Gen AI Decoys
-- Last modified: 2026-08-03T00:19Z
+- Last modified: 2026-09-18T02:33Z
 - Summary: Information about Gen AI decoys.
 
 Generative AI (Gen AI) is an emerging attack vector. Organizations are increasingly adopting Gen AI technologies, such as large language models (LLMs) in their products, services, and internal operations. Adversaries target Gen AI infrastructure for data exfiltration, asset compromise, organizational intelligence gathering, etc. Attackers target datasets for data poisoning and data exfiltration. They also use interactive attacks such as prompt injection to target AI systems and extract valuable data.
@@ -58,13 +146,13 @@ The responses or content generated by the Deception AI is for informational purp
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/understanding-keyword-datasets","lastmod":"2026-08-03T00:19Z","nid":"1540576"} -->
+<!-- ZS-ARTICLE {"url":"/deception/understanding-keyword-datasets","lastmod":"2026-09-18T02:33Z","nid":"1542491"} -->
 ## Understanding Keyword Datasets
 
 - Source: https://help.zscaler.com/deception/understanding-keyword-datasets
 - Product: Deception
 - Path: Deception Help > Miragemaker > Keyword Datasets > Understanding Keyword Datasets
-- Last modified: 2026-08-03T00:19Z
+- Last modified: 2026-09-18T02:33Z
 - Summary: Understanding the keywords datasets
 
 Zscaler Deception allows you to configure a set of keywords that can be used to autogenerate recommendations for decoy parameters, such as hostnames, file and folder names, network decoy names, etc. Zscaler uses a proprietary algorithm to randomly generate recommendations for decoy parameters.
@@ -78,13 +166,13 @@ To learn how to configure keyword datasets, see [Configuring Keyword Datasets](h
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/understanding-miragemaker-module","lastmod":"2026-08-03T00:19Z","nid":"1540620"} -->
+<!-- ZS-ARTICLE {"url":"/deception/understanding-miragemaker-module","lastmod":"2026-09-18T02:33Z","nid":"1542535"} -->
 ## Understanding the Miragemaker Module
 
 - Source: https://help.zscaler.com/deception/understanding-miragemaker-module
 - Product: Deception
 - Path: Deception Help > Miragemaker > Understanding the Miragemaker Module
-- Last modified: 2026-08-03T00:19Z
+- Last modified: 2026-09-18T02:33Z
 - Summary: Understanding the capabilities of the Miragemaker module.
 
 The Miragemaker module in Zscaler Deception allows you to configure and manage various ready-to-use resources that are typically used to build and deploy different types of decoys. By default, the Miragemaker module includes preconfigured resources such as datasets, ThreatParse rules, templates, strategies, decoy personalities, banners, and tags. You can also create custom resources based on your business requirements. The various resources that you can configure and manage in the Miragemaker module are as follows:
@@ -135,13 +223,13 @@ Tags are used to group various resources across Deception. For example, you can 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/understanding-mitm-detection","lastmod":"2026-08-03T00:19Z","nid":"1540623"} -->
+<!-- ZS-ARTICLE {"url":"/deception/understanding-mitm-detection","lastmod":"2026-09-18T02:33Z","nid":"1542538"} -->
 ## Understanding MITM Detection
 
 - Source: https://help.zscaler.com/deception/understanding-mitm-detection
 - Product: Deception
 - Path: Deception Help > Deceive  > MITM Detection > Understanding MITM Detection
-- Last modified: 2026-08-03T00:19Z
+- Last modified: 2026-09-18T02:33Z
 - Summary: Understanding MITM detection.
 
 Zscaler Deception can detect and alert certain types of Man-in-the-Middle (MITM) attacks, such as Link-Local Multicast Name Resolution (LLMNR) poisoning, NetBIOS Name Service (NBT-NS) poisoning, and multicast DNS (mDNS) poisoning. With these types of MITM attacks, the adversaries listen to name resolution requests from devices and send a malicious response. To detect these MITM attacks, Deception enables you to configure your [internal network decoys](https://help.zscaler.com/deception/creating-internal-network-decoy) to broadcast decoy name resolution requests across the subnet at specified intervals. If an adversary responds to the request using tools like Responder or Inveigh, then the activity is logged as an MITM attack. You can view and analyze the attack details from the [Deception Dashboard](https://help.zscaler.com/deception/viewing-investigate-dashboard).
@@ -176,13 +264,13 @@ When an attacker or automated tool repeatedly triggers a TI decoy, Deception mon
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/understanding-radius-decoys","lastmod":"2026-08-03T00:19Z","nid":"1540663"} -->
+<!-- ZS-ARTICLE {"url":"/deception/understanding-radius-decoys","lastmod":"2026-09-18T02:33Z","nid":"1542578"} -->
 ## Understanding RADIUS Decoys
 
 - Source: https://help.zscaler.com/deception/understanding-radius-decoys
 - Product: Deception
 - Path: Deception Help > Deceive  > RADIUS Decoys > Understanding RADIUS Decoys
-- Last modified: 2026-08-03T00:19Z
+- Last modified: 2026-09-18T02:33Z
 - Summary: Information about RADIUS decoys.
 
 Organizations use the Remote Authentication Dial-in User Service (RADIUS) protocol for centralized authentication, authorization, and accounting (AAA) to securely manage users who access a remote network.
@@ -214,13 +302,13 @@ To learn more, see [Viewing ThreatParse Details](https://help.zscaler.com/decept
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/understanding-strategy-builder","lastmod":"2026-08-03T00:19Z","nid":"1540622"} -->
+<!-- ZS-ARTICLE {"url":"/deception/understanding-strategy-builder","lastmod":"2026-09-18T02:33Z","nid":"1542537"} -->
 ## Understanding Strategy Builder
 
 - Source: https://help.zscaler.com/deception/understanding-strategy-builder
 - Product: Deception
 - Path: Deception Help > Miragemaker > Strategy Builder > Understanding Strategy Builder
-- Last modified: 2026-08-03T00:19Z
+- Last modified: 2026-09-18T02:33Z
 - Summary: Understanding different features in strategy builder
 
 Strategy Builder allows you to deploy different types of decoys in your environment with a single click using strategies. The Strategy Builder includes the following components:
@@ -234,13 +322,13 @@ Strategy Builder allows you to deploy different types of decoys in your environm
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/understanding-zscaler-deception-architecture","lastmod":"2026-08-31T20:56Z","nid":"1540336"} -->
+<!-- ZS-ARTICLE {"url":"/deception/understanding-zscaler-deception-architecture","lastmod":"2026-08-31T20:57Z","nid":"1542251"} -->
 ## Understanding the Zscaler Deception Architecture
 
 - Source: https://help.zscaler.com/deception/understanding-zscaler-deception-architecture
 - Product: Deception
 - Path: Deception Help > Getting Started > Understanding the Zscaler Deception Architecture
-- Last modified: 2026-08-31T20:56Z
+- Last modified: 2026-08-31T20:57Z
 - Summary: Information on the Zscaler Deception architecture and key components.
 
 Zscaler Deception is a threat-detection solution built on the Zero Trust architecture, which is designed for seamless integration with the Zscaler service and other parts of your security environment. Deception is cloud-delivered and scalable, and requires minimal on-premises computing.
@@ -352,13 +440,13 @@ To delete a landmine agent:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/using-network-decoy-personalities-and-services","lastmod":"2026-08-03T00:19Z","nid":"1540350"} -->
+<!-- ZS-ARTICLE {"url":"/deception/using-network-decoy-personalities-and-services","lastmod":"2026-09-18T02:33Z","nid":"1542265"} -->
 ## Using Network Decoy Personalities and Services
 
 - Source: https://help.zscaler.com/deception/using-network-decoy-personalities-and-services
 - Product: Deception
 - Path: Deception Help > Deceive  > Network Decoys > Using Network Decoy Personalities and Services
-- Last modified: 2026-08-03T00:19Z
+- Last modified: 2026-09-18T02:33Z
 - Summary: Information about using Zscaler Deception network decoy personalities and services.
 
 Zscaler Deception provides a set of ready-to-use templates to create network decoys (Internal or Zero Trust Network). These templates are known as personalities and are built based on different types of servers, applications, etc. You can use these personalities when configuring [network decoys manually](https://help.zscaler.com/deception/about-network-decoys), or deploying [deception strategy](https://help.zscaler.com/deception/about-deploy-strategy) to create decoys. Zscaler Deception provides a list of preconfigured network decoy personalities for various business use cases. You can also create custom personalities based on your business requirements. To learn more, see [About Network Decoy Personalities](https://help.zscaler.com/deception/about-network-decoy-personalities).
@@ -378,7 +466,7 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/validating-strategy","lastmod":"2025-05-21T20:32Z","nid":"1539319"} -->
+<!-- ZS-ARTICLE {"url":"/deception/validating-strategy","lastmod":"2025-05-21T20:32Z","nid":"1542441"} -->
 ## Validating a Strategy
 
 - Source: https://help.zscaler.com/deception/validating-strategy
@@ -409,13 +497,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/viewing-active-directory-decoy-computers","lastmod":"2026-08-03T00:19Z","nid":"1540656"} -->
+<!-- ZS-ARTICLE {"url":"/deception/viewing-active-directory-decoy-computers","lastmod":"2026-09-18T02:33Z","nid":"1542571"} -->
 ## Viewing Active Directory Decoy Computers
 
 - Source: https://help.zscaler.com/deception/viewing-active-directory-decoy-computers
 - Product: Deception
 - Path: Deception Help > Deceive  > Active Directory Decoys > Viewing Active Directory Decoy Computers
-- Last modified: 2026-08-03T00:19Z
+- Last modified: 2026-09-18T02:33Z
 - Summary: How to view the AD decoy computer details.
 
 You can [add an Internal network decoy to an Active Directory (AD) and AD DNS as a decoy computer object](https://help.zscaler.com/deception/adding-network-decoy-active-directory) to make it look like a legitimate domain-joined system. AD decoy computers detect AD enumeration activities and AD-related exploits.
@@ -511,13 +599,13 @@ Click **Show Only Failed**to view only the failed deployment log details.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/viewing-attack-chronology-details","lastmod":"2026-08-03T00:19Z","nid":"1540438"} -->
+<!-- ZS-ARTICLE {"url":"/deception/viewing-attack-chronology-details","lastmod":"2026-09-18T02:33Z","nid":"1542353"} -->
 ## Viewing Attack Chronology Details
 
 - Source: https://help.zscaler.com/deception/viewing-attack-chronology-details
 - Product: Deception
 - Path: Deception Help > Investigate  > Extended Details > Viewing Attack Chronology Details
-- Last modified: 2026-08-03T00:19Z
+- Last modified: 2026-09-18T02:33Z
 - Summary: How to view Chronology details in the Zscaler Deception Admin Portal
 
 The Chronology page provides a temporal overview and heatmap of the attacker's activities. This information helps you to identify periods of activity with unusual volumes of alerts. The Chronology page provides graphical representations of the number of events generated in Zscaler Deception over time. This helps you gain insights into attackers' activity using the weekly heatmap generated based on the volume of activity during the time of day.
@@ -540,13 +628,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/viewing-blocked-identities","lastmod":"2026-08-03T00:19Z","nid":"1540472"} -->
+<!-- ZS-ARTICLE {"url":"/deception/viewing-blocked-identities","lastmod":"2026-09-18T02:33Z","nid":"1542387"} -->
 ## Viewing the Blocked Identities
 
 - Source: https://help.zscaler.com/deception/viewing-blocked-identities
 - Product: Deception
 - Path: Deception Help > Orchestrate  > Containment Integrations > Viewing the Blocked Identities
-- Last modified: 2026-08-03T00:19Z
+- Last modified: 2026-09-18T02:33Z
 - Summary: How to view and manage the contained attacker IP address details.
 
 You can view the following details of contained attackers or endpoints depending on the containment integration:
@@ -586,13 +674,13 @@ To view and delete the details of the containment:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/viewing-extended-details","lastmod":"2026-08-03T00:19Z","nid":"1540442"} -->
+<!-- ZS-ARTICLE {"url":"/deception/viewing-extended-details","lastmod":"2026-09-18T02:33Z","nid":"1542357"} -->
 ## Viewing Extended Details
 
 - Source: https://help.zscaler.com/deception/viewing-extended-details
 - Product: Deception
 - Path: Deception Help > Investigate  > Extended Details > Viewing Extended Details
-- Last modified: 2026-08-03T00:19Z
+- Last modified: 2026-09-18T02:33Z
 - Summary: How to view additional details of attacker events in the Zscaler Deception Admin Portal.
 
 Attacker activities are recorded as events and displayed as a graph on the Investigate page. You can evaluate the attacker's actions and how they interact with Zscaler Deception elements (decoys, decoy connectors, etc.). You can also see additional details of these activities from ThreatParse along with timelines and network maps to know when and how the attack happened, view the event logs, and download evidence like PCAP files, RDP session recordings, and IoCs for a detailed investigation.
@@ -618,13 +706,13 @@ To view the extended details:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/viewing-investigate-dashboard","lastmod":"2026-08-03T00:19Z","nid":"1540667"} -->
+<!-- ZS-ARTICLE {"url":"/deception/viewing-investigate-dashboard","lastmod":"2026-09-18T02:33Z","nid":"1542582"} -->
 ## Viewing the Investigate Dashboard
 
 - Source: https://help.zscaler.com/deception/viewing-investigate-dashboard
 - Product: Deception
 - Path: Deception Help > Investigate  > Viewing the Investigate Dashboard
-- Last modified: 2026-08-03T00:19Z
+- Last modified: 2026-09-18T02:33Z
 - Summary: How to view the Investigate dashboard in the Zscaler Deception Admin Portal.
 
 The Zscaler Deception Investigate dashboard is an interactive graphical representation of real-time alerts that indicate attacker activities. When an attacker interacts with the decoys, Deception detects threats, collects information on the attacker's actions and intentions, and generates high-fidelity and real-time alerts that are displayed on the dashboard.
@@ -809,13 +897,13 @@ To apply additional filters:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/viewing-managing-event-logs","lastmod":"2026-08-03T00:19Z","nid":"1540440"} -->
+<!-- ZS-ARTICLE {"url":"/deception/viewing-managing-event-logs","lastmod":"2026-09-18T02:33Z","nid":"1542355"} -->
 ## Viewing and Managing Event Logs
 
 - Source: https://help.zscaler.com/deception/viewing-managing-event-logs
 - Product: Deception
 - Path: Deception Help > Investigate  > Extended Details > Viewing and Managing Event Logs
-- Last modified: 2026-08-03T00:19Z
+- Last modified: 2026-09-18T02:33Z
 - Summary: How to view and manage event logs in the Zscaler Deception Admin Portal.
 
 When an attacker engages with a decoy, Zscaler Deception immediately triggers an alert and records the activity in the event logs. Event logs provide detailed insights into attempted attacks by malicious actors who have infiltrated the network and interacted with deployed decoys. Security teams can investigate these incidents, analyze attacker behavior and intent, and use the findings to strengthen threat response and containment strategies. For deeper analysis and proactive defense planning, event logs can be downloaded in multiple formats.
@@ -919,13 +1007,13 @@ To export event logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/viewing-managing-evidence","lastmod":"2026-08-03T00:19Z","nid":"1540441"} -->
+<!-- ZS-ARTICLE {"url":"/deception/viewing-managing-evidence","lastmod":"2026-09-18T02:33Z","nid":"1542356"} -->
 ## Viewing and Managing Evidence
 
 - Source: https://help.zscaler.com/deception/viewing-managing-evidence
 - Product: Deception
 - Path: Deception Help > Investigate  > Extended Details > Viewing and Managing Evidence
-- Last modified: 2026-08-03T00:19Z
+- Last modified: 2026-09-18T02:33Z
 - Summary: How to view and manage evidence files in the Zscaler Deception Admin Portal.
 
 When an attacker interacts with a decoy, Zscaler Deception generates evidence files that capture details of the attack. These files provide valuable information to investigate the incident and understand the attacker's tactics, techniques, and procedures (TTPs). They can be analyzed through integration with Zscaler Sandbox or third-party sandbox solutions, with reports available directly from the Zscaler Deception Admin Portal. Evidence files can also be downloaded in their original format for external analysis, and records of files generated for individual attack events can be exported for further review.
@@ -940,11 +1028,18 @@ To view the evidence files:
 4. Select the **Evidence** tab. You can view all available evidence files. See image. For each evidence file, you can see:
   - **Timestamp**: The time and date when the event happened.
   - **Decoy Connector ID**: The ID of the Decoy Connector.
-  - **Type**: Depending on the decoy interaction, the evidence files are available in the following formats:
+  - **Type**: Depending on the decoy interaction, the evidence files are available in the following formats: See image.
     - Packet Capture (PCAP)
     - Remote Desktop Protocol (RDP) recording files
     - Indicators of Compromise (IOC)
+    - email
+    - (QOS)
+    - HTTP Request (http_request)
   - **Metadata**: The attribute associated with each log file.
+
+For web events across static, dynamic, and high‑interaction containers, attackers send POST requests with unusually large payloads. Large payloads are uploaded as evidence as **http_request**. This applies to both TI decoys and internal decoys where the Services type is [Web](https://help.zscaler.com/deception/configuring-services-network-decoy#evidence_page). You can download the evidence that contains the attacker's request payload as a text file.
+
+[Image: Evidence type]
 
 ## Managing Evidence Files
 
@@ -1084,13 +1179,13 @@ To export an evidence file:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/viewing-network-details","lastmod":"2026-08-03T00:19Z","nid":"1540439"} -->
+<!-- ZS-ARTICLE {"url":"/deception/viewing-network-details","lastmod":"2026-09-18T02:33Z","nid":"1542354"} -->
 ## Viewing Network Details
 
 - Source: https://help.zscaler.com/deception/viewing-network-details
 - Product: Deception
 - Path: Deception Help > Investigate  > Extended Details > Viewing Network Details
-- Last modified: 2026-08-03T00:19Z
+- Last modified: 2026-09-18T02:33Z
 - Summary: How to view network details in the Zscaler Deception Admin Portal.
 
 The Network page shows information about the attacker's activity on your network based on the telemetry generated by network decoys. It displays a graph that shows the path that an attacker used to interact with the network decoys. It lists event logs that include the attacker's IP address, decoy IP address and port, network protocol, network service, and network connection duration.
@@ -1180,13 +1275,13 @@ To view the update logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/viewing-threatparse-details","lastmod":"2026-08-03T00:19Z","nid":"1540437"} -->
+<!-- ZS-ARTICLE {"url":"/deception/viewing-threatparse-details","lastmod":"2026-09-18T02:33Z","nid":"1542352"} -->
 ## Viewing ThreatParse Details
 
 - Source: https://help.zscaler.com/deception/viewing-threatparse-details
 - Product: Deception
 - Path: Deception Help > Investigate  > Extended Details > Viewing ThreatParse Details
-- Last modified: 2026-08-03T00:19Z
+- Last modified: 2026-09-18T02:33Z
 - Summary: How to view ThreatParse details in the Zscaler Deception Admin Portal.
 
 ThreatParse is a technology that conducts natural language reconstruction of attacks by summarizing and translating log information into plain English. It also links this information to the MITRE ATT&CK framework and includes the risk scores assigned to attackers. The information on the ThreatParse details page helps your analysts to understand what the attacker is trying to accomplish. They can prioritize the most pressing threats first and take necessary actions to stop lateral movement.
@@ -1214,13 +1309,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/what-zscaler-deception","lastmod":"2026-08-03T00:19Z","nid":"1540335"} -->
+<!-- ZS-ARTICLE {"url":"/deception/what-zscaler-deception","lastmod":"2026-09-18T02:33Z","nid":"1542250"} -->
 ## What Is Zscaler Deception?
 
 - Source: https://help.zscaler.com/deception/what-zscaler-deception
 - Product: Deception
 - Path: Deception Help > Getting Started > What Is Zscaler Deception?
-- Last modified: 2026-08-03T00:19Z
+- Last modified: 2026-09-18T02:33Z
 - Summary: Introductory information about Zscaler  Deception and its cloud-based infrastructure.
 
 Zscaler Deception is a simple, faster, and more effective targeted threat detection solution built on the Zscaler Zero Trust architecture. Deception uses advanced lures and decoys to detect and disrupt sophisticated threats that consistently bypass traditional defenses, such as advanced persistent threats (APT), exploits, reconnaissance, lateral movement, active directory, supply chain, human-operated ransomware, supervisory control and data acquisition (SCADA), and industrial control system (ICS) attacks.

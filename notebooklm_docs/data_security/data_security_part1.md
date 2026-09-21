@@ -1,7 +1,7 @@
 # Zscaler Help — Data Security — DSPM (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 08:12 UTC
+Generated: 2026-09-21 22:17 UTC
 Articles in this file: 179
 
 ---
@@ -2452,7 +2452,7 @@ Repeat these steps for both the orchestrator- and scanner-managed identities.
 
 To add a Databricks workspace:
 
-1. Go to **Policies** > **Common Configuratio**n > **DSPM** > **Service Registration**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Service Registration**.
 2. On the **Service Registration** page, select the **Databricks**tab, and click **Add Databricks**. See image. The **Add Databricks**drawer appears.
 3. In the **Add Databricks**drawer:
   1. **Cloud**: Select the cloud service provider that hosts the Databricks.
@@ -2507,7 +2507,7 @@ The **Account** registration type is available only for **AWS**.
 
 To add a Databricks account:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Service Registration**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Service Registration**.
 2. On the **Service Registration** page, select the **Databricks**tab, and click **Add Databricks**. See image. The **Add Databricks**drawer appears.
 3. In the **Add Databricks**drawer:
   1. **Cloud**: Select the cloud service provider that hosts the Databricks.

@@ -1,7 +1,7 @@
 # Zscaler Help — API / SDK (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 08:12 UTC
+Generated: 2026-09-21 22:17 UTC
 Articles in this file: 91
 
 ---
@@ -17798,7 +17798,7 @@ To learn more about rate limits and HTTP status codes, see [Understanding API Ra
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZDX API > Understanding the ZDX API
 - Last modified: 2026-01-06T23:49Z
-- Summary: Introductory information about Zscaler Digital Experience (ZDX) API, which gives programmatic access to various ZDX features.
+- Summary: Introductory information about Digital Experience (ZDX) API, which gives programmatic access to various ZDX features.
 
 The ZDX API gives you programmatic access to ZDX features:
 

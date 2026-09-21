@@ -1,7 +1,7 @@
 # Zscaler Help — Technology Partners (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 08:12 UTC
+Generated: 2026-09-21 22:17 UTC
 Articles in this file: 146
 
 ---
@@ -2563,9 +2563,9 @@ View a Zscaler and SentinelOne integration demonstration in in the following vid
 - Product: Zscaler Technology Partners
 - Path: Zscaler Technology Partners > Q – S > Zscaler and ServiceNow Deployment Guide
 - Last modified: 2026-04-01T15:10Z
-- Summary: The Zscaler and ServiceNow Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) and Zscaler Digital Experience (ZDX) to work with the ServiceNow platform.
+- Summary: The Zscaler and ServiceNow Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) and Digital Experience (ZDX) to work with the ServiceNow platform.
 
-The Zscaler and ServiceNow Deployment Guide provides instructions on integrating Zscaler Internet Access (ZIA) and Zscaler Digital Experience (ZDX) with the ServiceNow platform.
+The Zscaler and ServiceNow Deployment Guide provides instructions on integrating Zscaler Internet Access (ZIA) and Digital Experience (ZDX) with the ServiceNow platform.
 
 Zscaler provides a complete solution using ZIA for security and ZDX for user experience visibility. ZIA uses access control, identity control, SaaS security posture management, Data Loss Prevention (DLP), and a SaaS Security API to scan the ServiceNow attachments for malicious content. The ZDX service provides user-specific experience monitoring and visibility to the ServiceNow service to address any user experience concerns or challenges. This guide covers the following:
 
@@ -2587,7 +2587,7 @@ View Zscaler and ServiceNow integration demonstrations in the following videos:
 
 - [Zscaler and ServiceNow CASB and DLP Demo](https://www.zscaler.com/resources/videos/demo-how-zscaler-secures-servicenow-data)
 - [How Zscaler Improves ServiceNow SecOps Workflows](https://www.zscaler.com/resources/videos/demo-how-zscaler-improves-servicenow-secops-workflows)
-- [Zscaler Digital Experience (ZDX) and ServiceNow Integration Demo](https://www.zscaler.com/resources/videos/zscaler-and-servicenow-integration-demo)
+- [Digital Experience (ZDX) and ServiceNow Integration Demo](https://www.zscaler.com/resources/videos/zscaler-and-servicenow-integration-demo)
 - [Contextualizing Risk using ServiceNow and Avalor UVM](https://app.storylane.io/share/zeidf1qhhazh)
 <!-- /ZS-ARTICLE -->
 

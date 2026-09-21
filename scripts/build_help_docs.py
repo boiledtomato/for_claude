@@ -649,6 +649,38 @@ def category_name(stem: str) -> str:
     return CATEGORIES[stem][0]
 
 
+# ── 定期再検証とデータ整合 ────────────────────────────────────────────────────
+
+# 変更検知は sitemap の lastmod に依存しているが、lastmod が据え置きのまま本文だけ
+# 差し替えられることが実際にある（2026-09 の全件照合で、lastmod 不変の 3,077 件中
+# 23 件で本文が変わっていた。最大のものは 21,185 → 2,163 文字）。lastmod だけを
+# 信じると、その差分は永久に取り込まれない。
+# そこで毎回 1/REVALIDATE_SLOTS ずつ無条件に取り直し、4 週で全件を一巡させる。
+REVALIDATE_SLOTS = 4
+
+
+def revalidate_slot(path: str) -> int:
+    """パスから決まる固定のスロット番号。記事の増減で割り当てがぶれない。"""
+    return int(hashlib.sha256(path.encode("utf-8")).hexdigest(), 16) % REVALIDATE_SLOTS
+
+
+def find_stale_blocks(sitemap: dict[str, str]) -> dict[str, list[str]]:
+    """part ファイルに残っているが sitemap から消えている記事を洗い出す。
+
+    index からは消えたのに part ファイルには残る、という食い違いが実際に起きた
+    （soc-workbench の18件）。index 由来の削除判定だけでは拾えないので、
+    part ファイル自体を直接見て取り残しを検出する。
+    """
+    stale: dict[str, list[str]] = {}
+    for stem in list(CATEGORIES) + [OTHER]:
+        if not (OUTPUT_DIR / stem).is_dir():
+            continue
+        gone = [url for url in parse_existing(stem) if url not in sitemap]
+        if gone:
+            stale[stem] = gone
+    return stale
+
+
 # ── 記事ブロックの組み立て / 分解 ─────────────────────────────────────────────
 
 def render_block(art: dict, lastmod: str) -> str:
@@ -685,6 +717,19 @@ def parse_existing(stem: str) -> dict[str, str]:
             if url:
                 blocks[url] = m.group(0)
     return blocks
+
+
+def purge_parts(stem: str) -> int:
+    """カテゴリの part ファイルを消す。記事が 1 件も残らなかったとき用。"""
+    out_dir = OUTPUT_DIR / stem
+    if not out_dir.is_dir():
+        return 0
+    paths = list(out_dir.glob(f"{stem}_part*.md"))
+    for path in paths:
+        path.unlink()
+    if not any(out_dir.iterdir()):
+        out_dir.rmdir()
+    return len(paths)
 
 
 def write_parts(stem: str, blocks: dict[str, str]) -> list[Path]:
@@ -846,7 +891,16 @@ def main() -> int:
     ap.add_argument("--delay", type=float, default=DEFAULT_DELAY)
     ap.add_argument("--limit", type=int, default=0,
                     help="取得する記事数の上限（動作確認用）")
+    ap.add_argument("--no-revalidate", action="store_true",
+                    help=f"lastmod 不変の記事の定期再検証（毎回 1/{REVALIDATE_SLOTS}）を行わない")
+    ap.add_argument("--max-new-failures", type=int, default=10,
+                    help="新規の取得失敗がこの件数を超えたら --health-check が失敗する (既定: 10)")
+    ap.add_argument("--health-check", action="store_true",
+                    help="取得はせず、前回実行で新規の取得失敗が多発していないかだけ判定する")
     args = ap.parse_args()
+
+    if args.health_check:
+        return run_health_check(args.max_new_failures)
 
     start = time.time()
 
@@ -892,6 +946,35 @@ def main() -> int:
         if p not in sitemap and not (targets and categorize(p) not in targets)
     ]
 
+    # ── 定期再検証（ローテーション） ──────────────────────────────────────
+    # lastmod が据え置きのまま本文が差し替わるケースを拾うため、毎回 1/4 ずつ
+    # 無条件に取り直す。スロットは実行のたびに進み、4 週で全件を一巡する。
+    slot = int(index.get("revalidate_slot", 0)) % REVALIDATE_SLOTS
+    revalidated: list[str] = []
+    if not args.full and not args.no_revalidate:
+        pending = set(to_fetch)
+        for path in sitemap:
+            if path in pending or path not in known:
+                continue
+            if targets and categorize(path) not in targets:
+                continue
+            if revalidate_slot(path) == slot:
+                revalidated.append(path)
+        to_fetch.extend(revalidated)
+        print(f"[revalidate] スロット {slot + 1}/{REVALIDATE_SLOTS}: "
+              f"{len(revalidated)} 記事を無条件に再検証します")
+
+    # ── part ファイルに取り残された記事を掃除する ──────────────────────────
+    stale = find_stale_blocks(sitemap) if not args.full else {}
+    if targets:
+        stale = {k: v for k, v in stale.items() if k in targets}
+    if stale:
+        total_stale = sum(len(v) for v in stale.values())
+        print(f"[stale] sitemap から消えているのに part ファイルに残る記事: "
+              f"{total_stale} 件 ({', '.join(sorted(stale))})")
+        for urls in stale.values():
+            removed = list(dict.fromkeys(removed + urls))
+
     if args.limit:
         to_fetch = to_fetch[:args.limit]
 
@@ -904,8 +987,30 @@ def main() -> int:
 
     fetched = fetch_many(to_fetch, args.workers, args.delay) if to_fetch else {}
     failed = [p for p in to_fetch if p not in fetched]
+
+    # 取得できない記事は記録しておく。既知の失敗と新規の失敗を分けないと、
+    # 恒常的に落ちているもの（deception は 2026-09 時点で 90 件が 403
+    # "Help Article in Maintenance"）に紛れて新しい異常を見落とす。
+    known_unavailable = index.get("unavailable") or {}
+    # この記録を持たない状態から始めた回は、既存の失敗がすべて「新規」に見えてしまう。
+    # 初回はベースラインを作るだけにして、警報は次回以降に回す。
+    baseline_run = "unavailable" not in index
+    new_failures = [] if baseline_run else [p for p in failed if p not in known_unavailable]
+    if baseline_run and failed:
+        print(f"[INFO] 取得失敗 {len(failed)} 件を既知のものとして記録します"
+              f"（初回のため新規判定は行いません）")
+    recovered = [p for p in known_unavailable if p in fetched]
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    index["unavailable"] = {
+        p: {"since": (known_unavailable.get(p) or {}).get("since", today),
+            "lastmod": sitemap.get(p, "")}
+        for p in failed
+    }
     if failed:
-        print(f"[WARN] {len(failed)} 記事は取得できませんでした（404 等）")
+        print(f"[WARN] {len(failed)} 記事は取得できませんでした "
+              f"(うち新規 {len(new_failures)} 件)")
+    if recovered:
+        print(f"[INFO] 以前取得できなかった {len(recovered)} 記事が復旧しました")
 
     # ── 同一記事の別パス（エイリアス）を落とす ──────────────────────────────
     aliases = find_alias_duplicates(known, fetched, args.delay)
@@ -919,6 +1024,9 @@ def main() -> int:
     touched: set[str] = set()
     for path in list(fetched) + removed:
         touched.add(categorize(path))
+    # 取り残しは「どの part ファイルに入っていたか」で拾う。CATEGORIES を後から
+    # 変えると categorize() の結果と保存先がずれるため、stem を直接足す。
+    touched |= set(stale)
     if targets:
         touched &= targets
 
@@ -940,7 +1048,10 @@ def main() -> int:
                 blocks.pop(path, None)
 
         if not blocks:
-            print(f"[{stem}] 記事なし — スキップ")
+            # ここで continue すると古い part ファイルが消えずに残る。soc-workbench が
+            # sitemap から全記事消えたとき、取り残し 18 件がこれで生き延びていた。
+            gone = purge_parts(stem)
+            print(f"[{stem}] 記事が 1 件も残らないため part ファイル {gone} 件を削除")
             continue
 
         print(f"[{stem}] {category_name(stem)}: {len(blocks)} 記事")
@@ -948,6 +1059,18 @@ def main() -> int:
         written_paths |= set(blocks)
 
     # ── インデックス更新 ──────────────────────────────────────────────────
+    # 再検証で実際に中身が変わっていた記事を数える。index の hash はこれまで
+    # 書くだけで使われていなかったが、ここで初めて比較対象になる。
+    drifted = [
+        p for p in revalidated
+        if p in fetched
+        and (known.get(p) or {}).get("hash")
+        and known[p]["hash"] != block_hash(render_block(fetched[p], sitemap.get(p, "")))
+    ]
+    if revalidated:
+        print(f"[revalidate] 再検証 {len(revalidated)} 件中 "
+              f"{len(drifted)} 件で内容が変わっていました")
+
     if args.full:
         # --full で対象にしたカテゴリのエントリを作り直す
         known = {
@@ -984,6 +1107,19 @@ def main() -> int:
         print(f"[index] part ファイルに存在しない {len(orphans)} 件を index から削除")
 
     index["articles"] = known
+    # 次回は次のスロットを再検証する。ビルドが失敗した回はコミットされないので
+    # スロットも進まず、その週の担当分は翌週やり直される。
+    if not args.full and not args.no_revalidate:
+        index["revalidate_slot"] = (slot + 1) % REVALIDATE_SLOTS
+    index["last_run"] = {
+        "at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "fetched": len(fetched),
+        "removed": len(removed),
+        "failed": len(failed),
+        "new_failures": sorted(new_failures),
+        "revalidated": len(revalidated),
+        "drifted": sorted(drifted),
+    }
     save_index(index)
     save_bulletins(bulletins)
     write_readme(index)
@@ -994,13 +1130,58 @@ def main() -> int:
     print(f"完了  経過 {elapsed / 60:.1f} 分")
     print(f"総記事数: {len(known):,}")
     print(f"新規/更新: {len(fetched)}  削除: {len(removed)}  失敗: {len(failed)}")
+    if revalidated:
+        print(f"定期再検証: {len(revalidated)} 件（うち内容変化 {len(drifted)} 件）"
+              f"  次回スロット {index.get('revalidate_slot', 0) + 1}/{REVALIDATE_SLOTS}")
+    if new_failures:
+        print(f"[WARN] 新規の取得失敗 {len(new_failures)} 件 "
+              f"(閾値 {args.max_new_failures}) — --health-check で判定されます")
+
+    if drifted:
+        print("\nlastmod 据え置きのまま内容が変わっていた記事:")
+        for path in drifted[:30]:
+            print(f"  [{categorize(path)}] {path}")
 
     if fetched:
         print("\n更新された記事 (先頭30件):")
         for path in sorted(fetched)[:30]:
             print(f"  [{categorize(path)}] {fetched[path]['title']} — {path}")
 
-    write_step_summary(fetched, removed, failed, known)
+    write_step_summary(fetched, removed, failed, known,
+                       revalidated, drifted, new_failures)
+    return 0
+
+
+def run_health_check(max_new_failures: int) -> int:
+    """直前の実行で新規の取得失敗が多発していないかだけを判定する。
+
+    取得そのものを失敗させるとドキュメントのコミット前にジョブが落ちて、
+    せっかく取れた内容まで失われる。そのため本体は常に 0 で終え、コミットが
+    済んだ後にこのモードで改めて健全性を見る。
+    """
+    index = load_index()
+    last = index.get("last_run") or {}
+    if not last:
+        print("[health] 実行記録がありません。判定をスキップします。")
+        return 0
+
+    new_failures = last.get("new_failures") or []
+    unavailable = index.get("unavailable") or {}
+    print(f"[health] 直近の実行 {last.get('at', '?')}")
+    print(f"  取得失敗 {last.get('failed', 0)} 件（うち新規 {len(new_failures)} 件 / "
+          f"継続して取得できていないもの {len(unavailable)} 件）")
+    print(f"  定期再検証 {last.get('revalidated', 0)} 件、"
+          f"うち内容変化 {len(last.get('drifted') or [])} 件")
+
+    if len(new_failures) > max_new_failures:
+        print(f"\n[ERROR] 新規に取得できなくなった記事が {len(new_failures)} 件あり、"
+              f"閾値 {max_new_failures} を超えています。")
+        for path in new_failures[:30]:
+            print(f"  {path}")
+        print("\nサイト側の仕様変更か、取得処理の不具合が疑われます。")
+        return 1
+
+    print("[health] 問題なし")
     return 0
 
 
@@ -1018,7 +1199,8 @@ def save_bulletins(bulletins: list[dict]) -> None:
         json.dumps(payload, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
 
-def write_step_summary(fetched: dict, removed: list, failed: list, known: dict) -> None:
+def write_step_summary(fetched: dict, removed: list, failed: list, known: dict,
+                       revalidated: list, drifted: list, new_failures: list) -> None:
     """GitHub Actions のジョブサマリに結果を書く（ローカル実行時は何もしない）。"""
     import os
     summary_path = os.environ.get("GITHUB_STEP_SUMMARY")
@@ -1030,8 +1212,19 @@ def write_step_summary(fetched: dict, removed: list, failed: list, known: dict) 
         f"- 総記事数: **{len(known):,}**",
         f"- 新規/更新: **{len(fetched)}**",
         f"- 削除: **{len(removed)}**",
-        f"- 取得失敗: **{len(failed)}**", "",
+        f"- 取得失敗: **{len(failed)}**"
+        + (f"（うち新規 **{len(new_failures)}** 件）" if new_failures else ""),
+        f"- 定期再検証: **{len(revalidated)}** 件（うち内容変化 **{len(drifted)}** 件）", "",
     ]
+    if drifted:
+        lines += ["### lastmod が据え置きのまま内容が変わっていた記事", "",
+                  "sitemap の lastmod では検知できず、定期再検証で拾ったものです。", ""]
+        lines += [f"- [{p}]({BASE_URL}{p})" for p in drifted[:50]]
+        lines.append("")
+    if new_failures:
+        lines += ["### 新規に取得できなくなった記事", ""]
+        lines += [f"- [{p}]({BASE_URL}{p})" for p in new_failures[:50]]
+        lines.append("")
     if fetched:
         lines += ["### 更新された記事", "",
                   "| カテゴリ | タイトル | URL |", "|---|---|---|"]

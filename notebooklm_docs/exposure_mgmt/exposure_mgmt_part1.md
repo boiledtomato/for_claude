@@ -1,8 +1,8 @@
 # Zscaler Help — Risk & Exposure Management (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 08:12 UTC
-Articles in this file: 202
+Generated: 2026-09-21 22:17 UTC
+Articles in this file: 204
 
 ---
 
@@ -6563,122 +6563,7 @@ To create a custom security policy:
 
 You can now view the policy listed on the **Policy**page.
 
-Primary resources are the main data stores that AI Security scans for sensitive data. You can build investigation queries and custom policies to identify what type of secondary resources and entities (users, services, roles, databases, virtual machines, etc.) have access to the primary resource and how they are associated with the primary resource. You can also query if there are vulnerabilities in the primary and secondary resources and evaluate their security posture. The investigation results enable you to evaluate and remediate the issues and ensure the resources and sensitive data are secure.
-
-AI Security offers predicates and operators in the following categories to build highly contextual queries:
-
-- Property
-- Access
-- Relationship
-- Entitlement
-- Data
-- Vulnerability
-- Posture
-
-- The combination of predicates and operators is specific to each primary resource.
-- You can select multiple values when using the Like (%), Not Like !(%), iLike (i%), and Not iLike !(i%) operators.
-
-See image.
-
-You can use various attributes to identify what type of entities are associated with the primary resource. You can use a combination of operators and conditions to build the query.
-
-| Resource Property Predicates | Description | Operators |
-| --- | --- | --- |
-| Resource ID | Returns the resource ID of the primary resource. | = : Is; ≠ : Is not; ⊆ : Included In; ∋ : Contains |
-| Resource Name | The name of the resource, as defined by the cloud service provider (CSP). | = : Is; ≠ : Is not; ⊆ : Included In; ∋ : Contains; (%) : Like; i% : iLike (Applicable only for Azure resources.) |
-| Resource Property | Search the resource metadata (JSON file) for the attributes mentioned. | = : IsTrue; False; ≠ : Is not ⊆ : Included In True; False; Doesn't Exist; NullYou can select multiple values. For example, ⊆ (Included In) [Value 1] OR [Value 2] OR [Doesn't Exist].; ⊈ : Not Included In; <= : Less or equal; >= : Greater or equal; < : Less than; > : Greater than; = : On date; \|… : After date; …\| : Before date; \|...\| : Between; ∋ : Contains; ∌ : Doesn't Contain; [≠] : Is not (No match for all array records.); [⊈] : Not included in (No match for all array records.); ∅ : Null; O : Not Null; × : Doesn't exist; (%) : Like; !(%) : Not Like; [!(%)] : Not Like (No match for all array records.); i% : iLike; !(i%) : Not iLike (Applicable only for Azure resources.); And: Use this operator to select the object's multiple attributes when the resource metadata property is part of an array of multiple objects (e.g., In AWS, find Resources Where Primary Resource Type == "EC2 Instance", Resource Property "EC2 Instance".Instance.BlockDeviceMappings[*] .Ebs.Status == Enabled And .Ebs.VolumeID == ID123456789).; List: Select a set of values (e.g., Regions (List) includes a list of regions that can be queried for sensitive data.) |
-| Tags | The tags associated with the resource. You can select multiple keys. | = : Is; ≠ : Is not; ⊆ : Included In; ⊈ : Not Included In; (%) : Like; !(%) : Not Like |
-| Region | The region where the resource is located. | = : Is; ≠ : Is not; ⊆ : Included In; ∋ : Contains; ∌ : Doesn't Contain; !(%) : Not Like |
-| Account | The account in which the resource is stored. | = : Is; ≠ : Is not; ⊆ : Included In; ∋ : Contains |
-| MFA required for login | Whether MFA is required for login. | True; False |
-| Data Store | The main data store type. | **=** : Is |
-
-Access predicates define the network access levels for the resource.
-
-| Access Predicates | Description | Operators |
-| --- | --- | --- |
-| Publicly Accessible | Returns "true" if the resource can be accessed from the internet. | True; False |
-| Public Exposure Details | Returns a JSON object that contains the details of the public exposure. For example, in case of a network level exposure, the object contains the exposed ports and IP ranges. | Enter key and value |
-
-Use the relationship predicates to identify the secondary resources that are associated with or can access the primary resource, check the security posture of the primary resource, whether the primary resource has vulnerabilities, malware, etc.
-
-| Relationship Predicates | Description | Additional Predicates | Operators/Conditions/Resource Types |
-| --- | --- | --- | --- |
-| Has Package | The package installed in the resource. | Package Name; Package Version |  |
-| Has Data | Check the type of the detected data. | You can use the following predicates to identify the specific data types: Is Sensitive: Returns "true" if the resource contains sensitive data.; DLP Engine: Describes the DLP engines.; Dictionary: Describes the dictionaries.; Document Type: Select the required document type.; Document Category: Describes the document category.; Sensitive Data Triggers: Enter the number of DLP trigger matches that the resource permits.; Sensitive Data Matches: Enter the number of sensitive files/tables that the resource permits.; Sensitive Data Volume: Enter the permitted file size value of the files containing sensitive information (in KB).; Last Completed Scan: Returns the time stamp when the resource was last scanned successfully. | = : Is; ≠ : Is not; ⊆ : Included In; ⊈ : Not Included In; **>** : Greater than; **≥** : Greater or equal; **<**: Less than; **≤** : Less than or equal; = On date; \|... Before date; ...\| After date; \|...\| Between; < Less than; > More than |
-| Has Vulnerability | Check for the specific vulnerability details. | CVE ID: Returns the CVE ID as defined in the [National Vulnerability Database (NVD)](https://nvd.nist.gov/). You can select a predefined list of vulnerabilities, allowing you to query multiple values at the same time.; CVSS Score: Returns the numeric open industry standard for assessing the severity of the vulnerability.; CVE Severity: Returns the CVE severity as defined in the NVD.; Age of CVE: Returns the age of the vulnerability discovery as defined in the NVD.; Package Name: Search for a specific package name that is affected by a vulnerability.; Package Version: Search for a specific package version that is affected by a vulnerability.; Fix Available: Returns "true" if a fix is available as defined in the NVD. |  |
-| Has Access to | The secondary resources that can access the primary resource. You can select multiple resource types. |  |  |
-| Associated with | The relationship between this resource and another associated resource. You can select multiple resource types. |  |  |
-| Has Password | Whether the resource is password protected or not. |  |  |
-| Can be accessed by | IAM entities can be a service, user, or a role that can access the primary resource. | You can use the following additional predicates and operators, allowing you to build the query with more granularity: Entity ID: Enter the entity ID.; Account: Select the account that is associated with the entity.; Region: Select the region where the account is located.; Tags: Select the tags associated with the entity.; Action over Parent Resource: Define the actions that the accessing resource can apply to the parent resource.; Access Level over Parent Resource: Define the access level (Full Access, Edit, Read) that the accessing resource can apply to the parent resource.; Has Access To: Relationship to another resource that can be accessed by the current resource.; Via Role: The entity accesses the primary resource via a role that is assigned to another entity.The following additional predicates are available only for GCP resources: Has Service Account Keys: The service account keys associated with the resource. The following sub-predicates are available:Expiry: The date when the service account key expires.; Created On: The date when the service account key was created.; Type: Classification of key types, whether they are user-managed or system-managed.This predicate is not available for the unmanaged Azure Microsoft SQL server and unmanaged Azure PostgreSQL server. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In |
-| Has Entitlement | Relationship to all entitlements granted to the resource. | When you select this predicate, the following additional conditions are available: Access Level: Check the access level (Full Access, Read, Edit) of the entity.; Allowed Action: Define the action that the entitlement permits.; Over Resource: The primary resource has entitlement over another resource. | This predicate is shown only for the following resource types: **AWS** EC2 Instance; Lambda Function; IAM User; IAM External User; IAM Unmanaged User; Organizations Account; External Account; IAM Role; IAM External Role; IAM Federated User**Azure** Virtual Machine; Azure App Service; User; Service Principals; Applications (App Registrations); Managed Identities (User Assigned or System Assigned); IAM Roles**GCP** Virtual Machine; App Engine; Users; Service Accounts; IAM Roles |
-| Has Access Keys | Whether the resource has access keys and whether it is rotated or not. |  |  |
-| Has Malware | Whether the resource contains malware. Malware is detected in AWS S3 buckets, Azure virtual machines and storage accounts, and GCP storage buckets. | When you select this predicate, the following predicates are available: Is Malware: Check if the resource contains malware.; Malware Category: Check if the resource contains malware of a [specific category](https://threatlibrary.zscaler.com/).; Malware Name: Check if the resource contains malware with a specific name.; Detection Accuracy Level: Check the accuracy level to determine if this is malware. | = : Is; ⊆ : Included In; (%) : Like |
-| Has Models | Whether the AI deployment instance or resource contains the AI model or not. This predicate is available only for AI-related resource types, such as AWS Bedrock, Azure AI Foundry, and vertex AI resources. | Model Name: Search for specific models either in AI deployment instances or resources.; LLM Safety Risk: Check the severity of the risk (i.e., CRITICAL, HIGH, MEDIUM, LOW) assigned to the AI model.; LLM Risk Score: Check the risk score calculated for the AI model.; Model Origin: Search for the organization that developed the AI model.; Model Country: Search for the country where the organization that developed the AI model is located.; Model Status: Check the approval state of the AI model. The following sub-predicates are available:Sanctioned: The AI model is approved for use.; Unsanctioned: The AI model is not approved for use.; Pending: The AI model is under review awaiting approval.; LLM Risk Assessment Results: Check the risks associated with the LLM deployment. | = : Is; ≠ : Is not; ⊆ : Included In; ⊈ : Not Included In; (%) : Like; !(%) : Not Like |
-| Has AI Package | Whether the resource contains AI/ML package or not. | Package Name: Search for the name of the AI package.; Package Publisher URL: Search for link to the package homepage where the package is published.; Package Type: Search for the type of AI package.; Package Language: Search for the language of the AI package.; Package Version: Search for the version of the AI package.; Package Has Vulnerability: Check for vulnerability in the AI package.; Package Status: Check for the approval status of the AI package. The following sub-predicates are available:Sanctioned: The AI package is approved for use.; Unsanctioned: The AI package is not approved for use.; Pending: The AI package is under review awaiting approval.; Package Last Updated: Check the date and time the AI package was last modified.; Package License Type: Check the software license terms (e.g., MIT, Apache-2.0) governing the AI package.; Package Access Type: Check the access level (e.g., public) of the AI package.; Package Supply Chain Risk Level: Check the severity of the risk (i.e., CRITICAL, HIGH, MEDIUM, LOW) assigned to the AI package.; Package Risk Score: Check the risk score calculated for the AI package.; Package Risk Assessment Results: Check the risks associated with deploying the AI package. | < Less than; > More than; = : Is; (%) : Like; i% : iLike |
-| Has AI Model | Whether the resource contains the AI model or not. | Model Name: Search for the name of the AI model.; Model Publisher URL: Search for a link to the homepage where the AI model is published.; Model Platform: Search for the AI model platform (e.g., Ollama, Hugging Face); Model Path: Search for the file system path where the AI model is detected.; Multi-Modal: Returns true if the AI model is multi-modal and returns false if not.; Model Country: Search for the country where the organization that developed the AI model is located.; Model Vendor: Search for the AI model vendor (e.g., Google, Meta).; Number of Downloads: Check the number of times the model was downloaded.; Model Status: Check the approval status of the AI model. The following sub-predicates are available:Sanctioned: The AI model is approved for use.; Unsanctioned: The AI model is not approved for use.; Pending: The AI model is under review awaiting approval.; Model Last Updated: Check the date and time the AI model was last modified.; Open Source ML Risk Score: Check the risk score calculated for the AI model.; Open Source ML Risk Severity: Check the severity of the risk (i.e., CRITICAL, HIGH, MEDIUM, LOW) assigned to the AI model.; Risk Factors Properties: Check the risks associated with deploying the AI model. | = : Is; ≠ : Is not; ⊆ : Included In; ⊈ : Not Included In; (%) : Like; !(%) : Not Like |
-
-Use the entitlement predicates to identify the secondary resource's access level and the type of actions it can perform on the primary resource.
-
-| Entitlement Predicates | Description | Additional Predicates | Operators |
-| --- | --- | --- | --- |
-| Has Access to | Access to all entitlements granted to the resource. | Access Level: Full Access, Read, or Edit.; Allowed Action: Define the action that the entitlement permits. | = : Is; ≠ : Is not; ⊆ : Included In; (%) : Like; i% : iLike (Applicable only for Azure resources.) |
-
-Use the vulnerability predicate to check if the resource contains vulnerabilities.
-
-| Vulnerability Predicate | Description | Operator |
-| --- | --- | --- |
-| Is Vulnerable | Check if the resource contains packages with vulnerabilities. | True; False |
-
-Use the posture predicates to check if security policies are enabled or disabled for resources.
-
-- AWS
-- Azure
-- GCP
-- Snowflake
-
-| Posture | Description | Operator | Value |
-| --- | --- | --- | --- |
-| Encrypted | The encryption type applied to the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In | AWS Managed Keys; Customer Managed Keys; Encrypted; Not Encrypted; Platform Managed Keys |
-| Logging | Returns the logging state of the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In | Data Logs; Flow Logs; Management Logs; Enabled; Disabled; Partial |
-| Data Retention | The data retention policy for the resource. | **=** : Is; **≠** : Is not | Enabled; Disabled |
-| Backup | The data backup policy that is applied to the primary resource. | **=** : Is; **≠** : Is not | Enabled; Disabled |
-| Guardrails | Check if Guardrails is enabled or not for an AWS Bedrock Agent. |  | Enabled; Disabled |
-
-| Posture | Description | Operator | Value |
-| --- | --- | --- | --- |
-| Encrypted | The encryption type applied to the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In | Platform Managed Keys; Customer Managed Keys; Platform and Customer Managed Keys (managed disk only); Encrypted; Not Encrypted |
-| Logging | Returns the logging state of the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In | Enabled; DisabledUnmanaged PostgreSQL Server: Partial |
-| Data Retention | The data retention policy for the resource. | **=** : Is; **≠** : Is not | Enabled; Disabled |
-| Backup | The data backup policy that is applied to the primary resource. | **=** : Is; **≠** : Is not | Enabled; Disabled |
-| Exposed to AI service | Returns "true" if the resource is exposed to an AI service, such as Azure AI Foundry. | **=** : Is | true; false |
-
-| Posture | Description | Operator | Value |
-| --- | --- | --- | --- |
-| Encrypted | The encryption type of the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In | Customer Managed Keys; Platform Managed Keys |
-| Logging | The date the resource was created in the cloud environment. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In | All logs; Data Access Admin Read; Data Access Read; Data Access WriteGCP Cloud SQL Instance: Enabled; DisabledGCP Compute Instance: All logs; Data Access Admin Read; Data Access Read; Data Access Write; Ops Agent Logs |
-| Data Retention | The data retention policy for the resource. | **=** : Is | Enabled; Disabled |
-| Backup | The data backup policy for the resource. | **=** : Is; **≠** : Is not | Enabled; Disabled |
-
-| Posture | Description | Operator | Value |
-| --- | --- | --- | --- |
-| Data Retention | The data retention policy for the resource. | **=** : Is | Enabled; Disabled |
-| Is Dormant | Check if the user has logged in over the last 90 days. |  | true; false |
-| Stale Access Keys | Check if the access keys have been rotated in the last 90 days. | = : Is | true; false |
-
-The Has Data predicate can be used to check if the resource contains sensitive data, document types, document categories, and identify the DLP engines and dictionaries that match the content in the resource, check for the volume of sensitive data, and more.
-
-| Predicate | Description | Operators |
-| --- | --- | --- |
-| Is Sensitive | Check if the resource contains sensitive data or not. | **=** : Is |
-| Dictionary | Dictionaries matching the content in the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In |
-| DLP Engine | DLP engines matching the content in the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In |
-| Document Type | The document type matches the content in the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In |
-| Document Category | The document category matches the content in the resource. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In |
-| Sensitive Data Triggers | The number of DLP trigger matches. | **=** : Is; **≠** : Is not; **>** : Greater than; **≥** : Greater or equal; **<**: Less than; **≤** : Less than or equal |
-| Sensitive Data Matches | The number of matched sensitive data or tables. | **=** : Is; **≠** : Is not; **>** : Greater than; **≥** : Greater or equal; **<**: Less than; **≤** : Less than or equal |
-| Sensitive Data Volume | The volume of sensitive data found in the data store and the size (in KB) of the file containing sensitive data. | **=** : Is; **≠** : Is not; **>** : Greater than; **≥** : Greater or equal; **<**: Less than; **≤** : Less than or equal |
-| Last Completed Scan | The date when the data store was last scanned successfully. | Select a date from the calendar |
+[[nid:1540793]]
 
 [Image: The Add Policy button on the Policy page]
 
@@ -12578,22 +12463,22 @@ Based on your organization's [authentication preference](https://help.zscaler.co
 - Email One-Time Password (OTP)
 - Security Key or Biometric
 
-1. Enter your **Login ID**. If you want the service to remember your login ID the next time you log in, select **Remember Me**. See image.
+1. Enter your login ID. If you want the service to remember your login ID the next time you log in, select the **Remember Me**checkbox. See image.
 2. Click**Next**.
-3. Enter your **Password**and click **Sign In**. See image.
-4. Based on your organization's multi-factor authentication policy, two-factor authentication (2FA) is required. Complete your 2FA to access the Authentication Service landing page. If you forget your password or want to configure a different secondary authenticator, click **Having trouble signing in?**> **Reset Password**or**Reset Second Factor**, and a reset email is sent to your email ID. The reset link within the email expires after 15 minutes. To learn more, see [Resetting the Login Credentials or MFA](https://help.zscaler.com/unified/resetting-login-credentials-or-mfa).
+3. Enter your passwordand click **Sign In**. See image.
+4. Based on your organization's MFA policy, 2FA is required. Complete your 2FA to access the Authentication Service landing page. If you forget your password or want to configure a different secondary authenticator, click **Having trouble signing in?**> **Reset Password**or**Reset Second Factor**, and a reset link is sent to your email ID. The reset link expires after 15 minutes. To learn more, see [Resetting the Login Credentials or MFA](https://help.zscaler.com/unified/resetting-login-credentials-or-mfa).
 
 If your account is configured with MFA, you can sign in using an email OTP:
 
-1. Enter your **Login ID**. If you want the service to remember your login ID the next time you log in, select **Remember Me**.
-2. Click**Next** and then click **Other Sign-in Options**. See image. The **Sign-in Options** window appears.
+1. Enter your login ID. If you want the service to remember your login ID the next time you log in, select the **Remember Me**checkbox.
+2. Click**Next**,and then click **Other Sign-in Options**. See image. The **Sign-in Options** window appears.
 3. In the **Sign-in Options** window, click **Email OTP**. See image.
 4. Enter the OTP sent to your email address and click **Sign In**. The OTP expires after 15 minutes. If the OTP expires or you don't receive an OTP, click **Resend**to receive another OTP after 60 seconds. See image.
 
-1. Enter your **Login ID**. If you want the service to remember your login ID the next time you log in, select **Remember Me**.
-2. Select **Sign-in using Security Key or Biometric**. See image.
+1. Enter your login ID. If you want the service to remember your login ID the next time you log in, select the **Remember Me**checkbox.
+2. Select the **Sign-in using Security Key or Biometric**checkbox. See image.
 3. Click**Next**.
-4. Based on your configuration, enter your security key or complete the biometric to access the Authentication Service landing page. If you want to configure with a different security key or biometric, click **Having trouble signing in?**> **Reset Security Key or Biometric**, and a reset email is sent to your email ID. The reset link within the email expires after 15 minutes. To learn more, see [Resetting the Login Credentials or MFA](https://help.zscaler.com/unified/resetting-login-credentials-or-mfa).
+4. Based on your configuration, enter your security key or complete the biometric to access the Authentication Service landing page. If you want to configure with a different security key or biometric, click **Having trouble signing in?**> **Reset Security Key or Biometric**, and a reset link is sent to your email ID. The reset link expires after 15 minutes. To learn more, see [Resetting the Login Credentials or MFA](https://help.zscaler.com/unified/resetting-login-credentials-or-mfa).
 
 [Image: Authentication Service login page with blurred Login ID and Remember Me option selected.]
 
@@ -15771,4 +15656,179 @@ See image.
 [Image: The Identities tab on Tenants page.]
 
 [Image: The MITRE ATT&CK tab on Tenants page.]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/what-identity-protection","lastmod":"2026-08-30T23:23Z","nid":"1535399"} -->
+## What Is Identity Protection?
+
+- Source: https://help.zscaler.com/identity-protection/what-identity-protection
+- Product: Identity Protection
+- Path: Identity Protection Help > What Is Identity Protection?
+- Last modified: 2026-08-30T23:23Z
+- Summary: Information on what Identity Protection is and why it is used.
+
+Identity has become the new target for attackers because human and non-human identities have permissions to access critical applications, assets, and sensitive data. Security teams are overwhelmed by fragmented findings and disconnected tools, and risks are increasing faster than the time it takes to resolve them. When an identity is compromised, security teams need more details, such as who the identity is, what it can access, whether it is over-privileged, whether its credentials are weak or exposed, and whether its behavior deviates from normal. This information can help security teams to prioritize, take immediate action, and reduce the risks.
+
+Identity Protection helps organizations move from fragmented visibility to actionable identity security. It detects anomalous activities such as compromised credentials, suspicious logins, sensitive data theft, etc., and provides continuous and unified visibility into identity risks.
+
+Identity Protection is part of the Zscaler Security Operations (SecOps) platform and works alongside Unified Vulnerability Management (UVM), Asset Exposure Management (AEM), and Security Operations Center (SOC) Workbench to deliver a cohesive security operations experience. This allows you to unify disparate identity data from multiple systems to get a complete view of users, understand their posture, dynamically measure identity risks, and mitigate identity attacks.
+
+## Key Features and Benefits
+
+Identity Protection includes the following features and benefits:
+
+- **Detect Risks Associated with Identities**: Detect compromised accounts, suspicious sign‑ins, leaked credentials, and anomalies in authentication activities to stop threats before they escalate.
+- **Mitigate Identity Attacks**: Detect and contain identity-based attacks before they can cause harm.
+- **Strengthen Identity Posture**: Find and fix weak passwords, exposed credentials, and excessive privileges.
+- **Single Identity View**: Unify identity data from disparate sources into one view. Correlates signals from sign‑ins, credentials, permissions, and behavior to display findings related to identities.
+- **Drive Broader SecOps Outcomes**: Prioritize threats and exposures associated with risky identities to accelerate response and reduce future risk.
+- **Reports and Dashboards**: Custom dashboards and reports to view specific results as required.
+
+## How Does Identity Protection Work?
+
+Identity Protection takes a proactive and integrated approach to secure user identities.
+
+Identity Protection consists of the core capabilities:
+
+- **Identity Risk Detection**: Detect anomalies in authentication activity, suspicious sign‑ins, and compromised credentials. The correlated signals are mapped into the SecOps platform, providing visibility into risks across assets, vulnerabilities, and exposures.
+- **Data Ingestion via Connectors:**Identity Protection uses connectors to ingest data from sources such as posture scans, change detections, alerts, and identity records. These connectors also integrate with identity providers like Okta and Microsoft Entra, enabling the system to consume identity data directly from the customer's IdP and bring it into the protection framework.
+- **Data Fabric as the Backbone:**Data Fabric is the backbone of the SecOps platform. It ensures that all incoming identity signals are normalized, correlated, and enriched. This allows the platform to unify disparate data streams and provide security teams with a coherent view of identity-related risks across the environment.
+- **Custom Configuration:** Manage and fine-tune identity protection through the SecOps platform. Within the Settings page, you can adjust scan configurations and review clear explanations for each option. When deeper configuration is required, certain links redirect you to the legacy ITDR experience, ensuring continuity for advanced tasks while maintaining a modern interface for routine adjustments.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/risk360/about-alerts","lastmod":"2024-12-16T06:06Z","nid":"1483176"} -->
+## About Alerts
+
+- Source: https://help.zscaler.com/risk360/about-alerts
+- Product: Risk360
+- Path: About Alerts
+- Last modified: 2024-12-16T06:06Z
+- Summary: Information on Alerting in the Risk360 Admin Portal.
+
+Alerting helps you meet your security compliance requirements and reduce potential financial losses by getting timely notifications when the configured criteria in the alert rule are met. This also helps take swift action towards events impacting your organization's risk exposure.
+
+Alerts provide the following benefits and enable you to:
+
+- Configure alert rules that help trigger alerts when an alert rule is activated.
+- Configure rules for various criteria (i.e., change in risk score at the organization, factor group, and factor levels, and change in potential financial loss).
+- Receive triggered notifications sent via emails and webhooks.
+- Get actionable recommendations as part of alerts to tackle security events.
+
+## How Alerting Works
+
+1. When the alert rule's criteria is satisfied for the throttling period defined in the alert rule, the alert becomes an ongoing alert and starts to get displayed on the Ongoing Alerts tab.
+2. The users receive an alert notification in the form of an email and webhook, depending on the configured delivery method.
+3. The Started On field in the alert notification shows the date and time when the alert started and the Ended On field shows Ongoing because the alert is still persisting.
+4. Users receive a daily alert notification as long as the alert criteria are true and until the alert rule is not modified, disabled, deleted, or muted.
+  - Disabling an alert rule causes the alerting engine not to evaluate the alert criteria. However, the alert rule stays configured on the Alert Rules tab. You can enable the alert at a later time based on your alert requirement.
+  - Deleting an alert removes the alert rule from the Alert Rules page.
+  - Muting an ongoing alert stops sending alert notifications. However, it doesn't impact the evaluation of the alert, and you can still track the ongoing alert on the Ongoing Alerts tab.
+5. When the criteria of the alert are no longer satisfied, the alert stops and is listed under the Alert History tab. Subsequently, the users receive an alert notification with the Ended On field in the notification showing the date and time when the alert ended.
+
+## About the Alerts Page
+
+The Alerts page contains the following 4 tabs to manage various alerting stages:
+
+- Ongoing Alerts
+- Alerts History
+- Alert Rules
+- Webhooks
+
+The Ongoing Alerts tab (Alerts > Ongoing Alerts) shows alerts that are currently being triggered and persisting. On this page, you can do the following:
+
+1. Filter the data on the page for the last 1 day, 2, 5, 7, or 14 days.
+2. Filter the ongoing alerts by Severity or Rule Name.
+3. View a list of ongoing alerts. For each alert, you can view:
+  - **Severity**: The severity of the alert rule (Critical, High, Medium, or Low).
+  - **Rule Name**: The name of the rule.
+  - **Alert ID**: The unique ID assigned to the alert.
+  - **Criteria**: The criteria added in the rule that triggers the rule.
+  - **Cause**: The reason the criteria in the rule were satisfied and the alert was triggered. Alert rules can be defined at the following 4 levels: The cause of an alert is due to risk score or financial loss changes at one level below the defined alert criteria. For example, if the criteria is defined at the organization level, then the cause is due to changes in the 4 attack stages. When the alert criteria is a composite rule with the criteria at different levels, the alerting engine breaks the rule into each element and derives the cause for each element separately. For example, if the rule criteria has an Org level and factor group elements, the causes would be due to changes at the 4 attack stages of the attack and the changes in the factors under the factor group.
+    - Organization
+    - Category
+    - Factor group
+    - Factor
+  - **Throttling**: The time frame during which the criteria in the rule persisted.
+  - **Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
+  - **Muted?**: Whether the alert is currently on mute or not.
+  - **Started On**: The date and time when the alert started. Click an alert to view the following information in the drawer view.
+    - Drawer
+
+The Alert History tab (Alerts > Alert History) shows all the historically configured alerts. On this page, you can do the following:
+
+1. Filter the data on the page for the last 1 day, 2, 5, 7, or 14 days.
+2. Filter completed alerts by Severity, Rule Name, or Status.
+3. View a list of completed alerts. For each alert, you can view:
+  - **Severity**: The severity of the alert rule (Critical, High, Medium, or Low).
+  - **Rule Name**: The name of the rule.
+  - **Criteria**: The criteria added in the rule that triggers the rule.
+  - **Alert ID**: The unique ID assigned to the alert.
+  - **Cause**: The reason the criteria in the rule were satisfied and the alert was triggered. Alert rules can be defined at the following 4 levels: The cause of an alert is due to risk score or financial loss changes at one level below the defined alert criteria. For example, if the criteria is defined at the organization level, then the cause is due to changes in the 4 attack stages. When the alert criteria is a composite rule with the criteria at different levels, the alerting engine breaks the rule into each element and derives the cause for each element separately. For example, if the rule criteria has an Org level and factor group elements, the causes would be due to changes at the 4 attack stages of the attack and the changes in the factors under the factor group.
+    - Organization
+    - Category
+    - Factor group
+    - Factor
+  - **Throttling**: The time frame during which the criteria in the rule persisted.
+  - **Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
+  - **Started On**: The date and time when the alert started.
+  - **Ended On**: The date and time when the alert ended. Click an alert to view the following information in the drawer view.
+    - Drawer
+
+The Alert Rules tab (Alerts > Alert Rules) shows all the configured alerts. On this page, you can do the following:
+
+1. Filter the alerts by Severity or Rule Name.
+2. [Add an alert rule](https://help.zscaler.com/risk360/configuring-alert-rule).
+3. View a list of alerts. For each alert, you can view:
+  - **Rule Name**: The name of the rule.
+  - **Severity**: The severity of the alert rule (Critical, High, Medium, or Low).
+  - **Criteria**: The criteria added in the rule that triggers the rule alert.
+  - **Throttling**: The time frame during which the criteria in the rule were satisfied.
+  - **Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
+  - **Status**: The status of the alert, whether enabled or disabled.
+4. Edit a rule.
+5. Mute or unmute notifications from an alert rule. This ensures the rule is enabled, but no notification is initiated when the alert is triggered.
+6. Delete an alert rule or clone the rule to configure a new alert rule.
+
+The Webhook tab (Alerts > Webhook) shows all the configured webhook integrations. You can use integrations into an alert rule from the third-party provider to receive alerts. On this page, you can do the following:
+
+1. Filter the ongoing alerts by Name, Authentication Type, or Status.
+2. [Add webhook](https://help.zscaler.com/risk360/configuring-webhooks).
+3. View a list of configured integrations. For each integration, you can view:
+  - **Name**: The name of the integration.
+  - **URL**: The URL of the integration.
+  - **Authentication Type**: The authentication type configured for the integration (Basic or Token).
+  - **Authentication Status**: This shows the integration authentication status (Active, Error, or In Progress). Fix the configuration if the field displays an error.
+  - **Alert Status**: The status of the alert, whether enabled or disabled.
+4. Edit an integration.
+5. Delete an integration.
+
+The drawer consists of the following two tabs:
+
+### Details
+
+The Details tab shows the following information about the alert:
+
+- **Alert ID**: The unique ID assigned to the alert.
+- **Criteria**: The criteria added in the rule that triggers the alert.
+- **Throttling**: The time frame during which the criteria in the rule persisted.
+- **Alert Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
+- **Cause**: The change in the risk score or potential loss at different levels (i.e., organization, category, factor group, and factor) in the last 24 hours. The red, green, and gray colors indicate an increase, decrease, and no change in the risk score or potential financial loss, respectively. See image.
+
+### Alert Cause History
+
+The Alert Cause History tab shows the history of whenever the alert is triggered for the change in the risk score or potential loss at different levels (i.e., organization, category, factor group, and factor). The red, green, and gray colors indicate an increase, decrease, and no change in the risk score or potential financial loss, respectively. Click the dropdowns to view the change cause for that date.
+
+See image.
+
+The drawer shows the following information about the alert:
+
+- **Alert ID**: The unique ID assigned to the alert.
+- **Criteria**: The criteria added in the rule that triggers the alert.
+- **Throttling**: The time frame during which the criteria in the rule persisted.
+- **Alert Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
+- **Cause**: The change in the risk score or potential loss at different levels (i.e., organization, category, factor group, and factor) in the last 24 hours. The red, green, and gray colors indicate an increase, decrease, and no change in the risk score or potential financial loss, respectively. See image.
 <!-- /ZS-ARTICLE -->

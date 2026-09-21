@@ -1,7 +1,7 @@
 # Zscaler Help — Deployment / Operations / Terms (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 08:12 UTC
+Generated: 2026-09-21 22:17 UTC
 Articles in this file: 94
 
 ---
@@ -173,7 +173,7 @@ As of February 28, 2024, new downloads for the Zscaler Analyzer tool and functio
 
 ## Next Steps
 
-If you are currently using Zscaler Analyzer, you must plan a migration to Zscaler Digital Experience (ZDX).
+If you are currently using Zscaler Analyzer, you must plan a migration to Digital Experience (ZDX).
 
 Announcement date: December 5, 2023
 <!-- /ZS-ARTICLE -->
@@ -1034,7 +1034,7 @@ These versions of Zscaler Client Connector for Windows are supported by Zscaler,
 | Compatible OS | Supported Zscaler Client Connector Versions | Notes |  |  |  |
 | --- | --- | --- | --- | --- | --- |
 | OS Version | [4.7 (LTS)](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2025?applicable_category=Windows&applicable_version=4.7) | [4.8](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2025?applicable_category=Windows&applicable_version=4.8) | [4.9](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=Windows&applicable_version=4.9) | [4.10](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=Windows&applicable_version=4.10) |  |
-| Windows 10 | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] | Windows 10 is supported by Zscaler for a limited time. To learn more, see [End-of-Support for Windows 10](https://trust.zscaler.com/zscaler.net/posts/24961). |
+| Windows 10 | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] | Windows 10 is supported by Zscaler for a limited time. To learn more, see [Zscaler Client Connector Support of Windows 10](https://trust.zscaler.com/zscaler.net/posts/31736). |
 | Windows 11 | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] |  |
 | Amazon Workspaces | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] |  |
 

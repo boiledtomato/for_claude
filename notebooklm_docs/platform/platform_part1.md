@@ -1,8 +1,8 @@
 # Zscaler Help — Unified Platform / Admin / Logs (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 08:12 UTC
-Articles in this file: 256
+Generated: 2026-09-21 22:17 UTC
+Articles in this file: 257
 
 ---
 
@@ -76,7 +76,7 @@ Administrative Entitlement provides the following benefits and enables you to:
 
 ## About the Administrative Entitlements Page
 
-On the Administrative Entitlements page (Administration > Admin Management > Role Based Access Control > Administrative Entitlements), you can do the following:
+On the Administrative Entitlements page (Administration > Role Management > Administrative Entitlements), you can do the following:
 
 1. View a list of subscribed Zscaler services. For each service, you can view:
   - **Name**: The name of the Zscaler service.
@@ -1791,25 +1791,27 @@ To assign the Executive Insights App role to executive users:
 - Last modified: 2026-09-18T07:33Z
 - Summary: Information about how to assign users to Zscaler services in the Zscaler Admin Console.
 
-You can assign an individual Authentication Service user or user group to a Zscaler service. You must [add users](https://help.zscaler.com/zidentity/adding-users) or [user groups](https://help.zscaler.com/zidentity/adding-user-groups) before assigning them to a service. You can assign users to perform administrative tasks via [administrative entitlements](https://help.zscaler.com/zidentity/about-administrative-entitlements) or assign them as end users via [service entitlements](https://help.zscaler.com/zidentity/about-service-entitlements). To view the list of entitlements for a specific user, see [Viewing Entitlements to Assigned to Users](https://help.zscaler.com/zidentity/viewing-entitlements-assigned-users).
+You can assign an individual Authentication Service user or user group to a Zscaler service. You must [add users](https://help.zscaler.com/zidentity/adding-users) or [user groups](https://help.zscaler.com/zidentity/adding-user-groups) before assigning them to a service. You can assign users to perform administrative tasks via [administrative entitlements](https://help.zscaler.com/zidentity/about-administrative-entitlements) or assign them as end users via [service entitlements](https://help.zscaler.com/zidentity/about-service-entitlements). To view the list of entitlements for a specific user, see [Viewing Entitlements Assigned to Users](https://help.zscaler.com/zidentity/viewing-entitlements-assigned-users).
 
-Role creation and assignment for Zscaler services, such as Zscaler Client Connector, Zscaler Digital Experience (ZDX), and Internet & SaaS (ZIA), that are migrated into the Zscaler Admin Console and enabled with Unified Role-Based Access Control (RBAC) are managed in the Zscaler Admin Console. To learn more, see [Configuring Administrator Roles](https://help.zscaler.com/unified/configuring-administrator-roles).
+If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 
 ## Administrative Entitlements
 
 To assign users to a Zscaler service for performing administrative tasks:
 
-1. Go to **Administration**> **Admin Management**> **Role Based Access Control** > **Administrative Entitlements**> service's name. See image.
-2. Assign users via one of these methods:
+1. Go to **Administration**> **Role Management**> **Administrative Entitlements**.
+2. Click the required Zscaler service's name. See image.
+3. Assign users via one of these methods:
   - Assign users individually
   - Assign users via user groups
 
 ## Service Entitlements
 
-To assign users to a Zscaler service as end users:
+To assign users to a Zscaler service:
 
-1. Go to**Administration**> **Entitlements**> **End User Entitlements**> service's name. See image.
-2. Assign users via one of these methods:
+1. Go to**Administration**> **Subscription**> **End User Entitlements**.
+2. Click the required Zscaler service's name. See image.
+3. Assign users via one of these methods:
   - Assign users individually
   - Assign users via user groups
 
@@ -1818,28 +1820,30 @@ If a user is assigned to a service's admin role individually, but they are also 
 1. On the **User Groups**tab, click **Assign Groups**. See image. The **Assign Groups** wizard appears.
 2. In the **Assign Groups** wizard: See image.
   1. On the **Select Groups & Roles** page, select the user groups that must be assigned to the Zscaler service.
-  2. In the **Role**column, the drop-down menu includes a list of roles configured in the Zscaler Admin Console (e.g., the [Role Management](https://help.zscaler.com/zia/about-role-management) page in the Internet & SaaS (ZIA) service). Select the role that must be assigned to each user group.
-3. (Optional) If you want to apply the same role for all groups, enable **Set same role for all selected groups**, and select the preferred role from the drop-down menu. See image.
-4. The **Microtenant**column is visible only for the Private Access (ZPA) service. Select the Microtenant for the admins within the Private Access service in the Zscaler Admin Console. To learn more, see [About Microtenants](https://help.zscaler.com/zpa/about-microtenants). See image. If no Microtenant is configured in the Private Access, you must select **Default** in the **Microtenant**column.
+  2. From the **Role**column, select the role that must be assigned to each user group. The drop-down menu includes a list of roles configured in the Zscaler Admin Console. To learn more, see [Configuring Administrator Roles](https://help.zscaler.com/unified/configuring-administrator-roles).
+3. (Optional) To apply the same role for all groups, enable **Set same role for all selected groups**, and select the specific role from the drop-down menu. See image.
+4. The **Microtenant**column is visible only for the Private Access (ZPA) service. Select the Microtenant for the admins within the Private Access service in the Zscaler Admin Console. To learn more, see [About Microtenants](https://help.zscaler.com/zpa/about-microtenants). If no Microtenant is configured in the Private Access, you must select **Default** in the **Microtenant**column.
 5. Click **Next**.
 6. On the **Summary**page, review the assignment details and click **Assign**. See image.
 7. The selected user groups are assigned to the Zscaler service with administrative privileges for all users in the groups.
 
 1. On the **Users**tab, click **Assign Users**. See image. The **Assign Users**wizard appears.
-2. In the **Assign Users**wizard: See image. Admins cannot modify or delete the entitlement and role assigned to them in Authentication Service Administration entitlement.
+2. In the **Assign Users**wizard: See image. Admins cannot modify or delete the entitlement and role assigned to them in Authentication Service Administrative entitlement.
   1. On the **Select Users & Roles** page, select the users that must be assigned to the Zscaler service.
-  2. In the **Role**column, the drop-down menu includes a list of roles configured in the Zscaler Admin Console (e.g., the [Role Management](https://help.zscaler.com/zia/about-role-management) page in the Internet & SaaS (ZIA) service). Select the role that must be assigned to each user.
-3. (Optional) If you want to apply the same role for all groups, enable **Set same role for all selected users**, and select the preferred role from the drop-down menu. See image.
-4. The **Microtenant**column is visible only for the Private Access (ZPA) service. This is the [Microtenant](https://help.zscaler.com/zpa/configuring-microtenants) that you can assign to other admins: If no Microtenant is configured in the Private Access, you must select **Default** in the **Microtenant**column.
-  - If you have Full permission to manage administrative entitlements in Authentication Service, you can assign any Microtenant to other admins. You can also edit or delete any Microtenant.
-  - If you have Restricted Full permission to manage administrative entitlements in Authentication Service and are assigned a **Default** Microtenant in Private Access, you can assign any Microtenant to other admins. You can also edit or delete any Microtenant.
-  - If you have Restricted Full permission to manage administrative entitlements in Authentication Service and are assigned a Microtenant other than the **Default** Microtenant, you can only assign that Microtenant to other admins. You can edit or delete only the assigned Microtenant. See image.
+  2. From the **Role**column, select the role that must be assigned to each user. The drop-down menu includes a list of roles configured in the Zscaler Admin Console. To learn more, see [Configuring Administrator Roles](https://help.zscaler.com/unified/configuring-administrator-roles).
+3. (Optional) To apply the same role for all groups, enable **Set same role for all selected users**, and select the specific role from the drop-down menu. See image.
+4. The **Microtenant**column is visible only for the Private Access (ZPA) service. You can assign and manage [Microtenants](https://help.zscaler.com/zpa/configuring-microtenants) for other admins if you have the following administrative entitlement permissions: If no Microtenant is configured in Private Access, select **Default** in the **Microtenant**column.
+  | Permission | Description |
+  | --- | --- |
+  | Full | Assign, edit, or delete any Microtenant to other admins |
+  | Restricted Full and assigned a Default Microtenant in Private Access | Assign, edit, or delete any Microtenant to other admins |
+  | Restricted Full and assigned a Microtenant but not Default Microtenant | Assign, edit, or delete assigned Microtenant to other admins |
 5. Click **Next**.
 6. On the **Summary**page, review the assignment details and click **Assign**. See image.
 7. The selected users are assigned to the Zscaler service with administrative privileges.
 
 1. On the **User Groups**tab, click **Assign Groups**. See image. The **Assign Groups** wizard appears.
-2. In the **Assign Groups** wizard: The selected user groups are assigned to the Zscaler service with all users in the groups as end users.
+2. In the **Assign Groups** wizard: The selected user groups are assigned to the Zscaler service.
   1. On the **Select Groups**page, select the user groups that must be assigned to the Zscaler service. See image.
   2. Click **Next**.
   3. On the **Summary**page, review the assignment details and click **Assign**. See image.
@@ -1850,23 +1854,23 @@ If a user is assigned to a service's admin role individually, but they are also 
   2. Click **Next**.
   3. On the **Summary**page, review the assignment details and click **Assign**. See image.
 
-[Image: The Administrative Entitlements page with an annotation around a Zscaler Client Connector service]
+[Image: Administrative Entitlements page]
 
 [Image: The User Groups tab for a Zscaler service with annotation around the Assign Groups button]
 
-[Image: The Select Groups and Roles page with annotations around the groups selected to be assigned to a Zscaler service]
+[Image: Select Groups & Roles page for user group assignment]
 
 [Image: The Select Groups and Roles page with the option to apply roles to all groups]
 
-[Image: The Summary page shows the group assignment summary]
+[Image: Group role assignment summary]
 
 [Image: The Users tab for a Zscaler service with annotation around the Assign Users button]
 
-[Image: The Select Users and Roles page with annotations around the users selected to be assigned to a Zscaler service]
+[Image: Select Users & Roles page for user assignment]
 
 [Image: The Select Users and Roles page with the option to apply roles to all users]
 
-[Image: The Summary page shows the user assignment summary]
+[Image: User role assignment summary]
 
 [Image: The Service Entitlements page with an annotation around a Zscaler service]
 
@@ -1881,10 +1885,6 @@ If a user is assigned to a service's admin role individually, but they are also 
 [Image: The Select Users page with annotations around the users selected to be assigned to a Zscaler service]
 
 [Image: The Summary page shows the user assignment summary]
-
-[Image: The Users & Roles page highlighting the Microtenant column]
-
-[Image: The Select Groups and Roles page highlighting the Microtenant column]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6082,7 +6082,20 @@ To assign users or user groups to a Zscaler service:
 - Last modified: 2026-09-16T09:51Z
 - Summary: How to migrate end users to Authentication Service.
 
-Authentication Service (formerly ZIdentity) is the common identity and authentication service that provides a centralized and unified platform for all Zscaler services. End user migration is the process of migrating existing end user authentication workflows and service entitlements from various Zscaler services to Authentication Service to streamline identity management and improve administrative efficiency, strengthen access control and security. You no longer need to configure the external identity provider (IdP) for each Zscaler service separately.
+Authentication Service (formerly ZIdentity) is the common identity and authentication service that provides a centralized and unified platform for all Zscaler services. End user migration is the process of migrating existing end user authentication workflows and service entitlements from various Zscaler services to Authentication Service to streamline user management and improve administrative efficiency, strengthen access control and security. You no longer need to configure the external identity provider (IdP) for each Zscaler service separately.
+
+After the end user migration, users can authenticate with Authentication Service and enroll into the Zscaler services (Internet & SaaS (ZIA), Private Access (ZPA), Digital Experience (ZDX), and others) with a single set of credentials, eliminating the need for multiple ones. Authentication Service for users also enables new features like [step-up authentication](https://help.zscaler.com/zidentity/understanding-step-up-authentication) and [Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
+
+- Existing customers who have already completed [admin migration](https://help.zscaler.com/zidentity/migrating-zscaler-service-admins-zidentity) can perform end user migration.
+- [Privileged Remote Access (PRA)](https://help.zscaler.com/zpa/understanding-privileged-remote-access) or [emergency access](https://help.zscaler.com/zpa/about-emergency-access-users) users are not eligible for end user migration. These users are synced with Authentication Service after migration is completed, and they must reauthenticate as hosted users or guest users with the external IdP depending on the organization's configuration. To learn more, see [Migrating Private Access End Users to Authentication Service](https://help.zscaler.com/zpa/migrating-private-access-end-users-zidentity).
+- The allowlisted domains for Private Access emergency access is synchronized as Authentication Service guest domains.
+- End user migration does not disrupt users, and they are not required to log out and log in again to Zscaler Client Connector during or after the end user migration provided the following supported Zscaler Client Connector versions are used during migration:
+  - Windows 4.8 or later
+  - MacOS 4.8 or later
+  - Android 4.1 or later
+  - iOS 4.4.4 or later
+  - Linux 3.7.2 or later
+- Okta customers must use the Okta Integration Network (OIN) Zscaler App. Customers who have previously set up an Okta integration using any other service need to change to the OIN Zscaler App. If not, Okta's group membership provisioning over SCIM using a custom app results in incomplete group memberships.
 
 End user migration includes the following benefits:
 
@@ -6090,51 +6103,30 @@ End user migration includes the following benefits:
 - Improved user experience: Log in once, log in securely, and access all Zscaler services.
 - Stronger safeguards: Enforce MFA at Zscaler and centralize policy enforcement to minimize security gaps. This is applicable only for hosted users (created in Authentication Service).
 
-After the end user migration, users can authenticate with Authentication Service and enroll into the Zscaler services (Internet & SaaS (ZIA), Private Access (ZPA), Zscaler Digital Experience (ZDX), and others) with a single set of credentials, eliminating the need for multiple ones. Authentication Service for users also enables new features like [step-up authentication](https://help.zscaler.com/zidentity/understanding-step-up-authentication) and [Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
-
-Authentication Service for end users requires Okta customers to use the Okta Integration Network (OIN) Zscaler App. Customers who have previously set up an Okta integration using any other service need to change to the OIN Zscaler App. If not, Okta's group membership provisioning over SCIM using a custom app results in incomplete group memberships.
-
-- End user migration does not disrupt users, and they are not required to log out and log in again to Zscaler Client Connector during or after the end user migration provided the following supported Zscaler Client Connector versions are used during migration:
-  - Windows 4.8 or later
-  - MacOS 4.8 or later
-  - Android 4.1 or later
-  - iOS 4.4.4 or later
-  - Linux 3.7.2 or later
-- New Authentication Service customers and existing customers who have already completed [admin migration](https://help.zscaler.com/zidentity/migrating-zscaler-service-admins-zidentity) can perform end user migration.
-- [Privileged Remote Access (PRA)](https://help.zscaler.com/zpa/understanding-privileged-remote-access) or [emergency access](https://help.zscaler.com/zpa/about-emergency-access-users) are not eligible for end user migration. These users are synced with Authentication Service after migration is completed, and they must reauthenticate as hosted users or guest users with the external IdP depending on the organization's configuration. To learn more, see [Migrating Private Access End Users to Authentication Service](https://help.zscaler.com/zpa/migrating-private-access-end-users-zidentity).
-- The allowlisted domains for Private Access emergency access synchronized as Authentication Service guest domains.
-
 ## Prerequisites
 
 Before starting the end user migration, you need to complete the following pre-migration tasks:
 
-- When you completed [admin migration to Authentication Service](https://help.zscaler.com/authentication-service/migrating-zscaler-service-admins-authentication-service), only admins were migrated at that stage. To proceed with end user migration, you must now import all end users by adding them to the application created for Authentication Service.
-- IdPs for end users are configured in Authentication Service, which must be the same IdP that is used by admins. Zscaler recommends adding the exact Internet & SaaS and Private Access IdP configurations in Authentication Service. For example, if Internet & SaaS and Private Access have two IdPs mapped with unique domains, then the same two IdPs and domains must be added to Authentication Service.
-- All end user data and group data are provisioned in Authentication Service. This is necessary to properly manage the service entitlements and test users in the migration process, and ensure that policies configured in Internet & SaaS and Private Access continue to work seamlessly.
+- IdPs for end users are configured in Authentication Service, which must be the same IdP that is used by admins. Zscaler recommends adding the exact Internet & SaaS and Private Access IdP configurations in Authentication Service. For example, if Internet & SaaS and Private Access have two IdPs mapped with unique domains, then the same two IdPs and domains must be added to Authentication Service. To learn more, see [About External Identity Providers](https://help.zscaler.com/authentication-service/about-external-identity-providers).
 - The same domains mapped in Internet & SaaS and Private Access to the external IdP are mapped to the IdP configured in Authentication Service.
-- User and session attributes are defined in Authentication Service.
+- All [end user data](https://help.zscaler.com/authentication-service/about-users) and [group data](https://help.zscaler.com/authentication-service/about-user-groups) are provisioned in Authentication Service. This is necessary to properly manage the service entitlements and test users in the migration process, and ensure that policies configured in Internet & SaaS and Private Access continue to work seamlessly.
+- [User](https://help.zscaler.com/authentication-service/adding-user-attributes) and [session attributes](https://help.zscaler.com/authentication-service/adding-session-attributes) are defined in Authentication Service.
+- The end user systems must be running the required [Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/what-is-zscaler-client-connector) versions. To learn more, see [Understanding the Zscaler Client Connector App Downloads](https://help.zscaler.com/zscaler-client-connector/understanding-zscaler-client-connector-app-downloads).
 
 The above actions ensure that admins need not reconfigure Internet & SaaS and Private Access policy rules and can use the existing identity data set in the policy rule criteria. The reason to fetch all the data and correlate on Authentication Service is to ensure that Internet & SaaS, Private Access, and Zscaler Client Connector policies function smoothly without any disruption. For example, let’s consider that a Internet & SaaS policy defined for certain groups allows the groups to access a specific internet site. If the group is not correlated on Authentication Service, then the users in the group might be blocked because that group doesn’t exist on Authentication Service. In the case of a Private Access policy, a certain user attribute or session attribute (previously referred to as SCIM attribute and SAML attribute respectively) is used in decision-making to block or allow user access to a private site. Correlation with Authentication Service attributes ensures that they are accounted for after end user migration.
 
-## End User Migration Workflow
-
-The end user migration workflow includes the following stages:
-
-1. **Initial Review**: The admin reviews and completes the IdP, group, and user attribute audits. The admin must also review and verify whether the Zscaler service entitlements are imported from Zscaler Client Connector. The end user systems must be running the required [Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/what-is-zscaler-client-connector) versions. To learn more, see [Understanding the Zscaler Client Connector App Downloads](https://help.zscaler.com/zscaler-client-connector/understanding-zscaler-client-connector-app-downloads).
-2. **Test User Migration**: The admin selects a subset of users as test users and migrates them to Authentication Service in controlled phases to validate the single sign-on (SSO) process and ensure the policies work properly for these users. After the test user migration has started, any new changes to device tokens, device groups, and service entitlements in Zscaler Client Connector are not synced with Authentication Service.
-3. **Complete Migration**: After the test users are migrated successfully, the admin migrates all end users of that tenant to Authentication Service.
-4. **Rollback after Complete Migration**: In case you want to revert the users to the existing external IdP and restore their pre-migration state, you can contact Zscaler Support. Rollback is allowed only for 14 days after migration. After rollback, if there are any changes to users and groups on the external IdP, then the admin must sync the users and groups again before re-initiating the end user migration. Migrating users immediately after rollback is restricted. You must wait for 24 hours before re-initiating end user migration.
+**Rollback after Complete Migration**: In case you want to revert the users to the existing external IdP and restore their pre-migration state, you can contact Zscaler Support. Rollback is allowed only for 14 days after migration. After rollback, if there are any changes to users and groups on the external IdP, then the admin must sync the users and groups again before re-initiating the end user migration. Migrating users immediately after rollback is restricted. You must wait for 24 hours before re-initiating end user migration.
 
 ## Migrating End Users
 
-The admin user with Super Admin role needs to complete these steps:
+The admin user with a Super Admin role must complete these steps:
 
 If Unified Role-Based Access Control (RBAC) is enabled for your organization, administrator roles for Authentication Service are managed on the Role Management page in the Zscaler Admin Console. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To use the Unified RBAC feature, contact your Zscaler Account team.
 
-1. When you receive an email that your organization is set up for end user migration, click the link in the email and log in to the Authentication Service Admin Portal.
+1. When you receive an email that your organization is set up for end user migration, click the link in the email and log in to the Authentication Service Admin Portal or Zscaler Admin Console if your tenant is enabled for Experience Center. The email is sent from `no-reply@zscaler.com` with the subject "Authentication Service End User Migration."
 2. The top banner shows a message and a link. Click the link to start the end user migration. See image.
 3. On the next page, read the prerequisites and conditions. See image.
-4. Click **Continue**and complete the following steps: The first three audit activities are required to ensure that the identity configuration and policy rule criteria in Authentication Service is equivalent to what was used in Internet & SaaS and Private Access.
+4. Click **Continue**and complete the following steps: The first three audit activities are required to ensure that the identity configuration and policy rule criteria in Authentication Service are equivalent to what was used in Internet & SaaS and Private Access.
   - a. Audit the IdPs.
   - b. Audit the groups.
   - c. Audit the user attributes.
@@ -6183,7 +6175,10 @@ Zscaler might not have the complete information of users that were historically 
 
 Before selecting the test users, you must provision the user details from your external IdP using SCIM to Authentication Service. To learn more, see [Adding Users](https://help.zscaler.com/zidentity/adding-users).
 
-Private Access emergency access users cannot be selected as test users.
+You can select a subset of users as test users and migrate them to Authentication Service in controlled phases to validate the single sign-on (SSO) process and ensure the policies work properly for these users.
+
+- After the test user migration has started, any new changes to device tokens, device groups, and service entitlements in Zscaler Client Connector are not synced with Authentication Service.
+- Private Access emergency access users cannot be selected as test users.
 
 1. On the **Test Users** page, the **Users** tab shows the list of users that are yet to assigned as test users. See image.
 2. Select the required users who are considered as test users to check the end user migration. These user details are displayed on the **Test Users** tab, and they are migrated to Authentication Service immediately.
@@ -12268,9 +12263,9 @@ The following services include agents supported by the ZAgent framework:
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Licensing & Fair Use > ZDX Licensing and Fair Use
 - Last modified: 2025-06-10T10:48Z
-- Summary: Information about Zscaler Digital Experience (ZDX) licensing and fair use.
+- Summary: Information about Digital Experience (ZDX) licensing and fair use.
 
-Zscaler Digital Experience (ZDX) is a Software as a Service (SaaS) product that is licensed according to a number of seats purchased for the subscription term in an order. A *seat*is a subscription license for the ZDX service for an individual authorized user. The number of seats required is determined by counting the total number of unique individual users of ZDX over the previous rolling 90-day period.
+Digital Experience (ZDX) is a Software as a Service (SaaS) product that is licensed according to a number of seats purchased for the subscription term in an order. A *seat*is a subscription license for the ZDX service for an individual authorized user. The number of seats required is determined by counting the total number of unique individual users of ZDX over the previous rolling 90-day period.
 
 Ensure that you order the correct number of seats. If additional seats are needed during a subscription term, contact Zscaler Sales or your Channel Partner. Zscaler periodically reviews the number of seats that use the service to ensure license compliance.
 
@@ -12288,9 +12283,9 @@ The usage of ZDX is expected to be in accordance with the [Acceptable Use Policy
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Logs & Data > ZDX Logs
 - Last modified: 2026-09-02T11:32Z
-- Summary: Information about Zscaler Digital Experience (ZDX) logs.
+- Summary: Information about Digital Experience (ZDX) logs.
 
-In order to provide the Zscaler Digital Experience (ZDX) service, Zscaler has the right to process, use, reproduce, store, modify, and display the information from logs as defined in this article.
+In order to provide the Digital Experience (ZDX) service, Zscaler has the right to process, use, reproduce, store, modify, and display the information from logs as defined in this article.
 
 - **Definition:** For ZDX,*logs* are defined as the telemetry metadata collected via ZDX probes and Microsoft 365 probes, as well as the metadata that correlates with logs of other Zscaler SaaS products, such as Zscaler Internet Access (ZIA) or Zscaler Private Access (ZPA).
 - **Retention:** Zscaler retains the logs on a rolling period of at least two weeks or two days during your subscription term, depending on your subscription. When the subscription term ends or expires, the logs are deleted by Zscaler according to applicable retention cycles.
@@ -15890,4 +15885,233 @@ The newly created profile is displayed on the **Profiles**page. The Adaptive Acc
 [Image: Select the profile criteria]
 
 [Image: Click the Plus icon]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/adding-and-managing-entities-and-fields","lastmod":"2026-09-16T10:55Z","nid":"1545270"} -->
+## Adding and Managing Entities and Fields
+
+- Source: https://help.zscaler.com/unified/adding-and-managing-entities-and-fields
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Adding and Managing Entities and Fields
+- Last modified: 2026-09-16T10:55Z
+- Summary: Information about how to add and manage fields and entities in the Security Operations Platform data model.
+
+The Security Operations Platform (SecOps Platform) data model comes with many default entity types that define and describe the data created and needed by the applications in the SecOps Platform. You can manage those entities, their attributes (fields), and their relationships to ensure that business objectives are met. To learn more, see [Understanding Entity Types](https://help.zscaler.com/unified/understanding-entity-types) and [Understanding the Data Model in the Security Operations Platform](https://help.zscaler.com/unified/understanding-data-model-security-operations-platform).
+
+Consult your Zscaler Account team when making changes to the data model. Uninformed or well-meaning changes to the data model can affect data integrity and cause fragmented or duplicated data, which can result in operational inefficiencies or noncompliance.
+
+## Adding and Managing Entities
+
+For access to the data model, your assigned role must include the Read, Create, Edit, and Delete permissions under the Platform - Model Management resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/unified/creating-custom-roles) and [Managing User Roles](https://help.zscaler.com/unified/managing-user-roles#assign-role).
+
+[Image: Model Management resource highlighted]
+
+You can add new entities when you need to track distinct objects, resources, or concepts in the SecOps Platform data model that are not otherwise covered by the default entities.
+
+Add an Entity
+
+To add an entity:
+
+1. In the [SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Data Model**.
+3. Click **Add Entity**. See image. This action is irreversible. You cannot delete entities from the SecOps Platform data model. To delete an existing entity, contact Zscaler Support.
+4. Enter a name for the entity, and click **Add**. An entity is created with the following default fields: `First Seen`, `Last Seen`, `Tags`, `Sources`, `ID`, `Locked`, `State`, `Created`, `Last Update`, `Last State Transition`, `Key`, `Name`, `Type`.
+5. Configure the entity's relationships, fields, unification rules, and usage within the SecOps Platform. Consult your Zscaler Account team for assistance.
+
+[Image: Add Entity button highlighted on Data Model Management page.]
+
+When managing entities, you can perform the following actions:
+
+Add a Field to an Entity
+
+To add a field to an entity:
+
+1. In the [SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Data Model**.
+3. For the entity you want to add a new field to, click the **Add field** icon. See image. [Image: Add field icon highlighted on Data Model Management page] This action is irreversible. You cannot delete fields from the SecOps Platform data model. To delete an existing field from an entity, contact Zscaler Support.
+4. In the new field window that appears:
+  1. **Field Name**: Enter a name for the field.
+  2. **Field Type**: Select a field type from the drop-down menu. Available fields include **Text**, **Number**, **Boolean**, **Date**, **Date & Time**, **Repeated Text**, **Repeated Number**, **Repeated Boolean**, **Repeated Date**, and **Repeated Date & Tim**e.
+
+Investigate an Entity
+
+To view the Entity Explorer page for an entity:
+
+1. In the [SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Data Model**.
+3. Hover over the entity you want to investigate, and click the**Investigate Entity**icon. See image. [Image: Investigate Entity icon highlighted on Alert entity in Data Model Management page] The **Entity Explorer** page appears. To learn more, see [Using the Entity Explorer](https://help.zscaler.com/unified/using-entity-explorer).
+
+Process Entities
+
+To run unification rules and other data manipulation functions:
+
+1. In the [SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Data Model**.
+3. Choose one of the following options: See image. [Image: Process All and Process by entity button]
+  1. **Process All**: Click to process all entities.
+  2. **Process by entity**: Click the drop-down menu to select the entities you want to process, and click **Apply**. Select **Run selected and dependent projects**or **Run selected projections only**, and click **Process**.
+4. (Optional) If processing fails, click **Show Logs**to open the **Entity Management Runs** page and review the logs. See image [Image: Show Logs button highlighted on processing notification for failed run]
+
+View Entity Management Runs
+
+To view entity management runs:
+
+1. In the [SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Data Model**.
+3. Click the **See Logs**icon. See image. [Image: See Logs icon highlighted on the Data Model Management page] The **Entity Management Runs** page appears.
+4. On the **Entity Management Runs** page, you can perform the following actions:
+  - View details of the entity management runs. You can sort each column. For each run, you can see:
+    - **Status**: The status column displays the outcome of each run:
+      - **Completed**: The run successfully completed without data manipulation issues.
+      - **Canceled**: The run was intentionally stopped by the user.
+      - **Failed**: The run encountered an error during data manipulation that prevented it from completing successfully.
+      - **Partially Completed**: The run encountered some errors during data manipulation. You should manually process this run again to ensure that all data manipulation is completed.
+    - **ID**: A unique identifier for the run that can be used for reference when troubleshooting run failures.
+    - **Category**: The run's category displays the processing type, indicating the level of processing applied to the ingested data. All Entity Management runs are categorized as**Aggregate**runs, where the SecOps Platform applies data unification rules and other data manipulation processes. To learn more about other run categories, see [Tracking Data Source Runs](https://help.zscaler.com/unified/tracking-data-source-runs).
+    - **Triggered by**: Displays who initiated the run:
+      - **System**: The run was triggered by its [configured schedule](https://help.zscaler.com/unified/2.0/creating-data-sources#scheduling-section).
+      - **User**: The run was triggered by a user clicking**Process** or **Process All**.
+    - **Run type**: Indicates how the run was performed: For a complete list of all run types, contact Zscaler Support.
+      - **Agg process:** A run manually initiated by a user by clicking **Process** or **Process All** on the [Data Unification - Entities page](https://help.zscaler.com/unified/managing-entity-unification), [Data Unification - Fields page](https://help.zscaler.com/unified/managing-field-unification), or Data Model Management page.
+      - **Batched**: A run initiated by its [configured schedule](https://help.zscaler.com/unified/creating-data-sources).
+      - **Auto-batched*****:***A run initiated as part of a [platform-managed batch process](https://help.zscaler.com/unified/managing-data-sources).
+      - **Post manual operation**: A run initiated by a user overriding a field value.
+    - **Duration**: The total amount of time the run took to complete.
+    - **Start Time**and**End Time:**The timestamps when the run started and ended. This information can reveal potential issues with data unification and assist during troubleshooting.
+  - Click to expand a run, and drill down into detailed logs about the completion status, duration, and start and end times for each entity processed. See image.
+  - (Optional) For in-progress runs, hover over the run, and click the **Cancel**icon to cancel the run. Confirm your choice to cancel the run instantly. See image.
+
+[Image: Entity management run expanded to show run activities.]
+
+[Image: Cancel icon highlighted on in-progress entity management run]
+
+View Entity Relationships
+
+Relationships between entities and their fields are defined on the Configure > Relationspage. Establishing proper relations prevents orphan records and preserves the integrity of your data. It also allows you to apply referential business logic.
+
+To learn more about establishing relations among entities and their fields, contact your Zscaler Account team.
+
+See image.
+
+[Image: Relations page]
+
+## Managing Fields
+
+When managing fields, you can perform the following actions:
+
+Change Field Visibility
+
+Field visibility determines whether a field is viewable within Unified Vulnerability Management (UVM), Asset Exposure Management (AEM), and other SecOps applications. The SecOps Platform still processes, aggregates, and runs unification rules for hidden fields.
+
+To change field visibility:
+
+1. In the [SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Data Model**.
+3. Change a field's visibility by performing one of the following actions:
+  - Modify multiple fields:
+    1. Click **Set Visibility**. See image.
+    2. Select the fields you want to change visibility for. See image.
+    3. Click **Show** to enable visibility, or click **Hide** to disable visibility. See image.
+  - Modify a single field:
+    1. Click the field you want to change visibility for. The field details drawer opens.
+    2. Enable or disable **Visibility**. See image.
+
+[Image: Visibility toggle highlighted in field drawer]
+
+[Image: Multiple fields selected in the Data Model Management page]
+
+[Image: Show and Hide buttons highlighted in Data Model Management]
+
+[Image: Set Visibility button highlighted in Data Model Management]
+
+Manage Value Calculations
+
+Every field in the data model has a default formula that determines what values the field will contain when data is aggregated. You can see default formulas and calculations (i.e., Python script) for each field in the field drawer. You can also review the [default attribute reconciliation logic](https://help.zscaler.com/unified/attribute-reconciliation-default-functions) to understand how values for certain field types are calculated.
+
+To ensure the field uses value calculations that reflect your current security landscape, Zscaler recommends using [field unification rules](https://help.zscaler.com/unified/configuring-field-unification). This provides an easy, intuitive way to modify field formulas and calculations. However, if you find that the field unification rules are limited and cannot fully define the field's value, you can modify the formulas and Python script directly within the Data Model Management page. To learn more, see [Configuring Field Unification](https://help.zscaler.com/unified/configuring-field-unification) and [Understanding Field Unification, Data Model, and Application Settings](https://help.zscaler.com/unified/understanding-field-unification-data-model-and-application-settings).
+
+To modify the field's default data model logic:
+
+1. In the [SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Data Model**.
+3. Click the field for which you want to manage its calculations. The field drawer opens. Field unification rules are the recommended way to specify field value logic, and they automatically override the default data model logic. If you have already configured field unification rules for this field, click **Unlink & Override**. This removes the field from [field unification rules](https://help.zscaler.com/unified/configuring-field-unification). See image.
+4. On the **Calculation** tab:
+  1. (Optional) Click **Add formula**and select a formula from the list, or click **Create new** to add your own. See image. The formula is added to the `eval_first_seen` function in the Editor. See image.
+  2. (Optional) Enable **CEL** to use [Python's Common Expression Language (CEL)](https://python-common-expression-language.readthedocs.io/en/latest/).
+  3. In the **Editor** field, insert a Python script.
+  4. In the **Default values for exception & none cases**section:
+    1. Click the **If Null** drop-down menu and select how null values are handled:
+      - **Set Null**: Set empty or null values as `Null`. This option is default.
+      - **Set Value**: Enter what value should be given to the empty or null value.
+      - **Fail & Set Error**: Set empty or null values to error with the included error message. You can also enter a new message.
+    2. Click the **If Error** drop-down menu and select how errors during value calculations are handled:
+      - **Set Null**: Set values as `Null`. This option is default.
+      - **Set Value**: Enter the value text.
+      - **Fail & Set Error**: Set empty or null values to error with the included error message. You can also enter a new message.
+
+[Image: Add formula button highlighted in the Calculation tab.  The  individual formula and the Create New button are highlighted in the Add formula drop-down.]
+
+[Image: Formula added to the editor]
+
+Preview a Field or Entity Data Model
+
+Review a limited subset of rows to verify how data loads within your field, or inspect your data types and field properties for a given entity.
+
+To preview an entity or field data model:
+
+1. In the [SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Data Model**.
+3. Click the field for which you want to view its data model or its associated entity's data model. The field drawer opens.
+4. Click **Preview**. See image. The **Model Preview** page appears.
+5. Use the filters to adjust the data model preview as needed.
+6. (Optional) Click the **Entity** button to view the associated entity's data model. You can [resize or sort the table columns and add filters](https://help.zscaler.com/unified/using-tables). See image.
+
+[Image: Field is configured through unification rules and displays a warning and an Unlink & Override button.]
+
+Allow Manual Updates
+
+Allow users to make manual changes to a field value after aggregation and unification rules have run. Manual updates might be required for flexible business use cases, and you can restrict updates to roles or resources, require rationale, or apply content verification.
+
+To allow manual updates:
+
+1. In the [SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Data Model**.
+3. Click the field for which you want to view its data model or its associated entity's data model. The field drawer opens.
+4. Click the **Manual Updates**tab.
+5. Enable **Allow Manual Updates**. See image. Some fields and entities do not allow you to enable manual updates.
+6. Enable the following settings as necessary:
+  1. **Allowed Permissions**: Enable to determine whether manual updates are restricted to specific roles or certain resource permissions, then select an option:
+    - **Restrict to Roles**: Select which roles are allowed to manually update the field.
+    - **Restrict to Resources**: Select which resources are allowed to manually update the field.
+  2. **Require Reason on update**: Enableto require rationale when a manual update occurs, then select an option:
+    - **Always**: A reason is always required when a manual update occurs. This option is selected by default.
+    - **Specific**:Select conditions under which a reason is required.
+  3. **Content Validation**: Enable to apply validation logic when a manual update occurs, then select an option:
+    - **Manual**: Select and enter specific keywords to be checked against the manually added value.
+    - **Query**: Select and click the **Field** drop-down menu to select a field.
+
+[Image: Allow Manual Updates toggle highlighted in Manual Updates tab of a field drawer]
+
+View Field Usage
+
+To view field usage:
+
+1. In the [SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Data Model**.
+3. Click the field for which you want to view its data model or its associated entity's data model. The field details drawer opens.
+4. Click the **Usage**tab.
+5. Click an item under each usage section to open its associated page: Sections are only displayed if the field is currently in use.
+  - **Reports**: All reports that include the field.
+  - **View**: All saved views that include the field.
+  - **Dashboards**: All dashboards that include the field.
+  - **Data Model Fields**: All data model fields that the field is included in.
+  - **Data Source Mapping**: All data sources that include mapping to the field.
+  - **UI Configuration**: All UI configurations that include the field.
+  - **Measurement**: All calculated measurements that include the field.
+
+[Image: Entity and field toggle highlighted on Model Preview page]
+
+[Image: Preview button highlighted on field details drawer in the Data Model Management page]
 <!-- /ZS-ARTICLE -->

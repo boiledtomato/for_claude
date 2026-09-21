@@ -1,7 +1,7 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 7)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 08:12 UTC
+Generated: 2026-09-21 22:17 UTC
 Articles in this file: 86
 
 ---
@@ -3442,22 +3442,23 @@ To enable Microsoft365 One Click Configuration:
 
 The **Enable Microsoft-Recommended Office 365 One Click Configuration** option should be disabled.
 
-1. Go to**Policies**>**Common Configuration**> **Advanced**> **Advanced Settings**.
-2. Scroll down and select **Enable Office 365 One Click Configuration**.
-3. Click **Save**, and then [activate the changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+1. Go to**Internet Access**>**Setting**> **Advanced Settings**.
+2. Click **Edit**.
+3. Select the **Enable Office 365 One Click Configuration**option.
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 The **Office 365 One Click Configuration**option should be disabled.
 
-1. Go to **Policies** > **Access Control** > **Internet & SaaS** >**Advanced Settings**.
-2. Select **Enable Microsoft-Recommended One Click Office 365 Configuration**.
-3. Click **Save**, and then [activate the changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+1. Go to**Internet Access**>**Setting**> **Advanced Settings**.
+2. Click **Edit**.
+3. Select **Enable Microsoft-Recommended One Click Office 365 Configuration**.
+4. Click **Save** then [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 If you get an error message after trying to enable this option, this relates to your admin rank. We compare your admin rank to that of two existing custom Firewall and DNS rules with top order. If your admin rank is less than those two ranks, you don't have permission to enable the option.
 
 - The **Office 365 One Click Configuration** option is grayed out.
 - The Zscaler service automatically configures authentication exemption for Microsoft domains.
-- A predefined **Office 365 One Click Rule** is enabled in the following policies: You can modify the Rule Order, Admin Rank, Rule Status, Rule Label, and Description, and choose Evaluate Other Policies (i.e., URL Filtering and Cloud App Control) or Bypass Other Policies under the Do Not Inspect action for this rule and cannot edit other attributes. To learn more, see [Configuring SSL/TLS Inspection Policy](https://help.zscaler.com/zia/configuring-ssltls-inspection-policy).; If Evaluate Other Policies is selected and a block (or similar) rule exists in the URL Filtering policy, Cloud App Control policy, or other policies, then the system allows these rules to match on SSL/TLS bypassed traffic. However, with the SSL/TLS bypass, the policy application is limited due to the lack of decryption. This would mean that subsequent policy action is likely limited to only the domain portion and not the full URL. For example, for the website sample.com/chatBotAI, only sample.com is seen. So, users can access sample.com, and it's classified under IT Services, and do not separate the fact that sample.com/chatBotAI is classified under General AI and ML Applications.
-  - SSL/TLS Inspection Policy
+- A predefined **Office 365 One Click Rule** is enabled in the following policies: SSL/TLS Inspection Policy You can modify the Rule Order, Admin Rank, Rule Status, Rule Label, and Description, and choose Evaluate Other Policies (i.e., URL Filtering and Cloud App Control) or Bypass Other Policies under the Do Not Inspect action for this rule and cannot edit other attributes. To learn more, see [Configuring SSL/TLS Inspection Policy](https://help.zscaler.com/zia/configuring-ssltls-inspection-policy).; If Evaluate Other Policies is selected and a block (or similar) rule exists in the URL Filtering policy, Cloud App Control policy, or other policies, then the system allows these rules to match on SSL/TLS bypassed traffic. However, with the SSL/TLS bypass, the policy application is limited due to the lack of decryption. This would mean that subsequent policy action is likely limited to only the domain portion and not the full URL. For example, for the website sample.com/chatBotAI, only sample.com is seen. So, users can access sample.com, and it's classified under IT Services, and do not separate the fact that sample.com/chatBotAI is classified under General AI and ML Applications.
   - Firewall Control Policy
   - DNS Control Policy
   - Cloud App Control Policy
@@ -3476,7 +3477,7 @@ The rule allows DNS traffic destined to Microsoft 365. The rule isn't configurab
 
 - If your admin rank is greater than or equal to that of the DNS rule with top order, then the rule appears at rule order one with your rank. Going forward, only an admin with an equal or higher rank than yours can edit the rule order.
 
-A predefined rule is created, under each of the following cloud app categories, on the Cloud App Control Policy page (Policies > Access Control > Internet & SaaS > Policies):
+A predefined rule is created under each of the following cloud app categories on the [Cloud App Control Policy page](https://help.zscaler.com/zia/about-cloud-app-control):
 
 - **Collaboration & Online Meetings**: The predefined rule in this category allows the Cloud App Control traffic destined to the following Microsoft 365 cloud applications:
   - Yammer
@@ -3496,7 +3497,7 @@ A predefined rule is created, under each of the following cloud app categories, 
   - Microsoft Intune
 - **Webmail**: The predefined rule in this category allows the Cloud App Control traffic destined to the Outlook cloud application.
 
-Cascading to URL filtering does not apply to the preceding predefined Cloud App Control policy rules when you enable the Allow Cascading to URL Filtering option (Policies > Common Configuration > Advanced > Advanced Settings). To perform URL cascading for Office 365 One Click, create a new rule with a higher rank than the existing predefined rule and use the cascading feature in that new rule.
+Cascading to URL filtering does not apply to the preceding predefined Cloud App Control policy rules when you enable the Allow Cascading to URL Filtering option on the [Advanced Settings page](https://help.zscaler.com/zia/configuring-advanced-settings). To perform URL cascading for Office 365 One Click, create a new rule with a higher rank than the existing predefined rule and use the cascading feature in that new rule.
 
 The rules aren't configurable and can't be deleted, but their rule orders can be changed, if necessary.
 
