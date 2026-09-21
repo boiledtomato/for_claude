@@ -30,6 +30,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -138,6 +139,7 @@ fun WidgetsPane(
                 // 押した瞬間の sheets はまだ古いので、位置を控えずに lastIndex を見ると今いる
                 // シートへ送り返してしまう
                 var jumpTarget by remember { mutableStateOf<Int?>(null) }
+                var skipPruneOnce by remember { mutableStateOf(false) }
                 LaunchedEffect(sheets.size, jumpTarget) {
                     val target = jumpTarget ?: return@LaunchedEffect
                     if (target <= sheets.lastIndex) {
@@ -147,12 +149,24 @@ fun WidgetsPane(
                 }
 
                 // 落ち着いた先を「いまのシート」にして、離れたシートが空なら片付ける。
-                // **いま居るシートは空でも残す** ― 作った直後に消えてしまうため
-                LaunchedEffect(pagerState, sheets) {
+                //
+                // **鍵に sheets を入れてはいけない。** 入れると追加で一覧が変わるたびに
+                // この効果が組み直され、snapshotFlow が「まだ動いていない今のページ」を
+                // 即座に流し直す ― その prune が、作ったばかりの空のシートを 1 フレームで
+                // 消していた（押しても増えず、移動先も無い、という症状）。一覧は
+                // rememberUpdatedState で読み、効果自体は pagerState が変わるまで生かす
+                val latestSheets by rememberUpdatedState(sheets)
+                LaunchedEffect(pagerState) {
                     snapshotFlow { pagerState.settledPage }.collect { page ->
-                        val sheet = sheets.getOrNull(page) ?: return@collect
+                        val sheet = latestSheets.getOrNull(page) ?: return@collect
                         viewModel.setActiveWidgetSheet(sheet.id)
-                        viewModel.pruneEmptyWidgetSheets(keep = sheet.id)
+                        // 追加で来た 1 回は片付けない。空のシートから足したとき、離れた元が
+                        // 消えて枚数が戻り、押しても何も起きないように見えるため
+                        if (skipPruneOnce) {
+                            skipPruneOnce = false
+                        } else {
+                            viewModel.pruneEmptyWidgetSheets(keep = sheet.id)
+                        }
                     }
                 }
 
@@ -208,12 +222,12 @@ fun WidgetsPane(
                     SheetBar(
                         count = sheets.size,
                         current = pagerState.currentPage,
-                        // 今いるシートが空なら足しても意味が無い ― 離れた時点で片付けられるので、
-                        // 押しても空のシートに立ったままになる。押せる見た目のまま何も起きない
-                        // ほうが分かりにくいので、ここで止める
-                        canAdd = onSheet.isNotEmpty() && !removing,
+                        // 今いるシートが空でも押せる。空から足したときは、離れた元を
+                        // 片付けないことで枚数が戻らないようにしている（上の skipPruneOnce）
+                        canAdd = !removing,
                         onAddSheet = {
                             jumpTarget = sheets.size
+                            skipPruneOnce = true
                             viewModel.addWidgetSheet()
                         },
                     )
@@ -364,8 +378,8 @@ private fun WidgetSheetPage(
                         Text("This sheet is empty", style = ZType.Body, color = ZColors.TextPrimary)
                         Text(
                             "“Add widget” puts one here. Widgets keep the size their own app asks " +
-                                "for, so two narrow ones share a row. “Add sheet” waits until this " +
-                                "one holds something — an empty sheet is dropped when you leave it.",
+                                "for, so two narrow ones share a row. A sheet you flick away from " +
+                                "while it is still empty is dropped.",
                             style = ZType.Sub,
                             color = ZColors.TextSecondary,
                         )

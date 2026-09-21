@@ -75,6 +75,27 @@ class WidgetSheetsTest {
     }
 
     @Test
+    fun `pruning with the sheet you are leaving destroys a sheet just added`() {
+        // 追加直後は「元のシート a に立ったまま、空の b が増えた」状態。ここで keep に a を
+        // 渡すと b がその場で消える ― 画面側で一度この順番になり、押しても増えず移動先も
+        // 無い、という症状になった。**片付けは移動が終わってから、行き先を keep に**。
+        val sheets = listOf(WidgetSheet("a"), WidgetSheet("b"))
+        val widgets = listOf(widget(1, "a"))
+        assertEquals(listOf("a"), ids(WidgetSheets.pruneEmpty(sheets, widgets, keep = "a")))
+        // 行き先を渡せば残る
+        assertEquals(listOf("a", "b"), ids(WidgetSheets.pruneEmpty(sheets, widgets, keep = "b")))
+    }
+
+    @Test
+    fun `adding from an empty sheet keeps both until one is left behind`() {
+        // 空の a から足した直後。どちらも空なので、keep 次第で片方しか残らない ―
+        // 画面側はこの 1 回だけ片付けを飛ばして両方残し、フリックで離れたときに片付ける
+        val sheets = listOf(WidgetSheet("a"), WidgetSheet("b"))
+        assertEquals(listOf("b"), ids(WidgetSheets.pruneEmpty(sheets, emptyList(), keep = "b")))
+        assertEquals(listOf("a"), ids(WidgetSheets.pruneEmpty(sheets, emptyList(), keep = "a")))
+    }
+
+    @Test
     fun `with no widgets at all and nowhere to stand every sheet goes`() {
         val sheets = listOf(WidgetSheet("a"), WidgetSheet("b"))
         assertTrue(WidgetSheets.pruneEmpty(sheets, emptyList(), keep = null).isEmpty())
