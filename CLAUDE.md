@@ -59,7 +59,7 @@ They share `sync_notebooklm.py` but nothing else. Keep them separate.
 | Index | `data/help_docs_index.json` | `data/community_docs_index.json` |
 | Sync state | `data/notebooklm_sync_state.json` | `data/community_notebooklm_sync_state.json` |
 | Notebook | `Zscaler_help_docs` | `Zscaler_community` |
-| Workflow | `notebooklm-weekly.yml` (Mon 00:00 UTC) | `community-weekly.yml` (Mon 01:00 UTC) |
+| Workflow | `notebooklm-weekly.yml` (Mon 02:30 UTC) | `community-weekly.yml` (Mon 03:30 UTC) |
 
 Official documentation is reviewed; forum posts are not. Mixing them into one
 notebook makes NotebookLM cite unvetted, sometimes years-old answers as
@@ -351,7 +351,7 @@ personal one.
 
 ### `.github/workflows/notebooklm-weekly.yml`
 
-- **Trigger:** `cron: "0 0 * * 1"` (Monday 00:00 UTC = 09:00 JST) + `workflow_dispatch`
+- **Trigger:** `cron: "30 2 * * 1"` (Monday 02:30 UTC = 11:30 JST) + `workflow_dispatch`
   with `mode` (`incremental` / `full`) and `categories` inputs
 - **Trigger inputs:** also `sync` (`enabled` / `dry-run` / `skip`)
 - **Permissions:** `contents: write` only — this workflow does not deploy Pages
@@ -370,7 +370,7 @@ personal one.
 
 Same shape as `notebooklm-weekly.yml`, with the doc-set-specific values.
 
-- **Trigger:** `cron: "0 1 * * 1"` (Monday 01:00 UTC = 10:00 JST) + `workflow_dispatch`
+- **Trigger:** `cron: "30 3 * * 1"` (Monday 03:30 UTC = 12:30 JST) + `workflow_dispatch`
   with `mode`, `fetch_mode` (`api` / `prerender`), `categories`, `sync` inputs
 - **Deliberately one hour after `notebooklm-weekly.yml`** — both workflows commit and
   push to the same branch, so overlapping runs would collide on push
@@ -527,6 +527,19 @@ Commit bodies may be written in Japanese.
   Zscaler's copyrighted documentation, and `community_docs` reproduces user posts
   including author display names. Neither may be served publicly. **Adding a new doc
   directory means adding a matching `--exclude` to that `tar` command.**
+- **Every workflow that commits must push through `push_with_retry`** — a bare
+  `git push` (or a retry loop whose last command is `sleep`) exits 0 when the push was
+  rejected, so the job stays green while the commit is silently dropped. The symptom is
+  indirect: the next sync sees a stale `notebooklm_sync_state.json`, every hash
+  mismatches, and all 34 sources are re-uploaded instead of none. `push_with_retry`
+  rebases onto `origin/main` between attempts (a rejection is almost always another
+  workflow having pushed first, which plain retries can never resolve) and returns 1
+  when it gives up. `zscaler-monitor.yml` still uses `git push || true` and has this
+  bug.
+- **Scheduled pushes must not share a start minute** — `daily-update.yml` and
+  `zscaler-monitor.yml` both fire at `0 0 * * *`, so the weeklies were moved to 02:30 /
+  03:30 UTC. GitHub also starts scheduled runs 1–4 hours late under load, so treat the
+  cron as "no earlier than", never as a guaranteed time.
 - **`notebooklm_docs/*.md` are machine-managed** — the `<!-- ZS-ARTICLE {…} -->` markers
   are how `build_help_docs.py` locates and replaces individual articles on an
   incremental run. Hand-editing a part file will be silently overwritten, and removing
