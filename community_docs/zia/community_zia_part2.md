@@ -1,10 +1,600 @@
 # Zscaler Zenith Community — ZIA — Internet & SaaS (part 2)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-01 20:41 UTC
-Posts in this file: 298
+Generated: 2026-09-21 02:03 UTC
+Posts in this file: 297
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evmouCAA/dns-control-rules-essential-best-practices","lastmod":"2024-02-01T22:48:26.000Z","id":"0D54u00009evmouCAA"} -->
+## DNS Control rules essential best practices
+
+- Source: https://community.zscaler.com/s/question/0D54u00009evmouCAA/dns-control-rules-essential-best-practices
+- Type: Q&A
+- Last activity: 2024-02-01T22:48:26.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - Cloud Firewall
+
+Stefan Sebastian
+
+(Employee) to
+
+sfdc
+
+(Employee): asked a question.
+
+Edited October 31, 2023 at 3:46 PM
+
+DNS Control rules essential best practices
+
+When DNS traffic reaches ZIA and the DNS Control module of the Advanced Cloud-Gen Firewall is active then consider the following best practices for rules:
+
+1) Set the default rule Unknown DNS Traffic to Block. This will stop non-DNS posing as DNS on dest:53 or malformed DNS. This will also identify some forms of abuse of DNS that are consistent with some DNS tunneling methods in real time
+
+2) Block all Commonly Blocked DNS Tunnels and Unknown DNS Tunnels. These are Black and Grey classifications that ThreatlabZ has determined are clearly malicious or might be malicious.
+
+3) Consider blocking all Commonly Allowed DNS Tunnels. These are legitimate tunnels that are operated by common services but each usually has alternate and more normal means of communication.
+
+4) Block the Advanced Security and Security categories of domains and IP addresses. This targets both domains and IP addresses that are known to host targeted malicious content or used as backchannel (C2) communication or host hijacked domains.  This also targets highly suspicious categories like Newly Active Domains (dormant domains now found to be active) and other malicious categories.
+
+5). At the same time as recommendation 4, consider blocking other categories of domains or resolved IP addresses. For example, there is likely no business need for users in Locations or remote (Road Warriors) to access the Adult Content category etc. Also consider blocking or issuing warnings to categories that might exclusively apply to web browsing using the URL categorization of the web proxy (SWG). The advantage of blocking via the SWG is that the user can receive an EUN (but beaconing to the outside server in the case of HTTPS) whereas the advantage of blocking via DNS Control is that the action happens earlier in the killchain and applies to all traffic including non-web like SSH (but not giving the user any indication of why the silent DNS drop is happening).
+
+6) There is also a particularly strong recommendation to block the Newly Registered and Observed Domains (NRODs). NRODs are often part of attack chains like being termination points for DNS tunnel exfiltrations or hosting drive-by and other malware before a classification can be done on these domains. There is also very little general business need for a business critical (or any commonly used) application to be hosted at an NROD.
+
+7). Consider blocking the entire Miscellaneous category on the DNS request side only with some caution. Do not apply the response side which would have too broad a negative impact since relatively few IP addresses are categorized versus domains.
+
+All the above DNS Control policy is accessible in the left-nav of the UI console by clicking Policy --> DNS Control.
+
+This content is a preview of a link.
+
+community.zscaler.com
+
+https://community.zscaler.com/zenith/servlet/servlet.FileDownload?file=0154u000009O8K5AAK
+
+ZIA - Cloud Firewall
+
+Discourse-expand
+
+Far-image
+
+9 answers
+
+3.65K views
+
+karan.nayak
+
+Jozef_Kovacic
+
+, and
+
+14 others
+
+like this.
+
+Stefan Sebastian
+
+(Employee)
+
+4 years ago
+
+Generally speaking it is best to add block rules to both sides of the DNS transaction – so apply the policy to both the request and the response.
+
+Couple of things to keep in mind:
+
+A block on the request side will be implemented immediately. ZIA will not allow a blocked domain request to get to the targeted DNS resolver (the ZTR or some 3rd party) and so the response side will never happen
+
+There are more categorizations on the domain side than the IP side. The domain side categorizations are more precise in the sense that it focuses on the content more directly since an IP address can host 2 or more domains, each with a separate categorizations.
+
+IP categorizations give an extra level of protection. For example, if a domain has been poisoned, it might be categorized accurately but is then served by an IP that is known to host malicious – and this would be the opportunity to catch this. Hence the recommendation to mirror the policy on both side when possible
+
+a.garcia
+
+(Employee)
+
+4 years ago
+
+Hi,
+
+When creating the DNS block rule for the Advanced Security or any other recommended category blocking, is it best to add these categories to the Requested Categories or the Resolved Categories section of the rule?
+
+Thanks
+
+Stefan Sebastian
+
+(Employee)
+
+5 years ago
+
+We have recommended to some risk-adverse customers to block TXT and MX records since they are legitimate communication paths that can be used for malicious purposes but this currently falls short of becoming one of our best practices.
+
+Blocking TXT records would come with the notable caveat that this would break the Sender Policy Framework used by MS Exchange and potentially cause problems with some other DNS server configurations. Blocking MX records would actually stop the transfer of mail between mail servers (though not typically users/MUA and their MTA). So these endpoints would need to be separated out from the general user population.
+
+2 likes
+
+dhume
+
+(Employee)
+
+5 years ago
+
+Any recommendations around DNS request type?
+
+Stefan Sebastian
+
+(Employee)
+
+3 years ago
+
+For point 4 (above), we recommend blocking the Advanced Security and Security categories (see selection below)
+
+On point 6, recommend blocking NRODs (see selection below)
+
+karan.nayak
+
+(Customer)
+
+3 years ago
+
+Our DNS control policy blocks below:--
+
+Phishing
+
+Botnet Callback
+
+Malicious Content
+
+Newly Registered and Observed Domains
+
+Domain Generated Algorithm Domains
+
+Custom Encrypted Content
+
+Still our Red team folks were able to register a new domain and successfully carry data exfil through DNS... any suggestions/recommendations?
+
+1 like
+
+Stefan Sebastian
+
+(Employee)
+
+3 years ago
+
+Check the log entry for the DNS transaction that was not blocked as expected.  This will initially prove that we received the DNS request but will also show how DNS control classified.
+
+1 like
+
+karan.nayak
+
+(Customer)
+
+3 years ago
+
+We did checked the logs and the new domains that was just registered an hour ago was categorized by Zscaler as Miscellaneous, and we can't block that category cause there is like a million traffic in our company network just for this category, hence it can effect our business operation....
+
+TSimpson
+
+(Customer)
+
+2 years ago
+
+If you can take your time, look at the traffic logs for the hosts in that category and work with support to get the business critical sites categories updated to be. more correct than being Miscellaneous. .  If they need access to them, then possibly allow that with Browser Isolation while blocking uploads/downloads with that, which helps to prevent users from getting to the sites you do allow access to.   But blocking and controlling access to that category can pay off for you in the long run.  Not just for your team, but desktop support and others in your organization that have to deal with security events.
+
+1 like
+
+Log In to Answer
+
+Associated Tags
+
+dns
+
+dns-control
+
+best-practice
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+11/29/2018
+
+at
+
+01:07 PM
+
+Ip address as criteria in url policy
+
+ZIA - Cloud Firewall
+
+ram75
+
+1,193
+
+1193 Views
+
+0 Likes
+
+1 Comment
+
+10/8/2020
+
+at
+
+08:41 AM
+
+Block All access & Allow certain user or group (ZIA)
+
+ZIA - Cloud Firewall
+
+Sec_def_Def_sec
+
+1,829
+
+1829 Views
+
+1 Like
+
+2 Comments
+
+12/19/2022
+
+at
+
+04:14 PM
+
+URL filtering policy vs Cloud App policy control
+
+ZIA - Cloud Firewall
+
+Ahmed
+
+4 Views
+
+0 Likes
+
+2 Comments
+
+12/9/2022
+
+at
+
+09:40 PM
+
+Apple News RSS Feed
+
+ZIA - Cloud Firewall
+
+Trace Woodbury-RidgeIT
+
+2 Views
+
+0 Likes
+
+1 Comment
+
+9/20/2022
+
+at
+
+03:20 PM
+
+How does Zscaler Internet Access itself route the traffic to the internet, using what outgoing/next hop GW
+
+ZIA - Cloud Firewall
+
+tamerz
+
+6 Views
+
+0 Likes
+
+5 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+DNS Control rules essential best practices
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evmovCAA/pac-file-distribution","lastmod":"2023-05-31T09:27:07.000Z","id":"0D54u00009evmovCAA"} -->
+## PAC File distribution
+
+- Source: https://community.zscaler.com/s/question/0D54u00009evmovCAA/pac-file-distribution
+- Type: Q&A
+- Last activity: 2023-05-31T09:27:07.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Client Connector
+
+zjosh
+
+(Customer) to
+
+sfdc
+
+(Employee): asked a question.
+
+December 9, 2021 at 5:05 PM
+
+PAC File distribution
+
+Hello everyone,
+
+I watched some training videos and was under the impression that the Zscaler Client Connector was able to both distribute and enforce the Forwarding PAC files to each user. Then, on Zscaler help website, they mention the use of GPO to distribute the PAC file. So I am confused now.
+
+Do the Zscaler Client Connector propagate and enforce the PAC file (the one defined on Forwarding Profile) on users computers? Or,
+
+Do I need to use external tools (like GPO) in order to propagate the PAC files?
+
+Client Connector
+
+2 answers
+
+443 views
+
+Top Rated Answers
+
+jkelly
+
+(Employee)
+
+5 years ago
+
+Once ZCC is installed, ZCC will propagate and enforce the pac file if you specify it in the App and or Forwarding profile. You will only need gpo to push zcc to clients.
+
+Selected as Best
+
+All Answers
+
+zjosh
+
+(Customer)
+
+5 years ago
+
+Perfect !! Thank you jkelly, ZCC is already installed, so I guess I have nothing to worry about then regard GPO, thanks again.
+
+jkelly
+
+(Employee)
+
+5 years ago
+
+Once ZCC is installed, ZCC will propagate and enforce the pac file if you specify it in the App and or Forwarding profile. You will only need gpo to push zcc to clients.
+
+Selected as Best
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/7/2020
+
+at
+
+04:05 AM
+
+Z-App -8 Network Error when users log in on Windows 10
+
+Client Connector
+
+cburge97
+
+2,895
+
+2895 Views
+
+0 Likes
+
+11
+
+11 Comments
+
+7/3/2020
+
+at
+
+11:55 AM
+
+ZAPP intune deployment
+
+Client Connector
+
+Mk001
+
+1,386
+
+1386 Views
+
+0 Likes
+
+4 Comments
+
+1/28/2021
+
+at
+
+03:42 PM
+
+Compare ezAgent and ZCC - when to use which?
+
+Client Connector
+
+hukel
+
+704
+
+704 Views
+
+0 Likes
+
+2 Comments
+
+8/18/2020
+
+at
+
+12:15 PM
+
+MacOS Zscaler App Log Location
+
+Client Connector
+
+brad
+
+3,601
+
+3601 Views
+
+0 Likes
+
+2 Comments
+
+3/7/2022
+
+at
+
+03:41 PM
+
+Can a User with multiple devices use them simultaneously whilst logged in using that same single account
+
+Client Connector
+
+michael.makombe
+
+4 Views
+
+0 Likes
+
+12
+
+12 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+PAC File distribution
+<!-- /ZS-POST -->
 
 ---
 
@@ -77109,673 +77699,4 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Block Prime App
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evn30CAA/exclude-a-specific-node-by-modifying-pac-file","lastmod":"2023-05-31T08:53:22.000Z","id":"0D54u00009evn30CAA"} -->
-## Exclude a specific node by modifying PAC file
-
-- Source: https://community.zscaler.com/s/question/0D54u00009evn30CAA/exclude-a-specific-node-by-modifying-pac-file
-- Type: Q&A
-- Last activity: 2023-05-31T08:53:22.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZIA - Forwarding
-
-ssingla_old
-
-(Employee) to
-
-sfdc
-
-(Employee): asked a question.
-
-February 1, 2019 at 9:14 PM
-
-Exclude a specific node by modifying PAC file
-
-Hi Team,
-
-We have customer and they were hit by an outage last week because of an issue with one of our DC. They want to primarily find out a way to exclude the impacted DC by modifying the PAC file.
-
-Following are the details of their environment:
-
-3000 users
-
-250 locations; No static IPs(can’t use ${SRCIP}); distributed across North America
-
-Zapp is deployed in tunnel with Local Proxy mode
-
-I have written the following code which will go into their App Profile PAC file to get the job done. I want your help in locating any caveats with the following code:
-
-//Find the primary node IP address
-
-var withPort = “${GATEWAY}?;
-
-//${GATEWAY} resolves to 165.225.106.36:80 so to replace the port I am using substring function
-
-var gatewayIp = withPort.substring(0, 14);
-
-//send traffic to secondary gateway if primary node is the impacted one
-
-if (shExpMatch(gatewayIp, “165.225.106.36?)) return “PROXY ${SECONDARY_GATEWAY}:443; DIRECT?;
-
-//If the primary Gateway is not the affected gateway traffic will flow the nearest DC
-
-return “PROXY ${GATEWAY}:443; PROXY ${SECONDARY_GATEWAY}:443; DIRECT?;
-
-ZIA - Forwarding
-
-2 answers
-
-589 views
-
-ssingla_old
-
-(Employee)
-
-7 years ago
-
-Thank you, Adrian.
-
-Will reach out if I have any follow questions.
-
-Regards,
-
-Sahil
-
-Adrian_Larsen
-
-(Customer)
-
-7 years ago
-
-Hi Sahil,
-
-This is the PAC file you are looking for:
-
-function FindProxyForURL(url, host) {
-
-// Default value
-
-var tozscaler = "PROXY ${GATEWAY}:80; PROXY ${SECONDARY_GATEWAY}:80; DIRECT";
-
-var prigateway = "${GATEWAY}"
-
-// Avoid to use this Gateway IP: 165.225.106.3
-
-if (shExpMatch(prigateway,"165.225.106.3:80")) {
-
-var tozscaler = "PROXY ${SECONDARY_GATEWAY}:80; DIRECT";
-
-/* Default Traffic Forwarding. Forwarding to Zen on port 80, but you can use port 9400 also */
-
-return tozscaler
-
-Some notes:
-
-a) shExpMatch validates a string not an IP. You can compare whatever you want.
-
-b) Zapp refresh PAC files every 20 minutes (+/-)
-
-Please, feel free to contact me directly if you have any additional questions.
-
-Best regards,
-
-Adrian
-
-1 like
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-2/15/2023
-
-at
-
-10:07 PM
-
-Initial login to Azure VDI gets struck for few minutes with ZCC (Tunnel 2.0)
-
-ZIA - Forwarding
-
-rajk5
-
-3 Views
-
-0 Likes
-
-6 Comments
-
-2/14/2023
-
-at
-
-04:13 PM
-
-Forwarding Port 8443 through GRE Tunnel
-
-ZIA - Forwarding
-
-Omar
-
-9 Views
-
-0 Likes
-
-2 Comments
-
-10/23/2022
-
-at
-
-02:29 PM
-
-PZEN localized content
-
-ZIA - Forwarding
-
-mohammad.rummaneh
-
-3 Views
-
-0 Likes
-
-2 Comments
-
-2/18/2022
-
-at
-
-08:24 AM
-
-Premium DC in China
-
-ZIA - Forwarding
-
-Ezzzzh
-
-6 Views
-
-0 Likes
-
-6 Comments
-
-2/15/2021
-
-at
-
-11:58 PM
-
-Disney Circle + Zscaler blocking internet access
-
-ZIA - Forwarding
-
-JamesK
-
-490
-
-490 Views
-
-0 Likes
-
-5 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Exclude a specific node by modifying PAC file
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evn31CAA/gre-tunnel-configuration-for-sophos","lastmod":"2023-05-31T08:14:36.000Z","id":"0D54u00009evn31CAA"} -->
-## Gre tunnel configuration for sophos
-
-- Source: https://community.zscaler.com/s/question/0D54u00009evn31CAA/gre-tunnel-configuration-for-sophos
-- Type: Q&A
-- Last activity: 2023-05-31T08:14:36.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZIA - Cloud Firewall
-
-ramesh.yadav
-
-(Partner) to
-
-sfdc
-
-(Employee): asked a question.
-
-January 29, 2019 at 11:58 AM
-
-Gre tunnel configuration for sophos
-
-Can anyone help me configure GRE tunnel on sophos xg firewall to forward traffic to zscaler cloud
-
-ZIA - Cloud Firewall
-
-559 views
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-11/29/2018
-
-at
-
-01:07 PM
-
-Ip address as criteria in url policy
-
-ZIA - Cloud Firewall
-
-ram75
-
-1,193
-
-1193 Views
-
-0 Likes
-
-1 Comment
-
-10/8/2020
-
-at
-
-08:41 AM
-
-Block All access & Allow certain user or group (ZIA)
-
-ZIA - Cloud Firewall
-
-Sec_def_Def_sec
-
-1,836
-
-1836 Views
-
-1 Like
-
-2 Comments
-
-12/19/2022
-
-at
-
-04:14 PM
-
-URL filtering policy vs Cloud App policy control
-
-ZIA - Cloud Firewall
-
-Ahmed
-
-4 Views
-
-0 Likes
-
-2 Comments
-
-12/9/2022
-
-at
-
-09:40 PM
-
-Apple News RSS Feed
-
-ZIA - Cloud Firewall
-
-Trace Woodbury-RidgeIT
-
-2 Views
-
-0 Likes
-
-1 Comment
-
-9/20/2022
-
-at
-
-03:20 PM
-
-How does Zscaler Internet Access itself route the traffic to the internet, using what outgoing/next hop GW
-
-ZIA - Cloud Firewall
-
-tamerz
-
-6 Views
-
-0 Likes
-
-5 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Gre tunnel configuration for sophos
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evn33CAA/dnssec-use-by-zscaler-zia","lastmod":"2023-05-31T08:14:36.000Z","id":"0D54u00009evn33CAA"} -->
-## DNSSEC use by ZScaler ZIA
-
-- Source: https://community.zscaler.com/s/question/0D54u00009evn33CAA/dnssec-use-by-zscaler-zia
-- Type: Q&A
-- Last activity: 2023-05-31T08:14:36.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZIA - Cloud Firewall
-
-avshch
-
-(Customer) to
-
-sfdc
-
-(Employee): asked a question.
-
-January 16, 2019 at 12:48 PM
-
-DNSSEC use by ZScaler ZIA
-
-Does ZScaler use DNSSEC to sign DNS records?
-
-ZIA - Cloud Firewall
-
-324 views
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-11/29/2018
-
-at
-
-01:07 PM
-
-Ip address as criteria in url policy
-
-ZIA - Cloud Firewall
-
-ram75
-
-1,193
-
-1193 Views
-
-0 Likes
-
-1 Comment
-
-10/8/2020
-
-at
-
-08:41 AM
-
-Block All access & Allow certain user or group (ZIA)
-
-ZIA - Cloud Firewall
-
-Sec_def_Def_sec
-
-1,832
-
-1832 Views
-
-1 Like
-
-2 Comments
-
-12/19/2022
-
-at
-
-04:14 PM
-
-URL filtering policy vs Cloud App policy control
-
-ZIA - Cloud Firewall
-
-Ahmed
-
-4 Views
-
-0 Likes
-
-2 Comments
-
-12/9/2022
-
-at
-
-09:40 PM
-
-Apple News RSS Feed
-
-ZIA - Cloud Firewall
-
-Trace Woodbury-RidgeIT
-
-2 Views
-
-0 Likes
-
-1 Comment
-
-9/20/2022
-
-at
-
-03:20 PM
-
-How does Zscaler Internet Access itself route the traffic to the internet, using what outgoing/next hop GW
-
-ZIA - Cloud Firewall
-
-tamerz
-
-6 Views
-
-0 Likes
-
-5 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-DNSSEC use by ZScaler ZIA
 <!-- /ZS-POST -->

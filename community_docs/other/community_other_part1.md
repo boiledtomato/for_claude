@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — その他 (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-01 20:41 UTC
-Posts in this file: 730
+Generated: 2026-09-21 02:03 UTC
+Posts in this file: 731
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -44057,6 +44057,205 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Error
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Blogs/aSnPJ0000000ebl0AA/chaotic-caffeinated-and-community-powered-david-gillot-spotlight","lastmod":"2026-08-12T17:46:45.000Z","id":"aSnPJ0000000ebl0AA"} -->
+## Chaotic, Caffeinated, and Community Powered: David Gillot Spotlight
+
+- Source: https://community.zscaler.com/s/Blogs/aSnPJ0000000ebl0AA/chaotic-caffeinated-and-community-powered-david-gillot-spotlight
+- Type: Blog
+- Last activity: 2026-08-12T17:46:45.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Blog Details
+
+Certification
+
+Alejandro Knudsen
+
+(Employee) posted a Blog
+
+August 12, 2026 at 5:46 PM
+
+Chaotic, Caffeinated, and Community Powered: David Gillot Spotlight
+
+Some certification journeys are carefully planned, color coded, and paced over months.
+
+David Gillot’s is not one of those.
+
+David, a Lead Security Architect at Watchmen, sums up his experience with one word: chaotic. And somehow, that’s exactly what makes it inspiring. Because it’s honest, it’s funny, and it proves something the community sees every day. You don’t need a perfect plan to make real progress. You just need to start, then keep going.
+
+A team that treats learning like a team sport
+
+David is part of Watchmen,
+
+one of the companies in Europe with the most certified engineers
+
+. The numbers say it all: 100+ certifications across 40+ engineers. In a culture like that, certification is not a solo mission. It’s a team habit.
+
+David wanted to be part of that momentum, so he joined fellow engineers in pursuing certifications during Zenith Live in Vienna. Not because someone forced a checkbox, but because he wanted to run with a group that takes growth seriously and actually makes it fun.
+
+The certifications so far, and what’s next
+
+David has already completed
+
+ZDTA, ZDTE, and ZDXA
+
+, and he’s now aiming for ZDDC as soon as the interactive practitioner lab opens for his region.
+
+For David, the next step is already on the radar. He is looking forward to continuing the journey and adding another milestone to a certification path that has already helped him validate his knowledge and deepen his Zscaler expertise.
+
+A career story that didn’t follow the usual order
+
+David also shares something a lot of professionals feel but don’t always say out loud. Learning doesn’t always happen in a neat sequence.
+
+After 16 years of work, he completed his college degree in Cyber Security. Last year, he earned his CISSP. Now, he’s stacking certifications with a mindset that’s equal parts self awareness and determination. For him, it’s about proving he can do something and validating knowledge he already has.
+
+David describes himself like this: he’s the kind of person who would fly a fighter jet while reading “Flying for Dummies.” That line alone explains the confidence, the humor, and the chaos.
+
+The proudest moment wasn’t a badge, it was the ripple effect.
+
+David’s proudest moment is not a single exam result.
+
+It’s what happened to the people around him.
+
+Before the Vienna exams began, there were about 8 exam attempts planned across the engineering team. David went on a run and earned three certifications in two days, and he believes that streak helped motivate others to jump in too.
+
+By the end of those two days, the result was a wave. 29 people attempted one or more exams, and the team earned 30+ new certifications overall.
+
+That’s what a Certification Champion looks like to David. Not someone collecting wins for themselves, but someone pulling others forward with them.
+
+Community support that actually helps
+
+When David talks about the Zenith Community, he talks about the environment. It was a place to read real experiences, compare approaches, and learn from what others did before walking into the exam.
+
+And for prep, the standout was clear: the Zscaler Cyber Academy and Zenith Community. Practical guidance, shared experiences, and the kind of peer to peer learning that makes the whole process feel less like a solo grind.
+
+What being a Certification Champion means to David
+
+For David, it’s not about being good or even being the best.
+
+It’s about getting people along with you. Motivating others. Helping them find their path. Giving people a real chance to grow into what they can and want to do.
+
+In David’s words:
+
+“Not all Heroes Champions wear capes.”
+
+What’s next
+
+Next on David’s Zscaler roadmap is ZDDC, once those European slots open. Beyond that, he’s considering OSCP or CISM.
+
+And in the bigger picture, he wants to turn his 17 years in the field into knowledge others can hold on to and learn from. His journey started as a computer assembly guy in a small Dutch village. Today, he’s a Security Architect supporting the Dutch Ministry of Interior and Kingdom Relations. That arc is proof that cybersecurity careers can start anywhere and evolve into something huge.
+
+David’s advice for anyone starting today
+
+Never give up, and always strive for more. Because it’s hard doesn’t mean it’s impossible.
+
+Be yourself and focus on the parts of the field you genuinely enjoy. The cybersecurity world is broad and expanding fast, and sometimes it’s easier to identify what you don’t like first, then work your way toward what you do.
+
+David also offers a question that cuts through the noise:
+
+“Would you do your job for free? If the answer is no, you should probably think about your future.”
+
+And if you need a simple mantra to carry into your next step, David keeps it direct:
+
+Try harder.
+
+Try again.
+
+Try differently.
+
+Try smarter
+
+Lightning Round
+
+Coffee or tea: Coffee
+
+Early morning study or late night cramming: Neither. Last minute rush, preferably one hour before the exam
+
+Favorite cybersecurity buzzword: Defense in Depth
+
+Favorite Zscaler feature: ZPA AppProtection
+
+One word for the journey: Chaotic
+
+Next Zscaler cert: ZDDC (when EU slots open)
+
+Where are you in your certification journey right now, and what are you going for next? Share it in the comments. If you’re stuck, ask your question too. The
+
+Zscaler Cyber Academy
+
+team and Zenith Community is here to help.
+
+Explore Zscaler Certifications:
+
+https://www.zscaler.com/zscaler-cyber-academy/zscaler-certification
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Blog Details
 <!-- /ZS-POST -->
 
 ---

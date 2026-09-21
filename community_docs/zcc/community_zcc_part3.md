@@ -1,10 +1,939 @@
 # Zscaler Zenith Community — ZCC — Zscaler Client Connector (part 3)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-01 20:41 UTC
-Posts in this file: 278
+Generated: 2026-09-21 02:03 UTC
+Posts in this file: 277
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evn1jCAA/zscaler-app-end-with-tls-error-while-login","lastmod":"2023-07-06T13:11:30.000Z","id":"0D54u00009evn1jCAA"} -->
+## Zscaler App end with TLS error while login
+
+- Source: https://community.zscaler.com/s/question/0D54u00009evn1jCAA/zscaler-app-end-with-tls-error-while-login
+- Type: Q&A
+- Last activity: 2023-07-06T13:11:30.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Client Connector
+
+Gk
+
+(Customer) to
+
+sfdc
+
+(Employee): asked a question.
+
+Edited by sfdc July 6, 2023 at 11:46 AM
+
+Zscaler App end with TLS error while login
+
+I get below error in Zscaler app when i login in desktop. Issue exists only when i am in our corporate network not in open internet. is this known error ?
+
+Regards
+
+Ganesh Krishnan
+
+Client Connector
+
+6 answers
+
+4.2K views
+
+Top Rated Answers
+
+Gk
+
+(Customer)
+
+7 years ago
+
+Issue is Sorted out. We don’t want to open IDP Url/IP in our firewall. Hence we use Zapp Policy token to enforce authentication traffic via PAC file into Zscaler. Certain IDP traffic (MFA/2nd factor auth url) are blocked in Corporate network where as it succeeds in Open internet. Identified those Url and added it in PAC file enforced by Policy token.
+
+Regards
+
+Ganesh Krishnan
+
+Selected as Best
+
+All Answers
+
+Swapnil2008
+
+(Partner)
+
+Edited by sfdc July 6, 2023 at 12:13 PM
+
+Hi Scott,
+
+I have not tried that but i will apply your suggestion.
+
+Swapnil Pande
+
++91-816-900-4736
+
+swapnil.pande@hararei.com
+
+www.hararei.com
+
+skottieb
+
+Scott Bullock Zscaler Employee
+
+July 27
+
+Is is also bypassed from your app profile PAC?
+
+Visit Topic
+
+or reply to this email to respond.
+
+In Reply To
+
+Swapnil2008
+
+Swapnil Pande Zscaler Certified Engineer
+
+July 26 |
+
+| - |
+
+Hello Team, We are facing same issue but on open internet. We have bypass IDP URL from PAC file but still some users are facing this issue.
+
+Visit Topic
+
+or reply to this email to respond.
+
+To unsubscribe from these emails,
+
+click here
+
+This message contains confidential information and is intended only
+
+for the individual named. If you are not the named addressee you
+
+should not disseminate, distribute or copy this e-mail. Please
+
+notify the sender immediately by e-mail if you have received this
+
+e-mail by mistake and delete this e-mail from your system.
+
+E-mails are not encrypted and cannot be guaranteed to be secure or
+
+error-free as information could be intercepted, corrupted, lost,
+
+destroyed, arrive late or incomplete, or contain viruses. The sender
+
+therefore does not accept liability for any errors or omissions in the
+
+contents of this message which arise as a result of e-mail transmission.
+
+If verification is required please request a hard-copy version. This
+
+message is provided for informational purposes only.
+
+Hararei reserves the right to retain all messages. Messages are protected
+
+and accessed only in legally justified cases.
+
+skottieb
+
+(Employee)
+
+6 years ago
+
+Is is also bypassed from your app profile PAC?
+
+Swapnil2008
+
+(Partner)
+
+6 years ago
+
+Hello Team,
+
+We are facing same issue but on open internet. We have bypass IDP URL from PAC file but still some users are facing this issue.
+
+Gk
+
+(Customer)
+
+7 years ago
+
+Issue is Sorted out. We don’t want to open IDP Url/IP in our firewall. Hence we use Zapp Policy token to enforce authentication traffic via PAC file into Zscaler. Certain IDP traffic (MFA/2nd factor auth url) are blocked in Corporate network where as it succeeds in Open internet. Identified those Url and added it in PAC file enforced by Policy token.
+
+Regards
+
+Ganesh Krishnan
+
+Selected as Best
+
+Gk
+
+(Customer)
+
+7 years ago
+
+Yes. SSL inspection is happening in our network however e bypassed few categories. We use Azure AAD . Same Policy is applied in Corporate and Off network. Only difference i see is, in Corporate network all traffic including Authentication is sent via Zapp. In off network traffic Auth traffic sent direct. I believe some Azure url are blocked within Zscaler. We are unable to find the url in Zscaler logs since Zscaler starts logging only after authenticating the user. Is there a way to identify url Zapp connects during authentication
+
+Regards
+
+Ganesh Krishnan
+
+dcreedy
+
+(Employee)
+
+7 years ago
+
+Hi Ganesh,
+
+The contents of the page that Z App loads is actually just the IDP web page, so there’s no real logic that Z App does here.
+
+From the screenshot and description it looks like potentially when you are coming from the corporate network that traffic to the IDP is being SSL inspected. This would line up with why you get an SSL error on your corporate, but not off. Can you confirm if there is SSL inspection happening on your network?
+
+Regards
+
+David
+
+1 like
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/7/2020
+
+at
+
+04:05 AM
+
+Z-App -8 Network Error when users log in on Windows 10
+
+Client Connector
+
+cburge97
+
+2,889
+
+2889 Views
+
+0 Likes
+
+11
+
+11 Comments
+
+7/3/2020
+
+at
+
+11:55 AM
+
+ZAPP intune deployment
+
+Client Connector
+
+Mk001
+
+1,381
+
+1381 Views
+
+0 Likes
+
+4 Comments
+
+1/28/2021
+
+at
+
+03:42 PM
+
+Compare ezAgent and ZCC - when to use which?
+
+Client Connector
+
+hukel
+
+704
+
+704 Views
+
+0 Likes
+
+2 Comments
+
+8/18/2020
+
+at
+
+12:15 PM
+
+MacOS Zscaler App Log Location
+
+Client Connector
+
+brad
+
+3,577
+
+3577 Views
+
+0 Likes
+
+1 Comment
+
+3/7/2022
+
+at
+
+03:41 PM
+
+Can a User with multiple devices use them simultaneously whilst logged in using that same single account
+
+Client Connector
+
+michael.makombe
+
+4 Views
+
+0 Likes
+
+12
+
+12 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Zscaler App end with TLS error while login
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evn1kCAA/after-done-zscaler-certified-cloud-professional-internet-access-zccpia-elearning","lastmod":"2023-07-07T11:30:27.000Z","id":"0D54u00009evn1kCAA"} -->
+## After done Zscaler Certified Cloud Professional - Internet Access (ZCCP-IA) elearning
+
+- Source: https://community.zscaler.com/s/question/0D54u00009evn1kCAA/after-done-zscaler-certified-cloud-professional-internet-access-zccpia-elearning
+- Type: Q&A
+- Last activity: 2023-07-07T11:30:27.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Client Connector
+
+viveksharma
+
+(Customer) to
+
+sfdc
+
+(Employee): asked a question.
+
+Edited by sfdc July 6, 2023 at 11:46 AM
+
+After done Zscaler Certified Cloud Professional - Internet Access (ZCCP-IA) elearning
+
+hi team
+
+I did Zscaler Certified Cloud Professional - Internet Access (ZCCP-IA) eLearning
+
+after that i try to start Zscaler Certified Cloud Professional - Internet Access (ZCCP-IA) Lab
+
+but it is still showing pending below the snap for ref.
+
+hence could you guide me how can I will proceed the lab
+
+Client Connector
+
+Discourse-expand
+
+Far-image
+
+5 answers
+
+561 views
+
+srinivasd
+
+(Customer)
+
+7 years ago
+
+Good Morning Cleach,
+
+I have scheduled ZCCP-IA Lab on 22&23rd Aug.so do i need to practice any configuration or ELearning courses now before the schedule ?? if yes what are the Modules i need to prepare before the exam.and also do i need to make sure to complete those Lab module configuration myself or the instructor can help me incase of any help during Lab schedule ? just curious to know more about it.
+
+Is there any LAB Fail(not passed) chances? Thanks.
+
+cleach
+
+(Employee)
+
+7 years ago
+
+To earn the ZCCP-IA Certification you must complete both the eLearning and Lab courses.
+
+viveksharma
+
+(Customer)
+
+Edited by sfdc July 7, 2023 at 11:30 AM
+
+image.png
+
+962×446 48.6 KB
+
+i did ZCCPA but i can’t see my certificate kindly guide me how can i download my certificate?
+
+Rekha_Ramakrishnan
+
+(Customer)
+
+7 years ago
+
+This was true for the ZCCA-IA course.
+
+@cleach
+
+(Chris Leach) may be able to tell you why in your case.
+
+Thanks
+
+Rekha
+
+Rekha_Ramakrishnan
+
+(Customer)
+
+7 years ago
+
+Hi,
+
+Only the quizzes/exams need to be completed in order to complete the training. Sometimes not all videos will show complete, not sure of a pattern (OS, browser, etc).
+
+Bottom line is that if you know the material already you can just take the quizzes. You don’t need to watch all of the videos.
+
+Thanks
+
+Rekha
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/7/2020
+
+at
+
+04:05 AM
+
+Z-App -8 Network Error when users log in on Windows 10
+
+Client Connector
+
+cburge97
+
+2,883
+
+2883 Views
+
+0 Likes
+
+11
+
+11 Comments
+
+7/3/2020
+
+at
+
+11:55 AM
+
+ZAPP intune deployment
+
+Client Connector
+
+Mk001
+
+1,378
+
+1378 Views
+
+0 Likes
+
+4 Comments
+
+1/28/2021
+
+at
+
+03:42 PM
+
+Compare ezAgent and ZCC - when to use which?
+
+Client Connector
+
+hukel
+
+704
+
+704 Views
+
+0 Likes
+
+2 Comments
+
+8/18/2020
+
+at
+
+12:15 PM
+
+MacOS Zscaler App Log Location
+
+Client Connector
+
+brad
+
+3,567
+
+3567 Views
+
+0 Likes
+
+1 Comment
+
+3/7/2022
+
+at
+
+03:41 PM
+
+Can a User with multiple devices use them simultaneously whilst logged in using that same single account
+
+Client Connector
+
+michael.makombe
+
+4 Views
+
+0 Likes
+
+12
+
+12 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+After done Zscaler Certified Cloud Professional - Internet Access (ZCCP-IA) elearning
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evn1lCAA/how-to-categorize-all-subdomains-on-a-single-domain-at-once","lastmod":"2023-07-06T13:01:07.000Z","id":"0D54u00009evn1lCAA"} -->
+## How to categorize all subdomains on a single domain at once?
+
+- Source: https://community.zscaler.com/s/question/0D54u00009evn1lCAA/how-to-categorize-all-subdomains-on-a-single-domain-at-once
+- Type: Q&A
+- Last activity: 2023-07-06T13:01:07.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Client Connector
+
+Cory_Parrish
+
+(Customer) to
+
+sfdc
+
+(Employee): asked a question.
+
+August 9, 2019 at 1:43 PM
+
+How to categorize all subdomains on a single domain at once?
+
+Hello, I am trying to categorize our b2b companies website with zscaler. Here are my questions.
+
+I only get 403 errors when trying to do so myself from this here (
+
+https://sitereview.zscaler.com/
+
+). Is there a new place to go for this?
+
+I don’t want to have to categorize all of our subdomains as they are always going to be growing as we add more products. Can I whitelist by domain?
+
+Thanks.
+
+Client Connector
+
+3 answers
+
+675 views
+
+Remi_T
+
+(Customer)
+
+4 years ago
+
+In fact, if I type either one (
+
+.domain.com
+
+or
+
+*.domain.com
+
+), then the form won’t submit. Did you remove this feature?
+
+Remi_T
+
+(Customer)
+
+Edited by sfdc July 6, 2023 at 12:02 PM
+
+Hello, same situation here. A client of our B2B SaaS is using Zscaler.
+
+I understand the 1 ? adding our URLs can only be done through their network.
+
+But for the 2 ? I’m not sure about the wildcard character in the answer above:
+
+Is it
+
+*.domain.com
+
+or just the dot
+
+.domain.com
+
+And will this include the subdomains and the apex? Or should our client also register the
+
+domain.com
+
+Thank you
+
+Jones_Leung
+
+(Employee)
+
+7 years ago
+
+Hi Cory,
+
+You need to access the sitereciew page through zscaler or it will be blocked
+
+You can use wildcard .
+
+abc.com
+
+to cover your subdomains by custom category.
+
+Best Regards,
+
+Jones Leung
+
+SE Manager, Greater China
+
+Zscaler
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/7/2020
+
+at
+
+04:05 AM
+
+Z-App -8 Network Error when users log in on Windows 10
+
+Client Connector
+
+cburge97
+
+2,896
+
+2896 Views
+
+0 Likes
+
+11
+
+11 Comments
+
+7/3/2020
+
+at
+
+11:55 AM
+
+ZAPP intune deployment
+
+Client Connector
+
+Mk001
+
+1,386
+
+1386 Views
+
+0 Likes
+
+4 Comments
+
+1/28/2021
+
+at
+
+03:42 PM
+
+Compare ezAgent and ZCC - when to use which?
+
+Client Connector
+
+hukel
+
+706
+
+706 Views
+
+0 Likes
+
+2 Comments
+
+8/18/2020
+
+at
+
+12:15 PM
+
+MacOS Zscaler App Log Location
+
+Client Connector
+
+brad
+
+3,604
+
+3604 Views
+
+0 Likes
+
+2 Comments
+
+3/7/2022
+
+at
+
+03:41 PM
+
+Can a User with multiple devices use them simultaneously whilst logged in using that same single account
+
+Client Connector
+
+michael.makombe
+
+4 Views
+
+0 Likes
+
+12
+
+12 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+How to categorize all subdomains on a single domain at once?
+<!-- /ZS-POST -->
 
 ---
 
@@ -35124,12 +36053,12 @@ Zscaler client connector command line to update policy
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009eykP3CAI/connection-is-disconnected-twice-or-few-times-a-day-around-in-12hours","lastmod":"2023-09-12T00:46:32.000Z","id":"0D54u00009eykP3CAI"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009eykP3CAI/connection-is-disconnected-twice-or-few-times-a-day-around-in-12hours","lastmod":"2026-09-15T04:14:33.000Z","id":"0D54u00009eykP3CAI"} -->
 ## Connection is disconnected twice or few times a day (around in 12hours)
 
 - Source: https://community.zscaler.com/s/question/0D54u00009eykP3CAI/connection-is-disconnected-twice-or-few-times-a-day-around-in-12hours
 - Type: Q&A
-- Last activity: 2023-09-12T00:46:32.000Z
+- Last activity: 2026-09-15T04:14:33.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 ZPA - Privileged Remote Access
@@ -35156,9 +36085,9 @@ ZPA - Privileged Remote Access
 
 00539F
 
-7 answers
+8 answers
 
-15.27K views
+15.51K views
 
 Gordon Wright
 
@@ -35278,6 +36207,14 @@ I hope it works for me…
 
 Have a nice day!
 
+brown23
+
+(Customer)
+
+4 days ago
+
+As it happens on both Wi-Fi and wired, first test the apartment network. Try using your phone hotspot for a few hours and see if ZPA still disconnects. If it stays connected on the hotspot, the apartment DHCP/VLAN or network is probably causing brief interruptions. If it still disconnects,  Check the Zscaler Client Connector logs around the exact time it happens and ask your company Zscaler admin to check the ZPA connection events.
+
 Log In to Answer
 
 Associated Tags
@@ -35326,9 +36263,9 @@ ZPA - Privileged Remote Access
 
 ozanogur
 
-423
+437
 
-423 Views
+437 Views
 
 0 Likes
 
@@ -35346,9 +36283,9 @@ ZPA - Privileged Remote Access
 
 JM
 
-238
+261
 
-238 Views
+261 Views
 
 0 Likes
 
@@ -35366,9 +36303,9 @@ ZPA - Privileged Remote Access
 
 Diode
 
-462
+493
 
-462 Views
+493 Views
 
 0 Likes
 
@@ -74348,990 +75285,4 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 ZCC disconnections and re-connections occur repeatedly in a short period
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000YEyCS0A1/zcc-api-endpoint-404","lastmod":"2025-05-27T14:09:45.000Z","id":"0D5PJ00000YEyCS0A1"} -->
-## ZCC API Endpoint 404
-
-- Source: https://community.zscaler.com/s/question/0D5PJ00000YEyCS0A1/zcc-api-endpoint-404
-- Type: Q&A
-- Last activity: 2025-05-27T14:09:45.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Client Connector
-
-Gianluca.bastia
-
-(Partner) asked a question.
-
-May 23, 2025 at 6:52 PM
-
-ZCC API Endpoint 404
-
-Has anyone been able to use the /papi/public/v1/downloadDisableReasons endpoint?
-
-I keep getting a 404 error. I tried using both the mobile.zscaler and oneAPI base URL but still same outcome.
-
-Thanks
-
-Client Connector
-
-5 answers
-
-395 views
-
-Ramesh Mani
-
-(Partner)
-
-a year ago
-
-this is not OneAPI, I dont find this /papi/public/v1/downloadDisableReason under oneAPI.
-
-Follow this,
-
-https://help.zscaler.com/zscaler-client-connector/getting-started-client-connector-api
-
-Gianluca.bastia
-
-(Partner)
-
-a year ago
-
-A bit misleading as I got to that same API reference doc by going to the OneAPI section in the help portal....
-
-I was under the impression that OneAPI was backwards compatible and included all the endpoints available through the "old" APIs? I guess that's not correct....
-
-If I'm using the mobile. API, do I need to also authenticate in that way, or just change the API to the old format is sufficient?
-
-Ramesh Mani
-
-(Partner)
-
-a year ago
-
-Need to use old API format and authentication using API key , username and passwords.
-
-Gianluca.bastia
-
-(Partner)
-
-a year ago
-
-How does that work with ZIdentity?
-
-Ramesh Mani
-
-(Partner)
-
-a year ago
-
-I checked the endpoints in oneAPI  , I dont see /papi/public/v1/downloadDisableReasons .
-
-I am not sure the old one work or not through Zidentity. I will check and get back to you.
-
-Log In to Answer
-
-Associated Tags
-
-api
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-7/7/2020
-
-at
-
-04:05 AM
-
-Z-App -8 Network Error when users log in on Windows 10
-
-Client Connector
-
-cburge97
-
-2,884
-
-2884 Views
-
-0 Likes
-
-11
-
-11 Comments
-
-7/3/2020
-
-at
-
-11:55 AM
-
-ZAPP intune deployment
-
-Client Connector
-
-Mk001
-
-1,378
-
-1378 Views
-
-0 Likes
-
-4 Comments
-
-1/28/2021
-
-at
-
-03:42 PM
-
-Compare ezAgent and ZCC - when to use which?
-
-Client Connector
-
-hukel
-
-704
-
-704 Views
-
-0 Likes
-
-2 Comments
-
-8/18/2020
-
-at
-
-12:15 PM
-
-MacOS Zscaler App Log Location
-
-Client Connector
-
-brad
-
-3,570
-
-3570 Views
-
-0 Likes
-
-1 Comment
-
-3/7/2022
-
-at
-
-03:41 PM
-
-Can a User with multiple devices use them simultaneously whilst logged in using that same single account
-
-Client Connector
-
-michael.makombe
-
-4 Views
-
-0 Likes
-
-12
-
-12 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-ZCC API Endpoint 404
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000YbkIc0AJ/zcc-strict-enforcement-https-sites-dont-prompt-to-keep-you-safe","lastmod":"2025-06-04T05:50:54.000Z","id":"0D5PJ00000YbkIc0AJ"} -->
-## ZCC Strict Enforcement -- https sites don't prompt "to keep you safe..."
-
-- Source: https://community.zscaler.com/s/question/0D5PJ00000YbkIc0AJ/zcc-strict-enforcement-https-sites-dont-prompt-to-keep-you-safe
-- Type: Q&A
-- Last activity: 2025-06-04T05:50:54.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Client Connector
-
-AKSSO-DGrimes
-
-(Customer) asked a question.
-
-May 30, 2025 at 6:15 PM
-
-ZCC Strict Enforcement -- https sites don't prompt "to keep you safe..."
-
-Has any one else determined where in policy or pac file to fix the issue where https sites do not show the "to keep you safe..." redirect to login to ZCC agent when strict enforcement is enabled?
-
-We can use the ip.zscaler.com page as an example. If the user puts in http://ip.zscaler.com the page is replaced with the ZCC prompt to log into ZCC. If they use https, it shows the browser default "cannot connect" page.
-
-Similar behavior in Edge, Chrome, and Firefox.
-
-The device is connected to a hotspot to emulate a "public wifi" connection, not connected via VPN or otherwise to our on-prem environment or Zscaler Pzens proxies.
-
-The default route, except for specific URLs to get to the help desk system, teams, email is to route to the Zscaler Cloud.
-
-The tunnel is set to "v1".
-
-Thanks!
-
-Client Connector
-
-1 answer
-
-371 views
-
-Ramesh Mani
-
-(Partner)
-
-a year ago
-
-This is the expected behavior.
-
-If you are using HTTP sites, the ZCC redirection pop-up will display.
-
-However, HTTPS sites are encrypted, so Zscaler cannot enforce the redirection message. Hence, it displays "Page cannot be displayed.
-
-2 likes
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-7/7/2020
-
-at
-
-04:05 AM
-
-Z-App -8 Network Error when users log in on Windows 10
-
-Client Connector
-
-cburge97
-
-2,881
-
-2881 Views
-
-0 Likes
-
-11
-
-11 Comments
-
-7/3/2020
-
-at
-
-11:55 AM
-
-ZAPP intune deployment
-
-Client Connector
-
-Mk001
-
-1,377
-
-1377 Views
-
-0 Likes
-
-4 Comments
-
-1/28/2021
-
-at
-
-03:42 PM
-
-Compare ezAgent and ZCC - when to use which?
-
-Client Connector
-
-hukel
-
-701
-
-701 Views
-
-0 Likes
-
-2 Comments
-
-8/18/2020
-
-at
-
-12:15 PM
-
-MacOS Zscaler App Log Location
-
-Client Connector
-
-brad
-
-3,565
-
-3565 Views
-
-0 Likes
-
-1 Comment
-
-3/7/2022
-
-at
-
-03:41 PM
-
-Can a User with multiple devices use them simultaneously whilst logged in using that same single account
-
-Client Connector
-
-michael.makombe
-
-4 Views
-
-0 Likes
-
-12
-
-12 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-ZCC Strict Enforcement -- https sites don't prompt "to keep you safe..."
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000Z1Jko0AF/unable-to-login-with-correct-domain-in-zcc","lastmod":"2025-06-25T06:45:05.000Z","id":"0D5PJ00000Z1Jko0AF"} -->
-## Unable to login with correct domain in ZCC
-
-- Source: https://community.zscaler.com/s/question/0D5PJ00000Z1Jko0AF/unable-to-login-with-correct-domain-in-zcc
-- Type: Q&A
-- Last activity: 2025-06-25T06:45:05.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Client Connector
-
-Deepak474
-
-(Partner) asked a question.
-
-June 5, 2025 at 1:04 PM
-
-Unable to login with correct domain in ZCC
-
-ZCC is fetching different domain when trying to login ZCC.
-
-Client Connector
-
-4 answers
-
-508 views
-
-Osho_Dwivedi
-
-(Employee)
-
-a year ago
-
-Can you provide more details on your request, what is expected and what's fetched?
-
-How is the ZCC packaged?
-
-Deepak474
-
-(Partner)
-
-a year ago
-
-Our Vendors have reported that they are not able to login ZCC with my company domain, with which IDP is configured. It is fetching the other company domain.
-
-Let's suppose, user has abc domain registered laptop and should login ZCC with xyz domain ID.
-
-It is fetching abc instead of xyz and giving error.
-
-We have tried to uninstall ZCC and restart the machine multiple times. Also added windows user account with xyz domain, still no luck.
-
-Ramesh Mani
-
-(Partner)
-
-a year ago
-
-This could be because of the domain information stored on the windows authentication setting. You may need to ask your vendor to add your login information into the user setting. So that there will be the option to choose from the list.
-
-manuel
-
-(Customer)
-
-a year ago
-
-There are some ancient community posts about similar issues. It seems back then the solution was to add the target account NOT to windows user account but to "Work and school accounts". Maybe worth checking out. See
-
-here
-
-and
-
-here
-
-BR
-
-Manuel
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-7/7/2020
-
-at
-
-04:05 AM
-
-Z-App -8 Network Error when users log in on Windows 10
-
-Client Connector
-
-cburge97
-
-2,886
-
-2886 Views
-
-0 Likes
-
-11
-
-11 Comments
-
-7/3/2020
-
-at
-
-11:55 AM
-
-ZAPP intune deployment
-
-Client Connector
-
-Mk001
-
-1,379
-
-1379 Views
-
-0 Likes
-
-4 Comments
-
-1/28/2021
-
-at
-
-03:42 PM
-
-Compare ezAgent and ZCC - when to use which?
-
-Client Connector
-
-hukel
-
-704
-
-704 Views
-
-0 Likes
-
-2 Comments
-
-8/18/2020
-
-at
-
-12:15 PM
-
-MacOS Zscaler App Log Location
-
-Client Connector
-
-brad
-
-3,575
-
-3575 Views
-
-0 Likes
-
-1 Comment
-
-3/7/2022
-
-at
-
-03:41 PM
-
-Can a User with multiple devices use them simultaneously whilst logged in using that same single account
-
-Client Connector
-
-michael.makombe
-
-4 Views
-
-0 Likes
-
-12
-
-12 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Unable to login with correct domain in ZCC
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000Z1KFn0AN/is-windows-datacenter-2019-a-supported-os-for-zcc-in-an-aws-workspace-instance","lastmod":"2025-06-11T20:00:51.000Z","id":"0D5PJ00000Z1KFn0AN"} -->
-## Is Windows Datacenter 2019 a supported OS for ZCC in an AWS Workspace instance?
-
-- Source: https://community.zscaler.com/s/question/0D5PJ00000Z1KFn0AN/is-windows-datacenter-2019-a-supported-os-for-zcc-in-an-aws-workspace-instance
-- Type: Q&A
-- Last activity: 2025-06-11T20:00:51.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Client Connector
-
-KwilliaZ36487
-
-(Employee) asked a question.
-
-Edited June 5, 2025 at 1:17 PM
-
-Is Windows Datacenter 2019 a supported OS for ZCC in an AWS Workspace instance?
-
-CONTEXT:
-
-The Zscaler Client Connector Supported Versions page (
-
-https://help.zscaler.com/eos-eol/supported-versions
-
-) states "Amazon Workspaces supports Zscaler Client Connector all versions". What the Zscaler support page for Zscaler Client Connector does not detail is "what operating systems" within the Amazon Workspace are supported. As it reads today, at first glance it could be any/every operating system with an AWS Workspace.The AWS support page (
-
-https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html
-
-) states "Amazon WorkSpaces enables you to provision virtual, cloud-based desktops known as
-
-WorkSpaces
-
-for your users. These desktops can run Microsoft Windows, Amazon Linux 2, Ubuntu Linux, Rocky Linux, or Red Hat Enterprise Linux."
-
-ASK:
-
-Customer is running Windows Datacenter 2019 as the OS in their AWS Workspace with ZCC version 4.4.500.19 and it's works in this configuration.
-
-Upgrading to Version 4.6.0.200 does not work.
-
-Support has suggested migrating to ZCC 4.7.x.
-
-Is Windows Datacenter 2019 a supported OS for ZCC in an AWS Workspace instance?
-
-Client Connector
-
-2 answers
-
-806 views
-
-Ramesh Mani
-
-(Partner)
-
-a year ago
-
-ZCC doesn't support on server OS. For server traffic you may think of Cloud connector based forwarding.
-
-1 like
-
-jimlin
-
-(Partner)
-
-a year ago
-
-https://help.zscaler.com/eos-eol/supported-versions
-
-Zscaler Client Connector for Windows ：
-
-Windows 8 and 8.1 support for Zscaler Client Connector version 3.6 and earlier
-
-Windows 10 supports Zscaler Client Connector version 3.1 and later
-
-Windows 11 supports Zscaler Client Connector version 3.7 and later
-
-Amazon Workspaces supports Zscaler Client Connector all versions
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-7/7/2020
-
-at
-
-04:05 AM
-
-Z-App -8 Network Error when users log in on Windows 10
-
-Client Connector
-
-cburge97
-
-2,881
-
-2881 Views
-
-0 Likes
-
-11
-
-11 Comments
-
-7/3/2020
-
-at
-
-11:55 AM
-
-ZAPP intune deployment
-
-Client Connector
-
-Mk001
-
-1,377
-
-1377 Views
-
-0 Likes
-
-4 Comments
-
-1/28/2021
-
-at
-
-03:42 PM
-
-Compare ezAgent and ZCC - when to use which?
-
-Client Connector
-
-hukel
-
-701
-
-701 Views
-
-0 Likes
-
-2 Comments
-
-8/18/2020
-
-at
-
-12:15 PM
-
-MacOS Zscaler App Log Location
-
-Client Connector
-
-brad
-
-3,565
-
-3565 Views
-
-0 Likes
-
-1 Comment
-
-3/7/2022
-
-at
-
-03:41 PM
-
-Can a User with multiple devices use them simultaneously whilst logged in using that same single account
-
-Client Connector
-
-michael.makombe
-
-4 Views
-
-0 Likes
-
-12
-
-12 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Is Windows Datacenter 2019 a supported OS for ZCC in an AWS Workspace instance?
 <!-- /ZS-POST -->

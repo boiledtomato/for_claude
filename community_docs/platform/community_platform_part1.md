@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — Platform / 認証 / 管理 / ログ (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-01 20:41 UTC
-Posts in this file: 408
+Generated: 2026-09-21 02:03 UTC
+Posts in this file: 406
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -7199,6 +7199,248 @@ Blog Details
 
 ---
 
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Blogs/aSnPJ0000000fnx0AA/a-leaders-guide-to-ai-security-why-our-new-workshop-matters-now","lastmod":"2026-09-09T18:22:18.000Z","id":"aSnPJ0000000fnx0AA"} -->
+## A Leader’s Guide to AI Security: Why Our New Workshop Matters Now
+
+- Source: https://community.zscaler.com/s/Blogs/aSnPJ0000000fnx0AA/a-leaders-guide-to-ai-security-why-our-new-workshop-matters-now
+- Type: Blog
+- Last activity: 2026-09-09T18:22:18.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Blog Details
+
+Training Events
+
+Alejandro Knudsen
+
+(Employee) posted a Blog
+
+15h ago
+
+A Leader’s Guide to AI Security: Why Our New Workshop Matters Now
+
+Every security leader today is facing the same challenge: how do we embrace the power of AI without exposing the organization to unacceptable risk?
+
+The pressure to innovate is immense, but so are the threats. Shadow AI is proliferating, sensitive data is leaking into public models, and new attack vectors like indirect prompt injection are emerging daily. Flying blind is not an option.
+
+That’s why we created our new workshop, "Securing AI End-to-End," which we are launching at Zenith Live APJ. We believe the foundational principle of modern security is more relevant than ever: you cannot govern what you cannot see.
+
+From Reactive to Proactive
+
+This workshop provides a strategic framework for leaders to build a proactive AI security program. We’ll focus on helping you answer critical questions:
+
+What AI applications and agents are active in our environment?
+
+How can we enforce access policies and protect our intellectual property?
+
+What guardrails are needed to secure our custom AI applications?
+
+Our goal is not to slow down AI adoption, but to enable it responsibly. This session combines strategic framing with hands-on labs, giving you and your team a clear, actionable plan to implement an end-to-end security model that balances innovation with control.
+
+This is a must-attend for CISOs, security architects, and GRC stakeholders who are building their organization's AI strategy.
+
+👉 Register for Zenith Live APJ in your city and add this essential workshop to your agenda:
+
+🇯🇵
+
+Tokyo
+
+: Event Day Sep 15 | Training Sep 14 & 16 | Certification Sep 15, 2026
+
+🇦🇺
+
+Sydney
+
+: Event Day Sep 17 | Training Sep 16 & 18 | Certification Sep 16 & 18, 2026
+
+🇮🇳
+
+Mumbai
+
+: Event Day Sep 22 | Training Sep 21–23 | Certification Sep 21–22, 2026
+
+🇸🇬
+
+Singapore
+
+: Event Day Sep 24 | Training Sep 23 | Certification Sep 23, 2026
+
+Note: Please visit your city's specific training page for full schedule details, session availability, and on-site registration.
+
+What is your biggest concern when it comes to enterprise AI security? Share your thoughts below.
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Blog Details
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Blogs/aSnPJ0000000fpZ0AQ/coming-soon-a-new-era-of-learning-at-zscaler","lastmod":"2026-09-10T16:47:58.000Z","id":"aSnPJ0000000fpZ0AQ"} -->
+## Coming Soon: A New Era of Learning at Zscaler!
+
+- Source: https://community.zscaler.com/s/Blogs/aSnPJ0000000fpZ0AQ/coming-soon-a-new-era-of-learning-at-zscaler
+- Type: Blog
+- Last activity: 2026-09-10T16:47:58.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Blog Details
+
+Training Portfolio
+
+Alejandro Knudsen
+
+(Employee) posted a Blog
+
+3h ago
+
+Coming Soon: A New Era of Learning at Zscaler!
+
+Hello Zenith Community! We are incredibly excited to share that next month, we will be launching a brand-new Learning Management System for the
+
+This upgrade is designed to give you a smoother, more engaging learning experience. Over the next few weeks, we'll be sharing sneak peeks of the new features.
+
+Important Note About Your Progress:
+
+Fully completed sections of your learning journey are safe and will automatically transfer to the new platform. However, any incomplete, in-progress sections of your learning journey will reset.
+
+Don't worry—we'll keep you posted on exactly what to expect as we get closer to launch. Drop your questions below!
+
+Got questions?
+
+Check out our FAQ for more information:
+
+Customer FAQ
+
+Partner FAQ
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Blog Details
+<!-- /ZS-POST -->
+
+---
+
 <!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ0000005aCX0AY/how-to-access-your-cases-in-the-zscaler-customer-support-portal","lastmod":"2025-09-25T16:40:36.000Z","id":"aSoPJ0000005aCX0AY"} -->
 ## How to Access Your Cases in the Zscaler Customer Support Portal
 
@@ -13524,155 +13766,6 @@ Guide Details
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ0000006QCj0AM/how-to-validate-if-a-zscaler-vm-is-running-zsos24-needs-redeployment","lastmod":"2026-07-09T15:11:38.000Z","id":"aSoPJ0000006QCj0AM"} -->
-## How to validate if a Zscaler VM is Running ZSOS24 needs redeployment
-
-- Source: https://community.zscaler.com/s/Guides/aSoPJ0000006QCj0AM/how-to-validate-if-a-zscaler-vm-is-running-zsos24-needs-redeployment
-- Type: Guide
-- Last activity: 2026-07-09T15:11:38.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Guide Details
-
-Technical Guides
-
-Andres Garcia
-
-(Employee) posted a Guide
-
-Edited July 9, 2026 at 3:11 PM
-
-How to validate if a Zscaler VM is Running ZSOS24 needs redeployment
-
-Introduction:
-
-This guide provides instructions on how to validate whether Nanolog Streaming Service (NSS), ZIA Virtual Service Edges (VSE), Data Loss Prevention Incident Receiver, Index Tool and Authentication Bridge Virtual appliance (s) need to be redeployed on Zscaler Operation System (ZSOS) 42
-
-Note:
-
-If you require help with a specific configuration, please contact your Technical Success Manager (TSM) or
-
-Zscaler Support
-
-For NSS, VSE and Authentication Bridge
-
-Customers can quickly validate whether their NSS, VSE and Authentication Bridge are running on a RAM disk and need to redeploy appliances by using the df -hT command.
-
-Validation Steps
-
-Log in to the server via SSH.
-
-Run the following command:
-
-df -hT
-
-Review the mount point information in the output.
-
-Expected Result
-
-If the filesystem is mounted on md0, the server is running on a RAM disk, and you should follow the appropriate redeployment article for that server type.
-
-If the filesystem is not mounted on md0, the server is not running on a RAM disk, and no action is required.
-
-For Index Tool and Incident Receiver
-
-Customers can quickly validate whether their Index Tool and Incident Receivers are running on ZSOS42 and need to redeploy appliances by using the uname -a command.
-
-Validation Steps
-
-Log in to the server via SSH.
-
-Run the following command:
-
-uname -a
-
-If the command shows
-
-ZscalerOS 24-RELEASE
-
-, the Index Tool and Incident Receiver need to be redeployed.
-
-ZscalerOS 10.66.45.74 24-RELEASE-p4 ZscalerOS 24-RELEASE-p4 #28: Wed Feb 17 17:40:17 PST 2021   root@zero:/usr/obj/usr/src/sys/SMKERNEL amd6
-
-Redeployment articles:
-
-Nanolog Streaming Service
-
-Virtual Service Edges
-
-Index Tool
-
-Incident Receiver
-
-Authentication bridge
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Guide Details
-<!-- /ZS-POST -->
-
----
-
 <!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ0000006QpR0AU/redeploying-authentication-bridge-on-zscaleros42","lastmod":"2026-07-01T19:13:05.000Z","id":"aSoPJ0000006QpR0AU"} -->
 ## Redeploying Authentication Bridge on ZscalerOS42
 
@@ -13782,6 +13875,163 @@ Once it’s deployed, set the status as Enabled for the new secondary ZAB and to
 Step 3:
 
 After a few minutes, the new ZAB will take over as the primary ZAB, and the old ZAB VM on Admin UI can be deleted and the old VM can be safely decommissioned.
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Guide Details
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ0000006bWL0AY/how-to-configure-a-custom-watermark-message-in-cloud-browser-isolation","lastmod":"2026-08-11T17:02:28.000Z","id":"aSoPJ0000006bWL0AY"} -->
+## How to configure a custom watermark message in Cloud Browser Isolation
+
+- Source: https://community.zscaler.com/s/Guides/aSoPJ0000006bWL0AY/how-to-configure-a-custom-watermark-message-in-cloud-browser-isolation
+- Type: Guide
+- Last activity: 2026-08-11T17:02:28.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Guide Details
+
+Technical Guides
+
+Yashraj Singha
+
+(Employee) posted a Guide
+
+Edited August 11, 2026 at 5:02 PM
+
+How to configure a custom watermark message in Cloud Browser Isolation
+
+Note:
+
+Special thanks to
+
+Ruth Ginnette Fernàndez Chinchilla
+
+for their contributions to this guide. If you require help with the implementation of your specific configuration, please contact our
+
+Zscaler Deployment Services team for assistance
+
+____________________________________________________________________________________________
+
+Introduction
+
+Customers wants to replace the default watermark in Cloud Browser Isolation (CBI) with a custom, company-specific message instead of the default timestamp.
+
+Cloud Browser Isolation supports watermarking with three configurable elements:
+
+User ID
+
+Date and timestamp (UTC)
+
+Message — a customizable field for company-specific or internal text
+
+The custom Message watermark element is available only with the advanced Browser Isolation license (
+
+ZS_DP_ISO_SAAS_ADV_PLUS
+
+, also referred to as
+
+ZS_DP_ISO_ADV
+
+). If this license is not provisioned in your tenant, the option to configure a custom message will not be available.
+
+Solution
+
+Before configuring a custom watermark message, verify that the required license is active in your tenant:
+
+Log in to the Zscaler Internet Access (ZIA) Admin Portal.
+
+Navigate to the Licenses section.
+
+Confirm that the advanced Browser Isolation license (
+
+ZS_DP_ISO_SAAS_ADV_PLUS
+
+ZS_DP_ISO_ADV
+
+) is listed and active.
+
+If the license is not present, contact your Zscaler account team to provision it before proceeding.
+
+Once the advanced license is confirmed as active in your tenant, follow these steps to enable and configure the custom watermark message in the isolation profile:
+
+Log in to the ZIA Admin Portal.
+
+Navigate to the Browser Isolation section and open the relevant isolation profile.
+
+Locate the Message toggle within the watermark settings and enable it.
+
+Once the toggle is enabled, type your desired custom message in the text field provided.
+
+Save the isolation profile.
+
+The custom message will now appear as part of the watermark displayed during isolated browsing sessions.
+
+Note: The Message field is intended for custom or company-specific text. It operates independently of the User ID and Date and Timestamp watermark elements, all of which can be enabled or disabled individually within the isolation profile.
+
+Please reach out to us in the comments if you have any questions.
 
 Associated Tags
 
@@ -56917,12 +57167,12 @@ STEP 6 - Accepted Solutions - “Select as Best”
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009ezG1FCAU/step-5-how-to-post-content","lastmod":"2023-09-23T13:47:45.000Z","id":"0D54u00009ezG1FCAU"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009ezG1FCAU/step-5-how-to-post-content","lastmod":"2026-09-03T20:05:17.000Z","id":"0D54u00009ezG1FCAU"} -->
 ## STEP 5 - How to post content
 
 - Source: https://community.zscaler.com/s/question/0D54u00009ezG1FCAU/step-5-how-to-post-content
 - Type: Q&A
-- Last activity: 2023-09-23T13:47:45.000Z
+- Last activity: 2026-09-03T20:05:17.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 10 steps to get you started
@@ -56957,11 +57207,37 @@ UP NEXT - Accepted Solutions
 
 10 steps to get you started
 
-1.53K views
+3 answers
+
+2.12K views
 
 BigGamer
 
 likes this.
+
+ChensonZ41246
+
+(Employee)
+
+a month ago
+
+Hi - thanks for writing this! Just curious ... Is there some CSS wizardry to formatting new content in community? my new Community articles are being published with /n (newline) mid word. I am writing them in a text / notepad with no formatting that is being pasted in.
+
+Ben_Garrison
+
+(Employee)
+
+a month ago
+
+Our development team is working on this. There will be massive upgrades to the editor coming real soon actually.
+
+ChensonZ41246
+
+(Employee)
+
+12 days ago
+
+Hey Hey - Curious if there are any updates or new guidance. Content I am posting today still is being published with /n (newline) inserted mid word. Grateful for the help! 100%
 
 Log In to Answer
 
@@ -72160,436 +72436,4 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Zscalar certification
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AWUfHTCQ1/its-time-to-levelup-your-cybersecurity-defense-register-for-india-roadshows","lastmod":"2024-07-11T06:32:06.000Z","id":"0D54u0000AWUfHTCQ1"} -->
-## It's time to level-up your cybersecurity defense! Register for India roadshows
-
-- Source: https://community.zscaler.com/s/question/0D54u0000AWUfHTCQ1/its-time-to-levelup-your-cybersecurity-defense-register-for-india-roadshows
-- Type: Q&A
-- Last activity: 2024-07-11T06:32:06.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Training Events
-
-Deepti Gupta
-
-(Employee) asked a question.
-
-Edited July 1, 2024 at 3:07 PM
-
-It's time to level-up your cybersecurity defense! Register for India roadshows
-
-Are you ready to level up your cybersecurity defense? We have FREE 'Zscaler for Users- Essentials (EDU-200)' training workshop for our customers in India. Seats are limited. Hurry up and register now!
-
-https://lnkd.in/gUVnApe5
-
-Training Events
-
-1 answer
-
-272 views
-
-Ramesh Mani
-
-(Partner)
-
-2 years ago
-
-Could you please confirm if Chennai is included in your upcoming roadshows in India?
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-No posts to show.
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-It's time to level-up your cybersecurity defense! Register for India roadshows
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AWUhNkCQL/new-zsync-sessions-for-july-are-up-explore-and-save-a-seat","lastmod":"2024-07-05T15:55:58.000Z","id":"0D54u0000AWUhNkCQL"} -->
-## New Z-sync sessions for July are up! Explore and save a seat!
-
-- Source: https://community.zscaler.com/s/question/0D54u0000AWUhNkCQL/new-zsync-sessions-for-july-are-up-explore-and-save-a-seat
-- Type: Q&A
-- Last activity: 2024-07-05T15:55:58.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Training Events
-
-Deepti Gupta
-
-(Employee) asked a question.
-
-July 1, 2024 at 3:44 PM
-
-New Z-sync sessions for July are up! Explore and save a seat!
-
-Feeling lost in a sea of security solutions? Tap into the minds of Zscaler gurus with Z-Sync with Experts! Get insider knowledge through the virtual training sessions on various topics every month. New sessions for July are up. Don't wait and secure a seat at the next session now!
-
-https://lnkd.in/g3Z26ncr
-
-Training Events
-
-250 views
-
-johnsonto
-
-and
-
-Ramesh Mani
-
-like this.
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-No posts to show.
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-New Z-sync sessions for July are up! Explore and save a seat!
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AWWTNwCQP/happy-4th-of-july-cyberheroes","lastmod":"2024-07-06T14:24:15.000Z","id":"0D54u0000AWWTNwCQP"} -->
-## Happy 4th of July Cyber-heroes!!
-
-- Source: https://community.zscaler.com/s/question/0D54u0000AWWTNwCQP/happy-4th-of-july-cyberheroes
-- Type: Q&A
-- Last activity: 2024-07-06T14:24:15.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Training Portfolio
-
-Deepti Gupta
-
-(Employee) asked a question.
-
-July 4, 2024 at 4:44 PM
-
-Happy 4th of July Cyber-heroes!!
-
-This 4th of July, declare your independence from cyber threats! At Zscaler Academy, we empower individuals and organisations to stay ahead of the curve with our comprehensive cybersecurity training & certification. Join us in building a more secure digital future! Check out:
-
-https://www.zscaler.com/zscaler-academy
-
-#HappyFourthofJuly
-
-🇺🇸
-
-Training Portfolio
-
-HappyFourthofJuly
-
-342 views
-
-Ramesh Mani
-
-and
-
-johnsonto
-
-like this.
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-No posts to show.
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Happy 4th of July Cyber-heroes!!
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AYSSphCQH/we-are-coming-to-london-on-aug-13-2024-save-a-seat-now","lastmod":"2024-07-22T09:06:37.000Z","id":"0D54u0000AYSSphCQH"} -->
-## We are coming to London on Aug 13, 2024! Save a seat now
-
-- Source: https://community.zscaler.com/s/question/0D54u0000AYSSphCQH/we-are-coming-to-london-on-aug-13-2024-save-a-seat-now
-- Type: Q&A
-- Last activity: 2024-07-22T09:06:37.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Training Events
-
-Deepti Gupta
-
-(Employee) asked a question.
-
-July 19, 2024 at 6:43 PM
-
-We are coming to London on Aug 13, 2024! Save a seat now
-
-Hello London people! Did you think we forgot coming to London for a training roadshow? Well, absolutely not. Our hands-on lab will be hosted on August 13, 2024 by our experts.
-
-Seats are limited, so ensure saving one for you now.
-
-Training Events
-
-427 views
-
-G-Man8
-
-likes this.
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-No posts to show.
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-We are coming to London on Aug 13, 2024! Save a seat now
 <!-- /ZS-POST -->

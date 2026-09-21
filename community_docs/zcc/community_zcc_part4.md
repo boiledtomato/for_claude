@@ -1,10 +1,996 @@
 # Zscaler Zenith Community — ZCC — Zscaler Client Connector (part 4)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-01 20:41 UTC
-Posts in this file: 51
+Generated: 2026-09-21 02:03 UTC
+Posts in this file: 56
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000YEyCS0A1/zcc-api-endpoint-404","lastmod":"2025-05-27T14:09:45.000Z","id":"0D5PJ00000YEyCS0A1"} -->
+## ZCC API Endpoint 404
+
+- Source: https://community.zscaler.com/s/question/0D5PJ00000YEyCS0A1/zcc-api-endpoint-404
+- Type: Q&A
+- Last activity: 2025-05-27T14:09:45.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Client Connector
+
+Gianluca.bastia
+
+(Partner) asked a question.
+
+May 23, 2025 at 6:52 PM
+
+ZCC API Endpoint 404
+
+Has anyone been able to use the /papi/public/v1/downloadDisableReasons endpoint?
+
+I keep getting a 404 error. I tried using both the mobile.zscaler and oneAPI base URL but still same outcome.
+
+Thanks
+
+Client Connector
+
+5 answers
+
+395 views
+
+Ramesh Mani
+
+(Partner)
+
+a year ago
+
+this is not OneAPI, I dont find this /papi/public/v1/downloadDisableReason under oneAPI.
+
+Follow this,
+
+https://help.zscaler.com/zscaler-client-connector/getting-started-client-connector-api
+
+Gianluca.bastia
+
+(Partner)
+
+a year ago
+
+A bit misleading as I got to that same API reference doc by going to the OneAPI section in the help portal....
+
+I was under the impression that OneAPI was backwards compatible and included all the endpoints available through the "old" APIs? I guess that's not correct....
+
+If I'm using the mobile. API, do I need to also authenticate in that way, or just change the API to the old format is sufficient?
+
+Ramesh Mani
+
+(Partner)
+
+a year ago
+
+Need to use old API format and authentication using API key , username and passwords.
+
+Gianluca.bastia
+
+(Partner)
+
+a year ago
+
+How does that work with ZIdentity?
+
+Ramesh Mani
+
+(Partner)
+
+a year ago
+
+I checked the endpoints in oneAPI  , I dont see /papi/public/v1/downloadDisableReasons .
+
+I am not sure the old one work or not through Zidentity. I will check and get back to you.
+
+Log In to Answer
+
+Associated Tags
+
+api
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/7/2020
+
+at
+
+04:05 AM
+
+Z-App -8 Network Error when users log in on Windows 10
+
+Client Connector
+
+cburge97
+
+2,884
+
+2884 Views
+
+0 Likes
+
+11
+
+11 Comments
+
+7/3/2020
+
+at
+
+11:55 AM
+
+ZAPP intune deployment
+
+Client Connector
+
+Mk001
+
+1,378
+
+1378 Views
+
+0 Likes
+
+4 Comments
+
+1/28/2021
+
+at
+
+03:42 PM
+
+Compare ezAgent and ZCC - when to use which?
+
+Client Connector
+
+hukel
+
+704
+
+704 Views
+
+0 Likes
+
+2 Comments
+
+8/18/2020
+
+at
+
+12:15 PM
+
+MacOS Zscaler App Log Location
+
+Client Connector
+
+brad
+
+3,570
+
+3570 Views
+
+0 Likes
+
+1 Comment
+
+3/7/2022
+
+at
+
+03:41 PM
+
+Can a User with multiple devices use them simultaneously whilst logged in using that same single account
+
+Client Connector
+
+michael.makombe
+
+4 Views
+
+0 Likes
+
+12
+
+12 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+ZCC API Endpoint 404
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000YbkIc0AJ/zcc-strict-enforcement-https-sites-dont-prompt-to-keep-you-safe","lastmod":"2025-06-04T05:50:54.000Z","id":"0D5PJ00000YbkIc0AJ"} -->
+## ZCC Strict Enforcement -- https sites don't prompt "to keep you safe..."
+
+- Source: https://community.zscaler.com/s/question/0D5PJ00000YbkIc0AJ/zcc-strict-enforcement-https-sites-dont-prompt-to-keep-you-safe
+- Type: Q&A
+- Last activity: 2025-06-04T05:50:54.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Client Connector
+
+AKSSO-DGrimes
+
+(Customer) asked a question.
+
+May 30, 2025 at 6:15 PM
+
+ZCC Strict Enforcement -- https sites don't prompt "to keep you safe..."
+
+Has any one else determined where in policy or pac file to fix the issue where https sites do not show the "to keep you safe..." redirect to login to ZCC agent when strict enforcement is enabled?
+
+We can use the ip.zscaler.com page as an example. If the user puts in http://ip.zscaler.com the page is replaced with the ZCC prompt to log into ZCC. If they use https, it shows the browser default "cannot connect" page.
+
+Similar behavior in Edge, Chrome, and Firefox.
+
+The device is connected to a hotspot to emulate a "public wifi" connection, not connected via VPN or otherwise to our on-prem environment or Zscaler Pzens proxies.
+
+The default route, except for specific URLs to get to the help desk system, teams, email is to route to the Zscaler Cloud.
+
+The tunnel is set to "v1".
+
+Thanks!
+
+Client Connector
+
+1 answer
+
+371 views
+
+Ramesh Mani
+
+(Partner)
+
+a year ago
+
+This is the expected behavior.
+
+If you are using HTTP sites, the ZCC redirection pop-up will display.
+
+However, HTTPS sites are encrypted, so Zscaler cannot enforce the redirection message. Hence, it displays "Page cannot be displayed.
+
+2 likes
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/7/2020
+
+at
+
+04:05 AM
+
+Z-App -8 Network Error when users log in on Windows 10
+
+Client Connector
+
+cburge97
+
+2,881
+
+2881 Views
+
+0 Likes
+
+11
+
+11 Comments
+
+7/3/2020
+
+at
+
+11:55 AM
+
+ZAPP intune deployment
+
+Client Connector
+
+Mk001
+
+1,377
+
+1377 Views
+
+0 Likes
+
+4 Comments
+
+1/28/2021
+
+at
+
+03:42 PM
+
+Compare ezAgent and ZCC - when to use which?
+
+Client Connector
+
+hukel
+
+701
+
+701 Views
+
+0 Likes
+
+2 Comments
+
+8/18/2020
+
+at
+
+12:15 PM
+
+MacOS Zscaler App Log Location
+
+Client Connector
+
+brad
+
+3,565
+
+3565 Views
+
+0 Likes
+
+1 Comment
+
+3/7/2022
+
+at
+
+03:41 PM
+
+Can a User with multiple devices use them simultaneously whilst logged in using that same single account
+
+Client Connector
+
+michael.makombe
+
+4 Views
+
+0 Likes
+
+12
+
+12 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+ZCC Strict Enforcement -- https sites don't prompt "to keep you safe..."
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000Z1Jko0AF/unable-to-login-with-correct-domain-in-zcc","lastmod":"2025-06-25T06:45:05.000Z","id":"0D5PJ00000Z1Jko0AF"} -->
+## Unable to login with correct domain in ZCC
+
+- Source: https://community.zscaler.com/s/question/0D5PJ00000Z1Jko0AF/unable-to-login-with-correct-domain-in-zcc
+- Type: Q&A
+- Last activity: 2025-06-25T06:45:05.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Client Connector
+
+Deepak474
+
+(Partner) asked a question.
+
+June 5, 2025 at 1:04 PM
+
+Unable to login with correct domain in ZCC
+
+ZCC is fetching different domain when trying to login ZCC.
+
+Client Connector
+
+4 answers
+
+508 views
+
+Osho_Dwivedi
+
+(Employee)
+
+a year ago
+
+Can you provide more details on your request, what is expected and what's fetched?
+
+How is the ZCC packaged?
+
+Deepak474
+
+(Partner)
+
+a year ago
+
+Our Vendors have reported that they are not able to login ZCC with my company domain, with which IDP is configured. It is fetching the other company domain.
+
+Let's suppose, user has abc domain registered laptop and should login ZCC with xyz domain ID.
+
+It is fetching abc instead of xyz and giving error.
+
+We have tried to uninstall ZCC and restart the machine multiple times. Also added windows user account with xyz domain, still no luck.
+
+Ramesh Mani
+
+(Partner)
+
+a year ago
+
+This could be because of the domain information stored on the windows authentication setting. You may need to ask your vendor to add your login information into the user setting. So that there will be the option to choose from the list.
+
+manuel
+
+(Customer)
+
+a year ago
+
+There are some ancient community posts about similar issues. It seems back then the solution was to add the target account NOT to windows user account but to "Work and school accounts". Maybe worth checking out. See
+
+here
+
+and
+
+here
+
+BR
+
+Manuel
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/7/2020
+
+at
+
+04:05 AM
+
+Z-App -8 Network Error when users log in on Windows 10
+
+Client Connector
+
+cburge97
+
+2,886
+
+2886 Views
+
+0 Likes
+
+11
+
+11 Comments
+
+7/3/2020
+
+at
+
+11:55 AM
+
+ZAPP intune deployment
+
+Client Connector
+
+Mk001
+
+1,379
+
+1379 Views
+
+0 Likes
+
+4 Comments
+
+1/28/2021
+
+at
+
+03:42 PM
+
+Compare ezAgent and ZCC - when to use which?
+
+Client Connector
+
+hukel
+
+704
+
+704 Views
+
+0 Likes
+
+2 Comments
+
+8/18/2020
+
+at
+
+12:15 PM
+
+MacOS Zscaler App Log Location
+
+Client Connector
+
+brad
+
+3,575
+
+3575 Views
+
+0 Likes
+
+1 Comment
+
+3/7/2022
+
+at
+
+03:41 PM
+
+Can a User with multiple devices use them simultaneously whilst logged in using that same single account
+
+Client Connector
+
+michael.makombe
+
+4 Views
+
+0 Likes
+
+12
+
+12 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Unable to login with correct domain in ZCC
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000Z1KFn0AN/is-windows-datacenter-2019-a-supported-os-for-zcc-in-an-aws-workspace-instance","lastmod":"2025-06-11T20:00:51.000Z","id":"0D5PJ00000Z1KFn0AN"} -->
+## Is Windows Datacenter 2019 a supported OS for ZCC in an AWS Workspace instance?
+
+- Source: https://community.zscaler.com/s/question/0D5PJ00000Z1KFn0AN/is-windows-datacenter-2019-a-supported-os-for-zcc-in-an-aws-workspace-instance
+- Type: Q&A
+- Last activity: 2025-06-11T20:00:51.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Client Connector
+
+KwilliaZ36487
+
+(Employee) asked a question.
+
+Edited June 5, 2025 at 1:17 PM
+
+Is Windows Datacenter 2019 a supported OS for ZCC in an AWS Workspace instance?
+
+CONTEXT:
+
+The Zscaler Client Connector Supported Versions page (
+
+https://help.zscaler.com/eos-eol/supported-versions
+
+) states "Amazon Workspaces supports Zscaler Client Connector all versions". What the Zscaler support page for Zscaler Client Connector does not detail is "what operating systems" within the Amazon Workspace are supported. As it reads today, at first glance it could be any/every operating system with an AWS Workspace.The AWS support page (
+
+https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html
+
+) states "Amazon WorkSpaces enables you to provision virtual, cloud-based desktops known as
+
+WorkSpaces
+
+for your users. These desktops can run Microsoft Windows, Amazon Linux 2, Ubuntu Linux, Rocky Linux, or Red Hat Enterprise Linux."
+
+ASK:
+
+Customer is running Windows Datacenter 2019 as the OS in their AWS Workspace with ZCC version 4.4.500.19 and it's works in this configuration.
+
+Upgrading to Version 4.6.0.200 does not work.
+
+Support has suggested migrating to ZCC 4.7.x.
+
+Is Windows Datacenter 2019 a supported OS for ZCC in an AWS Workspace instance?
+
+Client Connector
+
+2 answers
+
+806 views
+
+Ramesh Mani
+
+(Partner)
+
+a year ago
+
+ZCC doesn't support on server OS. For server traffic you may think of Cloud connector based forwarding.
+
+1 like
+
+jimlin
+
+(Partner)
+
+a year ago
+
+https://help.zscaler.com/eos-eol/supported-versions
+
+Zscaler Client Connector for Windows ：
+
+Windows 8 and 8.1 support for Zscaler Client Connector version 3.6 and earlier
+
+Windows 10 supports Zscaler Client Connector version 3.1 and later
+
+Windows 11 supports Zscaler Client Connector version 3.7 and later
+
+Amazon Workspaces supports Zscaler Client Connector all versions
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/7/2020
+
+at
+
+04:05 AM
+
+Z-App -8 Network Error when users log in on Windows 10
+
+Client Connector
+
+cburge97
+
+2,881
+
+2881 Views
+
+0 Likes
+
+11
+
+11 Comments
+
+7/3/2020
+
+at
+
+11:55 AM
+
+ZAPP intune deployment
+
+Client Connector
+
+Mk001
+
+1,377
+
+1377 Views
+
+0 Likes
+
+4 Comments
+
+1/28/2021
+
+at
+
+03:42 PM
+
+Compare ezAgent and ZCC - when to use which?
+
+Client Connector
+
+hukel
+
+701
+
+701 Views
+
+0 Likes
+
+2 Comments
+
+8/18/2020
+
+at
+
+12:15 PM
+
+MacOS Zscaler App Log Location
+
+Client Connector
+
+brad
+
+3,565
+
+3565 Views
+
+0 Likes
+
+1 Comment
+
+3/7/2022
+
+at
+
+03:41 PM
+
+Can a User with multiple devices use them simultaneously whilst logged in using that same single account
+
+Client Connector
+
+michael.makombe
+
+4 Views
+
+0 Likes
+
+12
+
+12 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Is Windows Datacenter 2019 a supported OS for ZCC in an AWS Workspace instance?
+<!-- /ZS-POST -->
 
 ---
 
@@ -4521,12 +5507,12 @@ Zscaler causing slow internet connection mostly from 8:00PM - 10:00PM PH time
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000kpyJA0AY/ios-shared-ipad-zcc-deployment-help","lastmod":"2025-11-25T14:59:09.000Z","id":"0D5PJ00000kpyJA0AY"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000kpyJA0AY/ios-shared-ipad-zcc-deployment-help","lastmod":"2026-09-04T15:23:52.000Z","id":"0D5PJ00000kpyJA0AY"} -->
 ## iOS Shared iPad + ZCC Deployment: Help
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000kpyJA0AY/ios-shared-ipad-zcc-deployment-help
 - Type: Q&A
-- Last activity: 2025-11-25T14:59:09.000Z
+- Last activity: 2026-09-04T15:23:52.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 Client Connector
@@ -4621,7 +5607,11 @@ Thanks in advance.
 
 Client Connector
 
-312 views
+342 views
+
+Gianluca.bastia
+
+likes this.
 
 Log In to Answer
 
@@ -4651,9 +5641,9 @@ Client Connector
 
 cburge97
 
-2,886
+2,936
 
-2886 Views
+2936 Views
 
 0 Likes
 
@@ -4673,9 +5663,9 @@ Client Connector
 
 Mk001
 
-1,379
+1,407
 
-1379 Views
+1407 Views
 
 0 Likes
 
@@ -4693,9 +5683,9 @@ Client Connector
 
 hukel
 
-704
+716
 
-704 Views
+716 Views
 
 0 Likes
 
@@ -4713,13 +5703,13 @@ Client Connector
 
 brad
 
-3,572
+3,847
 
-3572 Views
+3847 Views
 
 0 Likes
 
-1 Comment
+2 Comments
 
 3/7/2022
 
@@ -10266,12 +11256,12 @@ Windows laptop dropping performance and have slowness but Mac doesn't
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000utSHz0AM/zcc-for-vdi-citrix-browserbased-users-auth-with-idp-okta-via-kerberos","lastmod":"2026-05-28T15:17:38.000Z","id":"0D5PJ00000utSHz0AM"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000utSHz0AM/zcc-for-vdi-citrix-browserbased-users-auth-with-idp-okta-via-kerberos","lastmod":"2026-08-14T18:59:08.000Z","id":"0D5PJ00000utSHz0AM"} -->
 ## ZCC for VDI (Citrix) browser-based users auth with iDP (Okta) via Kerberos
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000utSHz0AM/zcc-for-vdi-citrix-browserbased-users-auth-with-idp-okta-via-kerberos
 - Type: Q&A
-- Last activity: 2026-05-28T15:17:38.000Z
+- Last activity: 2026-08-14T18:59:08.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 Client Connector
@@ -10288,7 +11278,41 @@ We use Okta as iDP for users authentication and recently configured Okta DSSO (h
 
 Client Connector
 
-226 views
+1 answer
+
+613 views
+
+mmckinley4810
+
+(Employee)
+
+a month ago
+
+Can ZCC for VDI rely on browser-based authentication with an IdP while the browser uses Kerberos for user auth via DSSO?
+
+Yes, it appears this is not only possible but is the intended design for seamless authentication in such an environment. The authentication flow is designed to work exactly as you've described.
+
+When a user is logged into their Kerberos-enabled VDI session, the process generally works as follows:
+
+Zscaler Client Connector (ZCC) initiates the authentication process, directing the request to your Identity Provider (IdP), which is Okta in this case.
+
+Okta then challenges the browser for Kerberos authentication.
+
+Because you have Okta's agentless Desktop Single Sign-On (DSSO) configured, the browser, which is already Kerberos-aware from the user's Windows login, automatically and seamlessly presents the Kerberos ticket to Okta for validation.
+
+Once Okta validates the ticket against your Active Directory, it confirms the user's identity and grants access to Zscaler's services.
+
+This entire process leverages SAML as the bridge between Zscaler and Okta, providing a frictionless experience for the user without requiring them to re-enter credentials.
+
+Does ZCC for VDI use an external browser for user's authentication?
+
+This is a configurable option within Zscaler. While ZCC has an embedded browser, you can configure it to use the system's default external browser for authentication.
+
+I believe that enabling browser-based authentication in the Zscaler Client Connector Portal can be advantageous, particularly for remembering multi-factor authentication (MFA) choices, which the embedded browser may not do.
+
+Therefore, you can choose to have ZCC use an external browser to handle the IdP authentication flow.
+
+1 like
 
 Log In to Answer
 
@@ -10318,9 +11342,9 @@ Client Connector
 
 cburge97
 
-2,884
+2,940
 
-2884 Views
+2940 Views
 
 0 Likes
 
@@ -10340,9 +11364,9 @@ Client Connector
 
 Mk001
 
-1,378
+1,408
 
-1378 Views
+1408 Views
 
 0 Likes
 
@@ -10360,9 +11384,9 @@ Client Connector
 
 hukel
 
-704
+717
 
-704 Views
+717 Views
 
 0 Likes
 
@@ -10380,13 +11404,13 @@ Client Connector
 
 brad
 
-3,570
+3,856
 
-3570 Views
+3856 Views
 
 0 Likes
 
-1 Comment
+2 Comments
 
 3/7/2022
 
@@ -12024,12 +13048,12 @@ ZCC idp traffic exempt from forwarding to ZIA
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000yvj990AA/ondemand-zcczpa-for-3rd-party-vendors","lastmod":"2026-07-28T17:05:17.000Z","id":"0D5PJ00000yvj990AA"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000yvj990AA/ondemand-zcczpa-for-3rd-party-vendors","lastmod":"2026-08-05T15:31:45.000Z","id":"0D5PJ00000yvj990AA"} -->
 ## On-demand ZCC/ZPA for 3rd Party Vendors
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000yvj990AA/ondemand-zcczpa-for-3rd-party-vendors
 - Type: Q&A
-- Last activity: 2026-07-28T17:05:17.000Z
+- Last activity: 2026-08-05T15:31:45.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 ZPA - Forwarding
@@ -12046,7 +13070,111 @@ Looking for a way to have our 3rd Party vendors use ZCC/ZPA on-demand similar to
 
 ZPA - Forwarding
 
-10 views
+2 answers
+
+496 views
+
+M_Hariharan
+
+(Employee)
+
+a month ago
+
+ZCC/ZPA On-Demand for 3rd Party Vendors
+
+The Core Feature: Forwarding Profile with "On-Demand" / "None" Action
+
+In the
+
+ZCC Admin Portal
+
+, you can configure a
+
+Forwarding Profile
+
+specifically for vendors where the ZPA forwarding action is set to tunnel or None. This means:
+
+- ZPA does not auto-connect when ZCC launches
+
+- The vendor manually clicks Turn On in the ZCC Private Access tab when they need it
+
+- They click Turn Off (or simply close the session) when done
+
+- Behaves exactly like a traditional VPN toggle — connect when needed, disconnect when done
+
+This is the closest native equivalent to the "start VPN → work → stop VPN" workflow your vendors are used to.
+
+Implementation Blueprint
+
+1. Identity Layer
+
+- Create a dedicated 'vendor group' in your IdP (Azure AD / Okta)
+
+- Scope ZCC App Profile and ZPA Access Policy to this group only
+
+2. ZCC App Profile (Vendor-Specific)
+
+- Create a separate App Profile for the vendor group
+
+- Enable "Force ZPA Authentication to Expire on Logout/Restart" — prevents session persistence on unmanaged devices
+
+3. Forwarding Profile
+
+- Set ZPA Forwarding Action = Tunnel or None for off-trusted network
+
+- Attach this Forwarding Profile to the vendor App Profile
+
+- This is the key toggle that gives them VPN-like start/stop behavior
+
+4. ZPA Access Policy
+
+- Apply least-privilege: map the vendor group only to the specific App Segments they need (not a broad network range)
+
+- Use Authentication Timeout Policy — set to 8 hours max (vs. 7 days for employees), forcing re-auth if left idle
+
+5. Device Posture (Optional but Recommended)
+
+Since these are unmanaged endpoints:
+
+- Check for: OS version, firewall ON, AV running
+
+- Block access to sensitive app segments if posture fails
+
+Bonus: If Vendors Are Already Zscaler Customers — Partner Logins (ZCC 4.6+)
+
+If your 3rd party vendor already uses ZCC for their own company, they can use the
+
+"Add Partner Tenant"
+
+feature to log into your ZPA environment as a secondary tenant — without disrupting their own ZCC session. You can enforce separate posture rules for your tenant specifically.
+
+Summary
+
+Start ZPA only when needed | Forwarding Profile: Tunnel/ None
+
+Easily turn off | Manual toggle in ZCC Private Access tab
+
+Access only specific apps | App Segments + least-privilege Access Policy
+
+Session doesn't linger | Auth Timeout Policy (8h) + force expiry on restart
+
+Unmanaged device safety | Device Posture Profile (AV, firewall, OS check)
+
+Vendor already has ZCC | Partner Login / Multi-Tenant (ZCC 4.6+)
+
+Key Config Path
+
+`ZCC Admin Portal → Policy Management → Forwarding Profile → ZPA Section → Forwarding Action = On-Demand`
+
+This is fully supported, no workarounds needed. The main pre-requisite is ensuring vendors install ZCC — which is the same ask as any VPN client installation, so the adoption barrier is equivalent.
+
+wbocash
+
+(Customer)
+
+a month ago
+
+Thank you! This is a potential game changer. Will give it a try!
 
 Log In to Answer
 
@@ -12076,9 +13204,9 @@ ZPA - Forwarding
 
 User16182582818315999266
 
-456
+473
 
-456 Views
+473 Views
 
 0 Likes
 
@@ -12096,9 +13224,9 @@ ZPA - Forwarding
 
 Athees
 
-353
+368
 
-353 Views
+368 Views
 
 0 Likes
 
@@ -12116,9 +13244,9 @@ ZPA - Forwarding
 
 jaicybersec
 
-345
+366
 
-345 Views
+366 Views
 
 0 Likes
 
@@ -12136,9 +13264,9 @@ ZPA - Forwarding
 
 Dhananjay_Bhakte
 
-972
+1,073
 
-972 Views
+1073 Views
 
 0 Likes
 
@@ -12156,9 +13284,9 @@ ZPA - Forwarding
 
 BlueSocks
 
-158
+330
 
-158 Views
+330 Views
 
 0 Likes
 
@@ -12617,4 +13745,297 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Zscaler and type2 imprivata integration
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000011vRiL0AU/zcc-vs-gre-performance-for-zia","lastmod":"2026-09-13T12:50:32.000Z","id":"0D5PJ000011vRiL0AU"} -->
+## ZCC vs GRE performance for ZIA
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000011vRiL0AU/zcc-vs-gre-performance-for-zia
+- Type: Q&A
+- Last activity: 2026-09-13T12:50:32.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - Forwarding
+
+Vivekp123
+
+(Partner) asked a question.
+
+September 3, 2026 at 4:58 AM
+
+ZCC vs GRE performance for ZIA
+
+Hi,
+
+Looking to get some feedback on whether to use ZCC or GRE for ZIA from a trusted network. My edge device are GRE capable. My primary concern is internet performance. Is GRE more consistent and dies it orovide better speeds, better page fetch times and lesser latency as compared to zcc
+
+ZIA - Forwarding
+
+2 answers
+
+443 views
+
+M_Hariharan
+
+(Employee)
+
+Edited September 9, 2026 at 1:17 PM
+
+For internet performance from a trusted office network,
+
+Zscaler Client Connector (ZCC) using Tunnel 2.0 (DTLS)
+
+often provides equal or superior speed, page fetch times, and latency compared to a
+
+GRE tunnel
+
+, provided the network routing is optimized . While GRE tunnels are highly consistent at the network hardware level, ZCC bypasses the encapsulation overhead and MTU/MSS fragmentation risks that commonly degrade GRE tunnel performance.
+
+Here is a detailed, trusted-network comparison to help you make your design decision:
+
+🚀 Speed & Throughput Capabilities
+
+Zscaler Client Connector (ZCC Tunnel 2.0):
+
+Utilizing DTLS (UDP 443), ZCC can easily push
+
+1 Gbps+
+
+of throughput per client session, regularly achieving speeds over 800 Mbps on high-speed internet connections.
+
+GRE Tunnels:
+
+Zscaler supports up to
+
+1 Gbps
+
+per GRE tunnel, but only if the internal subnets are not behind NAT. If your edge device terminates the GRE tunnel behind a NAT gateway, the performance of that specific tunnel is throttled to
+
+250 Mbps
+
+⏱️ Latency & Page Fetch Times
+
+ZCC
+
+dynamically optimizes DNS and routes web traffic directly to the closest Zscaler Service Edge, minimizing page fetch times and latency.
+
+GRE
+
+is highly consistent for office-wide routing but is highly sensitive to
+
+MTU/MSS configuration
+
+on your edge router. Incorrect MTU sizes lead to packet fragmentation, which significantly increases latency and degrades page fetch times.
+
+⚠️
+
+The Critical "Tunnel-in-Tunnel" Pitfall
+
+If you run ZCC on user endpoints inside an office that also forwards all traffic to Zscaler via a GRE tunnel, you will create a nested tunnel ("tunnel-in-tunnel"). This configuration is one of the most common causes of extreme latency, packet loss, and poor performance.
+
+Note: ZCC Tunnel 2 over GRE is not recommended.
+
+Recommended Deployment Strategy
+
+To achieve the best possible performance, Zscaler recommends a hybrid approach:
+
+For User Endpoints:
+
+Keep
+
+ZCC (Tunnel 2.0)
+
+enabled on all user laptops. Configure Policy-Based Routing (PBR) on your edge device or utilize forwarding profiles to ensure ZCC DTLS/TLS traffic is routed
+
+DIRECT
+
+to the internet, completely bypassing your GRE tunnel.
+
+For Agentless Devices:
+
+Route only
+
+servers, IoT devices, guest Wi-Fi, and legacy systems
+
+(which cannot run ZCC) through the
+
+GRE tunnel
+
+Redundancy:
+
+Always configure secondary GRE tunnels for automated failover to prevent a single point of failure at your edge device.
+
+postalspin
+
+(Customer)
+
+6 days ago
+
+Using ZCC with Tunnel 2.0 is great for clients.  On top of the performance mentioned above Tunnel 2.0 is also much better at identifying user traffic.  The cookie redirect auth mechanism used with Enforcing a Proxy is dated and Tunnel 1.0 only covers port 80/443.
+
+One thing to keep in mind is what are you going to do for your servers?  ZCC is not available for server operating systems so you will need either IPSEC or GRE tunnels if you want your server traffic behind ZIA.
+
+Log In to Answer
+
+Associated Tags
+
+best-practice
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+2/15/2023
+
+at
+
+10:07 PM
+
+Initial login to Azure VDI gets struck for few minutes with ZCC (Tunnel 2.0)
+
+ZIA - Forwarding
+
+rajk5
+
+3 Views
+
+0 Likes
+
+6 Comments
+
+2/14/2023
+
+at
+
+04:13 PM
+
+Forwarding Port 8443 through GRE Tunnel
+
+ZIA - Forwarding
+
+Omar
+
+9 Views
+
+0 Likes
+
+2 Comments
+
+10/23/2022
+
+at
+
+02:29 PM
+
+PZEN localized content
+
+ZIA - Forwarding
+
+mohammad.rummaneh
+
+3 Views
+
+0 Likes
+
+2 Comments
+
+2/18/2022
+
+at
+
+08:24 AM
+
+Premium DC in China
+
+ZIA - Forwarding
+
+Ezzzzh
+
+6 Views
+
+0 Likes
+
+6 Comments
+
+2/15/2021
+
+at
+
+11:58 PM
+
+Disney Circle + Zscaler blocking internet access
+
+ZIA - Forwarding
+
+JamesK
+
+528
+
+528 Views
+
+0 Likes
+
+5 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+ZCC vs GRE performance for ZIA
 <!-- /ZS-POST -->

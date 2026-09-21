@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — Branch / Cloud Connector / SD-WAN (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-01 20:41 UTC
-Posts in this file: 72
+Generated: 2026-09-21 02:03 UTC
+Posts in this file: 76
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -2168,6 +2168,818 @@ Hi Ian,
 Yes, there will be a lot more detail at Zenith Live. We will have a breakout and will host an innovation booth, so come by and challenge us and ask any questions.
 
 Excited to see you there!
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Guide Details
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ0000006QCj0AM/how-to-validate-if-a-zscaler-vm-is-running-zsos24-needs-redeployment","lastmod":"2026-09-03T16:52:36.000Z","id":"aSoPJ0000006QCj0AM"} -->
+## How to validate if a Zscaler VM is Running ZSOS24 needs redeployment
+
+- Source: https://community.zscaler.com/s/Guides/aSoPJ0000006QCj0AM/how-to-validate-if-a-zscaler-vm-is-running-zsos24-needs-redeployment
+- Type: Guide
+- Last activity: 2026-09-03T16:52:36.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Guide Details
+
+Technical Guides
+
+Andres Garcia
+
+(Employee) posted a Guide
+
+Edited September 3, 2026 at 4:52 PM
+
+How to validate if a Zscaler VM is Running ZSOS24 needs redeployment
+
+Introduction:
+
+This guide provides instructions on how to validate whether Nanolog Streaming Service (NSS), ZIA Virtual Service Edges (VSE), Data Loss Prevention Incident Receiver, Index Tool, Branch Connectors, Cloud Connectors and Authentication Bridge Virtual or Hardware appliance (s) need to be redeployed on Zscaler Operation System (ZSOS) 42.
+
+Note:
+
+If you require help with a specific configuration, please contact your Technical Success Manager (TSM) or
+
+Zscaler Support
+
+For NSS, VSE and Authentication Bridge
+
+Customers can quickly validate whether their NSS, VSE and Authentication Bridge are running on a RAM disk and need to redeploy appliances by using the df -hT command.
+
+Validation Steps
+
+Log in to the server via SSH.
+
+Run the following command:
+
+df -hT
+
+Review the mount point information in the output.
+
+Expected Result
+
+If the filesystem is mounted on md0, the server is running on a RAM disk, and you should follow the appropriate redeployment article for that server type.
+
+If the filesystem is not mounted on md0, the server is not running on a RAM disk, and no action is required.
+
+Redeployment Instructions:
+
+Nanolog Streaming Service
+
+Virtual Service Edges
+
+Authentication bridge
+
+For Index Tool and Incident Receiver
+
+Customers can quickly validate whether their Index Tool and Incident Receivers are running on ZSOS42 and need to redeploy appliances by using the uname -a command.
+
+Validation Steps
+
+Log in to the server via SSH.
+
+Run the following command:
+
+uname -a
+
+If the command shows
+
+ZscalerOS 24-RELEASE
+
+, the Index Tool and Incident Receiver need to be redeployed.
+
+ZscalerOS 10.66.45.74 24-RELEASE-p4 ZscalerOS 24-RELEASE-p4 #28: Wed Feb 17 17:40:17 PST 2021   root@zero:/usr/obj/usr/src/sys/SMKERNEL amd6
+
+Redeployment Instructions:
+
+Index Tool
+
+Incident Receiver
+
+For Virtual Branch Connector
+
+Customers can quickly validate whether their Virtual Branch Connectors are running on ZSOS24 and need to redeploy appliances by using the uname -v command.
+
+Validation Steps
+
+Log in to the virtual Bran Connector CLI either through SSH or the VM Console
+
+Username: zsroot
+
+Password: If you do not have the password, please contact Zscaler Support for assistance.
+
+Run the following command:
+
+uname -v
+
+The output should include the 'ZscalerOS 42-RELEASE' version.
+
+If any other version designation is presented, such as ‘Zscaler-OS 24-RELEASE’ or ‘FreeBSD 11.4’, the virtual Branch Connector needs to be redeployed.
+
+Redeployment Instructions:
+
+Virtual Branch Connector
+
+For Hardware Branch Connector One-Armed-Mode (non-Gateway Mode)
+
+Customers can quickly validate whether their Hardware Branch Connectors are running virtual Branch Connector on ZSOS24 and need to redeploy by using the uname -a command.
+
+Validation Steps
+
+Log in to the Connector Console
+
+Navigate to Administration→Provisioning and Configuration→Branch Configuration
+
+Identify HW Appliances deployed in ‘One-Armed-Mode’ by looking for Template Names with the following criteria:
+
+Has a Serial Number (Identifies the appliance as HW)
+
+Status = Deploy (Identifies deployed appliance)
+
+Has a View Icon to the right of the row
+
+not an Edit icon
+
+Log in to the Hardware Branch Connector appliance either through SSH or Console cable
+
+Username: zsroot
+
+Password: if you do not have the password please contact Zscaler Support for assistance
+
+Log in to the vBC instance either through SSH or Virsh Console
+
+sudo ssh
+
+zsroot@192.168.122.2
+
+OR sudo virsh console bc01
+
+Password: if you do not have the password please contact Zscaler Support for assistance
+
+Type the following command:
+
+uname -v
+
+The output should include the ‘ZscalerOS 42-RELEASE’ version
+
+If any other version designation is presented, such as ‘Zscaler-OS 24-RELEASE’ or ‘FreeBSD 11.4’, it means the virtual Branch Connector running on the hardware needs to be redeployed.
+
+Redeployment instructions:
+
+Hardware Branch Connector One-Armed-Mode (non-Gateway Mode)
+
+For Hardware Branch Connector (Gateway Mode)
+
+Branch Connectors that have been deployed in Gateway Mode have automatically been upgraded to the latest version of ZscalerOS 42. You may however manually validate the version with the following steps.
+
+Validation Steps
+
+Log in to the Hardware Branch Connector appliance either through SSH or Console cable
+
+Username: zsroot
+
+Password: if you do not have the password please contact Zscaler Support for assistance
+
+Log in to the vBC instance either through SSH or Virsh Console
+
+sudo ssh
+
+zsroot@169.254.2.2
+
+OR sudo virsh console bc01
+
+Password: if you do not have the password please contact Zscaler Support for assistance
+
+Type the following command:
+
+uname -v
+
+The output should include the ‘ZscalerOS 42-RELEASE’ version
+
+If any other version designation is presented, such as ‘Zscaler-OS 24-RELEASE’ or ‘FreeBSD 11.4’, it means the virtual Branch Connector running on the hardware needs to be redeployed.
+
+Contact Zscaler Support and inform them that your physical Branch Connectors in Gateway Mode has not been upgraded to ZscalerOS 42 automatically. Please request that automated upgrades be enabled if it’s been disabled for any reason in the past
+
+Log in to the Connector Console
+
+Navigate to Administration→Branch Devices→Physical
+
+Confirm and Edit the Upgrade Schedule as needed
+
+The Zscaler cloud orchestration will automatically upgrade the vBC instance to the correct image version during the update process
+
+For Cloud Connectors
+
+Customers can quickly validate whether their Cloud Connectors are running on ZSOS24 and need to redeploy appliances by using the uname -a command.
+
+Validation Steps
+
+Log in to the Cloud Connector CLI either through SSH or the VM Console
+
+Username: zsroot
+
+Password: Use your PEM key
+
+Run the following command:
+
+uname -a
+
+In AWS or GCP, the output should include the ‘ZscalerOS 42-RELEASE’ version
+
+In Azure, the output should include ‘13.2 Release-p12’
+
+If any other version designation is presented, such as ‘Zscaler-OS 24-RELEASE’ or ‘FreeBSD 11.4’, the Cloud Connector needs to be redeployed.
+
+Redeployment Instructions:
+
+Cloud Connectors﻿
+
+Redeployment articles:
+
+Nanolog Streaming Service
+
+Virtual Service Edges
+
+Index Tool
+
+Incident Receiver
+
+Authentication bridge
+
+Virtual Branch Connector
+
+Hardware Branch Connector One-Armed-Mode (non-Gateway Mode)
+
+Cloud Connectors﻿
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Guide Details
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ0000006eSb0AI/redeploying-virtual-branch-connector","lastmod":"2026-08-30T17:28:10.000Z","id":"aSoPJ0000006eSb0AI"} -->
+## Redeploying Virtual Branch Connector
+
+- Source: https://community.zscaler.com/s/Guides/aSoPJ0000006eSb0AI/redeploying-virtual-branch-connector
+- Type: Guide
+- Last activity: 2026-08-30T17:28:10.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Guide Details
+
+Technical Guides
+
+Andres Garcia
+
+(Employee) posted a Guide
+
+August 30, 2026 at 5:28 PM
+
+Redeploying Virtual Branch Connector
+
+Introduction
+
+This guide provides instructions on how to redeploy your Zscaler Virtual Branch Connector Appliance with the updated Zscaler Operating ZSOS42.
+
+Log in to the Connector Console
+
+Navigate to the Administration→Branch Connector Images page
+
+Download the latest version of the OVA, QCOW or VHDX image, depending on the hypervisor used
+
+Deploy a new Virtual Machine with the newly downloaded image, utilizing the same Provisioning URL.  For detailed instructions please refer to
+
+Deploying Branch Connector on VMWare Platform
+
+or contact Zscaler Support
+
+Note:
+
+If your Virtual Branch Connector Group is configured is configured for High Availability, you can add a new Virtual Branch Connector running ZscalerOS-42 to the Group to retain the existing Virtual IP and then remove the old Virtual Branch Connectors.
+
+If you have only one Virtual Branch Connector in a Group, if you delete it, it automatically deletes the Branch Connector. This could be blocked if you are using that Branch Connector Group as criteria in a ZPA Policy.
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Guide Details
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ0000006exF0AQ/redeploying-cloud-connectors","lastmod":"2026-09-01T18:20:49.000Z","id":"aSoPJ0000006exF0AQ"} -->
+## Redeploying Cloud Connectors
+
+- Source: https://community.zscaler.com/s/Guides/aSoPJ0000006exF0AQ/redeploying-cloud-connectors
+- Type: Guide
+- Last activity: 2026-09-01T18:20:49.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Guide Details
+
+Technical Guides
+
+Andres Garcia
+
+(Employee) posted a Guide
+
+Edited September 1, 2026 at 6:20 PM
+
+Redeploying Cloud Connectors
+
+Introduction
+
+This guide provides instructions on how to redeploy your Cloud Connectors. This process is necessary when upgrading Cloud Connector appliances from Zscaler Operating System 24 (ZSOS24) to ZSOS42.
+
+Redeploying the Cloud Connector appliances with the newest OS image depends on the way you did it in the first place:
+
+Manually through the Azure Marketplace
+
+If you deployed your image manually through the Azure marketplace using the Cloud Connector Application, you must follow the instructions to redeploy the Cloud Connectors manually through the marketplace wizard following
+
+this instructions
+
+Automated through Terraform or Cloud Formation
+
+Re-apply the product code.
+
+Auto Scaling Group / Virtual Machine Scale Sets: Apply creates a new launch template version; then trigger an Instance Refresh on the ASG (or let scale events roll instances) to move Cloud Connectors to the new AMI in a controlled manner.
+
+Static/HA: Terraform apply will replace instances (drain/replace one Cloud Connector at a time;
+
+do not replace all simultaneously to preserve traffic
+
+).
+
+Note:
+
+If your Infrastructure as a Code for Cloud Connectors is not updated with the latest modules, consider refreshing with the latest modules from
+
+Zscaler’s Github repository
+
+Cloud Service Provider
+
+Reference the following link to check that the images you are going to deploy are the latest available in the marketplace
+
+Identifying the Zscaler Cloud Connector Version.
+
+Instructions for Redeployment
+
+Amazon Web Services
+
+Cloud Formation
+
+The latest Zscaler CloudFormation templates can be found
+
+here
+
+. Check that your .yaml files references to the latest product code, for example:
+
+Mappings:
+
+Product2Code:
+
+CloudConnector:
+
+Code: 2l8tfysndbav4tv2nfjwak3cu
+
+The right product code is:
+
+Global: 2l8tfysndbav4tv2nfjwak3cu
+
+China: axnpwhsb4facossmbm1h9yad6
+
+Terraform
+
+The latest Zscaler Terraform templates for Cloud Connectors on AWS can be found
+
+here
+
+. When using those you typically override the AMI-id right within the different examples terrafrom.tfvars file.
+
+[ec2-user@ip-10-250-3-89 aws-base_1cc]$ ls -l examples/*/terraform.tfvars
+
+-rwxr-xr-x. 1 ec2-user ec2-user 3073 Jun 24 08:42
+
+examples/base/terraform.tfvars
+
+-rwxr-xr-x. 1 ec2-user ec2-user 9670 Jun 24 08:47
+
+examples/base_1cc/terraform.tfvars
+
+-rwxr-xr-x. 1 ec2-user ec2-user 10882 Jun 24 08:42
+
+examples/base_1cc_zpa/terraform.tfvars
+
+-rwxr-xr-x. 1 ec2-user ec2-user 8530 Jun 24 08:42
+
+examples/base_2cc/terraform.tfvars
+
+-rwxr-xr-x. 1 ec2-user ec2-user 10834 Jun 24 08:42
+
+examples/base_2cc_zpa/terraform.tfvars
+
+-rwxr-xr-x. 1 ec2-user ec2-user 12391 Jun 24 08:42
+
+examples/base_cc_gwlb/terraform.tfvars
+
+-rwxr-xr-x. 1 ec2-user ec2-user 13236 Jun 24 08:42
+
+examples/base_cc_gwlb_asg/terraform.tfvars
+
+-rwxr-xr-x. 1 ec2-user ec2-user 14105 Jun 24 08:42
+
+examples/base_cc_gwlb_asg_zpa/terraform.tfvars
+
+-rwxr-xr-x. 1 ec2-user ec2-user 13260 Jun 24 08:42
+
+examples/base_cc_gwlb_zpa/terraform.tfvars
+
+-rwxr-xr-x. 1 ec2-user ec2-user 21097 Jun 24 08:42
+
+examples/cc_gwlb/terraform.tfvars
+
+-rwxr-xr-x. 1 ec2-user ec2-user 23043 Jun 24 08:42
+
+examples/cc_gwlb_asg/terraform.tfvars
+
+-rwxr-xr-x. 1 ec2-user ec2-user 19786 Jun 24 08:42
+
+examples/cc_ha/terraform.tfvars
+
+When you chose that method you overwrote the ami-id usually with this variable: Ami_id = ["ami-123456789"] But you can also check in
+
+main.tf
+
+for: data "aws_ami" "cloudconnector"
+
+The right product code is:
+
+Global: 2l8tfysndbav4tv2nfjwak3cu
+
+China: axnpwhsb4facossmbm1h9yad6
+
+Google Cloud Platform
+
+Terraform
+
+The latest Zscaler Terraform templates for Cloud Connectors on GCP can be found
+
+here
+
+. When using those you typically override the GCP image right within the different examples terrafrom.tfvars file.
+
+marketplace_image = "zs-cc-ga-03092026"
+
+or
+
+custom_image_name = "private-image-name"
+
+But you can also check in
+
+main.tf
+
+for:
+
+data "google_compute_image" "zs_cc_img" {
+
+count = var.custom_image_name != "" ? 0 : 1
+
+project = "mpi-zscalercloudconnector-publ"
+
+name  = var.marketplace_image
+
+Microsoft Azure
+
+Terraform
+
+The latest Zscaler Terraform templates for Cloud Connectors on Azure can be found
+
+here
+
+. When using those you typically override the VHD right within the different examples terrafrom.tfvars file.
+
+ccvm_source_image_id = "zs_ser_gen1_cc_01:latest"
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Guide Details
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ0000006gML0AY/redeploying-hardware-branch-connector-onearmedmode-nongateway-mode","lastmod":"2026-09-03T16:46:09.000Z","id":"aSoPJ0000006gML0AY"} -->
+## Redeploying Hardware Branch Connector One-Armed-Mode (non-Gateway Mode)
+
+- Source: https://community.zscaler.com/s/Guides/aSoPJ0000006gML0AY/redeploying-hardware-branch-connector-onearmedmode-nongateway-mode
+- Type: Guide
+- Last activity: 2026-09-03T16:46:09.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Guide Details
+
+Technical Guides
+
+Andres Garcia
+
+(Employee) posted a Guide
+
+September 3, 2026 at 4:46 PM
+
+Redeploying Hardware Branch Connector One-Armed-Mode (non-Gateway Mode)
+
+Introduction
+
+This guide provides instructions on how to redeploy your Zscaler Branch Connector One-Armed-Mode (non-Gateway Mode) Appliance with the updated Zscaler Operating ZSOS42.
+
+To redeploy the vBC instance in the HW Branch Connector appliance with the updated ZscalerOS 42-RELEASE
+
+Log in to the Hardware Branch Connector appliance as per step 4
+
+Run the following commands:
+
+sudo bash
+
+apt update -y && apt install bcvm
+
+Wait until the new bcvm package is fully downloaded and installed
+
+Log in to the Branch Connector Console
+
+Navigate to Administration→Branch Devices→Physical
+
+Identify the BC Group Name that is being upgraded and expand the group view by clicking on the arrow next to the checkbox
+
+Click the Delete icon to the right of the intended row
+
+and confirm by clicking ‘Delete’ and then “Activate” from the Activation bubble
+
+Wait until the Deletion is completed by refreshing the page and waiting until the ‘Deleting’ icon and the row is removed
+
+Log in to the Hardware Branch Connector appliance as per step 4
+
+Validate that the vBC instance was removed with the following command
+
+sudo virsh list
+
+The list should return empty. If BC01 is still listed, remove it with the following command:
+
+sudo deploy_bc.py destroy -purge bc01
+
+Back in the Branch Connector Console
+
+Navigate to Administration→Provisioning & Configuration→Branch Configuration
+
+Identify the Hardware Appliance that was deleted in step 8-C and set the Status from ‘Staged’ to ‘Ready to Deploy’, confirm the action and then “Activate” from the Activation bubble
+
+The vBC instance will be re-provisioned with the same configuration, but based on the updated ‘bcvm’ installed
+
+The reprovisioning can take 5-10 minutes to show as completed in the Connector Portal
 
 Associated Tags
 
@@ -13855,12 +14667,12 @@ Branch Connector
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000qixuf0AA/branch-connector","lastmod":"2026-03-11T07:17:46.000Z","id":"0D5PJ00000qixuf0AA"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000qixuf0AA/branch-connector","lastmod":"2026-09-02T17:54:29.000Z","id":"0D5PJ00000qixuf0AA"} -->
 ## Branch Connector
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000qixuf0AA/branch-connector
 - Type: Q&A
-- Last activity: 2026-03-11T07:17:46.000Z
+- Last activity: 2026-09-02T17:54:29.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 Rama
@@ -13873,7 +14685,47 @@ Branch Connector
 
 Branch Connector deployment scenario , traffic forwarding methods and routed tunnel purpose in BRANCH CONNECTOR
 
-115 views
+1 answer
+
+585 views
+
+mmckinley4810
+
+(Employee)
+
+Edited August 27, 2026 at 7:29 PM
+
+Hi! I hope this answers your question!
+
+In a Zero Trust Branch architecture, several methods are used to forward traffic securely to a policy enforcement point, which is often a cloud-based Security Service Edge (SSE) or a Secure Access Service Edge (SASE) platform. Here are the key traffic forwarding methods:
+
+On-Premises Appliances and Gateways
+
+For locations with a significant number of devices, especially those where software cannot be installed (like IoT and OT devices), an on-premises appliance is a common solution.
+
+These physical or virtual appliances act as a central gateway for all traffic originating from the branch, establishing a secure connection to the cloud-based security service.
+
+Client Connectors (Endpoint Agents)
+
+For managed devices like laptops and smartphones, a lightweight software agent, or "client connector," is installed. This agent intelligently forwards all or specific traffic to the Zero Trust service, ensuring consistent security policies regardless of the user's location.
+
+Secure Tunnels
+
+Tunnels are a foundational method for securely connecting a branch office's entire network to a SASE Point of Presence (PoP). The two main types are:
+
+IPsec (Internet Protocol Security) Tunnels: These encrypted tunnels are a widely supported standard for creating a secure connection between the branch's router or firewall and the Zero Trust service.
+
+GRE (Generic Routing Encapsulation) Tunnels: GRE is another tunneling protocol that is often simpler to configure than IPsec. It is typically used in conjunction with IPsec for security, as it does not include encryption by default.
+
+Policy-Based Forwarding Rules
+
+Regardless of the forwarding method, a key aspect of a Zero Trust Branch is the ability to define granular, policy-based rules for how different types of traffic are handled. This allows to match any traffic and send it through the desired interface.
+
+Purpose of Routed Tunnels
+
+Routed Tunnels provide a way for server and client to communicate directly across an IPSec VPN. A common use case for this is that of a VoIP controller in a data center needing to be in direct communication IP phones. In this case, Zero Trust Branch devices at the data center and sales office would form a tunnel, allowing for direct communication between the two locations.
+
+#ZTB
 
 Log In to Answer
 
@@ -13903,9 +14755,9 @@ Misspelled  "Zscaler" Footer in Communication Emails
 
 ozanogur
 
-235
+248
 
-235 Views
+248 Views
 
 3 Likes
 
@@ -13921,9 +14773,9 @@ Direct certain countries to different SE for a URL
 
 danbro185
 
-492
+531
 
-492 Views
+531 Views
 
 1 Like
 
@@ -14195,12 +15047,12 @@ Need a test account to test ICAP receiver
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000z7NO90AM/cloud-connector-has-two-service-nics-primary-and-secondary","lastmod":"2026-07-28T17:05:07.000Z","id":"0D5PJ00000z7NO90AM"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000z7NO90AM/cloud-connector-has-two-service-nics-primary-and-secondary","lastmod":"2026-08-20T18:30:03.000Z","id":"0D5PJ00000z7NO90AM"} -->
 ## Cloud Connector has two service NICs: primary and secondary
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000z7NO90AM/cloud-connector-has-two-service-nics-primary-and-secondary
 - Type: Q&A
-- Last activity: 2026-07-28T17:05:07.000Z
+- Last activity: 2026-08-20T18:30:03.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 Cloud Connector
@@ -14225,7 +15077,39 @@ However, the Cloud Connector deployment guide did not mention that multiple serv
 
 Cloud Connector
 
-11 views
+1 answer
+
+498 views
+
+Allen Geiser
+
+(Employee)
+
+15 days ago
+
+Is it correct to consider the secondary service NIC as a standby NIC?
+
+No, it is not a standby NIC.
+
+In Zscaler's architecture, High Availability (HA) and failover are handled at the
+
+node level
+
+using an Azure Load Balancer to distribute traffic among multiple healthy Cloud Connector VMs. They are not handled at the NIC level on a single virtual machine.
+
+Zscaler treats any network interface attached after the Management NIC as an active data-plane interface. If you are using a standard hub-and-spoke topology where an Azure Internal Load Balancer (ILB) routes all traffic to a single service subnet, your secondary service NIC will simply remain idle and unused.
+
+Is there any documentation that explains how the primary and secondary service NICs are used differently?
+
+While the standard quick-start deployment guides may not elaborate on the 3-NIC configuration, Zscaler’s advanced architecture documentation (such as their Terraform module documentation and Gateway Load Balancer guides) outlines the specific use cases for the secondary service NIC:
+
+Azure Gateway Load Balancer (GWLB) Integration: Zscaler supports deploying Cloud Connectors behind an Azure GWLB for transparent, inline traffic inspection ("bump-in-the-wire"). GWLB architectures often utilize dual interfaces or separate VXLAN tunnels to logically separate ingress and egress traffic. The secondary service NIC accommodates this advanced routing scenario.
+
+Network Segmentation: If your enterprise topology requires the Cloud Connector to bridge multiple distinct data subnets (for example, to segment traffic from different internal security zones), the secondary service NIC provides an additional active data-plane interface to listen for that traffic.
+
+NVA Architectural Standards: Provisioning a 3-NIC appliance aligns with standard Azure Network Virtual Appliance (NVA) templates, which traditionally split interfaces into Management, Trust (Internal), and Untrust (External).
+
+A quick configuration note: If you end up utilizing the secondary service NIC, remember that Azure disables IP forwarding on NICs by default. You must ensure that IP Forwarding is enabled on both the Primary and Secondary Service NICs in the Azure Portal, otherwise the Cloud Connector will drop the workload traffic. (IP Forwarding should remain disabled on the Management NIC).
 
 Log In to Answer
 
@@ -14309,9 +15193,9 @@ Cloud Connector
 
 Dave-Bourke
 
-1,726
+1,744
 
-1726 Views
+1744 Views
 
 0 Likes
 
@@ -14329,9 +15213,9 @@ Cloud Connector
 
 johan.castro.a
 
-1,475
+1,506
 
-1475 Views
+1506 Views
 
 0 Likes
 

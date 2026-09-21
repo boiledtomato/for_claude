@@ -1,10 +1,442 @@
 # Zscaler Zenith Community — Platform / 認証 / 管理 / ログ (part 2)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-01 20:41 UTC
-Posts in this file: 103
+Generated: 2026-09-21 02:03 UTC
+Posts in this file: 114
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AWUfHTCQ1/its-time-to-levelup-your-cybersecurity-defense-register-for-india-roadshows","lastmod":"2024-07-11T06:32:06.000Z","id":"0D54u0000AWUfHTCQ1"} -->
+## It's time to level-up your cybersecurity defense! Register for India roadshows
+
+- Source: https://community.zscaler.com/s/question/0D54u0000AWUfHTCQ1/its-time-to-levelup-your-cybersecurity-defense-register-for-india-roadshows
+- Type: Q&A
+- Last activity: 2024-07-11T06:32:06.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Training Events
+
+Deepti Gupta
+
+(Employee) asked a question.
+
+Edited July 1, 2024 at 3:07 PM
+
+It's time to level-up your cybersecurity defense! Register for India roadshows
+
+Are you ready to level up your cybersecurity defense? We have FREE 'Zscaler for Users- Essentials (EDU-200)' training workshop for our customers in India. Seats are limited. Hurry up and register now!
+
+https://lnkd.in/gUVnApe5
+
+Training Events
+
+1 answer
+
+272 views
+
+Ramesh Mani
+
+(Partner)
+
+2 years ago
+
+Could you please confirm if Chennai is included in your upcoming roadshows in India?
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+No posts to show.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+It's time to level-up your cybersecurity defense! Register for India roadshows
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AWUhNkCQL/new-zsync-sessions-for-july-are-up-explore-and-save-a-seat","lastmod":"2024-07-05T15:55:58.000Z","id":"0D54u0000AWUhNkCQL"} -->
+## New Z-sync sessions for July are up! Explore and save a seat!
+
+- Source: https://community.zscaler.com/s/question/0D54u0000AWUhNkCQL/new-zsync-sessions-for-july-are-up-explore-and-save-a-seat
+- Type: Q&A
+- Last activity: 2024-07-05T15:55:58.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Training Events
+
+Deepti Gupta
+
+(Employee) asked a question.
+
+July 1, 2024 at 3:44 PM
+
+New Z-sync sessions for July are up! Explore and save a seat!
+
+Feeling lost in a sea of security solutions? Tap into the minds of Zscaler gurus with Z-Sync with Experts! Get insider knowledge through the virtual training sessions on various topics every month. New sessions for July are up. Don't wait and secure a seat at the next session now!
+
+https://lnkd.in/g3Z26ncr
+
+Training Events
+
+250 views
+
+johnsonto
+
+and
+
+Ramesh Mani
+
+like this.
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+No posts to show.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+New Z-sync sessions for July are up! Explore and save a seat!
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AWWTNwCQP/happy-4th-of-july-cyberheroes","lastmod":"2024-07-06T14:24:15.000Z","id":"0D54u0000AWWTNwCQP"} -->
+## Happy 4th of July Cyber-heroes!!
+
+- Source: https://community.zscaler.com/s/question/0D54u0000AWWTNwCQP/happy-4th-of-july-cyberheroes
+- Type: Q&A
+- Last activity: 2024-07-06T14:24:15.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Training Portfolio
+
+Deepti Gupta
+
+(Employee) asked a question.
+
+July 4, 2024 at 4:44 PM
+
+Happy 4th of July Cyber-heroes!!
+
+This 4th of July, declare your independence from cyber threats! At Zscaler Academy, we empower individuals and organisations to stay ahead of the curve with our comprehensive cybersecurity training & certification. Join us in building a more secure digital future! Check out:
+
+https://www.zscaler.com/zscaler-academy
+
+#HappyFourthofJuly
+
+🇺🇸
+
+Training Portfolio
+
+HappyFourthofJuly
+
+342 views
+
+Ramesh Mani
+
+and
+
+johnsonto
+
+like this.
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+No posts to show.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Happy 4th of July Cyber-heroes!!
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AYSSphCQH/we-are-coming-to-london-on-aug-13-2024-save-a-seat-now","lastmod":"2024-07-22T09:06:37.000Z","id":"0D54u0000AYSSphCQH"} -->
+## We are coming to London on Aug 13, 2024! Save a seat now
+
+- Source: https://community.zscaler.com/s/question/0D54u0000AYSSphCQH/we-are-coming-to-london-on-aug-13-2024-save-a-seat-now
+- Type: Q&A
+- Last activity: 2024-07-22T09:06:37.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Training Events
+
+Deepti Gupta
+
+(Employee) asked a question.
+
+July 19, 2024 at 6:43 PM
+
+We are coming to London on Aug 13, 2024! Save a seat now
+
+Hello London people! Did you think we forgot coming to London for a training roadshow? Well, absolutely not. Our hands-on lab will be hosted on August 13, 2024 by our experts.
+
+Seats are limited, so ensure saving one for you now.
+
+Training Events
+
+427 views
+
+G-Man8
+
+likes this.
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+No posts to show.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+We are coming to London on Aug 13, 2024! Save a seat now
+<!-- /ZS-POST -->
 
 ---
 
@@ -11940,12 +12372,12 @@ Python 3.13 Zscaler certificate non-conform
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000aV3kL0AS/zidentity-for-user-management","lastmod":"2026-07-31T11:44:13.000Z","id":"0D5PJ00000aV3kL0AS"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000aV3kL0AS/zidentity-for-user-management","lastmod":"2026-08-16T13:13:07.000Z","id":"0D5PJ00000aV3kL0AS"} -->
 ## ZIdentity for User Management
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000aV3kL0AS/zidentity-for-user-management
 - Type: Q&A
-- Last activity: 2026-07-31T11:44:13.000Z
+- Last activity: 2026-08-16T13:13:07.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 ZIA - Authentication
@@ -11966,9 +12398,9 @@ Thanks!
 
 ZIA - Authentication
 
-6 answers
+8 answers
 
-794 views
+1.41K views
 
 Eric N.
 
@@ -12006,6 +12438,14 @@ Check with you account team. In Training, we don't spend much time on the minute
 
 1 like
 
+avshch
+
+(Customer)
+
+25 days ago
+
+ZIdentity for users not available for Gov clouds yet.
+
 Ramesh Mani
 
 (Partner)
@@ -12041,6 +12481,18 @@ https://help.zscaler.com/zidentity/migrating-zscaler-service-admins-zidentity
 Hope this helps.
 
 1 like
+
+Raj909
+
+(Customer)
+
+a month ago
+
+ZIdentity has recently changed to Authentication Service.  As far as I am aware, migration of end-users is currently available in beta, LA in production and slated to go GA in production in August.
+
+Has anyone carried out any testing on migrating end-users?
+
+https://help.zscaler.com/authentication-service/migrating-end-users-authentication-service
 
 Log In to Answer
 
@@ -12142,9 +12594,9 @@ ZIA - Authentication
 
 Muhammad
 
-364
+377
 
-364 Views
+377 Views
 
 0 Likes
 
@@ -18450,12 +18902,12 @@ Copyright 2008-2026 Zscaler
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000xZllV0AS/zscaler-gov-enterprise-application-is-only-available-in-gcch","lastmod":"2026-06-30T19:12:21.000Z","id":"0D5PJ00000xZllV0AS"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000xZllV0AS/zscaler-gov-enterprise-application-is-only-available-in-gcch","lastmod":"2026-08-11T19:04:52.000Z","id":"0D5PJ00000xZllV0AS"} -->
 ## "Zscaler Gov" Enterprise Application is Only Available in GCCH
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000xZllV0AS/zscaler-gov-enterprise-application-is-only-available-in-gcch
 - Type: Q&A
-- Last activity: 2026-06-30T19:12:21.000Z
+- Last activity: 2026-08-11T19:04:52.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 ZIA - Authentication
@@ -18504,7 +18956,33 @@ https://help.zscaler.us/zia/saml-scim-configuration-guide-microsoft-entra-id
 
 ZIA - Authentication
 
-188 views
+1 answer
+
+464 views
+
+Michael
+
+(Partner)
+
+24 days ago
+
+It looks like the
+
+Zscaler Gov
+
+Enterprise Application no longer appears in
+
+GCCH
+
+tenants too. The Zscaler documentation still says to search for
+
+Zscaler Gov
+
+but I'm assuming
+
+Zscaler Internet Access ZSGov
+
+replaced it.
 
 Log In to Answer
 
@@ -18608,9 +19086,9 @@ ZIA - Authentication
 
 Muhammad
 
-363
+374
 
-363 Views
+374 Views
 
 0 Likes
 
@@ -18991,4 +19469,1155 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 After completing the EDU 200 training, i am not getting credits or any certif.
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000zd3j40AA/inquiry-about-discounts-for-zdte-certification","lastmod":"2026-08-13T20:37:50.000Z","id":"0D5PJ00000zd3j40AA"} -->
+## Inquiry About Discounts for ZDTE certification
+
+- Source: https://community.zscaler.com/s/question/0D5PJ00000zd3j40AA/inquiry-about-discounts-for-zdte-certification
+- Type: Q&A
+- Last activity: 2026-08-13T20:37:50.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Certification
+
+prathik_krishnappa
+
+(Customer) asked a question.
+
+July 31, 2026 at 7:28 PM
+
+Inquiry About Discounts for ZDTE certification
+
+Hi,
+
+I'm planning to take the
+
+Zscaler Digital Transformation Engineer (ZDTE)
+
+certification. Could you please let me know if there are any available discount codes, promotional offers, or exam vouchers that I can use when scheduling the exam?
+
+Thank you!
+
+Certification
+
+2 answers
+
+405 views
+
+jpgurrea
+
+(Customer)
+
+a month ago
+
+Discount vouchers for attending Zenith Live maybe?
+
+ChensonZ41246
+
+(Employee)
+
+23 days ago
+
+Hi Prathik - I saw your question and wanted to answer. For the most up to date info, I recommend emailing
+
+certification@zscaler.com
+
+directly with your question.  It is answered by real people and they usually respond in less than 24 hours.
+
+Log In to Answer
+
+Associated Tags
+
+certificate
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+1/12/2024
+
+at
+
+04:57 AM
+
+ZIA administrator certification
+
+Certification
+
+User16739629112679781823
+
+1,234
+
+1234 Views
+
+0 Likes
+
+2 Comments
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Inquiry About Discounts for ZDTE certification
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000zoFsY0AU/saml-authentication-expired-causing-private-application-access-failures","lastmod":"2026-09-02T17:54:04.000Z","id":"0D5PJ00000zoFsY0AU"} -->
+## SAML Authentication Expired Causing Private Application Access Failures
+
+- Source: https://community.zscaler.com/s/question/0D5PJ00000zoFsY0AU/saml-authentication-expired-causing-private-application-access-failures
+- Type: Q&A
+- Last activity: 2026-09-02T17:54:04.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZPA - Logging
+
+aalvescas
+
+(Partner) asked a question.
+
+August 3, 2026 at 12:41 PM
+
+SAML Authentication Expired Causing Private Application Access Failures
+
+I'm troubleshooting an issue where users are unable to access an internally published application.
+
+It is a Domain Controller.
+
+The logs show a BRK_MT_SETUP_FAIL_SAML_EXPIRED failure while attempting to access an internal resource. The transaction references UDP/389, but the connection is denied with a re-authentication action of Deny before any traffic is exchanged. Has anyone seen SAML expiration errors occur before connector/app selection? And what it is weird, we are not having any authentication issue internally.
+
+Note
+
+We don't have any
+
+Timeout Policy.
+
+ZPA - Logging
+
+2 answers
+
+584 views
+
+Allen Geiser
+
+(Employee)
+
+15 days ago
+
+The reason you are seeing the BRK_MT_SETUP_FAIL_SAML_EXPIRED error—and specifically why the connection is denied without prompting the user to authenticate—comes down to how Zscaler Private Access (ZPA) handles UDP traffic.
+
+Here is a breakdown of exactly what is happening and how to fix it:
+
+1. The Protocol Limitation (UDP vs. TCP)
+
+The traffic in question is UDP/389 (Connectionless LDAP or CLDAP), which Windows machines constantly generate in the background to discover and communicate with Domain Controllers.
+
+When a user's ZPA session expires, the Zscaler Client Connector intercepts the next connection to prompt the user to re-authenticate. However, ZPA can only display an interactive SAML authentication prompt for TCP traffic (like opening an internal website via HTTP/HTTPS).
+
+Because UDP is connectionless, ZPA cannot "pause" the flow to pop up a browser window for authentication. If a UDP packet is the very first thing the machine attempts to send after the SAML session expires, ZPA has no choice but to immediately deny it.
+
+2. Why it happens before Connector/App Selection
+
+In the ZPA architecture, the Zscaler Client Connector talks to the ZPA Public Service Edge (Broker). The Broker evaluates the user's authentication state
+
+before
+
+it evaluates routing or selects an App Connector. Because the user's SAML session is expired and the UDP packet cannot trigger a re-auth, the Broker drops the setup immediately. The traffic never makes it to the App Connector or the application.
+
+3. Why internal auth is fine
+
+This error purely means the user's Zscaler Client Connector session has expired, not their internal Active Directory credentials. Even if you haven't explicitly configured a custom Timeout Policy, ZPA still enforces an underlying default global authentication timeout (often tied to your IdP session limits or default ZPA settings).
+
+How to Resolve This
+
+Immediate Fix for the User: Have the user open a web browser and navigate to any internal, ZPA-published TCP web application (like an intranet page), or simply open the Zscaler Client Connector and manually click "Authenticate". This will trigger the SAML prompt. Once their ZPA session is refreshed via TCP, the background UDP/389 traffic will immediately start working again.
+
+Long-Term Best Practices: To prevent this from happening in the future, you should implement the following for Domain Controllers:
+
+Create a "Never" Timeout Policy for Infrastructure: Background system traffic (like AD, Kerberos, and DNS) should not be subject to user-interactive timeouts. You should create a specific ZPA Timeout Policy for your Domain Controller Application Segment and set the Reauthentication timeout to Never.
+
+Deploy ZPA Machine Tunnels: If these are domain-joined Windows endpoints, it is highly recommended to use ZPA Machine Tunnels. Machine Tunnels use machine-level certificates to establish connectivity to Domain Controllers before the user even logs in. Because it relies on certificates rather than interactive SAML sessions, background UDP/389 traffic will never expire or drop due to a SAML timeout.
+
+junior345
+
+(Customer)
+
+7 days ago
+
+Look on for the ZPA authentication/session rather than UDP/389. `BRK_MT_SETUP_FAIL_SAML_EXPIRED` points to an expired SAML session during session setup, so the request can be denied before any actual traffic reaches the application. Try signing the user out of Client Connector and re-authenticating. If that fixes it, check why ZPA is considering the SAML session expired even though you have no Timeout Policy configured. If it keeps happening, the Client Connector/ZPA logs should help identify what is triggering the expiry.
+
+Log In to Answer
+
+Associated Tags
+
+accesspolicy
+
+best-practice
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+11/3/2023
+
+at
+
+06:17 PM
+
+ZPA - LSS Feed Status
+
+ZPA - Logging
+
+Rallis
+
+578
+
+578 Views
+
+0 Likes
+
+3 Comments
+
+4/16/2025
+
+at
+
+12:56 AM
+
+ZPA SE: Session closed by Service Edge
+
+ZPA - Logging
+
+JM
+
+453
+
+453 Views
+
+0 Likes
+
+2 Comments
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+SAML Authentication Expired Causing Private Application Access Failures
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000010uTCP0A2/zscaler-directly-removed-via-script-in-mac-machine","lastmod":"2026-08-18T12:57:22.000Z","id":"0D5PJ000010uTCP0A2"} -->
+## ZSCALER directly removed via script in MAC machine
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000010uTCP0A2/zscaler-directly-removed-via-script-in-mac-machine
+- Type: Q&A
+- Last activity: 2026-08-18T12:57:22.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZUG - India
+
+prathmesh
+
+(Partner) asked a question.
+
+August 18, 2026 at 12:57 PM
+
+ZSCALER directly removed via script in MAC machine
+
+ZCC directly removed via script which is avalible over the internet i just want to know why this is happen between mac machine only and whats the reason behind it
+
+ZUG - India
+
+334 views
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/21/2025
+
+at
+
+07:29 AM
+
+Zscaler Learning Path for Zscaler Private Access
+
+ZUG - India
+
+TechExeprt
+
+242
+
+242 Views
+
+0 Likes
+
+2 Comments
+
+7/7/2026
+
+at
+
+07:26 AM
+
+Guided Tour asking Enter your username or email to sign in -Solution Demo Center
+
+ZUG - India
+
+neerajkumar.jagetia
+
+289
+
+289 Views
+
+2 Likes
+
+5 Comments
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+ZSCALER directly removed via script in MAC machine
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000011XXIq0AO/idp-issue","lastmod":"2026-09-02T17:52:44.000Z","id":"0D5PJ000011XXIq0AO"} -->
+## IDP Issue
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000011XXIq0AO/idp-issue
+- Type: Q&A
+- Last activity: 2026-09-02T17:52:44.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - Authentication
+
+Wadeparker_3K
+
+(Customer) asked a question.
+
+August 28, 2026 at 6:04 AM
+
+IDP Issue
+
+My okta idp has two users (A & B), both users are in a Group (test group)
+
+I have created a ZIA application and configured the SAML authentication and i have assigned both users (A &B) and the (test group) to the ZIA application in okta.
+
+I have integrated my OKTA IDP with my Zscaler tenant along with SCIM integration. Now im able to see my users and group in my Zscaler ZIA user management.
+
+The same i have done for ZPA with my IDP and Zscaler tenant, and the user & group are synced and visible in the ZPA user management.
+
+I also given the entitilement for ZPA fro the test group.
+
+Issue - First when i tried to login to ZCC with User B it got connected and passing traffic to Zscaler. Next when i created access policies for ZPA and tried to login again to ZCC there is a error (Internal Error 42049).
+
+ZIA - Authentication
+
+471 views
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/15/2022
+
+at
+
+12:39 PM
+
+Onprem Active directory integrate with Zscaler cloud ZIA
+
+ZIA - Authentication
+
+aravindhan.m
+
+3 Views
+
+0 Likes
+
+3 Comments
+
+7/11/2022
+
+at
+
+07:26 AM
+
+Zscaler IDP authentication issue
+
+ZIA - Authentication
+
+aravindhan.m
+
+4 Views
+
+0 Likes
+
+2 Comments
+
+5/27/2022
+
+at
+
+01:49 PM
+
+Zscaler ZIA O365 Apps not authenticating
+
+ZIA - Authentication
+
+abmaclean
+
+4 Views
+
+0 Likes
+
+6 Comments
+
+10/4/2021
+
+at
+
+10:43 PM
+
+Automatic de-provisioning using SCIM with Azure AD
+
+ZIA - Authentication
+
+Paul_Wineberg
+
+4 Views
+
+0 Likes
+
+4 Comments
+
+6/27/2020
+
+at
+
+03:01 PM
+
+Zscaler public preview
+
+ZIA - Authentication
+
+Muhammad
+
+389
+
+389 Views
+
+0 Likes
+
+2 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+IDP Issue
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000011pexC0AQ/lss-log-stream-content-discrepancies-in-the-official-documentation","lastmod":"2026-09-02T17:52:16.000Z","id":"0D5PJ000011pexC0AQ"} -->
+## LSS Log Stream Content discrepancies in the official documentation
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000011pexC0AQ/lss-log-stream-content-discrepancies-in-the-official-documentation
+- Type: Q&A
+- Last activity: 2026-09-02T17:52:16.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZPA - Forwarding
+
+yash.vaghani2
+
+(Customer) asked a question.
+
+September 2, 2026 at 4:31 AM
+
+LSS Log Stream Content discrepancies in the official documentation
+
+Hi all,
+
+We're building custom Log Stream Content templates for all LSS log types. Validating every field against the official "Understanding
+
+Log Fields" pages surfaced discrepancies between the docs, the default template the Admin Portal generates, and the example logs in the docs themselves. Field names are case sensitive and an unrecognised token yields a silently empty value rather than an error, so we'd like these confirmed.
+
+1. The default Log Stream Content uses field names that are not in the documentation.
+
+The pre-populated default template contains "c2c" (User Activity) and "fqdn_registered" / "fqdn_register_error" (User Status). The docs for those log types show ClientToClient, FQDNRegistered and FQDNRegisteredError instead. None of the three default-template tokens appear anywhere in the corresponding Log Fields pages.
+
+Are the default-template names canonical, with the docs showing display names? Or are both accepted? Anyone building a template from the docs alone would use the documented names, and if only the default names resolve, those fields would be silently empty.
+
+2. The field table and the example log disagree within the same page.
+
+User Activity: table AppMicroTenantID, example log AppMicrotenantID
+
+User Status: table PosturesMiss, example log PosturesMisses
+
+Private Service Edge Metrics: table LogTimeStamp, example log LogTimestamp
+
+Private Service Edge Status: table TimestampUnAuthnetication, example log TimestampUnAuthentication
+
+Which spelling does LSS resolve in each case?
+
+3. Two fields appear in an example log but have no table entry.
+
+In "Understanding Private Service Edge Status Log Fields", Version and PublicIP appear in the example log but have no row in the field table, so neither has a documented description or supported format specifications. Could these be added?
+
+Related: is HostStartTime (App Connector Status, Private Service Edge Status) versus HostUpTime (Private Cloud Controller Status) a real per-log-type difference or an inconsistency? The descriptions are effectively identical.
+
+4. Is the comma-separated array construct supported?
+
+The format guide defines the grammar as %[OPT]
+
+}, where [OPT] is a printf width/precision value. No separator or array construct is documented. Yet for the multi-valued User Status fields (TrustedNetworks, TrustedNetworksNames, PosturesHit, PosturesMiss) we have seen this form in use:
+
+"TrustedNetworks": [%j(,){TrustedNetworks}]
+
+Is %j(,){...} supported? If so, could it be documented? If not, what is the recommended way to emit a multi-valued field as a JSON array rather than one comma-joined string?
+
+5. Which specifiers may be combined with the timestamp modifiers?
+
+Every timestamp-modifier example in the format guide uses %s or %d, e.g. %s{startrx_us:iso8601}. We have been writing %j{TimestampAuthentication:iso8601} to get a quoted ISO-8601 value directly. Is a modifier with %j supported, or should we use %s and add the quotation marks ourselves?
+
+Also, in User Activity the "Last" timestamps (TimestampZENLastRxClient, TimestampZENLastTxClient, TimestampConnectorZENSetupComplete) are documented as supporting %[OPT]s, %[OPT]j and %[OPT]J, while the "First" timestamps (TimestampZENFirstRxClient/TxClient, TimestampZENFirstRxConnector/TxConnector) support only %[OPT]d, %[OPT]x, %[OPT]f and %[OPT]o. Is that intentional? As documented, the "First" timestamps cannot be rendered as ISO-8601 while their "Last" counterparts can.
+
+Any clarification would be much appreciated.
+
+Note:
+
+links we are talking about are available here under this page: https://help.zscaler.com/zpa/log-streaming-service
+
+Thanks!
+
+ZPA - Forwarding
+
+297 views
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/5/2024
+
+at
+
+09:21 PM
+
+Remote Tanium PXE Boot Server with ZPA allowing local ports to pass.
+
+ZPA - Forwarding
+
+User16182582818315999266
+
+476
+
+476 Views
+
+0 Likes
+
+6 Comments
+
+5/5/2025
+
+at
+
+06:17 AM
+
+wifi issue with zpa
+
+ZPA - Forwarding
+
+Athees
+
+369
+
+369 Views
+
+0 Likes
+
+3 Comments
+
+7/25/2025
+
+at
+
+12:13 AM
+
+A single server group vs two or more server groups
+
+ZPA - Forwarding
+
+jaicybersec
+
+368
+
+368 Views
+
+0 Likes
+
+3 Comments
+
+7/30/2025
+
+at
+
+08:47 AM
+
+Difference between SIPA and ZPA
+
+ZPA - Forwarding
+
+Dhananjay_Bhakte
+
+1,080
+
+1080 Views
+
+0 Likes
+
+8 Comments
+
+4/23/2026
+
+at
+
+05:00 PM
+
+App Segments populating in Edge Appliance
+
+ZPA - Forwarding
+
+BlueSocks
+
+332
+
+332 Views
+
+0 Likes
+
+1 Comment
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+LSS Log Stream Content discrepancies in the official documentation
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000012MQ7U0AW/inquiry-about-discounts-for-zdte-certification","lastmod":"2026-09-15T16:38:18.000Z","id":"0D5PJ000012MQ7U0AW"} -->
+## Inquiry About Discounts for ZDTE certification
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000012MQ7U0AW/inquiry-about-discounts-for-zdte-certification
+- Type: Q&A
+- Last activity: 2026-09-15T16:38:18.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Certification
+
+Subhashpal
+
+(Customer) asked a question.
+
+11h ago
+
+Inquiry About Discounts for ZDTE certification
+
+I am interested in pursuing my first Zscaler certification. Could you please let me know if there are any discount coupons or promotional vouchers available for first-time certification candidates?
+
+Certification
+
+3 views
+
+Log In to Answer
+
+Associated Tags
+
+certificate
+
+ZDX
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+1/12/2024
+
+at
+
+04:57 AM
+
+ZIA administrator certification
+
+Certification
+
+User16739629112679781823
+
+1,234
+
+1234 Views
+
+0 Likes
+
+2 Comments
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Inquiry About Discounts for ZDTE certification
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000012e8V50AI/unable-to-login-zenith2026-due-to-unregistered-user-error","lastmod":"2026-09-15T13:02:35.000Z","id":"0D5PJ000012e8V50AI"} -->
+## Unable to login Zenith2026 Due to Unregistered User error
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000012e8V50AI/unable-to-login-zenith2026-due-to-unregistered-user-error
+- Type: Q&A
+- Last activity: 2026-09-15T13:02:35.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Zenith Live 26
+
+mukul.v.ravi
+
+(Customer) asked a question.
+
+12h ago
+
+Unable to login Zenith2026 Due to Unregistered User error
+
+Hi All,
+
+I am not able to login zenith 2026 app, due to the unregistered user error. How ever I have already registered.
+
+Zenith Live 26
+
+1 answer
+
+9 views
+
+Ben_Garrison
+
+(Employee)
+
+7 hours ago
+
+Hey not sure the community login has anything to do with that. Someone at the event should be able to assist you. Maybe the information booth?
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+No posts to show.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Unable to login Zenith2026 Due to Unregistered User error
 <!-- /ZS-POST -->

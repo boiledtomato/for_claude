@@ -1,10 +1,699 @@
 # Zscaler Zenith Community — ZIA — Internet & SaaS (part 4)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-01 20:41 UTC
-Posts in this file: 147
+Generated: 2026-09-21 02:03 UTC
+Posts in this file: 156
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AeIKvcCQG/browser-proxy-to-zia","lastmod":"2024-11-19T03:31:07.000Z","id":"0D54u0000AeIKvcCQG"} -->
+## Browser Proxy to ZIA
+
+- Source: https://community.zscaler.com/s/question/0D54u0000AeIKvcCQG/browser-proxy-to-zia
+- Type: Q&A
+- Last activity: 2024-11-19T03:31:07.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - URL Filtering
+
+harry.janakiraman
+
+(Partner) asked a question.
+
+November 18, 2024 at 8:55 PM
+
+Browser Proxy to ZIA
+
+Hello,
+
+I am trying to send traffic from a browser to ZIA using proxy in my windows device. This is unauthenticated traffic. The idea is for any users to use the PC for browsing web but at the same time block adult contents using ZIA.
+
+I have taken the PAC URL from ZIA and applied it to the proxy setting in my PC with Port 80 (Also tried port 443). The IP.Zscaler.com does not go through ZIA.
+
+Is this even a supported feature in Zscaler? Is IPSEC/GRE tunnel a must have to forward traffic to ZIA?
+
+Any ideas please
+
+Thanks
+
+Harry
+
+ZIA - URL Filtering
+
+4 answers
+
+304 views
+
+harry.janakiraman
+
+likes this.
+
+Eugene_Fruman
+
+(Partner)
+
+2 years ago
+
+Hello Harry,
+
+This is a supported method to forward the traffic,  you can read about all the limitations and methods to forward traffic on this page
+
+https://help.zscaler.com/zia/choosing-traffic-forwarding-methods
+
+specifically Pac file for your use case.
+
+In terms of troubleshooting either your browser is not respecting or the pac file is being overwritten by GPO settings generally.
+
+Best.
+
+1 like
+
+harry.janakiraman
+
+(Partner)
+
+2 years ago
+
+Thanks Eugene, i have set up the Browser proxy based on the link and the traffic does go via ZIA, (Based on
+
+ip.zscaler.com
+
+). However the policy of blocking a site doesnt work and no logs can be seen.
+
+Ramesh Mani
+
+(Partner)
+
+2 years ago
+
+If you inside the corporate behind any GRE / IPsec; PAC file or proxy IP forwarding will work without authentication.
+
+Whereas if you are outside of GRE / IPSec , then you need to authenticate yourself,  Unauthenticated traffic wont work if you are coming from unknown location.
+
+1 like
+
+harry.janakiraman
+
+(Partner)
+
+2 years ago
+
+Thank you Ramesh, i thought so too but was not sure as the Zscaler instructions are not clear.
+
+Thanks again
+
+Log In to Answer
+
+Associated Tags
+
+android
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+12/2/2022
+
+at
+
+06:35 PM
+
+SafeSearch Forces YouTube into Restricted Mode
+
+ZIA - URL Filtering
+
+Chunter
+
+5 Views
+
+0 Likes
+
+3 Comments
+
+9/29/2022
+
+at
+
+08:51 PM
+
+What takes precedence - File type control or Cloud App Control
+
+ZIA - URL Filtering
+
+cnicholas
+
+5 Views
+
+0 Likes
+
+2 Comments
+
+11/24/2021
+
+at
+
+08:22 AM
+
+How to prioritize user-defined URLs over URLs defined in the super category
+
+ZIA - URL Filtering
+
+Nyajima
+
+4 Views
+
+0 Likes
+
+4 Comments
+
+2/23/2020
+
+at
+
+11:49 AM
+
+Cloud App Control - whatsapp web
+
+ZIA - URL Filtering
+
+eli.shauly
+
+5,909
+
+5909 Views
+
+2 Likes
+
+20
+
+20 Comments
+
+10/24/2019
+
+at
+
+03:36 PM
+
+Automated way of Cleaning Known Malicious Sites
+
+ZIA - URL Filtering
+
+chsmith
+
+888
+
+888 Views
+
+0 Likes
+
+4 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Browser Proxy to ZIA
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AeIZSICQ4/multiple-eun-end-user-notifications-zia","lastmod":"2024-12-23T13:03:17.000Z","id":"0D54u0000AeIZSICQ4"} -->
+## Multiple EUN (End user notifications) - ZIA
+
+- Source: https://community.zscaler.com/s/question/0D54u0000AeIZSICQ4/multiple-eun-end-user-notifications-zia
+- Type: Q&A
+- Last activity: 2024-12-23T13:03:17.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - CASB
+
+vaibhav_j
+
+(Customer) asked a question.
+
+November 19, 2024 at 10:16 AM
+
+Multiple EUN (End user notifications) - ZIA
+
+I have following question to meet our business need:
+
+Is it possible have multiple custom EUN? If yes, then how?
+
+Is it possible to have different EUN at different rule like following? if yes, then how>
+
+cloud app control rule#1 <--> EUN1
+
+cloud app control rule#2 <--> EUN1
+
+DLP rule#3 <--> EUN3
+
+DLP rule#4 <--> EUN4
+
+ZIA - CASB
+
+3 answers
+
+655 views
+
+Jainil_G
+
+(Employee)
+
+2 years ago
+
+Hi @Vaibhav Jain​ ,
+
+Yes,  it is possible to have Custom Browser EUN Templates for Cloud App Control, DLP & URL Filtering. You will require to raise a support provisioning  ticket for it. Please refer the below link for reference
+
+Custom Browser EUN Templates for Cloud App Control & URL Filtering -
+
+https://help.zscaler.com/zia/release-upgrade-summary-2024?applicable_category=zscalerthree.net&deployment_date=2024-07-24&id=1506826
+
+Zscaler Custom EUN Messages for Inline Web DLP -
+
+https://help.zscaler.com/zia/release-upgrade-summary-2024?applicable_category=zscalerthree.net&deployment_date=2024-10-30&id=1506826
+
+BR
+
+Jainil_G
+
+If a
+
+post
+
+solves your
+
+question
+
+please use the '
+
+Select as Best
+
+option
+
+2 likes
+
+vaibhav_j
+
+(Customer)
+
+2 years ago
+
+Many thanks @Jainil Gajjar​ !
+
+Above article explains well.
+
+1 like
+
+nknaveenvijay
+
+(Customer)
+
+2 years ago
+
+Is this available for all ZCC version? Because earlier when it release got feedback from TAM that is applicable only to specific ZCC version.
+
+Log In to Answer
+
+Associated Tags
+
+casb
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+4/6/2025
+
+at
+
+05:57 PM
+
+Cloud App Control - Google Drive subactions
+
+ZIA - CASB
+
+Danielo
+
+491
+
+491 Views
+
+0 Likes
+
+7 Comments
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Multiple EUN (End user notifications) - ZIA
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AeX4qUCQS/browser-plugins-blocking-through-zia","lastmod":"2024-11-25T05:02:39.000Z","id":"0D54u0000AeX4qUCQS"} -->
+## Browser Plugins blocking through ZIA
+
+- Source: https://community.zscaler.com/s/question/0D54u0000AeX4qUCQS/browser-plugins-blocking-through-zia
+- Type: Q&A
+- Last activity: 2024-11-25T05:02:39.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - URL Filtering
+
+Subham
+
+(Partner) asked a question.
+
+Edited November 22, 2024 at 4:30 PM
+
+Browser Plugins blocking through ZIA
+
+How can we block specific type of browser plugins through Zscaler
+
+ZIA - URL Filtering
+
+2 answers
+
+1.22K views
+
+joemozdy
+
+(Customer)
+
+2 years ago
+
+You aren't able to block the installation of browser plugins via Zscaler. You can restrict any traffic that these plugins generate though. You an also talk with your support teams who manage your user endpoints to see if there is a way to restrict the installation of browser extensions through administrator policies or something similar.
+
+Jainil_G
+
+(Employee)
+
+2 years ago
+
+Hello @Subham Ghorui​ Proxy plugins and extensions should be restricted from being downloaded and configured on browsers, as they enable users to bypass Zscaler security measures. These extensions allow the browser to ignore the system proxy PAC file.
+
+Hence, Zscaler recommends that users configure a Group Policy Object (GPO) to block the download of plugins or set policies in Google Workspace and Microsoft Edge to prevent the download of extensions.
+
+Kindly the refer the below document for reference
+
+Prevent Users from Installing Extensions on Google Chrome
+
+Use group policies to manage Microsoft Edge extensions
+
+BR
+
+Jainil_G
+
+If a
+
+post
+
+solves your
+
+question
+
+please use the '
+
+Select as Best
+
+option
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+12/2/2022
+
+at
+
+06:35 PM
+
+SafeSearch Forces YouTube into Restricted Mode
+
+ZIA - URL Filtering
+
+Chunter
+
+5 Views
+
+0 Likes
+
+3 Comments
+
+9/29/2022
+
+at
+
+08:51 PM
+
+What takes precedence - File type control or Cloud App Control
+
+ZIA - URL Filtering
+
+cnicholas
+
+5 Views
+
+0 Likes
+
+2 Comments
+
+11/24/2021
+
+at
+
+08:22 AM
+
+How to prioritize user-defined URLs over URLs defined in the super category
+
+ZIA - URL Filtering
+
+Nyajima
+
+4 Views
+
+0 Likes
+
+4 Comments
+
+2/23/2020
+
+at
+
+11:49 AM
+
+Cloud App Control - whatsapp web
+
+ZIA - URL Filtering
+
+eli.shauly
+
+5,913
+
+5913 Views
+
+2 Likes
+
+20
+
+20 Comments
+
+10/24/2019
+
+at
+
+03:36 PM
+
+Automated way of Cleaning Known Malicious Sites
+
+ZIA - URL Filtering
+
+chsmith
+
+888
+
+888 Views
+
+0 Likes
+
+4 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Browser Plugins blocking through ZIA
+<!-- /ZS-POST -->
 
 ---
 
@@ -19573,12 +20262,12 @@ Email DLP for O365 email
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000beovc0AA/default-url-categories-domain-is-being-allowed-but-not-the-server-ip","lastmod":"2025-07-25T07:42:33.000Z","id":"0D5PJ00000beovc0AA"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000beovc0AA/default-url-categories-domain-is-being-allowed-but-not-the-server-ip","lastmod":"2026-09-15T13:03:29.000Z","id":"0D5PJ00000beovc0AA"} -->
 ## Default URL Categories | Domain is being allowed but not the Server IP
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000beovc0AA/default-url-categories-domain-is-being-allowed-but-not-the-server-ip
 - Type: Q&A
-- Last activity: 2025-07-25T07:42:33.000Z
+- Last activity: 2026-09-15T13:03:29.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 ZIA - URL Filtering
@@ -19613,7 +20302,7 @@ ZIA - URL Filtering
 
 4 answers
 
-344 views
+371 views
 
 Jainil_G
 
@@ -19787,9 +20476,9 @@ ZIA - URL Filtering
 
 eli.shauly
 
-5,922
+6,005
 
-5922 Views
+6005 Views
 
 2 Likes
 
@@ -19809,9 +20498,9 @@ ZIA - URL Filtering
 
 chsmith
 
-893
+924
 
-893 Views
+924 Views
 
 0 Likes
 
@@ -20697,12 +21386,12 @@ E911 and zScaler
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000cEWWN0A4/zdta-exam-prep-help-needed","lastmod":"2026-01-30T02:35:14.000Z","id":"0D5PJ00000cEWWN0A4"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000cEWWN0A4/zdta-exam-prep-help-needed","lastmod":"2026-09-18T02:01:05.000Z","id":"0D5PJ00000cEWWN0A4"} -->
 ## ZDTA Exam Prep - Help Needed
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000cEWWN0A4/zdta-exam-prep-help-needed
 - Type: Q&A
-- Last activity: 2026-01-30T02:35:14.000Z
+- Last activity: 2026-09-18T02:01:05.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 Certification
@@ -20739,7 +21428,7 @@ Certification
 
 2 answers
 
-1.16K views
+1.2K views
 
 Ramesh Mani
 
@@ -20753,7 +21442,7 @@ Jerry P. Gurrea
 
 (Customer)
 
-8 months ago
+9 months ago
 
 I passed it last year and eLearning help me a lot. Answer all those quizzes until you are 100% confident. Doing the eLabs is a good memory retaining tool but best of all is your access to ZPA, ZIA and ZDX and understanding how all components work.
 
@@ -20787,9 +21476,9 @@ Certification
 
 User16739629112679781823
 
-1,212
+1,247
 
-1212 Views
+1247 Views
 
 0 Likes
 
@@ -32735,12 +33424,12 @@ How to block MS Office Copilot Chat (GCC High tenants)?
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000uzLQn0AM/antigravity-zia","lastmod":"2026-05-26T17:56:34.000Z","id":"0D5PJ00000uzLQn0AM"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000uzLQn0AM/antigravity-zia","lastmod":"2026-08-14T19:18:49.000Z","id":"0D5PJ00000uzLQn0AM"} -->
 ## Antigravity & ZIA
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000uzLQn0AM/antigravity-zia
 - Type: Q&A
-- Last activity: 2026-05-26T17:56:34.000Z
+- Last activity: 2026-08-14T19:18:49.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 ZIA - SSL Inspection
@@ -32783,7 +33472,17 @@ source ~/.zshrc
 
 ZIA - SSL Inspection
 
-369 views
+1 answer
+
+852 views
+
+mmckinley4810
+
+(Employee)
+
+a month ago
+
+Fantastic! Thank you for sharing the script. I hope Antigravity is working well, and thanks for your post!
 
 Log In to Answer
 
@@ -32849,9 +33548,9 @@ ZIA - SSL Inspection
 
 citrus3118
 
-311
+323
 
-311 Views
+323 Views
 
 0 Likes
 
@@ -32869,9 +33568,9 @@ ZIA - SSL Inspection
 
 User16182582818315999266
 
-574
+597
 
-574 Views
+597 Views
 
 0 Likes
 
@@ -32889,9 +33588,9 @@ ZIA - SSL Inspection
 
 JM
 
-420
+441
 
-420 Views
+441 Views
 
 0 Likes
 
@@ -34222,12 +34921,12 @@ Need a way to reliably simulate sandbox alerts - testing security automation
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000y9tR40AI/zia-disaster-recovery","lastmod":"2026-07-09T17:47:09.000Z","id":"0D5PJ00000y9tR40AI"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000y9tR40AI/zia-disaster-recovery","lastmod":"2026-08-13T20:52:51.000Z","id":"0D5PJ00000y9tR40AI"} -->
 ## ZIA Disaster Recovery
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000y9tR40AI/zia-disaster-recovery
 - Type: Q&A
-- Last activity: 2026-07-09T17:47:09.000Z
+- Last activity: 2026-08-13T20:52:51.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 ZIA - Forwarding
@@ -34250,7 +34949,33 @@ Thanks
 
 ZIA - Forwarding
 
-169 views
+1 answer
+
+478 views
+
+ChensonZ41246
+
+(Employee)
+
+a month ago
+
+Hi Raj909,
+
+For the exact answer to your question and specific issues you are facing; I'd recommend opening a case with Zscaler support, so an Engineer can deep dive the specifics of the issue with you.
+
+However, sharing out the companion reference docs that may shed more light.  - ZIA Disaster Recovery documentation. This  documentation explains the DR model itself, including the DNS TXT activation method, DR forwarding options, and operational behavior in more detail.
+
+Configuring Disaster Recovery
+
+https://help.zscaler.com/legacy-zia/configuring-disaster-recovery
+
+ZIA Disaster Recovery Deployment and Operations Guide
+
+https://help.zscaler.com/zscaler-deployments-operations/zia-disaster-recovery-deployment-and-operations-guide
+
+with gratitude,
+
+Chris
 
 Log In to Answer
 
@@ -34352,9 +35077,9 @@ ZIA - Forwarding
 
 JamesK
 
-492
+520
 
-492 Views
+520 Views
 
 0 Likes
 
@@ -34839,4 +35564,1372 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Windows Endpoint Occasionally Matched to iOS Posture-Based Firewall Policy
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000zcATo0AM/microsoft-urls-with-dedicated-ip","lastmod":"2026-08-14T22:05:14.000Z","id":"0D5PJ00000zcATo0AM"} -->
+## Microsoft URLs with Dedicated IP
+
+- Source: https://community.zscaler.com/s/question/0D5PJ00000zcATo0AM/microsoft-urls-with-dedicated-ip
+- Type: Q&A
+- Last activity: 2026-08-14T22:05:14.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - Forwarding
+
+BlueSocks
+
+(Partner) asked a question.
+
+July 31, 2026 at 5:41 PM
+
+Microsoft URLs with Dedicated IP
+
+I’m looking for some help to resolve Microsoft URLs with Dedicated IP in combination with Microsoft's ip whitelisting function, called Conditional Access.
+
+Just like Identity Proxy, you can NOT use Identity Proxy for Microsoft services IF your IDP is Entra. It’s the classic problem of trying to white list logging in, before you are authenticated.
+
+Same problem with Dedicated IP. After we enter some Microsoft service URLs in the dedicated IP mechanism (in this case the Storage Browser service), it doesn’t work because we can’t authenticate first. We also our Zscaler dedicated IP entered into their Microsoft Conditional Access policy. We tested with one user by entering that user's outgoing Zscaler IP (from ip.zscaler.com) into the Microsoft Conditional Access policy, and it worked. So the theory of what's blocking is confirmed.
+
+What this tells us is the Login Services are not getting through. The obvious solution is the start entering Login service URLs to the Dedicated IP ruleset, but I’ve tried this in the past and had conflicting results as the login URLs are a moving target.
+
+So, my question is has somebody figured out a consistent approach to this? Thank you.
+
+ZIA - Forwarding
+
+2 answers
+
+498 views
+
+avshch
+
+likes this.
+
+mmckinley4810
+
+(Employee)
+
+21 days ago
+
+Zscaler has a feature called "Microsoft-Recommended One Click Office 365 Configuration" that is designed to optimize and secure Microsoft 365 traffic. When this feature is enabled, Zscaler automatically:
+
+Identifies and categorizes Microsoft 365 traffic based on a list of FQDNs and IP address ranges that Zscaler pulls from a Microsoft web service.
+
+Bypasses SSL inspection for most Microsoft 365 traffic. This is in line with Microsoft's recommendation to avoid deep packet inspection of this traffic, which can cause latency.
+
+Creates firewall and DNS rules to allow Microsoft 365 traffic to pass without being blocked.
+
+Optimizes DNS resolution to direct traffic to the nearest Content Delivery Network (CDN) for the respective Microsoft 365 application.
+
+Utilizes direct peering with Microsoft to ensure that traffic takes the most direct route to the Microsoft backbone, which reduces latency.
+
+Zscaler's security team, ThreatLabz, independently assesses Microsoft's recommendations and may choose not to exempt certain URLs if they are deemed a security risk.
+
+How This Relates to Dedicated IP Addresses
+
+Zscaler's dedicated IP addresses provide your organization with a fixed, unique source IP address for your outbound traffic. This is primarily used for:
+
+Third-party services that use IP-based authentication: If you are accessing a service that restricts access based on a pre-registered IP address, a dedicated IP is necessary.
+
+Compliance and security requirements: Some security standards and auditing processes require a stable and traceable IP address.
+
+The relationship between these two features is that while the "one-click configuration" handles the
+
+routing and inspection
+
+of your Microsoft 365 traffic, a dedicated IP address can be used as the source IP for that traffic.
+
+In many cases, a dedicated IP address is not required for Microsoft 365 traffic because Zscaler's handling of this traffic is based on the destination URLs and IP addresses, not the source IP.
+
+I hope this helps and please post with any additional questions!!
+
+avshch
+
+(Customer)
+
+21 days ago
+
+MS365 access might be required if some orgs need to apply different authentication policy based on source IP address (Zscaler dedicated IP). As of now Zscaler does not have any option to do so with dedicated IP's for MS365.
+
+Log In to Answer
+
+Associated Tags
+
+best-practice
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+2/15/2023
+
+at
+
+10:07 PM
+
+Initial login to Azure VDI gets struck for few minutes with ZCC (Tunnel 2.0)
+
+ZIA - Forwarding
+
+rajk5
+
+3 Views
+
+0 Likes
+
+6 Comments
+
+2/14/2023
+
+at
+
+04:13 PM
+
+Forwarding Port 8443 through GRE Tunnel
+
+ZIA - Forwarding
+
+Omar
+
+9 Views
+
+0 Likes
+
+2 Comments
+
+10/23/2022
+
+at
+
+02:29 PM
+
+PZEN localized content
+
+ZIA - Forwarding
+
+mohammad.rummaneh
+
+3 Views
+
+0 Likes
+
+2 Comments
+
+2/18/2022
+
+at
+
+08:24 AM
+
+Premium DC in China
+
+ZIA - Forwarding
+
+Ezzzzh
+
+6 Views
+
+0 Likes
+
+6 Comments
+
+2/15/2021
+
+at
+
+11:58 PM
+
+Disney Circle + Zscaler blocking internet access
+
+ZIA - Forwarding
+
+JamesK
+
+512
+
+512 Views
+
+0 Likes
+
+5 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Microsoft URLs with Dedicated IP
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000zwfni0AA/tenant-profile-for-claude","lastmod":"2026-08-14T22:11:55.000Z","id":"0D5PJ00000zwfni0AA"} -->
+## Tenant Profile for Claude
+
+- Source: https://community.zscaler.com/s/question/0D5PJ00000zwfni0AA/tenant-profile-for-claude
+- Type: Q&A
+- Last activity: 2026-08-14T22:11:55.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - URL Filtering
+
+tc_zs
+
+(Customer) asked a question.
+
+August 4, 2026 at 4:36 PM
+
+Tenant Profile for Claude
+
+Hey - it would be great if Zscaler could add a Tenant Profile for Claude? Each org has an org ID, so guessing it could be based off that. Any plans in this area?
+
+ZIA - URL Filtering
+
+2 answers
+
+282 views
+
+avshch
+
+likes this.
+
+M_Hariharan
+
+(Employee)
+
+a month ago
+
+While this capability is not directly available in ZIA today, we offer a dedicated solution for AI applications called "AI Guard" (
+
+https://zscaler.com/products-and-solutions/ai-guardrails
+
+) that addresses your use case.
+
+Within this solution, AI Guard's tenancy restriction feature allows you to restrict user traffic access to personal accounts, enterprise accounts, or both, and apply different access-control rules to each. This feature is currently available for Anthropic and OpenAI. You can refer to this article for more details:
+
+https://help.zscaler.com/secure-ai-users/managing-tenant-settings
+
+tc_zs
+
+(Customer)
+
+a month ago
+
+Great thanks for the info on this!  Will take a look.
+
+In the meantime, have been able to work around this by using the "HTTP Header Insertion Profile" feature -
+
+With the anthropic-allowed-org-ids header value set to our Claude Organisational ID - only logins / activity from that ID is now allowed.  So works as needed.
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+12/2/2022
+
+at
+
+06:35 PM
+
+SafeSearch Forces YouTube into Restricted Mode
+
+ZIA - URL Filtering
+
+Chunter
+
+5 Views
+
+0 Likes
+
+3 Comments
+
+9/29/2022
+
+at
+
+08:51 PM
+
+What takes precedence - File type control or Cloud App Control
+
+ZIA - URL Filtering
+
+cnicholas
+
+5 Views
+
+0 Likes
+
+2 Comments
+
+11/24/2021
+
+at
+
+08:22 AM
+
+How to prioritize user-defined URLs over URLs defined in the super category
+
+ZIA - URL Filtering
+
+Nyajima
+
+4 Views
+
+0 Likes
+
+4 Comments
+
+2/23/2020
+
+at
+
+11:49 AM
+
+Cloud App Control - whatsapp web
+
+ZIA - URL Filtering
+
+eli.shauly
+
+6,007
+
+6007 Views
+
+2 Likes
+
+20
+
+20 Comments
+
+10/24/2019
+
+at
+
+03:36 PM
+
+Automated way of Cleaning Known Malicious Sites
+
+ZIA - URL Filtering
+
+chsmith
+
+928
+
+928 Views
+
+0 Likes
+
+4 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Tenant Profile for Claude
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000010YUg00AG/zscaler-dc-expansion-introduced-new-ip-range-impacting-govt-site-accessibility","lastmod":"2026-08-12T13:43:42.000Z","id":"0D5PJ000010YUg00AG"} -->
+## Zscaler DC Expansion Introduced New IP Range impacting Govt. Site Accessibility
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000010YUg00AG/zscaler-dc-expansion-introduced-new-ip-range-impacting-govt-site-accessibility
+- Type: Q&A
+- Last activity: 2026-08-12T13:43:42.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - URL Filtering
+
+mayankg
+
+(Partner) asked a question.
+
+August 12, 2026 at 1:43 PM
+
+Zscaler DC Expansion Introduced New IP Range impacting Govt. Site Accessibility
+
+Hi Community Members,
+
+Our users facing issues in accessing the Indian Government sites after the Delhi DC Expansion that introduced new IP Ranges 175.107.140.0/23, 175.107.142.0/23
+
+I have tracert the sites and found that whenever the traffic routes through these IP ranges, sites get inaccessible, while it works fine with Zscaler Other IP Ranges.
+
+Please help me how to fix this...
+
+ZIA - URL Filtering
+
+254 views
+
+Log In to Answer
+
+Associated Tags
+
+accesspolicy
+
+casb
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+12/2/2022
+
+at
+
+06:35 PM
+
+SafeSearch Forces YouTube into Restricted Mode
+
+ZIA - URL Filtering
+
+Chunter
+
+5 Views
+
+0 Likes
+
+3 Comments
+
+9/29/2022
+
+at
+
+08:51 PM
+
+What takes precedence - File type control or Cloud App Control
+
+ZIA - URL Filtering
+
+cnicholas
+
+5 Views
+
+0 Likes
+
+2 Comments
+
+11/24/2021
+
+at
+
+08:22 AM
+
+How to prioritize user-defined URLs over URLs defined in the super category
+
+ZIA - URL Filtering
+
+Nyajima
+
+4 Views
+
+0 Likes
+
+4 Comments
+
+2/23/2020
+
+at
+
+11:49 AM
+
+Cloud App Control - whatsapp web
+
+ZIA - URL Filtering
+
+eli.shauly
+
+6,018
+
+6018 Views
+
+2 Likes
+
+20
+
+20 Comments
+
+10/24/2019
+
+at
+
+03:36 PM
+
+Automated way of Cleaning Known Malicious Sites
+
+ZIA - URL Filtering
+
+chsmith
+
+939
+
+939 Views
+
+0 Likes
+
+4 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Zscaler DC Expansion Introduced New IP Range impacting Govt. Site Accessibility
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000011GFN30AO/file-type-control-policy","lastmod":"2026-09-02T17:53:46.000Z","id":"0D5PJ000011GFN30AO"} -->
+## file type control policy
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000011GFN30AO/file-type-control-policy
+- Type: Q&A
+- Last activity: 2026-09-02T17:53:46.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - URL Filtering
+
+divyansh
+
+(Partner) asked a question.
+
+August 24, 2026 at 11:03 AM
+
+file type control policy
+
+despite configuring the file type control policy for blocking the executables download , for zoom sometimes the policy is working sometimes not though the code is 200 only
+
+ZIA - URL Filtering
+
+3 answers
+
+367 views
+
+ChensonZ41246
+
+(Employee)
+
+15 days ago
+
+Hi Divyansh,
+
+Thanks for sharing your post here.  Could you confirm a few basics to help us get a foundation of the problem statement? A few questions:
+
+Is this for ZIA File Type Control?
+
+Which file types are configured to block — only executables, or other installer types as well?
+
+Is the issue intermittent or tied to a specific installer type?
+
+Is SSL inspection enabled for this traffic?
+
+Is the behavior seen on the same endpoint/browser each time?
+
+Are you testing the same download workflow each time?
+
+So, a 200 response alone does not confirm whether File Type Control should have blocked the download. Thekey is whether the traffic is being inspected and whether the downloaded object is consistently identified as the same file type.
+
+Cheers,
+
+Chris
+
+divyansh
+
+(Partner)
+
+14 days ago
+
+Hi Chris,
+
+Thanks for following up. Here are the answers to your questions to help pinpoint what's happening:
+
+Scope:
+
+Yes, this is for
+
+ZIA File Type Control
+
+Configured Rules:
+
+The block policy is configured for
+
+Executables
+
+Archives
+
+, and
+
+Script files
+
+Behavior & File Types:
+
+The issue is intermittent and specifically affects
+
+exe64
+
+exe32
+
+, and
+
+arm64
+
+installer binaries—sometimes they get blocked as expected, and other times they go through.
+
+SSL Inspection & Certificate Catch:
+
+SSL inspection is enabled, but there is an interesting anomaly: when navigating directly to the website (e.g., Zoom), the browser clearly shows the
+
+Zscaler root certificate
+
+. However, when initiating and completing the file download, checking the connection details shows that the
+
+Zscaler certificate is missing
+
+for that specific download traffic.
+
+Endpoints & Testing:
+
+We tested this across
+
+two separate endpoints
+
+and observed the exact same behavior on both.
+
+Workflow:
+
+We are following the exact same download path each time during testing.
+
+Regards,
+
+Divyansh
+
+ChensonZ41246
+
+(Employee)
+
+Edited August 26, 2026 at 3:43 PM
+
+Hi Divyansh,
+
+Thank you for answering the questions with great detail!
+
+Based on the behavior you described, this does not appear to a File Type Control policy definition issue, more it appears like the actual file download session is not being consistently SSL-inspected.
+
+The key thing I saw in your response is that you mentioned that you see the Zscaler certificate when browsing the website (e.g, Zoom), but you do not see the Zscaler certificate on the connection used for the file download itself.
+
+If the download transaction is not being decrypted, ZIA may not be able to fully identify the file type and apply the File Type Control block consistently. That would explain why the same installer is sometimes blocked and sometimes allowed. This can happen when the download is redirected to a different hostname or CDN, or when the file request follows a path that is not matching the same SSL inspection behavior as the main website session.
+
+I would recommend checking the following on both a blocked attempt and an allowed attempt:
+
+-the exact download URL and hostname
+
+-whether the SSL action was decrypt or bypass
+
+-whether the file download was redirected to a different CDN or service domain
+
+Depending on the outcome of your additional checks, we  need to go deeper and review your configuration directly (which I cannot do on a forum), therefore I recommend engaging Zscaler Technical Support for this. The support Engineer can review transaction logs for both the working and non-working download attempts, confirm whether the file download flow is being decrypted consistently, and identify any host, redirect, or inspection exception causing the intermittent behavior.
+
+with gratitude,
+
+Chris
+
+Log In to Answer
+
+Associated Tags
+
+best-practice
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+12/2/2022
+
+at
+
+06:35 PM
+
+SafeSearch Forces YouTube into Restricted Mode
+
+ZIA - URL Filtering
+
+Chunter
+
+5 Views
+
+0 Likes
+
+3 Comments
+
+9/29/2022
+
+at
+
+08:51 PM
+
+What takes precedence - File type control or Cloud App Control
+
+ZIA - URL Filtering
+
+cnicholas
+
+5 Views
+
+0 Likes
+
+2 Comments
+
+11/24/2021
+
+at
+
+08:22 AM
+
+How to prioritize user-defined URLs over URLs defined in the super category
+
+ZIA - URL Filtering
+
+Nyajima
+
+4 Views
+
+0 Likes
+
+4 Comments
+
+2/23/2020
+
+at
+
+11:49 AM
+
+Cloud App Control - whatsapp web
+
+ZIA - URL Filtering
+
+eli.shauly
+
+6,007
+
+6007 Views
+
+2 Likes
+
+20
+
+20 Comments
+
+10/24/2019
+
+at
+
+03:36 PM
+
+Automated way of Cleaning Known Malicious Sites
+
+ZIA - URL Filtering
+
+chsmith
+
+928
+
+928 Views
+
+0 Likes
+
+4 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+file type control policy
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000011KHv00AG/tenant-restriction-for-chatgpt","lastmod":"2026-08-25T19:57:55.000Z","id":"0D5PJ000011KHv00AG"} -->
+## Tenant restriction for Chatgpt
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000011KHv00AG/tenant-restriction-for-chatgpt
+- Type: Q&A
+- Last activity: 2026-08-25T19:57:55.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - Posture
+
+Deepak474
+
+(Partner) asked a question.
+
+August 25, 2026 at 9:21 AM
+
+Tenant restriction for Chatgpt
+
+We have configured Tenant Restriction for ChatGPT and would like to validate the expected behavior.
+
+Our requirement is:
+
+Users with a ChatGPT subscription should be able to access and use ChatGPT with their authenticated accounts.
+
+Users without a subscription should be able to access ChatGPT without logging in.
+
+Currently, subscribed users can access and use ChatGPT as expected. However, when unsubscribed users attempt to enter a prompt in ChatGPT, they are prompted to log in before proceeding.
+
+We want to achieve above scenarios. Please help me with a solution.
+
+ZIA - Posture
+
+4 answers
+
+396 views
+
+ChensonZ41246
+
+(Employee)
+
+16 days ago
+
+Hi Deepak474
+
+Happy to provide guidance, but need to understand more about this, so a few clarifying questions:
+
+What do you mean by “subscription” — ChatGPT Free/Plus/Enterprise, or an internal entitlement?
+
+Which tenant restriction feature are you using?
+
+Are non-subscribed users supposed to use ChatGPT anonymously, or with personal accounts?
+
+Does the login prompt come from ChatGPT or your IdP?
+
+Are you testing on
+
+chatgpt.com
+
+in a clean browser session?
+
+Thank you,
+
+Chris
+
+Deepak474
+
+(Partner)
+
+16 days ago
+
+Hi Chenson,
+
+Thank you for response.
+
+What do you mean by “subscription” — it is ChatGPT Enterprise
+
+Which tenant restriction feature are you using?
+
+We have created tenant profile with workspace ID and called it in the cloud app control policy.
+
+Are non-subscribed users supposed to use ChatGPT anonymously, or with personal accounts?
+
+non-subscribed users should use ChatGPT without login, all personal except company ID is restricted with Tenant restriction.
+
+Does the login prompt come from ChatGPT or your IdP?
+
+It pops up login window from Chatgpt
+
+Are you testing on
+
+chatgpt.com
+
+in a clean browser session? yes, tried on both google chrome and edge ; normal and incognito.
+
+Deepak474
+
+(Partner)
+
+16 days ago
+
+Hi Chenson,
+
+Thank you for response.
+
+What do you mean by “subscription” — it is ChatGPT Enterprise
+
+Which tenant restriction feature are you using?
+
+We have created tenant profile with workspace ID and called it in the cloud app control policy.
+
+Are non-subscribed users supposed to use ChatGPT anonymously, or with personal accounts?
+
+non-subscribed users should use ChatGPT without login, all personal except company ID is restricted with Tenant restriction.
+
+Does the login prompt come from ChatGPT or your IdP?
+
+It pops up login window from Chatgpt
+
+Are you testing on
+
+chatgpt.com
+
+in a clean browser session? yes, tried on both google chrome and edge ; normal and incognito.
+
+ChensonZ41246
+
+(Employee)
+
+16 days ago
+
+Hi Deepak,
+
+Thanks for providing the additional answers. After researching this further for you,  from the information that is shared here tells me this does not immediately point to a Tenant Profile misconfiguration.
+
+ChatGPT is presenting its own login prompt, that behavior may be application-side and should be validated both outside the Zscaler path and with Zscaler Support.
+
+So we have 100% certainty, I do recommend opening a case with Zscaler Support so they can review the Tenant Restriction configuration you have configured and confirm that the observed login prompt is not being caused by the Zscaler enforcement path.
+
+with gratitude,
+
+Chris
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+1/10/2024
+
+at
+
+09:42 AM
+
+ZIA strict enforcement
+
+ZIA - Posture
+
+Diode
+
+1,747
+
+1747 Views
+
+0 Likes
+
+15
+
+15 Comments
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Tenant restriction for Chatgpt
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000012mlKm0AI/zia-activation","lastmod":"2026-09-17T05:28:23.000Z","id":"0D5PJ000012mlKm0AI"} -->
+## ZIA Activation
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000012mlKm0AI/zia-activation
+- Type: Q&A
+- Last activity: 2026-09-17T05:28:23.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+mitesh.nandu
+
+(Partner) asked a question.
+
+6h ago
+
+ZIA Activation
+
+Hi Team,
+
+Customer is already using ZPA past one year, now they have gone with ZIA & DLP subcription.
+
+As per the zscaler architecture ZCC default authnetication happens via ZIA & its automatically authnetication happens on ZPA.
+
+If we enable ZIA services in the tenant what issues we will face & how to mitigate the downtime?
+
+13 views
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+10/17/2024
+
+at
+
+06:58 AM
+
+Misspelled  "Zscaler" Footer in Communication Emails
+
+ozanogur
+
+247
+
+247 Views
+
+3 Likes
+
+1 Comment
+
+1/28/2025
+
+at
+
+09:23 AM
+
+Direct certain countries to different SE for a URL
+
+danbro185
+
+531
+
+531 Views
+
+1 Like
+
+5 Comments
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+ZIA Activation
 <!-- /ZS-POST -->

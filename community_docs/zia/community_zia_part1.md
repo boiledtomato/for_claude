@@ -1,7 +1,7 @@
 # Zscaler Zenith Community — ZIA — Internet & SaaS (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-01 20:41 UTC
+Generated: 2026-09-21 02:03 UTC
 Posts in this file: 356
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
@@ -4724,6 +4724,149 @@ Article Details
 
 ---
 
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Articles/aSmPJ00000GelOn0AJ/leverage-red-canary-zscaler-oneapi-for-automated-zia-threat-response","lastmod":"2026-08-10T15:04:12.000Z","id":"aSmPJ00000GelOn0AJ"} -->
+## Leverage Red Canary + Zscaler OneAPI for automated ZIA threat response
+
+- Source: https://community.zscaler.com/s/Articles/aSmPJ00000GelOn0AJ/leverage-red-canary-zscaler-oneapi-for-automated-zia-threat-response
+- Type: Article
+- Last activity: 2026-08-10T15:04:12.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Article Details
+
+ZIA - Posture
+
+ChensonZ41246
+
+(Employee) posted an Article
+
+Edited August 10, 2026 at 3:04 PM
+
+Leverage Red Canary + Zscaler OneAPI for automated ZIA threat response
+
+As a life-long InfoSec nerd and relatively new adventurer at Zscaler, I've been deep diving into Red Canary MDR platform quite a bit . . . and finding it highly capable in the SecOps space. Why? Because I believe that reducing the time between a true positive alert and proper response is absolutely paramount for a modern SOC. . This part is what I really liked: Using Zscaler ZIA telemetry; Red Canary can call Zscaler OneAPI to automatically enforce ZIA policy when high-confidence threats are published. That means detections can trigger immediate blocks without waiting for manual changes. It's something I wished I had years ago as precious minutes were ticking away while the team triaged severity 1 alerts.
+
+Why this helps
+
+•	Faster containment and lower MTTR by auto-blocking active indicators in ZIA.
+
+•	Consistent, least-privilege enforcement using scoped API roles.
+
+•	Less manual toil and fewer errors with repeatable, auditable playbooks.
+
+•	Works alongside MDR and SOC workflows you already use.
+
+What you can automate
+
+•	Block or allowlist URLs and domains via ZIA policy.
+
+•	Block IPs associated with active threats.
+
+•	Block files by hash where applicable.
+
+•	Add notes for audit trails in both tools.
+
+Getting started
+
+Set up a OneAPI client and roles in Zscaler:
+
+•	About API Clients (OneAPI):
+
+help.zscaler.com/authentication-service/about-api-clients
+
+•	Adding API Roles:
+
+help.zscaler.com/zia/adding-api-roles
+
+Connect Red Canary to Zscaler:
+
+•	Integration guide:
+
+Integrate Zscaler OneAPI with Red Canary
+
+Configure automated actions:
+
+•	Response playbooks for ZIA:
+
+Response Actions for Zscaler Internet Access
+
+And... Test.
+
+This next part is important!
+
+Test in a low-risk policy path before broad rollout; monitor logs and refine playbook conditions. Make sure responses are planned, recommend doing this in phases over time.
+
+This API / Automation is powerful. Red Canary’s MDR playbooks can call Zscaler OneAPI to push immediate, auditable ZIA policy updates from high-confidence detections—cutting MTTR and manual toil while keeping least-privilege controls. Let's Go!
+
+Associated Tags
+
+automation
+
+api
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Article Details
+<!-- /ZS-POST -->
+
+---
+
 <!-- ZS-POST {"url":"https://community.zscaler.com/s/Blogs/aSnPJ0000000X410AE/zia-cli-option-script-to-check-the-status","lastmod":"2026-02-18T16:16:47.000Z","id":"aSnPJ0000000X410AE"} -->
 ## ZIA CLI Option Script to Check the Status
 
@@ -6316,6 +6459,380 @@ February 25, 2026 at 7:35 AM
 ee
 
 ssd
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Blog Details
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Blogs/aSnPJ0000000etV0AQ/zdta-exam-resources","lastmod":"2026-09-02T17:53:54.000Z","id":"aSnPJ0000000etV0AQ"} -->
+## ZDTA Exam Resources
+
+- Source: https://community.zscaler.com/s/Blogs/aSnPJ0000000etV0AQ/zdta-exam-resources
+- Type: Blog
+- Last activity: 2026-09-02T17:53:54.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Blog Details
+
+ZIA - Cloud Firewall
+
+ChensonZ41246
+
+(Employee) posted a Blog
+
+Edited September 2, 2026 at 5:53 PM
+
+ZDTA Exam Resources
+
+Studying for the ZDTA: Why Hands-On EDU-200 Labs Are Your Secret Weapon for Certification Success
+
+Preparing for the
+
+Zscaler Digital Transformation Architect (ZDTA)
+
+certification is a major milestone for any network and security engineer, architect, or operational lead. The ZDTA exam goes beyond asking you to recall product definitions; it tests your deep understanding of how Zero Trust architecture functions in complex enterprise environments.
+
+If you are currently studying for the ZDTA, you’ve likely spent hours reading documentation, reviewing architecture guides, and studying policy logic. But ask anyone who has successfully passed the exam or deployed Zscaler at scale:
+
+theory will only get you halfway there. Real mastery comes from doing.
+
+Here is why the
+
+EDU-200 hands-on lab series
+
+is the single most effective tool in your ZDTA preparation toolkit, and how you can get access to these labs—including at upcoming events across APJ.
+
+1. Reading vs. Doing: Why Passive Learning Falls Short
+
+It is one thing to read about policy evaluation order in Zscaler Internet Access (ZIA) or tenant isolation in Zscaler Private Access (ZPA). It is an entirely different experience to configure forwarding profiles, set up App Connectors, or troubleshoot an access policy in a live environment.
+
+The Power of Muscle Memory
+
+When you read a technical guide, your brain registers concepts passively. When you log into a live lab environment and execute configurations step-by-step:
+
+Concepts stick long-term:
+
+Hands-on repetition builds muscle memory. When exam scenario questions present an architectural edge case, you don’t just recall a rule—you visualize the exact UI workflows and traffic flows you built in the lab.
+
+You learn from misconfigurations:
+
+In a lab environment, making a mistake or seeing how traffic behaves when a rule is misordered provides immediate clarity that static documentation can never replicate.
+
+Troubleshooting becomes intuitive:
+
+Understanding how logs stream, how ZDX monitors digital experience, or how Browser Isolation containerizes web sessions transforms abstract zero-trust principles into practical, actionable skill sets.
+
+2. What Makes the EDU-200 Series Essential for ZDTA Prep
+
+The EDU-200 series (including the
+
+Zscaler for Users - Engineer
+
+hands-on lab modules) is meticulously designed to bridge the gap between theoretical knowledge and operational expertise.
+
+Key Focus Areas Covered in the Labs:
+
+ZIA Policy Engine & Inspection Controls:
+
+Practice setting inline threat protection, SSL inspection, sandboxing rules, and custom cloud app policies.
+
+ZPA Architecture & Micro-segmentation:
+
+Configure Application Segments, App Connector Groups, and inspect policy evaluation logic for secure private application access without network exposure.
+
+Operations & Automation:
+
+Work directly with logging, API automation, and ZDX digital experience monitoring to diagnose performance bottlenecks.
+
+Browser Isolation & Data Protection:
+
+Set up remote containerized browsing policies to safely isolate endpoints from untrusted web content.
+
+By the time you complete these lab exercises, you aren't just memorizing features—you’re operating the platform like an architect.
+
+3. How to Access EDU-200 Labs (Check Your Account Credits!)
+
+Many engineers don't realize that their organizations may already have training access available.
+
+Steps to Take Right Now:
+
+Reach out to your Zscaler Account Team:
+
+Connect with your Account Executive or Customer Success Manager (CSM) to ask about training allocations. Many enterprise agreements include Zscaler Academy training credits or seats for hands-on instructor-led courses.
+
+Explore Zscaler Cyber Academy:
+
+Visit the Zscaler Learning Portal to review course schedules, register for guided lab sessions, or enroll in upcoming virtual roadshows.
+
+4. Take Your Learning In-Person: Zenith Live 2026 & Training Roadshows in APJ
+
+If you prefer learning in an interactive, immersive setting alongside Zscaler experts and industry peers, upcoming
+
+Zenith Live 2026 APJ
+
+conferences and regional training roadshows offer dedicated hands-on workshops and certification opportunities.
+
+Zenith Live 2026 APJ Event Schedule & Links
+
+City
+
+Date
+
+Highlights & Training
+
+Registration Link
+
+Tokyo, Japan
+
+Tue, Sept 15, 2026
+
+Keynotes, technical deep dives, hands-on security workshops
+
+Zenith Live 2026
+
+Sydney, Australia
+
+Thu, Sept 17, 2026
+
+Instructor-led technical sessions, ZDTA/ZDTE certification tracks
+
+Zenith Live 2026 | AI Security & Zero Trust Conference in Australia
+
+Mumbai, India
+
+Tue, Sept 22, 2026
+
+Dedicated lab sessions (Cyberthreat Protection, SecOps, Zero Trust Browser)
+
+Zenith Live 2026 | AI Security & Zero Trust Conference in Mumbai
+
+Singapore
+
+Thu, Sept 24, 2026
+
+(Labs Sept 23)
+
+8-hour hands-on lab sessions, complimentary on-site ZDTA exams
+
+Zenith Live 2026 | AI Security & Zero Trust Conference in Singapore
+
+Regional Roadshows
+
+Zscaler also hosts hands-on engineer roadshows throughout the year across the region (such as the
+
+Zscaler for Users - Engineer EDU-202 Hands-On Lab APAC
+
+). Check the
+
+Zscaler for Users - Advanced (EDU-202): EMEA Training Roadshows
+
+or the main
+
+Events List
+
+on the Zscaler Community to find sessions near you.
+
+Summary: Your ZDTA Action Plan
+
+Stop relying solely on documentation
+
+—shift to active learning.
+
+Leverage the EDU-200 labs
+
+to build hands-on familiarity with policy ordering, ZIA, ZPA, and ZDX.
+
+Contact your Zscaler account team
+
+to check for available training credits.
+
+Register for Zenith Live APJ 2026
+
+in Sydney, Mumbai, Tokyo, or Singapore to participate in hands-on workshops and take your ZDTA exam on-site.
+
+Have you taken the EDU-200 labs or prepared for the ZDTA exam recently? Share your favorite lab exercises and study tips in the comments below!
+
+Sources
+
+Zenith Live 2026
+
+Zenith Live 2026 | AI Security & Zero Trust Conference in Australia
+
+Zenith Live 2026 | AI Security & Zero Trust Conference in Mumbai
+
+Zenith Live 2026 | AI Security & Zero Trust Conference in Singapore
+
+Zscaler for Users - Advanced (EDU-202): EMEA Training Roadshows
+
+Events List
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Blog Details
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Blogs/aSnPJ0000000fET0AY/zia-proxychaining-explained-in-30-seconds","lastmod":"2026-09-02T17:53:23.000Z","id":"aSnPJ0000000fET0AY"} -->
+## ZIA Proxy-Chaining Explained  in 30 seconds
+
+- Source: https://community.zscaler.com/s/Blogs/aSnPJ0000000fET0AY/zia-proxychaining-explained-in-30-seconds
+- Type: Blog
+- Last activity: 2026-09-02T17:53:23.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Blog Details
+
+ZIA - Forwarding
+
+ChensonZ41246
+
+(Employee) posted a Blog
+
+Edited September 2, 2026 at 5:53 PM
+
+ZIA Proxy-Chaining Explained  in 30 seconds
+
+Hey All,
+
+Chris here. When I was first learning about this feature, I was  thinking of proxy chaining as: “okay, two proxies chained together" and  now I can move on. However,  this was not the case. The  'proxy-chaining' name does not quite do this amazing little feature the justice it deserves.  It  helped me  to reframe proxy-chaining more as " sending selected traffic to another downstream security or inspection service after Zscaler has already inspected it. "
+
+The key point is when this occurs: Zscaler inspects the traffic first, and then policy determines whether that traffic goes directly to its destination or is handed off to another tool first. Framed that way, this feature is easier to understand as post-inspection forwarding for selected traffic rather than generic proxy to proxy  behavior.
+
+Hopefully knowing this  could help you out in a pinch  when you need a solution; or be the one little fact that helps you pass ZDTA.
+
+Cheers!
+
+Want to know more?
+
+Understanding Third-Party Proxy Chaining
+
+Configuring Third-Party Proxy Chaining
+
+Configuring Proxy Chaining (On-Prem to Zscaler)
 
 Associated Tags
 
@@ -12553,175 +13070,6 @@ Yashraj Singha
 (Employee) posted a Guide
 
 18h ago
-
-How to Apply a DLP Policy for Internal Applications Without SIPA
-
-Note:
-
-Special thanks to
-
-Prince Kumar
-
-for their contributions to this guide. If you require help with the implementation of your specific configuration, please contact our
-
-Zscaler Deployment Services team for assistance
-
-________________________________________________________________________________________
-
-Introduction
-
-When configuring a Data Loss Prevention (DLP) policy for internal applications in Zscaler Private Access (ZPA), some users may need to apply DLP inspection through Zscaler Internet Access (ZIA) without using Security Inspection Policy Automation (SIPA). This guide walks you through each configuration step to achieve that, and covers how to resolve common errors you may encounter along the way.
-
-By default, internal application traffic routed through ZPA is not subject to ZIA DLP inspection unless explicitly configured. Without the proper setup across both ZPA and ZIA, DLP policies will not apply to inspected traffic, and errors such as ZIA_MT_BLOCKED_BY_INSPECTION may occur.
-
-Solution
-
-Enabling "Inspect Traffic with ZIA" in ZPA
-
-Start by configuring ZPA to forward internal application traffic to ZIA for inspection:
-
-Navigate to the Application Segment you want to apply ZIA DLP on, or create a new one.
-
-Enable the Inspect Traffic with ZIA option
-
-This option tells ZPA to forward the traffic to ZIA for inspection and policy enforcement.
-
-Creating an SSL/TLS Inspection Policy in ZIA
-
-On the ZIA side, configure SSL inspection:
-
-Go to SSL/TLS Inspection Policy and create a new policy.
-
-If the destination server uses a private/self-signed certificate, make sure to allow untrusted connections within the policy to avoid certificate errors.
-
-Creating a DLP Policy in ZIA
-
-Now create the DLP policy:
-
-Navigate to DLP Policies in ZIA.
-
-Create a new policy.
-
-Under the application segment selector, choose "Inspected-Traffic-App" (ZPA inspected apps).
-
-Configure any additional parameters as required.
-
-Save the policy.
-
-Troubleshooting the ZIA_MT_BLOCKED_BY_INSPECTION Error
-
-If you encounter the following error:
-
-ZIA_MT_BLOCKED_BY_INSPECTION
-
-Perform the following steps:
-
-Navigate to Forwarding Control in ZIA.
-
-Look for the pre-defined policy named "ZIA Inspected ZPA Apps".
-
-Enable this policy.
-
-Applying and Testing the Configuration
-
-Once all configurations are in place:
-
-Ask the user to restart the Zscaler service or trigger a policy update.
-
-Test the application traffic to confirm the DLP policy is being applied correctly.
-
-Verify the logs on both ZPA and ZIA sides to confirm traffic inspection is working as expected.
-
-Note
-
-: By default, this configuration applies DLP inspection to uploads. To also enable DLP inspection for downloads, you must request this through a Support Provisioning ticket.
-
-Please reach out to us in the comments if you have any questions.
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Guide Details
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ0000006Z6L0AU/how-to-apply-a-dlp-policy-for-internal-applications-without-sipa","lastmod":"2026-07-29T18:24:48.000Z","id":"aSoPJ0000006Z6L0AU"} -->
-## How to Apply a DLP Policy for Internal Applications Without SIPA
-
-- Source: https://community.zscaler.com/s/Guides/aSoPJ0000006Z6L0AU/how-to-apply-a-dlp-policy-for-internal-applications-without-sipa
-- Type: Guide
-- Last activity: 2026-07-29T18:24:48.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Guide Details
-
-Technical Guides
-
-Yashraj Singha
-
-(Employee) posted a Guide
-
-5h ago
 
 How to Apply a DLP Policy for Internal Applications Without SIPA
 
@@ -72588,594 +72936,4 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Git proxy error: LibreSSL SSL_connect: SSL_ERROR_SYSCALL
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evmouCAA/dns-control-rules-essential-best-practices","lastmod":"2024-02-01T22:48:26.000Z","id":"0D54u00009evmouCAA"} -->
-## DNS Control rules essential best practices
-
-- Source: https://community.zscaler.com/s/question/0D54u00009evmouCAA/dns-control-rules-essential-best-practices
-- Type: Q&A
-- Last activity: 2024-02-01T22:48:26.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZIA - Cloud Firewall
-
-Stefan Sebastian
-
-(Employee) to
-
-sfdc
-
-(Employee): asked a question.
-
-Edited October 31, 2023 at 3:46 PM
-
-DNS Control rules essential best practices
-
-When DNS traffic reaches ZIA and the DNS Control module of the Advanced Cloud-Gen Firewall is active then consider the following best practices for rules:
-
-1) Set the default rule Unknown DNS Traffic to Block. This will stop non-DNS posing as DNS on dest:53 or malformed DNS. This will also identify some forms of abuse of DNS that are consistent with some DNS tunneling methods in real time
-
-2) Block all Commonly Blocked DNS Tunnels and Unknown DNS Tunnels. These are Black and Grey classifications that ThreatlabZ has determined are clearly malicious or might be malicious.
-
-3) Consider blocking all Commonly Allowed DNS Tunnels. These are legitimate tunnels that are operated by common services but each usually has alternate and more normal means of communication.
-
-4) Block the Advanced Security and Security categories of domains and IP addresses. This targets both domains and IP addresses that are known to host targeted malicious content or used as backchannel (C2) communication or host hijacked domains.  This also targets highly suspicious categories like Newly Active Domains (dormant domains now found to be active) and other malicious categories.
-
-5). At the same time as recommendation 4, consider blocking other categories of domains or resolved IP addresses. For example, there is likely no business need for users in Locations or remote (Road Warriors) to access the Adult Content category etc. Also consider blocking or issuing warnings to categories that might exclusively apply to web browsing using the URL categorization of the web proxy (SWG). The advantage of blocking via the SWG is that the user can receive an EUN (but beaconing to the outside server in the case of HTTPS) whereas the advantage of blocking via DNS Control is that the action happens earlier in the killchain and applies to all traffic including non-web like SSH (but not giving the user any indication of why the silent DNS drop is happening).
-
-6) There is also a particularly strong recommendation to block the Newly Registered and Observed Domains (NRODs). NRODs are often part of attack chains like being termination points for DNS tunnel exfiltrations or hosting drive-by and other malware before a classification can be done on these domains. There is also very little general business need for a business critical (or any commonly used) application to be hosted at an NROD.
-
-7). Consider blocking the entire Miscellaneous category on the DNS request side only with some caution. Do not apply the response side which would have too broad a negative impact since relatively few IP addresses are categorized versus domains.
-
-All the above DNS Control policy is accessible in the left-nav of the UI console by clicking Policy --> DNS Control.
-
-This content is a preview of a link.
-
-community.zscaler.com
-
-https://community.zscaler.com/zenith/servlet/servlet.FileDownload?file=0154u000009O8K5AAK
-
-ZIA - Cloud Firewall
-
-Discourse-expand
-
-Far-image
-
-9 answers
-
-3.65K views
-
-karan.nayak
-
-Jozef_Kovacic
-
-, and
-
-14 others
-
-like this.
-
-Stefan Sebastian
-
-(Employee)
-
-4 years ago
-
-Generally speaking it is best to add block rules to both sides of the DNS transaction – so apply the policy to both the request and the response.
-
-Couple of things to keep in mind:
-
-A block on the request side will be implemented immediately. ZIA will not allow a blocked domain request to get to the targeted DNS resolver (the ZTR or some 3rd party) and so the response side will never happen
-
-There are more categorizations on the domain side than the IP side. The domain side categorizations are more precise in the sense that it focuses on the content more directly since an IP address can host 2 or more domains, each with a separate categorizations.
-
-IP categorizations give an extra level of protection. For example, if a domain has been poisoned, it might be categorized accurately but is then served by an IP that is known to host malicious – and this would be the opportunity to catch this. Hence the recommendation to mirror the policy on both side when possible
-
-a.garcia
-
-(Employee)
-
-4 years ago
-
-Hi,
-
-When creating the DNS block rule for the Advanced Security or any other recommended category blocking, is it best to add these categories to the Requested Categories or the Resolved Categories section of the rule?
-
-Thanks
-
-Stefan Sebastian
-
-(Employee)
-
-5 years ago
-
-We have recommended to some risk-adverse customers to block TXT and MX records since they are legitimate communication paths that can be used for malicious purposes but this currently falls short of becoming one of our best practices.
-
-Blocking TXT records would come with the notable caveat that this would break the Sender Policy Framework used by MS Exchange and potentially cause problems with some other DNS server configurations. Blocking MX records would actually stop the transfer of mail between mail servers (though not typically users/MUA and their MTA). So these endpoints would need to be separated out from the general user population.
-
-2 likes
-
-dhume
-
-(Employee)
-
-5 years ago
-
-Any recommendations around DNS request type?
-
-Stefan Sebastian
-
-(Employee)
-
-3 years ago
-
-For point 4 (above), we recommend blocking the Advanced Security and Security categories (see selection below)
-
-On point 6, recommend blocking NRODs (see selection below)
-
-karan.nayak
-
-(Customer)
-
-3 years ago
-
-Our DNS control policy blocks below:--
-
-Phishing
-
-Botnet Callback
-
-Malicious Content
-
-Newly Registered and Observed Domains
-
-Domain Generated Algorithm Domains
-
-Custom Encrypted Content
-
-Still our Red team folks were able to register a new domain and successfully carry data exfil through DNS... any suggestions/recommendations?
-
-1 like
-
-Stefan Sebastian
-
-(Employee)
-
-3 years ago
-
-Check the log entry for the DNS transaction that was not blocked as expected.  This will initially prove that we received the DNS request but will also show how DNS control classified.
-
-1 like
-
-karan.nayak
-
-(Customer)
-
-3 years ago
-
-We did checked the logs and the new domains that was just registered an hour ago was categorized by Zscaler as Miscellaneous, and we can't block that category cause there is like a million traffic in our company network just for this category, hence it can effect our business operation....
-
-TSimpson
-
-(Customer)
-
-2 years ago
-
-If you can take your time, look at the traffic logs for the hosts in that category and work with support to get the business critical sites categories updated to be. more correct than being Miscellaneous. .  If they need access to them, then possibly allow that with Browser Isolation while blocking uploads/downloads with that, which helps to prevent users from getting to the sites you do allow access to.   But blocking and controlling access to that category can pay off for you in the long run.  Not just for your team, but desktop support and others in your organization that have to deal with security events.
-
-1 like
-
-Log In to Answer
-
-Associated Tags
-
-dns
-
-dns-control
-
-best-practice
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-11/29/2018
-
-at
-
-01:07 PM
-
-Ip address as criteria in url policy
-
-ZIA - Cloud Firewall
-
-ram75
-
-1,193
-
-1193 Views
-
-0 Likes
-
-1 Comment
-
-10/8/2020
-
-at
-
-08:41 AM
-
-Block All access & Allow certain user or group (ZIA)
-
-ZIA - Cloud Firewall
-
-Sec_def_Def_sec
-
-1,829
-
-1829 Views
-
-1 Like
-
-2 Comments
-
-12/19/2022
-
-at
-
-04:14 PM
-
-URL filtering policy vs Cloud App policy control
-
-ZIA - Cloud Firewall
-
-Ahmed
-
-4 Views
-
-0 Likes
-
-2 Comments
-
-12/9/2022
-
-at
-
-09:40 PM
-
-Apple News RSS Feed
-
-ZIA - Cloud Firewall
-
-Trace Woodbury-RidgeIT
-
-2 Views
-
-0 Likes
-
-1 Comment
-
-9/20/2022
-
-at
-
-03:20 PM
-
-How does Zscaler Internet Access itself route the traffic to the internet, using what outgoing/next hop GW
-
-ZIA - Cloud Firewall
-
-tamerz
-
-6 Views
-
-0 Likes
-
-5 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-DNS Control rules essential best practices
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evmovCAA/pac-file-distribution","lastmod":"2023-05-31T09:27:07.000Z","id":"0D54u00009evmovCAA"} -->
-## PAC File distribution
-
-- Source: https://community.zscaler.com/s/question/0D54u00009evmovCAA/pac-file-distribution
-- Type: Q&A
-- Last activity: 2023-05-31T09:27:07.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Client Connector
-
-zjosh
-
-(Customer) to
-
-sfdc
-
-(Employee): asked a question.
-
-December 9, 2021 at 5:05 PM
-
-PAC File distribution
-
-Hello everyone,
-
-I watched some training videos and was under the impression that the Zscaler Client Connector was able to both distribute and enforce the Forwarding PAC files to each user. Then, on Zscaler help website, they mention the use of GPO to distribute the PAC file. So I am confused now.
-
-Do the Zscaler Client Connector propagate and enforce the PAC file (the one defined on Forwarding Profile) on users computers? Or,
-
-Do I need to use external tools (like GPO) in order to propagate the PAC files?
-
-Client Connector
-
-2 answers
-
-443 views
-
-Top Rated Answers
-
-jkelly
-
-(Employee)
-
-5 years ago
-
-Once ZCC is installed, ZCC will propagate and enforce the pac file if you specify it in the App and or Forwarding profile. You will only need gpo to push zcc to clients.
-
-Selected as Best
-
-All Answers
-
-zjosh
-
-(Customer)
-
-5 years ago
-
-Perfect !! Thank you jkelly, ZCC is already installed, so I guess I have nothing to worry about then regard GPO, thanks again.
-
-jkelly
-
-(Employee)
-
-5 years ago
-
-Once ZCC is installed, ZCC will propagate and enforce the pac file if you specify it in the App and or Forwarding profile. You will only need gpo to push zcc to clients.
-
-Selected as Best
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-7/7/2020
-
-at
-
-04:05 AM
-
-Z-App -8 Network Error when users log in on Windows 10
-
-Client Connector
-
-cburge97
-
-2,895
-
-2895 Views
-
-0 Likes
-
-11
-
-11 Comments
-
-7/3/2020
-
-at
-
-11:55 AM
-
-ZAPP intune deployment
-
-Client Connector
-
-Mk001
-
-1,386
-
-1386 Views
-
-0 Likes
-
-4 Comments
-
-1/28/2021
-
-at
-
-03:42 PM
-
-Compare ezAgent and ZCC - when to use which?
-
-Client Connector
-
-hukel
-
-704
-
-704 Views
-
-0 Likes
-
-2 Comments
-
-8/18/2020
-
-at
-
-12:15 PM
-
-MacOS Zscaler App Log Location
-
-Client Connector
-
-brad
-
-3,601
-
-3601 Views
-
-0 Likes
-
-2 Comments
-
-3/7/2022
-
-at
-
-03:41 PM
-
-Can a User with multiple devices use them simultaneously whilst logged in using that same single account
-
-Client Connector
-
-michael.makombe
-
-4 Views
-
-0 Likes
-
-12
-
-12 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-PAC File distribution
 <!-- /ZS-POST -->

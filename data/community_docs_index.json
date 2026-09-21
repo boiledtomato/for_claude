@@ -1,6 +1,6 @@
 {
  "fetch_mode": "prerender",
- "generated_at": "2026-08-01T20:41:25Z",
+ "generated_at": "2026-09-21T02:03:14Z",
  "posts": {
   "https://community.zscaler.com/s/Articles/aSmPJ000009yj3V0AQ/exciting-news-new-content-types-now-available-on-zenith-community": {
    "category": "platform",
@@ -2795,6 +2795,27 @@
    "title": "Zero Trust Branch Videos",
    "type": "zenith_article__c"
   },
+  "https://community.zscaler.com/s/Articles/aSmPJ00000GelOn0AJ/leverage-red-canary-zscaler-oneapi-for-automated-zia-threat-response": {
+   "category": "zia",
+   "hash": "9058e0d99f20dda4",
+   "lastmod": "2026-08-10T15:04:12.000Z",
+   "title": "Leverage Red Canary + Zscaler OneAPI for automated ZIA threat response",
+   "type": "zenith_article__c"
+  },
+  "https://community.zscaler.com/s/Articles/aSmPJ00000Genwr0AB/forwarding-profiles-made-simple": {
+   "category": "zcc",
+   "hash": "17e39770dc7650bf",
+   "lastmod": "2026-08-14T13:29:50.000Z",
+   "title": "Forwarding Profiles, Made Simple",
+   "type": "zenith_article__c"
+  },
+  "https://community.zscaler.com/s/Articles/aSmPJ00000Gevkj0AB/edu100-workshop-september-available-sessions-lineup": {
+   "category": "zcc",
+   "hash": "33cfc14ff4cfeb70",
+   "lastmod": "2026-09-04T15:36:48.000Z",
+   "title": "EDU-100 Workshop: September Available Sessions Lineup",
+   "type": "zenith_article__c"
+  },
   "https://community.zscaler.com/s/Blogs/aSnPJ00000000b70AA/zscaler-certification-at-pub-sec-in-march": {
    "category": "platform",
    "hash": "8633d81ea7f79560",
@@ -5250,6 +5271,69 @@
    "hash": "3ee0b0de57ef099c",
    "lastmod": "2026-07-24T19:38:55.000Z",
    "title": "Joy to Recognition: Certification Champion Spotlight with Manuel Bock",
+   "type": "zenith_blog__c"
+  },
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000ebl0AA/chaotic-caffeinated-and-community-powered-david-gillot-spotlight": {
+   "category": "other",
+   "hash": "e4cda39c15fa370f",
+   "lastmod": "2026-08-12T17:46:45.000Z",
+   "title": "Chaotic, Caffeinated, and Community Powered: David Gillot Spotlight",
+   "type": "zenith_blog__c"
+  },
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000eez0AA/choose-your-edu100-session-monthly-lineup-apj-emea-ams": {
+   "category": "zcc",
+   "hash": "b3eb6e03a180f995",
+   "lastmod": "2026-08-14T17:19:46.000Z",
+   "title": "Choose Your EDU-100 Session: Monthly Lineup (APJ, EMEA, AMS)",
+   "type": "zenith_blog__c"
+  },
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000etV0AQ/zdta-exam-resources": {
+   "category": "zia",
+   "hash": "4043abbc9fb907e1",
+   "lastmod": "2026-09-02T17:53:54.000Z",
+   "title": "ZDTA Exam Resources",
+   "type": "zenith_blog__c"
+  },
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000ewj0AA/learning-zpa-from-scratch-a-beginner-friendly-guide": {
+   "category": "zpa",
+   "hash": "543eed9150c255d4",
+   "lastmod": "2026-09-02T17:53:51.000Z",
+   "title": "Learning ZPA from scratch: A beginner friendly guide",
+   "type": "zenith_blog__c"
+  },
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000fET0AY/zia-proxychaining-explained-in-30-seconds": {
+   "category": "zia",
+   "hash": "0cb3e51ca60461ef",
+   "lastmod": "2026-09-02T17:53:23.000Z",
+   "title": "ZIA Proxy-Chaining Explained  in 30 seconds",
+   "type": "zenith_blog__c"
+  },
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000fXp0AI/demystifying-zpa-establishing-a-zero-trust-journey-from-device-to-destination": {
+   "category": "zpa",
+   "hash": "78592c8c4b5bef4c",
+   "lastmod": "2026-09-08T14:13:07.000Z",
+   "title": "Demystifying ZPA: Establishing a Zero Trust Journey from Device to Destination",
+   "type": "zenith_blog__c"
+  },
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000fnx0AA/a-leaders-guide-to-ai-security-why-our-new-workshop-matters-now": {
+   "category": "platform",
+   "hash": "47fc22a058cdfa3c",
+   "lastmod": "2026-09-09T18:22:18.000Z",
+   "title": "A Leader’s Guide to AI Security: Why Our New Workshop Matters Now",
+   "type": "zenith_blog__c"
+  },
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000fpZ0AQ/coming-soon-a-new-era-of-learning-at-zscaler": {
+   "category": "platform",
+   "hash": "57eaf409a44deeb4",
+   "lastmod": "2026-09-10T16:47:58.000Z",
+   "title": "Coming Soon: A New Era of Learning at Zscaler!",
+   "type": "zenith_blog__c"
+  },
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000g7J0AQ/sipa-demystified-an-indepth-look-at-configuraiton-steps": {
+   "category": "zpa",
+   "hash": "66cb5b5e599c49bf",
+   "lastmod": "2026-09-17T13:59:34.000Z",
+   "title": "SIPA Demystified: An in-depth look at configuraiton steps",
    "type": "zenith_blog__c"
   },
   "https://community.zscaler.com/s/Guides/aSoPJ0000000E6D0AU/welcome-to-zscaler-cellular": {
@@ -7906,9 +7990,9 @@
    "type": "zenith_guide__c"
   },
   "https://community.zscaler.com/s/Guides/aSoPJ0000006QCj0AM/how-to-validate-if-a-zscaler-vm-is-running-zsos24-needs-redeployment": {
-   "category": "platform",
-   "hash": "e851c8577979b1d2",
-   "lastmod": "2026-07-09T15:11:38.000Z",
+   "category": "branch",
+   "hash": "863cd704e59b427f",
+   "lastmod": "2026-09-03T16:52:36.000Z",
    "title": "How to validate if a Zscaler VM is Running ZSOS24 needs redeployment",
    "type": "zenith_guide__c"
   },
@@ -7989,13 +8073,6 @@
    "title": "How to Apply a DLP Policy for Internal Applications Without SIPA",
    "type": "zenith_guide__c"
   },
-  "https://community.zscaler.com/s/Guides/aSoPJ0000006Z6L0AU/how-to-apply-a-dlp-policy-for-internal-applications-without-sipa": {
-   "category": "zia",
-   "hash": "5d9cb5e5f2025ac1",
-   "lastmod": "2026-07-29T18:24:48.000Z",
-   "title": "How to Apply a DLP Policy for Internal Applications Without SIPA",
-   "type": "zenith_guide__c"
-  },
   "https://community.zscaler.com/s/Guides/aSoPJ0000006ZJF0A2/checking-zscaler-client-connector-logs-for-split-vpn-trusted-network-detection": {
    "category": "zcc",
    "hash": "c40cf4222f773a5b",
@@ -8022,6 +8099,55 @@
    "hash": "767da8c3772ead91",
    "lastmod": "2026-07-31T12:17:01.000Z",
    "title": "What Is ZPA B2B Federation?",
+   "type": "zenith_guide__c"
+  },
+  "https://community.zscaler.com/s/Guides/aSoPJ0000006aaH0AQ/zpa-credential-management-certificate-credential-agent-setup": {
+   "category": "zpa",
+   "hash": "4fd69cba34597427",
+   "lastmod": "2026-08-12T16:23:07.000Z",
+   "title": "ZPA Credential Management – Certificate & Credential Agent Setup",
+   "type": "zenith_guide__c"
+  },
+  "https://community.zscaler.com/s/Guides/aSoPJ0000006alZ0AQ/how-to-renew-microsoft-entra-id-zpa-certificate-before-it-expires": {
+   "category": "zpa",
+   "hash": "6263eac4025d2197",
+   "lastmod": "2026-08-07T07:02:27.000Z",
+   "title": "How to renew Microsoft Entra ID ZPA certificate before it expires",
+   "type": "zenith_guide__c"
+  },
+  "https://community.zscaler.com/s/Guides/aSoPJ0000006bWL0AY/how-to-configure-a-custom-watermark-message-in-cloud-browser-isolation": {
+   "category": "platform",
+   "hash": "0dc7a5d0fc5d026e",
+   "lastmod": "2026-08-11T17:02:28.000Z",
+   "title": "How to configure a custom watermark message in Cloud Browser Isolation",
+   "type": "zenith_guide__c"
+  },
+  "https://community.zscaler.com/s/Guides/aSoPJ0000006eSb0AI/redeploying-virtual-branch-connector": {
+   "category": "branch",
+   "hash": "246cafc0839f6904",
+   "lastmod": "2026-08-30T17:28:10.000Z",
+   "title": "Redeploying Virtual Branch Connector",
+   "type": "zenith_guide__c"
+  },
+  "https://community.zscaler.com/s/Guides/aSoPJ0000006exF0AQ/redeploying-cloud-connectors": {
+   "category": "branch",
+   "hash": "06054d7f314f7be4",
+   "lastmod": "2026-09-01T18:20:49.000Z",
+   "title": "Redeploying Cloud Connectors",
+   "type": "zenith_guide__c"
+  },
+  "https://community.zscaler.com/s/Guides/aSoPJ0000006gML0AY/redeploying-hardware-branch-connector-onearmedmode-nongateway-mode": {
+   "category": "branch",
+   "hash": "3b349fa5a6a1b812",
+   "lastmod": "2026-09-03T16:46:09.000Z",
+   "title": "Redeploying Hardware Branch Connector One-Armed-Mode (non-Gateway Mode)",
+   "type": "zenith_guide__c"
+  },
+  "https://community.zscaler.com/s/Guides/aSoPJ0000006h8j0AA/app-behavior-when-same-domain-is-in-vpn-gateway-bypass-and-zpa-app-segment": {
+   "category": "zpa",
+   "hash": "b77caa17a515070f",
+   "lastmod": "2026-09-10T11:41:48.000Z",
+   "title": "App Behavior When Same Domain Is in VPN Gateway Bypass and ZPA App Segment",
    "type": "zenith_guide__c"
   },
   "https://community.zscaler.com/s/question/0D54u00009eviNaCAI/unusual-ip-connections-from-zscalertunnel-process": {
@@ -19702,8 +19828,8 @@
   },
   "https://community.zscaler.com/s/question/0D54u00009eykP3CAI/connection-is-disconnected-twice-or-few-times-a-day-around-in-12hours": {
    "category": "zcc",
-   "hash": "eb92fb3bbda2f903",
-   "lastmod": "2023-09-12T00:46:32.000Z",
+   "hash": "da215cbd257b4317",
+   "lastmod": "2026-09-15T04:14:33.000Z",
    "title": "Connection is disconnected twice or few times a day (around in 12hours)",
    "type": "question"
   },
@@ -19989,8 +20115,8 @@
   },
   "https://community.zscaler.com/s/question/0D54u00009ezG1FCAU/step-5-how-to-post-content": {
    "category": "platform",
-   "hash": "ffa41152b3280596",
-   "lastmod": "2023-09-23T13:47:45.000Z",
+   "hash": "af4198147b978c37",
+   "lastmod": "2026-09-03T20:05:17.000Z",
    "title": "STEP 5 - How to post content",
    "type": "question"
   },
@@ -22712,8 +22838,8 @@
   },
   "https://community.zscaler.com/s/question/0D54u0000AZExkKCQT/howto-import-zpa-app-connector-vmware-ova-into-proxmox": {
    "category": "zpa",
-   "hash": "0bc107d06b74a60d",
-   "lastmod": "2024-07-29T05:01:11.000Z",
+   "hash": "ec6559deb832bb36",
+   "lastmod": "2026-09-18T20:44:44.000Z",
    "title": "Howto import ZPA App Connector VMware OVA into Proxmox",
    "type": "question"
   },
@@ -24938,8 +25064,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000aV3kL0AS/zidentity-for-user-management": {
    "category": "platform",
-   "hash": "504d8bb4ec822bbc",
-   "lastmod": "2026-07-31T11:44:13.000Z",
+   "hash": "4f2687f98f7fdad6",
+   "lastmod": "2026-08-16T13:13:07.000Z",
    "title": "ZIdentity for User Management",
    "type": "question"
   },
@@ -25057,8 +25183,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000beovc0AA/default-url-categories-domain-is-being-allowed-but-not-the-server-ip": {
    "category": "zia",
-   "hash": "a411cf8d352a7a31",
-   "lastmod": "2025-07-25T07:42:33.000Z",
+   "hash": "877bae198c4454d9",
+   "lastmod": "2026-09-15T13:03:29.000Z",
    "title": "Default URL Categories | Domain is being allowed but not the Server IP",
    "type": "question"
   },
@@ -25120,8 +25246,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000cEWWN0A4/zdta-exam-prep-help-needed": {
    "category": "zia",
-   "hash": "9594ac3cd2078763",
-   "lastmod": "2026-01-30T02:35:14.000Z",
+   "hash": "0ed4fe4cebddd367",
+   "lastmod": "2026-09-18T02:01:05.000Z",
    "title": "ZDTA Exam Prep - Help Needed",
    "type": "question"
   },
@@ -25750,8 +25876,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000kpyJA0AY/ios-shared-ipad-zcc-deployment-help": {
    "category": "zcc",
-   "hash": "b445362e00cee81b",
-   "lastmod": "2025-11-25T14:59:09.000Z",
+   "hash": "44dfc935af1f3d7d",
+   "lastmod": "2026-09-04T15:23:52.000Z",
    "title": "iOS Shared iPad + ZCC Deployment: Help",
    "type": "question"
   },
@@ -26198,8 +26324,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000qixuf0AA/branch-connector": {
    "category": "branch",
-   "hash": "ec40ae01ec292a16",
-   "lastmod": "2026-03-11T07:17:46.000Z",
+   "hash": "f9dbfe24d986fb77",
+   "lastmod": "2026-09-02T17:54:29.000Z",
    "title": "Branch Connector",
    "type": "question"
   },
@@ -26289,8 +26415,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000rzADj0AM/pra-portal-with-user-portal-links": {
    "category": "zpa",
-   "hash": "d85bc43a140d1ddc",
-   "lastmod": "2026-04-01T00:08:24.000Z",
+   "hash": "0b8081d2edb2acb9",
+   "lastmod": "2026-08-17T17:10:10.000Z",
    "title": "PRA Portal with User Portal Links",
    "type": "question"
   },
@@ -26422,8 +26548,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000utSHz0AM/zcc-for-vdi-citrix-browserbased-users-auth-with-idp-okta-via-kerberos": {
    "category": "zcc",
-   "hash": "d1df95e91592da77",
-   "lastmod": "2026-05-28T15:17:38.000Z",
+   "hash": "0e7dc3df7a5a1826",
+   "lastmod": "2026-08-14T18:59:08.000Z",
    "title": "ZCC for VDI (Citrix) browser-based users auth with iDP (Okta) via Kerberos",
    "type": "question"
   },
@@ -26436,8 +26562,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000uzLQn0AM/antigravity-zia": {
    "category": "zia",
-   "hash": "6d223f71566d8b2d",
-   "lastmod": "2026-05-26T17:56:34.000Z",
+   "hash": "c26d6c6a25d53170",
+   "lastmod": "2026-08-14T19:18:49.000Z",
    "title": "Antigravity & ZIA",
    "type": "question"
   },
@@ -26569,8 +26695,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000xZllV0AS/zscaler-gov-enterprise-application-is-only-available-in-gcch": {
    "category": "platform",
-   "hash": "2eda257d407cb158",
-   "lastmod": "2026-06-30T19:12:21.000Z",
+   "hash": "fefd45276cb02534",
+   "lastmod": "2026-08-11T19:04:52.000Z",
    "title": "\"Zscaler Gov\" Enterprise Application is Only Available in GCCH",
    "type": "question"
   },
@@ -26597,8 +26723,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000y9tR40AI/zia-disaster-recovery": {
    "category": "zia",
-   "hash": "28703c60b3a83b82",
-   "lastmod": "2026-07-09T17:47:09.000Z",
+   "hash": "1f3cdf71ede59f5d",
+   "lastmod": "2026-08-13T20:52:51.000Z",
    "title": "ZIA Disaster Recovery",
    "type": "question"
   },
@@ -26611,22 +26737,22 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000yL0Ml0AK/zpa-usage-report-for-60-days-and-90-days": {
    "category": "zpa",
-   "hash": "6086754ca03cb872",
-   "lastmod": "2026-07-14T14:15:47.000Z",
+   "hash": "ed5a00803a95aec2",
+   "lastmod": "2026-08-17T17:03:07.000Z",
    "title": "ZPA Usage report for 60 days and 90 days",
    "type": "question"
   },
   "https://community.zscaler.com/s/question/0D5PJ00000yvj990AA/ondemand-zcczpa-for-3rd-party-vendors": {
    "category": "zcc",
-   "hash": "f37b5456471c95d2",
-   "lastmod": "2026-07-28T17:05:17.000Z",
+   "hash": "0e727005f92fb8b8",
+   "lastmod": "2026-08-05T15:31:45.000Z",
    "title": "On-demand ZCC/ZPA for 3rd Party Vendors",
    "type": "question"
   },
   "https://community.zscaler.com/s/question/0D5PJ00000z7NO90AM/cloud-connector-has-two-service-nics-primary-and-secondary": {
    "category": "branch",
-   "hash": "04c4b317c801a921",
-   "lastmod": "2026-07-28T17:05:07.000Z",
+   "hash": "3abc7f2e81549741",
+   "lastmod": "2026-08-20T18:30:03.000Z",
    "title": "Cloud Connector has two service NICs: primary and secondary",
    "type": "question"
   },
@@ -26656,6 +26782,104 @@
    "hash": "1c5f05988cd0260e",
    "lastmod": "2026-07-31T11:37:28.000Z",
    "title": "Windows Endpoint Occasionally Matched to iOS Posture-Based Firewall Policy",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ00000zcATo0AM/microsoft-urls-with-dedicated-ip": {
+   "category": "zia",
+   "hash": "3da77220dfb2a965",
+   "lastmod": "2026-08-14T22:05:14.000Z",
+   "title": "Microsoft URLs with Dedicated IP",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ00000zd3j40AA/inquiry-about-discounts-for-zdte-certification": {
+   "category": "platform",
+   "hash": "a832bc27bc09101f",
+   "lastmod": "2026-08-13T20:37:50.000Z",
+   "title": "Inquiry About Discounts for ZDTE certification",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ00000zoFsY0AU/saml-authentication-expired-causing-private-application-access-failures": {
+   "category": "platform",
+   "hash": "fcb9d1564a6b25ed",
+   "lastmod": "2026-09-02T17:54:04.000Z",
+   "title": "SAML Authentication Expired Causing Private Application Access Failures",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ00000zwfni0AA/tenant-profile-for-claude": {
+   "category": "zia",
+   "hash": "b7320d8ae0c8cbc1",
+   "lastmod": "2026-08-14T22:11:55.000Z",
+   "title": "Tenant Profile for Claude",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000010YUg00AG/zscaler-dc-expansion-introduced-new-ip-range-impacting-govt-site-accessibility": {
+   "category": "zia",
+   "hash": "e13f425d18b3a886",
+   "lastmod": "2026-08-12T13:43:42.000Z",
+   "title": "Zscaler DC Expansion Introduced New IP Range impacting Govt. Site Accessibility",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000010uTCP0A2/zscaler-directly-removed-via-script-in-mac-machine": {
+   "category": "platform",
+   "hash": "0907b64b13796604",
+   "lastmod": "2026-08-18T12:57:22.000Z",
+   "title": "ZSCALER directly removed via script in MAC machine",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000011GFN30AO/file-type-control-policy": {
+   "category": "zia",
+   "hash": "14e25d7df1ffad85",
+   "lastmod": "2026-09-02T17:53:46.000Z",
+   "title": "file type control policy",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000011KHv00AG/tenant-restriction-for-chatgpt": {
+   "category": "zia",
+   "hash": "7af68d3775dd74d6",
+   "lastmod": "2026-08-25T19:57:55.000Z",
+   "title": "Tenant restriction for Chatgpt",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000011XXIq0AO/idp-issue": {
+   "category": "platform",
+   "hash": "4a425ca77a9d3ed9",
+   "lastmod": "2026-09-02T17:52:44.000Z",
+   "title": "IDP Issue",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000011pexC0AQ/lss-log-stream-content-discrepancies-in-the-official-documentation": {
+   "category": "platform",
+   "hash": "43444174b36aee54",
+   "lastmod": "2026-09-02T17:52:16.000Z",
+   "title": "LSS Log Stream Content discrepancies in the official documentation",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000011vRiL0AU/zcc-vs-gre-performance-for-zia": {
+   "category": "zcc",
+   "hash": "363f2471863f5f11",
+   "lastmod": "2026-09-13T12:50:32.000Z",
+   "title": "ZCC vs GRE performance for ZIA",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000012MQ7U0AW/inquiry-about-discounts-for-zdte-certification": {
+   "category": "platform",
+   "hash": "0dc31e36fc4191bd",
+   "lastmod": "2026-09-15T16:38:18.000Z",
+   "title": "Inquiry About Discounts for ZDTE certification",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000012e8V50AI/unable-to-login-zenith2026-due-to-unregistered-user-error": {
+   "category": "platform",
+   "hash": "de87fa79ae32cf17",
+   "lastmod": "2026-09-15T13:02:35.000Z",
+   "title": "Unable to login Zenith2026 Due to Unregistered User error",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000012mlKm0AI/zia-activation": {
+   "category": "zia",
+   "hash": "02c1c9618d934b06",
+   "lastmod": "2026-09-17T05:28:23.000Z",
+   "title": "ZIA Activation",
    "type": "question"
   }
  },

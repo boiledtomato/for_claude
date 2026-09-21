@@ -1,7 +1,7 @@
 # Zscaler Zenith Community — ZCC — Zscaler Client Connector (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-01 20:41 UTC
+Generated: 2026-09-21 02:03 UTC
 Posts in this file: 286
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
@@ -1175,6 +1175,288 @@ Article Details
 
 ---
 
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Articles/aSmPJ00000Genwr0AB/forwarding-profiles-made-simple","lastmod":"2026-08-14T13:29:50.000Z","id":"aSmPJ00000Genwr0AB"} -->
+## Forwarding Profiles, Made Simple
+
+- Source: https://community.zscaler.com/s/Articles/aSmPJ00000Genwr0AB/forwarding-profiles-made-simple
+- Type: Article
+- Last activity: 2026-08-14T13:29:50.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Article Details
+
+ZIA - Forwarding
+
+ChensonZ41246
+
+(Employee) posted an Article
+
+Edited August 14, 2026 at 1:29 PM
+
+Forwarding Profiles, Made Simple
+
+As a Technical Instructor at Zscaler, I am always searching for the best methods to explain technical concepts in a ways that makes sense to large audiences. I think about how I would like someone to explain it to me and that it what I usually wind up going with. If you are new to the Zscaler world, throughly understanding Forwarding Profiles makes for a strong foundation for future learning. So, here, I present:
+
+Forwarding Profiles, Made Simple
+
+A Forwarding Profile tells Zscaler Client Connector (ZCC) how to handle traffic it intercepts:
+
+what traffic to capture
+
+when to send it to Zscaler
+
+what to bypass
+
+how that behavior should differ by device platform
+
+Forwarding behavior defines the client-side endpoints for each:
+
+Windows
+
+macOS
+
+iOS
+
+Android
+
+maybe Linux, depending on your environment/version
+
+It is important to understand forwarding profiles because how you configure them can directly affect security, user experience, and connectivity. If a profile is designed well, users get Zscaler protection and reliable access to internet and their private apps. If it is designed poorly, traffic may bypass inspection, apps may break, or users may experience login and access problems that look like policy issues but are actually forwarding issues. I encourage you to dig deeper:
+
+Configuring Forwarding Profiles for Zscaler Client Connector
+
+About Z-Tunnel 1.0 & Z-Tunnel 2.0
+
+Here is to your Zscaler learning journey being a great one!
+
+avshch
+
+(Ex-Customer)
+
+29 days ago
+
+Are the same principles applicable to IPSEC forwarding?
+
+ChensonZ41246
+
+(Employee)
+
+26 days ago
+
+Hi Avshch, I am happy to answer this. I'll start by saying tunneling with the Zscaler client connector is more nuanced than just 'IPSEC'; and also any question about tunneling depends on whether your are talking about ZIA or ZPA + what the policy says; but first let's address the 'IPSEC' part of your question..
+
+Zscaler uses different secure tunnel/forwarding methods depending on the use case. Before going any further; commonalities first. Both ZIA and ZPA are leveraged in the client connector; both leverage traffic steering and encrypted transport.
+
+However, it's the policy that defines to which tunnels traffic is steered. ZPA and ZIA handle tunneling differently.
+
+Start with ZPA; (built for private app access) leverages a service tunnel to the ZPA cloud. ZPA does not use a traditional IPsec VPN tunnel from the endpoint to the private network. Instead, Client Connector creates a TLS-secured connection to the ZPA cloud and within that trusted channel it creates microtunnels for individual authorized application sessions. A microtunnel is a secure, temporary, app-specific connection that ZPA builds only when a user is authorized to reach a particular private application.
+
+Next, for ZIA, (for internet-bound traffic), Z-Tunnel 2.0 is a ZIA secure forwarding mechanism. Think of Z-Tunnel 2.0 as Zscaler’s client-to-cloud transport for ZIA traffic, in the same general problem space as a VPN tunnel, but it's not a traditional IPsec VPN. It’s designed for Client Connector steering internet-bound traffic to ZIA, with awareness of user mobility, endpoint conditions, policy, and cloud inspection.
+
+Z-Tunnel 2.0 is designed to protect traffic as it moves across an untrusted network to the Zscaler cloud. It prefers DTLS over UDP for performance, and can use TLS over TCP as fallback when needed. In both cases, the point is still secure encrypted transport.
+
+And remember; it's the Policy (that you define) that is pushed down to the Zscaler Connector Client that determines; what is forwarded to where and what traffic can be bypassed. Let me know if you have more questions, I am happy to help!
+
+If you want to dive deeper:
+
+ZIA:
+
+Best Practices for Deploying Z-Tunnel 2.0
+
+ZPA:
+
+ZPA Architecture Overview
+
+Associated Tags
+
+best-practice
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Article Details
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Articles/aSmPJ00000Gevkj0AB/edu100-workshop-september-available-sessions-lineup","lastmod":"2026-09-04T15:36:48.000Z","id":"aSmPJ00000Gevkj0AB"} -->
+## EDU-100 Workshop: September Available Sessions Lineup
+
+- Source: https://community.zscaler.com/s/Articles/aSmPJ00000Gevkj0AB/edu100-workshop-september-available-sessions-lineup
+- Type: Article
+- Last activity: 2026-09-04T15:36:48.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Article Details
+
+Training Portfolio
+
+Alejandro Knudsen
+
+(Employee) posted an Article
+
+5h ago
+
+EDU-100 Workshop: September Available Sessions Lineup
+
+Introduction to Zscaler Zero Trust Exchange (EDU-100) Workshop sessions are available on Zscaler Cyber Academy. If you’re looking to build practical, day-one operational skills across the Zscaler Zero Trust Exchange, choose a session that fits your schedule and join us live.
+
+Build practical, day-one operational skills
+
+The workshop builds a practical, task-based foundation across Zscaler Client Connector (ZCC), Zscaler Internet Access (ZIA), Zscaler Private Access (ZPA), and Zscaler Digital Experience (ZDX).
+
+Available in the following regions:
+
+APJ:
+
+September 29-30, 9:00 AM to 1:00 PM IST (UTC+5:30)
+
+October 8-9, 2026.  9:00 AM to 1:00 PM SGT (UTC+8)
+
+October 26-27, 2026, 9:00 AM to 1:00 PM IST (UTC+5:30)
+
+November 3-4, 2026, 9:00 AM to 1:00 PM IST (UTC+5:30)
+
+EMEA:
+
+September 17-18, 2026, 9:00 AM to 1:00 PM CEST (GMT+2:00)
+
+October 15-16, 2026, 9:00 AM to 1:00 PM CEST (GMT+2:00)
+
+AMS:
+
+September 24-25, 2026, 9:00 AM to 1:00 PM CDT (GMT-05:00)
+
+October 13-14, 2026, 9:00 AM to 1:00 PM PDT (GMT-05:00)
+
+Enroll here
+
+Customer
+
+Partner
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Article Details
+<!-- /ZS-POST -->
+
+---
+
 <!-- ZS-POST {"url":"https://community.zscaler.com/s/Blogs/aSnPJ0000000PJN0A2/zscaler-client-connector-436-beta-for-ios-available-now","lastmod":"2025-10-08T17:30:37.000Z","id":"aSnPJ0000000PJN0A2"} -->
 ## Zscaler Client Connector 4.3.6 Beta for iOS Available Now!
 
@@ -1369,6 +1651,139 @@ Release 4.4 on iOS will start rolling out on the Apple App Store starting on Nov
 Associated Tags
 
 ios
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Blog Details
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Blogs/aSnPJ0000000eez0AA/choose-your-edu100-session-monthly-lineup-apj-emea-ams","lastmod":"2026-08-14T17:19:46.000Z","id":"aSnPJ0000000eez0AA"} -->
+## Choose Your EDU-100 Session: Monthly Lineup (APJ, EMEA, AMS)
+
+- Source: https://community.zscaler.com/s/Blogs/aSnPJ0000000eez0AA/choose-your-edu100-session-monthly-lineup-apj-emea-ams
+- Type: Blog
+- Last activity: 2026-08-14T17:19:46.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Blog Details
+
+Training Portfolio
+
+Alejandro Knudsen
+
+(Employee) posted a Blog
+
+August 14, 2026 at 5:19 PM
+
+Choose Your EDU-100 Session: Monthly Lineup (APJ, EMEA, AMS)
+
+Zenith Community, if you’re looking for an accelerated, practical foundation you can apply on the job, the Introduction to Zscaler Zero Trust Exchange (EDU‑100) Workshop is a scenario-driven workshop that builds task-based competency across core workflows in Zscaler Client Connector (ZCC), Zscaler Internet Access (ZIA), Zscaler Private Access (ZPA), and Zscaler Digital Experience (ZDX).
+
+What is EDU-100?
+
+Introduction to Zscaler Zero Trust Exchange (EDU-100) Workshop is a scenario-driven, accelerated course that builds a practical, task-based foundation in ZCC, ZIA, ZPA, and ZDX.
+
+Available in the following regions:
+
+APJ:
+
+August 20-21, 2026.
+
+EMEA:
+
+August 27-28, 2026.
+
+September 17-18, 2026.
+
+AMS:
+
+August 26-27, 2026.
+
+September 24-25, 2026.
+
+Enroll here
+
+Customer
+
+Partner
+
+LinkedIn Copy for Amplification:
+
+Looking to build practical, day-one operational skills across the Zscaler Zero Trust Exchange—without needing an individual lab tenant? 👇
+
+This month’s Introduction to Zscaler Zero Trust Exchange (EDU‑100) Workshop session lineup is live. It’s a scenario-driven, accelerated workshop that builds a practical, task-based foundation in:
+
+• Zscaler Client Connector (ZCC)
+
+• Zscaler Internet Access (ZIA)
+
+• Zscaler Private Access (ZPA)
+
+• Zscaler Digital Experience (ZDX)
+
+👉 Check the monthly lineup (by region), then choose a session that fits your schedule.
+
+Associated Tags
+
+No tags associated with this post!!
 
 Do you like what
 
@@ -75071,697 +75486,4 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Device Posture check for AzureAdJoined
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evmpgCAA/client-connector-location-data","lastmod":"2023-05-31T08:46:47.000Z","id":"0D54u00009evmpgCAA"} -->
-## Client Connector Location Data
-
-- Source: https://community.zscaler.com/s/question/0D54u00009evmpgCAA/client-connector-location-data
-- Type: Q&A
-- Last activity: 2023-05-31T08:46:47.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Client Connector
-
-rkern
-
-(Employee) to
-
-sfdc
-
-(Employee): asked a question.
-
-November 4, 2021 at 1:44 PM
-
-Client Connector Location Data
-
-I have a customer who is currently deploying Zscaler in their environment. One of their use cases is tracking when someone is working from home or working from the office. They will be using the Client Connector as the means for the workforce to connect to the internet. The challenge is the way their traffic is backhauled it will still look like the same (since they still VPN in). Any recommendations on how to work around it or setup reporting?
-
-Client Connector
-
-1 answer
-
-993 views
-
-Chris_Louie
-
-(Employee)
-
-5 years ago
-
-Hi RJ,
-
-ZDX leverages the location services of a device to determine the device’s location.
-
-Is Client Connector currently set up to send all traffic over the VPN back to the datacenter? Client Connector typically splits out the internet traffic, in which case the user’s traffic will be their home IP address.
-
-Can you provide more information on whether the user’s internet traffic is sent over the VPN with ZCC?
-
-Warm Regards,
-
-Chris
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-7/7/2020
-
-at
-
-04:05 AM
-
-Z-App -8 Network Error when users log in on Windows 10
-
-Client Connector
-
-cburge97
-
-2,881
-
-2881 Views
-
-0 Likes
-
-11
-
-11 Comments
-
-7/3/2020
-
-at
-
-11:55 AM
-
-ZAPP intune deployment
-
-Client Connector
-
-Mk001
-
-1,375
-
-1375 Views
-
-0 Likes
-
-4 Comments
-
-1/28/2021
-
-at
-
-03:42 PM
-
-Compare ezAgent and ZCC - when to use which?
-
-Client Connector
-
-hukel
-
-700
-
-700 Views
-
-0 Likes
-
-2 Comments
-
-8/18/2020
-
-at
-
-12:15 PM
-
-MacOS Zscaler App Log Location
-
-Client Connector
-
-brad
-
-3,563
-
-3563 Views
-
-0 Likes
-
-1 Comment
-
-3/7/2022
-
-at
-
-03:41 PM
-
-Can a User with multiple devices use them simultaneously whilst logged in using that same single account
-
-Client Connector
-
-michael.makombe
-
-4 Views
-
-0 Likes
-
-12
-
-12 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Client Connector Location Data
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evmphCAA/internal-error-please-contact-administrator-3100","lastmod":"2023-07-06T13:02:49.000Z","id":"0D54u00009evmphCAA"} -->
-## Internal error please contact administrator. [3100]
-
-- Source: https://community.zscaler.com/s/question/0D54u00009evmphCAA/internal-error-please-contact-administrator-3100
-- Type: Q&A
-- Last activity: 2023-07-06T13:02:49.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Client Connector
-
-Fileno
-
-(Partner) to
-
-sfdc
-
-(Employee): asked a question.
-
-November 3, 2021 at 9:20 PM
-
-Internal error please contact administrator. [3100]
-
-Dears,
-
-I am getting an error on Client Connector saying “Internal error please contact administrator-[3100]?
-
-I’ve done several things, but no success … here what i have done already.
-
-Downgrade the latest version from 3.6.1.17 to 3.4.1.4 ( no success)
-
-I checked the community and says to install recent version
-
-Internal error please contact administrator. [3100] zscaler
-
-(no success)
-
-I cleaned up Zscaler register entries and reinstalled latest version ( no success)
-
-I checked the logs, and gives a message that something is wrong, but not conclusive (please, see log file attached)
-
-May someone help please? Thank you!
-
-Client Connector
-
-4 answers
-
-1.66K views
-
-Fileno
-
-(Partner)
-
-4 years ago
-
-Either you have to long on the instance and remove the client or if the instance doesn’t exist anymore, then Zscaler has to fix it
-
-kranthi.k
-
-(Partner)
-
-4 years ago
-
-What was the solution for this error ? Could you please update here, cause one of my end customer facing same issue.
-
-Fileno
-
-(Partner)
-
-Edited by sfdc July 6, 2023 at 12:04 PM
-
-jalomari:
-
-and try to web browse and see if the authentication works via the web browse
-
-Thank you and I opened a ticket already. Looks like, ZS cloud has registration of the device from a previous PoV performed with a customer. Thank you and appreciated your support!
-
-jalomari
-
-(Employee)
-
-5 years ago
-
-Hi Miguel,
-
-I do not see any logs attached. I would recommend to open a support case so they can investigate the logs and see what is causing the issue. One thing you can check is to point your browser to gateway.[cloudname].net and try to web browse and see if the authentication works via the web browser
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-7/7/2020
-
-at
-
-04:05 AM
-
-Z-App -8 Network Error when users log in on Windows 10
-
-Client Connector
-
-cburge97
-
-2,886
-
-2886 Views
-
-0 Likes
-
-11
-
-11 Comments
-
-7/3/2020
-
-at
-
-11:55 AM
-
-ZAPP intune deployment
-
-Client Connector
-
-Mk001
-
-1,379
-
-1379 Views
-
-0 Likes
-
-4 Comments
-
-1/28/2021
-
-at
-
-03:42 PM
-
-Compare ezAgent and ZCC - when to use which?
-
-Client Connector
-
-hukel
-
-704
-
-704 Views
-
-0 Likes
-
-2 Comments
-
-8/18/2020
-
-at
-
-12:15 PM
-
-MacOS Zscaler App Log Location
-
-Client Connector
-
-brad
-
-3,575
-
-3575 Views
-
-0 Likes
-
-1 Comment
-
-3/7/2022
-
-at
-
-03:41 PM
-
-Can a User with multiple devices use them simultaneously whilst logged in using that same single account
-
-Client Connector
-
-michael.makombe
-
-4 Views
-
-0 Likes
-
-12
-
-12 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Internal error please contact administrator. [3100]
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evmpiCAA/force-acceptance-of-permissions-zscaler-client-connector-on-mobile-device-with-intune","lastmod":"2023-05-31T08:13:37.000Z","id":"0D54u00009evmpiCAA"} -->
-## Force Acceptance of permissions - ZScaler Client Connector on Mobile Device with Intune
-
-- Source: https://community.zscaler.com/s/question/0D54u00009evmpiCAA/force-acceptance-of-permissions-zscaler-client-connector-on-mobile-device-with-intune
-- Type: Q&A
-- Last activity: 2023-05-31T08:13:37.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Client Connector
-
-JoseManuel
-
-(Customer) to
-
-sfdc
-
-(Employee): asked a question.
-
-November 3, 2021 at 7:18 AM
-
-Force Acceptance of permissions - ZScaler Client Connector on Mobile Device with Intune
-
-Hi all,
-
-We are deploying ZScaler Client Connector on Mobile Device with Intune. As I see final user needs to accept permissions on the application in order to have it up and running.
-
-Is there any way we can force to the user that appears always this “pop up? until he accept the needed permissions?
-
-Thank you and best regards
-
-Client Connector
-
-323 views
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-7/7/2020
-
-at
-
-04:05 AM
-
-Z-App -8 Network Error when users log in on Windows 10
-
-Client Connector
-
-cburge97
-
-2,881
-
-2881 Views
-
-0 Likes
-
-11
-
-11 Comments
-
-7/3/2020
-
-at
-
-11:55 AM
-
-ZAPP intune deployment
-
-Client Connector
-
-Mk001
-
-1,376
-
-1376 Views
-
-0 Likes
-
-4 Comments
-
-1/28/2021
-
-at
-
-03:42 PM
-
-Compare ezAgent and ZCC - when to use which?
-
-Client Connector
-
-hukel
-
-701
-
-701 Views
-
-0 Likes
-
-2 Comments
-
-8/18/2020
-
-at
-
-12:15 PM
-
-MacOS Zscaler App Log Location
-
-Client Connector
-
-brad
-
-3,565
-
-3565 Views
-
-0 Likes
-
-1 Comment
-
-3/7/2022
-
-at
-
-03:41 PM
-
-Can a User with multiple devices use them simultaneously whilst logged in using that same single account
-
-Client Connector
-
-michael.makombe
-
-4 Views
-
-0 Likes
-
-12
-
-12 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Force Acceptance of permissions - ZScaler Client Connector on Mobile Device with Intune
 <!-- /ZS-POST -->

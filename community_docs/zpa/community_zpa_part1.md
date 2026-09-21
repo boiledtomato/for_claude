@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — ZPA — Private Access (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-01 20:41 UTC
-Posts in this file: 310
+Generated: 2026-09-21 02:03 UTC
+Posts in this file: 316
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -3619,6 +3619,625 @@ Error
 
 ---
 
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Blogs/aSnPJ0000000ewj0AA/learning-zpa-from-scratch-a-beginner-friendly-guide","lastmod":"2026-09-02T17:53:51.000Z","id":"aSnPJ0000000ewj0AA"} -->
+## Learning ZPA from scratch: A beginner friendly guide
+
+- Source: https://community.zscaler.com/s/Blogs/aSnPJ0000000ewj0AA/learning-zpa-from-scratch-a-beginner-friendly-guide
+- Type: Blog
+- Last activity: 2026-09-02T17:53:51.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Blog Details
+
+ZPA - Forwarding
+
+ChensonZ41246
+
+(Employee) posted a Blog
+
+Edited September 2, 2026 at 5:53 PM
+
+Learning ZPA from scratch: A beginner friendly guide
+
+Welcome! If you are new to Zscaler and trying to understand how Zscaler Private Access (ZPA) works, you are in the right place. I am studying for the ZDTA; learning specific Zscaler concepts, so I wrote this to be helpful to anyone else on the same journey!
+
+At first glance, a new Security Architecture can feel full of acronyms and complex terms. But at its core, ZPA is not too hard to grasp. ZPA is designed around a very simple goal: to let users securely connect to internal private applications without putting those applications directly on the public internet or allowing lateral  (east/west) movement in the  corporate network.
+
+In traditional setups, companies used virtual private networks (VPNs). Connecting to a VPN was often like using a single key to enter an entire building just to visit one specific desk. ZPA takes a safer, modern approach: it guides you straight to the desk you need, without ever giving you access to the rest of the building. To make this seamless connection happen, ZPA uses five key building blocks behind the scenes. Let's break them down step-by-step using plain English and simple mental models.
+
+Understanding the Building Blocks of ZPA
+
+Application Segment (The Destination)
+
+What it is: The precise definition of the private application or service a user needs to reach. It specifies details like hostnames (e.g., blog.internal.com), IP addresses, port numbers, and protocols.
+
+Why it matters: This tells ZPA exactly
+
+what
+
+application is being requested so it can enforce access policies and route traffic accurately.
+
+How it connects: It lives inside a Segment Group and references a Server Group to figure out how to reach the app.
+
+Segment Group (The Organized Grouping of similar applications)
+
+What it is: A method used to organize related Application Segments together. (think similar access patterns!)
+
+Why it matters: As companies grow, they might have hundreds of internal applications. Segment Groups keep things tidy by grouping related apps together—for example, "Finance Apps," "Development Tools," or "HR Portals."
+
+How it connects: A Segment Group contains one or more Application Segments.
+
+Server Group (The Routing Bridge)
+
+( NOTE; don't get caught up on the name ' Server Group' too much here, a Server Group is all about Traffic Steering!)
+
+What it is: The routing decision layer.
+
+Why it matters: It acts as a bridge between
+
+what
+
+the application is (defined in the Application Segment) and
+
+where
+
+the underlying delivery infrastructure lives. By keeping this mapping separate, administrators don't have to re-configure individual application settings every time server infrastructure changes, and multiple applications can easily share the same routing rules.
+
+How it connects: An Application Segment points to a Server Group, which then directs traffic to the designated App Connector Groups servicing that location.
+
+App Connector
+
+What it is: A lightweight software component installed close to your private application servers inside your cloud or data center.
+
+Why it matters: The App Connector makes
+
+outbound-only
+
+connections to the ZPA cloud. Because it never accepts inbound connections from the internet, your application servers remain completely hidden from internet scans and threat actors.
+
+How it connects: It sits inside an App Connector Group and communicates directly with the Private Application Server.
+
+App Connector Group
+
+What it is: A cluster of App Connectors deployed in the same physical location or cloud environment (such as an AWS region, Azure data center, or local office).
+
+Why it matters: Placing multiple connectors into a group provides high availability and redundancy. If one connector goes offline or needs maintenance, others in the same group seamlessly handle the traffic.
+
+How it connects: It receives routing requests from Server Groups and contains individual App Connectors.
+
+2. The Order of Dependency
+
+To see how these objects rely on each other, here is the structural chain from top to bottom:
+
+[ Application Segment Group ]
+
+▼ (contains)
+
+[ Application Segment ]
+
+▼ (references)
+
+[ Server Group ]
+
+▼ (points to)
+
+[ App Connector Group ]
+
+▼ (contains)
+
+[ App Connector ]
+
+▼ (reaches)
+
+[ Private Application Server ]
+
+So, ... in plain English:
+
+A Segment Group organizes your Application Segments.
+
+An Application Segment defines the target app and references a Server Group.
+
+A Server Group points to an App Connector Group.
+
+An App Connector Group contains individual App Connectors.
+
+An App Connector delivers traffic to the actual Private Application Server.
+
+3. Basic Traffic Flow: A Day in the Life of a Request
+
+Let's walk through what happens when an employee sitting at a coffee shop tries to open employeeblog.internal.company.com:
+
+User Request: The user types
+
+blog.internal.company.com
+
+into their browser.
+
+Policy Check: ZPA receives the request and checks if the user is authorized to access it.
+
+Application Match: ZPA identifies that
+
+blog.internal.company.com
+
+matches an Application Segment (which belongs to the "Blog Tools" Segment Group).
+
+Finding the Path: ZPA checks the Application Segment's assigned Server Group to see where traffic should go.
+
+Selecting the Fleet: The Server Group points to the designated App Connector Group located in the company's primary data center.
+
+Establishing the Link: One of the available App Connectors in that group handles the connection request from the ZPA cloud.
+
+Final Arrival: The App Connector routes the request across the local private network directly to the Private Application Server.
+
+The employee sees the blog page load in seconds, completely unaware of the multi-step security checks working safely in the background!
+
+4. Why This Design Is So Useful
+
+Why separate ZPA into these distinct objects?
+
+Here are a few key benefits:
+
+Apps Stay Invisible: Because App Connectors make outbound connections only, your servers have no open inbound ports.
+
+Easier Management & Scaling: Need to add 10 new web applications in the same data center? Just create the Application Segments and link them to your existing Server Group—no need to reconfigure connectors.
+
+Built-in Resilience: Grouping connectors together into App Connector Groups ensures your applications stay accessible even if a server or connector fails.
+
+Geographic Optimization: Server Groups can point to connector groups in multiple regions, ensuring users are always routed through the closest available path.
+
+5. Quick Recap Cheat Sheet
+
+Here is a one-sentence summary for each concept to help you remember:
+
+Segment Group: An organizational structure used to keep related applications organized together.
+
+Application Segment: The definition of the private application, specifying its domain name, IP, ports, and protocols.
+
+Server Group: The routing bridge that links Application Segments to the appropriate App Connector Groups.
+
+App Connector Group: A cluster of App Connectors located in a specific environment for redundancy and location management.
+
+App Connector: The lightweight software gateway that creates outbound connections to ZPA and delivers data to the private app.
+
+I hope this was helpful in your ZPA learning journey!
+
+For further reference:
+
+What is Zscaler Private Access (ZPA)?
+
+Good high-level overview of what ZPA is and why it exists.
+
+What is Zero Trust Network Access (ZTNA)?
+
+Broader context for how ZPA fits into zero trust access.
+
+ZPA Leading Practices Guide
+
+Public-facing and more architectural than menu-driven. Useful for App Connectors, connector placement, and design thinking.
+
+About Segment Groups
+
+Direct explainer for what Segment Groups are.
+
+About Server Groups
+
+Direct explainer for Server Groups
+
+Associated Tags
+
+accesspolicy
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Blog Details
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Blogs/aSnPJ0000000fXp0AI/demystifying-zpa-establishing-a-zero-trust-journey-from-device-to-destination","lastmod":"2026-09-08T14:13:07.000Z","id":"aSnPJ0000000fXp0AI"} -->
+## Demystifying ZPA: Establishing a Zero Trust Journey from Device to Destination
+
+- Source: https://community.zscaler.com/s/Blogs/aSnPJ0000000fXp0AI/demystifying-zpa-establishing-a-zero-trust-journey-from-device-to-destination
+- Type: Blog
+- Last activity: 2026-09-08T14:13:07.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Blog Details
+
+ZPA - Forwarding
+
+ChensonZ41246
+
+(Employee) posted a Blog
+
+Edited 16h ago
+
+Demystifying ZPA: Establishing a Zero Trust Journey from Device to Destination
+
+When transitioning from traditional network security to Zscaler Private Access (ZPA), the terminology can sometimes feel like learning a new language. But underneath the hood, the core concepts of "source," "destination," and "next hop" are still there—they’ve just evolved for the Zero Trust era.... so why should you read this?
+
+I wrote this specifically to demystify Zero Trust terminology encountered in Zscaler Architectures; how these terms relate to one another; and together how they build the zero trust chain. Let's go!
+
+Act I: The Starting Line
+
+The journey begins at the Client Device. This could be a laptop running Windows, macOS, or Linux, or a mobile device.
+
+If this device has the
+
+Zscaler Client Connector (ZCC)
+
+installed, the ZCC acts as an intelligent, source-side traffic cop. In the old days, a traditional router or local gateway would blindly forward packets based on subnets. The ZCC is much smarter. It evaluates an admin-configured policy (the Forwarding Profile) to perform traffic steering. It looks at the packet and decides:
+
+“Does this go straight to the local network (bypassed), or does this get securely forwarded to the Zscaler Zero Trust Exchange (ZTE)?”
+
+Act II: The "Who" (Identity as the New Source IP)
+
+In legacy firewall policies, a rule usually started with a Source IP address or subnet. But IPs change, and they don't tell you
+
+who
+
+is actually at the keyboard. In
+
+ZPA, User Identity (via IdP Auth) replaces the source IP as the primary "Who."
+
+When the packet reaches the ZTE, the very first thing ZPA checks is the user's authenticated identity. This identity is the foundational "source" side of your access policy.
+
+Act III: The "What" (The Application Segment)
+
+If Identity is the "Source," then the
+
+Application Segment
+
+is the "Destination."
+
+Think of an Application Segment as a combination of a traditional Destination Object and a Service Object. It defines exactly
+
+what
+
+the user is trying to reach—the specific application/server (FQDN or IP) and the allowed ports and protocols (e.g., web-app.internalon TCP/443).
+
+Act IV: The Rulebook (The Access Policy)
+
+Evaluated centrally in the Zscaler cloud (the ZTE), the
+
+Access Policy
+
+acts as the ultimate bouncer. It takes the "Who" (Identity) and the "What" (Application Segment) and evaluates them before a single packet is ever routed. If there isn't an explicit Access Policy allowing your identity to reach that specific application, the connection is dropped right there in the cloud—the packet never even touches the corporate network.
+
+Act V: The "Where & How" (Stitching the Connection Together)
+
+This is where the magic happens. We know
+
+who
+
+the user is,
+
+what
+
+they are trying to reach, and IF that the Access Policy has
+
+allowed
+
+it. But how does the Zscaler cloud physically route that packet to an application hidden safely behind your corporate firewall without exposing it to the internet? Here is how the underlying routing logic ties together:
+
+The
+
+Server Group
+
+(The Traffic Steering Rule): If the Application Segment defines what the user wants to reach, the Server Group determines where to steer the traffic to find it. It links the application to a specific App Connector Group. In terms of traffic steering, the Server Group acts as a simple routing rule that tells the Zscaler cloud:
+
+"To reach this specific application, steer the packet down the tunnel to this exact location."
+
+The
+
+App Connector
+
+(The Trusted Gateway): To reach that Server Group, ZPA uses an App Connector. Think of the App Connector as your
+
+trusted internal gateway, next hop, or zone-local proxy
+
+. It sits inside your environment, next to your servers, and creates a secure, outbound-only connection
+
+up
+
+to the Zscaler cloud.
+
+The Final Handover
+
+The final traffic steering handover is a simple three-step chain:
+
+The Request: The Zscaler cloud sees the user is authorized by policy to reach an Application Segment.
+
+The Cloud Route: The cloud checks which Server Group is bound to that application. That Server Group is mapped to a specific App Connector Group. The cloud instantly steers the traffic down the secure tunnel to the best available App Connector in that group.
+
+The Local Delivery: The App Connector receives the traffic and uses the server definitions inside the Server Group to deliver the packet directly to the physical server on the local network.
+
+I do hope this was informative! Leave a comment, let me know if you liked it; what other topics would like to hear from us?
+
+For further deep dives:
+
+About Applications on Zscaler Help
+
+About Policies
+
+Configuring Access Policies
+
+About Server Groups
+
+Associated Tags
+
+accesspolicy
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Blog Details
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Blogs/aSnPJ0000000g7J0AQ/sipa-demystified-an-indepth-look-at-configuraiton-steps","lastmod":"2026-09-17T13:59:34.000Z","id":"aSnPJ0000000g7J0AQ"} -->
+## SIPA Demystified: An in-depth look at configuraiton steps
+
+- Source: https://community.zscaler.com/s/Blogs/aSnPJ0000000g7J0AQ/sipa-demystified-an-indepth-look-at-configuraiton-steps
+- Type: Blog
+- Last activity: 2026-09-17T13:59:34.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Blog Details
+
+Zscaler User Group Community
+
+ChensonZ41246
+
+(Employee) posted a Blog
+
+Edited 2h ago
+
+SIPA Demystified: An in-depth look at configuraiton steps
+
+SIPA (Source IP Anchoring) is one of my favorite Zscaler features because it solves a very specific challenge. In environments where applications are routed through Zscaler Zero Trust, some destination applications still need to see a consistent source IP address. SIPA makes that possible by keeping a customer’s outbound traffic anchored to a specific customer-designated public source IP, so the destination always sees traffic coming from the expected IP.
+
+Let's walk through common configuration items for SIPA; so you can see them in proper order and relation to one another:
+
+1. ZPA Application Segment Configuration for SIPA:
+
+Create a new Application Segment (e.g., named "SIPA Application") within ZPA. This segment defines the public application(s) for which you want to anchor the source IP (e.g.,
+
+ip.zscaler.com
+
+, ping.eu).
+
+Note: these are destination applications — the applications that will receive traffic with the SIPA-anchored source IP.
+
+Crucially, enable the "Source IP Anchor" setting for this Application Segment. This tells ZPA to route traffic for this application through a dedicated App Connector to provide a consistent egress IP.
+
+Define the TCP Port Ranges (e.g., 80 for HTTP and 443 for HTTPS) that the application uses.
+
+Associate this Application Segment with a Segment Group (e.g., "SIPA Segment") and a Server Group (e.g., "SIPA Server"). This Server Group must then be linked to an App Connector Group (e.g., "OnPrem") where your deployed App Connectors reside, indicating which App Connectors will serve this SIPA-enabled application.
+
+2. ZPA Access Policy Definition:
+
+Create an Access Policy (e.g., named "SIPA Policy") to explicitly allow access for the relevant users or user groups to the newly created SIPA Application Segment. This ensures only authorized identities can reach the anchored application.
+
+One nuance, though: the Access Policy itself doesn’t “create” SIPA by itself — it controls who can use the application path where SIPA is configured.
+
+3. ZPA Client Forwarding Policy Configuration:
+
+Configure two Client Forwarding Policy rules within ZPA to manage how different client types interact with the SIPA Application Segment:
+
+SIPA Bypass Rule: Configure this rule as Bypass ZPA for the SIPA Segment when the Client Type is Client Connector. This ensures that traffic originating directly from the user’s Client Connector does not use the SIPA path through ZPA.
+
+SIPA Forward Rule: Configure this rule as Forward to ZPA for the SIPA Segment when the Client Type is ZIA Service Edge. This ensures that traffic inspected by ZIA is forwarded to ZPA, where the anchored source IP is applied.
+
+4. ZIA Forwarding Configuration for Source IP Anchoring:
+
+Define a ZPA Gateway within ZIA (e.g., named "SIPA Gateway"). This gateway explicitly links back to the ZPA "SIPA Server" group and the "SIPA Application" segment that you configured in ZPA. This tells ZIA where to send traffic that needs to be anchored.
+
+5. Create a Forwarding Control Policy rule in ZIA (e.g., named "SIPA Forward").
+
+NOTE: So it can feel like “I already made a rule for this app — why am I making another one?” But each rule answers a different question. The first Policy we made about answers: Can this user/group access this application segment? This rule we are making next answers: Should this traffic be sent to ZPA at all? For which client type? So the rules are making are not access permissions; they’re path-selection rules.
+
+For this rule:
+
+▪ Set the Forwarding Method to "ZPA".
+
+▪ Define the Destination Criteria as the ZPA "SIPA Application Segment" that you created.
+
+▪ Set the Action to " Forward to ZPA Gateway”
+
+...... and select the SIPA Gateway you created.
+
+This tells ZIA to send traffic matching the SIPA Application Segment to ZPA instead of using standard ZIA egress, so the traffic can leave through the SIPA-enabled App Connector and present the anchored source IP.
+
+Verify Functionality:
+
+Ensure ZIA and ZPA services are enabled on the Zscaler Client Connector.
+
+Access the SIPA-configured public application (e.g., by navigating to https://ip.zscaler.com).
+
+Confirm that the displayed public IP address is the consistent, anchored source IP provided by the ZPA App Connector, which should be distinct from the default ZIA egress IP. This confirms that traffic for the specified application is now being routed from ZIA, through ZPA, and out via the App Connector, providing the desired fixed source IP.
+
+For dynamic testing, you can also modify the ZPA SIPA Application Segment to include another public domain (e.g., ping.eu) and verify that accessing this new domain also results in the anchored IP.
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Blog Details
+<!-- /ZS-POST -->
+
+---
+
 <!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ00000063Hl0AI/redeploying-virtual-service-edges-with-existing-ip-addresses","lastmod":"2026-07-22T07:00:29.000Z","id":"aSoPJ00000063Hl0AI"} -->
 ## Redeploying Virtual Service Edges with existing IP addresses
 
@@ -7186,6 +7805,487 @@ Step 3: Enforce Zero Trust access by configuring access policies for each B2B ap
 The guest configures the access policy, in our case it will be Account Name Pranav Kumar Internal.
 
 Host can view the policies defined by partners.
+
+Please reach out to us in the comments if you have any questions.
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Guide Details
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ0000006aaH0AQ/zpa-credential-management-certificate-credential-agent-setup","lastmod":"2026-08-12T16:23:07.000Z","id":"aSoPJ0000006aaH0AQ"} -->
+## ZPA Credential Management – Certificate & Credential Agent Setup
+
+- Source: https://community.zscaler.com/s/Guides/aSoPJ0000006aaH0AQ/zpa-credential-management-certificate-credential-agent-setup
+- Type: Guide
+- Last activity: 2026-08-12T16:23:07.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Guide Details
+
+Secure Private Access (ZPA)
+
+ZPA - Privileged Remote Access
+
+Christopher Graciano
+
+(Employee) posted a Guide
+
+Edited August 12, 2026 at 4:23 PM
+
+ZPA Credential Management – Certificate & Credential Agent Setup
+
+The link below demonstrates how to install and configure the Credential Agent for ZPA/PRA.  The credential agent is used to discover and rotate credentials in Active Directory and Entra.
+
+Credential Agent Deployment Guide
+
+Associated Tags
+
+best-practice
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Guide Details
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ0000006alZ0AQ/how-to-renew-microsoft-entra-id-zpa-certificate-before-it-expires","lastmod":"2026-08-07T07:02:27.000Z","id":"aSoPJ0000006alZ0AQ"} -->
+## How to renew Microsoft Entra ID ZPA certificate before it expires
+
+- Source: https://community.zscaler.com/s/Guides/aSoPJ0000006alZ0AQ/how-to-renew-microsoft-entra-id-zpa-certificate-before-it-expires
+- Type: Guide
+- Last activity: 2026-08-07T07:02:27.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Guide Details
+
+Technical Guides
+
+Yashraj Singha
+
+(Employee) posted a Guide
+
+Edited August 7, 2026 at 7:02 AM
+
+How to renew Microsoft Entra ID ZPA certificate before it expires
+
+Note:
+
+Special thanks to
+
+Emmanuel Quiros Vargas
+
+for their contributions to this guide. If you require help with the implementation of your specific configuration, please contact our
+
+Zscaler Deployment Services team for assistance
+
+____________________________________________________________________________________________
+
+Introduction
+
+Keeping your Identity Provider (IdP) certificates up to date is essential for maintaining seamless access to your applications. This ensures continuous, secure authentication for your users.
+
+This article walks you through renewing your certificate for Zscaler Private Access (ZPA) when using Microsoft Entra ID as your IdP, ensuring continuous, secure authentication for your users.
+
+You may receive alerts indicating that your ZPA certificate is close to expiring. The following is a sample of the email notification you might receive:
+
+The certificate used by your Identity Provider (IdP), specifically Entra ID, for Zscaler Private Access (ZPA) is nearing its expiration date. An expired certificate can disrupt user authentication and access to applications.
+
+Solution
+
+Follow these steps to update your certificate and ensure uninterrupted service.
+
+Updating the Certificate in Entra ID
+
+In Entra ID, navigate to Enterprise applications → Zscaler Private Access (ZPA) → Single sign-on (SAML).
+
+Within the Certificates section, add a new certificate, configure its activation date, and then download the certificate in .pem format.
+
+Updating the Certificate in Zscaler Private Access Admin Portal
+
+In the Zscaler Private Access (ZPA) Admin Portal, go to Administration → IdP → your Entra ID IdP.
+
+Replace the existing Identity Provider (IdP) certificate by either uploading the new .pem certificate or re-importing the Entra metadata.
+
+Click Save to apply the changes.
+
+Validating the Update
+
+Test Single Sign-On (SSO) with a test user to confirm that new logins are successful and users can access their applications without issues.
+
+Important Considerations for Certificate Updates
+
+Updating an Identity Provider (IdP) certificate can impact user experience. Please keep the following in mind:
+
+Authentication Impact: When you update an IdP certificate, the change will trigger an authentication error in the Zscaler Client Connector (ZCC), preventing users from accessing their applications. Users will need to reauthenticate in ZCC to regain access. Administrators should anticipate and prepare for these re-authentication scenarios when updating the IdP certificate in Zscaler Private Access (ZPA).
+
+Re-authentication Timing: In some scenarios, immediate re-authentication may not occur as the broker certificate cache remains active until the old IdP certificate becomes invalid. However, the Zscaler Private Access (ZPA) re-authentication error prompt will eventually appear for affected users, requiring them to reauthenticate.
+
+Maintenance Window: This behavior should be accounted for when planning an IdP certificate update. We recommend performing this update during a scheduled maintenance window to minimize disruption to your users.
+
+Please reach out to us in the comments if you have any questions.
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Guide Details
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ0000006h8j0AA/app-behavior-when-same-domain-is-in-vpn-gateway-bypass-and-zpa-app-segment","lastmod":"2026-09-10T11:41:48.000Z","id":"aSoPJ0000006h8j0AA"} -->
+## App Behavior When Same Domain Is in VPN Gateway Bypass and ZPA App Segment
+
+- Source: https://community.zscaler.com/s/Guides/aSoPJ0000006h8j0AA/app-behavior-when-same-domain-is-in-vpn-gateway-bypass-and-zpa-app-segment
+- Type: Guide
+- Last activity: 2026-09-10T11:41:48.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Guide Details
+
+Technical Guides
+
+Sejal Kumari
+
+(Employee) posted a Guide
+
+Edited 8h ago
+
+App Behavior When Same Domain Is in VPN Gateway Bypass and ZPA App Segment
+
+Note:
+
+If you require help with the implementation of your specific configuration, please contact our Zscaler Deployment Services team for assistance.
+
+____________________________________________________________________________________________
+
+Introduction
+
+When the same fully qualified domain name (FQDN) is configured in both the VPN Gateway Bypass list of an App Profile and a Zscaler Private Access (ZPA) application segment, ZPA takes precedence and routes the traffic through ZPA — not through the VPN bypass path. This article walks through that behavior using Zscaler Client Connector (ZCC) logs to show exactly what happens at each step.
+
+Solution
+
+This article covers the expected traffic behavior when the same FQDN, in this case,
+
+www.facebook.com
+
+, appears in two places:
+
+The VPN Gateway Bypass list in the App Profile:
+
+A ZPA application segment:
+
+Traffic behavior and ZCC log analysis
+
+Domain is downloaded from the App Profile:
+
+Line 1051: Network hostname csv:
+
+www.facebook.com
+
+,logs.zcc.zscaler.com,mobile.zscalerbeta.net,mobileadmin.zscalerbeta.net,mobilesupport.zscaler.com,pac.zdxbeta.net,pac.zscalerbeta.net
+
+Line 2191: Network hostname csv: www.facebook.com,logs.zcc.zscaler.com,mobile.zscalerbeta.net,mobileadmin.zscalerbeta.net,mobilesupport.zscaler.com,pac.zdxbeta.net,pac.zscalerbeta.net
+
+Note: Being included in the App Profile's bypass list does not determine the final forwarding path.
+
+Domain initially resolves to an IPv6 address:
+
+2026-08-20 10:35:42.989488(-0700)[8048:5344] DBG Resolved exclude hostname:
+
+www.facebook.com
+
+--> 2a03:2880:f350:1:face:b00c:0:25de
+
+2026-08-20 10:35:42.989488(-0700)[8048:5344] INF Adding filter for 2a03:2880:f350:1:face:b00c:0:25de
+
+2026-08-20 10:35:42.989488(-0700)[8048:5344] DBG Thread 1 terminates
+
+ZPA takes precedence:
+
+On a subsequent DNS query, ZCC identifies
+
+www.facebook.com
+
+as a ZPA application, queries the ZPA broker, and receives a valid application match. The broker response sets the bypass type to NEVER, which confirms ZPA has claimed the domain:
+
+2026-08-20 10:41:14.721984(-0700)[8048:7740] DBG DNS:
+
+Domain=www.facebook.com is ZPN!
+
+2026-08-20 10:41:14.721984(-0700)[8048:7740] DBG DNS: Check ZPN domain=www.facebook.com with broker
+
+2026-08-20 10:41:14.721984(-0700)[8048:7740] INF Send APP request to broker. Size: 109 Data: { "zpn_app_client_check": { "id": 285212679, "name": "
+
+www.facebook.com
+
+", "strict": 0, "type": "A" } }
+
+2026-08-20 10:41:14.721984(-0700)[8048:7740] DBG ZpnBrokerConn:0:Zpn socket Written bytes: 109 Available bytes to write: 0
+
+2026-08-20 10:41:14.769094(-0700)[8048:4920] INF ZPN:0: Control Message Response Data: {"zpn_app_client_check":{"id":285212679,"name":"
+
+www.facebook.com
+
+","type":"A","err_num":0,"ttl":30,"ingress_port_ranges":[80, 80, 443, 443, 8080, 8080],"tcp_port_ranges":[80, 80, 443, 443, 8080, 8080],
+
+"bypass":0,"icmp_access_type":"NONE","bypass_on_reauth":0
+
+,"double_encrypt":0,"bypass_type":"NEVER","app_domain":"
+
+www.facebook.com
+
+","strict":0,"has_a":0,"has_aaaa":0}}
+
+2026-08-20 10:41:14.769094(-0700)[8048:4920] DBG Got zpn_app_client_check response.
+
+2026-08-20 10:41:14.769094(-0700)[8048:4920] DBG zpn_client_app app_domain:
+
+www.facebook.com
+
+2026-08-20 10:41:14.769094(-0700)[8048:4920] DBG zpn_client_app deleted: 0
+
+2026-08-20 10:41:14.769094(-0700)[8048:4920] DBG zpn_client_app app_domain:
+
+www.facebook.com
+
+bypass_on_reauth is set. Value: 0
+
+2026-08-20 10:41:14.769094(-0700)[8048:4920] DBG zpn_client_app app_domain:
+
+www.facebook.com
+
+Bypass type: never
+
+Synthetic IP is assigned and the ZPA tunnel is established:
+
+ZCC returns a synthetic IP address (100.64.1.1) for the domain and initiates a ZPA micro-tunnel (Mtunnel) connection. The Mtunnel setup completes successfully, and traffic flows through ZPA:
+
+Line 28332: 2026-08-20 10:42:49.118422(-0700)[8048:7740] INF DNS: Send local A response for
+
+ZPN domain:
+
+www.facebook.com
+
+-> 100.64.1.1
+
+Line 28337: 2026-08-20 10:42:49.121428(-0700)[8048:4920] INF ===> ID=972268092, ZPN Connection local:53223->100.64.1.1:443 App Name=www.facebook.com, DoubleEncrypt=0 TAG-ID=65536
+
+Line 28339: 2026-08-20 10:42:49.121428(-0700)[8048:4920] DBG DNS: CNAME
+
+www.facebook.com
+
+is not a private domain
+
+Line 28340: 2026-08-20 10:42:49.121428(-0700)[8048:4920] DBG Writing Mtunnel request: Size: 214 Data: { "zpn_mtunnel_request": { "app_name": "
+
+www.facebook.com
+
+", "app_type": "name", "double_encrypt": 0, "frontend_domain": 0, "o_dip": "100.64.1.1", "o_sport": 53223, "tag_id": 65536, "tcp_server_port": 443 } }
+
+Line 32269: 2026-08-20 10:43:39.998621(-0700)[8048:4920] DBG ID=972268092, Disconnecting Tag id:
+
+65536
+
+from [::ffff:100.64.1.1]:53223 for app_name:
+
+www.facebook.com
+
+, stats=[Cl:(Rx:3203,Tx:89329) Sr:(Rx:89329,Tx:3203)]
+
+2026-08-20 10:42:49.883161(-0700)[8048:4920] DBG Got zpn_mtunnel_request_ack response.
+
+2026-08-20 10:42:49.883161(-0700)[8048:4920] DBG No error in zpn_mtunnel_request_ack response.
+
+2026-08-20 10:42:49.883161(-0700)[8048:4920] DBG zpn_mtunnel_request_ack tag_id:
+
+65536, mtunnel_id: 0egA89S2Z9DoEiSM8XCQ,pnxhXnqQVAtC5pKft6cY
+
+Setup Time: 0.761733 seconds
+
+2026-08-20 10:42:49.883161(-0700)[8048:4920] DBG ID=972268092, Not the ZDX CONNECT request
+
+The Mtunnel ID is confirmed in the ZPA portal logs, validating a successful session through ZPA.
+
+When the same FQDN is present in both the VPN Gateway Bypass list and a ZPA application segment, ZPA takes precedence. Although ZCC initially processes the domain as a bypass hostname from the App Profile, it subsequently identifies the domain as a ZPA application. From that point, ZCC assigns a synthetic IP, establishes a micro-tunnel, and routes the session through ZPA. The presence of the domain in the App Profile's VPN Gateway Bypass list does not override the ZPA application segment configuration.
 
 Please reach out to us in the comments if you have any questions.
 
@@ -39475,12 +40575,12 @@ Connecting to Azure SQL via ZPA - an error occurred during the pre-login handsha
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AZExkKCQT/howto-import-zpa-app-connector-vmware-ova-into-proxmox","lastmod":"2024-07-29T05:01:11.000Z","id":"0D54u0000AZExkKCQT"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AZExkKCQT/howto-import-zpa-app-connector-vmware-ova-into-proxmox","lastmod":"2026-09-18T20:44:44.000Z","id":"0D54u0000AZExkKCQT"} -->
 ## Howto import ZPA App Connector VMware OVA into Proxmox
 
 - Source: https://community.zscaler.com/s/question/0D54u0000AZExkKCQT/howto-import-zpa-app-connector-vmware-ova-into-proxmox
 - Type: Q&A
-- Last activity: 2024-07-29T05:01:11.000Z
+- Last activity: 2026-09-18T20:44:44.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 ZPA - Admin Portal
@@ -39551,15 +40651,15 @@ update VM 104: -cpu cputype=x86-64-v2-AES
 
 ZPA - Admin Portal
 
-1.46K views
+1.59K views
+
+hhuang_OMIC
 
 Ramesh Mani
 
-Ben_Garrison
-
 , and
 
-G-Man8
+2 others
 
 like this.
 
@@ -39591,9 +40691,9 @@ ZPA - Admin Portal
 
 Chandram81
 
-318
+345
 
-318 Views
+345 Views
 
 0 Likes
 
@@ -39611,9 +40711,9 @@ ZPA - Admin Portal
 
 Vinod
 
-338
+370
 
-338 Views
+370 Views
 
 0 Likes
 
@@ -39631,9 +40731,9 @@ ZPA - Admin Portal
 
 Diode
 
-409
+432
 
-409 Views
+432 Views
 
 0 Likes
 
@@ -62300,12 +63400,12 @@ Chrome Enterprise Device Trust integration with Zscaler
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000rzADj0AM/pra-portal-with-user-portal-links","lastmod":"2026-04-01T00:08:24.000Z","id":"0D5PJ00000rzADj0AM"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000rzADj0AM/pra-portal-with-user-portal-links","lastmod":"2026-08-17T17:10:10.000Z","id":"0D5PJ00000rzADj0AM"} -->
 ## PRA Portal with User Portal Links
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000rzADj0AM/pra-portal-with-user-portal-links
 - Type: Q&A
-- Last activity: 2026-04-01T00:08:24.000Z
+- Last activity: 2026-08-17T17:10:10.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 ZPA - Privileged Remote Access
@@ -62324,7 +63424,33 @@ Is there any way around having to keep the User Portal enabled? No users will be
 
 ZPA - Privileged Remote Access
 
-162 views
+1 answer
+
+488 views
+
+Allen Geiser
+
+(Employee)
+
+25 days ago
+
+Unfortunatel no — not if you want the PRA portal to surface the User Portal links.
+
+The consolidation feature depends on the User Portal object remaining enabled. If you disable that portal in ZPA, it becomes inaccessible, and the PRA portal generally can’t use it as the source for My Web Applications / portal links.
+
+What you
+
+can
+
+do is reduce exposure so the standalone User Portal is not practically reachable:
+
+Keep the User Portal enabled in ZPA
+
+Remove its public DNS record / CNAME
+
+Only publish the PRA portal URL to users
+
+Use the PRA portal’s User Portal for Portal Links setting to present the web apps there
 
 Log In to Answer
 
@@ -62374,9 +63500,9 @@ ZPA - Privileged Remote Access
 
 ozanogur
 
-423
+437
 
-423 Views
+437 Views
 
 0 Likes
 
@@ -62394,9 +63520,9 @@ ZPA - Privileged Remote Access
 
 JM
 
-238
+260
 
-238 Views
+260 Views
 
 0 Likes
 
@@ -62414,9 +63540,9 @@ ZPA - Privileged Remote Access
 
 Diode
 
-462
+490
 
-462 Views
+490 Views
 
 0 Likes
 
@@ -64243,12 +65369,12 @@ Guided Tour asking Enter your username or email to sign in -Solution Demo Center
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000yL0Ml0AK/zpa-usage-report-for-60-days-and-90-days","lastmod":"2026-07-14T14:15:47.000Z","id":"0D5PJ00000yL0Ml0AK"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000yL0Ml0AK/zpa-usage-report-for-60-days-and-90-days","lastmod":"2026-08-17T17:03:07.000Z","id":"0D5PJ00000yL0Ml0AK"} -->
 ## ZPA Usage report for 60 days and 90 days
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000yL0Ml0AK/zpa-usage-report-for-60-days-and-90-days
 - Type: Q&A
-- Last activity: 2026-07-14T14:15:47.000Z
+- Last activity: 2026-08-17T17:03:07.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 ZPA - Admin Portal
@@ -64267,7 +65393,19 @@ If we can increase this range for 60days and 90 days, it will be beneficial for 
 
 ZPA - Admin Portal
 
-200 views
+1 answer
+
+555 views
+
+Allen Geiser
+
+(Employee)
+
+a month ago
+
+Vipul,
+
+You could submit a feature request to see if that time frame can be extended. You could also export the logs through LSS so you could have them for longer periods of time.
 
 Log In to Answer
 
@@ -64297,9 +65435,9 @@ ZPA - Admin Portal
 
 Chandram81
 
-322
+344
 
-322 Views
+344 Views
 
 0 Likes
 
@@ -64317,9 +65455,9 @@ ZPA - Admin Portal
 
 Vinod
 
-341
+368
 
-341 Views
+368 Views
 
 0 Likes
 
@@ -64337,9 +65475,9 @@ ZPA - Admin Portal
 
 Diode
 
-412
+431
 
-412 Views
+431 Views
 
 0 Likes
 
