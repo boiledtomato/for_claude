@@ -12,10 +12,6 @@ Two components:
 
 A GitHub Actions workflow runs both on a daily schedule and deploys the result.
 
-The repository also hosts **`budget/`**, a household budget app that shares nothing
-with the Zscaler pipeline except the GitHub Pages deployment. It has no Python, no
-workflow of its own, and no dependency on `data/`. See `### budget/` below.
-
 ## Repository Structure
 
 ```
@@ -42,10 +38,6 @@ for_claude/
 ├── community_docs/                   # Zenith Community Markdown — not published
 │   ├── README.md
 │   └── <category>/community_<category>_partN.md
-├── budget/                           # 家計簿アプリ — Zscaler パイプラインとは無関係
-│   ├── index.html                    # Single-page app (HTML + CSS + JS, self-contained)
-│   ├── apps-script/Code.gs           # Google Sheets backend for two-device sync
-│   └── README.md                     # Setup guide (Japanese)
 ├── docs/
 │   └── notebooklm-setup.md           # One-time auth setup for the sync
 ├── .github/
@@ -414,42 +406,6 @@ not inspected — tens of MB, and their correctness belongs to the build scripts
 only whether it parses. Requiring it for auto-merge means a PR can reach `main`
 without anyone reading it.
 
-### `budget/`
-
-A household budget app, unrelated to everything above. It rides along on the same
-GitHub Pages deployment and is otherwise self-contained: no Python, no workflow, no
-shared data. Served at `/for_claude/budget/`.
-
-- **`budget/index.html`** — the whole app. Vanilla JS, hand-written SVG charts, no
-  CDN and no build step, matching the root `index.html`'s constraints. Receipts are
-  entered by hand (date / category / amount / memo); the views are a month-vs-month
-  donut comparison with a per-category difference table, and a full-period line +
-  stacked-bar trend. Categories are user-created via a `＋` button.
-- **`budget/apps-script/Code.gs`** — optional backend so two people share one dataset.
-  Pasted into a Google Apps Script project bound to a spreadsheet and deployed as a
-  web app; the spreadsheet is the store. Nothing in the repo points at it — the user
-  enters the `/exec` URL and a shared token in the app's settings tab, and both live
-  only in that browser's `localStorage`.
-
-Things that will bite whoever edits this next:
-
-- **POST bodies go out as `text/plain`, deliberately.** Apps Script web apps cannot
-  answer a CORS preflight, so `application/json` would make every request fail. The
-  script reads `e.postData.contents` and parses it itself.
-- **Sync is row-level last-write-wins on `updatedAt`.** Deletes are soft (`deleted`
-  flag) — a hard delete resurrects the row from the other device on its next push.
-- **The 8 seeded categories use fixed ids (`c_default_0`…`7`) and an epoch
-  `updatedAt`.** Fixed ids stop the second device from duplicating the defaults;
-  the epoch timestamp makes any real edit on either device win over a fresh seed.
-- **Series colors are a fixed 8-slot palette, validated for CVD in both themes.**
-  Color binds to the category, never to rank. Charts fold past their slice cap into
-  a gray "その他", and a category whose color collides with an already-drawn one is
-  folded too, so two identical hues never appear in one chart. Every folded amount
-  is still in the table view under the chart.
-- **`budget/` is published by `daily-update.yml` like everything else at the repo
-  root** — it is *not* in the `tar --exclude` list, and should not be. It holds no
-  data: the user's records live in their own browser and their own spreadsheet.
-
 ## Development Workflows
 
 ### Running the fetch script locally
@@ -529,19 +485,6 @@ Current split of the 2,649 collected posts: `zia` 727, `other` 715, `zcc` 655,
 Then sync with the community-specific flags (see `docs/notebooklm-setup.md`) or
 upload `community_docs/<category>/*.md` by hand — into the **`Zscaler_community`
 notebook, not the help-docs one**.
-
-### Working on the budget app
-
-```bash
-python -m http.server 8000
-# → http://localhost:8000/budget/
-```
-
-No build step and no dependencies. To exercise the sync without a real Google
-account, stub the Apps Script globals (`SpreadsheetApp`, `LockService`,
-`ContentService`, `Utilities`, `Session`) around the real `Code.gs` and serve
-`doPost` over HTTP — the sheet is just a 2-D array, and this tests the shipped
-backend rather than a reimplementation of it.
 
 ### Adding a category to the documentation set
 
