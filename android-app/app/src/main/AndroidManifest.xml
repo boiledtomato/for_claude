@@ -12,6 +12,16 @@
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <!--
+      長押しメニューのアンインストール（ACTION_DELETE）に要る。normal 権限なので実行時の
+      確認は不要だが、**宣言しないと targetSdk 28 以降では例外も出さずに失敗する** ―
+      アンインストーラは起動したそばから終了し、呼び出し側からは成功に見える。
+      実機では「押しても何も起きない」という形で出た（logcat には
+      "does not have android.permission.REQUEST_DELETE_PACKAGES" だけが残る）。
+      消すのは OS で、この権限は「確認画面を出してよい」以上の意味を持たない。
+    -->
+    <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES" />
+
+    <!--
       Web Insights のアプリ別通信量に使う。signature|appop なので実行時ダイアログでは出せず、
       ここで宣言したうえでユーザーが設定 →「使用状況へのアクセス」で許可する。
       未許可でもアプリは通常どおり動き、Insights ペインだけが空になる。
