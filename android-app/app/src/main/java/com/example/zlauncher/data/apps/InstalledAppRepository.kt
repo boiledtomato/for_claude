@@ -1,6 +1,7 @@
 package com.example.zlauncher.data.apps
 
 import android.content.Context
+import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.util.Log
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -45,6 +46,11 @@ class InstalledAppRepository @Inject constructor(
                         user = user,
                         firstInstallTime = pm.firstInstallTimeOf(info.componentName.packageName),
                         isWorkProfile = user != currentUser,
+                        // プロファイルをまたぐと PackageManager からは引けないので、
+                        // LauncherActivityInfo が持っている ApplicationInfo を見る
+                        isSystem = info.applicationInfo.flags and ApplicationInfo.FLAG_SYSTEM != 0,
+                        hasSystemUpdate =
+                            info.applicationInfo.flags and ApplicationInfo.FLAG_UPDATED_SYSTEM_APP != 0,
                     )
                 }.onFailure { Log.w(TAG, "skip ${info.componentName}", it) }.getOrNull()
             }

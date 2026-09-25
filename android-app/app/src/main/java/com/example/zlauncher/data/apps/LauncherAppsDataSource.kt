@@ -2,8 +2,10 @@ package com.example.zlauncher.data.apps
 
 import android.content.ComponentName
 import android.content.Context
+import android.content.Intent
 import android.content.pm.LauncherActivityInfo
 import android.content.pm.LauncherApps
+import android.net.Uri
 import android.os.Handler
 import android.os.Looper
 import android.os.Process
@@ -98,6 +100,24 @@ class LauncherAppsDataSource @Inject constructor(
         launcherApps?.startAppDetailsActivity(componentName, user, sourceBounds, null)
         true
     }.onFailure { Log.w(TAG, "startAppDetailsActivity failed", it) }.getOrDefault(false)
+
+    /**
+     * アンインストールの確認画面を出す。**消すのは OS で、こちらは頼むだけ。**
+     *
+     * `LauncherApps` に削除の API は無い（`DELETE_PACKAGES` は署名権限）ので、
+     * システムのアンインストーラを `ACTION_DELETE` で開く。確認ダイアログはその画面が出すため、
+     * 呼ぶ前にこちらで二重に聞かない。
+     *
+     * **個人用プロファイルのアプリ専用。** この Intent が運べるのはパッケージ名だけで、
+     * どのユーザーのものかを指定する手段が無い。仕事用プロファイルのアプリに対して投げると、
+     * 同じパッケージの個人用のほうが消えうる ― 呼び出し側で弾くこと。
+     */
+    fun requestUninstall(packageName: String): Boolean = runCatching {
+        val intent = Intent(Intent.ACTION_DELETE, Uri.fromParts("package", packageName, null))
+            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        context.startActivity(intent)
+        true
+    }.onFailure { Log.w(TAG, "uninstall request failed for $packageName", it) }.getOrDefault(false)
 
     private companion object {
         const val TAG = "LauncherAppsDataSource"

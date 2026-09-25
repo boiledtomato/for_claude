@@ -113,6 +113,17 @@ class AppDrawerViewModel @Inject constructor(
         launcherApps.openAppDetails(entry.componentName, entry.user, sourceBounds)
     }
 
+    /**
+     * アンインストールを頼む。確認も実行も OS 側のアンインストーラが行う。
+     *
+     * 消えたあとの一覧の更新は [InstalledAppRepository] が `LauncherApps` の
+     * コールバックで拾うので、ここでは何もしない。
+     */
+    fun uninstall(entry: AppEntry) {
+        if (!entry.canUninstall) return
+        launcherApps.requestUninstall(entry.packageName)
+    }
+
     fun addFavorite(entry: AppEntry) = viewModelScope.launch {
         favoritesRepository.add(entry.packageName)
     }

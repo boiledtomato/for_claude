@@ -216,7 +216,7 @@ fun CategoryCatalogDialog(
                         onValueChange = { customName = it },
                     )
                     Spacer(Modifier.height(10.dp))
-                    ColorPicker(selected = customColor, onSelect = { customColor = it })
+                    CategoryColorPicker(selected = customColor, onSelect = { customColor = it })
                 }
             }
 
@@ -330,7 +330,7 @@ private fun PickedRow(
         ) {
             Column {
                 Spacer(Modifier.height(10.dp))
-                ColorPicker(selected = pick.colorIndex, onSelect = onColor)
+                CategoryColorPicker(selected = pick.colorIndex, onSelect = onColor)
             }
         }
     }
@@ -526,31 +526,6 @@ private fun TextInput(value: String, placeholder: String, onValueChange: (String
             cursorBrush = SolidColor(ZColors.AccentAlt),
             modifier = Modifier.fillMaxWidth(),
         )
-    }
-}
-
-/** 15 色。横一列には収まらないので折り返す */
-@OptIn(ExperimentalLayoutApi::class)
-@Composable
-private fun ColorPicker(selected: Int, onSelect: (Int) -> Unit) {
-    FlowRow(
-        horizontalArrangement = Arrangement.spacedBy(9.dp),
-        verticalArrangement = Arrangement.spacedBy(9.dp),
-    ) {
-        ZColors.CategoryColors.forEachIndexed { index, color ->
-            Box(
-                Modifier
-                    .size(28.dp)
-                    .clip(CircleShape)
-                    .background(color.copy(alpha = if (index == selected) 1f else 0.35f))
-                    .border(
-                        2.dp,
-                        if (index == selected) ZColors.TextPrimary else ZColors.Outline,
-                        CircleShape,
-                    )
-                    .springyClick { onSelect(index) }
-            )
-        }
     }
 }
 

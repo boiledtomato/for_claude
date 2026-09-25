@@ -124,6 +124,7 @@ fun AppDrawerScreen(
                         onAddFavorite = viewModel::addFavorite,
                         onRemoveFavorite = viewModel::removeFavorite,
                         onAppInfo = viewModel::openAppInfo,
+                        onUninstall = viewModel::uninstall,
                     )
                 }
             }
@@ -177,6 +178,7 @@ private fun DrawerAppItem(
     onAddFavorite: (AppEntry) -> Unit,
     onRemoveFavorite: (AppEntry) -> Unit,
     onAppInfo: (AppEntry, android.graphics.Rect?) -> Unit,
+    onUninstall: (AppEntry) -> Unit,
 ) {
     var menuOpen by remember { mutableStateOf(false) }
     var bounds by remember { mutableStateOf<android.graphics.Rect?>(null) }
@@ -218,6 +220,21 @@ private fun DrawerAppItem(
                 text = { Text("App info", style = ZType.Body, color = ZColors.TextPrimary) },
                 onClick = { menuOpen = false; onAppInfo(entry, bounds) },
             )
+            // 消せないアプリには出さない。押しても OS に断られるだけの項目は、
+            // 出ているほうが紛らわしい（プリインと仕事用プロファイルが該当）
+            if (entry.canUninstall) {
+                DropdownMenuItem(
+                    text = {
+                        Text(
+                            text = if (entry.uninstallRemovesUpdatesOnly) "Uninstall updates" else "Uninstall",
+                            style = ZType.Body,
+                            // 取り消しのきかない操作なので、他の項目と同じ色にはしない
+                            color = ZColors.Danger,
+                        )
+                    },
+                    onClick = { menuOpen = false; onUninstall(entry) },
+                )
+            }
         }
     }
 }

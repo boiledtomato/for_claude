@@ -49,6 +49,37 @@ import com.example.zlauncher.domain.model.AppEntry
 import com.example.zlauncher.ui.apps.component.AppIconTile
 import com.example.zlauncher.ui.apps.component.rememberAppIcon
 
+/**
+ * カテゴリーの色 15 枚。**追加時と変更時で同じものを使う。**
+ *
+ * 以前はここと [CategoryCatalogDialog] にそれぞれ別の実装があり、こちらは素の Row だった。
+ * 15 枚 × 28dp は横一列に収まらないので、ダイアログの幅から先はただ切れて見えなくなり、
+ * 「変更のときだけ色が少ない」という形で出る。折り返しは見栄えではなく、選べる色の数そのもの。
+ */
+@OptIn(ExperimentalLayoutApi::class)
+@Composable
+internal fun CategoryColorPicker(selected: Int, onSelect: (Int) -> Unit) {
+    FlowRow(
+        horizontalArrangement = Arrangement.spacedBy(9.dp),
+        verticalArrangement = Arrangement.spacedBy(9.dp),
+    ) {
+        ZColors.CategoryColors.forEachIndexed { index, color ->
+            Box(
+                Modifier
+                    .size(28.dp)
+                    .clip(CircleShape)
+                    .background(color.copy(alpha = if (index == selected) 1f else 0.35f))
+                    .border(
+                        2.dp,
+                        if (index == selected) ZColors.TextPrimary else ZColors.Outline,
+                        CircleShape,
+                    )
+                    .springyClick { onSelect(index) }
+            )
+        }
+    }
+}
+
 /** カテゴリーの名前と色の変更 */
 @Composable
 fun CategoryEditDialog(
@@ -94,22 +125,7 @@ fun CategoryEditDialog(
             Spacer(Modifier.height(16.dp))
             Text("Color", style = ZType.Eyebrow, color = ZColors.TextSecondary)
             Spacer(Modifier.height(10.dp))
-            Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                ZColors.CategoryColors.forEachIndexed { index, color ->
-                    Box(
-                        Modifier
-                            .size(30.dp)
-                            .clip(CircleShape)
-                            .background(color.copy(alpha = if (index == colorIndex) 1f else 0.35f))
-                            .border(
-                                width = if (index == colorIndex) 2.dp else 1.dp,
-                                color = if (index == colorIndex) ZColors.TextPrimary else ZColors.Outline,
-                                shape = CircleShape,
-                            )
-                            .springyClick { colorIndex = index }
-                    )
-                }
-            }
+            CategoryColorPicker(selected = colorIndex, onSelect = { colorIndex = it })
             Spacer(Modifier.height(20.dp))
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
                 DialogButton("Cancel", accent = false, onClick = onDismiss)
