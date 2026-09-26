@@ -2,6 +2,8 @@ package com.example.zlauncher.ui.widgets
 
 import android.content.ComponentName
 import android.content.Context
+import android.os.Process
+import android.os.UserHandle
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
@@ -33,6 +35,10 @@ class WidgetPickerViewModel @Inject constructor(
 
     data class ProviderItem(
         val provider: ComponentName,
+        /** どのプロファイルのプロバイダか。結び付けるときに要る */
+        val user: UserHandle,
+        /** 仕事用プロファイルのものか。同名のウィジェットが 2 つ並ぶので、見分けが要る */
+        val isWorkProfile: Boolean,
         val label: String,
         /** 提供元アプリの名前。ウィジェット名だけでは何のものか分からないものが多い */
         val appLabel: String,
@@ -44,7 +50,9 @@ class WidgetPickerViewModel @Inject constructor(
         /** 設定画面を持つウィジェットは、バインド後にこれを起動しないと空のまま表示される */
         val configure: ComponentName?,
     ) {
-        val key: String get() = provider.flattenToShortString()
+        // 同じアプリが個人用と仕事用の両方に入っていると provider は同一になる。
+        // ユーザーを混ぜないと、片方を選んだだけでもう片方まで選択済みに見える
+        val key: String get() = "${provider.flattenToShortString()}#${user.hashCode()}"
 
         /** 検索対象。ウィジェット名・アプリ名・パッケージ名のどれで引いても当たるように */
         fun matches(query: String): Boolean {
@@ -52,7 +60,9 @@ class WidgetPickerViewModel @Inject constructor(
             if (q.isEmpty()) return true
             return label.contains(q, ignoreCase = true) ||
                 appLabel.contains(q, ignoreCase = true) ||
-                provider.packageName.contains(q, ignoreCase = true)
+                provider.packageName.contains(q, ignoreCase = true) ||
+                // 仕事用のものだけを見たいときに絞れるように
+                (isWorkProfile && "work".startsWith(q, ignoreCase = true))
         }
     }
 
@@ -73,8 +83,12 @@ class WidgetPickerViewModel @Inject constructor(
         val pm = context.packageManager
         val metrics = context.resources.displayMetrics
         val iconSize = (40 * metrics.density).roundToInt().coerceAtLeast(1)
+        val me = Process.myUserHandle()
         return host.installedProviders().mapNotNull { info ->
             runCatching {
+                // getProfile() は API 21 から。プロバイダがどちらのユーザーのものかを持っている
+                val user = info.profile ?: me
+                val work = user != me
                 // AppWidgetProviderInfo.providerInfo は SDK に無いので、パッケージから引く。
                 // 提供元が見えない場合（パッケージ可視性）はパッケージ名で代用する
                 val appLabel = runCatching {
@@ -82,9 +96,14 @@ class WidgetPickerViewModel @Inject constructor(
                 }.getOrNull().orEmpty().ifBlank { info.provider.packageName }
                 ProviderItem(
                     provider = info.provider,
+                    user = user,
+                    isWorkProfile = work,
                     label = info.loadLabel(pm).ifBlank { info.provider.packageName },
                     appLabel = appLabel,
-                    icon = info.loadIcon(context, metrics.densityDpi)?.toImageBitmap(iconSize),
+                    // 仕事用のアイコンにはブリーフケースを重ねる。ドロワーのタイルと同じ扱い
+                    icon = info.loadIcon(context, metrics.densityDpi)
+                        ?.let { if (work) pm.getUserBadgedIcon(it, user) else it }
+                        ?.toImageBitmap(iconSize),
                     minHeightDp = (info.minHeight / metrics.density).roundToInt().coerceIn(80, 320),
                     widthSpan = WidgetPlacement.spanForWidthDp((info.minWidth / metrics.density).roundToInt()),
                     sizeLabel = "%d × %d dp".format(
@@ -95,8 +114,11 @@ class WidgetPickerViewModel @Inject constructor(
                 )
             }.getOrNull()
         }
-            // 提供元アプリでまとめてから名前順。同じアプリのウィジェットが散らばると探せない
-            .sortedWith(compareBy({ it.appLabel.lowercase() }, { it.label.lowercase() }))
+            // 個人用を先に、そのあと提供元アプリでまとめてから名前順。
+            // 同じアプリのウィジェットが散らばると探せない
+            .sortedWith(
+                compareBy({ it.isWorkProfile }, { it.appLabel.lowercase() }, { it.label.lowercase() }),
+            )
     }
 
     // ---- 検索と複数選択 -----------------------------------------------------
@@ -127,8 +149,8 @@ class WidgetPickerViewModel @Inject constructor(
 
     fun allocateAppWidgetId(): Int = host.allocateAppWidgetId()
 
-    fun bindIfAllowed(appWidgetId: Int, provider: ComponentName): Boolean =
-        host.bindIfAllowed(appWidgetId, provider)
+    fun bindIfAllowed(appWidgetId: Int, user: UserHandle, provider: ComponentName): Boolean =
+        host.bindIfAllowed(appWidgetId, user, provider)
 
     /** 追加を取りやめたときは必ず ID を返す（放置すると ID がリークする） */
     fun cancel(appWidgetId: Int) = host.deleteAppWidgetId(appWidgetId)

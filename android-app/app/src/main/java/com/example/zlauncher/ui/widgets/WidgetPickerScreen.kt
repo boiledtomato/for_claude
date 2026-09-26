@@ -160,12 +160,18 @@ fun WidgetPickerScreen(
     // ID が同じ値になり得る。appWidgetId だけを鍵にすると鍵が変わらず、行列がそこで止まる
     LaunchedEffect(pending?.appWidgetId, queueIndex) {
         val target = pending ?: return@LaunchedEffect
-        if (viewModel.bindIfAllowed(target.appWidgetId, target.item.provider)) {
+        if (viewModel.bindIfAllowed(target.appWidgetId, target.item.user, target.item.provider)) {
             configureOrFinish(target)
         } else {
             val intent = Intent(AppWidgetManager.ACTION_APPWIDGET_BIND).apply {
                 putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, target.appWidgetId)
                 putExtra(AppWidgetManager.EXTRA_APPWIDGET_PROVIDER, target.item.provider)
+                // **どのプロファイルのプロバイダかを添える。** 省くと同意画面は呼び出し元の
+                // ユーザーを前提にするので、仕事用のウィジェットは結び付けられない
+                putExtra(
+                    AppWidgetManager.EXTRA_APPWIDGET_PROVIDER_PROFILE,
+                    target.item.user,
+                )
             }
             runCatching { bindLauncher.launch(intent) }.onFailure { abort(target) }
         }
@@ -367,6 +373,9 @@ private fun ProviderRow(
                     append(" · ")
                     append(item.sizeLabel)
                     if (item.configure != null) append(" · Configurable")
+                    // アイコンのバッジだけだと小さくて見落とす。同じアプリが両方の
+                    // プロファイルに入っていると、行は名前も大きさも同一になる
+                    if (item.isWorkProfile) append(" · Work")
                 },
                 style = ZType.Sub,
                 color = ZColors.TextSecondary,

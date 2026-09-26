@@ -7,6 +7,8 @@ import android.appwidget.AppWidgetProviderInfo
 import android.content.ComponentName
 import android.content.Context
 import android.os.Process
+import android.os.UserHandle
+import android.os.UserManager
 import android.util.Log
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
@@ -27,6 +29,7 @@ class WidgetHostController @Inject constructor(
     @ApplicationContext private val context: Context,
 ) {
     private val appWidgetManager: AppWidgetManager? = runCatching { AppWidgetManager.getInstance(context) }.getOrNull()
+    private val userManager: UserManager? = runCatching { context.getSystemService(UserManager::class.java) }.getOrNull()
     private val host = AppWidgetHost(context, HOST_ID)
 
     fun startListening() {
@@ -46,14 +49,36 @@ class WidgetHostController @Inject constructor(
     fun providerInfo(appWidgetId: Int): AppWidgetProviderInfo? =
         runCatching { appWidgetManager?.getAppWidgetInfo(appWidgetId) }.getOrNull()
 
-    /** 現在のユーザーのプロバイダのみ。仕事用プロファイルのウィジェットは MVP では扱わない */
-    fun installedProviders(): List<AppWidgetProviderInfo> =
-        runCatching { appWidgetManager?.getInstalledProvidersForProfile(Process.myUserHandle()).orEmpty() }
-            .onFailure { Log.w(TAG, "installedProviders failed", it) }
+    /**
+     * 個人用と仕事用、**両方のプロファイル**のプロバイダ。
+     *
+     * `getInstalledProvidersForProfile` は名前のとおり 1 プロファイル分しか返さないので、
+     * プロファイルごとに呼んで束ねる。以前は個人用だけを見ており、仕事用にしか入っていない
+     * アプリのウィジェットは一覧に出しようがなかった。
+     *
+     * プロファイルの取得に失敗しても、少なくとも自分の分は返す（端末に仕事用が無いのが
+     * 普通なので、ここで空にしてしまうと全滅する）。
+     */
+    fun installedProviders(): List<AppWidgetProviderInfo> {
+        val manager = appWidgetManager ?: return emptyList()
+        val profiles = runCatching { userManager?.userProfiles.orEmpty() }
+            .onFailure { Log.w(TAG, "userProfiles failed", it) }
             .getOrDefault(emptyList())
+            .ifEmpty { listOf(Process.myUserHandle()) }
+        return profiles.flatMap { user ->
+            runCatching { manager.getInstalledProvidersForProfile(user).orEmpty() }
+                .onFailure { Log.w(TAG, "installedProviders failed for $user", it) }
+                .getOrDefault(emptyList())
+        }
+    }
 
-    fun bindIfAllowed(appWidgetId: Int, provider: ComponentName): Boolean =
-        runCatching { appWidgetManager?.bindAppWidgetIdIfAllowed(appWidgetId, provider) == true }
+    /**
+     * プロバイダが**どのプロファイルのものか**を渡す版を使う。引数の無い版は呼び出し元の
+     * ユーザーを前提にするので、仕事用のウィジェットを個人用として結び付けようとして失敗する。
+     */
+    fun bindIfAllowed(appWidgetId: Int, user: UserHandle, provider: ComponentName): Boolean =
+        runCatching { appWidgetManager?.bindAppWidgetIdIfAllowed(appWidgetId, user, provider, null) == true }
+            .onFailure { Log.w(TAG, "bindIfAllowed failed for $provider", it) }
             .getOrDefault(false)
 
     fun createView(activityContext: Context, appWidgetId: Int, info: AppWidgetProviderInfo): AppWidgetHostView =
