@@ -2,6 +2,7 @@ package com.example.zlauncher.ui.console
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.border
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
@@ -16,10 +17,14 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.relocation.BringIntoViewRequester
+import androidx.compose.foundation.relocation.bringIntoViewRequester
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -296,8 +301,6 @@ private fun WidgetSheetPage(
     onEnterRemoval: (Int) -> Unit,
     onToggleMark: (Int) -> Unit,
 ) {
-    val context = LocalContext.current
-
     // 並べ替えはシートの中だけ。位置はこのシートでの番号で渡す
     val reorder = rememberListReorderState(
         onMove = { from, to -> viewModel.moveWidgetTo(sheet.id, from, to) },
@@ -318,48 +321,21 @@ private fun WidgetSheetPage(
         ),
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        if (editing) {
-            item(key = "controls") {
-                val info = selected?.let { widgetHost.providerInfo(it.appWidgetId) }
+        // 選んでいないあいだの案内だけを上に置く。**操作するバーは選んだウィジェットの
+        // すぐ下に出す**（下記）― 以前はこの位置に固定で、下のほうのウィジェットを
+        // 調整するたびに一番上まで戻る必要があった
+        if (editing && selected == null) {
+            item(key = "controls-hint") {
                 SizeBar(
-                    name = when {
-                        selected == null -> null
-                        info != null -> info.loadLabel(context.packageManager).toString()
-                        else -> "Unavailable widget"
-                    },
-                    placement = selected,
-                    canMoveBack = selectedIndex > 0,
-                    canMoveForward = selectedIndex >= 0 && selectedIndex < widgets.lastIndex,
-                    onSpanStep = { delta ->
-                        selected?.let {
-                            viewModel.setWidgetSpan(it.appWidgetId, WidgetPlacement.clampSpan(it.widthSpan + delta))
-                        }
-                    },
-                    onHeightStep = { delta ->
-                        selected?.let {
-                            viewModel.setWidgetHeight(
-                                it.appWidgetId,
-                                WidgetPlacement.clampHeight(it.heightDp + delta),
-                            )
-                        }
-                    },
-                    onMove = { delta -> selected?.let { viewModel.moveWidget(it.appWidgetId, delta) } },
-                    onReset = {
-                        val target = selected ?: return@SizeBar
-                        val provider = info ?: return@SizeBar
-                        val density = context.resources.displayMetrics.density
-                        viewModel.setWidgetHeight(
-                            target.appWidgetId,
-                            WidgetPlacement.clampHeight((provider.minHeight / density).roundToInt()),
-                        )
-                        viewModel.setWidgetSpan(
-                            target.appWidgetId,
-                            WidgetPlacement.spanForWidthDp((provider.minWidth / density).roundToInt()),
-                        )
-                    },
-                    onRemove = {
-                        selected?.let { viewModel.removeWidget(it.appWidgetId) }
-                    },
+                    name = null,
+                    placement = null,
+                    canMoveBack = false,
+                    canMoveForward = false,
+                    onSpanStep = {},
+                    onHeightStep = {},
+                    onMove = {},
+                    onReset = {},
+                    onRemove = {},
                 )
             }
         }
@@ -390,7 +366,10 @@ private fun WidgetSheetPage(
 
         itemsIndexed(rows, key = { _, row -> row.widgets.first().appWidgetId }) { rowIndex, row ->
             val firstIndex = rows.take(rowIndex).sumOf { it.widgets.size }
-            BoxWithConstraints(Modifier.fillMaxWidth().animateItem(placementSpec = ZMotion.placement())) {
+            // この行に選択中のものが載っているか。載っていればバーをこの直下に出す
+            val holdsSelection = editing && row.widgets.any { it.appWidgetId == selectedId }
+            Column(Modifier.animateItem(placementSpec = ZMotion.placement())) {
+            BoxWithConstraints(Modifier.fillMaxWidth()) {
                 // 幅つまみは「1 列ぶん」を知らないと動かせない。列の幅は行の実測から出す
                 val columnWidth = (maxWidth - ROW_GAP * (WidgetPlacement.COLUMNS - 1)) / WidgetPlacement.COLUMNS
                 Row(
@@ -441,7 +420,80 @@ private fun WidgetSheetPage(
                     }
                 }
             }
+                if (holdsSelection && selected != null) {
+                    Spacer(Modifier.height(8.dp))
+                    SelectionControls(
+                        selected = selected,
+                        selectedIndex = selectedIndex,
+                        lastIndex = widgets.lastIndex,
+                        widgetHost = widgetHost,
+                        viewModel = viewModel,
+                    )
+                }
+            }
         }
+    }
+}
+
+/**
+ * 選んだ 1 件を操作するバー。**行の直下に出す。**
+ *
+ * 以前は面の先頭に固定で置いていた。幅にも高さにも全幅のバーが要るのは
+ * [PlacedWidgetItem] のとおりだが、置き場所まで先頭である必要はなく、下のほうの
+ * ウィジェットを調整するたびに一番上へ戻る羽目になっていた。選んだ相手の真下なら、
+ * 指はその場から動かない。
+ *
+ * 出たバーは自分で見える位置まで運ぶ（[BringIntoViewRequester]）。行が画面の下端に
+ * かかっていると、バーは画面の外に生える。
+ */
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+private fun SelectionControls(
+    selected: WidgetPlacement,
+    selectedIndex: Int,
+    lastIndex: Int,
+    widgetHost: WidgetHostController,
+    viewModel: ConsoleViewModel,
+) {
+    val context = LocalContext.current
+    val info = widgetHost.providerInfo(selected.appWidgetId)
+    val bringIntoView = remember { BringIntoViewRequester() }
+
+    LaunchedEffect(selected.appWidgetId) { runCatching { bringIntoView.bringIntoView() } }
+
+    Box(Modifier.bringIntoViewRequester(bringIntoView)) {
+        SizeBar(
+            name = info?.loadLabel(context.packageManager)?.toString() ?: "Unavailable widget",
+            placement = selected,
+            canMoveBack = selectedIndex > 0,
+            canMoveForward = selectedIndex >= 0 && selectedIndex < lastIndex,
+            onSpanStep = { delta ->
+                viewModel.setWidgetSpan(
+                    selected.appWidgetId,
+                    WidgetPlacement.clampSpan(selected.widthSpan + delta),
+                )
+            },
+            onHeightStep = { delta ->
+                viewModel.setWidgetHeight(
+                    selected.appWidgetId,
+                    WidgetPlacement.clampHeight(selected.heightDp + delta),
+                )
+            },
+            onMove = { delta -> viewModel.moveWidget(selected.appWidgetId, delta) },
+            onReset = {
+                val provider = info ?: return@SizeBar
+                val density = context.resources.displayMetrics.density
+                viewModel.setWidgetHeight(
+                    selected.appWidgetId,
+                    WidgetPlacement.clampHeight((provider.minHeight / density).roundToInt()),
+                )
+                viewModel.setWidgetSpan(
+                    selected.appWidgetId,
+                    WidgetPlacement.spanForWidthDp((provider.minWidth / density).roundToInt()),
+                )
+            },
+            onRemove = { viewModel.removeWidget(selected.appWidgetId) },
+        )
     }
 }
 
