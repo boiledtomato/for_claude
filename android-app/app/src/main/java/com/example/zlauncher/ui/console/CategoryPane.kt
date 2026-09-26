@@ -93,6 +93,7 @@ fun CategoryPane(
     var removing by remember(category.category.id) { mutableStateOf(false) }
     val selected = remember(category.category.id) { mutableStateListOf<String>() }
     var confirming by remember { mutableStateOf(false) }
+    val isCatchAll = category.category.isCatchAll
 
     fun exitRemoval() {
         removing = false
@@ -122,11 +123,18 @@ fun CategoryPane(
                     color = if (removing) ZColors.Danger else ZColors.TextSecondary,
                     modifier = Modifier.weight(1f),
                 )
+                if (isCatchAll && !removing) {
+                    Text("Automatic", style = ZType.Sub, color = ZColors.TextDim)
+                }
                 if (removing) {
                     ActionChip("Done", accent = true, onClick = { exitRemoval() })
                 } else {
                     ActionChip("Insights", accent = false, onClick = onOpenInsights)
-                    ActionChip("Select apps", accent = true, onClick = onPickApps)
+                    // 未分類の枠に「選ぶ」「外す」は出さない。所属は保存しておらず、
+                    // ほかのカテゴリーの中身から毎回決まるので、ここで触っても戻ってしまう
+                    if (!isCatchAll) {
+                        ActionChip("Select apps", accent = true, onClick = onPickApps)
+                    }
                     Box {
                         ActionChip("⋯", accent = false, onClick = { menuOpen = true })
                         DropdownMenu(expanded = menuOpen, onDismissRequest = { menuOpen = false }) {
@@ -134,10 +142,12 @@ fun CategoryPane(
                                 text = { Text("Rename & recolor", style = ZType.Body, color = ZColors.TextPrimary) },
                                 onClick = { menuOpen = false; onEditCategory() },
                             )
-                            DropdownMenuItem(
-                                text = { Text("Remove apps", style = ZType.Body, color = ZColors.TextPrimary) },
-                                onClick = { menuOpen = false; removing = true },
-                            )
+                            if (!isCatchAll) {
+                                DropdownMenuItem(
+                                    text = { Text("Remove apps", style = ZType.Body, color = ZColors.TextPrimary) },
+                                    onClick = { menuOpen = false; removing = true },
+                                )
+                            }
                             DropdownMenuItem(
                                 text = { Text("Delete category", style = ZType.Body, color = ZColors.StatusRed) },
                                 onClick = { menuOpen = false; onDeleteCategory() },

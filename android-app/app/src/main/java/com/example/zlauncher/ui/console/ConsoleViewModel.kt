@@ -5,6 +5,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.ImageBitmap
+import android.content.Context
+import com.example.zlauncher.ui.setup.DefaultLauncher
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.zlauncher.data.apps.AppIconLoader
@@ -132,7 +134,37 @@ class ConsoleViewModel @Inject constructor(
      */
     fun createCategory(name: String, colorIndex: Int) = viewModelScope.launch {
         val id = categoryRepository.create(name, colorIndex)
+        if (id == null) {
+            settingsMessage = "“${name.trim()}” already exists."
+            return@launch
+        }
         promptForApps(id, justCreated = true)
+    }
+
+    /** 未分類を集める枠の有無 */
+    val catchAllEnabled: StateFlow<Boolean> = preferences.state
+        .map { state -> state.categories.any { it.isCatchAll } }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
+
+    fun setCatchAllEnabled(enabled: Boolean) = viewModelScope.launch {
+        categoryRepository.setCatchAllEnabled(enabled)
+    }
+
+    /** レールに既にある名前か。ダイアログ側で入力中に弾くために使う */
+    val categoryNames: StateFlow<List<Pair<String, String>>> = preferences.state
+        .map { state -> state.categories.map { it.id to it.name } }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
+
+    /**
+     * ホームアプリの設定を開く。**失敗を黙らせない** ― 開かないまま何も出ないと、
+     * 押していないのと区別がつかない。
+     */
+    fun openHomeSettings(context: Context) {
+        val opened = runCatching { context.startActivity(DefaultLauncher.requestIntent(context)) }.isSuccess ||
+            runCatching { context.startActivity(DefaultLauncher.homeSettingsIntent()) }.isSuccess
+        if (!opened) {
+            settingsMessage = "This device has no home app settings screen."
+        }
     }
 
     /** 作成直後にアプリ選択を開きたいカテゴリー。画面側が拾ったら [consumeAppPrompt] で戻す */
@@ -406,7 +438,7 @@ class ConsoleViewModel @Inject constructor(
         private set
 
     /** 手動更新の結果を 1 行で出す */
-    var catalogMessage by mutableStateOf<String?>(null)
+    var settingsMessage by mutableStateOf<String?>(null)
         private set
 
     val pendingCatalogDiff: StateFlow<CatalogDiff?> = preferences.state
@@ -429,7 +461,7 @@ class ConsoleViewModel @Inject constructor(
     fun checkCatalogNow() = viewModelScope.launch {
         if (checkingCatalog) return@launch
         checkingCatalog = true
-        catalogMessage = when (val result = catalogUpdater.update()) {
+        settingsMessage = when (val result = catalogUpdater.update()) {
             is CatalogUpdateResult.Updated ->
                 "${result.diff.changeCount} change(s) found in ${result.diff.toRevision}."
             is CatalogUpdateResult.UpToDate -> "Already current (${result.revision})."
@@ -446,8 +478,8 @@ class ConsoleViewModel @Inject constructor(
 
     fun ignoreCatalogDiff() = viewModelScope.launch { catalogUpdater.dismissPendingDiff() }
 
-    fun clearCatalogMessage() {
-        catalogMessage = null
+    fun clearSettingsMessage() {
+        settingsMessage = null
     }
 
     // ---- 共通 ---------------------------------------------------------------

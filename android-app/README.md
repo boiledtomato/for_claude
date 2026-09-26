@@ -347,6 +347,33 @@ Zscaler の Web Insights と違い、端末の中からは **URL もホスト名
 3 か月を待たずに確かめたいときは、コンソールの設定に「Check URL category updates」がある。
 通知は Android 13 以降だと実行時の許可が要るが、許可が無くても帯には出るので気付ける。
 
+### 同じ名前のカテゴリーを作らせない
+
+判定は `CategoryRules.nameTaken`。**前後の空白を落として大小を無視する** ― `Work` と
+`work ` を別物として通すと、レールには見分けのつかない行が 2 つ並ぶ。
+
+弾くのは 3 か所: 追加・変更のダイアログ（入力中に赤字で知らせ、Save を沈める）、
+`CategoryRepository.create` / `rename`（画面を通らない経路の最後の砦）、カタログからの
+一括作成。改名では**自分自身とは衝突しない**（色だけ変えて保存するときに詰まる）。
+
+### 未分類を集める枠（Miscellaneous / Unknown）
+
+Overview の設定カードの **Collect uncategorized apps** を On にすると、
+`Miscellaneous / Unknown` というカテゴリーがレールに増える。ほかのどのカテゴリーにも
+入っていないアプリが、ここに並ぶ。
+
+**所属は保存しない。** `CategoryRules.catchAllPackages` が毎回
+「インストール済み − ほかのカテゴリーが持っているもの」で計算する。保存にすると、
+ほかのカテゴリーへ入れた瞬間にこちらからも消す書き込みが要り、取りこぼせば同じアプリが
+2 か所に出る。導出なら、ほかへ入れた時点で自動的に外れ、外した時点で自動的に戻る。
+
+そのぶん、この枠では**手で足す / 外すを出さない**（`Select apps` と `Remove apps` を隠し、
+見出しに `Automatic` と出す）。押せても計算で戻るだけなので、出ているほうが紛らわしい。
+名前の変更と色の変更、枠ごと消すことはできる（消すとトグルが Off に戻る）。
+
+On にしたとき、同じ名前のカテゴリーを先に自分で作っていた場合は、それを昇格させて使う
+（2 つ並べない）。
+
 ### 空のカテゴリーを作らせない
 
 カテゴリーは名前だけでは意味を持たない。所属アプリが 0 件だと、レールに名前が並ぶだけで
@@ -772,6 +799,7 @@ AOSP の Launcher3 も同じ挙動。回避策として「インストール日�
 | 対処 | 場所 |
 |---|---|
 | `stateNotNeeded="true"` で復元時例外による起動不能を防ぐ | `AndroidManifest.xml` |
+| 既定ホームのときは `ROLE_HOME` を要求せず設定画面へ送る（保持済みの役割の要求は無反応） | `DefaultLauncher.requestIntent` |
 | `screenOrientation="nosensor"` で向きを固定（`portrait` にはしない — 端末本来の向きを使う） | `AndroidManifest.xml` |
 | `launchMode="singleTask"`（`singleInstance` は不可） | `AndroidManifest.xml` |
 | HOME キー再押下は `onNewIntent` で拾う（拾わないと HOME が効かない） | `MainActivity` |

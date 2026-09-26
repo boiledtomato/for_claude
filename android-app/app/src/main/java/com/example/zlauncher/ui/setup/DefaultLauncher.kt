@@ -28,7 +28,16 @@ object DefaultLauncher {
         resolved?.activityInfo?.packageName == context.packageName
     }.getOrDefault(false)
 
+    /**
+     * 押したときに開くもの。
+     *
+     * **既に既定ホームなら役割の要求は投げない。** 保持済みの役割に対する
+     * `createRequestRoleIntent` は画面を出さずにその場で終わるので、呼んでも
+     * 「押したのに何も起きない」にしかならない（実機で出た症状がこれ）。
+     * その場合はホームアプリの設定画面へ送る ― 既定を外して戻る道でもある。
+     */
     fun requestIntent(context: Context): Intent {
+        if (isDefault(context)) return homeSettingsIntent()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             RoleApi.homeRoleIntent(context)?.let { return it }
         }

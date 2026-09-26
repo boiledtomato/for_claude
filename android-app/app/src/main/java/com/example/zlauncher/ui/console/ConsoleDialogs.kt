@@ -88,6 +88,8 @@ fun CategoryEditDialog(
     initialColorIndex: Int,
     onDismiss: () -> Unit,
     onConfirm: (String, Int) -> Unit,
+    /** その名前が既に使われているか。入力中に弾いて、押してから怒らないようにする */
+    nameTaken: (String) -> Boolean = { false },
 ) {
     var name by remember { mutableStateOf(initialName) }
     var colorIndex by remember { mutableIntStateOf(initialColorIndex) }
@@ -126,12 +128,22 @@ fun CategoryEditDialog(
             Text("Color", style = ZType.Eyebrow, color = ZColors.TextSecondary)
             Spacer(Modifier.height(10.dp))
             CategoryColorPicker(selected = colorIndex, onSelect = { colorIndex = it })
+            // 同じ名前が 2 つ並ぶと、レールでは見分けがつかない
+            val taken = nameTaken(name)
+            if (taken) {
+                Spacer(Modifier.height(10.dp))
+                Text(
+                    "“${name.trim()}” is already used by another category.",
+                    style = ZType.Sub,
+                    color = ZColors.Danger,
+                )
+            }
             Spacer(Modifier.height(20.dp))
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
                 DialogButton("Cancel", accent = false, onClick = onDismiss)
                 Spacer(Modifier.size(10.dp))
-                DialogButton("Save", accent = true) {
-                    if (name.isNotBlank()) onConfirm(name.trim(), colorIndex)
+                DialogButton("Save", accent = true, enabled = name.isNotBlank() && !taken) {
+                    if (name.isNotBlank() && !taken) onConfirm(name.trim(), colorIndex)
                 }
             }
         }
@@ -355,23 +367,34 @@ private fun SuggestionRow(
 }
 
 @Composable
-internal fun DialogButton(label: String, accent: Boolean, onClick: () -> Unit) {
+internal fun DialogButton(
+    label: String,
+    accent: Boolean,
+    enabled: Boolean = true,
+    onClick: () -> Unit,
+) {
+    // 押せないときは形を残して沈める。消すとボタンの位置が動いて落ち着かない
+    val live = accent && enabled
     Box(
         Modifier
             .clip(RoundedCornerShape(999.dp))
-            .background(if (accent) ZColors.Accent.copy(alpha = 0.14f) else ZColors.SurfaceLow)
+            .background(if (live) ZColors.Accent.copy(alpha = 0.14f) else ZColors.SurfaceLow)
             .border(
                 1.dp,
-                if (accent) ZColors.Accent.copy(alpha = 0.5f) else ZColors.Outline,
+                if (live) ZColors.Accent.copy(alpha = 0.5f) else ZColors.Outline,
                 RoundedCornerShape(999.dp),
             )
-            .springyClick(onClick = onClick)
+            .springyClick(enabled = enabled, onClick = onClick)
             .padding(horizontal = 16.dp, vertical = 9.dp),
     ) {
         Text(
             label,
             style = ZType.Body.copy(fontSize = 12.5.sp),
-            color = if (accent) ZColors.AccentSoft else ZColors.TextSecondary,
+            color = when {
+                !enabled -> ZColors.TextDim
+                accent -> ZColors.AccentSoft
+                else -> ZColors.TextSecondary
+            },
         )
     }
 }

@@ -81,6 +81,7 @@ import com.example.zlauncher.core.ui.springyClick
 import com.example.zlauncher.data.apps.CategoryWithApps
 import com.example.zlauncher.data.widgets.WidgetHostController
 import com.example.zlauncher.domain.model.AppEntry
+import com.example.zlauncher.domain.model.CategoryRules
 import com.example.zlauncher.domain.model.ThemeMode
 import com.example.zlauncher.ui.apps.component.AppIconTile
 import com.example.zlauncher.ui.apps.component.rememberAppIcon
@@ -319,6 +320,13 @@ fun ConsoleScreen(
                 viewModel.renameCategory(target.id, name)
                 viewModel.setCategoryColor(target.id, color)
                 editingCategory = null
+            },
+            nameTaken = { candidate ->
+                CategoryRules.nameTaken(
+                    categories.map { it.category },
+                    candidate,
+                    exceptId = target.id,
+                )
             },
         )
     }

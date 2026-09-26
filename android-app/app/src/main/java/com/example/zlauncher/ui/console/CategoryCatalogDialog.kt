@@ -237,8 +237,8 @@ fun CategoryCatalogDialog(
                     color = ZColors.TextSecondary,
                     modifier = Modifier.weight(1f),
                 )
-                DialogButton("Cancel", accent = false, onClick = onDismiss)
-                DialogButton(
+                CatalogDialogButton("Cancel", accent = false, onClick = onDismiss)
+                CatalogDialogButton(
                     label = "Add",
                     accent = true,
                     enabled = selected.isNotEmpty() || customName.isNotBlank(),
@@ -540,7 +540,7 @@ private fun nextColor(start: Int, picked: List<CatalogPick>, total: Int): Int {
 }
 
 @Composable
-private fun DialogButton(
+private fun CatalogDialogButton(
     label: String,
     accent: Boolean,
     enabled: Boolean = true,

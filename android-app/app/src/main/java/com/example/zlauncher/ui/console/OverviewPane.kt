@@ -46,6 +46,7 @@ import com.example.zlauncher.domain.model.AppSortOrder
 import com.example.zlauncher.domain.model.CardLayout
 import com.example.zlauncher.domain.model.CardSpan
 import com.example.zlauncher.ui.console.card.CardContext
+import com.example.zlauncher.domain.model.CategoryRules
 import com.example.zlauncher.ui.setup.DefaultLauncher
 
 private const val GRID_COLUMNS = 12
@@ -59,6 +60,7 @@ fun OverviewPane(
     val layout by viewModel.layout.collectAsStateWithLifecycle()
     val sortOrder by viewModel.sortOrder.collectAsStateWithLifecycle()
     val themedIcons by viewModel.themedIconsEnabled.collectAsStateWithLifecycle()
+    val catchAllEnabled by viewModel.catchAllEnabled.collectAsStateWithLifecycle()
     val isEditing = viewModel.isEditing
     val context = LocalContext.current
 
@@ -94,6 +96,7 @@ fun OverviewPane(
                     cardContext = cardContext,
                     sortOrder = sortOrder,
                     themedIcons = themedIcons,
+                    catchAllEnabled = catchAllEnabled,
                     viewModel = viewModel,
                 )
             }
@@ -107,6 +110,7 @@ fun OverviewPane(
                 cardContext = cardContext,
                 sortOrder = sortOrder,
                 themedIcons = themedIcons,
+                catchAllEnabled = catchAllEnabled,
                 viewModel = viewModel,
             )
         }
@@ -123,6 +127,7 @@ private fun CardGrid(
     cardContext: CardContext,
     sortOrder: AppSortOrder,
     themedIcons: Boolean,
+    catchAllEnabled: Boolean,
     viewModel: ConsoleViewModel,
 ) {
     val context = LocalContext.current
@@ -210,14 +215,14 @@ private fun CardGrid(
                     },
                     onClick = viewModel::checkCatalogNow,
                 )
-                viewModel.catalogMessage?.let { message ->
+                viewModel.settingsMessage?.let { message ->
                     Spacer(Modifier.height(6.dp))
                     Row(
                         Modifier
                             .fillMaxWidth()
                             .clip(RoundedCornerShape(8.dp))
                             .background(ZColors.SurfaceLow)
-                            .springyClick(onClick = viewModel::clearCatalogMessage)
+                            .springyClick(onClick = viewModel::clearSettingsMessage)
                             .padding(horizontal = 11.dp, vertical = 9.dp),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -233,15 +238,18 @@ private fun CardGrid(
                     color = ZColors.TextDim,
                 )
                 Spacer(Modifier.height(8.dp))
+                CatchAllRow(
+                    enabled = catchAllEnabled,
+                    onSelect = viewModel::setCatchAllEnabled,
+                )
+                Spacer(Modifier.height(8.dp))
                 SettingsRow(
                     label = if (DefaultLauncher.isDefault(context)) {
                         "Open home app settings"
                     } else {
                         "Set as default home"
                     },
-                    onClick = {
-                        runCatching { context.startActivity(DefaultLauncher.requestIntent(context)) }
-                    },
+                    onClick = { viewModel.openHomeSettings(context) },
                 )
                 if (isEditing) {
                     Spacer(Modifier.height(8.dp))
@@ -400,6 +408,35 @@ private fun IconStyleRow(themed: Boolean, onSelect: (Boolean) -> Unit) {
         Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
             Chip("Default", !themed) { onSelect(false) }
             Chip("Themed", themed) { onSelect(true) }
+        }
+    }
+}
+
+@Composable
+private fun CatchAllRow(enabled: Boolean, onSelect: (Boolean) -> Unit) {
+    Column(
+        Modifier
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(10.dp))
+            .background(ZColors.SurfaceLow)
+            .border(1.dp, ZColors.Outline, RoundedCornerShape(10.dp))
+            .padding(horizontal = 12.dp, vertical = 11.dp),
+    ) {
+        Text("Collect uncategorized apps", style = ZType.Body, color = ZColors.TextPrimary)
+        Spacer(Modifier.height(4.dp))
+        // 何が起きるかをここで言い切る。レールに勝手に 1 行増えるので、
+        // 押す前に「これから何が入るか」が分かっている必要がある
+        Text(
+            "Adds a “${CategoryRules.CATCH_ALL_NAME}” category listing every app that is in no " +
+                "other category. Put an app in another category and it leaves this list by itself; " +
+                "take it out again and it comes back. Nothing is moved — the list is worked out each time.",
+            style = ZType.Sub,
+            color = ZColors.TextDim,
+        )
+        Spacer(Modifier.height(9.dp))
+        Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+            Chip("Off", !enabled) { onSelect(false) }
+            Chip("On", enabled) { onSelect(true) }
         }
     }
 }
