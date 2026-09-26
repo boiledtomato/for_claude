@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  端末の引っ越し（Android 12 以降の device-to-device）とクラウドバックアップで何を持って
+  いくか。クラウドは `android:allowBackup="false"` で丸ごと止めてある。
+
+  持っているのは配置と設定だけなので、引っ越しは既定のまま全部持っていく。除外を書いて
+  いた認証コードの保管庫は廃止した。
+-->
+<data-extraction-rules>
+    <device-transfer />
+</data-extraction-rules>

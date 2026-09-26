@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- コンソールの回線種別・VPN 状態の表示に使う。通常権限なので実行時確認は不要 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- URL カテゴリー一覧（Zscaler ヘルプの CSV）を 3 か月ごとに取り直すためだけに使う -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- カタログに変更があったときの通知。Android 13 以降は実行時の許可も要る -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!--
+      長押しメニューのアンインストール（ACTION_DELETE）に要る。normal 権限なので実行時の
+      確認は不要だが、**宣言しないと targetSdk 28 以降では例外も出さずに失敗する** ―
+      アンインストーラは起動したそばから終了し、呼び出し側からは成功に見える。
+      実機では「押しても何も起きない」という形で出た（logcat には
+      "does not have android.permission.REQUEST_DELETE_PACKAGES" だけが残る）。
+      消すのは OS で、この権限は「確認画面を出してよい」以上の意味を持たない。
+    -->
+    <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES" />
+
+    <!--
+      Web Insights のアプリ別通信量に使う。signature|appop なので実行時ダイアログでは出せず、
+      ここで宣言したうえでユーザーが設定 →「使用状況へのアクセス」で許可する。
+      未許可でもアプリは通常どおり動き、Insights ペインだけが空になる。
+    -->
+    <uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+
+    <!--
+      起動可能アプリの可視性。Android 11 以降はこれが無いと一覧が空になる。
+      QUERY_ALL_PACKAGES は使わない（Play のポリシー宣言が不要な範囲で足りる）。
+    -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
+        <!-- 既定ホームアプリの判定に HOME インテントを解決するため -->
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.HOME" />
+        </intent>
+        <!-- ウィジェット提供元アプリ。ランチャーアイコンを持たない提供元もあるので、
+             これが無いと一覧に提供元アプリ名を出せない（検索も効かなくなる） -->
+        <intent>
+            <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+        </intent>
+    </queries>
+
+    <application
+        android:name=".ZLauncherApplication"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ZLauncher">
+
+        <!--
+          ホームは回さない。レール・カード・ウィジェットのシートはどれも縦に積む前提の
+          寸法で、横にすると 1 画面に収まらず、端末を持ち替えただけで並びが変わる。
+          portrait ではなく nosensor にしてあるのは、端末本来の向き（タブレットなら横）を
+          そのまま使うため ― 目的は「向きを固定する」であって「縦にする」ではない。
+
+          lint の DiscouragedApi は承知のうえで伏せる。targetSdk 36 では Android 16 が
+          **短辺 600dp 以上の画面に限って**向きの指定を無視するようになった、という警告で、
+          電話機では今までどおり効く。大画面で無視されるのは受け入れる ― 横に開ける端末を
+          縦に縛り返す回避策のほうが、このアプリの目的から外れる。
+        -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="nosensor"
+            tools:ignore="DiscouragedApi"
+            android:launchMode="singleTask"
+            android:clearTaskOnLaunch="true"
+            android:excludeFromRecents="true"
+            android:stateNotNeeded="true"
+            android:taskAffinity=""
+            android:resizeableActivity="true"
+            android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenSize|screenLayout|smallestScreenSize|density|uiMode"
+            android:windowSoftInputMode="adjustPan"
+            android:enableOnBackInvokedCallback="true"
+            android:theme="@style/Theme.ZLauncher">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--
+          WorkManager の自動初期化を止める。Hilt のファクトリを Application 側から渡すため。
+          残したままだと Worker への注入ができず、生成時に落ちる。
+        -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data
+                android:name="androidx.work.WorkManagerInitializer"
+                android:value="androidx.startup"
+                tools:node="remove" />
+        </provider>
+
+        <!-- ログ CSV の書き出し先。cacheDir だけを、一時的な read 権限で渡す -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.insights"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/insights_paths" />
+        </provider>
+    </application>
+</manifest>
