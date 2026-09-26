@@ -2,7 +2,6 @@ package com.example.zlauncher.ui.console
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.border
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
@@ -17,14 +16,10 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.foundation.relocation.BringIntoViewRequester
-import androidx.compose.foundation.relocation.bringIntoViewRequester
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -311,124 +306,109 @@ private fun WidgetSheetPage(
     val selected = widgets.firstOrNull { it.appWidgetId == selectedId }
     val selectedIndex = widgets.indexOfFirst { it.appWidgetId == selectedId }
 
-    LazyColumn(
-        Modifier.fillMaxSize(),
-        contentPadding = PaddingValues(
-            start = 12.dp,
-            end = 16.dp,
-            // ボタンが最後の 1 枚に重なると、そのウィジェットだけ選べなくなる
-            bottom = if (removing && marked.isNotEmpty()) 96.dp else 24.dp,
-        ),
-        verticalArrangement = Arrangement.spacedBy(8.dp),
-    ) {
-        // 選んでいないあいだの案内だけを上に置く。**操作するバーは選んだウィジェットの
-        // すぐ下に出す**（下記）― 以前はこの位置に固定で、下のほうのウィジェットを
-        // 調整するたびに一番上まで戻る必要があった
-        if (editing && selected == null) {
-            item(key = "controls-hint") {
-                SizeBar(
-                    name = null,
-                    placement = null,
-                    canMoveBack = false,
-                    canMoveForward = false,
-                    onSpanStep = {},
-                    onHeightStep = {},
-                    onMove = {},
-                    onReset = {},
-                    onRemove = {},
-                )
-            }
+    Column(Modifier.fillMaxSize()) {
+        // **Layout 中は上に貼り付けたまま動かさない。** 一覧の中に混ぜると、下のほうを
+        // 触るたびに上へ戻る羽目になる一方、行のあいだに差し込むと並び順が読めなくなる。
+        // スクロールの外に出せば、どこまで送っても同じ位置にある
+        if (editing) {
+            SelectionControls(
+                selected = selected,
+                selectedIndex = selectedIndex,
+                lastIndex = widgets.lastIndex,
+                widgetHost = widgetHost,
+                viewModel = viewModel,
+                modifier = Modifier.padding(start = 12.dp, end = 16.dp, bottom = 8.dp),
+            )
         }
 
-        if (widgets.isEmpty()) {
-            item(key = "empty") {
-                Box(
-                    Modifier
-                        .fillMaxWidth()
-                        .clip(RoundedCornerShape(14.dp))
-                        .background(ZColors.Surface)
-                        .border(1.dp, ZColors.Outline, RoundedCornerShape(14.dp))
-                        .padding(horizontal = 14.dp, vertical = 22.dp),
-                ) {
-                    Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                        Text("This sheet is empty", style = ZType.Body, color = ZColors.TextPrimary)
-                        Text(
-                            "“Add widget” puts one here. Widgets keep the size their own app asks " +
-                                "for, so two narrow ones share a row. A sheet you flick away from " +
-                                "while it is still empty is dropped.",
-                            style = ZType.Sub,
-                            color = ZColors.TextSecondary,
-                        )
-                    }
-                }
-            }
-        }
+        LazyColumn(
+            // Column の中なので weight。fillMaxSize だと固定バーのぶん縦にはみ出す
+            Modifier.weight(1f).fillMaxWidth(),
+            contentPadding = PaddingValues(
+                start = 12.dp,
+                end = 16.dp,
+                // ボタンが最後の 1 枚に重なると、そのウィジェットだけ選べなくなる
+                bottom = if (removing && marked.isNotEmpty()) 96.dp else 24.dp,
+            ),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
 
-        itemsIndexed(rows, key = { _, row -> row.widgets.first().appWidgetId }) { rowIndex, row ->
-            val firstIndex = rows.take(rowIndex).sumOf { it.widgets.size }
-            // この行に選択中のものが載っているか。載っていればバーをこの直下に出す
-            val holdsSelection = editing && row.widgets.any { it.appWidgetId == selectedId }
-            Column(Modifier.animateItem(placementSpec = ZMotion.placement())) {
-            BoxWithConstraints(Modifier.fillMaxWidth()) {
-                // 幅つまみは「1 列ぶん」を知らないと動かせない。列の幅は行の実測から出す
-                val columnWidth = (maxWidth - ROW_GAP * (WidgetPlacement.COLUMNS - 1)) / WidgetPlacement.COLUMNS
-                Row(
-                    Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(ROW_GAP),
-                    verticalAlignment = Alignment.Top,
-                ) {
-                    row.widgets.forEachIndexed { indexInRow, placement ->
-                        val index = firstIndex + indexInRow
-                        val dragging = reorder.draggingIndex == index
-                        val active = reorder.isActive(index)
-                        PlacedWidgetItem(
-                            placement = placement,
-                            controller = widgetHost,
-                            editing = editing,
-                            removing = removing,
-                            marked = placement.appWidgetId in marked,
-                            index = index,
-                            onLongPress = { onEnterRemoval(placement.appWidgetId) },
-                            onToggleMark = { onToggleMark(placement.appWidgetId) },
-                            selected = editing && placement.appWidgetId == selectedId,
-                            lifted = dragging,
-                            columnWidth = columnWidth,
-                            onSelect = { onSelect(placement.appWidgetId) },
-                            onHeightChange = { viewModel.setWidgetHeight(placement.appWidgetId, it) },
-                            onSpanChange = { viewModel.setWidgetSpan(placement.appWidgetId, it) },
-                            dragHandle = Modifier.reorderableHandle(reorder, index, enabled = editing),
-                            modifier = Modifier
-                                .weight(WidgetPlacement.clampSpan(placement.widthSpan).toFloat())
-                                // つまみ上げた 1 枚は必ず手前に。奥に潜ると指の下から消える
-                                .zIndex(if (active) 1f else 0f)
-                                .graphicsLayer {
-                                    translationX = if (active) reorder.dragOffset.x else 0f
-                                    translationY = if (active) reorder.dragOffset.y else 0f
-                                    val scale = if (dragging) ZMotion.LIFT_SCALE else 1f
-                                    scaleX = scale
-                                    scaleY = scale
-                                }
-                                .reorderableSlot(reorder, index),
-                        )
-                    }
-                    if (row.freeSpan > 0) {
-                        if (editing) {
-                            FreeWidgetSlot(span = row.freeSpan, modifier = Modifier.weight(row.freeSpan.toFloat()))
-                        } else {
-                            Box(Modifier.weight(row.freeSpan.toFloat()))
+            if (widgets.isEmpty()) {
+                item(key = "empty") {
+                    Box(
+                        Modifier
+                            .fillMaxWidth()
+                            .clip(RoundedCornerShape(14.dp))
+                            .background(ZColors.Surface)
+                            .border(1.dp, ZColors.Outline, RoundedCornerShape(14.dp))
+                            .padding(horizontal = 14.dp, vertical = 22.dp),
+                    ) {
+                        Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                            Text("This sheet is empty", style = ZType.Body, color = ZColors.TextPrimary)
+                            Text(
+                                "“Add widget” puts one here. Widgets keep the size their own app asks " +
+                                    "for, so two narrow ones share a row. A sheet you flick away from " +
+                                    "while it is still empty is dropped.",
+                                style = ZType.Sub,
+                                color = ZColors.TextSecondary,
+                            )
                         }
                     }
                 }
             }
-                if (holdsSelection && selected != null) {
-                    Spacer(Modifier.height(8.dp))
-                    SelectionControls(
-                        selected = selected,
-                        selectedIndex = selectedIndex,
-                        lastIndex = widgets.lastIndex,
-                        widgetHost = widgetHost,
-                        viewModel = viewModel,
-                    )
+
+            itemsIndexed(rows, key = { _, row -> row.widgets.first().appWidgetId }) { rowIndex, row ->
+                val firstIndex = rows.take(rowIndex).sumOf { it.widgets.size }
+                BoxWithConstraints(Modifier.fillMaxWidth().animateItem(placementSpec = ZMotion.placement())) {
+                    // 幅つまみは「1 列ぶん」を知らないと動かせない。列の幅は行の実測から出す
+                    val columnWidth = (maxWidth - ROW_GAP * (WidgetPlacement.COLUMNS - 1)) / WidgetPlacement.COLUMNS
+                    Row(
+                        Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(ROW_GAP),
+                        verticalAlignment = Alignment.Top,
+                    ) {
+                        row.widgets.forEachIndexed { indexInRow, placement ->
+                            val index = firstIndex + indexInRow
+                            val dragging = reorder.draggingIndex == index
+                            val active = reorder.isActive(index)
+                            PlacedWidgetItem(
+                                placement = placement,
+                                controller = widgetHost,
+                                editing = editing,
+                                removing = removing,
+                                marked = placement.appWidgetId in marked,
+                                index = index,
+                                onLongPress = { onEnterRemoval(placement.appWidgetId) },
+                                onToggleMark = { onToggleMark(placement.appWidgetId) },
+                                selected = editing && placement.appWidgetId == selectedId,
+                                lifted = dragging,
+                                columnWidth = columnWidth,
+                                onSelect = { onSelect(placement.appWidgetId) },
+                                onHeightChange = { viewModel.setWidgetHeight(placement.appWidgetId, it) },
+                                onSpanChange = { viewModel.setWidgetSpan(placement.appWidgetId, it) },
+                                dragHandle = Modifier.reorderableHandle(reorder, index, enabled = editing),
+                                modifier = Modifier
+                                    .weight(WidgetPlacement.clampSpan(placement.widthSpan).toFloat())
+                                    // つまみ上げた 1 枚は必ず手前に。奥に潜ると指の下から消える
+                                    .zIndex(if (active) 1f else 0f)
+                                    .graphicsLayer {
+                                        translationX = if (active) reorder.dragOffset.x else 0f
+                                        translationY = if (active) reorder.dragOffset.y else 0f
+                                        val scale = if (dragging) ZMotion.LIFT_SCALE else 1f
+                                        scaleX = scale
+                                        scaleY = scale
+                                    }
+                                    .reorderableSlot(reorder, index),
+                            )
+                        }
+                        if (row.freeSpan > 0) {
+                            if (editing) {
+                                FreeWidgetSlot(span = row.freeSpan, modifier = Modifier.weight(row.freeSpan.toFloat()))
+                            } else {
+                                Box(Modifier.weight(row.freeSpan.toFloat()))
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -436,63 +416,69 @@ private fun WidgetSheetPage(
 }
 
 /**
- * 選んだ 1 件を操作するバー。**行の直下に出す。**
+ * 選んだ 1 件を操作するバー。**Layout 中はペインの上に貼り付けたまま動かさない。**
  *
- * 以前は面の先頭に固定で置いていた。幅にも高さにも全幅のバーが要るのは
- * [PlacedWidgetItem] のとおりだが、置き場所まで先頭である必要はなく、下のほうの
- * ウィジェットを調整するたびに一番上へ戻る羽目になっていた。選んだ相手の真下なら、
- * 指はその場から動かない。
+ * 置き場所は 2 回変えている。最初は一覧の先頭の項目で、一緒にスクロールして消えるため、
+ * 下のほうのウィジェットを調整するたびに上へ戻る必要があった。次に選んだウィジェットの
+ * 直下へ移したが、今度は行と行のあいだにバーが挟まって**並び順（◀ / ▶ で動かす順番）が
+ * 読めなくなった**。スクロールの外に出すと、どちらも起きない ― どこまで送っても同じ位置。
  *
- * 出たバーは自分で見える位置まで運ぶ（[BringIntoViewRequester]）。行が画面の下端に
- * かかっていると、バーは画面の外に生える。
+ * 全幅が要る理由は [PlacedWidgetItem] のとおりで、1 列（ペイン 300dp なら約 60dp）まで
+ * 細くできる枠の中には操作を並べられない。
+ *
+ * まだ選んでいないときは、同じ枠に案内を出す（[SizeBar] が null を受けて切り替える）。
+ * 空にすると、Layout に入った直後に何をすればよいか分からない。
  */
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 private fun SelectionControls(
-    selected: WidgetPlacement,
+    selected: WidgetPlacement?,
     selectedIndex: Int,
     lastIndex: Int,
     widgetHost: WidgetHostController,
     viewModel: ConsoleViewModel,
+    modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
-    val info = widgetHost.providerInfo(selected.appWidgetId)
-    val bringIntoView = remember { BringIntoViewRequester() }
+    val info = selected?.let { widgetHost.providerInfo(it.appWidgetId) }
 
-    LaunchedEffect(selected.appWidgetId) { runCatching { bringIntoView.bringIntoView() } }
-
-    Box(Modifier.bringIntoViewRequester(bringIntoView)) {
+    Box(modifier) {
         SizeBar(
-            name = info?.loadLabel(context.packageManager)?.toString() ?: "Unavailable widget",
+            name = when {
+                selected == null -> null
+                info != null -> info.loadLabel(context.packageManager).toString()
+                else -> "Unavailable widget"
+            },
             placement = selected,
             canMoveBack = selectedIndex > 0,
             canMoveForward = selectedIndex >= 0 && selectedIndex < lastIndex,
             onSpanStep = { delta ->
-                viewModel.setWidgetSpan(
-                    selected.appWidgetId,
-                    WidgetPlacement.clampSpan(selected.widthSpan + delta),
-                )
+                selected?.let {
+                    viewModel.setWidgetSpan(it.appWidgetId, WidgetPlacement.clampSpan(it.widthSpan + delta))
+                }
             },
             onHeightStep = { delta ->
-                viewModel.setWidgetHeight(
-                    selected.appWidgetId,
-                    WidgetPlacement.clampHeight(selected.heightDp + delta),
-                )
+                selected?.let {
+                    viewModel.setWidgetHeight(
+                        it.appWidgetId,
+                        WidgetPlacement.clampHeight(it.heightDp + delta),
+                    )
+                }
             },
-            onMove = { delta -> viewModel.moveWidget(selected.appWidgetId, delta) },
+            onMove = { delta -> selected?.let { viewModel.moveWidget(it.appWidgetId, delta) } },
             onReset = {
+                val target = selected ?: return@SizeBar
                 val provider = info ?: return@SizeBar
                 val density = context.resources.displayMetrics.density
                 viewModel.setWidgetHeight(
-                    selected.appWidgetId,
+                    target.appWidgetId,
                     WidgetPlacement.clampHeight((provider.minHeight / density).roundToInt()),
                 )
                 viewModel.setWidgetSpan(
-                    selected.appWidgetId,
+                    target.appWidgetId,
                     WidgetPlacement.spanForWidthDp((provider.minWidth / density).roundToInt()),
                 )
             },
-            onRemove = { viewModel.removeWidget(selected.appWidgetId) },
+            onRemove = { selected?.let { viewModel.removeWidget(it.appWidgetId) } },
         )
     }
 }
