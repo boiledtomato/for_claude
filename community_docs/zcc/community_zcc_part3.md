@@ -1,10 +1,494 @@
 # Zscaler Zenith Community — ZCC — Zscaler Client Connector (part 3)
 
 Source: https://community.zscaler.com
-Generated: 2026-09-21 02:03 UTC
-Posts in this file: 277
+Generated: 2026-09-28 10:07 UTC
+Posts in this file: 278
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evn1gCAA/looking-for-a-zscaler-sme-for-multiyear-contract-20-miles-nw-of-boston","lastmod":"2023-05-31T08:14:32.000Z","id":"0D54u00009evn1gCAA"} -->
+## Looking for a Zscaler SME for multi-year contract 20 miles NW of Boston
+
+- Source: https://community.zscaler.com/s/question/0D54u00009evn1gCAA/looking-for-a-zscaler-sme-for-multiyear-contract-20-miles-nw-of-boston
+- Type: Q&A
+- Last activity: 2023-05-31T08:14:32.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Client Connector
+
+mdeangelo
+
+(Customer) to
+
+sfdc
+
+(Employee): asked a question.
+
+August 26, 2019 at 11:08 PM
+
+Looking for a Zscaler SME for multi-year contract 20 miles NW of Boston
+
+Have a great multi-year opportunity that will pay very well for a Zscaler SME that has current enterprise deployment experience. Certification is a plus. Must be local to the Boston area (Relocation ok). If you are interested, please contact me at 630-760-8001 or
+
+mdeangelo@quadtec.com
+
+Thank you!
+
+Mike DeAngelo
+
+Client Connector
+
+298 views
+
+Log In to Answer
+
+Associated Tags
+
+certification
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/7/2020
+
+at
+
+04:05 AM
+
+Z-App -8 Network Error when users log in on Windows 10
+
+Client Connector
+
+cburge97
+
+2,888
+
+2888 Views
+
+0 Likes
+
+11
+
+11 Comments
+
+7/3/2020
+
+at
+
+11:55 AM
+
+ZAPP intune deployment
+
+Client Connector
+
+Mk001
+
+1,379
+
+1379 Views
+
+0 Likes
+
+4 Comments
+
+1/28/2021
+
+at
+
+03:42 PM
+
+Compare ezAgent and ZCC - when to use which?
+
+Client Connector
+
+hukel
+
+704
+
+704 Views
+
+0 Likes
+
+2 Comments
+
+8/18/2020
+
+at
+
+12:15 PM
+
+MacOS Zscaler App Log Location
+
+Client Connector
+
+brad
+
+3,576
+
+3576 Views
+
+0 Likes
+
+1 Comment
+
+3/7/2022
+
+at
+
+03:41 PM
+
+Can a User with multiple devices use them simultaneously whilst logged in using that same single account
+
+Client Connector
+
+michael.makombe
+
+4 Views
+
+0 Likes
+
+12
+
+12 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Looking for a Zscaler SME for multi-year contract 20 miles NW of Boston
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evn1iCAA/zapp-root-certificate-not-installing","lastmod":"2023-05-31T08:52:02.000Z","id":"0D54u00009evn1iCAA"} -->
+## Zapp Root Certificate Not Installing
+
+- Source: https://community.zscaler.com/s/question/0D54u00009evn1iCAA/zapp-root-certificate-not-installing
+- Type: Q&A
+- Last activity: 2023-05-31T08:52:02.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Client Connector
+
+bpolum
+
+(Customer) to
+
+sfdc
+
+(Employee): asked a question.
+
+August 22, 2019 at 9:40 PM
+
+Zapp Root Certificate Not Installing
+
+We deployed the Zapp and it is not installing the SSL certificate; verified that the policy is set to enable and ‘install the Zscaler SSL Certificate’ upon authentication within the Zapp. Checked to make sure the app was updated and the policy was the correct one. We have not tried manually installing the root certificate, as this would be a pain if we had to expand to the enterprise. Anything we can try to force the app to install or re-install the Zscaler certificate?
+
+Client Connector
+
+6 answers
+
+624 views
+
+anonvenus
+
+(Customer)
+
+6 years ago
+
+Hi
+
+@dcreedy
+
+could you please let me know whether Zscaler Certificate will work on iOS Simulator?
+
+Thanks,
+
+Anon
+
+Ramesh Mani
+
+(Partner)
+
+6 years ago
+
+Hi team,
+
+We have tested with latest ZAPP package(2.1.0.x and 2.1.2.x), the certificate installation happening seamlessly.
+
+-Ramesh M
+
+Ramesh Mani
+
+(Partner)
+
+6 years ago
+
+Have you identified the issue and fix. what was the issues?
+
+yakuza
+
+(Customer)
+
+7 years ago
+
+Is there any endpoint protection product that you use, or maybe GPO restrictions that prevent app from installing it? We’re going through this testing at the moment using vanilla Windows 10 build and ZApp installed certificate without any issues.
+
+bpolum
+
+(Customer)
+
+7 years ago
+
+The devices are all either Windows or MacOS. We’ve double checked the policy to make sure the automatic install is set and it is using the same policy as other users that have no problems.
+
+dcreedy
+
+(Employee)
+
+7 years ago
+
+Hi Ben,
+
+Which platform are we talking about here?
+
+Note that for Windows and MacOS this should be installed automatically.
+
+iOS we are unable to do this today, and Android requires the user to launch the app and tap install certificate. Unfortunately these are platform limitations.
+
+Regards
+
+David
+
+Log In to Answer
+
+Associated Tags
+
+certificate
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/7/2020
+
+at
+
+04:05 AM
+
+Z-App -8 Network Error when users log in on Windows 10
+
+Client Connector
+
+cburge97
+
+2,881
+
+2881 Views
+
+0 Likes
+
+11
+
+11 Comments
+
+7/3/2020
+
+at
+
+11:55 AM
+
+ZAPP intune deployment
+
+Client Connector
+
+Mk001
+
+1,376
+
+1376 Views
+
+0 Likes
+
+4 Comments
+
+1/28/2021
+
+at
+
+03:42 PM
+
+Compare ezAgent and ZCC - when to use which?
+
+Client Connector
+
+hukel
+
+701
+
+701 Views
+
+0 Likes
+
+2 Comments
+
+8/18/2020
+
+at
+
+12:15 PM
+
+MacOS Zscaler App Log Location
+
+Client Connector
+
+brad
+
+3,565
+
+3565 Views
+
+0 Likes
+
+1 Comment
+
+3/7/2022
+
+at
+
+03:41 PM
+
+Can a User with multiple devices use them simultaneously whilst logged in using that same single account
+
+Client Connector
+
+michael.makombe
+
+4 Views
+
+0 Likes
+
+12
+
+12 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Zapp Root Certificate Not Installing
+<!-- /ZS-POST -->
 
 ---
 
@@ -74980,309 +75464,4 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Verifying Zscaler Client Connector Installation via Registry
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000XzIJc0AN/zcc-disconnections-and-reconnections-occur-repeatedly-in-a-short-period","lastmod":"2026-03-10T13:59:41.000Z","id":"0D5PJ00000XzIJc0AN"} -->
-## ZCC disconnections and re-connections occur repeatedly in a short period
-
-- Source: https://community.zscaler.com/s/question/0D5PJ00000XzIJc0AN/zcc-disconnections-and-reconnections-occur-repeatedly-in-a-short-period
-- Type: Q&A
-- Last activity: 2026-03-10T13:59:41.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Client Connector
-
-Nutella1
-
-(Customer) asked a question.
-
-Edited May 20, 2025 at 4:55 AM
-
-ZCC disconnections and re-connections occur repeatedly in a short period
-
-Hi, all.
-
-Our staffs have an issue with the ZCC that ZCC repeats disconnections and re-connections of ZIA/ZPA repeatedly.
-
-The issue occurs randomly and about 10 of 500+ staffs have this issue.
-
-Based on my investigation, this issue occurs only using wireless communications on Windows OS.
-
-And this issue have been reported since I updated ZCC from 4.1.0.96 to 4.5.0.337. (I updated ZCC to 4.5.0.434 but still happened)
-
-What I have done is below:
-
-I changed some configurations of Wifi adaptor (multi-bandwidth selection, power consumption and so on...)
-
-I updated Wifi driver to latest version
-
-I added many policies in FW that allow every communications related to Zscaler.
-
-I found there were no network issues and this issue occurs not only at office, but also on each staff's home or outside.
-
-I also found this issue don't occur in wired environment.
-
-I disabled IPv6 on Wifi adaptor.
-
-There have been no such issue on Mac OS.
-
-All network communications are temporarily interrupted while the problem occurs.
-
-I can see many ZCC notifications that shows disconnections and re-connections sine communications with SME(Service Management Engine/***.sme.zscalerthree.net) was failed.
-
-But I think the failed communications are only results of this issue, not a root cause.
-
-As a result of my all investigations, it seems that there are conflicts between ZCC and wireless network adapter(or driver).
-
-I have opened many tickets on Zscaler support portal, but a root cause has not yet been determined.
-
-Has anyone already had such an issue?
-
-I would appreciate any advice on this issue.
-
-Client Connector
-
-5 answers
-
-1.31K views
-
-jshauk
-
-likes this.
-
-jshauk
-
-(Customer)
-
-a year ago
-
-We had this start happening today after a Microsoft patch was rolled out to some devices, but what's strange is that even after rolling it back we still have the issue. From what I could tell in the logs it looks like zsatunnel.exe is not able to start properly so no traffic gets tunneled. The only solution that we could find was either turning off Zscaler or using 4.1 of the ZCC. We've been on 4.6 for a while with no issues before yesterday. We also tried 4.4 and 4.5 with no luck. Not sure where the issue begins, but 4.1 seems to work for us for now.
-
-jshauk
-
-(Customer)
-
-a year ago
-
-We were able to narrow this issue down further to our forwarding profile. We switched back to Tunnel 1 and everything started working again. No other settings were changed at all, just from Tunnel 2 to Tunnel 1. I'm on 4.6.0.168 and with Tunnel 2 I get no internet and on Tunnel 1 it works.
-
-It's strange because it's set to fallback to T1 if T2 fails but from what I can see in some event viewer logs is that the zsatunnel.exe is crashing or something.
-
-jshauk
-
-(Customer)
-
-a year ago
-
-Okay, sorry for the spam but I was wrong about this. Turns out there were a bunch of port exclusions in the "source port-based bypasses" section of the app profile that were added in a "throw everything at the wall until it works" attempt to fix a completely separate issue(the exclusions didn't help anyway). What's weird is that everything has been working since those were added for weeks, but with the latest windows update - it started causing this issue but only on launch.
-
-If we launched ZCC on a separate policy without the exclusions - ZScaler launched and worked fine. If you moved back to the "broken" policy and hit update while ZCC was still running - everything would keep working. But if you tried to launch ZCC with the "broken" policy it would keep you from connecting to the internet.
-
-So TLDR: removing port based exclusions fixed the issue. We're on 4.6.0.2 and Tunnel 2.0 with no issues now.
-
-ian.wharton
-
-(Partner)
-
-a year ago
-
-Hi
-
-Nutella1
-
-Do you have ZDX? I had a similar issue on my PC on wifi at a particular location. When I checked ZDX on user device events, it showed that my adapter was randomly swapping between 802.11ac and 802.11ax. It may be a different issue for you but hopefully might give you some insight into the root cause.
-
-Regards
-
-Ian
-
-danl
-
-(Customer)
-
-5 months ago
-
-On a number of laptop PC's I have solved this problem by going to the
-
-network adapter device driver properties
-
-and turning
-
-OFF
-
-any kind of idle/power related energy saving features.  Thus giving Zscaler a more continuous network connection for it's health/heartbeat monitoring. These PCs went from constantly logging connect/disconnect entries and constant having disconnect notification popups to having practically none.
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-7/7/2020
-
-at
-
-04:05 AM
-
-Z-App -8 Network Error when users log in on Windows 10
-
-Client Connector
-
-cburge97
-
-2,893
-
-2893 Views
-
-0 Likes
-
-11
-
-11 Comments
-
-7/3/2020
-
-at
-
-11:55 AM
-
-ZAPP intune deployment
-
-Client Connector
-
-Mk001
-
-1,383
-
-1383 Views
-
-0 Likes
-
-4 Comments
-
-1/28/2021
-
-at
-
-03:42 PM
-
-Compare ezAgent and ZCC - when to use which?
-
-Client Connector
-
-hukel
-
-704
-
-704 Views
-
-0 Likes
-
-2 Comments
-
-8/18/2020
-
-at
-
-12:15 PM
-
-MacOS Zscaler App Log Location
-
-Client Connector
-
-brad
-
-3,578
-
-3578 Views
-
-0 Likes
-
-1 Comment
-
-3/7/2022
-
-at
-
-03:41 PM
-
-Can a User with multiple devices use them simultaneously whilst logged in using that same single account
-
-Client Connector
-
-michael.makombe
-
-4 Views
-
-0 Likes
-
-12
-
-12 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-ZCC disconnections and re-connections occur repeatedly in a short period
 <!-- /ZS-POST -->

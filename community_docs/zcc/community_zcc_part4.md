@@ -1,10 +1,315 @@
 # Zscaler Zenith Community — ZCC — Zscaler Client Connector (part 4)
 
 Source: https://community.zscaler.com
-Generated: 2026-09-21 02:03 UTC
-Posts in this file: 56
+Generated: 2026-09-28 10:07 UTC
+Posts in this file: 57
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000XzIJc0AN/zcc-disconnections-and-reconnections-occur-repeatedly-in-a-short-period","lastmod":"2026-03-10T13:59:41.000Z","id":"0D5PJ00000XzIJc0AN"} -->
+## ZCC disconnections and re-connections occur repeatedly in a short period
+
+- Source: https://community.zscaler.com/s/question/0D5PJ00000XzIJc0AN/zcc-disconnections-and-reconnections-occur-repeatedly-in-a-short-period
+- Type: Q&A
+- Last activity: 2026-03-10T13:59:41.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Client Connector
+
+Nutella1
+
+(Customer) asked a question.
+
+Edited May 20, 2025 at 4:55 AM
+
+ZCC disconnections and re-connections occur repeatedly in a short period
+
+Hi, all.
+
+Our staffs have an issue with the ZCC that ZCC repeats disconnections and re-connections of ZIA/ZPA repeatedly.
+
+The issue occurs randomly and about 10 of 500+ staffs have this issue.
+
+Based on my investigation, this issue occurs only using wireless communications on Windows OS.
+
+And this issue have been reported since I updated ZCC from 4.1.0.96 to 4.5.0.337. (I updated ZCC to 4.5.0.434 but still happened)
+
+What I have done is below:
+
+I changed some configurations of Wifi adaptor (multi-bandwidth selection, power consumption and so on...)
+
+I updated Wifi driver to latest version
+
+I added many policies in FW that allow every communications related to Zscaler.
+
+I found there were no network issues and this issue occurs not only at office, but also on each staff's home or outside.
+
+I also found this issue don't occur in wired environment.
+
+I disabled IPv6 on Wifi adaptor.
+
+There have been no such issue on Mac OS.
+
+All network communications are temporarily interrupted while the problem occurs.
+
+I can see many ZCC notifications that shows disconnections and re-connections sine communications with SME(Service Management Engine/***.sme.zscalerthree.net) was failed.
+
+But I think the failed communications are only results of this issue, not a root cause.
+
+As a result of my all investigations, it seems that there are conflicts between ZCC and wireless network adapter(or driver).
+
+I have opened many tickets on Zscaler support portal, but a root cause has not yet been determined.
+
+Has anyone already had such an issue?
+
+I would appreciate any advice on this issue.
+
+Client Connector
+
+5 answers
+
+1.31K views
+
+jshauk
+
+likes this.
+
+jshauk
+
+(Customer)
+
+a year ago
+
+We had this start happening today after a Microsoft patch was rolled out to some devices, but what's strange is that even after rolling it back we still have the issue. From what I could tell in the logs it looks like zsatunnel.exe is not able to start properly so no traffic gets tunneled. The only solution that we could find was either turning off Zscaler or using 4.1 of the ZCC. We've been on 4.6 for a while with no issues before yesterday. We also tried 4.4 and 4.5 with no luck. Not sure where the issue begins, but 4.1 seems to work for us for now.
+
+jshauk
+
+(Customer)
+
+a year ago
+
+We were able to narrow this issue down further to our forwarding profile. We switched back to Tunnel 1 and everything started working again. No other settings were changed at all, just from Tunnel 2 to Tunnel 1. I'm on 4.6.0.168 and with Tunnel 2 I get no internet and on Tunnel 1 it works.
+
+It's strange because it's set to fallback to T1 if T2 fails but from what I can see in some event viewer logs is that the zsatunnel.exe is crashing or something.
+
+jshauk
+
+(Customer)
+
+a year ago
+
+Okay, sorry for the spam but I was wrong about this. Turns out there were a bunch of port exclusions in the "source port-based bypasses" section of the app profile that were added in a "throw everything at the wall until it works" attempt to fix a completely separate issue(the exclusions didn't help anyway). What's weird is that everything has been working since those were added for weeks, but with the latest windows update - it started causing this issue but only on launch.
+
+If we launched ZCC on a separate policy without the exclusions - ZScaler launched and worked fine. If you moved back to the "broken" policy and hit update while ZCC was still running - everything would keep working. But if you tried to launch ZCC with the "broken" policy it would keep you from connecting to the internet.
+
+So TLDR: removing port based exclusions fixed the issue. We're on 4.6.0.2 and Tunnel 2.0 with no issues now.
+
+ian.wharton
+
+(Partner)
+
+a year ago
+
+Hi
+
+Nutella1
+
+Do you have ZDX? I had a similar issue on my PC on wifi at a particular location. When I checked ZDX on user device events, it showed that my adapter was randomly swapping between 802.11ac and 802.11ax. It may be a different issue for you but hopefully might give you some insight into the root cause.
+
+Regards
+
+Ian
+
+danl
+
+(Customer)
+
+5 months ago
+
+On a number of laptop PC's I have solved this problem by going to the
+
+network adapter device driver properties
+
+and turning
+
+OFF
+
+any kind of idle/power related energy saving features.  Thus giving Zscaler a more continuous network connection for it's health/heartbeat monitoring. These PCs went from constantly logging connect/disconnect entries and constant having disconnect notification popups to having practically none.
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/7/2020
+
+at
+
+04:05 AM
+
+Z-App -8 Network Error when users log in on Windows 10
+
+Client Connector
+
+cburge97
+
+2,893
+
+2893 Views
+
+0 Likes
+
+11
+
+11 Comments
+
+7/3/2020
+
+at
+
+11:55 AM
+
+ZAPP intune deployment
+
+Client Connector
+
+Mk001
+
+1,383
+
+1383 Views
+
+0 Likes
+
+4 Comments
+
+1/28/2021
+
+at
+
+03:42 PM
+
+Compare ezAgent and ZCC - when to use which?
+
+Client Connector
+
+hukel
+
+704
+
+704 Views
+
+0 Likes
+
+2 Comments
+
+8/18/2020
+
+at
+
+12:15 PM
+
+MacOS Zscaler App Log Location
+
+Client Connector
+
+brad
+
+3,578
+
+3578 Views
+
+0 Likes
+
+1 Comment
+
+3/7/2022
+
+at
+
+03:41 PM
+
+Can a User with multiple devices use them simultaneously whilst logged in using that same single account
+
+Client Connector
+
+michael.makombe
+
+4 Views
+
+0 Likes
+
+12
+
+12 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+ZCC disconnections and re-connections occur repeatedly in a short period
+<!-- /ZS-POST -->
 
 ---
 

@@ -1,10 +1,684 @@
 # Zscaler Zenith Community — ZIA — Internet & SaaS (part 2)
 
 Source: https://community.zscaler.com
-Generated: 2026-09-21 02:03 UTC
-Posts in this file: 297
+Generated: 2026-09-28 10:07 UTC
+Posts in this file: 295
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evmonCAA/zia-azure-virtual-desktop-session-drops-during-login","lastmod":"2023-11-20T17:23:37.000Z","id":"0D54u00009evmonCAA"} -->
+## ZIA - Azure Virtual Desktop Session drops during login
+
+- Source: https://community.zscaler.com/s/question/0D54u00009evmonCAA/zia-azure-virtual-desktop-session-drops-during-login
+- Type: Q&A
+- Last activity: 2023-11-20T17:23:37.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Client Connector
+
+a_dog
+
+(Customer) to
+
+sfdc
+
+(Employee): asked a question.
+
+January 6, 2022 at 3:52 PM
+
+ZIA - Azure Virtual Desktop Session drops during login
+
+We are seeing an issue with users logging into Azure Virtual Desktop and as soon as the desktop is presented it freezes and reconnects after approx 10 seconds and i see in the background the zscaler window flash up and disappear very quickly as the user is presumably signed in. Its this signing in to ZIA that temp breaks the network connection and freezes the desktop. Is there a way to sort this without a network interruption, is anyone else seeing this behaviour?
+
+This only happens when a user logs in, once logged in the session is fine until next time.
+
+Zscaler Client Connector version is 3.4.0.124 and tunnel version is v2.0 - DTLS
+
+thanks!
+
+Client Connector
+
+6 answers
+
+3.98K views
+
+Swartzendruber.travis
+
+likes this.
+
+tausif
+
+(Customer)
+
+3 years ago
+
+I realize this is from quiet a while ago, but i just wanted to record what worked for us.
+
+Add all the IP ranges from
+
+https://www.microsoft.com/en-us/download/details.aspx?id=56519
+
+to the “Destination Exclusions for IPv4? under the App Profile. This worked for us.
+
+1 like
+
+Gk
+
+(Customer)
+
+3 years ago
+
+i bypassed all the 350+ ip in App profile Application Bypass.  my first connection during sign still disconnects. did you bypassed  any other Url
+
+Swartzendruber.travis
+
+(Customer)
+
+3 years ago
+
+i am seeing this same thing as well still.
+
+We did this and the Optimizing RDP one in Gabriel's post and still no luck.
+
+Where you able to get it figured out?
+
+gabriel
+
+(Customer)
+
+4 years ago
+
+Hi all -
+
+This page here describes the fix:
+
+Optimizing RDP Connectivity for Windows 365 - Microsoft Community Hub
+
+Cheers,
+
+Gabriel
+
+G-Man8
+
+(Customer)
+
+4 years ago
+
+We have the same issue Julien !
+
+‘Application Bypass’ for ‘
+
+Azure Virtual Machine
+
+’ (like MS Teams) will be the nice fix rather than a double PAC bypass.
+
+I think the challenge is the wildcard for ‘
+
+.prod.warm.ingest.monitor.core.windows.net ’ AND '
+
+.wvd.microsoft.com’
+
+I ran the ‘WVDAgentUrlTool.exe’ and added the returned to the VPN bypass as a test but that didnt work either for me.
+
+Anyone else had any luck ?
+
+Julien_Grua
+
+(Customer)
+
+4 years ago
+
+Hello
+
+Would we be lucky to get an answer?
+
+We want to use Zscaler on azure virtual machines as we do for laptops, and we had the same problem as described above.
+
+We have disconnections when connecting ZIA to the virtual machines during the POC
+
+Do you have any feedback on these issues?
+
+Thank you in advance.
+
+1 like
+
+Log In to Answer
+
+Associated Tags
+
+azure
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/7/2020
+
+at
+
+04:05 AM
+
+Z-App -8 Network Error when users log in on Windows 10
+
+Client Connector
+
+cburge97
+
+2,888
+
+2888 Views
+
+0 Likes
+
+11
+
+11 Comments
+
+7/3/2020
+
+at
+
+11:55 AM
+
+ZAPP intune deployment
+
+Client Connector
+
+Mk001
+
+1,379
+
+1379 Views
+
+0 Likes
+
+4 Comments
+
+1/28/2021
+
+at
+
+03:42 PM
+
+Compare ezAgent and ZCC - when to use which?
+
+Client Connector
+
+hukel
+
+704
+
+704 Views
+
+0 Likes
+
+2 Comments
+
+8/18/2020
+
+at
+
+12:15 PM
+
+MacOS Zscaler App Log Location
+
+Client Connector
+
+brad
+
+3,575
+
+3575 Views
+
+0 Likes
+
+1 Comment
+
+3/7/2022
+
+at
+
+03:41 PM
+
+Can a User with multiple devices use them simultaneously whilst logged in using that same single account
+
+Client Connector
+
+michael.makombe
+
+4 Views
+
+0 Likes
+
+12
+
+12 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+ZIA - Azure Virtual Desktop Session drops during login
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evmorCAA/git-proxy-error-libressl-sslconnect-sslerrorsyscall","lastmod":"2023-05-31T08:46:32.000Z","id":"0D54u00009evmorCAA"} -->
+## Git proxy error: LibreSSL SSL_connect: SSL_ERROR_SYSCALL
+
+- Source: https://community.zscaler.com/s/question/0D54u00009evmorCAA/git-proxy-error-libressl-sslconnect-sslerrorsyscall
+- Type: Q&A
+- Last activity: 2023-05-31T08:46:32.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - Authentication
+
+Guwan
+
+(Customer) to
+
+sfdc
+
+(Employee): asked a question.
+
+December 23, 2021 at 8:35 AM
+
+Git proxy error: LibreSSL SSL_connect: SSL_ERROR_SYSCALL
+
+At the moment this error occurs for me in combination with zscaler:
+
+g clone https://github.com/privatenumber/instant-mocha.git
+
+Cloning into 'instant-mocha'...
+
+fatal: unable to access 'https://github.com/privatenumber/instant-mocha.git/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to gateway.zscaler.net:80
+
+Git config has the following zscaler entries:
+
+[http]
+
+proxy = https://gateway.zscaler.net:80/
+
+sslCAInfo = /Users/XXXXX/.zcli/zscaler_root.pem
+
+Removing it, rebooting, disable zscaler, etc. does not fix my issue.
+
+At this moment i am unable to use git.
+
+ZIA - Authentication
+
+2 answers
+
+3.5K views
+
+manuel
+
+(Customer)
+
+5 years ago
+
+Hello Guwan,
+
+did you check
+
+Adding Custom Certificate to an Application Specific Trusted Store | Zscaler
+
+BR
+
+Manuel
+
+1 like
+
+Guwan
+
+(Customer)
+
+5 years ago
+
+I can connect to github via ssl:
+
+openssl s_client -connect github.com:443 -msg
+
+CONNECTED(00000005)
+
+>>> TLS 1.2 Handshake [length 00bf], ClientHello
+
+XXX
+
+<<< TLS 1.2 Handshake [length 0059], ServerHello
+
+XXX
+
+<<< TLS 1.2 Handshake [length 0dc4], Certificate
+
+XXX
+
+depth=2 C = US, ST = California, O = Zscaler Inc., OU = Zscaler Inc., CN = Zscaler Intermediate Root CA (zscloud.net), emailAddress = support@zscaler.com
+
+verify error:num=20:unable to get local issuer certificate
+
+verify return:0
+
+<<< TLS 1.2 Handshake [length 014d], ServerKeyExchange
+
+XXX
+
+<<< TLS 1.2 Handshake [length 0004], ServerHelloDone
+
+XXX
+
+>>> TLS 1.2 Handshake [length 0046], ClientKeyExchange
+
+XXX
+
+>>> TLS 1.2 ChangeCipherSpec [length 0001]
+
+XXX
+
+>>> TLS 1.2 Handshake [length 0010], Finished
+
+XXX
+
+<<< TLS 1.2 ChangeCipherSpec [length 0001]
+
+XXX
+
+<<< TLS 1.2 Handshake [length 0010], Finished
+
+XXX
+
+---
+
+Certificate chain
+
+0 s:/C=US/ST=California/L=San Francisco/O=GitHub, Inc./CN=github.com
+
+i:/C=US/ST=California/O=Zscaler Inc./OU=Zscaler Inc./CN=Zscaler Intermediate Root CA (zscloud.net) (t)
+
+1 s:/C=US/ST=California/O=Zscaler Inc./OU=Zscaler Inc./CN=Zscaler Intermediate Root CA (zscloud.net) (t)
+
+i:/C=US/ST=California/O=Zscaler Inc./OU=Zscaler Inc./CN=Zscaler Intermediate Root CA (zscloud.net)/emailAddress=support@zscaler.com
+
+2 s:/C=US/ST=California/O=Zscaler Inc./OU=Zscaler Inc./CN=Zscaler Intermediate Root CA (zscloud.net)/emailAddress=support@zscaler.com
+
+i:/C=US/ST=California/L=San Jose/O=Zscaler Inc./OU=Zscaler Inc./CN=Zscaler Root CA/emailAddress=support@zscaler.com
+
+---
+
+Server certificate
+
+-----BEGIN CERTIFICATE-----
+
+XXX
+
+-----END CERTIFICATE-----
+
+subject=/C=US/ST=California/L=San Francisco/O=GitHub, Inc./CN=github.com
+
+issuer=/C=US/ST=California/O=Zscaler Inc./OU=Zscaler Inc./CN=Zscaler Intermediate Root CA (zscloud.net) (t)
+
+---
+
+No client certificate CA names sent
+
+Server Temp Key: ECDH, P-256, 256 bits
+
+---
+
+SSL handshake has read 4021 bytes and written 322 bytes
+
+---
+
+New, TLSv1/SSLv3, Cipher is ECDHE-RSA-AES256-GCM-SHA384
+
+Server public key is 2048 bit
+
+Secure Renegotiation IS supported
+
+Compression: NONE
+
+Expansion: NONE
+
+No ALPN negotiated
+
+SSL-Session:
+
+Protocol : TLSv1.2
+
+Cipher : ECDHE-RSA-AES256-GCM-SHA384
+
+Session-ID: F72C72758C1C6ECD0EC469A54A709ADC22C21C7D9555B3E79915644AEFA1725B
+
+Session-ID-ctx:
+
+Master-Key: 96497534352717D6184F2E1687BA746003F80C0A050EB0C7CBBE71EF9DE2E497AF31376CE056D32C6D28EB0E14629791
+
+Start Time: 1640252593
+
+Timeout : 7200 (sec)
+
+Verify return code: 0 (ok)
+
+---
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/15/2022
+
+at
+
+12:39 PM
+
+Onprem Active directory integrate with Zscaler cloud ZIA
+
+ZIA - Authentication
+
+aravindhan.m
+
+3 Views
+
+0 Likes
+
+3 Comments
+
+7/11/2022
+
+at
+
+07:26 AM
+
+Zscaler IDP authentication issue
+
+ZIA - Authentication
+
+aravindhan.m
+
+4 Views
+
+0 Likes
+
+2 Comments
+
+5/27/2022
+
+at
+
+01:49 PM
+
+Zscaler ZIA O365 Apps not authenticating
+
+ZIA - Authentication
+
+abmaclean
+
+4 Views
+
+0 Likes
+
+6 Comments
+
+10/4/2021
+
+at
+
+10:43 PM
+
+Automatic de-provisioning using SCIM with Azure AD
+
+ZIA - Authentication
+
+Paul_Wineberg
+
+4 Views
+
+0 Likes
+
+4 Comments
+
+6/27/2020
+
+at
+
+03:01 PM
+
+Zscaler public preview
+
+ZIA - Authentication
+
+Muhammad
+
+364
+
+364 Views
+
+0 Likes
+
+2 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Git proxy error: LibreSSL SSL_connect: SSL_ERROR_SYSCALL
+<!-- /ZS-POST -->
 
 ---
 
@@ -76737,966 +77411,4 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Non HTTP ports communication through Z app
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evn2uCAA/z-app-forwarding-method","lastmod":"2023-05-31T08:53:13.000Z","id":"0D54u00009evn2uCAA"} -->
-## Z App Forwarding Method
-
-- Source: https://community.zscaler.com/s/question/0D54u00009evn2uCAA/z-app-forwarding-method
-- Type: Q&A
-- Last activity: 2023-05-31T08:53:13.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Client Connector
-
-Mark_Potosky
-
-(Customer) to
-
-sfdc
-
-(Employee): asked a question.
-
-February 27, 2019 at 5:02 PM
-
-Z App Forwarding Method
-
-Is there a document that outlines the best practice guidance on how to configure Z App traffic forwarding? We’re deploying Z App in “Tunnel with Local Proxy? currently, but I’ve recently come to understand that this mode still has a heavy dependency on our PAC files, which I don’t believe are optimally configured. I am looking for the implications of moving from tunnel with local proxy to straight tunnel using the packet filter driver.
-
-Client Connector
-
-3 answers
-
-302 views
-
-Mark_Potosky
-
-(Customer)
-
-7 years ago
-
-Thanks David. Do you have any examples of limitations in environments that would require the use of tunnel with local proxy? I’m trying to get an understanding of what to look out for.
-
-I can’t prove that that my PAC files are directly causing issues, but I do know that they are huge and poorly documented. I can’t explain why some sites are being sent direct. I know that I’m bypassing most O365 URLs via PAC, but sending all O365 to ZS (with one click enabled) via GRE when users are on network.
-
-I’ve also seen issues with PAC files not properly standing down when the client is on network, resulting in “double hopping Zens? (PAC is sending traffic to Zen1 but GRE is sending it to Zen2).
-
-If I change a forwarding profile from tunnel with proxy to tunnel only, does Z App automatically pick up and apply that change? Is there any impact to the end user? Would they have to re-authenticate? I am not currently leveraging SCIM via Okta to manage Zscaler user lifecycle.
-
-Thanks,
-
-Mark
-
-venkata.nagumotu
-
-(Customer)
-
-7 years ago
-
-Hi David,
-
-When you say " Z App will automatically steer traffic towards Z App from the user’s browser and proxy aware applications" does it apply the applications which use non standard ports (ports - 1433) and are not browser specific? Will they use the Z app and finally access the PAC file to return to their destinations ?
-
-I have a database application which use port 1433 for communication. And we have tunnel with local proxy as our forward method. we want to use an internal proxy server for this application traffic and we have created an exception in PAC file. But we only see that this application always goes direct to internet being this application is aware of proxy.
-
-Is any port 80 and 443 restriction is applied here ?
-
-Thanks
-
-dcreedy
-
-(Employee)
-
-7 years ago
-
-Hi Mark,
-
-The forwarding method generally depends on the specific environment as each forwarding method behaves differently. You’ve probably see this, but here is a doc that explain at a high level:
-
-https://help.zscaler.com/z-app/configuring-forwarding-profiles-zscaler-app
-
-We generally recommend tunnel mode with packet filter, though of course there might be limitations in an environment that require the use of tunnel with local proxy.
-
-For Tunnel with local proxy, you don’t necessarily need to have a complex pac file. If you leave the profiles default, Z App will automatically steer traffic towards Z App from the user’s browser and proxy aware applications. You should only need to modify this forwarding profile PAC if there are specific destinations you need to bypass. I’d be interested to know what issues you are seeing with the PACs.
-
-Moving to tunnel mode is fairly straight forward, the main differences between the the firewall rules required (
-
-https://help.zscaler.com/z-app/what-zscaler-app-processes-should-i-whitelist
-
-) and also that tunnel mode only gets 80/443 TCP, unlike tunnel with local proxy which can get web traffic on non-standard ports.
-
-Regards
-
-David
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-7/7/2020
-
-at
-
-04:05 AM
-
-Z-App -8 Network Error when users log in on Windows 10
-
-Client Connector
-
-cburge97
-
-2,881
-
-2881 Views
-
-0 Likes
-
-11
-
-11 Comments
-
-7/3/2020
-
-at
-
-11:55 AM
-
-ZAPP intune deployment
-
-Client Connector
-
-Mk001
-
-1,376
-
-1376 Views
-
-0 Likes
-
-4 Comments
-
-1/28/2021
-
-at
-
-03:42 PM
-
-Compare ezAgent and ZCC - when to use which?
-
-Client Connector
-
-hukel
-
-701
-
-701 Views
-
-0 Likes
-
-2 Comments
-
-8/18/2020
-
-at
-
-12:15 PM
-
-MacOS Zscaler App Log Location
-
-Client Connector
-
-brad
-
-3,565
-
-3565 Views
-
-0 Likes
-
-1 Comment
-
-3/7/2022
-
-at
-
-03:41 PM
-
-Can a User with multiple devices use them simultaneously whilst logged in using that same single account
-
-Client Connector
-
-michael.makombe
-
-4 Views
-
-0 Likes
-
-12
-
-12 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Z App Forwarding Method
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evn2wCAA/integration-with-crxcavatorio","lastmod":"2023-05-31T08:52:21.000Z","id":"0D54u00009evn2wCAA"} -->
-## Integration with crxcavator.io
-
-- Source: https://community.zscaler.com/s/question/0D54u00009evn2wCAA/integration-with-crxcavatorio
-- Type: Q&A
-- Last activity: 2023-05-31T08:52:21.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZIA - Cloud Firewall
-
-avshch
-
-(Customer) to
-
-sfdc
-
-(Employee): asked a question.
-
-February 22, 2019 at 8:43 PM
-
-Integration with crxcavator.io
-
-Any plans for the integration with CRXcavator?
-
-ZIA - Cloud Firewall
-
-1 answer
-
-272 views
-
-Naresh_Kumar_PM
-
-(Employee)
-
-7 years ago
-
-No, AFAIK. Please raise an Enhancement Request to discuss the requirement with our API Product Manager.
-
-1 like
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-11/29/2018
-
-at
-
-01:07 PM
-
-Ip address as criteria in url policy
-
-ZIA - Cloud Firewall
-
-ram75
-
-1,187
-
-1187 Views
-
-0 Likes
-
-1 Comment
-
-10/8/2020
-
-at
-
-08:41 AM
-
-Block All access & Allow certain user or group (ZIA)
-
-ZIA - Cloud Firewall
-
-Sec_def_Def_sec
-
-1,813
-
-1813 Views
-
-1 Like
-
-2 Comments
-
-12/19/2022
-
-at
-
-04:14 PM
-
-URL filtering policy vs Cloud App policy control
-
-ZIA - Cloud Firewall
-
-Ahmed
-
-4 Views
-
-0 Likes
-
-2 Comments
-
-12/9/2022
-
-at
-
-09:40 PM
-
-Apple News RSS Feed
-
-ZIA - Cloud Firewall
-
-Trace Woodbury-RidgeIT
-
-2 Views
-
-0 Likes
-
-1 Comment
-
-9/20/2022
-
-at
-
-03:20 PM
-
-How does Zscaler Internet Access itself route the traffic to the internet, using what outgoing/next hop GW
-
-ZIA - Cloud Firewall
-
-tamerz
-
-6 Views
-
-0 Likes
-
-5 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Integration with crxcavator.io
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evn2yCAA/need-to-block-slackcomgetstartedcreate","lastmod":"2023-07-07T11:31:26.000Z","id":"0D54u00009evn2yCAA"} -->
-## Need to Block slack.com/get-started#create
-
-- Source: https://community.zscaler.com/s/question/0D54u00009evn2yCAA/need-to-block-slackcomgetstartedcreate
-- Type: Q&A
-- Last activity: 2023-07-07T11:31:26.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZIA - Cloud Firewall
-
-dhriti
-
-(Customer) to
-
-sfdc
-
-(Employee): asked a question.
-
-February 12, 2019 at 5:28 AM
-
-Need to Block slack.com/get-started#create
-
-Hello All,
-
-I am trying to Block
-
-Slack
-
-but not the full Slack site
-
-I have created a User Defined Category named slack block under URL Categories and added the URL to it
-
-I have also created a Policy as Rule Order 1 which has been set as Block
-
-However when I try and access the URL it goes through. showing the URL category as Professional Services.
-
-Has anyone faced something like this.
-
-A Note: If I use
-
-slack.com
-
-it does block the full slack site which I don’t want.
-
-Any help will be appreciated.
-
-Regards
-
-Dhriti
-
-ZIA - Cloud Firewall
-
-2 answers
-
-301 views
-
-ramesh.mani
-
-(Partner)
-
-Edited by sfdc July 7, 2023 at 11:31 AM
-
-You may try this.
-
-ramesh.mani
-
-(Partner)
-
-7 years ago
-
-(post withdrawn by author, will be automatically deleted in 24 hours unless flagged)
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-11/29/2018
-
-at
-
-01:07 PM
-
-Ip address as criteria in url policy
-
-ZIA - Cloud Firewall
-
-ram75
-
-1,193
-
-1193 Views
-
-0 Likes
-
-1 Comment
-
-10/8/2020
-
-at
-
-08:41 AM
-
-Block All access & Allow certain user or group (ZIA)
-
-ZIA - Cloud Firewall
-
-Sec_def_Def_sec
-
-1,833
-
-1833 Views
-
-1 Like
-
-2 Comments
-
-12/19/2022
-
-at
-
-04:14 PM
-
-URL filtering policy vs Cloud App policy control
-
-ZIA - Cloud Firewall
-
-Ahmed
-
-4 Views
-
-0 Likes
-
-2 Comments
-
-12/9/2022
-
-at
-
-09:40 PM
-
-Apple News RSS Feed
-
-ZIA - Cloud Firewall
-
-Trace Woodbury-RidgeIT
-
-2 Views
-
-0 Likes
-
-1 Comment
-
-9/20/2022
-
-at
-
-03:20 PM
-
-How does Zscaler Internet Access itself route the traffic to the internet, using what outgoing/next hop GW
-
-ZIA - Cloud Firewall
-
-tamerz
-
-6 Views
-
-0 Likes
-
-5 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Need to Block slack.com/get-started#create
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evn2zCAA/block-prime-app","lastmod":"2023-07-06T13:11:29.000Z","id":"0D54u00009evn2zCAA"} -->
-## Block Prime App
-
-- Source: https://community.zscaler.com/s/question/0D54u00009evn2zCAA/block-prime-app
-- Type: Q&A
-- Last activity: 2023-07-06T13:11:29.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZIA - Cloud Firewall
-
-Santhoshb
-
-(Customer) to
-
-sfdc
-
-(Employee): asked a question.
-
-February 9, 2019 at 8:34 AM
-
-Block Prime App
-
-Hi,
-
-I am unable to block Amazon Prime videos App but allow Amazon Shopping App.No such option in cloud App .
-
-Regards
-
-Santhu
-
-ZIA - Cloud Firewall
-
-Discourse-expand
-
-Far-image
-
-3 answers
-
-390 views
-
-atsuo.kanekiyo
-
-(Customer)
-
-5 years ago
-
-Great, that worked for me too.
-
-Richard_Hodgson
-
-(Employee)
-
-Edited by sfdc July 6, 2023 at 12:13 PM
-
-Hi
-
-@GMeron
-
-, looks like Oracle does not initiate outbound.
-
-https://docs.cloud.oracle.com/en-us/iaas/Content/Network/Reference/faqIPsec.htm
-
-image
-
-800×546 55.9 KB
-
-@Sumanth_Malempaty
-
-, are you aware of any native alternative for Oracle Cloud?
-
-2 likes
-
-ramesh.mani
-
-(Partner)
-
-7 years ago
-
-Try to block
-
-fls-na.amazon.com
-
-in url filtering for amazon video
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-11/29/2018
-
-at
-
-01:07 PM
-
-Ip address as criteria in url policy
-
-ZIA - Cloud Firewall
-
-ram75
-
-1,193
-
-1193 Views
-
-0 Likes
-
-1 Comment
-
-10/8/2020
-
-at
-
-08:41 AM
-
-Block All access & Allow certain user or group (ZIA)
-
-ZIA - Cloud Firewall
-
-Sec_def_Def_sec
-
-1,822
-
-1822 Views
-
-1 Like
-
-2 Comments
-
-12/19/2022
-
-at
-
-04:14 PM
-
-URL filtering policy vs Cloud App policy control
-
-ZIA - Cloud Firewall
-
-Ahmed
-
-4 Views
-
-0 Likes
-
-2 Comments
-
-12/9/2022
-
-at
-
-09:40 PM
-
-Apple News RSS Feed
-
-ZIA - Cloud Firewall
-
-Trace Woodbury-RidgeIT
-
-2 Views
-
-0 Likes
-
-1 Comment
-
-9/20/2022
-
-at
-
-03:20 PM
-
-How does Zscaler Internet Access itself route the traffic to the internet, using what outgoing/next hop GW
-
-ZIA - Cloud Firewall
-
-tamerz
-
-6 Views
-
-0 Likes
-
-5 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Block Prime App
 <!-- /ZS-POST -->

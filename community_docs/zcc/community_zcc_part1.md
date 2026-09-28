@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — ZCC — Zscaler Client Connector (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-09-21 02:03 UTC
-Posts in this file: 286
+Generated: 2026-09-28 10:07 UTC
+Posts in this file: 283
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -3876,6 +3876,437 @@ ZSATunnel logs
 Windows DNS configuration
 
 These data points help validate whether ZCC correctly detected both the VPN and the trusted criteria match.
+
+Please reach out to us in the comments if you have any questions.
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Guide Details
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ0000006hjp0AA/how-to-analyze-zscaler-client-connector-logs-for-private-link-domain","lastmod":"2026-09-22T11:37:53.000Z","id":"aSoPJ0000006hjp0AA"} -->
+## How to analyze Zscaler Client Connector logs for Private Link Domain
+
+- Source: https://community.zscaler.com/s/Guides/aSoPJ0000006hjp0AA/how-to-analyze-zscaler-client-connector-logs-for-private-link-domain
+- Type: Guide
+- Last activity: 2026-09-22T11:37:53.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Guide Details
+
+Technical Guides
+
+Sejal Kumari
+
+(Employee) posted a Guide
+
+Edited 1h ago
+
+How to analyze Zscaler Client Connector logs for Private Link Domain
+
+Note:
+
+If you require help with the implementation of your specific configuration, please contact our Zscaler Deployment Services team for assistance.
+
+___________________________________________________________________________________________________
+
+Introduction
+
+Private Link Domain (also called Resolvable Links) is a Zscaler Private Access (ZPA) feature that allows Zscaler Client Connector (ZCC) to intercept Domain Name System (DNS) queries for internal frontend domains, resolve them to their Canonical Name (CNAME) targets, and route traffic through ZPA — even when the original domain does not directly map to a known ZPA application.
+
+This article walks you through each stage visible in ZCC tunnel logs so you can confirm that the Private Link Domain is working correctly, or quickly identify where a breakdown has occurred.
+
+Verifying ZPA client capabilities
+
+The first thing to confirm is that ZCC has successfully negotiated the
+
+RESOLVABLE_LINKS
+
+capability with the broker during session initialization.
+
+What to search for:
+
+ZPA Client Capabilities
+
+Log Snippet:
+
+2026-08-13 13:47:47.438251(-0700)[4484:7180] INF ZPA Client Capabilities: [ MTN PRIOR_INFO NO_DOMAIN_DOWNLOAD C2C LATENCY_PROBE
+
+RESOLVABLE_LINKS
+
+ALT_CLOUD_AWARE ZIA_INSPECTION SVCP STEP_UP_AUTH NP CLIENT_STATE
+
+The presence of
+
+RESOLVABLE_LINKS
+
+in this list confirms that ZCC supports the Private Link Domain feature and that the broker has acknowledged it.
+
+Confirming domain download from the broker
+
+Once capabilities are established, the broker sends the list of configured frontend domains to ZCC. This process is logged as a series of
+
+zpn_resolvable_link
+
+messages.
+
+What to search for:
+
+zpn_resolvable_link
+
+Log Snippet:
+
+2026-08-13 13:47:52.953877(-0700)[4484:7180] INF ZPN:0: Control Message Response Data: {"
+
+zpn_resolvable_link":{"id":1,"domains":["*.abc.test.local"]
+
+}}
+
+2026-08-13 13:47:52.953877(-0700)[4484:7180] DBG Got zpn_resolvable_link response.
+
+2026-08-13 13:47:52.953877(-0700)[4484:7180] DBG zpn_resolvable_link domains_count: 1
+
+2026-08-13 13:47:52.953877(-0700)[4484:7180] DBG zpn_resolvable_link accumulating domain: *.abc.test.local
+
+2026-08-13 13:47:52.953877(-0700)[4484:7180] DBG zpn_resolvable_link accumulated 1 domains, total accumulated: 1
+
+2026-08-13 13:47:52.953877(-0700)[4484:7180] DBG START_TLV_PARSING
+
+2026-08-13 13:47:52.953877(-0700)[4484:7180] DBG ZPN:0: Response tag: 0; Response length: 67
+
+2026-08-13 13:47:52.953877(-0700)[4484:7180] INF ZPN:0: Control Message Response Data: {"
+
+zpn_resolvable_link_complete
+
+":{"cname_limit":5,"total_count":1}}
+
+In this example, the frontend domain configured in ZPA is abc.test.local. The logs confirm:
+
+ZCC received a batch of frontend domains from the broker.
+
+The domain
+
+*.abc.test.local
+
+was added to the internal domain list.
+
+The
+
+zpn_resolvable_link_complete
+
+message marks the end of the download and reports the CNAME lookup depth limit (
+
+cname_limit: 5
+
+).
+
+Note: If you do not see
+
+zpn_resolvable_link_complete
+
+in the logs, the domain download did not complete. Check broker connectivity and ZPA policy configuration.
+
+Resolving the domain and extracting the CNAME
+
+When a user's application makes a DNS query for a frontend domain (in this example,
+
+abc.test.local
+
+), ZCC intercepts the query, matches it against the downloaded domain list, and initiates local resolution to extract the CNAME chain.
+
+What to search for:
+
+Processing private domain with CNAME
+
+Log Snippet:
+
+2026-08-13 13:56:47.364504(-0700)[4484:6296] DBG DNS: QRY=A(1), Name=abc.test.local
+
+2026-08-13 13:56:47.364504(-0700)[4484:6296] DBG DNS:
+
+Private Domain=abc.test.local matched in WILDCARD list against pattern: abc.test.local
+
+2026-08-13 13:56:47.364504(-0700)[4484:6296] INF UDP Proxy: private domain matched, UDP Proxy: ID: 64542 ZUdpSocketConnection: Domain abc.test.local is a private domain - skipping DNS response
+
+2026-08-13 13:56:47.364504(-0700)[4484:6296] INF Processing private domain with CNAME and ZPA lookup for domain: abc.test.local (cname_limit: 5, protocol: UDP, packetLength: 90)
+
+2026-08-13 13:56:47.364504(-0700)[4484:6296] DBG DNS: Extracted query type: 1 (A)
+
+2026-08-13 13:56:47.364504(-0700)[4484:6296] DBG DNS: Original query type for private domain abc.test.local is A (qtype=1)
+
+2026-08-13 13:56:47.364504(-0700)[4484:6296] DBG UDP Proxy: ID: 0 ZUdpSocketConnection: Stripping away 0 additional records. Response size reduced from: [90] to: [90] Bytes
+
+2026-08-13 13:56:47.364504(-0700)[4484:6296] DBG Processed DNS packet length: 90, extracted 1 CNAMEs (ordered: 1)
+
+2026-08-13 13:56:47.364504(-0700)[4484:6296] INF
+
+Extracted CNAMEs for domain abc.test.local: 1 entries (set size: 1, list size: 1)
+
+2026-08-13 13:56:47.364504(-0700)[4484:6296] DBG CNAME A [0]:
+
+www.moon.com
+
+What this tells you:
+
+ZCC matched
+
+abc.test.local
+
+against the wildcard pattern in its domain list.
+
+ZCC performed local DNS resolution and extracted the CNAME
+
+www.moon.com
+
+from the response.
+
+The CNAME will be used in the next step for ZPA domain verification.
+
+Confirming the CNAME is a ZPA domain
+
+ZCC sends the extracted CNAME (
+
+www.moon.com
+
+) to the broker via a
+
+zpn_app_client_check
+
+request. The broker resolves the name against its ZPA application catalog and returns the result.
+
+What to search for:
+
+zpn_app_client_check
+
+2026-08-13 13:56:47.364504(-0700)[4484:6296] INF Send APP request to broker. Size: 105 Data: { "zpn_app_client_check": { "id": 285212702, "name": "
+
+www.moon.com
+
+", "strict": 0, "type": "A" } }
+
+2026-08-13 13:56:47.364504(-0700)[4484:6296] INF Private Domain Sent DNS request to ZPN server for
+
+ZPA CNAME:
+
+www.moon.com
+
+, tag_id: 285212702
+
+2026-08-13 13:56:47.364504(-0700)[4484:6296] INF ZPA CNAME:
+
+www.moon.com
+
+-> tag_id: 285212702
+
+2026-08-13 13:56:47.364504(-0700)[4484:6296] DBG DNS:  CNAME:
+
+www.moon.com
+
+-> tag_id: 285212702
+
+2026-08-13 13:56:47.364504(-0700)[4484:6296] INF UDP Proxy: ID: 64542 ZUdpSocketConnection: Added tag_id 285212702 for CNAME
+
+www.moon.com
+
+to ZPN DNS request map
+
+2026-08-13 13:56:47.879805(-0700)[4484:7180] INF ZPN:0: Control Message Response Data: {"zpn_app_client_check":{"id":285212702,"name":"
+
+www.moon.com
+
+","elapsed_us":417156,"type":"A","err_num":0,"ttl":30,"ingress_port_ranges":[1, 52, 54, 65535],"tcp_port_ranges":[1, 52, 54, 65535],"bypass":0,"icmp_access_type":"NONE","bypass_on_reauth":0,"double_encrypt":0,"bypass_type":"NEVER","app_domain":".moon.com","strict":0,"has_a":0,"has_aaaa":0}}
+
+2026-08-13 13:56:47.895361(-0700)[4484:7180] DBG DNS: ZPN Response id=285212702 , Query type: ANY, Target Name=www.moon.com. (len=14) Response Time: 0.515301 seconds
+
+An
+
+err_num
+
+value of 0 and a bypass value of 0 together confirm that
+
+www.moon.com
+
+is a valid ZPA-managed domain.
+
+Mapping the domain and establishing the connection
+
+Once the CNAME is confirmed as a ZPA domain, ZCC maps it to the original frontend domain and assigns a synthetic IP address. From this point, the domain is treated like any other ZPA application.
+
+What to search for:
+
+Added CNAME and synthetic IP
+
+2026-08-13 13:56:47.895361(-0700)[4484:7180] INF DNS:
+
+Added CNAME
+
+www.moon.com
+
+-> frontend domain abc.test.local to map for MTunnel
+
+2026-08-13 13:56:47.895361(-0700)[4484:7180] INF DNS: Removed mapping for key: abc.test.local:64542 from _privateDomainMappings after sending response
+
+2026-08-13 13:56:47.895361(-0700)[4484:7180] INF DNS: Removing CNAME
+
+www.moon.com
+
+from _cnameLookupIndex
+
+2026-08-13 13:56:47.895361(-0700)[4484:7180] DBG DNS: response for CNAME:
+
+www.moon.com
+
+with len:74
+
+2026-08-13 13:56:47.895361(-0700)[4484:7180] INF DNS: Sent modified response for A record
+
+CNAME
+
+www.moon.com
+
+with synthetic IP 100.64.1.1
+
+ZCC then creates an MTunnel connection to carry the application traffic through ZPA:
+
+2026-08-13 14:00:18.933396(-0700)[4484:7180] INF ===> ID=1659761466, ZPN Connection local:50194->100.64.1.1:80 App Name=www.moon.com, DoubleEncrypt=0 TAG-ID=65543
+
+2026-08-13 14:00:18.934443(-0700)[4484:7180] DBG Writing Mtunnel request: Size: 209 Data: { "zpn_mtunnel_request": {
+
+"app_name": "
+
+www.moon.com
+
+, "app_type": "name", "double_encrypt": 0, "frontend_domain": 1, "o_dip": "100.64.1.1", "o_sport": 50194, "tag_id": 65543, "tcp_server_port": 80 } }
+
+2026-08-13 14:00:18.935792(-0700)[4484:7180] DBG ID=1659761466, Zpn Client socket read bytes: 372, tag id: 65543
+
+2026-08-13 14:00:19.145370(-0700)[4484:7180] INF ZPN:0: Control Message Response Data: {"zpn_mtunnel_request_ack":{"tag_id":65543,"mtunnel_id":"BwAyidvVOGvlizWE0UY9,GYGQNuyVTSdytN3OW0jL","err_code":1,"allow_all_xport":0,"reauth_timeout_s":604800}}
+
+2026-08-13 14:00:19.145370(-0700)[4484:7180] DBG zpn_mtunnel_request_ack tag_id: 65543, mtunnel_id: BwAyidvVOGvlizWE0UY9,GYGQNuyVTSdytN3OW0jL Setup Time: 0.210927 seconds
+
+2026-08-13 14:00:19.284773(-0700)[4484:7180] DBG ZPN:0: Response tag: 65543; Response length: 6866
+
+The
+
+zpn_mtunnel_request_ack
+
+response with a valid
+
+mtunnel_id
+
+confirms that the ZPA session was established successfully and that
+
+www.moon.com
+
+is now accessible through the ZPA tunnel.
+
+Important Keywords To Look For in ZCC Tunnel Logs
+
+Domain download
+
+Search for:
+
+zpn_resolvable_link
+
+Got zpn_resolvable_link response
+
+— ZCC received a batch of frontend domains from the broker.
+
+zpn_resolvable_link domains_count:
+
+— The number of domains in the current batch.
+
+zpn_resolvable_link accumulating domain:
+
+— Each domain being added to the list.
+
+Got zpn_resolvable_link_complete response
+
+— All domains were received and ZCC is processing the final list.
+
+zpn_resolvable_link_complete: Successfully processed private link domains
+
+— Confirms the domain download completed successfully.
+
+zpn_resolvable_link_complete cname_limit:
+
+— The CNAME lookup depth limit set by the broker.
+
+Domain list reset
+
+Search for:
+
+zpn_resolvable_link_reset
+
+zpn_resolvable_link_reset: reset_links=1
+
+— The broker instructed ZCC to purge its domain list and re-download it.
+
+zpn_resolvable_link_reset: Skipping domain cache reset (reset_links=0)
+
+— Only the CNAME limit was updated; no domain list reset occurred.
 
 Please reach out to us in the comments if you have any questions.
 
@@ -74532,958 +74963,4 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Full Tunnel VPN Identification - Zscaler Client Connector
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evmpQCAQ/boxcomurl%E3%82%A4%E3%83%91%E3%82%B9%E6%96%B9%E6%B3%95","lastmod":"2023-05-31T08:13:33.000Z","id":"0D54u00009evmpQCAQ"} -->
-## box.comURL??イパス方法
-
-- Source: https://community.zscaler.com/s/question/0D54u00009evmpQCAQ/boxcomurl%E3%82%A4%E3%83%91%E3%82%B9%E6%96%B9%E6%B3%95
-- Type: Q&A
-- Last activity: 2023-05-31T08:13:33.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Client Connector
-
-Nyajima
-
-(Customer) to
-
-sfdc
-
-(Employee): asked a question.
-
-November 12, 2021 at 5:13 PM
-
-box.comURL??イパス方法
-
-I specified the URL of “
-
-Box.com
-
-? in the “Host name or Ipaddress Bypass for vpn gateway? setting in the App Profile of the ZCC management portal.
-
-However, when a subdirectory or subdomain was added to the “
-
-box.com
-
-? URL, it was no longer bypassed.
-
-Does anyone know how to specify all URLs including “
-
-box.com
-
-? in the App Profile settings?
-
-I want to minimize the number of URLs to set.
-
-Client Connector
-
-373 views
-
-Log In to Answer
-
-Associated Tags
-
-howto
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-7/7/2020
-
-at
-
-04:05 AM
-
-Z-App -8 Network Error when users log in on Windows 10
-
-Client Connector
-
-cburge97
-
-2,881
-
-2881 Views
-
-0 Likes
-
-11
-
-11 Comments
-
-7/3/2020
-
-at
-
-11:55 AM
-
-ZAPP intune deployment
-
-Client Connector
-
-Mk001
-
-1,376
-
-1376 Views
-
-0 Likes
-
-4 Comments
-
-1/28/2021
-
-at
-
-03:42 PM
-
-Compare ezAgent and ZCC - when to use which?
-
-Client Connector
-
-hukel
-
-701
-
-701 Views
-
-0 Likes
-
-2 Comments
-
-8/18/2020
-
-at
-
-12:15 PM
-
-MacOS Zscaler App Log Location
-
-Client Connector
-
-brad
-
-3,565
-
-3565 Views
-
-0 Likes
-
-1 Comment
-
-3/7/2022
-
-at
-
-03:41 PM
-
-Can a User with multiple devices use them simultaneously whilst logged in using that same single account
-
-Client Connector
-
-michael.makombe
-
-4 Views
-
-0 Likes
-
-12
-
-12 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-box.comURL??イパス方法
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evmpbCAA/error-503-in-zapp-login","lastmod":"2023-05-31T08:13:37.000Z","id":"0D54u00009evmpbCAA"} -->
-## Error 503 in ZAPP login
-
-- Source: https://community.zscaler.com/s/question/0D54u00009evmpbCAA/error-503-in-zapp-login
-- Type: Q&A
-- Last activity: 2023-05-31T08:13:37.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Client Connector
-
-Shreya
-
-(Customer) to
-
-sfdc
-
-(Employee): asked a question.
-
-November 8, 2021 at 10:36 AM
-
-Error 503 in ZAPP login
-
-What could be the issue for Error 503 in ZAPP login. Tried all possible domains
-
-Client Connector
-
-320 views
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-7/7/2020
-
-at
-
-04:05 AM
-
-Z-App -8 Network Error when users log in on Windows 10
-
-Client Connector
-
-cburge97
-
-2,886
-
-2886 Views
-
-0 Likes
-
-11
-
-11 Comments
-
-7/3/2020
-
-at
-
-11:55 AM
-
-ZAPP intune deployment
-
-Client Connector
-
-Mk001
-
-1,379
-
-1379 Views
-
-0 Likes
-
-4 Comments
-
-1/28/2021
-
-at
-
-03:42 PM
-
-Compare ezAgent and ZCC - when to use which?
-
-Client Connector
-
-hukel
-
-704
-
-704 Views
-
-0 Likes
-
-2 Comments
-
-8/18/2020
-
-at
-
-12:15 PM
-
-MacOS Zscaler App Log Location
-
-Client Connector
-
-brad
-
-3,572
-
-3572 Views
-
-0 Likes
-
-1 Comment
-
-3/7/2022
-
-at
-
-03:41 PM
-
-Can a User with multiple devices use them simultaneously whilst logged in using that same single account
-
-Client Connector
-
-michael.makombe
-
-4 Views
-
-0 Likes
-
-12
-
-12 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Error 503 in ZAPP login
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evmpdCAA/block-internet-access-until-user-login-with-zcc","lastmod":"2023-07-06T11:45:07.000Z","id":"0D54u00009evmpdCAA"} -->
-## Block Internet Access until user login with ZCC
-
-- Source: https://community.zscaler.com/s/question/0D54u00009evmpdCAA/block-internet-access-until-user-login-with-zcc
-- Type: Q&A
-- Last activity: 2023-07-06T11:45:07.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Client Connector
-
-Sec_def_Def_sec
-
-(Customer) to
-
-sfdc
-
-(Employee): asked a question.
-
-Edited by sfdc July 6, 2023 at 11:45 AM
-
-Block Internet Access until user login with ZCC
-
-Hi Everyone,
-
-Customer is using below setup to control their end-user Internet access. They have specific requirement enforce user login to Zscaler Client Connector for internet access. We have tried below community link. However. the deployment only applicable for Zscaler Client Connector IdP instead of OKTA as primary.
-
-Does customer requirement able to configured with Zscaler Client Connector or we have to use other method e.g. PAC file to block all internet access?. Thanks
-
-Current Infra
-
-Zscaler Client Connector with OKTA (Authentication)
-
-Base URL rule block ALL.
-
-Community Post
-
-Enforce users to use Zscaler before they do any Internet browsing
-
-Client Connector
-
-How can I enforced all of the users to have to use Zscaler or block the internet access if they are not logged into Zscaler?
-
-Client Connector
-
-FFFFFF
-
-F4AA00
-
-1 answer
-
-2.92K views
-
-Top Rated Answers
-
-Chris_Louie
-
-(Employee)
-
-5 years ago
-
-Hello Sec_Def,
-
-The STRICTENFORCEMENT flag will still apply with Okta. The only difference is that you will want to create an app profile which contains a PAC file that bypasses Okta traffic so users can still reach Okta to authenticate.
-
-Once authenticated, the user will get the correct app profile and have full internet access.
-
-Warm Regards,
-
-Chris
-
-Selected as Best
-
-All Answers
-
-Chris_Louie
-
-(Employee)
-
-5 years ago
-
-Hello Sec_Def,
-
-The STRICTENFORCEMENT flag will still apply with Okta. The only difference is that you will want to create an app profile which contains a PAC file that bypasses Okta traffic so users can still reach Okta to authenticate.
-
-Once authenticated, the user will get the correct app profile and have full internet access.
-
-Warm Regards,
-
-Chris
-
-Selected as Best
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-7/7/2020
-
-at
-
-04:05 AM
-
-Z-App -8 Network Error when users log in on Windows 10
-
-Client Connector
-
-cburge97
-
-2,889
-
-2889 Views
-
-0 Likes
-
-11
-
-11 Comments
-
-7/3/2020
-
-at
-
-11:55 AM
-
-ZAPP intune deployment
-
-Client Connector
-
-Mk001
-
-1,381
-
-1381 Views
-
-0 Likes
-
-4 Comments
-
-1/28/2021
-
-at
-
-03:42 PM
-
-Compare ezAgent and ZCC - when to use which?
-
-Client Connector
-
-hukel
-
-704
-
-704 Views
-
-0 Likes
-
-2 Comments
-
-8/18/2020
-
-at
-
-12:15 PM
-
-MacOS Zscaler App Log Location
-
-Client Connector
-
-brad
-
-3,577
-
-3577 Views
-
-0 Likes
-
-1 Comment
-
-3/7/2022
-
-at
-
-03:41 PM
-
-Can a User with multiple devices use them simultaneously whilst logged in using that same single account
-
-Client Connector
-
-michael.makombe
-
-4 Views
-
-0 Likes
-
-12
-
-12 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Block Internet Access until user login with ZCC
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evmpeCAA/device-posture-check-for-azureadjoined","lastmod":"2023-05-31T09:08:34.000Z","id":"0D54u00009evmpeCAA"} -->
-## Device Posture check for AzureAdJoined
-
-- Source: https://community.zscaler.com/s/question/0D54u00009evmpeCAA/device-posture-check-for-azureadjoined
-- Type: Q&A
-- Last activity: 2023-05-31T09:08:34.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Client Connector
-
-EUmeh
-
-(Customer) to
-
-sfdc
-
-(Employee): asked a question.
-
-November 4, 2021 at 11:42 PM
-
-Device Posture check for AzureAdJoined
-
-Is there was way to perform Device posture checks for AzureAd joined devices using the posture type of Domain Joined?
-
-AzureAdJoined : YES
-
-EnterpriseJoined : NO
-
-DomainJoined : NO
-
-Client Connector
-
-RandomGUID
-
-2 answers
-
-713 views
-
-chstreit
-
-and
-
-ZScaler1
-
-like this.
-
-chstreit
-
-(Customer)
-
-5 years ago
-
-I would appreciate that too!
-
-We thought about using registry keys that are created during AAD join, but Zscaler posture checks can only check for a path or values in a fixed path.
-
-Unfortunately tha AAD join information in the registry is stored in a random GUID path in:
-
-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CloudDomainJoin\JoinInfo*
-
-#randomGUID
-
-*#\
-
-Nerdy Mishka
-
-Azure Ad Domain Join Registry Keys - Nerdy Mishka
-
-Recently, I found that I needed to determine if a computer and user is part of an Azure AD domain using only Powershell. I couldn’t find any documentation on this, however, since Windows knows that I’m part of an Azure Ad domain, it must store that...
-
-Est. reading time: 1 minute
-
-1 like
-
-ZScaler1
-
-(Customer)
-
-5 years ago
-
-Hi Zscaler,
-
-I’m searching for this option too.
-
-We want to use AzureAD only and not use Hybrid Join only for Posture checks.
-
-Thank you in advance.
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-7/7/2020
-
-at
-
-04:05 AM
-
-Z-App -8 Network Error when users log in on Windows 10
-
-Client Connector
-
-cburge97
-
-2,888
-
-2888 Views
-
-0 Likes
-
-11
-
-11 Comments
-
-7/3/2020
-
-at
-
-11:55 AM
-
-ZAPP intune deployment
-
-Client Connector
-
-Mk001
-
-1,379
-
-1379 Views
-
-0 Likes
-
-4 Comments
-
-1/28/2021
-
-at
-
-03:42 PM
-
-Compare ezAgent and ZCC - when to use which?
-
-Client Connector
-
-hukel
-
-704
-
-704 Views
-
-0 Likes
-
-2 Comments
-
-8/18/2020
-
-at
-
-12:15 PM
-
-MacOS Zscaler App Log Location
-
-Client Connector
-
-brad
-
-3,575
-
-3575 Views
-
-0 Likes
-
-1 Comment
-
-3/7/2022
-
-at
-
-03:41 PM
-
-Can a User with multiple devices use them simultaneously whilst logged in using that same single account
-
-Client Connector
-
-michael.makombe
-
-4 Views
-
-0 Likes
-
-12
-
-12 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Device Posture check for AzureAdJoined
 <!-- /ZS-POST -->

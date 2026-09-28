@@ -1,10 +1,934 @@
 # Zscaler Zenith Community — ZIA — Internet & SaaS (part 4)
 
 Source: https://community.zscaler.com
-Generated: 2026-09-21 02:03 UTC
-Posts in this file: 156
+Generated: 2026-09-28 10:07 UTC
+Posts in this file: 162
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000Adsyd0CQA/cloud-sandbox-blocking-md5-hash-values","lastmod":"2025-08-22T07:27:58.000Z","id":"0D54u0000Adsyd0CQA"} -->
+## Cloud Sandbox - blocking MD5 hash values
+
+- Source: https://community.zscaler.com/s/question/0D54u0000Adsyd0CQA/cloud-sandbox-blocking-md5-hash-values
+- Type: Q&A
+- Last activity: 2025-08-22T07:27:58.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - Cloud Sandbox
+
+Raj90909
+
+(Customer) asked a question.
+
+November 7, 2024 at 7:42 PM
+
+Cloud Sandbox - blocking MD5 hash values
+
+If you have the Cloud Sandbox license and looking to block files based on MD5 hash values, you will need to get the Advanced Policy Settings provisioned for your tenant. It was missing for us and does the job by blocking the file.
+
+https://help.zscaler.com/zia/add-custom-file-hashes
+
+ZIA - Cloud Sandbox
+
+5 answers
+
+567 views
+
+manuel
+
+likes this.
+
+manuel
+
+(Customer)
+
+2 years ago
+
+Good finding! Are there any more options below? Or "only" MD5 Hash value settings?
+
+Raj90909
+
+(Customer)
+
+2 years ago
+
+That is the only option, as per the screenshot.
+
+1 like
+
+manuel
+
+(Customer)
+
+2 years ago
+
+Ah ok, thanks!
+
+Raj909
+
+(Customer)
+
+2 years ago
+
+That is the only option, as per the screenshot.
+
+Ramesh Mani
+
+(Partner)
+
+2 years ago
+
+This will directly block the file if the file hash matches.
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+1/21/2020
+
+at
+
+01:31 PM
+
+Does Zscaler Scan Email Traffic?
+
+ZIA - Cloud Sandbox
+
+Omar
+
+1,221
+
+1221 Views
+
+1 Like
+
+3 Comments
+
+1/2/2020
+
+at
+
+12:25 PM
+
+Prevent Malicious VPN Connection
+
+ZIA - Cloud Sandbox
+
+Omar
+
+1,194
+
+1194 Views
+
+0 Likes
+
+8 Comments
+
+10/2/2017
+
+at
+
+04:47 AM
+
+Alerting positive 'allow and scan'
+
+ZIA - Cloud Sandbox
+
+Lmay
+
+416
+
+416 Views
+
+1 Like
+
+2 Comments
+
+9/11/2017
+
+at
+
+09:37 PM
+
+How do I determine which of the files that were submitted to Cloud Sandbox were found to be malicious?
+
+ZIA - Cloud Sandbox
+
+awl
+
+525
+
+525 Views
+
+0 Likes
+
+1 Comment
+
+9/11/2017
+
+at
+
+09:35 PM
+
+What is the recommended “best practice? Cloud Sandbox rule policy?
+
+ZIA - Cloud Sandbox
+
+awl
+
+584
+
+584 Views
+
+0 Likes
+
+4 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Cloud Sandbox - blocking MD5 hash values
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000Adt0z2CQA/enhancement-request-block-quic-with-the-zscaler-client","lastmod":"2024-11-08T08:53:28.000Z","id":"0D54u0000Adt0z2CQA"} -->
+## Enhancement request Block Quic with the Zscaler client
+
+- Source: https://community.zscaler.com/s/question/0D54u0000Adt0z2CQA/enhancement-request-block-quic-with-the-zscaler-client
+- Type: Q&A
+- Last activity: 2024-11-08T08:53:28.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - Forwarding
+
+Chatter is not enabled
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+2/15/2023
+
+at
+
+10:07 PM
+
+Initial login to Azure VDI gets struck for few minutes with ZCC (Tunnel 2.0)
+
+ZIA - Forwarding
+
+rajk5
+
+3 Views
+
+0 Likes
+
+6 Comments
+
+2/14/2023
+
+at
+
+04:13 PM
+
+Forwarding Port 8443 through GRE Tunnel
+
+ZIA - Forwarding
+
+Omar
+
+9 Views
+
+0 Likes
+
+2 Comments
+
+10/23/2022
+
+at
+
+02:29 PM
+
+PZEN localized content
+
+ZIA - Forwarding
+
+mohammad.rummaneh
+
+3 Views
+
+0 Likes
+
+2 Comments
+
+2/18/2022
+
+at
+
+08:24 AM
+
+Premium DC in China
+
+ZIA - Forwarding
+
+Ezzzzh
+
+6 Views
+
+0 Likes
+
+6 Comments
+
+2/15/2021
+
+at
+
+11:58 PM
+
+Disney Circle + Zscaler blocking internet access
+
+ZIA - Forwarding
+
+JamesK
+
+492
+
+492 Views
+
+0 Likes
+
+5 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Enhancement request Block Quic with the Zscaler client
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000Adu1FfCQI/how-to-analyse-packet-capture-logs-for-zia","lastmod":"2024-11-13T01:44:14.000Z","id":"0D54u0000Adu1FfCQI"} -->
+## How to analyse packet capture logs for ZIA
+
+- Source: https://community.zscaler.com/s/question/0D54u0000Adu1FfCQI/how-to-analyse-packet-capture-logs-for-zia
+- Type: Q&A
+- Last activity: 2024-11-13T01:44:14.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Client Connector
+
+nabeela.mallick
+
+(Partner) asked a question.
+
+November 11, 2024 at 10:09 AM
+
+How to analyse packet capture logs for ZIA
+
+Hello,
+
+After packet capturing the logs there is folder which get downloaded my question is in that file there are multiple folders so which one we use to analyse the logs so that we can analyse the traffic flow that where the URL is getting blocked or where the issue is arising.
+
+Client Connector
+
+3 answers
+
+1.08K views
+
+Naman
+
+likes this.
+
+Top Rated Answers
+
+Jainil_G
+
+(Employee)
+
+2 years ago
+
+@Nabeela Mallick​ ​ As mentioned by Manuel, you can check the PCAP file. Some of the commonly reviewed log files are listed below:
+
+ZSAAuth: To extract authentication logs
+
+ZSAService: To extract session and registry information
+
+ZSATray: To inspect anything that appears as an error on ZCC
+
+ZSATunnel: To inspect connections to the service edge, Mobile Portal, or any application
+
+The above log files are important that can be reviewed based on issue occurrence date & time, but there are other log files that can also be reviewed depending on the use case.
+
+The below guide can be helpful for the Packet capture file location, and other details.
+
+https://help.zscaler.com/zscaler-client-connector/enabling-packet-capture-zscaler-client-connector
+
+Thanks,
+
+Jainil_G
+
+Selected as Best
+
+All Answers
+
+manuel
+
+(Customer)
+
+2 years ago
+
+Look for pcap-file and open this in Wireshark.
+
+BR
+
+Manuel
+
+Jainil_G
+
+(Employee)
+
+2 years ago
+
+@Nabeela Mallick​ ​ As mentioned by Manuel, you can check the PCAP file. Some of the commonly reviewed log files are listed below:
+
+ZSAAuth: To extract authentication logs
+
+ZSAService: To extract session and registry information
+
+ZSATray: To inspect anything that appears as an error on ZCC
+
+ZSATunnel: To inspect connections to the service edge, Mobile Portal, or any application
+
+The above log files are important that can be reviewed based on issue occurrence date & time, but there are other log files that can also be reviewed depending on the use case.
+
+The below guide can be helpful for the Packet capture file location, and other details.
+
+https://help.zscaler.com/zscaler-client-connector/enabling-packet-capture-zscaler-client-connector
+
+Thanks,
+
+Jainil_G
+
+Selected as Best
+
+venG
+
+(Customer)
+
+2 years ago
+
+In addition to the above files, you will find 2 PCAP files names starting with
+
+CaptureAdapters_XXXXX.pcap
+
+CaptureLWF_XXXX.pcap
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/7/2020
+
+at
+
+04:05 AM
+
+Z-App -8 Network Error when users log in on Windows 10
+
+Client Connector
+
+cburge97
+
+2,896
+
+2896 Views
+
+0 Likes
+
+11
+
+11 Comments
+
+7/3/2020
+
+at
+
+11:55 AM
+
+ZAPP intune deployment
+
+Client Connector
+
+Mk001
+
+1,386
+
+1386 Views
+
+0 Likes
+
+4 Comments
+
+1/28/2021
+
+at
+
+03:42 PM
+
+Compare ezAgent and ZCC - when to use which?
+
+Client Connector
+
+hukel
+
+706
+
+706 Views
+
+0 Likes
+
+2 Comments
+
+8/18/2020
+
+at
+
+12:15 PM
+
+MacOS Zscaler App Log Location
+
+Client Connector
+
+brad
+
+3,604
+
+3604 Views
+
+0 Likes
+
+2 Comments
+
+3/7/2022
+
+at
+
+03:41 PM
+
+Can a User with multiple devices use them simultaneously whilst logged in using that same single account
+
+Client Connector
+
+michael.makombe
+
+4 Views
+
+0 Likes
+
+12
+
+12 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+How to analyse packet capture logs for ZIA
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AeHrBoCQK/zia-dlp-behaviour-on-google-chatmail","lastmod":"2024-11-18T09:09:53.000Z","id":"0D54u0000AeHrBoCQK"} -->
+## ZIA DLP behaviour on Google Chat/Mail
+
+- Source: https://community.zscaler.com/s/question/0D54u0000AeHrBoCQK/zia-dlp-behaviour-on-google-chatmail
+- Type: Q&A
+- Last activity: 2024-11-18T09:09:53.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - DLP
+
+jpcanezo
+
+(Partner) asked a question.
+
+November 18, 2024 at 7:52 AM
+
+ZIA DLP behaviour on Google Chat/Mail
+
+Noticed an interesting behaviour of ZS DLP when trigged on Gchat and Gmail.
+
+DLP policy -> block traffic if configured policy matches. (i.e. block a word "salary")
+
+->when a dlp triggers, typing that "word" disconnects google services (even without sending (for gchat) , composing on (gmail). A retry connecting prompt is visible on the email web app.
+
+So what do i observe and why it matters.
+
+If the service is terminated and tries to reconnect this wound mean multiple triggers. The multple triggers is also verified via Workflow. (current deployment has ZWA)
+
+Wanted to check if these also occurs in your configurations or a misconfiguration on my end.
+
+ZIA - DLP
+
+1 answer
+
+233 views
+
+Ramesh Mani
+
+(Partner)
+
+2 years ago
+
+This is the expected behavior. You would validate the logs which DLP policy and engine/Dictionary triggered.
+
+1 like
+
+Log In to Answer
+
+Associated Tags
+
+best-practice
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+2/9/2023
+
+at
+
+05:32 PM
+
+DLP notification via Zscaler Client Connector
+
+ZIA - DLP
+
+thacarvalho123
+
+7 Views
+
+2 Likes
+
+2 Comments
+
+11/20/2022
+
+at
+
+09:26 PM
+
+External DLP Engine
+
+ZIA - DLP
+
+H.zyD.zy
+
+4 Views
+
+0 Likes
+
+3 Comments
+
+11/9/2022
+
+at
+
+04:51 PM
+
+Zscaler Preventing Image Upload and Download on iPhone
+
+ZIA - DLP
+
+MacDanorld1
+
+2 Views
+
+0 Likes
+
+3 Comments
+
+6/20/2022
+
+at
+
+07:53 AM
+
+Error during Microsoft Information Protection(MIP) Integration
+
+ZIA - DLP
+
+ozanogur
+
+3 Views
+
+0 Likes
+
+4 Comments
+
+1/31/2021
+
+at
+
+08:35 PM
+
+Zscaler ZIA and ZPA with NetSkope CASB and DLP services
+
+ZIA - DLP
+
+jonathan.holt
+
+1,337
+
+1337 Views
+
+1 Like
+
+6 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+ZIA DLP behaviour on Google Chat/Mail
+<!-- /ZS-POST -->
 
 ---
 
@@ -12362,12 +13286,12 @@ Office365 Bypass
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000VQ1iK0AT/patient-0-alert-visibility-in-streamed-zia-logs","lastmod":"2025-04-07T06:04:34.000Z","id":"0D5PJ00000VQ1iK0AT"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000VQ1iK0AT/patient-0-alert-visibility-in-streamed-zia-logs","lastmod":"2026-09-22T17:12:12.000Z","id":"0D5PJ00000VQ1iK0AT"} -->
 ## patient 0 alert visibility in streamed zia logs
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000VQ1iK0AT/patient-0-alert-visibility-in-streamed-zia-logs
 - Type: Q&A
-- Last activity: 2025-04-07T06:04:34.000Z
+- Last activity: 2026-09-22T17:12:12.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 ZIA - Cloud Sandbox
@@ -12394,7 +13318,7 @@ ZIA - Cloud Sandbox
 
 1 answer
 
-300 views
+324 views
 
 Top Rated Answers
 
@@ -12496,9 +13420,9 @@ ZIA - Cloud Sandbox
 
 Omar
 
-1,220
+1,252
 
-1220 Views
+1252 Views
 
 1 Like
 
@@ -12516,9 +13440,9 @@ ZIA - Cloud Sandbox
 
 Omar
 
-1,192
+1,210
 
-1192 Views
+1210 Views
 
 0 Likes
 
@@ -12536,9 +13460,9 @@ ZIA - Cloud Sandbox
 
 Lmay
 
-412
+479
 
-412 Views
+479 Views
 
 1 Like
 
@@ -12556,9 +13480,9 @@ ZIA - Cloud Sandbox
 
 awl
 
-524
+547
 
-524 Views
+547 Views
 
 0 Likes
 
@@ -12576,9 +13500,9 @@ ZIA - Cloud Sandbox
 
 awl
 
-583
+611
 
-583 Views
+611 Views
 
 0 Likes
 
@@ -36932,4 +37856,400 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 ZIA Activation
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ0000136P250AE/traffic-going-to-port-9480-is-now-ssl-inspected-why","lastmod":"2026-09-22T17:11:47.000Z","id":"0D5PJ0000136P250AE"} -->
+## Traffic going to Port 9480 is now SSL inspected - why?
+
+- Source: https://community.zscaler.com/s/question/0D5PJ0000136P250AE/traffic-going-to-port-9480-is-now-ssl-inspected-why
+- Type: Q&A
+- Last activity: 2026-09-22T17:11:47.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - SSL Inspection
+
+User15799282573041325541
+
+(Customer) asked a question.
+
+22h ago
+
+Traffic going to Port 9480 is now SSL inspected - why?
+
+Dear forum,
+
+in the past we used to route traffic for some devices to the proxy "gateway.zscaler.net:9480" - mostly for server traffic.
+
+Not only was no user authentication needed for this traffic but also SSL inspection was disabled.
+
+A short while ago we noticed, that SSL inspection was suddenly on for this traffic.
+
+Is it only me that sees this behavior?
+
+We recently started with ZPA - is this maybe the cause for the SSL inspection on Port 9480?
+
+Best regards,
+
+Volker
+
+ZIA - SSL Inspection
+
+20 views
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+11/29/2021
+
+at
+
+07:54 PM
+
+Youtube Restricted Mode Bypass Safe Search
+
+ZIA - SSL Inspection
+
+JonM
+
+8 Views
+
+1 Like
+
+5 Comments
+
+11/24/2021
+
+at
+
+06:09 AM
+
+Reflection time of SSL inspection exclusion settings
+
+ZIA - SSL Inspection
+
+Nyajima
+
+4 Views
+
+0 Likes
+
+1 Comment
+
+4/26/2024
+
+at
+
+02:39 PM
+
+End User Notifcation - Submit To Security Cloud option
+
+ZIA - SSL Inspection
+
+citrus3118
+
+325
+
+325 Views
+
+0 Likes
+
+1 Comment
+
+8/21/2024
+
+at
+
+08:06 PM
+
+StackHawk with Zscaler SSL Inspection
+
+ZIA - SSL Inspection
+
+User16182582818315999266
+
+600
+
+600 Views
+
+0 Likes
+
+4 Comments
+
+3/10/2025
+
+at
+
+12:22 AM
+
+Reputation Block policy
+
+ZIA - SSL Inspection
+
+JM
+
+447
+
+447 Views
+
+0 Likes
+
+2 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Traffic going to Port 9480 is now SSL inspected - why?
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000013CAWD0A4/group-on-entra-id-doesnt-appear-on-zscaler-zia","lastmod":"2026-09-23T17:31:23.000Z","id":"0D5PJ000013CAWD0A4"} -->
+## Group on Entra id doesn't appear on Zscaler ZIA
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000013CAWD0A4/group-on-entra-id-doesnt-appear-on-zscaler-zia
+- Type: Q&A
+- Last activity: 2026-09-23T17:31:23.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - Authentication
+
+Danma
+
+(Partner) asked a question.
+
+17h ago
+
+Group on Entra id doesn't appear on Zscaler ZIA
+
+I've setup integration between zscaler zia tenant and entra id. I's work fine for adding users on Entra id and sync to Zscaler ZIA by SCIM provisioning. However if i create new group and assign to ZIA enterprise app on Entra id , and i try to restart provisioning many times. It still doesn't appear the new group on ZIA > User management > Group. And when i checked on Provisioning log at Entra id , i 've not seen any logs about SCIM create/provision/update to Zscaler ZIA tenant. Could you please advice me how to fix it. My colleage advice me to use feature on Zscaler client connector portal to force Group Sync by manually. I tried to test it and it work. But if i want to do from Entra ID ZIA enterprise app, can i force it by retart provisioning or anyway else.
+
+ZIA - Authentication
+
+14 views
+
+Log In to Answer
+
+Associated Tags
+
+azure-ad
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/15/2022
+
+at
+
+12:39 PM
+
+Onprem Active directory integrate with Zscaler cloud ZIA
+
+ZIA - Authentication
+
+aravindhan.m
+
+3 Views
+
+0 Likes
+
+3 Comments
+
+7/11/2022
+
+at
+
+07:26 AM
+
+Zscaler IDP authentication issue
+
+ZIA - Authentication
+
+aravindhan.m
+
+4 Views
+
+0 Likes
+
+2 Comments
+
+5/27/2022
+
+at
+
+01:49 PM
+
+Zscaler ZIA O365 Apps not authenticating
+
+ZIA - Authentication
+
+abmaclean
+
+4 Views
+
+0 Likes
+
+6 Comments
+
+10/4/2021
+
+at
+
+10:43 PM
+
+Automatic de-provisioning using SCIM with Azure AD
+
+ZIA - Authentication
+
+Paul_Wineberg
+
+4 Views
+
+0 Likes
+
+4 Comments
+
+6/27/2020
+
+at
+
+03:01 PM
+
+Zscaler public preview
+
+ZIA - Authentication
+
+Muhammad
+
+390
+
+390 Views
+
+0 Likes
+
+2 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Group on Entra id doesn't appear on Zscaler ZIA
 <!-- /ZS-POST -->

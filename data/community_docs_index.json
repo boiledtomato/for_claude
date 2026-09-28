@@ -1,6 +1,6 @@
 {
  "fetch_mode": "prerender",
- "generated_at": "2026-09-21T09:15:19Z",
+ "generated_at": "2026-09-28T10:07:13Z",
  "posts": {
   "https://community.zscaler.com/s/Articles/aSmPJ000009yj3V0AQ/exciting-news-new-content-types-now-available-on-zenith-community": {
    "category": "platform",
@@ -2814,6 +2814,20 @@
    "hash": "33cfc14ff4cfeb70",
    "lastmod": "2026-09-04T15:36:48.000Z",
    "title": "EDU-100 Workshop: September Available Sessions Lineup",
+   "type": "zenith_article__c"
+  },
+  "https://community.zscaler.com/s/Articles/aSmPJ00000GexD30AJ/zero-trust-branch-fy26-recap-newsletter": {
+   "category": "zia",
+   "hash": "62ae6a35cdf4c3f2",
+   "lastmod": "2026-09-24T17:02:17.000Z",
+   "title": "Zero Trust Branch FY26 Recap Newsletter",
+   "type": "zenith_article__c"
+  },
+  "https://community.zscaler.com/s/Articles/aSmPJ00000GexEf0AJ/zero-trust-in-practice-defending-against-aipowered-cyber-threats": {
+   "category": "platform",
+   "hash": "8ee57261668fadde",
+   "lastmod": "2026-09-23T14:33:01.000Z",
+   "title": "Zero Trust in Practice: Defending Against AI-Powered Cyber Threats",
    "type": "zenith_article__c"
   },
   "https://community.zscaler.com/s/Blogs/aSnPJ00000000b70AA/zscaler-certification-at-pub-sec-in-march": {
@@ -8145,9 +8159,23 @@
   },
   "https://community.zscaler.com/s/Guides/aSoPJ0000006h8j0AA/app-behavior-when-same-domain-is-in-vpn-gateway-bypass-and-zpa-app-segment": {
    "category": "zpa",
-   "hash": "b77caa17a515070f",
-   "lastmod": "2026-09-10T11:41:48.000Z",
+   "hash": "8fb5ba8d49072428",
+   "lastmod": "2026-09-22T11:38:36.000Z",
    "title": "App Behavior When Same Domain Is in VPN Gateway Bypass and ZPA App Segment",
+   "type": "zenith_guide__c"
+  },
+  "https://community.zscaler.com/s/Guides/aSoPJ0000006hjp0AA/how-to-analyze-zscaler-client-connector-logs-for-private-link-domain": {
+   "category": "zcc",
+   "hash": "8f796abc83700ffc",
+   "lastmod": "2026-09-22T11:37:53.000Z",
+   "title": "How to analyze Zscaler Client Connector logs for Private Link Domain",
+   "type": "zenith_guide__c"
+  },
+  "https://community.zscaler.com/s/Guides/aSoPJ0000006iWD0AY/how-to-block-7zip-file-archiving-and-extraction-using-endpoint-dlp": {
+   "category": "zia",
+   "hash": "bece89cfdea41bc4",
+   "lastmod": "2026-09-25T12:53:13.000Z",
+   "title": "How to Block 7-Zip File Archiving and Extraction Using Endpoint DLP",
    "type": "zenith_guide__c"
   },
   "https://community.zscaler.com/s/question/0D54u00009eviNaCAI/unusual-ip-connections-from-zscalertunnel-process": {
@@ -20626,8 +20654,8 @@
   },
   "https://community.zscaler.com/s/question/0D54u00009sTn6DCAS/feature-request-ability-to-save-logging-filters": {
    "category": "zia",
-   "hash": "d9a7a3d2964adcfe",
-   "lastmod": "2024-10-09T06:58:01.000Z",
+   "hash": "65f99d929eff10d1",
+   "lastmod": "2026-09-25T09:43:22.000Z",
    "title": "Feature request: Ability to save logging filters",
    "type": "question"
   },
@@ -22838,8 +22866,8 @@
   },
   "https://community.zscaler.com/s/question/0D54u0000AZExkKCQT/howto-import-zpa-app-connector-vmware-ova-into-proxmox": {
    "category": "zpa",
-   "hash": "ec6559deb832bb36",
-   "lastmod": "2026-09-18T20:44:44.000Z",
+   "hash": "e1a1fd0a31fc3897",
+   "lastmod": "2026-09-21T12:53:41.000Z",
    "title": "Howto import ZPA App Connector VMware OVA into Proxmox",
    "type": "question"
   },
@@ -24630,8 +24658,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000VQ1iK0AT/patient-0-alert-visibility-in-streamed-zia-logs": {
    "category": "zia",
-   "hash": "9c3601a4c0032460",
-   "lastmod": "2025-04-07T06:04:34.000Z",
+   "hash": "940411d445c8c3a3",
+   "lastmod": "2026-09-22T17:12:12.000Z",
    "title": "patient 0 alert visibility in streamed zia logs",
    "type": "question"
   },
@@ -26870,8 +26898,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ000012e8V50AI/unable-to-login-zenith2026-due-to-unregistered-user-error": {
    "category": "platform",
-   "hash": "de87fa79ae32cf17",
-   "lastmod": "2026-09-15T13:02:35.000Z",
+   "hash": "c5fd284e3cf3431c",
+   "lastmod": "2026-09-21T08:32:03.000Z",
    "title": "Unable to login Zenith2026 Due to Unregistered User error",
    "type": "question"
   },
@@ -26880,6 +26908,27 @@
    "hash": "02c1c9618d934b06",
    "lastmod": "2026-09-17T05:28:23.000Z",
    "title": "ZIA Activation",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000012yoEn0AI/windows-update-for-an-unattended-device-without-zscaler-user-authentication": {
+   "category": "platform",
+   "hash": "34d73a5bc7bfb466",
+   "lastmod": "2026-09-21T12:53:07.000Z",
+   "title": "Windows Update for an unattended device without Zscaler user authentication",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ0000136P250AE/traffic-going-to-port-9480-is-now-ssl-inspected-why": {
+   "category": "zia",
+   "hash": "f441bebcddea55c0",
+   "lastmod": "2026-09-22T17:11:47.000Z",
+   "title": "Traffic going to Port 9480 is now SSL inspected - why?",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000013CAWD0A4/group-on-entra-id-doesnt-appear-on-zscaler-zia": {
+   "category": "zia",
+   "hash": "9808fccc503e7796",
+   "lastmod": "2026-09-23T17:31:23.000Z",
+   "title": "Group on Entra id doesn't appear on Zscaler ZIA",
    "type": "question"
   }
  },

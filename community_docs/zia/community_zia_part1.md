@@ -1,7 +1,7 @@
 # Zscaler Zenith Community — ZIA — Internet & SaaS (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-09-21 02:03 UTC
+Generated: 2026-09-28 10:07 UTC
 Posts in this file: 356
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
@@ -4803,6 +4803,269 @@ Associated Tags
 automation
 
 api
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Article Details
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Articles/aSmPJ00000GexD30AJ/zero-trust-branch-fy26-recap-newsletter","lastmod":"2026-09-24T17:02:17.000Z","id":"aSmPJ00000GexD30AJ"} -->
+## Zero Trust Branch FY26 Recap Newsletter
+
+- Source: https://community.zscaler.com/s/Articles/aSmPJ00000GexD30AJ/zero-trust-branch-fy26-recap-newsletter
+- Type: Article
+- Last activity: 2026-09-24T17:02:17.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Article Details
+
+Zero Trust Branch
+
+User17395347059252836683
+
+(Employee) posted an Article
+
+Edited 2m ago
+
+Zero Trust Branch FY26 Recap Newsletter
+
+Zero Trust Branch: Built for What’s Next
+
+A year of innovation, Delivered
+
+What we shipped in FY26
+
+Securing External Communication/Zero Trust SD-WAN
+
+DTLS Tunnels: higher-throughput, secure connectivity for branch-to-cloud traffic with automatic fallback to TLS, so branches stay fast without sacrificing resilience
+
+ZTB Groups & Sub-locations: segment and manage dozens of branch sites at scale without rebuilding policy from scratch for every location.
+
+Custom ZIA Gateway: align branch egress with your ZIA deployment on your own terms
+
+RT Hub Images for AWS & Azure: standardized cloud hub deployments that come up the same way, every time
+
+China Support: full Zero Trust coverage for China-based branches: bootstrap, provisioning, Internet & SaaS gateway selection, and connectivity to China data centers.
+
+Learn More →
+
+Securing Internal Communication/Segmentation
+
+CSV Upload for Object Groups:
+
+bulk-import segmentation objects in one shot instead of site by site
+
+IGMP Querier:
+
+actively manages multicast group membership across Layer 2 VLANs for reliable multicast traffic, supporting both IGMPv2 and IGMPv3
+
+LLDP Support:
+
+clear device visibility so your team diagnoses from facts, not guesswork
+
+Learn More →
+
+Platform
+
+Enhanced HA:
+
+upgrade your resilience posture dynamically, no rebuild required convert to a high-availability setup on the fly, with a standby WAN interface ready to take over — no downtime, no rebuild, no rip-and-replace
+
+DHCP Server Enhancements:
+
+catch address conflicts before they become user-facing incidents
+
+Management Interface in a Separate VRF:
+
+keeps admin access isolated from production traffic, so a bad link never takes down your ability to manage the appliance
+
+Learn More →
+
+Ease of Use
+
+Zero Touch Provisioning:
+
+brings plug & play simplicity to new branches - no remote technicians required
+
+ZT Branch CLI Admin Console:
+
+faster path to configuration and diagnostics without navigating the UI
+
+Interface Status Visibility:
+
+up/down state, speed, and MTU surfaced right where you need them
+
+Learn More →
+
+Health Monitoring
+
+Tunnel & Connectivity Health Monitoring:
+
+real-time reachability data before a degraded link becomes a reported outage
+
+WAN Health Monitoring:
+
+tracks circuit quality over time for smarter capacity decisions
+
+Interface Health Monitoring:
+
+historical link usage data for better bandwidth planning and troubleshooting
+
+WAN Speed Test:
+
+validates actual throughput on demand, no third-party tool needed
+
+Learn More →
+
+Smarter Operations
+
+Ransomware Kill-Switch Policy:
+
+instantly blocks all branch traffic on ransomware detection, with color-coded indicators so response drops from minutes to seconds.
+
+Appliance Debugging in UI:
+
+troubleshoot branch appliances directly from the Zscaler console, no CLI access or back-and-forth with support needed.
+
+Appliance Inventory:
+
+centralized visibility across your entire branch estate
+
+Learn More →
+
+Innovation Spotlight
+
+DTLS-Based Internet & SaaS Connectivity Support and Location Enhancements
+
+Branch connectivity to Internet and SaaS has long relied on IPSec — functional, but not built for the performance demands of modern distributed enterprises. With 8.1.2, DTLS-based connectivity for Internet & SaaS delivers higher-throughput, secure tunnels with automatic fallback to TLS, so branches stay fast and resilient without compromise. New deployments now align natively with ZTB Groups, Sublocations, and Location Templates, turning branch onboarding from a fragmented exercise into a repeatable, consistent model. And for existing sites, the shift from IPSec to Zscaler Tunnel (Z-Tunnel) happens on your terms — no forced rip-and-replace, no downtime.
+
+What’s Next
+
+We’re not slowing down. Here’s a preview of what’s coming across the Zero Trust Branch platform.
+
+WAN Path Selection:
+
+your branch picks the fastest, most reliable route to Zscaler automatically, no manual tuning required
+
+AI-enhanced Policy Recommendations:
+
+tells you what your network is doing and what your segmentation policy should say, so gaps don't go unnoticed
+
+Per-VLAN DHCP, BGP Route Filters & BFD:
+
+granular address control, smarter routing, and failure detection that acts before your users notice anything
+
+RADIUS-Based On-Box Accounts:
+
+branch device logins fall under your central identity policy, closing the last door left open
+
+These items reflect our current roadmap direction and are subject to change
+
+From the Field
+
+Analyst Mentions
+
+Zscaler recognized as a Leader in the 2026 Gartner® Magic Quadrant™ reports for SASE and SSE
+
+Zscaler Recognized as a Leader in Forrester Wave™: Secure Access Service Edge Solutions, Q3 2025
+
+Webinars
+
+How Eaton Secured Its Manufacturing Facilities with Zscaler
+
+Architecting a Cafe-like Branch — A Practical Guide
+
+From Exposed to Invisible: Securing Branches Against AI-Driven Threats
+
+..
+
+Customer Stories
+
+AkzoNobel Expands Zero Trust for Complete Digital Transformation
+
+UC Santa Barbara Accelerates Compliance with Zero Trust Segmentation Across 400+ Campus Locations
+
+Run a Zero Trust Branch Technical Discovery with your top 3 accounts this quarter using the
+
+ZTB Super App
+
+. To access ZTB Quick Start Guide,
+
+click here
+
+Get Involved
+
+Ready to take next steps?
+
+For Customers
+
+Talk to your account team
+
+For Partners
+
+Access Partner Portal
+
+Associated Tags
+
+No tags associated with this post!!
 
 Do you like what
 
@@ -13455,6 +13718,133 @@ Go to
 Workflow Automation
 
 and confirm that the incidents are being ingested and displayed as expected.
+
+Please reach out to us in the comments if you have any questions.
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Guide Details
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ0000006iWD0AY/how-to-block-7zip-file-archiving-and-extraction-using-endpoint-dlp","lastmod":"2026-09-25T12:53:13.000Z","id":"aSoPJ0000006iWD0AY"} -->
+## How to Block 7-Zip File Archiving and Extraction Using Endpoint DLP
+
+- Source: https://community.zscaler.com/s/Guides/aSoPJ0000006iWD0AY/how-to-block-7zip-file-archiving-and-extraction-using-endpoint-dlp
+- Type: Guide
+- Last activity: 2026-09-25T12:53:13.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Guide Details
+
+Technical Guides
+
+Yashraj Singha
+
+(Employee) posted a Guide
+
+Edited 21h ago
+
+How to Block 7-Zip File Archiving and Extraction Using Endpoint DLP
+
+Note:
+
+Special thanks to
+
+Abhishek B M
+
+for their contributions to this guide.If you require help with the implementation of your specific configuration, please contact our
+
+Zscaler Deployment Services team for assistance.
+
+___________________________________________________________________________________________________
+
+Introduction
+
+This article explains how to block users from creating or extracting archive files with the 7-Zip application by using Zscaler Internet Access (ZIA) Application Inventory and Zscaler Data Loss Prevention (DLP) controls. After 7-Zip executable files are discovered through an Endpoint Scan, you can create an Endpoint DLP policy for the Application File Access channel and apply it to the relevant 7-Zip executables, such as 7zG.exe.
+
+Solution
+
+If 7-ZIP is already installed in the end user machines, please go through the following steps:
+
+Application Inventory scan
+
+Go to ZIA -> Endpoint Scan -> Application Investigation -> Apply filter “7Z” and it displays executable files belonging to 7-ZIP as shown in the screenshot below.
+
+Creating an Endpoint DLP Policy to Block 7-Zip
+
+Once Application is discovered through Inventory scan, all the discovered executable files belonging to 7-ZIP will be listed under ZIA -> Administration -> Access Control -> DLP & Endpoint Resources -> Applications.
+
+Based on this, a Endpoint DLP policy can be created for “Application File access” Channel by selecting all the above executable files, mainly, “7zG.exe” which is responsible for archiving & extracting files.
+
+Once the policy is created and if the end user tries to extract or archive they receive access denied error shown below.
+
+The following end user notification will be shown:
+
+Finding 7-Zip Executables When They Are Not in Inventory
+
+In case if Application is not available in the inventory scan, take a Process monitor (procmon) log capture and filter the processes that contain “7Z”. This will help with locating the executable file running 7-ZIP. A similar process monitor capture is shown below:
 
 Please reach out to us in the comments if you have any questions.
 
@@ -72262,678 +72652,4 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Restricting Youtube to certain channels
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evmonCAA/zia-azure-virtual-desktop-session-drops-during-login","lastmod":"2023-11-20T17:23:37.000Z","id":"0D54u00009evmonCAA"} -->
-## ZIA - Azure Virtual Desktop Session drops during login
-
-- Source: https://community.zscaler.com/s/question/0D54u00009evmonCAA/zia-azure-virtual-desktop-session-drops-during-login
-- Type: Q&A
-- Last activity: 2023-11-20T17:23:37.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Client Connector
-
-a_dog
-
-(Customer) to
-
-sfdc
-
-(Employee): asked a question.
-
-January 6, 2022 at 3:52 PM
-
-ZIA - Azure Virtual Desktop Session drops during login
-
-We are seeing an issue with users logging into Azure Virtual Desktop and as soon as the desktop is presented it freezes and reconnects after approx 10 seconds and i see in the background the zscaler window flash up and disappear very quickly as the user is presumably signed in. Its this signing in to ZIA that temp breaks the network connection and freezes the desktop. Is there a way to sort this without a network interruption, is anyone else seeing this behaviour?
-
-This only happens when a user logs in, once logged in the session is fine until next time.
-
-Zscaler Client Connector version is 3.4.0.124 and tunnel version is v2.0 - DTLS
-
-thanks!
-
-Client Connector
-
-6 answers
-
-3.98K views
-
-Swartzendruber.travis
-
-likes this.
-
-tausif
-
-(Customer)
-
-3 years ago
-
-I realize this is from quiet a while ago, but i just wanted to record what worked for us.
-
-Add all the IP ranges from
-
-https://www.microsoft.com/en-us/download/details.aspx?id=56519
-
-to the “Destination Exclusions for IPv4? under the App Profile. This worked for us.
-
-1 like
-
-Gk
-
-(Customer)
-
-3 years ago
-
-i bypassed all the 350+ ip in App profile Application Bypass.  my first connection during sign still disconnects. did you bypassed  any other Url
-
-Swartzendruber.travis
-
-(Customer)
-
-3 years ago
-
-i am seeing this same thing as well still.
-
-We did this and the Optimizing RDP one in Gabriel's post and still no luck.
-
-Where you able to get it figured out?
-
-gabriel
-
-(Customer)
-
-4 years ago
-
-Hi all -
-
-This page here describes the fix:
-
-Optimizing RDP Connectivity for Windows 365 - Microsoft Community Hub
-
-Cheers,
-
-Gabriel
-
-G-Man8
-
-(Customer)
-
-4 years ago
-
-We have the same issue Julien !
-
-‘Application Bypass’ for ‘
-
-Azure Virtual Machine
-
-’ (like MS Teams) will be the nice fix rather than a double PAC bypass.
-
-I think the challenge is the wildcard for ‘
-
-.prod.warm.ingest.monitor.core.windows.net ’ AND '
-
-.wvd.microsoft.com’
-
-I ran the ‘WVDAgentUrlTool.exe’ and added the returned to the VPN bypass as a test but that didnt work either for me.
-
-Anyone else had any luck ?
-
-Julien_Grua
-
-(Customer)
-
-4 years ago
-
-Hello
-
-Would we be lucky to get an answer?
-
-We want to use Zscaler on azure virtual machines as we do for laptops, and we had the same problem as described above.
-
-We have disconnections when connecting ZIA to the virtual machines during the POC
-
-Do you have any feedback on these issues?
-
-Thank you in advance.
-
-1 like
-
-Log In to Answer
-
-Associated Tags
-
-azure
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-7/7/2020
-
-at
-
-04:05 AM
-
-Z-App -8 Network Error when users log in on Windows 10
-
-Client Connector
-
-cburge97
-
-2,888
-
-2888 Views
-
-0 Likes
-
-11
-
-11 Comments
-
-7/3/2020
-
-at
-
-11:55 AM
-
-ZAPP intune deployment
-
-Client Connector
-
-Mk001
-
-1,379
-
-1379 Views
-
-0 Likes
-
-4 Comments
-
-1/28/2021
-
-at
-
-03:42 PM
-
-Compare ezAgent and ZCC - when to use which?
-
-Client Connector
-
-hukel
-
-704
-
-704 Views
-
-0 Likes
-
-2 Comments
-
-8/18/2020
-
-at
-
-12:15 PM
-
-MacOS Zscaler App Log Location
-
-Client Connector
-
-brad
-
-3,575
-
-3575 Views
-
-0 Likes
-
-1 Comment
-
-3/7/2022
-
-at
-
-03:41 PM
-
-Can a User with multiple devices use them simultaneously whilst logged in using that same single account
-
-Client Connector
-
-michael.makombe
-
-4 Views
-
-0 Likes
-
-12
-
-12 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-ZIA - Azure Virtual Desktop Session drops during login
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evmorCAA/git-proxy-error-libressl-sslconnect-sslerrorsyscall","lastmod":"2023-05-31T08:46:32.000Z","id":"0D54u00009evmorCAA"} -->
-## Git proxy error: LibreSSL SSL_connect: SSL_ERROR_SYSCALL
-
-- Source: https://community.zscaler.com/s/question/0D54u00009evmorCAA/git-proxy-error-libressl-sslconnect-sslerrorsyscall
-- Type: Q&A
-- Last activity: 2023-05-31T08:46:32.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZIA - Authentication
-
-Guwan
-
-(Customer) to
-
-sfdc
-
-(Employee): asked a question.
-
-December 23, 2021 at 8:35 AM
-
-Git proxy error: LibreSSL SSL_connect: SSL_ERROR_SYSCALL
-
-At the moment this error occurs for me in combination with zscaler:
-
-g clone https://github.com/privatenumber/instant-mocha.git
-
-Cloning into 'instant-mocha'...
-
-fatal: unable to access 'https://github.com/privatenumber/instant-mocha.git/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to gateway.zscaler.net:80
-
-Git config has the following zscaler entries:
-
-[http]
-
-proxy = https://gateway.zscaler.net:80/
-
-sslCAInfo = /Users/XXXXX/.zcli/zscaler_root.pem
-
-Removing it, rebooting, disable zscaler, etc. does not fix my issue.
-
-At this moment i am unable to use git.
-
-ZIA - Authentication
-
-2 answers
-
-3.5K views
-
-manuel
-
-(Customer)
-
-5 years ago
-
-Hello Guwan,
-
-did you check
-
-Adding Custom Certificate to an Application Specific Trusted Store | Zscaler
-
-BR
-
-Manuel
-
-1 like
-
-Guwan
-
-(Customer)
-
-5 years ago
-
-I can connect to github via ssl:
-
-openssl s_client -connect github.com:443 -msg
-
-CONNECTED(00000005)
-
->>> TLS 1.2 Handshake [length 00bf], ClientHello
-
-XXX
-
-<<< TLS 1.2 Handshake [length 0059], ServerHello
-
-XXX
-
-<<< TLS 1.2 Handshake [length 0dc4], Certificate
-
-XXX
-
-depth=2 C = US, ST = California, O = Zscaler Inc., OU = Zscaler Inc., CN = Zscaler Intermediate Root CA (zscloud.net), emailAddress = support@zscaler.com
-
-verify error:num=20:unable to get local issuer certificate
-
-verify return:0
-
-<<< TLS 1.2 Handshake [length 014d], ServerKeyExchange
-
-XXX
-
-<<< TLS 1.2 Handshake [length 0004], ServerHelloDone
-
-XXX
-
->>> TLS 1.2 Handshake [length 0046], ClientKeyExchange
-
-XXX
-
->>> TLS 1.2 ChangeCipherSpec [length 0001]
-
-XXX
-
->>> TLS 1.2 Handshake [length 0010], Finished
-
-XXX
-
-<<< TLS 1.2 ChangeCipherSpec [length 0001]
-
-XXX
-
-<<< TLS 1.2 Handshake [length 0010], Finished
-
-XXX
-
----
-
-Certificate chain
-
-0 s:/C=US/ST=California/L=San Francisco/O=GitHub, Inc./CN=github.com
-
-i:/C=US/ST=California/O=Zscaler Inc./OU=Zscaler Inc./CN=Zscaler Intermediate Root CA (zscloud.net) (t)
-
-1 s:/C=US/ST=California/O=Zscaler Inc./OU=Zscaler Inc./CN=Zscaler Intermediate Root CA (zscloud.net) (t)
-
-i:/C=US/ST=California/O=Zscaler Inc./OU=Zscaler Inc./CN=Zscaler Intermediate Root CA (zscloud.net)/emailAddress=support@zscaler.com
-
-2 s:/C=US/ST=California/O=Zscaler Inc./OU=Zscaler Inc./CN=Zscaler Intermediate Root CA (zscloud.net)/emailAddress=support@zscaler.com
-
-i:/C=US/ST=California/L=San Jose/O=Zscaler Inc./OU=Zscaler Inc./CN=Zscaler Root CA/emailAddress=support@zscaler.com
-
----
-
-Server certificate
-
------BEGIN CERTIFICATE-----
-
-XXX
-
------END CERTIFICATE-----
-
-subject=/C=US/ST=California/L=San Francisco/O=GitHub, Inc./CN=github.com
-
-issuer=/C=US/ST=California/O=Zscaler Inc./OU=Zscaler Inc./CN=Zscaler Intermediate Root CA (zscloud.net) (t)
-
----
-
-No client certificate CA names sent
-
-Server Temp Key: ECDH, P-256, 256 bits
-
----
-
-SSL handshake has read 4021 bytes and written 322 bytes
-
----
-
-New, TLSv1/SSLv3, Cipher is ECDHE-RSA-AES256-GCM-SHA384
-
-Server public key is 2048 bit
-
-Secure Renegotiation IS supported
-
-Compression: NONE
-
-Expansion: NONE
-
-No ALPN negotiated
-
-SSL-Session:
-
-Protocol : TLSv1.2
-
-Cipher : ECDHE-RSA-AES256-GCM-SHA384
-
-Session-ID: F72C72758C1C6ECD0EC469A54A709ADC22C21C7D9555B3E79915644AEFA1725B
-
-Session-ID-ctx:
-
-Master-Key: 96497534352717D6184F2E1687BA746003F80C0A050EB0C7CBBE71EF9DE2E497AF31376CE056D32C6D28EB0E14629791
-
-Start Time: 1640252593
-
-Timeout : 7200 (sec)
-
-Verify return code: 0 (ok)
-
----
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-7/15/2022
-
-at
-
-12:39 PM
-
-Onprem Active directory integrate with Zscaler cloud ZIA
-
-ZIA - Authentication
-
-aravindhan.m
-
-3 Views
-
-0 Likes
-
-3 Comments
-
-7/11/2022
-
-at
-
-07:26 AM
-
-Zscaler IDP authentication issue
-
-ZIA - Authentication
-
-aravindhan.m
-
-4 Views
-
-0 Likes
-
-2 Comments
-
-5/27/2022
-
-at
-
-01:49 PM
-
-Zscaler ZIA O365 Apps not authenticating
-
-ZIA - Authentication
-
-abmaclean
-
-4 Views
-
-0 Likes
-
-6 Comments
-
-10/4/2021
-
-at
-
-10:43 PM
-
-Automatic de-provisioning using SCIM with Azure AD
-
-ZIA - Authentication
-
-Paul_Wineberg
-
-4 Views
-
-0 Likes
-
-4 Comments
-
-6/27/2020
-
-at
-
-03:01 PM
-
-Zscaler public preview
-
-ZIA - Authentication
-
-Muhammad
-
-364
-
-364 Views
-
-0 Likes
-
-2 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Git proxy error: LibreSSL SSL_connect: SSL_ERROR_SYSCALL
 <!-- /ZS-POST -->

@@ -1,10 +1,972 @@
 # Zscaler Zenith Community — ZIA — Internet & SaaS (part 3)
 
 Source: https://community.zscaler.com
-Generated: 2026-09-21 02:03 UTC
+Generated: 2026-09-28 10:07 UTC
 Posts in this file: 309
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evn2uCAA/z-app-forwarding-method","lastmod":"2023-05-31T08:53:13.000Z","id":"0D54u00009evn2uCAA"} -->
+## Z App Forwarding Method
+
+- Source: https://community.zscaler.com/s/question/0D54u00009evn2uCAA/z-app-forwarding-method
+- Type: Q&A
+- Last activity: 2023-05-31T08:53:13.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Client Connector
+
+Mark_Potosky
+
+(Customer) to
+
+sfdc
+
+(Employee): asked a question.
+
+February 27, 2019 at 5:02 PM
+
+Z App Forwarding Method
+
+Is there a document that outlines the best practice guidance on how to configure Z App traffic forwarding? We’re deploying Z App in “Tunnel with Local Proxy? currently, but I’ve recently come to understand that this mode still has a heavy dependency on our PAC files, which I don’t believe are optimally configured. I am looking for the implications of moving from tunnel with local proxy to straight tunnel using the packet filter driver.
+
+Client Connector
+
+3 answers
+
+302 views
+
+Mark_Potosky
+
+(Customer)
+
+7 years ago
+
+Thanks David. Do you have any examples of limitations in environments that would require the use of tunnel with local proxy? I’m trying to get an understanding of what to look out for.
+
+I can’t prove that that my PAC files are directly causing issues, but I do know that they are huge and poorly documented. I can’t explain why some sites are being sent direct. I know that I’m bypassing most O365 URLs via PAC, but sending all O365 to ZS (with one click enabled) via GRE when users are on network.
+
+I’ve also seen issues with PAC files not properly standing down when the client is on network, resulting in “double hopping Zens? (PAC is sending traffic to Zen1 but GRE is sending it to Zen2).
+
+If I change a forwarding profile from tunnel with proxy to tunnel only, does Z App automatically pick up and apply that change? Is there any impact to the end user? Would they have to re-authenticate? I am not currently leveraging SCIM via Okta to manage Zscaler user lifecycle.
+
+Thanks,
+
+Mark
+
+venkata.nagumotu
+
+(Customer)
+
+7 years ago
+
+Hi David,
+
+When you say " Z App will automatically steer traffic towards Z App from the user’s browser and proxy aware applications" does it apply the applications which use non standard ports (ports - 1433) and are not browser specific? Will they use the Z app and finally access the PAC file to return to their destinations ?
+
+I have a database application which use port 1433 for communication. And we have tunnel with local proxy as our forward method. we want to use an internal proxy server for this application traffic and we have created an exception in PAC file. But we only see that this application always goes direct to internet being this application is aware of proxy.
+
+Is any port 80 and 443 restriction is applied here ?
+
+Thanks
+
+dcreedy
+
+(Employee)
+
+7 years ago
+
+Hi Mark,
+
+The forwarding method generally depends on the specific environment as each forwarding method behaves differently. You’ve probably see this, but here is a doc that explain at a high level:
+
+https://help.zscaler.com/z-app/configuring-forwarding-profiles-zscaler-app
+
+We generally recommend tunnel mode with packet filter, though of course there might be limitations in an environment that require the use of tunnel with local proxy.
+
+For Tunnel with local proxy, you don’t necessarily need to have a complex pac file. If you leave the profiles default, Z App will automatically steer traffic towards Z App from the user’s browser and proxy aware applications. You should only need to modify this forwarding profile PAC if there are specific destinations you need to bypass. I’d be interested to know what issues you are seeing with the PACs.
+
+Moving to tunnel mode is fairly straight forward, the main differences between the the firewall rules required (
+
+https://help.zscaler.com/z-app/what-zscaler-app-processes-should-i-whitelist
+
+) and also that tunnel mode only gets 80/443 TCP, unlike tunnel with local proxy which can get web traffic on non-standard ports.
+
+Regards
+
+David
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/7/2020
+
+at
+
+04:05 AM
+
+Z-App -8 Network Error when users log in on Windows 10
+
+Client Connector
+
+cburge97
+
+2,881
+
+2881 Views
+
+0 Likes
+
+11
+
+11 Comments
+
+7/3/2020
+
+at
+
+11:55 AM
+
+ZAPP intune deployment
+
+Client Connector
+
+Mk001
+
+1,376
+
+1376 Views
+
+0 Likes
+
+4 Comments
+
+1/28/2021
+
+at
+
+03:42 PM
+
+Compare ezAgent and ZCC - when to use which?
+
+Client Connector
+
+hukel
+
+701
+
+701 Views
+
+0 Likes
+
+2 Comments
+
+8/18/2020
+
+at
+
+12:15 PM
+
+MacOS Zscaler App Log Location
+
+Client Connector
+
+brad
+
+3,565
+
+3565 Views
+
+0 Likes
+
+1 Comment
+
+3/7/2022
+
+at
+
+03:41 PM
+
+Can a User with multiple devices use them simultaneously whilst logged in using that same single account
+
+Client Connector
+
+michael.makombe
+
+4 Views
+
+0 Likes
+
+12
+
+12 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Z App Forwarding Method
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evn2wCAA/integration-with-crxcavatorio","lastmod":"2023-05-31T08:52:21.000Z","id":"0D54u00009evn2wCAA"} -->
+## Integration with crxcavator.io
+
+- Source: https://community.zscaler.com/s/question/0D54u00009evn2wCAA/integration-with-crxcavatorio
+- Type: Q&A
+- Last activity: 2023-05-31T08:52:21.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - Cloud Firewall
+
+avshch
+
+(Customer) to
+
+sfdc
+
+(Employee): asked a question.
+
+February 22, 2019 at 8:43 PM
+
+Integration with crxcavator.io
+
+Any plans for the integration with CRXcavator?
+
+ZIA - Cloud Firewall
+
+1 answer
+
+272 views
+
+Naresh_Kumar_PM
+
+(Employee)
+
+7 years ago
+
+No, AFAIK. Please raise an Enhancement Request to discuss the requirement with our API Product Manager.
+
+1 like
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+11/29/2018
+
+at
+
+01:07 PM
+
+Ip address as criteria in url policy
+
+ZIA - Cloud Firewall
+
+ram75
+
+1,187
+
+1187 Views
+
+0 Likes
+
+1 Comment
+
+10/8/2020
+
+at
+
+08:41 AM
+
+Block All access & Allow certain user or group (ZIA)
+
+ZIA - Cloud Firewall
+
+Sec_def_Def_sec
+
+1,813
+
+1813 Views
+
+1 Like
+
+2 Comments
+
+12/19/2022
+
+at
+
+04:14 PM
+
+URL filtering policy vs Cloud App policy control
+
+ZIA - Cloud Firewall
+
+Ahmed
+
+4 Views
+
+0 Likes
+
+2 Comments
+
+12/9/2022
+
+at
+
+09:40 PM
+
+Apple News RSS Feed
+
+ZIA - Cloud Firewall
+
+Trace Woodbury-RidgeIT
+
+2 Views
+
+0 Likes
+
+1 Comment
+
+9/20/2022
+
+at
+
+03:20 PM
+
+How does Zscaler Internet Access itself route the traffic to the internet, using what outgoing/next hop GW
+
+ZIA - Cloud Firewall
+
+tamerz
+
+6 Views
+
+0 Likes
+
+5 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Integration with crxcavator.io
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evn2yCAA/need-to-block-slackcomgetstartedcreate","lastmod":"2023-07-07T11:31:26.000Z","id":"0D54u00009evn2yCAA"} -->
+## Need to Block slack.com/get-started#create
+
+- Source: https://community.zscaler.com/s/question/0D54u00009evn2yCAA/need-to-block-slackcomgetstartedcreate
+- Type: Q&A
+- Last activity: 2023-07-07T11:31:26.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - Cloud Firewall
+
+dhriti
+
+(Customer) to
+
+sfdc
+
+(Employee): asked a question.
+
+February 12, 2019 at 5:28 AM
+
+Need to Block slack.com/get-started#create
+
+Hello All,
+
+I am trying to Block
+
+Slack
+
+but not the full Slack site
+
+I have created a User Defined Category named slack block under URL Categories and added the URL to it
+
+I have also created a Policy as Rule Order 1 which has been set as Block
+
+However when I try and access the URL it goes through. showing the URL category as Professional Services.
+
+Has anyone faced something like this.
+
+A Note: If I use
+
+slack.com
+
+it does block the full slack site which I don’t want.
+
+Any help will be appreciated.
+
+Regards
+
+Dhriti
+
+ZIA - Cloud Firewall
+
+2 answers
+
+301 views
+
+ramesh.mani
+
+(Partner)
+
+Edited by sfdc July 7, 2023 at 11:31 AM
+
+You may try this.
+
+ramesh.mani
+
+(Partner)
+
+7 years ago
+
+(post withdrawn by author, will be automatically deleted in 24 hours unless flagged)
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+11/29/2018
+
+at
+
+01:07 PM
+
+Ip address as criteria in url policy
+
+ZIA - Cloud Firewall
+
+ram75
+
+1,193
+
+1193 Views
+
+0 Likes
+
+1 Comment
+
+10/8/2020
+
+at
+
+08:41 AM
+
+Block All access & Allow certain user or group (ZIA)
+
+ZIA - Cloud Firewall
+
+Sec_def_Def_sec
+
+1,833
+
+1833 Views
+
+1 Like
+
+2 Comments
+
+12/19/2022
+
+at
+
+04:14 PM
+
+URL filtering policy vs Cloud App policy control
+
+ZIA - Cloud Firewall
+
+Ahmed
+
+4 Views
+
+0 Likes
+
+2 Comments
+
+12/9/2022
+
+at
+
+09:40 PM
+
+Apple News RSS Feed
+
+ZIA - Cloud Firewall
+
+Trace Woodbury-RidgeIT
+
+2 Views
+
+0 Likes
+
+1 Comment
+
+9/20/2022
+
+at
+
+03:20 PM
+
+How does Zscaler Internet Access itself route the traffic to the internet, using what outgoing/next hop GW
+
+ZIA - Cloud Firewall
+
+tamerz
+
+6 Views
+
+0 Likes
+
+5 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Need to Block slack.com/get-started#create
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evn2zCAA/block-prime-app","lastmod":"2023-07-06T13:11:29.000Z","id":"0D54u00009evn2zCAA"} -->
+## Block Prime App
+
+- Source: https://community.zscaler.com/s/question/0D54u00009evn2zCAA/block-prime-app
+- Type: Q&A
+- Last activity: 2023-07-06T13:11:29.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - Cloud Firewall
+
+Santhoshb
+
+(Customer) to
+
+sfdc
+
+(Employee): asked a question.
+
+February 9, 2019 at 8:34 AM
+
+Block Prime App
+
+Hi,
+
+I am unable to block Amazon Prime videos App but allow Amazon Shopping App.No such option in cloud App .
+
+Regards
+
+Santhu
+
+ZIA - Cloud Firewall
+
+Discourse-expand
+
+Far-image
+
+3 answers
+
+390 views
+
+atsuo.kanekiyo
+
+(Customer)
+
+5 years ago
+
+Great, that worked for me too.
+
+Richard_Hodgson
+
+(Employee)
+
+Edited by sfdc July 6, 2023 at 12:13 PM
+
+Hi
+
+@GMeron
+
+, looks like Oracle does not initiate outbound.
+
+https://docs.cloud.oracle.com/en-us/iaas/Content/Network/Reference/faqIPsec.htm
+
+image
+
+800×546 55.9 KB
+
+@Sumanth_Malempaty
+
+, are you aware of any native alternative for Oracle Cloud?
+
+2 likes
+
+ramesh.mani
+
+(Partner)
+
+7 years ago
+
+Try to block
+
+fls-na.amazon.com
+
+in url filtering for amazon video
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+11/29/2018
+
+at
+
+01:07 PM
+
+Ip address as criteria in url policy
+
+ZIA - Cloud Firewall
+
+ram75
+
+1,193
+
+1193 Views
+
+0 Likes
+
+1 Comment
+
+10/8/2020
+
+at
+
+08:41 AM
+
+Block All access & Allow certain user or group (ZIA)
+
+ZIA - Cloud Firewall
+
+Sec_def_Def_sec
+
+1,822
+
+1822 Views
+
+1 Like
+
+2 Comments
+
+12/19/2022
+
+at
+
+04:14 PM
+
+URL filtering policy vs Cloud App policy control
+
+ZIA - Cloud Firewall
+
+Ahmed
+
+4 Views
+
+0 Likes
+
+2 Comments
+
+12/9/2022
+
+at
+
+09:40 PM
+
+Apple News RSS Feed
+
+ZIA - Cloud Firewall
+
+Trace Woodbury-RidgeIT
+
+2 Views
+
+0 Likes
+
+1 Comment
+
+9/20/2022
+
+at
+
+03:20 PM
+
+How does Zscaler Internet Access itself route the traffic to the internet, using what outgoing/next hop GW
+
+ZIA - Cloud Firewall
+
+tamerz
+
+6 Views
+
+0 Likes
+
+5 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Block Prime App
+<!-- /ZS-POST -->
 
 ---
 
@@ -44032,12 +44994,12 @@ Separated iDP for ZIA admin vs ZIA users authentication
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009sTn6DCAS/feature-request-ability-to-save-logging-filters","lastmod":"2024-10-09T06:58:01.000Z","id":"0D54u00009sTn6DCAS"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009sTn6DCAS/feature-request-ability-to-save-logging-filters","lastmod":"2026-09-25T09:43:22.000Z","id":"0D54u00009sTn6DCAS"} -->
 ## Feature request: Ability to save logging filters
 
 - Source: https://community.zscaler.com/s/question/0D54u00009sTn6DCAS/feature-request-ability-to-save-logging-filters
 - Type: Q&A
-- Last activity: 2024-10-09T06:58:01.000Z
+- Last activity: 2026-09-25T09:43:22.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 ZIA - Logging
@@ -44058,7 +45020,7 @@ Feature Request
 
 4 answers
 
-758 views
+802 views
 
 Meventy
 
@@ -44082,7 +45044,7 @@ michael.hawks
 
 (Customer)
 
-2 years ago
+3 years ago
 
 While it only takes a few seconds to setup my commonly used filters, I have to do it many times a day ... and it starts to add up.   Having this feature would help immensely.  I
 
@@ -44152,9 +45114,9 @@ ZIA - Logging
 
 Rallis
 
-618
+640
 
-618 Views
+640 Views
 
 0 Likes
 
@@ -44172,9 +45134,9 @@ ZIA - Logging
 
 venG
 
-543
+575
 
-543 Views
+575 Views
 
 0 Likes
 
@@ -44192,9 +45154,9 @@ ZIA - Logging
 
 JSK27
 
-671
+730
 
-671 Views
+730 Views
 
 0 Likes
 
@@ -74953,928 +75915,4 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Request to eliminate ForgiGate Virtual Firewall in Azure
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000Adsyd0CQA/cloud-sandbox-blocking-md5-hash-values","lastmod":"2025-08-22T07:27:58.000Z","id":"0D54u0000Adsyd0CQA"} -->
-## Cloud Sandbox - blocking MD5 hash values
-
-- Source: https://community.zscaler.com/s/question/0D54u0000Adsyd0CQA/cloud-sandbox-blocking-md5-hash-values
-- Type: Q&A
-- Last activity: 2025-08-22T07:27:58.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZIA - Cloud Sandbox
-
-Raj90909
-
-(Customer) asked a question.
-
-November 7, 2024 at 7:42 PM
-
-Cloud Sandbox - blocking MD5 hash values
-
-If you have the Cloud Sandbox license and looking to block files based on MD5 hash values, you will need to get the Advanced Policy Settings provisioned for your tenant. It was missing for us and does the job by blocking the file.
-
-https://help.zscaler.com/zia/add-custom-file-hashes
-
-ZIA - Cloud Sandbox
-
-5 answers
-
-567 views
-
-manuel
-
-likes this.
-
-manuel
-
-(Customer)
-
-2 years ago
-
-Good finding! Are there any more options below? Or "only" MD5 Hash value settings?
-
-Raj90909
-
-(Customer)
-
-2 years ago
-
-That is the only option, as per the screenshot.
-
-1 like
-
-manuel
-
-(Customer)
-
-2 years ago
-
-Ah ok, thanks!
-
-Raj909
-
-(Customer)
-
-2 years ago
-
-That is the only option, as per the screenshot.
-
-Ramesh Mani
-
-(Partner)
-
-2 years ago
-
-This will directly block the file if the file hash matches.
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-1/21/2020
-
-at
-
-01:31 PM
-
-Does Zscaler Scan Email Traffic?
-
-ZIA - Cloud Sandbox
-
-Omar
-
-1,221
-
-1221 Views
-
-1 Like
-
-3 Comments
-
-1/2/2020
-
-at
-
-12:25 PM
-
-Prevent Malicious VPN Connection
-
-ZIA - Cloud Sandbox
-
-Omar
-
-1,194
-
-1194 Views
-
-0 Likes
-
-8 Comments
-
-10/2/2017
-
-at
-
-04:47 AM
-
-Alerting positive 'allow and scan'
-
-ZIA - Cloud Sandbox
-
-Lmay
-
-416
-
-416 Views
-
-1 Like
-
-2 Comments
-
-9/11/2017
-
-at
-
-09:37 PM
-
-How do I determine which of the files that were submitted to Cloud Sandbox were found to be malicious?
-
-ZIA - Cloud Sandbox
-
-awl
-
-525
-
-525 Views
-
-0 Likes
-
-1 Comment
-
-9/11/2017
-
-at
-
-09:35 PM
-
-What is the recommended “best practice? Cloud Sandbox rule policy?
-
-ZIA - Cloud Sandbox
-
-awl
-
-584
-
-584 Views
-
-0 Likes
-
-4 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Cloud Sandbox - blocking MD5 hash values
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000Adt0z2CQA/enhancement-request-block-quic-with-the-zscaler-client","lastmod":"2024-11-08T08:53:28.000Z","id":"0D54u0000Adt0z2CQA"} -->
-## Enhancement request Block Quic with the Zscaler client
-
-- Source: https://community.zscaler.com/s/question/0D54u0000Adt0z2CQA/enhancement-request-block-quic-with-the-zscaler-client
-- Type: Q&A
-- Last activity: 2024-11-08T08:53:28.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZIA - Forwarding
-
-Chatter is not enabled
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-2/15/2023
-
-at
-
-10:07 PM
-
-Initial login to Azure VDI gets struck for few minutes with ZCC (Tunnel 2.0)
-
-ZIA - Forwarding
-
-rajk5
-
-3 Views
-
-0 Likes
-
-6 Comments
-
-2/14/2023
-
-at
-
-04:13 PM
-
-Forwarding Port 8443 through GRE Tunnel
-
-ZIA - Forwarding
-
-Omar
-
-9 Views
-
-0 Likes
-
-2 Comments
-
-10/23/2022
-
-at
-
-02:29 PM
-
-PZEN localized content
-
-ZIA - Forwarding
-
-mohammad.rummaneh
-
-3 Views
-
-0 Likes
-
-2 Comments
-
-2/18/2022
-
-at
-
-08:24 AM
-
-Premium DC in China
-
-ZIA - Forwarding
-
-Ezzzzh
-
-6 Views
-
-0 Likes
-
-6 Comments
-
-2/15/2021
-
-at
-
-11:58 PM
-
-Disney Circle + Zscaler blocking internet access
-
-ZIA - Forwarding
-
-JamesK
-
-492
-
-492 Views
-
-0 Likes
-
-5 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Enhancement request Block Quic with the Zscaler client
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000Adu1FfCQI/how-to-analyse-packet-capture-logs-for-zia","lastmod":"2024-11-13T01:44:14.000Z","id":"0D54u0000Adu1FfCQI"} -->
-## How to analyse packet capture logs for ZIA
-
-- Source: https://community.zscaler.com/s/question/0D54u0000Adu1FfCQI/how-to-analyse-packet-capture-logs-for-zia
-- Type: Q&A
-- Last activity: 2024-11-13T01:44:14.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Client Connector
-
-nabeela.mallick
-
-(Partner) asked a question.
-
-November 11, 2024 at 10:09 AM
-
-How to analyse packet capture logs for ZIA
-
-Hello,
-
-After packet capturing the logs there is folder which get downloaded my question is in that file there are multiple folders so which one we use to analyse the logs so that we can analyse the traffic flow that where the URL is getting blocked or where the issue is arising.
-
-Client Connector
-
-3 answers
-
-1.08K views
-
-Naman
-
-likes this.
-
-Top Rated Answers
-
-Jainil_G
-
-(Employee)
-
-2 years ago
-
-@Nabeela Mallick​ ​ As mentioned by Manuel, you can check the PCAP file. Some of the commonly reviewed log files are listed below:
-
-ZSAAuth: To extract authentication logs
-
-ZSAService: To extract session and registry information
-
-ZSATray: To inspect anything that appears as an error on ZCC
-
-ZSATunnel: To inspect connections to the service edge, Mobile Portal, or any application
-
-The above log files are important that can be reviewed based on issue occurrence date & time, but there are other log files that can also be reviewed depending on the use case.
-
-The below guide can be helpful for the Packet capture file location, and other details.
-
-https://help.zscaler.com/zscaler-client-connector/enabling-packet-capture-zscaler-client-connector
-
-Thanks,
-
-Jainil_G
-
-Selected as Best
-
-All Answers
-
-manuel
-
-(Customer)
-
-2 years ago
-
-Look for pcap-file and open this in Wireshark.
-
-BR
-
-Manuel
-
-Jainil_G
-
-(Employee)
-
-2 years ago
-
-@Nabeela Mallick​ ​ As mentioned by Manuel, you can check the PCAP file. Some of the commonly reviewed log files are listed below:
-
-ZSAAuth: To extract authentication logs
-
-ZSAService: To extract session and registry information
-
-ZSATray: To inspect anything that appears as an error on ZCC
-
-ZSATunnel: To inspect connections to the service edge, Mobile Portal, or any application
-
-The above log files are important that can be reviewed based on issue occurrence date & time, but there are other log files that can also be reviewed depending on the use case.
-
-The below guide can be helpful for the Packet capture file location, and other details.
-
-https://help.zscaler.com/zscaler-client-connector/enabling-packet-capture-zscaler-client-connector
-
-Thanks,
-
-Jainil_G
-
-Selected as Best
-
-venG
-
-(Customer)
-
-2 years ago
-
-In addition to the above files, you will find 2 PCAP files names starting with
-
-CaptureAdapters_XXXXX.pcap
-
-CaptureLWF_XXXX.pcap
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-7/7/2020
-
-at
-
-04:05 AM
-
-Z-App -8 Network Error when users log in on Windows 10
-
-Client Connector
-
-cburge97
-
-2,896
-
-2896 Views
-
-0 Likes
-
-11
-
-11 Comments
-
-7/3/2020
-
-at
-
-11:55 AM
-
-ZAPP intune deployment
-
-Client Connector
-
-Mk001
-
-1,386
-
-1386 Views
-
-0 Likes
-
-4 Comments
-
-1/28/2021
-
-at
-
-03:42 PM
-
-Compare ezAgent and ZCC - when to use which?
-
-Client Connector
-
-hukel
-
-706
-
-706 Views
-
-0 Likes
-
-2 Comments
-
-8/18/2020
-
-at
-
-12:15 PM
-
-MacOS Zscaler App Log Location
-
-Client Connector
-
-brad
-
-3,604
-
-3604 Views
-
-0 Likes
-
-2 Comments
-
-3/7/2022
-
-at
-
-03:41 PM
-
-Can a User with multiple devices use them simultaneously whilst logged in using that same single account
-
-Client Connector
-
-michael.makombe
-
-4 Views
-
-0 Likes
-
-12
-
-12 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-How to analyse packet capture logs for ZIA
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AeHrBoCQK/zia-dlp-behaviour-on-google-chatmail","lastmod":"2024-11-18T09:09:53.000Z","id":"0D54u0000AeHrBoCQK"} -->
-## ZIA DLP behaviour on Google Chat/Mail
-
-- Source: https://community.zscaler.com/s/question/0D54u0000AeHrBoCQK/zia-dlp-behaviour-on-google-chatmail
-- Type: Q&A
-- Last activity: 2024-11-18T09:09:53.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZIA - DLP
-
-jpcanezo
-
-(Partner) asked a question.
-
-November 18, 2024 at 7:52 AM
-
-ZIA DLP behaviour on Google Chat/Mail
-
-Noticed an interesting behaviour of ZS DLP when trigged on Gchat and Gmail.
-
-DLP policy -> block traffic if configured policy matches. (i.e. block a word "salary")
-
-->when a dlp triggers, typing that "word" disconnects google services (even without sending (for gchat) , composing on (gmail). A retry connecting prompt is visible on the email web app.
-
-So what do i observe and why it matters.
-
-If the service is terminated and tries to reconnect this wound mean multiple triggers. The multple triggers is also verified via Workflow. (current deployment has ZWA)
-
-Wanted to check if these also occurs in your configurations or a misconfiguration on my end.
-
-ZIA - DLP
-
-1 answer
-
-233 views
-
-Ramesh Mani
-
-(Partner)
-
-2 years ago
-
-This is the expected behavior. You would validate the logs which DLP policy and engine/Dictionary triggered.
-
-1 like
-
-Log In to Answer
-
-Associated Tags
-
-best-practice
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-2/9/2023
-
-at
-
-05:32 PM
-
-DLP notification via Zscaler Client Connector
-
-ZIA - DLP
-
-thacarvalho123
-
-7 Views
-
-2 Likes
-
-2 Comments
-
-11/20/2022
-
-at
-
-09:26 PM
-
-External DLP Engine
-
-ZIA - DLP
-
-H.zyD.zy
-
-4 Views
-
-0 Likes
-
-3 Comments
-
-11/9/2022
-
-at
-
-04:51 PM
-
-Zscaler Preventing Image Upload and Download on iPhone
-
-ZIA - DLP
-
-MacDanorld1
-
-2 Views
-
-0 Likes
-
-3 Comments
-
-6/20/2022
-
-at
-
-07:53 AM
-
-Error during Microsoft Information Protection(MIP) Integration
-
-ZIA - DLP
-
-ozanogur
-
-3 Views
-
-0 Likes
-
-4 Comments
-
-1/31/2021
-
-at
-
-08:35 PM
-
-Zscaler ZIA and ZPA with NetSkope CASB and DLP services
-
-ZIA - DLP
-
-jonathan.holt
-
-1,337
-
-1337 Views
-
-1 Like
-
-6 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-ZIA DLP behaviour on Google Chat/Mail
 <!-- /ZS-POST -->
