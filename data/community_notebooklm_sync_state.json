@@ -31,33 +31,33 @@
   },
   "community_platform_part1.md": {
    "rel": "platform/community_platform_part1.md",
-   "sha256": "efbc18be7aee241c980bc55e8f70684c53dff16f7f2eef16f07a5d4581514715",
-   "source_id": "214a48ef-d197-4fc0-b38f-425413805c9a"
+   "sha256": "5188bf1c62be369e0fd40b4823348a24924d97d2e5adc182d11a6978a95eae64",
+   "source_id": "d1ef0112-df59-4a22-9ad9-bf6c66748e9a"
   },
   "community_platform_part2.md": {
    "rel": "platform/community_platform_part2.md",
-   "sha256": "55e8adc129c1e9302c2ff31770e53d0bc04004b1005daca8726241f5007e68bb",
-   "source_id": "aa09d854-be42-4290-8063-2715677d310f"
+   "sha256": "785ac35eea411ba2a36da53b3f33138354826ef7341d52302c04b9c0402b3364",
+   "source_id": "d0445f4d-1b78-4bb4-bfec-3f2a061c9417"
   },
   "community_zcc_part1.md": {
    "rel": "zcc/community_zcc_part1.md",
-   "sha256": "06ed303f1553b100632515d2f5adb8c1963d48144520f4b1ea689987681a6e88",
-   "source_id": "d70f9f54-9699-448a-9b92-ca59b3af0d2f"
+   "sha256": "f41cab33d0ddc7f3651fb09ae87fde8606811cf4eea9eca80fd71e39f9557729",
+   "source_id": "8acf2c96-3db9-45d6-b760-6a75dd3221d4"
   },
   "community_zcc_part2.md": {
    "rel": "zcc/community_zcc_part2.md",
-   "sha256": "67f9f95a54ae03ffa33fa1a2eb04758a01e4a3392eca0f91baab03645b6ddf4e",
-   "source_id": "aecd9439-f7b5-41e2-878c-8fcd21558e90"
+   "sha256": "87ddfea18bac5fa414774fcc197a2d85e972454c613bc68f61f3315e6ac89f3f",
+   "source_id": "0dca6727-6245-433b-8ef3-f396983a9479"
   },
   "community_zcc_part3.md": {
    "rel": "zcc/community_zcc_part3.md",
-   "sha256": "105ef6aa643d341090957a10f9392e6776218595be46a610a9f04b6885226ce2",
-   "source_id": "fce02ae8-5fe5-43ea-9a94-7f6f4435b059"
+   "sha256": "eee27366bef8e348f51c9440877ae0b22b543ace3343da49a78bb67db0e015e8",
+   "source_id": "91652ea4-41c0-41be-8cb1-91ae9ff4fe83"
   },
   "community_zcc_part4.md": {
    "rel": "zcc/community_zcc_part4.md",
-   "sha256": "e01e5999f0e7a021f39d445c97c7716ceae15f8ccba42f8857c5ada14adf21b6",
-   "source_id": "58f8d4b2-a402-45ef-a990-471d824b90af"
+   "sha256": "820eb95e7c7e0f914a1077bd2211b33fa2b2b8bae997d9d855af2ad6447b11f6",
+   "source_id": "6042d840-f690-4f0f-aa8c-ced80b508dab"
   },
   "community_zdx_part1.md": {
    "rel": "zdx/community_zdx_part1.md",
@@ -66,29 +66,29 @@
   },
   "community_zia_part1.md": {
    "rel": "zia/community_zia_part1.md",
-   "sha256": "1194fcf14cd6024fe604d40a53c12ffeff2dccf2feda7af8801e322246e8996e",
-   "source_id": "6d89eb2f-5a89-41c8-9ea9-5574eefd5a0d"
+   "sha256": "2944215c1269b1536500106c1d2873b2bcb9fa5854e07671e99bc38fde55e38a",
+   "source_id": "44da383e-3ded-4ef7-903b-5b6c20fbd478"
   },
   "community_zia_part2.md": {
    "rel": "zia/community_zia_part2.md",
-   "sha256": "e46a0e9186f5b7d5cc38175639cb56736612ec4e6fb8120aeb24416be42ef8ff",
-   "source_id": "dc024694-2f82-4214-b65f-18937e7a281b"
+   "sha256": "4301e0adc1ffcf3afbeae81af45e4752e3bf0b4134eb7c974fa6b27d4951d858",
+   "source_id": "3f15f053-840e-4418-af4c-3ca30af24708"
   },
   "community_zia_part3.md": {
    "rel": "zia/community_zia_part3.md",
-   "sha256": "278bbb586d85fbd83a7f8385e12c636a75201317d978ded03c3e5ab6297d6906",
-   "source_id": "f35b31fc-9d5d-429c-aea9-f6f18da66e4d"
+   "sha256": "de966b7878e26e2673a288e37b567cb4c1d33041ee14e00911bf4cb4b5cde91c",
+   "source_id": "00ef3768-f6bf-474b-a16d-cded9370f98b"
   },
   "community_zia_part4.md": {
    "rel": "zia/community_zia_part4.md",
-   "sha256": "058b9308524e052ec84255d5277c14aa6c0b12baa1a41ef44fb23fa873b54e55",
-   "source_id": "1cf6834e-2911-4747-a5c8-c1f946ca030c"
+   "sha256": "b5c17294104225a4b8d03b69b00cd3600d7131c60d57022d88c262407fbedb97",
+   "source_id": "cfa06b62-f58a-4e86-bc3b-f9758faf8a64"
   },
   "community_zpa_part1.md": {
    "rel": "zpa/community_zpa_part1.md",
-   "sha256": "51c21a2db0cb039bd19f3a85900585d86f022e85b27530eff17d618d111ff298",
-   "source_id": "012b07e1-3df5-4ad5-b358-1f37ff8aeda1"
+   "sha256": "db67e7f023d28a9c8557f4acb83f05f386f802ea9376a228244d4623e16b918d",
+   "source_id": "46ef6c44-43b5-4294-8049-9f69604c413d"
   }
  },
- "synced_at": "2026-09-21T09:21:16Z"
+ "synced_at": "2026-09-28T10:12:59Z"
 }
