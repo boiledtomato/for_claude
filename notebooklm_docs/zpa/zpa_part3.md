@@ -1,7 +1,7 @@
 # Zscaler Help — ZPA — Private Access (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 22:17 UTC
+Generated: 2026-09-28 09:01 UTC
 Articles in this file: 111
 
 ---
@@ -854,13 +854,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/network-connector-release-summary-2026","lastmod":"2026-09-08T10:25Z","nid":"1534309"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/network-connector-release-summary-2026","lastmod":"2026-09-24T15:50Z","nid":"1534309"} -->
 ## Network Connector Release Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/network-connector-release-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Network Connector Release Notes > Network Connector Release Summary (2026)
-- Last modified: 2026-09-08T10:25Z
+- Last modified: 2026-09-24T15:50Z
 - Summary: Zscaler Private Access (ZPA) Network Connector release summary for updates deployed, per version, in 2026.
 
 This article provides a summary of all new features and enhancements released per Zscaler Private Access (ZPA) Network Connector version.
@@ -868,13 +868,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/network-connector-software-platform","lastmod":"2026-09-04T13:37Z","nid":"1531244"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/network-connector-software-platform","lastmod":"2026-09-24T15:39Z","nid":"1531244"} -->
 ## Network Connector Software by Platform
 
 - Source: https://help.zscaler.com/zpa/network-connector-software-platform
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Network Connector Deployment Guides for Supported Platforms > Network Connector Software by Platform
-- Last modified: 2026-09-04T13:37Z
+- Last modified: 2026-09-24T15:39Z
 - Summary: The current Network Connector software downloads by platform.
 
 Network Connectors are supported on Linux operating systems. To learn more, see [Network Connector Deployment Guides for Supported Platforms](https://help.zscaler.com/zpa/vpn-legacy-apps/network-connector-deployment-guides-supported-platforms) for detailed deployment instructions.
@@ -890,7 +890,7 @@ The following platforms support Network Connector software packages. Where appli
 | Google Cloud Platform (GCP) | [Private Access - GCP Marketplace](https://console.cloud.google.com/marketplace/product/zpa-gcp-marketplace/zscaler-private-access-network-connector?q=search&referrer=search&organizationId=143569286330) |
 | Microsoft Azure | [Private Access - Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zscaler.zscaler-private-access-network-connector?tab=Overview) |
 | Linux Operating Systems |  |
-| [Network Connector Deployment Guide for Linux](https://help.zscaler.com/zpa/network-connector-deployment-guide-linux) | The following RPM package is supported for RHEL 9-based Network Connector deployments: [RPM Package](https://yum.private.zscaler.com/yum/el9/np-connector-26.56.9-1.el9.x86_64.rpm); [GPG Public Key](https://yum.private.zscaler.com/yum/el9/gpg) |
+| [Network Connector Deployment Guide for Linux](https://help.zscaler.com/zpa/network-connector-deployment-guide-linux) | The following RPM package is supported for RHEL 9-based Network Connector deployments: [RPM Package](https://yum.private.zscaler.com/yum/el9/np-connector-26.57.3-1.el9.x86_64.rpm); [GPG Public Key](https://yum.private.zscaler.com/yum/el9/gpg) |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1349,13 +1349,13 @@ If you require further assistance after deployment, contact Zscaler Support.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-access-vm-password-requirements-stig-compliance","lastmod":"2026-09-10T13:51Z","nid":"1539857"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-access-vm-password-requirements-stig-compliance","lastmod":"2026-09-24T21:06Z","nid":"1539857"} -->
 ## Private Access VM Password Requirements for STIG Compliance
 
 - Source: https://help.zscaler.com/zpa/private-access-vm-password-requirements-stig-compliance
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Access Software Components > Private Access Software Component Deployment & Management > Private Access VM Password Requirements for STIG Compliance
-- Last modified: 2026-09-10T13:51Z
+- Last modified: 2026-09-24T21:06Z
 - Summary: Information about password compliance for Private Access (ZPA) virtual machines.
 
 For STIG compliance, your OS must enforce the following password rules for Private Access (ZPA) virtual machines (VMs):
@@ -2774,13 +2774,13 @@ If necessary, egress traffic directions can be restricted to Private Access host
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-deployment-guide-linux","lastmod":"2026-09-11T08:39Z","nid":"1507451"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-deployment-guide-linux","lastmod":"2026-09-24T15:38Z","nid":"1507451"} -->
 ## Private Cloud Controller Deployment Guide for Linux
 
 - Source: https://help.zscaler.com/zpa/private-cloud-controller-deployment-guide-linux
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Private Cloud Controller Deployment Guides for Supported Platforms > Private Cloud Controller Deployment Guide for Linux
-- Last modified: 2026-09-11T08:39Z
+- Last modified: 2026-09-24T15:38Z
 - Summary: How to deploy a Private Cloud Controller on Red Hat, including platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy a Private Cloud Controller on Red Hat Enterprise Linux 9.x, and post-deployment verification checks.
@@ -3261,14 +3261,14 @@ Determining fastest mirrors
 * updates: mirrors.cat.pdx.edu
 Resolving Dependencies
 --> Running transaction check
----> Package zpa-pcc.x86_64 0:26.56.9-1.el9 will be installed
+---> Package zpa-pcc.x86_64 0:26.57.3-1.el9 will be installed
 --> Finished Dependency Resolution
 Dependencies Resolved
 ================================================================================
 Package              Arch         Version             Repository         Size
 ================================================================================
 Installing:
-zpa-pcc     x86_64       26.56.9-1.el9       zscaler            1.1 M
+zpa-pcc     x86_64       26.57.3-1.el9       zscaler            1.1 M
 Transaction Summary
 ================================================================================
 Install 1 Package
@@ -3276,9 +3276,9 @@ Total download size: 1.1 M
 Installed size: 2.9 M
 Is this ok [y/d/N]: y
 Downloading packages:
-warning: /var/cache/yum/x86_64/7/zscaler/packages/zpa-pcc-26.56.9-1.el9.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID 8765e1dd: NOKEY kb 00:00:01 ETA
-Public key for zpa-pcc-26.56.9-1.el9.x86_64.rpm is not installed
-zpa-pcc-26.56.9-1.el9.x86_64.rpm                                                                                               | 1.1 MB      00:00:03
+warning: /var/cache/yum/x86_64/7/zscaler/packages/zpa-pcc-26.57.3-1.el9.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID 8765e1dd: NOKEY kb 00:00:01 ETA
+Public key for zpa-pcc-26.57.3-1.el9.x86_64.rpm is not installed
+zpa-pcc-26.57.3-1.el9.x86_64.rpm                                                                                               | 1.1 MB      00:00:03
 Retrieving key from https://yum.private.zscaler.com/gpg
 Importing GPG key 0x8765E1DD:
 Userid    : "Zscaler, Inc. (External Package Repository Signing Key) <ext-pkg-repo@zscaler.com>"
@@ -3290,10 +3290,10 @@ Running transaction check
 Running transaction test
 Transaction test succeeded
 Running transaction
-Installing : zpa-pcc-26.56.9-1.el9.x86_64                          1/1
-Verifying  : zpa-pcc-26.56.9-1.el9.x86_64                           1/1
+Installing : zpa-pcc-26.57.3-1.el9.x86_64                          1/1
+Verifying  : zpa-pcc-26.57.3-1.el9.x86_64                           1/1
 Installed:
-zpa-pcc.x86_64 0:26.56.9-1.el9
+zpa-pcc.x86_64 0:26.57.3-1.el9
 Complete!
 ```
 
@@ -3308,7 +3308,7 @@ After the Private Cloud Controller provisioning key is applied, and you have mad
 If the Private Cloud Controller can't download the RPM package, you must download the package on a server:
 
 1. Download the following files on a server with access for Red Hat Enterprise Linux 9-based deployments:
-  - RPM package ([zpa-pcc.rpm](https://yum.private.zscaler.com/yum/el9/zpa-pcc-26.56.9-1.el9.x86_64.rpm))
+  - RPM package ([zpa-pcc.rpm](https://yum.private.zscaler.com/yum/el9/zpa-pcc-26.57.3-1.el9.x86_64.rpm))
   - GPG public key ([https://yum.private.zscaler.com/yum/el9/gpg](https://yum.private.zscaler.com/yum/el9/gpg))
 2. Use the scp command to copy the RPM package to the Private Cloud Controller, for example:
 
@@ -4265,13 +4265,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-release-summary-2026","lastmod":"2026-09-11T10:25Z","nid":"1534308"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-release-summary-2026","lastmod":"2026-09-24T15:48Z","nid":"1534308"} -->
 ## Private Cloud Controller Release Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/private-cloud-controller-release-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Private Cloud Controller Release Notes > Private Cloud Controller Release Summary (2026)
-- Last modified: 2026-09-11T10:25Z
+- Last modified: 2026-09-24T15:48Z
 - Summary: Zscaler Private Access (ZPA) Private Cloud Controller release summary for updates deployed, per version, in 2026.
 
 This article provides a summary of all new features and enhancements released per Zscaler Private Access (ZPA) Private Cloud Controller version.
@@ -4279,13 +4279,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-software-platform","lastmod":"2026-09-15T13:03Z","nid":"1519431"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-software-platform","lastmod":"2026-09-24T15:39Z","nid":"1519431"} -->
 ## Private Cloud Controller Software by Platform
 
 - Source: https://help.zscaler.com/zpa/private-cloud-controller-software-platform
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Private Cloud Controller Deployment Guides for Supported Platforms > Private Cloud Controller Software by Platform
-- Last modified: 2026-09-15T13:03Z
+- Last modified: 2026-09-24T15:39Z
 - Summary: The current Private Cloud Controller software downloads by platform.
 
 Private Cloud Controllers are supported on Linux operating systems. To learn more, see [Private Cloud Controller Deployment Guides for Supported Platforms](https://help.zscaler.com/zpa/business-continuity-management/private-cloud-controller-deployment-guides-supported-platforms) for detailed deployment instructions.
@@ -4301,7 +4301,7 @@ The following platform supports Private Cloud Controller software packages. Wher
 | [Google Cloud Platform](https://help.zscaler.com/zpa/private-cloud-controller-deployment-guide-google-cloud-platform) | [Zscaler Private Access - GCP Marketplace](https://console.cloud.google.com/marketplace/product/zpa-gcp-marketplace/zscaler-private-access-cloud-controller?organizationId=143569286330) |
 | Microsoft Azure | [Zscaler Private Access - Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zscaler.zscaler-private-cloud-controller) |
 | Linux Operating Systems |  |
-| [Private Cloud Controller Deployment Guide for Linux](https://help.zscaler.com/zpa/private-cloud-controller-deployment-guide-linux) | The following RPM package is supported for RHEL 9-based Private Cloud Controller deployments: [RPM Package](https://yum.private.zscaler.com/yum/el9/zpa-pcc-26.56.9-1.el9.x86_64.rpm); [GPG Public Key](https://yum.private.zscaler.com/yum/el9/gpg) |
+| [Private Cloud Controller Deployment Guide for Linux](https://help.zscaler.com/zpa/private-cloud-controller-deployment-guide-linux) | The following RPM package is supported for RHEL 9-based Private Cloud Controller deployments: [RPM Package](https://yum.private.zscaler.com/yum/el9/zpa-pcc-26.57.3-1.el9.x86_64.rpm); [GPG Public Key](https://yum.private.zscaler.com/yum/el9/gpg) |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -5089,13 +5089,13 @@ The following table provides a list of Linux capabilities that the container use
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-google-cloud-platform","lastmod":"2026-08-24T09:49Z","nid":"1507506"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-google-cloud-platform","lastmod":"2026-09-22T07:06Z","nid":"1507506"} -->
 ## Private Service Edge Deployment Guide for Google Cloud Platform
 
 - Source: https://help.zscaler.com/zpa/private-service-edge-deployment-guide-google-cloud-platform
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Deployment Guides for Supported Platforms > Private Service Edge Deployment Guide for Google Cloud Platform
-- Last modified: 2026-08-24T09:49Z
+- Last modified: 2026-09-22T07:06Z
 - Summary: How to deploy a Private Service Edge for Private Access (ZPA) on Google Cloud Platform (GCP), including platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy an Private Service Edge for Private Access (ZPA) on Google Cloud Platform (GCP), and post-deployment verification checks. For general information regarding Private Service Edge deployment for Private Access, see [About Deploying Private Service Edges](https://help.zscaler.com/zpa/about-deploying-service-edges).
@@ -5184,6 +5184,8 @@ Before you begin any procedures within the [Private Service Edge Deployment Guid
 - Root or sudo access to the system to configure a new package repository and install packages
 - DNS resolution and network access
 - A [Private Service Edge provisioning key](https://help.zscaler.com/zpa/about-service-edge-provisioning-keys) obtained from the Zscaler Admin Console
+- For OAuth 2.0 enrollment, Manager software and Private Service Edge version 25.48.4 or later
+- An OAuth 2.0 enrollment token obtained from a hyperscaler marketplace, virtual image, or RPM installer provided by Zscaler, or a Private Service Edge [provisioning key](https://help.zscaler.com/zpa/about-service-edge-provisioning-keys) obtained from the Zscaler Admin Console The OAuth server only supports IPv4-based communication. If a Private Service Edge only has an IPv6 address, it cannot access the OAuth server.
 - A static MAC address
 
 Private Service Edges can be deployed in different ways (as private cloud VMs, public cloud VMs, or OS packages), so the security features for each deployment type are slightly different.
@@ -5823,13 +5825,13 @@ If necessary, egress traffic directions can be restricted to Private Access host
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-linux","lastmod":"2026-09-18T09:35Z","nid":"1484566"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-linux","lastmod":"2026-09-24T15:37Z","nid":"1484566"} -->
 ## Private Service Edge Deployment Guide for Linux
 
 - Source: https://help.zscaler.com/zpa/private-service-edge-deployment-guide-linux
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Deployment Guides for Supported Platforms > Private Service Edge Deployment Guide for Linux
-- Last modified: 2026-09-18T09:35Z
+- Last modified: 2026-09-24T15:37Z
 - Summary: How to deploy a Private Service Edge for Private Access (ZPA) on Red Hat Enterprise Linux. It includes platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy a Private Service Edge for Private Access (ZPA) on Red Hat Enterprise Linux 9.x (and 8.x), and post-deployment verification checks.
@@ -6355,14 +6357,14 @@ Determining fastest mirrors
   * updates: mirrors.cat.pdx.edu
 Resolving Dependencies
 --> Running transaction check
----> Package zpa-service-edge.x86_64 0:26.56.9-1.el9 will be installed
+---> Package zpa-service-edge.x86_64 0:26.57.3-1.el9 will be installed
 --> Finished Dependency Resolution
 Dependencies Resolved
 ================================================================================
   Package              Arch         Version             Repository         Size
 ================================================================================
 Installing:
-  zpa-service-edge     x86_64       26.56.9-1.el9       zscaler            1.1 M
+  zpa-service-edge     x86_64       26.57.3-1.el9       zscaler            1.1 M
 Transaction Summary
 ================================================================================
 Install 1 Package
@@ -6371,9 +6373,9 @@ Installed size: 2.9 M
 Is this ok [y/d/N]:
 y
 Downloading packages:
-warning: /var/cache/yum/x86_64/7/zscaler/packages/zpa-service-edge-26.56.9-1.el9.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID 8765e1dd: NOKEY kb 00:00:01 ETA
-Public key for zpa-service-edge-26.56.9-1.el9.x86_64.rpm is not installed
-zpa-service-edge-26.56.9-1.el9.x86_64.rpm                                                                                               | 1.1 MB      00:00:03
+warning: /var/cache/yum/x86_64/7/zscaler/packages/zpa-service-edge-26.57.3-1.el9.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID 8765e1dd: NOKEY kb 00:00:01 ETA
+Public key for zpa-service-edge-26.57.3-1.el9.x86_64.rpm is not installed
+zpa-service-edge-26.57.3-1.el9.x86_64.rpm                                                                                               | 1.1 MB      00:00:03
 Retrieving key from https://yum.private.zscaler.com/gpg
 Importing GPG key 0x8765E1DD:
  Userid    : "Zscaler, Inc. (External Package Repository Signing Key) <ext-pkg-repo@zscaler.com>"
@@ -6385,10 +6387,10 @@ Running transaction check
 Running transaction test
 Transaction test succeeded
 Running transaction
-  Installing : zpa-service-edge-26.56.9-1.el9.x86_64                          1/1
-  Verifying  : zpa-service-edge-26.56.9-1.el9.x86_64                           1/1
+  Installing : zpa-service-edge-26.57.3-1.el9.x86_64                          1/1
+  Verifying  : zpa-service-edge-26.57.3-1.el9.x86_64                           1/1
 Installed:
-  zpa-service-edge.x86_64 0:26.56.9-1.el9
+  zpa-service-edge.x86_64 0:26.57.3-1.el9
 Complete!
 ```
 
@@ -6400,16 +6402,16 @@ After the Private Service Edge provisioning key is applied, and you have made an
 
 1. Zscaler highly recommends [updating the Private Service Edge system software](https://help.zscaler.com/zpa/understanding-software-updates-private-access) before proceeding.
 
-Console outputs reference 26.56.9-1.el9 if you are using the Private Service Edge RPM for Red Hat Enterprise Linux 9-based deployments.
+Console outputs reference 26.57.3-1.el9 if you are using the Private Service Edge RPM for Red Hat Enterprise Linux 9-based deployments.
 
 If the Private Service Edge can't download the RPM package, you must download the package on a server:
 
 1. Download the following files on a server with access:
   - For Red Hat Enterprise Linux 8-based deployments:
-    - RPM package ([zpa-service-edge.rpm](https://yum.private.zscaler.com/yum/el8/zpa-service-edge-26.56.9-1.el8.x86_64.rpm))
+    - RPM package ([zpa-service-edge.rpm](https://yum.private.zscaler.com/yum/el8/zpa-service-edge-26.57.3-1.el8.x86_64.rpm))
     - GPG public key ([https://yum.private.zscaler.com/yum/el8/gpg](https://yum.private.zscaler.com/yum/el8/gpg))
   - For Red Hat Enterprise Linux 9-based deployments:
-    - RPM package ([zpa-service-edge.rpm](https://yum.private.zscaler.com/yum/el9/zpa-service-edge-26.56.9-1.el9.x86_64.rpm))
+    - RPM package ([zpa-service-edge.rpm](https://yum.private.zscaler.com/yum/el9/zpa-service-edge-26.57.3-1.el9.x86_64.rpm))
     - GPG public key ([https://yum.private.zscaler.com/yum/el9/gpg](https://yum.private.zscaler.com/yum/el9/gpg))
 2. Use the scp command to copy the RPM package to the Private Service Edge, for example:
 
@@ -8588,13 +8590,13 @@ Add a Network Connector and enter the OAuth enrollment token on the **Add Networ
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-software-by-platform","lastmod":"2026-09-11T08:25Z","nid":"1485961"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-software-by-platform","lastmod":"2026-09-24T14:56Z","nid":"1485961"} -->
 ## Private Service Edge Software by Platform
 
 - Source: https://help.zscaler.com/zpa/private-service-edge-software-by-platform
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Deployment Guides for Supported Platforms > Private Service Edge Software by Platform
-- Last modified: 2026-09-11T08:25Z
+- Last modified: 2026-09-24T14:56Z
 - Summary: The current Private Service Edge for Private Access (ZPA) platform downloads links.
 
 Private Service Edges for Private Access (ZPA) are supported on [many different platforms](https://help.zscaler.com/zpa/private-service-edge-management/private-service-edge-deployment-guides-supported-platforms). Each supported platform has a Private Service Edge image you can use to deploy Private Service Edges on that platform. To learn more, see [Private Service Edge Deployment Guides for Supported Platforms](https://help.zscaler.com/zpa/private-service-edge-management/private-service-edge-deployment-guides-supported-platforms) for detailed deployment instructions.
@@ -8613,7 +8615,7 @@ The following platforms support Private Service Edge software packages. Where ap
 | Containers |  |
 | [Docker](https://help.zscaler.com/zpa/private-service-edge-deployment-guide-docker) | [Docker Hub](https://hub.docker.com/r/zscaler/zpa-service-edge/tags?page=1&ordering=last_updated) |
 | Linux Operating Systems |  |
-| [Red Hat Enterprise Linux](https://help.zscaler.com/zpa/private-service-edge-deployment-guide-linux) | The following RPM packages are supported on RHEL Private Service Edge deployments: RHEL 8-based: [RPM package](https://yum.private.zscaler.com/yum/el8/zpa-service-edge-26.56.9-1.el8.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el8/gpg)RHEL 9-based: [RPM package](https://yum.private.zscaler.com/yum/el9/zpa-service-edge-26.56.9-1.el9.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el9/gpg)You must have the RHEL operating system deployed and running. |
+| [Red Hat Enterprise Linux](https://help.zscaler.com/zpa/private-service-edge-deployment-guide-linux) | The following RPM packages are supported on RHEL Private Service Edge deployments: RHEL 8-based: [RPM package](https://yum.private.zscaler.com/yum/el8/zpa-service-edge-26.57.3-1.el8.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el8/gpg)RHEL 9-based: [RPM package](https://yum.private.zscaler.com/yum/el9/zpa-service-edge-26.57.3-1.el9.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el9/gpg)You must have the RHEL operating system deployed and running. |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -8744,13 +8746,13 @@ When Zscaler cloud and Admin Portal updates are deploying, some functionality wi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/release-upgrade-summary-2026","lastmod":"2026-09-18T10:31Z","nid":"1534305"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/release-upgrade-summary-2026","lastmod":"2026-09-22T08:01Z","nid":"1534305"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/release-upgrade-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Service Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-18T10:31Z
+- Last modified: 2026-09-22T08:01Z
 - Summary: Zscaler Private Access (ZPA) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for the Zscaler Admin Console. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com/).
@@ -8760,13 +8762,13 @@ When Zscaler cloud and the Zscaler Admin Console updates are deploying, some fun
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/replacing-or-migrating-network-connectors-support-redundancy","lastmod":"2026-09-10T14:01Z","nid":"1538660"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/replacing-or-migrating-network-connectors-support-redundancy","lastmod":"2026-09-21T09:44Z","nid":"1538660"} -->
 ## Replacing or Migrating Existing Network Connectors with Network Connectors that Support Redundancy
 
 - Source: https://help.zscaler.com/zpa/replacing-or-migrating-network-connectors-support-redundancy
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Network Connector Management > Network Connectors > Replacing or Migrating Existing Network Connectors with Network Connectors that Support Redundancy
-- Last modified: 2026-09-10T14:01Z
+- Last modified: 2026-09-21T09:44Z
 - Summary: How to replace or migrate existing Network Connectors with redundancy-capable Network Connectors.
 
 This article provides instructions to replace or migrate existing Network Connectors with new Network Connectors that support redundancy.
@@ -8926,7 +8928,7 @@ The following platforms support Network Connector software packages. Where appli
 | Google Cloud Platform (GCP) | [Private Access - GCP Marketplace](https://console.cloud.google.com/marketplace/product/zpa-gcp-marketplace/zscaler-private-access-network-connector?q=search&referrer=search&organizationId=143569286330) |
 | Microsoft Azure | [Private Access - Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zscaler.zscaler-private-access-network-connector?tab=Overview) |
 | Linux Operating Systems |  |
-| [Network Connector Deployment Guide for Linux](https://help.zscaler.com/zpa/network-connector-deployment-guide-linux) | The following RPM package is supported for RHEL 9-based Network Connector deployments: [RPM Package](https://yum.private.zscaler.com/yum/el9/np-connector-26.56.9-1.el9.x86_64.rpm); [GPG Public Key](https://yum.private.zscaler.com/yum/el9/gpg) |
+| [Network Connector Deployment Guide for Linux](https://help.zscaler.com/zpa/network-connector-deployment-guide-linux) | The following RPM package is supported for RHEL 9-based Network Connector deployments: [RPM Package](https://yum.private.zscaler.com/yum/el9/np-connector-26.57.3-1.el9.x86_64.rpm); [GPG Public Key](https://yum.private.zscaler.com/yum/el9/gpg) |
 
 - Step 1: Make Sure You Have Met All Prerequisites
 - Step 2: Migrate Your Existing Network Connectors to Use New Redundancy-Capable Network Connectors
@@ -8936,12 +8938,12 @@ Before you begin any procedures, make sure that you have met the following prere
 - Contact Zscaler Support or your Zscaler Account team and make sure that the VPN (for Legacy Apps) redundancy flag is enabled.
 - An outbound connection to the VPN Service Edges IP address on the UDP port range from 51820 to 53000 must be allowed, not blocked. This is required to establish a VPN tunnel between the Network Connector and VPN Service Edge.
 
-1. In the ZPA Admin Portal, go to **Private Access**>**VPN (for Legacy Apps)**>**Network Connectors**> **Network Connector Groups**..
+1. In the ZPA Admin Portal, go to **Private Access**>**VPN (for Legacy Apps)**> **Network Connector Groups**..
 2. Delete your Network Connector groups. To learn more, see [About Network Connector Groups](https://help.zscaler.com/zpa/about-network-connector-group). Do not delete any Network Connectors; only delete the Network Connector groups.
-3. Go to **Private Access**>**VPN (for Legacy Apps)**>**VPN Service Edges**>**VPN Service Edges**.
+3. Go to **Private Access**>**VPN (for Legacy Apps)**>**VPN Service Edges**.
 4. Delete all your VPN Service Edges. To learn more, see [About VPN Service Edges](https://help.zscaler.com/zpa/about-vpn-service-edges).
 5. Add new VPN Service Edges based on the ones you deleted in the previous step. These new VPN Service Edge support redundancy-capable Network Connectors. To learn more, see [Configuring VPN Service Edges](https://help.zscaler.com/zpa/configuring-vpn-service-edges).
-6. Go to **Private Access**>**VPN (for Legacy Apps)**>**Network Connectors**>**Network Connectors**.
+6. Go to **Private Access**>**VPN (for Legacy Apps)**>**Network Connectors**.
 7. Click **Add**.
 8. Make sure you create a new Network Connector group and a new provisioning key. To learn more, see [Configuring Network Connectors](https://help.zscaler.com/zpa/configuring-network-connectors).
 9. Log into the Network Connector console using your admin credentials.
@@ -8961,7 +8963,7 @@ Before you begin any procedures, make sure that you have met the following prere
 20. If you enabled SSH, disable it using the following command: `sudo systemctl disable sshd`
 21. Update the Manager software and Network Connector using the following command: `sudo yum update`
 22. Verify that the Network Connector is working properly in the ZPA Admin Portal:
-  1. Go to **Private Access**>**VPN (for Legacy Apps)**>**Network Connectors**>**Network Connectors**.
+  1. Go to **Private Access**>**VPN (for Legacy Apps)**>**Network Connectors**.
   2. Check that the Network Connector appears in the table of configured Network Connectors.
 <!-- /ZS-ARTICLE -->
 
@@ -9263,13 +9265,13 @@ To resolve conflicts in a policy recommendation:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/scheduling-periodic-software-updates-private-access","lastmod":"2026-09-10T12:21Z","nid":"1541003"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/scheduling-periodic-software-updates-private-access","lastmod":"2026-09-24T21:06Z","nid":"1541003"} -->
 ## Scheduling Periodic Software Updates in Private Access
 
 - Source: https://help.zscaler.com/zpa/scheduling-periodic-software-updates-private-access
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Access Software Components > Private Access Software Component Updates > Scheduling Periodic Software Updates in Private Access
-- Last modified: 2026-09-10T12:21Z
+- Last modified: 2026-09-24T21:06Z
 - Summary: How to schedule a periodic software update for App Connectors, Private Service Edges for Private Access (ZPA), Private Cloud Controllers, and Network Connectors in the Zscaler Admin Console.
 
 You can schedule the date and time when a software component automatically updates to ensure that it doesn't interfere with operations. Software components refer to App Connectors, Private Service Edges for Private Access (ZPA), Private Cloud Controllers, and Network Connectors. Review the following sections to schedule a periodic software update:
@@ -10946,13 +10948,13 @@ Private Service Edges require that the [Zscaler Client Connector](https://help.z
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/setting-application-segment-configuration-warnings","lastmod":"2026-06-16T11:22Z","nid":"1485181"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/setting-application-segment-configuration-warnings","lastmod":"2026-09-22T07:45Z","nid":"1485181"} -->
 ## Setting Application Segment Configuration Warnings
 
 - Source: https://help.zscaler.com/zpa/setting-application-segment-configuration-warnings
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Application Management > Application Segments > Setting Application Segment Configuration Warnings
-- Last modified: 2026-06-16T11:22Z
+- Last modified: 2026-09-22T07:45Z
 - Summary: How to set up application segment configuration warnings.
 
 By default, configuration warnings appear for application segments to notify you of an error or existing issue. If you do not want to receive configuration warnings for application segments, you can disable them. You can always enable the warnings again.
@@ -10965,7 +10967,7 @@ For example, if you have an existing wildcard application segment `.example.com`
 
 To change your configuration warning settings:
 
-1. Go to **Policies**>**Access Control**>**Private Applications**>**Defined Application Segments**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Private Access**>**Private Applications**>**Defined Application Segments**.
 2. Click the **Column Menu** icon ([Image: Menu icon in the Application Segments page]), and select **Set Application Warnings**. See image. The **Set Application Segment Configuration Warnings** window appears.
 3. Select **Enabled** to allow configuration warnings to appear. Select **Disabled** to stop receiving configuration warnings. The setting is enabled by default. See image.
 4. Click **Save**.
@@ -10977,20 +10979,20 @@ To change your configuration warning settings:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/sharing-defined-application-segments","lastmod":"2026-07-06T10:51Z","nid":"1485736"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/sharing-defined-application-segments","lastmod":"2026-09-22T07:43Z","nid":"1485736"} -->
 ## Sharing Defined Application Segments
 
 - Source: https://help.zscaler.com/zpa/sharing-defined-application-segments
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Application Management > Application Segments > Sharing Defined Application Segments
-- Last modified: 2026-07-06T10:51Z
+- Last modified: 2026-09-22T07:43Z
 - Summary: How to share defined application segments between Microtenants.
 
 Applications can be shared explicitly between Microtenants. The Share icon only appears if you are in a [Microtenant](https://help.zscaler.com/zpa/about-microtenants). You can also share defined application segments from one Microtenant to another using the Private Access (ZPA) cloud service API. To learn more, see [Configuring Application Segments Using API](https://help.zscaler.com/zpa/configuring-application-segments-using-api#MicrotenantSharing).
 
 To share a defined application segment to another Microtenant:
 
-1. Go to **Policies**>**Access Control**>**Private Applications**>**Defined Application Segments**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Private Access**>**Private Applications**>**Defined Application Segments**.
 2. Locate the application segment you want to share, and click the **Share**icon ([Image: Share Icon]). The **Share with Microtenant** window appears.
 3. In the **Share with Microtenant** window: [Image: Select a Microtenant in the Share with Microtenant window]
   1. Review the application segment name to confirm it is the one you want to share.
@@ -11310,13 +11312,13 @@ Verify that users can successfully connect to the VPN Service Edge. To learn mor
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/supported-versions-os-compatibility-microsegmentation","lastmod":"2026-09-16T13:50Z","nid":"1531938"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/supported-versions-os-compatibility-microsegmentation","lastmod":"2026-09-23T13:27Z","nid":"1531938"} -->
 ## Supported Versions & OS Compatibility for Microsegmentation
 
 - Source: https://help.zscaler.com/zpa/supported-versions-os-compatibility-microsegmentation
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Supported Versions & OS Compatibility for Microsegmentation
-- Last modified: 2026-09-16T13:50Z
+- Last modified: 2026-09-23T13:27Z
 - Summary: Information on version compatibility and operating systems that a user needs to deploy to use agents for Microsegmentation.
 
 Before configuring [Microsegmentation policies](https://help.zscaler.com/zpa/about-microsegmentation-policies), you must configure and deploy agents to your physical or virtual machine (VM) based on your operating system (OS).
@@ -11370,20 +11372,20 @@ To learn more about application access and discovery within Private Access, see 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/supporting-ftp-applications","lastmod":"2026-06-17T06:08Z","nid":"1483986"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/supporting-ftp-applications","lastmod":"2026-09-22T10:00Z","nid":"1483986"} -->
 ## Supporting FTP Applications
 
 - Source: https://help.zscaler.com/zpa/supporting-ftp-applications
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Application Management > Enterprise Application Configurations > Supporting FTP Applications
-- Last modified: 2026-06-17T06:08Z
+- Last modified: 2026-09-22T10:00Z
 - Summary: How FTP applications are supported in Private Access and how to configure the service to support passive FTP mode traffic.
 
 Private Access (ZPA) only supports passive FTP mode; active mode is not supported.. Active FTP requires a TCP connection initiated from the server to the client, while passive FTP only requires client-initiated TCP connections. If an FTP client attempts active FTP mode or sends an active mode request in parallel to the passive request, the attempt fails.
 
 To support FTP applications in passive mode:
 
-1. Go to **Policies**>**Access Control**>**Private Applications**>**App Segments**>**Defined Application Segments**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Private Access**> **Private Applications > Defined Application Segments**.
 2. Click **Add Application Segment**.
 
 The **Add Application Segment** window appears.
@@ -11479,20 +11481,20 @@ Microsoft Group Policy Object (GPO) network traffic is supported in Private Acce
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/supporting-rdp-applications","lastmod":"2026-06-16T11:56Z","nid":"1484306"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/supporting-rdp-applications","lastmod":"2026-09-22T10:05Z","nid":"1484306"} -->
 ## Supporting RDP Applications
 
 - Source: https://help.zscaler.com/zpa/supporting-rdp-applications
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Application Management > Enterprise Application Configurations > Supporting RDP Applications
-- Last modified: 2026-06-16T11:56Z
+- Last modified: 2026-09-22T10:05Z
 - Summary: How to configure Private Access to support applications that are accessed via RDP.
 
 To access applications via RDP in Private Access (ZPA), Zscaler recommends that you use Zscaler Client Connector version 2.0.1 or later with the Windows Filter Driver enabled. To learn more, see [Using the Windows Filter Driver for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/using-windows-filter-driver-zscaler-client-connector).
 
 To support RDP applications:
 
-1. Go to **Policies**>**Access Control**>**Private Applications**>**Defined Application Segments**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Private Access**> **Private Applications > Defined Application Segments**.
 2. Click **Add Application Segment**. The **Add Application Segment** window appears.
 3. In the **Add Application** window, on the **Define Applications** page, for **Client Connector Access**:
   - **TCP Port Ranges**: Enter the TCP port ranges that can be used to access the defined applications.
@@ -11504,13 +11506,13 @@ Zscaler recommends a dedicated App Connector group for the File Server applicati
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/supporting-reauthentication-zpa-microsoft-iwa-kerberos","lastmod":"2026-06-25T03:12Z","nid":"1484206"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/supporting-reauthentication-zpa-microsoft-iwa-kerberos","lastmod":"2026-09-22T10:04Z","nid":"1484206"} -->
 ## Supporting Reauthentication into Private Access via Microsoft IWA with Kerberos
 
 - Source: https://help.zscaler.com/zpa/supporting-reauthentication-zpa-microsoft-iwa-kerberos
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Application Management > Enterprise Application Configurations > Supporting Reauthentication into Private Access via Microsoft IWA with Kerberos
-- Last modified: 2026-06-25T03:12Z
+- Last modified: 2026-09-22T10:04Z
 - Summary: How to support reauthentication into Private Access using Microsoft Integrated Windows Authentication (IWA) with Kerberos.
 
 To support reauthentication for application access into Private Access (ZPA) when single sign-on (SSO) is set up using Microsoft Integrated Windows Authentication (IWA) with Kerberos, you must complete the following procedure.
@@ -11520,7 +11522,7 @@ See image.
 
 If you need to use FQDNs, you must create an application segment for each domain.
 
-1. Go to **Policies > Access Control > Private Applications > App Segments > Defined Application Segments**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Private Access**> **Private Applications > Defined Application Segments**.
 2. Click **Add Application Segment**.
 
 The **Add Application Segment** window appears.
@@ -11550,7 +11552,7 @@ The **Add Application Segment** window appears.
     3. Under **Additional Configuration**, from the **Bypass** drop-down menu, select **On Corporate Network**.
     4. Click **Next**.
   2. On the **Segment Group** page, select the proper segment group to add this application segment to, or create a new segment group. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-defined-application-segments).
-8. Go to **Policies**>**Access Control**>**Private Applications**> **Timeout Policy**.
+8. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Private Access**>**Policy**> **Timeout Policy**.
 9. Click **Add**. The **Add Timeout Policy** window appears.
 10. In the **Add Timeout Policy** window: See image.
   1. For **Authentication Timeout:** Select **Never**.
@@ -11570,13 +11572,13 @@ The **Add Application Segment** window appears.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/supporting-sap-applications","lastmod":"2026-06-24T12:00Z","nid":"1484371"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/supporting-sap-applications","lastmod":"2026-09-22T10:05Z","nid":"1484371"} -->
 ## Supporting SAP Applications
 
 - Source: https://help.zscaler.com/zpa/supporting-sap-applications
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Application Management > Enterprise Application Configurations > Supporting SAP Applications
-- Last modified: 2026-06-24T12:00Z
+- Last modified: 2026-09-22T10:05Z
 - Summary: How to support SAP applications with Private Access.
 
 To control access to SAP applications, you must create application segments and configure DNS search domains. You can create an application segment with a wildcard and a wide port range to allow broad access to SAP apps. However, it is more secure to create application segments for individual apps.
@@ -11623,7 +11625,7 @@ Supporting SAP applications in Private Access requires you to configure applicat
 
 To configure an application segment for SAP applications:
 
-1. Go to **Policies > Access Control > Private Applications > App Segments > Defined Application Segments**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Private Access**> **Private Applications > Defined Application Segments**.
 2. Click **Add Application Segment**. The **Add Application Segment** window appears.
 3. In the **Add Application** window, on the**Define Applications** page:
   1. For **Applications**, enter an FQDN that corresponds to the SAP applications. In the example from the packet capture, you would enter example0123.company.com. While it's possible to enter an IP address, Zscaler recommends you use FQDNs wherever possible as they are more secure. If the client has no search suffix, it cannot complete the FQDN to connect to SAP. The client will fall back to the IP address provided by the SAP message server.
@@ -12167,13 +12169,13 @@ If you require an increase in the number of App Connectors due to the tenant's m
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/troubleshooting-manager-software-os-updates","lastmod":"2026-09-10T14:00Z","nid":"1535379"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/troubleshooting-manager-software-os-updates","lastmod":"2026-09-24T21:06Z","nid":"1535379"} -->
 ## Troubleshooting Manager Software and OS Updates
 
 - Source: https://help.zscaler.com/zpa/troubleshooting-manager-software-os-updates
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Access Software Components > Troubleshooting Private Access Software Components > Troubleshooting Manager Software and OS Updates
-- Last modified: 2026-09-10T14:00Z
+- Last modified: 2026-09-24T21:06Z
 - Summary: How to troubleshoot issues with automatic upgrades of Manager software and operating system (OS) updates.
 
 This article provides steps to identify and resolve automated Manager software and operating system (OS) update failures, including how to locate issues in the Zscaler Admin Console and diagnose their root causes.
@@ -12224,13 +12226,13 @@ To troubleshoot Manager software and OS update failures:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/troubleshooting-oauth-enrollment-private-access-images","lastmod":"2026-09-10T14:18Z","nid":"1538701"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/troubleshooting-oauth-enrollment-private-access-images","lastmod":"2026-09-24T21:06Z","nid":"1538701"} -->
 ## Troubleshooting OAuth Enrollment on Private Access Images
 
 - Source: https://help.zscaler.com/zpa/troubleshooting-oauth-enrollment-private-access-images
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Access Software Components > Troubleshooting Private Access Software Components > Troubleshooting OAuth Enrollment on Private Access Images
-- Last modified: 2026-09-10T14:18Z
+- Last modified: 2026-09-24T21:06Z
 - Summary: Information on how to troubleshoot issues with enrolling Private Access (ZPA) virtual machines using OAuth.
 
 This article provides troubleshooting information and guidelines when enrolling Private Access (ZPA) virtual machines (VMs) using OAuth. To learn more, see:
@@ -13487,13 +13489,13 @@ Installing the supporting files requires 150 MB of disk space for the initial in
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-and-installing-zscaler-dns-record-generator","lastmod":"2026-06-09T11:39Z","nid":"1485411"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-and-installing-zscaler-dns-record-generator","lastmod":"2026-09-22T12:30Z","nid":"1485411"} -->
 ## Understanding and Installing the Zscaler DNS Record Generator
 
 - Source: https://help.zscaler.com/zpa/understanding-and-installing-zscaler-dns-record-generator
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Disaster Recovery > Understanding and Installing the Zscaler DNS Record Generator
-- Last modified: 2026-06-09T11:39Z
+- Last modified: 2026-09-22T12:30Z
 - Summary: Information on the Zscaler DNS Record Generator found in the Zscaler Admin Console.
 
 The Zscaler DNS Record Generator creates the DNS TXT records and the public and private keys for disaster recovery. The public key is used to verify the activation of Disaster Recovery Mode. The private key is used to sign the DNS TXT record.
@@ -13528,7 +13530,7 @@ The following table lists the format, sample, and supported values for the signe
 
 To install the Zscaler DNS Record Generator:
 
-1. In the Zscaler Admin Console, go to **Infrastructure**> **Private Access** >**Business Continuity > Disaster Recovery**> **Settings**.
+1. In the Zscaler Admin Console, go to **Infrastructure**>**Business Continuity > Disaster Recovery**> **Settings**.
 2. Click the **Download**icon.
 
 See image.
@@ -14382,13 +14384,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-client-connector-support-multiple-tenants","lastmod":"2026-06-09T14:00Z","nid":"1485516"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-client-connector-support-multiple-tenants","lastmod":"2026-09-25T14:46Z","nid":"1485516"} -->
 ## Understanding Zscaler Client Connector Support for Multiple Tenants
 
 - Source: https://help.zscaler.com/zpa/understanding-client-connector-support-multiple-tenants
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Administration > Understanding Zscaler Client Connector Support for Multiple Tenants
-- Last modified: 2026-06-09T14:00Z
+- Last modified: 2026-09-25T14:46Z
 - Summary: Information on Zscaler Client Connector support for multiple tenants and how to configure it for Private Access.
 
 [Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/what-is-zscaler-client-connector) supports two Zscaler Tunnels (Z-Tunnels) between Zscaler Client Connector and a Public Service Edge for Private Access (ZPA), or between an App Connector and a Private Service Edge for Private Access.
@@ -14407,13 +14409,13 @@ Zscaler Client Connector support for multiple tenants is configured in Zscaler C
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-disaster-recovery","lastmod":"2026-06-09T11:27Z","nid":"1485391"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-disaster-recovery","lastmod":"2026-09-21T10:58Z","nid":"1485391"} -->
 ## Understanding Disaster Recovery
 
 - Source: https://help.zscaler.com/zpa/understanding-disaster-recovery
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Disaster Recovery > Understanding Disaster Recovery
-- Last modified: 2026-06-09T11:27Z
+- Last modified: 2026-09-21T10:58Z
 - Summary: Information on disaster recovery and the Disaster Recovery page within the Zscaler Admin Console.
 
 Enabling disaster recovery ensures business continuity in the event of a disaster scenario that impacts the global Zscaler cloud infrastructure. Disaster recovery is for organizations that depend on the Zscaler cloud to remain operational during disaster events by providing users with access to critical applications.
@@ -14483,7 +14485,7 @@ After the prerequisites are met, proceed to [configure disaster recovery](https:
 
 ## Navigating Disaster Recovery
 
-On the Disaster Recovery page (Infrastructure > Private Access > Business Continuity > Disaster Recovery), you can navigate to the following pages:
+On the Disaster Recovery page (Infrastructure > Business Continuity > Disaster Recovery), you can navigate to the following pages:
 
 - [Disaster Recovery Application Segments](https://help.zscaler.com/zpa/about-disaster-recovery-application-segments)
 - [Disaster Recovery App Connector Groups](https://help.zscaler.com/zpa/about-disaster-recovery-app-connector-groups)
@@ -14823,13 +14825,13 @@ The applicability of the following log field format guidelines and recommendatio
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-manager-software","lastmod":"2026-09-10T12:12Z","nid":"1485136"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-manager-software","lastmod":"2026-09-21T15:48Z","nid":"1485136"} -->
 ## Understanding the Manager Software
 
 - Source: https://help.zscaler.com/zpa/understanding-manager-software
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Access Software Components > Understanding the Manager Software
-- Last modified: 2026-09-10T12:12Z
+- Last modified: 2026-09-21T15:48Z
 - Summary: Information about the Manager software regarding App Connectors, Private Service Edges for Private Access (ZPA), Private Cloud Controllers, and Network Connectors.
 
 This article provides information about the Manager software; details about the Manager version; details about the App Connector, Private Service Edge for Private Access (ZPA), Private Cloud Controller, and Network Connector software versions; and upgrades to all.
@@ -14952,13 +14954,13 @@ The following table includes descriptions and supported field format specificati
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-oauth-enrollment","lastmod":"2026-09-10T13:48Z","nid":"1541612"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-oauth-enrollment","lastmod":"2026-09-24T21:06Z","nid":"1541612"} -->
 ## Understanding OAuth Enrollment
 
 - Source: https://help.zscaler.com/zpa/understanding-oauth-enrollment
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Access Software Components > Private Access Software Component Deployment & Management > Understanding OAuth Enrollment
-- Last modified: 2026-09-10T13:48Z
+- Last modified: 2026-09-24T21:06Z
 - Summary: Information about enrolling App Connectors, Private Service Edges for Private Access (ZPA), Private Cloud Controllers, and Network Connectors using OAuth 2.0.
 
 You can enroll software components using either OAuth 2.0 tokens or provisioning keys on Private Access (ZPA) virtual machine (VM) images. Software components refer to App Connectors, Private Service Edges for Private Access, Private Cloud Controllers, and Network Connectors. Zscaler recommends using OAuth to enroll software components because it provides better security with enrollment tokens that expire after two hours and can't be reused, and ease of deployment.
@@ -14972,13 +14974,13 @@ To use OAuth 2.0, the OAuth server FQDN `zpa-oauth.private.zscaler.com` must be 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-policies","lastmod":"2026-09-08T01:12Z","nid":"1483496"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-policies","lastmod":"2026-09-22T21:06Z","nid":"1483496"} -->
 ## Understanding Policies
 
 - Source: https://help.zscaler.com/zpa/understanding-policies
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Policies > Understanding Policies
-- Last modified: 2026-09-08T01:12Z
+- Last modified: 2026-09-22T21:06Z
 - Summary: Information on policies and policy evaluation order for Private Access.
 
 Users cannot access any internal applications you've configured for Private Access (ZPA), regardless of whether you [explicitly define your applications](https://help.zscaler.com/zpa/about-application-access#AboutApplicationDefinitions) or [enable application discovery](https://help.zscaler.com/zpa/about-application-discovery), until you configure policies for them. If you are using the Log Streaming Service (LSS), you can also configure log streaming policies for information captured by a log receiver. To learn more, see [Configuring a Log Receiver](https://help.zscaler.com/zpa/configuring-log-receiver#Step2).
@@ -15845,13 +15847,13 @@ The following functions and features are not supported for server-to-client conn
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-service-edges","lastmod":"2026-09-11T16:07Z","nid":"1485791"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-service-edges","lastmod":"2026-09-25T21:06Z","nid":"1485791"} -->
 ## Understanding Service Edges
 
 - Source: https://help.zscaler.com/zpa/understanding-service-edges
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Understanding Service Edges
-- Last modified: 2026-09-11T16:07Z
+- Last modified: 2026-09-25T21:06Z
 - Summary: Information on Service Edges and how they work within the Private Access Architecture.
 
 A key component of the Zscaler cloud, Service Edges are full-featured secure internet gateways that provide integrated internet security.
@@ -15957,13 +15959,13 @@ The following table includes descriptions and supported field format specificati
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-software-updates-private-access","lastmod":"2026-09-10T12:14Z","nid":"1540994"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-software-updates-private-access","lastmod":"2026-09-24T21:06Z","nid":"1540994"} -->
 ## Understanding Software Updates in Private Access
 
 - Source: https://help.zscaler.com/zpa/understanding-software-updates-private-access
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Access Software Components > Private Access Software Component Updates > Understanding Software Updates in Private Access
-- Last modified: 2026-09-10T12:14Z
+- Last modified: 2026-09-24T21:06Z
 - Summary: Information on periodic software updates in the Zscaler Admin Console.
 
 [Watch a video about updating App Connector Software Updates](https://fast.wistia.net/embed/iframe/jjhrmi61kj) (shows legacy UI).
@@ -16319,13 +16321,13 @@ The following table includes descriptions and supported field format specificati
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-zpa-appliances","lastmod":"2026-06-29T07:06Z","nid":"1540960"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-zpa-appliances","lastmod":"2026-09-21T15:53Z","nid":"1540960"} -->
 ## Understanding ZPA Appliances
 
 - Source: https://help.zscaler.com/zpa/understanding-zpa-appliances
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > ZPA Appliance > Understanding ZPA Appliances
-- Last modified: 2026-06-29T07:06Z
+- Last modified: 2026-09-21T15:53Z
 - Summary: Information on ZPA hardware appliances for App Connector and Private Service Edge.
 
 Private Access (ZPA) enables organizations to provide access to internal applications and services while ensuring the security of their networks. Private Access is an easier to deploy, more cost-effective, and more secure alternative to VPNs. Unlike VPNs, which require users to connect to your network to access your enterprise applications, Private Access allows you to give users policy-based secure access only to the internal apps they need. With Private Access, application access does not require network access.
@@ -16371,13 +16373,13 @@ Zero trust network access (ZTNA), also known as the software-defined perimeter (
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/updating-host-os-and-software-packages","lastmod":"2026-09-10T12:43Z","nid":"1484916"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/updating-host-os-and-software-packages","lastmod":"2026-09-24T21:06Z","nid":"1484916"} -->
 ## Updating the Host OS and Software Packages
 
 - Source: https://help.zscaler.com/zpa/updating-host-os-and-software-packages
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Access Software Components > Private Access Software Component Updates > Updating the Host OS and Software Packages
-- Last modified: 2026-09-10T12:43Z
+- Last modified: 2026-09-24T21:06Z
 - Summary: How to upgrade the App Connector, Private Service Edge for Private Access (ZPA), Private Cloud Controller, and Network Connector host operating system (OS).
 
 Software components are licensed so that Zscaler can periodically update their software. However, updates to the host operating system (OS) and software packages are the organization's responsibility. Zscaler ensures that the virtual machine software is the latest version. Software components refer to App Connectors, Private Service Edges for Private Access (ZPA), Private Cloud Controllers, and Network Connectors. The software component is designed to be compatible with updates to the host OS. To learn more, see [Managing Deployed Software Components](https://help.zscaler.com/zpa/managing-deployed-software-components).
@@ -16701,13 +16703,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/uploading-and-transferring-files-pra-file-transfer-system","lastmod":"2026-08-25T15:23Z","nid":"1508961"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/uploading-and-transferring-files-pra-file-transfer-system","lastmod":"2026-09-26T07:06Z","nid":"1508961"} -->
 ## Uploading and Transferring Files for the PRA File Transfer System
 
 - Source: https://help.zscaler.com/zpa/uploading-and-transferring-files-pra-file-transfer-system
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Portals > Uploading and Transferring Files for the PRA File Transfer System
-- Last modified: 2026-08-25T15:23Z
+- Last modified: 2026-09-26T07:06Z
 - Summary: Information on how to upload files in a Privileged Remote Access (PRA) Portal and transfer files in a privileged console for the PRA File Transfer System.
 
 If you have the[PRA File Transfer System](https://help.zscaler.com/zpa/about-pra-file-system), you can upload files from your system directly to the Privileged Remote Access (PRA) cloud using the PRA Portal where you can manage your uploaded files. After you have uploaded files to the PRA File System, you can then transfer those files to a privileged console.

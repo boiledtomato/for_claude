@@ -1,23 +1,57 @@
 # Zscaler Help — ZCC — Zscaler Client Connector (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 22:17 UTC
-Articles in this file: 52
+Generated: 2026-09-28 09:01 UTC
+Articles in this file: 53
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/understanding-zscaler-client-connector-dashboard","lastmod":"2026-05-18T07:06Z","nid":"1296751"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/understanding-zscaler-client-connector-app-downloads","lastmod":"2026-09-22T15:58Z","nid":"1285451"} -->
+## Understanding Zscaler Client Connector App Downloads
+
+- Source: https://help.zscaler.com/zscaler-client-connector/understanding-zscaler-client-connector-app-downloads
+- Product: Client Connector
+- Path: Zscaler Client Connector Help > Downloading & Deployment > Understanding Zscaler Client Connector App Downloads
+- Last modified: 2026-09-22T15:58Z
+- Summary: How to navigate to the Zscaler Admin Console and manually download Zscaler Client Connector from the Zscaler Client Connector App Store page.
+
+IT Admins can download installation files to use when deploying Zscaler Client Connector to end users.
+
+There are no download links for Zscaler Client Connector in this article. This article applies only to admins for the Zscaler Admin Console. If you are an end user, contact your organization’s IT admin, IT support team, or equivalent for information about installing Zscaler Client Connector.
+
+If you are an IT Admin, you can download Zscaler Client Connector for Windows, macOS, Linux, or Android from the Zscaler Client Connector App Store in the Zscaler Admin Console. You can download either the latest version or one of the older versions still available for download.
+
+You cannot manually download and install the iOS version of Zscaler Client Connector from the Zscaler Admin Console. You must download and deploy the app with the Mobile Device Management (MDM) used by your organization. To learn more, see [Customizing Zscaler Client Connector with Install Options for iOS](https://help.zscaler.com/zscaler-client-connector/customizing-zscaler-client-connector-install-options-ios).
+
+You can also configure app updates to automatically update Zscaler Client Connector for end users with Windows, Linux, or macOS devices. To learn more, see [Configuring an App Update in the Zscaler Client Connector App Store](https://help.zscaler.com/zscaler-client-connector/configuring-app-update-zscaler-client-connector-app-store).
+
+To download from the Zscaler Client Connector App Store:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Infrastructure** > **Client Connector** > **App Store**.
+2. On the **New Releases** tab, you can view and enable the latest Zscaler Client Connector versions for Windows, macOS, and Linux. In the**EXE URL** and**MSI URL** columns for Windows, the **Download APP** or **Download PKG** columns for macOS, or the **Download Link** column for Linux, click the **Download** icon for the version you want to download. After you enable a particular build, it is listed under the **Registered Devices** tab. See image.
+3. On the **Registered Devices** tab, you can view the released versions of Zscaler Client Connector versions for Windows, macOS, Linux, and Android (SDK file only). Click the **Download** icon for the version you want to download in the **EXE URL** and **MSI URL** columns for Windows, the **Download APP** or **Download PKG** columns for macOS, or the **Download Link** column for Linux or Android. The most recent release is listed at the top of each table. Versions that are not grayed out are still available to download. To learn more, see [About the Zscaler Client Connector Store](https://help.zscaler.com/zscaler-client-connector/about-zscaler-client-connector-store). See image.
+
+After downloading the file, you can use it to deploy Zscaler Client Connector to end users. To learn more, see the article that corresponds to the OS and any MDM used by your organization in the [Downloading and Deployment](https://help.zscaler.com/zscaler-client-connector/downloading-deployment) section.
+
+[Image: Download options for the Registered Devices tab]
+
+[Image: Download options for the New Releases tab]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/understanding-zscaler-client-connector-dashboard","lastmod":"2026-09-22T10:58Z","nid":"1296751"} -->
 ## Understanding the Zscaler Client Connector Dashboard
 
 - Source: https://help.zscaler.com/zscaler-client-connector/understanding-zscaler-client-connector-dashboard
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Monitoring Usage > Understanding the Zscaler Client Connector Dashboard
-- Last modified: 2026-05-18T07:06Z
+- Last modified: 2026-09-22T10:58Z
 - Summary: Information on the Zscaler Client Connector Portal Dashboard and its widgets, which display information about enrolled devices.
 
 The Zscaler Client Connector Dashboard provides information [about enrolled devices](https://help.zscaler.com/zscaler-client-connector/about-enrolled-devices) for your organization, including information about service status.
 
-To view the dashboard, click **Analytics**, enable the **Switch to Existing Reports** toggle, and then go to **Connectors > Dashboard**.
+From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics**> **Infrastructure**> **Platform Details**.
 
 ## Dashboard
 
@@ -132,7 +166,7 @@ Hover over the chart to view the number of devices installed with supported and 
 
 This page provides information about Internet & SaaS and Private Access service status and about users turning off the services via passwords.
 
-This page is available for Windows users only. You must also have Zscaler Digital Experience (ZDX) or Zscaler Client Connector Telemetry enabled.
+This page is available for Windows users only. You must also have Digital Experience (ZDX) or Zscaler Client Connector Telemetry enabled.
 
 ### Dashboard Filter
 
@@ -187,7 +221,7 @@ This widget displays information about the passwords used to turn off the servic
 
 This page provides information about devices that fail their [device posture checks](https://help.zscaler.com/zscaler-client-connector/about-device-posture-profiles).
 
-The Device Posture page is available only if you have Zscaler Digital Experience (ZDX) or Zscaler Client Connector Telemetry enabled.
+The Device Posture page is available only if you have Digital Experience (ZDX) or Zscaler Client Connector Telemetry enabled.
 
 ### Dashboard Filters
 
@@ -787,7 +821,7 @@ Zscaler Client Connector is an application installed on your device to ensure th
 No matter where you're accessing the web, Zscaler Client Connector ensures that your traffic is forwarded to and protected by the [Internet & SaaS](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture) service. You might also have the following services enabled:
 
 - [Private Access](https://help.zscaler.com/zpa/what-zscaler-private-access): Securely access your organization's internal resources from any location.
-- [Zscaler Digital Experience (ZDX)](https://help.zscaler.com/zdx/what-is-zscaler-digital-experience): Perform synthetic probing to a desired Software as a Service (SaaS) application or internet-based service (e.g., OneDrive, Gmail, etc.) to triage and pinpoint the source of performance issues.
+- [Digital Experience (ZDX)](https://help.zscaler.com/zdx/what-is-zscaler-digital-experience): Perform synthetic probing to a desired Software as a Service (SaaS) application or internet-based service (e.g., OneDrive, Gmail, etc.) to triage and pinpoint the source of performance issues.
 - [Zscaler Endpoint Data Loss Prevention (DLP)](https://help.zscaler.com/zia/about-endpoint-dlp): Protect your organization from data loss on endpoints.
 
 Zscaler Client Connector is designed to provide a seamless user experience. It automatically recognizes when you are connected to a trusted network (for example, your corporate office network) and depending on your organization's configuration, can disable Internet & SaaS, Private Access, ZDX, and Endpoint DLP services accordingly. It can also recognize when you connect to Wi-Fi hotspots (for example, at airports, hotels, and cafés) where you must pay or accept a use policy before connecting. The app disables its services for a period of time and re-enables itself after you've had a chance to complete the steps necessary to connect.
@@ -1184,20 +1218,20 @@ If you want to delay a rollout beyond the 180-day maximum (e.g., you encountered
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-device-fingerprint-enrolled-device","lastmod":"2026-08-18T11:31Z","nid":"1317631"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-device-fingerprint-enrolled-device","lastmod":"2026-09-22T12:29Z","nid":"1317631"} -->
 ## Viewing Device Fingerprint for an Enrolled Device
 
 - Source: https://help.zscaler.com/zscaler-client-connector/viewing-device-fingerprint-enrolled-device
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Monitoring Usage > Viewing Device Fingerprint for an Enrolled Device
-- Last modified: 2026-08-18T11:31Z
+- Last modified: 2026-09-22T12:29Z
 - Summary: How to view device fingerprint information for enrolled devices in the Zscaler Client Connector Portal.
 
 From the Zscaler Admin Console, you can view device fingerprint information for [enrolled devices](https://help.zscaler.com/zscaler-client-connector/about-enrolled-devices).
 
 To view the device fingerprint:
 
-1. Go to **Infrastructure** > **Connectors**>**Client**>**Device Overview**. The Device Management page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure**>**Client Connector**>**Device Overview**. The Device Management page appears.
 2. Click the **Device Details** icon to view the device fingerprint from the enrolled device.
 
 [Image: Device Management page]
@@ -1215,7 +1249,7 @@ The **Zscaler Client Connector Registered Device Details** window appears.
     - **Last Deregistration Time**: The last time the user logged out of Zscaler Client Connector on the device.
     - **Zscaler Client Connector Version**: The Zscaler Client Connector version on the device.
     - **Tunnel Version**: The last Zscaler Tunnel (Z-Tunnel) version the device connected with.
-    - **Zscaler Digital Experience Version**: The Zscaler Digital Experience (ZDX) version, if enabled on the device.
+    - **Zscaler Digital Experience Version**: The Digital Experience (ZDX) version, if enabled on the device.
     - **Active Tunnel SDK Version**: The current tunnel SDK version to allow admins to track the devices switching between multiple tunnel SDK versions.
     - **Installation Type**:
       - **Strict Enforcement**: All internet traffic is blocked until the end user logs in to Zscaler Client Connector.
@@ -1359,20 +1393,20 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-device-fingerprint-partner-device","lastmod":"2026-07-24T17:47Z","nid":"1420311"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-device-fingerprint-partner-device","lastmod":"2026-09-21T18:30Z","nid":"1420311"} -->
 ## Viewing Device Fingerprint Information for a Partner Device
 
 - Source: https://help.zscaler.com/zscaler-client-connector/viewing-device-fingerprint-partner-device
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Monitoring Usage > Viewing Device Fingerprint Information for a Partner Device
-- Last modified: 2026-07-24T17:47Z
+- Last modified: 2026-09-21T18:30Z
 - Summary: How to view device fingerprint information for partner devices in the Zscaler Admin Console.
 
 From the Zscaler Admin Console, you can view device fingerprint information for [partner devices](https://help.zscaler.com/zscaler-client-connector/about-partner-devices).
 
 To view device fingerprint information for a partner device:
 
-1. Go to **Infrastructure** > **Connectors**>**Client**>**Partner Devices**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure**>**Client Connector**>**Partner Devices**.
 2. Click the **Partner Device Details** icon to view the device fingerprint from the enrolled device. The **Zscaler Client Connector Registered Partner Device Details** window appears. See image.
 3. In the **Zscaler Client Connector Registered Partner Device Details** window, you can view:
   - Under **Registration Details**:
@@ -2154,13 +2188,13 @@ To display notifications on the app icon:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-policy-token-zscaler-client-connector-app-profile","lastmod":"2026-06-05T21:06Z","nid":"1328911"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-policy-token-zscaler-client-connector-app-profile","lastmod":"2026-09-22T15:37Z","nid":"1328911"} -->
 ## Viewing the Policy Token for a Zscaler Client Connector App Profile
 
 - Source: https://help.zscaler.com/zscaler-client-connector/viewing-policy-token-zscaler-client-connector-app-profile
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Profile Management > Viewing the Policy Token for a Zscaler Client Connector App Profile
-- Last modified: 2026-06-05T21:06Z
+- Last modified: 2026-09-22T15:37Z
 - Summary: How to view the policy token, which is automatically generated for each saved Zscaler Client Connector app profile.
 
 After you save your Zscaler Client Connector [app profile](https://help.zscaler.com/zscaler-client-connector/about-zscaler-app-profiles), a policy token is automatically generated for the profile.
@@ -2169,7 +2203,7 @@ You need this policy token if you want to use the [STRICTENFORCEMENT install opt
 
 To view the policy token for an app profile:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure** > **Client Connectors** > **Select Your OS**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Infrastructure** > **Client Connectors** > **Select Your OS**.
 2. On the **App Profiles** tab, click the **Edit** icon beside the profile.
 
 [Image: Configured App Profile Policies Example]
@@ -2435,13 +2469,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zdx-module-release-summary-2026","lastmod":"2026-09-08T12:15Z","nid":"1534304"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zdx-module-release-summary-2026","lastmod":"2026-09-22T14:07Z","nid":"1534304"} -->
 ## ZDX Module Release Summary (2026)
 
 - Source: https://help.zscaler.com/zscaler-client-connector/zdx-module-release-summary-2026
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Release Notes > Zscaler Client Connector - ZDX Module Release Notes (per OS) > ZDX Module Release Summary (2026)
-- Last modified: 2026-09-08T12:15Z
+- Last modified: 2026-09-22T14:07Z
 - Summary: Zscaler Client Connector ZDX module summary for updates deployed, per OS and version, in 2026.
 
 This article provides a summary of all new features and enhancements released per operating system (OS) for the Zscaler Digital Experience (ZDX) Module in the Zscaler Client Connector app.
@@ -2961,13 +2995,13 @@ The table below provides a list of error messages your users might see for Zscal
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-processes-allowlist","lastmod":"2026-09-20T07:06Z","nid":"1285511"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-processes-allowlist","lastmod":"2026-09-27T07:06Z","nid":"1285511"} -->
 ## Zscaler Client Connector Processes to Allowlist
 
 - Source: https://help.zscaler.com/zscaler-client-connector/zscaler-client-connector-processes-allowlist
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Interoperability > Zscaler Client Connector Processes to Allowlist
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-09-27T07:06Z
 - Summary: Information on Zscaler Client Connector binaries and processes that the users' devices should allowlist.
 
 Zscaler recommends that your users' devices have inbound rules that allow the Zscaler Client Connector binaries and processes.
@@ -3164,7 +3198,7 @@ The following list describes what each process is used for:
 - **ZSATunnel**: Handles traffic tunneling.
 - **ZSAService**: The main service and the watchdog that looks after all other services.
 - **ZSAUpdater**:The process that looks after automatic updates for the app.
-- **ZSAUpm**: The Zscaler Digital Experience (ZDX) service.
+- **ZSAUpm**: The Digital Experience (ZDX) service.
 - **zscalerappupdater**: The executable that initiates updates if found by the updater service.
 - **zscalerchecksumverifier**: Ensures the update being launched is legitimate.
 - **zsffutil**: Replaces certutil and file checksum used to validate crypto functions.

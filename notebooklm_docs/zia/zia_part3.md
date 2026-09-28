@@ -1,8 +1,61 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 22:17 UTC
-Articles in this file: 100
+Generated: 2026-09-28 09:01 UTC
+Articles in this file: 99
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-sandbox-verdict-logs","lastmod":"2026-06-23T06:55Z","nid":"1520331"} -->
+## Adding TCP NSS Feeds for Sandbox Verdict Logs
+
+- Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-sandbox-verdict-logs
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Sandbox Verdict Logs
+- Last modified: 2026-06-23T06:55Z
+- Summary: How to add TCP NSS feeds for Sandbox verdict logs in the Zscaler Admin Console.
+
+You can configure up to 8 TCP Nanolog Streaming Service (NSS) feeds to specify the data from the Sandbox verdict logs that the NSS sends to the security information and event management (SIEM) system.
+
+A large number of filters or complex filters, such as string searches, can impact the NSS performance. Before you start configuring a feed for Sandbox verdict logs, consider the [guidelines for configuring feeds](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats).
+
+To configure a TCP NSS feed for Sandbox verdict logs:
+
+1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+2. On the **NSS Feeds** tab, click **Add TCP NSS Feed**. The **Add TCP NSS Feed** window appears.
+3. In the**Add TCP NSS Feed** window:
+  - **Feed Name:**Enter the name of the feed. Each feed is a connection between the NSS and your SIEM.
+  - **NSS Type**: **NSS for Web** is selected by default.
+  - **NSS Server**:Select an NSS server from the list. A [configured NSS server](https://help.zscaler.com/zia/adding-nss-servers) is required to add an NSS feed.
+  - **Status:**The NSS feed is **Enabled** by default. Select **Disabled** if you want to activate it at a later time.
+  - **SIEM Destination Type**: Select the type of destination.
+    - **SIEM IP Address**:Appears when**IP Address**is selected as the destination type.Enter the IP address of the SIEM to which the logs are streamed.
+    - **SIEM FQDN**: Appears when**FQDN**is selected as the destination type. Enter the destination for the TCP connection to which the logs are streamed. This allows failover from one IP to the other without manual intervention, but rather relying on updating the DNS entry. NSS re-resolves the FQDN only when the existing connection goes down. This feature cannot be used for DNS-based load balancing.
+  - **SIEM TCP Port**: Enter the port number of the SIEM to which the logs are streamed. Ensure that the SIEM is configured to accept the feed from the NSS.
+  - **SIEM Rate**: Leave as **Unlimited**, unless you need to throttle the output stream due to SIEM licensing or other constraints.
+    - **SIEM Rate Limit (Events per Second)**: Enter an appropriate rate limit for the events per second that you want to be streamed to your SIEM. A limit that is too low for the traffic volume causes log loss. This field is available only if you select **Limited** in the **SIEM Rate**field.
+  - **Log Type**:Select **Sandbox Verdict**.
+  - **Feed Output Type**:The output is a comma-separated (**CSV**) list by default. Select **Tab-separated**to create a tab-separated list. Select **Custom**to use a different delimiter, such as a dash, and enter the delimiter when you specify the **Feed Output Format**.
+  - **Feed Escape Character**: The Zscaler service hex encodes all non-printable ASCII characters that are in URLs when it sends logs to the NSS. Any URL character that is less than 0x21, or above 0x7E, is encoded as `%HH`. This ensures that your SIEM is able to parse the URLs in case they contain non-printable characters. For example, a `\n` char in a URL is encoded as `%0A`, and a space is encoded as `%20`. In this field, you can specify additional characters that you want to encode. For example, enter a comma (`,`) to encode it as `%2C`. This is useful if you are using this character as your delimiter and want to ensure it does not cause erroneous delimitation. Note that the service encodes characters in URLs, hostnames, and referrer URLs only. If custom encoding is done for a record, the `%s{eedone}` field is `YES` for that record.
+  - **Feed Output Format**:These are the fields that display in the output. You can edit the default list and if you select **Custom**as the **Feed Output Type**, change the delimiter as well. To learn more about the available fields and their syntax, see [NSS Feed Output Format: Sandbox Verdict Logs](https://help.zscaler.com/zia/nss-feed-output-format-sandbox-verdict-logs).
+  - **Time Zone**:By default, this is set to the organization's time zone. The time zone you set applies to the time field in the output file. The time zone automatically adjusts to changes in daylight saving in the specific time zone. The configured time zone can be output to the logs as a separate field. The list of time zones is derived from the IANA Time Zone database. Direct GMT offsets can also be specified.
+  - **Duplicate Logs**: To ensure that no logs are skipped during downtime, specify the number of minutes that the NSS sends duplicate logs. Zscaler recommends setting the number to 5 minutes, or more if required. This allows the NSS to send up to 60 minutes (one hour) of logs to the SIEM after the connection is restored. To learn more, see [General Guidelines for NSS Feeds and Feed Formats](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats#duplicate-logs-example).
+4. Define the filters:
+  - Security
+  - File Type
+  - Sandbox Verdict
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+- **Threat Names**: Use this filter to limit the logs based on specific threats detected in the transaction. You can enter multiple threat names. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
+
+- **Download File Type**: Use this filter to limit the logs based on the type of file downloaded in the transaction. Multiple selections are allowed. This filter currently includes file types that are not eligible for Sandbox analysis. No log data is available for these file types, if selected. For a list of eligible file types, see [About Sandbox](https://help.zscaler.com/zia/about-sandbox#SandboxFileTypes).
+- **MD5**: Use this filter to limit the logs based on the MD5 hash of a file. You can enter multiple hashes. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
+- **SHA**: Use this filter to limit the logs based on the SHA-256 hash of a file. You can enter multiple hashes. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
+
+- **Sandbox Verdicts**: Use this filter to limit the logs based on the verdict of the Sandbox analysis. This filter includes verdicts related to [Sandbox](https://help.zscaler.com/zia/configuring-sandbox-policy) (e.g., Sandbox Adware), [Advanced Threat Protection](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy) (e.g., Suspicious Content), and [Malware Protection](https://help.zscaler.com/zia/configuring-malware-protection-policy) (e.g., Trojan) policies. Optionally, select **Benign** to limit the logs to non-malicious verdicts. Multiple selections are allowed.
+- **Tactic**: Use this filter to limit the logs based on the MITRE ATT&CK tactic (e.g., TAC028). You can enter multiple tactics. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears. If you do not specify tactics in this filter, verdicts associated with any possible MITRE ATT&CK tactic are displayed.
+- **Technique**: Use this filter to limit the logs based on the MITRE ATT&CK technique (e.g., T1005). You can enter multiple techniques. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears. If you do not specify techniques in this filter, verdicts associated with any possible MITRE ATT&CK technique are displayed.
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -543,13 +596,13 @@ To learn more about associating Claude tenant profiles with the Cloud App Contro
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-threat-categories","lastmod":"2026-09-18T06:06Z","nid":"1403206"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-threat-categories","lastmod":"2026-09-24T00:47Z","nid":"1403206"} -->
 ## Adding Threat Categories
 
 - Source: https://help.zscaler.com/zia/adding-threat-categories
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > IPS Control > Adding Threat Categories
-- Last modified: 2026-09-18T06:06Z
+- Last modified: 2026-09-24T00:47Z
 - Summary: How to add custom IPS threat categories that can have IPS signatures associated with them for use in policies in the Zscaler Admin Console.
 
 Threat categories group common threats (e.g., viruses, botnets, exploits) together, which can be detected and controlled by Zscaler's signature-based intrusion detection. In addition to the predefined threat categories provided by Zscaler, you can define custom [threat categories](https://help.zscaler.com/zia/about-threat-categories) and add [custom IPS signature rules](https://help.zscaler.com/zia/about-custom-signature-rules) to them.
@@ -743,36 +796,57 @@ To add a Virtual Service Edge instance:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-vpn-credentials","lastmod":"2026-05-04T21:06Z","nid":"1399486"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-vpn-credentials","lastmod":"2026-09-23T23:34Z","nid":"1399486"} -->
 ## Adding VPN Credentials
 
 - Source: https://help.zscaler.com/zia/adding-vpn-credentials
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPSec > Adding VPN Credentials
-- Last modified: 2026-05-04T21:06Z
+- Last modified: 2026-09-23T23:34Z
 - Summary: How to add VPN credentials when configuring an IPSec VPN tunnel for the Zscaler service.
 
 Configuring a VPN credential is one of the tasks you must complete when configuring an IPSec VPN tunnel. To learn more, see [Configuring an IPSec VPN Tunnel](https://help.zscaler.com/zia/configuring-ipsec-vpn-tunnel). You can add up to 16,000 credentials. For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). You can also add or remove multiple VPN credentials by [importing a CSV file](https://help.zscaler.com/zia/importing-vpn-credentials-csv-file).
 
 To add a VPN credential:
 
-1. Go to **Infrastructure > Locations > VPN Credentials**.
-2. Click **Add VPN Credential**.
-3. Choose the **Authentication Type**that is used to identify the peer, and configure it accordingly: You can edit or delete an existing XAUTH VPN credential from the Zscaler Admin Console. However, you cannot add a new XAUTH VPN credential.
+1. Go to **Infrastructure > Location Management > VPN Credentials**.
+2. Click **Add VPN Credential**. The **Add VPN Credential** drawer appears. See Image.
+3. Choose the **Application Type**that is used to identify the peer, and configure it accordingly: You can edit or delete an existing XAUTH VPN credential from the Zscaler Admin Console. However, you cannot add a new XAUTH VPN credential.
   - FQDN
   - IP
-4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console). If you have entered a **User ID**, it is automatically converted to lowercase after clicking **Save**.
+4. Click the **Status**to enable or disable the VPN credential.
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console). If you have entered a **User ID**, it is automatically converted to lowercase after clicking **Save**.
 
 - **Managed By**: If this VPN credential is being managed by an [SD-WAN partner](https://help.zscaler.com/zia/about-partner-integration-management), search for and select their name from the drop-down menu. If this VPN credential is not being managed by a partner, choose **Self**.
-- **User ID**:Enter the FQDN of the peer. The FQDN can be up to 256 characters. It must be valid and cannot include special characters (e.g., <, @, [], etc.) or end in a period (e.g., safemarch.).
-- **New Pre-Shared Key**:Enter a pre-shared key. The pre-shared key can be up to 255 characters.
-- **Confirm New Pre-Shared Key**:Re-enter the pre-shared key.
+- **VPN Credentials**:
+  - **User ID**: Enter the FQDN of the peer. The FQDN can be up to 256 characters. It must be valid and cannot include special characters (e.g., <, @, [], etc.) or end in a period (e.g., safemarch.).
+  - **New Pre-Shared Key**: Enter a pre-shared key. The pre-shared key can be up to 255 characters.
+  - **Confirm New Pre-Shared Key**: Re-enter the pre-shared key.
+- **Post-Quantum Credentials**: (Optional)
+  - **Post-Quantum Pre-Shared ID (PPK-ID)**: Enter the post-quantum pre-shared ID (PPK-ID).
+  - **Post-Quantum Pre-Shared Key (PPK)**: Enter the post-quantum pre-shared key (PPK). If you leave this field empty, the VPN credentials are used to establish the VPN tunnel. The tunnel is not established if the PPKs do not match.
+  - **Confirm Post-Quantum Pre-Shared Key (PPK)**: Re-enter the post-quantum pre-shared key (PPK).
 - **Comments**: (Optional) Enter additional notes or information.
 
-- **IP Address**:Choose the IP addressof your local gateway. The static IP addresses that appear in the drop-down menu are the addresses that are provisioned for your organization. To learn more, see [Self-Provisioning of Static IP Addresses](https://help.zscaler.com/zia/self-provisioning-static-ip-addresses). If you want Zscaler to provision your static IP addresses, submit them to Zscaler Support so that they can be properly added to the menu under **IP Address**.
-- **New Pre-Shared Key**:Enter the pre-shared key. The pre-shared key can be up to 255 characters.
-- **Confirm New Pre-Shared Key**:Re-enter the pre-shared key.
+See Image.
+
+- **VPN Credentials**:
+  - **IP Address**: Choose the IP address of your local gateway. The static IP addresses that appear in the drop-down menu are the addresses that are provisioned for your organization. To learn more, see [Self-Provisioning of Static IP Addresses](https://help.zscaler.com/zia/self-provisioning-static-ip-addresses). If you want Zscaler to provision your static IP addresses, submit them to Zscaler Support so that they can be properly added to the menu under **IP Address**.
+  - **New Pre-Shared Key**: Enter the pre-shared key. The pre-shared key can be up to 255 characters.
+  - **Confirm New Pre-Shared Key**: Re-enter the pre-shared key.
+- **Post-Quantum Credentials**: (Optional)
+  - **Post-Quantum Pre-Shared ID (PPK-ID)**: Enter the post-quantum pre-shared ID (PPK-ID).
+  - **Post-Quantum Pre-Shared Key (PPK)**: Enter the post-quantum pre-shared key (PPK). If you leave this field empty, the VPN credentials are used to establish the VPN tunnel. The tunnel is not established if the PPKs do not match.
+  - **Confirm Post-Quantum Pre-Shared Key (PPK)**: Re-enter the post-quantum pre-shared key (PPK).
 - **Comments**: (Optional) Enter additional notes or information.
+
+See Image.
+
+[Image: Add VPN Credential drawer on the VPN Credential page]
+
+[Image: FQDN Option on the Add VPN Credential drawer]
+
+[Image: IP Option on the Add VPN Credential drawer]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1051,18 +1125,18 @@ To add the Zscaler Client Connector Portal as the IdP in the Zscaler Admin Conso
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-zscaler-incident-receiver","lastmod":"2026-05-04T13:38Z","nid":"1401711"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-zscaler-incident-receiver","lastmod":"2026-09-24T11:32Z","nid":"1401711"} -->
 ## Adding a Zscaler Incident Receiver
 
 - Source: https://help.zscaler.com/zia/adding-zscaler-incident-receiver
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Adding a Zscaler Incident Receiver
-- Last modified: 2026-05-04T13:38Z
+- Last modified: 2026-09-24T11:32Z
 - Summary: How to add an Incident Receiver in the Zscaler Admin Console.
 
 To add a Zscaler Incident Receiver:
 
-1. Go to **Policies**> **Data Protection**> **Common Resources**> **DLP Incident Receiver**.
+1. Go to **Data Security**> **Common Resources**> **DLP Incident Receiver**.
 2. Click the **Zscaler Incident Receiver** tab.
 3. Click **Add Incident Receiver**.
 
@@ -1690,13 +1764,13 @@ However, if Host Corp. has authentication disabled at the location, the Guest us
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/authorizing-custom-zscaler-connector-google-applications","lastmod":"2026-06-12T04:49Z","nid":"1493761"} -->
+<!-- ZS-ARTICLE {"url":"/zia/authorizing-custom-zscaler-connector-google-applications","lastmod":"2026-09-23T04:30Z","nid":"1493761"} -->
 ## Authorizing a Custom Zscaler Connector for Google Applications
 
 - Source: https://help.zscaler.com/zia/authorizing-custom-zscaler-connector-google-applications
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > Authorizing a Custom Zscaler Connector for Google Applications
-- Last modified: 2026-06-12T04:49Z
+- Last modified: 2026-09-23T04:30Z
 - Summary: Authorize a custom Zscaler connector for Gmail, Google Cloud Platform, Google Drive, and Google Workspace.
 
 The Zscaler service supports custom, client-side connector onboarding for access to Gmail, Google Cloud Platform, Google Drive, and Google Workspace. With this functionality, instead of requiring full administrator credentials, the Zscaler service can use a minimum set of credentials to access these Google applications.
@@ -1940,7 +2014,7 @@ These instructions allow Zscaler to make API calls to the project resource by en
 5. Enable the APIs by running the following command in a *single line*: `gcloud services enable cloudresourcemanager.googleapis.com storage.googleapis.com iam.googleapis.com logging.googleapis.com pubsub.googleapis.com cloudkms.googleapis.com`
 6. In the left-side navigation, click **APIs & Services** and verify API access status.
 
-1. In the Zscaler Admin Console, go to **Policies** > **Common Configuration** > **Out-of-Band CASB** >**SaaS Application Tenants** and click **Add SaaS Application Tenant**.
+1. In the Zscaler Admin Console, go to **Data Security** > **DSPM**> **SaaS Application Tenants**and click **Add**.
 2. Select **Google Cloud**.
 3. Under **Name the SaaS Application Tenant**, enter a name for the SaaS application tenant. It must be unique. This name is displayed when configuring the Data at Rest ScanningDLP policy, Malware Detection policy, and Scan Configuration.
 4. Enter the **Google Cloud Admin Email ID**, which should be the organization admin or user email address. This value is treated as the tenant ID, and Zscaler internally fetches the tenant domain from it.
@@ -2030,7 +2104,7 @@ These instructions allow Zscaler to make API calls to the project resource by en
   3. Select the same privileges listed previously in Step b, ii.
 4. After you have the role, select it and go to **Assign role** > **Assign members** to add a user to this role.
 
-1. In the Zscaler Admin Console, go to **Policies** > **Common Configuration** > **Out-of-Band CASB** >**SaaS Application Tenants** and click **Add SaaS Application Tenant**.
+1. In the Zscaler Admin Console, go to **Data Security > DSPM > SaaS Application Tenants** and click **Add**.
 2. Select **Gmail**.
 3. Under **Name the SaaS Application Tenant**, enter a name for the SaaS application tenant. It must be unique. This name is displayed when configuring the Data at Rest ScanningDLP policy, Malware Detection policy, and Scan Configuration.
 4. Enter the **Google Admin Email ID** associated with the role you previously assigned. This value is treated as the tenant ID, and Zscaler internally fetches the tenant domain from it.
@@ -2082,7 +2156,7 @@ These instructions allow Zscaler to make API calls to the project resource by en
   3. Select the same privileges listed previously in Step b, ii.
 4. After you have the role, select it and go to **Assign role** > **Assign members** to add a user to this role.
 
-1. In the Zscaler Admin Console, go to **Policies** > **Common Configuration** > **Out-of-Band CASB** >**SaaS Application Tenants** and click **Add SaaS Application Tenant**.
+1. In the Zscaler Admin Console, go to **Data Security > DSPM > SaaS Application Tenants**and click **Add**.
 2. Select **Google Drive**.
 3. Under **Name the SaaS Application Tenant**, enter a name for the SaaS application tenant. It must be unique. This name is displayed when configuring the Data at Rest ScanningDLP policy, Malware Detection policy, and Scan Configuration.
 4. Enter the **Google Admin Email ID** associated with the role you previously assigned. This value is treated as the tenant ID, and Zscaler internally fetches the tenant domain from it.
@@ -2123,7 +2197,7 @@ These instructions allow Zscaler to make API calls to the project resource by en
 1. From the Google Admin Console, go to **Account** > **Admin roles**. See image.
 2. Confirm that the chosen Workspace admin account is assigned the **Super Admin** role.
 
-1. In the Zscaler Admin Console, go to **Policies** > **Common Configuration** > **Out-of-Band CASB** >**SaaS Application Tenants** and click **Add SaaS Application Tenant**.
+1. In the Zscaler Admin Console, go to **Data Security > DSPM > SaaS Application Tenants**and click **Add.**
 2. Select **Google Workspace**.
 3. Under **Name the SaaS Application Tenant**, enter a name for the SaaS application tenant. It must be unique. This name is displayed when configuring the Data at Rest ScanningDLP policy, Malware Detection policy, and Scan Configuration.
 4. Enter the **Google Workspace Admin Email ID**, which should be the organization admin or user email address. This value is treated as the tenant ID, and Zscaler internally fetches the tenant domain from it.
@@ -2174,13 +2248,13 @@ These instructions allow Zscaler to make API calls to the project resource by en
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/authorizing-custom-zscaler-connector-microsoft-applications","lastmod":"2026-09-20T07:06Z","nid":"1483116"} -->
+<!-- ZS-ARTICLE {"url":"/zia/authorizing-custom-zscaler-connector-microsoft-applications","lastmod":"2026-09-27T07:06Z","nid":"1483116"} -->
 ## Authorizing a Custom Zscaler Connector for Microsoft Applications
 
 - Source: https://help.zscaler.com/zia/authorizing-custom-zscaler-connector-microsoft-applications
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > Authorizing a Custom Zscaler Connector for Microsoft Applications
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-09-27T07:06Z
 - Summary: Information on how to configure Microsoft applications to use a custom Zscaler connector.
 
 The Zscaler service supports custom, client-side connector onboarding for access to the following Microsoft applications: Exchange, Microsoft Information Protection (MIP) Labels, OneDrive, SharePoint, Microsoft Azure Blob Storage, Teams, Dynamics 365, Copilot, and Microsoft 365. With this functionality, instead of requiring full administrator credentials, the Zscaler service can use a minimum set of credentials to access your Microsoft applications.
@@ -2579,8 +2653,8 @@ To authorize a custom connector, you must first manually update the Azure login 
 - Creating a Custom Connector for a SaaS Application Tenant
 - Creating a Custom Connector for an MIP Account
 
-1. In the Zscaler Admin Console, go to **Policies > Common Configuration > Out-of-Band CASB > SaaS Application Tenants**.
-2. Click **Add SaaS Application Tenant**. The **Add SaaS Application Tenant** page is displayed.
+1. In the Zscaler Admin Console, go to **Data Security > DSPM > SaaS Application Tenants**.
+2. Click **Add**. The **Add SaaS Application Tenant** page is displayed.
 3. Under **Choose the SaaS Application Provider**, select a Microsoft SaaS application.
 4. In the **Tenant Name** field, provide a name.
 5. Copy one of the following URLs and paste it in a separate browser tab:
@@ -2600,7 +2674,7 @@ After adding the tenants, you can configure the Data at Rest Scanning [DLP polic
 
 [Image: Internet & SaaS option for selecting Client Secret or Private Key when onboarding a Microsoft application]
 
-1. In the Zscaler Admin Console, go to **Policies > Data Protection > Common Resources > MIP Labels.**
+1. In the Zscaler Admin Console, go to **Data Security > Common Resources > MIP Labels.**
 2. On the **Microsoft Information Protection (MIP) Labels** page, click **Add MIP Account.**
 
 The **Add MIP Account**window appears.
@@ -2792,13 +2866,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/authorizing-custom-zscaler-connector-salesforce","lastmod":"2026-07-20T00:05Z","nid":"1529827"} -->
+<!-- ZS-ARTICLE {"url":"/zia/authorizing-custom-zscaler-connector-salesforce","lastmod":"2026-09-22T09:02Z","nid":"1529827"} -->
 ## Authorizing a Custom Zscaler Connector for Salesforce
 
 - Source: https://help.zscaler.com/zia/authorizing-custom-zscaler-connector-salesforce
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > Authorizing a Custom Zscaler Connector for Salesforce
-- Last modified: 2026-07-20T00:05Z
+- Last modified: 2026-09-22T09:02Z
 - Summary: Information on how to configure Salesforce to use a custom Zscaler connector.
 
 The Zscaler service supports custom, client-side connector onboarding for access to Salesforce. With this functionality, instead of requiring full administrator credentials, the Zscaler service can use a minimum set of credentials to access Salesforce.
@@ -2934,7 +3008,7 @@ See image.
 4. After receiving an email with a verification code, enter the code and click **Verify**.
 5. In the next window, copy your **Consumer Key**, and the **Consumer Secret**. In the Zscaler Admin Console these are used for your **Client ID** and **Client Secret**.
 
-1. In the Zscaler Admin Console, go to **Policies** > **Common Configuration** > **Out-of-Band CASB** >**SaaS Application Tenants**.
+1. In the Zscaler Admin Console, go to **Data Security > DSPM > SaaS Application Tenants**.
 2. Click **Add SaaS Application Tenant**. See image.
 3. Under **Choose the SaaS Application Provider**, select **Salesforce**.
 4. In the **Tenant Name** field, provide a name. See image.
@@ -3101,7 +3175,7 @@ See image.
 4. After receiving an email with a verification code, enter the code and click **Verify**.
 5. In the next window, copy your **Consumer Key**, and the **Consumer Secret**. In the Zscaler Admin Console these are used for your **Client ID** and **Client Secret**.
 
-1. In the Zscaler Admin Console, go to **Policies** > **Common Configuration** > **Out-of-Band CASB** > **SaaS Application Tenants**.
+1. In the Zscaler Admin Console, go to **Data Security > DSPM > SaaS Application Tenants**.
 2. Click **Add SaaS Application Tenant**. See image.
 3. Under **Choose the SaaS Application Provider**, select **Salesforce**.
 4. In the **Tenant Name** field, provide a name. See image.
@@ -3486,13 +3560,13 @@ route-map ZS-NET-PORT permit 10
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/best-practices-dns-control-rules","lastmod":"2026-07-28T09:20Z","nid":"1459191"} -->
+<!-- ZS-ARTICLE {"url":"/zia/best-practices-dns-control-rules","lastmod":"2026-09-22T07:03Z","nid":"1459191"} -->
 ## Best Practices for DNS Control Rules
 
 - Source: https://help.zscaler.com/zia/best-practices-dns-control-rules
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > DNS Control > Best Practices for DNS Control Rules
-- Last modified: 2026-07-28T09:20Z
+- Last modified: 2026-09-22T07:03Z
 - Summary: Information on the best practices for configuring and using Zscaler's DNS Control.
 
 Zscaler recommends the following best practices for using the [DNS Control policy](https://help.zscaler.com/zia/configuring-dns-control-policy). These best practices are applicable when DNS traffic is forwarded to the Zscaler service and inspected by the DNS Control module of Zscaler Firewall.
@@ -4234,13 +4308,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/choosing-between-private-service-edge-and-virtual-service-edge-internet-saas","lastmod":"2026-09-11T04:13Z","nid":"1401146"} -->
+<!-- ZS-ARTICLE {"url":"/zia/choosing-between-private-service-edge-and-virtual-service-edge-internet-saas","lastmod":"2026-09-25T21:06Z","nid":"1401146"} -->
 ## Choosing Between Private Service Edge and Virtual Service Edge for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/choosing-between-private-service-edge-and-virtual-service-edge-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Choosing Between Private Service Edge and Virtual Service Edge for Internet & SaaS
-- Last modified: 2026-09-11T04:13Z
+- Last modified: 2026-09-25T21:06Z
 - Summary: Information on the differences between Private Service Edge and Virtual Service Edge for Internet & SaaS (ZIA).
 
 Zscaler can extend its patented cloud architecture to an organization's premises by providing Private Service Edge and Virtual Service Edge for Internet & SaaS (ZIA). These platforms are part of the Zscaler cloud and perform the same service as the [Public Service Edge for Internet & SaaS](https://help.zscaler.com/zia/about-public-service-edges).
@@ -4263,13 +4337,13 @@ Although they both provide the full benefits of the Zscaler cloud, there are sti
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/choosing-ca-certificate-ssltls-inspection","lastmod":"2026-09-09T04:21Z","nid":"1401906"} -->
+<!-- ZS-ARTICLE {"url":"/zia/choosing-ca-certificate-ssltls-inspection","lastmod":"2026-09-25T04:53Z","nid":"1401906"} -->
 ## Choosing the CA Certificate for SSL/TLS Inspection
 
 - Source: https://help.zscaler.com/zia/choosing-ca-certificate-ssltls-inspection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SSL/TLS Inspection > Choosing the CA Certificate for SSL/TLS Inspection
-- Last modified: 2026-09-09T04:21Z
+- Last modified: 2026-09-25T04:53Z
 - Summary: Information on the various CA certificate options that are available and how to choose a suitable CA certificate from the Zscaler Admin Console.
 
 When SSL/TLS Inspection is enabled, the Zscaler service establishes a separate SSL/TLS tunnel with the destination server and with the user’s browser. This allows the service to decrypt and inspect the HTTPS traffic coming to and from the user’s browser, as well as all traffic coming to and from the destination server.
@@ -4294,9 +4368,9 @@ To facilitate deployment in AD environments, use the GPO feature to deploy the c
 
 To download and use the Zscaler Intermediate CA Certificate:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Internet Access** > **Resources** > **SSL Intermediate Certificate**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Resources** > **SSL Intermediate Certificate**.
 2. Click the **Edit** icon corresponding to the Zscaler Intermediate CA Certificate. See image. The **View Zscaler Intermediate CA Certificate**page appears.
-3. In the **View Zscaler Intermediate CA Certificate**window, under the **Root Certificate** field, click **Download**. The root certificate is downloaded as a ZIP file. See image.
+3. On the **View Zscaler Intermediate CA Certificate**page, under the **Root Certificate** field, click **Download**. The root certificate is downloaded as a ZIP file. See image.
 4. Go to the `ZscalerRootCerts.zip` file and unzip it.
 5. Import the Zscaler root certificate into the certificate store of your browser. To learn more, see [Adding Custom Certificate to an Application-Specific Trust Store](https://help.zscaler.com/zia/adding-custom-certificate-application-specific-trust-store).
 
@@ -4329,7 +4403,7 @@ See image.
 
 The second intermediate root certificate, **Zscaler Intermediate Root CA (zscaler.net) (t)**, is used to sign the server certificate and is rotated every week.
 
-[Image: Edit Zscaler Intermediate CA Certificate window]
+[Image: View Zscaler Intermediate CA Certificate page]
 
 [Image: Web certificate signed by a custom intermediate root certificate for Zscaler SSL/TLS Inspection][Image: Details for the web certificate signed by a custom intermediate root certificate]
 
@@ -4674,20 +4748,20 @@ To classify an app:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/cloning-dlp-engines","lastmod":"2026-07-09T21:06Z","nid":"1450976"} -->
+<!-- ZS-ARTICLE {"url":"/zia/cloning-dlp-engines","lastmod":"2026-09-24T11:03Z","nid":"1450976"} -->
 ## Cloning DLP Engines
 
 - Source: https://help.zscaler.com/zia/cloning-dlp-engines
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Cloning DLP Engines
-- Last modified: 2026-07-09T21:06Z
-- Summary: How to add clone predefined and custom DLP engines in the Zscaler Admin Console.
+- Last modified: 2026-09-24T11:03Z
+- Summary: How to add clone predefined and custom Data Loss Prevention (DLP) engines in the Zscaler Admin Console.
 
-You can duplicate a predefined or custom engine if you need to easily copy the functionality of an existing engine for a different use.
+You can duplicate a predefined or custom Data Loss Prevention (DLP) engine if you need to easily copy the functionality of an existing engine for a different use.
 
 To duplicate an existing DLP engine:
 
-1. Go to **Policies**> **Data Protection**>**Common Resources**>**Dictionaries & Engines** and go to the **DLP Engines**tab.
+1. Go to **Data Security**> **Common Resources**>**Dictionaries & Engines**and go to the **DLP Engines**tab.
 2. In the **DLP Engines**tab, click the **Clone**icon for the DLP engine. The **Clone DLP Engine** window appears.
 3. In the **Clone DLP Engine** window, specify a name for the new engine.
 4. For **Channels**, select the channels to which the engine applies. Excluding a channel can reduce the extra noise that comes from engines being used unnecessarily.
@@ -4722,14 +4796,14 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/cloning-predefined-dlp-dictionaries","lastmod":"2026-08-21T09:43Z","nid":"1450991"} -->
+<!-- ZS-ARTICLE {"url":"/zia/cloning-predefined-dlp-dictionaries","lastmod":"2026-09-24T11:01Z","nid":"1450991"} -->
 ## Cloning Predefined DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/cloning-predefined-dlp-dictionaries
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Cloning Predefined DLP Dictionaries
-- Last modified: 2026-08-21T09:43Z
-- Summary: How to clone predefined DLP dictionaries in the Zscaler Admin Console.
+- Last modified: 2026-09-24T11:01Z
+- Summary: How to clone predefined Data Loss Prevention (DLP) in the Zscaler Admin Console.
 
 Cloning a predefined Data Loss Prevention (DLP) dictionary allows you to easily leverage existing dictionaries and sub-dictionaries for a different purpose when [configuring DLP policy rules](https://help.zscaler.com/zia/how-do-i-configure-policy-using-zscaler-dlp-engines). You can use clones of the same dictionary with different Confidence Score Thresholds, as well as with different dictionary-specific parameters. For example, suppose you want to use one dictionary to look more aggressively for Bank Identification Numbers (BIN), and another dictionary to look less aggressively for other credit card data. In that scenario, you can clone the predefined Credit Card dictionary, and then add BIN numbers to the clone, with a Confidence Score Threshold of Medium. In the existing predefined Credit Card dictionary, you can leave out BIN numbers and set the Confidence Score Threshold to High.
 
@@ -4737,8 +4811,8 @@ The Zscaler service supports cloning identification-based predefined dictionarie
 
 To clone a predefined DLP dictionary:
 
-1. Go to **Policies**> **Data Protection**> **Common Resources**>**Dictionaries & Engines**.
-2. Locate the predefined dictionary and click the **Clone**icon. The **Clone DLP Dictionary** window appears. See image.
+1. Go to **Data Security**> **Common Resources**>**Dictionaries & Engines**.
+2. On the **DLP Dictionaries** tab, locate the predefined dictionary and click the **Clone**icon. The **Clone DLP Dictionary** window appears. See image.
 3. In the **Clone DLP Dictionary** window:
   - **Name**: Enter a name for the cloned dictionary.
   - **Confidence Score Threshold**: Choose a value of **Low**, **Medium**, or **High**. To learn about configuring the Confidence Score Threshold for a specific dictionary, see [Understanding Predefined DLP Dictionaires](https://help.zscaler.com/zia/understanding-predefined-dlp-dictionaries).
@@ -5593,16 +5667,16 @@ The transactions are, however, made distinct using the **Configuration** column 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-advanced-threat-protection-policy","lastmod":"2026-07-24T09:38Z","nid":"1398741"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-advanced-threat-protection-policy","lastmod":"2026-09-24T14:36Z","nid":"1398741"} -->
 ## Configuring the Advanced Threat Protection Policy
 
 - Source: https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Advanced Threat Protection > Configuring the Advanced Threat Protection Policy
-- Last modified: 2026-07-24T09:38Z
+- Last modified: 2026-09-24T14:36Z
 - Summary: How to configure the Advanced Threat Protection policy, which protects traffic from fraud, unauthorized communication, and malicious objects and scripts.
 
-[Watch a video about Advanced Threat Protection, including about Security Exceptions](https://fast.wistia.net/embed/iframe/yjfr7hxv4g) (shows legacy UI).
+[Watch a video about configuring Advanced Threat Protection, including Security Exceptions.](https://fast.wistia.net/embed/iframe/j0lvovtkvd)
 
 Hackers routinely embed malicious scripts and applications not only on their own websites but on legitimate websites that they have hacked, as well. To ensure your organization's web security, the Zscaler service can identify a variety of these objects and scripts and prevent them from downloading to the end user's browser. Zscaler does this by using a combination of methods to detect various phishing techniques, including signature-based and AI/ML models, and offers protection against URL-based phishing techniques, such as typosquatting, punycode, character substitution, domain hijacking, and many more. Zscaler also offers the Advanced Threats Protection policy which protects your traffic from fraud, unauthorized communication, and other malicious objects and scripts.
 
@@ -5870,13 +5944,13 @@ To edit the list of user exceptions:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-application-service-groups","lastmod":"2026-09-18T06:07Z","nid":"1531909"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-application-service-groups","lastmod":"2026-09-24T04:45Z","nid":"1531909"} -->
 ## Configuring Application Service Groups
 
 - Source: https://help.zscaler.com/zia/configuring-application-service-groups
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > Configuring Application Service Groups
-- Last modified: 2026-09-18T06:07Z
+- Last modified: 2026-09-24T04:45Z
 - Summary: Information on how to group together application services in the Zscaler Admin Console.
 
 You can create custom application service groups to manage using Firewall policy rules. To learn more, see [About Application Services](https://help.zscaler.com/zia/about-application-services).
@@ -5885,18 +5959,21 @@ You can configure up to 128 custom application service groups. Advanced Firewall
 
 To add an application service group:
 
-1. From the [navigation menu](https://help.zscaler.com/zia/configuring-source-ip-groups), go to **Internet Access**> **Resources**> **Application Services**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access**> **Resources**> **Application Services**.
 2. Click **Add** **Application Service Group**. The **Add** **Application Service Group**page appears.
-3. On the **Add** **Application Service Group**page: Guidelines for Configuring Wildcard FQDNs
-  - **Name**: Enter a name for the custom application service group.
-  - **IP Address or Wildcard FQDN**: Enter the IP address or wildcard FQDN, or both (e.g., 1.11.1.1, *.google.com). You can also enter a combination of IP addresses. A maximum of 32 IP addresses or wildcard FQDNs can be added in a custom application service group and a total of 4,096 IP addresses or wildcard FQDNs can be added for 128 custom application service groups. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). Enter addresses (IPv4 only) in any of the following formats: Specifying individual, subnet, or range of IPv6 addresses is currently not supported. You can also add FQDNs for applications with multiple or frequently changing IPv4 addresses. Wildcard FQDNs are also supported with an asterisk (*) as the wildcard character. For guidelines to configure wildcard FQDNs, see [Configuring Destination IP Groups](https://help.zscaler.com/zia/configuring-destination-ip-groups). As both FQDN and IP address values are available for a destination, this criterion applies to the web as well as non-web traffic examined by the Zscaler service. The Zscaler service employs an IP address match when evaluating non-web traffic using this criterion, whereas the web traffic evaluation relies on an FQDN match against the hostname in the HTTP/FTP header or Server Name Indication (SNI) for HTTPS. To evaluate wildcard FQDNs against non-web traffic, Zscaler requires the IP address to which the FQDN resolves. Hence, for non-web traffic, the Zscaler service should be aware of the preceding DNS request/response. To ensure this, forward all of your DNS traffic to the Zscaler service if you intend to configure wildcard FQDNs in policies. Additionally, a subscription or Internet & SaaS (ZIA) edition with DNS Control is required. This functionality is included in the Advanced Firewall and DNS Control and [Internet & SaaS editions](https://www.zscaler.com/pricing-and-plans?_gl=1*1jz4aot*_gcl_au*MTI5MTU3NjgwNS4xNzUxOTg3MTMx*_ga*MjEwODkwNTkwNC4xNzM5Nzk3MDI4*_ga_10SPJ4YJL9*czE3NTg1MzE1NjkkbzQwOCRnMSR0MTc1ODUzMTg4OCRqNTAkbDAkaDEyODEyMTQxNzI.). To learn how DNS resolution is handled by the Zscaler service, see [Handling DNS Resolution for Various Traffic Forwarding Methods](https://help.zscaler.com/zia/handling-dns-resolution-various-traffic-forwarding-methods). Wildcard FQDN match against web traffic (HTTP and TLS/SNI) can function without meeting these conditions. You cannot add a duplicate IP Address or Wildcard FQDNwithin the same application service groups.
-    - An individual address, such as 192.0.2.1.
-    - A subnet, such as 192.0.2.0/24.
-    - An address range, such as 192.0.2.1 - 192.0.2.5.
-  - **TCP Destination Ports**: Enter the TCP destination port number or a range of port numbers, or both (e.g., 25, 35-40).
-  - **UDP Destination Ports**: Enter the UDP destination port number or a range of port numbers, or both (e.g., 29, 45-50). You can enter either **TCP Destination Ports**or **UDP Destination Ports**, or both to add an item.
-4. Click **Add Items**. You can add multiple entries of **IP Address or Wildcard FQDN**, **TCP Destination Ports**, and **UDP Destination Ports** and can also edit or delete the added entries. See image.
-5. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+3. On the **Add** **Application Service Group**page: See image.
+  1. **Name**: Enter a name for the custom application service group.
+  2. **Definition**: This field is automatically set to **Custom** to indicate that this is an admin-defined application service group.
+  3. Under **Definition**, click **Add**. The **Add Definition** drawer appears.
+  4. In the **Add Definition** drawer: You can enter either **TCP Destination Ports**or **UDP Destination Ports**, or both for an application service. You can add multiple entries of **IP Address or Wildcard FQDN**, **TCP Destination Ports**, and **UDP Destination Ports** and can also edit or delete the added entries.
+    - **IP Address or Wildcard FQDN**: Enter the IP address or wildcard FQDN, or both (e.g., 1.11.1.1, *.google.com). You can also enter a combination of IP addresses. A maximum of 32 IP addresses or wildcard FQDNs can be added in a custom application service group and a total of 4,096 IP addresses or wildcard FQDNs can be added for 128 custom application service groups. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). Enter addresses (IPv4 only) in any of the following formats: Specifying individual, subnet, or range of IPv6 addresses is currently not supported. You can also add FQDNs for applications with multiple or frequently changing IPv4 addresses. Wildcard FQDNs are also supported with an asterisk (*) as the wildcard character. For guidelines to configure wildcard FQDNs, see [Configuring Destination IP Groups](https://help.zscaler.com/zia/configuring-destination-ip-groups). As both FQDN and IP address values are available for a destination, this criterion applies to the web as well as non-web traffic examined by the Zscaler service. The Zscaler service employs an IP address match when evaluating non-web traffic using this criterion, whereas the web traffic evaluation relies on an FQDN match against the hostname in the HTTP/FTP header or Server Name Indication (SNI) for HTTPS. To evaluate wildcard FQDNs against non-web traffic, Zscaler requires the IP address to which the FQDN resolves. Hence, for non-web traffic, the Zscaler service should be aware of the preceding DNS request/response. To ensure this, forward all of your DNS traffic to the Zscaler service if you intend to configure wildcard FQDNs in policies. Additionally, a subscription or Internet & SaaS (ZIA) edition with DNS Control is required. This functionality is included in the Advanced Firewall and DNS Control and [Internet & SaaS editions](https://www.zscaler.com/pricing-and-plans?_gl=1*1jz4aot*_gcl_au*MTI5MTU3NjgwNS4xNzUxOTg3MTMx*_ga*MjEwODkwNTkwNC4xNzM5Nzk3MDI4*_ga_10SPJ4YJL9*czE3NTg1MzE1NjkkbzQwOCRnMSR0MTc1ODUzMTg4OCRqNTAkbDAkaDEyODEyMTQxNzI.). To learn how DNS resolution is handled by the Zscaler service, see [Handling DNS Resolution for Various Traffic Forwarding Methods](https://help.zscaler.com/zia/handling-dns-resolution-various-traffic-forwarding-methods). Wildcard FQDN match against web traffic (HTTP and TLS/SNI) can function without meeting these conditions. You cannot add a duplicate IP Address or Wildcard FQDNwithin the same application service groups. Guidelines for Configuring Wildcard FQDNs
+      - An individual address, such as 192.0.2.1.
+      - A subnet, such as 192.0.2.0/24.
+      - An address range, such as 192.0.2.1 - 192.0.2.5.
+    - **TCP Destination Ports**: Enter the TCP destination port number or a range of port numbers, or both (e.g., 25, 35-40).
+    - **UDP Destination Ports**: Enter the UDP destination port number or a range of port numbers, or both (e.g., 29, 45-50).
+  5. Click **Save**.
+4. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 - The wildcard character (*) preceding the leading period is optional (i.e., `*.safemarch.com` and `.safemarch.com are equivalent`).
 - The wildcard character is allowed only as the leftmost label in wildcard FQDN entries. In other words, a wildcard is only used for full-text matches and cannot be used for partial matches (i.e., `.*safemarch.com`, `.safe*.com`, or .`sa*march.com` is not a legitimate wildcard FQDN).
@@ -6338,13 +6415,13 @@ In addition to the notification text configured here, the quarantine notificatio
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-browser-control-policy","lastmod":"2026-09-18T04:24Z","nid":"1398716"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-browser-control-policy","lastmod":"2026-09-25T03:54Z","nid":"1398716"} -->
 ## Configuring the Browser Control Policy
 
 - Source: https://help.zscaler.com/zia/configuring-browser-control-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Browser Control > Configuring the Browser Control Policy
-- Last modified: 2026-09-18T04:24Z
+- Last modified: 2026-09-25T03:54Z
 - Summary: Information on the Browser Control policy and how to enable warnings for browsers, plugins, and applications as well as block browsers and their versions.
 
 [Watch a video about Browser Control](https://fast.wistia.net/embed/iframe/hwz5y9619y) (shows legacy UI).
@@ -6447,29 +6524,29 @@ Select the additional information that must be displayed in the notification for
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-cloud-hsm-protection-intermediate-ca-certificate","lastmod":"2026-09-09T04:31Z","nid":"1402646"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-cloud-hsm-protection-intermediate-ca-certificate","lastmod":"2026-09-25T05:01Z","nid":"1402646"} -->
 ## Configuring Cloud HSM Protection Intermediate CA Certificate
 
 - Source: https://help.zscaler.com/zia/configuring-cloud-hsm-protection-intermediate-ca-certificate
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SSL/TLS Inspection > Configuring Cloud HSM Protection Intermediate CA Certificate
-- Last modified: 2026-09-09T04:31Z
+- Last modified: 2026-09-25T05:01Z
 - Summary: How to configure or add an intermediate CA certificate from the Zscaler Admin Console for Zscaler traffic.
 
 To configure a Cloud HSM Protection certificate for your organization during SSL/TLS negotiations:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Internet Access** > **Resources** >**SSL Intermediate Certificate**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Resources** >**SSL Intermediate Certificate**.
 2. On the **Intermediate CA Certificates** page, click **Add Intermediate CA Certificate**> **Cloud HSM Protection**.
-3. In the**Add Cloud HSM Protection Intermediate CA Certificate**window, under the **General** tab, complete the following sections:
+3. On the**Add Cloud HSM Protection Intermediate CA Certificate**page, in the **General** section, complete the following and click **Next**: See image.
   - **Name**: Enter a name for the certificate.
   - **Protection Type**: This field is set to **Cloud HSM Protection** by default.
   - **Region**: Select your region for the certificate.
   - **Status**: Enable or disable the certificate.
   - **Description**: Additional notes or information about the certificate.
-4. On the **Generate Key Pair** tab:
+4. In the **Generate Key Pair** section, complete the following and click **Next**: See image.
   - (Optional) Click **Download Public Key** to download your public key pair for the intermediate certificate.
   - (Optional) Click **Download Attestation Bundle** to download the attestation statement to verify that the private key is generated and is protected inside HSM.
-5. On the **Generate CSR** tab:
+5. In the **Generate CSR** section, complete the following and click **Next**: See image.
   - **CSR File Name:**Enter a name for the Certificate Signing Request (CSR) file.
   - **Common Name (CN):**Enter the common name (CN) of your organization, such as `zscaler.com`.
   - **Organization:**Enter the name of your organization or company.
@@ -6481,20 +6558,8 @@ To configure a Cloud HSM Protection certificate for your organization during SSL
   - **Signature Algorithm:**The signature algorithm is set to SHA-256 by default.
   - **Path Length Constraint:**The path length constraint for the Cloud HSM Protection intermediate certificate is set to 0 by default.
   - Click **Generate and** **Save New** **CSR**. The CSR certificate is generated.
-  - Click **CSR for Custom Certificate** to download the file.
-
-After you download the CSR, send it to your CA for signing. Ensure that the CSR is signed as a Subordinate Certification Authority or Intermediate Certification Authority.
-
-If you use OpenSSL, ensure that the following attributes are set during signing:
-
-```
-basicConstraints=CA:TRUE
-keyUsage=keyCertSign, cRLSign
-```
-
-To learn more, see [Signing a CSR Using the Active Directory Certificate Services](https://help.zscaler.com/zia/signing-csr-using-active-directory-certificate-services).
-
-1. On the **Upload Intermediate Certificate** tab, browse and upload your intermediate certificate. The file must be in PEM format.
+  - Click **Download CSR** to download the file. After you download the CSR, send it to your CA for signing. Ensure that the CSR is signed as a Subordinate Certification Authority or Intermediate Certification Authority. If you use OpenSSL, ensure that the following attributes are set during signing: `basicConstraints=CA:TRUE keyUsage=keyCertSign, cRLSign`To learn more, see [Signing a CSR Using the Active Directory Certificate Services](https://help.zscaler.com/zia/signing-csr-using-active-directory-certificate-services).
+6. In the **Upload Intermediate Certificate** section, browse and upload your intermediate certificate and click **Next**. The file must be in PEM format.
 
 Ensure that your organization’s root certificate is installed on the browsers of your users. Browsers trust the new intermediate certificate and any certificate signed by it. If you upload a custom certificate that is invalid, for example, and the common name in the certificate does not match, the Zscaler service does not use the Zscaler root certificate. Instead, it continues to use the previously uploaded self-signed certificate.
 
@@ -6506,8 +6571,18 @@ If you change your certificate due to the compromise of an intermediate root cer
 
 You can also replace the intermediate certificate or the intermediate certificate chain for an existing custom certificate. Ensure that the new intermediate certificate is not the default certificate and is associated with an SSL/TLS policy.
 
-1. On the **Review** tab, review or edit all the information you have entered. Enable the **Default Certificate**optionto make this certificate the default intermediate CA certificate.
+See image.
+
+1. In the **Review** section, review or edit all the information you have entered. Enable the **Default Certificate**optionto make this certificate the default intermediate CA certificate.
 2. Click **Save** and[activate the changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+[Image: General section in the Add Cloud HSM Intermediate CA Certificate page]
+
+[Image: Generate HSM Key Pair section  in the Add Cloud HSM Intermediate CA Certificate page]
+
+[Image: Generate CSR section in the Add Cloud HSM Intermediate CA Certificate page]
+
+[Image: Upload Intermediate Certificate section in the Add Cloud HSM Intermediate CA Certificate page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6550,13 +6625,13 @@ To assign a custom authentication profile to a location:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-custom-file-types","lastmod":"2026-08-19T20:07Z","nid":"1532304"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-custom-file-types","lastmod":"2026-09-24T10:45Z","nid":"1532304"} -->
 ## Configuring Custom File Types
 
 - Source: https://help.zscaler.com/zia/configuring-custom-file-types
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > File Type Control > Configuring Custom File Types
-- Last modified: 2026-08-19T20:07Z
+- Last modified: 2026-09-24T10:45Z
 - Summary: Information on how to create custom file types with the Zscaler File Type Control policy.
 
 Creating and configuring custom file types with simple extension-based detections provides you with greater flexibility when creating File Type Control policies. Zscaler-defined file types are detected before custom file types.
@@ -6565,7 +6640,7 @@ To enable this feature, contact Zscaler support.
 
 To add a custom file type:
 
-1. Go to **Administration**>**Custom File Types**.
+1. Go to **Data Security**>**Common Resources**> **Custom File Types**.
 2. In the upper-left corner, click **Add File Type**. The **Add File Type** window appears.
 3. In the **Add File Type**window: See image.
   - **Name**: Enter a name for the new custom file type. File type names can only contain alphanumeric characters, underscores, hyphens, periods, parentheses, and spaces.
@@ -6580,19 +6655,19 @@ After you have created a custom file type, you can add it to your File Type Cont
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-custom-ips-signature-rules","lastmod":"2026-09-18T06:30Z","nid":"1403191"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-custom-ips-signature-rules","lastmod":"2026-09-24T00:43Z","nid":"1403191"} -->
 ## Configuring Custom IPS Signature Rules
 
 - Source: https://help.zscaler.com/zia/configuring-custom-ips-signature-rules
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > IPS Control > Configuring Custom IPS Signature Rules
-- Last modified: 2026-09-18T06:30Z
+- Last modified: 2026-09-24T00:43Z
 - Summary: Information on end-to-end configuration workflow for custom IPS signature rules, including how to add, validate, and enable custom IPS signature rules in the Zscaler Admin Console.
 
 The Zscaler service supports [Snort](https://www.snort.org/)-like syntax to create custom IPS signature rules. The custom signature rules are validated in two stages—static and dynamic validation—before deployment on the Zscaler cloud. Each custom signature rule is assigned a [threat category](https://help.zscaler.com/zia/about-threat-categories), and the threat category is configured as a condition in [IPS Control rules](https://help.zscaler.com/zia/configuring-ips-control-policy) to inspect traffic against the associated signatures and enforce the policy action when there is a match. To learn more, see [About Custom IPS Signature Rules](https://help.zscaler.com/zia/about-custom-ips-signature-rules).
 
 - To enable Custom IPS for your organization, contact your Zscaler Account team.
-- You can add a maximum of 1,000 custom signature rules. To learn more, see [Ranges & Limitations](https://help.zscaler.com/zia/ranges-limitations).
+- You can add a maximum of 1,000 custom signature rules. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
 
 Writing Snort rules requires specialized technical expertise. Misconfiguration might lead to unexpected behavior. Before creating custom signatures, Zscaler strongly recommends that you read the [Specifications and Limitations for Custom IPS Signature Rules](https://help.zscaler.com/zia/specifications-limitations-custom-signature-rules) to understand the Snort-like syntax and features that Zscaler supports.
 
@@ -9332,16 +9407,16 @@ The attached content triggered an Endpoint DLP rule for your organization.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-content-inspection","lastmod":"2026-09-20T07:06Z","nid":"1400121"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-content-inspection","lastmod":"2026-09-27T07:06Z","nid":"1400121"} -->
 ## Configuring DLP Policy Rules with Content Inspection
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Configuring DLP Policy Rules with Content Inspection
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-09-27T07:06Z
 - Summary: How to configure a Data Loss Prevention (DLP) policy for the Zscaler service using Zscaler DLP engines.
 
-[Watch a video about configuring Data Loss Prevention (DLP) Policy with or without content inspection.](https://fast.wistia.net/embed/iframe/za6nr8ax7t)
+[Watch a video about configuring Data Loss Prevention (DLP) Policy with or without content inspection](https://fast.wistia.net/embed/iframe/za6nr8ax7t) (shows legacy UI).
 
 This article does not apply to organizations with Evaluate All Rules mode enabled. To learn more, see [Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled](https://help.zscaler.com/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled).
 
@@ -9351,199 +9426,192 @@ The Zscaler DLP engines support files up to 400 MB and can scan the first 100 MB
 
 To configure a DLP policy rule with content inspection:
 
-- [1. Configure DLP dictionaries and engines, if necessary.](https://help.zscaler.com/zia/about-dlp-dictionaries) Use DLP dictionaries and engines as they are or modify them to suit your needs. You can also create custom dictionaries or engines. Skip this step if you don't want to modify or create custom DLP dictionaries and engines.
-- [2. Configure DLP notification templates](https://help.zscaler.com/zia/how-do-i-configure-dlp-notifications) if you want to email notifications to your organization's auditor when your users' transactions violate DLP policy rules.
-- [3. (Optional) Configure ICAP receivers](https://help.zscaler.com/zia/adding-icap-receiver) if you want to forward information about transactions that violate DLP policy to your third-party solution. Skip this step if you don't have a third-party DLP solution or if you don't want to forward content.
-- [4. (Optional) Configure a Zscaler Incident Receiver](https://help.zscaler.com/zia/about-zscaler-incident-receiver) to forward information about content that triggers an outbound email policy rule to your Incident Receiver via secure Internet Content Adaptation Protocol (ICAP). Zscaler does not take ICAP responses from your Incident Receiver; instead, the service only monitors or blocks content according to the policy you configure, then forwards information about activities so that your organization can take necessary remediation steps.
-- [5. (Optional) Configure Cloud-to-Cloud Incident Forwarding](https://help.zscaler.com/zia/configure-dlp-cloud-cloud-incident-forwarding) to send metadata and evidence about transactions that violate a DLP policy rule directly to your public cloud storage without deploying appliances.
-- 6. Define your policy rules.
+- 1. Understand policy execution.
+- 2. Ensure completion of prerequisite tasks.
+- [3. Configure DLP dictionaries and engines, if necessary.](https://help.zscaler.com/zia/about-dlp-dictionaries) Use DLP dictionaries and engines as they are or modify them to suit your needs. You can also create custom dictionaries or engines. Skip this step if you don't want to modify or create custom DLP dictionaries and engines.
+- [4. Configure DLP notification templates](https://help.zscaler.com/zia/how-do-i-configure-dlp-notifications) if you want to email notifications to your organization's auditor when your users' transactions violate DLP policy rules.
+- [5. (Optional) Configure ICAP receivers](https://help.zscaler.com/zia/adding-icap-receiver) if you want to forward information about transactions that violate DLP policy to your third-party solution. Skip this step if you don't have a third-party DLP solution or if you don't want to forward content.
+- [6. (Optional) Configure a Zscaler Incident Receiver](https://help.zscaler.com/zia/configuring-zscaler-incident-receiver) to forward information about content that triggers an outbound email policy rule to your Incident Receiver via secure ICAP. Zscaler does not take ICAP responses from your Incident Receiver; instead, the service only monitors or blocks content according to the policy you configure, then forwards information about activities so that your organization can take necessary remediation steps.
+- [7. (Optional) Configure Cloud-to-Cloud Incident Forwarding](https://help.zscaler.com/zia/configuring-dlp-cloud-cloud-incident-forwarding) to send metadata and evidence about transactions that violate a DLP policy rule directly to your public cloud storage without deploying appliances.
+- 8. Define your policy rules.
 
-1. Go to **Policy** > **Data Loss Prevention**.
-2. Click **Add DLP Rule**.
-3. In the **Add DLP Rule** window:
-  1. Enter the following **DLP Rule** attributes:
+The DLP policy supports different rule conditions, grouped into categories. A series of `AND` and `OR` logical operators are applied between these criteria to form a combination of rule set that is used to evaluate for traffic matches. The logical relationship between the categories is `AND`, and the rule conditions within each category have their own set of logical operators applied, explained as follows:
 
-- **Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled [admin ranking](https://help.zscaler.com/zia/about-admin-rank), then the assigned admin rank determines the rule order values you can select.
-- **Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/about-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
-- **Rule Name**: Enter a unique name for the DLP rule or use the default name.
-- **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
-- **Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
+- **Who, Where, & When**: [ (Users `OR` Groups `OR` Departments `OR` User Risk Profile) `AND` (Locations `OR` Location Groups `OR` Source IP groups) `AND` Time `AND`
+- **Destination IP**: URL Categories `AND`
+- **Applications**: [ Cloud Applications `AND` ZPA Application Segment ] `AND`
+- **Protocols**: Protocols `AND`
+- **What**: [ Content Matching `AND` File Types `AND` Minimum Data Size (KB) `AND` Inspect Downloads `AND` DLP Engines `AND` Workload Groups ]
 
-1. Define the following **Criteria**:
+Before adding rules to the DLP policy, ensure that you have configured the resources that the policy references, per your requirements:
 
-- **Content Matching**: Choose **Select** **DLP Engines** to use Zscaler DLP engines for content inspection on this rule. See image.
-- **Inspect HTTP GET Query Parameters**: You can configure DLP rules to inspect HTTP GET Query Parameters for the following URL categories: Generative AI and ML Applications, Safe Search Engines, Translation Tools, Web Search, and User-Defined Custom URL Categories. To enable, choose **Enable**for **Inspect HTTP GET Requests**, then select a URL category from the drop-down menu. To learn more, see [Configuring DLP Advanced Settings](https://help.zscaler.com/zia/configuring-dlp-advanced-settings). To select a user-defined custom URL category from the drop-down menu, go to the **DLP Advanced Settings** page (**Administration** > **DLP Advanced Settings**) and select a User-Defined URL. See Image.
-- **DLP Engines**: Select **Any** to choose all DLP engines for this rule, or select up to 4 engines. You can search for DLP engines or click the **Add** icon to create a new DLP engine.
+- [Users](https://help.zscaler.com/zia/about-users), [groups](https://help.zscaler.com/zia/about-groups), [departments](https://help.zscaler.com/zia/about-departments), [locations](https://help.zscaler.com/zia/about-locations), user risk profile, and [sublocations](https://help.zscaler.com/zia/understanding-sublocations) to which the IPS Control policy rules apply.
+- [Location groups](https://help.zscaler.com/zia/about-location-groups)
+- [Time intervals](https://help.zscaler.com/zia/about-time-intervals)
+- [Workload groups](https://help.zscaler.com/zia/about-workload-groups)
+- [Cloud Applications](https://help.zscaler.com/zia/about-cloud-applications)
+- [Source](https://help.zscaler.com/zia/configuring-source-ip-groups) and [destination](https://help.zscaler.com/zia/configuring-destination-ip-groups) IP address groups.
 
-The **Match Only** option takes effect for both **Allow** and **Block** rule actions. You can select **Match Only** to configure how engines must trigger in order for the service to take action. To learn more, see [DLP Policy Configuration Example: Match Only](https://help.zscaler.com/zia/dlp-policy-configuration-example-match-only).
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Inline DLP** > **Data Loss Prevention**.
+2. Click **Add Rule**. The **Add Rule** page appears.
+3. On the **Add Rule** page, you can configure the following sections:
+  - Criteria
+  - Actions
+  - Details
+  - DLP Incident Receiver
+  - Notification
+4. Save and [activate the change.](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console)
 
-All the dictionaries in a given engine must trigger for an engine to trigger.
-
-- If deselected, only one of the engines is required to trigger in order for the service to take action.
-- If selected, all engines are required to trigger in order for the service to take action, and the transaction must not match any other engines from different rules.
-
-For example, you create a DLP rule with the PCI engine and select the **Match Only**option. In this case, the rule does not trigger when a transaction triggers both the PCI and HIPAA engine. It only triggers when a transaction triggers only the PCI engine.
-
-- **Content Locations**: You can choose one or more content locations as a match criteria to target specific sections of a file or transaction. Matches vary depending on which content location you select. To enable this feature, contact Zscaler Support.
-  - **File**
-    - **Document Properties**: Matches are based on the file metadata (i.e., MIP labels).
-    - **File Content**: Matches are based on the actual content of the file, not including metadata.
-    - **File Name**: Matches are based on the name of the file.
-  - **HTTP Body**
-    - **HTTP Body**: Matches are based on the non-file body of the HTTP request. Matches are based on the body of the HTTP request. Note: you must also select non-file file type when selecting HTTP Body as a content location.
-- **Source IP Groups**: Select **Any** to apply the rule to all [source IP groups](https://help.zscaler.com/zia/about-source-ip-groups), or select any number of source IP groups. You can also search for source IP groups or click the **Add** icon to add a new [source IP group](https://help.zscaler.com/zia/configuring-source-ip-groups).
-- **URL Categories**: Select **Any** to apply the rule to all [URL categories](https://help.zscaler.com/zia/about-url-categories), or select any number of URL categories. You can search for URL categories or click the **Add** icon to create a new URL category. You can create DLP policy rules that apply to only content being sent to specific URL categories. For example, you can create a rule that blocks credit card numbers from being sent to websites in the Adult Material URL category.
-
-You can also select [custom TLD categories](https://help.zscaler.com/zia/about-tld-categories) from this field.
-
-Conversely, you can create DLP policy rules to exempt some sites from a rule that blocks content. For example, an organization needs to protect its source code generally, but still allow the content to be sent to certain authorized sites. To achieve this, the organization can create one rule that blocks all outbound source code and create another rule that allows outbound source code to a specific URL category that includes the authorized URLs.
-
-If you want to exempt a specific website or [custom URL category](https://help.zscaler.com/zia/adding-custom-url-categories) from DLP evaluation, you must add the website or URL category to the Cloud Apps & URL Exceptions for DLP list. To learn more, see [Configuring DLP Advanced Settings](https://help.zscaler.com/zia/configuring-dlp-advanced-settings).
-
-- **Cloud Applications**: Select **Any** to apply the rule to all cloud applications, or select any number of cloud applications. You can also search for applications. You can create DLP policy rules that apply to only content being sent to specific cloud applications. For example, you can create a rule that blocks offensive content from being posted to Facebook.
-
-By default, this field displays the first 100 cloud applications. The subsequent 100 cloud applications are displayed when you select **Click to see more**following the list. You can repeat this process to view the remaining cloud applications.
+In the **Criteria**section, when you click **Add Criteria**, you see the rule condition categories in gray (e.g., Source IP) and the individual rule conditions (e.g., Source IP Groups) under each category.
 
 See image.
 
-Conversely, you can create DLP policy rules that allow specific kinds of content to certain applications. For example, you can have a rule that blocks the release of financial information generally and create another rule that exempts financial information being sent to an application like Salesforce.
+After you click on the various conditions, you notice that some conditions contain preconfigured values (e.g., Users and Locations) and others require manual value specification (e.g., IP Addresses).
 
-If you want to exempt a specific cloud application from DLP evaluation, you must add the cloud application to the Cloud Apps & URL Exceptions for DLP list. To learn more, see [Configuring DLP Advanced Settings](https://help.zscaler.com/zia/configuring-dlp-advanced-settings).
+- Criteria with Preconfigured Values
+- Criteria Requiring Manual Value Specification
 
-The DLP policy applies `AND` logic to the URL Categories and Cloud Applications fields when inspecting your organization's traffic. In order for a DLP rule to trigger, the Zscaler service must detect the rule’s selected URL categories and cloud applications in a transaction.
+Refer to the following condition categories for details on configuring their individual conditions:
 
-- **Email Recipient Domain Profiles** (Gmail and Outlook): Choose **Include** to apply the rule only to the selected [domain profiles](https://help.zscaler.com/zia/about-domain-profiles), or choose **Exclude** to apply the rule to all other domain profiles and not selected domain profiles. You can select up to 8 domain profiles, and you can search for domain profiles.
-- **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule.
-
-The cloud application instance appears only if its parent application is selected as the cloud application.
-
-- **ZPA Application Segment:** Select **Any** to apply the rule to all [Zscaler Private Access (ZPA) application segments](https://help.zscaler.com/zpa/configuring-application-segments), or select up to 255 ZPA application segments. You can also search for ZPA application segments. The list displays only those ZPA application segments that have the [Source IP Anchor](https://help.zscaler.com/zia/understanding-source-ip-anchoring)option enabled. If you select the**Inspect App Segments** option from the list, then the configured rule applies to all the ZPA application segments paired to your ZIA tenant. This option is only available if the **SIPA App Segments** subscription is enabled for your organization. See image.
-- **File Type**: From the drop-down menu, choose the file types for the rule. You can create DLP policy rules that apply just to content being sent via specific file types. Policies that reference Zscaler DLP engines support different file types than [policies that reference external DLP engines](https://help.zscaler.com/zia/configuring-policy-using-external-dlp-engines). Zscaler DLP engines can scan files of up to 100 MB. For an archived file, the size of individual files when decompressed can also be a maximum of 100 MB. You can also select [custom file types](https://help.zscaler.com/zia/configuring-custom-file-types) you have previously configured. Zscaler-defined file types are considered before custom file types and custom files inside archives are not detected.
-- **Minimum Data Size**: Enter the minimum size requirement that data must meet before the DLP rule applies. The default minimum data size, 0 KB, means there is no minimum data size requirement.
-- **Users**: You can specify how the DLP rule applies to your [users](https://help.zscaler.com/zia/about-users).
-  - Choose **Include** to apply the rule to selected users and no other users. From the drop-down menu, choose **Any** to apply the rule to all users or select up to 32 users.
-  - Choose **Exclude** to apply the rule to all other users and not selected users. You can select up to 256 users.
-
-When selecting users, you can search for users or click the **Add** icon to add a new user. If you’ve enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can also select special users to apply this rule to all unauthenticated users or select specific types of unauthenticated users.
-
-- **Groups**:You can specify how the DLP rule applies to your [groups](https://help.zscaler.com/zia/about-groups).
-  - Choose **Include** to apply the rule to selected groups and no other groups. From the drop-down menu, choose **Any** to apply the rule to all groups or select up to 32 groups.
-  - Choose **Exclude** to apply the rule to all other groups and not selected groups. You can select up to 256 groups.
-
-When selecting groups, you can search for groups or click the **Add** icon to add a new group.
-
-- **Departments**:You can specify how the DLP rule applies to your [departments](https://help.zscaler.com/zia/about-departments).
-  - Choose **Include** to apply the rule to selected departments and no other departments. From the drop-down menu, choose **Any** to apply the rule to all departments or select up to 32 departments.
-  - Choose **Exclude** to apply the rule to all other departments and not selected departments. You can select up to 256 departments.
-
-When selecting departments, you can search for groups or click the**Add** icon to add a new department. If you’ve enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can also select special departments to apply this rule to all unauthenticated transactions.
-
-Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic) must apply to all groups and departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.
-
-The DLP policy applies OR logic to the Users, Groups, and Departments fields when inspecting your organization’s traffic. In order for the DLP rule to trigger, the Zscaler service must detect at least one of the rule’s selected users, groups, or departments.
-
-- **User Risk Profile**: Select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation.
-
-Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level.
-
-By default, the following user risk score levels are available:
-
-- **Low**: Level with user risk scores ranging from 0 to 29
-- **Medium**: Level with user risk scores ranging from 30 to 59
-- **High**: Level with user risk scores ranging from 60 to 79
-- **Critical**: Level with user risk scores ranging from 80 to 100
-
-Contact Zscaler Support to customize the user risk score range of these levels for your organization.
-
-- **Locations**: Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location or click the **Add** icon to add a new location. Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**.
-- **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
-- **Time**: Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/how-do-i-define-time-intervals), or select up to two time intervals. You can also search for a time interval or click the **Add** icon to add a new time interval.
-- **Protocols**: Select the protocols to which the rule applies. Zscaler inspects bidirectional WebSocket traffic carrying supported text-based content across applications. Contact Zscaler Support to enable this feature.
-  - **HTTP**: Data transactions and file uploads from HTTP websites.
-  - **HTTPS**: Data transactions and file uploads from HTTP websites encrypted by SSL/TLS.
-  - **Native FTP**: Data transactions and file uploads from native FTP servers.
-  - **WebSocket**: Data transactions from WebSocket websites.
-  - **WebSocket SSL/TLS**: Data transactions from WebSocket websites encrypted by SSL/TLS.
-- **Workload Groups**: Select up to 8 workload groups for which you want to apply the rule. You can also search for a workload group. Selecting **None** ignores workload groups when the policy is evaluated. To learn more, see [About Workload Groups](https://help.zscaler.com/zia/about-workload-groups).
-- **Inspect Downloads**: Enable this option to allow DLP inspection for content downloaded from specific cloud apps. If this option is enabled, you must also choose **Any** for **URL Categories** and at least one cloud app for **Cloud Application**. If disabled, the DLP rule only applies to content being sent to cloud apps. The Inspect Downloads feature does not apply to Exact Data Match (EDM) or Indexed Data Matching (IDM) engines.
-
-1. (Optional) Configure the **DLP Incident Receiver**settings:
-  - **ICAP**: Select the applicable ICAP receiver from the drop-down menu. You must [configure ICAP receivers](https://help.zscaler.com/zia/adding-icap-receiver) to complete this step.
-  - **Zscaler Incident Receiver**: Select the applicable Zscaler Incident Receiver from the drop-down menu. You must configure your [Zscaler Incident Receivers](https://help.zscaler.com/zia/configuring-zscaler-incident-receiver) to complete this step.
-  - **Cloud-to-Cloud Forwarding**: Select the applicable **Tenant** and **Cloud-to-Cloud Forwarding Configuration** from the drop-down menus. You must configure [Cloud-to-Cloud Forwarding](https://help.zscaler.com/zia/configure-dlp-cloud-cloud-incident-forwarding) to complete this step.
-
-Ensure that in your third-party DLP solution, you've configured a rule that detects the same data type as the rule you configure here. For example, if you configure a Zscaler DLP rule blocking credit card data, you must also configure a rule in your third-party solution blocking credit card data.
-
-Otherwise, the information that Zscaler sends to your solution regarding a particular rule violation does not appear in your on-premises solution's dashboard. However, the rules do not need to correspond exactly. You don't need to ensure that other criteria for the rules, beyond the data type, correspond. For example, if a Zscaler DLP rule blocks credit card numbers going to a specific URL category, the rule in your on-premises DLP solution must also block credit card numbers, but needn't match the URL category criteria.
-
-1. Select the **Action** for the rule:
-  - **Allow**: The service allows and logs the transaction.
-  - **Block**: The service blocks and logs the transaction.
-  - **Confirm:**Users can justify the transaction to continue, or cancel the transaction altogether; in both cases, the service logs the transaction accordingly. Admins can choose to display a default template or a custom template. To learn more, see [Configuring User Confirmation Notification Templates](https://help.zscaler.com/zia/configuring-user-confirmation-notification-templates).
-
-If the confirmation message times out without the end user taking action, the Zscaler service automatically cancels the transaction. To learn more, see [Configuring User Confirmation Notification Templates](https://help.zscaler.com/zia/configuring-user-confirmation-notification-templates).
-
-1. (Optional) Define the following **Notification** settings:
-  - Configure an email notification for the rule. If you do not select an auditor and notification template, a notification is not sent for this rule.
-    - **Email Auditor Type**: Select whether the auditor is from a **Hosted** database or **External**to your organization.
-      - Select or search for **Email Auditor**if the auditor is from a hosted database.
-      - Select **Auditor Email Address**if the auditor is external, and enter the auditor’s email address.
-    - **Email Notification Template**: Select a [notification template](https://help.zscaler.com/zia/configuring-dlp-notification-templates) from the drop-down menu.
-  - Configure the End User Notification (EUN) for the rule. The type of EUN messages that appear on the endpoint depends on the **Action** configured for the rule.
-    - **End User Notification**: Select **Show** to show an EUN message on endpoints when content triggers the DLP policy rule, or select **Hide** if you don't want an EUN message to appear.
-    - **Custom Message**: Select **Default** to use the default EUN message configured for inline web DLP, or select a custom EUN message from the drop-down menu. You can also search for custom messages or click the **Add** icon to add a new custom message.
-2. (Optional) Enter a **Description** including additional notes or information. The description cannot exceed 10,240 characters.
-3. Click **Save** and [activate the change](https://help.zscaler.com/zia/saving-and-activating-changes-admin-portal).
-
-For example, if a policy rule using predefined Zscaler DLP engines is configured as shown in the following image, the Zscaler service blocks all the files that:
-
-- Contain medical information
-- Are over 1,000 KB in size
-- Are being sent by users in the Operations group through Gmail
-
-The Zscaler service sends an email notification regarding the policy violation to your organization's auditor but doesn't forward information to an incident receiver.
+- Who
+- What
+- Sources & Destinations
+- When
 
 See image.
 
-To learn how to use external DLP engines to detect data and also forward information about the data to your third-party DLP solution, see [Configuring DLP Policy Rules without Content Inspection](https://help.zscaler.com/zia/configuring-policy-using-external-dlp-engines).
+To remove an individual condition from the rule, click the **Delete** icon. You can expand or collapse individual criteria tiles as needed.
 
-[Image: DLP Rule using predefined Zscaler DLP engines]
+In the **Actions** section, select the action to apply when the rule conditions are met and configure the logging mode:
 
-[Image: Zscaler DLP Engines Sample Rule showing configuration options]
+- **Data Traffic**: Choose the action that the Zscaler service must apply when packets match the rule:
+  - **Allow**: Allow the packets to pass through the DLP rule.
+  - **Block**: Block the packets to pass through the DLP rule.
 
-[Image: ZIA DLP Rule with Click to See More in the Cloud Applications Field]
+See image.
 
-[Image: Add DLP Rule Window showing Inspect HTTP GET Requests Option]
+In the **Details**section, provide general information about the DLP rule:
 
-[Image: Inspect App Segments option for the ZPA Application Segment field]
+- **Rule Name**: A system-generated rule name is automatically populated, and the name can be edited. The name cannot exceed 63 characters.
+- **Description**: (Optional) Click **Add Description** and enter additional notes or information about the rule in the text field. You can adjust this field's size as needed, depending on your content length. The description cannot exceed 10,240 characters.
+- **Rule Label**: (Optional) Click **Add Rule Label** and select a [label](https://help.zscaler.com/zia/about-rule-labels) from the drop-down menu.
+- **Rule Order**: A rule order is automatically assigned and displayed. It determines the rule's position in the ascending order of evaluation used for all rules within the policy. You can modify the rule order, but if you enabled [Admin Rank](https://help.zscaler.com/zia/about-admin-rank), your assigned admin rank determines the rule order values you can select. To modify the rule order:
+  1. Click **Edit**.
+  2. In the **Edit Rule Order** drawer that appears, enter the required rule order under **Current Rule**. You can review the existing rules shown in the drawer and modify your current rule order. You can also adjust the number of rules displayed per page and navigate through the next and previous pages.
+  3. Click **Apply**.
+- **Admin Rank**: Click **Edit** and select an admin rank 0 to 7 (0 is the highest rank) from the drop-down menu. This option appears if you enable [Admin Ranking](https://help.zscaler.com/zia/about-admin-rank) on the [Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings) page. Your assigned admin rank determines the values you can select (e.g., you cannot select a rank higher than your own). The rule's admin rank determines the value you can select for rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
+- **Rule Status**:By default, the status is **Disabled**. You need to enable the rule to activate and enforce it on your traffic. Disabled rules can have a rule order assigned. During evaluation, the service skips the disabled rules and moves to the successive ones.
+
+See Image.
+
+This section is visible only if your subscription includes Incident Receiver.
+
+- **Incident Receiver**: If you don't have a third-party DLP solution or don't want to forward content, leave the **Zscaler Incident Receiver** field as **None**.
+- **Tenant**: If you want to forward the transactions captured by this policy rule to an on-premises DLP incident receiver, select the applicable **Zscaler Incident** **Receiver** from the drop-down menu. You must configure your [Zscaler Incident Receivers](https://help.zscaler.com/zia/modifying-zscaler-incident-receiver) to complete this step. Ensure that in your third-party DLP solution, you configured a rule that detects the same data type as the rule you configure here. For example, if you configure a Zscaler DLP rule blocking credit card data, you must also configure a rule in your third-party solution blocking credit card data. Otherwise, the information Zscaler sends to your solution regarding a particular rule violation does not appear in your on-premises solution's dashboard. However, the rules do not need to correspond exactly. You don't need to ensure that other criteria for the rules, beyond the data type, correspond. For example, if a Zscaler DLP rule blocks credit card numbers going to a specific URL category, the rule in your on-premises DLP solution must also block credit card numbers, but needn't match the URL category criteria.
+- **Cloud-to-Cloud Forwarding Configuration**: If you want to forward the incidents that this policy rule captured to your public cloud, such as Amazon S3, Microsoft Azure, or Google Cloud Platform, select the Cloud-to-Cloud Forwarding option. When you select this option, the tenant option appears. Choose a Tenant and a Cloud-to-Cloud Incident Forwarding Configuration from their respective drop-down menus. You must configure [Cloud-to-Cloud Incident Forwarding](https://help.zscaler.com/zia/configuring-dlp-cloud-cloud-incident-forwarding) to complete this step.
+
+In the **Notification** section, you can enable end user notifications (EUNs) and Auditor to be triggered by the rule when **Block** actions are configured and select the notification message that appears:
+
+EUN is supported only with Block actions and requires Advanced DLP rule. To learn more, see [Configuring EUNs for Inline Web DLP](https://help.zscaler.com/zia/configuring-euns-inline-web-dlp). Also, if you do not select an auditor and [Notification Template](https://help.zscaler.com/zia/about-dlp-notification-templates), a notification is not sent for this rule.
+
+- **Auditor Type**: Select whether the auditor is from a **Hosted** database or **External**.
+- **Auditor**: If the auditor is from the hosted database, select an auditor or search for an auditor.
+- **Auditor Notification Template**: Select a notification template if you configured one. You can also search for a notification template or click the Add icon to add a new notification template.
+- **End User Notification**: Appears when you select **Block** while Traffic Capture is enabled. Enable this option to capture and store traffic in PCAP files. To learn more, see [Configuring Traffic Capture](https://help.zscaler.com/zia/configuring-traffic-capture-settings).
+- **Custom Message**: This option appears if the end user notification (EUN) is enabled, and allows you to select the notification message. You can select from default and custom notification messages to display for users.
+
+See image.
+
+For conditions with preconfigured values, a multi-select window with a search bar appears. You can select values by selecting the checkbox for individual items or by clicking **Select All**. After selecting the values, click outside the window to close it.
+
+To clear selected items, click the field to open the multi-select window, then use the **Remove** icon displayed for individual entries. To remove all selected values, click **Remove All**.
+
+See image.
+
+For conditions without preconfigured values, manually enter the value in the field, then click **Add**. To add multiple entries, enter each value and click **Add** or press `Enter`.
+
+You can also perform the following actions:
+
+- Remove items by clicking the **Delete** icon for individual entries or by using the **Remove All** option.
+- The entries are paginated, and you can select the number of items to display per page.
+- You can specify the page number to view, or use the **Next** and **Previous** icons to navigate through different pages.
+
+See image.
+
+Contact Zscaler Support to increase the default limit for **Users**, **Groups**, **Departments**, or **User Risk Profile**:
+
+- **Users**: Choose **Include** to apply the rule to selected users and no other users. Choose **Any**to apply the rule to all users or select up to 4 users. Choose **Exclude** to apply the rule to all other users and not selected users. You can select up to 256 users. When selecting users, you can search for users or click the **Add** **User** (Administration > Identity > Authentication Service > Users) to add a new user. If applicable, you can also select **unauthenticated users**.
+- **Groups**: Choose **Include** to apply the rule to selected groups and no other groups. Choose **Any** to apply the rule to all groups or select up to 8 groups. Choose **Exclude** to apply the rule to all other groups and not selected groups. You can select up to 256 groups. When selecting groups, you can search for groups or click the **Add** icon to add a new group.
+- **Departments**: Choose **Include** to apply the rule to selected departments and no other departments. Choose **Any** to apply the rule to all departments or select up to 8 departments. Choose **Exclude** to apply the rule to all other departments and not selected departments. You can select up to 256 departments. When selecting departments, you can search for departments or click the **Add** icon to add a new department. If applicable, you can also select **Special Departments**.
+- **Workload Groups**: Select the [workload groups](https://help.zscaler.com/zia/about-workload-groups) for which you want to apply the rule. Selecting **None** ignores this criterion during policy evaluation.
+
+If you do not select specific values for any of these fields, the field is set to **Any** by default, and the criterion is ignored during policy evaluation.
+
+If you enabled the policy for unauthenticated users under[Advanced Settings](https://help.zscaler.com/zia/about-advanced-settings) and want to apply this rule to unauthenticated traffic, you can do so by making selections accordingly in the **Users**and **Departments**fields. To learn more, see [Configuring Policies for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic).
+
+**Time**: Select up to two [time intervals](https://help.zscaler.com/zia/defining-time-intervals) during which the rule applies. By default, the field is set to **Always**.
+
+- **URL Categories**: Select **Any** to apply the rule to all [URL categories](https://help.zscaler.com/zia/about-url-categories), or select any number of URL categories. You can search for URL categories or click the **Add**icon to create a new URL category.
+- **Cloud Applications**: Select **Any**to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
+- **ZPA Application Segment:** Select **Any** to apply the rule to all [Private Access (ZPA) application segments](https://help.zscaler.com/zpa/configuring-application-segments), or select up to 255 Private Access application segments. The list displays only those Private Access application segments that have the [Source IP Anchor](https://help.zscaler.com/zia/understanding-source-ip-anchoring) option enabled. If you select the**Inspect App Segments** option from the list, then the configured rule applies to all the Private Access application segments paired to your Internet & SaaS (ZIA) tenant. This option is only available if **SIPA App Segments** is enabled for your organization.
+- **Source IP Groups**: Select up to 32 [source IP groups](https://help.zscaler.com/zia/about-source-ip-groups) to which traffic originates. If you do not select specific location groups, the field is set to **Any**by default, and this criterion is ignored during policy evaluation.
+- **Locations**: Select up to 32 locations to which the rule applies.
+- **Location Groups**: Select up to 32 [location groups](https://help.zscaler.com/zia/about-location-groups) to which the rule applies.
+
+- **User Risk Profile**: You can select up to 4 user risk profiles (i.e., Critical, High, Low, and Medium). Selecting no values ignores this criterion from the policy evaluation.
+- **Content Matching**: Choose **Select DLP Engines** to select up to 4 DLP engines for content inspection on this rule. When you choose Select DLP Engines, the DLP Engines drop-down menu is available. Select **None** to use the Zscaler service as a filter, only flagging content based on the criteria you specify. Selecting None means that DLP Engines are not used to inspect content.
+- This is a mandatory field for all applications.
+- **DLP Engines and Match Only**: Select **Any** to choose all [DLP engines](https://help.zscaler.com/zia/about-dlp-engines) for this rule, or select up to 4 engines. You can search for DLP engines. This option is available only when you select **Select DLP Engines** for **Match Only**.
+- **Inspect Downloads**: Enable this option to allow DLP inspection for content downloaded from specific cloud apps. If this option is enabled, you must also choose Any for URL Categories and at least one cloud app for Cloud Application. If disabled, the DLP rule only applies to content being sent to cloud apps. The Inspect Downloads feature does not apply to Exact Data Match (EDM) or Indexed Data Matching (IDM) engines.
+- **File types**: Select **Any** to apply the rule to all file types, or select any number of file types. You can also search for file types. Note that the file types supported by Zscaler DLP Engine rules differ from those supported by External DLP Engine rules.
+- **Minimum Data Size (KB)**: Enter the minimum size requirement that data must meet before the DLP rule applies. The default minimum data size, 0 KB, means there is no minimum data size requirement.
+- **Protocols**: Choose any number of protocols to which the rule applies (e.g., HTTP, HTTPS, WebSocket, etc).
+
+[Image: Selecting values for fields with predefined values in a DLP rule]
+
+[Image: Specifying a field value manually in a DLP rule]
+
+[Image: List of criteria grouped into categories in DLP rule]
+
+[Image: Selecting criteria and building a ruleset for matching traffic in DLP rule]
+
+[Image: Specifying details about the DLP rule, including name, description, rule order, rank, status, and label]
+
+[Image: DLP Rule Actions section]
+
+[Image: Enabling or disabling notification for DLP rule and selecting notification message]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled","lastmod":"2026-09-20T07:06Z","nid":"1471836"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled","lastmod":"2026-09-27T07:06Z","nid":"1471836"} -->
 ## Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-09-27T07:06Z
 - Summary: How to configure a Data Loss Prevention (DLP) policy for the Zscaler service using Evaluate All Rules mode.
 
 This article applies only to organizations with Evaluate All Rules mode enabled. To access this feature, contact your Zscaler Account team.
 
-By default, the Zscaler service evaluates inline Data Loss Prevention (DLP) policy rules according to rule order, with evaluation stopping at the first match. However, if Evaluate All Rules mode is enabled for your organization, you can instead have the Zscaler service evaluate all rules, enforcing the rule with the most restrictive action. Evaluate All Rules mode uses rule order only when multiple rules with the same action are matched. In that case, rule order determines which policy rule is triggered.
+By default, the Zscaler service evaluates inline Data Loss Prevention (DLP) policy rules according to rule order, with evaluation stopping at the first match. However, if Evaluate All Rules mode is enabled for your organization, you can instead have the Zscaler service evaluate all rules, enforcing the rule with the most restrictive action. Evaluate All Rules mode uses rule order only when multiple rules with the same action are matched. In that case, the rule order determines which policy rule is triggered.
 
 You must first delete all existing inline DLP rules before you change the way the Zscaler service evaluates rules. To learn more, see [Configuring DLP Advanced Settings](https://help.zscaler.com/zia/configuring-dlp-advanced-settings).
 
-With Evaluate All Rules mode enabled for your organization, you first set how the Zscaler service evaluates inline DLP rules on the [DLP Advanced Settings page](https://help.zscaler.com/zia/configuring-dlp-advanced-settings#RuleEvaluation) (Administration > DLP Advanced Settings).
+With Evaluate All Rules mode enabled for your organization, you first set how the Zscaler service evaluates inline DLP rules on the [DLP Advanced Settings page](https://help.zscaler.com/zia/configuring-dlp-advanced-settings#RuleEvaluation) (Data Security > Common Resources > DLP Advanced Settings).
 
 See image.
 
 ## Policy Execution
 
-The DLP rules consist of a series of logical operators between their criteria. The rules are triggered based on the result of the following logical operations between the criteria:
+The DLP policy supports different rule conditions, grouped into categories. A series of `AND` and `OR` logical operators are applied between these criteria to form a combination of rule set that is used to evaluate for traffic matches. The logical relationship between the categories is `AND`, and the rule conditions within each category have their own set of logical operators applied, explained as follows:
 
-DLP Engines (`AND`) Source IP Groups (`AND`) [URL Categories (`OR`) Cloud Applications] (`AND`) ZPA Application Segment (`AND`) File Type (`AND`) Minimum Data Size (`AND`) [Users OR Groups OR Departments] (`AND`) User Risk Profile (`AND`) [Location Groups OR Locations] (`AND`) Time (`AND`) Protocols.
+- **Who, Where, & When**: [ (Users `OR` Groups `OR` Departments `OR` User Risk Profile) `AND` (Locations `OR` Location Groups `OR` Source IP groups) `AND` Time `AND`
+- **Destination IP**: URL Categories `AND`
+- **Applications**: [ Cloud Applications `AND` ZPA Application Segment ] `AND`
+- **Protocols**: Protocols `AND`
+- **What**: [ Content Matching `AND` File Types `AND` Minimum Data Size (KB) `AND` Inspect Downloads `AND` DLP Engines `AND` Workload Groups ]
 
 ## Configuring DLP Policy
 
@@ -9566,37 +9634,33 @@ To configure a DLP policy rule to evaluate all rules:
 - 6. Define your policy rules.
 - 7. (Optional) Define exception rules.
 
-1. Go to **Policy** > **Data Loss Prevention**.
-2. Click **Add DLP Rule**.
-3. In the **Add DLP Rule** window:
-  1. Enter the following **DLP Rule** attributes:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Inline DLP** > **Data Loss Prevention**.
+2. Click **Add Rule**. The **Add Rule** page appears.
+3. On the **Add Rule** page, you can configure the following sections:
 
-- **Rule Order**: This field is configurable, but rule order is not enforced for parent rules when the Zscaler service is configured to evaluate all rules.
-- **Severity**: Select the severity of the violation from the drop-down menu (i.e., **High**, **Medium**, **Low**, or **Information**).
-- **Rule Name**: Enter a unique name for the DLP rule or use the default name.
-- **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The Zscaler service skips it and moves to the next rule.
-- **Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
+- Criteria
+- Actions
+- Details
+- DLP Incident Receiver
+- Notification
 
-1. Define the following **Criteria**:
+1. Click **Save** and [activate the change](https://help.zscaler.com/zia/saving-and-activating-changes-admin-portal).
+
+For example, if a policy rule using predefined Zscaler DLP engines is configured, the Zscaler service blocks all the files that:
+
+- Contain medical information.
+- Are over 1,000 KB in size.
+- Are being sent by users in the Operations group through Gmail.
+
+The Zscaler service sends an email notification regarding the policy violation to your organization's auditor but doesn't forward information to an incident receiver.
 
 - **Content Matching**: Choose **Select DLP Engines** to select up to 4 engines. You can also search for DLP engines. If you select **None**, then the Zscaler service doesn't use DLP engines to scan the content; instead, the service functions as a filter, only flagging content based on the criteria you specify. The **Match Only** option takes effect for both **Allow** and **Block** rule actions. You can select **Match Only** to configure how engines must trigger in order for the service to take action. To learn more, see [DLP Policy Configuration Example: Match Only](https://help.zscaler.com/zia/dlp-policy-configuration-example-match-only).
-  - If **Match Only** is deselected, only one of the engines is required to trigger in order for the service to take action.
-
-For example, suppose you create two DLP rules:
-
-- **Rule 1:** Uses the PCI engine, the **Match Only** option selected, and a **Block** rule action.
-- **Rule 2:** Uses the PII engine and a **Block** rule action.
-
-With **Match Only**deselected, if a transaction triggers only the PCI engine, then Rule 1 is triggered.
-
-- If **Match Only** is selected, all engines are required to trigger in order for the service to take action, and the transaction must not match any other engines from different rules.
-
-For example, suppose you have the same two DLP rules as in the earlier example:
-
-- **Rule 1:** Uses the PCI engine, the **Match Only** option selected, and a **Block** rule action.
-- **Rule 2:** Uses the PII engine and a **Block** rule action.
-
-With **Match Only**selected, if a transaction triggers both the PCI and PII engines, then Rule 2 is triggered.
+- If **Match Only** is deselected, only one of the engines is required to trigger in order for the service to take action. For example, suppose you create two DLP rules: With **Match Only**deselected, if a transaction triggers only the PCI engine, then Rule 1 is triggered.
+  - **Rule 1:** Uses the PCI engine, the **Match Only** option selected, and a **Block** rule action.
+  - **Rule 2:** Uses the PII engine and a **Block** rule action.
+- If **Match Only** is selected, all engines are required to trigger in order for the service to take action, and the transaction must not match any other engines from different rules. For example, suppose you have the same two DLP rules as in the earlier example: With **Match Only**selected, if a transaction triggers both the PCI and PII engines, then Rule 2 is triggered.
+  - **Rule 1:** Uses the PCI engine, the **Match Only** option selected, and a **Block** rule action.
+  - **Rule 2:** Uses the PII engine and a **Block** rule action.
 
 The Zscaler DLP engines support files up to 400 MB and can scan the first 100 MB of the extracted text. The maximum size also applies to files extracted from archive files.
 
@@ -9607,7 +9671,7 @@ The Zscaler DLP engines support files up to 400 MB and can scan the first 100 MB
     - **File Name**: Matches are based on the name of the file.
   - **HTTP Body**
     - **HTTP Body**: Matches are based on the non-file body of the HTTP request. Matches are based on the body of the HTTP request. Note: you must also select non-file file type when selecting HTTP Body as a content location.
-- **Inspect HTTP GET Query Parameters**: You can configure DLP rules to inspect HTTP GET Query Parameters for the following URL categories: Generative AI and ML Applications, Safe Search Engines, Translation Tools, Web Search, and User-Defined Custom URL Categories. To enable, choose **Enable**for **Inspect HTTP GET Requests**, then select a URL category from the drop-down menu. To learn more, see [Configuring DLP Advanced Settings](https://help.zscaler.com/zia/configuring-dlp-advanced-settings). To select a user-defined custom URL category from the drop-down menu, go to the **DLP Advanced Settings** page (**Administration** > **DLP Advanced Settings**) and select a User-Defined URL. See Image.
+- **Inspect HTTP GET Query Parameters**: You can configure DLP rules to inspect HTTP GET Query Parameters for the following URL categories: Generative AI and ML Applications, Safe Search Engines, Translation Tools, Web Search, and User-Defined Custom URL Categories. To enable, choose **Enable**for **Inspect HTTP GET Requests**, then select a URL category from the drop-down menu. To learn more, see [Configuring DLP Advanced Settings](https://help.zscaler.com/zia/configuring-dlp-advanced-settings). To select a user-defined custom URL category from the drop-down menu, go to the **DLP Advanced Settings** page (Data Security > Common Resources > DLP Advanced Settings) and select a User-Defined URL.
 - **Source IP Groups**: Select **Any** to apply the rule to all [source IP groups](https://help.zscaler.com/zia/about-source-ip-groups), or select any number of source IP groups. You can also search for source IP groups or click the **Add** icon to add a new [source IP group](https://help.zscaler.com/zia/configuring-source-ip-groups).
 - **URL Categories**: Select **Any** to apply the rule to all [URL categories](https://help.zscaler.com/zia/about-url-categories), or select any number of URL categories. You can search for URL categories or click the **Add** icon to create a new URL category. You can create DLP policy rules that apply to only content being sent to specific URL categories. For example, you can create a rule that blocks credit card numbers from being sent to websites in the Adult Material URL category.
 
@@ -9634,8 +9698,14 @@ The DLP policy applies AND logic to the URL Categories and Cloud Applications fi
 
 The cloud application instance appears only if its parent application is selected as the cloud application.
 
-- **ZPA Application Segment:** Select **Any** to apply the rule to all [Zscaler Private Access (ZPA) application segments](https://help.zscaler.com/zpa/configuring-application-segments), or select up to 255 ZPA application segments. You can also search for ZPA application segments. The list displays only those ZPA application segments that have the [Source IP Anchor](https://help.zscaler.com/zia/understanding-source-ip-anchoring)option enabled. If you select the**Inspect App Segments** option from the list, then the configured rule applies to all the ZPA application segments paired to your ZIA tenant. This option is only available if the **SIPA App Segments** subscription is enabled for your organization. See image.
-- **File Type**: From the drop-down menu, choose the file types for the rule. You can create DLP policy rules that apply just to content being sent via specific file types. Policies that reference Zscaler DLP engines support different file types than [policies that reference external DLP engines](https://help.zscaler.com/zia/configuring-policy-using-external-dlp-engines). Zscaler DLP engines can scan files of up to 100 MB. For an archived file, the size of individual files when decompressed can also be a maximum of 100 MB. You can also select [custom file types](https://help.zscaler.com/zia/configuring-custom-file-types) you have previously configured. Zscaler-defined file types are considered before custom file types and custom files inside archives are not detected.
+- **ZPA Application Segment:** Select **Any** to apply the rule to all [Private Access (ZPA) application segments](https://help.zscaler.com/zpa/configuring-application-segments), or select up to 255 Private Access application segments. The list displays only those Private Access application segments that have the [Source IP Anchor](https://help.zscaler.com/zia/understanding-source-ip-anchoring)option enabled.
+
+If you select the**Inspect App Segments** option from the list, then the configured rule applies to all the Private Access application segments paired to your Internet & SaaS (ZIA) tenant. This option is only available if the **SIPA App Segments** subscription is enabled for your organization.
+
+- **File Type**: From the drop-down menu, choose the file types for the rule. You can create DLP policy rules that apply just to content being sent via specific file types. Policies that reference Zscaler DLP engines support different file types than [policies that reference external DLP engines](https://help.zscaler.com/zia/configuring-policy-using-external-dlp-engines). Zscaler DLP engines can scan files of up to 100 MB. For an archived file, the size of individual files when decompressed can also be a maximum of 100 MB. You can also select [custom file types](https://help.zscaler.com/zia/configuring-custom-file-types) you have previously configured.
+
+Zscaler-defined file types are considered before custom file types and custom files inside archives are not detected.
+
 - **Minimum Data Size**: Enter the minimum size requirement that data must meet before the DLP rule applies. The default minimum data size, 0 KB, means there is no minimum data size requirement.
 - **Users**: You can specify how the DLP rule applies to your [users](https://help.zscaler.com/zia/about-users).
   - Choose **Include** to apply the rule to selected users and no other users. From the drop-down menu, choose **Any** to apply the rule to all users or select up to 32 users.
@@ -9672,96 +9742,95 @@ By default, the following user risk score levels are available:
 
 Contact Zscaler Support to customize the user risk score range of these levels for your organization.
 
-- **Locations**: Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location or click the **Add** icon to add a new location. Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**.
+- **Locations**: Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location or click the **Add** icon to add a new location.
+
+Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**.
+
 - **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
 - **Time**: Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/how-do-i-define-time-intervals), or select up to two time intervals. You can also search for a time interval or click the **Add** icon to add a new time interval.
-- **Protocols**: Select the protocols to which the rule applies. Zscaler inspects bidirectional WebSocket traffic carrying supported text-based content across applications. Contact Zscaler Support to enable this feature.
+- **Protocols**: Select the protocols to which the rule applies.
   - **HTTP**: Data transactions and file uploads from HTTP websites.
   - **HTTPS**: Data transactions and file uploads from HTTP websites encrypted by SSL/TLS.
   - **Native FTP**: Data transactions and file uploads from native FTP servers.
   - **WebSocket**: Data transactions from WebSocket websites.
   - **WebSocket SSL/TLS**: Data transactions from WebSocket websites encrypted by SSL/TLS.
+
+The WebSocket protocol is supported only for the Microsoft Copilot application.
+
 - **Workload Groups**: Select up to 8 workload groups for which you want to apply the rule. You can also search for a workload group. Selecting **None** ignores workload groups when the policy is evaluated. To learn more, see [About Workload Groups](https://help.zscaler.com/zia/about-workload-groups).
 - **Inspect Downloads**: Enable this option to allow DLP inspection for content downloaded from specific cloud apps. If this option is enabled, you must also choose **Any** for **URL Categories** and at least one cloud app for **Cloud Application**. If disabled, the DLP rule only applies to content being sent to cloud apps. The Inspect Downloads feature does not apply to Exact Data Match (EDM) or Indexed Data Matching (IDM) engines.
 
-1. (Optional) Configure the **DLP Incident Receiver**settings:
-  - **ICAP**: Select the applicable ICAP receiver from the drop-down menu. You must [configure ICAP receivers](https://help.zscaler.com/zia/adding-icap-receiver) to complete this step.
-  - **Zscaler Incident Receiver**: Select the applicable Zscaler Incident Receiver from the drop-down menu. You must configure your [Zscaler Incident Receivers](https://help.zscaler.com/zia/configuring-zscaler-incident-receiver) to complete this step.
-  - **Cloud-to-Cloud Forwarding**: Select the applicable **Tenant** and **Cloud-to-Cloud Forwarding Configuration** from the drop-down menus. You must configure [Cloud-to-Cloud Forwarding](https://help.zscaler.com/zia/configure-dlp-cloud-cloud-incident-forwarding) to complete this step.
+In the **Action** section, select the action to apply when the rule conditions are met and configure the logging mode:
 
-Ensure that in your third-party DLP solution, you've configured a rule that detects the same data type as the rule you configure here. For example, if you configure a Zscaler DLP rule blocking credit card data, you must also configure a rule in your third-party solution blocking credit card data.
+- **Data Traffic**: Choose the action that the Zscaler service must apply when packets match the rule:
+  - **Allow**: Allow the packets to pass through the DLP rule.
+  - **Block**: Block the packets to pass through the DLP rule.
 
-Otherwise, the information that Zscaler sends to your solution regarding a particular rule violation does not appear in your on-premises solution's dashboard. However, the rules do not need to correspond exactly. You don't need to ensure that other criteria for the rules, beyond the data type, correspond. For example, if a Zscaler DLP rule blocks credit card numbers going to a specific URL category, the rule in your on-premises DLP solution must also block credit card numbers, but needn't match the URL category criteria.
+In the **Details** section, provide general information about the DLP rule:
 
-1. Select the **Action** for the rule:
-  - **Allow**: The service allows and logs the transaction.
-  - **Block**: The service blocks and logs the transaction.
-  - **Confirm:**Users can justify the transaction to continue, or cancel the transaction altogether; in both cases, the service logs the transaction accordingly.
+- **Rule Name**: A system-generated rule name is automatically populated, and the name can be edited. The name cannot exceed 63 characters.
+- **Description**: (Optional) Click **Add Description** and enter additional notes or information about the rule in the text field. You can adjust this field's size as needed, depending on your content length. The description cannot exceed 10,240 characters.
+- **Rule Label**: (Optional) Click **Add Rule Label** and select a [label](https://help.zscaler.com/zia/about-rule-labels) from the drop-down menu.
+- **Rule Order**: A rule order is automatically assigned and displayed. It determines the rule's position in the ascending order of evaluation used for all rules within the policy. You can modify the rule order, but if you've enabled [Admin Rank](https://help.zscaler.com/zia/about-admin-rank), your assigned admin rank determines the rule order values you can select. To modify the rule order:
+  1. Click **Edit**.
+  2. In the **Edit Rule Order** drawer that appears, enter the required rule order under **Current Rule**. You can review the existing rules shown in the drawer and modify your current rule order. You can also adjust the number of rules displayed per page and navigate through the next and previous pages.
+  3. Click **Apply**.
+- **Admin Rank**: Click **Edit** and select an admin rank 0 to 7 (0 is the highest rank) from the drop-down menu. This option appears if you enable [Admin Ranking](https://help.zscaler.com/zia/about-admin-rank) on the [Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings) page. Your assigned admin rank determines the values you can select (e.g., you cannot select a rank higher than your own). The rule's admin rank determines the value you can select for rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
+- **Rule Status**:By default, the status is **Disabled**. You need to enable the rule to activate and enforce it on your traffic. Disabled rules can have a rule order assigned. During evaluation, the service skips the disabled rules and moves to the successive ones.
 
-If the confirmation message times out without the end user taking action, the Zscaler service automatically cancels the transaction. To learn more, see [Configuring User Confirmation Notification Templates](https://help.zscaler.com/zia/configuring-user-confirmation-notification-templates).
+(Optional) Configure the **DLP Incident Receiver**settings:
 
-1. (Optional) Define the following **Notification** settings:
-  - Configure an email notification for the rule. If you do not select an auditor and notification template, a notification is not sent for this rule.
-    - **Email Auditor Type**: Select whether the auditor is from a **Hosted** database or **External**to your organization.
-      - Select or search for**Email Auditor**if the auditor is from a hosted database.
-      - Select **Auditor Email Address**if the auditor is external, and enter the auditor’s email address.
-    - **Email Notification Template**: Select a [notification template](https://help.zscaler.com/zia/configuring-dlp-notification-templates) from the drop-down menu.
-  - Configure the End User Notification (EUN) for the rule. The type of EUN messages that appear on the endpoint depends on the **Action** configured for the rule.
-    - **End User Notification**: Select **Show** to show an EUN message on endpoints when content triggers the DLP policy rule, or select **Hide** if you don't want an EUN message to appear.
-    - **Custom Message**: Select **Default** to use the default EUN message configured for inline web DLP, or select a custom EUN message from the drop-down menu. You can also search for custom messages or click the **Add** icon to add a new custom message.
-2. (Optional) Enter a **Description** including additional notes or information. The description cannot exceed 10,240 characters.
-3. Click **Save** and [activate the change](https://help.zscaler.com/zia/saving-and-activating-changes-admin-portal).
+- **ICAP**: Select the applicable ICAP receiver from the drop-down menu. You must [configure ICAP receivers](https://help.zscaler.com/zia/adding-icap-receiver) to complete this step.
+- **Zscaler Incident Receiver**: Select the applicable Zscaler Incident Receiver from the drop-down menu. You must configure your [Zscaler Incident Receivers](https://help.zscaler.com/zia/configuring-zscaler-incident-receiver) to complete this step.
+- **Cloud-to-Cloud Forwarding**: Select the applicable **Tenant** and **Cloud-to-Cloud Forwarding Configuration** from the drop-down menus. You must configure [Cloud-to-Cloud Forwarding](https://help.zscaler.com/zia/configure-dlp-cloud-cloud-incident-forwarding) to complete this step.
 
-For example, if a policy rule using predefined Zscaler DLP engines is configured as shown in the following image, the Zscaler service blocks all the files that:
+Ensure that in your third-party DLP solution, you've configured a rule that detects the same data type as the rule you configure here. For example, if you configure a Zscaler DLP rule blocking credit card data, you must also configure a rule in your third-party solution blocking credit card data. 
+Otherwise, the information that Zscaler sends to your solution regarding a particular rule violation does not appear in your on-premises solution's dashboard. However, the rules do not need to correspond exactly. You do not need to ensure that other criteria for the rules, beyond the data type, correspond. For example, if a Zscaler DLP rule blocks credit card numbers going to a specific URL category, the rule in your on-premises DLP solution must also block credit card numbers, but need not match the URL category criteria.
 
-- Contain medical information
-- Are over 1,000 KB in size
-- Are being sent by users in the Operations group through Gmail
+(Optional) Define the following **Notification** settings:
 
-The Zscaler service sends an email notification regarding the policy violation to your organization's auditor but doesn't forward information to an incident receiver.
+- Configure an email notification for the rule. If you do not select an auditor and notification template, a notification is not sent for this rule.
+  - **Email Auditor Type**: Select whether the auditor is from a **Hosted** database or **External**to your organization.
+    - Select or search for**Email Auditor**if the auditor is from a hosted database.
+    - Select **Auditor Email Address**if the auditor is external, and enter the auditor’s email address.
+  - **Email Notification Template**: Select a [notification template](https://help.zscaler.com/zia/configuring-dlp-notification-templates) from the drop-down menu.
+- Configure the End User Notification (EUN) for the rule. The type of EUN messages that appear on the endpoint depends on the **Action** configured for the rule.
+  - **End User Notification**: Select **Show** to show an EUN message on endpoints when content triggers the DLP policy rule, or select **Hide** if you don't want an EUN message to appear.
+  - **Custom Message**: Select **Default** to use the default EUN message configured for inline web DLP, or select a custom EUN message from the drop-down menu. You can also search for custom messages or click the **Add** icon to add a new custom message.
 
-See image.
-
-[Image: DLP Engines Sample Rule showing configuration options]
-
-[Image: ZIA DLP Rule with Click to See More in the Cloud Applications Field]
+[Image: Add DLP Rule with Click to See More in the Cloud Applications Field]
 
 Exception rules are child rules that allow you to exclude specific users or groups in your organization who must perform tasks as part of a necessary workflow that might otherwise violate inline DLP policy. There is no limit to the number of exception rules that you can assign to each parent rule.
 
 To define an exception rule:
 
-1. Go to **Policy** > **Data Loss Prevention**.
-2. Find an existing inline DLP rule in the list and click the **Add Exception Rule** icon. The **Add DLP Exception Rule** window appears.
-3. In the **Add DLP Exception Rule**window:
-  1. Enter the following **DLP Exception Rule** attributes:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Inline DLP** > **Data Loss Prevention**.
+2. Find an existing inline DLP rule in the list and click the **Add Exception Rule** icon. The **Add DLP Exception Rule** page appears.
+3. In the **Add DLP Exception Rule** page, configure the following:
 
-- **Rule Order**: All parent rules are evaluated. If multiple rules match, the rule with the most restrictive action and highest rule order is applied. Exception rule evaluation stops at the first match, and an exception replaces a parent rule upon match.
-- **Severity**: Select the severity of the violation from the drop-down menu (i.e., **High**, **Medium**, **Low**, or **Information**).
-- **Parent Rule Name**: This field is inherited from the parent rule and cannot be changed.
-- **Exception Rule Name**: Enter a unique name for the DLP exception rule or use the default name.
-- **Rule Status**: An enabled exception rule is actively enforced. A disabled exception rule is not actively enforced but does not lose its place in the rule order. The Zscaler service skips it and moves to the next exception rule.
-- **Rule Label**: Rule labels cannot be configured for exception rules.
+- Criteria
+- Actions
+- Details
+- DLP Incident Receiver
+- Notification
 
-1. Define the following **Criteria**:
+1. Click **Save** and [activate the change](https://help.zscaler.com/zia/saving-and-activating-changes-admin-portal).
+
+For example, for an exception rule using predefined Zscaler DLP engines configured, the Zscaler service allows all PDF files that:
+
+- Contain medical information
+- Are any size
+- Are sent via Gmail by Service Admin Group members
+
+On the **Add DLP Exception Rule** page, define the following **Criteria**:
 
 - **Content Matching**: Choose **Select DLP Engines** to select up to 4 engines. You can also search for DLP engines. If you select **None**, then the Zscaler service doesn't use DLP engines to scan the content; instead, the service functions as a filter, only flagging content based on the criteria you specify. The **Match Only** option takes effect for both **Allow** and **Block** rule actions. You can select **Match Only** to configure how engines must trigger in order for the service to take action. To learn more, see [DLP Policy Configuration Example: Match Only](https://help.zscaler.com/zia/dlp-policy-configuration-example-match-only).
-  - If **Match Only** is deselected, only one of the engines is required to trigger in order for the service to take action.
-
-For example, suppose you create two DLP exception rules:
-
-- **Rule 1:** Uses the PCI engine, the **Match Only** option selected, and a **Block** rule action.
-- **Rule 2:** Uses the PII engine and a **Block** rule action.
-
-With **Match Only**deselected, if a transaction triggers only the PCI engine, then Rule 1 is triggered.
-
-- If **Match Only** is selected, all engines are required to trigger in order for the service to take action, and the transaction must not match any other engines from different rules.
-
-For example, suppose you have the same two DLP exception rules as in the earlier example:
-
-- **Rule 1:** Uses the PCI engine, the **Match Only** option selected, and a **Block** rule action.
-- **Rule 2:** Uses the PII engine and a **Block** rule action.
-
-With **Match Only**selected, if a transaction triggers both the PCI and PII engines, then Rule 2 is triggered.
+- If **Match Only** is deselected, only one of the engines is required to trigger in order for the service to take action. For example, suppose you create two DLP rules: With **Match Only**deselected, if a transaction triggers only the PCI engine, then Rule 1 is triggered.
+  - **Rule 1:** Uses the PCI engine, the **Match Only** option selected, and a **Block** rule action.
+  - **Rule 2:** Uses the PII engine and a **Block** rule action.
+- If **Match Only** is selected, all engines are required to trigger in order for the service to take action, and the transaction must not match any other engines from different rules. For example, suppose you have the same two DLP rules as in the earlier example: With **Match Only**selected, if a transaction triggers both the PCI and PII engines, then Rule 2 is triggered.
+  - **Rule 1:** Uses the PCI engine, the **Match Only** option selected, and a **Block** rule action.
+  - **Rule 2:** Uses the PII engine and a **Block** rule action.
 
 The Zscaler DLP engines support files up to 400 MB and can scan the first 100 MB of the extracted text. The maximum size also applies to files extracted from archive files.
 
@@ -9772,7 +9841,7 @@ The Zscaler DLP engines support files up to 400 MB and can scan the first 100 MB
     - **File Name**: Matches are based on the name of the file.
   - **HTTP Body**
     - **HTTP Body**: Matches are based on the non-file body of the HTTP request. Matches are based on the body of the HTTP request. Note: you must also select non-file file type when selecting HTTP Body as a content location.
-- **Inspect HTTP GET Query Parameters**: You can configure DLP rules to inspect HTTP GET Query Parameters for the following URL categories: Generative AI and ML Applications, Safe Search Engines, Translation Tools, Web Search, and User-Defined Custom URL Categories. To enable, choose **Enable**for **Inspect HTTP GET Requests**, then select a URL category from the drop-down menu. To learn more, see [Configuring DLP Advanced Settings](https://help.zscaler.com/zia/configuring-dlp-advanced-settings). To select a user-defined custom URL category from the drop-down menu, go to the **DLP Advanced Settings** page (**Administration** > **DLP Advanced Settings**) and select a User-Defined URL. See Image.
+- **Inspect HTTP GET Query Parameters**: You can configure DLP rules to inspect HTTP GET Query Parameters for the following URL categories: Generative AI and ML Applications, Safe Search Engines, Translation Tools, Web Search, and User-Defined Custom URL Categories. To enable, choose **Enable**for **Inspect HTTP GET Requests**, then select a URL category from the drop-down menu. To learn more, see [Configuring DLP Advanced Settings](https://help.zscaler.com/zia/configuring-dlp-advanced-settings). To select a user-defined custom URL category from the drop-down menu, go to the **DLP Advanced Settings** page (Data Security > Common Resources > DLP Advanced Settings) and select a User-Defined URL.
 - **Source IP Groups**: Select **Any** to apply the rule to all [source IP groups](https://help.zscaler.com/zia/about-source-ip-groups), or select any number of source IP groups. You can also search for source IP groups or click the **Add** icon to add a new [source IP group](https://help.zscaler.com/zia/configuring-source-ip-groups).
 - **URL Categories**: Select **Any** to apply the rule to all [URL categories](https://help.zscaler.com/zia/about-url-categories), or select any number of URL categories. You can search for URL categories or click the **Add** icon to create a new URL category. You can create DLP policy rules that apply to only content being sent to specific URL categories. For example, you can create an exception rule that blocks credit card numbers from being sent to websites in the Adult Material URL category.
 
@@ -9788,7 +9857,7 @@ By default, this field displays the first 100 cloud applications. The subsequent
 
 See image.
 
-Conversely, you can create DLP policy rules that allow specific kinds of content to certain applications. For example, you can have a rule that blocks the release of financial information generally and create another rule that exempts financial information being sent to an application like Salesforce.
+Conversely, you can create DLP policy rules that allow specific kinds of content for certain applications. For example, you can have a rule that blocks the release of financial information generally and create another rule that exempts financial information being sent to an application like Salesforce.
 
 If you want to exempt a specific cloud application from DLP evaluation, you must add the cloud application to the Cloud Apps & URL Exceptions for DLP list. To learn more, see [Configuring DLP Advanced Settings](https://help.zscaler.com/zia/configuring-dlp-advanced-settings).
 
@@ -9799,37 +9868,27 @@ The DLP policy applies AND logic to the URL Categories and Cloud Applications fi
 
 The cloud application instance appears only if its parent application is selected as the cloud application.
 
-- **ZPA Application Segment:** Select **Any** to apply the exception rule to all [Zscaler Private Access (ZPA) application segments](https://help.zscaler.com/zpa/configuring-application-segments), or select up to 255 ZPA application segments. You can also search for ZPA application segments.
+- **ZPA Application Segment:** Select **Any** to apply the exception rule to all [Private Access (ZPA) application segments](https://help.zscaler.com/zpa/configuring-application-segments), or select up to 255 Private Access application segments. You can also search for Private Access application segments.
 
-The list displays only those ZPA application segments that have the **Source IP Anchor**option enabled. To learn more, see [About Source IP Anchoring.](https://help.zscaler.com/zia/about-source-ip-anchoring)
+The list displays only those Private Access application segments that have the **Source IP Anchor**option enabled. To learn more, see [About Source IP Anchoring.](https://help.zscaler.com/zia/about-source-ip-anchoring)
 
 - **File Type**: From the drop-down menu, choose the file types for the exception rule. You can create DLP policy rules that apply just to content being sent via specific file types. Policies that reference Zscaler DLP engines support different file types than [policies that reference external DLP engines](https://help.zscaler.com/zia/configuring-policy-using-external-dlp-engines). Zscaler DLP engines can scan files of up to 100 MB. For an archived file, the size of individual files when decompressed can also be a maximum of 100 MB. You can also select [custom file types](https://help.zscaler.com/zia/configuring-custom-file-types) you have previously configured. Zscaler-defined file types are considered before custom file types and custom files inside archives are not detected.
 - **Minimum Data Size**: Enter the minimum size requirement that data must meet before the DLP exception rule applies. The default minimum data size, 0 KB, means there is no minimum data size requirement.
 - **Users**: You can specify how the DLP exception rule applies to your [users](https://help.zscaler.com/zia/about-users).
   - Choose **Include** to apply the exception rule to selected users and no other users. From the drop-down menu, choose **Any** to apply the rule to all users or select up to 32 users.
-  - Choose **Exclude** to apply the exception rule to all other users and not selected users. You can select up to 256 users.
-
-When selecting users, you can search for users or click the **Add** icon to add a new user. If you’ve enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can also select special users to apply this rule to all unauthenticated users or select specific types of unauthenticated users.
-
+  - Choose **Exclude** to apply the exception rule to all other users and not selected users. You can select up to 256 users. When selecting users, you can search for users or click the **Add** icon to add a new user. If you’ve enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can also select special users to apply this rule to all unauthenticated users or select specific types of unauthenticated users.
 - **Groups**:You can specify how the DLP exception rule applies to your [groups](https://help.zscaler.com/zia/about-groups).
   - Choose **Include** to apply the exception rule to selected groups and no other groups. From the drop-down menu, choose **Any** to apply the rule to all groups or select up to 32 groups.
-  - Choose **Exclude** to apply the exception rule to all other groups and not selected groups. You can select up to 256 groups.
-
-When selecting groups, you can search for groups or click the **Add** icon to add a new group.
-
+  - Choose **Exclude** to apply the exception rule to all other groups and not selected groups. You can select up to 256 groups. When selecting groups, you can search for groups or click the **Add** icon to add a new group.
 - **Departments**:You can specify how the DLP exception rule applies to your [departments](https://help.zscaler.com/zia/about-departments).
   - Choose **Include** to apply the exception rule to selected departments and no other departments. From the drop-down menu, choose **Any** to apply the rule to all departments or select up to 32 departments.
-  - Choose **Exclude** to apply the exception rule to all other departments and not selected departments. You can select up to 256 departments.
-
-When selecting departments, you can search for groups or click the **Add** icon to add a new department. If you’ve enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can also select special departments to apply this rule to all unauthenticated transactions.
+  - Choose **Exclude** to apply the exception rule to all other departments and not selected departments. You can select up to 256 departments. When selecting departments, you can search for groups or click the **Add** icon to add a new department. If you’ve enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can also select special departments to apply this rule to all unauthenticated transactions.
 
 Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic) must apply to all groups and departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.
 
 The DLP policy applies OR logic to the Users, Groups, and Departments fields when inspecting your organization’s traffic. In order for the DLP exception rule to trigger, the Zscaler service must detect at least one of the rule’s selected users, groups, or departments.
 
-- **User Risk Profile**: Select the user risk score levels to which the exception rule applies. Selecting no value ignores this criterion in the policy evaluation.
-
-Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level.
+- **User Risk Profile**: Select the user risk score levels to which the exception rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level.
 
 By default, the following user risk score levels are available:
 
@@ -9843,54 +9902,55 @@ Contact Zscaler Support to customize the user risk score range of these levels f
 - **Locations**: Select **Any** to apply the exception rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location or click the **Add** icon to add a new location. Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**.
 - **Location Groups**: Select **Any** to apply the exception rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
 - **Time**: Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/how-do-i-define-time-intervals), or select up to two time intervals. You can also search for a time interval or click the **Add** icon to add a new time interval.
-- **Protocols**: Select the protocols to which the exception rule applies. Zscaler inspects bidirectional WebSocket traffic carrying supported text-based content across applications. Contact Zscaler Support to enable this feature.
+- **Protocols**: Select the protocols to which the exception rule applies.
   - **HTTP**: Data transactions and file uploads from HTTP websites.
   - **HTTPS**: Data transactions and file uploads from HTTP websites encrypted by SSL/TLS.
   - **Native FTP**: Data transactions and file uploads from native FTP servers.
   - **WebSocket**: Data transactions from WebSocket websites.
   - **WebSocket SSL/TLS**: Data transactions from WebSocket websites encrypted by SSL/TLS.
+
+WebSocket protocol is supported only for the Microsoft Copilot application.
+
 - **Workload Groups**: Select up to 8 workload groups for which you want to apply the rule. You can also search for a workload group. Selecting **None** ignores workload groups when the policy is evaluated. To learn more, see [About Workload Groups](https://help.zscaler.com/zia/about-workload-groups).
 - **Inspect Downloads**: Enable this option to allow DLP inspection for content downloaded from specific cloud apps. If this option is enabled, you must also choose **Any** for **URL Categories** and at least one cloud app for **Cloud Application**. If disabled, the DLP exception rule only applies to content being sent to cloud apps. The Inspect Downloads feature does not apply to Exact Data Match (EDM) or Indexed Data Matching (IDM) engines.
 
-1. (Optional) Configure the **DLP Incident Receiver**settings:
-  - **ICAP**: Select the applicable ICAP receiver from the drop-down menu. You must [configure ICAP receivers](https://help.zscaler.com/zia/adding-icap-receiver) to complete this step.
-  - **Zscaler Incident Receiver**: Select the applicable Zscaler Incident Receiver from the drop-down menu. You must configure your [Zscaler Incident Receivers](https://help.zscaler.com/zia/configuring-zscaler-incident-receiver) to complete this step.
-  - **Cloud-to-Cloud Forwarding**: Select the applicable **Tenant** and **Cloud-to-Cloud Forwarding Configuration** from the drop-down menus. You must configure [Cloud-to-Cloud Forwarding](https://help.zscaler.com/zia/configure-dlp-cloud-cloud-incident-forwarding) to complete this step.
+(Optional) Configure the **DLP Incident Receiver**settings:
 
-Ensure that in your third-party DLP solution, you've configured a rule that detects the same data type as the exception rule you configure here. For example, if you configure a Zscaler DLP exception rule blocking credit card data, you must also configure a rule in your third-party solution blocking credit card data.
+- **ICAP**: Select the applicable ICAP receiver from the drop-down menu. You must [configure ICAP receivers](https://help.zscaler.com/zia/adding-icap-receiver) to complete this step.
+- **Zscaler Incident Receiver**: Select the applicable Zscaler Incident Receiver from the drop-down menu. You must configure your [Zscaler Incident Receivers](https://help.zscaler.com/zia/configuring-zscaler-incident-receiver) to complete this step.
+- **Cloud-to-Cloud Forwarding**: Select the applicable **Tenant** and **Cloud-to-Cloud Forwarding Configuration** from the drop-down menus. You must configure [Cloud-to-Cloud Forwarding](https://help.zscaler.com/zia/configure-dlp-cloud-cloud-incident-forwarding) to complete this step.
 
+Ensure that in your third-party DLP solution, you've configured a rule that detects the same data type as the exception rule you configure here. For example, if you configure a Zscaler DLP exception rule blocking credit card data, you must also configure a rule in your third-party solution blocking credit card data. 
 Otherwise, the information that Zscaler sends to your solution regarding a particular rule violation does not appear in your on-premises solution's dashboard. However, the rules do not need to correspond exactly. You don't need to ensure that other criteria for the rules, beyond the data type, correspond. For example, if a Zscaler DLP exception rule blocks credit card numbers going to a specific URL category, the rule in your on-premises DLP solution must also block credit card numbers, but needn't match the URL category criteria.
 
-1. Select the **Action** for the rule:
+In the **Action** section, select the action to apply when the rule conditions are met and configure the logging mode:
+
+- **Action**: Select the action for the rule: If the confirmation message times out without the end user taking action, the Zscaler service automatically cancels the transaction. To learn more, see [Configuring User Confirmation Notification Templates](https://help.zscaler.com/zia/configuring-user-confirmation-notification-templates).
   - **Allow**: The service allows and logs the transaction.
   - **Block**: The service blocks and logs the transaction.
   - **Confirm:**Users can justify the transaction to continue, or cancel the transaction altogether; in both cases, the service logs the transaction accordingly.
 
-If the confirmation message times out without the end user taking action, the Zscaler service automatically cancels the transaction. To learn more, see [Configuring User Confirmation Notification Templates](https://help.zscaler.com/zia/configuring-user-confirmation-notification-templates).
+In the **Details** section, provide general information about the DLP rule:
 
-1. (Optional) Define the following **Notification** settings:
-  - Configure an email notification for the rule. If you do not select an auditor and notification template, a notification is not sent for this rule.
-    - **Email Auditor Type**: Select whether the auditor is from a **Hosted** database or **External**to your organization.
-      - Select or search for**Email Auditor**if the auditor is from a hosted database.
-      - Select **Auditor Email Address**if the auditor is external, and enter the auditor’s email address.
-    - **Email Notification Template**: Select a [notification template](https://help.zscaler.com/zia/configuring-dlp-notification-templates) from the drop-down menu.
-  - Configure the End User Notification (EUN) for the rule. The type of EUN messages that appear on the endpoint depends on the **Action** configured for the rule.
-    - **End User Notification**: Select **Show** to show an EUN message on endpoints when content triggers the DLP policy rule, or select **Hide** if you don't want an EUN message to appear.
-    - **Custom Message**: Select **Default** to use the default EUN message configured for inline web DLP, or select a custom EUN message from the drop-down menu. You can also search for custom messages or click the **Add** icon to add a new custom message.
-2. (Optional) Enter a **Description** including additional notes or information. The description cannot exceed 10,240 characters.
-3. Click **Save** and [activate the change](https://help.zscaler.com/zia/saving-and-activating-changes-admin-portal).
+- **Rule Name**: Enter a unique name for the DLP rule or use the default name.
+- **Description**: (Optional) Enter any additional notes or information. The description cannot exceed 10,240 characters.
+- **Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
+- **Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled admin ranking, then the assigned admin rank determines the rule order values you can select.
+- **Severity**: Select the severity of the violation from the drop-down menu (i.e., **High**, **Medium**, **Low**, or**Information**).
+- **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The Zscaler service skips it and moves to the next rule.
 
-For example, for an exception rule using predefined Zscaler DLP engines configured as shown in the following image, the Zscaler service allows all PDF files that:
+(Optional) Define the following **Notification** settings:
 
-- Contain medical information
-- Are any size
-- Are sent via Gmail by Service Admin Group members
+- Configure an email notification for the rule. If you do not select an auditor and notification template, a notification is not sent for this rule.
+  - **Email Auditor Type**: Select whether the auditor is from a **Hosted** database or **External**to your organization.
+    - Select or search for**Email Auditor**if the auditor is from a hosted database.
+    - Select **Auditor Email Address**if the auditor is external, and enter the auditor’s email address.
+  - **Email Notification Template**: Select a [notification template](https://help.zscaler.com/zia/configuring-dlp-notification-templates) from the drop-down menu.
+- Configure the End User Notification (EUN) for the rule. The type of EUN messages that appear on the endpoint depends on the **Action** configured for the rule.
+  - **End User Notification**: Select **Show** to show an EUN message on endpoints when content triggers the DLP policy rule, or select **Hide** if you don't want an EUN message to appear.
+  - **Custom Message**: Select **Default** to use the default EUN message configured for inline web DLP, or select a custom EUN message from the drop-down menu. You can also search for custom messages or click the **Add** icon to add a new custom message.
 
-See image.
-
-[Image: ZIA DLP Rule with Click to See More in the Cloud Applications Field]
-
-[Image: Zscaler Sample DLP Exception Rule showing configuration options]
+[Image: Add DLP Rule with Click to See More in the Cloud Applications Field]
 
 Configuring a DLP policy rule to use rule order when Evaluate All Rules mode is enabled for your organization fundamentally resembles default Zscaler behavior, in that the Zscaler service stops evaluating rules at the first match. The biggest difference is that you have a single option to create a DLP rule, instead of initially choosing between [creating a DLP rule with content inspection](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection) or [creating a DLP rule without content inspection](https://help.zscaler.com/zia/configuring-dlp-policy-rules-without-content-inspection). Additionally, unlike configuring a DLP policy rule to evaluate all rules, you do not have the option to create exception rules.
 
@@ -9903,24 +9963,27 @@ To configure a DLP policy rule to use rule order:
 - [5. (Optional) Configure Cloud-to-Cloud Incident Forwarding](https://help.zscaler.com/zia/configure-dlp-cloud-cloud-incident-forwarding) to send metadata and evidence about transactions that violate DLP policy directly to your public cloud storage without deploying appliances.
 - 6. Define your policy rules.
 
-1. Go to **Policy** > **Data Loss Prevention**.
-2. Click **Add DLP Rule**.
-3. In the **Add DLP Rule** window:
-  1. Enter the following **DLP Rule** attributes:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Inline DLP** > **Data Loss Prevention**.
+2. Click **Add DLP Rule**. The **Add Rule** page appears.
+3. On the **Add Rule** page, configure the following:
+  - Criteria
+  - Actions
+  - Details
+  - DLP Incident Receiver
+  - Notification
+4. Click **Save** and [activate the change](https://help.zscaler.com/zia/saving-and-activating-changes-admin-portal).
 
-- **Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled admin ranking, then the assigned admin rank determines the rule order values you can select.
-- **Severity**: Select the severity of the violation from the drop-down menu (i.e., **High**, **Medium**, **Low**, or**Information**).
-- **Rule Name**: Enter a unique name for the DLP rule or use the default name.
-- **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The Zscaler service skips it and moves to the next rule.
-- **Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
+For example, if a policy rule using predefined Zscaler DLP engines is configured, the Zscaler service blocks all the files that:
 
-1. Define the following **Criteria**:
+- Contain medical information
+- Are over 1,000 KB in size
+- Are being sent by users in the Operations group through Gmail
+
+The Zscaler service sends an email notification regarding the policy violation to your organization's auditor but doesn't forward information to an incident receiver.
 
 - **Content Matching**: Choose **Select DLP Engines** to select up to 4 engines. You can also search for DLP engines. If you select **None**, then the Zscaler service doesn't use DLP engines to scan the content; instead, the service functions as a filter, only flagging content based on the criteria you specify.
   - If deselected, only one of the engines is required to trigger in order for the service to take action.
-  - If selected, all engines are required to trigger in order for the service to take action, and the transaction must not match any other engines from different rules.
-
-For example, you create a DLP rule with the PCI engine and select the **Match Only**option. In this case, the rule does not trigger when a transaction triggers both the PCI and HIPAA engine. It only triggers when a transaction triggers only the PCI engine.
+  - If selected, all engines are required to trigger in order for the service to take action, and the transaction must not match any other engines from different rules. For example, you create a DLP rule with the PCI engine and select the **Match Only**option. In this case, the rule does not trigger when a transaction triggers both the PCI and HIPAA engine. It only triggers when a transaction triggers only the PCI engine.
 
 The Zscaler DLP engines support files up to 400 MB and can scan the first 100 MB of the extracted text. The maximum size also applies to files extracted from archive files.
 
@@ -9930,8 +9993,8 @@ The Zscaler DLP engines support files up to 400 MB and can scan the first 100 MB
     - **File Content**: Matches are based on the actual content of the file, not including metadata.
     - **File Name**: Matches are based on the name of the file.
   - **HTTP Body**
-  - **HTTP Body**: Matches are based on the non-file body of the HTTP request. Matches are based on the body of the HTTP request. Note: you must also select non-file file type when selecting HTTP Body as a content location.
-- **Inspect HTTP GET Query Parameters**: You can configure DLP rules to inspect HTTP GET Query Parameters for the following URL categories: Generative AI and ML Applications, Safe Search Engines, Translation Tools, Web Search, and User-Defined Custom URL Categories. To enable, choose **Enable**for **Inspect HTTP GET Requests**, then select a URL category from the drop-down menu. To learn more, see [Configuring DLP Advanced Settings](https://help.zscaler.com/zia/configuring-dlp-advanced-settings). To select a user-defined custom URL category from the drop-down menu, go to the **DLP Advanced Settings** page (**Administration** > **DLP Advanced Settings**) and select a User-Defined URL. See Image.
+    - **HTTP Body**: Matches are based on the non-file body of the HTTP request. Matches are based on the body of the HTTP request. Note: you must also select non-file file type when selecting HTTP Body as a content location.
+- **Inspect HTTP GET Query Parameters**: You can configure DLP rules to inspect HTTP GET Query Parameters for the following URL categories: Generative AI and ML Applications, Safe Search Engines, Translation Tools, Web Search, and User-Defined Custom URL Categories. To enable, choose **Enable**for **Inspect HTTP GET Requests**, then select a URL category from the drop-down menu. To learn more, see [Configuring DLP Advanced Settings](https://help.zscaler.com/zia/configuring-dlp-advanced-settings). To select a user-defined custom URL category from the drop-down menu, go to the **DLP Advanced Settings** page (Data Security > Common Resources > DLP Advanced Settings) and select a User-Defined URL.
 - **Source IP Groups**: Select **Any** to apply the rule to all [source IP groups](https://help.zscaler.com/zia/about-source-ip-groups), or select any number of source IP groups. You can also search for source IP groups or click the **Add** icon to add a new [source IP group](https://help.zscaler.com/zia/configuring-source-ip-groups).
 - **URL Categories**: Select **Any** to apply the rule to all [URL categories](https://help.zscaler.com/zia/about-url-categories), or select any number of URL categories. You can search for URL categories or click the **Add** icon to create a new URL category. You can create DLP policy rules that apply to only content being sent to specific URL categories. For example, you can create a rule that blocks credit card numbers from being sent to websites in the Adult Material URL category.
 
@@ -9958,9 +10021,9 @@ The DLP policy applies AND logic to the URL Categories and Cloud Applications fi
 
 The cloud application instance appears only if its parent application is selected as the cloud application.
 
-- **ZPA Application Segment:** Select **Any** to apply the rule to all [Zscaler Private Access (ZPA) application segments](https://help.zscaler.com/zpa/configuring-application-segments), or select up to 255 ZPA application segments. You can also search for ZPA application segments.
+- **ZPA Application Segment:** Select **Any** to apply the rule to all [Private Access (ZPA) application segments](https://help.zscaler.com/zpa/configuring-application-segments), or select up to 255 Private Access application segments. You can also search for Private Access application segments.
 
-The list displays only those ZPA application segments that have the **Source IP Anchor**option enabled. To learn more, see [About Source IP Anchoring.](https://help.zscaler.com/zia/about-source-ip-anchoring)
+The list displays only those Private Access application segments that have the **Source IP Anchor**option enabled. To learn more, see [About Source IP Anchoring.](https://help.zscaler.com/zia/about-source-ip-anchoring)
 
 - **File Type**: From the drop-down menu, choose the file types for the rule. You can create DLP policy rules that apply just to content being sent via specific file types. Policies that reference Zscaler DLP engines support different file types than [policies that reference external DLP engines](https://help.zscaler.com/zia/configuring-policy-using-external-dlp-engines). Zscaler DLP engines can scan files of up to 100 MB. For an archived file, the size of individual files when decompressed can also be a maximum of 100 MB. You can also select [custom file types](https://help.zscaler.com/zia/configuring-custom-file-types) you have previously configured. Zscaler-defined file types are considered before custom file types and custom files inside archives are not detected.
 - **Minimum Data Size**: Enter the minimum size requirement that data must meet before the DLP rule applies. The default minimum data size, 0 KB, means there is no minimum data size requirement.
@@ -9982,9 +10045,7 @@ When selecting groups, you can search for groups or click the **Add** icon to ad
 
 When selecting departments, you can search for groups or click the **Add** icon to add a new department. If you’ve enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can also select special departments to apply this rule to all unauthenticated transactions.
 
-Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic) must apply to all groups and departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.
-
-The DLP policy applies OR logic to the Users, Groups, and Departments fields when inspecting your organization’s traffic. In order for the DLP rule to trigger, the Zscaler service must detect at least one of the rule’s selected users, groups, or departments.
+Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic) must apply to all groups and departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**. The DLP policy applies OR logic to the Users, Groups, and Departments fields when inspecting your organization’s traffic. In order for the DLP rule to trigger, the Zscaler service must detect at least one of the rule’s selected users, groups, or departments.
 
 - **User Risk Profile**: Select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation.
 
@@ -10002,75 +10063,66 @@ Contact Zscaler Support to customize the user risk score range of these levels f
 - **Locations**: Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location or click the **Add** icon to add a new location. Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**.
 - **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
 - **Time**: Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/how-do-i-define-time-intervals), or select up to two time intervals. You can also search for a time interval or click the **Add** icon to add a new time interval.
-- **Protocols**: Select the protocols to which the rule applies. Zscaler inspects bidirectional WebSocket traffic carrying supported text-based content across applications. Contact Zscaler Support to enable this feature.
+- **Protocols**: Select the protocols to which the rule applies.
   - **HTTP**: Data transactions and file uploads from HTTP websites.
   - **HTTPS**: Data transactions and file uploads from HTTP websites encrypted by SSL/TLS.
   - **Native FTP**: Data transactions and file uploads from native FTP servers.
   - **WebSocket**: Data transactions from WebSocket websites.
   - **WebSocket SSL/TLS**: Data transactions from WebSocket websites encrypted by SSL/TLS.
+
+The WebSocket protocol is supported only for the Microsoft Copilot application.
+
 - **Workload Groups**: Select up to 8 workload groups for which you want to apply the rule. You can also search for a workload group. Selecting **None** ignores workload groups when the policy is evaluated. To learn more, see [About Workload Groups](https://help.zscaler.com/zia/about-workload-groups).
 - **Inspect Downloads**: Enable this option to allow DLP inspection for content downloaded from specific cloud apps. If this option is enabled, you must also choose **Any** for **URL Categories** and at least one cloud app for **Cloud Application**. If disabled, the DLP rule only applies to content being sent to cloud apps. The Inspect Downloads feature does not apply to Exact Data Match (EDM) or Indexed Data Matching (IDM) engines.
 
-1. (Optional) Configure the **DLP Incident Receiver**settings:
-  - **ICAP**: Select the applicable ICAP receiver from the drop-down menu. You must [configure ICAP receivers](https://help.zscaler.com/zia/adding-icap-receiver) to complete this step.
-  - **Zscaler Incident Receiver**: Select the applicable Zscaler Incident Receiver from the drop-down menu. You must configure your [Zscaler Incident Receivers](https://help.zscaler.com/zia/configuring-zscaler-incident-receiver) to complete this step.
-  - **Cloud-to-Cloud Forwarding**: Select the applicable **Tenant** and **Cloud-to-Cloud Forwarding Configuration** from the drop-down menus. You must configure [Cloud-to-Cloud Forwarding](https://help.zscaler.com/zia/configure-dlp-cloud-cloud-incident-forwarding) to complete this step.
+On the **Add Rule** page, enter the following **DLP Rule** attributes:
 
-Ensure that in your third-party DLP solution, you've configured a rule that detects the same data type as the rule you configure here. For example, if you configure a Zscaler DLP rule blocking credit card data, you must also configure a rule in your third-party solution blocking credit card data.
-
-Otherwise, the information that Zscaler sends to your solution regarding a particular rule violation does not appear in your on-premises solution's dashboard. However, the rules do not need to correspond exactly. You don't need to ensure that other criteria for the rules, beyond the data type, correspond. For example, if a Zscaler DLP rule blocks credit card numbers going to a specific URL category, the rule in your on-premises DLP solution must also block credit card numbers, but needn't match the URL category criteria.
-
-1. Select the **Action** for the rule:
+- **Action**: Select the action for the rule: If the confirmation message times out without the end user taking action, the Zscaler service automatically cancels the transaction. To learn more, see [Configuring User Confirmation Notification Templates](https://help.zscaler.com/zia/configuring-user-confirmation-notification-templates).
   - **Allow**: The service allows and logs the transaction.
   - **Block**: The service blocks and logs the transaction.
   - **Confirm:**Users can justify the transaction to continue, or cancel the transaction altogether; in both cases, the service logs the transaction accordingly.
 
-If the confirmation message times out without the end user taking action, the Zscaler service automatically cancels the transaction. To learn more, see [Configuring User Confirmation Notification Templates](https://help.zscaler.com/zia/configuring-user-confirmation-notification-templates).
+In the **Details** section, provide general information about the DLP rule:
 
-1. (Optional) Define the following **Notification** settings:
-  - Configure an email notification for the rule. If you do not select an auditor and notification template, a notification is not sent for this rule.
-    - **Email Auditor Type**: Select whether the auditor is from a **Hosted** database or **External**to your organization.
-      - Select or search for**Email Auditor**if the auditor is from a hosted database.
-      - Select **Auditor Email Address**if the auditor is external, and enter the auditor’s email address.
-    - **Email Notification Template**: Select a [notification template](https://help.zscaler.com/zia/configuring-dlp-notification-templates) from the drop-down menu.
-  - Configure the End User Notification (EUN) for the rule. The type of EUN messages that appear on the endpoint depends on the **Action** configured for the rule.
-    - **End User Notification**: Select **Show** to show an EUN message on endpoints when content triggers the DLP policy rule, or select **Hide** if you don't want an EUN message to appear.
-    - **Custom Message**: Select **Default** to use the default EUN message configured for inline web DLP, or select a custom EUN message from the drop-down menu. You can also search for custom messages or click the **Add** icon to add a new custom message.
-2. **Description**: (Optional) Enter an additional notes or information. The description cannot exceed 10,240 characters.
-3. Click **Save** and [activate the change](https://help.zscaler.com/zia/saving-and-activating-changes-admin-portal).
+- **Rule Name**: Enter a unique name for the DLP rule or use the default name.
+- **Description**: (Optional) Enter any additional notes or information. The description cannot exceed 10,240 characters.
+- **Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
+- **Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule’s place in the order. You can change the value, but if you’ve enabled admin ranking, then the assigned admin rank determines the rule order values you can select.
+- **Severity**: Select the severity of the violation from the drop-down menu (i.e., **High**, **Medium**, **Low**, or**Information**).
+- **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The Zscaler service skips it and moves to the next rule.
 
-For example, if a policy rule using predefined Zscaler DLP engines is configured as shown in the following image, the Zscaler service blocks all the files that:
+(Optional) Configure the **DLP Incident Receiver**settings:
 
-- Contain medical information
-- Are over 1,000 KB in size
-- Are being sent by users in the Operations group through Gmail
+- **ICAP**: Select the applicable ICAP receiver from the drop-down menu. You must [configure ICAP receivers](https://help.zscaler.com/zia/adding-icap-receiver) to complete this step.
+- **Zscaler Incident Receiver**: Select the applicable Zscaler Incident Receiver from the drop-down menu. You must configure your [Zscaler Incident Receivers](https://help.zscaler.com/zia/configuring-zscaler-incident-receiver) to complete this step.
+- **Cloud-to-Cloud Forwarding**: Select the applicable **Tenant** and **Cloud-to-Cloud Forwarding Configuration** from the drop-down menus. You must configure [Cloud-to-Cloud Forwarding](https://help.zscaler.com/zia/configure-dlp-cloud-cloud-incident-forwarding) to complete this step.
 
-The Zscaler service sends an email notification regarding the policy violation to your organization's auditor but doesn't forward information to an incident receiver.
+Ensure that in your third-party DLP solution, you've configured a rule that detects the same data type as the rule you configure here. For example, if you configure a Zscaler DLP rule blocking credit card data, you must also configure a rule in your third-party solution blocking credit card data. 
+Otherwise, the information that Zscaler sends to your solution regarding a particular rule violation does not appear in your on-premises solution's dashboard. However, the rules do not need to correspond exactly. You don't need to ensure that other criteria for the rules, beyond the data type, correspond. For example, if a Zscaler DLP rule blocks credit card numbers going to a specific URL category, the rule in your on-premises DLP solution must also block credit card numbers, but needn't match the URL category criteria.
 
-See image.
+(Optional) Define the following **Notification** settings:
 
-[Image: DLP Engines Sample Rule showing configuration options]
+- Configure an email notification for the rule. If you do not select an auditor and notification template, a notification is not sent for this rule.
+  - **Email Auditor Type**: Select whether the auditor is from a **Hosted** database or **External**to your organization.
+    - Select or search for**Email Auditor**if the auditor is from a hosted database.
+    - Select **Auditor Email Address**if the auditor is external, and enter the auditor’s email address.
+  - **Email Notification Template**: Select a [notification template](https://help.zscaler.com/zia/configuring-dlp-notification-templates) from the drop-down menu.
+- Configure the End User Notification (EUN) for the rule. The type of EUN messages that appear on the endpoint depends on the **Action** configured for the rule.
+  - **End User Notification**: Select **Show** to show an EUN message on endpoints when content triggers the DLP policy rule, or select **Hide** if you don't want an EUN message to appear.
+  - **Custom Message**: Select **Default** to use the default EUN message configured for inline web DLP, or select a custom EUN message from the drop-down menu. You can also search for custom messages or click the **Add** icon to add a new custom message.
 
 [Image: ZIA DLP Rule with Click to See More in the Cloud Applications Field]
-
-[Image: Enable Inspect Get Requests and select URL Categories]
-
-[Image: Enable Inspect Get Requests and select URL Categories]
-
-[Image: Enable Inspect Get Requests and select URL Categories]
-
-[Image: Inspect App Segments option for the ZPA Application Segment field]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-without-content-inspection","lastmod":"2026-09-20T07:06Z","nid":"1400126"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-without-content-inspection","lastmod":"2026-09-27T07:06Z","nid":"1400126"} -->
 ## Configuring DLP Policy Rules without Content Inspection
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-policy-rules-without-content-inspection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Configuring DLP Policy Rules without Content Inspection
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-09-27T07:06Z
 - Summary: How to configure a Data Loss Prevention (DLP) policy for the Zscaler service using external DLP engines.
 
 This article does not apply to organizations with Evaluate All Rules mode enabled. To learn more, see [Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled](https://help.zscaler.com/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled).
@@ -10079,151 +10131,185 @@ When you configure a Rule Without Content Inspection policy, you do not use Zsca
 
 To configure a DLP policy rule without content inspection:
 
-- [1. Configure DLP notification templates](https://help.zscaler.com/zia/how-do-i-configure-dlp-notifications) if you want to email notifications to your organization's auditor when your users' transactions violate DLP policy rules.
-- [2. (Optional) Configure ICAP receivers](https://help.zscaler.com/zia/adding-icap-receiver) if you want to forward information about transactions that violate DLP policy to your third-party solution. Skip this step if you don't have a third-party DLP solution or if you don't want to forward content.
-- [3. (Optional) Configure a Zscaler Incident Receiver](https://help.zscaler.com/zia/about-zscaler-incident-receiver) to forward information about content that triggers an outbound email policy rule to your Incident Receiver via secure Internet Content Adaptation Protocol (ICAP). Zscaler does not take ICAP responses from your Incident Receiver; instead, the service only monitors or blocks content according to the policy you configure, then forwards information about activities so that your organization can take necessary remediation steps.
-- [4. (Optional) Configure Cloud-to-Cloud Incident Forwarding](https://help.zscaler.com/zia/configure-dlp-cloud-cloud-incident-forwarding) to send metadata and evidence about transactions that violate a DLP policy rule directly to your public cloud storage without deploying appliances.
-- 5. Define your policy rules.
+- 1. Understand policy execution.
+- 2. Ensure completion of prerequisite tasks.
+- [3. Configure DLP notification templates](https://help.zscaler.com/zia/how-do-i-configure-dlp-notifications) if you want to email notifications to your organization's auditor when your users' transactions violate DLP policy rules.
+- [4. (Optional) Configure ICAP receivers](https://help.zscaler.com/zia/adding-icap-receiver) if you want to forward information about transactions that violate DLP policy to your third-party solution. Skip this step if you don't have a third-party DLP solution or if you don't want to forward content.
+- [5. (Optional) Configure a Zscaler Incident Receiver](https://help.zscaler.com/zia/about-zscaler-incident-receiver) to forward information about content that triggers an outbound email policy rule to your Incident Receiver via secure Internet Content Adaptation Protocol (ICAP). Zscaler does not take ICAP responses from your Incident Receiver; instead, the service only monitors or blocks content according to the policy you configure, then forwards information about activities so that your organization can take necessary remediation steps.
+- [6. (Optional) Configure Cloud-to-Cloud Incident Forwarding](https://help.zscaler.com/zia/configure-dlp-cloud-cloud-incident-forwarding) to send metadata and evidence about transactions that violate a DLP policy rule directly to your public cloud storage without deploying appliances.
+- 7. Define your policy rules.
 
-1. Go to **Policy**>**Data Loss Prevention**.
-2. Click **Add DLP Rule**.
-3. In the **Add DLP Rule** window:
-  1. Enter the following **DLP Rule** attributes:
+The DLP policy supports different rule conditions, grouped into categories. A series of `AND` and `OR` logical operators are applied between these criteria to form a combination of rule set that is used to evaluate for traffic matches. The logical relationship between the categories is `AND`, and the rule conditions within each category have their own set of logical operators applied, explained as follows:
 
-- **Rule Order**: Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule's place in the order. You can change the value, but if you've enabled [admin ranking](https://help.zscaler.com/zia/about-admin-rank), your assigned admin rank determines the rule order values you can select.
-- **Admin Rank**: Enter a value from 0 to 7 (0 is the highest rank). Your assigned [admin rank](https://help.zscaler.com/zia/what-admin-rank) determines the values you can select. You cannot select a rank that is higher than your own. The rule’s admin rank determines the value you can select in the rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
-- **Rule Name**: Enter a unique name for the DLP rule or use the default name.
-- **Rule Status**: An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order. The service skips it and moves to the next rule.
-- **Rule Label**: Select a rule label to associate it with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
+- **Who**: [ Users `OR` Groups `OR` Departments `OR` Workload Groups] `AND`
+- **Source and Destinations**: [ URL Categories `AND` Cloud Applications `AND` ZPA Application Segment `AND` Source IP Groups `AND` Locations `AND` Location Groups ] `AND`
+- **When**: Time `AND`
+- **What**: [ User Risk Score `AND` Content Matching `AND` File Types `AND` Minimum Data Size (KB) `AND` Protocols ]
 
-1. Define the following **Criteria**:
+Before adding rules to the DLP policy, ensure that you have configured the resources that the policy references, per your requirements:
 
-- **Content Matching**: Select **None** to use a third-party DLP solution instead of Zscaler DLP engines to inspect content. In this scenario, the Zscaler service does not scan the content with its DLP engines but functions as a filter, only forwarding content based on specific criteria. See image.
-- **Source IP Groups**: Select **Any** to apply the rule to all [source IP groups](https://help.zscaler.com/zia/about-source-ip-groups), or select any number of source IP groups. You can also search for source IP groups or click the **Add** icon to add a new [source IP group](https://help.zscaler.com/zia/configuring-source-ip-groups).
-- **URL Categories**:Select **Any** to apply the rule to all [URL categories](https://help.zscaler.com/zia/about-url-categories), or select any number of URL categories. You can search for URL categories or click the **Add** icon to create a new URL category. With this option, you can have Zscaler forward content being sent to specific URL categories (for example, content going to websites in the Adult Material URL category).
+- [Users](https://help.zscaler.com/zia/about-users), [groups](https://help.zscaler.com/zia/about-groups), [departments](https://help.zscaler.com/zia/about-departments), [locations](https://help.zscaler.com/zia/about-locations), user risk profile, and [sublocations](https://help.zscaler.com/zia/understanding-sublocations) to which the IPS Control policy rules apply.
+- [Location groups](https://help.zscaler.com/zia/about-location-groups)
+- [Time intervals](https://help.zscaler.com/zia/about-time-intervals)
+- [Workload groups](https://help.zscaler.com/zia/about-workload-groups)
+- [Cloud Applications](https://help.zscaler.com/zia/about-cloud-applications)
+- [Source](https://help.zscaler.com/zia/configuring-source-ip-groups) and [destination](https://help.zscaler.com/zia/configuring-destination-ip-groups) IP address groups.
 
-You can also select [custom TLD categories](https://help.zscaler.com/zia/about-tld-categories) from this field.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Inline DLP** > **Data Loss Prevention**.
+2. Click **Add Rule**.
+3. On the **Add Rule** page, you can configure the following sections:
+  - Criteria
+  - Actions
+  - DLP Incident Receiver
+  - Notification
+4. Save and [activate the change.](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console)
 
-- **Cloud Applications**:Select **Any** to apply the rule to all cloud applications, or select any number of cloud applications. You can also search for applications. With this option, you can have Zscaler forward content being sent to specific cloud applications (e.g., Facebook).
+To learn how to use the Zscaler DLP engines to detect data and also forward information about the data to your third-party DLP solution, see [Configuring DLP Policy Rules with Content Inspection](https://help.zscaler.com/zia/configuring-policy-using-zscaler-dlp-engines).
 
-By default, this field displays the first 100 cloud applications. The subsequent 100 cloud applications are displayed when you select **Click to see more** following the list. You can repeat this process to view the remaining cloud applications.
+In the **Criteria**section, when you click **Add Criteria**, you see the rule condition categories in gray (e.g., Source IP) and the individual rule conditions (e.g., Source IP Groups) under each category.
 
 See image.
 
-The DLP policy applies AND logic to the URL Categories and Cloud Applications fields when inspecting your organization's traffic. In order for a DLP rule to trigger, the Zscaler service must detect the rule’s selected URL categories and cloud applications in a transaction.
+After you click on the various conditions, you notice that some conditions contain preconfigured values (e.g., Users and Locations) and others require manual value specification (e.g., IP Addresses).
 
-- **Email Recipient Domain Profiles** (Gmail and Outlook): Choose **Include** to apply the rule only to the selected [domain profiles](https://help.zscaler.com/zia/about-domain-profiles), or choose **Exclude** to apply the rule to all other domain profiles and not selected domain profiles. You can select up to 8 domain profiles, and you can search for domain profiles.
-- **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule.
+- Criteria with Preconfigured Values
+- Criteria Requiring Manual Value Specification
 
-The cloud application instance appears only if its parent application is selected as the cloud application.
+Refer to the following condition categories for details on configuring their individual conditions:
 
-- **ZPA Application Segment:** Select **Any** to apply the rule to all [Zscaler Private Access (ZPA) application segments](https://help.zscaler.com/zpa/configuring-application-segments), or select up to 255 ZPA application segments. You can also search for ZPA application segments. The list displays only those ZPA application segments that have the [Source IP Anchor](https://help.zscaler.com/zia/understanding-source-ip-anchoring)option enabled. If you select the**Inspect App Segments** option from the list, then the configured rule applies to all the ZPA application segments paired to your ZIA tenant. This option is only available if the **SIPA App Segments** subscription is enabled for your organization. See image.
-- **Outbound Data**:Choose **Select File Types**if you want to select the file types the rule applies to, or **All**if you want the rule to apply to all outbound data, regardless of file type.
-  - **File Type**:This is only applicable if you choose **Select File Types**.Select the file types you want the rule to apply to. You can select any number of file types and also search for file types. You can also select [custom file types](https://help.zscaler.com/zia/configuring-custom-file-types) you have previously configured. Zscaler-defined file types are considered before custom file types and custom files inside archives are not detected.
-- **Minimum Data Size**:Enter the data size a file must exceed in order for the rule to apply. For example, if you enter 100, the rule applies only if a file exceeds 100 KB. The default minimum data size, 0 KB, means that the rule applies to files of any size.
-- **Users**: You can specify how the DLP rule applies to your [users](https://help.zscaler.com/zia/about-users).
-  - Choose **Include** to apply the rule to selected users and no other users. From the drop-down menu, choose **Any** to apply the rule to all users or select up to 32 users.
-  - Choose **Exclude** to apply the rule to all other users and not selected users. You can select up to 256 users.
+- What
+- Who
+- Where
+- When
 
-When selecting users, you can search for users or click the **Add** icon to add a new user. If you’ve enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic), you can also select special users to apply this rule to all unauthenticated users or select specific types of unauthenticated users.
+See image.
 
-- **Groups**:You can specify how the DLP rule applies to your [groups](https://help.zscaler.com/zia/about-groups).
-  - Choose **Include** to apply the rule to selected groups and no other groups. From the drop-down menu, choose **Any** to apply the rule to all groups or select up to 32 groups.
-  - Choose **Exclude** to apply the rule to all other groups and not selected groups. You can select up to 256 groups.
+To remove an individual condition from the rule, click the **Delete** icon. You can expand or collapse individual criteria tiles as needed.
 
-When selecting groups, you can search for groups or click the **Add** icon to add a new group.
+In the **Actions** section, select the action to apply when the rule conditions are met and configure the logging mode:
 
-- **Departments**:You can specify how the DLP rule applies to your [departments](https://help.zscaler.com/zia/about-departments).
-  - Choose **Include** to apply the rule to selected departments and no other departments. From the drop-down menu, choose **Any** to apply the rule to all departments or select up to 32 departments.
-  - Choose **Exclude** to apply the rule to all other departments and not selected departments. You can select up to 256 departments.
+- **Data Traffic**: Choose the action that the Zscaler service must apply when packets match the rule:
+  - **Allow**: Allow the packets to pass through the DLP rule.
+  - **Block**: Block the packets to pass through the DLP rule.
+- **Details**: In the Details section, provide general information about the DLP rule:
+  - **Rule Name**: A system-generated rule name is automatically populated, and the name can be edited. The name cannot exceed 63 characters.
+  - **Description**: (Optional) Click **Add Description** and enter additional notes or information about the rule in the text field. You can adjust this field's size as needed, depending on your content length. The description cannot exceed 10,240 characters.
+  - **Rule Label**: (Optional) Click **Add Rule Label** and select a [label](https://help.zscaler.com/zia/about-rule-labels) from the drop-down menu.
+  - **Rule Order**: A rule order is automatically assigned and displayed. It determines the rule's position in the ascending order of evaluation used for all rules within the policy. You can modify the rule order, but if you've enabled [Admin Rank](https://help.zscaler.com/zia/about-admin-rank), your assigned admin rank determines the rule order values you can select. To modify the rule order:
+    1. Click **Edit**.
+    2. In the **Edit Rule Order** drawer that appears, enter the required rule order under **Current Rule**. You can review the existing rules shown in the drawer and modify your current rule order. You can also adjust the number of rules displayed per page and navigate through the next and previous pages.
+    3. Click **Apply**.
+  - **Admin Rank**: Click **Edit** and select an admin rank 0 to 7 (0 is the highest rank) from the drop-down menu. This option appears if you enable [Admin Ranking](https://help.zscaler.com/zia/about-admin-rank) on the [Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings) page. Your assigned admin rank determines the values you can select (e.g., you cannot select a rank higher than your own). The rule's admin rank determines the value you can select for rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
+  - **Rule Status**:By default, the status is **Disabled**. You need to enable the rule to activate and enforce it on your traffic. Disabled rules can have a rule order assigned. During evaluation, the service skips the disabled rules and moves to the successive ones.
 
-When selecting departments, you can search for groups or click the **Add** icon to add a new department. If you’ve enabled the [Policy for Unauthenticated Traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic), you can also select special departments to apply this rule to all unauthenticated transactions.
+See image.
 
-Any rule that applies to [unauthenticated traffic](https://help.zscaler.com/zia/how-do-i-configure-policy-unauthenticated-traffic) must apply to all groups and departments. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.
+Configure the **DLP Incident Receiver**settings:
 
-The DLP policy applies OR logic to the Users, Groups, and Departments fields when inspecting your organization’s traffic. In order for the DLP rule to trigger, the Zscaler service must detect at least one of the rule’s selected users, groups, or departments.
+- **ICAP**: Select the applicable ICAP receiver from the drop-down menu. You must [configure ICAP receivers](https://help.zscaler.com/zia/adding-icap-receiver) to complete this step.
+- **Zscaler Incident Receiver**: Select the applicable Zscaler Incident Receiver from the drop-down menu. You must configure your [Zscaler Incident Receivers](https://help.zscaler.com/zia/configuring-zscaler-incident-receiver) to complete this step.
+- **Cloud-to-Cloud Forwarding**: Select the applicable **Tenant** and **Cloud-to-Cloud Forwarding Configuration** from the drop-down menus. You must configure [Cloud-to-Cloud Forwarding](https://help.zscaler.com/zia/configure-dlp-cloud-cloud-incident-forwarding) to complete this step. Ensure that in your third-party DLP solution, you have configured a policy rule that detects the same file type as the rule you configure here. For example, if you configure an External DLP Engine rule that specifies PDFs for file type criteria, you must also configure a rule in your third-party solution that specifies PDFs as a file type criterion. Otherwise, the information that the Zscaler service sends to your solution regarding a particular rule violation does not appear in your on-premises solution's dashboard. The rules do not need to correspond exactly in other criteria. For example, an External DLP Engine rule blocks PDFs going to a specific URL category. The rule in your on-premises DLP solution must also block PDFs, but need not specify the same URL category.
 
-- **User Risk Profile**: Select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation.
+In the **Notification** section, you can enable end user notifications (EUNs) and Auditor to be triggered by the rule when **Block** actions are configured and select the notification message that appears:
 
-Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level.
+EUN is supported only with Block actions and requires Advanced DLP rule. To learn more, see [Configuring EUNs for Inline Web DLP](https://help.zscaler.com/zia/configuring-euns-inline-web-dlp). Also, if you do not select an auditor and [Notification Template](https://help.zscaler.com/zia/about-dlp-notification-templates), a notification will not be sent for this rule.
 
-By default, the following user risk score levels are available:
+- **Auditor Type**: Select whether the auditor is from a **Hosted** database or **External**.
+- **Auditor**: If the auditor is from the hosted database, select an auditor or search for an auditor.
+- **Auditor Notification Template**: Select a notification template if you configured one. You can also search for a notification template or click the Add icon to add a new notification template.
+- **Email Notification Template**: Select a [notification template](https://help.zscaler.com/zia/configuring-dlp-notification-templates) from the drop-down menu.
+- Configure the End User Notification (EUN) for the rule. The type of EUN messages that appear on the endpoint depends on the **Action** configured for the rule.
+  - **End User Notification**: Select **Show** to show an EUN message on endpoints when content triggers the DLP policy rule, or select **Hide** if you don't want an EUN message to appear.
+  - **Custom Message**: Select **Default** to use the default EUN message configured for inline web DLP, or select a custom EUN message from the drop-down menu. You can also search for custom messages or click the **Add** icon to add a new custom message.
 
-- **Low**: Level with user risk scores ranging from 0 to 29
-- **Medium**: Level with user risk scores ranging from 30 to 59
-- **High**: Level with user risk scores ranging from 60 to 79
-- **Critical**: Level with user risk scores ranging from 80 to 100
+See image.
 
-Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+For conditions with preconfigured values, a multi-select window with a search bar appears. You can select values by selecting the checkbox for individual items or by clicking **Select All**. After selecting the values, click outside the window to close it.
 
+To clear selected items, click the field to open the multi-select window, then use the **Remove** icon displayed for individual entries. To remove all selected values, click **Remove All**.
+
+See image.
+
+For conditions without preconfigured values, manually enter the value in the field, then click **Add**. To add multiple entries, enter each value and click **Add** or press `Enter`.
+
+You can also perform the following actions:
+
+- Remove items by clicking the **Delete** icon for individual entries or by using the **Remove All** option.
+- The entries are paginated, and you can select the number of items to display per page.
+- You can specify the page number to view, or use the **Next** and **Previous** icons to navigate through different pages.
+
+See image.
+
+Contact Zscaler Support to increase the default limit for **Users**, **Groups**, **Departments**, or **User Risk Profile**:
+
+- **Users**: Choose **Include** to apply the rule to selected users and no other users. Choose **Any**to apply the rule to all users or select up to 4 users. Choose **Exclude** to apply the rule to all other users and not selected users. You can select up to 256 users. When selecting users, you can search for users or click the **Add** icon to add a new user. If applicable, you can also select **unauthenticated users**.
+- **Groups**: Choose **Include** to apply the rule to selected groups and no other groups. Choose **Any** to apply the rule to all groups or select up to 8 groups. Choose **Exclude** to apply the rule to all other groups and not selected groups. You can select up to 256 groups. When selecting groups, you can search for groups or click the **Add** icon to add a new group.
+- **Departments**: Choose **Include** to apply the rule to selected departments and no other departments. Choose **Any** to apply the rule to all departments or select up to 8 departments. Choose **Exclude** to apply the rule to all other departments and not selected departments. You can select up to 256 departments.
+- **Workload Groups**: Select the [workload groups](https://help.zscaler.com/zia/about-workload-groups) for which you want to apply the rule. Selecting **None** ignores this criterion during policy evaluation.
+
+If you do not select specific values for any of these fields, the field is set to **Any** by default, and the criterion is ignored during policy evaluation.
+
+If you've enabled the policy for unauthenticated users under[Advanced Settings](https://help.zscaler.com/zia/about-advanced-settings) and want to apply this rule to unauthenticated traffic, you can do so by making selections accordingly in the **Users**and **Departments**fields. To learn more, see [Configuring Policies for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic).
+
+- **URL Categories**: Select **Any** to apply the rule to all [URL categories](https://help.zscaler.com/zia/about-url-categories), or select any number of URL categories. You can search for URL categories or click the **Add** icon to create a new URL category. With this option, you can have Zscaler forward content being sent to specific URL categories (for example, content going to websites in the Adult Material URL category).
+- **Cloud Applications**: Select Any to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
+- **ZPA Application Segment:** Select **Any** to apply the rule to all [Private Access (ZPA) application segments](https://help.zscaler.com/zpa/configuring-application-segments), or select up to 255 Private Access application segments. You can also search for Private Access application segments. The list displays only those Private Access application segments that have the [Source IP Anchor](https://help.zscaler.com/zia/understanding-source-ip-anchoring)option enabled. If you select the**Inspect App Segments** option from the list, then the configured rule applies to all the Private Access application segments paired to your Internet & SaaS (ZIA) tenant. This option is only available if the **SIPA App Segments** subscription is enabled for your organization.
+- **Source IP Groups**: Select **Any** to apply the rule to all [source IP groups](https://help.zscaler.com/zia/about-source-ip-groups), or select any number of source IP groups. You can also search for source IP groups or click the **Add** icon to add a new [source IP group](https://help.zscaler.com/zia/configuring-source-ip-groups).
 - **Locations**: Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. You can also search for a location or click the **Add**icon to add a new location. Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**.
-- **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
-- **Time**: Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/about-time-intervals), or select up to two time intervals. You can also search for a time interval or click the **Add**icon to add a new time interval.
-- **Protocols**: Select the protocols to which the rule applies. Zscaler inspects bidirectional WebSocket traffic carrying supported text-based content across applications. Contact Zscaler Support to enable this feature.
+- **Location Groups**: Select up to 32 [location groups](https://help.zscaler.com/zia/about-location-groups) to which the rule applies. If you do not select specific location groups, the field is set to **Any**by default, and this criterion is ignored during policy evaluation.
+
+**Time**: Select up to two [time intervals](https://help.zscaler.com/zia/defining-time-intervals) during which the rule applies. By default, the field is set to **Always**.
+
+- **User Risk Profile**: You can select up to 4 user risk profiles (i.e., Critical, High, Low, and Medium). Selecting no values ignores this criterion from the policy evaluation.
+- **Content Matching**: Select **None** to use a third-party DLP solution instead of Zscaler DLP engines to inspect content. In this scenario, the Zscaler service does not scan the content with its DLP engines but functions as a filter, only forwarding content based on specific criteria. See image.
+- **Outbound Data**:Choose **Select File Types**if you want to select the file types the rule applies to, or **All**if you want the rule to apply to all outbound data, regardless of file type.
+- **File Type**:This is only applicable if you choose **Select File Types**.Select the file types you want the rule to apply to. You can select any number of file types and also search for file types. You can also select [custom file types](https://help.zscaler.com/zia/configuring-custom-file-types) you have previously configured.
+- Zscaler-defined file types are considered before custom file types and custom files inside archives are not detected.
+- **Content Locations**: Select the content locations that are inspected for sensitive data.
+- **File types**: Select **Any** to apply the rule to all file types, or select any number of file types. You can also search for file types. Note that the file types supported by Zscaler DLP Engine rules differ from those supported by External DLP Engine rules.
+- **Minimum Data Size (KB)**: Enter the data size a file must exceed in order for the rule to apply. For example, if you enter 100, the rule applies only if a file exceeds 100 KB. The default minimum data size, 0 KB, means that the rule applies to files of any size.
+- **Protocols**: Select the protocols to which the rule applies.
   - **HTTP**: Data transactions and file uploads from HTTP websites.
   - **HTTPS**: Data transactions and file uploads from HTTP websites encrypted by SSL/TLS.
   - **Native FTP**: Data transactions and file uploads from native FTP servers.
   - **WebSocket**: Data transactions from WebSocket websites.
-  - **WebSocket SSL/TLS**: Data transactions from WebSocket websites encrypted by SSL/TLS.
-- **Workload Groups**: Select up to 8 workload groups for which you want to apply the rule. You can also search for a workload group. Selecting **None** ignores workload groups when the policy is evaluated. To learn more, see [About Workload Groups](https://help.zscaler.com/zia/about-workload-groups).
+  - **WebSocket SSL/TLS**: Data transactions from WebSocket websites encrypted by SSL/TLS. Zscaler inspects bidirectional WebSocket traffic carrying supported text-based content across applications. Contact Zscaler Support to enable this feature.
 
-1. (Optional) Configure the **DLP Incident Receiver**settings:
-  - **ICAP**: Select the applicable ICAP receiver from the drop-down menu. You must [configure ICAP receivers](https://help.zscaler.com/zia/adding-icap-receiver) to complete this step.
-  - **Zscaler Incident Receiver**: Select the applicable Zscaler Incident Receiver from the drop-down menu. You must configure your [Zscaler Incident Receivers](https://help.zscaler.com/zia/configuring-zscaler-incident-receiver) to complete this step.
-  - **Cloud-to-Cloud Forwarding**: Select the applicable **Tenant** and **Cloud-to-Cloud Forwarding Configuration** from the drop-down menus. You must configure [Cloud-to-Cloud Forwarding](https://help.zscaler.com/zia/configure-dlp-cloud-cloud-incident-forwarding) to complete this step.
+[Image: Selecting values for fields with predefined values in a DLP rule]
 
-Ensure that in your third-party DLP solution, you have configured a policy rule that detects the same file type as the rule you configure here. For example, if you configure an External DLP Engine rule that specifies PDFs for file type criteria, you must also configure a rule in your third-party solution that specifies PDFs as a file type criterion.
+[Image: Specifying a field value manually in a DLP rule]
 
-Otherwise, the information that the Zscaler service sends to your solution regarding a particular rule violation does not appear in your on-premises solution's dashboard. The rules do not need to correspond exactly in other criteria. For example, an External DLP Engine rule blocks PDFs going to a specific URL category. The rule in your on-premises DLP solution must also block PDFs, but need not specify the same URL category.
+[Image: List of criteria grouped into categories in DLP rule]
 
-1. Select the **Action** for the rule:
-  - **Allow**: The service allows and logs the transaction.
-  - **Block**: The service blocks and logs the transaction.
-  - **Confirm:**Users can justify the transaction to continue, or cancel the transaction altogether; in both cases, the service logs the transaction accordingly. Admins can choose to display a default template or a custom template. To learn more, see [Configuring User Confirmation Notification Templates](https://help.zscaler.com/zia/configuring-user-confirmation-notification-templates).
+[Image: Selecting criteria and building a ruleset for matching traffic in DLP rule]
 
-If the confirmation message times out without the end user taking action, the Zscaler service automatically cancels the transaction. To learn more, see [Configuring User Confirmation Notification Templates](https://help.zscaler.com/zia/configuring-user-confirmation-notification-templates).
+[Image: Specifying details about the DLP rule, including name, description, rule order, rank, status, and label]
 
-1. (Optional) Define the following **Notification** settings:
-  - Configure an email notification for the rule. If you do not select an auditor and notification template, a notification is not sent for this rule.
-    - **Email Auditor Type**: Select whether the auditor is from a **Hosted** database or **External**to your organization.
-      - Select or search for **Email Auditor i**f the auditor is from a hosted database.
-      - Select **Auditor Email Address** if the auditor is external, and enter the auditor’s email address.
-    - **Email Notification Template**: Select a [notification template](https://help.zscaler.com/zia/configuring-dlp-notification-templates) from the drop-down menu.
-  - Configure the End User Notification (EUN) for the rule. The type of EUN messages that appear on the endpoint depends on the **Action** configured for the rule.
-    - **End User Notification**: Select **Show** to show an EUN message on endpoints when content triggers the DLP policy rule, or select **Hide** if you don't want an EUN message to appear.
-    - **Custom Message**: Select **Default** to use the default EUN message configured for inline web DLP, or select a custom EUN message from the drop-down menu. You can also search for custom messages or click the **Add** icon to add a new custom message.
-2. (Optional) Enter a **Description**. The description cannot exceed 10,240 characters.
-3. Click **Save** and [activate the change](https://help.zscaler.com/zia/saving-and-activating-changes-admin-portal).
+[Image: Enabling or disabling notification for DLP rule and selecting notification message]
 
-To learn how to use the Zscaler DLP engines to detect data and also forward information about the data to your third-party DLP solution, see [Configuring DLP Policy Rules with Content Inspection](https://help.zscaler.com/zia/configuring-policy-using-zscaler-dlp-engines).
-
-[Image: Screenshot of Zscaler Internet Access (ZIA) Add DLP Rule Criteria with Content Matching set to none]
-
-[Image: Screenshot of Zscaler Internet Access (ZIA) Add DLP Rule with Click to See More in the Cloud Applications Field]
-
-[Image: Screenshot of the Inspect App Segments option for the ZPA Application Segment field]
+[Image: Add DLP Rule Criteria without Content Matching set to none]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dns-application-groups","lastmod":"2026-05-29T08:22Z","nid":"1400681"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dns-application-groups","lastmod":"2026-09-21T04:35Z","nid":"1400681"} -->
 ## Configuring DNS Application Groups
 
 - Source: https://help.zscaler.com/zia/configuring-dns-application-groups
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > Configuring DNS Application Groups
-- Last modified: 2026-05-29T08:22Z
+- Last modified: 2026-09-21T04:35Z
 - Summary: How to create DNS application groups that allow grouping together DNS tunnel types and specific web applications for use in DNS policy rules.
 
 You can group together [DNS tunnels](https://help.zscaler.com/zia/detecting-and-controlling-dns-tunnels) and web applications using DNS application groups to manage them via [DNS Control rules](https://help.zscaler.com/zia/configuring-dns-control-policy). To learn more, see [About DNS Application Groups](https://help.zscaler.com/zia/about-dns-application-groups).
 
 To create a DNS application group:
 
-1. Go to **Policies**> **Access Control** > **Firewall** > **DNS Application Group**.
-2. Click **Add DNS Application Group**. The **DNS Application Group** window appears.
-3. In the **DNS Application Group** window: See image.
-  - **Name**: Enter a name for the application group. The name can include any standard characters (including spaces), with a maximum length of 255 characters.
-  - **DNS Tunnels & Network Apps**: Click the drop-down menu, select the DNS tunnels and network applications you want to include in the group, and click **Done**. For example, you can create a group to include DNS tunnels and web applications that can be allowed for specific users and another group with DNS tunnels that should be blocked for all users. You can select any number of DNS tunnels and network applications within the group. You can also search for items. To deselect any added items, use the **Remove** icon displayed for each item, or click **Clear Selection** to remove all items at once.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access**> **Resources** > **DNS Application Group**.
+2. Click **Add DNS Application Group**. The **Add DNS Application Group** drawer appears.
+3. In the **Add DNS Application Group** drawer: See image.
+  - **Name**: Enter a name for the application group, not exceeding a maximum length of 255 characters.
+  - **DNS Tunnels & Network Apps**: Click the drop-down menu and select the DNS tunnels and network applications you want to include in the group. For example, you can create a group to include DNS tunnels and web applications that can be allowed for specific users and another group with DNS tunnels that should be blocked for all users. You can select any number of DNS tunnels and network applications within the group. You can also search for items. To deselect any added items, use the **Remove** icon displayed for each item, or click **Remove All** to clear all items at once.
   - **Description**: (Optional) Enter any additional notes or information. The description cannot exceed 10,240 characters.
 4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
@@ -10232,13 +10318,13 @@ To create a DNS application group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dns-control-policy","lastmod":"2026-08-27T08:03Z","nid":"1399991"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dns-control-policy","lastmod":"2026-09-22T10:39Z","nid":"1399991"} -->
 ## Configuring the DNS Control Policy
 
 - Source: https://help.zscaler.com/zia/configuring-dns-control-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > DNS Control > Configuring the DNS Control Policy
-- Last modified: 2026-08-27T08:03Z
+- Last modified: 2026-09-22T10:39Z
 - Summary: Information on how to create a DNS Control policy rule to control DNS requests and responses in the Zscaler Admin Console.
 
 [Watch a video about Configuring DNS Control Policy.](https://fast.wistia.net/embed/iframe/6e9wlolezd)
@@ -10279,7 +10365,7 @@ Non-English characters are not supported in DNS Control rules, except for those 
 
 To add a DNS Filtering rule:
 
-1. Go to **Policies**>**Access Control**> **Firewall** > **DNS Control**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access**>**Policy** > **DNS Control**.
 2. Click **Add Rule**. The **Add Rule** page appears.
 3. On the **Add Rule** page, you can configure the following sections:
   - Criteria
@@ -11363,13 +11449,13 @@ After customizing the notification message, you must enable the EUN for a [DNS C
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-euns-endpoint-dlp","lastmod":"2026-09-15T12:35Z","nid":"1486511"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-euns-endpoint-dlp","lastmod":"2026-09-21T21:39Z","nid":"1486511"} -->
 ## Configuring EUNs for Endpoint DLP
 
 - Source: https://help.zscaler.com/zia/configuring-euns-endpoint-dlp
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Configuring EUNs for Endpoint DLP
-- Last modified: 2026-09-15T12:35Z
+- Last modified: 2026-09-21T21:39Z
 - Summary: How to customize notification messages for Zscaler Client Connector-based EUNs triggered by Endpoint DLP policy in the Zscaler Admin Console.
 
 You can customize the Zscaler Client Connector-based notifications displayed to end users when an [Endpoint Data Loss Prevention (DLP) policy](https://help.zscaler.com/zia/about-endpoint-dlp) is triggered by their activity. For example, you can block your organization's users from transferring sensitive corporate data from their endpoints to their personal cloud storage accounts and display a notification explaining policy violation. In another scenario, you can allow your users to print documents containing sensitive data using a network printer, but display a notification that cautions them about the associated risks.
@@ -11444,8 +11530,8 @@ After customizing the notification message, you must enable the EUN for an [Endp
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **End User Notification** > **End User Notifications**.
 2. Select the **Client Connector** tab.
-3. Click **Add Custom Message**. The **Add Custom Message** window appears.
-4. In the **Add Custom Message** window: See image.
+3. Click **Add Custom Message**. The **Add Custom Message** drawer appears.
+4. In the **Add Custom Message** drawer: See image.
   1. Under **General**:
     - **Name**: Enter a unique name for the custom message.
     - **Channel**: Select **Personal Cloud Storage**.
@@ -11512,94 +11598,4 @@ You can edit custom notification messages, but the **Channel** field cannot be m
 After customizing the notification message, you must enable the EUN for a [Firewall Filtering rule](https://help.zscaler.com/zia/configuring-firewall-filtering-policy) and associate the appropriate notification message. To learn more, see the [Step-by-Step Configuration Guide for Zscaler Client Connector-Based EUNs](https://help.zscaler.com/zia/step-step-configuration-guide-zscaler-client-connector-based-euns).
 
 [Image: Add custom message for Firewall channel of Zscaler Client Connector EUN]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/configuring-euns-inline-web-dlp","lastmod":"2026-09-15T12:33Z","nid":"1486486"} -->
-## Configuring EUNs for Inline Web DLP
-
-- Source: https://help.zscaler.com/zia/configuring-euns-inline-web-dlp
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Configuring EUNs for Inline Web DLP
-- Last modified: 2026-09-15T12:33Z
-- Summary: How to customize notification messages for Zscaler Client Connector-based EUNs triggered by inline web DLP policy in the Zscaler Admin Console.
-
-You can customize the Zscaler Client Connector-based notifications that are displayed to end users when an [Inline Web DLP policy](https://help.zscaler.com/zia/about-data-loss-prevention) is triggered by their activity. For example, when Zscaler service blocks a user from posting personally identifiable information (PII) on third-party websites, you can display a notification explaining the policy violation. In another scenario, you might allow a user to upload a file containing sensitive corporate information to personal storage, but display a notification warning about the associated risks and indicating that the activity is monitored. The end user notification (EUN) is supported for DLP rules [with content inspection](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection) (i.e., use Zscaler DLP engines) and [without content inspection](https://help.zscaler.com/zia/configuring-dlp-policy-rules-without-content-inspection) (i.e., rely only on specific criteria to filter data).
-
-The EUNs are triggered by Zscaler service based on your policy configuration and are delivered by Zscaler Client Connector installed on user' endpoints. The Zscaler service provides a default notification for the Inline Web DLP policy. You can also create custom messages and associate distinct notifications with individual DLP rules based on context. To learn more, see [About Zscaler Client Connector-Based End User Notifications](https://help.zscaler.com/zia/about-zscaler-client-connector-based-end-user-notifications).
-
-To create a custom notification message:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **End User Notification** > **End User Notifications**.
-2. Select the **Client Connector** tab.
-3. Click **Add Custom Message**. The **Add Custom Message** drawer appears.
-4. In the **Add Custom Message** drawer: See image.
-  1. Under **General**:
-    - **Name**: Enter a unique name for the custom message.
-    - **Channel**: Select **Inline Web**.
-  2. Under **Message**, select the language in which you want to customize the notification message from the drop-down menu. Preconfigured messages appear for supported policy actions in the selected language. You can customize this message for each policy action as needed: You can embed links in the message content by using the following format: `__url[Link text | example.com]` (note the double underscore at the beginning). For example, `__url[Learn more | https://acme.com/policy]`. You can also introduce line breaks in the message content by using the `//n` character. When you modify one or more preconfigured messages, a **Reset All** option appears. Clicking this option restores the original messages for all available actions.
-    - **Allow**: Customize the notification message that appears when an end user's activity triggers a DLP rule, but the service allows and logs the activity.
-    - **Block**: Customize the notification message that appears when an end user's activity triggers a DLP rule and the service blocks the activity.
-  3. Under **Additional Information**, select the matched rule details that you want to display in the notification:
-    - **File Name**: Include the name of the file that triggered the rule.
-    - **Destination**: Include the destination IP address or domain name that triggered the rule.
-    - **Rule Name**: Include the name of the triggered rule.
-    - **URL Category**: Include the URL category that triggered the rule.
-    - **URL**: Include the URL that triggered the rule.
-    - **DLP Engines**: Include the DLP engines that triggered the rule.
-  4. Under **Preview**, you can view your configured notification messages by clicking the respective message tabs. You can view the full message by clicking **Show more**. The notification preview also includes the customization made under [Settings](https://help.zscaler.com/zia/configuring-settings-zscaler-client-connector-based-euns), which are general settings applicable to all Zscaler Client Connector-based EUNs.
-5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-You can edit custom notification messages, but the **Channel** field cannot be modified.
-
-After customizing the notification message, you must enable the EUN for a DLP rule and associate the appropriate notification message. To learn more, see the [Step-by-Step Configuration Guide for Zscaler Client Connector-Based EUNs](https://help.zscaler.com/zia/step-step-configuration-guide-zscaler-client-connector-based-euns).
-
-[[Image: Custom Zscaler Client Connector EUN message configuration for Inline Web DLP policy]](https://help.zscaler.com/downloads/zia/authentication-administration/end-user-notifications-euns/zscaler-client-connector-euns/configuring-euns-inline-web-dlp/inline-web-dlp-custom-eun_0.png)
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/configuring-euns-ips-control","lastmod":"2026-09-15T12:39Z","nid":"1532834"} -->
-## Configuring EUNs for IPS Control
-
-- Source: https://help.zscaler.com/zia/configuring-euns-ips-control
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Configuring EUNs for IPS Control
-- Last modified: 2026-09-15T12:39Z
-- Summary: How to customize notification messages for Zscaler Client Connector-based EUNs triggered by the IPS Control policy in the Zscaler Admin Console.
-
-When network traffic from your user devices is allowed or blocked by the [IPS Control policy](https://help.zscaler.com/zia/configuring-ips-control-policy), the Zscaler service can notify users of the policy action through Zscaler Client Connector installed on users' endpoints. The Zscaler service provides a default notification message that can be readily associated with policy rules. Additionally, you can create custom messages and associate distinct notification messages with individual IPS Control rules, depending on your requirements. To learn more, see [About Zscaler Client Connector-Based End User Notifications](https://help.zscaler.com/zia/about-zscaler-client-connector-based-end-user-notifications).
-
-- To access this feature, you must have the IPS Control policy which is provided by the Advanced Firewall.
-- This EUN is supported on Windows devices running Zscaler Client Connector version 4.8 or later over Z-Tunnel 2.0. You must also have configured the required settings in Zscaler Client Connector in the Zscaler Admin Console to display these EUNs for IPS Control. To learn more, see [Configuring Zscaler Client Connector App Profiles](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles).
-
-To add a custom notification message:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **End User Notification** > **End User Notifications**.
-2. Select the **Client Connector** tab.
-3. Click **Add Custom Message**. The **Add Custom Message** drawer appears.
-4. In the **Add Custom Message** drawer: See image.
-  1. Under **General**:
-    - **Name**: Enter a unique name for the custom message.
-    - **Channel**: Select **IPS**.
-  2. Under **Message**, select the language in which you want to customize the notification message from the drop-down menu. Preconfigured messages appear for supported policy actions in the selected language. You can customize this message for each policy action as needed: You can embed links in the message content by using the following format: `__url[``Link text``|``example.com``]` (note the double underscore at the beginning). For example, `__url[Learn more | https://acme.com/policy]`. You can also introduce line breaks in the message content by using the `//n` character. When you modify one or more preconfigured messages, a **Reset All** option appears. Clicking this option restores the original messages for all available actions.
-    - **Allow**: Customize the notification message that appears when the service detects potentially malicious activity but allows the traffic based on the configured IPS policy.
-    - **Block**:Customize the notification message that appears when the service blocks the user activity. The **Block** message applies to both **Block/Drop** and **Block/Reset** actions of the IPS Control policy.
-  3. Under **Additional Information**, select the matched rule details that you want to display in the notification: You can view Zscaler's listing of threats and specific threat information, including threat severity and score, in the [Zscaler Threat Library](https://threatlibrary.zscaler.com).
-    - **Threat Name**: The name of the threat detected in the traffic.
-    - **Threat Category**: The category of the threat detected in the traffic.
-    - **Threat Severity**: The severity of the threat detected.
-    - **Threat Score**: The score assigned to the threat detected.
-    - **Network Service**: The network service identified in the traffic and matched with the rule.
-    - **Server Destination IP**: The destination server's IP address.
-    - **Destination Country**: The country where the destination server is located.
-  4. Under **Preview**, you can view your configured notification messages by clicking the respective message tabs. You can view the full message by clicking **Show more**. The notification preview also includes the customization made under [Settings](https://help.zscaler.com/zia/configuring-settings-zscaler-client-connector-based-euns), which are general settings applicable to all Zscaler Client Connector-based EUNs.
-5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-You can edit custom notification messages, but the **Channel** field cannot be modified.
-
-After customizing the notification message, you must enable the EUN for an [IPS Control rule](https://help.zscaler.com/zia/configuring-ips-control-policy) and associate the appropriate notification message. To learn more, see the [Step-by-Step Configuration Guide for Zscaler Client Connector-Based EUNs](https://help.zscaler.com/zia/step-step-configuration-guide-zscaler-client-connector-based-euns).
-
-[Image: Add custom message for IPS channel of [[zscaler-client-connector]] EUN]
 <!-- /ZS-ARTICLE -->

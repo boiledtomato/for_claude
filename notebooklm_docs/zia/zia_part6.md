@@ -1,7 +1,7 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 6)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 22:17 UTC
+Generated: 2026-09-28 09:01 UTC
 Articles in this file: 122
 
 ---
@@ -550,8 +550,7 @@ PATH=/sbin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/games:/sc
 1. Run the following command:
 
 ```
-*/10 * * * * ntpdate
-<ntp-server-name>
+*/10 * * * * ntpdate -u <ntp-server-name>
 ```
 
 Replace <ntp-server-name> with your local NTP server's FQDN or IP address.
@@ -690,6 +689,8 @@ If the active NSS VM fails, you must perform failover activities, ideally within
 
 - **NSS to SIEM**: The NSS buffers the logs in the VM memory to increase its resiliency to transient network issues between the SIEM and the NSS. If the connection drops, the NSS replays logs from the buffer, according to the Duplicate Logs setting.
 - **Nanolog to SIEM**: If the connectivity between the Zscaler cloud and the NSS is interrupted, the NSS misses logs that arrived at the [Nanolog cluster](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture) during the interruption, and they are not delivered to the SIEM. When the connection is restored, the NSS one-hour recovery allows the Nanolog to replay logs up to one hour back.
+
+Standby VM nodes are not configured for automatic ZSOS upgrades. Zscaler recommends redeploying a standby VM at least once a year to prevent outdated ZSOS settings.
 
 To learn more about NSS for Web, NSS for Firewall, and NSS Log Recovery subscriptions, contact Zscaler Support.
 
@@ -7314,13 +7315,13 @@ Browser Control policy settings only work for non-Zscaler Client Connector traff
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/recommended-file-type-control-policy","lastmod":"2026-04-22T09:06Z","nid":"1398801"} -->
+<!-- ZS-ARTICLE {"url":"/zia/recommended-file-type-control-policy","lastmod":"2026-09-24T10:47Z","nid":"1398801"} -->
 ## Recommended File Type Control Policy
 
 - Source: https://help.zscaler.com/zia/recommended-file-type-control-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > File Type Control > Recommended File Type Control Policy
-- Last modified: 2026-04-22T09:06Z
+- Last modified: 2026-09-24T10:47Z
 - Summary: View the Zscaler recommended configuration for the File Type Control policy.
 
 When [configuring](https://help.zscaler.com/zia/how-do-i-configure-file-type-control-policy) the [File Type Control policy](https://help.zscaler.com/zia/about-file-type-control), Zscaler recommends using:
@@ -7402,16 +7403,16 @@ To learn more about the rule attributes, see [Configuring the Firewall Control P
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/recommended-ftp-control-policy","lastmod":"2026-05-26T21:06Z","nid":"1398796"} -->
+<!-- ZS-ARTICLE {"url":"/zia/recommended-ftp-control-policy","lastmod":"2026-09-22T10:53Z","nid":"1398796"} -->
 ## Recommended FTP Control Policy
 
 - Source: https://help.zscaler.com/zia/recommended-ftp-control-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > FTP Control > Recommended FTP Control Policy
-- Last modified: 2026-05-26T21:06Z
+- Last modified: 2026-09-22T10:53Z
 - Summary: Information on the FTP Control policy recommended by Zscaler.
 
-Zscaler recommends that you configure the following [FTP Control](https://help.zscaler.com/zia/understanding-ftp-control) policy:
+The Zscaler service includes the recommended FTP Control policy on the [FTP Control](https://help.zscaler.com/zia/configuring-ftp-control-policy) page. The recommended policy has the following settings:
 
 - Disable **Allow FTP over HTTP**
 - Disable **Allow Native FTP**
@@ -7423,13 +7424,13 @@ Zscaler recommends that you configure the following [FTP Control](https://help.z
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/recommended-ips-control-policy","lastmod":"2026-05-26T21:06Z","nid":"1400961"} -->
+<!-- ZS-ARTICLE {"url":"/zia/recommended-ips-control-policy","lastmod":"2026-09-22T10:57Z","nid":"1400961"} -->
 ## Recommended IPS Control Policy
 
 - Source: https://help.zscaler.com/zia/recommended-ips-control-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > IPS Control > Recommended IPS Control Policy
-- Last modified: 2026-05-26T21:06Z
+- Last modified: 2026-09-22T10:57Z
 - Summary: Information on the recommended IPS Control policy that helps leverage Zscaler's Intrustion Prevention System (IPS).
 
 Zscaler provides a default Intrustion Prevention System (IPS) rule that blocks all traffic. You can create granular policies of higher precedence (i.e., higher rule order) than the default rule to explicitly allow specific traffic (e.g., IT Security group traffic matching threats) while blocking all other traffic via the default rule.
@@ -7945,13 +7946,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2026","lastmod":"2026-09-18T10:17Z","nid":"1534325"} -->
+<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2026","lastmod":"2026-09-25T03:52Z","nid":"1534325"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zia/release-upgrade-summary-2026
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-18T10:17Z
+- Last modified: 2026-09-25T03:52Z
 - Summary: Zscaler Internet Access (ZIA) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for Zscaler Internet Access (ZIA). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -8014,13 +8015,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/resending-alerts","lastmod":"2026-05-12T21:06Z","nid":"1399141"} -->
+<!-- ZS-ARTICLE {"url":"/zia/resending-alerts","lastmod":"2026-09-24T09:26Z","nid":"1399141"} -->
 ## Resending Alerts
 
 - Source: https://help.zscaler.com/zia/resending-alerts
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Alerts > Resending Alerts
-- Last modified: 2026-05-12T21:06Z
+- Last modified: 2026-09-24T09:26Z
 - Summary: How to resend active alerts for the Zscaler Admin Console.
 
 [Watch a video about Alerts, including how to resend them](https://fast.wistia.net/embed/iframe/9to9j2rhzn) (shows legacy UI).
@@ -8029,20 +8030,20 @@ You can choose to send additional alerts every time the event's threshold is rea
 
 To resend alerts:
 
-1. Go to **Administration**> **Alerts**> **Internet & SaaS** > **Platform Alerts**.
-2. Click the **Global Configuration** tab.
-3. Under Resend Active Alerts Every, choose the interval at which the Zscaler service sends an alert after the first alert is sent, if the event continues to occur. You can choose to send alerts every:
+1. From the[navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Alerts**> **Internet & SaaS**.
+2. Select the **Global Configuration** tab.
+3. Click **Edit**. See image. The **Edit Global Configuration**drawer appears.
+4. In the **Edit Global Configuration**drawer, select the interval at which the Zscaler service sends an alert after the first alert is sent, if the event continues to occur. You can choose to send alerts every: For example, choosing **30 minutes** means that the service will send the next "5 viruses in 5 minutes" alert 30 minutes after the first alert. Choosing **1 Hour** means that the service will send a second alert an hour after the first. See image.
   - 30 Minutes
   - 1 Hour
   - 6 Hours
   - 12 Hours
   - 24 Hours
+5. Click **Save**.
 
-See image.
+[Image: Select the time interval for alert resend triggers]
 
-For example, choosing **30 minutes** means that the service will send the next "5 viruses in 5 minutes" alert 30 minutes after the first alert. Choosing **1 Hour** means that the service will send a second alert an hour after the first.
-
-[Image: Select the time interval for alert resend triggers.]
+[Image: Global Configuration page showing Edit option]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -8210,13 +8211,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/role-based-administration-configuration-examples","lastmod":"2026-08-28T17:04Z","nid":"1399741"} -->
+<!-- ZS-ARTICLE {"url":"/zia/role-based-administration-configuration-examples","lastmod":"2026-09-25T13:20Z","nid":"1399741"} -->
 ## Role-Based Administration Configuration Examples
 
 - Source: https://help.zscaler.com/zia/role-based-administration-configuration-examples
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role-Based Administration Configuration Examples
-- Last modified: 2026-08-28T17:04Z
+- Last modified: 2026-09-25T13:20Z
 - Summary: Information on common examples of role-based administration in the Zscaler Admin Console.
 
 With [role-based administration](https://help.zscaler.com/zia/configuring-role-based-administration), organizations can assign specific [roles](https://help.zscaler.com/zia/adding-admin-roles) to admins with different levels of access to the Zscaler Admin Console features.
@@ -8249,7 +8250,7 @@ To configure an admin with the preceding specifications:
 - 2. Add the US admin account.
 - 3. Add the UK admin account.
 
-1. Go to **Administration** > **Admin Management** > **Role Based Access Control** > **Internet & SaaS**.
+1. Go to **Administration** > **Role Management** > **Internet & SaaS**.
 2. Click **Add Administrator Role**. The **Add Administrator Role** window appears.
 3. In the **Add Administrator Role** window:
   - **Name**:Enter a name for the admin role.
@@ -8281,7 +8282,7 @@ This role can be assigned to both admins since they are performing the same task
 
 1. Follow the steps to [add a user with Authentication Service](https://help.zscaler.com/zidentity/adding-users).
 2. After the user has been added, [assign them an entitlement to the Internet & SaaS (ZIA) service](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups). Make sure to choose the role you added previously.
-3. Go to **Administration** > **Admin Management** > **Administrator Management** > **Internet Access Administrators**.
+3. Go to **Administration** > **Legacy Admin Management** > **Internet & SaaS** > **Administrators**.
 4. Click the **Edit** icon for the admin you added. The **Edit Administrator** window appears.
 5. In the **Edit Administrator** window: See image.
   - **Scope**: Choose **Location**.
@@ -8293,7 +8294,7 @@ This role can be assigned to both admins since they are performing the same task
 
 1. Follow the steps to [add a user with Authentication Service](https://help.zscaler.com/zidentity/adding-users).
 2. After the user has been added, [assign them an entitlement to the Internet & SaaS service](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups). Make sure to choose the role you added previously.
-3. Go to **Administration** > **Admin Management** > **Administrator Management** > **Internet Access Administrators**.
+3. Go to **Administration** > **Legacy Admin Management** > **Internet & SaaS** > **Administrators**.
 4. Click the **Edit** icon for the admin you added. The **Edit Administrator** window appears.
 5. In the **Edit Administrator** window: See image.
   - **Scope**: Choose **Location**.
@@ -8331,7 +8332,7 @@ To configure an admin with the preceding specifications:
 - 3. Add the CISO admin account.
 - 4. Add the Security Response Manager admin account.
 
-1. Go to **Administration** > **Admin Management** > **Role Based Access Control** > **Internet & SaaS**.
+1. Go to **Administration** > **Role Management** > **Internet & SaaS**.
 2. Click **Add Administrator Role**. The **Add Administrator Role** window appears.
 3. In the **Add Administrator Role** window:
   - **Name**:Enter a name for the admin role.
@@ -8361,7 +8362,7 @@ To configure an admin with the preceding specifications:
 
 To learn more about configuring admin roles with different permissions and scope, see [Adding Admin Roles](https://help.zscaler.com/zia/adding-admin-roles).
 
-1. Go to **Administration** > **Admin Management** > **Role Based Access Control** > **Internet & SaaS**.
+1. Go to **Administration** > **Role Management** > **Internet & SaaS**.
 2. Click **Add Administrator Role**. The **Add Administrator Role** window appears.
 3. In the **Add Administrator Role** window:
   - **Name**:Enter a name for the admin role.
@@ -8393,7 +8394,7 @@ To learn more about configuring admin roles with different permissions and scope
 
 1. Follow the steps to [add a user with Authentication Service](https://help.zscaler.com/zidentity/adding-users).
 2. After the user has been added, [assign them an entitlement to the Internet & SaaS service](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups). Make sure to choose the role you added previously.
-3. Go to **Administration** > **Admin Management** > **Administrator Management** > **Internet Access Administrators**.
+3. Go to **Administration > Legacy Admin Management > Internet & SaaS > Administrators**.
 4. Click the **Edit** icon for the admin you added. The **Edit Administrator** window appears.
 5. In the **Edit Administrator** window: See image.
   - **Scope**: Choose **Organization**.
@@ -8404,7 +8405,7 @@ To learn more about configuring admin roles with different permissions and scope
 
 1. Follow the steps to [add a user with Authentication Service](https://help.zscaler.com/zidentity/adding-users).
 2. After the user has been added, [assign them an entitlement to the Internet & SaaS service](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups). Make sure to choose the role you added previously.
-3. Go to **Administration** > **Admin Management** > **Administrator Management** > **Internet Access Administrators**.
+3. Go to **Administration > Legacy Admin Management > Internet & SaaS > Administrators**.
 4. Click the **Edit** icon for the admin you added. The **Edit Administrator** window appears.
 5. In the **Edit Administrator**window: See image.
   1. **Scope**: Choose **Organization**.
@@ -8428,7 +8429,7 @@ To configure an admin with the preceding specifications:
 - 1. Add the admin role.
 - 2. Add the admin.
 
-1. Go to **Administration** > **Admin Management** > **Role Based Access Control** > **Internet & SaaS**.
+1. Go to **Administration > Role Management > Internet & SaaS**.
 2. Click **Add Administrator Role**. The **Add Administrator Role** window appears.
 3. In the **Add Administrator Role** window:
   - **Name**:Enter a name for the admin role.
@@ -8461,7 +8462,7 @@ To learn more about configuring admin roles with different permissions and scope
 
 1. Follow the steps to [add a user with Authentication Service](https://help.zscaler.com/zidentity/adding-users).
 2. After the user has been added, [assign them an entitlement to the Internet & SaaS service](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups). Make sure to choose the role you added previously.
-3. Go to **Administration** > **Admin Management** > **Administrator Management** > **Internet Access Administrators**.
+3. Go to **Administration > Legacy Admin Management > Internet & SaaS > Administrators**.
 4. Click the **Edit** icon for the admin you added. The **Edit Administrator** window appears.
 5. In the **Edit Administrator**window: See image.
   - **Scope**: Choose **Organization**.
@@ -11568,16 +11569,16 @@ If you don't follow the best practice settings for all other areas, your grade f
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/self-provisioning-gre-tunnels","lastmod":"2026-09-08T05:43Z","nid":"1401931"} -->
+<!-- ZS-ARTICLE {"url":"/zia/self-provisioning-gre-tunnels","lastmod":"2026-09-22T04:06Z","nid":"1401931"} -->
 ## Self-Provisioning of GRE Tunnels
 
 - Source: https://help.zscaler.com/zia/self-provisioning-gre-tunnels
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > GRE > Self-Provisioning of GRE Tunnels
-- Last modified: 2026-09-08T05:43Z
+- Last modified: 2026-09-22T04:06Z
 - Summary: How to self-provision GRE tunnels using the Zscaler Admin Console.
 
-[Watch a video about GRE Tunnels and Static IP Addresses.](https://fast.wistia.net/embed/iframe/vmf3zi7h8b)
+[Watch a video about GRE Tunnels and Static IP Addresses](https://fast.wistia.net/embed/iframe/vmf3zi7h8b) (shows legacy UI).
 
 You can self-provision your GRE tunnels to connect to the Zscaler service via the Zscaler Admin Console. To learn more, see [About GRE Tunnels](https://help.zscaler.com/zia/about-gre-tunnels).
 
@@ -11585,7 +11586,7 @@ Self-provisioning of GRE tunnels towards Private Service Edge for Internet & Saa
 
 To configure the self-service GRE tunnels from the Zscaler Admin Console:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Infrastructure** > **Location Management** > **Static IPs & GRE Tunnel > GRE Tunnels**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure** > **Location Management** > **Static IPs & GRE Tunnel > GRE Tunnels**.
 2. Click **Add GRE Tunnel**. The**Add GRE Tunnel Configuration** wizard opens. If you edit an existing configuration, the **Edit GRE Tunnel Configuration** wizard opens.
 3. On the **Source IP** tab:
   - **Static IP Address**: Select an available static IP address that you want to map to your GRE tunnel. You can map only one static IP address with a GRE tunnel. You cannot modify this field if you are editing an existing configuration. A static IP address that is already mapped with a location is not available for mapping with a GRE tunnel and therefore does not appear in the drop-down menu.
@@ -12287,13 +12288,13 @@ To learn more, see:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/step-step-configuration-guide-zscaler-outbound-email-dlp","lastmod":"2026-08-21T07:08Z","nid":"1492661"} -->
+<!-- ZS-ARTICLE {"url":"/zia/step-step-configuration-guide-zscaler-outbound-email-dlp","lastmod":"2026-09-22T07:06Z","nid":"1492661"} -->
 ## Step-by-Step Configuration Guide for Zscaler Outbound Email DLP
 
 - Source: https://help.zscaler.com/zia/step-step-configuration-guide-zscaler-outbound-email-dlp
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Step-by-Step Configuration Guide for Zscaler Outbound Email DLP
-- Last modified: 2026-08-21T07:08Z
+- Last modified: 2026-09-22T07:06Z
 - Summary: A high-level overview of how to use Zscaler Outbound Email Data Loss Prevention (DLP) to prevent data loss in outbound email sent to external domains.
 
 This guide takes you through the configuration steps you need to complete to begin using the Zscaler Outbound Email Data Loss Prevention (DLP) for your organization. Because Zscaler Outbound Email DLP uses Zscaler DLP tools to monitor and prevent the leakage of sensitive data in outbound email content sent to external domains, Zscaler recommends reading the following articles before you begin configuring your outbound email policy:
@@ -13673,13 +13674,13 @@ The following are some potential causes and solutions:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/troubleshooting-virtual-service-edges-internet-saas","lastmod":"2026-09-11T09:23Z","nid":"1401261"} -->
+<!-- ZS-ARTICLE {"url":"/zia/troubleshooting-virtual-service-edges-internet-saas","lastmod":"2026-09-25T21:06Z","nid":"1401261"} -->
 ## Troubleshooting Virtual Service Edges for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/troubleshooting-virtual-service-edges-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Troubleshooting Virtual Service Edges for Internet & SaaS
-- Last modified: 2026-09-11T09:23Z
+- Last modified: 2026-09-25T21:06Z
 - Summary: Provides console commands to troubleshoot configured Virtual Service Edge for Internet & SaaS (ZIA) VMs.
 
 You can use the following commands within the virtual machine (VM) console to configure and troubleshoot Virtual Service Edges. By default, root login is not permitted, so admins must use the sudo utility to run a command with higher privileges.
@@ -15779,14 +15780,14 @@ When you define a DLP or Malware Detection rule for public cloud storage applica
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-dlp-engines","lastmod":"2026-06-12T09:33Z","nid":"1401611"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-dlp-engines","lastmod":"2026-09-24T11:09Z","nid":"1401611"} -->
 ## Understanding DLP Engines
 
 - Source: https://help.zscaler.com/zia/understanding-dlp-engines
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Understanding DLP Engines
-- Last modified: 2026-06-12T09:33Z
-- Summary: Information on DLP engines, including how to build expressions and how to configure the match count for DLP dictionaries in an engine.
+- Last modified: 2026-09-24T11:09Z
+- Summary: Information on Data Loss Prevention (DLP) engines, including how to build expressions and how to configure the match count for DLP dictionaries in an engine.
 
 A [Data Loss Prevention (DLP) engine](https://help.zscaler.com/zia/about-dlp-engines) is a collection of one or more DLP dictionaries. The Zscaler service provides predefined DLP engines and supports custom DLP engines:
 
@@ -16791,16 +16792,16 @@ The following are a few benefits of using a GeoIP address:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-global-public-service-edges-internet-saas","lastmod":"2026-09-11T09:58Z","nid":"1400866"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-global-public-service-edges-internet-saas","lastmod":"2026-09-25T21:06Z","nid":"1400866"} -->
 ## Understanding Global Public Service Edges for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/understanding-global-public-service-edges-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Public Service Edge > Understanding Global Public Service Edges for Internet & SaaS
-- Last modified: 2026-09-11T09:58Z
+- Last modified: 2026-09-25T21:06Z
 - Summary: Information on Global Public Service Edges for Internet & SaaS (ZIA).
 
-Zscaler has configured several Global, or Ghost, Public Service Edges for Internet & SaaS (ZIA) across its clouds. The addresses of these Public Service Edges do not listen for traffic but are dummy addresses that every Public Service Edges know about. They can be useful when working in no default route environments. To learn more, see [Implementing Zscaler in No Default Route Environments](https://help.zscaler.com/zia/implementing-zscaler-no-default-route-environments).
+Zscaler has configured several Global, or Ghost, Public Service Edges for Internet & SaaS (ZIA) across its clouds. The addresses of these Public Service Edges do not listen for traffic but are dummy addresses that all Public Service Edges know about. They can be useful when working in no default route environments. To learn more, see [Implementing Zscaler in No Default Route Environments](https://help.zscaler.com/zia/implementing-zscaler-no-default-route-environments).
 
 You can use the following as Global Public Service Edge IP addresses:
 
@@ -16831,7 +16832,7 @@ If the user is outside the corporate network and is coming from a non-Zscaler Pu
 
 [Image: Diagram showing how to use Global Service Edges for Internet & SaaS in no default route environments as a remote user]
 
-In the above solution, each of the customer location configurations remain the same, providing a simple method of deploying configuration without differences between locations. This minimizes configuration and deployment complexity. In addition, a single PAC can accommodate both internal and external scenarios.
+In the above solution, each of the customer location configurations remains the same, providing a simple method of deploying configuration without differences between locations. This minimizes configuration and deployment complexity. In addition, a single PAC can accommodate both internal and external scenarios.
 
 You can also detect whether the user is present on premises (by resolving an internal domain) and then return the Global Public Service Edge IP. A sample PAC file is given below:
 
@@ -16848,16 +16849,16 @@ return "PROXY ${COUNTRY_GATEWAY_FX}:80; PROXY ${COUNTRY_SECONDARY_GATEWAY_FX}:80
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-icap-communication-between-zscaler-and-dlp-servers","lastmod":"2026-05-18T21:06Z","nid":"1400106"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-icap-communication-between-zscaler-and-dlp-servers","lastmod":"2026-09-24T13:41Z","nid":"1400106"} -->
 ## Understanding ICAP Communication Between Zscaler and DLP Servers
 
 - Source: https://help.zscaler.com/zia/understanding-icap-communication-between-zscaler-and-dlp-servers
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Understanding ICAP Communication Between Zscaler and DLP Servers
-- Last modified: 2026-05-18T21:06Z
-- Summary: How to enable ICAP communication between Zscaler and an organization's DLP server by configuring for enabling secure or unencrypted ICAP.
+- Last modified: 2026-09-24T13:41Z
+- Summary: How to enable ICAP communication between Zscaler and an organization's Data Loss Prevention (DLP) server by configuring for enabling secure or unencrypted ICAP.
 
-When you configure DLP policy rules in the Zscaler Admin Console, you can specify whether you want the Zscaler service to send information about policy violations via ICAP to your organization's on-premises or cloud-based DLP server. Your organization can then use the information sent to follow standard data loss prevention or remediation workflows.
+When you configure Data Loss Prevention (DLP) policy rules in the Zscaler Admin Console, you can specify whether you want the Zscaler service to send information about policy violations via ICAP to your organization's on-premises or cloud-based DLP server. Your organization can then use the information sent to follow standard data loss prevention or remediation workflows.
 
 When the Zscaler service sends information to your DLP server, it does not do so from a Public Service Edge for Internet & SaaS (ZIA) on the cloud that initially inspects your users' transaction. If a Service Edge finds that a transaction violates a DLP policy rule and further, the rule specifies that the service sends violation information to the organization's DLP server, that Service Edge forwards the transaction information to another Service Edge. The second Service Edge is on a different cloud that the service uses for sending communications to your DLP servers.
 

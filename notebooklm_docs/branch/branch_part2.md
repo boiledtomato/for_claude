@@ -1,8 +1,8 @@
 # Zscaler Help — Branch / Cellular / Cloud Connector (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 22:17 UTC
-Articles in this file: 111
+Generated: 2026-09-28 09:01 UTC
+Articles in this file: 110
 
 ---
 
@@ -724,13 +724,13 @@ In the [Amazon VPC console](https://console.aws.amazon.com/vpc/), you must assig
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/what-zero-trust-gateways","lastmod":"2026-08-31T16:11Z","nid":"1517756"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/what-zero-trust-gateways","lastmod":"2026-09-21T12:51Z","nid":"1517756"} -->
 ## What Are Zero Trust Gateways?
 
 - Source: https://help.zscaler.com/cloud-branch-connector/what-zero-trust-gateways
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > What Are Zero Trust Gateways?
-- Last modified: 2026-08-31T16:11Z
+- Last modified: 2026-09-21T12:51Z
 - Summary: Introductory information, key features, and benefits of Zero Trust Gateways accessible in the Zscaler Admin Console.
 
 The Zscaler Zero Trust Gateway service transforms how you can secure your workloads and workload traffic deployed in public clouds. Built on the Zscaler Zero Trust Exchange (ZTE), the Zero Trust Gateway service simplifies cloud workload security for enterprises.
@@ -1324,13 +1324,13 @@ To learn more, see [Configuring Airgap-Lite Mode for Assets](https://help.zscale
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/about-integrations","lastmod":"2026-09-08T19:29Z","nid":"1532892"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/about-integrations","lastmod":"2026-09-21T13:20Z","nid":"1532892"} -->
 ## About Integrations
 
 - Source: https://help.zscaler.com/zero-trust-branch/about-integrations
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust Device Segmentation > Third-Party Integrations > About Integrations
-- Last modified: 2026-09-08T19:29Z
+- Last modified: 2026-09-21T13:20Z
 - Summary: Information on different types of third-party integrations supported by Zero Trust Branch.
 
 Zero Trust Branch integrates with third-party and Zscaler services to extend visibility, automate response workflows, and enrich analytics across your enterprise systems. You can integrate Zero Trust Branch with other tools from a centralized interface in the Zscaler Admin Console. The supported integrations include tools for monitoring, security orchestration, IT service management, and analytics.
@@ -1344,17 +1344,16 @@ Integrations provide the following benefits and enable you to:
 
 ## About the Integrations Page
 
-On the Integrations page (Infrastructure > Connectors > Edge > Integrations), you can view and manage the following integrations:
+On the Integrations page (Zero Trust Branch > Resources > Integrations), you can view and manage the following integrations:
 
-1. **SNMP Monitoring**: Monitor your assets over SNMP using SNMP channels. You can add and manage multiple SNMP channels.
-2. **Kibana Credentials**: Visualize Zero Trust Branch data on Kibana dashboards.
-3. **CrowdStrike Integration**: For devices connected to Zero Trust Branch, [provide device telemetry to CrowdStrike](https://help.zscaler.com/zero-trust-branch/integrating-crowdstrike-zero-trust-branch) for correlation.
-4. **SentinelOne Integration**: Enhance visibility of endpoints connected to Zero Trust Branch.
-5. **SIEM Integration**: Forward Zero Trust Branch events to your [SIEM platform](https://help.zscaler.com/zero-trust-branch/configuring-siem-integration) for centralized security analytics.
-6. **Armis Integration**: Enhance the accuracy of device discovery by integrating with Armis.
-7. **Ordr Integration**: Enhance the accuracy of device discovery by integrating with Ordr.
-8. **ServiceNow Integration**: Enrich discovered asset details with additional context by integrating with ServiceNow.
-9. **Zscaler Services Integration**: Manage connectivity with your other Zscaler services.
+1. **Kibana Credentials**: Visualize Zero Trust Branch data on Kibana dashboards.
+2. **CrowdStrike Integration**: For devices connected to Zero Trust Branch, [provide device telemetry to CrowdStrike](https://help.zscaler.com/zero-trust-branch/integrating-crowdstrike-zero-trust-branch) for correlation.
+3. **SentinelOne Integration**: Enhance visibility of endpoints connected to Zero Trust Branch.
+4. **SIEM Integration**: Forward Zero Trust Branch events to your [SIEM platform](https://help.zscaler.com/zero-trust-branch/configuring-siem-integration) for centralized security analytics.
+5. **Armis Integration**: Enhance the accuracy of device discovery by integrating with Armis.
+6. **Ordr Integration**: Enhance the accuracy of device discovery by integrating with Ordr.
+7. **ServiceNow Integration**: Enrich discovered asset details with additional context by integrating with ServiceNow.
+8. **Zscaler Services Integration**: Manage connectivity with your other Zscaler services.
 
 [Image: The Integrations page in Zero Trust Branch showing different integration options]
 <!-- /ZS-ARTICLE -->
@@ -1519,13 +1518,13 @@ To add a BGP configuration:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/adding-hub","lastmod":"2026-09-18T14:24Z","nid":"1525471"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/adding-hub","lastmod":"2026-09-23T09:21Z","nid":"1525471"} -->
 ## Adding a Hub
 
 - Source: https://help.zscaler.com/zero-trust-branch/adding-hub
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust SD-WAN > Adding a Hub
-- Last modified: 2026-09-18T14:24Z
+- Last modified: 2026-09-23T09:21Z
 - Summary: Adding a hub in Zero Trust Branch.
 
 Hubs can be physical or virtual Zero Trust Branch appliances. They are typically deployed in your data center. Launch hubs using the same image as the Zero Trust Branch appliance.
@@ -1547,7 +1546,7 @@ To add a new hub:
 
 [Image: Hubs page with an Add On-Prem Hub button]
 
-[Image: Add On-Prem Hub drawer with fields for location, name, gateway name, and user-reachable IP address]
+[Image: Add On-Prem Hub drawer with fields for location, name, appliance name, and user-reachable IP address]
 
 [Image: Add On-Prem Hub drawer displaying the activation code to paste when you activate the gateway]
 <!-- /ZS-ARTICLE -->
@@ -1725,81 +1724,6 @@ You can reference SaaS Apps objects as destination criteria when creating [firew
 [Image: The Objects page showing the Add Zone drawer]
 
 [Image: The Objects page showing the Add SaaS Apps drawer]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-airgap-lite-mode-assets","lastmod":"2026-09-16T10:16Z","nid":"1532714"} -->
-## Configuring Airgap-Lite Mode for Assets
-
-- Source: https://help.zscaler.com/zero-trust-branch/configuring-airgap-lite-mode-assets
-- Product: Zero Trust Branch
-- Path: Zero Trust Branch Help > Zero Trust Device Segmentation > Configuring Airgap-Lite Mode for Assets
-- Last modified: 2026-09-16T10:16Z
-- Summary: How to configure Airgap-Lite mode for assets in the Zscaler Admin Console.
-
-Zero Trust Branch offers three protection solutions for your assets that are designed to meet different requirements for varying environments. These solutions, Airgap, Airgap-Lite, and Airgap+, address varying levels of network isolation and functionality needs. Airgap-Lite mode allows devices to use the same subnet mask provided by the DHCP server.
-
-You can configure Airgap-Lite mode for assets in the following cases:
-
-- Full isolation is not a strict requirement.
-- If the /32 subnet mask is not supported, you choose one of the following modes based on isolation requirements: To learn more, [Understanding Protection Solutions](https://help.zscaler.com/zero-trust-branch/understanding-protection-solutions).
-  - Airgap-Lite mode (if full isolation is not a requirement)
-  - Airgap Plus mode
-
-## Configuring Airgap-Lite Mode for Assets
-
-You can configure Airgap-Lite mode using one of the following methods:
-
-- Device Level
-- VLAN Level
-
-The device level configuration allows you to enable Airgap-Lite mode for each device independently. Use this method when you need to configure Airgap-Lite mode for specific devices that do not require full isolation.
-
-To configure Airgap-Lite mode:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Branch > Dashboard > Asset Intelligence**.
-2. Locate and select the device for which you want to configure **Airgap-Lite** mode, and click **Edit**. See image.
-3. In the asset details drawer, go to the **Security**section on the **Properties**tab.
-4. Locate the **Protection**field and select **Airgap-Lite**from the drop-down menu. See image.
-5. Click **Apply**.
-6. Confirm that the **Segmentation**column for the device does not show a check mark. The absence of a check mark indicates that the device is running in **Airgap-Lite** mode. See image.
-7. In the device terminal, run the following command for the DHCP lease release:
-  - For Windows: `ipconfig /release`
-  - For Linux: `dhclient -r`
-8. In the device terminal, run the following command to request a new IP address from the DHCP server: **Airgap-Lite**mode is applied at the device level.
-  - For Windows: `ipconfig /renew`
-  - For Linux: `dhclient`
-9. Repeat these steps for each device that you want to be part of the subnet.
-
-The VLAN level configuration allows you to enable Airgap-Lite mode for multiple devices simultaneously. Use this method when you need to configure Airgap-Lite mode for all devices within a VLAN.
-
-To configure Airgap-Lite mode:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal),o to **Zero Trust Branch** > **Deployments** > **Sites**.
-2. Select the name of the site whose VLAN must be configured. See image.
-3. Click **VLANs**.
-4. On the **VLANs**tab, locate the VLAN whose devices must be configured with **Airgap-Lite** mode, click the **Gear**icon, and select **Edit**. See image.
-5. In the **Edit Airgap VLAN**drawer, go to the **Network**section, and select **ON (Airgap-Lite)**from the **DHCP Service**drop-down menu. See image.
-6. Click **Save**.
-7. For each device in the VLAN, go to the device terminal and run the following command for the DHCP lease release:
-  - For Windows: `ipconfig /release`
-  - For Linux: `dhclient -r`
-8. For each device in the VLAN, go to the device terminal and run the following command to request a new IP address from the DHCP server: **Airgap-Lite** mode is applied to the devices in the VLAN.
-  - For Windows: `ipconfig /renew`
-  - For Linux: `dhclient`
-
-[Image: Assets page showing an asset selection with the option to edit the asset]
-
-[Image: Asset details drawer showing the Protection field]
-
-[Image: Assets page showing Airgapped column]
-
-[Image: Sites page showing a site]
-
-[Image: Site details page showing option to edit a VLAN]
-
-[Image: Edit Airgap VLAN drawer showing the DHCP Service field]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2020,13 +1944,13 @@ To reserve an IP address allocated to an already discovered asset:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-ransomware-kill-switch-site","lastmod":"2026-09-14T14:35Z","nid":"1532702"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-ransomware-kill-switch-site","lastmod":"2026-09-25T10:38Z","nid":"1532702"} -->
 ## Configuring the Ransomware Kill Switch for a Site
 
 - Source: https://help.zscaler.com/zero-trust-branch/configuring-ransomware-kill-switch-site
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust Device Segmentation > Ransomware Kill Switch > Configuring the Ransomware Kill Switch for a Site
-- Last modified: 2026-09-14T14:35Z
+- Last modified: 2026-09-25T10:38Z
 - Summary: How to configure the Ransomware Kill Switch in Zero Trust Branch.
 
 The Ransomware Kill Switch allows you to change a site's threat level color code to one of four preset severities with a single click to immediately shut down vulnerable protocols, disable access to critical networks, and minimize downtime.
@@ -2035,7 +1959,7 @@ To learn more about use cases and examples of use, see [Understanding the Ransom
 
 To configure the Ransomware Kill Switch for a site:
 
-1. In the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Branch** > **Security** >**Kill Switch**. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Branch** > **Security** >**Ransomware Kill Switch**. See image.
 2. On the **Ransomware Kill Switch**page, select the site for which you want to change threat levels from the drop-down menu.
 3. Click the dial to change the threat level color code and apply the corresponding policies to the selected site.
   - Green: Lowest threat level
@@ -2100,13 +2024,13 @@ Based on your requirements, you can edit, reorder, clone, or delete policies. To
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-siem-integration","lastmod":"2026-09-14T14:56Z","nid":"1532893"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-siem-integration","lastmod":"2026-09-21T11:23Z","nid":"1532893"} -->
 ## Configuring SIEM Integration
 
 - Source: https://help.zscaler.com/zero-trust-branch/configuring-siem-integration
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust Device Segmentation > Third-Party Integrations > Configuring SIEM Integration
-- Last modified: 2026-09-14T14:56Z
+- Last modified: 2026-09-21T11:23Z
 - Summary: How to integrate SIEM services with Zero Trust Branch.
 
 You can use security information and event management (SIEM) integration to forward Zero Trust Branch events to your organization's SIEM platform for centralized security analytics. The integration supports real-time event streaming over syslog to platforms such as Splunk or other compatible SIEM engines. Within the Zero Trust Branch architecture, branch gateways securely stream events directly to the configured SIEM engine. Depending on your organization's requirements, you can deploy the SIEM engine either on premises or in the cloud.
@@ -2129,7 +2053,7 @@ Before configuring SIEM integration in the Zscaler Admin Console, do the followi
 
 To set up integration with a SIEM server:
 
-1. In the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Branch** > **Resources** > **Integrations**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Branch** > **Resources** > **Integrations**.
 2. Locate the **SIEM Integration**tile and click **Settings**. See image.
 3. In the**SIEM Integration** drawer: See image.
   - **SIEM Host**: Enter the IP address of the SIEM server.
@@ -2449,13 +2373,13 @@ Proxmox simulates endpoints that are microsegmented by the ZT800 appliance and c
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-zero-trust-branch-site-site-connectivity-over-routed-tunnels","lastmod":"2026-09-18T14:47Z","nid":"1532667"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-zero-trust-branch-site-site-connectivity-over-routed-tunnels","lastmod":"2026-09-23T09:22Z","nid":"1532667"} -->
 ## Configuring Zero Trust Branch Site-to-Site Connectivity Over Routed Tunnels
 
 - Source: https://help.zscaler.com/zero-trust-branch/configuring-zero-trust-branch-site-site-connectivity-over-routed-tunnels
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust SD-WAN > Configuring Zero Trust Branch Site-to-Site Connectivity Over Routed Tunnels
-- Last modified: 2026-09-18T14:47Z
+- Last modified: 2026-09-23T09:22Z
 - Summary: Information about configuring legacy applications running in branches for direct site-to-site connectivity.
 
 Routed tunnels provide a secure way to connect branch locations over IP networks. Some applications, like VoIP phones, TACACS+, and Active FTP running in branches require direct source IP address visibility. Zscaler Zero Trust Branch supports remote site connectivity over Zero Trust Branch Routed Tunnels (RTs) and preserves the IP addresses required for these applications to function. The applications are deployed in a hub-and-spoke architecture, where a physical or virtual Zero Trust Branch appliance in a data center (the hub) and Zero Trust Branch appliances in the branch offices (the spokes) connect via the RTs. RTs use state cryptography to secure connections and are easy to implement.
@@ -2523,7 +2447,7 @@ To add a new hub:
 
 [Image: Hubs page with an Add On-Prem Hub button]
 
-[Image: Add On-Prem Hub drawer with fields for location, name, gateway name, and user-reachable IP address]
+[Image: Add On-Prem Hub drawer with fields for location, name, appliance name, and user-reachable IP address]
 
 [Image: Add On-Prem Hub drawer displaying the activation code to paste when you activate the gateway]
 
@@ -3201,13 +3125,13 @@ This excerpt shows the source IP for traffic flowing from Pod30 to Pod50:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/creating-micro-subnets","lastmod":"2026-09-16T17:01Z","nid":"1538693"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/creating-micro-subnets","lastmod":"2026-09-25T09:39Z","nid":"1538693"} -->
 ## Creating Micro-Subnets
 
 - Source: https://help.zscaler.com/zero-trust-branch/creating-micro-subnets
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust Device Segmentation > Micro-Subnets > Creating Micro-Subnets
-- Last modified: 2026-09-16T17:01Z
+- Last modified: 2026-09-25T09:39Z
 - Summary: How to create micro-subnets using Airgap+ and Zero Trust Branch.
 
 Zero trust microsegmentation offers flexibility for per-device segmentation while continuing to reduce attack surfaces.
@@ -3225,11 +3149,11 @@ To configure micro-subnets, complete the following steps in the Zscaler Admin Co
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Branch** > **Deployments** > **Sites**.
 2. On the **Sites** page, click the required site in the **Site Name** column. See image.
-3. Click the **Settings**tab select **DHCP Profile**. See image.
+3. Click the **Settings**tab and in the left-side panel, select **DHCP Service**. See image.
 4. For **DHCP Service**, select **DHCP Server** from the drop-down menu.
 5. Click **Save**.
 
-1. Go to **Zero Trust Branch** > **Deployments** > **Sites**.
+1. Go to **Zero Trust Branch** > **Deployments** > **Sites**
 2. On the **Sites** page, click the required site in the **Site Name** column.
 3. Click the **VLANs** tab.
 4. For the required Airgap VLAN, click the **Gear** icon and select **Edit**. See image.
@@ -3256,12 +3180,12 @@ If the device IP address is not flexible, use Airgap-Lite by changing the securi
 
 To change the security protection:
 
-1. Go to **Zero Trust Branch** > **Dashboard** > **Asset Intelligence**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Branch** > **Dashboard** > **Asset Intelligence**.
 2. On the **Assets** page, select the checkbox for the required **Device**, then click **Edit**.
 3. Select **Network** from the **Segmentation Granularity** drop-down menu.
 4. Click **Save**.
 
-1. Go to **Zero Trust Branch** > **Deployments** > **Sites**.
+1. Go to **Infrastructure** > **Connectors** > **Edge** > **Sites**.
 2. On the **Sites** page, click the required site in the **Site Name** column.
 3. Click the **VLANs** tab.
 4. For the required Airgap VLAN, click the **Gear** icon and select **Import Endpoints CSV**. See image.
@@ -3270,7 +3194,7 @@ To change the security protection:
 7. Click **Submit**.
 8. In the confirmation window that appears, read the message and click **Confirm**. See image.
 
-1. Go to **Zero Trust Branch** > **Dashboard** > **Asset Intelligence**.
+1. Go to **Infrastructure** > **Connectors** > **Edge** > **Assets**.
 2. On the **Assets** page, you can see that the assets in the micro-subnet (as per the imported CSV) are assigned with /29 IP addresses.
 
 To create a network type object group for devices in the micro-subnet:
@@ -4233,7 +4157,7 @@ See image.
 
 - Source: https://help.zscaler.com/zero-trust-branch/deployment-overview
 - Product: Zero Trust Branch
-- Path: Zero Trust Branch Help > Deploying Zero Trust Branch > Deployment Overview
+- Path: Zero Trust Branch Help > Deployment > Deployment Overview
 - Last modified: 2026-07-22T09:35Z
 - Summary: Information about deploying Zero Trust Branch appliances.
 
@@ -4251,13 +4175,13 @@ There are several ways to deploy Zero Trust Branch:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/integrating-armis-zero-trust-branch","lastmod":"2026-09-14T15:24Z","nid":"1535171"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/integrating-armis-zero-trust-branch","lastmod":"2026-09-23T10:41Z","nid":"1535171"} -->
 ## Integrating Armis with Zero Trust Branch
 
 - Source: https://help.zscaler.com/zero-trust-branch/integrating-armis-zero-trust-branch
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust Device Segmentation > Third-Party Integrations > Integrating Armis with Zero Trust Branch
-- Last modified: 2026-09-14T15:24Z
+- Last modified: 2026-09-23T10:41Z
 - Summary: How to integrate Armis with Zero Trust Branch.
 
 Zscaler Zero Trust Branch integrates with Armis to enable bidirectional data integration. With this integration:
@@ -4276,7 +4200,7 @@ Follow these steps to configure the integration between Zero Trust Branch and Ar
 - Step 2: Configure the Armis-to-Zero Trust Branch integration
 - Step 3: Verify the integration
 
-1. Create an API key in Zero Trust Branch: In the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** >**API** > **Zero Trust Branch** **API Keys**. Click **Settings**in the **API Keys** panel and select **Add API Key** from the drop-down menu. See image.; In the **Add API Key** panel, enter a descriptive name and click **Add API Key**. See image.; The API key displays. Click the **Copy**icon to copy and save the API key. You need this key to complete your integration. See image. After you close the **Add API Key** panel, you are no longer able to view or copy the key. [Image: Adding an API key from the Zscaler Admin Console Global settings page.] [Image: Add API Key panel in theZscaler Admin Console with the Add API Key button highlighted.] [Image: Add API Key panel in the Zscaler Admin Console with the Copy button highlighted.]
+1. Create an API key in Zero Trust Branch: From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** >**API** > **Zero Trust Branch** **API Keys**. Click **Settings**in the **API Keys** drawer and select **Add API Key** from the drop-down menu. See image.; In the **Add API Key** drawer, enter a descriptive name and click **Add API Key**. See image.; The API key displays. Click the **Copy**icon to copy and save the API key. You need this key to complete your integration. See image. After you close the **Add API Key** drawer, you are no longer able to view or copy the key. [Image: Adding an API key from the Zscaler Admin Console.] [Image: Add API Key drawer in the Zscaler Admin Console with the Add API Key button highlighted.] [Image: Add API Key drawer in the Zscaler Admin Console with the Copy button highlighted.]
 2. In the Armis management console, click the **Settings**icon and select **Medical Device Security Settings**. See image.
 3. On the **Integrations**page, click **Add Integration**. See image.
 4. Enter `Airgap` in the **Library**search box. In the resulting Airgap panel, click **Connect**. See image.
@@ -4290,7 +4214,7 @@ Follow these steps to configure the integration between Zero Trust Branch and Ar
 1. In the Armis management console, go to **API Management** and click **Show**. See image.
 2. Copy the API secret key from the pop-up window and click **OK**. See image.
 3. In the Zscaler Admin Console, go to **Zero Trust Branch** > **Resources** > **Integrations**. Click **Settings**in the **Armis Integration** panel. See image.
-4. In the **Armis Integration** panel: Click **Test**to verify the connection, then click **Save**to finalize the integration. See image.
+4. In the **Armis Integration** drawer: Click **Test**to verify the connection, then click **Save**to finalize the integration. See image.
   - **Server URL**: Enter the URL of the Armis management console.
   - **Authentication Method**: The **API KEY** authentication method is filled in automatically.
   - **Authentication Key**: Enter the API secret key you copied in step 2.
@@ -4321,7 +4245,7 @@ To verify integration in the Zscaler Admin Console:
 
 [Image: Integrations page in the Zero Trust Branch Admin Portal highlighting the Armis Integration Settings button.]
 
-[Image: Armis Integration settings panel in the Zscaler Admin Console.]
+[Image: Armis Integration settings drawer in the Zscaler Admin Console.]
 
 [Image: Assets page in the Zscaler Admin Console highlighting Armis-specific tags.]
 
@@ -4334,13 +4258,13 @@ To verify integration in the Zscaler Admin Console:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/integrating-crowdstrike-zero-trust-branch","lastmod":"2026-09-14T15:04Z","nid":"1534196"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/integrating-crowdstrike-zero-trust-branch","lastmod":"2026-09-23T10:29Z","nid":"1534196"} -->
 ## Integrating CrowdStrike with Zero Trust Branch
 
 - Source: https://help.zscaler.com/zero-trust-branch/integrating-crowdstrike-zero-trust-branch
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust Device Segmentation > Third-Party Integrations > Integrating CrowdStrike with Zero Trust Branch
-- Last modified: 2026-09-14T15:04Z
+- Last modified: 2026-09-23T10:29Z
 - Summary: How to integrate CrowdStrike with Zero Trust Branch.
 
 Zscaler Zero Trust Branch integrates with CrowdStrike Falcon to deliver endpoint-aware zero trust security across branches. By combining Zscaler's zero trust enforcement with CrowdStrike’s endpoint risk insights, organizations gain unified, adaptive access control for both on-premises and remote users. Organizations can dynamically adapt access based on device posture while extending Zscaler policies to remote endpoints through CrowdStrike Falcon, ensuring consistent zero trust protection across all environments.
@@ -4372,10 +4296,9 @@ Configuring the API integration requires steps in both the CrowdStrike Falcon Co
 
 1. In the CrowdStrike Falcon Console, go to **Support and Resources**> **API Clients and Keys**> **Add new API client**.
 2. CrowdStrike creates a new API client. Copy the values in the **Client ID**, **Secret**, and **Base**URL fields for use in the next step. Note that the secret is only available once at creation. See image. CrowdStrike recommends that you only give Zscaler read-only access (no write or admin functions) for hosts, devices, zero trust appliances, user management, sensor download, and event streams.
-3. In the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Branch**> **Resources**>**Integrations** and click **Settings**in the **CrowdStrike Integration** panel. See image.
-4. In the **CrowdStrike Integration** panel, enter the client ID, client secret, and base URL from the previous step and click **Confirm**. See image.
-5. Click **Test**to validate the integration. See image. When complete, a dialog window confirms that the integration has been validated. See image.
-6. Click **Save** to save the integration.
+3. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Branch**> **Resources**> **Integrations** and click **Settings**in the **CrowdStrike Integration** panel. See image.
+4. Click **Test**to validate the integration. See image. When complete, a dialog window confirms that the integration has been validated. See image.
+5. Click **Save** to save the integration.
 
 1. In the CrowdStrike Falcon Console, go to **Host setup and management**> **Host dashboard.**
 2. Click **Download sensor**to download the Falcon sensor. See image.
@@ -4442,7 +4365,7 @@ To create device objects for high-, medium-, and low-risk devices in the Zscaler
 
 1. Go to **Zero Trust Branch**> **Resources**> **Objects**.
 2. Click **Add**and select **Devices**from the drop-down menu. See image.
-3. In the **Add Devices**panel, create device groups for each of the high-, medium-, and low-risk devices using the **Device Security Posture** attribute, which is synced from CrowdStrike during the integration process. For example: To learn more, see [Managing Objects](https://help.zscaler.com/zero-trust-branch/managing-objects).
+3. In the **Add Devices**drawer, create device groups for each of the high-, medium-, and low-risk devices using the **Device Security Posture** attribute, which is synced from CrowdStrike during the integration process. For example: To learn more, see [Managing Objects](https://help.zscaler.com/zero-trust-branch/managing-objects).
   - High-risk device settings
   - Medium-risk device settings
   - Low-risk device settings
@@ -4464,9 +4387,7 @@ To create device objects for high-, medium-, and low-risk devices in the Zscaler
 
 [Image: Integrations page in the Zscaler Admin Console highlighting the CrowdStrike Integrations Settings button]
 
-[Image: CrowdStrike Integration panel in the Zscaler Admin Console.]
-
-[Image: CrowdStrike Integration panel in the Zscaler Admin Console with Test button highlighted..]
+[Image: CrowdStrike Integration drawer in the Zscaler Admin Console with Test button highlighted..]
 
 [Image: Dialog box confirming that the CrowdStrike API integration was successful.]
 
@@ -4505,13 +4426,13 @@ To create device objects for high-, medium-, and low-risk devices in the Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/integrating-sentinelone-zero-trust-branch","lastmod":"2026-09-14T15:53Z","nid":"1539720"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/integrating-sentinelone-zero-trust-branch","lastmod":"2026-09-21T12:14Z","nid":"1539720"} -->
 ## Integrating SentinelOne with Zero Trust Branch
 
 - Source: https://help.zscaler.com/zero-trust-branch/integrating-sentinelone-zero-trust-branch
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust Device Segmentation > Third-Party Integrations > Integrating SentinelOne with Zero Trust Branch
-- Last modified: 2026-09-14T15:53Z
+- Last modified: 2026-09-21T12:14Z
 - Summary: How to integrate SentinelOne with Zero Trust Branch.
 
 Zero Trust Branch integrates with SentinelOne to provide unified visibility, control, and automated threat response across distributed enterprise environments. You can extend endpoint intelligence into network and branch-level security decisions with an API-based, policy-driven framework.
@@ -4543,13 +4464,12 @@ Follow these steps to integrate SentinelOne with Zero Trust Branch:
 8. Enter the two-factor authentication code when prompted, then click **Confirm Action**. See image.
 9. An API token displays. Click **Copy API Token** to copy the API token to the clipboard, then click **Close**. See image. The SentinelOne API token is now ready for use.
 
-1. In the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Branch** > **Resources** > **Integrations**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Branch** > **Resources** > **Integrations**.
 2. On the **Integrations** page, click **Settings** under **SentinelOne Integration**. See image.
-3. In the **SentinelOne Integration** window:
+3. In the **SentinelOne Integration** drawer: </p> <ol style="list-style-type:lower-roman;"> <li data-list-item-id="eaf4469dd7a269b44dc4c51219fb3410f"> <p> Click <strong>Confirm</strong>. </p> <p> <a class="image-icon" href="#ztb-confirmbutton">See image.</a> </p> </li> </ol> <p>
   1. Enter the **API Token** that you previously copied, and the **Base URL**.
-  2. Click **Confirm**. See image.
-  3. Next,click **Test** to verify the details. See image. A confirmation message appears indicating that the API token and Base URL are configured correctly.
-4. Click **Save**.
+  2. Next,click **Test** to verify the details. See image. A confirmation message appears indicating that the API token and Base URL are configured correctly.
+  3. Click **Save**.
 
 To download the SentinelOne agent:
 
@@ -4583,7 +4503,7 @@ To download the SentinelOne agent:
 
 [Image: Click Test to verify the details]
 
-[Image: Click Confirm after entering the API token and Base URL]
+<div class="subc"> <p> <a class="ck-anchor" id="ztb-confirmbutton"></a> </p> <img src="/downloads/zero-trust-branch/administration/integrations/integrating-sentinelone-zero-trust-branch/ztb-api-confirm.png" data-entity-uuid="0" data-entity-type="image" alt="Click Confirm after entering the API token and Base URL" title="Click Confirm after entering the API token and Base URL" width="1083" height="776"> </div>
 
 [Image: View the endpoints]
 
@@ -4602,13 +4522,13 @@ To download the SentinelOne agent:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/interface-monitoring","lastmod":"2026-08-11T11:15Z","nid":"1525246"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/interface-monitoring","lastmod":"2026-09-24T11:22Z","nid":"1525246"} -->
 ## Interface Monitoring
 
 - Source: https://help.zscaler.com/zero-trust-branch/interface-monitoring
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Analytics & Monitoring > Interface Monitoring
-- Last modified: 2026-08-11T11:15Z
+- Last modified: 2026-09-24T11:22Z
 - Summary: How to use interface monitoring to avoid network disruptions in Zero Trust Branch.
 
 Link failures can cause significant network disruptions. An intelligent switch, router, or firewall should identify failures and adjust routing decisions accordingly. Interface health monitoring sends continuous probes to a predefined target to monitor the liveliness of the interface link.
@@ -4619,7 +4539,7 @@ Zero Trust Branch also supports link scoring on a scale of 0 to 30 based on jitt
 
 To enable monitoring on a site:
 
-1. Go to **Deployments > Sites**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Branch** >**Deployments > Sites**.
 2. In the**Site Name** column, click the name of the site that you want to monitor. See image.
 3. On the site details page, click the **Interfaces**tab. Then in the **Monitoring status** column, click **Disabled** in the interface for which you want to enable monitoring. See image.
 4. In the **Interface Health Monitor** panel: See image.
@@ -4638,13 +4558,13 @@ To enable monitoring on a site:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-api-keys-zero-trust-branch","lastmod":"2026-09-14T14:51Z","nid":"1535170"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-api-keys-zero-trust-branch","lastmod":"2026-09-23T10:38Z","nid":"1535170"} -->
 ## Managing API Keys in Zero Trust Branch
 
 - Source: https://help.zscaler.com/zero-trust-branch/managing-api-keys-zero-trust-branch
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust Device Segmentation > Third-Party Integrations > Managing API Keys in Zero Trust Branch
-- Last modified: 2026-09-14T14:51Z
+- Last modified: 2026-09-23T10:38Z
 - Summary: How to create, view, and revoke API keys in Zero Trust Branch.
 
 To integrate Zero Trust Branch with other applications using the Zero Trust Branch APIs, you must create a unique API key and then copy it into the other applications. You can view a list of keys you have created, but you can only view and copy the key itself once.
@@ -4653,15 +4573,15 @@ To integrate Zero Trust Branch with other applications using the Zero Trust Bran
 
 To add an API key, follow these steps:
 
-1. In the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** >**API** > **Zero Trust Branch** **API Keys**. Click **Settings**in the **API Keys** panel and select **Add API Key** from the drop-down menu. See image.
-2. In the **Add API Key** panel, enter a descriptive name and click **Add API Key**. See image.
-3. The API key displays. Click the **Copy**icon to copy and save the API key. You need this key to complete your integration. See image. After you close the **Add API Key** panel, you are no longer able to view or copy the key.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** >**API** > **Zero Trust Branch** **API Keys**. Click **Settings**in the **API Keys** drawer and select **Add API Key** from the drop-down menu. See image.
+2. In the **Add API Key** drawer, enter a descriptive name and click **Add API Key**. See image.
+3. The API key displays. Click the **Copy**icon to copy and save the API key. You need this key to complete your integration. See image. After you close the **Add API Key** drawer, you are no longer able to view or copy the key.
 
-[Image: Adding an API key from the Zscaler Admin Console Global settings page.]
+[Image: Adding an API key from the Zscaler Admin Console.]
 
-[Image: Add API Key panel in theZscaler Admin Console with the Add API Key button highlighted.]
+[Image: Add API Key drawer in the Zscaler Admin Console with the Add API Key button highlighted.]
 
-[Image: Add API Key panel in the Zscaler Admin Console with the Copy button highlighted.]
+[Image: Add API Key drawer in the Zscaler Admin Console with the Copy button highlighted.]
 
 ## View and Revoke API Keys
 
@@ -4669,13 +4589,13 @@ You can view a list of the API keys you have created and revoke them to sever th
 
 To view and revoke API keys, follow these steps:
 
-1. In the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **API** > **Zero Trust Branch API Keys.**Click **Settings**in the **API Keys** panel and select **View API Keys** from the drop-down menu. See image.
-2. In the **API Keys** panel, you can view API keys you have created along with their creation dates. Note that the key itself can only be viewed when it is first created.
+1. Go to **Administration** > **API** > **Zero Trust Branch API Keys.**Click **Settings**in the **API Keys** panel and select **View API Keys** from the drop-down menu. See image.
+2. In the **API Keys** drawer, you can view API keys you have created along with their creation dates. Note that the key itself can only be viewed when it is first created.
 3. To revoke an API key, click the **Revoke**(trash can) icon. The key is deleted and any integrations using that key for authentication will no longer work. See image.
 
 [Image: Viewing API keys from the Zero Trust Branch Admin Portal Global settings page.]
 
-[Image: Revoking an API key from the Zero Trust Branch Admin Portal API Keys panel.]
+[Image: Revoking an API key from the Zero Trust Branch Admin Portal API Keys drawer.]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -5099,13 +5019,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-snmp-configurations","lastmod":"2026-09-08T19:27Z","nid":"1532443"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-snmp-configurations","lastmod":"2026-09-24T11:21Z","nid":"1532443"} -->
 ## Managing SNMP Configurations
 
 - Source: https://help.zscaler.com/zero-trust-branch/managing-snmp-configurations
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Analytics & Monitoring > Managing SNMP Configurations
-- Last modified: 2026-09-08T19:27Z
+- Last modified: 2026-09-24T11:21Z
 - Summary: Managing SNMP Configurations in Zero Trust Branch.
 
 Zero Trust Branch supports the Simple Network Management Protocol (SNMP) standard for network monitoring and management. You can use the following standard management information bases (MIBs):
@@ -5123,7 +5043,7 @@ Both SNMPv2 and SNMPv3 are supported. Zscaler recommends SNMPv3 for better secur
 - Configure SNMPv2.
 - Configure SNMPv3.
 
-1. Go to **Infrastructure**> **Connectors**> **Edge**> **Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Branch** > **Resources** >**Global** **Settings**.
 2. Locate the **SNMP Configurations** tile and click **Settings**. See image.
 3. In the **SNMP Settings**drawer, select **Enable SNMPv2**. The following additional fields appear: See image.
   - **Community**: Enter the community string (plain-text password) to access network devices via SNMPv2.
@@ -5134,7 +5054,7 @@ Both SNMPv2 and SNMPv3 are supported. Zscaler recommends SNMPv3 for better secur
 
 To configure SNMPv3, enable it and manage its configuration via SNMP profiles.
 
-1. Go to **Infrastructure**> **Connectors**> **Edge**> **Settings**.
+1. Go to **Zero Trust Branch** > **Resources** >**Global** **Settings**.
 2. Locate the **SNMP Configurations** tile and click **Settings**. See image.
 3. In the **SNMP Settings**drawer, select **Enable SNMPv3**.
 4. Click **Save**. See image.
@@ -5169,7 +5089,7 @@ To configure SNMPv3, enable it and manage its configuration via SNMP profiles.
     - **Receiving server port**: Enter the UDP port where the SNMP manager is listening for SNMP traps. Typically, port 162 is used. Port 161 is used for queries from SNMP managers. Both ports must be enabled on the firewall.
   6. Click **Next.**
 8. Click **Save configuration**.
-9. To apply a profile to a site, go to **Infrastructure**> **Connectors**> **Edge**> **Sites** and click the name of the site you want in the **Site Name**column. See image.
+9. To apply a profile to a site, go to **Zero Trust Branch**> **Deployments**> **Sites** and click the name of the site you want in the **Site Name**column. See image.
 10. On the site details page, click the **Settings**tab, then click **SNMPv3**in the left-side navigation. Then select the SNMPv3 profile you want to use from the drop-down menu and click **Save**. See image.
 11. To verify the configuration, from the SNMP server, run the command `snmpwalk` for the IP address of the device to view the MIBs. See image.
 
@@ -5280,13 +5200,13 @@ To delete a template:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-your-assets","lastmod":"2026-09-16T11:07Z","nid":"1509846"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-your-assets","lastmod":"2026-09-25T09:29Z","nid":"1509846"} -->
 ## Managing Your Assets
 
 - Source: https://help.zscaler.com/zero-trust-branch/managing-your-assets
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust Device Segmentation > Asset Management > Managing Your Assets
-- Last modified: 2026-09-16T11:07Z
+- Last modified: 2026-09-25T09:29Z
 - Summary: How to view and edit Zero Trust Branch assets.
 
 The Assets section provides admins with visibility into all endpoints connected to the network along with their health status.
@@ -5375,13 +5295,13 @@ This article provides a summary of all new features and enhancements for Zero Tr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/resolving-zero-trust-branch-configuration-activation-issues","lastmod":"2026-07-31T07:06Z","nid":"1540224"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/resolving-zero-trust-branch-configuration-activation-issues","lastmod":"2026-09-25T13:56Z","nid":"1540224"} -->
 ## Resolving Zero Trust Branch Configuration and Activation Issues
 
 - Source: https://help.zscaler.com/zero-trust-branch/resolving-zero-trust-branch-configuration-activation-issues
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Troubleshooting > Resolving Zero Trust Branch Configuration and Activation Issues
-- Last modified: 2026-07-31T07:06Z
+- Last modified: 2026-09-25T13:56Z
 - Summary: How to resolve issues related to the Zero Trust Branch appliance.
 
 This article includes steps to resolve some of the following issues that you might encounter while configuring and activating Zero Trust Branch appliances:
@@ -5398,7 +5318,7 @@ This article includes steps to resolve some of the following issues that you mig
 
 While adding a site, the location might not be recognized, and the following error message displays: "ZIAM SendLocationRequest: Error creating location response." To resolve this error:
 
-1. In the Zscaler Admin Console, go to **Infrastructure** > **Locations** > **Locations**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure** > **Location Management** > **Locations**.
 2. Check whether the site or location name already exists in Internet & SaaS (ZIA).
 
 Verify the following to resolve any activation issues:
@@ -5413,7 +5333,7 @@ Verify the following to resolve any activation issues:
 
 If the gateway is not working after an update and DNS cannot resolve `*-api.goairgap.com`:
 
-1. In the Zscaler Admin Console, go to **Infrastructure** > **Connectors** > **Edge** > **Sites**.
+1. Go to **Zero Trust Branch**> **Deployments**> **Sites**.
 2. On the**Sites** page, delete the required site.
 3. Next, reconfigure the site, gateway, network, and web proxy, and then check the connectivity again.
 
@@ -5470,14 +5390,14 @@ Verify that the policy hit count is increasing (requires 7.7.x version).
 
 To verify the policies:
 
-1. In the Zscaler Admin Console, go to **Logs** > **Insights** > **Zero Trust Branch** **-** **Flow Logs**.
+1. In the Zscaler Admin Console, go to **Data Explorer** > **Zero Trust Branch > Flow Logs**.
 2. On the **Flow Logs** page, filter for the source IP address or destination IP address and verify the policy executed for the traffic. If you don’t see the flow logs, disable log throttling for the specific policies and verify the flow logs again.
 3. Verify that the source groups and destination groups are populated correctly, and members are associated with these groups.
-4. Go to **Administration** > **Alerts** > **Alarms** and check for any policy sync errors. Check whether any other policy is overriding the policy being executed. If you are testing with Windows Internet Control Message Protocol (ICMP), wait for the session to close (5 minutes) and try again. Windows ICMP uses the same ICMP ID.
+4. Go to **Administration** > **Alerts** > **Zero Trust Branch** and check for any policy sync errors. Check whether any other policy is overriding the policy being executed. If you are testing with Windows Internet Control Message Protocol (ICMP), wait for the session to close (5 minutes) and try again. Windows ICMP uses the same ICMP ID.
 
 1. In the Airgap console, enter `4` (Show Gateway Status) and press `Enter` to check the gateway status. The output shows Python errors. See sample output.
 2. Check the WAN interface configuration:
-  1. In the Zscaler Admin Console, go to **Infrastructure** > **Connectors** > **Edge** > **Sites**.
+  1. In the Zscaler Admin Console, go to **Zero Trust Branch**> **Deployments**> **Sites**.
   2. On the**Sites** page, click the required site.
   3. On the site details page, click the **VLANs** tab, then click the **Gear** icon for the required VLAN.
   4. In the **Edit Airgap VLAN** window, change the WAN interface configuration (DHCP or Static) as required, then click **Save**.
@@ -5790,13 +5710,13 @@ To test a forwarding policy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/understanding-alarms-and-notifications","lastmod":"2026-04-08T22:47Z","nid":"1533791"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/understanding-alarms-and-notifications","lastmod":"2026-09-24T11:18Z","nid":"1533791"} -->
 ## Understanding Alarms and Notifications
 
 - Source: https://help.zscaler.com/zero-trust-branch/understanding-alarms-and-notifications
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Analytics & Monitoring > Understanding Alarms and Notifications
-- Last modified: 2026-04-08T22:47Z
+- Last modified: 2026-09-24T11:18Z
 - Summary: Information about alarms and notifications in Zero Trust Branch.
 
 The Zero Trust Branch management controller operates as a distributed, declarative, event-driven platform. Zero Trust Branch appliances detect critical events, such as heartbeat failures or upgrade failures, and send `set` or `clear` alarm requests to the API server. The API server acts as the central point for processing alarm signals. You can interact with the API server through the Zscaler Admin Console to review current alarms and acknowledge or clear them as needed. Alarm-related information is stored in a dedicated database table for tracking and auditing.
@@ -5831,7 +5751,7 @@ No alarm information is shared between tenants.
 
 ## Viewing Alarms and Notifications
 
-You can view alarms and notifications from the Alarms page (Administration > Alerts > Alarms).
+You can view alarms and notifications from the Alarms page (Administration > Alerts > Zero Trust Branch).
 
 See image.
 
@@ -5888,13 +5808,13 @@ The following diagram illustrates the topology for Zero Trust Branch bonding int
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/understanding-log-types-levels-and-formats","lastmod":"2026-04-08T23:29Z","nid":"1533790"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/understanding-log-types-levels-and-formats","lastmod":"2026-09-24T11:19Z","nid":"1533790"} -->
 ## Understanding Log Types, Levels, and Formats
 
 - Source: https://help.zscaler.com/zero-trust-branch/understanding-log-types-levels-and-formats
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Analytics & Monitoring > Understanding Log Types, Levels, and Formats
-- Last modified: 2026-04-08T23:29Z
+- Last modified: 2026-09-24T11:19Z
 - Summary: Information about log types, levels, and formats in Zero Trust Branch.
 
 Monitoring and logging are crucial to securing any system, as they help detect anomalies, ensure compliance, and troubleshoot issues. Zero Trust Branch provides comprehensive logging and monitoring capabilities to ensure visibility and control across your branch network infrastructure.
@@ -5922,7 +5842,7 @@ Packet logs provide a rich set of data that allows you to analyze traffic flowin
 
 Packet logs display all captured packet headers that hit any policy in a per-packet manner.
 
-To access packet logs, go to Logs > Insights > Packet Logs.
+From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** > **Zero Trust Branch** > **Packet Logs**.
 See image.
 
 ### Flow Logs
@@ -5931,7 +5851,7 @@ Flow logs help you to troubleshoot issues using session flow details for a sourc
 
 You can filter them by a number of attributes, including source (e.g., IP address, port, OS, browser, or geolocation), destination (e.g., name, location, country, IP address, or port), and more.
 
-To access flow logs, go to Logs > Insights > Flow Logs.
+From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** > **Zero Trust Branch** > **Flow Logs**.
 See image.
 
 Flow logs are near real time. Traffic charts need to collect and compile the data before it is displayed in the graphs. As a result, expect a 5- to 7-minute delay in traffic charts.
@@ -6115,13 +6035,13 @@ Zero Trust Branch provides built-in monitoring tools that give admins real-time 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/understanding-micro-subnets","lastmod":"2026-07-14T11:22Z","nid":"1538698"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/understanding-micro-subnets","lastmod":"2026-09-25T09:48Z","nid":"1538698"} -->
 ## Understanding Micro-Subnets
 
 - Source: https://help.zscaler.com/zero-trust-branch/understanding-micro-subnets
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust Device Segmentation > Micro-Subnets > Understanding Micro-Subnets
-- Last modified: 2026-07-14T11:22Z
+- Last modified: 2026-09-25T09:48Z
 - Summary: Information about micro-subnets and their key capabilities in Zero Trust Branch.
 
 Zero Trust Branch delivers true zero trust microsegmentation by assigning a /32 subnet mask to each endpoint, creating a "network of one" that isolates devices, blocks direct endpoint-to-endpoint communication, and reduces attack surfaces.
@@ -6206,13 +6126,13 @@ Depending on your requirements, the private applications in branch environments 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/understanding-protection-solutions","lastmod":"2026-07-13T16:40Z","nid":"1509976"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/understanding-protection-solutions","lastmod":"2026-09-25T09:48Z","nid":"1509976"} -->
 ## Understanding Protection Solutions
 
 - Source: https://help.zscaler.com/zero-trust-branch/understanding-protection-solutions
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust Device Segmentation > Asset Management > Understanding Protection Solutions
-- Last modified: 2026-07-13T16:40Z
+- Last modified: 2026-09-25T09:48Z
 - Summary: Information about Zscaler Zero Trust Branch solutions.
 
 Zero Trust Branch offers several solutions tailored to meet the unique security and isolation requirements of highly sensitive or regulated organizations. The three solutions, Airgap, Airgap-Lite, and Airgap+, address varying levels of network isolation and functionality needs.
@@ -6773,13 +6693,13 @@ You can activate any of the downloaded images. This step requires a system reboo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/using-zero-trust-branch-debug-console-for-troubleshooting","lastmod":"2026-05-31T20:37Z","nid":"1533903"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/using-zero-trust-branch-debug-console-for-troubleshooting","lastmod":"2026-09-25T13:46Z","nid":"1533903"} -->
 ## Using the Zero Trust Branch Debug Console for Troubleshooting
 
 - Source: https://help.zscaler.com/zero-trust-branch/using-zero-trust-branch-debug-console-for-troubleshooting
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Troubleshooting > Using the Zero Trust Branch Debug Console for Troubleshooting
-- Last modified: 2026-05-31T20:37Z
+- Last modified: 2026-09-25T13:46Z
 - Summary: Understanding and using the Zero Trust Branch Debug Console.
 
 The Zero Trust Branch Debug Console provides a purpose-built diagnostic framework that exposes the internal state of an appliance through simple, direct commands. Commands are grouped by functional area, so you can quickly locate the information you need—whether validating IPSec tunnels, checking DHCP leases, analyzing routing tables, or reviewing Virtual Router Redundancy Protocol (VRRP) status. The Zero Trust Branch Debug Console supports both deployment readiness checks and ongoing operational troubleshooting.
@@ -6790,9 +6710,9 @@ The Debug Console is intentionally site specific, matching the appliance deploye
 
 To access the Debug Console:
 
-1. Go to **Infrastructure**> **Connectors**> **Edge**> **Sites**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Branch**> **Deployments**> **Sites**.
 2. Click the name of the site for which you want to access the Debug Console. See image.
-3. On the site details page, click the **Console**tab. See image.
+3. On the site details page, click **Troubleshooting** left tab > **Console** top tab. See image.
 
 ## Troubleshooting Commands
 
@@ -6951,20 +6871,20 @@ Zero Trust Branch appliances log all DNS activities and send a copy of the log t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/viewing-managing-security-insights","lastmod":"2026-09-18T16:37Z","nid":"1524951"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/viewing-managing-security-insights","lastmod":"2026-09-24T10:56Z","nid":"1524951"} -->
 ## Viewing and Managing Security Insights
 
 - Source: https://help.zscaler.com/zero-trust-branch/viewing-managing-security-insights
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Analytics & Monitoring > Viewing and Managing Security Insights
-- Last modified: 2026-09-18T16:37Z
+- Last modified: 2026-09-24T10:56Z
 - Summary: Information on the Security Insights dashboard in Zero Trust Branch.
 
 The Security Insights dashboard provides customizable widgets that display important information about the assets, VLANs, gateways, and devices in your organization to give you a real-time overview of your organization's security operations.
 
 ## About the Security Insights Dashboard
 
-From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to [**[variable:zero-trust-branch]]** >**Dashboard** > **Insights** to do the following:
+From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Branch** > **Dashboard** > **Insights** to do the following:
 
 1. View predefined widgets that show a summary of information about an aspect of your security profile and link to pages with more detailed information.
 2. Refresh the data shown in the dashboard by clicking **Refresh**.
@@ -7012,13 +6932,13 @@ You can customize any or all of these widgets to show information in a different
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/viewing-traffic-flow-charts","lastmod":"2026-04-21T02:29Z","nid":"1509071"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/viewing-traffic-flow-charts","lastmod":"2026-09-24T11:20Z","nid":"1509071"} -->
 ## Viewing Traffic Flow Charts
 
 - Source: https://help.zscaler.com/zero-trust-branch/viewing-traffic-flow-charts
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Analytics & Monitoring > Viewing Traffic Flow Charts
-- Last modified: 2026-04-21T02:29Z
+- Last modified: 2026-09-24T11:20Z
 - Summary: How to use traffic flow charts in Zero Trust Branch to visualize your network.
 
 Zero Trust Branch provides extensive visibility into lateral traffic. Every communication between the endpoints is logged and mapped onto the traffic flow chart. This information is saved for 90 days by default. The traffic flow chart visualizes the entire network, connected endpoints, and the communication between them. Note that it can take up to 10 minutes after an event before the traffic is reflected in the traffic flow chart. For more real-time response, consider using flow logs. To learn more, see [Monitoring & Logs](https://help.zscaler.com/zero-trust-branch/monitoring-logs).
@@ -7027,7 +6947,7 @@ The traffic flow chart is built on the graph database. Each endpoint is a node i
 
 To access the traffic flow chart:
 
-1. Go to **Infrastructure** > **Connectors** > **Edge** > **Charts**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Branch** > **Dashboard**> **Traffic Map**.
 2. Click any node to see details of the endpoint attributes. Double-click a node to drill down into that node. See image. Each of the edges/communications is color-coded based on the policy outcomes (allow vs. deny):
   - Red: Communication is blocked.
   - Green: Communication is allowed.
@@ -7601,13 +7521,13 @@ On the SIMs page (Infrastructure > Cellular > SIMs), you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/about-zscaler-cellular-audit-logs","lastmod":"2026-09-18T03:42Z","nid":"1539636"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/about-zscaler-cellular-audit-logs","lastmod":"2026-09-21T19:06Z","nid":"1539636"} -->
 ## About Zscaler Cellular Audit Logs
 
 - Source: https://help.zscaler.com/zscaler-cellular/about-zscaler-cellular-audit-logs
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > Audit Logs > About Zscaler Cellular Audit Logs
-- Last modified: 2026-09-18T03:42Z
+- Last modified: 2026-09-21T19:06Z
 - Summary: Information regarding Audit Logs for Zscaler Cellular.
 
 Zscaler Cellular audit logs allow you to view a record of all administrative actions performed in the Zscaler Cellular configurations. It helps track configuration changes, identify who performed an action, and understand when the action occurred.

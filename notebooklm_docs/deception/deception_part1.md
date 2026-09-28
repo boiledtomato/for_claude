@@ -1,7 +1,7 @@
 # Zscaler Help — Zscaler Deception (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 22:17 UTC
+Generated: 2026-09-28 09:01 UTC
 Articles in this file: 297
 
 ---
@@ -1293,13 +1293,13 @@ On the Network Decoys page (Deceive > Network Decoys), you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-orchestrate","lastmod":"2026-08-03T00:19Z","nid":"1540505"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-orchestrate","lastmod":"2026-09-18T02:33Z","nid":"1542420"} -->
 ## About Orchestrate
 
 - Source: https://help.zscaler.com/deception/about-orchestrate
 - Product: Deception
 - Path: Deception Help > Orchestrate  > About Orchestrate
-- Last modified: 2026-08-03T00:19Z
+- Last modified: 2026-09-18T02:33Z
 - Summary: Information about the Orchestrate feature and in the Zscaler Deception Admin Portal.
 
 The Orchestrate feature enables integration with leading security solutions to forward events, contain threats, and enrich security events.
@@ -2330,7 +2330,7 @@ To add an AD domain:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/adding-agent-update-group","lastmod":"2024-04-15T21:54Z","nid":"1539188"} -->
+<!-- ZS-ARTICLE {"url":"/deception/adding-agent-update-group","lastmod":"2024-04-15T21:54Z","nid":"1542310"} -->
 ## Adding an Agent Update Group
 
 - Source: https://help.zscaler.com/deception/adding-agent-update-group
@@ -3254,7 +3254,7 @@ The following are some of the containment scenarios along with recommended secur
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/changing-password","lastmod":"2025-06-10T07:14Z","nid":"1539134"} -->
+<!-- ZS-ARTICLE {"url":"/deception/changing-password","lastmod":"2025-06-10T07:14Z","nid":"1542256"} -->
 ## Changing Your Password
 
 - Source: https://help.zscaler.com/deception/changing-password
@@ -3998,7 +3998,7 @@ You can deploy a maximum of two preconfigured file dataset decoys on each endpoi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-hostname-resolution-settings","lastmod":"2023-08-03T21:49Z","nid":"1539207"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-hostname-resolution-settings","lastmod":"2023-08-03T21:49Z","nid":"1542329"} -->
 ## Configuring Hostname Resolution Settings
 
 - Source: https://help.zscaler.com/deception/configuring-hostname-resolution-settings
@@ -4965,7 +4965,7 @@ After you obtain the client ID, client secret, and endpoint configuration detail
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-privilege-escalation","lastmod":"2026-04-27T07:06Z","nid":"1539169"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-privilege-escalation","lastmod":"2026-04-27T07:06Z","nid":"1542291"} -->
 ## Configuring Privilege Escalation
 
 - Source: https://help.zscaler.com/deception/configuring-privilege-escalation
@@ -6352,7 +6352,7 @@ To create a custom ThreatParse rule:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-user-authentication-settings","lastmod":"2025-07-28T08:54Z","nid":"1539220"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-user-authentication-settings","lastmod":"2025-07-28T08:54Z","nid":"1542342"} -->
 ## Configuring User Authentication Settings
 
 - Source: https://help.zscaler.com/deception/configuring-user-authentication-settings
@@ -9792,7 +9792,7 @@ Upon successful deployment, the storage account file share decoy is added to Mic
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-strategy","lastmod":"2025-05-21T20:20Z","nid":"1539315"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-strategy","lastmod":"2025-05-21T20:20Z","nid":"1542437"} -->
 ## Creating a Strategy
 
 - Source: https://help.zscaler.com/deception/creating-strategy
@@ -10385,7 +10385,7 @@ To create lure passwords via a landmine policy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/customizing-lure-settings","lastmod":"2026-02-04T04:16Z","nid":"1539174"} -->
+<!-- ZS-ARTICLE {"url":"/deception/customizing-lure-settings","lastmod":"2026-02-04T04:16Z","nid":"1542296"} -->
 ## Customizing Lure Settings
 
 - Source: https://help.zscaler.com/deception/customizing-lure-settings
@@ -11656,7 +11656,7 @@ To upload a CSV file with subnet configuration:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/downloading-file-dataset","lastmod":"2026-04-10T01:42Z","nid":"1539409"} -->
+<!-- ZS-ARTICLE {"url":"/deception/downloading-file-dataset","lastmod":"2026-04-10T01:42Z","nid":"1542531"} -->
 ## Downloading a File Dataset
 
 - Source: https://help.zscaler.com/deception/downloading-file-dataset
@@ -11895,7 +11895,7 @@ To download a SCADA/IoT dataset:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/downloading-static-application-dataset","lastmod":"2026-04-10T01:53Z","nid":"1539405"} -->
+<!-- ZS-ARTICLE {"url":"/deception/downloading-static-application-dataset","lastmod":"2026-04-10T01:53Z","nid":"1542527"} -->
 ## Downloading a Static Application Dataset
 
 - Source: https://help.zscaler.com/deception/downloading-static-application-dataset
@@ -12716,7 +12716,7 @@ Internal safe processes cannot be deleted.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-scadaiot-dataset","lastmod":"2025-05-12T02:41Z","nid":"1539374"} -->
+<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-scadaiot-dataset","lastmod":"2025-05-12T02:41Z","nid":"1542496"} -->
 ## Editing or Deleting a SCADA/IoT Dataset
 
 - Source: https://help.zscaler.com/deception/editing-or-deleting-scadaiot-dataset
@@ -12924,7 +12924,7 @@ The default ThreatParse rules cannot be deleted.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-vulnerable-application-dataset","lastmod":"2025-05-12T01:30Z","nid":"1539333"} -->
+<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-vulnerable-application-dataset","lastmod":"2025-05-12T01:30Z","nid":"1542455"} -->
 ## Editing or Deleting a Vulnerable Application Dataset
 
 - Source: https://help.zscaler.com/deception/editing-or-deleting-vulnerable-application-dataset
@@ -13405,7 +13405,7 @@ After the enrichment integration is enabled, you can see the data from VirusTota
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/evaluating-landmine-policies","lastmod":"2026-02-04T04:28Z","nid":"1539162"} -->
+<!-- ZS-ARTICLE {"url":"/deception/evaluating-landmine-policies","lastmod":"2026-02-04T04:28Z","nid":"1542284"} -->
 ## Evaluating Landmine Policies
 
 - Source: https://help.zscaler.com/deception/evaluating-landmine-policies
@@ -13442,7 +13442,7 @@ To evaluate landmine policies:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/exporting-active-directory-decoy-personalities","lastmod":"2025-05-12T03:33Z","nid":"1539393"} -->
+<!-- ZS-ARTICLE {"url":"/deception/exporting-active-directory-decoy-personalities","lastmod":"2025-05-12T03:33Z","nid":"1542515"} -->
 ## Exporting Active Directory Decoy Personalities
 
 - Source: https://help.zscaler.com/deception/exporting-active-directory-decoy-personalities
@@ -13521,7 +13521,7 @@ To export landmine decoy personalities:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/exporting-network-decoy-personalities","lastmod":"2025-05-19T06:14Z","nid":"1539379"} -->
+<!-- ZS-ARTICLE {"url":"/deception/exporting-network-decoy-personalities","lastmod":"2025-05-19T06:14Z","nid":"1542501"} -->
 ## Exporting Network Decoy Personalities
 
 - Source: https://help.zscaler.com/deception/exporting-network-decoy-personalities
@@ -13689,7 +13689,7 @@ A .zip file is downloaded. You can extract the .zip file to see the configuratio
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/exporting-threat-intelligence-decoy-personalities","lastmod":"2025-05-12T03:30Z","nid":"1539384"} -->
+<!-- ZS-ARTICLE {"url":"/deception/exporting-threat-intelligence-decoy-personalities","lastmod":"2025-05-12T03:30Z","nid":"1542506"} -->
 ## Exporting Threat Intelligence Decoy Personalities
 
 - Source: https://help.zscaler.com/deception/exporting-threat-intelligence-decoy-personalities
@@ -14419,7 +14419,7 @@ To delete an agent update group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/managing-api-tokens","lastmod":"2026-08-09T21:06Z","nid":"1540490"} -->
+<!-- ZS-ARTICLE {"url":"/deception/managing-api-tokens","lastmod":"2026-08-09T21:06Z","nid":"1542405"} -->
 ## Managing API Tokens
 
 - Source: https://help.zscaler.com/deception/managing-api-tokens
@@ -15173,7 +15173,7 @@ To delete a Decoy Connector:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/managing-gcp-decoys","lastmod":"2026-07-05T07:06Z","nid":"1540677"} -->
+<!-- ZS-ARTICLE {"url":"/deception/managing-gcp-decoys","lastmod":"2026-07-05T07:06Z","nid":"1542592"} -->
 ## Managing GCP Decoys
 
 - Source: https://help.zscaler.com/deception/managing-gcp-decoys
@@ -15513,7 +15513,7 @@ To delete a Service Connector:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/managing-siem-integrations","lastmod":"2026-08-11T21:06Z","nid":"1540468"} -->
+<!-- ZS-ARTICLE {"url":"/deception/managing-siem-integrations","lastmod":"2026-08-11T21:06Z","nid":"1542383"} -->
 ## Managing SIEM Integrations
 
 - Source: https://help.zscaler.com/deception/managing-siem-integrations
@@ -15911,13 +15911,13 @@ The illusionblack.com cloud represents all clouds, and updates to specific cloud
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/release-upgrade-summary-2026","lastmod":"2026-09-18T06:28Z","nid":"1542588"} -->
+<!-- ZS-ARTICLE {"url":"/deception/release-upgrade-summary-2026","lastmod":"2026-09-24T02:41Z","nid":"1542588"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/deception/release-upgrade-summary-2026
 - Product: Deception
 - Path: Deception Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-18T06:28Z
+- Last modified: 2026-09-24T02:41Z
 - Summary: Zscaler Deception release summary for updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Zscaler Deception.

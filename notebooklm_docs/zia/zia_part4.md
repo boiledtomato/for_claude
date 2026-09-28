@@ -1,8 +1,98 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 4)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 22:17 UTC
-Articles in this file: 117
+Generated: 2026-09-28 09:01 UTC
+Articles in this file: 119
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/configuring-euns-inline-web-dlp","lastmod":"2026-09-15T12:33Z","nid":"1486486"} -->
+## Configuring EUNs for Inline Web DLP
+
+- Source: https://help.zscaler.com/zia/configuring-euns-inline-web-dlp
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Configuring EUNs for Inline Web DLP
+- Last modified: 2026-09-15T12:33Z
+- Summary: How to customize notification messages for Zscaler Client Connector-based EUNs triggered by inline web DLP policy in the Zscaler Admin Console.
+
+You can customize the Zscaler Client Connector-based notifications that are displayed to end users when an [Inline Web DLP policy](https://help.zscaler.com/zia/about-data-loss-prevention) is triggered by their activity. For example, when Zscaler service blocks a user from posting personally identifiable information (PII) on third-party websites, you can display a notification explaining the policy violation. In another scenario, you might allow a user to upload a file containing sensitive corporate information to personal storage, but display a notification warning about the associated risks and indicating that the activity is monitored. The end user notification (EUN) is supported for DLP rules [with content inspection](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection) (i.e., use Zscaler DLP engines) and [without content inspection](https://help.zscaler.com/zia/configuring-dlp-policy-rules-without-content-inspection) (i.e., rely only on specific criteria to filter data).
+
+The EUNs are triggered by Zscaler service based on your policy configuration and are delivered by Zscaler Client Connector installed on user' endpoints. The Zscaler service provides a default notification for the Inline Web DLP policy. You can also create custom messages and associate distinct notifications with individual DLP rules based on context. To learn more, see [About Zscaler Client Connector-Based End User Notifications](https://help.zscaler.com/zia/about-zscaler-client-connector-based-end-user-notifications).
+
+To create a custom notification message:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **End User Notification** > **End User Notifications**.
+2. Select the **Client Connector** tab.
+3. Click **Add Custom Message**. The **Add Custom Message** drawer appears.
+4. In the **Add Custom Message** drawer: See image.
+  1. Under **General**:
+    - **Name**: Enter a unique name for the custom message.
+    - **Channel**: Select **Inline Web**.
+  2. Under **Message**, select the language in which you want to customize the notification message from the drop-down menu. Preconfigured messages appear for supported policy actions in the selected language. You can customize this message for each policy action as needed: You can embed links in the message content by using the following format: `__url[Link text | example.com]` (note the double underscore at the beginning). For example, `__url[Learn more | https://acme.com/policy]`. You can also introduce line breaks in the message content by using the `//n` character. When you modify one or more preconfigured messages, a **Reset All** option appears. Clicking this option restores the original messages for all available actions.
+    - **Allow**: Customize the notification message that appears when an end user's activity triggers a DLP rule, but the service allows and logs the activity.
+    - **Block**: Customize the notification message that appears when an end user's activity triggers a DLP rule and the service blocks the activity.
+  3. Under **Additional Information**, select the matched rule details that you want to display in the notification:
+    - **File Name**: Include the name of the file that triggered the rule.
+    - **Destination**: Include the destination IP address or domain name that triggered the rule.
+    - **Rule Name**: Include the name of the triggered rule.
+    - **URL Category**: Include the URL category that triggered the rule.
+    - **URL**: Include the URL that triggered the rule.
+    - **DLP Engines**: Include the DLP engines that triggered the rule.
+  4. Under **Preview**, you can view your configured notification messages by clicking the respective message tabs. You can view the full message by clicking **Show more**. The notification preview also includes the customization made under [Settings](https://help.zscaler.com/zia/configuring-settings-zscaler-client-connector-based-euns), which are general settings applicable to all Zscaler Client Connector-based EUNs.
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+You can edit custom notification messages, but the **Channel** field cannot be modified.
+
+After customizing the notification message, you must enable the EUN for a DLP rule and associate the appropriate notification message. To learn more, see the [Step-by-Step Configuration Guide for Zscaler Client Connector-Based EUNs](https://help.zscaler.com/zia/step-step-configuration-guide-zscaler-client-connector-based-euns).
+
+[[Image: Custom Zscaler Client Connector EUN message configuration for Inline Web DLP policy]](https://help.zscaler.com/downloads/zia/authentication-administration/end-user-notifications-euns/zscaler-client-connector-euns/configuring-euns-inline-web-dlp/inline-web-dlp-custom-eun_0.png)
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/configuring-euns-ips-control","lastmod":"2026-09-15T12:39Z","nid":"1532834"} -->
+## Configuring EUNs for IPS Control
+
+- Source: https://help.zscaler.com/zia/configuring-euns-ips-control
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Configuring EUNs for IPS Control
+- Last modified: 2026-09-15T12:39Z
+- Summary: How to customize notification messages for Zscaler Client Connector-based EUNs triggered by the IPS Control policy in the Zscaler Admin Console.
+
+When network traffic from your user devices is allowed or blocked by the [IPS Control policy](https://help.zscaler.com/zia/configuring-ips-control-policy), the Zscaler service can notify users of the policy action through Zscaler Client Connector installed on users' endpoints. The Zscaler service provides a default notification message that can be readily associated with policy rules. Additionally, you can create custom messages and associate distinct notification messages with individual IPS Control rules, depending on your requirements. To learn more, see [About Zscaler Client Connector-Based End User Notifications](https://help.zscaler.com/zia/about-zscaler-client-connector-based-end-user-notifications).
+
+- To access this feature, you must have the IPS Control policy which is provided by the Advanced Firewall.
+- This EUN is supported on Windows devices running Zscaler Client Connector version 4.8 or later over Z-Tunnel 2.0. You must also have configured the required settings in Zscaler Client Connector in the Zscaler Admin Console to display these EUNs for IPS Control. To learn more, see [Configuring Zscaler Client Connector App Profiles](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles).
+
+To add a custom notification message:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **End User Notification** > **End User Notifications**.
+2. Select the **Client Connector** tab.
+3. Click **Add Custom Message**. The **Add Custom Message** drawer appears.
+4. In the **Add Custom Message** drawer: See image.
+  1. Under **General**:
+    - **Name**: Enter a unique name for the custom message.
+    - **Channel**: Select **IPS**.
+  2. Under **Message**, select the language in which you want to customize the notification message from the drop-down menu. Preconfigured messages appear for supported policy actions in the selected language. You can customize this message for each policy action as needed: You can embed links in the message content by using the following format: `__url[``Link text``|``example.com``]` (note the double underscore at the beginning). For example, `__url[Learn more | https://acme.com/policy]`. You can also introduce line breaks in the message content by using the `//n` character. When you modify one or more preconfigured messages, a **Reset All** option appears. Clicking this option restores the original messages for all available actions.
+    - **Allow**: Customize the notification message that appears when the service detects potentially malicious activity but allows the traffic based on the configured IPS policy.
+    - **Block**:Customize the notification message that appears when the service blocks the user activity. The **Block** message applies to both **Block/Drop** and **Block/Reset** actions of the IPS Control policy.
+  3. Under **Additional Information**, select the matched rule details that you want to display in the notification: You can view Zscaler's listing of threats and specific threat information, including threat severity and score, in the [Zscaler Threat Library](https://threatlibrary.zscaler.com).
+    - **Threat Name**: The name of the threat detected in the traffic.
+    - **Threat Category**: The category of the threat detected in the traffic.
+    - **Threat Severity**: The severity of the threat detected.
+    - **Threat Score**: The score assigned to the threat detected.
+    - **Network Service**: The network service identified in the traffic and matched with the rule.
+    - **Server Destination IP**: The destination server's IP address.
+    - **Destination Country**: The country where the destination server is located.
+  4. Under **Preview**, you can view your configured notification messages by clicking the respective message tabs. You can view the full message by clicking **Show more**. The notification preview also includes the customization made under [Settings](https://help.zscaler.com/zia/configuring-settings-zscaler-client-connector-based-euns), which are general settings applicable to all Zscaler Client Connector-based EUNs.
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+You can edit custom notification messages, but the **Channel** field cannot be modified.
+
+After customizing the notification message, you must enable the EUN for an [IPS Control rule](https://help.zscaler.com/zia/configuring-ips-control-policy) and associate the appropriate notification message. To learn more, see the [Step-by-Step Configuration Guide for Zscaler Client Connector-Based EUNs](https://help.zscaler.com/zia/step-step-configuration-guide-zscaler-client-connector-based-euns).
+
+[Image: Add custom message for IPS channel of [[zscaler-client-connector]] EUN]
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -76,13 +166,13 @@ To assign an extranet to a location:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-file-type-control-policy","lastmod":"2026-08-23T22:10Z","nid":"1398726"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-file-type-control-policy","lastmod":"2026-09-24T10:45Z","nid":"1398726"} -->
 ## Configuring the File Type Control Policy
 
 - Source: https://help.zscaler.com/zia/configuring-file-type-control-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > File Type Control > Configuring the File Type Control Policy
-- Last modified: 2026-08-23T22:10Z
+- Last modified: 2026-09-24T10:45Z
 - Summary: How to configure the Zscaler File Type Control policy by adding rules to restrict the upload and download of various types of files.
 
 [Watch a video about File Type Control.](https://fast.wistia.net/embed/iframe/dy3uxxv8k2)
@@ -99,7 +189,7 @@ The File Type Control rules consist of a series of logical operators between the
 
 To configure the File Type Control policy:
 
-1. Go to **Policies**>**Access Control**> **Internet & SaaS**> **File Type Control**.
+1. Go to **Internet Access**>**Policy**> **File Type Control**.
 2. Click **Add Rule**. The **Add Rule** window appears.
 3. On the **Add Rule** page, you can configure the following sections:
   - Criteria
@@ -179,13 +269,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-firewall-filtering-policy","lastmod":"2026-09-20T09:37Z","nid":"1399876"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-firewall-filtering-policy","lastmod":"2026-09-23T03:19Z","nid":"1399876"} -->
 ## Configuring the Firewall Filtering Policy
 
 - Source: https://help.zscaler.com/zia/configuring-firewall-filtering-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Control > Firewall Filtering > Configuring the Firewall Filtering Policy
-- Last modified: 2026-09-20T09:37Z
+- Last modified: 2026-09-23T03:19Z
 - Summary: How to configure the Firewall Filtering policy using rule conditions and action to allow or block specific types of traffic.
 
 [Watch a video about Firewall Control, including how to configure the Firewall Filtering policy](https://fast.wistia.net/embed/iframe/aauzes6y9s) (shows legacy UI).
@@ -227,7 +317,7 @@ Before adding rules to the Firewall Filtering policy, ensure that you have confi
 
 To add a Firewall Filtering policy rule:
 
-1. Go to **Internet Access** > **Policy** > **Firewall Control**. The **Firewall Filtering Policy** tab is selected.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Policy** > **Firewall Control**. The **Firewall Filtering Policy** tab is selected.
 2. Click **Add Rule**. The **Add Rule** page appears.
 3. On the **Add Rule** page, you can configure the following sections:
   - Criteria
@@ -679,13 +769,13 @@ To configure a Forwarding rule for GeoIP:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-ftp-control-policy","lastmod":"2026-08-12T10:25Z","nid":"1400596"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-ftp-control-policy","lastmod":"2026-09-22T10:48Z","nid":"1400596"} -->
 ## Configuring the FTP Control Policy
 
 - Source: https://help.zscaler.com/zia/configuring-ftp-control-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > FTP Control > Configuring the FTP Control Policy
-- Last modified: 2026-08-12T10:25Z
+- Last modified: 2026-09-22T10:48Z
 - Summary: How to configure the FTP Control and Malware Protection policy for FTP traffic.
 
 [Watch a video about FTP Control Policy.](https://fast.wistia.net/embed/iframe/slkgryvr00)
@@ -703,20 +793,21 @@ From the [FTP Control](https://help.zscaler.com/zia/understanding-ftp-control) p
 
 To configure the FTP Control policy:
 
-1. Go to **Policy** > **Access Control** > **Firewall** > **FTP Control**.
-2. Configure the following options: See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Policy** > **FTP Control**.
+2. Click **Edit**. The **Edit** page appears.
+3. On the **Edit** page: See image.
   - Under **FTP over HTTP Traffic**: **Allow FTP over HTTP**:By default, the Zscaler service doesn't allow users from a location to upload or download files from FTP sites that use FTP over HTTP. Enable this option to allow browsers to connect to FTP over HTTP sites and download files. If a remote user uses a dedicated port, then the service supports FTP over HTTP for them.
   - Under **Native FTP Traffic**: **Allow Native FTP**: Enable this option to allow users to connect to native FTP sites and download files. If you enable this setting, the following additional options appear:
     - **Allow Any URL Category**: Enable this option to allow FTP traffic for all [URL categories](https://help.zscaler.com/zia/about-url-categories). The policy applies to traffic from the known locations of an organization. When you disable this option, you can configure the FTP Control policy to allow access to specific sites by configuring the following additional options:
       - **Allowed URL Categories**: You can select URL super categories, URL categories, or both. You can select any number of categories. You can also search for categories or add a custom category by clicking the **Add** icon.
       - **Allowed URLs**: Enter the URLs for which native FTP traffic will be allowed. You can add up to 25,000 URLs. For guidance on entering URLs, see the [URL format guidelines](https://help.zscaler.com/zia/url-format-guidelines). For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove the first 25,000 items from the list (**Remove 25K Items**) or only items from a specific page (**Remove Page**). If you select **Remove 25K Items** or **Remove Page**, a confirmation window appears. This feature is successful when the FTP proxy can retrieve the URLs. If you are using transparent traffic forwarding, enter an IP address instead of a URL. Alternatively, Zscaler recommends implementing one of the following workarounds: FQDN-based Firewall rule set to allow traffic; Forward proxy mode; FTP traffic over HTTP CONNECT
-3. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 From the [Malware Protection](https://help.zscaler.com/zia/configuring-malware-protection-policy) page, you can enable or disable scanning for FTP over HTTP traffic and native FTP traffic.
 
 To inspect FTP over HTTP traffic and native FTP traffic:
 
-1. Go to **Policies**> **Cybersecurity** > **Inline Security** > **Malware Protection**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Cyberthreat Protection** > **Policy** > **Malware Protection**.
 2. In the **Protocol Inspection**section, enable the following toggles to scan FTP traffic: See image.
   - **Inspect FTP over HTTP**: Enable to scan FTP over HTTP traffic in real time. The Traffic Inspection setting determines whether inbound, outbound, or both types of traffic is scanned. It scans all files, including those with up to 5 layers of recursive compression.
   - **Inspect FTP**: Enable to scan FTP traffic in real time. The Traffic Inspection setting determines whether inbound, outbound, or both types of traffic is scanned. It scans all files, including those with up to 5 layers of recursive compression.
@@ -1057,13 +1148,13 @@ For more information about getting started on the Zscaler service, see [Getting 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-gre-tunnels","lastmod":"2026-09-08T05:43Z","nid":"1399096"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-gre-tunnels","lastmod":"2026-09-23T05:13Z","nid":"1399096"} -->
 ## Configuring GRE Tunnels
 
 - Source: https://help.zscaler.com/zia/configuring-gre-tunnels
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > GRE > Configuring GRE Tunnels
-- Last modified: 2026-09-08T05:43Z
+- Last modified: 2026-09-23T05:13Z
 - Summary: How to configure GRE tunnels from the corporate network to the Zscaler service.
 
 The following diagram is an example GRE tunnel configuration.
@@ -1077,7 +1168,7 @@ To configure GRE tunnels from your corporate network to the Zscaler service:
 - 3. Log in to the Zscaler Admin Console and add your gateway location.
 - 4. Configure your router or firewall to allow the GRE tunnel.
 
-From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Data Explorer**>**Tunnel Insights**to see data, as well as monitor the health and status of your configured GRE tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
+Go to Data Explorer > Internet & SaaS > Tunnel Insightsto see data, as well as monitor the health and status of your configured GRE tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
 
 - Zscaler recommends configuring two separate GRE tunnels to two Public Service Edges for Internet & SaaS (ZIA) that are each located in a different data center for high availability. If the primary GRE tunnel or an intermediate connection goes down, all traffic is then rerouted through the backup GRE tunnel to the secondary Public Service Edge. Ensure that if the primary tunnel goes down, the router detects it and changes the routing table or routing instance so that the secondary tunnel is used for traffic forwarding and vice versa.
 - Use the GRE tunnel to forward internet traffic to the service. If supported, use policy-based routing (PBR) to ensure that only internet-bound traffic is sent through the GRE tunnel. PBR is a mechanism that enables a router to determine where to forward packets based on configured policies. When you configure a GRE tunnel, you can use PBR to ensure that only internet-bound traffic is sent through the tunnel. A policy typically includes match criteria and the action that the router takes on the traffic. Match criteria can include the source and destination IP addresses and ports, and the protocol, such as HTTP or HTTPS. The action specifies the nexthop of the packets. When a packet arrives at a router with PBR enabled, it determines if the packet matches a configured policy and then routes it accordingly. PBR enables packets to take different paths based on the match criteria.
@@ -1117,7 +1208,7 @@ When Zscaler assigns the VIP addresses, the Zscaler service binds the source and
 
 After your IP addresses have been provisioned on the Zscaler service, log in to the Zscaler Admin Console and define your organization’s gateway location as follows:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Infrastructure** > **Location Management** **> Legacy Locations**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure** > **Location Management** **> Legacy Locations**.
 2. Click **Add Location**.
 3. Enter general information about the location:
   - **Name**: Enter a name for the location.
@@ -1125,7 +1216,7 @@ After your IP addresses have been provisioned on the Zscaler service, log in to 
   - **City/State/Province**: Enter the name of the location's city, state, or province, if applicable.
   - **Time Zone**: Choose the time zone of the location. When you specify the location in a policy, the service applies the policy according to the location's time zone. For example, if a Cloud App Control policy blocks posting to Facebook between 8:00 AM and 5:00 PM, and the rule is applied to locations in Spain and California, users at each location are blocked during their respective daytime hours. For configuration information about the other fields on this page, see [Configuring Locations](https://help.zscaler.com/zia/configuring-locations).
 4. Choose the IP addresses for the location:
-  - The **Public IP Addresses** list displays the IP addresses that you sent to Zscaler when it was provisioned for your organization. Choose IP addresses for the location.
+  - The **Static IP Addresses and GRE Tunnels**drop-down menu displays the IP addresses and GRE Tunnels that you sent to Zscaler when it was provisioned for your organization.
   - Optionally, enable the other features on this page.
 5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
@@ -1206,21 +1297,21 @@ To add users, groups, and departments in the Zscaler database:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-icap-server-mtls-certificate","lastmod":"2026-05-18T21:06Z","nid":"1402431"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-icap-server-mtls-certificate","lastmod":"2026-09-24T13:53Z","nid":"1402431"} -->
 ## Configuring the ICAP Server with the MTLS CA Certificate
 
 - Source: https://help.zscaler.com/zia/configuring-icap-server-mtls-certificate
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Configuring the ICAP Server with the MTLS CA Certificate
-- Last modified: 2026-05-18T21:06Z
+- Last modified: 2026-09-24T13:53Z
 - Summary: How to configure the ICAP Server with the Mutual Transport Layer Security (MTLS) Certificate Authority (CA) Certificate.
 
 ICAP servers can be configured for mutual client authentication using the Mutual Transport Layer Security (MTLS) Certificate Authority (CA) Certificate that you can download from the Zscaler Admin Console.
 
 To configure the ICAP server with the MTLS Certificate:
 
-1. Go to **Policies** >**Data Protection**> **Common Resources**> **DLP Incident Receiver**.
-2. On the ICAP Settings page, click the **Download MTLS CA Certificate** icon to download the root CA certificate.
+1. Go to **Data Security**> **Common Resources**> **DLP Incident Receiver**.
+2. On the **ICAP Settings**page, click the **Download MTLS CA Certificate** icon to download the root CA certificate.
 3. If client certification verification is required for additional security of ICAP traffic, then configure your ICAP server or SSL tunnel in front of the ICAP server to use the root CA certificate that you downloaded to verify the Zscaler client certificate when the ICAP connection is initiated from the Zscaler cloud.
 
 This root CA certificate is not a server certificate used for the SSL server.
@@ -1236,13 +1327,13 @@ It is also recommended that you create a minimal set of root CA certificates for
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-amazon-web-services","lastmod":"2026-09-20T07:06Z","nid":"1443226"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-amazon-web-services","lastmod":"2026-09-27T07:06Z","nid":"1443226"} -->
 ## Configuring the Index Tool with Amazon Web Services
 
 - Source: https://help.zscaler.com/zia/configuring-index-tool-amazon-web-services
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > Configuring the Index Tool with Amazon Web Services
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-09-27T07:06Z
 - Summary: Instructions on how to install, configure, and access the Zscaler Index Tool virtual machine for Data Loss Prevention (DLP), which is used to create index templates that can be applied to custom DLP dictionaries and engines for the Zscaler service.
 
 Before you can create index templates for DLP dictionaries (i.e.,[Exact Data Match (EDM)](https://help.zscaler.com/zia/about-exact-data-match) and [Indexed Document Match (IDM)](https://help.zscaler.com/zia/about-indexed-document-match) templates), you must configure the virtual machine (VM) image for the Index Tool with Amazon Web Services (AWS), Azure, or VMware.
@@ -1340,7 +1431,7 @@ Make note of the AMI ID and name that was shared with your account. You need thi
     2. Enter the following command to change the password: `sudo zap change-password`
     3. Enter a new root password.
     4. Re-enter the new root password. See image.
-7. Return to the Zscaler Admin Console, and go to **Policies**> **Data Protection**> **Common Resources**> **Index Tool**.
+7. Return to the Zscaler Admin Console, and go to **Data Security**> **Common Resources**> **Index Tool**.
 8. Locate the [Index Tool Configuration](https://help.zscaler.com/zia/about-index-tool) you added previously, and under the **SSL Certificate** column, click **Download**. See image.
 9. Copy the SSL client certificate ZIP file to the VM and install it:
   1. In this example, `scp` is used to copy the file: `scp `<SSL_certificate_zip_filename> zsroot@<vm_ip>:~/``For example: `scp EdmClientCertificate.zip zsroot@10.66.108.100:~/`
@@ -1480,13 +1571,13 @@ sudo zadp start
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-azure-vms","lastmod":"2026-09-20T07:06Z","nid":"1467486"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-azure-vms","lastmod":"2026-09-27T07:06Z","nid":"1467486"} -->
 ## Configuring the Index Tool with Azure
 
 - Source: https://help.zscaler.com/zia/configuring-index-tool-azure-vms
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > Configuring the Index Tool with Azure
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-09-27T07:06Z
 - Summary: Instructions on how to install, configure, and access the Zscaler Index Tool VM in Azure. The Index Tool is used to create index templates that can be applied to custom Data Loss Prevention (DLP) dictionaries and engines for the Zscaler service.
 
 To create index templates for DLP dictionaries (i.e., [Exact Data Match (EDM)](https://help.zscaler.com/zia/about-exact-data-match) and [Indexed Document Match (IDM)](https://help.zscaler.com/zia/about-indexed-document-match) templates), you must configure the virtual machine (VM) image for the Index Tool with Azure, Amazon Web Services (AWS), or VMware.
@@ -1715,7 +1806,7 @@ See image.
 
 After the password is changed, you need to log in to `zsroot` again using the new password.
 
-1. Go back to the Zscaler Admin Console, and go to **Policies**> **Data Protection**> **Common Resources**> **Data Classification**> **Index Tool**.
+1. Go back to the Zscaler Admin Console, and go to **Data Security**> **Common Resources**> **Index Tool**.
 2. Locate the [Index Tool Configuration](https://help.zscaler.com/zia/about-index-tool) you added previously, and under the **SSL Certificate** column click **Download**. See image.
 3. Copy the SSL client certificate ZIP file to the VM and install it:
   1. In this example, `scp` is used to copy the file:
@@ -1861,13 +1952,13 @@ sudo zadp start
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-vmware","lastmod":"2026-09-20T07:06Z","nid":"1400651"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-vmware","lastmod":"2026-09-27T07:06Z","nid":"1400651"} -->
 ## Configuring the Index Tool with VMware
 
 - Source: https://help.zscaler.com/zia/configuring-index-tool-vmware
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > Configuring the Index Tool with VMware
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-09-27T07:06Z
 - Summary: Instructions on how to install, configure, and access the Zscaler Index Tool virtual machine for Data Loss Prevention (DLP), which is used to create index templates that can be applied to custom DLP dictionaries and engines for the Zscaler service.
 
 New or clean deployment of Index Tool requires VM image running on Zscaler OS version 24.
@@ -1931,7 +2022,7 @@ Before you configure the Index Tool VM, you must download it.
 
 If your index templates include less than 300 million records, you can download the Index Tool VM image from the Zscaler Admin Console. To download the Index Tool VM:
 
-1. Go to **Policies**> **Data Protection**> **Common Resources**> **Index Tool**.
+1. Go to **Data Security**> **Common Resources**> **Index Tool**.
 2. Click **Download Index Tool**. See image.
 3. Open the downloaded index tool and verify the MD5 matches the VM image: If the values do not match, re-download the image or contact Zscaler Support.
   - Official MD5 for `/sc/adp/vm/adp_client.ova`: f6793ec81fa7bcb3cd128ce37ced6fa9
@@ -1958,7 +2049,7 @@ To configure the Index Tool VM:
 The VM restarts the network and checks the connection.
 See image.
 
-1. Go back to the Zscaler Admin Console, and go to **Policies**> **Data Protection**> **Common Resources**> **Index Tool**.
+1. Go back to the Zscaler Admin Console, and go to **Data Security**> **Common Resources**> **Index Tool**.
 2. Locate the [Index Tool Configuration](https://help.zscaler.com/zia/about-index-tool) you added previously, and under the **SSL Certificate** column, click **Download**. See image.
 3. Copy over the SSL client certificate.zip file to the VM and install it:
   1. In this example, we're using scp to copy over the file: `scp <SSL_certificate_zip_filename> zsroot@<vm_ip>:~/`For example: `scp EdmClientCertificate.zip zsroo@10.66.108.100:~/`
@@ -2118,13 +2209,13 @@ For more information about getting started on the Zscaler service, see [Getting 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-ips-control-policy","lastmod":"2026-09-18T00:53Z","nid":"1400971"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-ips-control-policy","lastmod":"2026-09-22T11:06Z","nid":"1400971"} -->
 ## Configuring the IPS Control Policy
 
 - Source: https://help.zscaler.com/zia/configuring-ips-control-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > IPS Control > Configuring the IPS Control Policy
-- Last modified: 2026-09-18T00:53Z
+- Last modified: 2026-09-22T11:06Z
 - Summary: Information on how to configure the IPS Control policy in the Zscaler Admin Console to leverage Zscaler's Intrustion Prevention System (IPS).
 
 [Watch a video about how to configure an IPS Control policy rule.](https://fast.wistia.net/embed/iframe/tnxy9sv0ks)
@@ -2159,7 +2250,7 @@ Before adding or modifying rules for the IPS Control policy, ensure that you hav
 
 To configure an IPS Control policy rule:
 
-1. Go to **Policies**> **Cybersecurity** > **Inline Security** >**IPS Control**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Policies**> **Cybersecurity** > **Inline Security** >**IPS Control**.
 2. Click **Add Rule**. The **Add Rule** page appears.
 3. On the **Add Rule** page, you can configure the following sections:
   - Criteria
@@ -2765,13 +2856,13 @@ To edit or delete a manual location group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp","lastmod":"2026-09-20T07:06Z","nid":"1492736"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp","lastmod":"2026-09-27T07:06Z","nid":"1492736"} -->
 ## Configuring Microsoft Exchange for Zscaler Outbound Email DLP
 
 - Source: https://help.zscaler.com/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Configuring Microsoft Exchange for Zscaler Outbound Email DLP
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-09-27T07:06Z
 - Summary: Information on how to configure Microsoft Excchange for Zscaler Outbound Email Data Loss Prevention (DLP).
 
 Zscaler Outbound Email Data Loss Prevention (DLP) allows you to establish a connection between your Exchange server and Zscaler's cutting-edge Data Loss Prevention (DLP) tools to prevent the exfiltration of sensitive data in outbound emails sent to external domains. To do so, you must configure connectors to allow bidirectional communication between your Exchange server and the Zscaler smart host, and you must configure mail flow rules (also known as transport rules) to determine how mail flows from your Exchange server to the Zscaler service, and vice versa.
@@ -3451,13 +3542,13 @@ The following is a sample field-value for adding an IP address to an existing su
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-nat-control-policy","lastmod":"2026-09-20T03:57Z","nid":"1399986"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-nat-control-policy","lastmod":"2026-09-21T08:53Z","nid":"1399986"} -->
 ## Configuring the NAT Control Policy
 
 - Source: https://help.zscaler.com/zia/configuring-nat-control-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Control > NAT Control > Configuring the NAT Control Policy
-- Last modified: 2026-09-20T03:57Z
+- Last modified: 2026-09-21T08:53Z
 - Summary: How to add a NAT Control policy rule in Zscaler Admin Console that enables the Zscaler Firewall to perform destination NAT and redirect traffic to specific IP addresses and ports.
 
 Configuring a NAT Control policy rule provides greater control over your NAT traffic.
@@ -3619,13 +3710,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-network-application-groups","lastmod":"2026-09-10T21:27Z","nid":"1399941"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-network-application-groups","lastmod":"2026-09-21T01:33Z","nid":"1399941"} -->
 ## Configuring Network Application Groups
 
 - Source: https://help.zscaler.com/zia/configuring-network-application-groups
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > Configuring Network Application Groups
-- Last modified: 2026-09-10T21:27Z
+- Last modified: 2026-09-21T01:33Z
 - Summary: How to group network applications together to use them as rule criteria in Internet & SaaS (ZIA) Firewall policy rules.
 
 To group together applications that you want to manage in a Firewall policy rule, create a network application group:
@@ -4205,13 +4296,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-policies-for-unauthenticated-traffic","lastmod":"2026-05-18T04:13Z","nid":"1398691"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-policies-for-unauthenticated-traffic","lastmod":"2026-09-20T23:50Z","nid":"1398691"} -->
 ## Configuring Policies for Unauthenticated Traffic
 
 - Source: https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Configuring Policies for Unauthenticated Traffic
-- Last modified: 2026-05-18T04:13Z
+- Last modified: 2026-09-20T23:50Z
 - Summary: For policies where users and departments are specified, Zscaler enables specifying which rules the service applies to unauthenticated traffic.
 
 There might be scenarios in which the Zscaler service does not identify the user sending traffic to the service. For example, the service does not authenticate user traffic to URLs or cloud apps you have selected to [exempt from authentication](https://help.zscaler.com/zia/exempting-urls-cloud-apps-authentication). In another example, the service might not authenticate user traffic because it is encrypted and [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssl-inspection)is not enabled.
@@ -4231,12 +4322,12 @@ When the feature is enabled in Advanced Settings, you can specify whether the po
 To configure a policy for unauthenticated traffic:
 
 1. Enable the Policy for Unauthenticated Traffic feature in Advanced Settings:
-  1. Go to **Policies** **> Common Configuration > Advanced >** **Advanced Settings**.
+  1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Internet Access** **> Setting >** **Advanced Settings**.
   2. Under **Policy for Unauthenticated Traffic**, turn on **Enable Policy for Unauthenticated Traffic**. See image.
   3. Click**Save**.
 2. When selecting criteria for policy rules, you can choose to apply a rule only to specific types of unauthenticated traffic, or to all unauthenticated traffic. This option is available for all policies where you can specify users and departments in the criteria.
   - To apply a rule to specific types of traffic:
-    1. Go to the applicable policy. For example, **Policies > Access Control > Internet & SaaS > URL Filtering**or**Policies > Access Control > Firewall > Firewall Filtering Policy**.
+    1. Go to the applicable policy. For example, **Internet Access > Policy > URL Filtering Policy**.
     2. In the **Users**drop-down menu, select any users from the following user categories:
       - **General Users**: The users to which you want the rule to apply.
       - **Special Users**: The users you can select the types of unauthenticated traffic for and also apply the rule to. The types of unauthenticated traffic are: The following image is for a rule under the URL Filtering policy. See image.
@@ -4250,7 +4341,7 @@ To configure a policy for unauthenticated traffic:
     3. If you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, don't select a groupfrom the **Groups** drop-down menu. If you don't select a value for a criterion, the system ignores it in the policy evaluation.
     4. After specifying other criteria for the rule as necessary, click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
   - To apply a rule to all unauthenticated traffic:
-    1. Go to the applicable policy. For example, **Policies > Access Control > Internet & SaaS > URL Filtering**or**Policies > Access Control > Firewall > Firewall Filtering Policy**.
+    1. Go to the applicable policy. For example, Internet**Access > Policy > URL Filtering Policy > URL Filtering**or**Internet Access > Policy > URL Filtering Policy**.
     2. In the **Departments** drop-down menu, select any departments from the following department categories: You can choose a combination of regular departments with the **Unauthenticated Transactions**selected. The following image is about a rule under the URL Filtering policy. See image.
       - **Regular Departments**: The departments to which you want the rule to apply.
       - **Special Departments**: The departments for which you can select **Unauthenticated Transactions** if you want the rule to also apply to any unauthenticated traffic.
@@ -4266,13 +4357,13 @@ To configure a policy for unauthenticated traffic:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-private-access-gateway","lastmod":"2026-06-18T13:00Z","nid":"1401526"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-private-access-gateway","lastmod":"2026-09-21T01:22Z","nid":"1401526"} -->
 ## Configuring Private Access Gateway
 
 - Source: https://help.zscaler.com/zia/configuring-private-access-gateway
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Forwarding Control > Dedicated IP > Customer-Managed Dedicated IP (Source IP Anchoring) > Configuring Private Access Gateway
-- Last modified: 2026-06-18T13:00Z
+- Last modified: 2026-09-21T01:22Z
 - Summary: How to configure a Private Access gateway for Source IP Anchoring.
 
 You need to configure Private Access (ZPA) gateways in the Zscaler Admin Console to map them to the [Private Access server groups](https://help.zscaler.com/zpa/about-server-groups) and its associated [application segments](https://help.zscaler.com/zpa/about-applications) that require [Source IP Anchoring](https://help.zscaler.com/zia/about-source-ip-anchoring).
@@ -5254,13 +5345,13 @@ The IDM process is broken down as follows:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-settings-user-confirmation-notification-templates","lastmod":"2026-09-15T21:06Z","nid":"1492911"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-settings-user-confirmation-notification-templates","lastmod":"2026-09-21T21:18Z","nid":"1492911"} -->
 ## Configuring Settings for User Confirmation Notification Templates
 
 - Source: https://help.zscaler.com/zia/configuring-settings-user-confirmation-notification-templates
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Configuring Settings for User Confirmation Notification Templates
-- Last modified: 2026-09-15T21:06Z
+- Last modified: 2026-09-21T21:18Z
 - Summary: How to configure global settings for user confirmation notification templates within the Zscaler Admin Console.
 
 When user activity triggers an Endpoint Data Loss Prevention (DLP) or Inline Web DLP rule that uses a Confirm action, the Zscaler service sends the default confirmation message based on the channel assigned to the rule (i.e., Network Share, Personal Cloud Storage, Printing, Removable Storage, and Inline Web DLP). To learn more, see [Configuring User Confirmation Notification Templates](https://help.zscaler.com/zia/configuring-user-confirmation-notification-templates).
@@ -5273,7 +5364,7 @@ To learn more, see [Configuring Settings for User Confirmation Notification Temp
 
 To configure global settings for user confirmation notification templates:
 
-1. Go to **Policies > Common Configuration > Resources > Data Protection User Confirmation**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Administration > End User Notification > Data Protection User Confirmation**.
 2. Click **Settings**, located in the top-right corner of the page. The **Settings** window appears. See image.
 3. Configure the following **General Details**:
   - **Company Name**: Add a company name that appears on each user confirmation message. By default, the messages use Zscaler as the company name.
@@ -5341,14 +5432,14 @@ To learn how to customize the fields specific to individual Zscaler Client Conne
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-single-sign-index-tool","lastmod":"2026-07-10T21:06Z","nid":"1530810"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-single-sign-index-tool","lastmod":"2026-09-24T11:25Z","nid":"1530810"} -->
 ## Configuring Single Sign-On for the Index Tool
 
 - Source: https://help.zscaler.com/zia/configuring-single-sign-index-tool
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > Configuring Single Sign-On for the Index Tool
-- Last modified: 2026-07-10T21:06Z
-- Summary: Information on how to configure single sign-on (SSO) for the [[zscaler]] Index Tool.
+- Last modified: 2026-09-24T11:25Z
+- Summary: Information on how to configure single sign-on (SSO) for the Zscaler Index Tool.
 
 Instead of logging in to the [Index Tool](https://help.zscaler.com/zia/about-index-tool) with a username and password, you can configure single sign-on (SSO) to the Index Tool through your identity provider (IdP).
 
@@ -5358,7 +5449,7 @@ To configure SSO for the Index Tool:
   - Okta
   - Microsoft Entra ID
 2. After you finish integrating the Index Tool in your IdP's admin console, log in to the Zscaler Admin Console.
-3. Go to **Policies**> **Data Protection**> **Common Resources**> **Index Tool**.
+3. Go to **Data Security**> **Common Resources**> **Index Tool**.
 4. Click the **Edit**icon for the Index Tool configuration that you are enabling SSO for or click **Add Index Tool Configuration**if you are creating a new one.
 5. Click **Enabled**for **Enable Single Sign-On**. See image.
 6. In the **SSO Configurations**section: See image.
@@ -5471,13 +5562,13 @@ To configure SSO for the Index Tool:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-smart-browser-isolation-policy","lastmod":"2026-09-17T06:38Z","nid":"1402926"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-smart-browser-isolation-policy","lastmod":"2026-09-25T04:17Z","nid":"1402926"} -->
 ## Configuring Smart Browser Isolation Policy
 
 - Source: https://help.zscaler.com/zia/configuring-smart-browser-isolation-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Secure Browsing > Configuring Smart Browser Isolation Policy
-- Last modified: 2026-09-17T06:38Z
+- Last modified: 2026-09-25T04:17Z
 - Summary: Information on how to configure the Smart Browser Isolation policy in the Zscaler Admin Console.
 
 You can configure a Smart Browser Isolation policy that automatically isolates potentially malicious web content using the AI/ML models. This policy identifies suspicious websites and decrypts them using SSL/TLS Inspection and presents the users with a rendition of the actual websites in a remote browser using [Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) (formerly Isolation).
@@ -5508,29 +5599,31 @@ Ensure to [create isolation profiles](https://help.zscaler.com/zero-trust-browse
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-software-protection-intermediate-ca-certificate","lastmod":"2026-09-09T04:29Z","nid":"1402641"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-software-protection-intermediate-ca-certificate","lastmod":"2026-09-25T05:03Z","nid":"1402641"} -->
 ## Configuring Software Protection Intermediate CA Certificate
 
 - Source: https://help.zscaler.com/zia/configuring-software-protection-intermediate-ca-certificate
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SSL/TLS Inspection > Configuring Software Protection Intermediate CA Certificate
-- Last modified: 2026-09-09T04:29Z
+- Last modified: 2026-09-25T05:03Z
 - Summary: How to configure or add an intermediate CA certificate from the Zscaler Admin Console for Zscaler traffic.
 
 Zscaler allows you to create two software intermediate CA certificates with the enabled status that can be used for SSL/TLS Inspection.
 
 To configure a Software Protection certificate for your organization during SSL/TLS negotiations:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Internet Access** > **Resources** >**SSL Intermediate Certificate**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Resources** >**SSL Intermediate Certificate**.
 2. On the **Intermediate CA Certificates** page, click **Add Intermediate CA Certificate**> **Software Protection**.
-3. In the**Add Software Intermediate CA Certificate**window, under the **General** tab, complete the following sections:
+3. On the**Add Software Intermediate CA Certificate**page, in the **General** section, complete the following and click **Next**: See image.
   - **Name**: Enter a name for the certificate.
   - **Protection Type**: This field is set to **Software Protection** by default.
   - **Region**: This field is set to **Global** by default.
   - **Status**: Enable or disable the certificate.
   - **Description**: Additional notes or information about the certificate.
-4. On the **Generate Key Pair** tab, you can view and download your public key pair for the intermediate certificate using **Download Public Key** at the bottom.
-5. On the **Generate CSR** tab:
+4. In the **Generate Key Pair** section: See image.
+  1. Click **Download Public Key** at the bottom to download your public key pair for the intermediate certificate.
+  2. Click **Next**.
+5. In the **Generate CSR** section, complete the following and click **Next**: See image.
   - **CSR File Name:**Enter a name for the Certificate Signing Request (CSR) file.
   - **Common Name (CN):**Enter the common name (CN) of your organization, such as `zscaler.com`.
   - **Organization:**Enter the name of your organization or company.
@@ -5542,8 +5635,8 @@ To configure a Software Protection certificate for your organization during SSL/
   - **Signature Algorithm:**The signature algorithm is set to SHA-256 by default.
   - **Path Length Constraint:**Select the path length constraint for the software intermediate certificate. This field can either be set to **0** or **1**.
   - Click **Generate and** **Save** **New** **CSR**. The CSR certificate is generated.
-  - Click **CSR for Custom Certificate** to download the file. After you download the CSR, send it to your CA for signing. Ensure that the CSR is signed as a Subordinate Certification Authority or Intermediate Certification Authority. If you use OpenSSL, ensure that the following attributes are set during signing: `basicConstraints=CA:TRUE keyUsage=keyCertSign, cRLSign`To learn more, see [Signing a CSR Using the Active Directory Certificate Services.](https://help.zscaler.com/zia/signing-csr-using-active-directory-certificate-services)
-6. On the **Upload Intermediate Certificate** tab, browse and upload your intermediate certificate. The file must be in PEM format. Ensure that your organization’s root certificate is installed on the browsers of your users. Browsers trust the new intermediate certificate and any certificate signed by it. If you upload a custom certificate that is invalid, for example, and the common name in the certificate does not match, the Zscaler service does not use the Zscaler root certificate. Instead, it continues to use the previously uploaded self-signed certificate.
+  - Click **Download CSR** to download the file. After you download the CSR, send it to your CA for signing. Ensure that the CSR is signed as a Subordinate Certification Authority or Intermediate Certification Authority. If you use OpenSSL, ensure that the following attributes are set during signing: `basicConstraints=CA:TRUE keyUsage=keyCertSign, cRLSign`To learn more, see [Signing a CSR Using the Active Directory Certificate Services.](https://help.zscaler.com/zia/signing-csr-using-active-directory-certificate-services)
+6. In the **Upload Intermediate Certificate** section, browse and upload your intermediate certificate and click **Next**. The file must be in PEM format. Ensure that your organization’s root certificate is installed on the browsers of your users. Browsers trust the new intermediate certificate and any certificate signed by it. If you upload a custom certificate that is invalid, for example, and the common name in the certificate does not match, the Zscaler service does not use the Zscaler root certificate. Instead, it continues to use the previously uploaded self-signed certificate.
 
 You can optionally upload the intermediate certificate chain that includes any other intermediate certificates that complete the chain to the intermediate root certificate you upload. When you upload the certificate chain, the Zscaler service sends the intermediate root certificate along with this key chain and the signed server certificate to your users’ machines during SSL/TLS Inspection. If you do not upload the certificate chain, the Zscaler service sends only your organization’s intermediate root certificate and its signed server certificate to the user’s machine.
 
@@ -5553,8 +5646,18 @@ If you change your certificate due to the compromise of an intermediate root cer
 
 You can also replace the intermediate certificate or the intermediate certificate chain for an existing custom certificate. Ensure that the new intermediate certificate is not the default certificate and is associated with an SSL/TLS policy.
 
-1. On the **Review** tab, review or edit all the information you have entered. Enable the **Default Certificate**optionto make this certificate the default intermediate CA certificate.
+See image.
+
+1. In the **Review** section, review or edit all the information you have entered. Enable the **Default Certificate**optionto make this certificate the default intermediate CA certificate.
 2. Click **Save** and [activate the changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+[Image: General section in the Add Software Intermediate CA Certificate page]
+
+[Image: Generate Key Pair section in the Add Software Intermediate CA Certificate page]
+
+[Image: Generate CSR section in the Add Software Intermediate CA Certificate page]
+
+[Image: Upload Intermediate Certificate section in the Add Software Intermediate CA Certificate page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -5696,13 +5799,13 @@ To create a custom group for source IPv4 addresses:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-ssltls-inspection-policy","lastmod":"2026-09-18T07:23Z","nid":"1401851"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-ssltls-inspection-policy","lastmod":"2026-09-25T04:45Z","nid":"1401851"} -->
 ## Configuring SSL/TLS Inspection Policy
 
 - Source: https://help.zscaler.com/zia/configuring-ssltls-inspection-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SSL/TLS Inspection > Configuring SSL/TLS Inspection Policy
-- Last modified: 2026-09-18T07:23Z
+- Last modified: 2026-09-25T04:45Z
 - Summary: How to configure or add an SSL/TLS Inspection rule from the Zscaler Admin Console for Zscaler traffic.
 
 You can configure Secure Sockets Layer (SSL)/Transport Layer Security (TLS) Inspection policies to perform scanning of the SSL/TLS traffic based on the source and destination of the traffic. Using these policies, you can simplify the deployment and ongoing operations of SSL/TLS Inspection and address the compliance and operational environmental requirements. To learn more, see [About SSL/TLS Inspection Policy](https://help.zscaler.com/zia/about-ssltls-inspection-policy).
@@ -5711,16 +5814,16 @@ You can configure Secure Sockets Layer (SSL)/Transport Layer Security (TLS) Insp
 
 The SSL/TLS Inspection rules consist of a series of logical operators between their criteria. The rules are triggered based on the result of the following logical operations between the criteria:
 
-Source IP Groups (`AND`) [URL Categories (`OR`) Cloud Applications (`OR`) Destination Groups (`OR`) Forwarding Gateways] (`AND`) ZPA Application Segment (`AND`) [Location Groups (`OR`) Locations] (`AND`) [Users (`OR`) Groups (`OR`) Departments] (`AND`) [Device Groups (`OR`) Devices (`OR`) Remote Users with Kerberos] (`AND`) Device Trust Level (`AND`) CONNECT User-Agent `(AND)` [Endpoint Applications `(OR)` Endpoint Application Tags] `(AND)` Endpoint Application Risk Level.
+Source IP Groups (`AND`) [URL Categories (`OR`) Cloud Applications (`OR`) Destination Groups (`OR`) Forwarding Gateways] (`AND`) ZPA Application Segment (`AND`) [Location Groups (`OR`) Locations] (`AND`) [Users (`OR`) Groups (`OR`) Departments] (`AND`) [Device Groups (`OR`) Devices (`OR`) Remote Users with Kerberos] (`AND`) Device Trust Level (`AND`) User Agent `(AND)` [Endpoint Applications `(OR)` Endpoint Application Tags] `(AND)` Endpoint Application Risk Level.
 
 To configure an SSL/TLS Inspection rule:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Internet Access**> **Policy** > **SSL/TLS Inspection**.
 2. Click **Add Rule**. The**Add Rule** page appears. See image.
 3. On the **Add Rule** page, you can configure the following sections:
-  - SSL/TLS Inspection Rule
   - Criteria
-  - Action
+  - Actions
+  - Details
 
 In the **Details** section, provide general information about the rule:
 
@@ -5750,7 +5853,7 @@ In the **Criteria** section, click **Add Criteria**and define the criteria:
 - **Device Groups**: &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;!--td {border: 1px solid #ccc;}br {mso-data-placement:same-cell;}--&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt; Select the [device group](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. Selecting no value ignores the criterion in the policy evaluation. Zscaler provides the [Unauthorized Traffic Bypass for IoT Classifications](https://help.zscaler.com/zia/about-ssltls-inspection-policy#unauthorized-traffic) predefined rule for the SSL/TLS Inspection policy. The **Cloud Browser Isolation** and **IoT** device groups are available if the Zero Trust Browser (formerly Isolation) and IoT features, respectively, are enabled for your organization.
 - **Remote Users with Kerberos**:Select **Yes** to apply this policy to remote users using Kerberos authentication. This criterion applies only to remote user traffic with Kerberos authentication, which is forwarded via PAC files and not via Zscaler Client Connector. Selecting no value ignores the criterion in the policy evaluation.
 - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
-- **CONNECT User-Agent**:&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;!--td {border: 1px solid #ccc;}br {mso-data-placement:same-cell;}--&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt; Select any number of user agents. This criterion applies only to SSL/TLS traffic forwarded in explicit proxy mode (PAC or PAC over tunnel) and not to traffic forwarded via a transparent proxy (tunnel) or Z-Tunnel 1.0 due to lack of user agent context. Selecting no value ignores the criterion in the policy evaluation.
+- **User Agent**:&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;!--td {border: 1px solid #ccc;}br {mso-data-placement:same-cell;}--&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt; Select any number of user agents. This criterion applies only to SSL/TLS traffic forwarded in explicit proxy mode (PAC or PAC over tunnel) and not to traffic forwarded via a transparent proxy (tunnel) or Z-Tunnel 1.0 due to lack of user agent context. Selecting no value ignores the criterion in the policy evaluation.
 - **Endpoint Applications**: Select up to 1,024 endpoint applications to which you want to apply the rule. This criterion applies to SSL/TLS traffic originating from the chosen applications.
 - **Endpoint Application Tags**: Select up to 100 endpoint application tags to which you want to apply the rule. This criterion applies to SSL/TLS traffic originating from the applications defined within the selected tags.
 - **Endpoint Application Risk Level**: Select the endpoint application risk level(s) (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. Dynamic policy enforcement currently supports only Windows endpoints using Zscaler Client Connector version 4.8 or later.
@@ -6539,13 +6642,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-user-confirmation-notification-templates","lastmod":"2026-09-14T21:06Z","nid":"1492906"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-user-confirmation-notification-templates","lastmod":"2026-09-21T21:15Z","nid":"1492906"} -->
 ## Configuring User Confirmation Notification Templates
 
 - Source: https://help.zscaler.com/zia/configuring-user-confirmation-notification-templates
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Configuring User Confirmation Notification Templates
-- Last modified: 2026-09-14T21:06Z
+- Last modified: 2026-09-21T21:15Z
 - Summary: How to configure user confirmation notification templates within the Zscaler Admin Console.
 
 When user activity triggers a rule that uses a Confirm action, the Zscaler service sends the default confirmation message based on the channel assigned to the rule (i.e., Network Share, Personal Cloud Storage, Printing, Removable Storage, and Inline Web DLP). The default message for each channel provides users with a standardized set of options to justify the activity that triggered the rule. Those options cannot be configured, but you can customize the language that begins each user confirmation message. Additionally, you can configure the messages to use your company name and logo.
@@ -6557,7 +6660,7 @@ For rules that are configured with an action other than Confirm (i.e., Allow, Bl
 - Add a Custom User Confirmation Notification Template
 - Customize the User Confirmation Message
 
-1. Go to **Policies > Common Configuration > Resources > Data Protection User Confirmation**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Administration > End User Notification > Data Protection User Confirmation**.
 2. Click **Add Custom Message**. The **Add Custom Message** window appears.
 3. In the **Add Custom Message** window, in the **Notification Details** section:
   1. **Name**: Enter the name for the custom message.
@@ -6569,7 +6672,7 @@ For rules that are configured with an action other than Confirm (i.e., Allow, Bl
   3. Preview the confirmation message in the **Preview** section. The introductory text appears in the selected language; the options remain in English in the **Preview**but appears in the correct language on endpoints.
 5. Click **Save** and [activate](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console) the change.
 
-1. Go to **Policies > Common Configuration > Resources > Data Protection User Confirmation**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Administration > End User Notification > Data Protection User Confirmation**
 2. Locate the user confirmation template in the table and click the **Edit**icon.
 3. In the **Message** section:
   1. Select a language from the drop-down menu to show the introductory text for the message in that language.
@@ -9320,13 +9423,13 @@ To set up SSO with ShareFile:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-zscaler-incident-receiver","lastmod":"2026-08-25T09:08Z","nid":"1401726"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-zscaler-incident-receiver","lastmod":"2026-09-24T11:34Z","nid":"1401726"} -->
 ## Configuring the Zscaler Incident Receiver for On-Premises VMs
 
 - Source: https://help.zscaler.com/zia/configuring-zscaler-incident-receiver
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Configuring the Zscaler Incident Receiver for On-Premises VMs
-- Last modified: 2026-08-25T09:08Z
+- Last modified: 2026-09-24T11:34Z
 - Summary: How to configure the Zscaler Incident Receiver virtual machine (VM) for on-premises VMs.
 
 New or clean deployment of a Zscaler Incident Receiver requires a virtual machine (VM) image running on Zscaler OS version 24.
@@ -9397,7 +9500,7 @@ Before you configure the Zscaler Incident Receiver VM, you must download it.
 
 To download the VM:
 
-1. In the Zscaler Admin Console, go to **Policies**> **Data Protection**> **Common Resources**>**DLP Incident Receiver**.
+1. In the Zscaler Admin Console, go to **Data Security**> **Common Resources**> **DLP Incident Receiver**.
 2. Click the **Zscaler Incident Receiver** tab.
 3. Click **Download Zscaler Incident Receiver**. See image.
 4. Download and verify the MD5 of the VM image. If the values do not match, re-download the image or contact Zscaler Support.
@@ -9423,7 +9526,7 @@ To download the VM:
     4. If you want to add a new nameserver enter `y`; otherwise, enter `n` and press `Enter`.
     5. Optionally, you can use DHCP to obtain the IP address and default router information. If there’s no DHCP server, you can configure the IP address and default router information manually.
     6. Enter the VM hostname. The VM restarts the network and checks the connection. See image.
-5. Go back to the Zscaler Admin Console and go to **Policies**> **Data Protection** > **Common Resources**> **DLP Incident Receiver**.
+5. Go back to the Zscaler Admin Console and go to **Data Security**> **Common Resources**> **DLP Incident Receiver**.
 6. On the **Zscaler Incident Receiver** tab, locate the Zscaler Incident Receiver you added previously, and under the**Certificate**column click **Download**.
 
 See image.
@@ -9670,13 +9773,13 @@ If your organization requires you to update your SSH key, upgrade to the ED25519
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-zscaler-incident-receiver-azure-vms","lastmod":"2026-08-21T14:52Z","nid":"1455536"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-zscaler-incident-receiver-azure-vms","lastmod":"2026-09-24T13:38Z","nid":"1455536"} -->
 ## Configuring the Zscaler Incident Receiver for Azure VMs
 
 - Source: https://help.zscaler.com/zia/configuring-zscaler-incident-receiver-azure-vms
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Configuring the Zscaler Incident Receiver for Azure VMs
-- Last modified: 2026-08-21T14:52Z
+- Last modified: 2026-09-24T13:38Z
 - Summary: How to configure the Zscaler Incident Receiver virtual machine (VM) on Azure VMs.
 
 Before you can use a [Zscaler Incident Receiver](https://help.zscaler.com/zia/about-zscaler-incident-receiver), you must configure the virtual machine (VM) image for the Incident Receiver on an Azure VM, an Amazon Web Services (AWS) EC2 instance, or an on-premises VM. To learn more, see [Configuring the Zscaler Incident Receiver for Amazon Web Services EC2 VMs](https://help.zscaler.com/zia/configuring-zscaler-incident-receiver-for-ec2) and [Configuring the Zscaler Incident Receiver for On-Premises VMs](https://help.zscaler.com/zia/configuring-zscaler-incident-receiver).
@@ -10005,7 +10108,7 @@ See image.
 See image.
 
 1. Re-enter the new root password.
-2. In the Zscaler Admin Console, go to **Policies** > **Data Protection** > **Common Resources**> **DLP Incident Receiver**. Then select the **Zscaler Incident Receiver** tab.
+2. In the Zscaler Admin Console, go to **Data Security**> **Common Resources**> **DLP Incident Receiver**. Then select the **Zscaler Incident Receiver** tab.
 3. Locate the Zscaler Incident Receiver you added previously. In the**Certificate**column, click **Download**.
 
 See image.
@@ -10216,13 +10319,13 @@ If your organization requires you to update your SSH key, upgrade to the ED25519
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-zscaler-incident-receiver-for-ec2","lastmod":"2026-08-21T14:51Z","nid":"1449896"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-zscaler-incident-receiver-for-ec2","lastmod":"2026-09-24T13:37Z","nid":"1449896"} -->
 ## Configuring the Zscaler Incident Receiver for Amazon Web Services EC2 VMs
 
 - Source: https://help.zscaler.com/zia/configuring-zscaler-incident-receiver-for-ec2
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Configuring the Zscaler Incident Receiver for Amazon Web Services EC2 VMs
-- Last modified: 2026-08-21T14:51Z
+- Last modified: 2026-09-24T13:37Z
 - Summary: How to configure the Zscaler Incident Receiver virtual machine (VM) on Amazon Web Services (AWS) EC2 VMs.
 
 Before you can use a [Zscaler Incident Receiver](https://help.zscaler.com/zia/about-zscaler-incident-receiver), you must configure the VM image for the Incident Receiver on an Amazon Web Services (AWS) EC2 instance, an Azure VM, or an on-premises VM.
@@ -10434,7 +10537,7 @@ See image.
 See image.
 
 1. Re-enter the new root password.
-2. In the Zscaler Admin Console, go to **Policies**> **Data Protection**> **Common Resources**> **DLP Incident Receiver**.
+2. In the Zscaler Admin Console, go to **Data Security**> **Common Resources**> **DLP Incident Receiver**.
 3. Locate the Zscaler Incident Receiver you added previously, and under the**Certificate**column click **Download**.
 
 See image.
@@ -10596,7 +10699,7 @@ See image.
 15. On the confirmation page for the load balancer, click **View load balancer**. See image. The **Load balancers** page is displayed.
 16. On the **Load balancers** page, click the name of the load balancer you created. See image. The **Load balancer details** page is displayed.
 17. On the **Load balancer details** page, in the **DNS name** section, click the **Copy DNS name to clipboard** button. See image.
-18. In the Zscaler Admin Console, go to **Policies**> **Data Protection**> **Common Resources**> **Incident Management**>**DLP Incident Receiver** and click the **Zscaler Incident Receiver** tab.
+18. In the Zscaler Admin Console, go to **Data Security**> **Common Resources**> **DLP Incident Receiver** and click the **Zscaler Incident Receiver** tab.
 19. Locate the Zscaler Incident Receiver you added previously, and click the **Edit** icon. The **Edit Zscaler Incident Receiver** page is displayed.
 20. On the **Edit Zscaler Incident Receiver** page, in the **Server URI** field, paste the DNS name for the load balancer (i.e., `icaps://``<DNS Name>`). See image. The Incident Receiver is updated to use the AWS load balancer.
 
@@ -10934,13 +11037,13 @@ When you copy a report, it’s added to the **Custom Reports** tab. You can do t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/creating-exact-data-match-template","lastmod":"2026-09-20T07:06Z","nid":"1400656"} -->
+<!-- ZS-ARTICLE {"url":"/zia/creating-exact-data-match-template","lastmod":"2026-09-27T07:06Z","nid":"1400656"} -->
 ## Creating an Exact Data Match Template
 
 - Source: https://help.zscaler.com/zia/creating-exact-data-match-template
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Exact Data Match > Creating an Exact Data Match Template
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-09-27T07:06Z
 - Summary: How to create, modify, or delete an Exact Data Match index template using the Zscaler Index Tool for Data Loss Prevention (DLP).
 
 [Watch a video on Exact Data Match](https://fast.wistia.net/embed/iframe/5jnzyl383a) (shows legacy UI).
@@ -10952,9 +11055,9 @@ Using the [Index Tool](https://help.zscaler.com/zia/about-index-tool) you can cr
 To create a new EDM template:
 
 1. Go to https://<IP Address of the Index Tool VM> to access the Index Tool. Log in to the Index Tool with your Zscaler Admin Console login credentials. See image.
-2. In the **Exact Data Match Templates** dashboard, click **Create New Template**.
+2. In the **Exact Data Match Templates** dashboard (Data Security > Common resources > Index Templates), click **Create New Template**.
 3. In the **New Exact Data Match Template** window:
-  1. Type in a **Template Name**. After the template is saved, this name appears in **Policies**> **Data Protection**> **Common Resources**> **Data Classification > Index Templates** within the Zscaler Admin Console.
+  1. Type in a **Template Name**. After the template is saved, this name appears in **Data Security**> **Common Resources**> **Data Classification > Index Templates** within the Zscaler Admin Console.
   2. Drag and drop a comma-separated values (.csv) file into the window or click **Browse**to select a file.
   3. Click **Next**. See image.
 4. Define the fields you want to include in the template:
@@ -11177,7 +11280,7 @@ You can configure EDM to function without primary or secondary fields. To learn 
 | **Supported Format** | **Examples** |
 | --- | --- |
 | Any combination of digits (0–9). Including spaces and hyphens as character delimiters is supported. You must make sure that the data includes at least 3 characters. If you select this data type as a **PRIMARY FIELD**, the data can include up to 8 separate variable lengths and cannot be longer than 24 characters. | 212-867-5309; 86 7 530 9 |
-| To obtain access to this feature, contact Zscaler Support. You can configure DLP EDM to have strict checking against popular date formats.  This feature supports 6- to 8-digit date formats that contain hyphens (-) or periods (.). | 25-12-25; 25-12-2025; 25.12.25; 25.12.2025 |
+| To obtain access to this feature, contact Zscaler Support. You can configure DLP EDM to have strict checking against popular date formats. This feature supports 6- to 8-digit date formats that contain hyphens (-) or periods (.). | 25-12-25; 25-12-2025; 25.12.25; 25.12.2025 |
 
 | **Supported Format** | **Examples** |
 | --- | --- |
@@ -11427,20 +11530,20 @@ You can also click the template row and, on the **Template Details** page, click
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/creating-indexed-document-match-template","lastmod":"2026-05-13T21:06Z","nid":"1402026"} -->
+<!-- ZS-ARTICLE {"url":"/zia/creating-indexed-document-match-template","lastmod":"2026-09-24T14:11Z","nid":"1402026"} -->
 ## Creating an Indexed Document Match Template
 
 - Source: https://help.zscaler.com/zia/creating-indexed-document-match-template
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Indexed Document Match > Creating an Indexed Document Match Template
-- Last modified: 2026-05-13T21:06Z
-- Summary: How to create, modify, or delete an Indexed Document Match index template using the Index Tool for DLP.
+- Last modified: 2026-09-24T14:11Z
+- Summary: How to create, modify, or delete an Indexed Document Match index template using the Index Tool for Data Loss Prevention (DLP).
 
 [Watch a video on Indexed Document Matching](https://fast.wistia.net/embed/iframe/5jnzyl383a)(shows legacy UI).
 
 Using the Index Tool, you can create, modify, or delete an Indexed Document Match (IDM) index template.
 
-You can create up to 64 IDM templates for your organization. The largest file you can upload to an IDM template is 100 MB. You can index up to 100 GB of files for your organization.
+You can create up to 512 IDM templates for your organization. The largest file you can upload to an IDM template is 100 MB. You can index up to 100 GB of files for your organization.
 
 ## Creating an IDM Template
 
@@ -11463,7 +11566,7 @@ See image.
 
 After saving the template, you are redirected to the **Indexed Document Match Template** dashboard, and the tool processes the template. If the template was created properly, **Completed** is shown in the **Status** column. If the template was created, but the documents are not indexed yet, then **Created** is shown. If the template was not created properly, then **Error** is shown.
 
-When an IDM template is created, it appears on the [Indexed Document Match](https://help.zscaler.com/zia/about-indexed-document-match) page of the Zscaler Admin Console, where you can view the template’s details or delete it. You cannot change the template name after creation. To change the name, you must create a new template.
+When an IDM template is created, it appears on the [Indexed Document Match](https://help.zscaler.com/zia/about-indexed-document-match) page of the Zscaler Admin Console (Data Security > Common Resources > Index Templates > Indexed Document Match), where you can view the template’s details or delete it. You cannot change the template name after creation. To change the name, you must create a new template.
 
 ## Modifying an IDM Template
 
@@ -11518,7 +11621,7 @@ When you first create a new manual IDM template, you can only upload one file. W
 
 In the **Manual Indexed Document Match Template** window:
 
-1. Enter a **Template Name**. After the template is saved, this name appears in the [Indexed Document Match](https://help.zscaler.com/zia/about-indexed-document-match) page in the Zscaler Admin Console.
+1. Enter a **Template Name**. After the template is saved, this name appears in the [Indexed Document Match](https://help.zscaler.com/zia/about-indexed-document-match) page in the Zscaler Admin Console. You can view your templates by going to **Data Security** > **Common Resources** > **Index Templates** > **Indexed Document Match** in the Zscaler Admin Console.
 2. Click **Upload File**.
 
 The **Select File** window appears.
@@ -11532,7 +11635,7 @@ When you create a scheduled IDM template, you must set up an SSH connection betw
 In the **Scheduled Indexed Document Match Template** window:
 
 1. Under **General**:
-  1. Enter a **Template Name**. After the template is saved, this name appears in the [Indexed Document Match](https://help.zscaler.com/zia/about-indexed-document-match) page in the Zscaler Admin Console.
+  1. Enter a **Template Name**. After the template is saved, this name appears in the [Indexed Document Match](https://help.zscaler.com/zia/about-indexed-document-match) page in the Zscaler Admin Console. You can view your templates by going to **Data Security** > **Common Resources** > **Index Templates** > **Indexed Document Match** in the Zscaler Admin Console.
   2. For **Host**, enter the IP address or domain for the document server.
   3. Specify the **Port** for the document server.
   4. Specify the **File Path** for the directory where the documents are located in the document server.
@@ -11951,13 +12054,13 @@ The following section explains the steps and process of verifying and securing y
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/defining-exact-data-match-fields-custom-dlp-dictionaries","lastmod":"2026-05-15T21:06Z","nid":"1400736"} -->
+<!-- ZS-ARTICLE {"url":"/zia/defining-exact-data-match-fields-custom-dlp-dictionaries","lastmod":"2026-09-24T10:27Z","nid":"1400736"} -->
 ## Defining Exact Data Match Fields for Custom DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/defining-exact-data-match-fields-custom-dlp-dictionaries
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Exact Data Match > Defining Exact Data Match Fields for Custom DLP Dictionaries
-- Last modified: 2026-05-15T21:06Z
+- Last modified: 2026-09-24T10:27Z
 - Summary: How to add Exact Data Match index templates and fields to custom DLP dictionaries within the Zscaler Admin Console.
 
 You can add Exact Data Match (EDM) index templates and fields to custom DLP dictionaries that represent content you want to protect in your organization. To learn more, see [Adding Custom DLP Dictionaries](https://help.zscaler.com/zia/adding-custom-dlp-dictionary).
@@ -11968,7 +12071,7 @@ You can configure EDM to function without primary or secondary fields, without p
 
 To add Exact Data Match templates and fields:
 
-1. Go to **Policies**> **Data Protection**> **Common Resources**>**Dictionaries & Engines**.
+1. Go to **Data Security**> **Common Resources**>**Dictionaries & Engines**.
 2. On the **DLP Dictionaries** tab, click **Add DLP Dictionary** or click the **Edit**icon for an existing dictionary.
 
 The **Add/Edit DLP Dictionary**window appears.
@@ -12011,20 +12114,20 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/defining-idm-match-accuracy-custom-dlp-dictionaries","lastmod":"2026-05-13T21:06Z","nid":"1402031"} -->
+<!-- ZS-ARTICLE {"url":"/zia/defining-idm-match-accuracy-custom-dlp-dictionaries","lastmod":"2026-09-24T10:34Z","nid":"1402031"} -->
 ## Defining IDM Match Accuracy for Custom DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/defining-idm-match-accuracy-custom-dlp-dictionaries
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Indexed Document Match > Defining IDM Match Accuracy for Custom DLP Dictionaries
-- Last modified: 2026-05-13T21:06Z
+- Last modified: 2026-09-24T10:34Z
 - Summary: How to add Indexed Document Match (IDM) index templates and define match accuracy to custom Data Loss Prevention (DLP) dictionaries within the Zscaler Admin Console.
 
 You can add Indexed Document Match (IDM) templates to custom Data Loss Prevention (DLP) dictionaries that represent critical documents that you want to protect in your organization. When adding an IDM template, you must also choose the match accuracy level for the template in the dictionary. To learn more, see [Creating an Indexed Document Match Template](https://help.zscaler.com/zia/creating-indexed-document-match-template) and [Adding Custom DLP Dictionaries](https://help.zscaler.com/zia/adding-custom-dlp-dictionary).
 
 To add an IDM template:
 
-1. Go to **Policies**> **Data Protection**> **Common Resources**>**Dictionaries & Engines**.
+1. Go to **Data Security**> **Common Resources**>**Dictionaries & Engines**.
 2. On the **DLP Dictionaries** tab, click **Add DLP Dictionary** or click the **Edit** icon for an existing dictionary.
 
 The **Add/Edit DLP Dictionary** window appears.
@@ -12049,23 +12152,23 @@ The **Add/Edit DLP Dictionary** window appears.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/defining-microsoft-information-protection-labels-custom-dlp-dictionaries","lastmod":"2026-06-25T14:42Z","nid":"1402401"} -->
+<!-- ZS-ARTICLE {"url":"/zia/defining-microsoft-information-protection-labels-custom-dlp-dictionaries","lastmod":"2026-09-24T11:08Z","nid":"1402401"} -->
 ## Defining Microsoft Information Protection Labels for Custom DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/defining-microsoft-information-protection-labels-custom-dlp-dictionaries
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Defining Microsoft Information Protection Labels for Custom DLP Dictionaries
-- Last modified: 2026-06-25T14:42Z
-- Summary: How to define Microsoft Information Protection (MIP) labels for custom DLP dictionaries.
+- Last modified: 2026-09-24T11:08Z
+- Summary: How to define Microsoft Information Protection (MIP) labels for custom Data Loss Prevention (DLP).
 
-You can add Microsoft Information Protection (MIP) labels to custom DLP dictionaries. To learn more, see [Adding Custom DLP Dictionaries](https://help.zscaler.com/zia/adding-custom-dlp-dictionary).
+You can add Microsoft Information Protection (MIP) labels to custom Data Loss Prevention (DLP). To learn more, see [Adding Custom DLP Dictionaries](https://help.zscaler.com/zia/adding-custom-dlp-dictionary).
 
 Before you can add MIP labels to a custom dictionary, you must add a MIP account in the Zscaler Admin Console and retrieve the MIP labels from Microsoft to the MIP account. To learn more, see [Adding a MIP Account](https://help.zscaler.com/zia/adding-mip-account) and [Retrieving MIP Labels from Microsoft to the MIP Account](https://help.zscaler.com/zia/retrieving-mip-labels-microsoft-zscaler).
 
 To define MIP labels for custom DLP dictionaries:
 
-1. Go to **Policies** > **Data Protection** > **Common Resources**> **DLP Dictionaries & Engines**.
-2. In the **DLP Dictionaries** tab, click **Add DLP Dictionary** or click the **Edit** icon next to an existing Microsoft Information Protection type dictionary.
+1. Go to **Data Security**> **Common Resources**>**Dictionaries & Engines**.
+2. On the **DLP Dictionaries** tab, click **Add DLP Dictionary** or click the **Edit** icon next to an existing Microsoft Information Protection type dictionary.
 
 The **Add DLP Dictionary**or **Edit DLP Dictionary** window appears.
 
@@ -12081,13 +12184,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/defining-patterns-custom-dictionaries","lastmod":"2026-05-03T12:20Z","nid":"1400056"} -->
+<!-- ZS-ARTICLE {"url":"/zia/defining-patterns-custom-dictionaries","lastmod":"2026-09-24T10:56Z","nid":"1400056"} -->
 ## Defining Patterns for Custom DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/defining-patterns-custom-dictionaries
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Defining Patterns for Custom DLP Dictionaries
-- Last modified: 2026-05-03T12:20Z
+- Last modified: 2026-09-24T10:56Z
 - Summary: How to define patterns for custom Data Loss Prevention (DLP) dictionaries, including syntax requirements and POSIX ERE information, in the Zscaler Admin Console.
 
 You can use alphanumeric patterns to configure custom dictionaries that match a wide variety of data types. For example, you can define patterns to detect data like phone numbers, driver's license numbers, or credit card numbers for specific issuers (a number of sample patterns are provided in this article). To learn more, see [Adding Custom DLP Dictionaries](https://help.zscaler.com/zia/adding-custom-dlp-dictionary).
@@ -12111,8 +12214,8 @@ General guidelines for patterns are as follows:
 
 To add patterns:
 
-1. Go to **Policies**> **Data Protection** > **Common Resources** > **Dictionaries & Engines**.
-2. In the **DLP Dictionaries** tab, click **Add DLP Dictionary** or click the **Edit**icon for an existing dictionary.
+1. Go to **Data Security**> **Common Resources** > **Dictionaries & Engines**.
+2. On the **DLP Dictionaries** tab, click **Add DLP Dictionary** or click the **Edit**icon for an existing dictionary.
 
 The **Add** **DLP Dictionary**or **Edit DLP Dictionary**window appears.
 
@@ -12318,16 +12421,16 @@ To learn more, see [Adding Custom DLP Dictionaries](https://help.zscaler.com/zia
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/defining-phrases-custom-dictionaries","lastmod":"2026-05-03T12:19Z","nid":"1400061"} -->
+<!-- ZS-ARTICLE {"url":"/zia/defining-phrases-custom-dictionaries","lastmod":"2026-09-24T10:58Z","nid":"1400061"} -->
 ## Defining Phrases for Custom DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/defining-phrases-custom-dictionaries
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Defining Phrases for Custom DLP Dictionaries
-- Last modified: 2026-05-03T12:19Z
-- Summary: How to define phrases for custom DLP dictionaries in the Zscaler Admin Console.
+- Last modified: 2026-09-24T10:58Z
+- Summary: How to define phrases for custom Data Loss Prevention (DLP) in the Zscaler Admin Console.
 
-You can add phrases to your custom dictionaries that represent content you want to protect for your organization. To learn more, see [Adding Custom DLP Dictionaries](https://help.zscaler.com/zia/adding-custom-dlp-dictionary).
+You can add phrases to your custom Data Loss Prevention (DLP) dictionaries that represent content you want to protect for your organization. To learn more, see [Adding Custom DLP Dictionaries](https://help.zscaler.com/zia/adding-custom-dlp-dictionary).
 
 General guidelines for phrases include the following:
 
@@ -12345,8 +12448,8 @@ Sometimes this fuzzy matching results in matching phrases from an irrelevant con
 
 To add phrases:
 
-1. Go to**Policies**> **Data Protection** >**Common Resources** >**Dictionaries & Engines**.
-2. In the **DLP Dictionaries** tab, click**Add DLP Dictionary** or click the **Edit**icon for an existing dictionary.
+1. Go to **Data Security**>**Common Resources** >**Dictionaries & Engines**.
+2. On the **DLP Dictionaries** tab, click**Add DLP Dictionary** or click the **Edit**icon for an existing dictionary.
 
 The **Add DLP Dictionary**or **Edit DLP Dictionary** window appears.
 
@@ -12366,13 +12469,13 @@ The **Add DLP Dictionary**or **Edit DLP Dictionary** window appears.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/defining-time-intervals","lastmod":"2026-09-16T21:06Z","nid":"1399161"} -->
+<!-- ZS-ARTICLE {"url":"/zia/defining-time-intervals","lastmod":"2026-09-21T01:31Z","nid":"1399161"} -->
 ## Defining Time Intervals
 
 - Source: https://help.zscaler.com/zia/defining-time-intervals
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Defining Time Intervals
-- Last modified: 2026-09-16T21:06Z
+- Last modified: 2026-09-21T01:31Z
 - Summary: How to define time intervals for use in policies in the Zscaler Admin Console.
 
 [Watch a video about Time Intervals](https://fast.wistia.net/embed/iframe/5216rd7peb) (shows legacy UI).
@@ -12383,16 +12486,17 @@ Time intervals use the time zone of the locations that you select for the policy
 
 To define time intervals:
 
-1. Go to **Policies > Common Configuration > Resources > Time Intervals**, then click **Add Time Interval**. See image. The **Add Time Interval** window appears.
-2. In the **Add Time Interval**window: See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access**> **Resources**> **Time Intervals**.
+2. Click **Add**. See image. The **Add Time Interval**drawer appears.
+3. In the **Add Time Interval** drawer: See image.
   - **Name**: Enter a name to identify the time interval.
   - **Every Day**: To choose all days of the week, enable this option. If you disable this option, you can choose which days of the week apply to the time interval.
   - **All Day**: To choose all day as the time period, enable this option. If you disable this option, you can choose the time period that applies to the time interval. Only one time period can be set at a time.
-3. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 [Image: Showing how to add a time interval on the time intervals page]
 
-[Image: Add Time Interval window]
+[Image: Add Time Interval drawer]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -13248,13 +13352,13 @@ Accessing the internet from China is a well-known issue for many organizations. 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/deployment-scenarios-ssltls-inspection","lastmod":"2026-09-09T04:38Z","nid":"1401941"} -->
+<!-- ZS-ARTICLE {"url":"/zia/deployment-scenarios-ssltls-inspection","lastmod":"2026-09-25T04:55Z","nid":"1401941"} -->
 ## Deployment Scenarios for SSL/TLS Inspection
 
 - Source: https://help.zscaler.com/zia/deployment-scenarios-ssltls-inspection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SSL/TLS Inspection > Deployment Scenarios for SSL/TLS Inspection
-- Last modified: 2026-09-09T04:38Z
+- Last modified: 2026-09-25T04:55Z
 - Summary: Information on various deployment scenarios for SSL/TLS Inspection using the Zscaler Admin Console.
 
 Zscaler's SSL/TLS Inspection can be deployed in different scenarios. The following scenarios show how the service applies SSL/TLS Inspection based on traffic source and whether authentication or other features are enabled.
@@ -13307,7 +13411,7 @@ Remote users might forward traffic to Zscaler on ports 80/443/9400 and 9480. How
 
 ## TCP Port 8800
 
-Remote users might use port 8800 to forward traffic to Zscaler, and Public Service Edges attempt to authenticate the user using the Kerberos method of authentication. The organization might choose to inspect HTTPS traffic by enabling Enable SSL/TLS Inspection for Remote Users with Kerberos under Interner Access > Policy > SSL/TLS Inspection.
+Remote users might use port 8800 to forward traffic to Zscaler, and Public Service Edges attempt to authenticate the user using the Kerberos method of authentication. The organization might choose to inspect HTTPS traffic by enabling Enable SSL/TLS Inspection for Remote Users with Kerberos under Internet Access > Policy > SSL/TLS Inspection.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -13659,25 +13763,23 @@ If you experience issues performing the tasks above, Zscaler recommends that you
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/disabling-alerts","lastmod":"2026-05-12T21:06Z","nid":"1400366"} -->
+<!-- ZS-ARTICLE {"url":"/zia/disabling-alerts","lastmod":"2026-09-24T09:18Z","nid":"1400366"} -->
 ## Disabling Alerts
 
 - Source: https://help.zscaler.com/zia/disabling-alerts
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Alerts > Disabling Alerts
-- Last modified: 2026-05-12T21:06Z
+- Last modified: 2026-09-24T09:18Z
 - Summary: Information on how to disable alerts in the Zscaler Admin Console.
 
 You can disable alerts after creating them. When you disable an alert, Zscaler Admin Console stops sending alert notifications. To learn more, see [About Alerts](https://help.zscaler.com/zia/about-alerts).
 
 To disable alerts:
 
-1. Go to **Administration**>**Alerts**>**Internet & SaaS**> **Platform Alerts**. See image.
-2. Click the**Edit** icon next to the alert you want to disable. The **Edit Alert Definition** window appears. See image.
-3. In the **Edit Alert Definition** window, under **Status**, select **Disabled** from the drop-down menu. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Alerts**>**Internet & SaaS**.
+2. Click the**Edit** icon next to the alert you want to disable. The **Edit Alert Definition** drawer appears.
+3. In the **Edit Alert Definition** drawer, under **Status**, select **Disabled** from the drop-down menu. See image.
 4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-[Image: Edit Alert Definition Window]
 <!-- /ZS-ARTICLE -->
 
 ---

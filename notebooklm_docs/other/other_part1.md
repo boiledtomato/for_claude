@@ -1,7 +1,7 @@
 # Zscaler Help — Other (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 22:17 UTC
+Generated: 2026-09-28 09:01 UTC
 Articles in this file: 18
 
 ---
@@ -205,55 +205,57 @@ The **Assets** page includes system views with predefined filter selections, pro
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/about-incidents","lastmod":"2026-09-17T11:45Z","nid":"1534211"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/about-incidents","lastmod":"2026-09-23T15:39Z","nid":"1534211"} -->
 ## About Incidents
 
 - Source: https://help.zscaler.com/agentic-soc/about-incidents
 - Product: Agentic SOC
 - Path: Agentic SOC Help > Administration > Incidents & Alerts > About Incidents
-- Last modified: 2026-09-17T11:45Z
+- Last modified: 2026-09-23T15:39Z
 - Summary: Information on how the Zscaler Agentic SOC Incidents page helps your team monitor incident activity across your organization.
 
-Zscaler Agentic SOC incidents are designed to quickly provide complete context for all incidents and to let you pivot to specific asset information for deeper insights, enabling your Security Operations Center (SOC) team to make faster, more effective decisions. When you open the Incidents page, it provides high-level information at a glance about the incidents affecting your organization, and you can merge, sort, update, and add comments to the incidents listed in the table. Additionally, you can drill down to get granular information about each incident, including specific recommended actions from the AI Response Agent.
+Agentic SOC incidents are designed to quickly provide complete context for all incidents and to let you pivot to specific asset information for deeper insights, enabling your Security Operations Center (SOC) team to make faster, more effective decisions. When you open the Incidents page, it provides high-level information at a glance about the incidents affecting your organization, and you can merge, sort, update, and add comments to the incidents listed in the table. To learn how to investigate and remediate an incident, see [Viewing Incident Details](https://help.zscaler.com/agentic-soc/viewing-incident-details).
 
-Agentic SOC incidents provide the following benefits and enable you to:
+The Incidents page provides the following benefits and enables you to:
 
-- See a high-level overview of all incidents affecting your organization.
-- Use charts and graphs to quickly learn about incidents and the affected users.
-- See specific recommended actions to respond to each incident.
+- View high-level data measuring the impact of all incidents.
+- Use charts and graphs to quickly learn about the impact of all incidents.
+- Filter and sort incidents based on severity, data source, time range, and more.
+- Make bulk edits and exports.
+- Save filters (custom views) of incidents most important to you.
 
 ## About the Incidents Page
 
-On the Incidents page (Agentic SOC Portal > Incidents), you can do the following:
+On the Incidents page (Agentic SOC > Incidents), you can do the following:
 
 1. Select from system-saved views, or views [you previously saved](https://help.zscaler.com/unified/creating-managing-saved-views).
 2. Search for specific incidents by entering keywords in the search bar.
-3. [Save your view](https://help.zscaler.com/unified/creating-managing-saved-views) for quick access after making adjustments to it (e.g., applying filters, adjusting columns, or grouping).
+3. [Save your view](https://help.zscaler.com/unified/creating-managing-saved-views) for quick access after making adjustments to it (e.g., applying filters, adjusting columns, grouping).
 4. [Filter](https://help.zscaler.com/unified/using-filters) the incident information on the page, and add new filters to control the information you see.
-5. See the number of incidents by status.
-6. View the cumulative impact of risk to your organization, based on incident risk score.
-7. See the number of incidents per user.
+5. See the number of incidents by status displayed as a line chart.
+6. See the cumulative impact of risk on your organization, based on incident risk score, displayed as a pie chart.
+7. See the number of incidents per user displayed as a donut chart.
 8. Update information for one or more incidents selected in the table.
 9. Merge one or more incidents selected in the table.
-10. Add comments to incidents selected in the table.
+10. Add comments to one or more incidents selected in the table.
 11. [Specify grouping](https://help.zscaler.com/unified/grouping-data-entity-pages) for the incidents in the table (e.g., incident first seen, incident last seen, incident tags).
 12. Refresh table data, export table data to a CSV file, and specify the columns available in the table.
 13. View a list of all incidents affecting your organization. For each incident, you can see the following by default:
   - **ID**: The ID number of the incident.
   - **Severity**: The severity of the incident (e.g., **Critical**, **High**, **Medium**).
   - **Risk Mass**: The risk mass of the incident.
-  - **Type**: The type of incident (i.e., **AI-generated** or **Custom**).
+  - **Type**: The type of incident (e.g., **AI**, **Platform**, **Custom**).
   - **Title**: The title of the incident.
   - **Created**: The date the incident was created.
-  - **Total Alerts**: The number of alerts associated with the incident.
+  - **Alerts Count**: The number of alerts associated with the incident.
   - **Sources**: The sources of the threat data (e.g., threats identified from Zscaler logs are identified by the Zscaler logo, threats identified from third-party apps are identified by app logos).
   - **Assignee**: The user assigned to the incident.
-  - **Status**: The status of the incident (e.g., **Discovered**, **Confirmed**).
+  - **Status**: The status of the incident (e.g., **Discovered**, **Confirmed, Closed**).
   - **Verdict**: The verdict for the incident (e.g., **Malicious**, **Suspicious**, **Benign**).
 
 For each incident in the list, you can click to see a detailed view of data about that incident. You can also customize the detailed view for incidents. To learn more, see [Customizing Alert and Incident Detail Pages](https://help.zscaler.com/agentic-soc/customizing-alert-and-incident-detail-pages).
 
-[Image: The Incidents page in Zscaler Agentic SOC]
+[Image: Incidents landing page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -727,13 +729,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/release-upgrade-summary-2026","lastmod":"2026-09-09T23:04Z","nid":"1534331"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/release-upgrade-summary-2026","lastmod":"2026-09-22T08:13Z","nid":"1534331"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/agentic-soc/release-upgrade-summary-2026
 - Product: Agentic SOC
 - Path: Agentic SOC Help > 	Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-09T23:04Z
+- Last modified: 2026-09-22T08:13Z
 - Summary: Agentic SOC Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Agentic SOC.

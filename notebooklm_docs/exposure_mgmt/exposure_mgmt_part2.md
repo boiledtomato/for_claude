@@ -1,8 +1,143 @@
 # Zscaler Help — Risk & Exposure Management (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 22:17 UTC
-Articles in this file: 158
+Generated: 2026-09-28 09:01 UTC
+Articles in this file: 160
+
+---
+
+<!-- ZS-ARTICLE {"url":"/risk360/about-alerts","lastmod":"2024-12-16T06:06Z","nid":"1483176"} -->
+## About Alerts
+
+- Source: https://help.zscaler.com/risk360/about-alerts
+- Product: Risk360
+- Path: About Alerts
+- Last modified: 2024-12-16T06:06Z
+- Summary: Information on Alerting in the Risk360 Admin Portal.
+
+Alerting helps you meet your security compliance requirements and reduce potential financial losses by getting timely notifications when the configured criteria in the alert rule are met. This also helps take swift action towards events impacting your organization's risk exposure.
+
+Alerts provide the following benefits and enable you to:
+
+- Configure alert rules that help trigger alerts when an alert rule is activated.
+- Configure rules for various criteria (i.e., change in risk score at the organization, factor group, and factor levels, and change in potential financial loss).
+- Receive triggered notifications sent via emails and webhooks.
+- Get actionable recommendations as part of alerts to tackle security events.
+
+## How Alerting Works
+
+1. When the alert rule's criteria is satisfied for the throttling period defined in the alert rule, the alert becomes an ongoing alert and starts to get displayed on the Ongoing Alerts tab.
+2. The users receive an alert notification in the form of an email and webhook, depending on the configured delivery method.
+3. The Started On field in the alert notification shows the date and time when the alert started and the Ended On field shows Ongoing because the alert is still persisting.
+4. Users receive a daily alert notification as long as the alert criteria are true and until the alert rule is not modified, disabled, deleted, or muted.
+  - Disabling an alert rule causes the alerting engine not to evaluate the alert criteria. However, the alert rule stays configured on the Alert Rules tab. You can enable the alert at a later time based on your alert requirement.
+  - Deleting an alert removes the alert rule from the Alert Rules page.
+  - Muting an ongoing alert stops sending alert notifications. However, it doesn't impact the evaluation of the alert, and you can still track the ongoing alert on the Ongoing Alerts tab.
+5. When the criteria of the alert are no longer satisfied, the alert stops and is listed under the Alert History tab. Subsequently, the users receive an alert notification with the Ended On field in the notification showing the date and time when the alert ended.
+
+## About the Alerts Page
+
+The Alerts page contains the following 4 tabs to manage various alerting stages:
+
+- Ongoing Alerts
+- Alerts History
+- Alert Rules
+- Webhooks
+
+The Ongoing Alerts tab (Alerts > Ongoing Alerts) shows alerts that are currently being triggered and persisting. On this page, you can do the following:
+
+1. Filter the data on the page for the last 1 day, 2, 5, 7, or 14 days.
+2. Filter the ongoing alerts by Severity or Rule Name.
+3. View a list of ongoing alerts. For each alert, you can view:
+  - **Severity**: The severity of the alert rule (Critical, High, Medium, or Low).
+  - **Rule Name**: The name of the rule.
+  - **Alert ID**: The unique ID assigned to the alert.
+  - **Criteria**: The criteria added in the rule that triggers the rule.
+  - **Cause**: The reason the criteria in the rule were satisfied and the alert was triggered. Alert rules can be defined at the following 4 levels: The cause of an alert is due to risk score or financial loss changes at one level below the defined alert criteria. For example, if the criteria is defined at the organization level, then the cause is due to changes in the 4 attack stages. When the alert criteria is a composite rule with the criteria at different levels, the alerting engine breaks the rule into each element and derives the cause for each element separately. For example, if the rule criteria has an Org level and factor group elements, the causes would be due to changes at the 4 attack stages of the attack and the changes in the factors under the factor group.
+    - Organization
+    - Category
+    - Factor group
+    - Factor
+  - **Throttling**: The time frame during which the criteria in the rule persisted.
+  - **Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
+  - **Muted?**: Whether the alert is currently on mute or not.
+  - **Started On**: The date and time when the alert started. Click an alert to view the following information in the drawer view.
+    - Drawer
+
+The Alert History tab (Alerts > Alert History) shows all the historically configured alerts. On this page, you can do the following:
+
+1. Filter the data on the page for the last 1 day, 2, 5, 7, or 14 days.
+2. Filter completed alerts by Severity, Rule Name, or Status.
+3. View a list of completed alerts. For each alert, you can view:
+  - **Severity**: The severity of the alert rule (Critical, High, Medium, or Low).
+  - **Rule Name**: The name of the rule.
+  - **Criteria**: The criteria added in the rule that triggers the rule.
+  - **Alert ID**: The unique ID assigned to the alert.
+  - **Cause**: The reason the criteria in the rule were satisfied and the alert was triggered. Alert rules can be defined at the following 4 levels: The cause of an alert is due to risk score or financial loss changes at one level below the defined alert criteria. For example, if the criteria is defined at the organization level, then the cause is due to changes in the 4 attack stages. When the alert criteria is a composite rule with the criteria at different levels, the alerting engine breaks the rule into each element and derives the cause for each element separately. For example, if the rule criteria has an Org level and factor group elements, the causes would be due to changes at the 4 attack stages of the attack and the changes in the factors under the factor group.
+    - Organization
+    - Category
+    - Factor group
+    - Factor
+  - **Throttling**: The time frame during which the criteria in the rule persisted.
+  - **Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
+  - **Started On**: The date and time when the alert started.
+  - **Ended On**: The date and time when the alert ended. Click an alert to view the following information in the drawer view.
+    - Drawer
+
+The Alert Rules tab (Alerts > Alert Rules) shows all the configured alerts. On this page, you can do the following:
+
+1. Filter the alerts by Severity or Rule Name.
+2. [Add an alert rule](https://help.zscaler.com/risk360/configuring-alert-rule).
+3. View a list of alerts. For each alert, you can view:
+  - **Rule Name**: The name of the rule.
+  - **Severity**: The severity of the alert rule (Critical, High, Medium, or Low).
+  - **Criteria**: The criteria added in the rule that triggers the rule alert.
+  - **Throttling**: The time frame during which the criteria in the rule were satisfied.
+  - **Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
+  - **Status**: The status of the alert, whether enabled or disabled.
+4. Edit a rule.
+5. Mute or unmute notifications from an alert rule. This ensures the rule is enabled, but no notification is initiated when the alert is triggered.
+6. Delete an alert rule or clone the rule to configure a new alert rule.
+
+The Webhook tab (Alerts > Webhook) shows all the configured webhook integrations. You can use integrations into an alert rule from the third-party provider to receive alerts. On this page, you can do the following:
+
+1. Filter the ongoing alerts by Name, Authentication Type, or Status.
+2. [Add webhook](https://help.zscaler.com/risk360/configuring-webhooks).
+3. View a list of configured integrations. For each integration, you can view:
+  - **Name**: The name of the integration.
+  - **URL**: The URL of the integration.
+  - **Authentication Type**: The authentication type configured for the integration (Basic or Token).
+  - **Authentication Status**: This shows the integration authentication status (Active, Error, or In Progress). Fix the configuration if the field displays an error.
+  - **Alert Status**: The status of the alert, whether enabled or disabled.
+4. Edit an integration.
+5. Delete an integration.
+
+The drawer consists of the following two tabs:
+
+### Details
+
+The Details tab shows the following information about the alert:
+
+- **Alert ID**: The unique ID assigned to the alert.
+- **Criteria**: The criteria added in the rule that triggers the alert.
+- **Throttling**: The time frame during which the criteria in the rule persisted.
+- **Alert Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
+- **Cause**: The change in the risk score or potential loss at different levels (i.e., organization, category, factor group, and factor) in the last 24 hours. The red, green, and gray colors indicate an increase, decrease, and no change in the risk score or potential financial loss, respectively. See image.
+
+### Alert Cause History
+
+The Alert Cause History tab shows the history of whenever the alert is triggered for the change in the risk score or potential loss at different levels (i.e., organization, category, factor group, and factor). The red, green, and gray colors indicate an increase, decrease, and no change in the risk score or potential financial loss, respectively. Click the dropdowns to view the change cause for that date.
+
+See image.
+
+The drawer shows the following information about the alert:
+
+- **Alert ID**: The unique ID assigned to the alert.
+- **Criteria**: The criteria added in the rule that triggers the alert.
+- **Throttling**: The time frame during which the criteria in the rule persisted.
+- **Alert Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
+- **Cause**: The change in the risk score or potential loss at different levels (i.e., organization, category, factor group, and factor) in the last 24 hours. The red, green, and gray colors indicate an increase, decrease, and no change in the risk score or potential financial loss, respectively. See image.
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -1445,13 +1580,13 @@ This article provides a summary of all new features and enhancements for Risk360
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/release-upgrade-summary-2026","lastmod":"2026-09-08T11:10Z","nid":"1534327"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/release-upgrade-summary-2026","lastmod":"2026-09-22T02:11Z","nid":"1534327"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/risk360/release-upgrade-summary-2026
 - Product: Risk360
 - Path: Risk360 Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-08T11:10Z
+- Last modified: 2026-09-22T02:11Z
 - Summary: Risk360 Advanced Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Risk360 Advanced.
@@ -2443,6 +2578,151 @@ The Tickets page includes system views with predefined filter selections, provid
 - **Over SLA**: All open tickets with expired service level agreements (SLA).
 - **Pending Confirmation**: All tickets are automatically set as inactive when they no longer contain active findings, but have not yet been manually set as closed by the assignee.
 - **Tickets With New Findings**: All tickets to which findings were added in the last week.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-apache-kafka-outegration","lastmod":"2026-09-24T14:19Z","nid":"1540205"} -->
+## Configuring the Apache Kafka Outegration
+
+- Source: https://help.zscaler.com/uvm/configuring-apache-kafka-outegration
+- Product: Unified Vulnerability Management (UVM)
+- Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Outegration Configuration Guides > Configuring the Apache Kafka Outegration
+- Last modified: 2026-09-24T14:19Z
+- Summary: How to configure the Apache Kafka outegration to dispatch tickets.
+
+The Apache Kafka outegration is used to publish entity data from the Zscaler Security Operations (SecOps) platform applications (e.g., UVM) to an external Kafka topic, ensuring a secure and reliable data flow.
+
+This article is a step-by-step guide to configuring the Kafka outegration.
+
+## Prerequisites
+
+Before configuring the outegration, make sure you have met the following prerequisites:
+
+- Create a Kafka topic.
+- Configure mTLS for authentication.
+- Configure the isolation level.
+- Enable ACL rules.
+- Configure the port in Internet & SaaS (ZIA).
+
+A Kafka topic must be previously created and configured for each outegration.
+
+Authentication is handled via Mutual TLS (mTLS), where the SecOps platform and Kafka broker verify each other's certificates. To set up mTLS authentication, ensure that you retrieve the following to enter them in the corresponding fields during the outegration setup:
+
+- Client Private Key: Generate an RSA-2048 private key (size must be exactly 2048 bits) or ECDSA (size can be 256, 384, and 521 bits) in PEM format. This key can be optionally encrypted.
+- Key Password: Obtain the password to decrypt the private key. This is required only if the generated client private key is encrypted.
+- Client Certificate Chain: Create the complete certificate chain (client certificate followed by any intermediate Certificate Authorities) in PEM format.
+- Broker CA Certificate: Obtain the Kafka broker's Certificate Authority (CA) certificate in PEM format. This is necessary if your broker uses a private CA.
+
+To learn more, refer to the [Kafka documentation](https://docs.confluent.io/platform/current/kafka/configure-mds/mutual-tls-auth-rbac.html).
+
+Kafka outegration ensures exactly-once behavior by publishing via transactions. For consistent behavior, the isolation level must be explicitly configured with `isolation.level=read_committed`. Failure to set this property potentially results in consumers reading messages from rolled-back transactions, which can compromise data integrity.
+
+Ensure that the Kafka cluster allows the transaction ID `zscaler-producer-transactional` in the ACL rules.
+
+```
+ACL Rules:
+kafka-acls.sh --bootstrap-server <your-broker-address>:<port> --add \
+     --allow-principal 'User:provider-test-client' \
+     --operation WRITE --operation DESCRIBE \
+     --transactional-id 'zscaler-producer-transactional'
+
+kafka-acls.sh --bootstrap-server <your-broker-address>:<port> --add \
+   --allow-principal 'User:provider-test-client' \
+   --operation IDEMPOTENT_WRITE \
+   --cluster
+```
+
+In Internet & SaaS network configuration, port 9094 is the only authorized port open to all IP addresses for Kafka traffic. To request the opening of any new or additional ports, contact Zscaler Support.
+
+## Configuring the Kafka Outegration
+
+To configure the Kafka outegration, complete the following steps:
+
+- Step 1: Authenticate the Kafka Connection (Connect)
+- Step 2: Configure the Outegration Visibility and Behavior (Settings)
+- Step 3: Map the Outegration Fields (Mapping)
+
+To establish a secure connection with the Kafka cluster, you need to authenticate with the security certificates you previously generated.
+
+1. In the SecOps platform, go to **Configure** > **Outegrations**. See image.
+2. Click **Create** and select **Kafka**. The **Connect**step appears.
+3. In the **Details** section: See image.
+  1. **Display Name**: Enter a name for the outegration.
+  2. **Active**: Enable to activate the Kafka outegration.
+  3. **Bootstrap Servers**: Enter the bootstrap endpoint in `host:port` format (e.g., `kafka-broker1:9092`, `kafka-broker2:9092`).
+  4. **Topic**: Enter the name of the Kafka topic for publishing ticket details.
+  5. **Authentication**: Select an existing authentication ID, or click **Create New** to set up a new authentication and enter the required parameters you retrieved earlier into the corresponding fields. See image.
+4. Click **Test** in the bottom-right corner of the page to verify the connection.
+5. After the connection is verified, click **Next**to proceed to the **Settings**step.
+
+[Image: List of outegrations]
+
+[Image: Kafka outegration setup details]
+
+[Image: Kafka outegration authentication setup]
+
+In the Settings step of the outegration setup wizard, configure Kafka outegration's visibility and behavior within the SecOps platform. In this step, you'll set the SecOps entity that triggers the Kafka dispatch (e.g., ticket, policy violation).
+
+To configure the outegration's visibility and behavior, in the **Advanced Settings** section, from the **Create Kafka item from**drop-down menu, select the entity that you want to configure the outegration for.
+
+See image.
+
+[Image: Advanced Settings options]
+
+In the Mapping step, configure the field mapping between your SecOps ticket fields and Kafka record value fields.
+
+The main objective of the mapping process is to map source fields with their corresponding Kafka record value fields. To do this, specify the source field on the left and the Kafka record value field on the right.
+
+### Creating a New Mapping
+
+To create a new mapping from a SecOps ticket to Kafka:
+
+1. Configure the source field value (left):
+  1. Click**Mapping**.
+  2. Click **Add value** on the left. See image.
+  3. The **Field Editor** appears. In the **Field Editor**, select one of the following methods to configure the value of the field:
+    - Field (Dictionary)
+    - Expression
+2. Enter a value in the Kafka field (right). See image.
+
+Repeatthe mapping process for any Kafka field you want to map.
+
+You can also set a SecOps ticket field as mandatory by selecting the **Set as Mandatory**checkbox in the Column Menu to the right of the mapping. Some fields can be set as mandatory by default.
+
+See image.
+
+Setting a field as mandatory guarantees that critical fields (e.g., Ticket Assignee) are always populated before a ticket is dispatched. Attempts to dispatch a ticket without a value in a mandatory field will trigger an error message.
+
+### Previewing the Ticket to Kafka Mapping
+
+After completing the field mappings from SecOps ticket to Kafka record value fields dispatch mapping, preview the mapping to review the configuration. This helps ensure that ticket dispatch is behaving as expected and that the Kafka record fields are populated correctly.
+
+To preview the mapping, click **Preview**on the bottom right of the data mapping fields. The Mapping Preview window appears. In the left of the Mapping Preview window, tickets in your account are listed and organized by ticket ID. You can select, filter, or search for tickets and preview the mapping to their corresponding Kafka record value fields. You can also open the actual ticket in a new tab for a more in-depth review.
+
+See image.
+
+For use cases that require more advanced configuration, you can use the Expression Editor to configure the field value to be mapped to the target field.
+
+[Image: Expression Editor]
+
+[Image: Mapping fields to populate on the right]
+
+[Image: Mapping fields to populate on the left]
+
+The field dictionary allows you to create mappings between specific values from the field on the right and values of the field on the left.
+
+Kafka outegration does not support the dictionary feature.
+
+See image.
+
+[Image: Create mappings between specific values from the field on the right and values from the field on the left]
+
+[Image: Mapping Preview details]
+
+[Image: Select the Set as Mandatory checkbox to set a SecOps ticket field as mandatory]
+
+When the outegration setup is complete, you can begin dispatching SecOps alerts and events to Kafka. To learn more, see [Creating & Managing Third-Party Tickets](https://help.zscaler.com/uvm/creating-managing-third-party-tickets).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -12584,13 +12864,13 @@ This article provides a summary of all new features and enhancements for Unified
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/release-upgrade-summary-2026","lastmod":"2026-09-08T11:45Z","nid":"1534299"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/release-upgrade-summary-2026","lastmod":"2026-09-22T08:05Z","nid":"1534299"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/uvm/release-upgrade-summary-2026
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-08T11:45Z
+- Last modified: 2026-09-22T08:05Z
 - Summary: Unified Vulnerability Management (UVM) Release Upgrade Summary for commercial service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Unified Vulnerability Management (UVM).

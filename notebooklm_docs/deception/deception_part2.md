@@ -1,7 +1,7 @@
 # Zscaler Help — Zscaler Deception (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 22:17 UTC
+Generated: 2026-09-28 09:01 UTC
 Articles in this file: 26
 
 ---
@@ -1007,13 +1007,13 @@ To export event logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/viewing-managing-evidence","lastmod":"2026-09-18T02:33Z","nid":"1542356"} -->
+<!-- ZS-ARTICLE {"url":"/deception/viewing-managing-evidence","lastmod":"2026-09-25T04:21Z","nid":"1542356"} -->
 ## Viewing and Managing Evidence
 
 - Source: https://help.zscaler.com/deception/viewing-managing-evidence
 - Product: Deception
 - Path: Deception Help > Investigate  > Extended Details > Viewing and Managing Evidence
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-09-25T04:21Z
 - Summary: How to view and manage evidence files in the Zscaler Deception Admin Portal.
 
 When an attacker interacts with a decoy, Zscaler Deception generates evidence files that capture details of the attack. These files provide valuable information to investigate the incident and understand the attacker's tactics, techniques, and procedures (TTPs). They can be analyzed through integration with Zscaler Sandbox or third-party sandbox solutions, with reports available directly from the Zscaler Deception Admin Portal. Evidence files can also be downloaded in their original format for external analysis, and records of files generated for individual attack events can be exported for further review.
@@ -1032,12 +1032,19 @@ To view the evidence files:
     - Packet Capture (PCAP)
     - Remote Desktop Protocol (RDP) recording files
     - Indicators of Compromise (IOC)
-    - email
-    - (QOS)
+    - Quality of Service (QOS)
     - HTTP Request (http_request)
   - **Metadata**: The attribute associated with each log file.
 
 For web events across static, dynamic, and high‑interaction containers, attackers send POST requests with unusually large payloads. Large payloads are uploaded as evidence as **http_request**. This applies to both TI decoys and internal decoys where the Services type is [Web](https://help.zscaler.com/deception/configuring-services-network-decoy#evidence_page). You can download the evidence that contains the attacker's request payload as a text file.
+
+Provides a packet capture for a specific session where an attacker interacts with a decoy. It records the raw network traffic exchanged during the session, revealing the attacker's behavior and techniques for threat analysis.
+
+RDP files generated when an attacker interacts with a window decoy. These files capture a detailed attacker's activity in a downloadable video recording.
+
+Identifies new files that an attacker copies to a Windows RDP decoy.
+
+Captures instances in which an attacker sends excessive requests. The system applies rate limiting and stores the blocked requests as evidence.
 
 [Image: Evidence type]
 
@@ -1250,7 +1257,7 @@ To view the details of the configured deception modules applied to a system usin
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/viewing-private-access-app-connector-update-logs","lastmod":"2026-06-24T21:06Z","nid":"1540630"} -->
+<!-- ZS-ARTICLE {"url":"/deception/viewing-private-access-app-connector-update-logs","lastmod":"2026-06-24T21:06Z","nid":"1542545"} -->
 ## Viewing Private Access App Connector Update Logs
 
 - Source: https://help.zscaler.com/deception/viewing-private-access-app-connector-update-logs

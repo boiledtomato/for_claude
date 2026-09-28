@@ -1,7 +1,7 @@
 # Zscaler Help — Deployment / Operations / Terms (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 22:17 UTC
+Generated: 2026-09-28 09:01 UTC
 Articles in this file: 94
 
 ---
@@ -1003,13 +1003,13 @@ As designed, Offerings may produce Outputs that reveal latent security vulnerabi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/product-usage-terms/supported-versions","lastmod":"2026-09-15T13:27Z","nid":"1269771"} -->
+<!-- ZS-ARTICLE {"url":"/product-usage-terms/supported-versions","lastmod":"2026-09-21T13:48Z","nid":"1269771"} -->
 ## Supported Versions
 
 - Source: https://help.zscaler.com/product-usage-terms/supported-versions
 - Product: Product Usage Terms & Policies
 - Path: Product Usage Terms & Policies > Software Policy & Support > Supported Versions
-- Last modified: 2026-09-15T13:27Z
+- Last modified: 2026-09-21T13:48Z
 - Summary: Matrix of the supported endpoint application versions for Zscaler.
 
 ## Zscaler Client Connector Supported Versions
@@ -6945,13 +6945,13 @@ The following section describes resolutions.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/private-access-performance-support-troubleshooting-runbook","lastmod":"2026-09-11T14:20Z","nid":"1533933"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/private-access-performance-support-troubleshooting-runbook","lastmod":"2026-09-25T21:06Z","nid":"1533933"} -->
 ## Private Access Performance Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/private-access-performance-support-troubleshooting-runbook
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Private Access Performance Support Troubleshooting Runbook
-- Last modified: 2026-09-11T14:20Z
+- Last modified: 2026-09-25T21:06Z
 - Summary: This Zscaler runbook outlines troubleshooting steps for general Private Access performance issues, categorized into four scopes: issues accessing a applications, issues with all applications from a specific App Connector, issues that affect a specific location or locations, or an issue with a single broker or the whole data center.
 
 The Private Access Performance Support Troubleshooting Runbook outlines a systematic approach to troubleshooting performance slowness experienced by users. It emphasizes understanding the scope of issues, including isolating between affected applications types. The troubleshooting steps involve validating Private Access slowness check points, configurations, collecting and analyzing data through network diagnostic tools and Digital Experience (ZDX) (if available). By following this methodology, engineers can effectively identify the root causes of performance issues and implement corrective actions to optimize the user experience.
@@ -8596,13 +8596,13 @@ On the API Keys page (Administration > API > Workflow Automation API), you can d
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/about-audit-logs","lastmod":"2026-09-16T13:42Z","nid":"1455406"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/about-audit-logs","lastmod":"2026-09-24T11:28Z","nid":"1455406"} -->
 ## About Audit Logs
 
 - Source: https://help.zscaler.com/workflow-automation/about-audit-logs
 - Product: Workflow Automation
-- Path: Workflow Automation Help > Workflow Automation for Data Protection > Admin, User, & Role Management > About Audit Logs
-- Last modified: 2026-09-16T13:42Z
+- Path: Workflow Automation Help > Workflow Automation for Data Protection > Alerts and Settings > About Audit Logs
+- Last modified: 2026-09-24T11:28Z
 - Summary: Information regarding audit logs within Workflow Automation.
 
 The Audit Logs page records and displays the actions that every admin performs in Workflow Automation and the actions that occur through the Workflow Automation APIs.
@@ -12545,13 +12545,13 @@ Configure the DLP Cloud-to-Cloud Incident Forwarding on a GCP instance for Workf
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-account-settings","lastmod":"2026-09-09T13:54Z","nid":"1418021"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-account-settings","lastmod":"2026-09-23T21:06Z","nid":"1418021"} -->
 ## Managing Account Settings
 
 - Source: https://help.zscaler.com/workflow-automation/managing-account-settings
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Alerts and Settings > Managing Account Settings
-- Last modified: 2026-09-09T13:54Z
+- Last modified: 2026-09-23T21:06Z
 - Summary: How to manage account settings for Workflow Automation.
 
 Managing account settings is one of the tasks for configuring Workflow Automation. Admins with access to Workflow Automation can manage the account settings for Workflow Automation. In account settings, admins can:
@@ -12935,13 +12935,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-bulk-actions","lastmod":"2026-09-09T13:09Z","nid":"1487351"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-bulk-actions","lastmod":"2026-09-23T21:06Z","nid":"1487351"} -->
 ## Managing Bulk Actions
 
 - Source: https://help.zscaler.com/workflow-automation/managing-bulk-actions
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Alerts and Settings > Managing Bulk Actions
-- Last modified: 2026-09-09T13:09Z
+- Last modified: 2026-09-23T21:06Z
 - Summary: Information on the Bulk Actions page in Workflow Automation and managing Bulk Actions performed on the Incidents page.
 
 The Bulk Actions page allows you to monitor the progress of the bulk actions that Data Loss Prevention (DLP) admins perform on the incidents assigned to them. DLP admins with full access to Workflow Automation can perform bulk actions for all incidents that are available on the [Incidents](https://help.zscaler.com/workflow-automation/managing-incidents) page. This activity is recorded on the Bulk Actions page, where you can view the status of your bulk action in real time.
@@ -12996,13 +12996,13 @@ To restart a bulk action:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-custom-email-domains","lastmod":"2026-09-10T06:46Z","nid":"1517456"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-custom-email-domains","lastmod":"2026-09-24T21:06Z","nid":"1517456"} -->
 ## Managing Custom Email Domains
 
 - Source: https://help.zscaler.com/workflow-automation/managing-custom-email-domains
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Alerts and Settings > Managing Custom Email Domains
-- Last modified: 2026-09-10T06:46Z
+- Last modified: 2026-09-24T21:06Z
 - Summary: How to manage custom email domains in Workflow Automation.
 
 Adding custom email domains is optional when configuring Workflow Automation. Admins with access to Workflow Automation can manage custom email domains. Workflow Automation generates and sends email notifications for the various actions that you can perform, such as notifying the user of an incident, escalating an incident to an approver or manager, and performing bulk actions. By default, Workflow Automation uses notifications@zsworkflow.net as the sender for these email notifications. After you add a custom email domain, Workflow Automation can use that custom email domain as the sender.
@@ -13587,13 +13587,13 @@ To view DLP GCP application integrations in Workflow Automation:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-downloads","lastmod":"2026-09-09T12:58Z","nid":"1488336"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-downloads","lastmod":"2026-09-23T21:06Z","nid":"1488336"} -->
 ## Managing Downloads
 
 - Source: https://help.zscaler.com/workflow-automation/managing-downloads
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Alerts and Settings > Managing Downloads
-- Last modified: 2026-09-09T12:58Z
+- Last modified: 2026-09-23T21:06Z
 - Summary: Information on the Downloads page in Workflow Automation.
 
 The Downloads page allows you to download the incidents that you export on the Incidents page to a CSV file. When you export incidents from the Incidents page, the activity is transferred to the Downloads page, which logs the activity and displays the status of your download in real time. After the download process is completed, the incident file becomes a downloadable file. You can download it as a CSV file to your local system. The incident file is available to download for up to 7 days. To learn more, see [Managing Incidents](https://help.zscaler.com/workflow-automation/managing-incidents).
@@ -13649,13 +13649,13 @@ To restart a download:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-and-digest-template-mappings","lastmod":"2026-09-09T12:25Z","nid":"1418216"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-and-digest-template-mappings","lastmod":"2026-09-23T21:06Z","nid":"1418216"} -->
 ## Managing Incident and Digest Template Mappings
 
 - Source: https://help.zscaler.com/workflow-automation/managing-incident-and-digest-template-mappings
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Notifications > Managing Incident and Digest Template Mappings
-- Last modified: 2026-09-09T12:25Z
+- Last modified: 2026-09-23T21:06Z
 - Summary: How to manage incident and digest template mappings in Workflow Automation.
 
 Mapping incident and digest templates in Workflow Automation is one of the tasks for configuring Workflow Automation. Admins with access to Workflow Automation must configure the template mappings. Incident template mappings determine which notification and survey templates Workflow Automation uses when it generates the notifications for the different notification types (end user notification and escalation). The digest template mapping determines which templates Workflow Automation uses when it generates the digest notifications for your organization.
@@ -13803,13 +13803,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-group-mappings","lastmod":"2026-09-20T07:06Z","nid":"1418161"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-group-mappings","lastmod":"2026-09-27T07:06Z","nid":"1418161"} -->
 ## Managing Incident Group Mappings
 
 - Source: https://help.zscaler.com/workflow-automation/managing-incident-group-mappings
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Incident Group Mappings
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-09-27T07:06Z
 - Summary: How to manage incident group mappings in Workflow Automation.
 
 An incident group mapping specifies the incidents that are associated with the incident group. Only admins with full access to Workflow Automation can map the incident groups. Incident groups are mapped to one or more of the attributes available in an incident transaction. These mappings can be simple or more complex to meet your requirements. After incident groups are configured, admins with full access can then assign these incident groups to the admins with restricted access who will be responsible for them. They do these assignments in the Zscaler Admin Console, on the Admin Assignment page. To learn more, see [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
@@ -14199,13 +14199,13 @@ To specify the default incident group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-groups","lastmod":"2026-09-10T12:50Z","nid":"1418041"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-groups","lastmod":"2026-09-24T21:06Z","nid":"1418041"} -->
 ## Managing Incident Groups
 
 - Source: https://help.zscaler.com/workflow-automation/managing-incident-groups
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Incident Groups
-- Last modified: 2026-09-10T12:50Z
+- Last modified: 2026-09-24T21:06Z
 - Summary: How to manage incident groups in Workflow Automation.
 
 Incident groups enable admins to group individual incidents together so that all of them can be managed together. Admins with Full or Restricted access to Workflow Automation can add incident groups, but only admins with Full access to Workflow Automation can map those incident groups. Incident groups are mapped to one or more of the incident attributes available in an incident transaction. After incident groups are configured, admins with Full access can then assign these incident groups to the various Restricted access admins that are going to be responsible for them on the Admins page in the Zscaler Admin Console. To learn more, see [Managing Admin Assignments.](https://help.zscaler.com/workflow-automation/managing-admin-assignments)
@@ -14293,13 +14293,13 @@ To view incident group details:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-summaries","lastmod":"2026-09-10T10:04Z","nid":"1535401"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-summaries","lastmod":"2026-09-24T21:06Z","nid":"1535401"} -->
 ## Managing Incident Summaries
 
 - Source: https://help.zscaler.com/workflow-automation/managing-incident-summaries
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Incident Summaries
-- Last modified: 2026-09-10T10:04Z
+- Last modified: 2026-09-24T21:06Z
 - Summary: Information on how to manage incident summaries in Workflow Automation.
 
 On the Incident Summary page, you can view aggregate incident counts for a specified date range by using various selectable attributes and filters. Workflow Automation provides several attributes (i.e., summary criteria) that you can use to summarize the number of incidents that have occurred in your organization. This page provides a table that lists the summary criteria attributes, the total incident count for the summary criteria, and the total incident count broken out by either the incident priority or incident severity.

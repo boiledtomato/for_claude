@@ -1,8 +1,8 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 5)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 22:17 UTC
-Articles in this file: 139
+Generated: 2026-09-28 09:01 UTC
+Articles in this file: 140
 
 ---
 
@@ -323,13 +323,13 @@ Displays data associated with the DNS tunneling categories and network services.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/dns-end-user-notifications","lastmod":"2026-06-02T03:01Z","nid":"1529651"} -->
+<!-- ZS-ARTICLE {"url":"/zia/dns-end-user-notifications","lastmod":"2026-09-22T10:40Z","nid":"1529651"} -->
 ## DNS End User Notifications
 
 - Source: https://help.zscaler.com/zia/dns-end-user-notifications
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > DNS Control > DNS End User Notifications
-- Last modified: 2026-06-02T03:01Z
+- Last modified: 2026-09-22T10:40Z
 - Summary: Information on the different types of End User Notifications (EUNs) supported by the DNS Control policy.
 
 Zscaler supports different types of End User Notifications (EUNs) for the DNS Control policy. These EUNs are displayed to end users when their activities trigger DNS Control rules with specific actions, such as blocking traffic or redirecting responses. All these notifications are configured at the individual rule level.
@@ -375,7 +375,7 @@ This static EUN configuration is supported only with the Redirect Response actio
 
 To configure this static EUN for a DNS Control rule:
 
-1. Go to **Policies** > **Access Control** > **Firewall** > **DNS Control**, and add a new rule or edit an existing rule.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access**> **Policy** > **DNS Control**, and add a new rule or edit an existing rule.
 2. On the DNS rule configuration page, select the necessary rule conditions.
 3. Under **Action**: See image.
   1. Select **Redirect Response**from the **Network Traffic** drop-down menu.
@@ -399,7 +399,7 @@ The following sections describe how to customize the Zscaler Client Connector EU
 - [1. (Optional) Customize the notification message.](https://help.zscaler.com/zia/configuring-euns-dns-control)
 - 2. Configure the Zscaler Client Connector EUN in DNS Control rules.
 
-1. Go to **Policies** > **Access Control** > **Firewall** > **DNS Control**, and add a new rule or edit an existing rule.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Policy** > **DNS Control**, and add a new rule or edit an existing rule.
 2. On the DNS rule configuration page, select the necessary rule conditions.
 3. Under **Action**, select **Block**or **Redirect Response** action from the **Network Traffic** drop-down menu, as required for the rule.
 4. Under **Notification**: See image.
@@ -407,19 +407,21 @@ The following sections describe how to customize the Zscaler Client Connector EU
   - Select the default or custom message from the **Notification Message** drop-down menu.
 5. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-1. Go to **Policies**> **Common Configuration** > **Resources** > **End User Notifications**. The **Browser** tab is selected and the **Global EUN Configuration** page appears.
-2. On the **Global EUN Configuration** page, you can customize the following settings with the **Notification Type** set to **Default**:
-  1. In the **Configure Notifications** section: See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **End User Notification** > **End User Notifications**. The **Global EUN Configuration** tab is selected.
+2. Click **Edit**.
+3. In the **Edit** drawer that appears:
+  - Under **Configure Notifications**:
+    - **Notification Type**: Select **Default** .
     - **Display Reason**: Enable to display the reason for blocking access in the notification.
     - **Display Company Name**: Enable to include your organization's name in the notification.
     - **Display Company Logo**: Enable to display your organization's logo in the notification. You can upload your organization's logo on the [Company Profile](https://help.zscaler.com/unified/configuring-company-profile) page.
     - In the text box, provide a custom message to be displayed in the notification. You can [customize the appearance](https://help.zscaler.com/zia/customizing-euns-css-styles) of this notification with CSS styles. This option allows you to customize a portion of the notification message. Some texts in the notification are auto-generated based on policy restrictions and are not customizable.
-  2. In the **IT Support** section, you can provide contact details such as email address and phone number and include a link to your organization's policy. See image.
-3. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+  - Under **IT Support**, you can provide contact details such as email address and phone number and include a link to your organization's policy.
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-These customization settings are shared by other browser-based EUNs, such as block notifications for other policies, caution messages, and quarantine notifications, so ensure that the customizations are considered globally for all browser-based EUNs.
+These customization settings are shared by other browser-based EUNs, such as block notifications for other policies, caution messages, and quarantine notifications, so ensure that the customizations are considered globally for all browser-based EUNs. To learn more, see [Configuring Browser-Based Global End User Notifications](https://help.zscaler.com/zia/configuring-browser-based-global-end-user-notifications).
 
-1. Go to **Policies** > **Access Control** > **Firewall** > **DNS Control**, and add a new rule or edit an existing rule.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Policy** > **DNS Control**, and add a new rule or edit an existing rule.
 2. On the DNS rule configuration page, select the necessary rule conditions.
 3. Under **Action**: See image.
   1. Select **Block**from the **Network Traffic** drop-down menu.
@@ -431,10 +433,6 @@ To learn more, see [Configuring the DNS Control Policy](https://help.zscaler.com
 [Image: Configuring Redirect Response action with IP address to show Zscaler web EUN page]
 
 [Image: Enabling to show Zscaler DNS EUN page for Block action]
-
-[Image: Customizing DNS web EUN to include organization's name, logo, and custom message]
-
-[Image: Customizing DNS web EUN to include organization's name, logo, and custom message]
 
 [Image: Enabling Zscaler Client Connector EUN in DNS rule]
 <!-- /ZS-ARTICLE -->
@@ -587,13 +585,13 @@ Following are the DNS Insight Log columns you can select to view:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/dns-insights-logs-filters","lastmod":"2026-07-28T04:17Z","nid":"1400991"} -->
+<!-- ZS-ARTICLE {"url":"/zia/dns-insights-logs-filters","lastmod":"2026-09-25T02:54Z","nid":"1400991"} -->
 ## DNS Insights Logs: Filters
 
 - Source: https://help.zscaler.com/zia/dns-insights-logs-filters
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > DNS Insights Logs: Filters
-- Last modified: 2026-07-28T04:17Z
+- Last modified: 2026-09-25T02:54Z
 - Summary: Information on the different filters in the DNS Insights Logs page in the Zscaler Admin Console.
 
 Filters define the DNS traffic information that you view in your DNS Insight Logs. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
@@ -666,17 +664,18 @@ These codes are not listed under the DNS Error Code filter. Zscaler uses these e
 - **Server Protocol**: Use this filter to limit the data to traffic associated with a server protocol.
 - **Show Delayed Logs**: Use this filter to limit the data to traffic based on delayed logs.
 - **User**: Use this filter to limit the data to the traffic of specific users. Select **Hide Deleted**if you want to remove deleted users from the list. Click **Select All** to select all the configured users. You can search for specific users. Choose the usernames from the list. You can choose to include or exclude certain users.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **None**. You can search for specific user groups.
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/dns-static-web-end-user-notification","lastmod":"2026-06-02T03:03Z","nid":"1529181"} -->
+<!-- ZS-ARTICLE {"url":"/zia/dns-static-web-end-user-notification","lastmod":"2026-09-22T10:21Z","nid":"1529181"} -->
 ## DNS Static Web End User Notification
 
 - Source: https://help.zscaler.com/zia/dns-static-web-end-user-notification
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > DNS Control > DNS Static Web End User Notification
-- Last modified: 2026-06-02T03:03Z
+- Last modified: 2026-09-22T10:21Z
 - Summary: Information about Zscaler-hosted end user notification web page for blocked domains.
 
 Zscaler's [DNS Control policy](https://help.zscaler.com/zia/configuring-dns-control-policy) includes a Redirect Response action that replaces the IP address of the resolved hostname in the DNS response with a preferred IP address before sending the response to the client. Organizations can use this Redirect Response action to direct users to an end user notification (EUN) page when access to a domain is blocked. This page can either be a custom EUN web page hosted at a dedicated IP address managed by the organization, or a Zscaler-hosted static EUN web page hosted at `34.215.46.88`. To use the Zscaler-hosted EUN web page, you must manually configure this IP address in the Redirect Response action. This EUN page notifies users that access to the requested domain has been blocked based on your organization's policy.
@@ -1243,7 +1242,7 @@ See image.
 - Last modified: 2026-07-02T13:20Z
 - Summary: Information on how to edit DLP and endpoint resources to prevent data loss on endpoints.
 
-The page for Data Loss Prevention (DLP) and Endpoint resources (Policies > Data Protection > Endpoint DLP Resources) has slightly different names based on the Zscaler products licensed for your organization:
+The page for Data Loss Prevention (DLP) and Endpoint resources (Data Security > Endpoint DLP > Endpoint DLP Resources) has slightly different names based on the Zscaler products licensed for your organization:
 
 - If your organization has licensed only Endpoint DLP, this page is called DLP Resources.
 - If your organization has licensed only [Endpoint Context](https://help.zscaler.com/zia/about-endpoint-context), this page is called Endpoint Resources.
@@ -1251,92 +1250,88 @@ The page for Data Loss Prevention (DLP) and Endpoint resources (Policies > Data 
 
 To learn more about accessing Endpoint Context for your organization, contact Zscaler Support.
 
-The Zscaler service supports the following DLP and endpoint resources:
+Adding DLP and endpoint resources is the first step you complete when [configuring Endpoint Data Loss Prevention (DLP) policy rules](https://help.zscaler.com/zia/configuring-endpoint-dlp-policy-rules) and when adding application data for [Endpoint Context](https://help.zscaler.com/zia/about-endpoint-context). The Zscaler service supports the following DLP and endpoint resources:
 
 - Network shares
 - Printers
 - Removable storage devices
 - Applications
 
-To learn more, see [Adding DLP and Endpoint Resources](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources) and [About Endpoint Context](https://help.zscaler.com/zia/about-endpoint-context).
+The Zscaler service automatically supports Box, Dropbox, Google Drive, iCloud for macOS, and OneDrive personal cloud storage accounts. No extra configuration is available for those services as DLP and endpoint resources.
 
-The Zscaler service automatically supports Box, Dropbox, Google Drive, iCloud for macOS, and OneDrive personal cloud storage accounts. No extra configuration is available for those services as DLP resources.
+To edit endpoint and DLP resources:
 
-To edit a DLP resource:
-
-1. Go to **Policies**> **Data Protection**> **Policy**> **Endpoint DLP Resources**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Endpoint DLP**> **Endpoint DLP Resources**.
 2. On the **DLP & Endpoint Resources** page:
   - Edit a network share
-  - Edit a network printer
+  - Edit a printer
   - Edit a removable storage device
   - Edit an application
 3. [Activate](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console) your changes.
 
-On the **Network Shares** page (Policies > Data Protection > Endpoint DLP Resources > Network Shares):
+On the **Network Shares** page (**Data Security** > **Endpoint DLP** > **Endpoint DLP Resources** > **Network Shares**):
 
-1. Locate the network share in the list, then click the **Edit** icon. The **Edit Network Share** window appears.
+1. Locate the network share in the list, then click **Edit**. The **Edit Network Share** window appears.
 2. In the **Edit Network Share** window:
-  - Edit the following **Network Share Details**:
-    - **Name**: Enter a name for the network share.
-    - **Server Name**: The server name where the network share resides (e.g., NetApp). You can also use regular expressions and CIDR ranges for advanced matching. For example: `filer8-dallas` (matches only the network server "filer8-dallas"); `regex:^(?i)srv*` (matches all network servers that start with "srv" and the match is case-insensitive); `regex:(?i).*\.domain$` (matches all network server names that end with ".domain"); `cidr:192.168.1.0/24` (matches network servers with an IP address starting with "192.168.1")
-    - **Description**: (Optional) Enter a description for the network share.
-  - Edit the following **Directories** attributes:
+  - Enter the following **Network Share Details**:
+    - **Name**: The name of the network share
+    - **Server Name**: The server name where the network share resides (e.g., NetApp) You can also use regular expressions and CIDR ranges for advanced matching. For example: `filer8-dallas` (matches only the network server "filer8-dallas"); `regex:^(?i)srv*` (matches all network servers that start with "srv" and the match is case-insensitive); `regex:(?i).*\.domain$` (matches all network server names that end with ".domain"); `cidr:192.168.1.0/24` (matches network servers with an IP address starting with "192.168.1")
+    - **Description**: (Optional) A description of the network share
+  - Select one of the following **Directories** attributes:
     - **All files and directories on this server**: Select this option if you want to include all files and directories on the specified server.
-    - **Files in the following directories and subdirectories**: Select this option if you want to specify the directories and subdirectories to be included. If you select this option, the **Directory Paths** field appears. Add paths (e.g., `<folder>/<subfolder>`) separated by line breaks, then click **Add Items**. To delete existing directory paths, click the **Delete** icon next to the directory path in the list.
+    - **Files in the following directories and subdirectories**: Select this option if you want to specify the directories and subdirectories to be included. If you select this option, the **Directory Paths** field appears. Add paths (e.g., `/<folder>/<subfolder>`) separated by line breaks, then click **Add**.
 3. Click **Save**.
 
 See image.
 
-[Image: A screenshot of the Edit Network Share window for Zscaler Endpoint DLP]
+[Image: Edit Network Share window for Zscaler Endpoint DLP]
 
-On the **Printers** page (Policies > Data Protection > Endpoint DLP Resources > Printers):
+On the **Printers** page (**Data Security** > **Endpoint DLP** > **Endpoint DLP Resources** > **Printers**):
 
-1. Locate the network printer in the list, then click the **Edit** icon. The **Edit Printer** window appears.
-2. In the **Edit Printer** window:
-  - **Name**: Enter a name for the network printer.
+1. Locate the printer in the list, then click **Edit**. The **Edit Printer** drawer opens.
+2. In the **Edit Printer** drawer:
+  - **Name**: Enter a name for the printer.
   - **Domain**: Enter the name of the domain where the printer is located.
-  - **Printer Name**: Enter the printer name as it appears in the list of printers on your OS.
-  - **IP Address**: Enter the IP address for the network printer.
-  - **Description**: (Optional) Enter a description for the network printer.
+  - **Printer Name**: Enter the name of the printer as it appears in the OS list of printers.
+  - **IP Address**: Enter the IP address for the printer.
+  - **Description**: (Optional) Enter a description for the printer.
 3. Click **Save**.
 
 See image.
 
-[Image: A screenshot of the Edit Printer window for Zscaler Endpoint DLP]
+[Image: Edit Network Printer drawer for Zscaler Endpoint DLP]
 
-On the **Removable Storage Devices** page (Policies > Data Protection > Endpoint DLP Resources > Removable Storage Devices):
+On the **Removable Storage Devices** page (**Data Security** > **Endpoint DLP** > **Endpoint DLP Resources** > **Removable Storage Devices**):
 
-1. Locate the removable storage device in the list, then click the **Edit** icon. The **Edit Removable Storage Device** window appears.
-2. In the **Edit Removable Storage Device** window:
-  - Edit the following **Removable Storage Device Details**:
-    - **Name**: Enter a name for the removable storage device.
-    - **Description**: (Optional) Enter a description for the removable storage device.
-  - Edit the following **Criteria** for the device:
-    - **Vendor ID**: Enter the manufacturer of the removable storage device.
-    - **Product ID**: Enter the product ID of the removable storage device.
-    - **Serial Number**: Enter the serial number of the removable storage device.
+1. Locate the removable storage device in the list, then click **Edit**. The **Edit Removable Storage Device** drawer opens.
+2. In the **Edit Removable Storage Device** drawer:
+  - Enter the following **Removable Storage Device Details**:
+    - **Name**: The name of the removable storage device
+    - **Description**: (Optional) A description of the removable storage device
+  - Enter at least one of the following **Criteria** for the device:
+    - **Vendor ID**: The manufacturer of the removable storage device
+    - **Product ID**: The product ID of the removable storage device
+    - **Serial Number**: The serial number of the removable storage device
 3. Click **Save**.
 
 See image.
 
-[Image: A screenshot of the Edit Removable Storage Device window for Zscaler Endpoint DLP]
+[Image: Edit Removable Storage Device drawer for Zscaler Endpoint DLP]
 
-You can view details for any application, but you can only edit details for manually configured custom applications.
+On the **Endpoint Applications** page (**Data Security** > **Endpoint DLP** > **Endpoint DLP Resources** > **Endpoint Applications**):
 
-On the **Applications** page (Policies > Data Protection > Endpoint DLP Resources > Applications):
+- Edit a Windows application
+- Edit a macOS application
+- Edit the application risk level
 
-- Edit a custom Windows application
-- Edit a custom macOS application
-- Editing the application risk level
-
-1. Locate the application in the list, then click the **Edit** icon. The **Edit Windows Application** window appears.
-2. In the **Edit Windows Application**window:
+1. Locate the application in the list, then click **Edit**. The **Edit Windows Application** drawer opens. You can configure options for custom applications but can only view most options for well-known applications (e.g., Zoom, Excel) and applications discovered by the Zscaler service.
+2. In the **Edit Windows Application**drawer:
   1. Edit the following **Application Details**:
     - **Name**: Enter a unique name for the application.
     - **Description:**(Optional) Enter additional notes or information about the application. The description cannot exceed 255 characters.
   2. Edit the following **Criteria**:
     - **Original File Name**: Enter the original file name of the executable. This name is located on the **Details**tab in the **Properties**for the executable file in Windows.
-    - **Process Name**: Enter the name of the executable that runs the application.
+    - **File Name**: Enter the name of the executable that runs the application.
     - **Digitally Signed**: Select an option for whether the application file must be digitally signed by a trusted provider:
       - **Any**: The Zscaler service does not check for a digital signature.
       - **Yes**: The Zscaler service requires a digital signature.
@@ -1349,37 +1344,37 @@ On the **Applications** page (Policies > Data Protection > Endpoint DLP Resource
 
 See image.
 
-[Image: A screenshot of the Edit Windows Application window for Zscaler Endpoint DLP]
+[Image: The Edit Windows Application Window for Zscaler Endpoint DLP and Endpoint Context]
 
-1. Locate the application in the list, then click the **Edit** icon. The **Edit macOS Application** window appears.
-2. In the **Edit macOS Application**window:
+1. Locate the application in the list, then click **Edit**. The **Edit macOS Application** drawer opens. You can configure options for custom applications but can only view most options for well-known applications (e.g., Zoom, Excel) and applications discovered by the Zscaler service.
+2. In the **Edit macOS Application**drawer:
   1. Edit the following **Application Details**:
-    - **Name**: Enter a unique name for the application.
-    - **Description:**(Optional) Enter additional notes or information about the application. The description cannot exceed 255 characters.
+    1. **Name**: Enter a unique name for the application.
+    2. **Description:**(Optional) Enter additional notes or information about the application. The description cannot exceed 255 characters.
   2. Edit the following **Criteria**:
-    - **Bundle ID**: Enter the bundle identifier that uniquely identifies the application.
-    - **Process Name**: Enter the name of the executable that runs the application.
-    - **Digitally Signed**: Select an option for whether the application file must be digitally signed by a trusted provider:
-      - **Any**: The Zscaler service does not check for a digital signature.
-      - **Yes**: The Zscaler service requires a digital signature.
-      - **No**: The Zscaler service does not require a digital signature.
+    1. **Bundle ID**: Enter the bundle identifier that uniquely identifies the application.
+    2. **File Name**: Enter the name of the executable that runs the application.
+    3. **Digitally Signed**: Select an option for whether the application file must be digitally signed by a trusted provider:
+      1. **Any**: The Zscaler service does not check for a digital signature.
+      2. **Yes**: The Zscaler service requires a digital signature.
+      3. **No**: The Zscaler service does not require a digital signature.
   3. View and edit the following **Endpoint Application Score Override** settings:
     1. **Version:**The version number of the endpoint application. This field is not editable.
-    2. **Application Risk Level**: The risk level for the application, based on analysis by the Zscaler service.
+    2. **Application Risk Level**: The risk level for the application, based on analysis by the Zscaler service. This field is not editable.
     3. **Application Risk Level Override**: Select an option (i.e., **Unknown**, **Low**, **Medium**, or **High**) to override the risk level for the application set by the Zscaler service.
   4. Click **Save**.
 
 See image.
 
-[Image: A screenshot of the Edit macOS Application window for Zscaler Endpoint DLP]
+[Image: The Edit macOS Application Window for Zscaler Endpoint DLP and Endpoint Context]
 
 You can view details for well-known applications and applications discovered by the Zscaler service, but you can only override the application risk level for those applications. The application risk level is assigned by the Zscaler service and measures both static and dynamic properties of an application. As a result, risk can change based on updated data. Risk is an independent property and measures the potential risk of using the application based on its properties or behaviors.
 
 To override the risk level for an application:
 
-1. Locate the application in the list, then click the **Edit** icon. The **Edit Windows Application** or **Edit macOS Application**window appears, depending on the application. This example shows how to edit a Windows application, but the process is the same for both.
+1. Locate the application in the list, then click the **Edit** icon. The **Edit Windows Application** or **Edit macOS Application**drawer opens, depending on the application. This example shows how to edit a Windows application, but the process is the same for both.
 2. View and edit the following **Endpoint Application Score Override** settings:
-  1. **Endpoint Application Name**: The name of the endpoint application. This field is not editable.
+  1. **Endpoint Application Name**: The name of the endpoint application. This field is not editable. This field is available only for well-known applications and applications discovered by the Zscaler service.
   2. **Version:**The version number of the endpoint application. This field is not editable.
   3. **Application Risk Level**: The risk level for the application, based on analysis by the Zscaler service. This field is not editable.
   4. **Application Risk Level Override**: Select an option (i.e., **Unknown**, **Low**, **Medium**, or **High**) to override the risk level for the application set by the Zscaler service.
@@ -1398,66 +1393,43 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/editing-email-profiles","lastmod":"2026-09-17T10:14Z","nid":"1492731"} -->
-## Editing Email Profiles
+<!-- ZS-ARTICLE {"url":"/zia/editing-domain-profiles","lastmod":"2026-09-23T13:22Z","nid":"1546094"} -->
+## Editing Domain Profiles
 
-- Source: https://help.zscaler.com/zia/editing-email-profiles
+- Source: https://help.zscaler.com/zia/editing-domain-profiles
 - Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Editing Email Profiles
-- Last modified: 2026-09-17T10:14Z
-- Summary: How to edit email profiles for use in Zscaler Data Loss Prevention (DLP) policy rules.
+- Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Editing Domain Profiles
+- Last modified: 2026-09-23T13:22Z
+- Summary: How to edit domain profiles for use in Zscaler Data Loss Prevention (DLP) policy rules.
 
-Zscaler's email profiles allow you to make custom sets of email domains and recipient profiles that you can easily use with Data Loss Prevention (DLP) tools across channels. To learn more, see [About Data Loss Prevention](https://help.zscaler.com/zia/about-data-loss-prevention), [About Data at Rest Scanning DLP](https://help.zscaler.com/zia/about-data-rest-scanning-dlp), and [About Outbound Email Policy](https://help.zscaler.com/zia/about-outbound-email-policy).
+Zscaler's email profiles allow you to make custom sets of [domain profiles](https://help.zscaler.com/zia/about-domain-profiles-standalone) and [recipient profiles](https://help.zscaler.com/zia/about-recipient-profiles) that you can easily use with Data Loss Prevention (DLP) tools across channels. To learn more, see [About Data Loss Prevention](https://help.zscaler.com/zia/about-data-loss-prevention), [About Data at Rest Scanning DLP](https://help.zscaler.com/zia/about-data-rest-scanning-dlp), and [About Outbound Email Policy](https://help.zscaler.com/zia/about-outbound-email-policy).
 
-To edit email profiles:
+To edit domain profiles:
 
-1. Depending on the profile:
-  - Edit a domain profile
-  - Edit a recipient profile
-2. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-1. Go to **Data Security**> **Email DLP**> **Configuration**> **Email Domain Profiles**.
-2. Find a domain profile in the list, then click **Edit**.
-
-The **Edit Domain Profile**window appears.
-
-1. In the **Edit Domain Profile** window:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Data Security**> **Email DLP**> **Email Domain Profiles**.
+2. Find a domain profile in the list, then click the **Edit** icon. The **Edit Domain Profile**drawer appears.
+3. In the **Edit Domain Profile** drawer:
   - **Profile Name**: Enter a name for the domain profile.
   - **Top Personal Email Service Providers**: Select from a list of email service providers to include and click **Done**.
-  - **Include Organizational Domains**: Selecting this option automatically includes the domains listed on your Company Profile. To learn more, see [About the Company Profile](https://help.zscaler.com/zia/about-company-profile).
-  - **Custom Domains**: Enter one or more domain names separated by line breaks, then click **Add Items**.
-  - **Include Subdomains**: Select whether to automatically include subdomains in the domain profile (e.g., `blog.example.com` is a subdomain of `example.com`).
-  - **Description**: Enter additional notes or information. The description cannot exceed 256 characters.
+  - **Include Organizational Domains**: Selecting this option automatically includes the domains listed on your Organization Profile. To learn more, see [About the Company Profile](https://help.zscaler.com/zia/about-company-profile).
+  - **Custom Domains**: Enter one or more domain names separated by line breaks, then click **Add**.
+  - **Description (Optional)**: Enter additional notes or information. The description cannot exceed 256 characters.
+4. Click **Save**.
 
 See image.
 
 [Image: Edit the Domain Profile]
-
-1. Go to **Data Security**> **Email DLP**> **Configuration**> **Recipient Profiles**.
-2. Find a recipient profile in the list, then click **Edit**.
-
-The **Edit Recipient Profile**window appears.
-
-1. In the **Edit Recipient Profile** window:
-  - **Profile Name**: Enter a name for the recipient profile.
-  - **Recipients**: Enter one or more recipient email addresses separated by line breaks, then click **Add**.
-  - **Recipient Emails**: Delete a recipient email address.
-  - **Description**: Enter additional notes or information. The description cannot exceed 256 characters.
-
-See image.
-
-[Image: Edit the Recipient Profile]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/editing-email-tenants","lastmod":"2026-09-18T13:24Z","nid":"1492716"} -->
+<!-- ZS-ARTICLE {"url":"/zia/editing-email-tenants","lastmod":"2026-09-22T11:06Z","nid":"1492716"} -->
 ## Editing Email Tenants
 
 - Source: https://help.zscaler.com/zia/editing-email-tenants
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Editing Email Tenants
-- Last modified: 2026-09-18T13:24Z
+- Last modified: 2026-09-22T11:06Z
 - Summary: How to edit email tenants for use in Zscaler Outbound Email Policy rules.
 
 Email tenants allow you to use the Zscaler service as a smart host for inspecting email content sent to external domains as part of your [outbound email policy rules](https://help.zscaler.com/zia/configuring-outbound-email-policy-rules). The email tenants you edit are used as part of the mail flow rules that you configure on your email server to act on content that violates your outbound email policy rules. To learn more, see [Configuring SEGs for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-segs-zscaler-outbound-email-dlp), [Configuring Microsoft Exchange for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp), and [Configuring Gmail for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-gmail-zscaler-outbound-email-dlp).
@@ -1625,14 +1597,14 @@ To delete an existing location:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/editing-predefined-dlp-dictionaries","lastmod":"2026-05-14T21:06Z","nid":"1400071"} -->
+<!-- ZS-ARTICLE {"url":"/zia/editing-predefined-dlp-dictionaries","lastmod":"2026-09-24T10:51Z","nid":"1400071"} -->
 ## Editing Predefined DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Editing Predefined DLP Dictionaries
-- Last modified: 2026-05-14T21:06Z
-- Summary: How to edit predefined DLP dictionaries in the Zscaler Admin Console.
+- Last modified: 2026-09-24T10:51Z
+- Summary: How to edit predefined Data Loss Prevention (DLP) dictionaries in the Zscaler Admin Console.
 
 Modifying a predefined Data Loss Prevention (DLP) dictionary is one of the tasks you can complete when configuring DLP policy rules. To learn more, see [Configuring DLP Policy Rules with Content Inspection](https://help.zscaler.com/zia/how-do-i-configure-policy-using-zscaler-dlp-engines).
 
@@ -1640,8 +1612,8 @@ You can use the predefined DLP dictionaries as is, or modify them to suit your n
 
 To edit a predefined DLP dictionary:
 
-1. Go to **Policies**> **Data Protection**> **Common Resources**> **Dictionaries & Engines**.
-2. Locate the predefined dictionary and click the **Edit**icon.
+1. Go to **Data Security**> **Common Resources**> **Dictionaries & Engines**.
+2. On the DLP Dictionaries page, locate the predefined dictionary and click the **Edit**icon.
 
 The **Edit DLP Dictionary** window appears.
 
@@ -1678,14 +1650,14 @@ Sometimes this fuzzy matching results in matching phrases from an irrelevant con
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/editing-predefined-dlp-engines","lastmod":"2026-06-12T13:21Z","nid":"1400091"} -->
+<!-- ZS-ARTICLE {"url":"/zia/editing-predefined-dlp-engines","lastmod":"2026-09-24T11:11Z","nid":"1400091"} -->
 ## Editing Predefined DLP Engines
 
 - Source: https://help.zscaler.com/zia/editing-predefined-dlp-engines
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Editing Predefined DLP Engines
-- Last modified: 2026-06-12T13:21Z
-- Summary: How to add custom and predefined DLP dictionaries to a predefined DLP engine in the Zscaler Admin Console.
+- Last modified: 2026-09-24T11:11Z
+- Summary: How to add custom and predefined Data Loss Prevention (DLP) dictionaries to a predefined DLP engine in the Zscaler Admin Console.
 
 The Zscaler service provides predefined Data Loss Prevention (DLP) engines:
 
@@ -1712,7 +1684,7 @@ You can edit a predefined DLP engine to detect content that is relevant to your 
 
 You can also add a custom DLP engine. To learn more, see [Adding Custom DLP Engines](https://help.zscaler.com/zia/adding-custom-dlp-engine).
 
-1. Go to **Policies**> **Data Protection**> **Common Resources**> **DLP Dictionaries & Engines** >**DLP Engines**.
+1. Go to **Data Security**> **Common Resources**> **DLP Dictionaries & Engines**> **DLP Engines**.
 2. In the **DLP Engines**tab, click the **Edit** icon for the predefined DLP engine.
 
 The **Edit DLP Engine** window appears.
@@ -1838,6 +1810,33 @@ The following engines detect Personal Information Protection and Electronic Docu
 [Image: Operators for the DLP Engine Expression]
 
 [Image: The Channel Override for DLP Engines]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/editing-recipient-profiles","lastmod":"2026-09-23T12:58Z","nid":"1546092"} -->
+## Editing Recipient Profiles
+
+- Source: https://help.zscaler.com/zia/editing-recipient-profiles
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Editing Recipient Profiles
+- Last modified: 2026-09-23T12:58Z
+- Summary: How to edit recipient profiles for use in Zscaler Data Loss Prevention (DLP) policy rules.
+
+Zscaler's email profiles allow you to make custom sets of [domain profiles](https://help.zscaler.com/zia/about-domain-profiles-standalone) and [recipient profiles](https://help.zscaler.com/zia/about-recipient-profiles) that you can easily use with Data Loss Prevention (DLP) tools across channels. To learn more, see [About Data Loss Prevention](https://help.zscaler.com/zia/about-data-loss-prevention), [About Data at Rest Scanning DLP](https://help.zscaler.com/zia/about-data-rest-scanning-dlp), and [About Outbound Email Policy](https://help.zscaler.com/zia/about-outbound-email-policy).
+
+To edit recipient profiles:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Data Security**> **Email DLP**> **Recipient Profiles**.
+2. Find a recipient profile in the list, then click the **Edit** icon. The **Edit Recipient Profile**drawer appears.
+3. In the **Edit Recipient Profile** drawer:
+  - **Profile Name**: Enter a name for the recipient profile.
+  - **Recipients**: Enter one or more recipient email addresses separated by line breaks, then click **Add**.
+  - **Recipient Emails**: Delete a recipient email address.
+  - **Description (Optional)**: Enter additional notes or information. The description cannot exceed 256 characters.
+4. Click **Save**. See image.
+
+[Image: Edit the Recipient Profile]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1999,36 +1998,36 @@ To access this feature, contact your Zscaler Account team.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/editing-subcloud","lastmod":"2026-06-03T09:34Z","nid":"1402616"} -->
+<!-- ZS-ARTICLE {"url":"/zia/editing-subcloud","lastmod":"2026-09-24T00:03Z","nid":"1402616"} -->
 ## Editing a Subcloud
 
 - Source: https://help.zscaler.com/zia/editing-subcloud
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Editing a Subcloud
-- Last modified: 2026-06-03T09:34Z
+- Last modified: 2026-09-24T00:03Z
 - Summary: How to edit a subcloud in the Zscaler Admin Console.
 
 You can edit a subcloud from the Subclouds page in the Zscaler Admin Console. You can temporarily disable the associated Zscaler data centers for scheduled maintenance or data centers with capacity issues, trust incidents, site or region service issues, excessive latency, congestion, peering issues, etc.
 
 To edit a subcloud:
 
-1. Go to **Infrastructure** > **Internet & SaaS** > **Traffic Forwarding** > **Subclouds**.
-2. Click the **Edit** icon next to the subcloud that you want to edit. The **Edit Subcloud** window appears.
-3. In the **Edit Subcloud** window: See image.
+1. Go to **Infrastructure** > **Internet & SaaS** > **Subclouds**.
+2. Click the **Edit** icon next to the subcloud that you want to edit. The **Edit Subcloud** drawer appears.
+3. In the **Edit Subcloud** drawer: See image.
   - **Name**: View the name of the subcloud. This field cannot be modified.
   - **Data Center**: View and edit the data center configured for the subcloud.
-  - **Data Center Disabled Until (UTC Time)**: View and edit the date and time until which the selected data center is disabled. The time is displayed in Coordinated Universal Time (UTC). You can disable a data center for a maximum of two weeks. You cannot modify the existing time zone for this field. <p> <a class="image-icon" href="#Editing-a-Subcloud">See image.</a> </p>
+  - **Data Center Disabled Until (UTC Time)**: View and edit the date and time until which the selected data center is disabled. The time is displayed in Coordinated Universal Time (UTC). You can disable a data center for a maximum of two weeks. You cannot modify the existing time zone for this field.
 4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-If you disable all the data centers in a country, a confirmation window appears. Click **Confirm** to continue.
+If you disable all the data centers in a country, a confirmation window appears. Click **OK**to continue.
 
 See image.
 
 After you edit the data center list for a subcloud, the Zscaler Client Connector traffic and PAC file users are redirected 15 minutes after the app policy push. To fail over immediately, you can trigger DNS requests with app policy updates on Zscaler Client Connector. To learn more, see [Understanding Subclouds](https://help.zscaler.com/zia/understanding-subclouds).
 
-[Image: The Edit Subcloud window]
+[Image: The Edit Subcloud drawer]
 
-[Image: The Edit Subcloud confirmation window]
+[Image: The Edit Subcloud confirmation message]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2313,13 +2312,13 @@ The following are the Email DLP column fields:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/email-dlp-insights-logs-filters","lastmod":"2026-07-28T10:07Z","nid":"1479671"} -->
+<!-- ZS-ARTICLE {"url":"/zia/email-dlp-insights-logs-filters","lastmod":"2026-09-25T03:07Z","nid":"1479671"} -->
 ## Email DLP Insights Logs: Filters
 
 - Source: https://help.zscaler.com/zia/email-dlp-insights-logs-filters
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > Email DLP Insights Logs: Filters
-- Last modified: 2026-07-28T10:07Z
+- Last modified: 2026-09-25T03:07Z
 - Summary: Information on the different filters in the Email DLP Insights Logs page in the Zscaler Admin Console.
 
 Filters define the traffic information that you view in your Email Data Loss Prevention (DLP) Insights Logs. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
@@ -2398,6 +2397,7 @@ Following are the Email DLP Insights Logs filters that you can select:
 - **Triggered Domains**: Use this filter to limit emails associated to a specific triggered domain.
 - **Triggered Recipients**: Use this filter to limit emails associated to a specific triggered recipient.
 - **User**: Use this filter to view email activities of a specific user. The default option for this filter is **Any**. Select **Hide Deleted**if you want to remove deleted users from the list. Click **Select All** to select all the configured users. You can search or choose users from the list.
+- **User Group**: Use this filter to view emails associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **None**. You can search for specific user groups.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2450,16 +2450,16 @@ To enable the firewall for a location:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/enabling-secure-icap","lastmod":"2026-05-18T21:06Z","nid":"1400111"} -->
+<!-- ZS-ARTICLE {"url":"/zia/enabling-secure-icap","lastmod":"2026-09-24T13:43Z","nid":"1400111"} -->
 ## Enabling Secure ICAP
 
 - Source: https://help.zscaler.com/zia/enabling-secure-icap
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Enabling Secure ICAP
-- Last modified: 2026-05-18T21:06Z
-- Summary: How to enable secure ICAP communication in the Zscaler service before configuring your DLP server.
+- Last modified: 2026-09-24T13:43Z
+- Summary: How to enable secure ICAP communication in the Zscaler service before configuring your Data Loss Prevention (DLP) server.
 
-Enabling secure ICAP is one of the tasks you must complete when configuring DLP policy rules. To learn more, see [Configuring DLP Policy Rules with Content Inspection](https://help.zscaler.com/zia/how-do-i-configure-policy-using-zscaler-dlp-engines) and [Configuring DLP Policy Rules without Content Inspection](https://help.zscaler.com/zia/how-do-i-configure-policy-using-external-dlp-engines).
+Enabling secure ICAP is one of the tasks you must complete when configuring Data Loss Prevention (DLP) policy rules. To learn more, see [Configuring DLP Policy Rules with Content Inspection](https://help.zscaler.com/zia/how-do-i-configure-policy-using-zscaler-dlp-engines) and [Configuring DLP Policy Rules without Content Inspection](https://help.zscaler.com/zia/how-do-i-configure-policy-using-external-dlp-engines).
 
 ## Configuration Tasks for Enabling Secure ICAP
 
@@ -2543,16 +2543,16 @@ You must define your DLP servers in the Zscaler Admin Console by providing the p
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/enabling-unencrypted-icap","lastmod":"2026-05-18T21:06Z","nid":"1400116"} -->
+<!-- ZS-ARTICLE {"url":"/zia/enabling-unencrypted-icap","lastmod":"2026-09-24T13:46Z","nid":"1400116"} -->
 ## Enabling Unencrypted ICAP
 
 - Source: https://help.zscaler.com/zia/enabling-unencrypted-icap
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Enabling Unencrypted ICAP
-- Last modified: 2026-05-18T21:06Z
-- Summary: How to enable unencrypted ICAP communication in the Zscaler service before configuring your DLP server.
+- Last modified: 2026-09-24T13:46Z
+- Summary: How to enable unencrypted ICAP communication in the Zscaler service before configuring your Data Loss Prevention (DLP) server.
 
-Enabling unencrypted ICAP is one of the tasks you must complete when configuring DLP policy rules. To learn more, see [Configuring DLP Policy Rules with Content Inspection](https://help.zscaler.com/zia/how-do-i-configure-policy-using-zscaler-dlp-engines) and [Configuring DLP Policy Rules without Content Inspection](https://help.zscaler.com/zia/how-do-i-configure-policy-using-external-dlp-engines).
+Enabling unencrypted ICAP is one of the tasks you must complete when configuring Data Loss Prevention (DLP) policy rules. To learn more, see [Configuring DLP Policy Rules with Content Inspection](https://help.zscaler.com/zia/how-do-i-configure-policy-using-zscaler-dlp-engines) and [Configuring DLP Policy Rules without Content Inspection](https://help.zscaler.com/zia/how-do-i-configure-policy-using-external-dlp-engines).
 
 ## Configuration Tasks for Enabling Unencrypted ICAP
 
@@ -2991,13 +2991,13 @@ The following are the Endpoint DLP column fields:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/endpoint-dlp-insights-logs-filters","lastmod":"2026-07-28T10:09Z","nid":"1452621"} -->
+<!-- ZS-ARTICLE {"url":"/zia/endpoint-dlp-insights-logs-filters","lastmod":"2026-09-25T03:06Z","nid":"1452621"} -->
 ## Endpoint DLP Insights Logs: Filters
 
 - Source: https://help.zscaler.com/zia/endpoint-dlp-insights-logs-filters
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > Endpoint DLP Insights Logs: Filters
-- Last modified: 2026-07-28T10:09Z
+- Last modified: 2026-09-25T03:06Z
 - Summary: Information on the different filters in the Endpoint Data Loss Prevention (DLP) Insights Logs page in the Zscaler Admin Console.
 
 Filters define the traffic information that you view in your Zscaler Endpoint Data Loss Prevention (DLP) Insights Logs. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
@@ -3112,6 +3112,7 @@ Following are the Endpoint DLP Insights Log filters that you can select:
   - Web
 - **Subdocument Type**: Use this filter to limit the data to traffic associated with a specific upload or download subdocument type. The default option for this filter is **None**.
 - **User**: Use this filter to view the activities of a specific user. The default option for this filter is **Any**. Select **Hide Deleted**if you want to remove deleted users from the list. Click **Select All** to select all the configured users. You can search or choose users from the list.
+- **User Group**: Use this filter to view traffic associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **None**. You can search for specific user groups.
 - **ZDP Mode**: Use this filter to view the activities for a specific Endpoint DLP mode. The following ZDP modes appear under this filter:
   - Block Mode
   - Exemption Mode
@@ -3157,16 +3158,16 @@ Be aware of the following guidelines:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/excluding-data-center-based-traffic-forwarding-method","lastmod":"2026-06-24T21:06Z","nid":"1474521"} -->
+<!-- ZS-ARTICLE {"url":"/zia/excluding-data-center-based-traffic-forwarding-method","lastmod":"2026-09-23T23:42Z","nid":"1474521"} -->
 ## Excluding a Data Center Based on Traffic Forwarding Method
 
 - Source: https://help.zscaler.com/zia/excluding-data-center-based-traffic-forwarding-method
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Excluding a Data Center Based on Traffic Forwarding Method
-- Last modified: 2026-06-24T21:06Z
+- Last modified: 2026-09-23T23:42Z
 - Summary: How to configure a data center exclusion on the Traffic Forwarding Method page in the Zscaler Admin Console.
 
-To enable the DC Exclusion for Traffic Forwarding option for your tenant, submit a support ticket from the Zscaler Admin Console.
+To enable the DC Exclusion for Traffic Forwarding option for your tenant, submit a Support ticket from the Zscaler Admin Console.
 
 If a Zscaler data center (DC) is having an issue affecting the service, you can disable all IPSec VPN tunnels terminating at a virtual IP (VIP) address of the affected DC directly from the Zscaler Admin Console. With this action, you trigger a failover from primary to secondary tunnels at the endpoint of your organization’s premises, ensuring business continuity and connectivity resilience.
 
@@ -3176,23 +3177,25 @@ The DC is restored for service to your organization when the configured exclusio
 
 To add a DC exclusion:
 
-1. Go to **Infrastructure > Internet & SaaS > Traffic Forwarding > DC Exclusion**.
-2. Click **+ DC Exclusion**. The **Add DC Exclusion**window appears.
-3. In the **Add DC Exclusion** window: See image.
-  - **Data Center**: Select a DC.
-  - **Traffic Forwarding Method**: This is the traffic forwarding method (e.g., IPSec VPN tunnels) to be disabled for the DC.
-  - **Begin Time (UTC Time)**: Set the date and time at which the DC exclusion begins and tunnels are disabled for the DC. You can set the exclusion to begin within a month of the current date. The time is displayed in Coordinated Universal Time (UTC). Set the **Begin Time** to at least 5 minutes from the current time (e.g., if the current time is 11:30 AM UTC, set the **Begin Time** to 11:35 AM UTC).
-  - **Expiration Time (UTC Time)**: Set the date and time at which the DC exclusion expires and tunnels are re-enabled for the DC. You can set the expiration within 15 days of the **Begin Time**. The time is displayed in Coordinated Universal Time (UTC). Set the **Expiration Time** to at least 2 hours from the **Begin Time** (e.g., if the **Begin Time** is 11:30 AM UTC, set the **Expiration Time** to 1:30 PM UTC).
-  - **Description**: (Optional) Enter a description of the DC exclusion. <p> <a class="image-icon" href="#img-zia-add-dc-exclusion">See image.</a> </p>
+1. Go to **Infrastructure**> **Location Management** > **Data Center Exclusion**.
+2. Click **Add DC Exclusion**. See image. The **Add DC Exclusion**drawer appears.
+3. In the **Add DC Exclusion** drawer: See image.
+  1. **Data Center**: Select a DC.
+  2. **Traffic Forwarding Method**: This is the traffic forwarding method (e.g., IPSec VPN tunnels) to be disabled for the DC.
+  3. **Begin Time (UTC Time)**: Set the date and time at which the DC exclusion begins and tunnels are disabled for the DC. You can set the exclusion to begin within a month of the current date. The time is displayed in Coordinated Universal Time (UTC). Set the **Begin Time** to at least 5 minutes from the current time (e.g., if the current time is 11:30 AM UTC, set the **Begin Time** to 11:35 AM UTC).
+  4. **Expiration Time (UTC Time)**: Set the date and time at which the DC exclusion expires and tunnels are re-enabled for the DC. You can set the expiration within 15 days of the **Begin Time**. The time is displayed in Coordinated Universal Time (UTC). Set the **Expiration Time** to at least 2 hours from the **Begin Time** (e.g., if the **Begin Time** is 11:30 AM UTC, set the **Expiration Time** to 1:30 PM UTC).
+  5. **Description**: (Optional) Enter a description of the DC exclusion.
 4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 When the DC exclusion expires, a warning message appears, prompting you to edit the exclusion period, if required. You can edit the exclusion period before it expires as needed.
 
 See image.
 
-[Image: The Add DC Exclusion configuration window in the Zscaler Admin Console]
+[Image: The Add DC Exclusion configuration drawer]
 
-[Image: The DC exclusion expiration details in the Zscaler Admin Console]
+[Image: The DC exclusion expiration details]
+
+[Image: Add DC Exclusion button in the Data Center Exclusion page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -3287,7 +3290,7 @@ The following tables provide lists of error messages users might see on the Exec
 | Error Type | Error Message or Issue Description | Resolution |
 | --- | --- | --- |
 | No Data in Widgets | The following message displays on some widgets: No Data | Try changing the filters. For example, you can change the time range selection (Last 7 Days, Last 14 Days, etc.) or any widget-specific filter. If the error message still displays, no further action is required. It is possible that no data is available for that tenant for the selected time range. The data would start showing up when it becomes available. |
-| Wrong Data in Widgets | The data on the Executive Insights App does not match with the data in the Zscaler Admin Console for Internet & SaaS, Private Access, or Zscaler Digital Experience (ZDX). | To resolve this issue: Verify that the user has selected the correct tenant on the Profile screen.; Close the app, clear the app data, and restart the app. This sequence forces the latest data to be fetched from the back end.; Confirm that the user is not using the Demo mode, as it contains mock data. |
+| Wrong Data in Widgets | The data on the Executive Insights App does not match with the data in the Zscaler Admin Console for Internet & SaaS, Private Access, or Digital Experience (ZDX). | To resolve this issue: Verify that the user has selected the correct tenant on the Profile screen.; Close the app, clear the app data, and restart the app. This sequence forces the latest data to be fetched from the back end.; Confirm that the user is not using the Demo mode, as it contains mock data. |
 | Stale Data in Widgets | The app is not showing the latest data. | To fetch the latest data, close the app, clear the app data, and restart the app. This sequence forces the latest data to be fetched from the back end. The Executive Insights App data refreshes once a day (i.e., the data for today is visible only tomorrow). |
 | Stale Data in Widgets (includes timing discrepancies) | When the Last X Days filter is applied, data older than two days is shown instead of data until the previous day. | Data refreshes once a day starting at the UTC day boundary (00:00 UTC). Users in UTC+ time zones continue to see data that is two days older until their local time crosses the UTC day boundary. For example, in India (UTC+05:30), users cannot see data for the previous day until 05:30 hrs (Indian time). Additionally, even after the UTC boundary is crossed, it might take a few hours for the data to be processed and analyzed before being made available to users. For instance, if data processing takes approximately two hours, users in India might not see the previous day’s data until around 07:30 hrs (Indian time). Note that this is an illustrative example, and the processing time can vary depending on system load and other factors. |
 | Missing Time Range Selection on Screens | The Time Range is not available in: Risk360; ZDX | ZDX and Risk360 support only the most current data and fixed time ranges. Hence, the app does not provide any option to select time ranges for these screens. |
@@ -3848,13 +3851,13 @@ Following are the Extranet Insights Log filters that you can select:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/firewall-configuration-requirements-private-service-edge-internet-saas-deployments","lastmod":"2026-09-11T04:37Z","nid":"1400466"} -->
+<!-- ZS-ARTICLE {"url":"/zia/firewall-configuration-requirements-private-service-edge-internet-saas-deployments","lastmod":"2026-09-25T21:06Z","nid":"1400466"} -->
 ## Firewall Configuration Requirements: Private Service Edge for Internet & SaaS Deployments
 
 - Source: https://help.zscaler.com/zia/firewall-configuration-requirements-private-service-edge-internet-saas-deployments
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Firewall Configuration Requirements: Private Service Edge for Internet & SaaS Deployments
-- Last modified: 2026-09-11T04:37Z
+- Last modified: 2026-09-25T21:06Z
 - Summary: Instructions and requirements for properly configuring your corporate firewall and Zscaler PAC files for Private Service Edge for Internet & SaaS deployments.
 
 Your organization must configure your corporate firewall to allow for remote access if:
@@ -4601,13 +4604,13 @@ When you use Source IP Anchoring for the URL or domain, Zscaler doesn't log the 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/firewall-insights-logs-filters","lastmod":"2026-07-28T04:13Z","nid":"1401001"} -->
+<!-- ZS-ARTICLE {"url":"/zia/firewall-insights-logs-filters","lastmod":"2026-09-25T02:53Z","nid":"1401001"} -->
 ## Firewall Insights Logs: Filters
 
 - Source: https://help.zscaler.com/zia/firewall-insights-logs-filters
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > Firewall Insights Logs: Filters
-- Last modified: 2026-07-28T04:13Z
+- Last modified: 2026-09-25T02:53Z
 - Summary: Information on the different filters in the Firewall Insights Logs page in the Zscaler Admin Console.
 
 Filters define the traffic information that you view in your Firewall Insight Logs. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
@@ -4714,6 +4717,7 @@ Following are the Firewall Insights Log filters that you can select:
   - Zscaler Client Connector over IPSEC Tunnel
   - ZPA Microtunnels (M-Tunnels)
 - **User**: Use this filter to limit the data to the traffic of specific [users](https://help.zscaler.com/zia/about-users). Select **Hide Deleted**if you want to remove deleted users from the list. Click **Select All** to select all the configured users. Choose the user names from the list.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **None**. You can search for specific user groups.
 - **Zscaler Client Connector Tunnel Version**: Use this filter to limit the data to traffic associated with the version of the Zscaler Client Connector Z-Tunnel.
 - **ZIA Gateway Protocol**: Use this filter to limit the data to traffic associated with the gateway protocol.
 - **ZIA Source IP**: Use this filter to limit the data to traffic associated with the source IP
@@ -4995,13 +4999,13 @@ Based on the use case, the following results are possible:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/gre-configuration-example-cisco-881-isr","lastmod":"2026-09-08T05:44Z","nid":"1399121"} -->
+<!-- ZS-ARTICLE {"url":"/zia/gre-configuration-example-cisco-881-isr","lastmod":"2026-09-22T05:03Z","nid":"1399121"} -->
 ## GRE Configuration Guide for Cisco 881 ISR
 
 - Source: https://help.zscaler.com/zia/gre-configuration-example-cisco-881-isr
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > GRE > GRE Configuration Guide for Cisco 881 ISR
-- Last modified: 2026-09-08T05:44Z
+- Last modified: 2026-09-22T05:03Z
 - Summary: How to configure a GRE tunnel between a Cisco 881 ISR and Public Service Edges for Internet & SaaS with a sample illustration.
 
 The illustration provided in this article uses sample values for the IP addresses. Replace these values with the actual IP addresses that are used in your deployment.
@@ -5027,7 +5031,7 @@ The router receives ingress traffic on ports fa0, fa1, fa2, and fa3. They forwar
 
 This guide covers only the configuration details of GRE tunnels between the Cisco 881 ISR and the Public Service Edges. For any other specific information about the Cisco 881 ISR, refer to the [Cisco documentation.](https://www.cisco.com/c/en/us/support/routers/881-secure-fast-ethernet-multi-mode-4g-lte-isr-router/model.html?dtid=osscdc000283)
 
-Perform the following tasks to configure the GRE tunnels from a Cisco 881 ISR router running iOS version 15.1 to Public Service Edges in different data centers. Refer to the Cisco documentation for information about the commands provided in this procedure.
+Perform the following tasks to configure the GRE tunnels from a Cisco 881 ISR router running IOS version 15.1 to Public Service Edges in different data centers. Refer to the Cisco documentation for information about the commands provided in this procedure.
 
 Ensure to alter the sample configuration values provided in this article to suit your deployment needs.
 
@@ -5151,7 +5155,7 @@ After configuring the tunnels, you need to route the internet-bound traffic thro
 - Using default routes
 - Using policy-based routing (PBR)
 
-In Cisco iOS routers, policy-based routing (PBR) is implemented using route maps. Some Cisco routers forward PBR traffic in the software path instead of employing hardware forwarding, which leads to CPU spikes and performance issues. If you experience performance issues after implementing PBR, Zscaler recommends that you use IP route-based forwarding instead of PBR.
+In Cisco IOS routers, policy-based routing (PBR) is implemented using route maps. Some Cisco routers forward PBR traffic in the software path instead of employing hardware forwarding, which leads to CPU spikes and performance issues. If you experience performance issues after implementing PBR, Zscaler recommends that you use IP route-based forwarding instead of PBR.
 
 For a simple branch office architecture, you can use a simple default route to forward traffic. In this example, the default route is changed from directing traffic to the ISP gateway to forwarding internet-bound traffic to Zscaler.
 
@@ -5201,9 +5205,9 @@ track 1
 
 ## Verifying GRE Tunnel Configuration on Cisco 881 ISR
 
-From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Data Explorer**>**Tunnel Insights** to see data as well as monitor the health and status of your configured GRE tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
+From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to Data Explorer > Internet & SaaS > Tunnel Insights to see data as well as monitor the health and status of your configured GRE tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
 
-On the Cisco router, you can perform the following verification steps to monitor and troubleshoot the GRE tunnels. These steps are applicable to both iOS 12.2.X and 15.X.
+On the Cisco router, you can perform the following verification steps to monitor and troubleshoot the GRE tunnels. These steps are applicable to both IOS 12.2.X and 15.X.
 
 - Verify GRE Interface Status and Connectivity
 - Verify IP SLA Functionality
@@ -5443,13 +5447,13 @@ Go to [ip.zscaler.com](http://ip.zscaler.com)to verify the data center that rece
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/gre-configuration-example-juniper-srx","lastmod":"2026-09-08T05:44Z","nid":"1399131"} -->
+<!-- ZS-ARTICLE {"url":"/zia/gre-configuration-example-juniper-srx","lastmod":"2026-09-22T04:45Z","nid":"1399131"} -->
 ## GRE Configuration Guide for Juniper SRX
 
 - Source: https://help.zscaler.com/zia/gre-configuration-example-juniper-srx
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > GRE > GRE Configuration Guide for Juniper SRX
-- Last modified: 2026-09-08T05:44Z
+- Last modified: 2026-09-22T04:45Z
 - Summary: How to configure a GRE tunnel between a Juniper SRX and Public Service Edges for Internet & SaaS (ZIA) in the Zscaler service.
 
 This guide provides examples for configuring a GRE tunnel between a Juniper SRX300 running Junos OS version 19.2R2.7 and Public Service Edges for Internet & SaaS (ZIA) in the Zscaler service.
@@ -5663,7 +5667,7 @@ from-zone trust to-zone untrust {
 
 ## Verifying the GRE Tunnel Configuration
 
-From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Data Explorer**>**Tunnel Insights** to see data and monitor the health and status of your configured GRE tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
+From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to Data Explorer > Internet & SaaS > Tunnel Insights to see data and monitor the health and status of your configured GRE tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
 
 In Junos OS, you can use the following commands to monitor and troubleshoot the GRE tunnels.
 
@@ -6254,13 +6258,13 @@ The trend toward cloud-based services, internet offloading, and protection for m
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/importing-exporting-custom-signature-rules","lastmod":"2026-09-18T11:26Z","nid":"1403211"} -->
+<!-- ZS-ARTICLE {"url":"/zia/importing-exporting-custom-signature-rules","lastmod":"2026-09-24T00:52Z","nid":"1403211"} -->
 ## Importing and Exporting Custom IPS Signature Rules
 
 - Source: https://help.zscaler.com/zia/importing-exporting-custom-signature-rules
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > IPS Control > Importing and Exporting Custom IPS Signature Rules
-- Last modified: 2026-09-18T11:26Z
+- Last modified: 2026-09-24T00:52Z
 - Summary: Information on how to import or export custom IPS signature rules using a CSV file.
 
 You can import or export custom IPS signature rules using a CSV file. The import action allows you to add, modify, and delete custom IPS signature rules.
@@ -6300,20 +6304,20 @@ This CSV file cannot be used to import custom IPS signature rules because the im
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/importing-gre-tunnels-csv-file","lastmod":"2026-09-08T05:43Z","nid":"1447906"} -->
+<!-- ZS-ARTICLE {"url":"/zia/importing-gre-tunnels-csv-file","lastmod":"2026-09-22T04:11Z","nid":"1447906"} -->
 ## Importing GRE Tunnels from a CSV File
 
 - Source: https://help.zscaler.com/zia/importing-gre-tunnels-csv-file
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > GRE > Importing GRE Tunnels from a CSV File
-- Last modified: 2026-09-08T05:43Z
+- Last modified: 2026-09-22T04:11Z
 - Summary: Information on how to add new GRE tunnels, edit existing GRE tunnels, and delete GRE tunnels with a CSV file.
 
 This article describes how to add, edit, or delete multiple GRE tunnels by importing a CSV file. You can add up to 3,000 GRE tunnels. For a complete list of ranges and limits, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
 
 To import a CSV file:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Infrastructure** > **Location Management** > **Static IPs & GRE Tunnel**>**GRE Tunnel**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure** > **Location Management** > **Static IPs & GRE Tunnel**>**GRE Tunnels**.
 2. Click **Sample Import CSV file** to download the GRE tunnels template.
 3. Enter your GRE tunnels in the CSV file template in the following format so that the Zscaler service successfully imports the CSV file:
   - **Action**:Enter + or - to indicate whether you want to add or delete a GRE tunnel.
@@ -6407,20 +6411,20 @@ Review your CSV file and ensure that there is no duplication. If you attempt to 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/importing-vpn-credentials-csv-file","lastmod":"2026-05-04T21:06Z","nid":"1401091"} -->
+<!-- ZS-ARTICLE {"url":"/zia/importing-vpn-credentials-csv-file","lastmod":"2026-09-23T23:35Z","nid":"1401091"} -->
 ## Importing VPN Credentials from a CSV File
 
 - Source: https://help.zscaler.com/zia/importing-vpn-credentials-csv-file
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPSec > Importing VPN Credentials from a CSV File
-- Last modified: 2026-05-04T21:06Z
+- Last modified: 2026-09-23T23:35Z
 - Summary: How to add or delete VPN credentials using a CSV file. VPN credentials must be added when configuring an IPSec VPN tunnel for the Zscaler service.
 
 Configuring a VPN credential is one of the tasks you must complete when configuring an IPSec VPN tunnel. To learn more, see [Configuring an IPSec VPN Tunnel](https://help.zscaler.com/zia/configuring-ipsec-vpn-tunnel). You can import up to 3,000 entries per CSV file. For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). You can also [manually add VPN credentials](https://help.zscaler.com/zia/adding-individual-vpn-credentials) to the Zscaler Admin Console.
 
 To add or remove VPN credentials using a CSV file:
 
-1. Go to **Infrastructure > Locations > VPN Credentials**.
+1. Go to **Infrastructure > Location Management > VPN Credentials**.
 2. Click **Sample Import CSV file** to download a sample file, which can be used as a template for your VPN credentials.
 3. Within the CSV file, enter your VPN credential information. To learn more, see [Formatting CSV Files](https://help.zscaler.com/zia/importing-vpn-credentials-csv-file#format_csv).
 4. Click **Import VPN Credentials**. The **Import VPN Credentials** window appears.
@@ -7045,13 +7049,13 @@ Your Databricks organization is now connected. After integration is completed, a
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/integrating-github","lastmod":"2026-04-25T11:48Z","nid":"1462706"} -->
+<!-- ZS-ARTICLE {"url":"/zia/integrating-github","lastmod":"2026-09-23T12:00Z","nid":"1462706"} -->
 ## Integrating with GitHub
 
 - Source: https://help.zscaler.com/zia/integrating-github
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > Connecting Your Platforms > Integrating with GitHub
-- Last modified: 2026-04-25T11:48Z
+- Last modified: 2026-09-23T12:00Z
 - Summary: How to connect GitHub to 3rd-Party App Governance.
 
 You can connect your GitHub organization to Zscaler 3rd-Party App Governance to gain continuous visibility and governance for third-party apps installed in the GitHub environment.
@@ -7081,8 +7085,6 @@ See image.
 You are redirected to the**Add SaaS Application Tenant** page in the Zscaler Admin Console.
 
 1. Enter the tenant details and complete the configuration steps required for adding a new SaaS application tenant. To learn more, see [Adding SaaS Application Tenants](https://help.zscaler.com/zia/adding-saas-application-tenants).
-
-You must select the **App Governance** checkbox to enable the App Governance feature for the tenant.
 
 The Add SaaS Application Tenant page closes after successful addition of the new tenant. After a connection is achieved, it might take a while to pull and ingest all relevant application data depending on the size of your tenant. During this time, a message displays indicating that the integration is still being processed. After integration is completed, a success message appears, and the tenant details are updated on the [Settings](https://help.zscaler.com/zia/about-settings-3rd-party-app-governance) page. You then receive an email from Zscaler when the integration is ready for further review.
 
@@ -8216,13 +8218,13 @@ The following table lists the permissions and data collected after integration:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/integrating-with-google-workspace","lastmod":"2026-04-25T11:54Z","nid":"1450346"} -->
+<!-- ZS-ARTICLE {"url":"/zia/integrating-with-google-workspace","lastmod":"2026-09-23T12:03Z","nid":"1450346"} -->
 ## Integrating with Google Workspace
 
 - Source: https://help.zscaler.com/zia/integrating-with-google-workspace
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > Connecting Your Platforms > Integrating with Google Workspace
-- Last modified: 2026-04-25T11:54Z
+- Last modified: 2026-09-23T12:03Z
 - Summary: How to connect Google Workspace to 3rd-Party App Governance.
 
 You can connect your Google Workspace organization to Zscaler 3rd-Party App Governance to gain continuous visibility and governance for third-party apps installed in the Google Workspace environment, including automation of your vetting and governance processes.
@@ -8254,8 +8256,6 @@ See image.
 You are redirected to the**Add SaaS Application Tenant** page in the Zscaler Admin Console.
 
 1. Enter the tenant details and complete the configuration steps required for adding a new SaaS application tenant. To learn more, see [Adding SaaS Application Tenants](https://help.zscaler.com/zia/adding-saas-application-tenants).
-
-You must select the **App Governance** checkbox to enable the App Governance feature for the tenant.
 
 The Add SaaS Application Tenant page closes after successful addition of the new tenant. After a connection is achieved, it might take a while to pull and ingest all relevant application data depending on the size of your tenant. During this time, a message displays indicating that the integration is still being processed. After integration is completed, a success message appears, and the tenant details are updated on the [Settings](https://help.zscaler.com/zia/about-settings-3rd-party-app-governance) page. You then receive an email from Zscaler when the integration is ready for further review.
 
@@ -8354,13 +8354,13 @@ Google Administrative privileges are required for accessing the Google Admin Con
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/integrating-with-microsoft-azure","lastmod":"2026-04-25T12:13Z","nid":"1450351"} -->
+<!-- ZS-ARTICLE {"url":"/zia/integrating-with-microsoft-azure","lastmod":"2026-09-23T12:07Z","nid":"1450351"} -->
 ## Integrating with Microsoft Azure
 
 - Source: https://help.zscaler.com/zia/integrating-with-microsoft-azure
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > Connecting Your Platforms > Integrating with Microsoft Azure
-- Last modified: 2026-04-25T12:13Z
+- Last modified: 2026-09-23T12:07Z
 - Summary: How to connect Microsoft Azure to 3rd-Party App Governance.
 
 You can connect your Microsoft Azure organization to Zscaler 3rd-Party App Governance to gain continuous visibility and governance for third-party apps installed in the Microsoft Azure environment, including automation of your vetting and governance processes.
@@ -8390,8 +8390,6 @@ See image.
 You are redirected to the**Add SaaS Application Tenant** page in the Zscaler Admin Console.
 
 1. Enter the tenant details and complete the configuration steps required for adding a new SaaS application tenant. To learn more, see [Adding SaaS Application Tenants](https://help.zscaler.com/zia/adding-saas-application-tenants).
-
-You must select the **App Governance** checkbox to enable the App Governance feature for the tenant.
 
 The Add SaaS Application Tenant page closes after successful addition of the new tenant. After a connection is achieved, it might take a while to pull and ingest all relevant application data depending on the size of your tenant. During this time, a message displays indicating that the integration is still being processed. After integration is completed, a success message appears, and the tenant details are updated on the [Settings](https://help.zscaler.com/zia/about-settings-3rd-party-app-governance) page. You then receive an email from Zscaler when the integration is ready for further review.
 
@@ -13184,13 +13182,13 @@ In the event of software failure, your organization can contact Zscaler Support.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/manage-saas-application-components","lastmod":"2026-07-29T06:50Z","nid":"1529449"} -->
+<!-- ZS-ARTICLE {"url":"/zia/manage-saas-application-components","lastmod":"2026-09-23T05:11Z","nid":"1529449"} -->
 ## Manage SaaS Application Components
 
 - Source: https://help.zscaler.com/zia/manage-saas-application-components
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > Manage SaaS Application Components
-- Last modified: 2026-07-29T06:50Z
+- Last modified: 2026-09-23T05:11Z
 - Summary: Information on managing SaaS application tenants and components in the Zscaler Admin Console.
 
 SaaS applications, such as SharePoint, might have dozens, hundreds, or even thousands of individual component sites. Instead of creating Data Loss Prevention (DLP) policies for each of them individually, you can create groups of sites that you want to share the same DLP policies.
@@ -13199,16 +13197,15 @@ SaaS applications, such as SharePoint, might have dozens, hundreds, or even thou
 
 To create groups:
 
-1. Go to **Policies**> **Common Configuration** > **Out-of-Band CASB** > **SaaS Application Tenants** > **Manage SaaS Application Components**.
-2. From the **Manage SaaS Application Components** page, select the **Groups** tab.
-3. At the top right of the page, select an available application. See image.
-4. Click **Add Group**. See image. The **Add Group** window appears.
-5. In the **Add Group** window, enter a name for your group, and under **SaaS Application Tenant** select one of your tenants. If you haven't added one yet, see [Adding SaaS Application Tenants](https://help.zscaler.com/zia/adding-saas-application-tenants). See image.
-6. Under **Sites**, you can choose to manually add or import sites. A group can contain a maximum of 10,000 sites.
+1. Go to**Data Security > DSPM > SaaS Application Tenants > Manage Groups.**
+2. At the top right of the page, select an available application. See image.
+3. Click **Add Group**. See image. The **Add Group** window appears.
+4. In the **Add Group** window, enter a name for your group, and under **SaaS Application Tenant** select one of your tenants. If you haven't added one yet, see [Adding SaaS Application Tenants](https://help.zscaler.com/zia/adding-saas-application-tenants). See image.
+5. Under **Sites**, you can choose to manually add or import sites. A group can contain a maximum of 10,000 sites.
   1. **Add Sites**: Click the drop-down menu, select your desired sites from the list, and click **Done**. See image.
   2. **Import Sites**: Click **Choose File** and select a CSV file with your list of desired sites. A sample file is available to download by clicking **Sample Import CSV File**. See image.
-7. In the **Comment** field, you can enter optional information regarding the group you are creating.
-8. Click **Save**.
+6. In the **Comment** field, you can enter optional information regarding the group you are creating.
+7. Click **Save**.
 
 To learn more about setting up the DLP policies for groups, see [About Data at Rest Scanning DLP](https://help.zscaler.com/zia/about-data-rest-scanning-dlp) and [Configuring the Data at Rest Scanning DLP Policy](https://help.zscaler.com/zia/configuring-data-rest-scanning-dlp-policy).
 
@@ -15879,18 +15876,18 @@ Use this filter to view transactions associated with webmail applications. When 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/modifying-index-tool-configuration","lastmod":"2026-07-09T21:06Z","nid":"1400666"} -->
+<!-- ZS-ARTICLE {"url":"/zia/modifying-index-tool-configuration","lastmod":"2026-09-24T11:21Z","nid":"1400666"} -->
 ## Modifying an Index Tool Configuration
 
 - Source: https://help.zscaler.com/zia/modifying-index-tool-configuration
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > Modifying an Index Tool Configuration
-- Last modified: 2026-07-09T21:06Z
+- Last modified: 2026-09-24T11:21Z
 - Summary: How to edit and delete an Index Tool Configuration, which is used to configure the Zscaler Index Tool.
 
 To edit or delete an Index Tool configuration:
 
-1. Go to **Policies**> **Data Protection**> **Common Resources**> **Index Tool**.
+1. Go to **Data Security**> **Common Resources**> **Index Tool**.
 2. Locate the Index Tool configuration in the table and click **Edit**. The **Edit Index Tool Configuration** window appears.
 3. In the **Edit Index Tool Configuration**window, you cannot modify the **VM Name**. However, you can do the following: See image.
   - **Status**:Select **Enabled** or **Disabled**.
@@ -15904,278 +15901,193 @@ To edit or delete an Index Tool configuration:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/modifying-predefined-dns-control-rules","lastmod":"2026-05-25T21:06Z","nid":"1399921"} -->
+<!-- ZS-ARTICLE {"url":"/zia/modifying-predefined-dns-control-rules","lastmod":"2026-09-22T06:45Z","nid":"1399921"} -->
 ## Modifying the Predefined DNS Control Rules
 
 - Source: https://help.zscaler.com/zia/modifying-predefined-dns-control-rules
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > DNS Control > Modifying the Predefined DNS Control Rules
-- Last modified: 2026-05-25T21:06Z
+- Last modified: 2026-09-22T06:45Z
 - Summary: How to modify the default DNS Control rules in the Zscaler Admin Console.
 
 The DNS Control policy has predefined rules based on best practice recommendations to manage specific types of traffic. These rules can be used readily by an organization to protect its traffic against specific threats. Depending on the rule functionality and the severity of threats against which they offer protection, some rules are highly restrictive and do not support customization for rule conditions and actions, whereas others allow for greater flexibility, including rule deletion. Similarly, certain rules contain system-defined Rule Order (i.e., default Rule Order), which cannot be modified by admins. These rules with default Rule Order always maintain the lowest precedence.
 
-The following are the predefined DNS Control rules. To learn more about each predefined rule and its attributes, review the following sections:
-
 - Predefined DNS rules can be enabled or disabled based on your organization's requirements. However, these rules cannot be deleted unless specified otherwise.
 - In the event of false positives triggered by predefined DNS rules, you can either create custom rules using higher ranks or disable the rule that's causing the false positives.
 
-- Unknown DNS Traffic
-- Default Firewall DNS Rule
-- Fallback ZPA Resolver for Locations
-- Fallback ZPA Resolver for Road Warrior
-- Critical Risk DNS Categories
-- Critical Risk DNS Tunnels
-- High-Risk DNS Categories
-- High-Risk DNS Tunnels
-- Risky DNS Categories
-- Risky DNS Tunnels
+## Predefined DNS Control Rules
 
-The Unknown DNS Traffic rule is predefined to take action on suspected malformed traffic, non-standard DNS traffic, or even non-DNS traffic attempting to conceal itself as DNS traffic (not otherwise identified as another application). Zscaler recommends blocking the traffic matching this rule.
+The Zscaler service provides a set of predefined rules for managing your DNS traffic.
 
-To modify the Unknown DNS Traffic rule:
+List of Predefined DNS Control Rules
 
-1. Go to **Policies** > **Access Control** > **Firewall** > **DNS Control**.
-2. Click the **Edit** icon corresponding to the default rule. The **Edit DNS Filtering Rule** window appears.
-3. In the**Edit DNS Filtering Rule** window, you can do the following: The **Notification** option appears only when you select **Block** for **Network Traffic**. See image.
-  1. Select a **Rule Label** for the rule.
-  2. Select an action for the **Network Traffic**field:
-    - **Allow**: Allows the DNS requests and responses.
-    - **Block**: Silently blocks all DNS requests and responses.
-  3. Configure an end user notification (EUN) using one of the following options: Both Client Connector EUN and Web EUN cannot function simultaneously. When both options are enabled, the Web EUN takes precedence and only this notification is displayed to users. To learn more, see [DNS End User Notifications](https://help.zscaler.com/zia/dns-end-user-notifications) and [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
-    - **Client Connector EUN**: (Requires Advanced DNS provided by Advanced Firewall) Enabling this option shows pop-up notifications to users via Zscaler Client Connector for DNS transactions that match the configured policy action. When this option is enabled, an additional Notification Message drop-down menu appears. You can select from default and [custom notification messages](https://help.zscaler.com/zia/configuring-euns-dns-control) to display for users.
-    - **Web EUN**: Enable to show a web notification to end users when they access domains that are blocked by this rule. This EUN is a standard web EUN page provided by Zscaler with support for customization.
-4. Click **Save** and [activate the change.](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console)
+## Modifying a Predefined DNS Control Rule
 
-The Default Firewall DNS Rule is predefined to manage all the DNS traffic that is not specifically defined and actioned in the higher-ranked, user-defined rules. Zscaler recommends blocking the traffic matching the rule, but only if the permitted DNS traffic is defined in a higher-ranked rule.
+To modify a predefined DNS rule:
 
-If a higher-ranked allow rule is not defined, then many applications fail as DNS is essential for their operation.
-
-To modify the Default Firewall DNS rule:
-
-1. Go to **Policies** > **Access Control** > **Firewall** > **DNS Control**.
-2. Click the **Edit** icon corresponding to the default rule. The **Edit DNS Filtering Rule** window appears.
-3. In the**Edit DNS Filtering Rule** window, you can do the following: The **Notification** option appears only when you select **Block** for **Network Traffic**. See image.
-  1. Select a **Rule Label** for the rule.
-  2. Select an action for the **Network Traffic**field:
-    - **Allow**: Allows the DNS requests and responses.
-    - **Block**: Silently blocks all DNS requests and responses.
-  3. Configure an end user notification (EUN) using one of the following options: Both Client Connector EUN and Web EUN cannot function simultaneously. When both options are enabled, the Web EUN takes precedence and only this notification is displayed to users. To learn more, see [DNS End User Notifications](https://help.zscaler.com/zia/dns-end-user-notifications) and [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
-    - **Client Connector EUN**: (Requires Advanced DNS provided by Advanced Firewall) Enabling this option shows pop-up notifications to users via Zscaler Client Connector for DNS transactions that match the configured policy action. When this option is enabled, an additional Notification Message drop-down menu appears. You can select from default and [custom notification messages](https://help.zscaler.com/zia/configuring-euns-dns-control) to display for users.
-    - **Web EUN**: Enable to show a web notification to end users when they access domains that are blocked by this rule. This EUN is a standard web EUN page provided by Zscaler with support for customization.
-4. Click **Save** and [activate the change.](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console)
-
-The Fallback ZPA Resolver for Locations rule is predefined to redirect source IP anchored traffic from location users to the preconfigured IP pools during control plane maintenance. You can edit the IP address range configured for the IP pools under **Infrastructure**>**Common Resources**>**Application**>**IP Pool**.
-
-This rule is disabled by default and cannot be deleted. It is only enabled during control plane maintenance to ensure the resiliency of the Source IP Anchoring feature. You can only modify the rule label for this rule.
-
-To modify the Fallback ZPA Resolver for Locations rule:
-
-1. Go to **Policies** > **Access Control** > **Firewall** > **DNS Control**.
-2. Click the **Edit**icon corresponding to the default rule. The **Edit DNS Filtering Rule** window appears.
-3. In the **Edit DNS Filtering Rule** window, choose the **Rule Label** for the rule. See image.
-4. Click Save and [activate the change.](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console)
-
-The Fallback ZPA Resolver for Road Warrior rule is predefined to redirect source IP anchored traffic of remote users to the preconfigured IP pools during control plane maintenance. You can edit the IP address range configured for the IP pools under **Infrastructure**>**Common Resources**>**Application**>**IP Pool**.
-
-This rule is disabled by default and cannot be deleted. It is only enabled during control plane maintenance to ensure the resiliency of the Source IP Anchoring feature. You can only modify the rule label for this rule.
-
-To modify the Fallback ZPA Resolver for Road Warrior rule:
-
-1. Go to **Policies** > **Access Control** > **Firewall** > **DNS Control**.
-2. Click the **Edit**icon corresponding to the default rule. The **Edit DNS Filtering Rule** window appears.
-3. In the **Edit DNS Filtering Rule** window, choose the **Rule Label** for the rule. See image.
-4. Click Save and [activate the change.](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console)
-
-The Critical Risk DNS Categories rule is predefined to block DNS traffic with the highest security risks in DNS request and response categories that are encountered by every organization. This block rule is implemented by all organizations, unless they are exceptional and very permissive circumstances. It blocks traffic that matches known or suspected critical security threats in DNS requests and responses, such as malicious IP addresses and FQDNs, Domain Generation Algorithm (DGA) domains, and other advanced security threats. This rule is enabled by default and is created with a higher rule order.
-
-The Critical Risk DNS Categories rule contains predefined values for specific rule attributes, conditions, and action. While the rule attributes, such as Rule Order and Rule Label, are modifiable by admins to suit their organization's requirements, the rule conditions and action, are read-only fields and can only use default values.
-
-To modify the Critical Risk DNS Categories rule:
-
-1. Go to **Policies** > **Access Control** > **Firewall** > **DNS Control**.
-2. Click the **Edit** icon corresponding to the predefined rule. The **Edit DNS Filtering Rule** window appears.
-3. In the **Edit DNS Filtering Rule** window, you can do the following: See image.
-  1. Configure the rule attributes listed as follows:
-    - Modify the **Rule Order** as per your requirements. If [Admin Rank](https://help.zscaler.com/zia/about-admin-rank) is enabled, your assigned admin rank determines the Rule Order values you can select.
-    - Modify the **Rule Status** to enable or disable the rule.
-    - Configure the **Rule Label**.
-  2. View the rule criteria (read-only) information in the following bulleted list: The rule is configured only with specific criteria in the **DNS Application** category.
-    - **Request Categories**: Botnet Callback, Domain Generation Algorithm (DGA) Domains, Malicious Content, Phishing, and Spyware/Adware are selected.
-    - **Response Categories**: Botnet Callback, Domain Generation Algorithm (DGA) Domains, Malicious Content, Phishing, and Spyware/Adware are selected.
-  3. View the rule action details and configure the Traffic Capture option as follows:
-    - **Action**: (Non-modifiable) Action is set to **Block**.
-    - **Logging**: (Non-modifiable) **Full Logging** is configured.
-    - **Capture**: (Modifiable) If [Traffic Capture is enabled](https://help.zscaler.com/zia/configuring-traffic-capture), the Capture option appears. By enabling this option, you can capture blocked traffic and store it in PCAP files for later analysis. To learn more, see [About Traffic Capture Settings](https://help.zscaler.com/zia/about-traffic-capture).
-  4. Configure an end user notification (EUN) using one of the following options: Both Client Connector EUN and Web EUN cannot function simultaneously. When both options are enabled, the Web EUN takes precedence and only this notification is displayed to users. To learn more, see [DNS End User Notifications](https://help.zscaler.com/zia/dns-end-user-notifications) and [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
-    - **Client Connector EUN**: (Requires Advanced DNS provided by Advanced Firewall) Enabling this option shows pop-up notifications to users via Zscaler Client Connector for DNS transactions that match the configured policy action. This EUN is supported for **Block**, **Block with Response Code**, and **Redirect Response** actions. When this option is enabled, an additional Notification Message drop-down menu appears. You can select from default and [custom notification messages](https://help.zscaler.com/zia/configuring-euns-dns-control) to display for users.
-    - **Web EUN**: Enable to show a web notification to end users when they access domains that are blocked by this rule. This EUN is a standard web EUN page provided by Zscaler with support for customization. This EUN is supported for the **Block**action.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Policy** > **DNS Control**.
+2. Click the **Edit** icon for the rule you want to modify. The **Edit Rule** page appears.
+3. On the**Edit Rule** page, you can modify the rule attributes, criteria, and actions that are available to edit for the selected predefined rule:
+  - Unknown DNS Traffic
+  - Default Firewall DNS Rule
+  - Fallback ZPA Resolver for Locations
+  - Fallback ZPA Resolver for Road Warrior
+  - Critical Risk DNS Categories
+  - Critical Risk DNS Tunnels
+  - High-Risk DNS Categories
+  - High-Risk DNS Tunnels
+  - Risky DNS Categories
+  - Risky DNS Tunnels
 4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-The Critical Risk DNS Tunnels rule is predefined to block DNS tunnels with the highest security risks (e.g., commonly blocked DNS tunnels) that are encountered by every organization. This block rule is implemented by all organizations, unless they are exceptional and very permissive circumstances. This rule is enabled by default and is created with a higher rule order.
+The following table provides the list of predefined DNS rules along with their description.
 
-The Critical Risk DNS Tunnels rule contains predefined values for specific rule attributes, conditions, and action. While the rule attributes, such as Rule Order and Rule Label, are modifiable by admins to suit their organization's requirements, the rule conditions and action, are read-only fields and can only use default values.
+| Rule Name | Description |
+| --- | --- |
+| Unknown DNS Traffic | The Unknown DNS Traffic rule is predefined to take action on suspected malformed traffic, non-standard DNS traffic, or even non-DNS traffic attempting to conceal itself as DNS traffic (not otherwise identified as another application). Zscaler recommends blocking the traffic matching this rule. |
+| Default Firewall DNS Rule | The Default Firewall DNS Rule is predefined to manage all the DNS traffic that is not specifically defined and actioned in the higher-ranked, user-defined rules. Zscaler recommends blocking the traffic matching the rule, but only if the permitted DNS traffic is defined in a higher-ranked rule. If a higher-ranked allow rule is not defined, then many applications fail as DNS is essential for their operation. |
+| Fallback ZPA Resolver for Locations | The Fallback ZPA Resolver for Locations rule is predefined to redirect source IP anchored traffic from location users to the preconfigured IP pools during control plane maintenance. You can edit the IP address range configured for the IP pools on the [IP Pool](https://help.zscaler.com/zia/about-ip-pool) page. This rule is disabled by default and cannot be deleted. It is only enabled during control plane maintenance to ensure the resiliency of the Source IP Anchoring feature. |
+| Fallback ZPA Resolver for Road Warrior | The Fallback ZPA Resolver for Road Warrior rule is predefined to redirect source IP anchored traffic of remote users to the preconfigured IP pools during control plane maintenance. You can edit the IP address range configured for the IP pools on the [IP Pool](https://help.zscaler.com/zia/about-ip-pool) page. This rule is disabled by default and cannot be deleted. It is only enabled during control plane maintenance to ensure the resiliency of the Source IP Anchoring feature. |
+| Critical Risk DNS Categories | The Critical Risk DNS Categories rule is predefined to block DNS traffic with the highest security risks in DNS request and response categories that are encountered by every organization. This block rule is implemented by all organizations, unless they are exceptional and very permissive circumstances. It blocks traffic that matches known or suspected critical security threats in DNS requests and responses, such as malicious IP addresses and FQDNs, Domain Generation Algorithm (DGA) domains, and other advanced security threats. This rule is enabled by default and is created with a higher rule order. The Critical Risk DNS Categories rule contains predefined values for specific rule attributes, conditions, and action. While the rule attributes, such as Rule Order and Rule Label, are modifiable by admins to suit their organization's requirements, the rule conditions and action, are read-only fields and can only use default values. |
+| Critical Risk DNS Tunnels | The Critical Risk DNS Tunnels rule is predefined to block DNS tunnels with the highest security risks (e.g., commonly blocked DNS tunnels) that are encountered by every organization. This block rule is implemented by all organizations, unless they are exceptional and very permissive circumstances. This rule is enabled by default and is created with a higher rule order. The Critical Risk DNS Tunnels rule contains predefined values for specific rule attributes, conditions, and action. While the rule attributes, such as Rule Order and Rule Label, are modifiable by admins to suit their organization's requirements, the rule conditions and action, are read-only fields and can only use default values. |
+| High-Risk DNS Categories | The High-Risk DNS Categories rule is predefined to block DNS traffic with high security risks to an organization's network. It blocks DNS traffic that matches newly registered and observed domains, newly revived domains, and other similar security threats in DNS requests and responses. This rule warrants careful consideration by an organization, and it is strongly recommended by Zscaler to implement this block rule. This rule is enabled by default and is created with a higher rule order. The High-Risk DNS Categories rule contains predefined values for specific rule attributes, conditions, and action. While the rule attributes, such as Rule Order and Rule Label, are modifiable by admins to suit their organization's requirements, the rule conditions and action, are read-only fields and can only use default values. |
+| High-Risk DNS Tunnels | The High-Risk DNS Tunnels rule is predefined to block DNS tunnels with high security risks (e.g., unknown DNS tunnels) to an organization's network. This rule warrants careful consideration by an organization, and it is strongly recommended by Zscaler to implement this block rule. This rule is enabled by default and is created with a higher rule order. The High-Risk DNS Tunnels rule contains predefined values for specific rule attributes, conditions, and action. While the rule attributes, such as Rule Order and Rule Label, are modifiable by admins to suit their organization's requirements, the rule conditions and action, are read-only fields and can only use default values. |
+| Risky DNS Categories | The Risky DNS Categories rule is recommended and predefined to block common DNS security threats to an organization's network. It blocks traffic that matches risky categories in DNS requests and responses, including content representing abuse or exploitative behavior, adult material, militancy/hate and extremism, violence, malicious content, etc. Blocking these categories is recommended, but the rule implementation might vary depending on your organization's requirements and corporate policies. The Risky DNS Categories rule is not enabled by default. Admins of sufficient rank can enable, fully customize, or delete this rule. |
+| Risky DNS Tunnels | The Risky DNS Tunnels rule is recommended and predefined to block DNS tunnels that are common security threats to an organization's network. Blocking these tunnels is recommended but the rule implementation might vary depending on your organization's requirements and corporate policies. The Risky DNS Tunnels rule is not enabled by default. Admins of sufficient rank can enable, fully customize, or delete this rule. |
 
-To modify the Critical Risk DNS Tunnels rule:
+The **Notification** option appears only when you select **Block** for **Network Traffic**.
 
-1. Go to **Policies** > **Access Control** > **Firewall** > **DNS Control**.
-2. Click the **Edit** icon corresponding to the predefined rule. The **Edit DNS Filtering Rule** window appears.
-3. In the **Edit DNS Filtering Rule** window, you can do the following: See image.
-  1. Configure the rule attributes listed as follows:
-    - Change the **Rule Order** as per your requirements. If [Admin Rank](https://help.zscaler.com/zia/about-admin-rank) is enabled, your assigned admin rank determines the Rule Order values you can select.
-    - Change the **Rule Status** to enable or disable the rule.
-    - Configure the **Rule Label**.
-  2. View the rule criteria information (read-only) in the following bulleted list: The rule is configured only with specific criteria in the **DNS Application** category.
-    - **DNS Tunnels & Network Apps**: All DNS tunnels that are classified under the **Commonly Blocked DNS Tunnels** category by Zscaler are selected.
-  3. View the rule action details and configure the Traffic Capture option as follows:
-    - **Action**: (Non-modifiable) Action is set to **Block**.
-    - **Logging**: (Non-modifiable) **Full Logging** is configured.
-    - **Capture**: (Modifiable) If [Traffic Capture is enabled](https://help.zscaler.com/zia/configuring-traffic-capture), the Capture option appears. By enabling this option, you can capture blocked traffic and store it in PCAP files for later analysis. To learn more, see [About Traffic Capture Settings](https://help.zscaler.com/zia/about-traffic-capture).
-  4. Configure an end user notification (EUN) using one of the following options: Both Client Connector EUN and Web EUN cannot function simultaneously. When both options are enabled, the Web EUN takes precedence and only this notification is displayed to users. To learn more, see [DNS End User Notifications](https://help.zscaler.com/zia/dns-end-user-notifications) and [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
-    - **Client Connector EUN**: (Requires Advanced DNS provided by Advanced Firewall) Enabling this option shows pop-up notifications to users via Zscaler Client Connector for DNS transactions that match the configured policy action. This EUN is supported for **Block**, **Block with Response Code**, and **Redirect Response** actions. When this option is enabled, an additional Notification Message drop-down menu appears. You can select from default and [custom notification messages](https://help.zscaler.com/zia/configuring-euns-dns-control) to display for users.
-    - **Web EUN**: Enable to show a web notification to end users when they access domains that are blocked by this rule. This EUN is a standard web EUN page provided by Zscaler with support for customization. This EUN is supported for the **Block**action.
-4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+1. Select a **Rule Label** for the rule.
+2. Select an action for the **Network Traffic**field:
+  - **Allow**: Allows the DNS requests and responses.
+  - **Block**: Silently blocks all DNS requests and responses.
+3. Configure an end user notification (EUN) using one of the following options: Both Client Connector EUN and Web EUN cannot function simultaneously. When both options are enabled, the Web EUN takes precedence and only this notification is displayed to users. To learn more, see [DNS End User Notifications](https://help.zscaler.com/zia/dns-end-user-notifications) and [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
+  - **Client Connector EUN**: (Requires Advanced DNS provided by Advanced Firewall) Enabling this option shows pop-up notifications to users via Zscaler Client Connector for DNS transactions that match the configured policy action. When this option is enabled, an additional Notification Message drop-down menu appears. You can select from default and [custom notification messages](https://help.zscaler.com/zia/configuring-euns-dns-control) to display for users.
+  - **Web EUN**: Enable to show a web notification to end users when they access domains that are blocked by this rule. This EUN is a standard web EUN page provided by Zscaler with support for customization.
 
-The High-Risk DNS Categories rule is predefined to block DNS traffic with high security risks to an organization's network. It blocks DNS traffic that matches newly registered and observed domains, newly revived domains, and other similar security threats in DNS requests and responses. This rule warrants careful consideration by an organization, and it is strongly recommended by Zscaler to implement this block rule. This rule is enabled by default and is created with a higher rule order.
+The **Notification** option appears only when you select **Block** for **Network Traffic**.
 
-The High-Risk DNS Categories rule contains predefined values for specific rule attributes, conditions, and action. While the rule attributes, such as Rule Order and Rule Label, are modifiable by admins to suit their organization's requirements, the rule conditions and action, are read-only fields and can only use default values.
+1. Select a **Rule Label** for the rule.
+2. Select an action for the **Network Traffic**field:
+  - **Allow**: Allows the DNS requests and responses.
+  - **Block**: Silently blocks all DNS requests and responses.
+3. Configure an end user notification (EUN) using one of the following options: Both Client Connector EUN and Web EUN cannot function simultaneously. When both options are enabled, the Web EUN takes precedence and only this notification is displayed to users. To learn more, see [DNS End User Notifications](https://help.zscaler.com/zia/dns-end-user-notifications) and [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
+  - **Client Connector EUN**: (Requires Advanced DNS provided by Advanced Firewall) Enabling this option shows pop-up notifications to users via Zscaler Client Connector for DNS transactions that match the configured policy action. When this option is enabled, an additional Notification Message drop-down menu appears. You can select from default and [custom notification messages](https://help.zscaler.com/zia/configuring-euns-dns-control) to display for users.
+  - **Web EUN**: Enable to show a web notification to end users when they access domains that are blocked by this rule. This EUN is a standard web EUN page provided by Zscaler with support for customization.
 
-To modify the High-Risk DNS Categories rule:
+Choose the **Rule Label** for the rule.
 
-1. Go to **Policies** > **Access Control** > **Firewall** > **DNS Control**.
-2. Click the **Edit** icon corresponding to the predefined rule. The **Edit DNS Filtering Rule** window appears.
-3. In the **Edit DNS Filtering Rule** window, you can do the following: See image.
-  1. Configure the rule attributes listed as follows:
-    - Change the **Rule Order** as per your requirements. If [Admin Rank](https://help.zscaler.com/zia/about-admin-rank) is enabled, your assigned admin rank determines the Rule Order values you can select.
-    - Change the **Rule Status** to enable or disable the rule.
-    - Configure the **Rule Label**.
-  2. View the rule criteria information (read-only) in the following bulleted list. The rule is configured only with specific criteria in the DNS Application category.
-    - **Request Categories**: Newly Registered and Observed Domains, Newly Revived Domains, and Other Security are selected.
-    - **Response Categories**: Newly Registered and Observed Domains, Newly Revived Domains, and Other Security are selected.
-  3. View the rule action details and configure the Traffic Capture option as follows:
-    - **Action**: (Non-modifiable) Action is set to **Block**.
-    - **Logging**: (Non-modifiable) **Full Logging** is configured.
-    - **Capture**: (Modifiable) If [Traffic Capture is enabled](https://help.zscaler.com/zia/configuring-traffic-capture), the Capture option appears. By enabling this option, you can capture blocked traffic and store it in PCAP files for later analysis. To learn more, see [About Traffic Capture Settings](https://help.zscaler.com/zia/about-traffic-capture).
-  4. Configure an end user notification (EUN) using one of the following options: Both Client Connector EUN and Web EUN cannot function simultaneously. When both options are enabled, the Web EUN takes precedence and only this notification is displayed to users. To learn more, see [DNS End User Notifications](https://help.zscaler.com/zia/dns-end-user-notifications) and [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
-    - **Client Connector EUN**: (Requires Advanced DNS provided by Advanced Firewall) Enabling this option shows pop-up notifications to users via Zscaler Client Connector for DNS transactions that match the configured policy action. This EUN is supported for **Block**, **Block with Response Code**, and **Redirect Response** actions. When this option is enabled, an additional Notification Message drop-down menu appears. You can select from default and [custom notification messages](https://help.zscaler.com/zia/configuring-euns-dns-control) to display for users.
-    - **Web EUN**: Enable to show a web notification to end users when they access domains that are blocked by this rule. This EUN is a standard web EUN page provided by Zscaler with support for customization. This EUN is supported for the **Block**action.
-4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+Choose the **Rule Label** for the rule.
 
-The High-Risk DNS Tunnels rule is predefined to block DNS tunnels with high security risks (e.g., unknown DNS tunnels) to an organization's network. This rule warrants careful consideration by an organization, and it is strongly recommended by Zscaler to implement this block rule. This rule is enabled by default and is created with a higher rule order.
+1. Configure the rule attributes listed as follows:
+  - Modify the **Rule Order** as per your requirements. If [Admin Rank](https://help.zscaler.com/zia/about-admin-rank) is enabled, your assigned admin rank determines the Rule Order values you can select.
+  - Modify the **Rule Status** to enable or disable the rule.
+  - Configure the **Rule Label**.
+2. View the rule criteria (read-only) information in the following bulleted list: The rule is configured only with specific criteria in the **DNS Application** category.
+  - **Request Categories**: Botnet Callback, Domain Generation Algorithm (DGA) Domains, Malicious Content, Phishing, and Spyware/Adware are selected.
+  - **Response Categories**: Botnet Callback, Domain Generation Algorithm (DGA) Domains, Malicious Content, Phishing, and Spyware/Adware are selected.
+3. View the rule action details and configure the Traffic Capture option as follows:
+  - **Action**: (Non-modifiable) Action is set to **Block**.
+  - **Logging**: (Non-modifiable) **Full Logging** is configured.
+  - **Capture**: (Modifiable) If [Traffic Capture is enabled](https://help.zscaler.com/zia/configuring-traffic-capture), the Capture option appears. By enabling this option, you can capture blocked traffic and store it in PCAP files for later analysis. To learn more, see [About Traffic Capture Settings](https://help.zscaler.com/zia/about-traffic-capture).
+4. Configure an end user notification (EUN) using one of the following options: Both Client Connector EUN and Web EUN cannot function simultaneously. When both options are enabled, the Web EUN takes precedence and only this notification is displayed to users. To learn more, see [DNS End User Notifications](https://help.zscaler.com/zia/dns-end-user-notifications) and [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
+  - **Client Connector EUN**: (Requires Advanced DNS provided by Advanced Firewall) Enabling this option shows pop-up notifications to users via Zscaler Client Connector for DNS transactions that match the configured policy action. This EUN is supported for **Block**, **Block with Response Code**, and **Redirect Response** actions. When this option is enabled, an additional Notification Message drop-down menu appears. You can select from default and [custom notification messages](https://help.zscaler.com/zia/configuring-euns-dns-control) to display for users.
+  - **Web EUN**: Enable to show a web notification to end users when they access domains that are blocked by this rule. This EUN is a standard web EUN page provided by Zscaler with support for customization. This EUN is supported for the **Block**action.
 
-The High-Risk DNS Tunnels rule contains predefined values for specific rule attributes, conditions, and action. While the rule attributes, such as Rule Order and Rule Label, are modifiable by admins to suit their organization's requirements, the rule conditions and action, are read-only fields and can only use default values.
+1. Configure the rule attributes listed as follows:
+  - Change the **Rule Order** as per your requirements. If [Admin Rank](https://help.zscaler.com/zia/about-admin-rank) is enabled, your assigned admin rank determines the Rule Order values you can select.
+  - Change the **Rule Status** to enable or disable the rule.
+  - Configure the **Rule Label**.
+2. View the rule criteria information (read-only) in the following bulleted list: The rule is configured only with specific criteria in the **DNS Application** category.
+  - **DNS Tunnels & Network Apps**: All DNS tunnels that are classified under the **Commonly Blocked DNS Tunnels** category by Zscaler are selected.
+3. View the rule action details and configure the Traffic Capture option as follows:
+  - **Action**: (Non-modifiable) Action is set to **Block**.
+  - **Logging**: (Non-modifiable) **Full Logging** is configured.
+  - **Capture**: (Modifiable) If [Traffic Capture is enabled](https://help.zscaler.com/zia/configuring-traffic-capture), the Capture option appears. By enabling this option, you can capture blocked traffic and store it in PCAP files for later analysis. To learn more, see [About Traffic Capture Settings](https://help.zscaler.com/zia/about-traffic-capture).
+4. Configure an end user notification (EUN) using one of the following options: Both Client Connector EUN and Web EUN cannot function simultaneously. When both options are enabled, the Web EUN takes precedence and only this notification is displayed to users. To learn more, see [DNS End User Notifications](https://help.zscaler.com/zia/dns-end-user-notifications) and [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
+  - **Client Connector EUN**: (Requires Advanced DNS provided by Advanced Firewall) Enabling this option shows pop-up notifications to users via Zscaler Client Connector for DNS transactions that match the configured policy action. This EUN is supported for **Block**, **Block with Response Code**, and **Redirect Response** actions. When this option is enabled, an additional Notification Message drop-down menu appears. You can select from default and [custom notification messages](https://help.zscaler.com/zia/configuring-euns-dns-control) to display for users.
+  - **Web EUN**: Enable to show a web notification to end users when they access domains that are blocked by this rule. This EUN is a standard web EUN page provided by Zscaler with support for customization. This EUN is supported for the **Block**action.
 
-To modify the High-Risk DNS Tunnels rule:
+1. Configure the rule attributes listed as follows:
+  - Change the **Rule Order** as per your requirements. If [Admin Rank](https://help.zscaler.com/zia/about-admin-rank) is enabled, your assigned admin rank determines the Rule Order values you can select.
+  - Change the **Rule Status** to enable or disable the rule.
+  - Configure the **Rule Label**.
+2. View the rule criteria information (read-only) in the following bulleted list. The rule is configured only with specific criteria in the DNS Application category.
+  - **Request Categories**: Newly Registered and Observed Domains, Newly Revived Domains, and Other Security are selected.
+  - **Response Categories**: Newly Registered and Observed Domains, Newly Revived Domains, and Other Security are selected.
+3. View the rule action details and configure the Traffic Capture option as follows:
+  - **Action**: (Non-modifiable) Action is set to **Block**.
+  - **Logging**: (Non-modifiable) **Full Logging** is configured.
+  - **Capture**: (Modifiable) If [Traffic Capture is enabled](https://help.zscaler.com/zia/configuring-traffic-capture), the Capture option appears. By enabling this option, you can capture blocked traffic and store it in PCAP files for later analysis. To learn more, see [About Traffic Capture Settings](https://help.zscaler.com/zia/about-traffic-capture).
+4. Configure an end user notification (EUN) using one of the following options: Both Client Connector EUN and Web EUN cannot function simultaneously. When both options are enabled, the Web EUN takes precedence and only this notification is displayed to users. To learn more, see [DNS End User Notifications](https://help.zscaler.com/zia/dns-end-user-notifications) and [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
+  - **Client Connector EUN**: (Requires Advanced DNS provided by Advanced Firewall) Enabling this option shows pop-up notifications to users via Zscaler Client Connector for DNS transactions that match the configured policy action. This EUN is supported for **Block**, **Block with Response Code**, and **Redirect Response** actions. When this option is enabled, an additional Notification Message drop-down menu appears. You can select from default and [custom notification messages](https://help.zscaler.com/zia/configuring-euns-dns-control) to display for users.
+  - **Web EUN**: Enable to show a web notification to end users when they access domains that are blocked by this rule. This EUN is a standard web EUN page provided by Zscaler with support for customization. This EUN is supported for the **Block**action.
 
-1. Go to **Policies** > **Access Control** > **Firewall** > **DNS Control**.
-2. Click the **Edit** icon corresponding to the predefined rule. The **Edit DNS Filtering Rule** window appears.
-3. In the **Edit DNS Filtering Rule** window, you can do the following: See image.
-  1. Configure the rule attributes listed as follows:
-    - Change the **Rule Order** as per your requirements. If [Admin Rank](https://help.zscaler.com/zia/about-admin-rank) is enabled, your assigned admin rank determines the Rule Order values you can select.
-    - Change the **Rule Status** to enable or disable the rule.
-    - Configure the **Rule Label**.
-  2. View the rule criteria information (read-only) in the following bulleted list. The rule is configured only with specific criteria in the DNS Application category.
-    - **DNS Tunnels & Network Apps**: All DNS tunnels that are classified under the **Unknown DNS Tunnels** category by Zscaler are selected.
-  3. View the rule action details and configure the Traffic Capture option as follows:
-    - **Action**: (Non-modifiable) Action is set to **Block**.
-    - **Logging**: (Non-modifiable) **Full Logging** is configured.
-    - **Capture**: (Modifiable) If [Traffic Capture is enabled](https://help.zscaler.com/zia/configuring-traffic-capture), the Capture option appears. By enabling this option, you can capture blocked traffic and store it in PCAP files for later analysis. To learn more, see [About Traffic Capture Settings](https://help.zscaler.com/zia/about-traffic-capture).
-  4. Configure an end user notification (EUN) using one of the following options: Both Client Connector EUN and Web EUN cannot function simultaneously. When both options are enabled, the Web EUN takes precedence and only this notification is displayed to users. To learn more, see [DNS End User Notifications](https://help.zscaler.com/zia/dns-end-user-notifications) and [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
-    - **Client Connector EUN**: (Requires Advanced DNS provided by Advanced Firewall) Enabling this option shows pop-up notifications to users via Zscaler Client Connector for DNS transactions that match the configured policy action. This EUN is supported for **Block**, **Block with Response Code**, and **Redirect Response** actions. When this option is enabled, an additional Notification Message drop-down menu appears. You can select from default and [custom notification messages](https://help.zscaler.com/zia/configuring-euns-dns-control) to display for users.
-    - **Web EUN**: Enable to show a web notification to end users when they access domains that are blocked by this rule. This EUN is a standard web EUN page provided by Zscaler with support for customization. This EUN is supported for the **Block**action.
-4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+1. Configure the rule attributes listed as follows:
+  - Change the **Rule Order** as per your requirements. If [Admin Rank](https://help.zscaler.com/zia/about-admin-rank) is enabled, your assigned admin rank determines the Rule Order values you can select.
+  - Change the **Rule Status** to enable or disable the rule.
+  - Configure the **Rule Label**.
+2. View the rule criteria information (read-only) in the following bulleted list. The rule is configured only with specific criteria in the DNS Application category.
+  - **DNS Tunnels & Network Apps**: All DNS tunnels that are classified under the **Unknown DNS Tunnels** category by Zscaler are selected.
+3. View the rule action details and configure the Traffic Capture option as follows:
+  - **Action**: (Non-modifiable) Action is set to **Block**.
+  - **Logging**: (Non-modifiable) **Full Logging** is configured.
+  - **Capture**: (Modifiable) If [Traffic Capture is enabled](https://help.zscaler.com/zia/configuring-traffic-capture), the Capture option appears. By enabling this option, you can capture blocked traffic and store it in PCAP files for later analysis. To learn more, see [About Traffic Capture Settings](https://help.zscaler.com/zia/about-traffic-capture).
+4. Configure an end user notification (EUN) using one of the following options: Both Client Connector EUN and Web EUN cannot function simultaneously. When both options are enabled, the Web EUN takes precedence and only this notification is displayed to users. To learn more, see [DNS End User Notifications](https://help.zscaler.com/zia/dns-end-user-notifications) and [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
+  - **Client Connector EUN**: (Requires Advanced DNS provided by Advanced Firewall) Enabling this option shows pop-up notifications to users via Zscaler Client Connector for DNS transactions that match the configured policy action. This EUN is supported for **Block**, **Block with Response Code**, and **Redirect Response** actions. When this option is enabled, an additional Notification Message drop-down menu appears. You can select from default and [custom notification messages](https://help.zscaler.com/zia/configuring-euns-dns-control) to display for users.
+  - **Web EUN**: Enable to show a web notification to end users when they access domains that are blocked by this rule. This EUN is a standard web EUN page provided by Zscaler with support for customization. This EUN is supported for the **Block**action.
 
-The Risky DNS Categories rule is recommended and predefined to block common DNS security threats to an organization's network. It blocks traffic that matches risky categories in DNS requests and responses, including content representing abuse or exploitative behavior, adult material, militancy/hate and extremism, violence, malicious content, etc. Blocking these categories is recommended, but the rule implementation might vary depending on your organization's requirements and corporate policies.
+You can customize all attributes of the rule, rule conditions, action, and end user notifications. To learn how to configure DNS Control rules, see [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
 
-The Risky DNS Categories rule is not enabled by default. Admins of sufficient rank can enable, fully customize, or delete this rule.
+The rule cannot have different sets of URL categories selected under **Request Categories** and **Response Categories**. However, you can have only one of the two conditions configured for the rule by clearing the selection for the other condition.
 
-To modify the Risky DNS Categories rule:
-
-1. Go to **Policies** > **Access Control** > **Firewall** > **DNS Control**.
-2. Click the **Edit** icon corresponding to the predefined rule. The **Edit DNS Filtering Rule** window appears.
-3. In the **Edit DNS Filtering Rule** window, you can customize all attributes of the rule, rule conditions, action, and end user notifications. To learn how to configure DNS Control rules, see [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy). The rule cannot have different sets of URL categories selected under **Request Categories** and **Response Categories**. However, you can have only one of the two conditions configured for the rule by clearing the selection for the other condition. See image.
-4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-If you want to delete the rule, use the **Delete** button in the **Edit DNS Filtering Rule** window.
-
-The Risky DNS Tunnels rule is recommended and predefined to block DNS tunnels that are common security threats to an organization's network. Blocking these tunnels is recommended but the rule implementation might vary depending on your organization's requirements and corporate policies.
-
-The Risky DNS Tunnels rule is not enabled by default. Admins of sufficient rank can enable, fully customize, or delete this rule.
-
-To modify the Risky DNS Tunnels rule:
-
-1. Go to **Policies** > **Access Control** > **Firewall** > **DNS Control**.
-2. Click the **Edit** icon corresponding to the predefined rule. The **Edit DNS Filtering Rule** window appears.
-3. In the **Edit DNS Filtering Rule** window, you can customize all attributes of the rule, rule conditions, action, and end user notifications. To learn how to configure DNS Control rules, see [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy). See image.
-4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-If you want to delete the rule, use the **Delete** button in the **Edit DNS Filtering Rule** window.
-
-[Image: Editing Unknown DNS Traffic rule]
-
-[Image: Editing the Fallback ZPA Resolver for Locations rule]
-
-[Image: Editing the Fallback ZPA Resolver for Road Warrior rule]
-
-[Image: Editing Default Firewall DNS rule]
-
-[Image: Editing the Critical Risk DNS Categories rule]
-
-[Image: Editing the Critical Risk DNS Tunnels rule]
-
-[Image: Editing the High-Risk DNS Categories rule]
-
-[Image: Editing the High-Risk DNS Tunnels rule]
-
-[Image: Editing the Risky DNS Categories rule]
-
-[Image: Editing the Risky DNS Tunnels rule]
+You can customize all attributes of the rule, rule conditions, action, and end user notifications. To learn how to configure DNS Control rules, see [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/modifying-predefined-network-services","lastmod":"2026-05-22T03:56Z","nid":"1399961"} -->
+<!-- ZS-ARTICLE {"url":"/zia/modifying-predefined-network-services","lastmod":"2026-09-21T04:35Z","nid":"1399961"} -->
 ## Modifying Predefined Network Services
 
 - Source: https://help.zscaler.com/zia/modifying-predefined-network-services
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > Modifying Predefined Network Services
-- Last modified: 2026-05-22T03:56Z
+- Last modified: 2026-09-21T04:35Z
 - Summary: How to modify the ports of a predefined network service in the Zscaler Admin Console.
 
-Zscaler provides over 50 predefined [network services](https://help.zscaler.com/zia/about-network-services) along with the TCP and UDP ports for source and destination over which these services typically operate. You can customize the ports assigned to the predefined network services by adding new ports and modifying and deleting existing ones.
+Zscaler provides more than 50 predefined [network services](https://help.zscaler.com/zia/about-network-services), including the typical TCP and UDP source and destination ports on which these services operate. You can customize the ports assigned to these predefined services by adding new ports, as well as modifying or deleting existing ones.
 
 The following predefined network services are view-only and cannot be modified: ESP, GRE, ICMP, TCP, UDP, and Zscaler Proxy Network Services (includes all Zscaler-specific web proxy ports including customer-specific Dedicated Proxy Ports).
 
 To modify the ports of a predefined network service:
 
-1. Go to **Policies**> **Access Control** > **Firewall** >**Network Services**.
-2. Locate the predefined network service you want to modify and click the **Edit** icon displayed for the service. The **Edit Network Service** window appears.
-3. In the **Edit Network Service** window, you can modify: See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access**> **Resources** >**Network Services**.
+2. Locate the predefined network service you want to modify and click the **Edit** icon displayed for the service. The **Edit Network Service** drawer appears.
+3. In the **Edit Network Service** drawer, you can modify: See image.
   - **Description**: Additional notes or information about the network service.
-  - **TCP Ports**: TCP source and destination ports by adding new ports or removing existing ones.
-  - **UDP Ports**: UDP source and destination ports by adding new ports or removing existing ones.
+  - **TCP Ports**: TCP source and destination ports used by the network service.
+  - **UDP Ports**: UDP source and destination ports used by the network service.
 4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-Similarly, you can edit custom network services and modify their port assignments. Additionally, you can delete a custom service using the option provided in the **Edit Network Service** window.
+Similarly, you can edit custom network services and modify their port assignments.
 
 [Image: Edit a network service by modifying the description and the ports]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/modifying-zscaler-incident-receiver","lastmod":"2026-05-04T13:38Z","nid":"1401731"} -->
+<!-- ZS-ARTICLE {"url":"/zia/modifying-zscaler-incident-receiver","lastmod":"2026-09-24T11:32Z","nid":"1401731"} -->
 ## Modifying a Zscaler Incident Receiver
 
 - Source: https://help.zscaler.com/zia/modifying-zscaler-incident-receiver
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Modifying a Zscaler Incident Receiver
-- Last modified: 2026-05-04T13:38Z
+- Last modified: 2026-09-24T11:32Z
 - Summary: How to edit a Zscaler Incident Receiver, including how to delete the incident receiver and download or regenerate the certificate.
 
 To edit or delete a Zscaler Incident Receiver:
 
-1. Go to **Policies**> **Data Protection**> **Common Resources**> **DLP Incident Receiver**.
+1. Go to **Data Security**> **Common Resources**> **DLP Incident Receiver**
 2. Click the **Zscaler Incident Receiver** tab.
 3. Locate the Zscaler Incident Receiver in the table and click **Edit**.
 
@@ -16221,13 +16133,13 @@ To configure rules for this scenario:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/monitoring-virtual-service-edge-clusters-internet-saas","lastmod":"2026-09-11T07:27Z","nid":"1398876"} -->
+<!-- ZS-ARTICLE {"url":"/zia/monitoring-virtual-service-edge-clusters-internet-saas","lastmod":"2026-09-23T03:26Z","nid":"1398876"} -->
 ## Monitoring Virtual Service Edge Clusters for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/monitoring-virtual-service-edge-clusters-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Monitoring Virtual Service Edge Clusters for Internet & SaaS
-- Last modified: 2026-09-11T07:27Z
+- Last modified: 2026-09-23T03:26Z
 - Summary: Information on how to monitor a Virtual Service Edge cluster for Internet & SaaS (ZIA) with a management system that supports SNMPv3. Listed are MIB objects queried to retrieve Virtual Service Edge cluster information.
 
 If you configure a GRE tunnel or Layer 2 forwarding from your router to a Virtual Service Edge for Internet & SaaS (ZIA), you can enable IPSLAs to monitor the tunnels. Additionally, Virtual Service Edges support NET-SNMP, a collection of applications that are used to implement the SNMP protocol. To learn more about NET-SNMP and the Management Information Base (MIB) files distributed with NET-SNMP, refer to the [NET-SNMP documentation](http://net-snmp.sourceforge.net/).
@@ -16284,7 +16196,7 @@ The following are the MIB objects that can be queried to retrieve information ab
 | UCD-SNMP-MIB::dskTotal | Total size of the disk or partition (kBytes). For large disks (>2Tb), this value latches at INT32_MAX (2147483647). |
 | UCD-SNMP-MIB::dskAvail | Available space on the disk. For large lightly used disks (>2Tb), this value latches at INT32_MAX (2147483647). |
 | UCD-SNMP-MIB::laTable (.1.3.6.1.4.1.2021.10) | Load average information. |
-| UCD-SNMP-MIB::laLoad | The 1, 5, and 15-minute load averages (one per row). |
+| UCD-SNMP-MIB::laLoad | The 1-, 5-, and 15-minute load averages (one per row). |
 | UCD-SNMP-MIB::laErrorFlag | An error flag to indicate that the load average has crossed its threshold value defined in the snmpd.conf file. It is set to 1 if the threshold is crossed, 0 if not. |
 | UCD-SNMP-MIB::laErrMessage | An error message describing the load average and its surpassed watch-point value. |
 | UCD-SNMP-MIB::systemStats (.1.3.6.1.4.1.2021.11) | System statistics. |

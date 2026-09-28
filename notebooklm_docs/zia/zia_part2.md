@@ -1,8 +1,94 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 22:17 UTC
+Generated: 2026-09-28 09:01 UTC
 Articles in this file: 110
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/accessing-and-navigating-endpoint-data-scan-report","lastmod":"2026-05-27T03:01Z","nid":"1486096"} -->
+## Accessing and Navigating the Endpoint Data Scan Report
+
+- Source: https://help.zscaler.com/zia/accessing-and-navigating-endpoint-data-scan-report
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Accessing and Navigating the Endpoint Data Scan Report
+- Last modified: 2026-05-27T03:01Z
+- Summary: Information on the Endpoint Data Scan Report, including how to access and navigate it.
+
+This article covers the following topics:
+
+- Accessing the Endpoint Data Scan Report
+- Navigating within the Endpoint Data Scan Report
+
+Endpoint Data Scan Report is an analytics and metrics report where in-depth data scan results can be viewed for all the endpoints connected to your organization's user traffic. You can view everyday scan results performed on endpoints by recording and formulating metrics for activities, incidents, and sensitive files discovered for each user in the form of visually intuitive and highly interactive graphs and widgets.
+
+To access the Endpoint Data Scan Report, go to Analytics > Endpoint Data Scan; you're redirected to the Endpoint Data Scan Report pages in a new browser tab.
+
+See image.
+
+The report has the following items on the left-side navigation:
+
+- Endpoint Data Scan
+- User Investigation
+- Device Investigation
+- Device Control
+- Sensitive Information
+- Inventory
+- Activation
+- Configuration
+- Account
+- Logout
+
+[Image: This image shows the Endpoint Data Scan tabs]
+
+Click **User Investigation** to view scan results and data specific to endpoints connected to a user. You can view the user with the most activities, incidents, department information, risk profile, and other significant metrics. To learn more, see [About User Investigation](https://help.zscaler.com/zia/about-user-investigation) and [Analyzing Endpoint DLP Scan for a User](https://help.zscaler.com/zia/analyzing-endpoint-dlp-scan-user).
+
+Click **Device Investigation** for a comprehensive view of all the endpoint details, including real-time device health status. You can view the Shadow IT of all the detected applications on the endpoint. To learn more, see [About Device Investigation](https://help.zscaler.com/zia/about-device-investigation) and [Analyzing Device Investigation Details](https://help.zscaler.com/zia/analyzing-device-investigation-details).
+
+Click **Endpoint Data Scan** to view sensitive data stored locally within all the endpoints connected to your organization's traffic. You can view various metrics for each endpoint and the users connected to these endpoints. To learn more, see [About Endpoint Data Scan](https://help.zscaler.com/zia/about-endpoint-data-scan).
+
+Click **Device Control** to create and manage device control policy rules for removable storage devices (e.g., USB drives, external hard drives) and printers to align within specific use cases within your organization. Administrators can define and set up policy rules for the usage of devices based on rule criteria, such as user, department, endpoint, device, etc. To learn more, see [About Device Control](https://help.zscaler.com/zia/about-device-control).
+
+Click **Inventory**to view information about the devices connected by the end users in the organization and their associated incidents and activities. You can view metrics for each connected device and the users connected to the devices and their endpoints. To learn more, see [About Inventory](https://help.zscaler.com/zia/about-inventory).
+
+Click **Activation**to enable the device control policy rules that you created in the **Device Control**tab or **Inventory**tab, or any changes made in the **Configuration**tab. To learn more, see [Activating Device Control Policy Rules, Configuration, and Indexed Documents Changes](https://help.zscaler.com/zia/activating-device-control-policy-rules-configuration-indexed-documents-changes).
+
+Click **Configuration**to configure endpoint data scan and other endpoint settings, such as continuous classification and endpoint DLP exemption duration. To learn more, see [Configuring Endpoint Data Scan, Endpoint Settings, and Channels](https://help.zscaler.com/zia/configuring-endpoint-data-scan-endpoint-settings).
+
+Click **Sensitive Information** to view Indexed Document Match (IDM) information, which enables authorized users to fingerprint documents containing sensitive data on endpoints. To learn more, see [About Sensitive Information](https://help.zscaler.com/zia/about-sensitive-information) and [Configuring Sensitive Information Settings](https://help.zscaler.com/zia/configuring-sensitive-information-settings).
+
+Click **Account**to view your username, organization name, organization ID, and cloud name.
+
+Click **Logout** to log out when you're done analyzing the endpoint scan data.
+
+[Image: This image shows how to access the Endpoint Data Scan Page.]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/accessing-zscaler-dspm-admin-portal-using-sso","lastmod":"2024-06-24T05:24Z","nid":"1480101"} -->
+## Accessing the DSPM Admin Portal using SSO
+
+- Source: https://help.zscaler.com/zia/accessing-zscaler-dspm-admin-portal-using-sso
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Accessing the DSPM Admin Portal using SSO
+- Last modified: 2024-06-24T05:24Z
+- Summary: How to access the DSPM Admin Portal from the ZIA Admin Portal using SSO.
+
+html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"
+
+Data Security Posture Management (DSPM) helps protect an organization’s data stored in your cloud resources against data theft, misuse, or loss by continuously scanning the data and numerous potential misconfigurations, vulnerabilities, and permissions that might contribute to attack vectors. DSPM provides detailed insights into where this sensitive data resides in your cloud environment, sensitive data types, and misconfigurations in data stores that contain sensitive data. To learn more, see[DSPM Help](https://help.zscaler.com/dspm).
+
+You can access the DSPM Admin Portal from the ZIA Admin Portal using SSO, if you have subscribed to the DSPM service and if a DSPM Admin or DSPM Super Admin role is assigned to you. To learn more about predefined roles and permissions in DSPM, see [About Roles](https://help.zscaler.com/dspm/about-roles). To check if you are subscribed to the DSPM service, you can view your company subscriptions to confirm if a DSPM license is present. To learn more, see [Viewing Subscriptions](https://help.zscaler.com/zia/viewing-subscriptions).
+
+To access the DSPM Admin Portal, in the ZIA Admin Portal, go to **Dashboard** > **Zscaler DSPM Portal**, or **Policy** >**Zscaler DSPM Portal**.
+
+The Admin with view permission can access the DSPM Admin Portal only from the**Dashboard**.
+
+See image.
+
+[Image: Screenshot of DSPM SSO Links]
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -700,91 +786,81 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-alert-subscriptions","lastmod":"2026-05-12T21:06Z","nid":"1399166"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-alert-subscriptions","lastmod":"2026-09-24T10:17Z","nid":"1399166"} -->
 ## Adding Alert Subscriptions
 
 - Source: https://help.zscaler.com/zia/adding-alert-subscriptions
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Alerts > Adding Alert Subscriptions
-- Last modified: 2026-05-12T21:06Z
+- Last modified: 2026-09-24T10:17Z
 - Summary: How to add alert subscriptions in the Zscaler Admin Console.
 
 [Watch a video about Alerts, including how to add an alert subscription](https://fast.wistia.net/embed/iframe/9to9j2rhzn) (shows legacy UI).
 
 To subscribe and receive the alerts through email:
 
-1. Go to **Administration**>**Alerts**> **Internet & SaaS**> **Platform Alerts**.
-2. Click the **Publish Alerts** tab.
-3. Click **Add Alert Subscription**.
-
-The **Add Alert Subscription** window appears.
-
-1. In the **Add Alert Subscription** window:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Alerts**> **Internet & SaaS**.
+2. Select the **Publish Alerts** tab.
+3. Click **Add Alert Subscription**. The **Add Alert Subscription** drawer appears.
+4. In the **Add Alert Subscription** drawer: See image.
   - **Email**: Enter a valid email address.
   - **Description**: (Optional) Enter any additional comments or information. The description cannot exceed 10,240 characters.
-  - For each [alert class](https://help.zscaler.com/zia/about-alerts), select the severity level of the alerts that the recipient receives.
-2. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+  - For each [alert class](https://help.zscaler.com/zia/about-alerts#alert-class), select the severity level of the alerts that the recipient receives as **Critical**, **Minor**, **Major**, **Info**, or **Debug**.
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+[Image: Add Alert Subscription Page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-alerts","lastmod":"2026-05-12T21:06Z","nid":"1399156"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-alerts","lastmod":"2026-09-24T23:44Z","nid":"1399156"} -->
 ## Adding Alerts
 
 - Source: https://help.zscaler.com/zia/adding-alerts
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Alerts > Adding Alerts
-- Last modified: 2026-05-12T21:06Z
+- Last modified: 2026-09-24T23:44Z
 - Summary: How to configure alerts in the Zscaler Admin Console.
 
 [Watch a video about Alerts, including how to configure them](https://fast.wistia.net/embed/iframe/9to9j2rhzn) (shows legacy UI).
 
 To add alerts:
 
-1. Go to **Administration**>**Alerts**> **Internet & SaaS** > **Platform Alerts**.
-2. Click the **Define Alerts** tab.
-3. Click **Add Alert Definition**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Alerts**> **Internet & SaaS**.
+2. Select the **Define Alerts** tab.
+3. Click **Add Alert Definition**. The **Add Alert Definition** drawer appears.
+4. In the **Add Alert Definition**drawer, you can do the following:
 
-The **Add Alert Definition** window appears.
+- **Alert ID**: ID assigned to the alert.
+- **Status**: **Enable** or **Disable** the alert.
+- **Alert Name**: Select the specific event for which you wish to be notified. The lists include all the trigger events for which the Zscaler service can generate an alert. The **Policy Violation** event sends an alert if the total number of events from all other classes and categories reach the configured threshold.
+- **Alert Class**: After you select an **Alert Name**, the class of the event appears in **Alert Class.** You cannot edit this option. To learn more, see [About Alerts](https://help.zscaler.com/zia/about-alerts).
+- **Minimum Occurrences**: Select the number of times the event must occur before an alert is generated. You can select 1, 5, 10, 100, or 1,000 occurrences. This value is used together with the **Within Time Interval** value. An alert is triggered when the event occurs at the **Minimum Occurrences**value in the **Within Time Interval** time period.
+- **Within Time Interval**: Select the span of time within which an event's occurrence triggers an alert. You can choose from 5 minutes, 15 minutes, 30 minutes, 1 hour, or 1 day. The service generates an alert when an event occurs at the **Minimum Occurrences** value in the **Within Time Interval**time period.
+- **Applies To**: Specify whether the alert is triggered by events in the organization, a location, department or user, then choose the specific location, department, or user.
+- **Severity**: Assign a severity level of **Critical**, **Major**, **Minor**, **Info**, or **Debug**to the event. This is useful if you want to create multiple alerts for the same kind of event (such as detection of outbound viruses or data leakage), but establish different thresholds for each.
 
-1. In the **Add Alert Definition**window:
-
-- Alert Name
-- Alert Class
-- Minimum Occurrences
-- WIthin Time Interval
-- Applies To
-- Severity
+See image.
 
 1. (Optional) Enter any **Comments** about the event. The comments cannot exceed 10,240 characters.
 2. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 To subscribe to the alert, see [Adding Alert Subscriptions](https://help.zscaler.com/zia/adding-alert-subscriptions). You can also [disable alerts after you create them](https://help.zscaler.com/zia/how-do-i-disable-alerts).
 
-**Alert Name** lists all the trigger events for which the Zscaler service can generate an alert. Select the specific event for which you wish to be notified. The **Policy Violation** event sends an alert if the total number of events from all other classes and categories reach the configured threshold.
-
-After you choose an alert, the class of the event appears in **Alert Class.** To learn more, see [About Alerts](https://help.zscaler.com/zia/about-alerts).
-
-From **Minimum Occurrences**, choose the number of times that the event must occur before an alert is generated. You can choose from 1, 5, 10, 100, or 1,000 occurrences. This value is used together with the **Within Time Interval** value. An alert is triggered when the event occurs the **Minimum Occurrences**value in the **Within Time Interval** time period.
-
-From **Within Time Interval**, choose the span of time within which an event's occurrence triggers an alert. You can choose from 5 minutes, 15 minutes, 30 minutes, 1 hour, or 1 day. The service generates an alert when the event occurs the **Minimum Occurrences** value in the **Within Time Interval**time period.
-
-From the **Applies To** menu, specify whether the alert is triggered by events in the organization, a location, department or user, then choose the specific location, department, or user.
-
-Assign a **Severity** level of **Critical**, **Major**, **Minor**, **Info**, or **Debug**to the event. This is useful if you want to create multiple alerts for the same kind of event (such as detection of outbound viruses or data leakage), but establish different thresholds for each.
-
 For example, you can set the severity level of an event with 5 occurrences in 5 minutes to **Minor** and set the severity level of the same event with 500 occurrences in 5 minutes to **Critical**. Set the **Severity** of each alert to reflect its threshold’s deviation from the norm.
+
+[Image: Add Alert Definition Page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-api-roles","lastmod":"2026-09-18T11:51Z","nid":"1411441"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-api-roles","lastmod":"2026-09-22T13:47Z","nid":"1411441"} -->
 ## Adding API Roles
 
 - Source: https://help.zscaler.com/zia/adding-api-roles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role Management > Adding API Roles
-- Last modified: 2026-09-18T11:51Z
+- Last modified: 2026-09-22T13:47Z
 - Summary: How to add Internet & SaaS API roles in the Zscaler Admin Console.
 
 [Watch a video about Adding API Roles](https://fast.wistia.net/embed/iframe/leihuwkgjo) (shows legacy UI).
@@ -3567,13 +3643,13 @@ To add a custom cloud application:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-custom-dlp-dictionary","lastmod":"2026-09-20T07:06Z","nid":"1400076"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-custom-dlp-dictionary","lastmod":"2026-09-27T07:06Z","nid":"1400076"} -->
 ## Adding Custom DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/adding-custom-dlp-dictionary
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Adding Custom DLP Dictionaries
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-09-27T07:06Z
 - Summary: How to add a custom Data Loss Prevention (DLP) dictionary to the Zscaler service.
 
 Adding a custom Data Loss Prevention (DLP) dictionary is one of the tasks you can complete when configuring DLP policy rules. To learn more, see [Configuring Policies Using Zscaler DLP Engines](https://help.zscaler.com/zia/how-do-i-configure-policy-using-zscaler-dlp-engines).
@@ -3698,21 +3774,21 @@ To add a parent dictionary or sub-dictionary:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-custom-dlp-engine","lastmod":"2026-06-12T13:23Z","nid":"1400086"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-custom-dlp-engine","lastmod":"2026-09-24T11:12Z","nid":"1400086"} -->
 ## Adding Custom DLP Engines
 
 - Source: https://help.zscaler.com/zia/adding-custom-dlp-engine
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Adding Custom DLP Engines
-- Last modified: 2026-06-12T13:23Z
-- Summary: How to add custom DLP engines in the Zscaler Admin Console.
+- Last modified: 2026-09-24T11:12Z
+- Summary: How to add custom Data Loss Prevention (DLP) engines in the Zscaler Admin Console.
 
-Adding a custom DLP engine is one of the tasks you can complete when configuring [DLP policy rules](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection). You can add a custom DLP engine on the Add DLP Engine window or through the [cloud service API](https://help.zscaler.com/zia/about-api). To learn more about the ranges and limitations for custom DLP engines, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
+Adding a custom Data Loss Prevention (DLP) engine is one of the tasks you can complete when configuring [DLP policy rules](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection). You can add a custom DLP engine on the Add DLP Engine tab or through the [cloud service API](https://help.zscaler.com/zia/about-api). To learn more about the ranges and limitations for custom DLP engines, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
 
 To add a custom DLP engine:
 
-1. Go to **Policies**>**Data Protection**> **Common Resources**> **DLP Dictionaries & Engines**> **DLP Engines**.
-2. In the **DLP Engines** tab, click **Add DLP Engine**.
+1. Go to **Policies**> **Data Protection** > **Common Resources** > **DLP Dictionaries & Engines** > **DLP Engines**.
+2. On the **DLP Engines** tab, click **Add DLP Engine**.
 
 The **Add DLP Engine** window appears.
 
@@ -4479,13 +4555,13 @@ To add domain profiles:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-editing-redaction-profiles","lastmod":"2026-06-10T05:22Z","nid":"1529359"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-editing-redaction-profiles","lastmod":"2026-09-24T23:59Z","nid":"1529359"} -->
 ## Adding & Editing Redaction Profiles
 
 - Source: https://help.zscaler.com/zia/adding-editing-redaction-profiles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Data at Rest Scanning Policies > Rights Management > Adding & Editing Redaction Profiles
-- Last modified: 2026-06-10T05:22Z
+- Last modified: 2026-09-24T23:59Z
 - Summary: How to add and edit redaction profiles in the Zscaler Admin Console.
 
 You can use redaction profiles as part of your SaaS Security Data at Rest Scanning Data Loss Prevention (DLP) policy to hide sensitive content that triggers policy rules. When sensitive content triggers a SaaS Security Data at Rest Scanning DLP rule, the Zscaler service uses the redaction profile associated with the policy rule to replace the content you want to protect with asterisk (`*`) or hash (`#`) characters. The Zscaler service supports redaction profiles for the following file types:
@@ -4494,23 +4570,23 @@ You can use redaction profiles as part of your SaaS Security Data at Rest Scanni
 
 ## Adding a Redaction Profile
 
-1. Go to **Policies**>**Data Protection** > **Policy**>**Rights Management > Redaction**.
-2. Click **Add Profile**. The **Add Redaction Profile** window opens.
-3. In the **Add Redaction Profile** window, specify settings for the redaction profile:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Data Security**> **DSPM**>**Rights Management**.
+2. Select the **Redaction**tab.
+3. Click **Add Profile**. The **Add Redaction Profile** drawer opens.
+4. In the **Add Redaction Profile** drawer, specify settings for the redaction profile: See image.
   - **Profile Name**: Enter a name of up to 128 characters for the redaction profile.
-  - **Use Asterisks to Redact**: Select this option to use asterisk characters (`*`) to hide sensitive data.
-  - **Use Hash Signs to Redact**: Select this option to use hash characters (`#`) to hide sensitive data.
-4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+  - **Redaction Type:**Select either the **Use Asterisks to Redact** or **Use Hash Signs to Redact** option to redact sensitive data with asterisk characters (`*`) or hash characters (`#`), respectively.
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 ## Editing a Redaction Profile
 
-1. Go to **Policies**>**Data Protection** > **Policy**>**Rights Management > Redaction.**
-2. Locate the redaction profile in the list, then click the **Edit** icon. The **Edit Redaction Profile** window opens.
-3. In the **Edit Redaction Profile** window, specify settings for the redaction profile:
+1. Go to **Data Security**> **DSPM**>**Rights Management**.
+2. Select the **Redaction**tab.
+3. Locate the redaction profile in the list, then click the **Edit** icon. The **Edit Redaction Profile** drawer opens.
+4. In the **Edit Redaction Profile** drawer, specify settings for the redaction profile: See image.
   - **Profile Name**: Enter a name of up to 128 characters for the redaction profile.
-  - **Use Asterisks to Redact**: Select this option to use asterisk characters (`*`) to hide sensitive data.
-  - **Use Hash Signs to Redact**: Select this option to use hash characters (`#`) to hide sensitive data.
-4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+  - **Redaction Type:**Select either the **Use Asterisks to Redact** or **Use Hash Signs to Redact** option to redact sensitive data with asterisk characters (`*`) or hash characters (`#`), respectively.
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 - Archive (`.tar`, `.zip`)
 - Comma-Separated Value (`.csv`)
@@ -4521,64 +4597,68 @@ You can use redaction profiles as part of your SaaS Security Data at Rest Scanni
 - Plain Text (`.txt`)
 - Rich Text (`.rtf`)
 
+[Image: Adding Redaction Profile]
+
+[Image: Editing Redaction Profile]
+
 <div class="subc"> <p> <a class="ck-anchor" id="add-redaction-profile-dialog"></a><img src="/downloads/zia/policies/saas-security/data-rest-scanning-policies/rights-management/adding-editing-redaction-profiles/add-redact-xc.png" data-entity-uuid="0" data-entity-type="image" alt="The Add Redaction Profile window where you can add general information" title="Add Redaction Profile window" width="831" height="434"> </p> </div> <div class="subc"> <p> <a class="ck-anchor" id="edit-redaction-profile-dialog"></a><img src="/downloads/zia/policies/saas-security/data-rest-scanning-policies/rights-management/adding-editing-redaction-profiles/edit-redact-xc.png" data-entity-uuid="0" data-entity-type="image" alt="The Edit Redaction Profile window where you can edit general information" title="Edit Redaction Profile window" width="835" height="437"> </p> </div>
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-editing-watermark-profiles","lastmod":"2026-06-10T04:11Z","nid":"1498311"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-editing-watermark-profiles","lastmod":"2026-09-24T22:58Z","nid":"1498311"} -->
 ## Adding & Editing Watermark Profiles
 
 - Source: https://help.zscaler.com/zia/adding-editing-watermark-profiles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Data at Rest Scanning Policies > Rights Management > Adding & Editing Watermark Profiles
-- Last modified: 2026-06-10T04:11Z
+- Last modified: 2026-09-24T22:58Z
 - Summary: How to add and edit watermark profiles in the Zscaler Admin Console.
 
 You can use watermark profiles as part of your SaaS Security Data at Rest Scanning Data Loss Prevention (DLP) policy to protect files that trigger policy rules. When sensitive content triggers a SaaS Security Data at Rest Scanning DLP rule, the Zscaler service uses the watermark profile associated with the policy rule to superimpose text diagonally across pages and images to clearly identify the content you want to protect. Additionally, you can include headers and footers as part of your watermark profiles.
 
 ## Adding a Watermark Profile
 
-1. Go to **Policies**>**Data Protection > Policy > Rights Management**>**Watermarking**.
-2. Click **Add Profile**. The **Add Watermark Profile** window opens.
-3. Specify settings for the watermark profile: <p> <a class="image-icon" href="#add-watermark-profile-dialog">See image. </script> </p>
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Data Security > DSPM > Rights Management**.
+2. Select the**Watermarking** tab.
+3. Click **Add Profile**. The **Add Watermark Profile** drawer opens.
+4. In the **Add Watermark Profile** drawer, specify settings for the watermark profile: See image. The font style (i.e., color, size, style) is applied automatically and can't be configured. <p> <a class="image-icon" href="#add-watermark-profile-dialog">See image. </script> </p>
   - **Profile Name**: Enter a name of up to 128 characters for the watermark profile.
-  - **Header Text**: Enter up to 50 characters for the watermark header.
-  - **Footer Text**: Enter up to 50 characters for the watermark footer.
+  - **Header Text** (Optional): Enter up to 50 characters for the watermark header.
+  - **Footer Text** (Optional): Enter up to 50 characters for the watermark footer.
   - **Watermark Text**: Enter up to 15 characters for the watermark itself.
-
-The font style (i.e., color, size, style) is applied automatically and can't be configured.
-
-1. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 ## Editing a Watermark Profile
 
-1. Go to **Policies**>**Data Protection > Policy > Rights Management**>**Watermarking**.
-2. Locate the watermark profile in the list, then click the **Edit** icon. The **Edit Watermark Profile** window opens.
-3. Specify settings for the watermark profile: <p> <a class="image-icon" href="#edit-watermark-profile-dialog">See image. </script> </p>
+1. Go to **Data Security > DSPM > Rights Management**.
+2. Select the **Watermarking**tab.
+3. Locate the watermark profile in the list, then click the **Edit** icon. The **Edit Watermark Profile** drawer opens.
+4. In the **Edit Watermark Profile** drawer, specify settings for the watermark profile: See image. The font style (i.e., color, size, style) is applied automatically and can't be configured. <p> <a class="image-icon" href="#edit-watermark-profile-dialog">See image. </script> </p>
   - **Profile Name**: Enter a name of up to 128 characters for the watermark profile.
-  - **Header Text**: Enter up to 50 characters for the watermark header.
-  - **Footer Text**: Enter up to 50 characters for the watermark footer.
+  - **Header Text** (Optional): Enter up to 50 characters for the watermark header.
+  - **Footer Text** (Optional): Enter up to 50 characters for the watermark footer.
   - **Watermark Text**: Enter up to 15 characters for the watermark itself.
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-The font style (i.e., color, size, style) is applied automatically and can't be configured.
+[Image: Adding a watemark profile]
 
-1. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-<div class="subc"> <p> <a class="ck-anchor" id="edit-watermark-profile-dialog"></a><img src="/downloads/zia/policies/saas-security/data-rest-scanning-policies/rights-management/adding-editing-watermark-profiles/edit-watermark-xc.png" data-entity-uuid="0" data-entity-type="image" alt="The Edit Watermark Profile window where you can add details, header and footer, and watermark text" title="Edit Watermark Profile" width="795" height="796"> </p>
+[Image: Editing an existing watemark profile]
 
 <div class="subc"> <p> <a class="ck-anchor" id="add-watermark-profile-dialog"></a><img src="/downloads/zia/policies/saas-security/data-rest-scanning-policies/rights-management/adding-editing-watermark-profiles/add-watermark-xc.png" data-entity-uuid="0" data-entity-type="image" alt="The Add Watermark Profile window where you can add details, header and footer, and watermark text" title="Add Watermark Profile" width="800" height="795"> </p>
+
+<div class="subc"> <p> <a class="ck-anchor" id="edit-watermark-profile-dialog"></a><img src="/downloads/zia/policies/saas-security/data-rest-scanning-policies/rights-management/adding-editing-watermark-profiles/edit-watermark-xc.png" data-entity-uuid="0" data-entity-type="image" alt="The Edit Watermark Profile window where you can add details, header and footer, and watermark text" title="Edit Watermark Profile" width="795" height="796"> </p>
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-edns-client-subnet-prefixes","lastmod":"2026-05-29T06:41Z","nid":"1449946"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-edns-client-subnet-prefixes","lastmod":"2026-09-21T07:52Z","nid":"1449946"} -->
 ## Adding EDNS Client Subnet Prefixes
 
 - Source: https://help.zscaler.com/zia/adding-edns-client-subnet-prefixes
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > Adding EDNS Client Subnet Prefixes
-- Last modified: 2026-05-29T06:41Z
+- Last modified: 2026-09-21T07:52Z
 - Summary: How to configure EDNS Client Subnet (ECS) prefixes in the Zscaler Admin Console for use in DNS queries.
 
 In the Zscaler Admin Console, you can configure a list of EDNS Client Subnet (ECS) prefixes and designate one of them to be embedded in DNS queries when they arrive at the Service Edges for Internet & SaaS (ZIA). This could be a Public, Private, or Virtual Service Edge.
@@ -4605,13 +4685,13 @@ To add an ECS prefix:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-email-label","lastmod":"2026-09-20T07:06Z","nid":"1444181"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-email-label","lastmod":"2026-09-27T07:06Z","nid":"1444181"} -->
 ## Adding an Email Label
 
 - Source: https://help.zscaler.com/zia/adding-email-label
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > Adding an Email Label
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-09-27T07:06Z
 - Summary: How to add an email label for a Gmail or Microsoft Exchange client.
 
 The Zscaler service allows you to create email labels to group Gmail and Microsoft Exchange clients under the Data at Rest Scanning policy into categories based on the sensitivity of the email data.
@@ -4646,53 +4726,6 @@ The email label is created in the Zscaler Admin Console. You can [edit](https://
 [Image: Viewing the Email Labels in an Email Account]
 
 [Image: Add Email Label drawer]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/adding-email-profiles","lastmod":"2026-09-17T10:15Z","nid":"1492726"} -->
-## Adding Email Profiles
-
-- Source: https://help.zscaler.com/zia/adding-email-profiles
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Adding Email Profiles
-- Last modified: 2026-09-17T10:15Z
-- Summary: How to add email profiles for use in Zscaler Data Loss Prevention (DLP) policy rules.
-
-Zscaler's email profiles allow you to make custom sets of email domains and recipient profiles that you can easily use with Data Loss Prevention (DLP) tools across channels. To learn more, see [About Data Loss Prevention](https://help.zscaler.com/zia/about-data-loss-prevention), [About Data at Rest Scanning DLP](https://help.zscaler.com/zia/about-data-rest-scanning-dlp), and [About Outbound Email Policy](https://help.zscaler.com/zia/about-outbound-email-policy).
-
-To add email profiles:
-
-1. In the Zscaler Admin Console, on the corresponding profile page:
-  - Add a domain profile
-  - Add a recipient profile
-2. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-1. Go to **Policies**> **Data Protection**> **Common Resources**> **Domain Profiles**.
-2. Click **Add Domain Profile**. The **Add Domain Profile** window appears.
-3. In the **Add Domain Profile** window:
-  - **Profile Name**: Enter a name for the domain profile.
-  - **Top Personal Email Service Providers**: Select from a list of email service providers to include.
-  - **Include Organizational Domains**: Selecting this option automatically includes the domains listed on your Company Profile. To learn more, see [About the Company Profile](https://help.zscaler.com/zia/about-company-profile).
-  - **Custom Domains**: Enter one or more domain names separated by line breaks, then click **Add**.
-  - **Include Subdomains**: Select whether to automatically include subdomains in the domain profile (e.g., `blog.example.com` is a subdomain of `example.com`).
-  - **Description**: Enter additional notes or information. The description cannot exceed 256 characters.
-
-See image.
-
-[Image: Add a Domain Profile]
-
-1. Go to **Policies**> **Data Protection**> **Common Resources**> **Recipient Profiles**.
-2. Click **Recipient Profiles**.
-3. Click **Add Recipient Profile**. The **Add Recipient Profile** window appears.
-4. In the **Add Recipient Profile** window:
-  - **Profile Name**: Enter a name for the recipient profile.
-  - **Recipients**: Enter one or more recipient email addresses separated by line breaks, then click **Add**.
-  - **Description**: Enter additional notes or information. The description cannot exceed 256 characters.
-
-See image.
-
-[Image: Add a Recipient Profile]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -5555,13 +5588,13 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-http-header-insertion-profile","lastmod":"2026-06-05T07:16Z","nid":"1517436"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-http-header-insertion-profile","lastmod":"2026-09-24T08:00Z","nid":"1517436"} -->
 ## Adding an HTTP Header Insertion Profile
 
 - Source: https://help.zscaler.com/zia/adding-http-header-insertion-profile
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > HTTP Header Control > Adding an HTTP Header Insertion Profile
-- Last modified: 2026-06-05T07:16Z
+- Last modified: 2026-09-24T08:00Z
 - Summary: Information on how to add an HTTP header insertion profile in the Zscaler Admin Console.
 
 The [HTTP header insertion profile](https://help.zscaler.com/zia/about-http-header-insertion-profile) allows you to add custom HTTP request headers and modify existing HTTP request headers. It consists of two parts: adding HTTP header insertion profiles and associating them to a URL Filtering policy rule.
@@ -5600,13 +5633,13 @@ To add an HTTP header insertion profile:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-http-header-profile","lastmod":"2026-06-05T07:00Z","nid":"1517126"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-http-header-profile","lastmod":"2026-09-24T07:52Z","nid":"1517126"} -->
 ## Adding an HTTP Header Profile
 
 - Source: https://help.zscaler.com/zia/adding-http-header-profile
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > HTTP Header Control > Adding an HTTP Header Profile
-- Last modified: 2026-06-05T07:00Z
+- Last modified: 2026-09-24T07:52Z
 - Summary: Information on how to add an HTTP header profile in the Zscaler Admin Console.
 
 The [HTTP header profile](https://help.zscaler.com/zia/about-http-header-profile) allows you to create criteria for various HTTP request headers and create policies based on the HTTP headers.
@@ -5726,7 +5759,7 @@ It can take up to two hours for the audit logs to start streaming to HTTP NSS an
     - **Branch Connector Portal Audit Log**: Allows real-time streaming of the Zscaler Cloud & Branch Connector audit logs to SIEM.
     - **Client Connector Portal Audit Log**: Allows real-time streaming of the Zscaler Client Connector audit logs to SIEM.
     - **Risk360 Admin Portal Audit Log**: Allows real-time streaming of the Risk360 audit logs to SIEM.
-    - **ZDX Portal Audit Log**: Allows real-time streaming of the Zscaler Digital Experience (ZDX) audit logs to SIEM.
+    - **ZDX Portal Audit Log**: Allows real-time streaming of the Digital Experience (ZDX) audit logs to SIEM.
     - **ZIA Portal Audit Log**: Allows real-time streaming of the Internet & SaaS (ZIA) audit logs to SIEM.
     - **ZIdentity Admin Audit Log**: Allows real-time streaming of the Authentication Service audit logs to SIEM.
 5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
@@ -6686,48 +6719,48 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-icap-receiver","lastmod":"2026-05-26T06:24Z","nid":"1401951"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-icap-receiver","lastmod":"2026-09-20T23:49Z","nid":"1401951"} -->
 ## Adding an ICAP Receiver
 
 - Source: https://help.zscaler.com/zia/adding-icap-receiver
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > ICAP Receivers > Adding an ICAP Receiver
-- Last modified: 2026-05-26T06:24Z
+- Last modified: 2026-09-20T23:49Z
 - Summary: Information on adding an ICAP receiver for the URL filtering policy in the Zscaler Admin Console.
 
-Zscaler's [ICAP Receiver](https://help.zscaler.com/zia/about-icap-receivers-url-filtering) feature allows you to forward the inbound and outbound traffic of all the sites of the selected URL categories in the URL Filtering policy rule to an ICAP receiver. It consists of two parts: adding ICAP receivers and associating them to a URL Filtering policy.
+Zscaler's [ICAP Receiver](https://help.zscaler.com/zia/about-icap-receivers-url-filtering) feature allows you to forward the inbound and outbound traffic of all the sites of the selected URL categories in the URL Filtering policy rule to an ICAP receiver. It consists of adding ICAP receivers and associating them to a URL Filtering policy.
 
 To add an ICAP receiver:
 
-1. Go to **Policies**> **Data Protection** > **Common Resources** > **DLP Incident Receiver** > **ICAP Settings**.
-2. Click **Add ICAP Receiver**. The **Add ICAP Receiver** window appears.
-3. In the **Add ICAP Receiver** window: See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Traffic Capture** > **ICAP Receiver**.
+2. Click **Add**. The **Add ICAP Receiver** drawer appears.
+3. In the **Add ICAP Receiver** drawer: See image.
   - **Name**: Enter a name for the ICAP receiver.
-  - **Status**: Select **Enabled** to allow the service to send communications to the ICAP receiver. If **Disabled**, the service will not send information to that receiver.
-  - **Receiver URI**: Enter the ICAP receiver URI.The URI must follow the format: `icaps://<FQDN or IP address>:<port number>/<servicepath>`.
+  - **Status**: Enable the toggle to allow the service to send communications to the ICAP receiver. If you disable it, the service doesn't send the information to that receiver.
+  - **Receiver URI**: Enter the ICAP receiver URI.The URI must follow the format `icaps://``<FQDN or IP address>``:``<port number>``/``<servicepath>`.
     - By default, the **Receiver URI** field is prepopulated with `icaps://`because Zscaler recommends sending transaction information via secure ICAP. For scenarios where it is preferable to send unencrypted ICAP over plain text (e.g., for debugging purposes), you can use `icap://`.
     - The `<FQDN or IP address>` of ICAP receivers and load balancers are accepted.
     - A `<port number>` must be included and must match the port on which you’ve configured your network firewall to accept ICAP traffic from the service. Zscaler recommends using port number 1344 for ICAP, per standard practice.
     - The `<servicepath>` specifies whether the ICAP receiver monitors outgoing traffic or incoming traffic. For example, if you are using Vontu, you should use the servicepath reqmod (for Request Mode) to indicate that the receiver monitors outgoing traffic. An example of a correctly formatted unencrypted ICAP receiver URI for Vontu would be: `icap://metascan.corp.safemarch.com:1344/reqmod`.
 4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-[Image: Add ICAP Receiver window.]
+[Image: Add ICAP Receiver drawer showing the required fields]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-icap-receiver-dlp","lastmod":"2026-04-23T13:43Z","nid":"1400101"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-icap-receiver-dlp","lastmod":"2026-09-24T13:46Z","nid":"1400101"} -->
 ## Adding an ICAP Receiver for DLP
 
 - Source: https://help.zscaler.com/zia/adding-icap-receiver-dlp
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Adding an ICAP Receiver for DLP
-- Last modified: 2026-04-23T13:43Z
+- Last modified: 2026-09-24T13:46Z
 - Summary: How to add an ICAP receiver for secure and unencrypted ICAP support within the Zscaler service.
 
-You can forward information about transactions that violate the DLP policy to the [Internet Content Adaptation Protocol (ICAP) receivers](https://help.zscaler.com/zia/about-icap-receivers-dlp) you’ve defined in the Zscaler Admin Console.
+You can forward information about transactions that violate the Data Loss Prevention (DLP) policy to the [Internet Content Adaptation Protocol (ICAP) receivers](https://help.zscaler.com/zia/about-icap-receivers-dlp) you’ve defined in the Zscaler Admin Console.
 
-To add a secure or unencrypted ICAP receiver, you must define them on the DLP Incident Receiver page by providing the public IP address of your DLP server with the port number on which your network firewall initially accepts the secure ICAP traffic sent by the Zscaler service. To learn more, see [Enabling Secure ICAP](https://help.zscaler.com/zia/enabling-secure-icap) and [Enabling Unencrypted ICAP](https://help.zscaler.com/zia/enabling-unencrypted-icap).
+To add a secure or unencrypted ICAP receiver, you must define them on the DLP Incident Receiver page (Data Security > Common Resources > DLP Incident Receiver) by providing the public IP address of your DLP server with the port number on which your network firewall initially accepts the secure ICAP traffic sent by the Zscaler service. To learn more, see [Enabling Secure ICAP](https://help.zscaler.com/zia/enabling-secure-icap) and [Enabling Unencrypted ICAP](https://help.zscaler.com/zia/enabling-unencrypted-icap).
 
 If you want to use ICAP receivers for web traffic filtering, see [Adding an ICAP Receiver](https://help.zscaler.com/zia/adding-icap-receiver).
 <!-- /ZS-ARTICLE -->
@@ -6802,18 +6835,18 @@ The **Add IdP** window appears.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-index-tool-configuration","lastmod":"2026-07-31T10:46Z","nid":"1400661"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-index-tool-configuration","lastmod":"2026-09-24T11:20Z","nid":"1400661"} -->
 ## Adding an Index Tool Configuration
 
 - Source: https://help.zscaler.com/zia/adding-index-tool-configuration
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > Adding an Index Tool Configuration
-- Last modified: 2026-07-31T10:46Z
+- Last modified: 2026-09-24T11:20Z
 - Summary: How to add an Index Tool Configuration, which is used to configure the Zscaler Index Tool.
 
 To add an [Index Tool](https://help.zscaler.com/zia/about-index-tool) configuration:
 
-1. Go to **Policies**> **Data Protection**> **Common Resources**> **Index Tool**.
+1. Go to **Data Security**> **Common Resources**> **Index Tool**.
 2. Click **Add Index Tool Configuration**.
 
 The **Add Index Tool Configuration** window appears.
@@ -7689,20 +7722,20 @@ To download the SSL certificate:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-object-types-servicenow-tenants","lastmod":"2026-06-11T07:13Z","nid":"1401981"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-object-types-servicenow-tenants","lastmod":"2026-09-22T09:08Z","nid":"1401981"} -->
 ## Adding Object Types for ServiceNow Tenants
 
 - Source: https://help.zscaler.com/zia/adding-object-types-servicenow-tenants
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > Adding Object Types for ServiceNow Tenants
-- Last modified: 2026-06-11T07:13Z
+- Last modified: 2026-09-22T09:08Z
 - Summary: How to add object types for your ServiceNow tenants.
 
 ServiceNow has many object types available, so the Zscaler service provides a default list of the most commonly used object types. You can add additional object types if they're not on the list.
 
 To add object types for ServiceNow tenants:
 
-1. Go to **Policies** > **Common Configuration** > **Out-of-Band CASB** > **SaaS Application Tenants**.
+1. Go to **Data Security > DSPM > SaaS Application Tenants**.
 2. Click the **Edit** icon for the ServiceNow tenant that you want to add object types for.
 
 The **Edit SaaS Application Tenant page**appears.
@@ -8453,13 +8486,13 @@ For information on the order in which the service enforces all policies, includi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-saas-application-tenants","lastmod":"2026-09-18T09:52Z","nid":"1401256"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-saas-application-tenants","lastmod":"2026-09-25T07:37Z","nid":"1401256"} -->
 ## Adding SaaS Application Tenants
 
 - Source: https://help.zscaler.com/zia/adding-saas-application-tenants
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > Adding SaaS Application Tenants
-- Last modified: 2026-09-18T09:52Z
+- Last modified: 2026-09-25T07:37Z
 - Summary: How to add a SaaS application tenant for Data at Rest Scanning.
 
 [Watch a video about SaaS Application Tenants](https://fast.wistia.net/embed/iframe/net3zjd13m) (shows legacy UI).
@@ -8468,11 +8501,11 @@ Zscaler Data at Rest Scanning provides visibility and security for [sanctioned S
 
 To add a SaaS application tenant for SaaS Security or SSPM - Essential and Advanced:
 
-1. Go to **Data Security**>**DSPM** > **Configuration** > **SaaS Application Tenants**.
-2. Click **Add SaaS Application Tenant**. The **Add SaaS Application Tenant** page appears.
+1. Go to **Data Security**>**DSPM** > **SaaS Application Tenants**.
+2. Click **Add**. The **Add SaaS Application Tenant** page appears.
 3. Under **Choose the SaaS Application Provider**, search for or choose from one of the sanctioned SaaS applications. See image.
-4. Under **Name the SaaS Application Tenant**, enter a name for the SaaS application tenant. It must be unique. This name is displayed when configuring the Data at Rest Scanning DLP policy, Malware Detection policy, Workflow Automation, or Scan Configuration depending on the functionality available for that specific application.
-5. Under **Select Features**, select the checkbox for the functionality you want to enable. You can choose from **DLP and Malware scanning SaaS API**, **SSPM Scan**, or **Workflow Automation** if the app supports the functionality. See image. To learn more about the different onboarding functionalities, see [Connecting Your Platforms to 3rd-Party App Governance](https://help.zscaler.com/zia/connecting-your-platforms-3rd-party-app-governance), [About Data at Rest Scanning Malware Detection](https://help.zscaler.com/zia/about-data-rest-scanning-malware-detection), [What Is Advanced Posture Management?](https://help.zscaler.com/zia/what-advanced-posture-management), and [What Is Workflow Automation?](https://help.zscaler.com/workflow-automation/what-workflow-automation) The App Governance functionality cannot be enabled for Okta, Salesforce, and Slack tenants using the **App Governance** checkbox. You must onboard these tenants from the 3rd-Party App Governance Admin Portal. To learn more, see [Connecting Your Platforms to 3rd-Party App Governance](https://help.zscaler.com/zia/connecting-your-platforms-3rd-party-app-governance).
+4. Under **Tenant Name**, enter a name for the SaaS application tenant. It must be unique. This name is displayed when configuring the Data at Rest Scanning DLP policy, Malware Detection policy, Workflow Automation, or Scan Configuration depending on the functionality available for that specific application.
+5. Under **Select Features**, select the checkbox for the functionality you want to enable, and click **Next**. You can choose from **DLP and Malware scanning SaaS API**, **SSPM Scan**, or **Workflow Automation** if the app supports the functionality. See image. To learn more about the different onboarding functionalities, see [Connecting Your Platforms to 3rd-Party App Governance](https://help.zscaler.com/zia/connecting-your-platforms-3rd-party-app-governance), [About Data at Rest Scanning Malware Detection](https://help.zscaler.com/zia/about-data-rest-scanning-malware-detection), [What Is Advanced Posture Management?](https://help.zscaler.com/zia/what-advanced-posture-management), and [What Is Workflow Automation?](https://help.zscaler.com/workflow-automation/what-workflow-automation) The App Governance functionality cannot be enabled for Okta, Salesforce, and Slack tenants using the **App Governance** checkbox. You must onboard these tenants from the 3rd-Party App Governance Admin Portal. To learn more, see [Connecting Your Platforms to 3rd-Party App Governance](https://help.zscaler.com/zia/connecting-your-platforms-3rd-party-app-governance).
 6. If you selected **DLP and Malware Scanning SaaS API** for onboarding, you need to specify your quarantine location for supported file share applications. See image.
   1. Under **DLP Quarantine Location**, enter a valid folder path or URL of the designated quarantine location for relocating the files (e.g., `/home/quarantine_folder`).
   2. Under **DLP Admin Email ID**, enter the admin email address for the application.
@@ -9041,6 +9074,8 @@ To configure Gmail:
 - Zscaler Defined
 - Custom
 
+Use the Zscaler-defined connector or onboarding method only for Proof of Values (PoVs) and small accounts with fewer than 100 users. For all other scenarios or larger accounts, Zscaler recommends using a custom connector.
+
 1. Enter your **Google Admin Email ID**.
 2. Under **Authorize the SaaS Application**, select Zscaler Defined, copy the **Zscaler SaaS Connector** and **Google Workspace Scope**. You need it for a later step when adding an API client for Google Workspace.
 
@@ -9111,6 +9146,8 @@ To enable Google Cloud for your organization, contact your Zscaler Account team.
 
 - Zscaler Defined
 - Custom
+
+Use the Zscaler-defined connector or onboarding method only for PoVs and small accounts with fewer than 100 users. For all other scenarios or larger accounts, Zscaler recommends using a custom connector.
 
 - a. Configure Google Cloud
 - b. Create Quarantine Bucket
@@ -9213,6 +9250,8 @@ To configure Google Drive:
 - Zscaler Defined
 - Custom
 
+Use the Zscaler-defined connector or onboarding method only for PoVs and small accounts with fewer than 100 users. For all other scenarios or larger accounts, Zscaler recommends using a custom connector.
+
 1. Enter your **Google Admin Email ID**.
 2. Under **Authorize the SaaS Application**, click **Zscaler Defined**, and copy the **Zscaler SaaS Connector** and **Google Workspace Scope**. You need it for a later step when adding an API client for Google Workspace.
 
@@ -9278,6 +9317,8 @@ To configure Google Workspace:
 - Verify Cloud Identity License for the Admin
 - Zscaler Defined
 - Custom
+
+Use the Zscaler-defined connector or onboarding method only for PoVs and small accounts with fewer than 100 users. For all other scenarios or larger accounts, Zscaler recommends using a custom connector.
 
 The following additional API scopes are required for existing tenants to view the Cloud Identity policies:
 
@@ -10647,28 +10688,45 @@ To configure Zoom:
 10. Copy the **Event notification endpoint URL**.
 11. Back in Zoom, go to the **Feature** page and enable **Event subscriptions**. Enter a name and paste the **Event notification endpoint URL** you copied earlier and click **Validate**. See image.
 12. Click **Add Events** and add the following events:
-  1. Add Chat Message > Chat Message Sent, Updated, and Replied as Event Types
-  2. Chat Channel > Chat Channel Created, Chat Channel Updated, Chat Channel Deleted, Member Invited, Member removed, Member Joined, Member Left
-  3. User Activity > User has signed in, User has signed out
+  - Add Chat Message > Chat Message Sent, Updated, and Replied as Event Types
+  - Chat Channel > Chat Channel Created, Chat Channel Updated, Chat Channel Deleted, Member Invited, Member removed, Member Joined, Member Left
+  - User Activity > User has signed in, User has signed out
+  - Recording > All recordings have been completed
+  - Meeting > AIC Transcript completed
+  - Meeting > Meeting summary has been completed
+  - Meeting > Meeting summary has been shared
+  - Meeting > Meeting summary has been updated
 13. Click **Done** and **Save**.
 14. Go to **Information** and add **Short Description**, **Long Description**, **Developer Contact Information**, and any other mandatory fields.
 15. Go to **Scopes** and add the following scopes: See image.
-  - **report:read:list_chat_sessions:admin**
-  - **report:read:chat_session:admin**
-  - **team_chat:read:list_user_messages:admin**
-  - **team_chat:read:list_members:admin**
-  - **dashboard:read:list_meetings:admin**
-  - **cloud_recording:read:list_recording_files:admin**
-  - **report:read:operation_logs:admin**
-  - **report:read:user_activities:admin**
-  - **team_chat:delete:user_message:admin**
-  - **meeting:read:list_past_participants:admin**
-  - **team_chat:read:user_message:admin**
-  - **team_chat:read:user_channel:admin**
+  - report:read:list_chat_sessions:admin
+  - report:read:chat_session:admin
+  - team_chat:read:list_user_messages:admin
+  - team_chat:read:list_members:admin
+  - dashboard:read:list_meetings:admin
+  - cloud_recording:read:list_recording_files:admin
+  - report:read:operation_logs:admin
+  - report:read:user_activities:admin
+  - team_chat:delete:user_message:admin
+  - meeting:read:list_past_participants:admin
+  - team_chat:read:user_message:admin
+  - team_chat:read:user_channel:admin
+  - cloud_recording:read:meeting_transcript:admin
+  - meeting:read:list_summaries:admin
+  - meeting:read:summary:admin
 16. After adding the scopes, add a **Scope Description** and click **Continue**.
 17. Go to **Beta Test** in the left-side navigation. If everything has been set up correctly, you see an **Add App Now** button. If any required information is missing, this page shows you what is still missing before the **Add App Now** button appears. See image.
 18. In the Zscaler Admin Console, under **Webhook Integration**, in the **Admin Email ID** field, enter the email address of the Zoom user assigned the **Owner** role. In the **Secret Token** field, enter the secret token you copied earlier. To learn more about Zoom user roles, refer to the [Zoom documentation](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0061789). Click **Initiate Integration**.
 19. Under **Authorize the SaaS Application**, enter your **Client ID** and **Client Secret** noted down earlier. See image.
+
+You must enable AI Companion for your Zoom account to generate transcripts and summaries.
+
+To enable the AI Transcripts and Summaries capability for an existing tenant:
+
+1. Add the transcript and summary scopes mentioned in a previous step to the existing Server-to-Server OAuth app.
+2. Subscribe to the transcript and summary webhook events mentioned in a previous step.
+3. Verify you have subscribed to the event Recording > All recordings have completed.
+4. Reauthorize the tenant, so the scopes take effect on the stored access token.
 
 ## Zoom Integration Details and Limitations
 
@@ -10688,6 +10746,8 @@ The following list includes details and limitations of the Zoom DLP and Malware 
 - The whiteboard and notes are not scanned.
 - log in Fail activity is not reported.
 - The Delete functionality cannot be performed on files added by external users.
+- Only user collaborators are shown in the collaborator list. Link and group share logging are currently not supported.
+- If you remove a collaborator after sharing a summary, the collaborator might still appear as “Shared” in the collaborator list.
 
 [Image: Build App in the Develop drop-down menu]
 
@@ -12276,57 +12336,4 @@ To configure a TCP NSS feed for SaaS Security logs:
 
 - **SaaS Application**: Filter logs based on the specific sanctioned SaaS application. You can specify multiple applications.
 - **SaaS Application Tenant**: Filter logs based on the specific SaaS application tenant. You can specify multiple tenants.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-sandbox-verdict-logs","lastmod":"2026-06-23T06:55Z","nid":"1520331"} -->
-## Adding TCP NSS Feeds for Sandbox Verdict Logs
-
-- Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-sandbox-verdict-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Sandbox Verdict Logs
-- Last modified: 2026-06-23T06:55Z
-- Summary: How to add TCP NSS feeds for Sandbox verdict logs in the Zscaler Admin Console.
-
-You can configure up to 8 TCP Nanolog Streaming Service (NSS) feeds to specify the data from the Sandbox verdict logs that the NSS sends to the security information and event management (SIEM) system.
-
-A large number of filters or complex filters, such as string searches, can impact the NSS performance. Before you start configuring a feed for Sandbox verdict logs, consider the [guidelines for configuring feeds](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats).
-
-To configure a TCP NSS feed for Sandbox verdict logs:
-
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
-2. On the **NSS Feeds** tab, click **Add TCP NSS Feed**. The **Add TCP NSS Feed** window appears.
-3. In the**Add TCP NSS Feed** window:
-  - **Feed Name:**Enter the name of the feed. Each feed is a connection between the NSS and your SIEM.
-  - **NSS Type**: **NSS for Web** is selected by default.
-  - **NSS Server**:Select an NSS server from the list. A [configured NSS server](https://help.zscaler.com/zia/adding-nss-servers) is required to add an NSS feed.
-  - **Status:**The NSS feed is **Enabled** by default. Select **Disabled** if you want to activate it at a later time.
-  - **SIEM Destination Type**: Select the type of destination.
-    - **SIEM IP Address**:Appears when**IP Address**is selected as the destination type.Enter the IP address of the SIEM to which the logs are streamed.
-    - **SIEM FQDN**: Appears when**FQDN**is selected as the destination type. Enter the destination for the TCP connection to which the logs are streamed. This allows failover from one IP to the other without manual intervention, but rather relying on updating the DNS entry. NSS re-resolves the FQDN only when the existing connection goes down. This feature cannot be used for DNS-based load balancing.
-  - **SIEM TCP Port**: Enter the port number of the SIEM to which the logs are streamed. Ensure that the SIEM is configured to accept the feed from the NSS.
-  - **SIEM Rate**: Leave as **Unlimited**, unless you need to throttle the output stream due to SIEM licensing or other constraints.
-    - **SIEM Rate Limit (Events per Second)**: Enter an appropriate rate limit for the events per second that you want to be streamed to your SIEM. A limit that is too low for the traffic volume causes log loss. This field is available only if you select **Limited** in the **SIEM Rate**field.
-  - **Log Type**:Select **Sandbox Verdict**.
-  - **Feed Output Type**:The output is a comma-separated (**CSV**) list by default. Select **Tab-separated**to create a tab-separated list. Select **Custom**to use a different delimiter, such as a dash, and enter the delimiter when you specify the **Feed Output Format**.
-  - **Feed Escape Character**: The Zscaler service hex encodes all non-printable ASCII characters that are in URLs when it sends logs to the NSS. Any URL character that is less than 0x21, or above 0x7E, is encoded as `%HH`. This ensures that your SIEM is able to parse the URLs in case they contain non-printable characters. For example, a `\n` char in a URL is encoded as `%0A`, and a space is encoded as `%20`. In this field, you can specify additional characters that you want to encode. For example, enter a comma (`,`) to encode it as `%2C`. This is useful if you are using this character as your delimiter and want to ensure it does not cause erroneous delimitation. Note that the service encodes characters in URLs, hostnames, and referrer URLs only. If custom encoding is done for a record, the `%s{eedone}` field is `YES` for that record.
-  - **Feed Output Format**:These are the fields that display in the output. You can edit the default list and if you select **Custom**as the **Feed Output Type**, change the delimiter as well. To learn more about the available fields and their syntax, see [NSS Feed Output Format: Sandbox Verdict Logs](https://help.zscaler.com/zia/nss-feed-output-format-sandbox-verdict-logs).
-  - **Time Zone**:By default, this is set to the organization's time zone. The time zone you set applies to the time field in the output file. The time zone automatically adjusts to changes in daylight saving in the specific time zone. The configured time zone can be output to the logs as a separate field. The list of time zones is derived from the IANA Time Zone database. Direct GMT offsets can also be specified.
-  - **Duplicate Logs**: To ensure that no logs are skipped during downtime, specify the number of minutes that the NSS sends duplicate logs. Zscaler recommends setting the number to 5 minutes, or more if required. This allows the NSS to send up to 60 minutes (one hour) of logs to the SIEM after the connection is restored. To learn more, see [General Guidelines for NSS Feeds and Feed Formats](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats#duplicate-logs-example).
-4. Define the filters:
-  - Security
-  - File Type
-  - Sandbox Verdict
-5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-- **Threat Names**: Use this filter to limit the logs based on specific threats detected in the transaction. You can enter multiple threat names. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-
-- **Download File Type**: Use this filter to limit the logs based on the type of file downloaded in the transaction. Multiple selections are allowed. This filter currently includes file types that are not eligible for Sandbox analysis. No log data is available for these file types, if selected. For a list of eligible file types, see [About Sandbox](https://help.zscaler.com/zia/about-sandbox#SandboxFileTypes).
-- **MD5**: Use this filter to limit the logs based on the MD5 hash of a file. You can enter multiple hashes. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-- **SHA**: Use this filter to limit the logs based on the SHA-256 hash of a file. You can enter multiple hashes. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-
-- **Sandbox Verdicts**: Use this filter to limit the logs based on the verdict of the Sandbox analysis. This filter includes verdicts related to [Sandbox](https://help.zscaler.com/zia/configuring-sandbox-policy) (e.g., Sandbox Adware), [Advanced Threat Protection](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy) (e.g., Suspicious Content), and [Malware Protection](https://help.zscaler.com/zia/configuring-malware-protection-policy) (e.g., Trojan) policies. Optionally, select **Benign** to limit the logs to non-malicious verdicts. Multiple selections are allowed.
-- **Tactic**: Use this filter to limit the logs based on the MITRE ATT&CK tactic (e.g., TAC028). You can enter multiple tactics. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears. If you do not specify tactics in this filter, verdicts associated with any possible MITRE ATT&CK tactic are displayed.
-- **Technique**: Use this filter to limit the logs based on the MITRE ATT&CK technique (e.g., T1005). You can enter multiple techniques. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears. If you do not specify techniques in this filter, verdicts associated with any possible MITRE ATT&CK technique are displayed.
 <!-- /ZS-ARTICLE -->

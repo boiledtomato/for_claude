@@ -1,8 +1,235 @@
 # Zscaler Help — Unified Platform / Admin / Logs (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 22:17 UTC
-Articles in this file: 171
+Generated: 2026-09-28 09:01 UTC
+Articles in this file: 172
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/adding-and-managing-entities-and-fields","lastmod":"2026-09-25T09:22Z","nid":"1545270"} -->
+## Adding and Managing Entities and Fields
+
+- Source: https://help.zscaler.com/unified/adding-and-managing-entities-and-fields
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Adding and Managing Entities and Fields
+- Last modified: 2026-09-25T09:22Z
+- Summary: Information about how to add and manage fields and entities in the Security Operations Platform data model.
+
+The Security Operations Platform (SecOps Platform) data model comes with many default entity types that define and describe the data created and needed by the applications in the SecOps Platform. You can manage those entities, their attributes (fields), and their relationships to ensure that business objectives are met. To learn more, see [Understanding Entity Types](https://help.zscaler.com/unified/understanding-entity-types) and [Understanding the Data Model in the Security Operations Platform](https://help.zscaler.com/unified/understanding-data-model-security-operations-platform).
+
+Consult your Zscaler Account team when making changes to the data model. Uninformed or well-meaning changes to the data model can affect data integrity and cause fragmented or duplicated data, which can result in operational inefficiencies or noncompliance.
+
+## Adding and Managing Entities
+
+For access to the data model, your assigned role must include the Read, Create, Edit, and Delete permissions under the Platform - Model Management resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/unified/creating-custom-roles) and [Managing User Roles](https://help.zscaler.com/unified/managing-user-roles#assign-role).
+
+You can add new entities when you need to track distinct objects, resources, or concepts in the SecOps Platform data model that are not otherwise covered by the default entities.
+
+Add an Entity
+
+To add an entity:
+
+1. In the [SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Data Model**.
+3. Click **Add Entity**. See image. This action is irreversible. You cannot delete entities from the SecOps Platform data model. To delete an existing entity, contact Zscaler Support.
+4. Enter a name for the entity, and click **Add**. An entity is created with the following default fields: `First Seen`, `Last Seen`, `Tags`, `Sources`, `ID`, `Locked`, `State`, `Created`, `Last Update`, `Last State Transition`, `Key`, `Name`, `Type`.
+5. Configure the entity's relationships, fields, unification rules, and usage within the SecOps Platform. Consult your Zscaler Account team for assistance.
+
+[Image: Add Entity button highlighted on Data Model Management page.]
+
+When managing entities, you can perform the following actions:
+
+Add a Field to an Entity
+
+To add a field to an entity:
+
+1. In the [SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Data Model**.
+3. For the entity you want to add a new field to, click the **Add field** icon. See image. [Image: Add field icon highlighted on Data Model Management page] This action is irreversible. You cannot delete fields from the SecOps Platform data model. To delete an existing field from an entity, contact Zscaler Support.
+4. In the new field window that appears:
+  1. **Field Name**: Enter a name for the field.
+  2. **Field Type**: Select a field type from the drop-down menu. Available fields include **Text**, **Number**, **Boolean**, **Date**, **Date & Time**, **Repeated Text**, **Repeated Number**, **Repeated Boolean**, **Repeated Date**, and **Repeated Date & Tim**e.
+
+Investigate an Entity
+
+To view the Entity Explorer page for an entity:
+
+1. In the [SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Data Model**.
+3. Hover over the entity you want to investigate, and click the**Investigate Entity**icon. See image. [Image: Investigate Entity icon highlighted on Alert entity in Data Model Management page] The **Entity Explorer** page appears. To learn more, see [Using the Entity Explorer](https://help.zscaler.com/unified/using-entity-explorer).
+
+Process Entities
+
+To run unification rules and other data manipulation functions:
+
+1. In the [SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Data Model**.
+3. Choose one of the following options: See image. [Image: Process All and Process by entity button]
+  1. **Process All**: Click to process all entities.
+  2. **Process by entity**: Click the drop-down menu to select the entities you want to process, and click **Apply**. Select **Run selected and dependent projects**or **Run selected projections only**, and click **Process**.
+4. (Optional) If processing fails, click **Show Logs**to open the **Entity Management Runs** page and review the logs. See image [Image: Show Logs button highlighted on processing notification for failed run]
+
+View Entity Management Runs
+
+To view entity management runs:
+
+1. In the [SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Data Model**.
+3. Click the **See Logs**icon. See image. [Image: See Logs icon highlighted on the Data Model Management page] The **Entity Management Runs** page appears.
+4. On the **Entity Management Runs** page, you can perform the following actions:
+  - View details of the entity management runs. You can sort each column. For each run, you can see:
+    - **Status**: The status column displays the outcome of each run:
+      - **Completed**: The run successfully completed without data manipulation issues.
+      - **Canceled**: The run was intentionally stopped by the user.
+      - **Failed**: The run encountered an error during data manipulation that prevented it from completing successfully.
+      - **Partially Completed**: The run encountered some errors during data manipulation. You should manually process this run again to ensure that all data manipulation is completed.
+    - **ID**: A unique identifier for the run that can be used for reference when troubleshooting run failures.
+    - **Category**: The run's category displays the processing type, indicating the level of processing applied to the ingested data. All Entity Management runs are categorized as**Aggregate**runs, where the SecOps Platform applies data unification rules and other data manipulation processes. To learn more about other run categories, see [Tracking Data Source Runs](https://help.zscaler.com/unified/tracking-data-source-runs).
+    - **Triggered by**: Displays who initiated the run:
+      - **System**: The run was triggered by its [configured schedule](https://help.zscaler.com/unified/2.0/creating-data-sources#scheduling-section).
+      - **User**: The run was triggered by a user clicking**Process** or **Process All**.
+    - **Run type**: Indicates how the run was performed: For a complete list of all run types, contact Zscaler Support.
+      - **Agg process:** A run manually initiated by a user by clicking **Process** or **Process All** on the [Data Unification - Entities page](https://help.zscaler.com/unified/managing-entity-unification), [Data Unification - Fields page](https://help.zscaler.com/unified/managing-field-unification), or Data Model Management page.
+      - **Batched**: A run initiated by its [configured schedule](https://help.zscaler.com/unified/creating-data-sources).
+      - **Auto-batched*****:***A run initiated as part of a [platform-managed batch process](https://help.zscaler.com/unified/managing-data-sources).
+      - **Post manual operation**: A run initiated by a user overriding a field value.
+    - **Duration**: The total amount of time the run took to complete.
+    - **Start Time**and**End Time:**The timestamps when the run started and ended. This information can reveal potential issues with data unification and assist during troubleshooting.
+  - Click to expand a run, and drill down into detailed logs about the completion status, duration, and start and end times for each entity processed. See image.
+  - (Optional) For in-progress runs, hover over the run, and click the **Cancel**icon to cancel the run. Confirm your choice to cancel the run instantly. See image.
+
+[Image: Entity management run expanded to show run activities.]
+
+[Image: Cancel icon highlighted on in-progress entity management run]
+
+View Entity Relationships
+
+Relationships between entities and their fields are defined on the Configure > Relationspage. Establishing proper relations prevents orphan records and preserves the integrity of your data. It also allows you to apply referential business logic.
+
+To learn more about establishing relations among entities and their fields, contact your Zscaler Account team.
+
+See image.
+
+[Image: Relations page]
+
+## Managing Fields
+
+When managing fields, you can perform the following actions:
+
+Change Field Visibility
+
+Field visibility determines whether a field is viewable within Unified Vulnerability Management (UVM), Asset Exposure Management (AEM), and other SecOps applications. The SecOps Platform still processes, aggregates, and runs unification rules for hidden fields.
+
+To change field visibility:
+
+1. In the [SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Data Model**.
+3. Change a field's visibility by performing one of the following actions:
+  - Modify multiple fields:
+    1. Click **Set Visibility**. See image.
+    2. Select the fields you want to change visibility for. See image.
+    3. Click **Show** to enable visibility, or click **Hide** to disable visibility. See image.
+  - Modify a single field:
+    1. Click the field you want to change visibility for. The field details drawer opens.
+    2. Enable or disable **Visibility**. See image.
+
+[Image: Visibility toggle highlighted in field drawer]
+
+[Image: Multiple fields selected in the Data Model Management page]
+
+[Image: Show and Hide buttons highlighted in Data Model Management]
+
+[Image: Set Visibility button highlighted in Data Model Management]
+
+Manage Value Calculations
+
+Every field in the data model has a default formula that determines what values the field will contain when data is aggregated. You can see default formulas and calculations (i.e., Python script) for each field in the field drawer. You can also review the [default attribute reconciliation logic](https://help.zscaler.com/unified/attribute-reconciliation-default-functions) to understand how values for certain field types are calculated.
+
+To ensure the field uses value calculations that reflect your current security landscape, Zscaler recommends using [field unification rules](https://help.zscaler.com/unified/configuring-field-unification). This provides an easy, intuitive way to modify field formulas and calculations. However, if you find that the field unification rules are limited and cannot fully define the field's value, you can modify the formulas and Python script directly within the Data Model Management page. To learn more, see [Configuring Field Unification](https://help.zscaler.com/unified/configuring-field-unification) and [Understanding Field Unification, Data Model, and Application Settings](https://help.zscaler.com/unified/understanding-field-unification-data-model-and-application-settings).
+
+To modify the field's default data model logic:
+
+1. In the [SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Data Model**.
+3. Click the field for which you want to manage its calculations. The field drawer opens. Field unification rules are the recommended way to specify field value logic, and they automatically override the default data model logic. If you have already configured field unification rules for this field, click **Unlink & Override**. This removes the field from [field unification rules](https://help.zscaler.com/unified/configuring-field-unification). See image.
+4. On the **Calculation** tab:
+  1. (Optional) Click **Add formula**and select a formula from the list, or click **Create new** to add your own. See image. The formula is added to the `eval_first_seen` function in the Editor. See image.
+  2. (Optional) Enable **CEL** to use [Python's Common Expression Language (CEL)](https://python-common-expression-language.readthedocs.io/en/latest/).
+  3. In the **Editor** field, insert a Python script.
+  4. In the **Default values for exception & none cases**section:
+    1. Click the **If Null** drop-down menu and select how null values are handled:
+      - **Set Null**: Set empty or null values as `Null`. This option is default.
+      - **Set Value**: Enter what value should be given to the empty or null value.
+      - **Fail & Set Error**: Set empty or null values to error with the included error message. You can also enter a new message.
+    2. Click the **If Error** drop-down menu and select how errors during value calculations are handled:
+      - **Set Null**: Set values as `Null`. This option is default.
+      - **Set Value**: Enter the value text.
+      - **Fail & Set Error**: Set empty or null values to error with the included error message. You can also enter a new message.
+
+[Image: Add formula button highlighted in the Calculation tab.  The  individual formula and the Create New button are highlighted in the Add formula drop-down.]
+
+[Image: Formula added to the editor]
+
+Preview a Field or Entity Data Model
+
+Review a limited subset of rows to verify how data loads within your field, or inspect your data types and field properties for a given entity.
+
+To preview an entity or field data model:
+
+1. In the [SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Data Model**.
+3. Click the field for which you want to view its data model or its associated entity's data model. The field drawer opens.
+4. Click **Preview**. See image. The **Model Preview** page appears.
+5. Use the filters to adjust the data model preview as needed.
+6. (Optional) Click the **Entity** button to view the associated entity's data model. You can [resize or sort the table columns and add filters](https://help.zscaler.com/unified/using-tables). See image.
+
+[Image: Field is configured through unification rules and displays a warning and an Unlink & Override button.]
+
+Allow Manual Updates
+
+Allow users to make manual changes to a field value after aggregation and unification rules have run. Manual updates might be required for flexible business use cases, and you can restrict updates to roles or resources, require rationale, or apply content verification.
+
+To allow manual updates:
+
+1. In the [SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Data Model**.
+3. Click the field for which you want to view its data model or its associated entity's data model. The field drawer opens.
+4. Click the **Manual Updates**tab.
+5. Enable **Allow Manual Updates**. See image. Some fields and entities do not allow you to enable manual updates.
+6. Enable the following settings as necessary:
+  1. **Allowed Permissions**: Enable to determine whether manual updates are restricted to specific roles or certain resource permissions, then select an option:
+    - **Restrict to Roles**: Select which roles are allowed to manually update the field.
+    - **Restrict to Resources**: Select which resources are allowed to manually update the field.
+  2. **Require Reason on update**: Enableto require rationale when a manual update occurs, then select an option:
+    - **Always**: A reason is always required when a manual update occurs. This option is selected by default.
+    - **Specific**:Select conditions under which a reason is required.
+  3. **Content Validation**: Enable to apply validation logic when a manual update occurs, then select an option:
+    - **Manual**: Select and enter specific keywords to be checked against the manually added value.
+    - **Query**: Select and click the **Field** drop-down menu to select a field.
+
+[Image: Allow Manual Updates toggle highlighted in Manual Updates tab of a field drawer]
+
+View Field Usage
+
+To view field usage:
+
+1. In the [SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Data Model**.
+3. Click the field for which you want to view its data model or its associated entity's data model. The field details drawer opens.
+4. Click the **Usage**tab.
+5. Click an item under each usage section to open its associated page: Sections are only displayed if the field is currently in use.
+  - **Reports**: All reports that include the field.
+  - **View**: All saved views that include the field.
+  - **Dashboards**: All dashboards that include the field.
+  - **Data Model Fields**: All data model fields that the field is included in.
+  - **Data Source Mapping**: All data sources that include mapping to the field.
+  - **UI Configuration**: All UI configurations that include the field.
+  - **Measurement**: All calculated measurements that include the field.
+
+[Image: Entity and field toggle highlighted on Model Preview page]
+
+[Image: Preview button highlighted on field details drawer in the Data Model Management page]
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -3587,13 +3814,13 @@ The new outegration appears on the Outegrations page and becomes available in th
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/creating-playbooks","lastmod":"2026-09-09T09:12Z","nid":"1545366"} -->
+<!-- ZS-ARTICLE {"url":"/unified/creating-playbooks","lastmod":"2026-09-24T04:42Z","nid":"1545366"} -->
 ## Creating Playbooks
 
 - Source: https://help.zscaler.com/unified/creating-playbooks
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Administration > Automations > Playbooks > Creating Playbooks
-- Last modified: 2026-09-09T09:12Z
+- Last modified: 2026-09-24T04:42Z
 - Summary: How to create a playbook that helps your team respond to and remediate threats in the Security Operations Platform.
 
 You can create a playbook to group one or more response actions for a supported entity. You can manually trigger a playbook or use an automation rule to run the playbook automatically.
@@ -3623,7 +3850,7 @@ To create a playbook:
     1. Click **Add Action**.
     2. Select an action from the drop-down menu and provide the details (e.g., specify the recipient, subject, and message for an email).
     3. Click **Add Action** to add more actions to the playbook.
-4. Click **Save**. The playbook is created and displayed on the [My Playbooks](https://help.zscaler.com/unified/1.0/about-playbooks) page.
+4. Click **Save**. The playbook is created and displayed on the [My Playbooks](https://help.zscaler.com/unified/about-playbooks) page.
 
 ## Creating a Playbook from a Template
 
@@ -3633,7 +3860,19 @@ You can use a template from the template gallery to create a playbook.
 2. Click a template. The **Template Preview** page appears.
 3. Click **Create from Template**.
 4. Review and modify the playbook information in the **Details**, **Permissions**, and **Actions** sections as required. See image.
-5. Click **Save as New**. The playbook is created and displayed on the [My Playbooks](https://help.zscaler.com/unified/1.0/about-playbooks) page.
+5. Click **Save as New**. The playbook is created and displayed on the [My Playbooks](https://help.zscaler.com/unified/about-playbooks) page.
+
+## Creating a Playbook from a JSON File
+
+You can create a playbook by importing a JSON file [exported from an existing playbook](https://help.zscaler.com/unified/managing-reports). The JSON file contains the playbook name, description, entity type, actions, permissions, and status.
+
+To create a playbook from a JSON file:
+
+1. On the **Playbooks** page, click **New Playbook**. The **Create New Playbook** page appears.
+2. Click the **More** icon and select **Import from JSON**. See image.
+3. Select the JSON file that you want to import. The playbook details are automatically populated from the JSON file (e.g., name and entity type). If the imported playbook name already exists, an error message appears. Enter a unique name to continue.
+4. Review the imported playbook details.
+5. Click **Save**. The playbook is created and displayed on the [My Playbooks](https://help.zscaler.com/unified/about-playbooks) page.
 
 [Image: Playbooks page showing New Playbook option]
 
@@ -3646,6 +3885,8 @@ You can use a template from the template gallery to create a playbook.
 [Image: Playbooks page showing Template Gallery tab]
 
 [Image: Template Preview window showing Playbook template details, permissions, and actions]
+
+[Image: The Create New Playbook page showing the Import from JSON option in the More Options menu]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -3880,13 +4121,13 @@ If a source behaves unexpectedly, you can also review audit logs to track change
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/deploying-outegration-configurations","lastmod":"2026-09-20T07:06Z","nid":"1545218"} -->
+<!-- ZS-ARTICLE {"url":"/unified/deploying-outegration-configurations","lastmod":"2026-09-27T07:06Z","nid":"1545218"} -->
 ## Deploying Outegration Configurations
 
 - Source: https://help.zscaler.com/unified/deploying-outegration-configurations
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Outegration Configuration > Deploying Outegration Configurations
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-09-27T07:06Z
 - Summary: Information about deploying outegration configuration in the Security Operations Platform.
 
 The Security Operations Platform (SecOps Platform) enables you to send security findings, alerts, remediation tasks, and operational context to a wide array of external tools, including ticketing systems, work management platforms, cloud storage services, streaming platforms, and other third-party systems. Connecting these external destinations to your account establishes outbound workflows that move SecOps Platform data and actions into the systems where security, IT, and engineering teams already work.
@@ -4180,13 +4421,13 @@ Click the Investigate link available for each section and you're redirected to t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/exploring-source-data-mapping","lastmod":"2026-09-07T05:01Z","nid":"1545246"} -->
+<!-- ZS-ARTICLE {"url":"/unified/exploring-source-data-mapping","lastmod":"2026-09-21T21:06Z","nid":"1545246"} -->
 ## Exploring Source Data in Mapping
 
 - Source: https://help.zscaler.com/unified/exploring-source-data-mapping
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Exploring Source Data in Mapping
-- Last modified: 2026-09-07T05:01Z
+- Last modified: 2026-09-21T21:06Z
 - Summary: How to explore the source fields during data source mapping.
 
 When [mapping a data source](https://help.zscaler.com/unified/mapping-data-sources) in the Security Operations Platform (SecOps Platform), you can explore the ingested source data to better understand its structure, values, and quality. This helps you accurately align vendor-provided fields with the SecOps Platform data model (e.g., choosing fields that are suitable as unique identifiers or keys).
@@ -6183,7 +6424,7 @@ To delete a specific role:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/managing-table-columns","lastmod":"2026-08-25T11:43Z","nid":"1541986"} -->
+<!-- ZS-ARTICLE {"url":"/unified/managing-table-columns","lastmod":"2026-08-25T11:43Z","nid":"1545252"} -->
 ## Managing Table Columns
 
 - Source: https://help.zscaler.com/unified/managing-table-columns
@@ -6443,13 +6684,13 @@ To trigger a playbook on an alert:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/mapping-data-sources","lastmod":"2026-09-07T05:01Z","nid":"1545242"} -->
+<!-- ZS-ARTICLE {"url":"/unified/mapping-data-sources","lastmod":"2026-09-21T21:06Z","nid":"1545242"} -->
 ## Mapping Data Sources
 
 - Source: https://help.zscaler.com/unified/mapping-data-sources
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Mapping Data Sources
-- Last modified: 2026-09-07T05:01Z
+- Last modified: 2026-09-21T21:06Z
 - Summary: How to map a data source's third-party vendor fields to the Security Operations Platform.
 
 After [creating a data source](https://help.zscaler.com/unified/creating-data-sources) in the Security Operations Platform (SecOps Platform), and ingesting data at least once, you must map the ingested fields to the SecOps Platform data model fields. Mapping is configured per source. After all sources are configured and mapped, the platform can deduplicate and merge records across multiple sources through [data unification](https://help.zscaler.com/unified/what-data-unification), to be used and consumed by the different [SecOps Platform applications](https://help.zscaler.com/unified/what-security-operations-platform) (e.g., UVM, AEM).
@@ -8144,7 +8385,7 @@ During onboarding, Zscaler sets up its default set of data protection policies. 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/reviewing-ssltls-inspection","lastmod":"2026-08-21T13:43Z","nid":"1488021"} -->
+<!-- ZS-ARTICLE {"url":"/unified/reviewing-ssltls-inspection","lastmod":"2026-08-21T13:43Z","nid":"1543374"} -->
 ## Reviewing SSL/TLS Inspection Policies
 
 - Source: https://help.zscaler.com/unified/reviewing-ssltls-inspection
@@ -8229,7 +8470,7 @@ The service automatically activates an admin's saved changes if the admin:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/searching-zscaler-admin-console","lastmod":"2026-08-31T06:41Z","nid":"1503801"} -->
+<!-- ZS-ARTICLE {"url":"/unified/searching-zscaler-admin-console","lastmod":"2026-08-31T06:41Z","nid":"1544586"} -->
 ## Searching in the Zscaler Admin Console
 
 - Source: https://help.zscaler.com/unified/searching-zscaler-admin-console
@@ -9296,7 +9537,7 @@ Other browsers should be compatible, but are not actively tested.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/supported-browsers-security-operations-platform-admin-portal","lastmod":"2026-08-25T11:48Z","nid":"1542128"} -->
+<!-- ZS-ARTICLE {"url":"/unified/supported-browsers-security-operations-platform-admin-portal","lastmod":"2026-08-25T11:48Z","nid":"1545263"} -->
 ## Supported Browsers for the Security Operations Platform Admin Portal
 
 - Source: https://help.zscaler.com/unified/supported-browsers-security-operations-platform-admin-portal
@@ -9470,7 +9711,7 @@ For any assistance or queries, contact your Zscaler Account team.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/understanding-alert-email-risk360","lastmod":"2026-02-11T06:27Z","nid":"1533801"} -->
+<!-- ZS-ARTICLE {"url":"/unified/understanding-alert-email-risk360","lastmod":"2026-02-11T06:27Z","nid":"1545143"} -->
 ## Understanding Alert Email for Risk360
 
 - Source: https://help.zscaler.com/unified/understanding-alert-email-risk360
@@ -10352,14 +10593,14 @@ The Internet & SaaS service is displayed as ZIA in the SecOps Platform.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/understanding-zagent-use-cases","lastmod":"2026-09-07T05:01Z","nid":"1544588"} -->
+<!-- ZS-ARTICLE {"url":"/unified/understanding-zagent-use-cases","lastmod":"2026-09-22T13:24Z","nid":"1544588"} -->
 ## Understanding ZAgent with Use Cases
 
 - Source: https://help.zscaler.com/unified/understanding-zagent-use-cases
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > ZAgent > Understanding ZAgent with Use Cases
-- Last modified: 2026-09-07T05:01Z
-- Summary: Provides use case examples when conversing with Copilot.
+- Last modified: 2026-09-22T13:24Z
+- Summary: To provids use case examples when conversing with ZAgent.
 
 This feature is in Limited Availability. To enable this feature, contact Zscaler Support.
 
@@ -11960,7 +12201,7 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-data-channels-dashboard","lastmod":"2026-02-11T06:23Z","nid":"1533709"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-data-channels-dashboard","lastmod":"2026-02-11T06:23Z","nid":"1545125"} -->
 ## Viewing the Data Channels Dashboard
 
 - Source: https://help.zscaler.com/unified/viewing-data-channels-dashboard
@@ -12204,7 +12445,7 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-devices-dashboard","lastmod":"2026-02-11T06:02Z","nid":"1518396"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-devices-dashboard","lastmod":"2026-02-11T06:02Z","nid":"1544799"} -->
 ## Viewing the Devices Dashboard
 
 - Source: https://help.zscaler.com/unified/viewing-devices-dashboard
@@ -12593,7 +12834,7 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-financial-risk","lastmod":"2026-02-16T21:53Z","nid":"1526666"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-financial-risk","lastmod":"2026-02-16T21:53Z","nid":"1544913"} -->
 ## Viewing Financial Risk
 
 - Source: https://help.zscaler.com/unified/viewing-financial-risk
@@ -13379,7 +13620,7 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-sandbox-threats-dashboard","lastmod":"2026-02-11T06:08Z","nid":"1498801"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-sandbox-threats-dashboard","lastmod":"2026-02-11T06:08Z","nid":"1544536"} -->
 ## Viewing the Sandbox Threats Dashboard
 
 - Source: https://help.zscaler.com/unified/viewing-sandbox-threats-dashboard

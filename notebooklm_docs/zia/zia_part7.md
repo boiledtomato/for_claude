@@ -1,7 +1,7 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 7)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 22:17 UTC
+Generated: 2026-09-28 09:01 UTC
 Articles in this file: 86
 
 ---
@@ -993,13 +993,13 @@ To learn more about the requirements and steps to deploy the NSS Collector via t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-outbound-email-policy-enforcement","lastmod":"2026-08-21T08:34Z","nid":"1492686"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-outbound-email-policy-enforcement","lastmod":"2026-09-22T07:06Z","nid":"1492686"} -->
 ## Understanding Outbound Email Policy Enforcement
 
 - Source: https://help.zscaler.com/zia/understanding-outbound-email-policy-enforcement
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Understanding Outbound Email Policy Enforcement
-- Last modified: 2026-08-21T08:34Z
+- Last modified: 2026-09-22T07:06Z
 - Summary: Information on how the Zscaler service uses rules to inspect and enforce policies on sensitive data contained in outbound email traffic.
 
 Zscaler Outbound Email Data Loss Prevention (DLP) lets you monitor and act on sensitive data in outbound email sent to external domains. You can use Zscaler custom and predefined DLP engines to detect sensitive data and to specify DLP actions (i.e., Allow, Block, and Custom Header Insertion) when an email triggers an outbound email policy rule. If you don't use Zscaler DLP engines, the service functions instead as a filter, only flagging content based on specific criteria.
@@ -1480,16 +1480,16 @@ To learn more about how to view and analyze the Post-Quantum Visibility Report, 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-predefined-dlp-dictionaries","lastmod":"2026-09-20T07:06Z","nid":"1447026"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-predefined-dlp-dictionaries","lastmod":"2026-09-27T07:06Z","nid":"1447026"} -->
 ## Understanding Predefined DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/understanding-predefined-dlp-dictionaries
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Understanding Predefined DLP Dictionaries
-- Last modified: 2026-09-20T07:06Z
-- Summary: Information about the predefined DLP dictionaries in the Zscaler Admin Console.
+- Last modified: 2026-09-27T07:06Z
+- Summary: Information about the predefined Data Loss Prevention (DLP) dictionaries in the Zscaler Admin Console.
 
-Zscaler provides the following Data Loss Prevention (DLP) dictionaries. Dictionaries marked with an asterisk (*) are *not*supported for Endpoint DLP. To learn more, see [About Endpoint DLP](https://help.zscaler.com/zia/about-endpoint-dlp). To learn more about configuring predefined DLP dictionaries, see [Editing Predefined DLP Dictionaries](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries).
+Zscaler provides the following Data Loss Prevention (DLP) dictionaries. Dictionaries marked with an asterisk (*) are *not*supported for Endpoint Data Loss Prevention (DLP). To learn more, see [About Endpoint DLP](https://help.zscaler.com/zia/about-endpoint-dlp). To learn more about configuring predefined DLP dictionaries, see [Editing Predefined DLP Dictionaries](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries).
 
 - Aadhaar Card Number (India)
 - ABA Bank Routing Numbers
@@ -3569,7 +3569,7 @@ Zscaler also offers Advanced DLP Private Service Edges as a complementary dedica
 
 Private Service Edges are installed in an organization’s data center and are dedicated to the organization’s traffic, but they are managed and maintained by Zscaler Cloud Operations. Zscaler monitors and maintains the Private Service Edges with a near-zero touch from your organization.
 
-You can monitor the health of your Private Service Edges on the ZIA PSE Health Dashboard page if you have a Zscaler Digital Experience (ZDX) subscription. To learn more, see [Monitoring the ZIA Private Service Edge Dashboard](https://help.zscaler.com/zdx/monitoring-zia-private-service-edge-dashboard).
+You can monitor the health of your Private Service Edges on the ZIA PSE Health Dashboard page if you have a Digital Experience (ZDX) subscription. To learn more, see [Monitoring the ZIA Private Service Edge Dashboard](https://help.zscaler.com/zdx/monitoring-zia-private-service-edge-dashboard).
 
 Zscaler treats Private Service Edge as an extension of the Internet & SaaS service. Even when you install and maintain it on your data center, Private Service Edge is subject to maintenance or alterations, updates, enhancements, additions, or improvements at any time. To learn more, see [Hardware Usage Terms](https://help.zscaler.com/product-usage-terms/hardware-usage-terms-policy).
 
@@ -3844,13 +3844,13 @@ The Service Edge identifies the destination host in one of the following ways:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-public-service-edges-internet-saas","lastmod":"2026-09-11T09:47Z","nid":"1401041"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-public-service-edges-internet-saas","lastmod":"2026-09-25T21:06Z","nid":"1401041"} -->
 ## Understanding Public Service Edges for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/understanding-public-service-edges-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Public Service Edge > Understanding Public Service Edges for Internet & SaaS
-- Last modified: 2026-09-11T09:47Z
+- Last modified: 2026-09-25T21:06Z
 - Summary: Information on Public Service Edges for Internet & SaaS, an integral part of the Zscaler cloud.
 
 A key component of the Zscaler cloud, Public Service Edges for Internet & SaaS (ZIA) are full-featured secure internet gateways that provide integrated internet security. They inspect all web traffic bidirectionally for malware and enforce security, compliance, and firewall policies. Each Public Service Edge has two main modules for inspecting traffic and applying policies: a web module and a firewall module. To learn more about how Public Service Edges apply policy, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
@@ -4001,13 +4001,13 @@ For example, you create and start a scan for a file sharing tenant on May 1, 202
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-saas-security-supported-capabilities","lastmod":"2026-09-15T13:27Z","nid":"1529918"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-saas-security-supported-capabilities","lastmod":"2026-09-25T03:05Z","nid":"1529918"} -->
 ## Understanding SaaS Security Supported Capabilities
 
 - Source: https://help.zscaler.com/zia/understanding-saas-security-supported-capabilities
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > Understanding SaaS Security Supported Capabilities
-- Last modified: 2026-09-15T13:27Z
+- Last modified: 2026-09-25T03:05Z
 - Summary: Information on the supported administrative capabilities and actions for all SaaS Security apps.
 
 This article lists the supported administrative capabilities and actions for all SaaS Security applications:
@@ -4103,7 +4103,7 @@ The following is a list of supported activities for SaaS Security applications:
 
 | Application | Scan Content | Automatic Remediation Actions | Manual Remediation Actions | Malware Actions | Watermarking |
 | --- | --- | --- | --- | --- | --- |
-| Zoom | Zoom Chat: Messages and Attachments; Zoom Meeting: Messages and Attachments; Transcripts | Remove Content; Report Incident | Remove (messages only) | Remove Malware; Report Malware | Supported |
+| Zoom | Zoom Chat: Messages and Attachments; Zoom Meeting: Messages and Attachments; Transcripts; AI transcripts; AI meeting summary | Remove Content; Report Incident | Remove (messages only) | Remove Malware; Report Malware | Supported |
 | MS Teams | Channels: Messages and Attachments | Notify Users; Report Incident | None | Quarantine Malware (Files); Remove Malware; Report Malware | Supported |
 | Slack | Channels: Messages and Attachments; 1:1 Chats | Notify Users; Report Incident; Quarantine | Restore Quarantine | Quarantine Malware; Remove Malware; Report Malware | Supported |
 | Cisco Webex | Messages; Files | Notify Users; Report Incident | Remove Quarantine | Quarantine Malware; Remove Malware; Report Malware | Supported |
@@ -5913,19 +5913,19 @@ Updates for Virtual Service Edges in standalone mode using an external LB should
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/using-pac-files-private-service-edge-internet-saas-deployments","lastmod":"2026-09-11T04:40Z","nid":"1400576"} -->
+<!-- ZS-ARTICLE {"url":"/zia/using-pac-files-private-service-edge-internet-saas-deployments","lastmod":"2026-09-23T03:33Z","nid":"1400576"} -->
 ## Using PAC Files: Private Service Edge for Internet & SaaS Deployments
 
 - Source: https://help.zscaler.com/zia/using-pac-files-private-service-edge-internet-saas-deployments
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Using PAC Files: Private Service Edge for Internet & SaaS Deployments
-- Last modified: 2026-09-11T04:40Z
+- Last modified: 2026-09-23T03:33Z
 - Summary: Information on how to use PAC files to forward traffic to Private Service Edge for Internet & SaaS (ZIA).
 
 Following are some additional requirements if your organization uses PAC files to forward traffic to Private Service Edge for Internet & SaaS (ZIA):
 
 - Enable a policy on the corporate firewall to allow devices to retrieve PAC files from the Zscaler PAC servers. To learn more, see [Firewall Configuration Requirements: Private Service Edge for Internet & SaaS Deployments](https://help.zscaler.com/zia/firewall-configuration-requirements-private-service-edge-internet-saas-deployments). If the PAC files are used only when users are remote or telecommuting, this step is not required.
-- When an organization uses Private Service Edges, Zscaler service creates a subcloud that maps the domain names `GATEWAY.``<Subcloud Name>``.``<Cloud Name>` and `SECONDARY.GATEWAY.``<Subcloud Name>``.``<Cloud Name>` to the IP addresses of the Private Service Edges and any Public Service Edges for Internet & SaaS that you want to use. This ensures that your web traffic is sent to the specified Public Service Edges only.
+- When an organization uses Private Service Edges, the Zscaler service creates a subcloud that maps the domain names `GATEWAY.``<Subcloud Name>``.``<Cloud Name>` and `SECONDARY.GATEWAY.``<Subcloud Name>``.``<Cloud Name>` to the IP addresses of the Private Service Edges and any Public Service Edges for Internet & SaaS that you want to use. This ensures that your web traffic is sent to the specified Public Service Edges only.
 
 Because of this, ensure that the PROXY statement in your PAC file specifies the following:
 
@@ -6204,13 +6204,13 @@ On the My IP Address page, you can view the following information:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/viewing-and-managing-supported-sspm-policies","lastmod":"2026-09-17T07:41Z","nid":"1486726"} -->
+<!-- ZS-ARTICLE {"url":"/zia/viewing-and-managing-supported-sspm-policies","lastmod":"2026-09-23T07:24Z","nid":"1486726"} -->
 ## Viewing and Managing the Supported SSPM Policies
 
 - Source: https://help.zscaler.com/zia/viewing-and-managing-supported-sspm-policies
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Posture Management > Posture Management - Essentials > Viewing and Managing the Supported SSPM Policies
-- Last modified: 2026-09-17T07:41Z
+- Last modified: 2026-09-23T07:24Z
 - Summary: Information on viewing, enabling, or disabling a SaaS Security Posture Management (SSPM) policy.
 
 The SaaS Security Posture Management (SSPM) page allows you to view or manage the supported policies for each application.
@@ -6219,7 +6219,7 @@ If you have Advanced Posture Management enabled via a license, the Posture Manag
 
 To view the list of supported SSPM policies for each tenant and to manage the status of the policies:
 
-1. Go to **Policies**> **Data Protection** > **SaaS Security** **Posture Management**.
+1. Go to **Data Security** > **SaaS Security >** **Posture Management**.
 2. From the **Application**drop-down menu, choose the SaaS application you want to view the recommended security policies for. See image.
 3. From the **Tenant**drop-down menu, choose the application tenant you want to view the recommended security policies for. See image.
 4. Click the **Add**icon (**+**) to further filter the policies by **Compliance Check**, **Risk Level**, and **Status**. Click **Reset**to reset the filters back to the application and tenant. See image.
@@ -6245,13 +6245,13 @@ To view the list of supported SSPM policies for each tenant and to manage the st
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/viewing-crowdstrike-endpoint-hits-report","lastmod":"2026-08-23T07:06Z","nid":"1401301"} -->
+<!-- ZS-ARTICLE {"url":"/zia/viewing-crowdstrike-endpoint-hits-report","lastmod":"2026-09-24T07:06Z","nid":"1401301"} -->
 ## Viewing the CrowdStrike Endpoint Hits Report
 
 - Source: https://help.zscaler.com/zia/viewing-crowdstrike-endpoint-hits-report
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Partner Integrations > Viewing the CrowdStrike Endpoint Hits Report
-- Last modified: 2026-08-23T07:06Z
+- Last modified: 2026-09-24T07:06Z
 - Summary: How to view the CrowdStrike Endpoints Hits report in the Zscaler Admin Console.
 
 If you [integrated with CrowdStrike](https://help.zscaler.com/zia/configuring-crowdstrike-integration), you can view information on endpoints that have been exposed to a potentially malicious file. After the Sandbox analyzes a file, you can click the **MD5** hash and choose **View CrowdStrike Endpoint Hits**. The CrowdStrike Endpoint Hits report provides visibility into all the endpoints installed and detected with CrowdStrike Falcon. The CrowdStrike integration leverages the CrowdStrike Falcon endpoint detection and response (EDR) capabilities and allows you to quarantine endpoints detected with the indicator of compromise (IOC). This IOC enrichment is important for:
@@ -6323,22 +6323,21 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/viewing-data-discovery-details","lastmod":"2026-06-21T20:23Z","nid":"1443091"} -->
+<!-- ZS-ARTICLE {"url":"/zia/viewing-data-discovery-details","lastmod":"2026-09-22T08:15Z","nid":"1443091"} -->
 ## Viewing Data Discovery Details
 
 - Source: https://help.zscaler.com/zia/viewing-data-discovery-details
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > Viewing Data Discovery Details
-- Last modified: 2026-06-21T20:23Z
+- Last modified: 2026-09-22T08:15Z
 - Summary: Information on viewing drill-down data from the Data Discovery Report.
 
 The Data Discovery Details page allows you to drill down to further analyze your organization's Data Loss Prevention (DLP) data. You can access the Data Discovery Details page from the [Data Discovery Report.](https://help.zscaler.com/zia/about-data-discovery-dashboard)
 
 To open the Data Discovery Details page:
 
-1. Go to **Analytics**, and at the bottom of the left-side navigation, enable the toggle**Switch to Existing Reports**.
-2. In the left-side navigation, go to **Internet & SaaS** > **Analytics**> **Data Discovery Report**.
-3. Click an item on an interactive chart, or click **Analyze** **More**on a widget. The **Data Discovery Details**page opens.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Inline DLP**> **Data Discovery Report**.
+2. Click an item on an interactive chart, or click **Analyze** **More**on a widget. The **Data Discovery Details**page opens.
 
 On the Data Discovery Details page, you can view the following information about your organization's DLP data:
 
@@ -6934,13 +6933,13 @@ When configuring the Sandbox policy, you also can enable AI Quarantine to analyz
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/viewing-secure-browsing-reports","lastmod":"2026-06-05T08:17Z","nid":"1399841"} -->
+<!-- ZS-ARTICLE {"url":"/zia/viewing-secure-browsing-reports","lastmod":"2026-09-25T04:59Z","nid":"1399841"} -->
 ## Viewing Secure Browsing Reports
 
 - Source: https://help.zscaler.com/zia/viewing-secure-browsing-reports
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Browser Control > Viewing Secure Browsing Reports
-- Last modified: 2026-06-05T08:17Z
+- Last modified: 2026-09-25T04:59Z
 - Summary: How to view Secure Browsing reports that track the use of vulnerable browsers, plugins, and applications.
 
 The Zscaler service has Secure Browsing reports, which you can run to track the use of vulnerable browsers, plugins, and applications, and then modify your [Browser Control policy](https://help.zscaler.com/zia/configuring-browser-control-policy) if needed.
@@ -6949,7 +6948,7 @@ The Zscaler service has Secure Browsing reports, which you can run to track the 
 
 To view Secure Browsing reports:
 
-1. Go to **Analytics**> **Internet & SaaS** > **Analytics**>**Interactive Reports**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics**> **Reports**>**Interactive Reports**.
 2. On the **Standard Reports** tab, go to the **Secure Browsing** section to see the available browsing reports. See image.
 
 To learn more about Interactive Reports, see [About Interactive Reports](https://help.zscaler.com/zia/about-interactive-reports).
@@ -6960,7 +6959,7 @@ Additionally, on the Web Insights page, you can view a list of the top users wit
 
 To view top users with vulnerable browsers, plugins, and applications:
 
-1. Go to **Logs** > **Insights** >**Web Insights**> **Insights**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** > **Internet & SaaS** >**Web Insights**> **Insights**.
 2. At the top, choose**User**as the **Data Type**.
 3. In the left pane, choose a time frame and chart type.
 4. Select the **Secure Browsing Status** filter, and then select **Vulnerable**.
@@ -7556,13 +7555,13 @@ To restart the Virtual Service Edge:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/web-data-types-and-filters","lastmod":"2026-04-22T01:39Z","nid":"1399471"} -->
+<!-- ZS-ARTICLE {"url":"/zia/web-data-types-and-filters","lastmod":"2026-09-25T03:38Z","nid":"1399471"} -->
 ## Web Data Types and Filters
 
 - Source: https://help.zscaler.com/zia/web-data-types-and-filters
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Web Data Types and Filters
-- Last modified: 2026-04-22T01:39Z
+- Last modified: 2026-09-25T03:38Z
 - Summary: Information on web data types and filters to define web traffic information in a dashboard, report widget, or when analyzing charts in Web Insights.
 
 There are two ways you work with web data types and filters to define the web traffic information that you want to view: in a dashboard or report [widget](https://help.zscaler.com/zia/about-widgets), or when analyzing charts on an Insights page. To learn more about how to analyze your Insights traffic, see [Analyzing Traffic Using Insights](https://help.zscaler.com/zia/analyzing-traffic-using-insights).
@@ -7695,6 +7694,7 @@ Displays data about advanced threats that the service detected in your organizat
   - Inbound
   - Outbound
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to limit the data to advanced threats detected in web traffic that was either allowed or blocked by the service. The default option for this filter is **All**. You can search for specific actions. The following actions appear under this filter:
   - All
   - Allow
@@ -7730,6 +7730,7 @@ Displays data about a data center's bandwidth. You can apply the following filte
   - Inbound
   - Outbound
 - **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 
 Displays data about a department's bandwidth. You can apply the following filters:
 
@@ -7743,6 +7744,7 @@ Displays data about a department's bandwidth. You can apply the following filter
   - Inbound
   - Outbound
 - **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 
 Displays data about a location's bandwidth usage. You can apply the following filters:
 
@@ -7756,6 +7758,7 @@ Displays data about a location's bandwidth usage. You can apply the following fi
   - Inbound
   - Outbound
 - **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 
 Displays data about a location group's bandwidth usage. You can apply the following filters:
 
@@ -7778,6 +7781,7 @@ Displays data about a location group's bandwidth usage. You can apply the follow
   - Inbound
   - Outbound
 - **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 
 Displays bandwidth data for each rule in the Bandwidth Control policy. You can apply the following filters:
 
@@ -7793,6 +7797,7 @@ Displays bandwidth data for each rule in the Bandwidth Control policy. You can a
   - Inbound
   - Outbound
 - **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 
 Displays bandwidth usage in bits-per-second (bps) for each bandwidth class. You can apply the following filters:
 
@@ -7814,6 +7819,7 @@ Displays bandwidth usage in bits-per-second (bps) for each bandwidth class. You 
   - Inbound
   - Outbound
 - **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 
 Displays information on the internet gateway location IP addresses. You can view this information by number of transactions, bytes, or time.
 
@@ -7844,6 +7850,7 @@ Displays a 7-day view of your organization's bandwidth usage in a trend chart. Y
   - Inbound
   - Outbound
 - **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 
 Displays cipher suites used on the client side (client to Public Service Edge for Internet & SaaS) of the SSL connection.
 
@@ -7938,6 +7945,7 @@ The Miscellaneous <Cloud Application Category> Apps (e.g., Miscellaneous Finance
   - Listen
   - Upload
 - **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions. This is the default option.
   - **Allow**: View allowed transactions.
@@ -7987,6 +7995,7 @@ Displays web traffic data grouped by application class.
   - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
   - **Tunnel SSL**: Undecodable protocol within an SSL connection.
 - **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions. This is the default option.
   - **Allow**: View allowed transactions.
@@ -8014,6 +8023,7 @@ Displays data about transactions in which data leakage was detected. The data ar
   - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
   - **Tunnel SSL**: Undecodable protocol within an SSL connection.
 - **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions. This is the default option.
   - **Allow**: View allowed transactions.
@@ -8041,6 +8051,7 @@ Displays data about transactions in which data leakage was detected. The data is
   - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
   - **Tunnel SSL**: Undecodable protocol within an SSL connection.
 - **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions. This is the default option.
   - **Allow**: View allowed transactions.
@@ -8056,6 +8067,7 @@ Displays the unique name of the Data Loss Prevention (DLP) rule that matched or 
   - Allow
   - Block
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 
 Displays data about the web traffic of each department in your organization.
 
@@ -8091,6 +8103,7 @@ Displays web traffic data grouped by the downloaded file type.
   - Inbound
   - Outbound
 - **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions. This is the default option.
   - **Allow**: View allowed transactions.
@@ -8122,6 +8135,7 @@ Displays data associated with file sharing activities. You can apply the followi
   - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
   - **Tunnel SSL**: Undecodable protocol within an SSL connection.
 - **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Traffic Direction**: Use this filter to limit the data to either inbound or outbound traffic. The default option for this filter is **All**. This data type uses only the unit **Bytes**. You can search for specific directions. The following directions appear under this filter:
   - All
   - Inbound
@@ -8155,6 +8169,7 @@ Displays web traffic data grouped by the Response HTTP version. You can apply th
   - Inbound
   - Outbound
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 
 Displays data about the web traffic of instant messaging applications. The trend chart does not support this data type. You can apply the following filters:
 
@@ -8184,6 +8199,7 @@ Displays data about the web traffic of instant messaging applications. The trend
   - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
   - **Tunnel SSL**: Undecodable protocol within an SSL connection.
 - **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions.
   - **Allow**: View allowed transactions.
@@ -8355,6 +8371,7 @@ Displays data about the web traffic of your organization’s location group. You
   - Violence
   - Weapons/Bombs
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions.
   - **Allow**: View allowed transactions
@@ -8536,6 +8553,7 @@ Displays data about the web traffic of your organization's location type. You ca
   - Violence
   - Weapons/Bombs
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Webmail Activity**: Use this filter to limit the data to the web traffic associated with webmail applications. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **Web Mail**. From the **Webmail Activity** filter, the default option is **All**. You can search for specific activities. The following activities appear under the **Webmail Activity**filter:
   - All
   - Send
@@ -8790,6 +8808,7 @@ Displays data about the overall web traffic for the selected time period. You ca
   - Violence
   - Weapons/Bombs
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to limit the data to advanced threats detected in web traffic that was either allowed or blocked by the service. The default option for this filter is **All**. You can search for specific actions. The following actions appear under this filter:
   - All
   - Allow
@@ -8951,6 +8970,7 @@ Displays data about the Windows executable files, DLLs (dynamic link libraries) 
   - Malicious
   - Non malicious
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 
 Displays data grouped according to transactions that were allowed or blocked due to the Sandbox policy.
 
@@ -8969,6 +8989,7 @@ Displays data grouped according to transactions that were allowed or blocked due
   - Quarantined
   - Sent for Analysis
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 
 Displays web traffic data by Secure Browsing class. It only uses samples as its data unit.
 
@@ -8991,6 +9012,7 @@ Displays web traffic data by Secure Browsing class. It only uses samples as its 
   - Installed
   - Vulnerable
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 
 Displays data about web traffic from all installed browsers, plug-ins and applications, and from installed browsers, plug-ins and applications that the service considers vulnerable. It only uses samples as its data unit.
 
@@ -9083,6 +9105,7 @@ Displays data about web traffic from all installed browsers, plug-ins and applic
   - User Agent Switcher
   - Windows Media Player
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 
 Displays data about web traffic associated with specific browsers, plug-ins and applications. It only uses samples as its data unit. This data type cannot be used with a trend chart.
 
@@ -9175,6 +9198,7 @@ Displays data about web traffic associated with specific browsers, plug-ins and 
   - User Agent Switcher
   - Windows Media Player
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 
 Displays information associated with a destination server. You can view this information by number of transactions, bytes, or time.
 
@@ -9243,6 +9267,7 @@ Displays data about web traffic associated with the access and usage of social n
   - Publish
   - View
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **Any**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions.
   - **Allow**: View allowed transactions
@@ -9274,6 +9299,7 @@ Displays data about the web traffic associated with the access and usage of stre
   - Listen
   - Upload
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions.
   - **Allow**: View allowed transactions
@@ -9341,6 +9367,7 @@ Displays data about detected viruses or spyware. The trend chart does not suppor
   - Inbound
   - Outbound
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**:Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions.
   - **Allow**: View allowed transactions.
@@ -9376,6 +9403,7 @@ Displays data about the threats that the service detected in the web traffic of 
   - Inbound
   - Outbound
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **Any**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions.
   - **Allow**: View allowed transactions.
@@ -9416,6 +9444,7 @@ Displays data about the detected viruses and spyware for each virus and spyware 
   - Inbound
   - Outbound
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions.
   - **Allow**: View allowed transactions.
@@ -9514,6 +9543,7 @@ Displays data about the web traffic of each HTTP request method. It displays dat
   - Inbound
   - Outbound
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to limit the data to advanced threats detected in web traffic that was either allowed or blocked by the service. The default option for this filter is **All**. You can search for specific actions. The following actions appear under this filter:
   - All
   - Allow
@@ -9541,6 +9571,7 @@ Displays web traffic data grouped by the uploaded file type.
   - **Tunnel SSL**: Undecodable protocol within an SSL connection.
 - **Upload File Type**: Use this filter to view data for a specific uploaded file type. The default option is **Any**.
 - **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions. This is the default option.
   - **Allow**: View allowed transactions.
@@ -9609,6 +9640,7 @@ Displays web traffic data grouped by URL category. The trend chart does not supp
   - Violence
   - Weapons/Bombs
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**:Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions.
   - **Allow**: View allowed transactions.
@@ -9644,6 +9676,7 @@ Displays web traffic data grouped by [URL class](https://help.zscaler.com/zia/ab
   - Privacy Risk
   - Productivity Loss
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions.
   - **Allow**: View allowed transactions.
@@ -9715,6 +9748,7 @@ Displays web traffic data grouped by URL super category. You can apply the follo
   - Violence
   - Weapons/Bombs
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions.
   - **Allow**: View allowed transactions.
@@ -9887,6 +9921,7 @@ Displays web traffic data grouped according to transactions that were allowed or
   - Violence
   - Weapons/Bombs
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions.
   - **Allow**: View allowed transactions
@@ -9919,6 +9954,7 @@ Displays data about webmail traffic. The trend chart does not support this data 
   - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
   - **Tunnel SSL**: Undecodable protocol within an SSL connection.
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions.
   - **Allow**: View allowed transactions.
@@ -10177,13 +10213,13 @@ When you use Source IP Anchoring for the URL or domain, Zscaler doesn't log the 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/web-insights-logs-filters","lastmod":"2026-08-29T07:06Z","nid":"1401016"} -->
+<!-- ZS-ARTICLE {"url":"/zia/web-insights-logs-filters","lastmod":"2026-09-25T02:51Z","nid":"1401016"} -->
 ## Web Insights Logs: Filters
 
 - Source: https://help.zscaler.com/zia/web-insights-logs-filters
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > Web Insights Logs: Filters
-- Last modified: 2026-08-29T07:06Z
+- Last modified: 2026-09-25T02:51Z
 - Summary: Information on the different filters in the Web Insights Logs page in the Zscaler Admin Console.
 
 Filters define the traffic information that you view in your Web Insights Logs. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
@@ -10332,10 +10368,13 @@ Following are the web log filters you can select:
 - URL Search
 - URL Super Category
 - User
+- User Group
 - User Agent
 - Policy Action
 - Webmail Activity
 - Zscaler Client Connector Tunnel Version
+
+Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **None**. You can search for specific user groups.
 
 Use this filter to view transactions associated with an Adaptive Access profile. The default filter for this is **Any**. You can also choose to include or exclude the selected values.
 
@@ -11222,13 +11261,13 @@ This distinction applies only when the **Best Effort Policies** option is used f
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/what-3rd-party-app-governance","lastmod":"2026-04-24T09:17Z","nid":"1540013"} -->
+<!-- ZS-ARTICLE {"url":"/zia/what-3rd-party-app-governance","lastmod":"2026-09-25T02:40Z","nid":"1540013"} -->
 ## What Is 3rd-Party App Governance?
 
 - Source: https://help.zscaler.com/zia/what-3rd-party-app-governance
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > What Is 3rd-Party App Governance?
-- Last modified: 2026-04-24T09:17Z
+- Last modified: 2026-09-25T02:40Z
 - Summary: Information on third-party app security using Zscaler 3rd-Party App Governance.
 
 Zscaler 3rd-Party App Governance allows you to discover, manage, reduce, and control the attack surface introduced by third-party apps, extensions, and add-ons to corporate SaaS applications.
@@ -11239,9 +11278,9 @@ You can effectively govern your environment by classifying apps as sanctioned or
 
 You can manually or automatically streamline remediation actions such as banning or revoking an app token, and involve end users in the review process. 3rd-Party App Governance lets you reduce your vetting or pre-vetting procedures from hours to minutes with a centralized console and extensive app catalog that unifies key attributes and automates the majority of the process.
 
-To learn more about navigating the 3rd-Party App Governance Admin Portal, see[Accessing and Navigating the 3rd-Party App Governance Admin Portal](https://help.zscaler.com/legacy-zia/accessing-and-navigating-3rd-party-app-governance-admin-portal).
+To learn more about navigating the 3rd-Party App Governance Admin Portal, see[Accessing and Navigating the 3rd-Party App Governance Admin Portal](https://help.zscaler.com/zia/accessing-and-navigating-3rd-party-app-governance-admin-portal).
 
-To learn more about configuring 3rd-Party App Governance, see the [Step-by-Step Guide for 3rd-Party App Governance](https://help.zscaler.com/legacy-zia/step-step-configuration-guide-3rd-party-app-governance).
+To learn more about configuring 3rd-Party App Governance, see the [Step-by-Step Configuration Guide for 3rd-Party App Governance](https://help.zscaler.com/zia/step-step-configuration-guide-3rd-party-app-governance-0).
 
 ## Key Benefits
 
@@ -11254,20 +11293,20 @@ To learn more about configuring 3rd-Party App Governance, see the [Step-by-Step 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/what-advanced-posture-management","lastmod":"2026-08-12T22:29Z","nid":"1508606"} -->
+<!-- ZS-ARTICLE {"url":"/zia/what-advanced-posture-management","lastmod":"2026-09-23T07:58Z","nid":"1508606"} -->
 ## What Is Advanced Posture Management?
 
 - Source: https://help.zscaler.com/zia/what-advanced-posture-management
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Posture Management > Posture Management - Advanced > What Is Advanced Posture Management?
-- Last modified: 2026-08-12T22:29Z
+- Last modified: 2026-09-23T07:58Z
 - Summary: Information on SaaS security using Zscaler Advanced SSPM.
 
 Zscaler Advanced SaaS Security Posture Management (SSPM) is a comprehensive and unified solution that delivers complete security across Software as a Service (SaaS) apps and platforms, from data visibility to posture and governance. It helps you to quickly identify and mitigate risky misconfigurations, control SaaS sprawl and reduce third-party access, and identify users at risk.
 
 With Advanced SSPM, you can continuously monitor and correct SaaS security posture to ensure regulatory compliance is maintained across the organization. Advanced SSPM lets you reduce your attack surface by vetting third-party integrations and revoking risky connections. You can also ensure least-privileged SaaS access and revoke over privileged identities and permissions.
 
-If you subscribe to the Advanced SSPM service, you can access Advanced SSPM from the Zscaler Admin Console using single sign-on (SSO). To access Advanced SSPM, go to **Analytics** > enable the **Switch to Existing Reports**toggle > **Internet & SaaS** > **Analytics**> **SaaS Security Report** >**Posture Management.**
+If you subscribe to the Advanced SSPM service, you can access Advanced SSPM from the Zscaler Admin Console using single sign-on (SSO). To access Advanced SSPM, go to **Analytics**> **Reports** > **SaaS Security Report** >**Posture Management.**
 
 See image.
 
@@ -11422,13 +11461,13 @@ Organizations can easily connect their traffic to Internet & SaaS using several 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/what-zscaler-outbound-email-dlp","lastmod":"2026-08-21T07:20Z","nid":"1492656"} -->
+<!-- ZS-ARTICLE {"url":"/zia/what-zscaler-outbound-email-dlp","lastmod":"2026-09-22T07:06Z","nid":"1492656"} -->
 ## What Is Zscaler Outbound Email DLP?
 
 - Source: https://help.zscaler.com/zia/what-zscaler-outbound-email-dlp
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > What Is Zscaler Outbound Email DLP?
-- Last modified: 2026-08-21T07:20Z
+- Last modified: 2026-09-22T07:06Z
 - Summary: A high-level overview of what Zscaler Outbound Email Data Loss Prevention (DLP) is and how it uses outbound email policy to prevent the exfiltration of sensitive data in email content.
 
 Zscaler Outbound Email Data Loss Prevention (DLP) stops the exfiltration of sensitive data by enforcing policy rules on outbound email content sent to external domains, including content in subject lines, body text, and attachments. Using connectors and rules, your email server sends email to, and receives email from, the Zscaler smart host. The Zscaler smart host receives the email and sends it to the Zscaler DLP service for inspection. The Zscaler DLP service then inspects the email content for sensitive data, adding headers that define DLP actions to emails that trigger outbound email policy. When your email server receives inspected email from the Zscaler smart host, it uses those headers to determine enforcement actions.

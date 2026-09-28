@@ -1,8 +1,8 @@
 # Zscaler Help — ZDX — Digital Experience Monitoring (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 22:17 UTC
-Articles in this file: 131
+Generated: 2026-09-28 09:01 UTC
+Articles in this file: 130
 
 ---
 
@@ -332,13 +332,13 @@ On the Audit Logs page (Administration > Admin Management > Audit Logs > Digital
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/about-configuration","lastmod":"2026-06-09T21:13Z","nid":"1535088"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/about-configuration","lastmod":"2026-09-25T15:27Z","nid":"1535088"} -->
 ## About Configuration
 
 - Source: https://help.zscaler.com/zdx/about-configuration
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Configuration > About Configuration
-- Last modified: 2026-06-09T21:13Z
+- Last modified: 2026-09-25T15:27Z
 - Summary: Information on configuring collections, applications, and probes.
 
 Configuration for Digital Experience in the Zscaler Admin Console allows you to configure collections for configured applications with Web and Cloud Path probes. After an application is configured successfully with a probe, you can monitor the digital experience of impacted users, groups, locations, and departments. The End User collection starts with three types of collections called Unified Communication Collection, Predefined Apps Collection, and Custom Apps Collection. The Managed collection starts with the Default Managed Collection. You can also view and configure top private applications.
@@ -454,49 +454,53 @@ On the Departments page (Administration > Administration Controls > User Managem
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/about-diagnostics","lastmod":"2026-07-23T21:06Z","nid":"1370081"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/about-diagnostics","lastmod":"2026-09-22T17:28Z","nid":"1370081"} -->
 ## About Diagnostics
 
 - Source: https://help.zscaler.com/zdx/about-diagnostics
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Troubleshoot > Diagnostics > About Diagnostics
-- Last modified: 2026-07-23T21:06Z
-- Summary: Overview information about Diagnostics in the [variable:zscaler-admin-console]].
+- Last modified: 2026-09-22T17:28Z
+- Summary: Overview information about Diagnostics in the Zscaler Admin Console.
 
 [Watch a video about Diagnostics](https://fast.wistia.net/embed/iframe/e2o61x5z73) (shows legacy UI).
 
-Diagnostics in ZDX can provide deeper granularity into process-level information for a user. During a Diagnostics session, information is collected every minute for the Web probe and Cloud Path probe, as well as device statistics.
+Diagnostics for Digital Experience (ZDX) can provide deeper granularity into process-level information for a user. During a session, information is collected every minute for the Web probe and Cloud Path probe, as well as device statistics.
 
 ## Prerequisites
 
-To start a Diagnostics session, ensure:
+To start a session, ensure:
 
 - You're running the minimum required versions of Zscaler Client Connector and ZDX Module. To learn more, see [Supported Versions & Feature Compatibility](https://help.zscaler.com/zdx/supported-versions-feature-compatibility#Diagnostics).
-- Your ZDX subscription level supports Diagnostics. To learn more, see [Ranges and Limitations](https://help.zscaler.com/unified/ranges-limitations).
+- Your Digital Experience subscription level supports Diagnostics. To learn more, see [Ranges and Limitations](https://help.zscaler.com/unified/ranges-limitations).
 - Your admin role is configured for Diagnostics. To learn more, see [Adding ZDX Roles](https://help.zscaler.com/zdx/adding-zdx-roles).
 
 If you still can't view the Diagnostics details in the Zscaler Admin Console, contact your ZDX admin to check your permissions.
 
-You can [start a Diagnostics session](https://help.zscaler.com/zdx/starting-new-diagnostics-session) to analyze issues that a user, device, or application is facing. You can choose to run the session to monitor issues from 5 minutes to 60 minutes. You can [view session information](https://help.zscaler.com/zdx/evaluating-diagnostics-session-information) on the Diagnostics page and also export it as a PDF file for reference and information sharing.
+You can [start a session](https://help.zscaler.com/zdx/starting-new-diagnostics-session) to analyze issues that a user, device, or application is facing. You can choose to run the session to monitor issues from 5 minutes to 60 minutes. You can [view session information](https://help.zscaler.com/zdx/evaluating-diagnostics-session-information) on the Diagnostics page and also export it as a PDF file for reference and information sharing.
 
 Diagnostics provides the following benefits and enables you to:
 
-- Configure Diagnostics sessions to capture granular details. For example, Packet Capture (PCAP) information, device statistics, or application information.
+- Configure sessions to capture granular details. For example, Packet Capture (PCAP) information, device statistics, or application information.
 - Analyze, evaluate, and troubleshoot issues for a user, device, or application.
-- Share the results and information of the Diagnostics session for reference by exporting it to a PDF file.
+- Share the results and information of the session for reference by exporting it to a PDF file.
 
 ## About the Diagnostics Page
 
-On the Diagnostics page (Analytics > Digital Experience > Troubleshooting > Diagnostics), you can do the following:
+On the Diagnostics page (Digital Experience > Reports > Diagnostics), you can do the following:
 
-1. [View information on sessions in the In Progress table](https://help.zscaler.com/zdx/evaluating-diagnostics-session-information).
-2. [View PCAP information](https://help.zscaler.com/zdx/evaluating-diagnostics-session-information#PCAP) and copy specific PCAP information (e.g., Packet Capture Filter, Network Interface) to your clipboard.
-3. End a session in the In Progress table.
-4. [View information on sessions in the History table](https://help.zscaler.com/zdx/evaluating-diagnostics-session-information).
-5. [View the individual Diagnostics session](https://help.zscaler.com/zdx/viewing-diagnostics-session-results) and export a PDF file of the results.
-6. [Copy the details of the selected Diagnostics session](https://help.zscaler.com/zdx/starting-new-diagnostics-session) and start a new Diagnostics session with all details of an existing session copied. All fields are editable.
-7. Delete a session by using the Delete icon. Deleting a session removes it from the Diagnostics page.
-8. [Start a new session.](https://help.zscaler.com/zdx/starting-new-diagnostics-session) To start a Diagnostics session, an active probe is required on the device. The active probe must run for a minimum duration of 30 minutes. To learn more, see [Configuring a Probe](https://help.zscaler.com/zdx/configuring-probe).
+1. [Start a new session.](https://help.zscaler.com/zdx/starting-new-diagnostics-session) To start a session, an active probe is required on the device. The active probe must run for a minimum duration of 30 minutes. To learn more, see [Configuring a Probe](https://help.zscaler.com/zdx/configuring-probe).
+2. View the supported [Zscaler Client Connector and ZDX Module versions](https://help.zscaler.com/zdx/supported-versions-feature-compatibility#Diagnostics).
+3. Configure which columns to display.
+4. [View information on sessions in the In Progress table](https://help.zscaler.com/zdx/evaluating-diagnostics-session-information).
+5. [View PCAP information](https://help.zscaler.com/zdx/evaluating-diagnostics-session-information#PCAP) and copy specific PCAP information (e.g., Packet Capture Filter, Network Interface) to your clipboard.
+6. [Copy the details of the selected session](https://help.zscaler.com/zdx/starting-new-diagnostics-session) and start a new session with all details of an existing session copied. All fields are editable.
+7. End a session in the In Progress table.
+8. Delete the session. Deleting a session removes it from the Diagnostics page.
+9. [View information on sessions in the History table](https://help.zscaler.com/zdx/evaluating-diagnostics-session-information).
+10. [View the individual session](https://help.zscaler.com/zdx/viewing-diagnostics-session-results).
+11. [View the individual session in a new tab](https://help.zscaler.com/zdx/viewing-diagnostics-session-results).
+12. Configure the number of sessions to display or navigate through pages of sessions.
 
 [Image: Diagnostics Page]
 <!-- /ZS-ARTICLE -->
@@ -716,13 +720,13 @@ After a rule is configured and if the rule's criteria [trigger an alert](https:/
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/about-scripts","lastmod":"2026-05-01T15:21Z","nid":"1531183"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/about-scripts","lastmod":"2026-09-22T18:30Z","nid":"1531183"} -->
 ## About Scripts
 
 - Source: https://help.zscaler.com/zdx/about-scripts
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Troubleshoot > Remediation > About Scripts
-- Last modified: 2026-05-01T15:21Z
+- Last modified: 2026-09-22T18:30Z
 - Summary: Overview information on the Scripts page where you can manage the number of scripts.
 
 You can run PowerShell scripts remotely to schedule system updates, gather information on the issue, or fix the issue on impacted devices. You can configure for two types of scripts: customized scripts or predefined scripts. If you create a customized script or import a predefined script and configure it specific to your needs, then you can store the scripts for on-demand or later use. You can then monitor the progress of any script jobs on the Remediation Jobs page.
@@ -747,11 +751,13 @@ To access the Scripts page, you must have the following:
 
 ## About the Scripts Page
 
-On the Scripts page (Policies > Digital Experience Monitoring > Scripts), you can do the following:
+On the Scripts page (Digital Experience > Scripts), you can do the following:
 
-1. [Add a script.](https://help.zscaler.com/zdx/managing-scripts#add)
-2. Search for scripts. Click the **Cancel** icon to reset your search.
-3. View a list of all configured scripts. For each script, you can see:
+1. Filter for a script type (Custom or Predefined). Click **Reset** to reset the view.
+2. [Add a script.](https://help.zscaler.com/zdx/managing-scripts#add)
+3. Search for scripts. Click the **Cancel** icon to reset your search.
+4. Modify the columns displayed in the table.
+5. View a list of all configured scripts. For each script, you can see:
   - **Name**: The name of the script. Click the **name** or the **View** icon to view the script details where you can run, download, or copy the script. You can view the parameters and preview the end user confirmation message if they are [defined](https://help.zscaler.com/zdx/managing-scripts#add) in the script. See image. This is the same action as viewing the script.
   - **Description**: The description of the script.
   - **Type**: The type of script (**Custom** or **Predefined**).
@@ -764,12 +770,12 @@ On the Scripts page (Policies > Digital Experience Monitoring > Scripts), you ca
   - **Created On**: The timestamp of when the script was created.
   - **Last Modified**: The timestamp of when the script was last modified.
   - **Last Run**: The timestamp of when the script last ran.
-4. Modify the columns displayed in the table.
-5. View the script. This is the same action as clicking the script name.
-6. [Run the script.](https://help.zscaler.com/zdx/managing-scripts#run) If the script is disabled, then you cannot run the script. [Enable it](https://help.zscaler.com/zdx/managing-scripts#edit) to run the script.
-7. [Edit the script.](https://help.zscaler.com/zdx/managing-scripts#edit)
-8. [Delete the script.](https://help.zscaler.com/zdx/managing-scripts#delete)
-9. Go to the [Remediation Jobs](https://help.zscaler.com/zdx/viewing-managing-remediation-jobs) page to manage and view your script runs or go to the [Script Templates](https://help.zscaler.com/zdx/managing-scripts#predefined) to see predefined scripts.
+6. View the script. This is the same action as clicking the script name.
+7. [Run the script.](https://help.zscaler.com/zdx/managing-scripts#run) If the script is disabled, then you cannot run the script. [Enable it](https://help.zscaler.com/zdx/managing-scripts#edit) to run the script.
+8. [Edit the script.](https://help.zscaler.com/zdx/managing-scripts#edit)
+9. [Delete the script.](https://help.zscaler.com/zdx/managing-scripts#delete)
+10. Configure the number of scripts to display per page or navigate through the pages.
+11. Go to the [Remediation Jobs](https://help.zscaler.com/zdx/viewing-and-managing-device-remediation) page to manage and view your script runs or go to the [Script Templates](https://help.zscaler.com/zdx/managing-scripts#predefined) to see predefined scripts.
 
 [Image: View the Remote Scripts page]
 
@@ -862,18 +868,18 @@ On the Webooks page (Digital Experience > Webhooks), you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/about-zdx-role-based-administration","lastmod":"2026-08-28T08:46Z","nid":"1358781"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/about-zdx-role-based-administration","lastmod":"2026-09-22T10:05Z","nid":"1358781"} -->
 ## About ZDX Role-Based Administration
 
 - Source: https://help.zscaler.com/zdx/about-zdx-role-based-administration
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Administration > Admin Configuration > About ZDX Role-Based Administration
-- Last modified: 2026-08-28T08:46Z
+- Last modified: 2026-09-22T10:05Z
 - Summary: Introduces information about role-based administration for ZDX admins.
 
 [Watch a video about ZDX Role-Based Administration.](https://fast.wistia.net/embed/iframe/aouq1i024g)
 
-With role-based administration, organizations can easily add admins and assign them multiple or specific roles with different levels of access. It is possible to add admins in ZDX who are also admins in Internet & SaaS.
+With role-based administration, organizations can easily add admins and assign them multiple or specific roles with different levels of access. It is possible to add admins in Digital Experience (ZDX) who are also admins in Internet & SaaS.
 
 ZDX Role-Based Administration provides the following benefits and enables you to:
 
@@ -881,18 +887,20 @@ ZDX Role-Based Administration provides the following benefits and enables you to
 - Assign admins to multiple or specific roles with varying levels of access.
 - Provide obfuscation permissions to limit functionalities as required.
 
-Your Internet & SaaS credentials can't be used to log in to Digital Experience. For example, an Internet & SaaS admin can't log in to Digital Experience if their organization is not using that service.
+If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for ZDX are managed on a different [Role Management page](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 
-Attributes configured in ZDX (excluding Login ID) are overwritten across all admin profiles. If you create an admin profile in Digital Experience, using the same credentials used in a Internet & SaaS admin profile, all attributes except Login ID created in Digital Experience overwrite the attributes in Internet & SaaS. To learn more, see [Adding ZDX Admins](https://help.zscaler.com/zdx/adding-zdx-admins) and [Adding Users](https://help.zscaler.com/authentication-service/adding-users).
+Your Internet & SaaS credentials can't be used to log in to ZDX. For example, an Internet & SaaS admin can't log in to ZDX, if their organization is not using that service.
+
+Attributes configured in ZDX (excluding Login ID) are overwritten across all admin profiles. If you create an admin profile in Digital Experience, using the same credentials used in a Internet & SaaS admin profile, all attributes except Login ID created in ZDX overwrite the attributes in Internet & SaaS. To learn more, see [Adding ZDX Admins](https://help.zscaler.com/zdx/adding-zdx-admins) and [Adding Users](https://help.zscaler.com/authentication-service/adding-users).
 
 ## About ZDX Roles
 
-Depending on your permissions in Digital Experience or Internet & SaaS, certain functions are limited. For example, an admin cannot edit their own role. To learn more, see [Adding ZDX Roles](https://help.zscaler.com/zdx/adding-zdx-roles).
+Depending on your permissions in ZDX or Internet & SaaS, certain functions are limited. For example, an admin cannot edit their own role. To learn more, see [Adding ZDX Roles](https://help.zscaler.com/zdx/adding-zdx-roles).
 
 For each admin, you can choose from one of the following predefined roles:
 
-- **ZDX Super Admin**: An admin with this role has read, add, edit, delete, and manage permissions in Digital Experience. The default admin account uses this role.
-- **ZDX Read-Only Admin**: An admin with this role only has read permissions in Digital Experience.
+- **ZDX Super Admin**: An admin with this role has read, add, edit, delete, and manage permissions in ZDX. The default admin account uses this role.
+- **ZDX Read-Only Admin**: An admin with this role only has read permissions in ZDX.
 - **ZDX Service Desk Tier 1**: An admin with this role has read permissions to the Users Dashboard and access to the User Search. To learn more, see the [Understanding the ZDX Service Desk Role](https://help.zscaler.com/zdx/about-zdx-service-desk-role).
 
 If you are an admin with ZDX Super Admin level privileges, you can also create a custom ZDX Role for your organization. Zscaler recommends that you add roles before adding admins, because you must select a role for each admin that you create.
@@ -920,28 +928,30 @@ On the Role Management page (Administration > Admin Management > Role Based Acce
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/adding-zdx-roles","lastmod":"2026-06-10T13:02Z","nid":"1358811"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/adding-zdx-roles","lastmod":"2026-09-22T09:50Z","nid":"1358811"} -->
 ## Adding ZDX Roles
 
 - Source: https://help.zscaler.com/zdx/adding-zdx-roles
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Administration > Admin Configuration > Adding ZDX Roles
-- Last modified: 2026-06-10T13:02Z
-- Summary: Information on how to create administration roles in the Zscaler Admin Console.
+- Last modified: 2026-09-22T09:50Z
+- Summary: Information on how to create administration roles for Digital Experience (ZDX) in the Zscaler Admin Console.
 
-ZDX roles are used by admins to create levels of permissions for other admin users within an organization. To learn more, see [About ZDX Role-Based Administration](https://help.zscaler.com/zdx/about-zdx-role-based-administration).
+Digital Experience (ZDX) roles are used by admins to create levels of permissions for other admin users within an organization. To learn more, see [About ZDX Role-Based Administration](https://help.zscaler.com/zdx/about-zdx-role-based-administration).
+
+If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for ZDX are managed on a different [Role Management page](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 
 Access permissions for some features depend on the subscription level. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#digital-experience).
 
 To add a ZDX role:
 
-1. Go to **Administration**>**Admin Management**>**Role Based Access Control**>**Digital Experience**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Role Management**>**Digital Experience**.
 2. Click **Add ZDX Role**. The **Add ZDX Role** window appears.
 3. In the **Add ZDX Role** window: See image.
   - **Name**: Enter a name for the role.
   - **Permissions**: Select the permissions for the administrator role:
     - Dashboard Access
-    - Device and User Information
+    - Device And User Information
     - UCaaS Monitoring
     - Analytics
     - Configuration Access
@@ -960,7 +970,7 @@ To add a ZDX role:
     - Inventory Management
     - Copilot
     - Time Duration
-4. Click **Save** and [activate the changes](https://help.zscaler.com/zdx/saving-and-activating-changes-admin-portal).
+4. Click **Save** and [activate the changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 [Image: Add ZDX Role Window]
 
@@ -1068,7 +1078,7 @@ To learn more, see [Configuration](https://help.zscaler.com/zdx/configuration).
 If the Configuration Access permission setting is set to Full:
 
 - You can enable data collection for Software and Device Inventory on the Inventory Settings page. To learn more, see [Configuring Inventory Settings](https://help.zscaler.com/zdx/configuring-inventory-settings).
-- You can configure Zscaler Hosted Probes. To learn more, see [Configuring Zscaler Hosted Probes](https://help.zscaler.com/zdx/configuring-zscaler-hosted-probes).
+- You can configure Zscaler Managed Probes. To learn more, see [Configuring Zscaler Managed Probes](https://help.zscaler.com/zdx/configuring-zscaler-managed-probes).
 
 Choose one of the following permissions for access to Administrator Management, Role Management, Location Management, and Audit Logs:
 
@@ -1078,11 +1088,11 @@ Although roles are created in Role Management, they are managed by Super Admins.
 - **View Only**: Allows admins to view what has been set up in Administrator Management.
 - **None**: Does not allow admins to have access to Administrator Management.
 
-Choose one of the following permissions for access to the Zscaler Client Connector Portal:
+Choose one of the following permissions for access to Zscaler Client Connector configurations:
 
-- **Full**: Allows admins full access to manage the Zscaler Client Connector Portal.
-- **View Only**: Allows admins to view the current setup in the Zscaler Client Connector Portal.
-- **None**: Does not allow admins access to the Zscaler Client Connector Portal.
+- **Full**: Allows admins full access to manage the Zscaler Client Connector configurations.
+- **View Only**: Allows admins to view the current setup in Zscaler Client Connector configurations.
+- **None**: Does not allow admins access to Zscaler Client Connector configurations.
 
 Choose one of the following permissions for access to the device and user information:
 
@@ -1141,11 +1151,11 @@ Choose one of the following permissions for access to Zscaler locations:
 - **View Only**: Allows admins to view Zscaler locations.
 - **None**: Does not allow admins to view Zscaler locations.
 
-Choose one of the following permissions for access toRemote Assistance:
+Choose one of the following permissions for access toRemote Assistance for ZDX:
 
-- **Full**: Allows admins to have full access to Remote Assistance Management.
-- **View Only**: Allows admins to view what has been set up in Remote Assistance Management.
-- **None**: Does not allow admins access to Remote Assistance Management.
+- **Full**: Allows admins to have full access to Remote Assistance Management for ZDX.
+- **View Only**: Allows admins to view what has been set up in Remote Assistance Management for ZDX.
+- **None**: Does not allow admins access to Remote Assistance Management for ZDX.
 
 View or manage the following [Remediation](https://help.zscaler.com/zdx/understanding-remediation) pages:
 
@@ -1249,7 +1259,7 @@ For **Custom**, choose to give the following specified permissions for access to
 - System Generated Reports
 - ZDX Snapshots
 - Data Explorer
-- Hosted Monitoring
+- Managed Monitoring
 
 Choose one of the following permissions for access to view the System-Generated Reports page:
 
@@ -1283,12 +1293,12 @@ An admin cannot manage another admin's Data Explorer views.
 
 To learn more, see [Monitoring Data Explorer](https://help.zscaler.com/zdx/monitoring-data-explorer-views) and [Configuring Data Explorer](https://help.zscaler.com/zdx/configuring-data-explorer-views).
 
-Choose one of the following permissions for access to the Zscaler Hosted Monitoring page:
+Choose one of the following permissions for access to the Zscaler Managed Monitoring page:
 
-- **Full** or **View Only**: Allows admins to view the Zscaler Hosted Monitoring page, but not manage it.
-- **None**: Does not allow admins to view the Zscaler Hosted Monitoring page.
+- **Full** or **View Only**: Allows admins to view the Zscaler Managed Monitoring page, but not manage it.
+- **None**: Does not allow admins to view the Zscaler Managed Monitoring page.
 
-To learn more, see [Understanding Zscaler Hosted Monitoring](https://help.zscaler.com/zdx/understanding-zscaler-hosted-monitoring).
+To learn more, see [Understanding Managed Monitoring](https://help.zscaler.com/zdx/understanding-managed-monitoring).
 
 Choose one of the following permissions for access to Self Service:
 
@@ -1298,13 +1308,13 @@ Choose one of the following permissions for access to Self Service:
 
 To learn more, see [Monitoring the Self Service Dashboard](https://help.zscaler.com/zdx/monitoring-self-service-dashboard).
 
-Choose one of the following permissions for access to the ZDX Copilot page:
+Choose one of the following permissions for access to ZAgent:
 
-- **Full**: Allows admins to access and utilize the ZDX Copilot page.
-- **View Only**: Allows admins to view the ZDX Copilot page.
-- **None**: Does not allow admins access to ZDX Copilot page.
+- **Full**: Allows admins to access and utilize ZAgent.
+- **View Only**: Allows admins to view ZAgent.
+- **None**: Does not allow admins to access ZAgent.
 
-To learn more, see [About ZDX Copilot](https://help.zscaler.com/zdx/about-zdx-copilot).
+To learn more, see [About ZAgent](https://help.zscaler.com/unified/about-zagent).
 
 Choose one of the following permissions for access to the Wi-Fi Dashboard:
 
@@ -2217,7 +2227,7 @@ The Administrator Management page shows a link to the [Authentication Service](h
 
 ## Password Management
 
-If you're using the Zscaler-hosted [admin](https://help.zscaler.com/zdx/about-administrators) database to authenticate admins, you can enable password expiration for all admins logging in to the Internet & SaaS and Zscaler Digital Experience (ZDX). To learn more, see [Configuring Password Expiration](https://help.zscaler.com/zdx/configuring-password-expiration).
+If you're using the Zscaler-hosted [admin](https://help.zscaler.com/zdx/about-administrators) database to authenticate admins, you can enable password expiration for all admins logging in to the Internet & SaaS and Digital Experience (ZDX). To learn more, see [Configuring Password Expiration](https://help.zscaler.com/zdx/configuring-password-expiration).
 
 ## SAML Authentication for Administrators
 
@@ -2545,13 +2555,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/configuring-data-explorer-views","lastmod":"2026-08-06T14:15Z","nid":"1487146"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/configuring-data-explorer-views","lastmod":"2026-09-25T15:52Z","nid":"1487146"} -->
 ## Configuring Data Explorer Views
 
 - Source: https://help.zscaler.com/zdx/configuring-data-explorer-views
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Configuration > Configuring Data Explorer Views
-- Last modified: 2026-08-06T14:15Z
+- Last modified: 2026-09-25T15:52Z
 - Summary: How to configure Data Explorer views in the Zscaler Admin Console.
 
 Data Explorer provides the flexibility to build and organize your own customized views of applications and metrics to analyze data. To learn more, see [Monitoring Data Explorer Views](https://help.zscaler.com/zdx/monitoring-data-explorer-views).
@@ -2569,7 +2579,7 @@ You have the option to create a view from either End User or Managed Monitoring 
 
 To begin creating your view:
 
-1. Go to **Analytics**> **Digital Experience** > **Reports** > **Data Explorer**.
+1. Go to **Digital Experience** > **Reports** > **Data Explorer**.
 2. Click **Create New View**. See image.
 
 ### Create a View for End User Monitoring
@@ -2629,7 +2639,7 @@ Only the ZDX Super Admin or the admin who created the view can edit a configured
 
 To edit a Data Explorer view:
 
-1. Go to **Analytics**> **Digital Experience** > **Reports** > **Data Explorer**.
+1. Go to **Digital Experience** > **Reports** > **Data Explorer**.
 2. Search for the view you want to edit in the Data Explorer table.
 3. Under **Actions**, click the **View**icon.
 4. Make your edits.
@@ -2643,7 +2653,7 @@ Only the ZDX Super Admin or the admin who created the view can delete a configur
 
 To delete a Data Explorer view:
 
-1. Go to **Analytics**> **Digital Experience** > **Reports** > **Data Explorer**.
+1. Go to **Digital Experience** > **Reports** > **Data Explorer**.
 2. Search for the view you want to delete in the Data Explorer table.
 3. Under **Actions**, click the **Delete**icon.
 4. In the dialog window, confirm you want to delete the view.
@@ -2830,7 +2840,7 @@ Process Inventory monitors the number of CPU Incidents that exceed the CPU Usage
 - Last modified: 2026-06-24T21:06Z
 - Summary: How to integrate Microsoft Intune with ZDX to generate Microsoft Endpoint analytics.
 
-The integration of Microsoft Intune with Zscaler Digital Experience (ZDX) provides access to Endpoint Analytics for user and device insights. To learn more, see [Understanding Microsoft Endpoint Analytics for ZDX](https://help.zscaler.com/zdx/understanding-microsoft-endpoint-analytics-zdx).
+The integration of Microsoft Intune with Digital Experience (ZDX) provides access to Endpoint Analytics for user and device insights. To learn more, see [Understanding Microsoft Endpoint Analytics for ZDX](https://help.zscaler.com/zdx/understanding-microsoft-endpoint-analytics-zdx).
 
 ## Adding the Intune Integration
 
@@ -3854,14 +3864,14 @@ Click **Next**.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/downloading-quarterly-business-review-reports","lastmod":"2024-03-17T07:06Z","nid":"1456811"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/downloading-quarterly-business-review-reports","lastmod":"2026-09-24T13:57Z","nid":"1456811"} -->
 ## Downloading Quarterly Business Review Reports
 
 - Source: https://help.zscaler.com/zdx/downloading-quarterly-business-review-reports
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Downloading Quarterly Business Review Reports
-- Last modified: 2024-03-17T07:06Z
-- Summary: How to download QBR reports from the left-side navigation menu of the ZDX Admin Portal.
+- Last modified: 2026-09-24T13:57Z
+- Summary: How to download QBR reports from the left-side navigation menu of the Zscaler Admin Console.
 
 The Quarterly Business Review (QBR) report provides extensive insight into how Zscaler is helping protect your network, quarter to quarter. The reports can help you observe emerging traffic trends and the types of threats that Zscaler is blocking. To learn more, see [Viewing Quarterly Business Review Reports](https://help.zscaler.com/zdx/viewing-quarterly-business-review-reports).
 
@@ -3869,9 +3879,9 @@ A new QBR report is generated on the first weekend of every month, and each repo
 
 You must have a minimum of 100 active devices for 30 days to generate and view QBR reports.
 
-You can download and view the reports from the left-side navigation of the ZDX Admin Portal:
+You can download and view the reports from the left-side navigation of the Zscaler Admin Console:
 
-1. Go to **Analytics**> **Quarterly Business Reviews**.
+1. Go to **Analytics**> **Reports**> **ZPA QBR Reports**.
 2. Click the **Download**icon within the table to download a specific report.
 
 Use the search field if you're unable to find a report. Search for any character string that might be part of the report name or time period.
@@ -4883,13 +4893,13 @@ To view an admin group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/managing-collections","lastmod":"2026-08-23T07:06Z","nid":"1535219"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/managing-collections","lastmod":"2026-09-25T15:40Z","nid":"1535219"} -->
 ## Managing Collections
 
 - Source: https://help.zscaler.com/zdx/managing-collections
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Configuration > Managing Collections
-- Last modified: 2026-08-23T07:06Z
+- Last modified: 2026-09-25T15:40Z
 - Summary: Information on managing collections in the Zscaler Admin Console.
 
 ZDX allows you to manage your collections to easily organize your applications and probes.
@@ -5121,13 +5131,13 @@ On the Labels page (Administration > Alerts > Labels):
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/managing-scripts","lastmod":"2026-09-11T15:52Z","nid":"1526076"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/managing-scripts","lastmod":"2026-09-23T13:49Z","nid":"1526076"} -->
 ## Managing Scripts
 
 - Source: https://help.zscaler.com/zdx/managing-scripts
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Troubleshoot > Remediation > Managing Scripts
-- Last modified: 2026-09-11T15:52Z
+- Last modified: 2026-09-23T13:49Z
 - Summary: Configuration steps on remote scripts for remediation.
 
 Scripts are a great way to automate PowerShell scripts for specific device tasks. Zscaler provides predefined scripts to help you get started.
@@ -5137,11 +5147,13 @@ Scripts are a great way to automate PowerShell scripts for specific device tasks
 To manage the Scripts page, you must have the following:
 
 - The appropriate subscription level. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#digital-experience).
-- The Script Management permission level. To learn more, see [Adding ZDX Roles](https://help.zscaler.com/zdx/adding-zdx-roles).
-- If you are running a script, the selected devices must have the minimum version compatibility and supporting OS. If a device is not compatible, then the script does not run on that device. To learn more, see [Supported Versions & Feature Compatibility](https://help.zscaler.com/zdx/supported-versions-feature-compatibility).
+- The Script Management permission level for Digital Experience (ZDX). To learn more, see [Adding ZDX Roles](https://help.zscaler.com/zdx/adding-zdx-roles).
+- If you are running a script, the selected devices must have: If a device is not compatible, then the script does not run on that device. To learn more, see [Supported Versions & Feature Compatibility](https://help.zscaler.com/zdx/supported-versions-feature-compatibility).
+  - The minimum version compatibility for Zscaler Client Connector and ZDX Module
+  - The supporting OS
 - If you are uploading a customized script, the script must have a signed certificate. To learn more, see [Preparing Custom Script Signing](https://help.zscaler.com/zdx/preparing-custom-script-signing).
 
-On the **Scripts** page (Policies > Digital Experience Monitoring > Scripts), you can:
+On the **Scripts** page (Digital Experience > Scripts), you can:
 
 - Add a script.
 - Run a script.
@@ -5190,7 +5202,7 @@ Consider the following when configuring scripts:
     3. **Schedule Job for later**: Enable to select a date for when you want to run the script.
 3. Click **Start**.
 
-View the job's progress on the [Device Remediation](https://help.zscaler.com/zdx/viewing-and-managing-device-remediation) page.
+View the job's progress on the [Jobs](https://help.zscaler.com/zdx/viewing-and-managing-jobs) page.
 
 1. Click **Add Script**.
 2. In the **Add Script** window: See image.
@@ -5979,20 +5991,20 @@ The table displays the following information about applications and the impact t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/monitoring-data-explorer-views","lastmod":"2026-06-11T18:17Z","nid":"1487211"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/monitoring-data-explorer-views","lastmod":"2026-09-24T16:44Z","nid":"1487211"} -->
 ## Monitoring Data Explorer Views
 
 - Source: https://help.zscaler.com/zdx/monitoring-data-explorer-views
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Monitoring Data Explorer Views
-- Last modified: 2026-06-11T18:17Z
+- Last modified: 2026-09-24T16:44Z
 - Summary: Information about monitoring the Data Explorer views configured for ZDX.
 
 Data Explorer offers the flexibility to build and organize your own customized views of applications and metrics. This flexibility can help provide context when analyzing and correlating data across your organization.
 
 Make sure you meet the feature prerequisites to monitor Data Explorer views. To learn more, see [Configuring Data Explorer Views](https://help.zscaler.com/zdx/configuring-data-explorer-views).
 
-To monitor Data Explorer views, go to **Analytics** > **Digital Experience** > **Reports** > **Data Explorer**. The Data Explorer table provides the following information:
+To monitor Data Explorer views, go to **Digital Experience** > **Reports** > **Data Explorer**. The Data Explorer table provides the following information:
 
 1. **Name**: The name of the configured view.
 2. **Data Source**: Indicates the view is for End User Monitoring or Managed Monitoring.
@@ -6568,7 +6580,7 @@ In order to be considered an incident, the following must be considered to categ
 - Last modified: 2026-09-18T16:41Z
 - Summary: Information on the Network Intelligence Dashboard and accessible data within the Zscaler Admin Console.
 
-Network Intelligence provides end-to-end multi-path network visibility from Last Mile Internet Service Providers (ISPs) to Zero Trust Exchange (ZTE) to applications. Zscaler Digital Experience (ZDX) runs Cloud Path probes to gather network metrics (e.g., network latency, packet loss) to establish a baseline for network latency and compares the network performance against the baseline. ZDX detects and analyzes network anomalies to create a deep analysis and allows you to investigate root causes. You can analyze and pinpoint Last Mile or Intermediate ISP issues, understand root causes, and assess their impact on end users using ML-based algorithms to extract patterns and identify anomalies, and then you can observe and determine the most optimal routing paths to data centers. With all this knowledge at your disposal, you can take proactive measures to resolve network issues to improve the overall organization's digital experience.
+Network Intelligence provides end-to-end multi-path network visibility from Last Mile Internet Service Providers (ISPs) to Zero Trust Exchange (ZTE) to applications. Digital Experience (ZDX) runs Cloud Path probes to gather network metrics (e.g., network latency, packet loss) to establish a baseline for network latency and compares the network performance against the baseline. ZDX detects and analyzes network anomalies to create a deep analysis and allows you to investigate root causes. You can analyze and pinpoint Last Mile or Intermediate ISP issues, understand root causes, and assess their impact on end users using ML-based algorithms to extract patterns and identify anomalies, and then you can observe and determine the most optimal routing paths to data centers. With all this knowledge at your disposal, you can take proactive measures to resolve network issues to improve the overall organization's digital experience.
 
 ## Prerequisites
 
@@ -6784,16 +6796,16 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/monitoring-performance-dashboard","lastmod":"2026-08-27T09:51Z","nid":"1355786"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/monitoring-performance-dashboard","lastmod":"2026-09-24T17:25Z","nid":"1355786"} -->
 ## Monitoring the Performance Dashboard
 
 - Source: https://help.zscaler.com/zdx/monitoring-performance-dashboard
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Monitoring the Performance Dashboard
-- Last modified: 2026-08-27T09:51Z
+- Last modified: 2026-09-24T17:25Z
 - Summary: Information on the ZDX dashboard and widgets accessible within the Zscaler Admin Console.
 
-The Performance Dashboard provides an overview about the Zscaler Digital Experience (ZDX) for your organization.
+The Performance Dashboard provides an overview about the Digital Experience (ZDX) for your organization.
 
 See image.
 
@@ -6857,7 +6869,7 @@ You can use the following actions on the Most Impacted Applications menu:
 
 The **Regions by ZDX Score** map takes the geographic locations of all users accessing the selected application and organizes the data for the score down to the city level for major cities around the world. This information is displayed in a map. You can zoom in and out of the map to better view regions of interest.
 
-ZDX uses a device's location service to determine a user's location. It takes the longitude and latitude coordinates from the location service and compares it to Zscaler's geographic IP database. That information is then displayed in the ZDX Admin Portal in a map with major cities and towns.
+ZDX uses a device's location service to determine a user's location. It takes the longitude and latitude coordinates from the location service and compares it to Zscaler's geographic IP database. That information is then displayed in the Zscaler Admin Console in a map with major cities and towns.
 
 If a user's latitude and longitude are closer to the center of another city, instead of their own city, the user's location might be misidentified as connecting from the neighboring city. If the location service is not enabled on the device, then ZDX uses the device's IP address to determine the location.
 
@@ -6881,7 +6893,7 @@ To draw a fence:
 2. Select a portion of the map. A window with the number of locations selected appears. See image.
 3. Click **Filter Selection**. A list of the locations within the fence appears at the bottom of the map.
 4. (Optional) Deselect any locations in the **Custom fence** table you do not want to use in a filter.
-5. Click **View in Users Page** to see data filtered by these locations. The [Users Overview](https://help.zscaler.com/zdx/monitoring-users-dashboard) appears with data relevant only to those locations. After applying the fence, you can also go to the [Applications Overview](https://help.zscaler.com/zdx/monitoring-applications-dashboard) or return to the Performance Dashboard and the location fence remains as part of your filters.
+5. Click **View in Users Page** to see data filtered by these locations. The [Users Overview](https://help.zscaler.com/zdx/monitoring-users-dashboard) appears with data relevant only to those locations. After applying the fence, you can also go to the [Applications Overview](https://help.zscaler.com/zdx/monitoring-applications-overview) or return to the Performance Dashboard and the location fence remains as part of your filters.
 
 To redraw the fence, click **Clear Selection** in the map or **Clear Fence** at the bottom of the **Regions by ZDX Score**map. To move the map and select another region, click **Reset** above the map.
 
@@ -6929,7 +6941,7 @@ The **Page Fetch Time** graph tracks how long it takes the selected application 
 
 A line runs across the graph that indicates the 95th percentile, as identified by **P95**. It indicates that 95 percent of the fetch time is below this amount.
 
-You can select a point on the graph to see the exact date and time, the application's fetch time at that point, and the 95th percentile fetch time for comparison. To explore more about the application, click **Analyze** to view the Applications Overview and filter by the application. To learn more, see [Monitoring the Applications Overview](https://help.zscaler.com/zdx/monitoring-applications-dashboard#indivapp).
+You can select a point on the graph to see the exact date and time, the application's fetch time at that point, and the 95th percentile fetch time for comparison. To explore more about the application, click **Analyze** to view the Applications Overview and filter by the application. To learn more, see [Monitoring the Applications Overview](https://help.zscaler.com/zdx/monitoring-applications-overview).
 
 For comparison, you can select up to four additional applications by clicking **Add Another Application** in the application selector below the graph. In the drop-down menu, select the additional applications to view. The Page Fetch Time for the selected applications is displayed. Clicking a point in the graph displays the Page Fetch Time for the selected applications at that time; you can also click the arrow within the display to go to that application page. To remove an application, deselect it in the application selector. Selections made in the application selector for the Page Fetch Time are also reflected in the ZDX Score graph.
 
@@ -7291,13 +7303,13 @@ A table that identifies each user connected to the access point provides additio
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/monitoring-zia-private-service-edge-dashboard","lastmod":"2026-05-06T21:06Z","nid":"1525341"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/monitoring-zia-private-service-edge-dashboard","lastmod":"2026-09-24T16:51Z","nid":"1525341"} -->
 ## Monitoring the ZIA Private Service Edge Dashboard
 
 - Source: https://help.zscaler.com/zdx/monitoring-zia-private-service-edge-dashboard
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Monitoring the ZIA Private Service Edge Dashboard
-- Last modified: 2026-05-06T21:06Z
+- Last modified: 2026-09-24T16:51Z
 - Summary: A statistical overview of Private Service Edges for Internet & SaaS in data centers.
 
 Internet & SaaS (ZIA) Private Service Edge Health provides a statistical overview of Zscaler Private Service Edges deployed in your data centers. View details of overall traffic, internal latency, and transactions within the previous 24 hours to 14 days, as allowed per your ZDX subscription level.
@@ -7311,7 +7323,7 @@ To monitor Private Service Edge for Internet & SaaS metrics within the dashboard
 
 ## Viewing the Dashboard
 
-To access the ZIA Private Service Edge Health dashboard, go to **Analytics**> **Digital Experience** > **Zscaler Health** > **ZIA PSE Health**. The tiles provide metrics from the previous 24-hour period to the current time. Click **Refresh**in the upper-right corner of the page to reload any real-time updates.
+To access the ZIA Private Service Edge Health dashboard, go to **Private Access**> **Dashboards** > **Health**. The tiles provide metrics from the previous 24-hour period to the current time. Click **Refresh**in the upper-right corner of the page to reload any real-time updates.
 
 - **Total PSE Data Centers**: The total number of data centers with Private Service Edges within your organization.
 - **Total Throughput**: The average amount of data (in bits) processed in your data centers within the previous 24 hours.
@@ -7672,13 +7684,13 @@ To learn more about ZDX features unique to each ZDX subscription, see [Ranges & 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/preparing-custom-script-signing","lastmod":"2026-06-08T16:26Z","nid":"1531247"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/preparing-custom-script-signing","lastmod":"2026-09-22T17:55Z","nid":"1531247"} -->
 ## Preparing Custom Script Signing
 
 - Source: https://help.zscaler.com/zdx/preparing-custom-script-signing
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Troubleshoot > Remediation > Preparing Custom Script Signing
-- Last modified: 2026-06-08T16:26Z
+- Last modified: 2026-09-22T17:55Z
 - Summary: These are the device preparation and configuration steps that are required to sign a script certificate prior to uploading it to the Zscaler Admin Console.
 
 Each customized and uploaded script must have a signed certificate to allow any scripts to run on a device. This ensures each script meets the minimum security requirements and is validated by an admin for use.
@@ -7710,12 +7722,12 @@ You must have the following conditions for Windows devices to allow scripts to r
 %ProgramFiles%\Zscaler\ZSAScriptOrchestratorService\ZSAScriptExecutor.exe
 ```
 
-## Zscaler Client Connector & ZDX Preparation
+## Zscaler Client Connector & Digital Experience Preparation
 
 You must have the following prepared for Zscaler:
 
 - Zscaler Client Connector: Must download the [minimum or later version of Zscaler Client Connector and ZDX Module](https://help.zscaler.com/zdx/supported-versions-feature-compatibility).
-- ZDX:
+- Digital Experience (ZDX):
   - [Enable Remediation from the Remediation Settings](https://help.zscaler.com/zdx/configuring-remediation-settings) in the Zscaler Admin Console.
   - [Script management access permission](https://help.zscaler.com/zdx/adding-zdx-roles) to upload the signed script.
 
@@ -8052,9 +8064,9 @@ This article provides a summary of all new features and enhancements per Zscaler
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Release Notes > Release Upgrade Summary (2024)
 - Last modified: 2024-12-23T09:42Z
-- Summary: Zscaler Digital Experience (ZDX) Release Upgrade Summary for service updates deployed per cloud in 2024.
+- Summary: Digital Experience (ZDX) Release Upgrade Summary for service updates deployed per cloud in 2024.
 
-This article provides a summary of all new features and enhancements per Zscaler cloud for Zscaler Digital Experience (ZDX). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
+This article provides a summary of all new features and enhancements per Zscaler cloud for Digital Experience (ZDX). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -8073,16 +8085,16 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/release-upgrade-summary-2026","lastmod":"2026-09-18T08:31Z","nid":"1534310"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/release-upgrade-summary-2026","lastmod":"2026-09-22T13:44Z","nid":"1534310"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zdx/release-upgrade-summary-2026
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-18T08:31Z
-- Summary: Zscaler Digital Experience (ZDX) Release Upgrade Summary for service updates deployed per cloud in 2026.
+- Last modified: 2026-09-22T13:44Z
+- Summary: Digital Experience (ZDX) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
-This article provides a summary of all new features and enhancements per Zscaler cloud for Zscaler Digital Experience (ZDX). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
+This article provides a summary of all new features and enhancements per Zscaler cloud for Digital Experience (ZDX). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -9149,22 +9161,19 @@ Create a token to receive data:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/starting-new-diagnostics-session","lastmod":"2026-07-23T21:06Z","nid":"1370101"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/starting-new-diagnostics-session","lastmod":"2026-09-22T13:23Z","nid":"1370101"} -->
 ## Starting a New Diagnostics Session
 
 - Source: https://help.zscaler.com/zdx/starting-new-diagnostics-session
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Troubleshoot > Diagnostics > Starting a New Diagnostics Session
-- Last modified: 2026-07-23T21:06Z
-- Summary: Information about configuration steps for starting a new diagnostics session in ZDX.
+- Last modified: 2026-09-22T13:23Z
+- Summary: Information about configuration steps for starting a new diagnostics session in the Zscaler Admin Console.
 
-To start a new Diagnostics session:
+To start a new Diagnostics session for Digital Experience (ZDX) monitoring:
 
-1. Perform one of the following actions:
-  - In the Zscaler Admin Console, go to **Analytics** > **Digital Experience** > **Troubleshooting** > **Diagnostics** > **Start New Diagnostics Session**.
-  - Go to **Analytics** > **Digital Experience** > **Users**. Select a user. On the **User Details** page, click the **Start New Diagnostics Session**button. This opens a new Start New Diagnostics Session window with the user name and device details prefilled.
-  - Go to **Analytics** > **Digital Experience** > **Users**. Select a user. On the **User Overview** page, click the **Start New Diagnostics Session** button in the user's row. This opens a new Start New Diagnostics Session window with the user name prefilled.
-  - On the **Diagnostics** page, copy an existing session using the **Copy** icon. This opens a new Start New Diagnostics Session window with all details of an existing session copied. All fields are editable. If the device has a session in progress or is no longer associated with the user, it is not copied. The **Start New Diagnostics Session** window appears. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Digital Experience** > **Reports** > **Diagnostics** > **Start New Diagnostics Session**. The **Start New Diagnostics Session** window appears. See image.
+  - View alternative ways to start a session.
 2. In the **Start New Diagnostics Session** window:
   1. **Name**: Enter a name for the session.
   2. **User**: Choose the user for this session from the drop-down menu.
@@ -9182,6 +9191,10 @@ To start a new Diagnostics session:
 4. Click **Save** to create and start the session.
 
 After you click **Save**, you see the session in the In Progress table on the Diagnostics page. As the session progresses, its status is updated and it eventually moves to the History table. You can view session results by clicking the **View** icon. To learn more, see [Viewing Diagnostics Session Results](https://help.zscaler.com/zdx/viewing-diagnostics-session-results).
+
+- Go to **Digital Experience** > **Users Overview**. Select a user. On the **User Overview** page, click the **Start New Diagnostics Session** button in the user's row. This opens a new Start New Diagnostics Session window with the user name prefilled.
+- Go to **Digital Experience** > **Users Overview** or **User Search**. Search to select a user. On the **User Details** page, click the **Start New Diagnostics Session**button. This opens a new Start New Diagnostics Session window with the user name and device details prefilled.
+- On the **Diagnostics** page, copy an existing session using the **Copy** icon. This opens a new Start New Diagnostics Session window with all details of an existing session copied. All fields are editable. If the device has a session in progress or is no longer associated with the user, it is not copied.
 
 You can start a Deep Tracing session to analyze issues that a user, device, or application is facing when connecting to the network.
 
@@ -9906,14 +9919,14 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/understanding-collections","lastmod":"2026-04-12T07:06Z","nid":"1535199"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/understanding-collections","lastmod":"2026-09-25T15:34Z","nid":"1535199"} -->
 ## Understanding Collections
 
 - Source: https://help.zscaler.com/zdx/understanding-collections
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Configuration > Understanding Collections
-- Last modified: 2026-04-12T07:06Z
-- Summary: Information on collections in the ZDX Admin Portal.
+- Last modified: 2026-09-25T15:34Z
+- Summary: Information on collections in the Zscaler Admin Console.
 
 A collection is useful in organizing and categorizing your applications with their probes. Each collection consists of the following:
 
@@ -9931,7 +9944,7 @@ A probe can be a:
 
 To learn more, see [About Probes](https://help.zscaler.com/zdx/about-probes).
 
-If you have a [Hosted Monitoring subscription](https://help.zscaler.com/zdx/ranges-limitations), you can [configure Zscaler Hosted probes](https://help.zscaler.com/zdx/configuring-zscaler-hosted-probes). Zscaler Hosted probes monitor the performance of a specific service or application directly from a Zscaler data center to an endpoint destination and allows you to logically group Web and Cloud Path probes into independent collections for easy organization.
+If you have a [Managed Monitoring subscription](https://help.zscaler.com/zdx/ranges-limitations), you can [configure Zscaler Hosted probes](https://help.zscaler.com/zdx/configuring-zscaler-hosted-probes). Zscaler Hosted probes monitor the performance of a specific service or application directly from a Zscaler data center to an endpoint destination and allows you to logically group Web and Cloud Path probes into independent collections for easy organization.
 
 If you configure an application for the end user, then you can assign the application to different collections. If you configure an application for a Hosted user, then you can only assign the application to one collection.
 
@@ -9969,20 +9982,20 @@ If the application is in multiple collections, then the ranking is:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/understanding-diagnostics-session-status","lastmod":"2024-04-18T14:52Z","nid":"1443586"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/understanding-diagnostics-session-status","lastmod":"2026-09-22T17:51Z","nid":"1443586"} -->
 ## Understanding the Diagnostics Session Status
 
 - Source: https://help.zscaler.com/zdx/understanding-diagnostics-session-status
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Troubleshoot > Diagnostics > Understanding the Diagnostics Session Status
-- Last modified: 2024-04-18T14:52Z
+- Last modified: 2026-09-22T17:51Z
 - Summary: To describe each existing Diagnostics status in the table.
 
 The Diagnostics Session Status indicates the current status of a Diagnostics Session. The Diagnostics Session status can be seen in both the In Progress and History tables as an overview or in the Individual Diagnostics Session Information window as part of the in-depth information of the Diagnostics Session.
 
 Diagnostics Sessions in the **In Progress** table can have one of the following statuses:
 
-- **Created**: The session was created by an admin in ZDX.
+- **Created**: The session was created by an admin in Zscaler Admin Console.
 - **Started**: Zscaler Client Connector confirms that it has received a request to start a session and probe execution will begin. It might take a few minutes for the state to change from Created to Started.
 - **In Progress**: Zscaler Client Connector is executing this session; this status indicates an ongoing session. These sessions provide updated session data every minute.
 
@@ -9998,13 +10011,13 @@ Diagnostics Sessions in the **History** table can have one of the following stat
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/understanding-managed-monitoring","lastmod":"2026-08-06T14:23Z","nid":"1505966"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/understanding-managed-monitoring","lastmod":"2026-09-24T16:41Z","nid":"1505966"} -->
 ## Understanding Managed Monitoring
 
 - Source: https://help.zscaler.com/zdx/understanding-managed-monitoring
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Understanding Managed Monitoring
-- Last modified: 2026-08-06T14:23Z
+- Last modified: 2026-09-24T16:41Z
 - Summary: Understanding Zscaler Managed collections and probes.
 
 [Watch a video about Managed Monitoring.](https://fast.wistia.net/embed/iframe/vcmq8namoq)
@@ -10015,7 +10028,7 @@ To access Managed Monitoring, make sure you've configured Zscaler Managed Probes
 
 To access Managed Monitoring:
 
-1. Go to **Analytics**> **Digital Experience** > **Applications** > **Managed Monitoring**.
+1. Go to **Digital Experience** > **Applications** > **Managed Monitoring**.
 2. Select a probe from a collection in the left-side navigation.
 3. Select the **Zscaler Managed Locations** from the drop-down menu to specify the Zscaler data centers from where the probe is run. All locations are selected by default. You can select the following:
   - List of Zscaler Managed Locations
@@ -10278,14 +10291,14 @@ To learn more about **Software Reliability**, see the [Microsoft documentation](
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/understanding-microsoft-teams-call-quality-zdx","lastmod":"2024-10-04T13:32Z","nid":"1386191"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/understanding-microsoft-teams-call-quality-zdx","lastmod":"2026-09-24T13:28Z","nid":"1386191"} -->
 ## Understanding Microsoft Teams Call Quality for ZDX
 
 - Source: https://help.zscaler.com/zdx/understanding-microsoft-teams-call-quality-zdx
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Applications > Understanding Microsoft Teams Call Quality for ZDX
-- Last modified: 2024-10-04T13:32Z
-- Summary: Information about monitoring Microsoft Teams Call Quality in the ZDX Admin Portal.
+- Last modified: 2026-09-24T13:28Z
+- Summary: Information about monitoring Microsoft Teams Call Quality in the Zscaler Admin Console.
 
 Microsoft Teams Call Quality allows you to monitor actual one-to-one calls or meetings among two or more participants in a configured Microsoft Teams tenant. The ZDX Score for Call Quality can reflect either a Mean Opinion Score (MOS) average, or metric thresholds for latency, jitter, and packet loss. Call Quality works in parallel with Cloud Path probes, device metrics, and device events to help you identify issues that are unique to a device, application, or network.
 
@@ -10293,7 +10306,7 @@ When a call has ended, Call Quality data is retrieved using the Microsoft Graph 
 
 To monitor calls or meetings with Microsoft Teams Call Quality, you first must configure the application and meet the feature prerequisites. To learn more, see [Configuring Microsoft Teams Call Quality for ZDX](https://help.zscaler.com/zdx/configuring-microsoft-teams-call-quality-zdx).
 
-To access Microsoft Teams Call Quality monitoring, do one of the following from the ZDX Admin Portal:
+To access Microsoft Teams Call Quality monitoring, do one of the following from the Zscaler Admin Console:
 
 - Go to **Applications**and click **Microsoft Teams** **Call Quality** in the Applications Overview page.
 - Click the **Microsoft Teams Call Quality** application card.
@@ -10576,16 +10589,16 @@ Depending on your ZDX role, you might not see some of these overviews, details, 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/understanding-remediation","lastmod":"2026-06-15T16:42Z","nid":"1526086"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/understanding-remediation","lastmod":"2026-09-23T18:26Z","nid":"1526086"} -->
 ## Understanding Remediation
 
 - Source: https://help.zscaler.com/zdx/understanding-remediation
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Troubleshoot > Remediation > Understanding Remediation
-- Last modified: 2026-06-15T16:42Z
-- Summary: Information for Remediation for ZDX where you can remotely configure specific PowerShell scripts or use a predefined script to remediate device issues.
+- Last modified: 2026-09-23T18:26Z
+- Summary: Information for Remediation for Digital Experience (ZDX) where you can remotely configure specific PowerShell scripts or use a predefined script to remediate device issues.
 
-Remediation for ZDX allows IT admins to anticipate potential issues and proactively resolve them by deploying remote scripts before end users can report a problem. With fewer support tickets reported, IT admins have improved focus and productivity on resolving device issues directly that enhance the overall digital experience.
+Remediation for Digital Experience (ZDX) allows IT admins to anticipate potential issues and proactively resolve them by deploying remote scripts before end users can report a problem. With fewer support tickets reported, IT admins have improved focus and productivity on resolving device issues directly that enhance the overall digital experience.
 
 You can configure specific scripts to run devices and schedule to remotely run the scripts at an appropriate time when the device is able to update or provide maintenance. After proper configuration, IT admins can view all configured scripts and Remediation jobs that are In Progress, Completed, or Scheduled. This provides a comprehensive visibility from when the script was first configured to the details of when the Remediation job ends.
 
@@ -10632,10 +10645,10 @@ Zscaler recommends preparing and configuring predefined scripts in the following
   - Prerequisites for Remediation in the Zscaler Admin Console
   - Prerequisites for Remediation on end user devices
 2. [Import the predefined script as a remote script.](https://help.zscaler.com/zdx/managing-scripts#predefinedscripts)
-3. [Configure the remote script](https://help.zscaler.com/zdx/managing-scripts#add) and [start a remediation job](https://help.zscaler.com/zdx/viewing-and-managing-device-remediation#start) to test the script.
+3. [Configure the remote script](https://help.zscaler.com/zdx/managing-scripts#add) and [start a remediation job](https://help.zscaler.com/zdx/viewing-and-managing-jobs#start) to test the script.
 4. Deploy the tested script to production devices.
 
-You can view the job status and details on the [Device Remediation](https://help.zscaler.com/zdx/viewing-and-managing-device-remediation#tables) page.
+You can view the job status and details on the [Jobs](https://help.zscaler.com/zdx/viewing-and-managing-jobs#tables) page.
 
 [Image: Predefined Script Overview]
 
@@ -10648,10 +10661,10 @@ Zscaler recommends preparing and configuring custom scripts in the following ord
   - Prerequisites for Remediation on end user devices
 2. [Prepare custom script signing.](https://help.zscaler.com/zdx/preparing-custom-script-signing)
 3. Write your script and sign it.
-4. [Configure the remote script](https://help.zscaler.com/zdx/managing-scripts#add) and [start a remediation job](https://help.zscaler.com/zdx/viewing-and-managing-device-remediation#start) to test the script.
+4. [Configure the remote script](https://help.zscaler.com/zdx/managing-scripts#add) and [start a remediation job](https://help.zscaler.com/zdx/viewing-and-managing-jobs#start) to test the script.
 5. Deploy the tested script to production devices.
 
-You can view the job status and details on the [Device Remediation](https://help.zscaler.com/zdx/viewing-and-managing-device-remediation#tables) page.
+You can view the job status and details on the [Jobs](https://help.zscaler.com/zdx/viewing-and-managing-jobs#tables) page.
 
 [Image: Custom Script Overview]
 
@@ -10712,14 +10725,14 @@ If the client connects to an application using a Direct Request, then this situa
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/understanding-webex-call-quality-zdx","lastmod":"2024-10-04T13:59Z","nid":"1446941"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/understanding-webex-call-quality-zdx","lastmod":"2026-09-24T13:30Z","nid":"1446941"} -->
 ## Understanding Webex Call Quality for ZDX
 
 - Source: https://help.zscaler.com/zdx/understanding-webex-call-quality-zdx
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Applications > Understanding Webex Call Quality for ZDX
-- Last modified: 2024-10-04T13:59Z
-- Summary: Information about monitoring Webex Call Quality in the ZDX Admin Portal.
+- Last modified: 2026-09-24T13:30Z
+- Summary: Information about monitoring Webex Call Quality in the Zscaler Admin Console.
 
 Webex Call Quality allows you to monitor actual one-to-one calls or meetings among two or more participants in a configured Webex tenant. The ZDX Score for Call Quality can reflect either a Mean Opinion Score (MOS) average, or metric thresholds for latency, jitter, and packet loss. Call Quality works in parallel with cloud path probes, device metrics, and device events to help you identify issues that are unique to a device, application, or network.
 
@@ -10727,7 +10740,7 @@ Call Quality data is retrieved using the Webex API, and data is captured in real
 
 To monitor calls or meetings with Webex Call Quality, you'll first need to configure the application and meet the feature prerequisites. To learn more, see [Configuring Webex Call Quality for ZDX](https://help.zscaler.com/zdx/configuring-webex-call-quality-zdx).
 
-To access Webex Call Quality monitoring, do one of the following from the ZDX Admin Portal:
+To access Webex Call Quality monitoring, do one of the following from the Zscaler Admin Console:
 
 - Go to **Applications**and click **Webex Call Quality** in the Applications Overview page.
 - Click the **Webex Call Quality** application card in the Performance Overview page.
@@ -10989,18 +11002,18 @@ An aggregated user experience performance score is tracked over time at the user
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/understanding-zdx-score","lastmod":"2026-07-19T07:06Z","nid":"1355816"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/understanding-zdx-score","lastmod":"2026-09-24T16:55Z","nid":"1355816"} -->
 ## Understanding the ZDX Score
 
 - Source: https://help.zscaler.com/zdx/understanding-zdx-score
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Understanding the ZDX Score
-- Last modified: 2026-07-19T07:06Z
-- Summary: Information on Zscaler Digital Experience (ZDX) scores for an organization, applications, locations, departments, and users.
+- Last modified: 2026-09-24T16:55Z
+- Summary: Information on Digital Experience (ZDX) scores for an organization, applications, locations, departments, and users.
 
 [Watch a video about the ZDX Score](https://fast.wistia.net/embed/iframe/1dbnua67qk) (shows legacy UI).
 
-A ZDX Score represents all users in your organization, across all applications, all locations, and all cities. You can see the score on the Zscaler Admin Console dashboards that capture Zscaler Digital Experience (ZDX) metrics. Depending on the time period and filters selected within the dashboards, the score adjusts accordingly.
+A ZDX Score represents all users in your organization, across all applications, all locations, and all cities. You can see the score on the Zscaler Admin Console dashboards that capture Digital Experience (ZDX) metrics. Depending on the time period and filters selected within the dashboards, the score adjusts accordingly.
 
 The ZDX Score is based on a scale of 0 (lowest) to 100 (highest) with the lowest numbers indicating a Poor score and the highest numbers indicating a Good score.
 
@@ -11038,7 +11051,7 @@ There are two different ZDX Score types and one combined ZDX Score type dependin
 - **RUM Score**: The score is measured using [Real User Monitoring (RUM)](https://help.zscaler.com/zdx/understanding-real-user-monitoring).
 - **Combined Score**: The score is a combination of both Synthetic Probe Score and RUM Score.
 
-These scores can differ from each other as they use different application configurations and use different metrics to measure the digital experience of a device.
+These scores can differ from each other as they use different application configurations and use different metrics to measure the Digital Experience of a device.
 
 | Metrics | Synthetic Probe Configuration Only | RUM Configuration Only | Combined Configurations |
 | --- | --- | --- | --- |
@@ -11060,7 +11073,7 @@ To find the ZDX Score for your organization, Zscaler identifies the lowest value
 
 For example, the time interval for the 24-hour time range is one hour. The application with the lowest value represents your organization's score for that hour. Each hour's score is added together and divided by 25 (24 hours + 1 for the starting score) to provide the ZDX Score.
 
-For a user's ZDX Score, a comparison of the values across each application they accessed is done for the selected time period. The application with the lowest value is the user's score, since it represents the user's poorest digital experience for the selected time range.
+For a user's ZDX Score, a comparison of the values across each application they accessed is done for the selected time period. The application with the lowest value is the user's score, since it represents the user's poorest Digital Experience for the selected time range.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -11285,183 +11298,6 @@ The protocol used is visible in the Cloud Path section on the user details page.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/viewing-and-managing-device-remediation","lastmod":"2026-08-20T16:48Z","nid":"1528756"} -->
-## Viewing and Managing Device Remediation
-
-- Source: https://help.zscaler.com/zdx/viewing-and-managing-device-remediation
-- Product: Digital Experience Monitoring (ZDX)
-- Path: Digital Experience Monitoring (ZDX) Help > Troubleshoot > Remediation > Viewing and Managing Device Remediation
-- Last modified: 2026-08-20T16:48Z
-- Summary: Information about viewing and managing Device Remediation.
-
-Device Remediation runs a script on selected devices as a job, and you can schedule the job as needed. Scripts are useful for remediating software issues by running PowerShell scripts on the selected devices. The Device Remediation page gathers parameter support and script output to categorize each job into the In Progress, Completed, or Scheduled tables for easy visibility and management. If a script fails, you can re-run the job or edit the script as required to run the job again.
-
-## Prerequisites
-
-Prior to running scripts on a device, you must have:
-
-- The appropriate subscription level to support Remediation. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#digital-experience).
-- The appropriate permission level to configure scripts. To learn more, see [Adding ZDX Roles](https://help.zscaler.com/zdx/adding-zdx-roles).
-- The minimum required versions of Zscaler Client Connector and ZDX Module. To learn more, see [Supported Versions & Feature Compatibility](https://help.zscaler.com/zdx/supported-versions-feature-compatibility).
-
-## Jobs Management
-
-To manage the number of jobs on the Device Remediation page (Analytics > Digital Experience > Remediation > Device Remediation), you can:
-
-- Start a new job.
-- Edit a job.
-- Delete a job.
-
-## Device Remediation Tables
-
-There are 3 Device Remediation tables based on the status of the job: In Progress, Completed, or Scheduled. These tables help you focus on which jobs need attention by providing granular details of the success rate or progress of each job.
-
-For each table on the Device Remediation page (Analytics > Digital Experience > Remediation > Device Remediation), you can:
-
-- View the In Progress, Completed, or Scheduled tables based on the job's progress.
-- Click **View Scripts** to view a collection of configured or predefined scripts on the [Scripts page](https://help.zscaler.com/zdx/about-scripts).
-- Start a new job.
-- Search for jobs in the respective table.
-- Modify the columns displayed in the table.
-- Navigate through pages of jobs.
-
-### Job Status
-
-Each job has a status at any point of time and can be one of the following:
-
-| Status | Description |
-| --- | --- |
-| In Progress | The job is currently running the remote script on selected devices. |
-| Scheduled | The job is scheduled to run a remote script on selected devices. |
-| Completed - Aborted | The job was stopped while running a remote script. Jobs are capable of being stopped or aborted if the job has not entered its ending phase. |
-| Completed | The job has successfully completed running the remote script on all selected devices. |
-
-### In Progress Table
-
-The In Progress table provides the following:
-
-1. A list of jobs that are in progress to view the following information:
-  - **Name**: The name of the job. Click the **Name** to view job details.
-  - **Progress**: A progression bar to display the percentage of job completion.
-  - **Script**: The name of the script.
-  - **Devices**: The number of devices selected for the job.
-  - **Created By**: The user that started the job.
-  - **Started On**: The timestamp of when the job started.
-  - **Actions**: The available actions for the job.
-2. View the job details.
-3. Stop the job.
-
-[Image: View the jobs that are in progress]
-
-### Completed Table
-
-The Completed table provides the following:
-
-1. A list of jobs that are completed to view the following information:
-  - **Name**: The name of the job. The status of the job is displayed if the script run has **Expired**or **Aborted**. Click the **Name** to view job details.
-  - **Success Rate**: A percentage display bar to indicate how many of the jobs were completed over the number of selected devices.
-  - **Script**: The name of the script.
-  - **Devices**: The number of devices selected for the job.
-  - **Created By**: The user that started the job.
-  - **Started On**: The timestamp of when the job started.
-  - **Ended On**: The timestamp of when the job ended.
-  - **Actions**: The available actions for the job.
-2. View the job details where you can view the impacted devices, select and export a list of the impacted devices, or view the script output. See image.
-3. Rerun the job.
-4. Delete the job.
-
-[Image: View a list of completed jobs]
-
-### Scheduled Table
-
-The Scheduled table provides the following:
-
-1. A list of jobs that are completed to view the following information:
-  - **Name**: The name of the job. Click the **Name** to view job details.
-  - **Script**: The name of the script.
-  - **Devices**: The number of devices selected for the job.
-  - **Created By**: The user that started the job.
-  - **Scheduled for**: The timestamp of when the job is scheduled to start.
-  - **Actions**: The available actions for the job.
-2. Edit the job.
-3. Delete the job.
-
-[Image: View the scheduled jobs]
-
-### Job Details
-
-You can view a job's granular details by clicking a row on any of the tables. Each job includes:
-
-- Under **Job Details**:
-  - **Success Rate**: The percentage bar to indicate how many times the job was completed.
-  - **Success**: The number of devices that have completed the job.
-  - **Failed**: The number of devices that have failed to run the script. If the job is aborted, then Zscaler Digital Experience (ZDX) tries its best effort to stop the script.
-  - **Script**: The name of the script.
-  - **Operating System**: The operating system the script is for.
-  - **Devices**: The number of selected devices.
-  - **Created By**: The user that started the job.
-  - **Started On**: The timestamp of when the job started.
-  - **Ended On**: The timestamp of when the job ended.
-  - **Targeted**: The number of devices, users, user groups, locations, location groups, or departments that are targeted for the job. The targeted number is based on the job's selection.
-- Under the **Devices** table, you can view which group of devices based on their job status (**All**, **Success**, or **Failed**). **All** is the default view of both **Success** and **Failed** jobs on selected devices. Each row has:
-  - **Device**: The name of the device.
-  - **User**: The name of the user.
-  - **Execution Status**: The status of the job.
-  - **Error Message**: A descriptive error message as to why the job failed.
-  - **Result**: The result of the job.
-  - **Script Output**: The script output when the job is completed successfully. You can click the **View** icon to view the entire script output or request logs.
-  - **Last Updated On**: The timestamp of when the script was last updated to run on the device.
-
-If the job failed to run the script on a device, you can view where the remote script did not run on inactive or unavailable devices by clicking **View Devices Where Script Did Not Run**. Click **Rerun Job** to run the job as a new job with prefilled criteria.
-
-[Image: View the Job Details]
-
-## Considerations & Limitations
-
-Consider the following when configuring scripts:
-
-- You can configure only up to the maximum number of scripts based on your subscription. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#digital-experience).
-- You cannot select a device if it does not meet the version compatibility or OS. To learn more, see [Supported Versions & Feature Compatibility](https://help.zscaler.com/zdx/supported-versions-feature-compatibility).
-- When the user accepts a job and the script does not run due to an expired certificate or an invalid certificate, then you must upload the script again with a valid script certificate. To learn more, see [Preparing Custom Script Signing](https://help.zscaler.com/zdx/preparing-custom-script-signing).
-
-1. Click **Start New Job**.
-2. Enter a **Name** for the job.
-3. Under **Select Script**:
-  1. **Script**: Search and select which script you want to run for the job. You can also [create a script](https://help.zscaler.com/zdx/managing-remote-scripts#add).
-  2. **Script Details**: If you configured [script parameters or an end user notification](https://help.zscaler.com/zdx/managing-remote-scripts#fields), then you can modify the script parameters and preview the end user notification.
-  3. **Script Run Settings**: Enter the number of seconds the script runs for the job.
-4. Under **Select Devices**, click **Add** to open the **Select Devices** drawer. You cannot select a device if it does not meet the version compatibility or OS. To learn more, see [Supported Versions & Feature Compatibility](https://help.zscaler.com/zdx/supported-versions-feature-compatibility). See image.
-  1. **Criteria**: Select **Devices**, **Users**, **User Groups**, **Locations**, **Location Groups**, or **Departments**.
-  2. **Display selected only**: Enable to display only the selected items.
-  3. **Search**: You can search for the name of the selected criteria. Click the **Remove** icon to reset your search.
-  4. Click **Done** to save your selection.
-5. Under **Job Details**: See image.
-  1. **Wait for devices to be online for a maximum of**: Enter the number of minutes, hours, or days a script must wait to run on a device.
-  2. **Schedule Job for later**: Enable to select a date on which to run the script.
-6. Click **Start**.
-
-You can edit a job on the page if it's **Scheduled**.
-
-1. Click the **Edit** icon on the job that you want to modify.
-2. In the **Edit Job** window, modify the fields as needed. See image.
-3. Click **Save**.
-
-[Image: Modify the fields for the remote script run]
-
-You can delete to cancel or abort a job on any table.
-
-1. Click the **Delete** icon.
-2. In the **Delete Remediation Job** window, click **Delete**. [Image: Confirm the remote script run deletion]
-
-[Image: Select which devices to run the script on]
-
-[Image: Start a remote script run]
-
-[Image: View the job details]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/zdx/viewing-device-events-reports","lastmod":"2026-09-10T13:16Z","nid":"1529314"} -->
 ## Viewing Device Events Reports
 
@@ -11620,24 +11456,24 @@ In this scenario, there are two users and one device.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/viewing-diagnostics-session-results","lastmod":"2025-04-18T09:24Z","nid":"1370176"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/viewing-diagnostics-session-results","lastmod":"2026-09-22T17:51Z","nid":"1370176"} -->
 ## Viewing Diagnostics Session Results
 
 - Source: https://help.zscaler.com/zdx/viewing-diagnostics-session-results
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Troubleshoot > Diagnostics > Viewing Diagnostics Session Results
-- Last modified: 2025-04-18T09:24Z
-- Summary: How to view and store Diagnostics session results in the ZDX Admin Portal.
+- Last modified: 2026-09-22T17:51Z
+- Summary: How to view and store Diagnostics session results in the Zscaler Admin Console.
 
-Diagnostics sessions can provide much more granular information to analyze any issues that your users might be facing. After a session is run, you can see the results by clicking the View icon in the session row.
+Diagnostics sessions for Digital Experience (ZDX) can provide much more granular information to analyze any issues that your users might be facing. After a session is run, you can see the results by clicking the View icon in the session row.
 
-Data for In Progress sessions is updated every minute. Completed Diagnostics sessions show complete session data. All other sessions show partial session data. If the session status is Expired, then no data is seen in the session report.
+Data for In Progress sessions is updated every minute. Completed sessions show complete session data. All other sessions show partial session data. If the session status is Expired, then no data is seen in the session report.
 
-Each configured diagnostics session has a [version compatibility](https://help.zscaler.com/zdx/supported-versions-feature-compatibility#Diagnostics) that must be met to view the results.
+Each configured session has a [version compatibility](https://help.zscaler.com/zdx/supported-versions-feature-compatibility#Diagnostics) that must be met to view the results.
 
 ## Diagnostics Session Results
 
-To view Diagnostics session results:
+To view a Diagnostics session results:
 
 - Click the name of the session or the **View** icon in the **In Progress** or the **History** table. This displays the session information in the same tab.
 - Click the **Open in a New Tab** icon to open session results in a new tab. You can use this feature to compare multiple session results.
@@ -11676,7 +11512,7 @@ Network applications do not have a web front end, and therefore, Web Probe Metri
 
 ### Hi-Fi Cloud Path
 
-A High Fidelity (Hi-Fi) Cloud path displays Cloud Path network connectivity or latency details where a Cloud Path sends a high number of packets.
+A High Fidelity (Hi-Fi) Cloud Path displays Cloud Path network connectivity or latency details where a Cloud Path sends a high number of packets.
 
 Each Hi-Fi Cloud Path shows the following:
 
@@ -11696,7 +11532,7 @@ See image.
   - **Location**: The location of the data center.
   - **Proxy Hostname**: The proxy hostname of the Zscaler data center.
   - **IP**: The IP address of the Zscaler data center.
-  - **Cloud Name**: The ZDX cloud name. To learn more, see [What Is My Cloud Name for ZDX?](https://help.zscaler.com/zdx/what-my-cloud-name-zdx)
+  - **Cloud Name**: The ZDX cloud name. To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
 - Under **User Details**:
   - **User Name**: The name of the user.
   - **Location**: The location of the user device.
@@ -11713,7 +11549,7 @@ If you select a point on a graph, a tooltip with the appropriate metric, the dat
 
 ### Bandwidth Test
 
-A bandwidth test can provide information on a device's network connectivity or latency details.
+A bandwidth test provides information on a device's network connectivity or latency details.
 
 Each bandwidth test displays the following:
 
@@ -11722,6 +11558,12 @@ Each bandwidth test displays the following:
 - Results
 - Basic Diagnostics
 - Cloud Path
+
+See image.
+
+### Packet Capture Probing
+
+A packet capture probing (PCAP) session provides information on the file path, packet capture filter, and network interface. After a PCAP session completes, you can view the results on the History table in the [Diagnostics page](https://help.zscaler.com/zdx/about-diagnostics).
 
 See image.
 
@@ -11735,7 +11577,7 @@ See image.
   - **Location**: The location of the data center.
   - **Proxy Hostname**: The proxy hostname of the Zscaler data center.
   - **IP**: The IP address of the Zscaler data center.
-  - **Cloud Name**: The ZDX cloud name. To learn more, see [What Is My Cloud Name for ZDX?](https://help.zscaler.com/zdx/what-my-cloud-name-zdx)
+  - **Cloud Name**: The ZDX cloud name. To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
 - Under **User Details**:
   - **User Name**: The name of the user.
   - **Location**: The location of the user device.
@@ -11764,7 +11606,7 @@ If you select a point on a graph, a tooltip with the appropriate metric, the dat
 
 ## Saving the Session Report
 
-You can access session information by clicking the **View** icon in the session row in the Diagnostics page. For information on data retention limits, see [Ranges and Limitations](https://help.zscaler.com/zdx/ranges-limitations).
+You can access session information by clicking the **View** icon in the session row in the Diagnostics page. For information on data retention limits, see [Ranges and Limitations](https://help.zscaler.com/unified/ranges-limitations#digital-experience).
 
 You can also choose to store the Diagnostics session report. Click the **Export PDF** button to convert the report into PDF format. You can then save the PDF report for future reference.
 
@@ -11772,7 +11614,7 @@ If you have View Only permission for Diagnostics details, you cannot use the Exp
 
 [Image: Viewing Deep Tracing session results]
 
-[Image: Export PDF functionality for Deep Tracing]
+[Image: Packet Capture Probing (PCAP) Results]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -11883,13 +11725,13 @@ To view IPv6 configurations, see:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/viewing-predefined-reports","lastmod":"2026-08-28T14:38Z","nid":"1456566"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/viewing-predefined-reports","lastmod":"2026-09-24T13:44Z","nid":"1456566"} -->
 ## Viewing Predefined Reports
 
 - Source: https://help.zscaler.com/zdx/viewing-predefined-reports
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Viewing Predefined Reports
-- Last modified: 2026-08-28T14:38Z
+- Last modified: 2026-09-24T13:44Z
 - Summary: Provides details about predefined reports, available in the Zscaler Admin Console.
 
 Predefined reports allow you to view user data across your organization that can reveal distinctive patterns among various metrics and applications. Details for each report are aggregated day-to-day and most reports are captured in a rolling 14-day cycle.
@@ -11899,13 +11741,13 @@ Predefined reports allow you to view user data across your organization that can
 To access and view system-generated reports, ensure:
 
 - Your ZDX subscription level supports viewing system-generated reports. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#digital-experience).
-- Your admin role is configured to view predefinted reports using the System Generated Reports permission. To learn more, see [Adding ZDX Roles](https://help.zscaler.com/zdx/adding-zdx-roles).
+- Your admin role is configured to view predefined reports using the System Generated Reports permission. To learn more, see [Adding ZDX Roles](https://help.zscaler.com/zdx/adding-zdx-roles).
 
 ## Accessing Reports
 
 To access the reports:
 
-1. Go to **Analytics**>**Digital Experience** > **Reports** > **Predefined Reports**.
+1. Go to **Digital Experience** > **Reports** > **Predefined Reports**.
 2. Select the report name or click the **View**icon to access a report.
 
 Use the search field to find a specific report. Search for any character string that might be part of the report name.
@@ -12814,16 +12656,16 @@ The following list describes what each process is used for:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/zoom-call-quality-zdx-integration-requirements","lastmod":"2023-01-05T21:43Z","nid":"1389081"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/zoom-call-quality-zdx-integration-requirements","lastmod":"2026-09-24T13:35Z","nid":"1389081"} -->
 ## Zoom Call Quality for ZDX Integration Requirements
 
 - Source: https://help.zscaler.com/zdx/zoom-call-quality-zdx-integration-requirements
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Applications > Zoom Call Quality for ZDX Integration Requirements
-- Last modified: 2023-01-05T21:43Z
-- Summary: Integration requirements for Zoom Call Quality
+- Last modified: 2026-09-24T13:35Z
+- Summary: Integration requirements for Zoom Call Quality.
 
-Review the following Zoom application requirements before configuring and using Zoom Call Quality for Zscaler Digital Experience (ZDX). You must already have a ZDX subscription and ZDX admin access.
+Review the following Zoom application requirements before configuring and using Zoom Call Quality for Digital Experience (ZDX). You must already have a ZDX subscription and ZDX admin access.
 
 ## Installing Zoom Call Quality from the Zoom App Marketplace
 
@@ -12831,13 +12673,13 @@ To install Zoom Call Quality for ZDX from the Zoom App Marketplace:
 
 1. Sign in to the [Zoom App Marketplace](https://zoom.us/signin).
 2. Search for **Zscaler Digital Experience**.
-3. Click **Visit Site to Install**. You are automatically redirected to the following URL to access the ZDX Admin Portal:
+3. Click **Visit Site to Install**. You are automatically redirected to the following URL to access the Zscaler Admin Console:
 
 ```
 https://admin.zdxcloud.net/zdx/login
 ```
 
-1. Log in to the ZDX Admin Portal and follow the configuration steps provided in [Configuring Zoom Call Quality for ZDX](https://help.zscaler.com/zdx/configuring-zoom-call-quality-zdx).
+1. Log in to the Zscaler Admin Console and follow the configuration steps provided in [Configuring Zoom Call Quality for ZDX](https://help.zscaler.com/zdx/configuring-zoom-call-quality-zdx).
 
 ## Using Zoom API Scopes
 
@@ -12855,9 +12697,9 @@ Data is captured in real time as a meeting is in progress. User and device infor
 
 To learn more, see [Understanding Zoom Call Quality for ZDX](https://help.zscaler.com/zdx/understanding-zoom-call-quality-zdx).
 
-## Removing Zoom Call Quality from the ZDX Admin Portal
+## Removing Zoom Call Quality from the Zscaler Admin Console
 
-To remove Zoom Call Quality for ZDX from the ZDX Admin Portal:
+To remove Zoom Call Quality for ZDX from the Zscaler Admin Console:
 
 1. Go to **Configuration**>**Applications**.
 2. Click **Delete** to remove the tenant for Zoom Call Quality.

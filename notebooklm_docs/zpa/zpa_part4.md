@@ -1,7 +1,7 @@
 # Zscaler Help — ZPA — Private Access (part 4)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 22:17 UTC
+Generated: 2026-09-28 09:01 UTC
 Articles in this file: 56
 
 ---
@@ -195,13 +195,13 @@ The **Upload Server Certificate** drawer appears.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/using-app-segment-multimatch","lastmod":"2026-09-10T10:52Z","nid":"1485951"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/using-app-segment-multimatch","lastmod":"2026-09-22T07:06Z","nid":"1485951"} -->
 ## Using Application Segment Multimatch
 
 - Source: https://help.zscaler.com/zpa/using-app-segment-multimatch
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Application Management > Application Segments > Using Application Segment Multimatch
-- Last modified: 2026-09-10T10:52Z
+- Last modified: 2026-09-22T07:06Z
 - Summary: Information about using Application Segment Multimatch in Private Access.
 
 This feature is in limited availability. To learn more, contact Zscaler Support.
@@ -482,20 +482,20 @@ Application Scaling is enabled at the tenant level. Contact Zscaler Support to r
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/using-application-segment-import","lastmod":"2026-05-13T14:32Z","nid":"1540203"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/using-application-segment-import","lastmod":"2026-09-22T07:53Z","nid":"1540203"} -->
 ## Using Application Segment Import
 
 - Source: https://help.zscaler.com/zpa/using-application-segment-import
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Application Management > Application Segments > Using Application Segment Import
-- Last modified: 2026-05-13T14:32Z
+- Last modified: 2026-09-22T07:53Z
 - Summary: How to use the Application Segment Import feature in the Zscaler Admin Console.
 
 Private Access (ZPA) allows you to bulk import application information to ease the process of application segment configuration. This speeds up the data entry process and eliminates the need to re-enter data if it changes over time. To learn more, see [About Application Segment Import](https://help.zscaler.com/zpa/about-application-segment-import).
 
 To bulk import application segment data:
 
-1. Go to **Policies** > **Access Control** > **Private Applications** > **Application Segment Import**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Private Access**>**Private Applications**>**Application Segment Import**.
 2. Click **Download Sample CSV**. The sample template downloads to your system. See image. If you already have a CSV file containing your data, you can import the file.
 3. Open the template file and add information for the following fields:
   - Application Name
@@ -620,13 +620,13 @@ To learn more, see [About (Web Server) Certificates](https://help.zscaler.com/zp
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/validating-client-hostname","lastmod":"2026-06-16T11:51Z","nid":"1485046"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/validating-client-hostname","lastmod":"2026-09-22T07:44Z","nid":"1485046"} -->
 ## Validating a Client Hostname
 
 - Source: https://help.zscaler.com/zpa/validating-client-hostname
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Application Management > Application Segments > Validating a Client Hostname
-- Last modified: 2026-06-16T11:51Z
+- Last modified: 2026-09-22T07:44Z
 - Summary: How to validate a client hostname in the Zscaler Admin Console.
 
 Validating a client hostname allows you to enroll endpoints for [peer-to-peer connectivity](https://help.zscaler.com/zpa/administration/peer-peer-connectivity) so that you can accept incoming connections through Private Access (ZPA) from other clients. To enroll the endpoints, a regular expression of allowed hostnames is configured per tenant. This regular expression controls the endpoints to which Zscaler Client Connector allows the peer-to-peer connectivity. Endpoints whose FQDNs match this regular expression are enrolled. To learn more, see [Understanding Client-to-Client Connectivity](https://help.zscaler.com/zpa/understanding-client-client-connectivity) and [Understanding Server-to-Client Connectivity](https://help.zscaler.com/zpa/understanding-server-client-connectivity).
@@ -640,7 +640,7 @@ Prior to enabling peer-to-peer connectivity, the following prerequisites must be
 
 To validate a client hostname:
 
-1. Go to **Policies** > **Access Control** > **Private Applications** > **Defined Application Segments**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Private Access**>**Private Applications**>**Defined Application Segments**.
 2. Click the **Column** **Menu**icon ([Image: Column Menu icon]), and select **Client Hostname Validation**.
 
 See image.
@@ -657,16 +657,16 @@ The **Edit Regular Expression**window appears.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-active-directory-protection-dashboard","lastmod":"2026-06-29T10:17Z","nid":"1515526"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-active-directory-protection-dashboard","lastmod":"2026-09-25T17:08Z","nid":"1515526"} -->
 ## Viewing the Active Directory Protection Dashboard
 
 - Source: https://help.zscaler.com/zpa/viewing-active-directory-protection-dashboard
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > AppProtection and Browser Protection Monitoring > Viewing the Active Directory Protection Dashboard
-- Last modified: 2026-06-29T10:17Z
+- Last modified: 2026-09-25T17:08Z
 - Summary: Information on the Active Directory Protection dashboard and widgets accessible in the Zscaler Admin Console.
 
-The Active Directory Protection dashboard provides information about the Active Directory policy activity in your organization. To view the dashboard in the Zscaler Admin Console, go to Analytics > Switch to Existing Reports > Private Applications > Security > Active Directory Protection.
+The Active Directory Protection dashboard provides information about the Active Directory policy activity in your organization. To view the dashboard in the Zscaler Admin Console, go to Private Access > Private App Protection > Active Directory Protection.
 
 ## Dashboard Tools
 
@@ -803,13 +803,13 @@ The widget displays the top 10 users by control violations within the selected t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-agent-dashboard","lastmod":"2026-09-11T07:14Z","nid":"1498186"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-agent-dashboard","lastmod":"2026-09-24T08:21Z","nid":"1498186"} -->
 ## Viewing the Agent Dashboard
 
 - Source: https://help.zscaler.com/zpa/viewing-agent-dashboard
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Dashboard > Viewing the Agent Dashboard
-- Last modified: 2026-09-11T07:14Z
+- Last modified: 2026-09-24T08:21Z
 - Summary: How to view the Agent dashboard for Microsegmentation in the Zscaler Admin Console.
 
 The Agent dashboard provides information about agent data in your organization.
@@ -830,13 +830,13 @@ The Agent dashboard displays the following information and functionality:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-and-managing-events-diagnostics","lastmod":"2026-05-15T07:06Z","nid":"1485451"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-and-managing-events-diagnostics","lastmod":"2026-09-23T13:11Z","nid":"1485451"} -->
 ## Viewing and Managing Events Diagnostics
 
 - Source: https://help.zscaler.com/zpa/viewing-and-managing-events-diagnostics
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Viewing and Managing Events Diagnostics
-- Last modified: 2026-05-15T07:06Z
+- Last modified: 2026-09-23T13:11Z
 - Summary: Information about Events diagnostics and data related to the events, accessible within the Zscaler Admin Console.
 
 This article describes how to view and filter event logs for notifications. Admins subscribe to events to receive email notifications from the Zscaler Admin Console. After an event is triggered, admins receive alerts of these notifications via email. To learn more, see [About Notifications](https://help.zscaler.com/zpa/about-notifications). The Events Diagnostics page displays these notifications.
@@ -845,7 +845,7 @@ This article describes how to view and filter event logs for notifications. Admi
 
 To access diagnostics for events:
 
-1. Go to **Logs**>**Insights**>**Diagnostics**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer**> **Private Access** > **Private Diagnostics**.
 2. From the **Log Type**drop-down menu, select **Events**.
 
 By default, the information for all events is displayed for notifications that occurred in the last 24 hours. You can do the following:
@@ -884,7 +884,7 @@ See image.
 
 To configure settings for diagnostics pages in the Zscaler Admin Console:
 
-1. Go to **Logs**> **Insights**> **Diagnostics**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer**> **Private Access** > **Private Diagnostics**.
 2. Click the **Settings** icon ([Image: Settings icon within the diagnostics pages]). The **Settings** drawer appears.
 3. In the **Settings** drawer, select the default filter operator (i.e., **Equals** or **Contains**) from thedrop-down menu. The **Default Filter Operator** is set to **Equals** by default. See image.
 4. Click **Save** to apply your changes. The selected filter operator is saved for future sessions.
@@ -1148,16 +1148,16 @@ To add or update a Zscaler Client Connector download link:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-api-protection-dashboard","lastmod":"2026-06-29T10:13Z","nid":"1499836"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-api-protection-dashboard","lastmod":"2026-09-25T17:10Z","nid":"1499836"} -->
 ## Viewing the API Protection Dashboard
 
 - Source: https://help.zscaler.com/zpa/viewing-api-protection-dashboard
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > AppProtection and Browser Protection Monitoring > Viewing the API Protection Dashboard
-- Last modified: 2026-06-29T10:13Z
+- Last modified: 2026-09-25T17:10Z
 - Summary: Information on the API Protection dashboard and widgets accessible within the Zscaler Admin Console.
 
-The API Protection dashboard provides information about the API Protection activity in your organization. To view the dashboard in the Zscaler Admin Console, go to Analytics > Switch to Existing Reports > Private Applications > Security > API Protection.
+The API Protection dashboard provides information about the API Protection activity in your organization. To view the dashboard in the Zscaler Admin Console, go to Private Access > Private App Protection > API Protection.
 
 See image.
 
@@ -1281,16 +1281,16 @@ Click an error and then click **Show in Logs** to be directed to log information
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-app-connectors-dashboard","lastmod":"2026-06-29T10:06Z","nid":"1484596"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-app-connectors-dashboard","lastmod":"2026-09-25T15:41Z","nid":"1484596"} -->
 ## Viewing the App Connectors Dashboard
 
 - Source: https://help.zscaler.com/zpa/viewing-app-connectors-dashboard
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > App Connector Monitoring > Viewing the App Connectors Dashboard
-- Last modified: 2026-06-29T10:06Z
+- Last modified: 2026-09-25T15:41Z
 - Summary: Information on the App Connectors dashboard and widgets accessible within the Zscaler Admin Console.
 
-The App Connectors dashboard provides information about the App Connectors for your organization. To view the dashboard in the Zscaler Admin Console, go to Analytics > Switch to Existing Reports > Private Applications > App Connectors.
+The App Connectors dashboard provides information about the App Connectors for your organization. To view the dashboard in the Zscaler Admin Console, go to Private Access> Dashboards > App Connectors.
 
 See image.
 
@@ -1514,13 +1514,13 @@ For each widget, you can search by entering part or all of a Public Service Edge
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-application-and-user-group-relationships","lastmod":"2026-04-17T07:06Z","nid":"1530860"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-application-and-user-group-relationships","lastmod":"2026-09-24T06:22Z","nid":"1530860"} -->
 ## Viewing Application and User Group Relationships
 
 - Source: https://help.zscaler.com/zpa/viewing-application-and-user-group-relationships
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Applications & Users Monitoring > Applications & Users Insights > Viewing Application and User Group Relationships
-- Last modified: 2026-04-17T07:06Z
+- Last modified: 2026-09-24T06:22Z
 - Summary: Information on the Application and User Group Relationships Report and its granular details.
 
 Application and User Group Relationships provides you with interactive and actionable insights on the usage of application segments and segment groups by user groups. To help you design better policy, you can gain insights into the relationships of the application and user groups to ensure [least privileged access](https://www.zscaler.com/resources/security-terms-glossary/what-is-least-privilege-access), a central tenet of Zscaler's Zero Trust Network Access (ZTNA).
@@ -1540,7 +1540,7 @@ See image.
 
 ## Application and User Group Relationships Report
 
-Use the Application and User Group Relationships page (Logs > Insights > Usage > Application and User Group Relationships) to view the usage between applications and user groups.
+Use the Application and User Group Relationships page (Data Explorer > Private Access > Usage > Application and User Group Relationships) to view the usage between applications and user groups.
 
 The report consists of the following information:
 
@@ -1685,20 +1685,20 @@ If you exclude items, then the sunburst chart, selection filter, and list adjust
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-application-map","lastmod":"2026-09-18T10:51Z","nid":"1534383"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-application-map","lastmod":"2026-09-21T14:13Z","nid":"1534383"} -->
 ## Viewing the Application Map
 
 - Source: https://help.zscaler.com/zpa/viewing-application-map
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Dashboard > Viewing the Application Map
-- Last modified: 2026-09-18T10:51Z
+- Last modified: 2026-09-21T14:13Z
 - Summary: How to view the Application Map for Microsegmentation in the Zscaler Admin Console.
 
 The Application Map visualizes network data in your organization. It provides a high-level view of how resource groups and their connected resources are performing, as well as options to view each group in detail.
 
 To view the Application Map, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud** > **Dashboard** > **Microsegmentation Application Map**.
 
-On the Application Map, you can use your mouse to zoom in or out of the map and rearrange the groups. You can use filters to view data about your organization’s resource groups or VPCs/VNETs within a specific timeframe and AppZone.
+On the Application Map, you can use your mouse to zoom in or out of the map and rearrange the groups. You can use filters to view data about your organization's resource groups or VPCs/VNETs within a specific timeframe and AppZone. You can use the search function to quickly locate a specific resource group on the map.
 
 [Image: Filter and adjust the Application Map]
 
@@ -1711,7 +1711,7 @@ The Application Map provides information about the following:
 - Private Infrastructure
 - VPC/VNET
 
-You can click a resource group to open a drawer containing its details. Additionally, when you click a resource group, the map displays information about the group’s managed and unmanaged flows, and if applicable, provides the option to review policy recommendations for the resource group based on those flows.
+You can click a resource group to open a drawer containing its details. Additionally, when you click a resource group, the map displays information about the group's managed and unmanaged flows, and if applicable, provides the option to review policy recommendations for the resource group based on those flows.
 
 [Image: Resource group details on the Application Map]
 
@@ -1854,16 +1854,16 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-applications-dashboard","lastmod":"2026-09-20T07:06Z","nid":"1483451"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-applications-dashboard","lastmod":"2026-09-23T13:21Z","nid":"1483451"} -->
 ## Viewing the Applications Dashboard
 
 - Source: https://help.zscaler.com/zpa/viewing-applications-dashboard
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Applications & Users Monitoring > Viewing the Applications Dashboard
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-09-23T13:21Z
 - Summary: Information on the Applications dashboard and widgets accessible within the Zscaler Admin Console.
 
-The Applications dashboard provides information about applications in your organization. To view the dashboard in the Zscaler Admin Console, go to Analytics > Switch to Existing Reports > Private Applications > Applications.
+The Applications dashboard provides information about applications in your organization. To view the dashboard in the Zscaler Admin Console, go to **Private Access** > **Dashboards** > **Applications** from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal).
 
 See image.
 
@@ -1909,7 +1909,7 @@ If you are using the [Log Streaming Service (LSS)](https://help.zscaler.com/zpa/
 
 This widget displays the total number of recommended application segments, grouped by their percentage of attack surface reduction. The attack surface reduction groups are broken up into 25% increments to show how many recommended application segments had higher attack surface reduction versus those that were lower. If you hover over the chart and click a specific section, a tooltip appears that specifies the attack surface reduction group for the percentage increment, the total number of AI-powered recommendations, and the percentage total. Clicking **View All** takes you to the [AI-Powered Recommendations](https://help.zscaler.com/zpa/about-ai-powered-recommendations-application-segments) page.
 
-AI-Powered Recommendations must be activated to display the AI-Powered Recommendations by Attack Surface Reduction % widget and populate it with data. To activate this feature, click **Activate Recommendations** on the AI-Powered Recommendations page (Policies > Access Control > Private Apps > AI-Powered Recommendations).
+AI-Powered Recommendations must be activated to display the AI-Powered Recommendations by Attack Surface Reduction % widget and populate it with data. To activate this feature, click **Activate Recommendations** on the AI-Powered Recommendations page (Private Access > Private Applications > AI-Powered Recommendations).
 
 [Image: AI-Powered Recommendations by Attack Surface Reduction % Widget in the Zscaler Admin Console]
 
@@ -2036,7 +2036,7 @@ This widget displays the number of Defined Application Segments (orange) compare
 
 Hover over a graph bar to get detailed information for each two-week increment. Click a graph bar and then click **View Recommended Apps** to view the Recommended Application Segments page.
 
-AI-Powered Recommendations must be activated to display the App Configuration in Past 3 Months widget and populate it with data. To activate this feature, click **Activate Recommendations** on the AI-Powered Recommendations page (Policies > Access Control > Private Applications > AI-Powered Recommendations).
+AI-Powered Recommendations must be activated to display the App Configuration in Past 3 Months widget and populate it with data. To activate this feature, click **Activate Recommendations** on the AI-Powered Recommendations page (Private Access > Private Applications > AI-Powered Recommendations).
 
 [Image: App Configuration in Past 3 Months widget]
 
@@ -2052,16 +2052,16 @@ This widget displays the top applications by tunnel count in the selected time f
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-appprotection-dashboard","lastmod":"2026-06-29T10:11Z","nid":"1484966"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-appprotection-dashboard","lastmod":"2026-09-25T16:40Z","nid":"1484966"} -->
 ## Viewing the AppProtection Dashboard
 
 - Source: https://help.zscaler.com/zpa/viewing-appprotection-dashboard
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > AppProtection and Browser Protection Monitoring > Viewing the AppProtection Dashboard
-- Last modified: 2026-06-29T10:11Z
+- Last modified: 2026-09-25T16:40Z
 - Summary: Information on the AppProtection dashboard and widgets accessible within the Zscaler Admin Console.
 
-The AppProtection dashboard provides information about the AppProtection policy activity in your organization. To view the dashboard in the Zscaler Admin Console, go to Analytics > Switch to Existing Reports > Private Applications > Security > AppProtection.
+The AppProtection dashboard provides information about the AppProtection policy activity in your organization. To view the dashboard in the Zscaler Admin Console, go to Private Access > Private App Protection > Dashboards > App Protection.
 
 See image.
 
@@ -2095,7 +2095,7 @@ The AppProtection dashboard provides the following widgets:
 - Top Control Violations
 - Top Profile Violations
 
-The widget displays security violations within the selected time frame and categorizes them by the ThreatLabZ, WebSocket, and OWASP predefined top 10 control categories. The control categories are based on the ThreatLabZ Predefined Controls, WebSocket Predefined Controls, OWASP Predefined Controls, WebSocket Custom Controls, and HTTP Custom Controls, and are found in AppProtection Controls (**Policies**> **Cyber Security**> **Inline Security** > **Protection Controls**).
+The widget displays security violations within the selected time frame and categorizes them by the ThreatLabZ, WebSocket, and OWASP predefined top 10 control categories. The control categories are based on the ThreatLabZ Predefined Controls, WebSocket Predefined Controls, OWASP Predefined Controls, WebSocket Custom Controls, and HTTP Custom Controls, and are found in AppProtection Controls (**Private App Protection** > **Policy**> **Protection Controls**).
 
 [Image: Violations by control category widget]
 
@@ -2161,16 +2161,16 @@ The widget displays the top 10 profile violations within the selected time frame
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-bgp-peers-dashboard","lastmod":"2026-09-10T12:19Z","nid":"1534094"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-bgp-peers-dashboard","lastmod":"2026-09-21T08:41Z","nid":"1534094"} -->
 ## Viewing the BGP Peers Dashboard
 
 - Source: https://help.zscaler.com/zpa/viewing-bgp-peers-dashboard
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Dashboard & Diagnostics > Viewing the BGP Peers Dashboard
-- Last modified: 2026-09-10T12:19Z
+- Last modified: 2026-09-21T08:41Z
 - Summary: Information about the BGP Peers dashboard in the Zscaler Admin Console.
 
-The BGP Peers dashboard provides information about the Border Gateway Protocol (BGP) peers for your organization. To view the dashboard in the Zscaler Admin Console, go to Private Access > VPN (for Legacy Apps) > Dashboard > VPN BGP Peers.
+The BGP Peers dashboard provides information about the Border Gateway Protocol (BGP) peers for your organization. To view the dashboard in the Zscaler Admin Console, go to Private Access > VPN (for Legacy Apps) > VPN BGP Peers.
 
 ## Dashboard Tools
 
@@ -2215,16 +2215,16 @@ The table shows the following information for each Network Connector associated 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-browser-protection-dashboard","lastmod":"2026-06-29T10:12Z","nid":"1485611"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-browser-protection-dashboard","lastmod":"2026-09-25T16:45Z","nid":"1485611"} -->
 ## Viewing the Browser Protection Dashboard
 
 - Source: https://help.zscaler.com/zpa/viewing-browser-protection-dashboard
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > AppProtection and Browser Protection Monitoring > Viewing the Browser Protection Dashboard
-- Last modified: 2026-06-29T10:12Z
+- Last modified: 2026-09-25T16:45Z
 - Summary: Information on the Browser Protection dashboard and widgets accessible within the Zscaler Admin Console.
 
-The Browser Protection dashboard provides information about browser sessions in your organization. To view the dashboard in the Zscaler Admin Console, go to Analytics > Switch to Existing Reports > Private Applications > Security > Browser Protection.
+The Browser Protection dashboard provides information about browser sessions in your organization. To view the dashboard in the Zscaler Admin Console, go to Private Access > Private App Protection > Browser Protection.
 
 See image.
 
@@ -2274,13 +2274,13 @@ The table covers:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-configuration-graphs","lastmod":"2026-09-10T12:13Z","nid":"1516601"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-configuration-graphs","lastmod":"2026-09-24T21:06Z","nid":"1516601"} -->
 ## Viewing Configuration Graphs
 
 - Source: https://help.zscaler.com/zpa/viewing-configuration-graphs
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Access Software Components > Viewing Configuration Graphs
-- Last modified: 2026-09-10T12:13Z
+- Last modified: 2026-09-24T21:06Z
 - Summary: Information on how to view the configuration graphs in the Zscaler Admin Console.
 
 Configuration graphs are graphical representations of how configuration objects are connected to each other (e.g., how an application segment is connected to a server group and server groups). They are helpful in determining when and where you might need to fix configuration requisites to get them working together again.
@@ -2314,16 +2314,16 @@ You can edit any configuration objects to ensure they meet the configuration req
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-extranet-dashboard","lastmod":"2026-06-29T10:03Z","nid":"1510081"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-extranet-dashboard","lastmod":"2026-09-23T13:23Z","nid":"1510081"} -->
 ## Viewing the Extranet Dashboard
 
 - Source: https://help.zscaler.com/zpa/viewing-extranet-dashboard
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Applications & Users Monitoring > Viewing the Extranet Dashboard
-- Last modified: 2026-06-29T10:03Z
+- Last modified: 2026-09-23T13:23Z
 - Summary: Information about the Extranet Dashboard and widgets available within the Zscaler Admin Console.
 
-The Extranet dashboard uses information gathered from Internet & SaaS (ZIA) to display extranet resources and locations with the lowest health score for overall performance and reliability in your organization. To view the dashboard in the Zscaler Admin Console, go to Analytics > Switch to Existing Reports > Private Applications > Extranet.
+The Extranet dashboard uses information gathered from Internet & SaaS (ZIA) to display extranet resources and locations with the lowest health score for overall performance and reliability in your organization. To view the dashboard in the Zscaler Admin Console, go to **Private Access** > **Dashboards** > **Applications** from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal).
 
 The health score represents the health of an IPSec connection between the extranet resource's (partner) data center and the Zscaler cloud. It is a cumulative score of all the components and functions for that connection. You can have multiple connections between an extranet resource and the Zscaler cloud. Each extranet resource can have multiple locations, and each location can have multiple tunnels to the Zscaler cloud.
 
@@ -2402,16 +2402,16 @@ The Flow dashboard displays the following information and functionality:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-health-dashboard","lastmod":"2026-06-29T10:06Z","nid":"1483736"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-health-dashboard","lastmod":"2026-09-23T13:29Z","nid":"1483736"} -->
 ## Viewing the Health Dashboard
 
 - Source: https://help.zscaler.com/zpa/viewing-health-dashboard
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Applications & Users Monitoring > Viewing the Health Dashboard
-- Last modified: 2026-06-29T10:06Z
+- Last modified: 2026-09-23T13:29Z
 - Summary: Information on the Health dashboard and widgets, accessible within the Zscaler Admin Console.
 
-The Health dashboard provides widgets that display the health of your organization's application segments, App Connectors, and Private Service Edges for Private Access. To view the dashboard in the Zscaler Admin Console, go to Analytics > Switch to Existing Reports > Private Applications > Health.
+The Health dashboard provides widgets that display the health of your organization's application segments, App Connectors, and Private Service Edges for Private Access. To view the dashboard in the Zscaler Admin Console, go to **Private Access** > **Dashboards** > **Health** from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal).
 
 See image.
 
@@ -2567,16 +2567,16 @@ For each Private Service Edge, you can view more information about it by hoverin
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-network-connectors-dashboard","lastmod":"2026-09-10T12:16Z","nid":"1525456"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-network-connectors-dashboard","lastmod":"2026-09-21T08:41Z","nid":"1525456"} -->
 ## Viewing the Network Connectors Dashboard
 
 - Source: https://help.zscaler.com/zpa/viewing-network-connectors-dashboard
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Dashboard & Diagnostics > Viewing the Network Connectors Dashboard
-- Last modified: 2026-09-10T12:16Z
+- Last modified: 2026-09-21T08:41Z
 - Summary: Information about the Network Connectors dashboard and widgets available in the Zscaler Admin Console.
 
-The Network Connectors Dashboard provides information about the Network Connectors for your organization. To view the dashboard in the Zscaler Admin Console, go to Private Access > VPN (for Legacy Apps)> Dashboard > VPN Dashboard.
+The Network Connectors Dashboard provides information about the Network Connectors for your organization. To view the dashboard in the Zscaler Admin Console, go to Private Access > VPN (for Legacy Apps) > VPN Dashboard.
 
 [Image: View of the Network Connectors dashboard in the Zscaler Admin Console]
 
@@ -2816,16 +2816,16 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-private-cloud-controllers-dashboard","lastmod":"2026-06-29T10:10Z","nid":"1506341"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-private-cloud-controllers-dashboard","lastmod":"2026-09-25T16:33Z","nid":"1506341"} -->
 ## Viewing the Private Cloud Controllers Dashboard
 
 - Source: https://help.zscaler.com/zpa/viewing-private-cloud-controllers-dashboard
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Private Cloud Controller Monitoring > Viewing the Private Cloud Controllers Dashboard
-- Last modified: 2026-06-29T10:10Z
+- Last modified: 2026-09-25T16:33Z
 - Summary: Information on the Private Cloud Controllers dashboard and widgets accessible within the Zscaler Admin Console.
 
-The Private Cloud Controllers dashboard provides information about the Private Cloud Controllers for your organization. To view the dashboard in the Zscaler Admin Console, go to Analytics > Switch to Existing Reports > Private Applications > Private Cloud Controllers.
+The Private Cloud Controllers dashboard provides information about the Private Cloud Controllers for your organization. To view the dashboard in the Zscaler Admin Console, go to Private Access > Dashboards > Private Cloud Controllers.
 
 See image.
 
@@ -3047,16 +3047,16 @@ For each widget, you can search by entering part or all of a Private Cloud Contr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-private-service-edges-dashboard","lastmod":"2026-07-30T14:22Z","nid":"1485151"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-private-service-edges-dashboard","lastmod":"2026-09-25T16:24Z","nid":"1485151"} -->
 ## Viewing the Private Service Edges Dashboard
 
 - Source: https://help.zscaler.com/zpa/viewing-private-service-edges-dashboard
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Private Service Edge Monitoring > Viewing the Private Service Edges Dashboard
-- Last modified: 2026-07-30T14:22Z
+- Last modified: 2026-09-25T16:24Z
 - Summary: Information on the Private Service Edges dashboard and widgets accessible within the Zscaler Admin Console.
 
-The Private Service Edges dashboard provides information about the Private Service Edges for Private Access for your organization. To view the dashboard in the Zscaler Admin Console, go to Analytics > Switch to Existing Reports > Private Applications > Private Service Edges.
+The Private Service Edges dashboard provides information about the Private Service Edges for Private Access for your organization. To view the dashboard in the Zscaler Admin Console, go to Private Access > Dashboards > Private Service Edges.
 
 See image.
 
@@ -3273,16 +3273,16 @@ For each widget, you can search by entering part or all of a Private Service Edg
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-protocol-discovery-dashboard","lastmod":"2026-06-29T10:14Z","nid":"1486011"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-protocol-discovery-dashboard","lastmod":"2026-09-25T17:12Z","nid":"1486011"} -->
 ## Viewing the Protocol Discovery Dashboard
 
 - Source: https://help.zscaler.com/zpa/viewing-protocol-discovery-dashboard
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > AppProtection and Browser Protection Monitoring > Viewing the Protocol Discovery Dashboard
-- Last modified: 2026-06-29T10:14Z
+- Last modified: 2026-09-25T17:12Z
 - Summary: Information on the Protocol Discovery dashboard accessible within the Zscaler Admin Console.
 
-The Protocol Discovery dashboard displays protocols (KRB, LDAP, SMB, HTTP, and TLS) detected for domains with application segments that have AppProtection disabled. [You can enable AppProtection for the application segment](https://help.zscaler.com/zpa/configuring-defined-application-segments#ADProtection) when you click the application segment, the listed domains, and the ports and protocols mapped to it. The Protocol Discovery dashboard displays up to 100 of a domain's most recent transactions and 6,000 application segments for the time range selected. To view the dashboard in the Zscaler Admin Console, go to Analytics > Switch to Existing Reports > Private Applications > Security > Protocol Discovery.
+The Protocol Discovery dashboard displays protocols (KRB, LDAP, SMB, HTTP, and TLS) detected for domains with application segments that have AppProtection disabled. [You can enable AppProtection for the application segment](https://help.zscaler.com/zpa/configuring-defined-application-segments#ADProtection) when you click the application segment, the listed domains, and the ports and protocols mapped to it. The Protocol Discovery dashboard displays up to 100 of a domain's most recent transactions and 6,000 application segments for the time range selected. To view the dashboard in the Zscaler Admin Console, go to Private Access > Private App Protection > Protocol Discovery.
 
 ## Dashboard Tools
 
@@ -3358,20 +3358,20 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-quarterly-business-review-reports","lastmod":"2026-04-21T16:15Z","nid":"1519176"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-quarterly-business-review-reports","lastmod":"2026-09-24T06:27Z","nid":"1519176"} -->
 ## Viewing Quarterly Business Review Reports
 
 - Source: https://help.zscaler.com/zpa/viewing-quarterly-business-review-reports
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Applications & Users Monitoring > Applications & Users Insights > Viewing Quarterly Business Review Reports
-- Last modified: 2026-04-21T16:15Z
+- Last modified: 2026-09-24T06:27Z
 - Summary: Descriptions of individual sections within a Private Access (ZPA) Quarterly Business Review report.
 
 Quarterly Business Review (QBR) reports are available for download to all users. The reports provide extensive insight into emerging traffic trends based on private application usage and the types of threats Zscaler blocks to protect your network.
 
 A new QBR report is generated on the first weekend of every month. However, if the first weekend falls on the first or second day of the month, then the report is generated on the following weekend. The QBR reports are securely stored as a PowerPoint file in the Zscaler cloud. The QBR reports are displayed for the last 3 years, and up to 12 reports are stored.
 
-Go to **Logs** > **Insights** > **Usage** > **Quarterly Business Reports** to view a list of downloadable quarterly business reports based on your organization's private application usage.
+From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics** > **Reports** > **ZPA QBR Reports** to view a list of downloadable quarterly business reports based on your organization's private application usage.
 
 Each report provides the following information:
 
@@ -3387,7 +3387,7 @@ Each report provides the following information:
 
 To download and view the reports:
 
-1. Go to **Logs** > **Insights** > **Usage** > **Quarterly Business Reports**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics** > **Reports** > **ZPA QBR Reports**
 2. Click the **Download** icon to download a specific report.
 
 [Image: Download QBR]
@@ -3436,16 +3436,16 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-source-ip-anchoring-dashboard","lastmod":"2026-06-29T10:04Z","nid":"1485891"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-source-ip-anchoring-dashboard","lastmod":"2026-09-23T13:25Z","nid":"1485891"} -->
 ## Viewing the Source IP Anchoring Dashboard
 
 - Source: https://help.zscaler.com/zpa/viewing-source-ip-anchoring-dashboard
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Applications & Users Monitoring > Viewing the Source IP Anchoring Dashboard
-- Last modified: 2026-06-29T10:04Z
+- Last modified: 2026-09-23T13:25Z
 - Summary: Information on the Source IP Anchoring dashboard and widgets accessible within the Zscaler Admin Console.
 
-The Source IP Anchoring dashboard provides information about your organization's Source IP Anchoring connections. To view the dashboard in the Zscaler Admin Console, go to Analytics > Switch to Existing Reports > Private Applications > Source IP Anchoring.
+The Source IP Anchoring dashboard provides information about your organization's Source IP Anchoring connections. To view the dashboard in the Zscaler Admin Console, go to **Private Access** > **Dashboards** > **Source IP Anchoring** from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal).
 
 See image.
 
@@ -3497,16 +3497,16 @@ The widget displays the top application segments by bandwidth for the selected t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-users-dashboard","lastmod":"2026-09-20T07:06Z","nid":"1483761"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-users-dashboard","lastmod":"2026-09-23T13:26Z","nid":"1483761"} -->
 ## Viewing the Users Dashboard
 
 - Source: https://help.zscaler.com/zpa/viewing-users-dashboard
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Applications & Users Monitoring > Viewing the Users Dashboard
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-09-23T13:26Z
 - Summary: Information on the Users dashboard and widgets accessible within the Zscaler Admin Console.
 
-The Users dashboard provides information about user activity in your organization. To view the dashboard in the Zscaler Admin Console, go to Analytics > Switch to Existing Reports > Private Applications > Users.
+The Users dashboard provides information about user activity in your organization. To view the dashboard in the Zscaler Admin Console, go to **Private Access** > **Dashboards** > **Users** from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal).
 
 See image.
 
@@ -3616,16 +3616,16 @@ This widget displays the top users by tunnel count in the selected time frame. T
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-vpn-service-edges-dashboard","lastmod":"2026-09-03T12:13Z","nid":"1542720"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-vpn-service-edges-dashboard","lastmod":"2026-09-21T08:41Z","nid":"1542720"} -->
 ## Viewing the VPN Service Edges Dashboard
 
 - Source: https://help.zscaler.com/zpa/viewing-vpn-service-edges-dashboard
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Dashboard & Diagnostics > Viewing the VPN Service Edges Dashboard
-- Last modified: 2026-09-03T12:13Z
+- Last modified: 2026-09-21T08:41Z
 - Summary: Information about the VPN Service Edge dashboard and widgets available in the Zscaler Admin Console.
 
-The VPN Service Edges Dashboard provides information about the VPN Service Edges for your organization. To view the dashboard in the Zscaler Admin Console, go to Private Access >VPN (for Legacy Apps) > Dashboard > VPN Service Edge.
+The VPN Service Edges Dashboard provides information about the VPN Service Edges for your organization. To view the dashboard in the Zscaler Admin Console, go to Private Access >VPN (for Legacy Apps) > VPN Service Edge.
 
 The dashboard displays a series of interactive timeseries charts. These charts show how data changes over a selected period and help you identify trends, patterns, and anomalies in performance and usage. You can hover over any point in a chart to see the specific value at that time.
 
@@ -3967,13 +3967,13 @@ Zero trust has become a popular model for secure user access to applications and
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zpa-app-connector-software-by-platform","lastmod":"2026-09-11T08:00Z","nid":"1485956"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zpa-app-connector-software-by-platform","lastmod":"2026-09-24T14:55Z","nid":"1485956"} -->
 ## App Connector Software by Platform
 
 - Source: https://help.zscaler.com/zpa/zpa-app-connector-software-by-platform
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Deployment Guides for Supported Platforms > App Connector Software by Platform
-- Last modified: 2026-09-11T08:00Z
+- Last modified: 2026-09-24T14:55Z
 - Summary: The current App Connector software downloads by platform.
 
 App Connectors are supported on [many different platforms](https://help.zscaler.com/zpa/app-connector-management/app-connector-deployment-guides-supported-platforms). Each supported platform has an App Connector image you can use to deploy App Connectors on that platform. To learn more, see [App Connector Deployment Guides for Supported Platforms](https://help.zscaler.com/zpa/app-connector-management/app-connector-deployment-guides-supported-platforms) for detailed deployment instructions.
@@ -3994,18 +3994,18 @@ The following platforms support App Connector software packages. Where applicabl
 | [Kubernetes](https://help.zscaler.com/zpa/app-connector-deployment-guide-kubernetes) | To learn more, see the [App Connector Deployment Guide for Kubernetes](https://help.zscaler.com/zpa/app-connector-deployment-guide-kubernetes). |
 | [OpenShift](https://help.zscaler.com/zpa/app-connector-deployment-guide-openshift#deploy) | A Helm Chart must be installed in order to deploy an App Connector on OpenShift. To learn more, see the [App Connector Deployment Guide for OpenShift](https://help.zscaler.com/zpa/app-connector-deployment-guide-openshift#get-helm-chart). |
 | Linux Operating Systems |  |
-| [App Connector Deployment Guide for Linux](https://help.zscaler.com/zpa/connector-deployment-guide-centos-oracle-and-redhat#Deployment) | The following RPM packages are supported for RHEL App Connector deployments: RHEL 8-based: [RPM package](https://yum.private.zscaler.com/yum/el8/zpa-connector-26.56.9-1.el8.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el8/gpg)RHEL 9-based: [RPM package](https://yum.private.zscaler.com/yum/el9/zpa-connector-26.56.9-1.el9.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el9/gpg)You must have the RHEL operating system deployed and running. |
+| [App Connector Deployment Guide for Linux](https://help.zscaler.com/zpa/connector-deployment-guide-centos-oracle-and-redhat#Deployment) | The following RPM packages are supported for RHEL App Connector deployments: RHEL 8-based: [RPM package](https://yum.private.zscaler.com/yum/el8/zpa-connector-26.57.3-1.el8.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el8/gpg)RHEL 9-based: [RPM package](https://yum.private.zscaler.com/yum/el9/zpa-connector-26.57.3-1.el9.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el9/gpg)You must have the RHEL operating system deployed and running. |
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zpa-appliance-physical-port-mapping","lastmod":"2026-09-03T10:55Z","nid":"1540962"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zpa-appliance-physical-port-mapping","lastmod":"2026-09-21T15:58Z","nid":"1540962"} -->
 ## ZPA Appliance Physical Port Mapping
 
 - Source: https://help.zscaler.com/zpa/zpa-appliance-physical-port-mapping
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > ZPA Appliance > ZPA Appliance Physical Port Mapping
-- Last modified: 2026-09-03T10:55Z
+- Last modified: 2026-09-21T15:58Z
 - Summary: A description of the physical ports on the ZPA hardware appliance, and its interface, port types, and roles.
 
 This article depicts the physical ports on the ZPA hardware appliance and identifies its interface names, port types, and roles. You can configure the ports using Linux commands from the command-line interface.
@@ -4039,13 +4039,13 @@ The following image and table description describe the physical port mapping on 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zpa-appliance-wall-and-rack-mount-instruction-manual","lastmod":"2026-06-29T07:06Z","nid":"1540961"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zpa-appliance-wall-and-rack-mount-instruction-manual","lastmod":"2026-09-21T15:56Z","nid":"1540961"} -->
 ## ZPA Appliance Wall and Rack Mount Instruction Manual
 
 - Source: https://help.zscaler.com/zpa/zpa-appliance-wall-and-rack-mount-instruction-manual
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > ZPA Appliance > ZPA Appliance Wall and Rack Mount Instruction Manual
-- Last modified: 2026-06-29T07:06Z
+- Last modified: 2026-09-21T15:56Z
 - Summary: Instructions for rack mounting a ZPA hardware appliance.
 
 This article includes instructions on mounting your ZPA hardware appliance.
@@ -4269,13 +4269,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zpa-private-service-edge-release-summary-2026","lastmod":"2026-09-11T08:53Z","nid":"1534307"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zpa-private-service-edge-release-summary-2026","lastmod":"2026-09-24T15:46Z","nid":"1534307"} -->
 ## ZPA Private Service Edge Release Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/zpa-private-service-edge-release-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Private Service Edge Release Notes > ZPA Private Service Edge Release Summary (2026)
-- Last modified: 2026-09-11T08:53Z
+- Last modified: 2026-09-24T15:46Z
 - Summary: Zscaler Private Access (ZPA) Private Service Edge release summary for updates deployed, per version, in 2026.
 
 This article provides a summary of all new features and enhancements released per Zscaler Private Access (ZPA) Private Service Edge version.

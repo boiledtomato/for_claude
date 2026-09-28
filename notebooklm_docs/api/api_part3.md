@@ -1,7 +1,7 @@
 # Zscaler Help — API / SDK (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 22:17 UTC
+Generated: 2026-09-28 09:01 UTC
 Articles in this file: 91
 
 ---
@@ -12784,13 +12784,13 @@ Adds a URL to or removes a URL from the denylist. To add a URL to the denylist, 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/security-ueba-alerts","lastmod":"2026-08-21T03:43Z","nid":"1541301"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/security-ueba-alerts","lastmod":"2026-09-22T07:06Z","nid":"1541301"} -->
 ## Security & UEBA Alerts
 
 - Source: https://help.zscaler.com/legacy-apis/security-ueba-alerts
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Security & UEBA Alerts
-- Last modified: 2026-08-21T03:43Z
+- Last modified: 2026-09-22T07:06Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 
@@ -14914,13 +14914,13 @@ Retrieves the PAC file audit report.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/tag-group-management","lastmod":"2026-08-04T14:12Z","nid":"1542627"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/tag-group-management","lastmod":"2026-09-27T07:06Z","nid":"1542627"} -->
 ## Tag Group Management
 
 - Source: https://help.zscaler.com/legacy-apis/tag-group-management
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Reference Guide > Tag Group Management
-- Last modified: 2026-08-04T14:12Z
+- Last modified: 2026-09-27T07:06Z
 
 To access detailed ZPA API documentation, including references and use cases, refer to the [Zscaler Help Portal](/zpa/about-zpa-api).
 
@@ -15184,13 +15184,13 @@ Deletes the tag group for the specified ID.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/tag-key-management","lastmod":"2026-08-04T14:06Z","nid":"1542626"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/tag-key-management","lastmod":"2026-09-27T07:06Z","nid":"1542626"} -->
 ## Tag Key Management
 
 - Source: https://help.zscaler.com/legacy-apis/tag-key-management
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Reference Guide > Tag Key Management
-- Last modified: 2026-08-04T14:06Z
+- Last modified: 2026-09-27T07:06Z
 
 To access detailed ZPA API documentation, including references and use cases, refer to the [Zscaler Help Portal](/zpa/about-zpa-api).
 
@@ -15507,13 +15507,13 @@ Deletes the tag key for the specified ID.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/tag-namespace-management","lastmod":"2026-08-04T14:03Z","nid":"1542625"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/tag-namespace-management","lastmod":"2026-09-27T07:06Z","nid":"1542625"} -->
 ## Tag Namespace Management
 
 - Source: https://help.zscaler.com/legacy-apis/tag-namespace-management
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Reference Guide > Tag Namespace Management
-- Last modified: 2026-08-04T14:03Z
+- Last modified: 2026-09-27T07:06Z
 
 To access detailed ZPA API documentation, including references and use cases, refer to the [Zscaler Help Portal](/zpa/about-zpa-api).
 

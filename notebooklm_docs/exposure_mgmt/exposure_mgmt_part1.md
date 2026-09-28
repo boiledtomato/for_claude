@@ -1,8 +1,8 @@
 # Zscaler Help — Risk & Exposure Management (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 22:17 UTC
-Articles in this file: 204
+Generated: 2026-09-28 09:01 UTC
+Articles in this file: 205
 
 ---
 
@@ -1076,13 +1076,13 @@ This article provides a summary of all new features and enhancements for Asset E
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/release-upgrade-summary-2026","lastmod":"2026-09-08T11:45Z","nid":"1534298"} -->
+<!-- ZS-ARTICLE {"url":"/aem/release-upgrade-summary-2026","lastmod":"2026-09-22T08:06Z","nid":"1534298"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/aem/release-upgrade-summary-2026
 - Product: Asset Exposure Management
 - Path: Asset Exposure Management (AEM) Help > 	Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-08T11:45Z
+- Last modified: 2026-09-22T08:06Z
 - Summary: Asset Exposure Management Release Upgrade Summary for commercial service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Asset Exposure Management.
@@ -3411,7 +3411,7 @@ On the System Logs - AI Infrastructure Scanning page (Administration > System Lo
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/about-usage-insights
 - Product: AI Asset Management
-- Path: AI Asset Management Help > Monitoring & Investigation > Usage Insights > About Usage Insights
+- Path: AI Asset Management Help > Monitoring & Investigation > Insights > About Usage Insights
 - Last modified: 2026-07-08T07:02Z
 - Summary: Information on AI Security's Usage Insights pages and how AI applications are being used across your organization.
 
@@ -10545,13 +10545,13 @@ To onboard an AWS account:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/release-upgrade-summary-2026","lastmod":"2026-09-06T23:19Z","nid":"1539122"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/release-upgrade-summary-2026","lastmod":"2026-09-22T21:15Z","nid":"1539122"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/release-upgrade-summary-2026
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-06T23:19Z
+- Last modified: 2026-09-22T21:15Z
 - Summary: AI Asset Management Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for AI Asset Management.
@@ -15315,6 +15315,94 @@ On the Identity Findings page (Identities > Identity Findings), you can do the f
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/identity-protection/about-remediation-dashboard","lastmod":"2026-09-24T23:21Z","nid":"1545650"} -->
+## About the Remediation Dashboard
+
+- Source: https://help.zscaler.com/identity-protection/about-remediation-dashboard
+- Product: Identity Protection
+- Path: Identity Protection Help > Analytics > About the Remediation Dashboard
+- Last modified: 2026-09-24T23:21Z
+- Summary: About the Remediation dashboard in the Identity Protection.
+
+The Remediation dashboard in Identity Protection provides insights into critical identity risks such as insecure account management, credential exposure etc. You can view metrics related to severity distribution, exploitability, remediation ease, and findings across tenant, type, and identities. This helps security teams to assess the risks, prioritize recurring issues, and remediate quickly.
+
+The Remediation dashboard provides the following benefits and enables you to:
+
+- Have consolidated visibility into identity risks across tenants, categories, and user types.
+- Prioritize vulnerabilities based on exploit and remediation ease.
+- Strengthen security posture with actionable insights, including configuration changes, privilege adjustments, and alternative control applications.
+
+## About the Remediation Dashboard
+
+On the Remediation dashboard (Identity Protection > Remediation), you can do the following:
+
+1. [Apply filters](https://help.zscaler.com/unified/using-filters) to view specific data and save a view, so you can later view the dashboard with the same settings.
+2. Click the **Export** icon to download the data as a PDF.
+3. View statistics of critical findings in the following widgets:
+  - Statistics
+  - Critical Findings By Tenants
+  - Critical Findings By Types
+  - Critical Findings By Remediation Ease
+  - Critical Findings By Exploit Ease
+  - Critical Findings By Admin
+  - Findings By User Type
+  - Admin Related Critical Findings By Exploit Ease
+
+View the total critical findings that can be easily exploited, remediated, and newly detected critical findings.
+
+See image.
+
+[Image: Critical identity findings overview]
+
+View the distribution of severe identity risks across tenants in a bar chart. Each bar represents tenants and the number of critical findings detected.
+
+See image.
+
+[Image: Critical findings distribution across tenants]
+
+View the severe identity risks categorized by vulnerability type, such as insecure password and group management, weak authentication measures, insecure permissions, etc.
+
+See image.
+
+[Image: Critical findings based on type]
+
+View the severe identity risks based on the effort required to fix them. It divides critical findings into easy, moderate, and difficult. This breakdown helps the analyst understand both the scale of critical issues and the effort required to address them.
+
+The donut chart shows the proportion of findings in each category, while the table lists vulnerabilities, such as exposed passwords, legacy authentication, or missing MFA, along with their remediation ease.
+
+See image.
+
+[Image: Critical findings based on remediation ease and vulnerability]
+
+View severe identity vulnerabilities based on how easily an attacker can exploit them. It divides critical findings into exploitable levels, such as easy, moderate, and difficult. The donut chart shows the distribution across these categories, while the table lists specific vulnerabilities, such as excessive access groups, exposed passwords, or legacy authentication, along with their exploit ease rating. Easily exploitable represents the highest risk because they require minimal attacker effort, where difficulty demands more advanced attack techniques.
+
+See image.
+
+View the distribution of critical identity findings across different categories of users. The donut chart provides a quick visual breakdown of internal users, external users, and other identities, with the total number of findings displayed at the center.
+
+See image.
+
+[Image: Critical findings based on exploit ease and severity]
+
+View the identity vulnerabilities associated with administrative accounts. The donut chart shows the proportion of admin accounts with active critical findings, indicating risk spread. The table breaks down the type of vulnerabilities detected, such as weak authentication measure, insecure permissions, privilege management issues, etc.
+
+See image.
+
+[Image: Critical findings based on admin account and vulnerability]
+
+[Image: Remediation Dashboard with critical findings, filters, downloads, and widgets]
+
+[Image: Critical findings based on user type]
+
+View vulnerabilities associated with administrative accounts, indicating ease level of attack and number of active critical findings. It helps security teams identify which admin-related risks are most susceptible to attack by categorizing issues into exploitability levels, such as Easy or Moderate, and pairing them with severity and counts.
+
+See image.
+
+[Image: Critical findings for admins based on exploit ease]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/identity-protection/about-tenants","lastmod":"2026-09-18T02:43Z","nid":"1538950"} -->
 ## About Tenants
 
@@ -15422,13 +15510,27 @@ To learn more, see [About Server Agent Settings](https://help.zscaler.com/itdr/a
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/identity-protection/step-step-configuration-guide-identity-protection","lastmod":"2026-09-15T22:10Z","nid":"1543189"} -->
+<!-- ZS-ARTICLE {"url":"/identity-protection/release-upgrade-summary-2026","lastmod":"2026-09-23T01:49Z","nid":"1539537"} -->
+## Release Upgrade Summary (2026)
+
+- Source: https://help.zscaler.com/identity-protection/release-upgrade-summary-2026
+- Product: Identity Protection
+- Path: Identity Protection Help > Release Notes > Release Upgrade Summary (2026)
+- Last modified: 2026-09-23T01:49Z
+- Summary: Identity Protection Release Upgrade Summary for service updates deployed in 2026.
+
+This article provides a summary of all new features and enhancements for Identity Protection.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/step-step-configuration-guide-identity-protection","lastmod":"2026-09-24T23:24Z","nid":"1543189"} -->
 ## Step-by-Step Configuration Guide for Identity Protection
 
 - Source: https://help.zscaler.com/identity-protection/step-step-configuration-guide-identity-protection
 - Product: Identity Protection
 - Path: Identity Protection Help > Step-by-Step Configuration Guide for Identity Protection
-- Last modified: 2026-09-15T22:10Z
+- Last modified: 2026-09-24T23:24Z
 - Summary: How to configure Identity Protection, set up identity scans, and configure threat detection.
 
 This guide explains the configuration steps that you need to complete to begin using Identity Protection for your organization.
@@ -15464,7 +15566,7 @@ Use the following basic workflow to assess threat risks:
 - d. Assess identity‑related security risks.
 - e. Review the alerts associated with identity findings.
 
-TheFindings Overview dashboard provides a high-level view of the identity findings and their overall security posture in your organization. Findings are categorized by severity, type, affected tenants, identity providers, remediation ease, exploitability, and impacted assets. This helps security teams prioritize the most critical and easily exploitable findings and remediate them immediately. To learn more, see About Findings Overview.
+TheFindings Overview dashboard provides a high-level view of the identity findings and their overall security posture in your organization. Findings are categorized by severity, type, affected tenants, identity providers, remediation ease, exploitability, and impacted assets. This helps security teams prioritize the most critical and easily exploitable findings and remediate them immediately.
 
 View a list of users, their identity types, and the total number of critical or high-severity findings to take the necessary action. To learn more, see [About Users in the Security Operations Platform](https://help.zscaler.com/unified/about-users-security-operations-platform).
 
@@ -15476,7 +15578,7 @@ View alerts from all source applications on the Alerts page. To learn more, see 
 
 After you've examined the identity data, you can set up custom [dashboards and reports](https://help.zscaler.com/unified/getting-started-security-operations-platform/security-operations-platform-analytics) to better analyze threat data in your organization.
 
-View the identity findings categorized by tenant, admins, user types, ease of remediation, etc. To learn more, see About Remediation.
+View the identity findings categorized by tenant, admins, user types, ease of remediation, etc. To learn more, see [About the Remediation Dashboard](https://help.zscaler.com/identity-protection/viewing-remediation-dashboard).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -15696,139 +15798,4 @@ Identity Protection consists of the core capabilities:
 - **Data Ingestion via Connectors:**Identity Protection uses connectors to ingest data from sources such as posture scans, change detections, alerts, and identity records. These connectors also integrate with identity providers like Okta and Microsoft Entra, enabling the system to consume identity data directly from the customer's IdP and bring it into the protection framework.
 - **Data Fabric as the Backbone:**Data Fabric is the backbone of the SecOps platform. It ensures that all incoming identity signals are normalized, correlated, and enriched. This allows the platform to unify disparate data streams and provide security teams with a coherent view of identity-related risks across the environment.
 - **Custom Configuration:** Manage and fine-tune identity protection through the SecOps platform. Within the Settings page, you can adjust scan configurations and review clear explanations for each option. When deeper configuration is required, certain links redirect you to the legacy ITDR experience, ensuring continuity for advanced tasks while maintaining a modern interface for routine adjustments.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/risk360/about-alerts","lastmod":"2024-12-16T06:06Z","nid":"1483176"} -->
-## About Alerts
-
-- Source: https://help.zscaler.com/risk360/about-alerts
-- Product: Risk360
-- Path: About Alerts
-- Last modified: 2024-12-16T06:06Z
-- Summary: Information on Alerting in the Risk360 Admin Portal.
-
-Alerting helps you meet your security compliance requirements and reduce potential financial losses by getting timely notifications when the configured criteria in the alert rule are met. This also helps take swift action towards events impacting your organization's risk exposure.
-
-Alerts provide the following benefits and enable you to:
-
-- Configure alert rules that help trigger alerts when an alert rule is activated.
-- Configure rules for various criteria (i.e., change in risk score at the organization, factor group, and factor levels, and change in potential financial loss).
-- Receive triggered notifications sent via emails and webhooks.
-- Get actionable recommendations as part of alerts to tackle security events.
-
-## How Alerting Works
-
-1. When the alert rule's criteria is satisfied for the throttling period defined in the alert rule, the alert becomes an ongoing alert and starts to get displayed on the Ongoing Alerts tab.
-2. The users receive an alert notification in the form of an email and webhook, depending on the configured delivery method.
-3. The Started On field in the alert notification shows the date and time when the alert started and the Ended On field shows Ongoing because the alert is still persisting.
-4. Users receive a daily alert notification as long as the alert criteria are true and until the alert rule is not modified, disabled, deleted, or muted.
-  - Disabling an alert rule causes the alerting engine not to evaluate the alert criteria. However, the alert rule stays configured on the Alert Rules tab. You can enable the alert at a later time based on your alert requirement.
-  - Deleting an alert removes the alert rule from the Alert Rules page.
-  - Muting an ongoing alert stops sending alert notifications. However, it doesn't impact the evaluation of the alert, and you can still track the ongoing alert on the Ongoing Alerts tab.
-5. When the criteria of the alert are no longer satisfied, the alert stops and is listed under the Alert History tab. Subsequently, the users receive an alert notification with the Ended On field in the notification showing the date and time when the alert ended.
-
-## About the Alerts Page
-
-The Alerts page contains the following 4 tabs to manage various alerting stages:
-
-- Ongoing Alerts
-- Alerts History
-- Alert Rules
-- Webhooks
-
-The Ongoing Alerts tab (Alerts > Ongoing Alerts) shows alerts that are currently being triggered and persisting. On this page, you can do the following:
-
-1. Filter the data on the page for the last 1 day, 2, 5, 7, or 14 days.
-2. Filter the ongoing alerts by Severity or Rule Name.
-3. View a list of ongoing alerts. For each alert, you can view:
-  - **Severity**: The severity of the alert rule (Critical, High, Medium, or Low).
-  - **Rule Name**: The name of the rule.
-  - **Alert ID**: The unique ID assigned to the alert.
-  - **Criteria**: The criteria added in the rule that triggers the rule.
-  - **Cause**: The reason the criteria in the rule were satisfied and the alert was triggered. Alert rules can be defined at the following 4 levels: The cause of an alert is due to risk score or financial loss changes at one level below the defined alert criteria. For example, if the criteria is defined at the organization level, then the cause is due to changes in the 4 attack stages. When the alert criteria is a composite rule with the criteria at different levels, the alerting engine breaks the rule into each element and derives the cause for each element separately. For example, if the rule criteria has an Org level and factor group elements, the causes would be due to changes at the 4 attack stages of the attack and the changes in the factors under the factor group.
-    - Organization
-    - Category
-    - Factor group
-    - Factor
-  - **Throttling**: The time frame during which the criteria in the rule persisted.
-  - **Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
-  - **Muted?**: Whether the alert is currently on mute or not.
-  - **Started On**: The date and time when the alert started. Click an alert to view the following information in the drawer view.
-    - Drawer
-
-The Alert History tab (Alerts > Alert History) shows all the historically configured alerts. On this page, you can do the following:
-
-1. Filter the data on the page for the last 1 day, 2, 5, 7, or 14 days.
-2. Filter completed alerts by Severity, Rule Name, or Status.
-3. View a list of completed alerts. For each alert, you can view:
-  - **Severity**: The severity of the alert rule (Critical, High, Medium, or Low).
-  - **Rule Name**: The name of the rule.
-  - **Criteria**: The criteria added in the rule that triggers the rule.
-  - **Alert ID**: The unique ID assigned to the alert.
-  - **Cause**: The reason the criteria in the rule were satisfied and the alert was triggered. Alert rules can be defined at the following 4 levels: The cause of an alert is due to risk score or financial loss changes at one level below the defined alert criteria. For example, if the criteria is defined at the organization level, then the cause is due to changes in the 4 attack stages. When the alert criteria is a composite rule with the criteria at different levels, the alerting engine breaks the rule into each element and derives the cause for each element separately. For example, if the rule criteria has an Org level and factor group elements, the causes would be due to changes at the 4 attack stages of the attack and the changes in the factors under the factor group.
-    - Organization
-    - Category
-    - Factor group
-    - Factor
-  - **Throttling**: The time frame during which the criteria in the rule persisted.
-  - **Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
-  - **Started On**: The date and time when the alert started.
-  - **Ended On**: The date and time when the alert ended. Click an alert to view the following information in the drawer view.
-    - Drawer
-
-The Alert Rules tab (Alerts > Alert Rules) shows all the configured alerts. On this page, you can do the following:
-
-1. Filter the alerts by Severity or Rule Name.
-2. [Add an alert rule](https://help.zscaler.com/risk360/configuring-alert-rule).
-3. View a list of alerts. For each alert, you can view:
-  - **Rule Name**: The name of the rule.
-  - **Severity**: The severity of the alert rule (Critical, High, Medium, or Low).
-  - **Criteria**: The criteria added in the rule that triggers the rule alert.
-  - **Throttling**: The time frame during which the criteria in the rule were satisfied.
-  - **Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
-  - **Status**: The status of the alert, whether enabled or disabled.
-4. Edit a rule.
-5. Mute or unmute notifications from an alert rule. This ensures the rule is enabled, but no notification is initiated when the alert is triggered.
-6. Delete an alert rule or clone the rule to configure a new alert rule.
-
-The Webhook tab (Alerts > Webhook) shows all the configured webhook integrations. You can use integrations into an alert rule from the third-party provider to receive alerts. On this page, you can do the following:
-
-1. Filter the ongoing alerts by Name, Authentication Type, or Status.
-2. [Add webhook](https://help.zscaler.com/risk360/configuring-webhooks).
-3. View a list of configured integrations. For each integration, you can view:
-  - **Name**: The name of the integration.
-  - **URL**: The URL of the integration.
-  - **Authentication Type**: The authentication type configured for the integration (Basic or Token).
-  - **Authentication Status**: This shows the integration authentication status (Active, Error, or In Progress). Fix the configuration if the field displays an error.
-  - **Alert Status**: The status of the alert, whether enabled or disabled.
-4. Edit an integration.
-5. Delete an integration.
-
-The drawer consists of the following two tabs:
-
-### Details
-
-The Details tab shows the following information about the alert:
-
-- **Alert ID**: The unique ID assigned to the alert.
-- **Criteria**: The criteria added in the rule that triggers the alert.
-- **Throttling**: The time frame during which the criteria in the rule persisted.
-- **Alert Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
-- **Cause**: The change in the risk score or potential loss at different levels (i.e., organization, category, factor group, and factor) in the last 24 hours. The red, green, and gray colors indicate an increase, decrease, and no change in the risk score or potential financial loss, respectively. See image.
-
-### Alert Cause History
-
-The Alert Cause History tab shows the history of whenever the alert is triggered for the change in the risk score or potential loss at different levels (i.e., organization, category, factor group, and factor). The red, green, and gray colors indicate an increase, decrease, and no change in the risk score or potential financial loss, respectively. Click the dropdowns to view the change cause for that date.
-
-See image.
-
-The drawer shows the following information about the alert:
-
-- **Alert ID**: The unique ID assigned to the alert.
-- **Criteria**: The criteria added in the rule that triggers the alert.
-- **Throttling**: The time frame during which the criteria in the rule persisted.
-- **Alert Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
-- **Cause**: The change in the risk score or potential loss at different levels (i.e., organization, category, factor group, and factor) in the last 24 hours. The red, green, and gray colors indicate an increase, decrease, and no change in the risk score or potential financial loss, respectively. See image.
 <!-- /ZS-ARTICLE -->

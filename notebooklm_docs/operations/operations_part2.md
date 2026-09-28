@@ -1,18 +1,18 @@
 # Zscaler Help — Deployment / Operations / Terms (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 22:17 UTC
+Generated: 2026-09-28 09:01 UTC
 Articles in this file: 60
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incidents","lastmod":"2026-09-20T07:06Z","nid":"1420341"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incidents","lastmod":"2026-09-27T07:06Z","nid":"1420341"} -->
 ## Managing Incidents
 
 - Source: https://help.zscaler.com/workflow-automation/managing-incidents
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Incidents
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-09-27T07:06Z
 - Summary: Information about the Incidents page in the Zscaler Admin Console.
 
 The Incidents page in Workflow Automation captures and displays a list of the transactions that have violated the Data Protection policies (Inline DLP, Endpoint DLP, Email DLP, and SaaS Security DLP) that your organization has configured in the Zscaler Admin Console. Each such recorded transaction is known as an incident. This page enables you to review and remediate Data Loss Prevention (DLP) incidents.
@@ -513,13 +513,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-labels","lastmod":"2026-09-10T13:57Z","nid":"1450111"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-labels","lastmod":"2026-09-24T21:06Z","nid":"1450111"} -->
 ## Managing Labels
 
 - Source: https://help.zscaler.com/workflow-automation/managing-labels
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Labels
-- Last modified: 2026-09-10T13:57Z
+- Last modified: 2026-09-24T21:06Z
 - Summary: How to manage labels in Workflow Automation.
 
 Adding labels is optional when configuring Workflow Automation. Admins with access to Workflow Automation can manage custom labels and the values associated with those labels. After you add labels, you can assign those labels to the different incidents that have occurred in your organization on the Incidents page and the Incident Details drawer. To learn more, see [Managing Incidents](https://help.zscaler.com/workflow-automation/managing-incidents) and [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details).
@@ -578,13 +578,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-notification-templates","lastmod":"2026-09-09T12:09Z","nid":"1419961"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-notification-templates","lastmod":"2026-09-23T21:06Z","nid":"1419961"} -->
 ## Managing Notification Templates
 
 - Source: https://help.zscaler.com/workflow-automation/managing-notification-templates
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Notifications > Managing Notification Templates
-- Last modified: 2026-09-09T12:09Z
+- Last modified: 2026-09-23T21:06Z
 - Summary: How to manage notification templates in Workflow Automation.
 
 Adding notification templates in Workflow Automation is one of the tasks in configuring Workflow Automation. Admins with access to Workflow Automation must add and map the notification templates. Notification templates provide:
@@ -739,13 +739,13 @@ You can only update the [template mappings](https://help.zscaler.com/workflow-au
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-priorities","lastmod":"2026-09-10T13:23Z","nid":"1418036"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-priorities","lastmod":"2026-09-24T21:06Z","nid":"1418036"} -->
 ## Managing Priorities
 
 - Source: https://help.zscaler.com/workflow-automation/managing-priorities
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Priorities
-- Last modified: 2026-09-10T13:23Z
+- Last modified: 2026-09-24T21:06Z
 - Summary: How to manage priorities in Workflow Automation.
 
 Adding priorities to incident groups in Workflow Automation is one of the tasks for configuring Workflow Automation. Admins with access to Workflow Automation can add a priority to all the different incident groups for their organization. They can assign a priority of critical, high, medium, or low to an incident group.
@@ -892,13 +892,13 @@ To delete a role, click the **Delete** icon in the **Action** column next to the
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-survey-templates","lastmod":"2026-09-09T12:06Z","nid":"1420016"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-survey-templates","lastmod":"2026-09-23T21:06Z","nid":"1420016"} -->
 ## Managing Survey Templates
 
 - Source: https://help.zscaler.com/workflow-automation/managing-survey-templates
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Notifications > Managing Survey Templates
-- Last modified: 2026-09-09T12:06Z
+- Last modified: 2026-09-23T21:06Z
 - Summary: How to manage survey templates in Workflow Automation.
 
 Adding survey templates is one of the tasks in configuring Workflow Automation. Admins with access to Workflow Automation can add and map survey templates. A survey template provides the format for the survey that a user or approver must complete when responding to an incident notification from Workflow Automation. The survey includes questions that, when answered, provide the justification for the incident.
@@ -2751,13 +2751,13 @@ This article provides a summary of all new features and enhancements for Workflo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/release-upgrade-summary-2024","lastmod":"2025-01-02T16:49Z","nid":"1473541"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/release-upgrade-summary-2024","lastmod":"2026-09-21T14:12Z","nid":"1473541"} -->
 ## Release Upgrade Summary (2024)
 
 - Source: https://help.zscaler.com/workflow-automation/release-upgrade-summary-2024
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Release Notes > Release Upgrade Summary (2024)
-- Last modified: 2025-01-02T16:49Z
+- Last modified: 2026-09-21T14:12Z
 - Summary: Workflow Automation Release Upgrade Summary for service updates deployed in 2024.
 
 This article provides a summary of all new features and enhancements for Workflow Automation.
@@ -2859,13 +2859,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/responding-end-user-notification","lastmod":"2026-09-20T07:06Z","nid":"1421056"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/responding-end-user-notification","lastmod":"2026-09-27T07:06Z","nid":"1421056"} -->
 ## Responding to an End User Notification
 
 - Source: https://help.zscaler.com/workflow-automation/responding-end-user-notification
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Responding to an End User Notification
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-09-27T07:06Z
 - Summary: Information on how to review and respond to an end user notification from the Zscaler Admin Console.
 
 The format of the notification and survey might not be the same as illustrated in this article. It depends upon the notification and the survey template that your organization configured in Workflow Automation.
@@ -4139,13 +4139,13 @@ To delete saved filters:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-alert-notifications","lastmod":"2026-09-09T12:52Z","nid":"1452701"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-alert-notifications","lastmod":"2026-09-23T21:06Z","nid":"1452701"} -->
 ## Viewing Alert Notifications
 
 - Source: https://help.zscaler.com/workflow-automation/viewing-alert-notifications
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Alerts and Settings > Viewing Alert Notifications
-- Last modified: 2026-09-09T12:52Z
+- Last modified: 2026-09-23T21:06Z
 - Summary: How to view alert notifications in Workflow Automation.
 
 The Notification Center page in Workflow Automation displays alerts that affect the operation of Workflow Automation. The following are the alert notifications that you might view on the Notification Center page:
@@ -4177,13 +4177,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-managing-incident-details","lastmod":"2026-09-20T07:06Z","nid":"1420336"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-managing-incident-details","lastmod":"2026-09-27T07:06Z","nid":"1420336"} -->
 ## Viewing & Managing Incident Details
 
 - Source: https://help.zscaler.com/workflow-automation/viewing-managing-incident-details
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Viewing & Managing Incident Details
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-09-27T07:06Z
 - Summary: Information about the Incidents Details page and how to manage incidents in the Zscaler Admin Console.
 
 Workflow Automation provides access to the Incident Details drawer, which displays detailed information about an incident, such as an overview of the incident, violation details, violation content, and the state changes for the incident. This drawer also allows you to manage and take action on an incident.
@@ -5265,7 +5265,7 @@ Review the following considerations:
 
 - [List of platforms supported by ZPA](https://help.zscaler.com/zpa/about-connectors#platforms).
 - By design, certificate verification is not configurable to maintain the service's integrity. Ensure that *.prod.zpath.net is in your SSL bypass list for traffic originating from the App Connector, which is necessary for App Connectors to resolve and reach ZPA Public Service Edges or ZPA Private Service Edges.
-- For ZPA integration with Zscaler Digital Experience (ZDX), App Connector firewall requirements must align with the respective ZDX configuration and require the configured report protocols to egress the App Connector (i.e., UDP, ICMP, or UDP). The traffic must egress the App Connector towards the configured application port and to the Zscaler Public Service Edge on port 443.
+- For ZPA integration with Digital Experience (ZDX), App Connector firewall requirements must align with the respective ZDX configuration and require the configured report protocols to egress the App Connector (i.e., UDP, ICMP, or UDP). The traffic must egress the App Connector towards the configured application port and to the Zscaler Public Service Edge on port 443.
 - The customer is responsible for maintaining the host on which the App Connector is running. Zscaler does not maintain the underlying operating system, only the App Connector application. To learn more about updating the App Connector system software, see [Update App Connector System Software](https://help.zscaler.com/zpa/managing-deployed-connectors#Updating).
 
 ## Operations Phase

@@ -1,8 +1,86 @@
 # Zscaler Help — Data Security — DSPM (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-21 22:17 UTC
-Articles in this file: 24
+Generated: 2026-09-28 09:01 UTC
+Articles in this file: 25
+
+---
+
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-compliance-details","lastmod":"2026-09-23T21:26Z","nid":"1514771"} -->
+## Viewing Compliance Details
+
+- Source: https://help.zscaler.com/dspm/viewing-compliance-details
+- Product: Data Security Posture Management (DSPM)
+- Path: Data Security Posture Management (DSPM) Help > Compliance > Viewing Compliance Details
+- Last modified: 2026-09-23T21:26Z
+- Summary: Viewing additional compliance details of compliance breaches in the Zscaler Admin Console.
+
+You can view additional details of the compliance breaches, such as the list of [policies](https://help.zscaler.com/dspm/about-data-posture-policies) that are noncompliant for a specific compliance framework, failed [resources](https://help.zscaler.com/dspm/viewing-resource-details), and policies mapped to compliance frameworks. This allows you to quickly investigate and remediate the issue.
+
+To view the compliance details:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **DSPM** > **Compliance**.
+2. On the **Compliance**page, click any tile to view the compliance details. See image.
+3. On the compliance framework page, you can see the following tabs: See image. The following fields are common across the tabs:
+  - Summary
+  - Policies
+  - Resources
+  - Findings
+  - Configuration
+  - **Cloud**: The name of the cloud service provider.
+  - **Cloud Account**: The account ID of the cloud account where the resource is stored.
+  - **Region**: The region where the resource is located.
+  - **Policy Name**: The name of the failed policy. Click to view the [policy details](https://help.zscaler.com/dspm/viewing-policy-details).
+  - **DLP Engines**: The DLP engines that match the data in the resource.
+  - **Resource ID**: The unique identifier for the resource.
+  - **Control Category**: The control category groups security controls addressing similar risks or compliance requirements.
+  - **Severity**: The severity (**Critical**, **High**, **Medium**, or **Low**) of policy failure.
+4. On each tab, you can: See image.
+  1. Apply [filters](https://help.zscaler.com/unified/using-tables) to view specific data.
+  2. [Customize and save a page setting](https://help.zscaler.com/dspm/customizing-page-settings).
+  3. Search for a specific policy (not applicable for the **Summary**tab).
+  4. Export the data and [download the report](https://help.zscaler.com/dspm/about-reports) as an Excel file (not applicable for the **Summary**tab).
+
+View a high-level overview of the total failed policies by severity and control category. You can see:
+
+1. The compliance framework details:
+  - **Description**: The name of the compliance framework.
+  - **DLP Engines**: The DLP engines mapped to the compliance framework.
+  - **Data Stores**: The total number of noncompliant data stores.
+2. The number of failed policies by severity (**Critical**, **High**, **Medium**, and **Low**). Hover over the donut chart to see the number of failed policies for each severity. Click to view the list of policies on the **Policies**tab with the severity filter preselected.
+3. The number of failed policies for each control category. Click to view the list of policies on the **Policies**tab with the control category filter preselected.
+4. The failed compliance trend for policies and resources. Hover over the chart to view the number of failed policies and resources for the control category. You can view the data for the last 7, 15, 30, 60, or 90 days.
+
+[Image: The summary tab with the list of policies and alerts for compliance issues]
+
+[Image: The Compliance dashboard with annotation around one of the compliance tiles]
+
+View the policies mapped to compliance frameworks. For each policy, you can see:
+
+- **Policy Name**: The name of the policy mapped to the compliance framework.
+- **Control Number**: A unique identifier assigned to a specific policy within a compliance framework.
+
+[Image: The configuration tab displaying the mapping of DSPM policies to compliance frameworks]
+
+View the list of noncompliant [resources](https://help.zscaler.com/dspm/about-data-inventory). For each resource, you can see the name of the noncompliant resource along with its additional details.
+
+[Image: The resources tab displaying the list of failed resources]
+
+View the list of noncompliant policies. For each failed policy, you can see:
+
+- **Control Number**: A unique identifier assigned to a specific policy within a compliance framework.
+- **Data Stores**: The number of data stores for which the policy failed. Click to view the noncompliant policies and resources on the Findingstab with the Policy ID preselected.
+
+[Image: The policies tab displaying the list of failed policies]
+
+View the list of noncompliant policies along with the corresponding resources for the selected compliance framework. For each policy, you can see the name of the noncompliant resource along with its additional details.
+
+[Image: The findings tab displaying the list of failed policies and resources]
+
+[Image: The Compliance page with annotation around the available tabs for the selected compliance framework]
+
+[Image: The Findings tab with annotation around the common options across the compliance framework tabs]
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -78,16 +156,16 @@ The size of the circles is relative to each other. A bigger circle indicates tha
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-graph-ai-services","lastmod":"2026-04-24T21:06Z","nid":"1524201"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-graph-ai-services","lastmod":"2026-09-25T10:39Z","nid":"1524201"} -->
 ## Viewing the Graph for AI Services
 
 - Source: https://help.zscaler.com/dspm/viewing-graph-ai-services
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the Graph for AI Services
-- Last modified: 2026-04-24T21:06Z
+- Last modified: 2026-09-25T10:39Z
 - Summary: Information on the Resource Inventory graph for AI services that have access to sensitive data.
 
-The graph for an AI service is a visual representation of the data scan result for the service. It depicts the access path for the AI service (Azure AI Foundry Hub or AWS Bedrock Knowledge Base) where it has access to the storage account containing sensitive data. DSPM also detects if the AI service is publicly exposed to the internet, including the public exposure path, and the list of entities that can access the AI service. These details are helpful to quickly evaluate and remediate the issues, protect the sensitive data, and maintain a strong security posture.
+After DSPM scans an Artificial Intelligence (AI) service, the Resource Inventory graph provides information about the primary resource, its associated resources, and its security posture. Depending on the AI service, the graph displays access paths to resources containing sensitive data, entities that can access the AI service, and public exposure information.
 
 You can view graphs for the following AI services:
 
@@ -101,7 +179,7 @@ You can view graphs for the following AI services:
 
 To view the graph for an AI service:
 
-1. Go to **Analytics**>**Data Security**> **DSPM**>**Resource Inventory.**
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Resource Inventory**.
 2. Click any AI service name to view the AI service's details page.
 3. In the AI service's details page, select the **Risk Explorer** tab. You can see the graph for the selected service:
 
@@ -113,6 +191,8 @@ The following image is a sample of an Azure AI Foundry Hub graph:
 [Image: Azure AI Foundry Hub has access to sensitive records.]
 
 Click the nodes to view additional details of each entity:
+
+The nodes displayed on the graph vary depending on the selected resource and its associated resources.
 
 - 1. Public Internet
 - 2. Primary Resource
@@ -130,6 +210,8 @@ The following image is a sample of an AWS Bedrock Knowledge Base graph:
 [Image: AWS Bedrock Knowledge Base has access to sensitive data records.]
 
 Click the nodes to view additional details of each entity:
+
+The nodes displayed on the graph vary depending on the selected resource and its associated resources.
 
 - 1. Primary Resource
 - 2. Resource
@@ -238,16 +320,16 @@ View details of the primary resource.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-graph-aws-data-stores","lastmod":"2026-04-24T21:06Z","nid":"1519996"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-graph-aws-data-stores","lastmod":"2026-09-25T09:58Z","nid":"1519996"} -->
 ## Viewing the Graph for AWS Data Stores
 
 - Source: https://help.zscaler.com/dspm/viewing-graph-aws-data-stores
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the Graph for AWS Data Stores
-- Last modified: 2026-04-24T21:06Z
+- Last modified: 2026-09-25T09:58Z
 - Summary: Information on the Resource Inventory graph that depict the AWS data stores containing sensitive data.
 
-The Resource Inventory graph for AWS data stores is a visual representation of the scan result. The graph provides in-depth details of the [AWS resource](https://help.zscaler.com/dspm/supported-data-stores) that contains sensitive data, the DLP engines and dictionaries that match the sensitive data, whether it is publicly exposed to the internet, including the public exposure path, the list of entities that can access the resource, and the vulnerabilities and malware detected in the resource. These details are helpful to quickly evaluate and remediate the issues, protect the data, and maintain the security posture.
+After DSPM scans an AWS resource, the Resource Inventory graph provides information about the resource, its associated resources, and its security posture. Depending on the resource, the graph displays sensitive data, entities that can access the resource, public exposure vulnerabilities, malware, and other associated resources.
 
 You can view graphs for the following AWS data stores:
 
@@ -265,6 +347,8 @@ The following graph depicts the scan results for an AWS EC2 instance.
 [Image: Graph that shows all the resources associated with an EC2 instance.]
 
 The graph includes the following nodes:
+
+The nodes displayed on the graph vary depending on the primary resource and its associated resources.
 
 - 1. Public Exposure Path
 - 2. Primary Resource
@@ -345,16 +429,16 @@ View the external entities that can access the resource. These entities are part
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-graph-azure-data-stores","lastmod":"2026-09-15T03:18Z","nid":"1519951"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-graph-azure-data-stores","lastmod":"2026-09-25T10:25Z","nid":"1519951"} -->
 ## Viewing the Graph for Azure Data Stores
 
 - Source: https://help.zscaler.com/dspm/viewing-graph-azure-data-stores
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the Graph for Azure Data Stores
-- Last modified: 2026-09-15T03:18Z
+- Last modified: 2026-09-25T10:25Z
 - Summary: Information on the Resource Inventory graph that depicts AWS data stores containing sensitive data.
 
-The Resource Inventory graph for Azure data stores is a visual representation of the scan result. The graph provides in-depth details of the [Azure resource](https://help.zscaler.com/dspm/supported-data-stores) that contains sensitive data, the DLP engines and dictionaries that match the sensitive data, whether it is publicly exposed to the internet, including the public exposure path, the list of entities that can access the resource, and the vulnerabilities and malware detected in the resource. These details are helpful to quickly evaluate and remediate the issues, protect the data, and maintain the security posture.
+After DSPM scans an [Azure resource](https://help.zscaler.com/dspm/supported-data-stores), the Resource Inventory graph provides information about the primary resource, its associated resources, and its security posture. Depending on the resource, the graph displays details about sensitive data, entities that can access the resource, public exposure, vulnerabilities, and malware.
 
 You can view graphs for the following Azure data stores:
 
@@ -367,6 +451,8 @@ The following graph depicts the scan results for an Azure virtual machine.
 [Image: Graph for an Azure virtual machine and all the associated resources.]
 
 The graph includes the following nodes:
+
+The nodes displayed on the graph vary depending on the selected resource and its associated resources.
 
 - 1. Public Exposure Path
 - 2. Primary Resource
@@ -460,35 +546,38 @@ View the AI agent identities that can access the resource.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-graph-databases","lastmod":"2026-08-13T00:41Z","nid":"1532158"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-graph-databases","lastmod":"2026-09-24T00:52Z","nid":"1532158"} -->
 ## Viewing the Graph for Databases
 
 - Source: https://help.zscaler.com/dspm/viewing-graph-databases
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the Graph for Databases
-- Last modified: 2026-08-13T00:41Z
+- Last modified: 2026-09-24T00:52Z
 - Summary: Graph for a database (unmanaged, on-premises, or Snowflake) is a visual representation of the scan result.
 
-The graph for a database (unmanaged, on-premises, or Snowflake) is a visual representation of the scan result. The graph provides in-depth details of the databases containing sensitive data, the DLP engines and dictionaries that match the sensitive data, whether data is publicly exposed to the internet, including the public exposure path, and the list of entities that can access the databases. These details are helpful to quickly evaluate and remediate the issues, protect the sensitive data, and maintain a strong security posture.
+After DSPM completes the [data scan](https://help.zscaler.com/dspm/about-scan-settings) of the resources, scan results are displayed in the [Resource Inventory](https://help.zscaler.com/dspm/about-resource-inventory) graph. The graph illustrates data stores containing sensitive records, matching DLP engines and dictionaries, public internet exposure paths, and the entities (users, roles, and services) with access permissions. Security administrators use these graphs to evaluate risk relationships, inspect access paths, and remediate misconfigurations.
 
-You can view graphs for the following databases:
+You can view graphs for the following [database](https://help.zscaler.com/dspm/supported-data-stores-file-types-and-regions) and resource types:
 
-- Managed Database
-- Unmanaged Database
-- Snowflake
-- On-Premises File Servers
-- Databricks
-- Unmanaged AWS and Azure MongoDB Servers
-- On-Premises MongoDB Servers
+- Managed Databases:
+  - Managed Database (e.g., AWS RDS, Azure SQL)
+  - Snowflake Databases
+  - Databricks
+- Unmanaged Databases:
+  - Unmanaged Database (Cloud & On-Premises)
+  - Unmanaged AWS and Azure MongoDB Servers
+- On-Premises Resources:
+  - On-Premises File Servers
+  - On-Premises MongoDB Servers
 
 To view the graph for a database:
 
-1. Go to **Analytics**> **Data Security** > **DSPM**> **Resource Inventory**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Resource Inventory**.
 2. Click any resource name to view the resource's details page. See image.
-3. In the resource's details page, select the **Risk Explorer** tab. The following information is displayed:
-  - On-Premises Database
+3. On the resource's details page, select the **Risk Explorer** tab. The following information is displayed:
+  - Managed Database
   - Unmanaged Database
-  - Snowflake Database
+  - On-Premises Database
 
 [Image: View all the resource details]
 
@@ -572,7 +661,7 @@ View all the databases, including those that do not contain any sensitive data a
 
 The following graph is for an unmanaged database:
 
-[Image: Shows the Risk Explorer graph for an unmanaged database.]
+[Image: Shows the Risk Explorer graph for an unmanaged database]
 
 Click the nodes to view additional details of each entity:
 
@@ -717,16 +806,16 @@ View all the associated resources, including those that do not contain any sensi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-graph-gcp-data-stores","lastmod":"2026-04-24T21:06Z","nid":"1520001"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-graph-gcp-data-stores","lastmod":"2026-09-25T10:31Z","nid":"1520001"} -->
 ## Viewing the Graph for GCP Data Stores
 
 - Source: https://help.zscaler.com/dspm/viewing-graph-gcp-data-stores
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the Graph for GCP Data Stores
-- Last modified: 2026-04-24T21:06Z
+- Last modified: 2026-09-25T10:31Z
 - Summary: Information on the Resource Inventory graph that depicts the GCP data stores containing sensitive data.
 
-The Resource Inventory graph for GCP data stores is a visual representation of the scan result. The graph provides in-depth details of the GCP storage bucket, GCP Cloud Storage instance, and GCP Cloud SQL instance that contain sensitive data, the DLP engines and dictionaries that match the sensitive data, whether it is publicly exposed to the internet, including the public exposure path, the list of entities that can access the resource, and the vulnerabilities and malware detected in the resource. These details are helpful to quickly evaluate and remediate the issues, protect the data, and maintain the security posture.
+After DSPM scans a GCP resource, the Resource Inventory graph provides information about the primary resource, its associated resources, and its security posture. Depending on the resource, the graph displays details about sensitive data, entities that can access the resource, public exposure, vulnerabilities, and malware.
 
 You can view graphs for the following GCP data stores:
 
@@ -740,6 +829,8 @@ The following graph depicts the scan results for a GCP storage bucket.
 [Image: Graph for a storage bucket containing sensitive data along with the associated resources.]
 
 The graph includes the following nodes:
+
+The nodes displayed on the graph vary depending on the selected resource and its associated resources.
 
 - 1. Public Exposure Path
 - 2. Primary Resource
@@ -1268,18 +1359,16 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-resource-inventory-graph","lastmod":"2026-09-15T00:23Z","nid":"1478111"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-resource-inventory-graph","lastmod":"2026-09-25T09:29Z","nid":"1478111"} -->
 ## Viewing the Resource Inventory Graph
 
 - Source: https://help.zscaler.com/dspm/viewing-resource-inventory-graph
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the Resource Inventory Graph
-- Last modified: 2026-09-15T00:23Z
+- Last modified: 2026-09-25T09:29Z
 - Summary: Viewing the resource details and its associated vulnerabilities as a graph in the Zscaler Admin Console.
 
-After DSPM completes the [data scan](https://help.zscaler.com/dspm/about-scan-settings) of the resources, the scan results are displayed in the form of graphs that are visually appealing and highly interactive. The graphs consist of interactive nodes that provide contextual information (e.g., cloud account name, primary resource type, ID, file path, number of files containing sensitive data, access levels) about the primary resource and the associated secondary resources.
-
-The graphs also include attack paths that show how the resource is compromised either through public exposure, malware, by an IAM entity (user, service, role) with access privileges, vulnerabilities, etc. This information helps you analyze the issues in detail and remediate them immediately.
+After DSPM [scans a resource](https://help.zscaler.com/dspm/about-scan-settings), the graph provides information about the primary resource, its associated resources, and its security posture. It displays details such as the cloud account, resource type, resource ID, file path, sensitive data, and access levels. The graph also displays applicable attack paths, including public exposure, malware, IAM access, and vulnerabilities. These paths help you identify potential security risks associated with the resource.
 
 The Resource Inventory graph includes the following nodes and attack paths:
 
@@ -1288,12 +1377,14 @@ The Resource Inventory graph includes the following nodes and attack paths:
 
 To view the Resource Inventory graph for a resource:
 
-1. Go to **Analytics**> **Data Security** > **DSPM**> **Resource Inventory**. On the **Resource Inventory** page, you can see the scanned results for AWS, Azure, and GCP resources.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Resource Inventory**. On the **Resource Inventory** page, you can see the scanned results for AWS, Azure, and GCP resources.
 2. Click any **Resource Name** to view the drawer. See image.
-3. In the resource's details page, select the **Risk Explorer** tab. You can see the graph for the selected resource: The nodes and access paths vary depending on the [primary resource](https://help.zscaler.com/dspm/supported-data-stores) and its associated resources.
+3. On the resource's details page, select the **Risk Explorer** tab. You can see the graph for the selected resource: The nodes and access paths vary depending on the [primary resource](https://help.zscaler.com/dspm/supported-data-stores) and its associated resources.
   - [AWS](https://help.zscaler.com/dspm/viewing-graph-aws-data-stores)
   - [Azure](https://help.zscaler.com/dspm/viewing-graph-azure-data-stores)
   - [GCP](https://help.zscaler.com/dspm/viewing-graph-gcp-data-stores)
+  - [Databases](https://help.zscaler.com/dspm/viewing-graph-databases)
+  - [AI services](https://help.zscaler.com/dspm/viewing-graph-ai-services)
 
 [Image: Select the resource name]
 
