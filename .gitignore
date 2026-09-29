@@ -1,2 +1,18 @@
 __pycache__/
 _site/
+
+# Android (android-launcher/)
+.gradle/
+build/
+local.properties
+*.iml
+.idea/
+captures/
+.cxx/
+android-launcher/tools/work/
+.kotlin/
+# 中間生成物。実体は app/src/main/assets/flora/ に置く
+android-launcher/tools/flora/assets/
+android-launcher/tools/flora/plate_full.png
+android-launcher/tools/flora/plate_view.png
+android-launcher/tools/flora/*.gif
