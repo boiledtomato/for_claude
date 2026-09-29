@@ -250,6 +250,10 @@ class ConsoleViewModel @Inject constructor(
         categoryRepository.removeApps(id, packageNames)
     }
 
+    /** ドラッグ＆ドロップでの移動。確認を取ったあとに呼ばれる */
+    fun moveAppBetweenCategories(fromId: String, toId: String, packageName: String) =
+        viewModelScope.launch { categoryRepository.moveApp(fromId, toId, packageName) }
+
     fun setPinned(slot: Int, packageName: String?) = viewModelScope.launch {
         categoryRepository.setPinned(slot, packageName)
     }

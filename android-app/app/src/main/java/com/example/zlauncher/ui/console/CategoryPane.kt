@@ -44,6 +44,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.style.TextAlign
@@ -53,8 +54,8 @@ import androidx.compose.ui.unit.sp
 import com.example.zlauncher.core.designsystem.ZColors
 import com.example.zlauncher.core.designsystem.ZMotion
 import com.example.zlauncher.core.designsystem.ZType
+import com.example.zlauncher.core.ui.appDragGesture
 import com.example.zlauncher.core.ui.springyClick
-import com.example.zlauncher.core.ui.springyCombinedClick
 import com.example.zlauncher.data.apps.CategoryWithApps
 import com.example.zlauncher.domain.model.AppEntry
 import com.example.zlauncher.ui.apps.component.AppIconTile
@@ -87,6 +88,10 @@ fun CategoryPane(
     onDeleteCategory: () -> Unit,
     onOpenInsights: () -> Unit,
     modifier: Modifier = Modifier,
+    /** 別カテゴリーへ運ぶ操作。画面をまたぐので [ConsoleScreen] が持つ */
+    drag: AppDragState? = null,
+    /** 落とし先の上で指を離した。null なら空振り（何も起きない） */
+    onDropped: (AppDragState.Drop?) -> Unit = {},
 ) {
     val color = ZColors.CategoryColors[category.category.colorIndex % ZColors.CategoryColors.size]
     var menuOpen by remember { mutableStateOf(false) }
@@ -194,6 +199,15 @@ fun CategoryPane(
                                 selected += entry.packageName
                             }
                         },
+                        // 未分類の枠からは運べる（移動先に入れれば計算で外れる）。
+                        // drag が無いときだけ運べない
+                        onDragStart = drag?.let { state ->
+                            { at -> state.start(entry, category.id, at) }
+                        },
+                        onDrag = drag?.let { state -> { at -> state.moveTo(at) } },
+                        onDragEnd = drag?.let { state -> { onDropped(state.finish()) } },
+                        onDragCancel = drag?.let { state -> { state.cancel() } },
+                        lifted = drag?.payload?.entry?.key == entry.key,
                     )
                 }
                 item(span = { GridItemSpan(CATEGORY_COLUMNS) }) {
@@ -271,6 +285,13 @@ private fun CategoryAppTile(
     onLaunch: () -> Unit,
     onEnterRemoval: () -> Unit,
     onToggleSelect: () -> Unit,
+    /** null なら運べない（未分類の枠など）。座標はウィンドウ基準 */
+    onDragStart: ((Offset) -> Unit)? = null,
+    onDrag: ((Offset) -> Unit)? = null,
+    onDragEnd: (() -> Unit)? = null,
+    onDragCancel: (() -> Unit)? = null,
+    /** 運んでいる最中の 1 枚は薄くする。指の下に浮いているほうが本体 */
+    lifted: Boolean = false,
 ) {
     val icon by rememberAppIcon(entry, iconProvider)
 
@@ -294,7 +315,10 @@ private fun CategoryAppTile(
         Column(
             Modifier
                 .fillMaxWidth()
-                .graphicsLayer { rotationZ = if (removing) angle else 0f }
+                .graphicsLayer {
+                    rotationZ = if (removing) angle else 0f
+                    alpha = if (lifted) 0.3f else 1f
+                }
                 .clip(shape)
                 .background(
                     when {
@@ -310,7 +334,19 @@ private fun CategoryAppTile(
                     if (removing) {
                         Modifier.springyClick(onClick = onToggleSelect)
                     } else {
-                        Modifier.springyCombinedClick(onClick = onLaunch, onLongClick = onEnterRemoval)
+                        // タップは springyClick に残す（押した感じが要る）。長押しと
+                        // ドラッグの取り合いは appDragGesture が 1 か所で決める
+                        Modifier
+                            .springyClick(onClick = onLaunch)
+                            .appDragGesture(
+                                enabled = onDragStart != null,
+                                key = entry.key,
+                                onLongPress = onEnterRemoval,
+                                onDragStart = { at -> onDragStart?.invoke(at) },
+                                onDrag = { at -> onDrag?.invoke(at) },
+                                onDragEnd = { onDragEnd?.invoke() },
+                                onDragCancel = { onDragCancel?.invoke() },
+                            )
                     }
                 )
                 .padding(vertical = 4.dp),

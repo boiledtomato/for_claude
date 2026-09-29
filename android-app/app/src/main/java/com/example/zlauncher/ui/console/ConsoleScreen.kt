@@ -44,6 +44,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
@@ -60,12 +61,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.layout.boundsInWindow
+import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.onSizeChanged
+import androidx.compose.ui.layout.positionInWindow
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -117,6 +123,13 @@ fun ConsoleScreen(
     val iconAdjust by viewModel.iconAdjust.collectAsStateWithLifecycle()
     var showAppearance by remember { mutableStateOf(false) }
 
+    // アイコンを別のカテゴリーへ運ぶ操作。掴むのは右のペイン、落とすのは左のレールなので、
+    // その両方を含むこの画面が状態を持つ。座標はウィンドウ基準でそろえる
+    val appDrag = remember { AppDragState() }
+    var pendingMove by remember { mutableStateOf<AppDragState.Drop?>(null) }
+    // 浮かせる 1 枚はこの Box の座標に置くので、ウィンドウ基準との差を測っておく
+    var rootInWindow by remember { mutableStateOf(Offset.Zero) }
+
     // カタログは初回だけ読む。ダイアログを開いた瞬間に空、という状態を作らない
     LaunchedEffect(Unit) { viewModel.loadCatalog() }
     var editingCategory by remember { mutableStateOf<CategoryWithApps?>(null) }
@@ -146,118 +159,137 @@ fun ConsoleScreen(
         if (selected !is ConsolePane.Overview) viewModel.select(ConsolePane.Overview)
     }
 
-    Row(modifier.fillMaxSize().background(ZColors.Background)) {
-        ConsoleRail(
-            onOpenApps = onOpenApps,
-            pinned = pinned,
-            pinnedSlots = viewModel.pinnedSlots,
-            pinnedExpanded = pinnedExpanded,
-            onTogglePinned = viewModel::togglePinned,
-            categories = categories,
-            categoriesExpanded = categoriesExpanded,
-            onToggleCategories = viewModel::toggleCategories,
-            selected = selected,
-            iconProvider = viewModel::icon,
-            onSelect = viewModel::select,
-            onLaunchPinned = { viewModel.launch(it) },
-            onEditPin = { slot -> pinningSlot = slot },
-            onAddCategory = {
-                viewModel.loadCatalog()
-                showCreateDialog = true
-            },
-            onMoveCategory = viewModel::moveCategory,
-            themeMode = themeMode,
-            onOpenAppearance = { showAppearance = true },
-        )
-
-        Column(
-            Modifier
-                .fillMaxSize()
-                .padding(WindowInsets.safeDrawing.asPaddingValues()),
-        ) {
-            ConsoleTopBar(
-                title = when {
-                    selected is ConsolePane.Insights -> "Web Insights"
-                    selected is ConsolePane.Widgets -> "Widgets"
-                    selectedCategory != null -> selectedCategory.category.name
-                    else -> "Overview"
+    Box(
+        modifier
+            .fillMaxSize()
+            .background(ZColors.Background)
+            .onGloballyPositioned { rootInWindow = it.positionInWindow() },
+    ) {
+        Row(Modifier.fillMaxSize()) {
+            ConsoleRail(
+                drag = appDrag,
+                onOpenApps = onOpenApps,
+                pinned = pinned,
+                pinnedSlots = viewModel.pinnedSlots,
+                pinnedExpanded = pinnedExpanded,
+                onTogglePinned = viewModel::togglePinned,
+                categories = categories,
+                categoriesExpanded = categoriesExpanded,
+                onToggleCategories = viewModel::toggleCategories,
+                selected = selected,
+                iconProvider = viewModel::icon,
+                onSelect = viewModel::select,
+                onLaunchPinned = { viewModel.launch(it) },
+                onEditPin = { slot -> pinningSlot = slot },
+                onAddCategory = {
+                    viewModel.loadCatalog()
+                    showCreateDialog = true
                 },
-                subtitle = when {
-                    selected is ConsolePane.Insights -> "Per-category traffic log"
-                    selected is ConsolePane.Widgets -> "Placed on this screen"
-                    selectedCategory != null -> "${selectedCategory.apps.size} apps"
-                    else -> "Live · updated ${formatClock(snapshot.metrics.sampledAtMillis)}"
-                },
-                live = selected is ConsolePane.Overview && snapshot.loaded,
-                isEditing = viewModel.isEditing,
-                showEdit = selected is ConsolePane.Overview,
-                onToggleEdit = { viewModel.setEditMode(!viewModel.isEditing) },
+                onMoveCategory = viewModel::moveCategory,
+                themeMode = themeMode,
+                onOpenAppearance = { showAppearance = true },
             )
 
-            pendingDiff?.let { diff ->
-                CatalogUpdateBanner(
-                    diff = diff,
-                    onReview = { showCatalogDiff = true },
-                    modifier = Modifier.padding(start = 12.dp, end = 16.dp, bottom = 10.dp),
+            Column(
+                Modifier
+                    .fillMaxSize()
+                    .padding(WindowInsets.safeDrawing.asPaddingValues()),
+            ) {
+                ConsoleTopBar(
+                    title = when {
+                        selected is ConsolePane.Insights -> "Web Insights"
+                        selected is ConsolePane.Widgets -> "Widgets"
+                        selectedCategory != null -> selectedCategory.category.name
+                        else -> "Overview"
+                    },
+                    subtitle = when {
+                        selected is ConsolePane.Insights -> "Per-category traffic log"
+                        selected is ConsolePane.Widgets -> "Placed on this screen"
+                        selectedCategory != null -> "${selectedCategory.apps.size} apps"
+                        else -> "Live · updated ${formatClock(snapshot.metrics.sampledAtMillis)}"
+                    },
+                    live = selected is ConsolePane.Overview && snapshot.loaded,
+                    isEditing = viewModel.isEditing,
+                    showEdit = selected is ConsolePane.Overview,
+                    onToggleEdit = { viewModel.setEditMode(!viewModel.isEditing) },
                 )
-            }
 
-            // 空のまま置き去りにされたカテゴリーを拾う導線。作成直後の選択を閉じた場合もここに出る
-            // 今その空カテゴリーを見ているなら、ペイン側に同じ案内が出ているので帯は出さない
-            val onlyShowingIt = emptyCategories.size == 1 &&
-                (selected as? ConsolePane.Category)?.id == emptyCategories.first().id
-            if (emptyCategories.isNotEmpty() && pickingAppsFor == null && !onlyShowingIt) {
-                EmptyCategoriesBanner(
-                    categories = emptyCategories,
-                    onFill = { viewModel.promptForApps(emptyCategories.first().id) },
-                    modifier = Modifier.padding(start = 12.dp, end = 16.dp, bottom = 10.dp),
-                )
-            }
-
-            // ペインの切り替えも滑らせる。瞬間的に差し替えると場所を見失う
-            AnimatedContent(
-                targetState = selected,
-                transitionSpec = {
-                    (fadeIn(tween(ZMotion.TRANSITION_MS)) + slideInVertically { it / 18 })
-                        .togetherWith(fadeOut(tween(160)))
-                },
-                label = "pane",
-            ) { target ->
-                when (target) {
-                    is ConsolePane.Insights -> InsightsPane(initialCategoryId = target.categoryId)
-
-                    ConsolePane.Widgets -> WidgetsPane(
-                        viewModel = viewModel,
-                        widgetHost = widgetHost,
-                        onAddWidget = onAddWidget,
-                    )
-
-
-                    is ConsolePane.Category -> {
-                        val pane = categories.firstOrNull { it.id == target.id }
-                        if (pane == null) {
-                            // 表示中のカテゴリーが消えた瞬間。次の再構成で Overview に戻る
-                            Box(Modifier.fillMaxSize())
-                        } else {
-                            CategoryPane(
-                                category = pane,
-                                iconProvider = viewModel::icon,
-                                onLaunch = { entry -> viewModel.launch(entry) },
-                                onRemoveApps = { pkgs -> viewModel.removeAppsFromCategory(pane.id, pkgs) },
-                                onPickApps = { pickingAppsFor = pane; pickingIsNew = false },
-                                onEditCategory = { editingCategory = pane },
-                                onDeleteCategory = { viewModel.deleteCategory(pane.id) },
-                                onOpenInsights = { viewModel.select(ConsolePane.Insights(pane.id)) },
-                            )
-                        }
-                    }
-
-                    ConsolePane.Overview -> OverviewPane(
-                        viewModel = viewModel,
-                        snapshot = snapshot,
+                pendingDiff?.let { diff ->
+                    CatalogUpdateBanner(
+                        diff = diff,
+                        onReview = { showCatalogDiff = true },
+                        modifier = Modifier.padding(start = 12.dp, end = 16.dp, bottom = 10.dp),
                     )
                 }
+
+                // 空のまま置き去りにされたカテゴリーを拾う導線。作成直後の選択を閉じた場合もここに出る
+                // 今その空カテゴリーを見ているなら、ペイン側に同じ案内が出ているので帯は出さない
+                val onlyShowingIt = emptyCategories.size == 1 &&
+                    (selected as? ConsolePane.Category)?.id == emptyCategories.first().id
+                if (emptyCategories.isNotEmpty() && pickingAppsFor == null && !onlyShowingIt) {
+                    EmptyCategoriesBanner(
+                        categories = emptyCategories,
+                        onFill = { viewModel.promptForApps(emptyCategories.first().id) },
+                        modifier = Modifier.padding(start = 12.dp, end = 16.dp, bottom = 10.dp),
+                    )
+                }
+
+                // ペインの切り替えも滑らせる。瞬間的に差し替えると場所を見失う
+                AnimatedContent(
+                    targetState = selected,
+                    transitionSpec = {
+                        (fadeIn(tween(ZMotion.TRANSITION_MS)) + slideInVertically { it / 18 })
+                            .togetherWith(fadeOut(tween(160)))
+                    },
+                    label = "pane",
+                ) { target ->
+                    when (target) {
+                        is ConsolePane.Insights -> InsightsPane(initialCategoryId = target.categoryId)
+
+                        ConsolePane.Widgets -> WidgetsPane(
+                            viewModel = viewModel,
+                            widgetHost = widgetHost,
+                            onAddWidget = onAddWidget,
+                        )
+
+
+                        is ConsolePane.Category -> {
+                            val pane = categories.firstOrNull { it.id == target.id }
+                            if (pane == null) {
+                                // 表示中のカテゴリーが消えた瞬間。次の再構成で Overview に戻る
+                                Box(Modifier.fillMaxSize())
+                            } else {
+                                CategoryPane(
+                                    category = pane,
+                                    iconProvider = viewModel::icon,
+                                    onLaunch = { entry -> viewModel.launch(entry) },
+                                    onRemoveApps = { pkgs -> viewModel.removeAppsFromCategory(pane.id, pkgs) },
+                                    onPickApps = { pickingAppsFor = pane; pickingIsNew = false },
+                                    onEditCategory = { editingCategory = pane },
+                                    onDeleteCategory = { viewModel.deleteCategory(pane.id) },
+                                    onOpenInsights = { viewModel.select(ConsolePane.Insights(pane.id)) },
+                                    drag = appDrag,
+                                    onDropped = { drop -> pendingMove = drop },
+                                )
+                            }
+                        }
+
+                        ConsolePane.Overview -> OverviewPane(
+                            viewModel = viewModel,
+                            snapshot = snapshot,
+                        )
+                    }
+                }
             }
+        }
+
+        // 指の下の 1 枚。レールの上まで運べるよう、Row の外側 ＝ 画面全体に重ねる
+        appDrag.payload?.let { held ->
+            DragBadge(
+                entry = held.entry,
+                iconProvider = viewModel::icon,
+                at = appDrag.position - rootInWindow,
+            )
         }
     }
 
@@ -357,6 +389,30 @@ fun ConsoleScreen(
         )
     }
 
+    // 落としただけでは動かさない。どこからどこへ運んだのかを読ませてから確定する
+    pendingMove?.let { move ->
+        val from = categories.firstOrNull { it.id == move.fromCategoryId }?.category?.name
+        val to = categories.firstOrNull { it.id == move.toCategoryId }?.category?.name
+        if (from == null || to == null) {
+            // 運んでいる最中にカテゴリーが消えた。問いかける相手が無いので黙って取り下げる
+            LaunchedEffect(move) { pendingMove = null }
+        } else {
+            ConfirmDialog(
+                title = "Move app",
+                message = "Move \u201C${move.entry.label}\u201D from \u201C$from\u201D to \u201C$to\u201D?",
+                onConfirm = {
+                    viewModel.moveAppBetweenCategories(
+                        move.fromCategoryId,
+                        move.toCategoryId,
+                        move.entry.packageName,
+                    )
+                    pendingMove = null
+                },
+                onDismiss = { pendingMove = null },
+            )
+        }
+    }
+
     pinningSlot?.let { slot ->
         AppPickerDialog(
             title = "Pin app (slot ${slot + 1})",
@@ -376,6 +432,8 @@ fun ConsoleScreen(
 @Composable
 private fun ConsoleRail(
     onOpenApps: () -> Unit,
+    /** 運んできたアイコンの落とし先。null なら受け取らない */
+    drag: AppDragState? = null,
     pinned: List<AppEntry>,
     pinnedSlots: Int,
     pinnedExpanded: Boolean,
@@ -487,6 +545,7 @@ private fun ConsoleRail(
                     selected = selected,
                     onSelect = onSelect,
                     onMove = onMoveCategory,
+                    drag = drag,
                 )
 
                 RailItem(
@@ -539,6 +598,8 @@ private fun CategoryRailItems(
     selected: ConsolePane,
     onSelect: (ConsolePane) -> Unit,
     onMove: (Int, Int) -> Unit,
+    /** アイコンの落とし先としての登録先。並べ替えとは別の操作 */
+    drag: AppDragState? = null,
 ) {
     val haptics = LocalHapticFeedback.current
     val scope = rememberCoroutineScope()
@@ -575,11 +636,32 @@ private fun CategoryRailItems(
             animationSpec = ZMotion.touch(),
             label = "railLift",
         )
+        // 未分類を集める枠は落とし先にしない。所属を保存していないので、入れても計算で戻る
+        val droppable = drag != null && !category.category.isCatchAll
+        val hovered = droppable && drag?.hovered == category.id
+        if (droppable) {
+            DisposableEffect(category.id) {
+                onDispose { drag?.removeTarget(category.id) }
+            }
+        }
         Box(
             Modifier
                 .onSizeChanged { size ->
                     if (size.height > 0 && index < heights.size) heights[index] = size.height.toFloat()
                 }
+                .then(
+                    // 当たり判定はウィンドウ基準。レールを畳んだり巻いたりしても、
+                    // 位置が変われば呼び直されるので古い矩形は残らない
+                    if (droppable) {
+                        Modifier.onGloballyPositioned { drag?.setTarget(category.id, it.boundsInWindow()) }
+                    } else {
+                        Modifier
+                    }
+                )
+                // 幅も高さも変えない囲み。乗った瞬間に行が動くと落とし先を見失う
+                .then(
+                    if (hovered) Modifier.border(2.dp, color, RoundedCornerShape(14.dp)) else Modifier
+                )
                 .zIndex(if (lifted || offset != 0f) 1f else 0f)
                 .graphicsLayer {
                     translationY = offset
@@ -639,6 +721,36 @@ private fun CategoryRailItems(
                 onClick = { onSelect(ConsolePane.Category(category.id)) },
             )
         }
+    }
+}
+
+/**
+ * 運んでいる最中に指の下へ浮かせる 1 枚。
+ *
+ * **並べるのではなく重ねる。** `graphicsLayer` の平行移動なので配置に影響せず、指を追う
+ * たびに画面の測り直しが起きない。元のタイルは薄く残したままにしてある ― どこから持って
+ * きたのかが消えると、落とすのをやめたときに戻り先が分からなくなる。
+ */
+@Composable
+private fun DragBadge(
+    entry: AppEntry,
+    iconProvider: suspend (AppEntry) -> ImageBitmap?,
+    at: Offset,
+) {
+    val icon by rememberAppIcon(entry, iconProvider)
+    val size = 56.dp
+    val half = with(LocalDensity.current) { size.toPx() / 2f }
+    Box(
+        Modifier.graphicsLayer {
+            // 指の位置が中心に来るようにずらす。左上に合わせると指に隠れる
+            translationX = at.x - half
+            translationY = at.y - half
+            scaleX = 1.12f
+            scaleY = 1.12f
+            alpha = 0.95f
+        }
+    ) {
+        AppIconTile(icon = icon, size = size)
     }
 }
 

@@ -181,6 +181,28 @@ class CategoryRepository @Inject constructor(
         )
     }
 
+    /**
+     * 1 件を別のカテゴリーへ移す（ドラッグ＆ドロップ）。**外すのと入れるのを 1 回で書く。**
+     * 2 回に分けると、その合間にどちらにも居ない状態が一瞬見える。
+     *
+     * 移動元が未分類を集める枠のときは、そこから外す処理は何もしない（所属を保存して
+     * いないため）。移動先に入れた時点で、計算の結果として自動的に外れる。
+     */
+    suspend fun moveApp(fromId: String, toId: String, packageName: String) = preferences.update { state ->
+        if (fromId == toId) return@update state
+        state.copy(
+            categories = state.categories.map { category ->
+                when (category.id) {
+                    fromId -> category.copy(packages = category.packages.filterNot { it == packageName })
+                    toId ->
+                        if (packageName in category.packages) category
+                        else category.copy(packages = category.packages + packageName)
+                    else -> category
+                }
+            }
+        )
+    }
+
     /** まとめて外す。取り外しモードは複数選べるので、1 件ずつ書くと保存が何度も走る */
     suspend fun removeApps(id: String, packageNames: Collection<String>) = preferences.update { state ->
         if (packageNames.isEmpty()) return@update state
