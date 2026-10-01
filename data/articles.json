@@ -1,7 +1,17 @@
 {
-  "last_updated": "2026-09-30T03:27:30Z",
-  "total": 2,
+  "last_updated": "2026-10-01T03:32:49Z",
+  "total": 3,
   "articles": [
+    {
+      "id": "3dd0626012c16c75",
+      "title": "Security tools can now scan Claude Enterprise chats and uploads for sensitive data",
+      "url": "https://www.helpnetsecurity.com/2026/09/30/claude-compliance-api-integrations/",
+      "summary": "More than 100 security and compliance vendors have integrations with the Claude Compliance API, which lets a company send Claude activity into the monitoring tools it already uses. CrowdStrike, Microsoft Purview, Splunk, Palo Alto Networks, Cloudflare and Zscaler are among them. For a Claude Enterprise customer, the feed includes the conversations themselves, the files people upload and their proj",
+      "date": "2026-09-30T06:31:58Z",
+      "source": "Help Net Security",
+      "category": "industry_news",
+      "tags": []
+    },
     {
       "id": "acf3df0908a9f80b",
       "title": "How to Build a SASE Framework for Modern Cybersecurity",
