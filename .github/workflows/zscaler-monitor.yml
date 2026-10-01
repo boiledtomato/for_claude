@@ -2,8 +2,10 @@ name: Zscaler Release Monitor
 
 on:
   schedule:
-    # 毎日 09:00 JST (00:00 UTC) に実行
-    - cron: "0 0 * * *"
+    # 毎日 10:00 JST (01:00 UTC) に実行
+    # 00:00 UTC は daily-update.yml が走る時刻で、同じ main へ push するため
+    # 衝突していた。1時間後ろにずらしている。
+    - cron: "0 1 * * *"
   workflow_dispatch:
     inputs:
       month_filter:
@@ -54,12 +56,37 @@ jobs:
 
       - name: Save seen articles state
         run: |
+          # push が弾かれるのは、同時刻に走る他のワークフローが先に main を進めた
+          # ときで、単に再試行しても永久に通らない。origin/main に rebase してから
+          # 試し、4回とも駄目ならステップを失敗させる（握り潰すと seen 状態が
+          # 失われ、同じ記事を翌日また通知してしまう）。
+          push_with_retry() {
+            for i in 1 2 3 4; do
+              if git push origin HEAD; then
+                return 0
+              fi
+              echo "push rejected (attempt $i) — rebasing onto origin/main"
+              sleep $((2 ** i))
+              git fetch origin main || continue
+              git rebase origin/main || { git rebase --abort || true; continue; }
+            done
+            echo "::error::4回試行しても push できませんでした。コミットが失われています。"
+            return 1
+          }
+
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/zscaler_seen.json || true
-          git diff --cached --quiet || git commit -m "chore: update zscaler seen articles state"
-          git pull --rebase origin main || true
-          git push || true
+          if [ ! -f data/zscaler_seen.json ]; then
+            echo "data/zscaler_seen.json がありません。保存をスキップします。"
+            exit 0
+          fi
+          git add data/zscaler_seen.json
+          if git diff --staged --quiet; then
+            echo "No state changes to commit"
+          else
+            git commit -m "chore: update zscaler seen articles state"
+            push_with_retry
+          fi
 
       - name: Upload debug HTML and notes as artifact
         if: always()

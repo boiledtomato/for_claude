@@ -106,6 +106,12 @@ CATEGORIES: dict[str, tuple[str, list[str]]] = {
 }
 OTHER = "other"
 
+# sitemap に載っているが記事ではないページ。本文を持たないので毎回「取得失敗」として
+# 記録され、失敗の baseline を汚して本当の異常を見えにくくする。最初から対象外にする。
+#   /bulletins … New & Improved Articles の一覧 (view_type=documentation, content 空)
+#   /rss       … RSS リンク集 (現在は 404)
+SKIP_PATHS = {"/bulletins", "/rss"}
+
 SESSION = requests.Session()
 SESSION.headers.update({
     "User-Agent": "Mozilla/5.0 (compatible; zscaler-help-docs-builder/1.0)",
@@ -316,7 +322,7 @@ def fetch_sitemap() -> dict[str, str]:
         if loc_el is None or not loc_el.text:
             continue
         path = loc_el.text.strip().replace(BASE_URL, "")
-        if not path or path == "/":
+        if not path or path == "/" or path in SKIP_PATHS:
             continue
         lastmod_el = url_el.find("lastmod")
         result[path] = (lastmod_el.text or "").strip() if lastmod_el is not None else ""
