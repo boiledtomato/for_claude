@@ -556,13 +556,20 @@ Commit bodies may be written in Japanese.
   directory means adding a matching `--exclude` to that `tar` command.**
 - **Every workflow that commits must push through `push_with_retry`** — a bare
   `git push` (or a retry loop whose last command is `sleep`) exits 0 when the push was
-  rejected, so the job stays green while the commit is silently dropped. The symptom is
-  indirect: the next sync sees a stale `notebooklm_sync_state.json`, every hash
-  mismatches, and all 34 sources are re-uploaded instead of none. `push_with_retry`
-  rebases onto `origin/main` between attempts (a rejection is almost always another
-  workflow having pushed first, which plain retries can never resolve) and returns 1
-  when it gives up. `zscaler-monitor.yml` still uses `git push || true` and has this
-  bug.
+  rejected, so the job would stay green while the commit was silently dropped.
+  `push_with_retry` rebases onto `origin/main` between attempts (a rejection is almost
+  always another workflow having pushed first, which plain retries can never resolve)
+  and returns 1 when it gives up. This is a latent hazard that was fixed before it
+  ever bit: no commit has actually been lost — `main`'s ref chain is continuous from
+  2026-07-19 onward and the activity API records no force push.
+- **A shallow clone makes `git log` look like history is missing.** The container
+  clones at limited depth, so commits outside that window simply are not present and a
+  date-ranged `git log` shows a hole that does not exist. Run
+  `git fetch --deepen=2000 origin main` (or `--unshallow`) before concluding anything
+  about older history. Related trap: `git merge-base --is-ancestor <sha> origin/main`
+  exits **128** when the object is not present locally, which is indistinguishable from
+  the **1** that means "not an ancestor" — check `git cat-file -e <sha>` first, or an
+  absent object reads as deleted history.
 - **Scheduled pushes must not share a start minute** — `daily-update.yml` and
   `zscaler-monitor.yml` both fire at `0 0 * * *`, so the weeklies were moved to 02:30 /
   03:30 UTC. GitHub also starts scheduled runs 1–4 hours late under load, so treat the
