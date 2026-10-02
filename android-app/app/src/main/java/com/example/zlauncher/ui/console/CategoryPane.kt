@@ -17,6 +17,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -54,6 +55,7 @@ import androidx.compose.ui.unit.sp
 import com.example.zlauncher.core.designsystem.ZColors
 import com.example.zlauncher.core.designsystem.ZMotion
 import com.example.zlauncher.core.designsystem.ZType
+import com.example.zlauncher.core.ui.TileGrid
 import com.example.zlauncher.core.ui.appDragGesture
 import com.example.zlauncher.core.ui.springyClick
 import com.example.zlauncher.data.apps.CategoryWithApps
@@ -61,7 +63,8 @@ import com.example.zlauncher.domain.model.AppEntry
 import com.example.zlauncher.ui.apps.component.AppIconTile
 import com.example.zlauncher.ui.apps.component.rememberAppIcon
 
-private const val CATEGORY_COLUMNS = 4
+/** グリッドの左右の余白。列数を数えるときに引く */
+private val CATEGORY_H_PADDING = 20.dp
 
 /**
  * カテゴリーに入れ子にしたアプリの一覧。
@@ -167,51 +170,57 @@ fun CategoryPane(
                 return@Column
             }
 
-            LazyVerticalGrid(
-                columns = GridCells.Fixed(CATEGORY_COLUMNS),
-                modifier = Modifier.fillMaxSize(),
-                contentPadding = PaddingValues(
-                    start = 8.dp,
-                    end = 12.dp,
-                    // 下のボタンがアイコンに重ならないよう、出ているぶんだけ空ける
-                    bottom = if (removing && selected.isNotEmpty()) 96.dp else 28.dp,
-                ),
-                horizontalArrangement = Arrangement.spacedBy(2.dp),
-                verticalArrangement = Arrangement.spacedBy(10.dp),
-            ) {
-                itemsIndexed(category.apps, key = { _, entry -> entry.key }) { index, entry ->
-                    CategoryAppTile(
-                        modifier = Modifier.animateItem(placementSpec = ZMotion.placement()),
-                        entry = entry,
-                        index = index,
-                        iconProvider = iconProvider,
-                        removing = removing,
-                        selected = selected.contains(entry.packageName),
-                        onLaunch = { onLaunch(entry) },
-                        onEnterRemoval = {
-                            removing = true
-                            if (!selected.contains(entry.packageName)) selected += entry.packageName
-                        },
-                        onToggleSelect = {
-                            if (selected.contains(entry.packageName)) {
-                                selected -= entry.packageName
-                            } else {
-                                selected += entry.packageName
-                            }
-                        },
-                        // 未分類の枠からは運べる（移動先に入れれば計算で外れる）。
-                        // drag が無いときだけ運べない
-                        onDragStart = drag?.let { state ->
-                            { at -> state.start(entry, category.id, at) }
-                        },
-                        onDrag = drag?.let { state -> { at -> state.moveTo(at) } },
-                        onDragEnd = drag?.let { state -> { onDropped(state.finish()) } },
-                        onDragCancel = drag?.let { state -> { state.cancel() } },
-                        lifted = drag?.payload?.entry?.key == entry.key,
-                    )
-                }
-                item(span = { GridItemSpan(CATEGORY_COLUMNS) }) {
-                    Spacer(Modifier.height(6.dp))
+            // 列数は面の実測幅から。分割画面やフリーフォームでは、端末の画面幅から
+            // 読めない（理由と数え方は TileGrid）
+            BoxWithConstraints(Modifier.fillMaxSize()) {
+                val columns = TileGrid.columns((maxWidth - CATEGORY_H_PADDING).value)
+                LazyVerticalGrid(
+                    columns = GridCells.Fixed(columns),
+                    modifier = Modifier.fillMaxSize(),
+                    contentPadding = PaddingValues(
+                        start = 8.dp,
+                        end = 12.dp,
+                        // 下のボタンがアイコンに重ならないよう、出ているぶんだけ空ける
+                        bottom = if (removing && selected.isNotEmpty()) 96.dp else 28.dp,
+                    ),
+                    horizontalArrangement = Arrangement.spacedBy(2.dp),
+                    verticalArrangement = Arrangement.spacedBy(10.dp),
+                ) {
+                    itemsIndexed(category.apps, key = { _, entry -> entry.key }) { index, entry ->
+                        CategoryAppTile(
+                            modifier = Modifier.animateItem(placementSpec = ZMotion.placement()),
+                            entry = entry,
+                            index = index,
+                            iconProvider = iconProvider,
+                            removing = removing,
+                            selected = selected.contains(entry.packageName),
+                            onLaunch = { onLaunch(entry) },
+                            onEnterRemoval = {
+                                removing = true
+                                if (!selected.contains(entry.packageName)) selected += entry.packageName
+                            },
+                            onToggleSelect = {
+                                if (selected.contains(entry.packageName)) {
+                                    selected -= entry.packageName
+                                } else {
+                                    selected += entry.packageName
+                                }
+                            },
+                            // 未分類の枠からは運べる（移動先に入れれば計算で外れる）。
+                            // drag が無いときだけ運べない
+                            onDragStart = drag?.let { state ->
+                                { at -> state.start(entry, category.id, at) }
+                            },
+                            onDrag = drag?.let { state -> { at -> state.moveTo(at) } },
+                            onDragEnd = drag?.let { state -> { onDropped(state.finish()) } },
+                            onDragCancel = drag?.let { state -> { state.cancel() } },
+                            lifted = drag?.payload?.entry?.key == entry.key,
+                        )
+                    }
+                    // 列数が窓幅で変わるので、全幅は数ではなく maxLineSpan で取る
+                    item(span = { GridItemSpan(maxLineSpan) }) {
+                        Spacer(Modifier.height(6.dp))
+                    }
                 }
             }
         }

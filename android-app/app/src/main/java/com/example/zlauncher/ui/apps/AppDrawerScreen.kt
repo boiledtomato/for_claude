@@ -6,6 +6,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -48,6 +49,7 @@ import com.example.zlauncher.core.designsystem.LocalStatusColors
 import com.example.zlauncher.core.designsystem.ZColors
 import com.example.zlauncher.core.designsystem.ZMotion
 import com.example.zlauncher.core.designsystem.ZType
+import com.example.zlauncher.core.ui.TileGrid
 import com.example.zlauncher.core.ui.springyClick
 import com.example.zlauncher.domain.model.AppEntry
 import com.example.zlauncher.ui.apps.component.AppSearchBar
@@ -59,7 +61,8 @@ import java.util.Date
 import java.util.Locale
 
 private const val DOCK_AREA_HEIGHT_DP = 176
-private const val DRAWER_COLUMNS = 4
+/** グリッドの左右の余白。列数を数えるときに引く */
+private val DRAWER_H_PADDING = 20.dp
 
 /**
  * 全アプリのドロワー。**ホームはコンソール**で、この画面はそこから開く。
@@ -92,40 +95,44 @@ fun AppDrawerScreen(
                 modifier = Modifier.padding(horizontal = 20.dp),
             )
             Spacer(Modifier.height(16.dp))
-            LazyVerticalGrid(
-                columns = GridCells.Fixed(DRAWER_COLUMNS),
-                state = gridState,
-                modifier = Modifier.fillMaxSize(),
-                contentPadding = PaddingValues(start = 10.dp, end = 10.dp, bottom = DOCK_AREA_HEIGHT_DP.dp),
-                horizontalArrangement = Arrangement.spacedBy(2.dp),
-                verticalArrangement = Arrangement.spacedBy(10.dp),
-            ) {
-                if (state.isEmptyResult) {
-                    item(span = { GridItemSpan(DRAWER_COLUMNS) }) {
-                        Text(
-                            text = "No apps match “${state.query}”",
-                            style = ZType.Body,
-                            color = ZColors.TextSecondary,
-                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 24.dp),
+            // 列数はドロワーの実測幅から数える（理由と数え方は TileGrid）
+            BoxWithConstraints(Modifier.fillMaxSize()) {
+                val columns = TileGrid.columns((maxWidth - DRAWER_H_PADDING).value)
+                LazyVerticalGrid(
+                    columns = GridCells.Fixed(columns),
+                    state = gridState,
+                    modifier = Modifier.fillMaxSize(),
+                    contentPadding = PaddingValues(start = 10.dp, end = 10.dp, bottom = DOCK_AREA_HEIGHT_DP.dp),
+                    horizontalArrangement = Arrangement.spacedBy(2.dp),
+                    verticalArrangement = Arrangement.spacedBy(10.dp),
+                ) {
+                    if (state.isEmptyResult) {
+                        item(span = { GridItemSpan(maxLineSpan) }) {
+                            Text(
+                                text = "No apps match “${state.query}”",
+                                style = ZType.Body,
+                                color = ZColors.TextSecondary,
+                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 24.dp),
+                            )
+                        }
+                    }
+
+                    items(state.apps, key = { it.key }) { entry ->
+                        // 検索や並び順の変更で位置が変わるときに滑らせる
+                        DrawerAppItem(
+                            modifier = Modifier.animateItem(placementSpec = ZMotion.placement()),
+                            entry = entry,
+                            isFavorite = state.isFavorite(entry),
+                            canFavorite = !entry.isWorkProfile,
+                            favoritesFull = state.isFavoritesFull,
+                            iconProvider = viewModel::icon,
+                            onLaunch = viewModel::launch,
+                            onAddFavorite = viewModel::addFavorite,
+                            onRemoveFavorite = viewModel::removeFavorite,
+                            onAppInfo = viewModel::openAppInfo,
+                            onUninstall = viewModel::uninstall,
                         )
                     }
-                }
-
-                items(state.apps, key = { it.key }) { entry ->
-                    // 検索や並び順の変更で位置が変わるときに滑らせる
-                    DrawerAppItem(
-                        modifier = Modifier.animateItem(placementSpec = ZMotion.placement()),
-                        entry = entry,
-                        isFavorite = state.isFavorite(entry),
-                        canFavorite = !entry.isWorkProfile,
-                        favoritesFull = state.isFavoritesFull,
-                        iconProvider = viewModel::icon,
-                        onLaunch = viewModel::launch,
-                        onAddFavorite = viewModel::addFavorite,
-                        onRemoveFavorite = viewModel::removeFavorite,
-                        onAppInfo = viewModel::openAppInfo,
-                        onUninstall = viewModel::uninstall,
-                    )
                 }
             }
         }

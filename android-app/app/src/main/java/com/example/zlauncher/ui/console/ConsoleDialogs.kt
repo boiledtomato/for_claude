@@ -100,6 +100,9 @@ fun CategoryEditDialog(
                 .clip(RoundedCornerShape(16.dp))
                 .background(ZColors.Surface)
                 .border(1.dp, ZColors.OutlineStrong, RoundedCornerShape(16.dp))
+                // 15 の色見本は狭い窓では 3 段に折り返す。分割画面のように縦が短いと
+                // 下の Save まで届かなくなるので、はみ出すぶんはスクロールさせる
+                .verticalScroll(rememberScrollState())
                 .padding(18.dp),
         ) {
             Text(title, style = ZType.Title, color = ZColors.TextPrimary)
@@ -420,6 +423,9 @@ fun ConfirmDialog(
                 .clip(RoundedCornerShape(18.dp))
                 .background(ZColors.Surface)
                 .border(1.dp, ZColors.OutlineStrong, RoundedCornerShape(18.dp))
+                // 本文が長い確認（移動元と移動先の名前が入る）と縦の短い窓が重なると、
+                // Yes / No が画面の外に出る。答えられない確認ほど困るものはない
+                .verticalScroll(rememberScrollState())
                 .padding(18.dp),
         ) {
             Text(title, style = ZType.Title, color = ZColors.TextPrimary)

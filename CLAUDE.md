@@ -446,6 +446,31 @@ Work profile apps appear in the drawer grid with badged icons.
 - **App icons carry their own colour adjustment**, separate from the interface one: the same two sliders under **App icons** in the Appearance dialog, stored as `iconAdjust`. Icons are art the apps ship, not tokens this project designed, so they do not move with the surfaces. They are not rewritten — a 4x5 colour matrix (`core/color/IconColorMatrix.kt`, pure Kotlin, pinned by `IconColorMatrixTest`) is applied at draw time, so the icon cache is untouched; alpha is deliberately left alone (touching it muddies rounded edges and adaptive-icon padding), and a neutral setting attaches no filter at all. Every icon goes through `AppIconTile`, which reads `LocalIconAdjust`, so that is the only call site; the dialog previews real installed icons with the local overridden to the pending value, because the effect depends entirely on each icon's own colours
 - **No OTP feature remains, by the user's decision.** Reading another app's codes or embedding its screen in a widget is impossible on Android (no API for either, and the seeds live in that app's sandbox); the launcher's own TOTP implementation and the "open Microsoft Authenticator" shortcut widget were both removed — the first because the user keeps using Microsoft Authenticator, the second because a widget that only launches an app is no better than its icon. Do not rebuild either. If Microsoft ships its own widget it simply appears in the picker
 - **The home screen does not rotate**: `MainActivity` declares `screenOrientation="nosensor"`, and since that one activity draws every screen (console, drawer, widget picker), locking it there covers all of them. `nosensor` rather than `portrait` — the point is to stop rotation, not to force portrait, so a device whose natural orientation is landscape keeps it. The `orientation|screenSize` entries in `configChanges` stay: split-screen and foldables still raise configuration changes, and that flag is about not recreating the activity, not about rotation. It does **not** hold on large screens: at targetSdk 36 Android 16 ignores an app's orientation request on displays 600dp wide or more, which is what lint's `DiscouragedApi` reports — phones still honour it, the large-screen case is accepted rather than worked around, and the warning is suppressed with `tools:ignore` at the activity
+- **Multi-window stays available, and the orientation lock does not fight it** — in
+  multi-window mode the OS ignores `screenOrientation` outright, since the window's
+  dimensions decide the orientation. Three manifest declarations hold it up, all of which
+  break invisibly (build, tests and lint stay green; the symptom is only "this home screen
+  cannot be put in split screen" on a device), so `MultiWindowManifestTest` pins them:
+  `resizeableActivity="true"` (the targetSdk 24+ default, declared anyway — `false` removes
+  multi-window support entirely on compact screens), `configChanges` carrying
+  `screenSize|smallestScreenSize|screenLayout|density` (or dragging the split divider
+  recreates the activity and throws away the open pane and any dialog), and **no
+  `<layout minWidth/minHeight>`**: declaring a floor looks like the right way to refuse a
+  too-narrow window, but from Android 12 on, a compact screen decides multi-window support
+  by whether that floor fits the split allocation — a value larger than half a phone
+  deletes the split screen it was meant to protect. Narrow windows are absorbed in the UI
+  instead: **icon columns are counted from the measured width** (`core/ui/TileGrid.kt`),
+  because a split or freeform pane's width is unrelated to the device's screen width and
+  `GridCells.Fixed(4)` puts 56dp icons in 32.5dp cells at a 240dp window. `GridCells.Adaptive`
+  is the wrong tool — counting by minimum size alone *grows* to 5 or 6 columns on wide
+  devices, changing the full-screen layout — so the count is capped at 4 with a 60dp floor
+  per column, which keeps 4 columns on every real phone (360dp lands at 62.5dp per column)
+  and first drops to 3 at 320dp. `TileGridTest` pins both the phone widths and the window
+  widths. Dialogs sized to their content (`ConfirmDialog`, `CategoryEditDialog`,
+  `AppearanceDialog`) scroll, or a short window pushes the buttons off-screen and leaves a
+  confirmation that cannot be answered; the full-window ones hold a `LazyColumn` already.
+  Entering split screen is not this app's business — system Recents owns it, so a
+  third-party home does not change that path.
 - **The drawer's long-press menu can uninstall.** `LauncherApps` has no delete API (`DELETE_PACKAGES` is signature-level), so it opens the system uninstaller with `ACTION_DELETE`; that screen takes the confirmation, so the launcher deliberately does not ask first and instead colours the item `ZColors.Danger`. **The manifest must declare `REQUEST_DELETE_PACKAGES`** (a normal permission, no runtime prompt): without it, at targetSdk 28 and above the uninstaller finishes the moment it starts and the caller sees success — on device this read as the button doing nothing at all, and no `try`/`catch` can see it. `UninstallPermissionTest` pins the declaration to the code path that needs it, because a build missing the permission is green everywhere except a real phone. The item is hidden where it could only fail or misfire: a preinstalled app (`FLAG_SYSTEM`) cannot be removed, though one carrying updates (`FLAG_UPDATED_SYSTEM_APP`) shows **`Uninstall updates`** instead; and **work profile apps never show it**, because the intent carries only a package name with no way to name the user, so a work app's uninstall could take the personal copy of the same package — those go through `App info`, whose `startAppDetailsActivity` does take a `UserHandle`. The rule is pure on `AppEntry.canUninstall` and pinned by `AppEntryUninstallTest`, since the failure mode is deleting the wrong app. `isSystem`/`hasSystemUpdate` are read from `LauncherActivityInfo.applicationInfo.flags`, not `PackageManager`, which cannot see across profiles; the list refreshes itself through the existing `LauncherApps` callback
 - **An app moves between categories by being carried there.** Press an icon and slide it
   **sideways** and it lifts; drop it on a rail category to move it. The same icon also
