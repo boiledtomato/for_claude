@@ -47,6 +47,7 @@ NotebookLM に公開 API はないため、非公式ライブラリ notebooklm-p
 
 import argparse
 import asyncio
+import fnmatch
 import hashlib
 import json
 import os
@@ -220,9 +221,10 @@ async def sync(args) -> int:
     async with NotebookLMClient.from_storage(path=storage_path) as client:
         max_sources = args.max_sources
         try:
-            tier = await client.settings.get_account_tier()
+            # notebooklm-py 0.8 に get_account_tier は無い。tier は limits に含まれる
             limits = await client.settings.get_account_limits()
-            print(f"[account] tier={tier} limits={limits}")
+            print(f"[account] tier={getattr(limits, 'tier', None)} "
+                  f"source_limit={getattr(limits, 'source_limit', None)}")
             source_limit = getattr(limits, "source_limit", None)
             # プランの上限が指定値より厳しければ、上限から余白を引いた値に下げる
             if source_limit and source_limit - LIMIT_HEADROOM < max_sources:
@@ -253,6 +255,25 @@ async def sync(args) -> int:
             # ノートブック側で手動削除されたソースの記録は捨てる (記録が膨らむだけ)
             for name in [n for n in recorded if n not in remote_by_name and n not in local]:
                 recorded.pop(name)
+
+            # --glob に合わなくなった登録済みソース (ファイル名の付け方を変える前の
+            # もの) は、もう更新されない旧形式なので削除する。手動追加分は対象外。
+            stale = sorted(n for n in recorded
+                           if n in remote_by_name and n not in local
+                           and not fnmatch.fnmatch(n, Path(DOCS_GLOB).name))
+            for name in stale:
+                print(f"  [DELETE] {name} (旧形式: --glob {DOCS_GLOB} に一致しない)")
+                if args.dry_run:
+                    deleted += 1
+                    continue
+                try:
+                    await client.sources.delete(nb.id, remote_by_name[name].id)  # type: ignore[attr-defined]
+                    recorded.pop(name, None)
+                    remote_by_name.pop(name, None)
+                    deleted += 1
+                except Exception as e:
+                    print(f"    [FAIL] {name} の削除 — {e}")
+                    failures.append(name)
 
             # ── 上限に近づいたら、このスクリプトが登録した古いソースから消す ──
             prune = plan_prune(recorded, remote_by_name, local, max_sources)

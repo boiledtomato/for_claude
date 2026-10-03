@@ -84,8 +84,10 @@ python scripts/sync_notebooklm.py \
 
 ### 週次リリースノート（追記型ノートブック）
 
-`weekly-release-digest.yml` は、毎週のダイジェストで作ったサービスごとの `.md`
-（`zia_20261002.md` など）を **`Zscaler_release_notes`** ノートブックに追加します。
+`weekly-release-digest.yml` は、毎週のダイジェストで全サービスを1つにまとめた
+`Zscaler_release_<開始日>-<終了日>.md`（例: `Zscaler_release_20260926-20261002.md`）を
+**`Zscaler_release_notes`** ノートブックに追加します（1週 = 1ソース）。サービスごとの
+`.md` はメール添付用で、ノートブックには入れません。
 上の2つと違い **追記モード** (`--mode append`) で動きます。
 
 - ローカルに無いファイル（過去の週）のソースは**消さずに残す**
@@ -100,13 +102,14 @@ python scripts/sync_notebooklm.py \
 ```bash
 python scripts/weekly_release_digest.py --end-date 2026-10-02 --no-email --no-save-state
 python scripts/sync_notebooklm.py --mode append \
-  --docs-dir output/release_digest/2026-10-02 --glob "*.md" \
+  --docs-dir output/release_digest/2026-10-02 --glob "Zscaler_release_*.md" \
   --state-file data/release_notes_notebooklm_sync_state.json \
   --notebook-title Zscaler_release_notes --dry-run
 ```
 
-1週あたりのソース数は「その週に更新があったサービスの数」（概ね 5〜8）なので、
-90 件でおよそ 3 か月分が残ります。
+1週 1 ソースなので、90 件でおよそ 1 年 9 か月分が残ります。`--glob` に一致しなく
+なった登録済みソース（ファイル名の付け方を変える前のもの）は、追記モードの実行時に
+削除されます。
 
 ## 4. GitHub Actions に登録する
 

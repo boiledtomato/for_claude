@@ -97,7 +97,7 @@ jobs:
             push_with_retry
           fi
 
-      # 今週の .md (サービスごと) を、毎週追記していくノートブックに足す。
+      # 今週の週次まとめ .md を、毎週追記していくノートブックに足す。
       # 過去の週のソースは残し、NOTEBOOKLM_MAX_SOURCES を超えるときだけ古い週から消す。
       # NOTEBOOKLM_STORAGE_STATE_JSON が未設定なら丸ごとスキップされる。
       - name: Add to NotebookLM
@@ -113,7 +113,9 @@ jobs:
           pip install notebooklm-py
           printf '%s' "$NOTEBOOKLM_STORAGE_STATE_JSON" > "$RUNNER_TEMP/storage_state.json"
           export NOTEBOOKLM_STORAGE_STATE="$RUNNER_TEMP/storage_state.json"
-          set -- --mode append --docs-dir "$week_dir" --glob "*.md" \
+          # 週次まとめ (Zscaler_release_<開始>-<終了>.md) だけを 1 週 1 ソースで入れる。
+          # サービス別の .md はメール添付用。
+          set -- --mode append --docs-dir "$week_dir" --glob "Zscaler_release_*.md" \
             --state-file data/release_notes_notebooklm_sync_state.json \
             --notebook-title Zscaler_release_notes
           if [ "$SYNC_MODE" = "dry-run" ]; then
