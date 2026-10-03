@@ -6,7 +6,7 @@ help.zscaler.com の全サービスのリリースノート (Release Upgrade Sum
 集め、サービスごとに
 
   - <service>.md   … 原文 (HTML→Markdown) をそのまままとめたもの
-  - <service>.html … 日本語の要約 (Claude API) + 記事一覧
+  - <service>.html … 日本語訳 (Claude API) + 要約 + 記事一覧
 
 を生成し、Gmail で自分宛てに送信する。
 
@@ -36,7 +36,8 @@ help.zscaler.com の全サービスのリリースノート (Release Upgrade Sum
 環境変数:
     GMAIL_APP_PASSWORD  Gmail のアプリパスワード (送信時に必須)
     NOTIFY_EMAIL_TO     宛先 (省略時は送信元と同じ)
-    ANTHROPIC_API_KEY   あれば Claude で日本語要約を作る。無ければ原文の先頭文で代用
+    ANTHROPIC_API_KEY   あれば Claude で HTML を日本語訳する (タイトル・要約・本文の全文訳)。
+                        無ければ HTML は原文のまま
 """
 
 import argparse
@@ -336,11 +337,15 @@ def render_md(stem: str, svc: dict, window: tuple[date, date]) -> str:
     return "\n".join(lines).rstrip() + "\n"
 
 
-# ── 要約 ─────────────────────────────────────────────────────────────────────
-SUMMARY_SCHEMA = {
+# ── 要約・翻訳 ───────────────────────────────────────────────────────────────
+# 記事ごとに日本語タイトル・要約・本文の全文訳を作る。ZCC の不具合修正一覧の
+# ように1記事が長い週もあるので、記事を TRANSLATE_CHUNK_CHARS ごとに分けて
+# 依頼し、応答はストリーミングで受ける (長い出力で HTTP タイムアウトしないように)。
+TRANSLATE_CHUNK_CHARS = 12_000
+
+ITEMS_SCHEMA = {
     "type": "object",
     "properties": {
-        "overview": {"type": "string"},
         "items": {
             "type": "array",
             "items": {
@@ -349,67 +354,135 @@ SUMMARY_SCHEMA = {
                     "id": {"type": "string"},
                     "title_ja": {"type": "string"},
                     "summary_ja": {"type": "string"},
+                    "translation_ja": {"type": "string"},
                 },
-                "required": ["id", "title_ja", "summary_ja"],
+                "required": ["id", "title_ja", "summary_ja", "translation_ja"],
                 "additionalProperties": False,
             },
         },
     },
-    "required": ["overview", "items"],
+    "required": ["items"],
     "additionalProperties": False,
 }
 
-SUMMARY_SYSTEM = (
-    "あなたは Zscaler 製品の運用担当者向けに、公式リリースノートを日本語で要約するアシスタントです。"
-    "原文にない情報は書かず、機能名・設定画面のパス・バージョン番号は原文の英語表記を残してください。"
-    "overview には、そのサービスの今週の変更点の全体像を 2〜4 文で書きます。"
-    "items には記事ごとに、日本語タイトルと、何が変わり運用上どう影響するかを 1〜2 文で書きます。"
-    "id は入力の id をそのまま返してください。"
+OVERVIEW_SCHEMA = {
+    "type": "object",
+    "properties": {"overview": {"type": "string"}},
+    "required": ["overview"],
+    "additionalProperties": False,
+}
+
+TRANSLATE_SYSTEM = (
+    "あなたは Zscaler 製品の運用担当者向けに、公式リリースノートを日本語に訳すアシスタントです。"
+    "入力は記事ごとの JSON で、本文 (markdown) は Markdown です。記事ごとに次を返してください。\n"
+    "- title_ja: 記事タイトルの自然な日本語訳\n"
+    "- summary_ja: 何が変わり、運用上どう影響するかを 1〜2 文で\n"
+    "- translation_ja: 本文の全文訳。省略・要約・意訳による情報の追加はしないこと。"
+    "Markdown の構造 (段落、- による箇条書きと字下げ、[テキスト](URL) のリンク、**強調**) を保ち、"
+    "URL は変更しないこと。\n"
+    "製品名・機能名・設定画面のパス (例: Administration > Role Management)・UI のボタン名・"
+    "バージョン番号は原文の英語表記のまま残してください。id は入力の id をそのまま返してください。"
+)
+
+OVERVIEW_SYSTEM = (
+    "あなたは Zscaler 製品の運用担当者向けに、週次のリリースノートをまとめるアシスタントです。"
+    "与えられた記事の日本語タイトルと要約から、そのサービスの今週の変更点の全体像を"
+    "日本語 2〜4 文で書いてください。入力にない情報は書かないこと。"
 )
 
 
-def fallback_summary(svc: dict) -> dict:
+def item_markdown(it: dict) -> str:
+    """記事本文を Markdown にする (翻訳の入力と、原文表示の両方に使う)。"""
+    body = html_to_md(absolutize(it["description"])) if it["description"] else ""
+    if it["extra"]:
+        body += ("\n\n" if body else "") + plain_text(it["extra"])
+    return body
+
+
+def fallback_summary(svc: dict, reason: str = "ANTHROPIC_API_KEY 未設定") -> dict:
     items = {}
     for it in svc["items"]:
         text = plain_text(it["description"])
         first = re.split(r"(?<=[.!?])\s", text, maxsplit=1)[0] if text else ""
-        items[it["id"]] = {"title_ja": it["title"], "summary_ja": first}
-    return {"overview": "", "items": items, "source": "原文の先頭文 (ANTHROPIC_API_KEY 未設定)"}
+        items[it["id"]] = {"title_ja": it["title"], "summary_ja": first, "translation_ja": ""}
+    return {"overview": "", "items": items, "source": f"原文のまま ({reason})"}
+
+
+def _claude_json(client, system: str, prompt: str, schema: dict) -> tuple[dict, str]:
+    with client.beta.messages.stream(
+        model=CLAUDE_MODEL,
+        max_tokens=64000,
+        betas=["server-side-fallback-2026-07-01"],
+        fallbacks="default",
+        system=system,
+        output_config={"effort": "medium",
+                       "format": {"type": "json_schema", "schema": schema}},
+        messages=[{"role": "user", "content": prompt}],
+    ) as stream:
+        response = stream.get_final_message()
+    if response.stop_reason in ("refusal", "max_tokens"):
+        raise RuntimeError(f"stop_reason={response.stop_reason}")
+    text = next(b.text for b in response.content if b.type == "text")
+    return json.loads(text), response.model
+
+
+def chunk_items(items: list[dict]) -> list[list[dict]]:
+    chunks: list[list[dict]] = [[]]
+    size = 0
+    for it in items:
+        n = len(it["title"]) + len(it["markdown"])
+        if chunks[-1] and size + n > TRANSLATE_CHUNK_CHARS:
+            chunks.append([])
+            size = 0
+        chunks[-1].append(it)
+        size += n
+    return chunks
 
 
 def claude_summary(client, svc: dict) -> dict:
+    result = fallback_summary(svc, "翻訳に失敗した記事は原文のまま")
+    translated = 0
+    model = CLAUDE_MODEL
     payload = [{
         "id": it["id"],
         "title": it["title"],
         "status": it["status_label"],
         "version": it["version"],
-        "deployments": deployments_text(it),
-        "text": plain_text(it["description"] + " " + it["extra"]),
+        "markdown": item_markdown(it),
     } for it in svc["items"]]
-    prompt = (
-        f"サービス: {svc['name']}\n"
-        "以下は今週の Zscaler 公式リリースノートの記事です (JSON)。\n\n"
-        + json.dumps(payload, ensure_ascii=False, indent=1)
-    )
-    response = client.beta.messages.create(
-        model=CLAUDE_MODEL,
-        max_tokens=16000,
-        betas=["server-side-fallback-2026-07-01"],
-        fallbacks="default",
-        system=SUMMARY_SYSTEM,
-        output_config={"effort": "medium",
-                       "format": {"type": "json_schema", "schema": SUMMARY_SCHEMA}},
-        messages=[{"role": "user", "content": prompt}],
-    )
-    if response.stop_reason in ("refusal", "max_tokens"):
-        raise RuntimeError(f"stop_reason={response.stop_reason}")
-    text = next(b.text for b in response.content if b.type == "text")
-    data = json.loads(text)
-    return {
-        "overview": data["overview"],
-        "items": {i["id"]: i for i in data["items"]},
-        "source": f"Claude ({response.model})",
-    }
+
+    for chunk in chunk_items(payload):
+        prompt = (f"サービス: {svc['name']}\n"
+                  "以下は Zscaler 公式リリースノートの記事です (JSON)。\n\n"
+                  + json.dumps(chunk, ensure_ascii=False, indent=1))
+        try:
+            data, model = _claude_json(client, TRANSLATE_SYSTEM, prompt, ITEMS_SCHEMA)
+        except Exception as e:  # noqa: BLE001
+            # 1チャンクの失敗で全体を諦めない。その記事だけ原文のまま残す
+            print(f"  [WARN] {svc['name']}: {len(chunk)} 件の翻訳に失敗 — {e}")
+            continue
+        wanted = {c["id"] for c in chunk}
+        for i in data["items"]:
+            if i["id"] in wanted:
+                result["items"][i["id"]] = i
+                translated += 1
+
+    if translated:
+        digest = [{"title_ja": result["items"][it["id"]]["title_ja"],
+                   "summary_ja": result["items"][it["id"]]["summary_ja"]} for it in svc["items"]]
+        try:
+            data, _ = _claude_json(
+                client, OVERVIEW_SYSTEM,
+                f"サービス: {svc['name']}\n\n" + json.dumps(digest, ensure_ascii=False, indent=1),
+                OVERVIEW_SCHEMA)
+            result["overview"] = data["overview"]
+        except Exception as e:  # noqa: BLE001
+            print(f"  [WARN] {svc['name']}: 概要の生成に失敗 — {e}")
+
+    total = len(svc["items"])
+    result["source"] = (f"Claude ({model}) で日本語訳" if translated == total
+                        else f"Claude ({model}) で日本語訳 {translated}/{total} 件、残りは原文のまま")
+    return result
 
 
 def summarize_all(services: dict[str, dict]) -> None:
@@ -423,17 +496,11 @@ def summarize_all(services: dict[str, dict]) -> None:
     for stem, svc in services.items():
         if not svc["items"]:
             continue
-        summary = None
-        if client is not None:
-            try:
-                summary = claude_summary(client, svc)
-                # 要約で欠けた記事は先頭文で埋める
-                fb = fallback_summary(svc)
-                for k, v in fb["items"].items():
-                    summary["items"].setdefault(k, v)
-            except Exception as e:  # noqa: BLE001
-                print(f"[WARN] {stem}: 要約失敗、原文の先頭文で代用 — {e}")
-        svc["summary"] = summary or fallback_summary(svc)
+        if client is None:
+            svc["summary"] = fallback_summary(svc)
+            continue
+        print(f"[TRANSLATE] {svc['name']}: {len(svc['items'])} 件")
+        svc["summary"] = claude_summary(client, svc)
 
 
 # ── HTML ─────────────────────────────────────────────────────────────────────
@@ -459,8 +526,92 @@ border-radius:8px;padding:14px 16px;margin:18px 0}
 padding:0 8px;font-size:.78rem;margin-left:6px}
 .status{display:inline-block;border:1px solid var(--line);border-radius:4px;padding:0 6px;
 margin-right:6px;font-size:.75rem}
+.summary{font-weight:600}
+.body{border-top:1px dashed var(--line);margin-top:10px;padding-top:6px}
+.body ul{margin:4px 0;padding-left:1.3em}.body li{margin:2px 0}
+.body pre{margin:0;font-size:.8rem;overflow-x:auto}
+.en{color:var(--muted);font-size:.9rem}.note{font-size:.78rem}
+details summary{cursor:pointer;color:var(--muted);font-size:.85rem;margin-top:8px}
+code{background:var(--chip);border-radius:3px;padding:0 4px}
 a{color:var(--accent)}p{margin:6px 0}
 """
+
+
+def _inline_html(text: str) -> str:
+    """Markdown の行内要素 (リンク・強調・コード) だけを HTML にする。それ以外はエスケープ。"""
+    out, pos = [], 0
+    for m in re.finditer(r"\[([^\]]+)\]\((https?://[^)\s]+)\)|\*\*(.+?)\*\*|`([^`]+)`", text):
+        out.append(html.escape(text[pos:m.start()]))
+        if m.group(1):
+            out.append(f"<a href='{html.escape(m.group(2))}'>{html.escape(m.group(1))}</a>")
+        elif m.group(3):
+            out.append(f"<b>{html.escape(m.group(3))}</b>")
+        else:
+            out.append(f"<code>{html.escape(m.group(4))}</code>")
+        pos = m.end()
+    out.append(html.escape(text[pos:]))
+    return "".join(out)
+
+
+def md_to_html(md: str) -> str:
+    """html_to_md / 翻訳結果の Markdown を表示用 HTML にする (段落・入れ子の箇条書き・表は等幅)。"""
+    out: list[str] = []
+    depth = 0          # 開いている <ul> の数
+    para: list[str] = []
+
+    def flush_para():
+        if para:
+            out.append("<p>" + "<br>".join(_inline_html(x) for x in para) + "</p>")
+            para.clear()
+
+    def close_lists(to: int = 0):
+        nonlocal depth
+        while depth > to:
+            out.append("</li></ul>")
+            depth -= 1
+
+    for raw in md.splitlines():
+        line = raw.rstrip()
+        m = re.match(r"^(\s*)(?:[-*+]|\d+\.)\s+(.*)$", line)
+        if m:
+            flush_para()
+            level = len(m.group(1).replace("\t", "  ")) // 2 + 1
+            if level > depth:
+                while depth < level:
+                    out.append("<ul><li>")
+                    depth += 1
+            else:
+                close_lists(level)
+                out.append("</li><li>")
+            out.append(_inline_html(m.group(2)))
+            continue
+        if not line.strip():
+            flush_para()
+            close_lists()
+            continue
+        h = re.match(r"^(#{1,6})\s+(.*)$", line)
+        if h:
+            flush_para()
+            close_lists()
+            out.append(f"<p><b>{_inline_html(h.group(2))}</b></p>")
+            continue
+        if line.lstrip().startswith("|"):
+            flush_para()
+            close_lists()
+            out.append(f"<pre>{html.escape(line)}</pre>")
+            continue
+        if depth:
+            out.append("<br>" + _inline_html(line.strip()))
+        else:
+            para.append(line.strip())
+    flush_para()
+    close_lists()
+    return "".join(out).replace("<ul><li></li><li>", "<ul><li>")
+
+
+def page_title_ja(title: str) -> str:
+    return (title.replace("Release Upgrade Summary", "リリース・アップグレード概要")
+                 .replace("Release Summary", "リリース概要"))
 
 
 def render_html(svc: dict, window: tuple[date, date]) -> str:
@@ -473,7 +624,7 @@ def render_html(svc: dict, window: tuple[date, date]) -> str:
         f"<title>{esc(svc['name'])} 週次アップデート {start}〜{end}</title>",
         f"<style>{HTML_STYLE}</style></head><body><main>",
         f"<h1>{esc(svc['name'])}</h1>",
-        f"<div class='meta'>対象週 {start} 〜 {end} ・ {len(svc['items'])} 件 ・ 要約: {esc(s['source'])}</div>",
+        f"<div class='meta'>対象週 {start} 〜 {end} ・ {len(svc['items'])} 件 ・ {esc(s['source'])}</div>",
     ]
     if s["overview"]:
         out.append(f"<div class='overview'>{esc(s['overview'])}</div>")
@@ -482,7 +633,7 @@ def render_html(svc: dict, window: tuple[date, date]) -> str:
     for it in svc["items"]:
         groups.setdefault(it["page_title"], []).append(it)
     for label, items in groups.items():
-        out.append(f"<h2>{esc(label)} ({len(items)})</h2>")
+        out.append(f"<h2>{esc(page_title_ja(label))} ({len(items)} 件)</h2>")
         for it in items:
             si = s["items"].get(it["id"], {})
             title_ja = si.get("title_ja") or it["title"]
@@ -498,9 +649,20 @@ def render_html(svc: dict, window: tuple[date, date]) -> str:
                 f"<h3>{esc(title_ja)}{late}</h3>",
                 f"<p class='orig'><span class='status'>{esc(STATUS_JA.get(it['status'], it['status']))}</span>"
                 f"{esc(it['title'])}{ver}</p>",
-                f"<p>{esc(si.get('summary_ja', ''))}</p>",
+                f"<p class='summary'>{esc(si.get('summary_ja', ''))}</p>",
                 f"<div class='chips'>{''.join(chips)}</div>",
-                f"<p><a href='{esc(deep_link(it['path'], it, window))}'>原文を開く</a></p>",
+            ]
+            original = md_to_html(item_markdown(it))
+            if si.get("translation_ja"):
+                out.append(f"<div class='body'>{md_to_html(si['translation_ja'])}</div>")
+                if original:
+                    out.append(f"<details><summary>原文 (English)</summary>"
+                               f"<div class='body en'>{original}</div></details>")
+            elif original:
+                # 翻訳できなかった記事は原文をそのまま見せる
+                out.append(f"<div class='body en'><p class='note'>日本語訳なし (原文)</p>{original}</div>")
+            out += [
+                f"<p><a href='{esc(deep_link(it['path'], it, window))}'>help.zscaler.com で開く</a></p>",
                 "</div>",
             ]
     out.append("</main></body></html>")

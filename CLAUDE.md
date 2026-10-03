@@ -409,9 +409,14 @@ digest to `ciderred1239@gmail.com` (override with the `NOTIFY_EMAIL_TO` secret).
   `build_help_docs.html_to_md`) and `<service>_<YYYYMMDD>.html` (Japanese summary).
   Both are attached; the mail body is an overview table. Written to
   `output/release_digest/<end-date>/` (gitignored) and uploaded as a workflow artifact.
-- **Summaries use the Claude API** (`claude-opus-5-5`, structured output,
-  `fallbacks: "default"`) when the `ANTHROPIC_API_KEY` secret is set; otherwise the
-  first sentence of the original is used and the HTML says so.
+- **The HTML is translated into Japanese with the Claude API** (`claude-opus-5-5`,
+  structured output, streaming, `fallbacks: "default"`) when the `ANTHROPIC_API_KEY`
+  secret is set: per item a Japanese title, a 1–2 sentence summary and a **full
+  translation** of the body, plus a per-service overview. Items are sent in chunks of
+  `TRANSLATE_CHUNK_CHARS` (ZCC fix lists get long); a failed chunk leaves only those
+  items in English and the header says `日本語訳 n/m 件`. The English original is
+  kept under a collapsed `<details>`. Without the key the HTML shows the original text.
+  The `.md` files are always the untranslated original.
 - **Late-posted entries:** `data/release_digest_seen.json` records every entry id seen.
   An unseen entry whose deployment dates are all before the window is included as
   「遅れて掲載」 — Friday deployments are often posted after the run. A missing state
