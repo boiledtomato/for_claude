@@ -24,6 +24,7 @@ for_claude/
 │   ├── certs/
 │   │   └── community-zscaler-chain.pem   # Intermediate cert the community site omits
 │   ├── sync_notebooklm.py            # Pushes the Markdown into a NotebookLM notebook
+│   ├── weekly_release_digest.py      # Weekly release-notes digest → Gmail
 │   └── validate_repo.py              # Static checks run by pr-checks.yml
 ├── data/
 │   ├── articles.json                 # Generated output — do not hand-edit
@@ -31,7 +32,8 @@ for_claude/
 │   ├── help_bulletins.json           # "New & Improved Articles" snapshot
 │   ├── community_docs_index.json     # Per-post state for build_community_docs.py
 │   ├── notebooklm_sync_state.json    # Sync state for the help-docs notebook
-│   └── community_notebooklm_sync_state.json  # Sync state for the community notebook
+│   ├── community_notebooklm_sync_state.json  # Sync state for the community notebook
+│   └── release_digest_seen.json      # Known release-note entry ids for the weekly digest
 ├── notebooklm_docs/                  # help.zscaler.com Markdown — not published
 │   ├── README.md                     # File list + word counts
 │   └── <category>/<category>_partN.md
@@ -45,6 +47,7 @@ for_claude/
 │       ├── daily-update.yml          # Scheduled fetch + GitHub Pages deploy
 │       ├── notebooklm-weekly.yml     # Weekly help.zscaler.com doc refresh
 │       ├── community-weekly.yml      # Weekly community.zscaler.com doc refresh
+│       ├── weekly-release-digest.yml # Friday release-notes digest email
 │       └── pr-checks.yml             # Required status check for PRs
 └── README.md
 ```
@@ -381,6 +384,39 @@ Same shape as `notebooklm-weekly.yml`, with the doc-set-specific values.
 - Syncs with `--docs-dir community_docs --state-file
   data/community_notebooklm_sync_state.json --notebook-title Zscaler_community`
 
+### `scripts/weekly_release_digest.py` / `.github/workflows/weekly-release-digest.yml`
+
+Every Friday (`cron: "45 8 * * 5"` = 17:45 JST) collects the release notes of
+**every** Zscaler service deployed in the week Saturday–Friday (JST) and mails a
+digest to `ciderred1239@gmail.com` (override with the `NOTIFY_EMAIL_TO` secret).
+
+- **Pages are discovered, not listed.** Every sitemap URL matching
+  `/<service>/*release[-upgrade]-summary-<year>` is fetched (27 pages for 2026 —
+  release-upgrade summaries plus ZCC app, ZDX module, App Connector, PSE, Endpoint DLP …).
+  A new product's release notes are picked up without a code change.
+- **Data comes from `body.release_notes` of `/zapi/fetch-data`**, not the page HTML.
+  It is shaped `entries[date][kind][status] = [{version, title, entries: [{id, title,
+  description}]}]`, and its values are sometimes JSON *strings* — decode with `_j()`.
+  The response only covers one cloud (or OS); each page is refetched per
+  `applicable_category=<id>` from `mainCategories`, and entries are merged by `id`
+  so one feature shows every cloud it rolled out to with its date. Clouds roll out
+  on different days (`zscalerthree.net` often a week after `zscaler.net`), so a
+  feature reappears in the week it reaches another cloud — that is intended.
+- **Grouping is by the first URL segment** — all three ZCC pages land in one ZCC file.
+- **Output per service:** `<service>_<YYYYMMDD>.md` (original text via
+  `build_help_docs.html_to_md`) and `<service>_<YYYYMMDD>.html` (Japanese summary).
+  Both are attached; the mail body is an overview table. Written to
+  `output/release_digest/<end-date>/` (gitignored) and uploaded as a workflow artifact.
+- **Summaries use the Claude API** (`claude-opus-5-5`, structured output,
+  `fallbacks: "default"`) when the `ANTHROPIC_API_KEY` secret is set; otherwise the
+  first sentence of the original is used and the HTML says so.
+- **Late-posted entries:** `data/release_digest_seen.json` records every entry id seen.
+  An unseen entry whose deployment dates are all before the window is included as
+  「遅れて掲載」 — Friday deployments are often posted after the run. A missing state
+  file disables this for one run. The state is saved only after the mail is sent.
+- **A mail is sent every week, even with zero updates**, and lists any page that
+  failed to fetch — silence must never be mistaken for "nothing changed".
+
 ### `.github/workflows/pr-checks.yml`
 
 The only `pull_request`-triggered workflow, and the repository's single required
@@ -543,7 +579,7 @@ Commit bodies may be written in Japanese.
 ## Constraints and Gotchas
 
 - **No requirements.txt** — dependencies (`feedparser`, `requests`) are installed inline in the workflow. If adding new Python dependencies, update the `pip install` line in `daily-update.yml`.
-- **`.gitignore` covers only `__pycache__/` and `_site/`** — everything else in the repo is tracked. Avoid creating ephemeral files without adding them to `.gitignore` first.
+- **`.gitignore` covers only `__pycache__/`, `_site/` and `output/`** — everything else in the repo is tracked. Avoid creating ephemeral files without adding them to `.gitignore` first.
 - **`data/articles.json` is auto-committed** by the Actions bot. Avoid manually editing it; changes will be overwritten on the next run.
 - **Deduplication is URL-based** via SHA-256 ID. Changing a feed's URL for an existing article will cause it to appear as a new entry.
 - **General feeds are noisy** — `ZSCALER_KEYWORDS` and `PRODUCT_TAGS` keywords must stay conservative to avoid unrelated articles.
@@ -570,8 +606,8 @@ Commit bodies may be written in Japanese.
   exits **128** when the object is not present locally, which is indistinguishable from
   the **1** that means "not an ancestor" — check `git cat-file -e <sha>` first, or an
   absent object reads as deleted history.
-- **Scheduled pushes must not share a start minute** — `daily-update.yml` and
-  `zscaler-monitor.yml` both fire at `0 0 * * *`, so the weeklies were moved to 02:30 /
+- **Scheduled pushes must not share a start minute** — `daily-update.yml` fires at
+  `0 0 * * *`, so the weeklies were moved to 02:30 /
   03:30 UTC. GitHub also starts scheduled runs 1–4 hours late under load, so treat the
   cron as "no earlier than", never as a guaranteed time.
 - **`notebooklm_docs/*.md` are machine-managed** — the `<!-- ZS-ARTICLE {…} -->` markers

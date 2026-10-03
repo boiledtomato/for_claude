@@ -1,0 +1,94 @@
+name: Zscaler Weekly Release Digest
+
+on:
+  schedule:
+    # 毎週金曜 17:45 JST (金曜 08:45 UTC)
+    # 対象は「その週の土曜〜金曜 (JST)」。GitHub の遅延で土曜にずれ込んでも
+    # スクリプト側が直近の金曜を終了日にするので、対象週は変わらない。
+    - cron: "45 8 * * 5"
+  workflow_dispatch:
+    inputs:
+      end_date:
+        description: "対象週の最終日 YYYY-MM-DD (空なら直近の金曜)"
+        required: false
+        default: ""
+      send_email:
+        description: "メールを送信する"
+        type: choice
+        options: [enabled, skip]
+        default: enabled
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write   # data/release_digest_seen.json をコミットするため
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Python dependencies
+        run: pip install requests beautifulsoup4 lxml anthropic
+
+      - name: Build and send digest
+        env:
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          NOTIFY_EMAIL_TO:    ${{ secrets.NOTIFY_EMAIL_TO }}
+          ANTHROPIC_API_KEY:  ${{ secrets.ANTHROPIC_API_KEY }}
+          END_DATE:           ${{ inputs.end_date }}
+          SEND_EMAIL:         ${{ inputs.send_email }}
+        run: |
+          args=()
+          if [ -n "$END_DATE" ]; then
+            args+=(--end-date "$END_DATE")
+          fi
+          # スケジュール実行では inputs が空なので、"skip" のときだけ送信を止める
+          if [ "$SEND_EMAIL" = "skip" ]; then
+            args+=(--no-email)
+          fi
+          python scripts/weekly_release_digest.py "${args[@]}"
+
+      - name: Save seen articles state
+        run: |
+          # push が弾かれるのは他のワークフローが先に main を進めたときで、
+          # 単に再試行しても通らない。origin/main に rebase してから試し、
+          # 4回とも駄目ならステップを失敗させる（握り潰すと既知記事の記録が
+          # 失われ、遅れて掲載された記事を翌週もう一度通知してしまう）。
+          push_with_retry() {
+            for i in 1 2 3 4; do
+              if git push origin HEAD; then
+                return 0
+              fi
+              echo "push rejected (attempt $i) — rebasing onto origin/main"
+              sleep $((2 ** i))
+              git fetch origin main || continue
+              git rebase origin/main || { git rebase --abort || true; continue; }
+            done
+            echo "::error::4回試行しても push できませんでした。コミットが失われています。"
+            return 1
+          }
+
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/release_digest_seen.json
+          if git diff --staged --quiet; then
+            echo "No state changes to commit"
+          else
+            git commit -m "chore: Zscaler 週次ダイジェストの既知記事を更新 $(TZ=Asia/Tokyo date '+%Y-%m-%d')"
+            push_with_retry
+          fi
+
+      - name: Upload digest files
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-digest-${{ github.run_number }}
+          path: output/release_digest/
+          if-no-files-found: ignore
