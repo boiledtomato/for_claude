@@ -32,6 +32,17 @@ NotebookLM に公開 API はないため、非公式ライブラリ notebooklm-p
     data/notebooklm_sync_state.json
         ノートブックIDと、ファイルごとの sha256 / source_id を記録する。
         次回はこのハッシュと比較して、変わったファイルだけを差し替える。
+
+追記モード (--mode append):
+    週次リリースノートのように「毎回新しいファイルが増えていく」ドキュメント用。
+    ローカルに無いファイルのソースは消さず (過去の週は残す)、ソース数が
+    --max-sources を超えるときだけ、このスクリプトが登録したソースを
+    古い順 (added_at) に削除して空きを作る。
+
+    python scripts/sync_notebooklm.py --mode append \
+        --docs-dir output/release_digest/2026-10-02 --glob "*.md" \
+        --state-file data/release_notes_notebooklm_sync_state.json \
+        --notebook-title Zscaler_release_notes --max-sources 90
 """
 
 import argparse
@@ -39,6 +50,7 @@ import asyncio
 import hashlib
 import json
 import os
+import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -50,6 +62,10 @@ from pathlib import Path
 DOCS_DIR = Path("notebooklm_docs")
 STATE_FILE = Path("data/notebooklm_sync_state.json")
 DEFAULT_NOTEBOOK_TITLE = "Zscaler_help_docs"
+DOCS_GLOB = "*/*_part*.md"
+DEFAULT_MAX_SOURCES = 90
+# アカウントの上限が取れたときに残しておく余白 (手動追加用)
+LIMIT_HEADROOM = 10
 
 
 # ── ローカル側 ────────────────────────────────────────────────────────────────
@@ -65,7 +81,7 @@ def sha256_file(path: Path) -> str:
 def collect_local(only: set[str] | None) -> dict[str, dict]:
     """{ファイル名: {path, rel, sha256}} を返す。ファイル名がソース名になる。"""
     found: dict[str, dict] = {}
-    for path in sorted(DOCS_DIR.glob("*/*_part*.md")):
+    for path in sorted(DOCS_DIR.glob(DOCS_GLOB)):
         category = path.parent.name
         if only and category not in only:
             continue
@@ -106,6 +122,35 @@ def source_key(title: str) -> str:
     """
     title = (title or "").strip()
     return title if title.endswith(".md") else f"{title}.md"
+
+
+def utc_now() -> str:
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def plan_prune(recorded: dict[str, dict], remote_by_name: dict[str, object],
+               local: dict[str, dict], max_sources: int) -> list[str]:
+    """追記モードで、ソース数を max_sources 以下に保つために消すソース名を返す。
+
+    数えるのはノートブック上の全ソース (手動追加分も含む) だが、消すのは
+    このスクリプトが登録した記録のあるものだけ。今回アップロードするファイルは
+    対象にしない。古さはファイル名の日付 (YYYYMMDD)、無ければ added_at (初回登録日時) で決める。
+    """
+    incoming = [n for n in local if n not in remote_by_name]
+    excess = len(remote_by_name) + len(incoming) - max_sources
+    if excess <= 0:
+        return []
+    def age(name: str) -> tuple[str, str, str]:
+        # ファイル名に週の日付 (zia_20261002.md) があればそれを優先する。
+        # 1回の実行で登録したソースは added_at が同秒になり、名前順で並ぶと
+        # 新しい週の zcc_ が古い週の zia_ より先に消えてしまうため。
+        m = re.search(r"(\d{8})", name)
+        added = recorded[name].get("added_at") or ""
+        return (m.group(1) if m else added[:10].replace("-", ""), added, name)
+
+    candidates = sorted(
+        (n for n in recorded if n in remote_by_name and n not in local), key=age)
+    return candidates[:excess]
 
 
 def check_auth_available(storage_path: str | None) -> bool:
@@ -153,13 +198,17 @@ async def sync(args) -> int:
     from notebooklm import NotebookLMClient
 
     local = collect_local(set(args.only) if args.only else None)
+    if not local and args.mode == "append":
+        # 追記モードは「今週は更新なし」でファイルが無いのが正常
+        print(f"[append] {DOCS_DIR} に追加するファイルはありません")
+        return 0
     if not local:
         print(f"[ERROR] {DOCS_DIR} に *_part*.md が見つかりません。"
               f"先にビルドスクリプト (build_help_docs.py / build_community_docs.py) "
               f"を実行してください。", file=sys.stderr)
         return 1
 
-    print(f"ローカルの対象ファイル: {len(local)} 件")
+    print(f"ローカルの対象ファイル: {len(local)} 件 (mode={args.mode})")
     state = load_state()
     recorded: dict[str, dict] = state.get("sources") or {}
     title = args.notebook_title
@@ -169,10 +218,17 @@ async def sync(args) -> int:
         return 1
 
     async with NotebookLMClient.from_storage(path=storage_path) as client:
+        max_sources = args.max_sources
         try:
             tier = await client.settings.get_account_tier()
             limits = await client.settings.get_account_limits()
             print(f"[account] tier={tier} limits={limits}")
+            source_limit = getattr(limits, "source_limit", None)
+            # プランの上限が指定値より厳しければ、上限から余白を引いた値に下げる
+            if source_limit and source_limit - LIMIT_HEADROOM < max_sources:
+                max_sources = max(1, source_limit - LIMIT_HEADROOM)
+                print(f"[account] ソース上限 {source_limit} に合わせ、"
+                      f"保持数を {max_sources} に下げます")
         except Exception as e:
             print(f"[account] 上限情報は取得できませんでした: {e}")
 
@@ -192,6 +248,35 @@ async def sync(args) -> int:
 
         added = updated = deleted = skipped = 0
         failures: list[str] = []
+
+        if args.mode == "append":
+            # ノートブック側で手動削除されたソースの記録は捨てる (記録が膨らむだけ)
+            for name in [n for n in recorded if n not in remote_by_name and n not in local]:
+                recorded.pop(name)
+
+            # ── 上限に近づいたら、このスクリプトが登録した古いソースから消す ──
+            prune = plan_prune(recorded, remote_by_name, local, max_sources)
+            incoming = sum(1 for n in local if n not in remote_by_name)
+            print(f"[sources] 保持上限 {max_sources} / 既存 {len(remote_by_name)} + 追加 {incoming}"
+                  f" → 古い順に {len(prune)} 件削除")
+            for name in prune:
+                print(f"  [PRUNE] {name} (登録 {recorded[name].get('added_at', '?')})")
+                if args.dry_run:
+                    deleted += 1
+                    continue
+                try:
+                    await client.sources.delete(nb.id, remote_by_name[name].id)  # type: ignore[attr-defined]
+                    recorded.pop(name, None)
+                    remote_by_name.pop(name, None)
+                    deleted += 1
+                except Exception as e:
+                    print(f"    [FAIL] {name} の削除 — {e}")
+                    failures.append(name)
+            # 実行時は削除済みのソースが remote_by_name から外れている
+            after = len(remote_by_name) + incoming - (deleted if args.dry_run else 0)
+            if after > max_sources:
+                print(f"[WARN] 削除できるソースが足りず、上限 {max_sources} を超えます"
+                      f" (手動追加のソースは削除しません)")
 
         # ── ローカルにあるファイルを反映 ──────────────────────────────────
         for name in sorted(local):
@@ -222,6 +307,8 @@ async def sync(args) -> int:
                     "sha256": info["sha256"],
                     "source_id": new_src.id,
                     "rel": info["rel"],
+                    # 差し替えても初回登録日時を保つ (追記モードの「古い順」の基準)
+                    "added_at": prev.get("added_at") or utc_now(),
                 }
                 if src is not None:
                     updated += 1
@@ -238,7 +325,8 @@ async def sync(args) -> int:
         # 手動で追加されたソースや他用途のソースには触らない（既存のノートブックに
         # 向けても中身を消してしまわないようにするため）。
         # --only 指定時は対象カテゴリしか見ていないので削除自体を行わない。
-        if not args.only:
+        # 追記モードでは過去の週のソースを残すので、この削除は行わない。
+        if not args.only and args.mode == "mirror":
             foreign: list[str] = []
             for name, src in sorted(remote_by_name.items()):
                 if name in local:
@@ -298,7 +386,7 @@ def write_step_summary(added, updated, deleted, skipped, failures, title, dry_ru
 
 
 def main() -> int:
-    global DOCS_DIR, STATE_FILE
+    global DOCS_DIR, STATE_FILE, DOCS_GLOB
 
     ap = argparse.ArgumentParser(
         description="生成済み Markdown を固定ノートブックへ差分同期する")
@@ -320,11 +408,22 @@ def main() -> int:
                     default=os.environ.get("NOTEBOOKLM_STATE_FILE", str(STATE_FILE)),
                     help=f"同期状態ファイル (既定: {STATE_FILE})。"
                          f"ドキュメントセットごとに必ず分けること")
+    ap.add_argument("--glob", default=DOCS_GLOB,
+                    help=f"同期元ディレクトリ内の対象ファイル (既定: {DOCS_GLOB})")
+    ap.add_argument("--mode", choices=["mirror", "append"], default="mirror",
+                    help="mirror: ローカルと同じ状態にする (既定) / "
+                         "append: ローカルに無いソースも残し、上限で古い順に削除")
+    ap.add_argument("--max-sources", type=int,
+                    default=int(os.environ.get("NOTEBOOKLM_MAX_SOURCES", DEFAULT_MAX_SOURCES)),
+                    help=f"append 時にノートブックに保持するソース数の上限 "
+                         f"(既定: {DEFAULT_MAX_SOURCES})")
     args = ap.parse_args()
 
     DOCS_DIR = Path(args.docs_dir)
     STATE_FILE = Path(args.state_file)
-    print(f"[config] docs={DOCS_DIR} state={STATE_FILE} notebook={args.notebook_title}")
+    DOCS_GLOB = args.glob
+    print(f"[config] docs={DOCS_DIR} glob={DOCS_GLOB} state={STATE_FILE} "
+          f"notebook={args.notebook_title}")
 
     try:
         return asyncio.run(sync(args))

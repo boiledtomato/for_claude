@@ -82,6 +82,32 @@ python scripts/sync_notebooklm.py \
 
 認証情報は両方のノートブックで同じものを使えます。
 
+### 週次リリースノート（追記型ノートブック）
+
+`weekly-release-digest.yml` は、毎週のダイジェストで作ったサービスごとの `.md`
+（`zia_20261002.md` など）を **`Zscaler_release_notes`** ノートブックに追加します。
+上の2つと違い **追記モード** (`--mode append`) で動きます。
+
+- ローカルに無いファイル（過去の週）のソースは**消さずに残す**
+- ノートブックのソース数が `--max-sources`（ワークフローでは
+  `NOTEBOOKLM_MAX_SOURCES: "90"`）を超えるときだけ、**このワークフローが登録した
+  ソースを古い週から削除**して空きを作る。手動で追加したソースは数には入るが
+  削除はしない
+- アカウントのソース上限が取得できて、それが厳しい場合（例: 無料プランの 50）は
+  「上限 − 10」まで自動で下げる
+- 同じ週を再実行したときは、同名のソースを差し替える（増えない）
+
+```bash
+python scripts/weekly_release_digest.py --end-date 2026-10-02 --no-email --no-save-state
+python scripts/sync_notebooklm.py --mode append \
+  --docs-dir output/release_digest/2026-10-02 --glob "*.md" \
+  --state-file data/release_notes_notebooklm_sync_state.json \
+  --notebook-title Zscaler_release_notes --dry-run
+```
+
+1週あたりのソース数は「その週に更新があったサービスの数」（概ね 5〜8）なので、
+90 件でおよそ 3 か月分が残ります。
+
 ## 4. GitHub Actions に登録する
 
 `storage_state.json` の中身を `NOTEBOOKLM_STORAGE_STATE_JSON` という名前の

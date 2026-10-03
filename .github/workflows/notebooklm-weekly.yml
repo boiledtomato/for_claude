@@ -3,8 +3,8 @@ name: NotebookLM Docs Weekly Update
 on:
   schedule:
     # 毎週月曜 11:30 JST (月曜 02:30 UTC)
-    # 00:00 UTC は daily-update.yml と zscaler-monitor.yml も起動する時刻で、
-    # 3つが同時に main へ push して取りこぼしが出ていたため後ろへずらしている。
+    # 00:00 UTC は daily-update.yml も起動する時刻で、同時に main へ push して
+    # 取りこぼしが出ていたため後ろへずらしている。
     - cron: "30 2 * * 1"
   workflow_dispatch:
     inputs:
