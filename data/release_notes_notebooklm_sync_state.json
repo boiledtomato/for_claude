@@ -1,0 +1,45 @@
+{
+ "notebook": {
+  "id": "952e994e-01be-44a4-89e0-c0fa0b7b760a",
+  "title": "Zscaler_release_notes"
+ },
+ "sources": {
+  "authentication-service_20261002.md": {
+   "added_at": "2026-10-03T14:38:34Z",
+   "rel": "authentication-service_20261002.md",
+   "sha256": "33c1cbea4efd027eb674620af3b44c5e69f39a9b477c209146c7a960c8b3f90d",
+   "source_id": "d8708d97-4359-4bc8-bd03-781a24565db4"
+  },
+  "secure-ai-apps-infra_20261002.md": {
+   "added_at": "2026-10-03T14:38:40Z",
+   "rel": "secure-ai-apps-infra_20261002.md",
+   "sha256": "9769e72149ce55a67701ebd8b74df2d136d91fda24488e8913eeb9bf8cbe5fe7",
+   "source_id": "f0202f34-57b1-4196-99b6-80f7a1a57fe8"
+  },
+  "workflow-automation_20261002.md": {
+   "added_at": "2026-10-03T14:38:48Z",
+   "rel": "workflow-automation_20261002.md",
+   "sha256": "cbc789a91bb960ad39390dc711dfa08ab46db9e140396a6294600aaf82b2628d",
+   "source_id": "ce7abdbb-3b27-4ec5-8417-3cfd7f09627f"
+  },
+  "zia_20261002.md": {
+   "added_at": "2026-10-03T14:38:57Z",
+   "rel": "zia_20261002.md",
+   "sha256": "bb23d7fa6147753c3fbb7f15d2d66b1fcfeac6fc1d87289637e92c577af1cd60",
+   "source_id": "d38eccfc-5498-4c32-8034-6ed18ab59de4"
+  },
+  "zpa_20261002.md": {
+   "added_at": "2026-10-03T14:39:03Z",
+   "rel": "zpa_20261002.md",
+   "sha256": "4d1bf78d49f346b8cca094306050c15e9d237fb0eee638d32727415b2a81aee5",
+   "source_id": "42d84b0c-6a60-4662-8d50-40aa606177df"
+  },
+  "zscaler-client-connector_20261002.md": {
+   "added_at": "2026-10-03T14:39:08Z",
+   "rel": "zscaler-client-connector_20261002.md",
+   "sha256": "41d7748a7f4ee44425c6766336a147c2cb836d60016f375a96eb23682444eb54",
+   "source_id": "120a7f7d-03f7-4644-8e7d-d16ee502fdf2"
+  }
+ },
+ "synced_at": "2026-10-03T14:39:08Z"
+}
