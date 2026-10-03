@@ -337,6 +337,33 @@ def render_md(stem: str, svc: dict, window: tuple[date, date]) -> str:
     return "\n".join(lines).rstrip() + "\n"
 
 
+def weekly_md_name(window: tuple[date, date]) -> str:
+    start, end = window
+    return f"Zscaler_release_{start:%Y%m%d}-{end:%Y%m%d}.md"
+
+
+def render_weekly_md(services: dict[str, dict], window: tuple[date, date]) -> str:
+    """全サービスの原文を1つの Markdown にまとめる (見出しは1段下げる)。"""
+    start, end = window
+    active = [(stem, svc) for stem, svc in services.items() if svc["items"]]
+    if not active:
+        return ""
+    total = sum(len(svc["items"]) for _, svc in active)
+    lines = [
+        f"# Zscaler リリースノート週次まとめ ({start} 〜 {end})",
+        "",
+        f"- 対象期間: {start} (土) 〜 {end} (金) に展開された記事 (JST)",
+        f"- 記事数: {total} 件 / {len(active)} サービス",
+        "- サービス: " + ", ".join(f"{svc['name']} ({len(svc['items'])})" for _, svc in active),
+        "",
+    ]
+    for stem, svc in active:
+        for line in render_md(stem, svc, window).splitlines():
+            lines.append("#" + line if line.startswith("#") else line)
+        lines.append("")
+    return "\n".join(lines).rstrip() + "\n"
+
+
 # ── 要約・翻訳 ───────────────────────────────────────────────────────────────
 # 記事ごとに日本語タイトル・要約・本文の全文訳を作る。ZCC の不具合修正一覧の
 # ように1記事が長い週もあるので、記事を TRANSLATE_CHUNK_CHARS ごとに分けて
@@ -801,6 +828,14 @@ def main() -> int:
         html_path.write_text(render_html(svc, window), "utf-8")
         attachments += [html_path, md_path]
         print(f"[WRITE] {svc['name']}: {len(svc['items'])} 件 → {html_path.name}, {md_path.name}")
+
+    # NotebookLM 用に、その週の全サービスを1ファイルにまとめる (1週 = 1ソース)。
+    # 更新ゼロの週は作らない (中身の無いソースで上限を消費しないため)。
+    weekly_md = render_weekly_md(services, window)
+    if weekly_md:
+        weekly_path = out_dir / weekly_md_name(window)
+        weekly_path.write_text(weekly_md, "utf-8")
+        print(f"[WRITE] 週次まとめ → {weekly_path.name}")
 
     body = render_email(services, window, pages, failures)
     (out_dir / "email.html").write_text(body, "utf-8")

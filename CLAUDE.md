@@ -423,8 +423,14 @@ digest to `ciderred1239@gmail.com` (override with the `NOTIFY_EMAIL_TO` secret).
   file disables this for one run. The state is saved only after the mail is sent.
 - **A mail is sent every week, even with zero updates**, and lists any page that
   failed to fetch — silence must never be mistaken for "nothing changed".
-- **NotebookLM:** the week's `.md` files are then added to the `Zscaler_release_notes`
-  notebook with `sync_notebooklm.py --mode append` (state:
+- **NotebookLM:** one combined file per week, `Zscaler_release_<start>-<end>.md`
+  (every service's original text, headings shifted down one level; not written for a
+  week with no updates), is added to the `Zscaler_release_notes` notebook with
+  `sync_notebooklm.py --mode append --glob "Zscaler_release_*.md"` — one source per
+  week, so 90 sources hold ~1¾ years. The per-service `.md` files are for the mail
+  only. In append mode, recorded sources that no longer match `--glob` (the
+  per-service files the first run uploaded) are deleted as an obsolete naming scheme
+  (state:
   `data/release_notes_notebooklm_sync_state.json`). Unlike the mirror mode the help /
   community notebooks use, past weeks are kept; when the notebook would exceed
   `NOTEBOOKLM_MAX_SOURCES` (90) the oldest sources this workflow uploaded are deleted
