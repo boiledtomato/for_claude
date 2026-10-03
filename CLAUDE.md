@@ -33,7 +33,8 @@ for_claude/
 │   ├── community_docs_index.json     # Per-post state for build_community_docs.py
 │   ├── notebooklm_sync_state.json    # Sync state for the help-docs notebook
 │   ├── community_notebooklm_sync_state.json  # Sync state for the community notebook
-│   └── release_digest_seen.json      # Known release-note entry ids for the weekly digest
+│   ├── release_digest_seen.json      # Known release-note entry ids for the weekly digest
+│   └── release_notes_notebooklm_sync_state.json  # Sync state for the release-notes notebook
 ├── notebooklm_docs/                  # help.zscaler.com Markdown — not published
 │   ├── README.md                     # File list + word counts
 │   └── <category>/<category>_partN.md
@@ -348,7 +349,8 @@ already holds other material does not wipe it. Deletion is skipped entirely unde
 `--only`, which only sees a subset of the local files.
 
 Flags: `--dry-run` (report adds/updates/deletes without touching anything),
-`--only <category…>`, `--wait-timeout`, `--docs-dir`, `--state-file`.
+`--only <category…>`, `--wait-timeout`, `--docs-dir`, `--state-file`, `--glob`,
+`--mode mirror|append`, `--max-sources` (append only).
 
 **Security:** `storage_state.json` holds live Google session cookies — effectively full
 account access. Prefer a dedicated Google account for this notebook rather than a
@@ -416,6 +418,14 @@ digest to `ciderred1239@gmail.com` (override with the `NOTIFY_EMAIL_TO` secret).
   file disables this for one run. The state is saved only after the mail is sent.
 - **A mail is sent every week, even with zero updates**, and lists any page that
   failed to fetch — silence must never be mistaken for "nothing changed".
+- **NotebookLM:** the week's `.md` files are then added to the `Zscaler_release_notes`
+  notebook with `sync_notebooklm.py --mode append` (state:
+  `data/release_notes_notebooklm_sync_state.json`). Unlike the mirror mode the help /
+  community notebooks use, past weeks are kept; when the notebook would exceed
+  `NOTEBOOKLM_MAX_SOURCES` (90) the oldest sources this workflow uploaded are deleted
+  first — by the `YYYYMMDD` in the filename, then `added_at`, because one run uploads
+  several files in the same second. Manually added sources count but are never deleted.
+  Skipped when `NOTEBOOKLM_STORAGE_STATE_JSON` is unset.
 
 ### `.github/workflows/pr-checks.yml`
 
