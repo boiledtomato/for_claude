@@ -107,6 +107,15 @@ python scripts/sync_notebooklm.py --mode append \
   --notebook-title Zscaler_release_notes --dry-run
 ```
 
+**過去分の一括登録:** Actions → **Zscaler Weekly Release Digest** → Run workflow で
+`backfill_from` に開始日（例: `2026-04-01`）、`end_date` に最後の金曜（例:
+`2026-09-25`）を入れて実行すると、その間の各週の週次まとめを作って一度に登録します。
+メールは送られず、既知記事の記録も変わりません。
+
+```bash
+python scripts/weekly_release_digest.py --backfill-from 2026-04-01 --end-date 2026-09-25
+```
+
 1週 1 ソースなので、90 件でおよそ 1 年 9 か月分が残ります。`--glob` に一致しなく
 なった登録済みソース（ファイル名の付け方を変える前のもの）は、追記モードの実行時に
 削除されます。

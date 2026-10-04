@@ -17,6 +17,10 @@ on:
         type: choice
         options: [enabled, skip]
         default: enabled
+      backfill_from:
+        description: "過去分の一括登録: この日 (YYYY-MM-DD) から end_date の週まで週次まとめを作って NotebookLM に入れる。メールは送らない"
+        required: false
+        default: ""
       notebooklm:
         description: "NotebookLM (Zscaler_release_notes) へ追加する"
         type: choice
@@ -26,7 +30,8 @@ on:
 jobs:
   digest:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # 通常は数分。backfill_from で半年分 (約 26 ソース) を入れると 10 分前後かかる
+    timeout-minutes: 60
     permissions:
       contents: write   # 既知記事と NotebookLM 同期状態をコミットするため
 
@@ -56,8 +61,13 @@ jobs:
           ANTHROPIC_API_KEY:  ${{ secrets.ANTHROPIC_API_KEY }}
           END_DATE:           ${{ inputs.end_date }}
           SEND_EMAIL:         ${{ inputs.send_email }}
+          BACKFILL_FROM:      ${{ inputs.backfill_from }}
         run: |
           args=()
+          if [ -n "$BACKFILL_FROM" ]; then
+            # 過去分は週次まとめ MD だけを作る (メール・既知記事の記録には触れない)
+            args+=(--backfill-from "$BACKFILL_FROM")
+          fi
           if [ -n "$END_DATE" ]; then
             args+=(--end-date "$END_DATE")
           fi
@@ -105,8 +115,7 @@ jobs:
         env:
           SYNC_MODE: ${{ inputs.notebooklm }}
         run: |
-          week_dir=$(ls -d output/release_digest/*/ 2>/dev/null | sort | tail -n 1)
-          if [ -z "$week_dir" ]; then
+          if [ ! -d output/release_digest ]; then
             echo "ダイジェストの出力がありません。スキップします。"
             exit 0
           fi
@@ -114,8 +123,9 @@ jobs:
           printf '%s' "$NOTEBOOKLM_STORAGE_STATE_JSON" > "$RUNNER_TEMP/storage_state.json"
           export NOTEBOOKLM_STORAGE_STATE="$RUNNER_TEMP/storage_state.json"
           # 週次まとめ (Zscaler_release_<開始>-<終了>.md) だけを 1 週 1 ソースで入れる。
-          # サービス別の .md はメール添付用。
-          set -- --mode append --docs-dir "$week_dir" --glob "Zscaler_release_*.md" \
+          # サービス別の .md はメール添付用。週ごとのディレクトリをまとめて見るので、
+          # backfill_from で作った複数週分もこの1回で登録される。
+          set -- --mode append --docs-dir output/release_digest --glob "*/Zscaler_release_*.md" \
             --state-file data/release_notes_notebooklm_sync_state.json \
             --notebook-title Zscaler_release_notes
           if [ "$SYNC_MODE" = "dry-run" ]; then

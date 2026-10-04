@@ -436,7 +436,15 @@ digest to `ciderred1239@gmail.com` (override with the `NOTIFY_EMAIL_TO` secret).
   `NOTEBOOKLM_MAX_SOURCES` (90) the oldest sources this workflow uploaded are deleted
   first — by the `YYYYMMDD` in the filename, then `added_at`, because one run uploads
   several files in the same second. Manually added sources count but are never deleted.
-  Skipped when `NOTEBOOKLM_STORAGE_STATE_JSON` is unset.
+  Skipped when `NOTEBOOKLM_STORAGE_STATE_JSON` is unset. The sync reads
+  `output/release_digest/*/Zscaler_release_*.md`, so every week directory a run
+  produced is picked up.
+- **Backfill:** `workflow_dispatch` input `backfill_from` (→ `--backfill-from`) fetches
+  the pages once and writes one weekly file per Saturday–Friday week from that date
+  through `end_date`'s week; the first week is clipped to start on `backfill_from`
+  (`Zscaler_release_20260401-20260403.md`). It sends no mail, never touches
+  `release_digest_seen.json`, and aborts if any page fails to fetch, so a gap in the
+  history cannot go unnoticed. Weeks with no updates produce no file.
 
 ### `.github/workflows/pr-checks.yml`
 
