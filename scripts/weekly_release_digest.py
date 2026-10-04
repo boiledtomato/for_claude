@@ -352,7 +352,7 @@ def render_weekly_md(services: dict[str, dict], window: tuple[date, date]) -> st
     lines = [
         f"# Zscaler リリースノート週次まとめ ({start} 〜 {end})",
         "",
-        f"- 対象期間: {start} (土) 〜 {end} (金) に展開された記事 (JST)",
+        f"- 対象期間: {start} 〜 {end} に展開された記事 (JST)",
         f"- 記事数: {total} 件 / {len(active)} サービス",
         "- サービス: " + ", ".join(f"{svc['name']} ({len(svc['items'])})" for _, svc in active),
         "",
@@ -756,13 +756,104 @@ def send_email(subject: str, body_html: str, attachments: list[Path]) -> None:
 
 
 # ── main ─────────────────────────────────────────────────────────────────────
+def collect_all(pages: list[str]) -> tuple[list[tuple[str, dict, dict[str, dict]]], list[str]]:
+    """全ページを取得する。戻り値は [(path, meta, items)] と取得に失敗したページ。"""
+    collected, failures = [], []
+    for path in pages:
+        try:
+            meta, items = collect_page(path)
+        except Exception as e:  # noqa: BLE001
+            print(f"  [SKIP] {path} — {e}")
+            failures.append(path)
+            continue
+        collected.append((path, meta, items))
+    return collected, failures
+
+
+def build_services(collected, window: tuple[date, date], seen: set[str],
+                   detect_late: bool, verbose: bool = True) -> dict[str, dict]:
+    """取得済みの記事から、対象週 (と遅れて掲載) の記事をサービスごとにまとめる。"""
+    start, end = window
+    services: dict[str, dict] = {}
+    for path, meta, items in collected:
+        stem = SUMMARY_PATH_RE.match(path).group(1)
+        svc = services.setdefault(stem, {"pages": [], "items": []})
+        svc["pages"].append(meta)
+        hits = 0
+        for item in items.values():
+            key = f"{path}#{item['id']}"
+            in_window = any(start.isoformat() <= d["date"] <= end.isoformat() for d in item["deployments"])
+            late = (not in_window and detect_late and key not in seen
+                    and max(d["date"] for d in item["deployments"]) < start.isoformat())
+            if in_window or late:
+                svc["items"].append(dict(item, path=path, page_title=meta["page_title"], late=late))
+                hits += 1
+        if verbose:
+            print(f"  {path}: {len(items)} 件中 {hits} 件")
+
+    for stem, svc in services.items():
+        svc["name"] = service_name(stem, svc["pages"])
+        # 対象週の記事を新しい順、その後に遅れて掲載の記事
+        svc["items"].sort(key=lambda i: (not i["late"], max(d["date"] for d in i["deployments"])),
+                          reverse=True)
+    ordered = sorted(services, key=lambda s: (SERVICE_ORDER.index(s) if s in SERVICE_ORDER else 99,
+                                              services[s]["name"].lower()))
+    return {s: services[s] for s in ordered}
+
+
+def backfill(start_from: date, until: date) -> int:
+    """start_from 以降の各週 (土〜金) の週次まとめ MD だけを作る。メール・既知記事の記録には触れない。
+
+    最初の週は start_from から始める (例: 4/1(水)〜4/3(金))。ページは1回だけ取得する。
+    """
+    last_friday = week_window(until)[1]
+    first_friday = start_from + timedelta(days=(4 - start_from.weekday()) % 7)
+    if first_friday > last_friday:
+        print("[ERROR] 対象週がありません")
+        return 1
+    years = set(range(start_from.year, last_friday.year + 1))
+    pages = discover_pages(years)
+    print(f"[BACKFILL] {start_from} 〜 {last_friday} / {len(pages)} ページ")
+    collected, failures = collect_all(pages)
+    if failures:
+        # 一部のページが欠けたまま過去分を作ると、欠けたことに気付けないので止める
+        print(f"[ERROR] {len(failures)} ページの取得に失敗したため中止します: {', '.join(failures)}")
+        return 1
+
+    written = 0
+    friday = first_friday
+    while friday <= last_friday:
+        window = (max(friday - timedelta(days=WINDOW_DAYS - 1), start_from), friday)
+        services = build_services(collected, window, set(), detect_late=False, verbose=False)
+        md = render_weekly_md(services, window)
+        total = sum(len(s["items"]) for s in services.values())
+        if md:
+            out_dir = OUTPUT_ROOT / friday.isoformat()
+            out_dir.mkdir(parents=True, exist_ok=True)
+            (out_dir / weekly_md_name(window)).write_text(md, "utf-8")
+            written += 1
+            print(f"[WRITE] {window[0]} 〜 {window[1]}: {total} 件 → {weekly_md_name(window)}")
+        else:
+            print(f"[SKIP] {window[0]} 〜 {window[1]}: 更新なし")
+        friday += timedelta(days=7)
+    print(f"[DONE] 週次まとめ {written} ファイル")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--end-date", help="対象週の最終日 YYYY-MM-DD (既定: JST で直近の金曜)")
     ap.add_argument("--no-email", action="store_true", help="メールを送らない")
     ap.add_argument("--no-save-state", action="store_true", help="既知記事の記録を更新しない")
     ap.add_argument("--no-late", action="store_true", help="遅れて掲載された記事を含めない")
+    ap.add_argument("--backfill-from", metavar="YYYY-MM-DD",
+                    help="この日から --end-date の週までの週次まとめ MD だけを作る "
+                         "(NotebookLM への過去分登録用。メールは送らず既知記事も更新しない)")
     args = ap.parse_args()
+
+    if args.backfill_from:
+        until = date.fromisoformat(args.end_date) if args.end_date else datetime.now(JST).date()
+        return backfill(date.fromisoformat(args.backfill_from), until)
 
     window = week_window(date.fromisoformat(args.end_date) if args.end_date else None)
     start, end = window
@@ -777,42 +868,10 @@ def main() -> int:
     seen = load_seen()
     first_run = seen is None
     seen = seen or set()
-    all_ids: set[str] = set()
-    failures: list[str] = []
-    services: dict[str, dict] = {}
-
-    for path in pages:
-        stem = SUMMARY_PATH_RE.match(path).group(1)
-        try:
-            meta, items = collect_page(path)
-        except Exception as e:  # noqa: BLE001
-            print(f"  [SKIP] {path} — {e}")
-            failures.append(path)
-            continue
-        svc = services.setdefault(stem, {"pages": [], "items": []})
-        svc["pages"].append(meta)
-        hits = 0
-        for item in items.values():
-            key = f"{path}#{item['id']}"
-            all_ids.add(key)
-            in_window = any(start.isoformat() <= d["date"] <= end.isoformat() for d in item["deployments"])
-            late = (not in_window and not first_run and not args.no_late and key not in seen
-                    and max(d["date"] for d in item["deployments"]) < start.isoformat())
-            if in_window or late:
-                item.update(path=path, page_title=meta["page_title"], late=late)
-                svc["items"].append(item)
-                hits += 1
-        print(f"  {path}: {len(items)} 件中 {hits} 件")
-
-    for stem, svc in services.items():
-        svc["name"] = service_name(stem, svc["pages"])
-        # 対象週の記事を新しい順、その後に遅れて掲載の記事
-        svc["items"].sort(key=lambda i: (not i["late"], max(d["date"] for d in i["deployments"])),
-                          reverse=True)
-
-    ordered = sorted(services, key=lambda s: (SERVICE_ORDER.index(s) if s in SERVICE_ORDER else 99,
-                                              services[s]["name"].lower()))
-    services = {s: services[s] for s in ordered}
+    collected, failures = collect_all(pages)
+    all_ids = {f"{path}#{i}" for path, _, items in collected for i in items}
+    services = build_services(collected, window, seen,
+                              detect_late=not first_run and not args.no_late)
 
     summarize_all(services)
 
