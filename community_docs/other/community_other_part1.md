@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — その他 (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-09-21 02:03 UTC
-Posts in this file: 731
+Generated: 2026-10-05 10:48 UTC
+Posts in this file: 733
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -44260,6 +44260,159 @@ Blog Details
 
 ---
 
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Blogs/aSnPJ0000000gwv0AA/from-the-conversation-ai-didnt-create-your-attack-surface","lastmod":"2026-09-30T14:21:02.000Z","id":"aSnPJ0000000gwv0AA"} -->
+## From the Conversation: AI Didn't Create Your Attack Surface
+
+- Source: https://community.zscaler.com/s/Blogs/aSnPJ0000000gwv0AA/from-the-conversation-ai-didnt-create-your-attack-surface
+- Type: Blog
+- Last activity: 2026-09-30T14:21:02.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Blog Details
+
+Community Highlights
+
+Ben_Garrison
+
+(Employee) posted a Blog
+
+Edited 1h ago
+
+From the Conversation: AI Didn't Create Your Attack Surface
+
+I’ve decided to start blogging about some of the conversations I have with customers, colleagues, and others across the industry. There are so many great conversations happening every day that never make it beyond the people in the room, and I think the broader community could benefit from them, and hopefully add their own perspectives along the way.
+
+So, this is the first blog in that experiment. :)
+
+There's a lot of conversation right now about what AI is going to do to cybersecurity: new attacks, automated attacks, AI-powered phishing, and autonomous agents, to name a few. But there's another part of this that's just as interesting: AI doesn't necessarily need to invent a new way into your environment, because we've already given it plenty to work with.
+
+Most enterprise environments weren't designed all at once; they were built over years, sometimes decades. New applications were added, companies were acquired, workloads moved to the cloud, and old systems stuck around because replacing them was too expensive, too disruptive, or simply not a priority. One of the best descriptions for this is that enterprise environments are often "built up and not necessarily designed." That's normal, but it's also potentially a very different problem when AI enters the picture.
+
+AI is getting better at connecting the dots
+
+Security teams have always had to prioritize vulnerabilities. If you have thousands of vulnerabilities across an enterprise, you can't treat every one as a five-alarm fire; you prioritize what's critical, what's exploitable, and what presents the greatest risk. The problem is that vulnerabilities don't always exist in isolation.
+
+One medium-severity vulnerability may not be particularly concerning. Neither is an identity with a little too much access, or an old application that can't be upgraded yet. Put those things together, however, and the picture changes. The risk isn't necessarily any one of them; it's the path they create when they're connected.
+
+That's where AI gets interesting. What might take a person hours or days of reconnaissance, testing, and analysis could increasingly become something AI helps automate. It can look across a complicated environment and potentially identify relationships that aren't obvious when we're evaluating each piece independently. In other words, AI doesn't have to discover the world's greatest zero-day; sometimes it just has to be better than we are at connecting the dots.
+
+A 1992 computer makes the point surprisingly well
+
+My Zscaler Pulse co-host
+
+Huxley_Dunsany
+
+recently did an experiment that was admittedly a little ridiculous. He pulled out a NeXT computer from 1992 running NeXTSTEP 3.3, installed an old version of Apache, and turned it into a web server. Then he gave some colleagues the URL. About 15 seconds later, one of them came back with files from the machine, the root directory, passwords, and user accounts.
+
+Obviously, that's not representative of a modern enterprise network, and nobody should walk away from that experiment thinking AI is going to dismantle their infrastructure in 15 seconds. But I like the example because of what it demonstrates: the machine hadn't changed, and its vulnerabilities hadn't suddenly become worse. What changed was the capability being pointed at it. Huxley described modern AI-assisted penetration testing tools as being able to go through something like that "like tissue paper."
+
+Now move that concept into a modern enterprise. The environment is obviously much more secure, but it's also enormously more complicated. There are identities, workloads, applications, endpoints, cloud services, and connections between all of them. That complexity gives AI something very valuable to work with: options.
+
+The attack surface isn't just the number of vulnerabilities
+
+I think this is where we have to be careful about how we think about attack surface. It's easy to picture attack surface as a simple collection of things we need to secure: a server, an application, an endpoint, an identity, or a cloud workload. But an attacker isn't necessarily interested in those things individually; they're interested in what one gives them access to next.
+
+Compromise an identity, what can it reach? Find an exposed application, what does it communicate with? Land on an endpoint, where can you move from there? Find a credential, what does it unlock? The more unnecessary relationships that exist between those things, the more potential paths there are to discover. And that's why AI could amplify a problem we've had for a long time: complexity creates possibilities.
+
+This is where Zero Trust matters
+
+Zero Trust isn't going to prevent every compromise, and I don't think that's a realistic way to frame security in the first place. The question that matters is: assume something eventually gets compromised, now what?
+
+If an attacker compromises an identity and that identity can reach 50 things it doesn't actually need, you've given the attacker 50 places to look next. If it can reach three things because that's all it legitimately requires, you've changed the problem considerably. Same compromised identity, but a very different potential outcome.
+
+That's why least-privileged access, segmentation, and understanding how systems communicate become so important. You're not trying to make an environment that can never be compromised; you're trying to make compromise less useful. If AI makes attackers significantly better at finding paths through complex environments, reducing the number of available paths becomes even more important.
+
+Attackers don't own AI
+
+There's another side to this that sometimes gets lost: if attackers get an AI-powered sledgehammer, defenders should get one too. If AI can analyze an environment and discover unexpected relationships, defenders should be using it to find those relationships first. If it can identify unusual behavior across huge amounts of data, we should be figuring out how to turn that into faster detection and response. If our environments have become too complicated for a person to completely understand manually, maybe AI becomes part of how we understand them.
+
+I'm not suggesting we hand the keys to an AI and go grab lunch, but there's an obvious imbalance if attack discovery becomes increasingly automated while defense remains heavily dependent on people manually piecing together what's happening. That can't be where this ends.
+
+Maybe AI isn't changing the fundamentals
+
+AI is going to change cybersecurity. I don't think there's much debate about that. I'm just not convinced the biggest change will be throwing out everything we already know.
+
+Know what's in your environment. Understand what should be communicating. Give identities access to what they actually need. Limit unnecessary connectivity. Assume something will eventually be compromised and design around what happens next.
+
+None of that is new. What AI changes is how quickly someone else may be able to find the places where we haven't done it. And maybe that's the uncomfortable part of this whole conversation: AI didn't create our attack surface; we did. It's just getting much better at finding its way through it.
+
+This topic came out of a recent episode of Zscaler Pulse, the Zenith Community podcast, where Huxley Dunsany, Larry Biagini, Kevin Schwarz and I dug into AI-powered attacks, legacy infrastructure, Zero Trust, deception and how AI could change both sides of cybersecurity.
+
+[Listen to the full Podcast]
+
+Huxley Dunsany
+
+(Employee)
+
+3m ago
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Blog Details
+<!-- /ZS-POST -->
+
+---
+
 <!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ00000062S90AI/test45","lastmod":"2026-02-21T10:58:51.000Z","id":"aSoPJ00000062S90AI"} -->
 ## Error
 
@@ -66053,4 +66206,41 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 ZDTE EDU-202 learning content
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000013cp7M0AQ/what-are-you-using-to-prepare-for-zdta","lastmod":"2026-10-03T15:29:46.000Z","id":"0D5PJ000013cp7M0AQ"} -->
+## Zscaler, Inc. - Sign In
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000013cp7M0AQ/what-are-you-using-to-prepare-for-zdta
+- Type: Q&A
+- Last activity: 2026-10-03T15:29:46.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Connecting to
+
+Sign in with your account to access Zenith Community
+
+Sign In
+
+Username
+
+Password
+
+Forgot password?
+
+Unlock account?
+
+Help
+
+Powered by
+
+Okta
+
+Privacy Policy
+
+The page has timed out
+
+If this page does not reload automatically, please refresh your browser.
 <!-- /ZS-POST -->

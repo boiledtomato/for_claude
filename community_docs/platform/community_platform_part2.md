@@ -1,10 +1,141 @@
 # Zscaler Zenith Community — Platform / 認証 / 管理 / ログ (part 2)
 
 Source: https://community.zscaler.com
-Generated: 2026-09-28 10:07 UTC
-Posts in this file: 115
+Generated: 2026-10-05 10:48 UTC
+Posts in this file: 116
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AWUXlDCQX/zscalar-certification","lastmod":"2024-07-01T14:04:37.000Z","id":"0D54u0000AWUXlDCQX"} -->
+## Zscalar certification
+
+- Source: https://community.zscaler.com/s/question/0D54u0000AWUXlDCQX/zscalar-certification
+- Type: Q&A
+- Last activity: 2024-07-01T14:04:37.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Certification
+
+dheees
+
+(Customer) asked a question.
+
+July 1, 2024 at 11:05 AM
+
+Zscalar certification
+
+Hi All,
+
+I have been learning ZTCA, finished all the e-learnings but , in the last i was asked to register with $300. or purchasewith 1 credit .
+
+can anyone explain about the credits and how can i earn them.
+
+can i use them to register for the exams if i earned one.
+
+Certification
+
+1 answer
+
+523 views
+
+Ramesh Mani
+
+(Partner)
+
+2 years ago
+
+You can reach out your Sales contact who can help with certifcation credits.
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+1/12/2024
+
+at
+
+04:57 AM
+
+ZIA administrator certification
+
+Certification
+
+User16739629112679781823
+
+1,216
+
+1216 Views
+
+0 Likes
+
+2 Comments
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Zscalar certification
+<!-- /ZS-POST -->
 
 ---
 

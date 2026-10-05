@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — API / 自動化 (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-01 20:41 UTC
-Posts in this file: 72
+Generated: 2026-10-05 10:48 UTC
+Posts in this file: 73
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -12188,4 +12188,227 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Microsoft Sentinel Playbooks - OneAPI Integration
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000013ReKW0A0/planning-ahead-managing-ubuntu-laptops-ansible-push-behind-zscaler","lastmod":"2026-09-28T15:00:55.000Z","id":"0D5PJ000013ReKW0A0"} -->
+## Planning Ahead: Managing Ubuntu Laptops & Ansible Push Behind Zscaler
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000013ReKW0A0/planning-ahead-managing-ubuntu-laptops-ansible-push-behind-zscaler
+- Type: Q&A
+- Last activity: 2026-09-28T15:00:55.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZPA - Forwarding
+
+godevils89
+
+(Customer) asked a question
+
+Edited 4h ago
+
+Planning Ahead: Managing Ubuntu Laptops & Ansible Push Behind Zscaler
+
+Hi everyone,
+
+We are currently planning a rollout of Zscaler to our fleet of Ubuntu laptops. Looking at the architecture, we know that because ZPA enforces an inside-out connection model, inbound traffic to the endpoints will be blocked—which threatens to break our traditional push-based Ansible workflows and ad-hoc SSH troubleshooting.
+
+We checked with our account team about Zscaler’s legacy app/VPN tunneling options to bridge this gap, but confirmed that Linux support is still missing (sitting in an indefinite Enhancement Request status, especially for GovCloud).
+
+Before we finalize our migration strategy, we want to evaluate our options. We are looking closely at
+
+ZPA Client-to-Client Connectivity
+
+as a way to keep our push model alive:
+
+Understanding Client-to-Client Connectivity
+
+Configuring Client-to-Client Connectivity
+
+Our Questions
+
+Has anyone successfully used ZPA Client-to-Client Connectivity for management?
+
+Conceptually, we would install the Zscaler Client Connector on our central Ansible/admin server, define a regex-based Application Segment for target client hostnames, and configure Access Policy rules to route directly to client IPs. Are there major gotchas (idle timeouts, dynamic client IP DNS resolution, session drops) with this approach?
+
+Should we just abandon push entirely?
+
+Given that roaming/remote laptops behind Zscaler make push models inherently fragile, are we much better off biting the bullet now and migrating the fleet to an
+
+ansible-pull
+
+architecture before the Zscaler rollout hits?
+
+ZPA - Forwarding
+
+Associated Tags
+
+automation
+
+best-practice
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/5/2024
+
+at
+
+09:21 PM
+
+Remote Tanium PXE Boot Server with ZPA allowing local ports to pass.
+
+ZPA - Forwarding
+
+User16182582818315999266
+
+483
+
+483 Views
+
+0 Likes
+
+6 Comments
+
+5/5/2025
+
+at
+
+06:17 AM
+
+wifi issue with zpa
+
+ZPA - Forwarding
+
+Athees
+
+374
+
+374 Views
+
+0 Likes
+
+3 Comments
+
+7/25/2025
+
+at
+
+12:13 AM
+
+A single server group vs two or more server groups
+
+ZPA - Forwarding
+
+jaicybersec
+
+374
+
+374 Views
+
+0 Likes
+
+3 Comments
+
+7/30/2025
+
+at
+
+08:47 AM
+
+Difference between SIPA and ZPA
+
+ZPA - Forwarding
+
+Dhananjay_Bhakte
+
+1,107
+
+1107 Views
+
+0 Likes
+
+8 Comments
+
+4/23/2026
+
+at
+
+05:00 PM
+
+App Segments populating in Edge Appliance
+
+ZPA - Forwarding
+
+BlueSocks
+
+361
+
+361 Views
+
+0 Likes
+
+1 Comment
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Planning Ahead: Managing Ubuntu Laptops & Ansible Push Behind Zscaler
 <!-- /ZS-POST -->

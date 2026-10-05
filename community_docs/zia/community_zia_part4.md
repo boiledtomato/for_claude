@@ -1,7 +1,7 @@
 # Zscaler Zenith Community — ZIA — Internet & SaaS (part 4)
 
 Source: https://community.zscaler.com
-Generated: 2026-09-28 10:07 UTC
+Generated: 2026-10-05 10:48 UTC
 Posts in this file: 162
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
@@ -38067,12 +38067,12 @@ Traffic going to Port 9480 is now SSL inspected - why?
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000013CAWD0A4/group-on-entra-id-doesnt-appear-on-zscaler-zia","lastmod":"2026-09-23T17:31:23.000Z","id":"0D5PJ000013CAWD0A4"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000013CAWD0A4/group-on-entra-id-doesnt-appear-on-zscaler-zia","lastmod":"2026-10-01T14:54:21.000Z","id":"0D5PJ000013CAWD0A4"} -->
 ## Group on Entra id doesn't appear on Zscaler ZIA
 
 - Source: https://community.zscaler.com/s/question/0D5PJ000013CAWD0A4/group-on-entra-id-doesnt-appear-on-zscaler-zia
 - Type: Q&A
-- Last activity: 2026-09-23T17:31:23.000Z
+- Last activity: 2026-10-01T14:54:21.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 ZIA - Authentication

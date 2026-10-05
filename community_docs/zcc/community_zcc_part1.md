@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — ZCC — Zscaler Client Connector (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-09-28 10:07 UTC
-Posts in this file: 283
+Generated: 2026-10-05 10:48 UTC
+Posts in this file: 284
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -1780,6 +1780,123 @@ This month’s Introduction to Zscaler Zero Trust Exchange (EDU‑100) Workshop 
 • Zscaler Digital Experience (ZDX)
 
 👉 Check the monthly lineup (by region), then choose a session that fits your schedule.
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Blog Details
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Blogs/aSnPJ0000000gyX0AQ/october-edu100-sessions-lineup-choose-a-session-and-join-us-live","lastmod":"2026-09-30T19:35:16.000Z","id":"aSnPJ0000000gyX0AQ"} -->
+## October EDU-100 Sessions Lineup: Choose a Session and Join Us Live
+
+- Source: https://community.zscaler.com/s/Blogs/aSnPJ0000000gyX0AQ/october-edu100-sessions-lineup-choose-a-session-and-join-us-live
+- Type: Blog
+- Last activity: 2026-09-30T19:35:16.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Blog Details
+
+Training Portfolio
+
+Alejandro Knudsen
+
+(Employee) posted a Blog
+
+9h ago
+
+October EDU-100 Sessions Lineup: Choose a Session and Join Us Live
+
+If you’re looking to build practical, day-one operational skills across the Zscaler Zero Trust Exchange, the Introduction to Zscaler Zero Trust Exchange (EDU-100) Workshop provides a scenario-driven, accelerated path across core workflows in ZCC, ZIA, ZPA, and ZDX.
+
+What you’ll build in EDU-100
+
+A practical, task-based foundation in Zscaler Client Connector (ZCC), Zscaler Internet Access (ZIA), Zscaler Private Access (ZPA), and Zscaler Digital Experience (ZDX).
+
+Available in the following regions:
+
+APJ:
+
+October 8-9, 2026.  9:00 AM to 1:00 PM SGT (UTC+8)
+
+October 26-27, 2026, 9:00 AM to 1:00 PM IST (UTC+5:30)
+
+November 3-4, 2026, 9:00 AM to 1:00 PM IST (UTC+5:30)
+
+EMEA:
+
+October 15-16, 2026, 9:00 AM to 1:00 PM CEST (GMT+2:00)
+
+AMS:
+
+October 13-14, 2026, 9:00 AM to 1:00 PM PDT (GMT-05:00)
+
+Enroll here
+
+Customer
+
+Partner
 
 Associated Tags
 

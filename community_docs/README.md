@@ -1,8 +1,8 @@
 # Zenith Community — NotebookLM ソース
 
-生成: 2026-09-28 10:07 UTC  
+生成: 2026-10-05 10:48 UTC  
 取得モード: `prerender`  
-収録: 3,847 件 / 17 ファイル / 約 1,752,116 語
+収録: 3,855 件 / 17 ファイル / 約 1,757,283 語
 
 出典: <https://community.zscaler.com>
 
@@ -12,14 +12,14 @@
 
 | ファイル | カテゴリ | 語数 |
 |---|---|---|
-| `api/community_api_part1.md` | API / 自動化 | 25,045 |
-| `branch/community_branch_part1.md` | Branch / Cloud Connector / SD-WAN | 41,206 |
-| `data_security/community_data_security_part1.md` | Data Security / DSPM / Posture | 2,563 |
+| `api/community_api_part1.md` | API / 自動化 | 25,557 |
+| `branch/community_branch_part1.md` | Branch / Cloud Connector / SD-WAN | 43,830 |
+| `data_security/community_data_security_part1.md` | Data Security / DSPM / Posture | 2,826 |
 | `deception/community_deception_part1.md` | Deception / Threat | 6,038 |
-| `other/community_other_part1.md` | その他 | 91,666 |
-| `platform/community_platform_part1.md` | Platform / 認証 / 管理 / ログ | 167,243 |
-| `platform/community_platform_part2.md` | Platform / 認証 / 管理 / ログ | 49,347 |
-| `zcc/community_zcc_part1.md` | ZCC — Zscaler Client Connector | 176,615 |
+| `other/community_other_part1.md` | その他 | 93,087 |
+| `platform/community_platform_part1.md` | Platform / 認証 / 管理 / ログ | 167,035 |
+| `platform/community_platform_part2.md` | Platform / 認証 / 管理 / ログ | 49,601 |
+| `zcc/community_zcc_part1.md` | ZCC — Zscaler Client Connector | 176,916 |
 | `zcc/community_zcc_part2.md` | ZCC — Zscaler Client Connector | 178,112 |
 | `zcc/community_zcc_part3.md` | ZCC — Zscaler Client Connector | 177,909 |
 | `zcc/community_zcc_part4.md` | ZCC — Zscaler Client Connector | 33,513 |

@@ -1,7 +1,7 @@
 # Zscaler Zenith Community — ZIA — Internet & SaaS (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-09-28 10:07 UTC
+Generated: 2026-10-05 10:48 UTC
 Posts in this file: 356
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
@@ -13788,12 +13788,12 @@ Guide Details
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ0000006iWD0AY/how-to-block-7zip-file-archiving-and-extraction-using-endpoint-dlp","lastmod":"2026-09-25T12:53:13.000Z","id":"aSoPJ0000006iWD0AY"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ0000006iWD0AY/how-to-block-7zip-file-archiving-and-extraction-using-endpoint-dlp","lastmod":"2026-10-01T06:09:52.000Z","id":"aSoPJ0000006iWD0AY"} -->
 ## How to Block 7-Zip File Archiving and Extraction Using Endpoint DLP
 
 - Source: https://community.zscaler.com/s/Guides/aSoPJ0000006iWD0AY/how-to-block-7zip-file-archiving-and-extraction-using-endpoint-dlp
 - Type: Guide
-- Last activity: 2026-09-25T12:53:13.000Z
+- Last activity: 2026-10-01T06:09:52.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 Guide Details

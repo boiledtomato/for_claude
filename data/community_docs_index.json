@@ -1,6 +1,6 @@
 {
  "fetch_mode": "prerender",
- "generated_at": "2026-09-28T10:07:13Z",
+ "generated_at": "2026-10-05T10:48:04Z",
  "posts": {
   "https://community.zscaler.com/s/Articles/aSmPJ000009yj3V0AQ/exciting-news-new-content-types-now-available-on-zenith-community": {
    "category": "platform",
@@ -2830,6 +2830,13 @@
    "title": "Zero Trust in Practice: Defending Against AI-Powered Cyber Threats",
    "type": "zenith_article__c"
   },
+  "https://community.zscaler.com/s/Articles/aSmPJ00000GexTB0AZ/zsos24-cloud-connector-validation-migration-guide": {
+   "category": "branch",
+   "hash": "c78506aa761a2cdc",
+   "lastmod": "2026-09-29T15:45:47.000Z",
+   "title": "ZSOS24 - Cloud Connector Validation & Migration Guide",
+   "type": "zenith_article__c"
+  },
   "https://community.zscaler.com/s/Blogs/aSnPJ00000000b70AA/zscaler-certification-at-pub-sec-in-march": {
    "category": "platform",
    "hash": "8633d81ea7f79560",
@@ -5348,6 +5355,27 @@
    "hash": "66cb5b5e599c49bf",
    "lastmod": "2026-09-17T13:59:34.000Z",
    "title": "SIPA Demystified: An in-depth look at configuraiton steps",
+   "type": "zenith_blog__c"
+  },
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000gwv0AA/from-the-conversation-ai-didnt-create-your-attack-surface": {
+   "category": "other",
+   "hash": "1464c0fc13f0b24d",
+   "lastmod": "2026-09-30T14:21:02.000Z",
+   "title": "From the Conversation: AI Didn't Create Your Attack Surface",
+   "type": "zenith_blog__c"
+  },
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000gyX0AQ/october-edu100-sessions-lineup-choose-a-session-and-join-us-live": {
+   "category": "zcc",
+   "hash": "8d9a4a003ea1111d",
+   "lastmod": "2026-09-30T19:35:16.000Z",
+   "title": "October EDU-100 Sessions Lineup: Choose a Session and Join Us Live",
+   "type": "zenith_blog__c"
+  },
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000h090AA/from-aha-moments-to-real-impact-meet-certified-champion-laura-thaqi": {
+   "category": "branch",
+   "hash": "2c2db6a5eb637a57",
+   "lastmod": "2026-09-30T20:43:22.000Z",
+   "title": "From \"Aha!\" Moments to Real Impact: Meet Certified Champion Laura Thaqi",
    "type": "zenith_blog__c"
   },
   "https://community.zscaler.com/s/Guides/aSoPJ0000000E6D0AU/welcome-to-zscaler-cellular": {
@@ -8173,9 +8201,16 @@
   },
   "https://community.zscaler.com/s/Guides/aSoPJ0000006iWD0AY/how-to-block-7zip-file-archiving-and-extraction-using-endpoint-dlp": {
    "category": "zia",
-   "hash": "bece89cfdea41bc4",
-   "lastmod": "2026-09-25T12:53:13.000Z",
+   "hash": "94647425466554aa",
+   "lastmod": "2026-10-01T06:09:52.000Z",
    "title": "How to Block 7-Zip File Archiving and Extraction Using Endpoint DLP",
+   "type": "zenith_guide__c"
+  },
+  "https://community.zscaler.com/s/Guides/aSoPJ0000006ij70AA/zscaler-cellular-apn": {
+   "category": "branch",
+   "hash": "9515cb1a91735226",
+   "lastmod": "2026-09-28T15:01:15.000Z",
+   "title": "Zscaler Cellular APN",
    "type": "zenith_guide__c"
   },
   "https://community.zscaler.com/s/question/0D54u00009eviNaCAI/unusual-ip-connections-from-zscalertunnel-process": {
@@ -8523,8 +8558,8 @@
   },
   "https://community.zscaler.com/s/question/0D54u00009evmbQCAQ/why-is-vse-directed-traffic-asking-for-username-or-redirected-to-zscaler-sign-in-page": {
    "category": "platform",
-   "hash": "88d74e28ce202963",
-   "lastmod": "2025-10-28T22:59:06.000Z",
+   "hash": "cb0485bd6c23111e",
+   "lastmod": "2026-09-29T08:40:10.000Z",
    "title": "Why is VSE directed traffic asking for Username? or redirected to Zscaler sign in page?",
    "type": "question"
   },
@@ -26926,9 +26961,30 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ000013CAWD0A4/group-on-entra-id-doesnt-appear-on-zscaler-zia": {
    "category": "zia",
-   "hash": "9808fccc503e7796",
-   "lastmod": "2026-09-23T17:31:23.000Z",
+   "hash": "a28cdea37fe2a808",
+   "lastmod": "2026-10-01T14:54:21.000Z",
    "title": "Group on Entra id doesn't appear on Zscaler ZIA",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000013ReKW0A0/planning-ahead-managing-ubuntu-laptops-ansible-push-behind-zscaler": {
+   "category": "api",
+   "hash": "15f0930130034820",
+   "lastmod": "2026-09-28T15:00:55.000Z",
+   "title": "Planning Ahead: Managing Ubuntu Laptops & Ansible Push Behind Zscaler",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000013cp7M0AQ/what-are-you-using-to-prepare-for-zdta": {
+   "category": "other",
+   "hash": "d098d737147748cb",
+   "lastmod": "2026-10-03T15:29:46.000Z",
+   "title": "Zscaler, Inc. - Sign In",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000013isFh0AI/workflow-automation-using-zir-deployed-as-onpremvm": {
+   "category": "data_security",
+   "hash": "2e09c09fbabd08dd",
+   "lastmod": "2026-10-02T10:55:59.000Z",
+   "title": "Workflow Automation using ZIR Deployed as OnpremVM",
    "type": "question"
   }
  },
