@@ -5,19 +5,22 @@
  },
  "sources": {
   "community_api_part1.md": {
+   "added_at": "2026-10-05T10:48:28Z",
    "rel": "api/community_api_part1.md",
-   "sha256": "716fae762957a1f9c47a3b5093f5f577e0decee55bd9953cac10cb113f114ff1",
-   "source_id": "9f231a4a-d18d-46eb-aca7-7f25309d5910"
+   "sha256": "2b9d5b07a1f567ec9e0bcfbe0b71730e9f694189e961d4dc9e56a66e882565c5",
+   "source_id": "31386394-59b7-47b9-981c-29af3a3f1432"
   },
   "community_branch_part1.md": {
+   "added_at": "2026-10-05T10:48:46Z",
    "rel": "branch/community_branch_part1.md",
-   "sha256": "6b2fe34bc9ebe33c8bd9bc33d023e1bee87657ef599180f949ac8bb82f787448",
-   "source_id": "23f5e664-c53a-491a-bb87-c3c0b6491e49"
+   "sha256": "98724baf8e8d218f930826ab9ddc97299fd65507c80110fbd79152602957799b",
+   "source_id": "d1dea80e-05fb-4997-827e-67efcc469e39"
   },
   "community_data_security_part1.md": {
+   "added_at": "2026-10-05T10:48:57Z",
    "rel": "data_security/community_data_security_part1.md",
-   "sha256": "557deb6896c908754100225fde72ff015cbedd19cbff6ecad1edb5d4d3fcc01b",
-   "source_id": "c6704ac2-4911-4391-8ad0-24d82a97fbf9"
+   "sha256": "237af2add796ee818c6ead6f60033177e04c512c1c553128baf90c2d535fbf10",
+   "source_id": "f2a75a1d-a979-4ef3-bd31-22f02b546510"
   },
   "community_deception_part1.md": {
    "rel": "deception/community_deception_part1.md",
@@ -25,39 +28,46 @@
    "source_id": "7a7d76e4-1515-4130-a972-11fbe51a133e"
   },
   "community_other_part1.md": {
+   "added_at": "2026-10-05T10:49:40Z",
    "rel": "other/community_other_part1.md",
-   "sha256": "517f11f2a9a488160cec02791559dbc2e8449c995b50cb43475a40eb47bd9ce8",
-   "source_id": "9946c078-a76d-4273-8e88-95f5347c8cb7"
+   "sha256": "eb9622dfb566b7c96ad37037bc04a84730c55c6adbb4c9acdad730cb2fb8c066",
+   "source_id": "10f6e71f-6e30-4567-a93e-de1a0cdf1c6d"
   },
   "community_platform_part1.md": {
+   "added_at": "2026-10-05T10:50:12Z",
    "rel": "platform/community_platform_part1.md",
-   "sha256": "5188bf1c62be369e0fd40b4823348a24924d97d2e5adc182d11a6978a95eae64",
-   "source_id": "d1ef0112-df59-4a22-9ad9-bf6c66748e9a"
+   "sha256": "8bed0b0d4d58c2d38778e64cb7aef37b1b1cdcfb7a8fd4abd04e38eb191282f7",
+   "source_id": "cbb1a662-1b97-4f4f-9d19-d916c0438184"
   },
   "community_platform_part2.md": {
+   "added_at": "2026-10-05T10:50:37Z",
    "rel": "platform/community_platform_part2.md",
-   "sha256": "785ac35eea411ba2a36da53b3f33138354826ef7341d52302c04b9c0402b3364",
-   "source_id": "d0445f4d-1b78-4bb4-bfec-3f2a061c9417"
+   "sha256": "0d5d1d651789fc64ec4eea16c368078b928c6c04d0912992ee2556d51eb307d4",
+   "source_id": "f64b4537-e59f-47e4-add1-f60daadc67ea"
   },
   "community_zcc_part1.md": {
+   "added_at": "2026-10-05T10:51:09Z",
    "rel": "zcc/community_zcc_part1.md",
-   "sha256": "f41cab33d0ddc7f3651fb09ae87fde8606811cf4eea9eca80fd71e39f9557729",
-   "source_id": "8acf2c96-3db9-45d6-b760-6a75dd3221d4"
+   "sha256": "54652e311edbe34273eefa0ce690939fbdae9e3ba9c4c442ad4de87a9d30143b",
+   "source_id": "ef70050b-8033-474b-9559-ea7a62b7e251"
   },
   "community_zcc_part2.md": {
+   "added_at": "2026-10-05T10:51:42Z",
    "rel": "zcc/community_zcc_part2.md",
-   "sha256": "87ddfea18bac5fa414774fcc197a2d85e972454c613bc68f61f3315e6ac89f3f",
-   "source_id": "0dca6727-6245-433b-8ef3-f396983a9479"
+   "sha256": "e801dcfcc47e4e4b086cb55afb5002001d4dde9c4558c434b84ee6378b25bc14",
+   "source_id": "ea7b0104-6090-470d-8ad1-0b4c748fc8c0"
   },
   "community_zcc_part3.md": {
+   "added_at": "2026-10-05T10:52:15Z",
    "rel": "zcc/community_zcc_part3.md",
-   "sha256": "eee27366bef8e348f51c9440877ae0b22b543ace3343da49a78bb67db0e015e8",
-   "source_id": "91652ea4-41c0-41be-8cb1-91ae9ff4fe83"
+   "sha256": "48e25e30cfa104957fbedce52e2fa8e80f80846a6042daca0a4dc8657954e66e",
+   "source_id": "07e6a80e-5f8a-4e22-b9be-f0db2b638736"
   },
   "community_zcc_part4.md": {
+   "added_at": "2026-10-05T10:52:29Z",
    "rel": "zcc/community_zcc_part4.md",
-   "sha256": "820eb95e7c7e0f914a1077bd2211b33fa2b2b8bae997d9d855af2ad6447b11f6",
-   "source_id": "6042d840-f690-4f0f-aa8c-ced80b508dab"
+   "sha256": "86c20ead09941c4bad9edb44742cd3c8ceff307354c3e8162097d3d1b0ba0ac5",
+   "source_id": "0e317027-7edd-4a6f-8b2d-139fec6c03d7"
   },
   "community_zdx_part1.md": {
    "rel": "zdx/community_zdx_part1.md",
@@ -65,24 +75,28 @@
    "source_id": "1a709215-fa92-4814-9eae-2f329d7eae4c"
   },
   "community_zia_part1.md": {
+   "added_at": "2026-10-05T10:53:12Z",
    "rel": "zia/community_zia_part1.md",
-   "sha256": "2944215c1269b1536500106c1d2873b2bcb9fa5854e07671e99bc38fde55e38a",
-   "source_id": "44da383e-3ded-4ef7-903b-5b6c20fbd478"
+   "sha256": "e662edaa0c7ffa34e151945a016c25a80de37549bea65846444d40b4bfd4a016",
+   "source_id": "76e26b42-9ff3-4742-b21d-3000c93fc387"
   },
   "community_zia_part2.md": {
+   "added_at": "2026-10-05T10:53:44Z",
    "rel": "zia/community_zia_part2.md",
-   "sha256": "4301e0adc1ffcf3afbeae81af45e4752e3bf0b4134eb7c974fa6b27d4951d858",
-   "source_id": "3f15f053-840e-4418-af4c-3ca30af24708"
+   "sha256": "ae36a21779533d4eec04ad7943313092ae0d10d1131ebe867b34244f04d6ce44",
+   "source_id": "ab393805-ed1a-4456-a4e1-da56e9575180"
   },
   "community_zia_part3.md": {
+   "added_at": "2026-10-05T10:54:27Z",
    "rel": "zia/community_zia_part3.md",
-   "sha256": "de966b7878e26e2673a288e37b567cb4c1d33041ee14e00911bf4cb4b5cde91c",
-   "source_id": "00ef3768-f6bf-474b-a16d-cded9370f98b"
+   "sha256": "078e32b54ed6b831b37b4d705ff7958da63df5746c5985563f14d7f3931fc66f",
+   "source_id": "9744a56c-8dc0-478f-9cee-522c1e629f7d"
   },
   "community_zia_part4.md": {
+   "added_at": "2026-10-05T10:54:59Z",
    "rel": "zia/community_zia_part4.md",
-   "sha256": "b5c17294104225a4b8d03b69b00cd3600d7131c60d57022d88c262407fbedb97",
-   "source_id": "cfa06b62-f58a-4e86-bc3b-f9758faf8a64"
+   "sha256": "8a1c39c06dbf32dce34a0cee0cdcc741b084a2d5b1cd117a02c6acd21b640842",
+   "source_id": "c6faf8a4-bcc7-4bbb-bfff-bfa4f4c46afb"
   },
   "community_zpa_part1.md": {
    "rel": "zpa/community_zpa_part1.md",
@@ -90,5 +104,5 @@
    "source_id": "46ef6c44-43b5-4294-8049-9f69604c413d"
   }
  },
- "synced_at": "2026-09-28T10:12:59Z"
+ "synced_at": "2026-10-05T10:54:59Z"
 }
