@@ -1,7 +1,7 @@
 # Zscaler Help — ZPA — Private Access (part 4)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-28 09:01 UTC
+Generated: 2026-10-05 09:38 UTC
 Articles in this file: 56
 
 ---
@@ -590,13 +590,13 @@ When a user accesses important-server1.eu.example.com on the TCP protocol for po
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/using-wildcard-certificates-browser-access-applications","lastmod":"2026-09-18T02:53Z","nid":"1484096"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/using-wildcard-certificates-browser-access-applications","lastmod":"2026-10-02T21:06Z","nid":"1484096"} -->
 ## Using Wildcard Certificates for Browser Access Applications
 
 - Source: https://help.zscaler.com/zpa/using-wildcard-certificates-browser-access-applications
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Browser Access > Using Wildcard Certificates for Browser Access Applications
-- Last modified: 2026-09-18T02:53Z
+- Last modified: 2026-10-02T21:06Z
 - Summary: Information about wildcard certificates and how they can be used when defining Browser Access-enabled web applications for Private Access.
 
 Private Access (ZPA) supports using wildcard certificates when defining Browser Access applications within an application segment. You can use a wildcard certificate for multiple fully qualified domain names (FQDNs) within a single application segment or within multiple application segments.
@@ -3999,13 +3999,13 @@ The following platforms support App Connector software packages. Where applicabl
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zpa-appliance-physical-port-mapping","lastmod":"2026-09-21T15:58Z","nid":"1540962"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zpa-appliance-physical-port-mapping","lastmod":"2026-10-02T07:06Z","nid":"1540962"} -->
 ## ZPA Appliance Physical Port Mapping
 
 - Source: https://help.zscaler.com/zpa/zpa-appliance-physical-port-mapping
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > ZPA Appliance > ZPA Appliance Physical Port Mapping
-- Last modified: 2026-09-21T15:58Z
+- Last modified: 2026-10-02T07:06Z
 - Summary: A description of the physical ports on the ZPA hardware appliance, and its interface, port types, and roles.
 
 This article depicts the physical ports on the ZPA hardware appliance and identifies its interface names, port types, and roles. You can configure the ports using Linux commands from the command-line interface.
@@ -4039,16 +4039,16 @@ The following image and table description describe the physical port mapping on 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zpa-appliance-wall-and-rack-mount-instruction-manual","lastmod":"2026-09-21T15:56Z","nid":"1540961"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zpa-appliance-wall-and-rack-mount-instruction-manual","lastmod":"2026-10-02T13:26Z","nid":"1540961"} -->
 ## ZPA Appliance Wall and Rack Mount Instruction Manual
 
 - Source: https://help.zscaler.com/zpa/zpa-appliance-wall-and-rack-mount-instruction-manual
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > ZPA Appliance > ZPA Appliance Wall and Rack Mount Instruction Manual
-- Last modified: 2026-09-21T15:56Z
-- Summary: Instructions for rack mounting a ZPA hardware appliance.
+- Last modified: 2026-10-02T13:26Z
+- Summary: Instructions for rack mounting a ZPA appliance.
 
-This article includes instructions on mounting your ZPA hardware appliance.
+This article includes instructions on mounting your ZPA appliance.
 
 ## Rack Mount
 
@@ -4063,7 +4063,7 @@ The ZPA appliance ships in two form factors: one hosting the App Connector and a
 
 ## Instruction Manual
 
-The ZPA appliance is a 1U, 19-inch rack-mountable form factor. This article serves as a comprehensive hardware installation manual for the ZS-ZPA-APPL-8010-APPC / ZS-ZPA-APPL-8010-PSE. These instructions are structured to assist IT personnel with the physical mounting, cabling, and initial power on of the appliance. This guide solely focuses on the hardware installation process and doesn’t cover software configuration. For software configuration, see [Deploying App Connector and Private Service Edge ZPA Appliances](https://help.zscaler.com/zpa/deploying-app-connector-private-service-edge-zpa-appliances).
+The ZPA appliance is a 1U, 19-inch rack-mountable form factor. This article serves as a comprehensive hardware installation manual for the ZS-ZPA-APPL-8010-APPC / ZS-ZPA-APPL-8010-PSE. These instructions are structured to assist IT personnel with the physical mounting, cabling, and initial power on of the appliance. This guide solely focuses on the hardware installation process and doesn’t cover software configuration. For software configuration, see [Deploying App Connector and Private Service Edge ZPA appliance](https://help.zscaler.com/zpa/deploying-app-connector-private-service-edge-zpa-appliances).
 
 - ZS-ZPA-APPL-8010 Specifications
 - Package Contents
@@ -4146,13 +4146,13 @@ If a network cable is connected, but no link light appears, there could be an is
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zpa-private-service-edge-red-hat-enterprise-linux-9-migration","lastmod":"2026-09-17T17:34Z","nid":"1487746"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zpa-private-service-edge-red-hat-enterprise-linux-9-migration","lastmod":"2026-10-01T21:06Z","nid":"1487746"} -->
 ## Red Hat Enterprise Linux 9 Migration for Private Service Edges
 
 - Source: https://help.zscaler.com/zpa/zpa-private-service-edge-red-hat-enterprise-linux-9-migration
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Deployment Guides for Supported Platforms > Red Hat Enterprise Linux 9 Migration for Private Service Edges
-- Last modified: 2026-09-17T17:34Z
+- Last modified: 2026-10-01T21:06Z
 - Summary: Private Service Edge for Private Access (ZPA) migration steps for Red Hat Enterprise Linux 9.x.
 
 This article provides migration instructions to replace CentOS 7 instances with Red Hat Enterprise Linux 9.x (RHEL 9.x). The enrollment and provisioning of new Private Service Edges for Private Access (ZPA) can be automated in a few steps using Terraform (IaC) or Container Orchestration to further simplify deployment.
@@ -4269,13 +4269,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zpa-private-service-edge-release-summary-2026","lastmod":"2026-09-24T15:46Z","nid":"1534307"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zpa-private-service-edge-release-summary-2026","lastmod":"2026-09-30T11:34Z","nid":"1534307"} -->
 ## ZPA Private Service Edge Release Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/zpa-private-service-edge-release-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Private Service Edge Release Notes > ZPA Private Service Edge Release Summary (2026)
-- Last modified: 2026-09-24T15:46Z
+- Last modified: 2026-09-30T11:34Z
 - Summary: Zscaler Private Access (ZPA) Private Service Edge release summary for updates deployed, per version, in 2026.
 
 This article provides a summary of all new features and enhancements released per Zscaler Private Access (ZPA) Private Service Edge version.

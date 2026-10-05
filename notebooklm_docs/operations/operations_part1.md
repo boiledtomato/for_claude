@@ -1,7 +1,7 @@
 # Zscaler Help — Deployment / Operations / Terms (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-28 09:01 UTC
+Generated: 2026-10-05 09:38 UTC
 Articles in this file: 94
 
 ---
@@ -585,13 +585,13 @@ Announcement date: May 4, 2022
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/product-usage-terms/end-support-zsos24-branch-connector-deployments","lastmod":"2026-09-14T08:54Z","nid":"1543210"} -->
+<!-- ZS-ARTICLE {"url":"/product-usage-terms/end-support-zsos24-branch-connector-deployments","lastmod":"2026-10-04T07:06Z","nid":"1543210"} -->
 ## End-of-Support for ZscalerOS 24 for Branch Connector Deployments
 
 - Source: https://help.zscaler.com/product-usage-terms/end-support-zsos24-branch-connector-deployments
 - Product: Product Usage Terms & Policies
 - Path: Product Usage Terms & Policies > EOS & EOL Announcements > End-of-Support for ZscalerOS 24 for Branch Connector Deployments
-- Last modified: 2026-09-14T08:54Z
+- Last modified: 2026-10-04T07:06Z
 - Summary: End-of-Support (EOS) for ZscalerOS 24 for Branch Connector deployments.
 
 Branch Connector appliances based on ZscalerOS 24 and earlier are no longer supported:
@@ -1003,13 +1003,13 @@ As designed, Offerings may produce Outputs that reveal latent security vulnerabi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/product-usage-terms/supported-versions","lastmod":"2026-09-21T13:48Z","nid":"1269771"} -->
+<!-- ZS-ARTICLE {"url":"/product-usage-terms/supported-versions","lastmod":"2026-10-02T13:21Z","nid":"1269771"} -->
 ## Supported Versions
 
 - Source: https://help.zscaler.com/product-usage-terms/supported-versions
 - Product: Product Usage Terms & Policies
 - Path: Product Usage Terms & Policies > Software Policy & Support > Supported Versions
-- Last modified: 2026-09-21T13:48Z
+- Last modified: 2026-10-02T13:21Z
 - Summary: Matrix of the supported endpoint application versions for Zscaler.
 
 ## Zscaler Client Connector Supported Versions
@@ -1040,13 +1040,13 @@ These versions of Zscaler Client Connector for Windows are supported by Zscaler,
 
 These versions of Zscaler Client Connector for macOS are supported by Zscaler, and the following table indicates the macOS versions compatible with each supported version of Zscaler Client Connector.
 
-| Compatible OS | Supported Zscaler Client Connector Versions | Notes |  |  |  |
-| --- | --- | --- | --- | --- | --- |
-| OS Version | [4.5.2 (LTS)](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2025?applicable_category=macOS&applicable_version=4.5.2) | [4.7](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2025?applicable_category=macOS&applicable_version=4.7) | [4.8](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=macOS&applicable_version=4.8) | [4.10](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=macOS&applicable_version=4.10) |  |
-| macOS Sonoma (14) | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] |  |
-| macOS Sequoia (15) | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] |  |
-| macOS Tahoe (26) | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] | macOS Tahoe (26.2) and later supports Zscaler Client Connector versions 4.5.2.105 and later minor versions, 4.7 and later minor versions, and 4.8 and later minor versions. |
-| macOS Golden Gate (27) | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] |  |
+| Compatible OS | Supported Zscaler Client Connector Versions | Notes |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- |
+| OS Version | [4.5.2 (LTS)](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2025?applicable_category=macOS&applicable_version=4.5.2) | [4.7](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2025?applicable_category=macOS&applicable_version=4.7) | [4.8](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=macOS&applicable_version=4.8) | [4.10](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=macOS&applicable_version=4.10) | [5.0](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=macOS&applicable_version=5.0) |  |
+| macOS Sonoma (14) | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] |  |
+| macOS Sequoia (15) | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] |  |
+| macOS Tahoe (26) | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] | macOS Tahoe (26.2) and later supports Zscaler Client Connector versions 4.5.2.105 and later minor versions, 4.7 and later minor versions, 4.8 and later minor versions, 4.10 and later minor versions, and 5.0 and later minor versions. |
+| macOS Golden Gate (27) | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] |  |
 
 These versions of Zscaler Client Connector for Linux are supported by Zscaler, and the following table indicates the distributions compatible with each supported version of Zscaler Client Connector.
 
@@ -1060,6 +1060,7 @@ These versions of Zscaler Client Connector for Linux are supported by Zscaler, a
 | CentOS 9 Stream (GNOME 40.4) | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] |  |
 | Debian 11 (GNOME 43.9) | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] |  |
 | Debian 12 (GNOME 43.9) | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] |  |
+| Debian 13 (GNOME 48) | [Image: Not supported] | [Image: Not supported] | [Image: Not supported] | [Image: Supported] |  |
 | Fedora 40 (GNOME 46) | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] |  |
 | Fedora 41 (GNOME 47) | [Image: Not supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] |  |
 | Fedora 42 (GNOME 48) | [Image: Not supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] |  |
@@ -6945,13 +6946,13 @@ The following section describes resolutions.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/private-access-performance-support-troubleshooting-runbook","lastmod":"2026-09-25T21:06Z","nid":"1533933"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/private-access-performance-support-troubleshooting-runbook","lastmod":"2026-10-02T14:39Z","nid":"1533933"} -->
 ## Private Access Performance Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/private-access-performance-support-troubleshooting-runbook
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Private Access Performance Support Troubleshooting Runbook
-- Last modified: 2026-09-25T21:06Z
+- Last modified: 2026-10-02T14:39Z
 - Summary: This Zscaler runbook outlines troubleshooting steps for general Private Access performance issues, categorized into four scopes: issues accessing a applications, issues with all applications from a specific App Connector, issues that affect a specific location or locations, or an issue with a single broker or the whole data center.
 
 The Private Access Performance Support Troubleshooting Runbook outlines a systematic approach to troubleshooting performance slowness experienced by users. It emphasizes understanding the scope of issues, including isolating between affected applications types. The troubleshooting steps involve validating Private Access slowness check points, configurations, collecting and analyzing data through network diagnostic tools and Digital Experience (ZDX) (if available). By following this methodology, engineers can effectively identify the root causes of performance issues and implement corrective actions to optimize the user experience.
@@ -6993,15 +6994,6 @@ See image.
 The collected diagnostics data gives more insights that help in narrowing down the issue.
 
 See image.
-
-When troubleshooting a Private Access issue for a user accessing an application through Private Access, there are a few troubleshooting checkpoints to isolate the issue.
-
-- On the Client side, go to **User Location** > **Private Access Data Broker**.
-- On the Private Access App Connector side, go to:
-  - **App Connector** > **Private Access Data Broker**
-  - **App Connector** > **Application Server**
-- On the Application side, go to **Application Server** > **App Connector**.
-- For the Private Access Data Flow, go to **User Location** > **Private Access Data Broker** > **App Connector Location** >**Application Server**.
 
 Slowness Accessing a Specific Application
 
@@ -9937,13 +9929,13 @@ To add a Slack notification template:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-amazon-web-services-dlp-application-integration-using-cloud-cloud-incident-forwarding","lastmod":"2026-09-17T08:08Z","nid":"1531125"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-amazon-web-services-dlp-application-integration-using-cloud-cloud-incident-forwarding","lastmod":"2026-10-01T21:06Z","nid":"1531125"} -->
 ## Configuring the Amazon Web Services DLP Application Integration Using Cloud-to-Cloud Incident Forwarding
 
 - Source: https://help.zscaler.com/workflow-automation/configuring-amazon-web-services-dlp-application-integration-using-cloud-cloud-incident-forwarding
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Configuring the Amazon Web Services DLP Application Integration Using Cloud-to-Cloud Incident Forwarding
-- Last modified: 2026-09-17T08:08Z
+- Last modified: 2026-10-01T21:06Z
 - Summary: Information on integrating Workflow Automation DLP Application with AWS using Zscaler Cloud-to-Cloud Incident Forwarding.
 
 Workflow Automation DLP application integration with an Amazon Web Services (AWS) EC2 instance using Zscaler Cloud-to-Cloud Incident Forwarding enables your organization to send Data Loss Prevention (DLP) incident metadata and evidence files to your organization's AWS Simple Storage Service (S3) buckets in your AWS account without deploying appliances.
@@ -10407,13 +10399,13 @@ To learn more, see [Configuring DLP Cloud-to-Cloud Incident Forwarding](https://
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-amazon-web-services-dlp-application-integration-using-zscaler-incident-receiver","lastmod":"2026-09-17T07:58Z","nid":"1531124"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-amazon-web-services-dlp-application-integration-using-zscaler-incident-receiver","lastmod":"2026-10-01T21:06Z","nid":"1531124"} -->
 ## Configuring the Amazon Web Services DLP Application Integration Using Zscaler Incident Receiver
 
 - Source: https://help.zscaler.com/workflow-automation/configuring-amazon-web-services-dlp-application-integration-using-zscaler-incident-receiver
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Configuring the Amazon Web Services DLP Application Integration Using Zscaler Incident Receiver
-- Last modified: 2026-09-17T07:58Z
+- Last modified: 2026-10-01T21:06Z
 - Summary: Information on integrating Workflow Automation DLP Application with AWS using Zscaler Incident Receiver.
 
 To configure Workflow Automation DLP application integration using Zscaler Incident Receiver, you must deploy a Zscaler Incident Receiver (ZIR) Amazon Web Services (AWS) EC2 instance. Doing so enables your organization to receive Data Loss Prevention (DLP) incident metadata files and the evidence file from ZIR and upload them to your organization's AWS Simple Storage Service (S3) buckets.
@@ -10877,13 +10869,13 @@ To learn more about configuring the ZIR in AWS, see [Configuring the Zscaler Inc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-azure-dlp-application-integration-using-cloud-cloud-incident-forwarding","lastmod":"2026-09-17T08:23Z","nid":"1531120"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-azure-dlp-application-integration-using-cloud-cloud-incident-forwarding","lastmod":"2026-10-01T21:06Z","nid":"1531120"} -->
 ## Configuring the Azure DLP Application Integration Using Cloud-to-Cloud Incident Forwarding
 
 - Source: https://help.zscaler.com/workflow-automation/configuring-azure-dlp-application-integration-using-cloud-cloud-incident-forwarding
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Configuring the Azure DLP Application Integration Using Cloud-to-Cloud Incident Forwarding
-- Last modified: 2026-09-17T08:23Z
+- Last modified: 2026-10-01T21:06Z
 - Summary: Information on how to configure Workflow Automation Azure DLP application integration using Cloud-to-Cloud Incident Forwarding.
 
 Workflow Automation DLP application integration with an Azure instance using Zscaler Cloud-to-Cloud Incident Forwarding enables your organization to send Data Loss Prevention (DLP) incident metadata and evidence files to your organization's Azure storage containers in your Azure account without deploying appliances.
@@ -11231,13 +11223,13 @@ To learn more, see [Managing DLP Azure Application Integrations in Workflow Auto
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-azure-dlp-application-integration-using-zscaler-incident-receiver","lastmod":"2026-09-17T08:18Z","nid":"1531119"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-azure-dlp-application-integration-using-zscaler-incident-receiver","lastmod":"2026-09-29T09:13Z","nid":"1531119"} -->
 ## Configuring the Azure DLP Application Integration Using Zscaler Incident Receiver
 
 - Source: https://help.zscaler.com/workflow-automation/configuring-azure-dlp-application-integration-using-zscaler-incident-receiver
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Configuring the Azure DLP Application Integration Using Zscaler Incident Receiver
-- Last modified: 2026-09-17T08:18Z
+- Last modified: 2026-09-29T09:13Z
 - Summary: Information on how to configure Workflow Automation Azure DLP application integration using Zscaler Incident Receiver.
 
 To configure Workflow Automation DLP application integration using Zscaler Incident Receiver (ZIR), you must deploy a ZIR Azure instance. Doing so enables your organization to receive Data Loss Prevention (DLP) incident metadata files and the evidence file from ZIR and upload them to your organization's Azure storage containers in your Azure account.
@@ -11608,7 +11600,7 @@ The following are storage recommendations for the Filewatcher VM:
 - If you have a single disk, Zscaler recommends that you allocate at least 200 GB for the Filewatcher VM.
 - If you have multiple disks, Zscaler recommends allocating 100 GB to the root and other partitions and allocating a minimum of 100 GB to the SFTP folder (zscaler-files). This is required in case of any issues where the Filewatcher is unable to upload files to the storage blob.
 
-If the VM to which you are adding a container is a new VM, then follow the steps for installing a new container. Otherwise, if the existing container image version is earlier than 1.72.0, then follow the steps for upgrading a container.
+If the VM to which you are adding a container is a new VM, then follow the steps for installing a new container. Otherwise, if the existing container image version is earlier than 1.80.0, then follow the steps for upgrading a container.
 
 - Installing a New Container
 - Upgrading a Container
@@ -11648,7 +11640,7 @@ To install a new container:
   - AZURE_CLIENT_ID=<`applicationClientId`>: The value from the bash script output for the Filewatcher App registration.
   - AZURE_CLIENT_SECRET=<`applicationClientSecret`>: The value from the bash script output for the Filewatcher App registration.
   - AZURE_TENANT_ID=<`tenantID`>: The value from the bash script output for the Filewatcher App registration.
-  - image-version=`1.72.0`: The latest image version for the Filewatcher container.
+  - image-version=`1.80.0`: The latest image version for the Filewatcher container.
   - source_folder=`/var/data`: Use the default value.
   - file_processor_thread_pool_size=`8`: The number of files that can be uploaded at a time. Use the default value.
   - file_process_wait_time_in_millis=`5000`: The time to wait after the file event is received in the Filewatcher. It might take some time for the Incident Receiver to copy the content of the file. Use the default value.
@@ -11697,7 +11689,7 @@ To upgrade a container:
   - AZURE_CLIENT_ID=<`applicationClientId`>: The value from the bash script output for the Filewatcher App registration.
   - AZURE_CLIENT_SECRET=<`applicationClientSecret`>: The value from the bash script output for the Filewatcher App registration.
   - AZURE_TENANT_ID=<`tenantID`>: The value from the bash script output for the Filewatcher App registration.
-  - image-version=`1.72.0`: The latest image version for the Filewatcher container.
+  - image-version=`1.80.0`: The latest image version for the Filewatcher container.
   - source_folder=`/var/data`: Use the default value.
   - file_processor_thread_pool_size=`8`: The number of files that can be uploaded at a time. Use the default value.
   - file_process_wait_time_in_millis=`5000`: The time to wait after the file event is received in the Filewatcher. It might take some time to copy the content of the file by the Incident Receiver. Use the default value.
@@ -11982,13 +11974,13 @@ After you configure the DLP application integration, the DLP incidents that occu
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-dlp-application-integration-using-google-cloud-platform","lastmod":"2026-09-17T08:55Z","nid":"1532057"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-dlp-application-integration-using-google-cloud-platform","lastmod":"2026-10-01T21:06Z","nid":"1532057"} -->
 ## Configuring the DLP Application Integration Using Google Cloud Platform
 
 - Source: https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-google-cloud-platform
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Configuring the DLP Application Integration Using Google Cloud Platform
-- Last modified: 2026-09-17T08:55Z
+- Last modified: 2026-10-01T21:06Z
 - Summary: How to configure DLP application integration using Google Cloud Platform.
 
 Google Cloud Platform (GCP) only supports the Cloud-to-Cloud Incident Forwarding method for DLP application integration in Workflow Automation.
@@ -13120,13 +13112,13 @@ To view the details for a custom email domain:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-dlp-aws-application-integrations-workflow-automation","lastmod":"2026-09-17T09:04Z","nid":"1417866"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-dlp-aws-application-integrations-workflow-automation","lastmod":"2026-10-01T21:06Z","nid":"1417866"} -->
 ## Managing DLP Amazon Web Services Application Integrations in Workflow Automation
 
 - Source: https://help.zscaler.com/workflow-automation/managing-dlp-aws-application-integrations-workflow-automation
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Managing DLP Amazon Web Services Application Integrations in Workflow Automation
-- Last modified: 2026-09-17T09:04Z
+- Last modified: 2026-10-01T21:06Z
 - Summary: How to manage Data Loss Prevention (DLP) Amazon Web Services application integrations in Workflow Automation.
 
 Application integration is the step required to connect the source of the DLP incidents (i.e., Internet & SaaS (ZIA)) to Workflow Automation. Super admins or admins with Full or Restricted access to Workflow Automation can configure the DLP application integration. Before your organization's DLP incidents are available for review and remediation on the Incidents page in the Zscaler Admin Console, the DLP Amazon Web Services (AWS) application integration must be configured. To learn more, see [Configuring the DLP Application Integration Using Amazon Web Services](https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-amazon-web-services).
@@ -13279,13 +13271,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-dlp-azure-application-integrations-workflow-automation","lastmod":"2026-09-17T09:08Z","nid":"1452631"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-dlp-azure-application-integrations-workflow-automation","lastmod":"2026-10-01T21:06Z","nid":"1452631"} -->
 ## Managing DLP Azure Application Integrations in Workflow Automation
 
 - Source: https://help.zscaler.com/workflow-automation/managing-dlp-azure-application-integrations-workflow-automation
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Managing DLP Azure Application Integrations in Workflow Automation
-- Last modified: 2026-09-17T09:08Z
+- Last modified: 2026-10-01T21:06Z
 - Summary: How to manage Data Loss Prevention (DLP) Azure application integrations in Workflow Automation.
 
 Application integration is the step required to connect the source of the DLP incidents (i.e., Internet & SaaS (ZIA)) to Workflow Automation. Super admins or admins with Full or Restricted access to Workflow Automation can configure the DLP Azure application integration. Before your organization's DLP incidents are available for review and remediation on the Incidents page in the Zscaler Admin Console, the DLP Azure application integration must be configured. To learn more, see [Configuring the DLP Application Integration Using Azure](https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-azure).
@@ -13439,13 +13431,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-dlp-gcp-application-integrations-workflow-automation","lastmod":"2026-09-17T09:13Z","nid":"1532120"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-dlp-gcp-application-integrations-workflow-automation","lastmod":"2026-10-01T21:06Z","nid":"1532120"} -->
 ## Managing DLP GCP Application Integrations in Workflow Automation
 
 - Source: https://help.zscaler.com/workflow-automation/managing-dlp-gcp-application-integrations-workflow-automation
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Managing DLP GCP Application Integrations in Workflow Automation
-- Last modified: 2026-09-17T09:13Z
+- Last modified: 2026-10-01T21:06Z
 - Summary: How to manage Data Loss Prevention (DLP) GCP application integrations in Workflow Automation.
 
 Application integration connects the source of Data Loss Prevention (DLP) incidents (i.e., Internet & SaaS (ZIA)) to Workflow Automation. Super admins or admins with Full or Restricted access to Workflow Automation can configure the DLP Google Cloud Platform (GCP) application integration. Before your organization's DLP incidents are available for review and remediation on the Incidents page in the Zscaler Admin Console, you must configure DLP GCP application integration. To learn more, see [Configuring the DLP Application Integration Using Google Cloud Platform](https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-google-cloud-platform).
@@ -13803,13 +13795,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-group-mappings","lastmod":"2026-09-27T07:06Z","nid":"1418161"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-group-mappings","lastmod":"2026-10-04T07:06Z","nid":"1418161"} -->
 ## Managing Incident Group Mappings
 
 - Source: https://help.zscaler.com/workflow-automation/managing-incident-group-mappings
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Incident Group Mappings
-- Last modified: 2026-09-27T07:06Z
+- Last modified: 2026-10-04T07:06Z
 - Summary: How to manage incident group mappings in Workflow Automation.
 
 An incident group mapping specifies the incidents that are associated with the incident group. Only admins with full access to Workflow Automation can map the incident groups. Incident groups are mapped to one or more of the attributes available in an incident transaction. These mappings can be simple or more complex to meet your requirements. After incident groups are configured, admins with full access can then assign these incident groups to the admins with restricted access who will be responsible for them. They do these assignments in the Zscaler Admin Console, on the Admin Assignment page. To learn more, see [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).

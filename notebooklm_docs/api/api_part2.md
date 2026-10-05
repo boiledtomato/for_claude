@@ -1,7 +1,7 @@
 # Zscaler Help — API / SDK (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-28 09:01 UTC
+Generated: 2026-10-05 09:38 UTC
 Articles in this file: 98
 
 ---
@@ -21920,13 +21920,13 @@ You can also bulk delete locations, up to a maximum of 100 locations per request
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/managing-log-streaming-service-configurations-using-api","lastmod":"2026-09-03T08:30Z","nid":"1485036"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/managing-log-streaming-service-configurations-using-api","lastmod":"2026-10-04T07:06Z","nid":"1485036"} -->
 ## Managing Log Streaming Service Configurations Using API
 
 - Source: https://help.zscaler.com/legacy-apis/managing-log-streaming-service-configurations-using-api
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Managing Log Streaming Service Configurations Using API
-- Last modified: 2026-09-03T08:30Z
+- Last modified: 2026-10-04T07:06Z
 - Summary: Information on Log Streaming Service (LSS) configuration applicable to Zscaler Private Access (ZPA) cloud service API.
 
 This article provides information for managing Zscaler Private Access (ZPA) Log Streaming Service (LSS) configuration using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).

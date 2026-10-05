@@ -1,18 +1,18 @@
 # Zscaler Help — Deployment / Operations / Terms (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-28 09:01 UTC
+Generated: 2026-10-05 09:38 UTC
 Articles in this file: 60
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incidents","lastmod":"2026-09-27T07:06Z","nid":"1420341"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incidents","lastmod":"2026-10-04T07:06Z","nid":"1420341"} -->
 ## Managing Incidents
 
 - Source: https://help.zscaler.com/workflow-automation/managing-incidents
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Incidents
-- Last modified: 2026-09-27T07:06Z
+- Last modified: 2026-10-04T07:06Z
 - Summary: Information about the Incidents page in the Zscaler Admin Console.
 
 The Incidents page in Workflow Automation captures and displays a list of the transactions that have violated the Data Protection policies (Inline DLP, Endpoint DLP, Email DLP, and SaaS Security DLP) that your organization has configured in the Zscaler Admin Console. Each such recorded transaction is known as an incident. This page enables you to review and remediate Data Loss Prevention (DLP) incidents.
@@ -1257,13 +1257,13 @@ The API key is deleted permanently.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-automation-integration-jira-software","lastmod":"2026-09-18T06:06Z","nid":"1461951"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-automation-integration-jira-software","lastmod":"2026-10-02T21:06Z","nid":"1461951"} -->
 ## Managing Workflow Automation Integration with Jira Software
 
 - Source: https://help.zscaler.com/workflow-automation/managing-workflow-automation-integration-jira-software
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Managing Workflow Automation Integration with Jira Software
-- Last modified: 2026-09-18T06:06Z
+- Last modified: 2026-10-02T21:06Z
 - Summary: Information about Workflow Automation integration with Jira Software.
 
 Workflow Automation can integrate with Jira Software, a sanctioned Software as a Service (SaaS) application for Zscaler. During the remediation process for a data protection incident in Workflow Automation, admins can create and assign a Jira ticket to an incident on the Incident Details drawer. When the ticket action is initiated on the Incident Details drawer for an incident, the admin selects the user to assign the ticket to in Jira Software and specifies the Jira project where the ticket is created in Jira Software. The user they select must exist in Jira Software and must have already been added to the Integration Users page in Workflow Automation. To learn more, see [Managing Integration Users](https://help.zscaler.com/workflow-automation/managing-integration-users) and [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details).
@@ -1471,13 +1471,13 @@ To view Jira Software integrations in Workflow Automation:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-automation-integration-microsoft-teams","lastmod":"2026-09-17T09:55Z","nid":"1461676"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-automation-integration-microsoft-teams","lastmod":"2026-10-01T21:06Z","nid":"1461676"} -->
 ## Managing Workflow Automation Integration with Microsoft Teams
 
 - Source: https://help.zscaler.com/workflow-automation/managing-workflow-automation-integration-microsoft-teams
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Managing Workflow Automation Integration with Microsoft Teams
-- Last modified: 2026-09-17T09:55Z
+- Last modified: 2026-10-01T21:06Z
 - Summary: Information about Workflow Automation integration with Microsoft Teams.
 
 Workflow Automation can integrate with Microsoft Teams, a sanctioned Software as a Service (SaaS) application for Zscaler. During the remediation process for a data protection incident in Workflow Automation, admins or the application can initiate different notifications (user, escalation, and digest) to remediate the incident. When Workflow Automation is integrated with the Microsoft Teams application, these notifications can be delivered through Teams messages to the appropriate users or admins associated with the incident. To learn more, see [Managing Incidents](https://help.zscaler.com/workflow-automation/managing-incidents), [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details), [Managing Notification Templates](https://help.zscaler.com/workflow-automation/managing-notification-templates), [Managing Incident and Digest Template Mappings](https://help.zscaler.com/workflow-automation/managing-incident-and-digest-template-mappings), [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments), and [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings).
@@ -1508,13 +1508,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-automation-integration-servicenow","lastmod":"2026-09-18T06:17Z","nid":"1457511"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-automation-integration-servicenow","lastmod":"2026-10-02T21:06Z","nid":"1457511"} -->
 ## Managing Workflow Automation Integration with ServiceNow
 
 - Source: https://help.zscaler.com/workflow-automation/managing-workflow-automation-integration-servicenow
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Managing Workflow Automation Integration with ServiceNow
-- Last modified: 2026-09-18T06:17Z
+- Last modified: 2026-10-02T21:06Z
 - Summary: Information about Workflow Automation integration with ServiceNow.
 
 Workflow Automation can integrate with ServiceNow, a sanctioned Software as a Service (SaaS) application for Zscaler. During the remediation process for a data protection incident in Workflow Automation, admins can create and assign a ServiceNow ticket to an incident on the Incident Details drawer. When the ticket action is initiated on the Incident Details drawer for an incident, the admin selects the user to assign to the ticket in ServiceNow. The user they select must exist in the ServiceNow application and must have already been added on the Integration Users page in Workflow Automation. To learn more, see [Managing Integration Users](https://help.zscaler.com/workflow-automation/managing-integration-users) and [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details).
@@ -1624,13 +1624,13 @@ To view ServiceNow integrations in Workflow Automation:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-automation-integration-slack","lastmod":"2026-09-17T09:42Z","nid":"1457291"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-automation-integration-slack","lastmod":"2026-10-01T21:06Z","nid":"1457291"} -->
 ## Managing Workflow Automation Integration with Slack
 
 - Source: https://help.zscaler.com/workflow-automation/managing-workflow-automation-integration-slack
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Managing Workflow Automation Integration with Slack
-- Last modified: 2026-09-17T09:42Z
+- Last modified: 2026-10-01T21:06Z
 - Summary: Information about Workflow Automation integration with Slack.
 
 Workflow Automation can integrate with Slack, a sanctioned Software as a Service (SaaS) application for Zscaler. During the remediation process for a data protection incident in Workflow Automation, admins or the application can initiate different notifications (user, escalation, and digest) to remediate the incident. When Workflow Automation is integrated with the Slack application, these notifications can be delivered through Slack messages to the appropriate users or admins associated with the incident. To learn more, see [Managing Incidents](https://help.zscaler.com/workflow-automation/managing-incidents), [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details), [Managing Notification Templates](https://help.zscaler.com/workflow-automation/managing-notification-templates), [Managing Incident and Digest Template Mappings](https://help.zscaler.com/workflow-automation/managing-incident-and-digest-template-mappings), [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments), and [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings).
@@ -2779,13 +2779,13 @@ This article provides a summary of all new features and enhancements for Workflo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/release-upgrade-summary-2026","lastmod":"2026-09-14T10:39Z","nid":"1534330"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/release-upgrade-summary-2026","lastmod":"2026-09-30T07:47Z","nid":"1534330"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/workflow-automation/release-upgrade-summary-2026
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-14T10:39Z
+- Last modified: 2026-09-30T07:47Z
 - Summary: Workflow Automation Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Workflow Automation.
@@ -2859,13 +2859,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/responding-end-user-notification","lastmod":"2026-09-27T07:06Z","nid":"1421056"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/responding-end-user-notification","lastmod":"2026-10-04T07:06Z","nid":"1421056"} -->
 ## Responding to an End User Notification
 
 - Source: https://help.zscaler.com/workflow-automation/responding-end-user-notification
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Responding to an End User Notification
-- Last modified: 2026-09-27T07:06Z
+- Last modified: 2026-10-04T07:06Z
 - Summary: Information on how to review and respond to an end user notification from the Zscaler Admin Console.
 
 The format of the notification and survey might not be the same as illustrated in this article. It depends upon the notification and the survey template that your organization configured in Workflow Automation.
@@ -4177,13 +4177,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-managing-incident-details","lastmod":"2026-09-27T07:06Z","nid":"1420336"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-managing-incident-details","lastmod":"2026-10-04T07:06Z","nid":"1420336"} -->
 ## Viewing & Managing Incident Details
 
 - Source: https://help.zscaler.com/workflow-automation/viewing-managing-incident-details
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Viewing & Managing Incident Details
-- Last modified: 2026-09-27T07:06Z
+- Last modified: 2026-10-04T07:06Z
 - Summary: Information about the Incidents Details page and how to manage incidents in the Zscaler Admin Console.
 
 Workflow Automation provides access to the Incident Details drawer, which displays detailed information about an incident, such as an overview of the incident, violation details, violation content, and the state changes for the incident. This drawer also allows you to manage and take action on an incident.
@@ -4206,8 +4206,7 @@ See image.
 On the Overview tab, you can see:
 
 - Duplicate Incidents
-- Overview
-- Current State Details
+- Overview Information
 - Notes
 - Ticket Details
 
@@ -4226,21 +4225,29 @@ See image.
 
 To learn more, see [Understanding Duplicate Incidents in Workflow Automation](https://help.zscaler.com/workflow-automation/understanding-duplicate-incidents-workflow-automation).
 
-In the Overview section, you can see:
+At the top of the Overview tab, you can see:
 
+- **Status**: The current status of the incident. Statuses are:
+  - **New**
+  - **Investigating**
+  - **Validating with User**
+  - **Justification Response Received**
+  - **Escalated**
+  - **Resolved**
 - **Incident ID**: The ID of the incident.
 - **System Creation Date**: The date and time when the incident was created in the system.
 - **Incident Date**: The date and time when the incident was generated due to a policy violation. The date and time display in the local time zone of the user.
-- **Severity**: The severity of the incident. Severities can be **Critical**, **High**, **Low**, **Medium**, and **Info**.
+- **Severity**: The severity of the incident. Severities are **Critical**, **High**, **Low**, **Medium**, and **Info**.
 - **Priority**: The priority of the incident. Priorities are **Critical**, **High**, **Medium**, and **Low**.
-- **Action**: The action associated with the incident. This field is not available for incidents with a Source DLP type of **Email**.
+- **User**: The person from whom you need a response to move forward with the incident. The person can be the end user, another user, the end user's manager, or another approver. If you choose the User Name attribute or Manager Name attribute for obfuscation, multiple asterisks appear for this field depending on the state. To learn more about user data obfuscation, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
 - **DLP Admin**: The Data Loss Prevention (DLP) admin who is responsible for validating the incident.
 - **Source DLP Type**: The source DLP type of the incident. Source DLP types are **Inline**, **Email**,**SaaS Security**, and **Endpoint**.
+- **Action**: The action associated with the incident. This field is not available for incidents with a Source DLP type of **Email**.
 - **Incident Groups**: The incident groups mapped to the incident.
 - **Labels**: The labels assigned to the incident. This field only appears for incidents that have been assigned labels.
 - **Action Recipient Count**: The actions taken against the recipients of the incident. The number of times the action was taken against the recipients displays next to the action (e.g., Block: 3, Allow: 1, and Quarantine: 2). This field is only available for incidents with a Source DLP type of **Email**.
 - **Resolution Date**: The date and time when the incident was resolved (i.e., closed). This field only appears for resolved incidents.
-- **Integration**: The name of the DLP application integration in Workflow Automation where the incident occurred. To learn more, see [Configuring the DLP Application Integration Using Amazon Web Services](https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-amazon-web-services), [Configuring the DLP Application Integration Using Azure](https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-azure), and [Configuring the DLP Application Integration Using Google Cloud Platform](https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-google-cloud-platform).
+- **Integration**: The name of the DLP application integration in Workflow Automation where the incident occurred.
 - **Quarantined Email Status**: The status of the quarantined email release process for the recipients of the quarantined email. This field is only available for incidents with a Source DLP type of **Email**. To view the quarantined email status:
   1. Click the **View Status** link provided in this field. The **Quarantined Email Status**page appears.
   2. On the **Quarantined Email Status**page, you can view: See image.
@@ -4272,13 +4279,6 @@ The following table lists the error messages that can display, the reason why th
 | Something went wrong | Error while processing the action (i.e., generic error) | Try again |
 | Exchange Online connection failure | Authentication or connectivity problems with Microsoft 365 services | Verify that the certificate file exists and the password is correct; Check that AppId and TenantId are valid; Ensure that the app has the required permissions (Exchange.ManageAsApp, Directory.Read.All); Confirm network connectivity to Microsoft 365 |
 
-In the Current State Details section, you can see:
-
-- **Status**: The current status of the incident.
-- **User**: The person from whom you need a response to move forward with the incident. The person can be the end user, another user, the end user's manager, or another approver. If you choose the User Name attribute or Manager Name attribute for obfuscation, multiple asterisks appear for this field depending on the state. To learn more about user data obfuscation, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
-
-See image.
-
 The Ticket section appears in the drawer only after you have integrated Workflow Automation with a ticketing integration application (e.g., ServiceNow or Jira Software) and you have executed the Ticket action for the data protection incident in the Incident Details drawer.
 
 In the Ticket section, you can see:
@@ -4294,6 +4294,7 @@ See image.
 
 On the Violation Details tab, you can see:
 
+- Partial Overview Information
 - Originating User
 - Policy
 - Content
@@ -4302,6 +4303,28 @@ On the Violation Details tab, you can see:
 - Collaborators
 - Recipients (Source DLP type SaaS Security)
 - Other Recipients (Source DLP type Email)
+
+Some of the overview fields from the Overview tab are displayed at the top of the Violation Details tab. At the top of the Violation Details tab, you can see:
+
+- **Status**: The current status of the incident. Statuses are:
+  - **New**
+  - **Investigating**
+  - **Validating with User**
+  - **Justification Response Received**
+  - **Escalated**
+  - **Resolved**
+- **Incident ID**: The ID of the incident.
+- **System Creation Date**: The date and time when the incident was created in the system.
+- **Incident Date**: The date and time when the incident was generated due to a policy violation. The date and time display in the local time zone of the user.
+- **Severity**: The severity of the incident. Severities are **Critical**, **High**, **Low**, **Medium**, and **Info**.
+- **Priority**: The priority of the incident. Priorities are **Critical**, **High**, **Medium**, and **Low**.
+- **DLP Admin**: The Data Loss Prevention (DLP) admin who is responsible for validating the incident.
+- **Source DLP Type**: The source DLP type of the incident. Source DLP types are **Inline**, **Email**,**SaaS Security**, and **Endpoint**.
+- **Action**: The action associated with the incident. This field is not available for incidents with a Source DLP type of **Email**.
+- **Incident Groups**: The incident groups mapped to the incident.
+- **Integration**: The name of the DLP application integration in Workflow Automation where the incident occurred.
+
+See image.
 
 The attributes that appear under the Originating User subsection can vary, depending on how and what information was imported to Workflow Automation through the primary user data source of System for Cross-domain Identity Management (SCIM) or a CSV file. To learn more, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings), [Managing User Attributes](https://help.zscaler.com/workflow-automation/managing-user-attributes), and [SAML & SCIM Configuration Guide for Microsoft Entra ID](https://help.zscaler.com/zia/saml-scim-configuration-guide-microsoft-entra-id).
 
@@ -4846,13 +4869,15 @@ To release the email to its recipients:
 
 [Image: Viewing the duplicate incidents for an incident in the Duplicate Incidents dialog window]
 
-[Image: Viewing the Overview section on the Overview tab]
+[Image: Viewing the overview information on the Overview tab]
 
 [Image: Viewing the Quarantined Email Status page where the release process failed for a couple of the recipients]
 
 [Image: Viewing the originating user prefiltered name link in the Originating User section on the Violation Details tab]
 
-[Image: Viewing the Originating User section on the violation Details tab]
+[Image: Viewing the partial overview information on the Violation Details tab]
+
+[Image: Viewing the Originating User section on the Violation Details tab]
 
 [Image: Viewing the File Content tab in the Policy section for the triggered engines and dictionaries associated to the incident. This tab displays the Engines field and the Dictionaries with Match Count field.]
 
@@ -4915,8 +4940,6 @@ To release the email to its recipients:
 [Image: Viewing the trigger data for an incident of Source DLP type Email in the File Attachments tab of the View Trigger Data field. This tab displays subtabs for each attachment that caused a violation. Each attachment subtab displays the trigger data for that attachment.]
 
 [Image: Viewing the trigger data in the View Trigger Data field on the Violation Content tab for an incident of Source DLP type Email]
-
-[Image: Viewing the Current State Details section on the Overview tab]
 
 [Image: Viewing the Notes section on the Overview tab]
 

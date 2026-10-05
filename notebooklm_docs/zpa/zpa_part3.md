@@ -1,18 +1,18 @@
 # Zscaler Help — ZPA — Private Access (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-28 09:01 UTC
+Generated: 2026-10-05 09:38 UTC
 Articles in this file: 111
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/network-connector-deployment-guide-vmware-platforms","lastmod":"2026-08-06T11:39Z","nid":"1541935"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/network-connector-deployment-guide-vmware-platforms","lastmod":"2026-10-01T07:06Z","nid":"1541935"} -->
 ## Network Connector Deployment Guide for VMware Platforms
 
 - Source: https://help.zscaler.com/zpa/network-connector-deployment-guide-vmware-platforms
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Network Connector Deployment Guides for Supported Platforms > Network Connector Deployment Guide for VMware Platforms
-- Last modified: 2026-08-06T11:39Z
+- Last modified: 2026-10-01T07:06Z
 - Summary: How to deploy a Network Connector on VMware, including platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites and how to deploy a Network Connector on a VMware platform. For general information regarding Network Connector deployment, see the [Network Connector Deployment Guide for Linux](https://help.zscaler.com/zpa//listpgm1/network-connector-deployment-guide-linux).
@@ -56,6 +56,8 @@ After a Network Connector is enrolled, an outbound TLS tunnel over port 443 is e
 
 Each Network Connector maps to a single Network Connector group. It is critical that the Network Connector is always available and running or there won't be any traffic. A Network Connector fronts the subnets configured in Network segments. For example, if you have 4 IP address ranges, they can all be mapped to the same Network Connector group. That means the Network Connector needs to route all the packets to these IP addresses. Subnets can be mapped to the same Network Connector, but you must make sure that they are reachable to each other.
 
+Using these specifications, each Network Connector supports up to 500 Mbps of throughput.
+
 Before you begin any procedures within the [Network Connector Deployment Guide for Linux](https://help.zscaler.com/zpa/vpn-connector-deployment-prerequisites), make sure that you have met all the following prerequisites:
 
 - Intel x86_64/AMD64-based architecture
@@ -64,7 +66,6 @@ Before you begin any procedures within the [Network Connector Deployment Guide f
 - DNS resolution and network access
 - For OAuth 2.0 enrollment, Manager software and Network Connector version 25.47.3 or later
 - An OAuth 2.0 enrollment token obtained from a hyperscaler marketplace or virtual image provided by Zscaler, or a Network Connector [provisioning key](https://help.zscaler.com/zpa/about-network-connector-provisioning-keys) obtained from the Zscaler Admin Console The OAuth server only supports IPv4-based communication. If a Network Connector only has an IPv6 address, it cannot access the OAuth server.
-- A Network Connector [provisioning key](https://help.zscaler.com/zpa/about-network-connector-provisioning-keys) obtained from the Zscaler Admin Console
 - A static MAC address
 - Network Connector can connect to the Zero Trust Network Access Service Edge - TCP port 443 for all Public Service Edges
 - An outbound connection to the VPN Service Edges IP address on the UDP port range from 51820 to 53000 must be allowed, not blocked. This is required to establish a VPN tunnel between the Network Connector and VPN Service Edge.
@@ -89,7 +90,7 @@ All Zscaler data centers containing Public Service Edges must be allowed. A part
 
 Because the service enforces TLS certificate pinning for both client and server certificates, all forms of inline or man-in-the-middle TLS interception or inspection must be disabled. Network Connectors do not function if the TLS certificates presented by the Public Service Edges or Private Service Edges do not cryptographically verify against Zscaler-trusted public keys.
 
-By design, certificate verification is not configurable to maintain the integrity of the service. So ensure that *.prod.zpath.net is in your SSL bypass list for traffic originating from the Network Connector. This is necessary for allowing the Network Connector to resolve and reach Public Service Edges or Private Service Edges. If you need to allowlist additional Zscaler IP addresses, see [config.zscaler.com/private.zscaler.com/zpa](https://config.zscaler.com/private.zscaler.com/zpa) (for the private.zscaler.com cloud) or [config.zscaler.com/zpatwo.net/zpa](https://config.zscaler.com/zpatwo.net/zpa) (for the zpatwo.net cloud).  If you are using OAuth 2.0, ensure that the OAuth server FQDN`zpa-oauth.private.zscaler.com` is in the allowlist, and user devices are allowed to make an outbound connection to the `zpa-oauth.private.zscaler.com` server. If you need to allowlist additional Zscaler IP addresses, see [config.zscaler.com/private.zscaler.com/zpa](https://config.zscaler.com/private.zscaler.com/zpa) (for the private.zscaler.com cloud) or [config.zscaler.com/zpatwo.net/zpa](https://config.zscaler.com/zpatwo.net/zpa) (for the zpatwo.net cloud). To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
+By design, certificate verification is not configurable to maintain the integrity of the service. So ensure that *.prod.zpath.net is in your SSL bypass list for traffic originating from the Network Connector. This is necessary for allowing the Network Connector to resolve and reach Public Service Edges or Private Service Edges. If you need to allowlist additional Zscaler IP addresses, see [config.zscaler.com/private.zscaler.com/zpa](https://config.zscaler.com/private.zscaler.com/zpa) (for the private.zscaler.com cloud) or [config.zscaler.com/zpatwo.net/zpa](https://config.zscaler.com/zpatwo.net/zpa) (for the zpatwo.net cloud). If you are using OAuth 2.0, ensure that the OAuth server FQDN`zpa-oauth.private.zscaler.com` is in the allowlist, and user devices are allowed to make an outbound connection to the `zpa-oauth.private.zscaler.com` server. If you need to allowlist additional Zscaler IP addresses, see [config.zscaler.com/private.zscaler.com/zpa](https://config.zscaler.com/private.zscaler.com/zpa) (for the private.zscaler.com cloud) or [config.zscaler.com/zpatwo.net/zpa](https://config.zscaler.com/zpatwo.net/zpa) (for the zpatwo.net cloud). To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
 
 ### Firewalld Configuration for VPN Redundancy (RPM Install Only)
 
@@ -854,13 +855,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/network-connector-release-summary-2026","lastmod":"2026-09-24T15:50Z","nid":"1534309"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/network-connector-release-summary-2026","lastmod":"2026-09-29T16:42Z","nid":"1534309"} -->
 ## Network Connector Release Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/network-connector-release-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Network Connector Release Notes > Network Connector Release Summary (2026)
-- Last modified: 2026-09-24T15:50Z
+- Last modified: 2026-09-29T16:42Z
 - Summary: Zscaler Private Access (ZPA) Network Connector release summary for updates deployed, per version, in 2026.
 
 This article provides a summary of all new features and enhancements released per Zscaler Private Access (ZPA) Network Connector version.
@@ -895,13 +896,13 @@ The following platforms support Network Connector software packages. Where appli
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/networking-deployed-software-components","lastmod":"2026-09-15T10:52Z","nid":"1541000"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/networking-deployed-software-components","lastmod":"2026-09-29T21:06Z","nid":"1541000"} -->
 ## Networking Deployed Software Components
 
 - Source: https://help.zscaler.com/zpa/networking-deployed-software-components
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Access Software Components > Private Access Software Component Deployment & Management > Networking Deployed Software Components
-- Last modified: 2026-09-15T10:52Z
+- Last modified: 2026-09-29T21:06Z
 - Summary: How to configure the networking for App Connectors, Private Service Edges, Private Cloud Controllers, and Network Connectors after deployment, including configuring DHCP or static IP addressing, additional interfaces, DNS, etc.
 
 After you have deployed a software component on a supported platform, you can complete the following networking configurations. Software components refer to App Connectors, Private Service Edges, Private Cloud Controllers, and Network Connectors.
@@ -1250,13 +1251,13 @@ The Private Service Edge attempts to create a TLS session through the proxy spec
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/prerequisites-browser-access-applications-managed-zscaler","lastmod":"2026-09-18T02:56Z","nid":"1528948"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/prerequisites-browser-access-applications-managed-zscaler","lastmod":"2026-10-02T21:06Z","nid":"1528948"} -->
 ## Prerequisites for Browser Access Applications Managed by Zscaler
 
 - Source: https://help.zscaler.com/zpa/prerequisites-browser-access-applications-managed-zscaler
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Browser Access > Prerequisites for Browser Access Applications Managed by Zscaler
-- Last modified: 2026-09-18T02:56Z
+- Last modified: 2026-10-02T21:06Z
 - Summary: Prerequisites for Browser Access-enabled web applications that have Zscaler-managed certificates.
 
 This article provides the requirements to use a [Browser Access application](https://help.zscaler.com/zpa/configuring-defined-application-segments#BAsteps) with a Zscaler-managed certificate. If you are defining a Browser Access application with custom certificates and configuring an FQDN, see [Defining a Browser Access Application with Different External vs. Internal Domains](https://help.zscaler.com/zpa/defining-browser-access-application-different-external-vs-internal-domains).
@@ -2117,7 +2118,7 @@ Private Cloud Controllers are reachable over the internet for remote users in Bu
 
 In the scenario where a Private Cloud Controller is deployed behind a firewall, the firewall performs destination network address translation (DNAT) for the Private Cloud Controller's private IP address. In this case, the flow of traffic is from Zscaler Client Connector to the Private Cloud Controller. The firewall then translates the destination public IP address that Zscaler Client Connector connects to the private IP address of the Private Cloud Controller. The firewall advertises a public IP address on the internet. It is necessary to configure the public IP address advertised by the firewall as a publish IP address of the respective Private Cloud Controller. In the case of disaster recovery, you must add this IP address as the A record for that Private Cloud Controller.
 
-Your firewalls must be configured to let the Private Cloud Controller establish outbound connections to the IP addresses of the Public Service Edge for Private Access, and establish inbound connections from App Connectors, Private Service Edges, and Zscaler Client Connectors.
+Your firewalls must be configured to let the Private Cloud Controller establish outbound connections to the IP addresses of the Public Service Edge for Private Access, and establish inbound connections from App Connectors, Private Service Edges, and Zscaler Client Connector.
 
 The following conditions apply to each Private Cloud Controller that is placed behind a firewall:
 
@@ -2150,7 +2151,8 @@ Before you begin any procedures within the [Private Cloud Controller Deployment 
 - systemd
 - Root or sudo access to the system to configure a new package repository and install packages
 - DNS resolution and network access
-- A [Private Cloud Controller provisioning key](https://help.zscaler.com/zpa/about-private-cloud-controller-provisioning-keys) obtained from the Zscaler Admin Console
+- For OAuth 2.0 enrollment, Manager software and Private Cloud Controller version 25.47.3 or later
+- An OAuth 2.0 enrollment token obtained from a hyperscaler marketplace, virtual image, or RPM installer provided by Zscaler, or a Private Cloud Controller [provisioning key](https://help.zscaler.com/zpa/about-private-cloud-controller-provisioning-keys) obtained from the Zscaler Admin Console The OAuth server only supports IPv4-based communication. If a Private Cloud Controller only has an IPv6 address, it cannot access the OAuth server.
 - A static MAC address
 
 Private Cloud Controllers can be deployed in different ways, so the security features for each deployment type are slightly different.
@@ -4265,13 +4267,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-release-summary-2026","lastmod":"2026-09-24T15:48Z","nid":"1534308"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-release-summary-2026","lastmod":"2026-09-30T11:38Z","nid":"1534308"} -->
 ## Private Cloud Controller Release Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/private-cloud-controller-release-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Private Cloud Controller Release Notes > Private Cloud Controller Release Summary (2026)
-- Last modified: 2026-09-24T15:48Z
+- Last modified: 2026-09-30T11:38Z
 - Summary: Zscaler Private Access (ZPA) Private Cloud Controller release summary for updates deployed, per version, in 2026.
 
 This article provides a summary of all new features and enhancements released per Zscaler Private Access (ZPA) Private Cloud Controller version.
@@ -4306,13 +4308,13 @@ The following platform supports Private Cloud Controller software packages. Wher
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-amazon-web-services","lastmod":"2026-09-18T10:52Z","nid":"1484556"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-amazon-web-services","lastmod":"2026-10-02T21:06Z","nid":"1484556"} -->
 ## Private Service Edge Deployment Guide for Amazon Web Services
 
 - Source: https://help.zscaler.com/zpa/private-service-edge-deployment-guide-amazon-web-services
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Deployment Guides for Supported Platforms > Private Service Edge Deployment Guide for Amazon Web Services
-- Last modified: 2026-09-18T10:52Z
+- Last modified: 2026-10-02T21:06Z
 - Summary: How to deploy a Private Service Edge for Private Access (ZPA) on Amazon Web Services (AWS), including platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy a Private Service Edge for Private Access (ZPA) on Amazon Web Services (AWS) and post-deployment verification checks.
@@ -4983,13 +4985,13 @@ Add a Network Connector and enter the OAuth enrollment token on the **Add Networ
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-docker","lastmod":"2026-09-17T17:33Z","nid":"1485946"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-docker","lastmod":"2026-10-02T09:27Z","nid":"1485946"} -->
 ## Private Service Edge Deployment Guide for Docker
 
 - Source: https://help.zscaler.com/zpa/private-service-edge-deployment-guide-docker
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Deployment Guides for Supported Platforms > Private Service Edge Deployment Guide for Docker
-- Last modified: 2026-09-17T17:33Z
+- Last modified: 2026-10-02T09:27Z
 - Summary: Information on how to deploy a Private Service Edge for Private Access (ZPA) on a Docker container.
 
 The Private Service Edge for Private Access (ZPA) Docker image is available on Docker Hub for both the AMD64 and ARM64 platforms:
@@ -5028,6 +5030,7 @@ For example:
 
 The domain (e.g., api.private.com) in the echo statement will depend on what Private Access cloud you are on.
 
+```
 sudo docker run -d --init \
 -p 443:443 --name zpa-service-edge \
 --cap-add cap_net_admin \
@@ -5039,10 +5042,11 @@ sudo docker run -d --init \
 --restart always \
 -e ZPA_PROVISION_KEY="3|api.private.zscaler.com|..." \
 zscaler/zpa-service-edge:latest.amd64
+```
 
 To deploy the Docker image, create a new container using the `run` command and provisioning key.
 
-You can perform additional tasks to maintain the system (i.e., changing your admin credentials or performing system software updates). To learn more, see [Managing Deployed Software Components](https://help.zscaler.com/zpa/managing-deployed-software-components). You can also configure the [networking for the deployed software component](https://help.zscaler.com/zpa/networking-deployed-software-components).
+If needed, configure log rotation to ensure that container logs do not reach full capacity. You can also configure the [networking for the deployed software component](https://help.zscaler.com/zpa/networking-deployed-software-components).
 
 ## Deploying a Docker Image on an ARM Platform
 
@@ -5056,6 +5060,7 @@ For example:
 
 The domain (e.g., api.private.com) in the echo statement will depend on what Private Access cloud you are on.
 
+```
 sudo docker run -d --init \
 -p 443:443 --name zpa-service-edge \
 --cap-add cap_net_admin \
@@ -5067,10 +5072,37 @@ sudo docker run -d --init \
 --restart always \
 -e ZPA_PROVISION_KEY="2|api.private.zscaler.com|..." \
 zscaler/zpa-service-edge:latest.arm64
+```
 
 To deploy the Docker container, ensure `--init` is included in the `run` command.
 
-You can perform additional tasks to maintain the system (i.e., changing your admin credentials or performing system software updates). To learn more, see [Managing Deployed Software Components](https://help.zscaler.com/zpa/managing-deployed-software-components). You can also configure the [networking for the deployed software component](https://help.zscaler.com/zpa/networking-deployed-software-components).
+If needed, configure log rotation to ensure that container logs do not reach full capacity. You can also configure the [networking for the deployed software component](https://help.zscaler.com/zpa/networking-deployed-software-components).
+
+### Configure Log Rotation
+
+By default, Docker logs do not rotate and can continue to grow until the root partition reaches full capacity, which can cause servers to power down. To avoid this, you can configure log rotation, so the logs roll over after they reach the limit for the Docker container.
+
+To configure log rotation for a Docker container, enter the following command:
+
+```
+sudo docker run -d \
+--log-driver=json-file \
+--log-opt max-size=
+<number>
+m \
+--log-opt max-file=
+<number>
+\
+```
+
+In the following example, there is a maximum of 10 log files with a maximum size for each log file of 500 MB.
+
+```
+sudo docker run -d \
+--log-driver=json-file \
+--log-opt max-size=500m \
+--log-opt max-file=10 \
+```
 
 ### Linux Capabilities
 
@@ -7108,13 +7140,13 @@ In Azure, make sure you disable inbound access on port 22 for the security group
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-nutanix-ahv","lastmod":"2026-09-17T17:33Z","nid":"1529938"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-nutanix-ahv","lastmod":"2026-10-01T21:06Z","nid":"1529938"} -->
 ## Private Service Edge Deployment Guide for Nutanix AHV
 
 - Source: https://help.zscaler.com/zpa/private-service-edge-deployment-guide-nutanix-ahv
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Deployment Guides for Supported Platforms > Private Service Edge Deployment Guide for Nutanix AHV
-- Last modified: 2026-09-17T17:33Z
+- Last modified: 2026-10-01T21:06Z
 - Summary: How to deploy a Private Service Edge for Private Access (ZPA) on Nutanix AHV, including platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy a Private Service Edge for Private Access (ZPA) on Nutanix AHV, and post-deployment verification checks. For general information regarding Private Service Edge deployment for Private Access, see [About Deploying Private Service Edges](https://help.zscaler.com/zpa/about-deploying-service-edges).
@@ -7805,13 +7837,13 @@ The Private Service Edge attempts to create a TLS session through the proxy spec
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-vmware","lastmod":"2026-09-17T17:34Z","nid":"1484541"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-vmware","lastmod":"2026-10-01T21:06Z","nid":"1484541"} -->
 ## Private Service Edge Deployment Guide for VMware Platforms
 
 - Source: https://help.zscaler.com/zpa/private-service-edge-deployment-guide-vmware
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Deployment Guides for Supported Platforms > Private Service Edge Deployment Guide for VMware Platforms
-- Last modified: 2026-09-17T17:34Z
+- Last modified: 2026-10-01T21:06Z
 - Summary: How to deploy a Private Service Edge for Private Access (ZPA) on VMware, including platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites and how to deploy a Private Service Edge for Private Access (ZPA) on a VMware platform. For general information regarding Private Service Edge deployment, see [About Deploying Private Service Edges](https://help.zscaler.com/zpa/about-deploying-service-edges).
@@ -8714,13 +8746,13 @@ When Zscaler cloud and Admin Portal updates are deploying, some functionality wi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/release-upgrade-summary-2024","lastmod":"2026-07-01T16:00Z","nid":"1485896"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/release-upgrade-summary-2024","lastmod":"2026-09-29T13:30Z","nid":"1485896"} -->
 ## Release Upgrade Summary (2024)
 
 - Source: https://help.zscaler.com/zpa/release-upgrade-summary-2024
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Service Release Notes > Release Upgrade Summary (2024)
-- Last modified: 2026-07-01T16:00Z
+- Last modified: 2026-09-29T13:30Z
 - Summary: Zscaler Private Access (ZPA) Release Upgrade Summary for service updates deployed per cloud in 2024.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for the ZPA Admin Portal. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com/).
@@ -8730,13 +8762,13 @@ When Zscaler cloud and Admin Portal updates are deploying, some functionality wi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/release-upgrade-summary-2025","lastmod":"2026-09-08T09:55Z","nid":"1515686"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/release-upgrade-summary-2025","lastmod":"2026-09-29T13:30Z","nid":"1515686"} -->
 ## Release Upgrade Summary (2025)
 
 - Source: https://help.zscaler.com/zpa/release-upgrade-summary-2025
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Service Release Notes > Release Upgrade Summary (2025)
-- Last modified: 2026-09-08T09:55Z
+- Last modified: 2026-09-29T13:30Z
 - Summary: Zscaler Private Access (ZPA) Release Upgrade Summary for service updates deployed per cloud in 2025.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for the ZPA Admin Portal. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com/).
@@ -8746,13 +8778,13 @@ When Zscaler cloud and Admin Portal updates are deploying, some functionality wi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/release-upgrade-summary-2026","lastmod":"2026-09-22T08:01Z","nid":"1534305"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/release-upgrade-summary-2026","lastmod":"2026-10-02T08:25Z","nid":"1534305"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/release-upgrade-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Service Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-22T08:01Z
+- Last modified: 2026-10-02T08:25Z
 - Summary: Zscaler Private Access (ZPA) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for the Zscaler Admin Console. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com/).
@@ -11312,18 +11344,20 @@ Verify that users can successfully connect to the VPN Service Edge. To learn mor
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/supported-versions-os-compatibility-microsegmentation","lastmod":"2026-09-23T13:27Z","nid":"1531938"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/supported-versions-os-compatibility-microsegmentation","lastmod":"2026-10-02T06:33Z","nid":"1531938"} -->
 ## Supported Versions & OS Compatibility for Microsegmentation
 
 - Source: https://help.zscaler.com/zpa/supported-versions-os-compatibility-microsegmentation
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Supported Versions & OS Compatibility for Microsegmentation
-- Last modified: 2026-09-23T13:27Z
+- Last modified: 2026-10-02T06:33Z
 - Summary: Information on version compatibility and operating systems that a user needs to deploy to use agents for Microsegmentation.
 
 Before configuring [Microsegmentation policies](https://help.zscaler.com/zpa/about-microsegmentation-policies), you must configure and deploy agents to your physical or virtual machine (VM) based on your operating system (OS).
 
 To learn more, see [About Agents](https://help.zscaler.com/zpa/about-agents),[Configuring Agent Groups](https://help.zscaler.com/zpa/configuring-agent-groups), and [Installing & Upgrading the Agent Manager](https://help.zscaler.com/zpa/installing-upgrading-agent-manager).
+
+Microsegmentation only supports the x86_64 CPU architecture, not ARM64.
 
 ## Minimum OS Version Compatibility
 
@@ -11637,13 +11671,13 @@ For SAP, you can configure DNS search domains for FQDNs in the Zscaler Admin Con
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/troubleshooting-app-connectors","lastmod":"2026-08-24T15:07Z","nid":"1484651"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/troubleshooting-app-connectors","lastmod":"2026-09-30T17:03Z","nid":"1484651"} -->
 ## Troubleshooting App Connectors
 
 - Source: https://help.zscaler.com/zpa/troubleshooting-app-connectors
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Managing & Troubleshooting > Troubleshooting App Connectors
-- Last modified: 2026-08-24T15:07Z
+- Last modified: 2026-09-30T17:03Z
 - Summary: Detailed information on how to troubleshoot issues with App Connectors.
 
 This article provides troubleshooting information and guidelines about App Connectors. To learn more about App Connectors, see [About App Connectors](https://help.zscaler.com/zpa/about-connectors). To configure App Connectors, see [Configuring App Connectors](https://help.zscaler.com/zpa/configuring-connectors).
@@ -11877,7 +11911,7 @@ Send an ICMP ping to the Public Service Edge.
 You might see the App Connector ID as zero, if you are reviewing:
 
 - The [diagnostic information](https://help.zscaler.com/zpa/about-connector-diagnostics) about App Connectors in the Zscaler Admin Console
-- The App Connectors’ log information in either the [Live Logs](https://help.zscaler.com/zpa/about-live-logs) on the Zscaler Admin Console or through the [Log Streaming Service](https://help.zscaler.com/zpa/about-log-streaming-service)
+- The App Connectors’ log information in either the [Live Logs](https://help.zscaler.com/zpa/about-live-logs) on the Zscaler Admin Console or through the [Log Streaming Service (LSS)](https://help.zscaler.com/zpa/about-log-streaming-service)
 
 If the Central Authority cannot determine an application or resolve the connection to the App Connector for the user, it displays the App Connector ID as zero. This can occur for the following Private Access session status codes:
 
@@ -12906,13 +12940,13 @@ pcc> run-all
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/troubleshooting-private-service-edges","lastmod":"2026-09-17T17:35Z","nid":"1485476"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/troubleshooting-private-service-edges","lastmod":"2026-10-01T21:06Z","nid":"1485476"} -->
 ## Troubleshooting Private Service Edges
 
 - Source: https://help.zscaler.com/zpa/troubleshooting-private-service-edges
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Managing & Troubleshooting > Troubleshooting Private Service Edges
-- Last modified: 2026-09-17T17:35Z
+- Last modified: 2026-10-01T21:06Z
 - Summary: Detailed information on how to troubleshoot issues with Private Service Edges for Private Access (ZPA).
 
 This article provides troubleshooting information and guidelines about Private Service Edges for Private Access (ZPA). To learn more about Private Service Edges, see [About Private Service Edges](https://help.zscaler.com/zpa/about-private-service-edges). To configure Private Service Edges, see [Configuring Private Service Edges](https://help.zscaler.com/zpa/configuring-service-edges).
@@ -16035,13 +16069,13 @@ App Connectors are licensed so that Zscaler can periodically update their softwa
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-traffic-flow-vpn-legacy-apps-log-fields","lastmod":"2026-09-01T22:53Z","nid":"1538714"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-traffic-flow-vpn-legacy-apps-log-fields","lastmod":"2026-10-02T07:06Z","nid":"1538714"} -->
 ## Understanding Traffic Flow for VPN (for Legacy Apps) Log Fields
 
 - Source: https://help.zscaler.com/zpa/understanding-traffic-flow-vpn-legacy-apps-log-fields
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Log Streaming Service > Understanding Traffic Flow for VPN (for Legacy Apps) Log Fields
-- Last modified: 2026-09-01T22:53Z
+- Last modified: 2026-10-02T07:06Z
 - Summary: Information on the various Traffic Flow log fields captured by Log Streaming Service (LSS) log receivers.
 
 The Log Streaming Service (LSS) can send Traffic Flow VPN log information to any third-party log analytics tool. By default, the Traffic Flow VPN log type includes the fields listed in the following table for each log template (i.e., CSV, JSON, TSV). While configuring your log receiver, you can edit the default log stream content to capture only specific fields, and create a custom log template.
@@ -16181,13 +16215,13 @@ The following table includes descriptions and supported field format specificati
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-user-status-log-fields","lastmod":"2026-04-17T11:28Z","nid":"1483956"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-user-status-log-fields","lastmod":"2026-09-29T13:11Z","nid":"1483956"} -->
 ## Understanding User Status Log Fields
 
 - Source: https://help.zscaler.com/zpa/understanding-user-status-log-fields
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Log Streaming Service > Understanding User Status Log Fields
-- Last modified: 2026-04-17T11:28Z
+- Last modified: 2026-09-29T13:11Z
 - Summary: Information on the various Private Access (ZPA) User Status log fields captured by Log Streaming Service (LSS) log receivers.
 
 The Log Streaming Service (LSS) can send User Status log information to any third-party log analytics tool. By default, the User Status log type includes the fields listed in the following table for each log template (i.e., CSV, JSON, TSV). While [configuring your log receiver](https://help.zscaler.com/zpa/configuring-log-receiver), you can edit the default log stream content to capture only specific fields, and create a custom log template.
@@ -16239,13 +16273,13 @@ The following table includes descriptions and supported field format specificati
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-user-status-vpn-service-edge-ip-address-reservation-log-fields","lastmod":"2026-09-02T08:08Z","nid":"1538669"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-user-status-vpn-service-edge-ip-address-reservation-log-fields","lastmod":"2026-10-02T07:06Z","nid":"1538669"} -->
 ## Understanding User Status - VPN Service Edge (IP Address Reservation) Log Fields
 
 - Source: https://help.zscaler.com/zpa/understanding-user-status-vpn-service-edge-ip-address-reservation-log-fields
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Log Streaming Service > Understanding User Status - VPN Service Edge (IP Address Reservation) Log Fields
-- Last modified: 2026-09-02T08:08Z
+- Last modified: 2026-10-02T07:06Z
 - Summary: Information on the various User Status -VPN Service Edge log fields captured by Log Streaming Service (LSS) log receivers.
 
 The Log Streaming Service (LSS) can send User Status - VPN Service Edge (IP Address Reservation) log information to any third-party log analytics tool. By default, the User Status - VPN Service Edge (IP Address Reservation) log type includes the fields listed in the following table for each log template (i.e., CSV, JSON, TSV). While configuring your log receiver, you can edit the default log stream content to capture only specific fields, and create a custom log template.
@@ -16280,13 +16314,13 @@ The following table includes descriptions and supported field format specificati
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-user-status-vpn-service-edge-log-fields","lastmod":"2026-09-01T22:53Z","nid":"1538713"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-user-status-vpn-service-edge-log-fields","lastmod":"2026-10-02T07:06Z","nid":"1538713"} -->
 ## Understanding User Status - VPN Service Edge Log Fields
 
 - Source: https://help.zscaler.com/zpa/understanding-user-status-vpn-service-edge-log-fields
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Log Streaming Service > Understanding User Status - VPN Service Edge Log Fields
-- Last modified: 2026-09-01T22:53Z
+- Last modified: 2026-10-02T07:06Z
 - Summary: Information on the various User Status - VPN Service Edge log fields captured by Log Streaming Service (LSS) log receivers.
 
 The Log Streaming Service (LSS) can send User Status - VPN Service Edge log information to any third-party log analytics tool. By default, the User Status - VPN Service Edge log type includes the fields listed in the following table for each log template (i.e., CSV, JSON, TSV). While configuring your log receiver, you can edit the default log stream content to capture only specific fields, and create a custom log template.
@@ -16321,18 +16355,18 @@ The following table includes descriptions and supported field format specificati
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-zpa-appliances","lastmod":"2026-09-21T15:53Z","nid":"1540960"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-zpa-appliances","lastmod":"2026-10-01T14:49Z","nid":"1540960"} -->
 ## Understanding ZPA Appliances
 
 - Source: https://help.zscaler.com/zpa/understanding-zpa-appliances
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > ZPA Appliance > Understanding ZPA Appliances
-- Last modified: 2026-09-21T15:53Z
-- Summary: Information on ZPA hardware appliances for App Connector and Private Service Edge.
+- Last modified: 2026-10-01T14:49Z
+- Summary: Information on ZPA appliances for App Connector and Private Service Edge.
 
 Private Access (ZPA) enables organizations to provide access to internal applications and services while ensuring the security of their networks. Private Access is an easier to deploy, more cost-effective, and more secure alternative to VPNs. Unlike VPNs, which require users to connect to your network to access your enterprise applications, Private Access allows you to give users policy-based secure access only to the internal apps they need. With Private Access, application access does not require network access.
 
-This feature is in Limited Availability. To learn more, contact your Zscaler Account team.
+This feature is in limited availability. To learn more, contact your Zscaler Account team.
 
 While Private Access is for connecting users to an enterprise's internal applications, Internet & SaaS (ZIA) is for connecting users to public applications on the internet. To learn more, see [Understanding the Zscaler Cloud Architecture for Internet & SaaS](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture).
 
@@ -16342,15 +16376,15 @@ For customers who have multiple global sites with a need for high-performance co
 
 The ZPA appliance is subject to maintenance or alterations, updates, enhancements, additions, or improvements at any time. To learn more, see [Hardware Usage Terms](https://help.zscaler.com/product-usage-terms/hardware-usage-terms-policy).
 
-ZPA hardware appliances include a single, high-performance App Connector or Private Service Edge with scaling to meet large throughput requirements. The following table shows appliance details:
+ZPA appliances include a single, high-performance App Connector or Private Service Edge with scaling to meet large throughput requirements. The following table shows appliance details:
 
 | Attributes | App Connector Appliance | Private Service Edge Appliance |
 | --- | --- | --- |
-| **Hardware Model** | ZS-ZPA-APPL-8010-APPC-PRE | ZS-ZPA-APPL-8010-PSE-PRE |
-| **CPU / Memory / Storage** | 16C / 128GB / 1TB | 16C / 128GB / 1TB |
-| **Ports** | 10x 1GbE 8x 10 GbE (SFP+) | 10x 1GbE 8x 10 GbE (SFP+) |
-| **Form Factor** | 1U (2 x PSU) | 1U (2 x PSU) |
-| **Throughput** | 3 Gbps | 3 Gbps |
+| Hardware Model | ZS-ZPA-APPL-8010-APPC | ZS-ZPA-APPL-8010-PSE |
+| CPU / Memory / Storage | 16C / 128GB / 1TB | 16C / 128GB / 1TB |
+| Ports | 10x 1GbE 8x 10 GbE (SFP+) | 10x 1GbE 8x 10 GbE (SFP+) |
+| Form Factor | 1U (2 x PSU) | 1U (2 x PSU) |
+| Throughput | 3 Gbps | 3 Gbps |
 <!-- /ZS-ARTICLE -->
 
 ---

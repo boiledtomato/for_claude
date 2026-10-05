@@ -1,8 +1,89 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-28 09:01 UTC
-Articles in this file: 110
+Generated: 2026-10-05 09:38 UTC
+Articles in this file: 112
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/accessing-and-navigating-3rd-party-app-governance-admin-portal","lastmod":"2026-09-23T11:52Z","nid":"1457606"} -->
+## Accessing and Navigating the 3rd-Party App Governance Admin Portal
+
+- Source: https://help.zscaler.com/zia/accessing-and-navigating-3rd-party-app-governance-admin-portal
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > Accessing and Navigating the 3rd-Party App Governance Admin Portal
+- Last modified: 2026-09-23T11:52Z
+- Summary: How to access and navigate the 3rd-Party App Governance Admin Portal.
+
+Zscaler 3rd-Party App Governance allows you to discover, manage, reduce, and control the attack surface introduced by third-party apps, extensions, and add-ons to corporate SaaS applications. With 3rd-Party App Governance, you can uncover and maintain an up-to-date app inventory, gaining full visibility into what is connected, the risks posed, and how each app is used in your environment. To learn more, see [What Is 3rd-Party App Governance?](https://help.zscaler.com/zia/what-3rd-party-app-governance)
+
+## Signing In to the 3rd-Party App Governance Admin Portal
+
+You can access 3rd-Party App Governance upon invitation. After you receive the invitation email, you can sign in to 3rd-Party App Governance.
+
+To access 3rd-Party App Governance:
+
+1. Click **Start Now**in the 3rd-Party App Governance invitation email, or go to [https://apptotal.zscaler.com/](https://apptotal.zscaler.com/:).
+
+The 3rd-Party App Governance sign-in page appears.
+
+See image.
+
+1. On the sign-in page, click **Sign in with Google** or **Sign in with Azure AD**.
+
+The 3rd-Party App Governance dashboard appears.
+
+Authentication is performed using Google, Azure AD federation, or Okta. Passwords are not supported. SAML federation with your own identity provider (IdP) (e.g., Okta) is supported on enterprise tiers.
+
+On the first sign-in, an empty dashboard appears, as 3rd-Party App Governance is not yet connected to any of your platforms. You must click**Connect** in the upper-right corner of the dashboard to connect 3rd-Party App Governance to your platform. To learn more, see [Connecting Your Platforms to 3rd-Party App Governance](https://help.zscaler.com/zia/connecting-your-platforms-3rd-party-app-governance). You can choose between self-onboarding or scheduling a concierge onboarding with Zscaler Support.
+
+A user with admin privileges is required to connect to your platforms. This can be done with any user, not necessarily the user you used to sign in to 3rd-Party App Governance (some clients use dedicated service accounts).
+
+[Image: Screenshot of Sign-in Page]
+
+## Accessing 3rd-Party App Governance from the Zscaler Admin Console
+
+You can access the 3rd-Party App Governance Admin Portal from the Zscaler Admin Console using SSO, if you have subscribed to the 3rd-Party App Governance service. You must also have access to the Data Loss Prevention (DLP) feature and a 3rd-Party App Governance Admin or a Super Admin role assigned to you. To check whether you are subscribed to the 3rd-Party App Governance service, you can view your company subscriptions to confirm if 3rd-Party App Governance license is present. To learn more, see [Viewing Subscriptions](https://help.zscaler.com/unified/viewing-subscriptions).
+
+To access the 3rd-Party App Governance Admin Portal from the Zscaler Admin Console, go to **Analytics > Reports > SaaS Security Report > 3rd-Party App Governance.**
+
+See image.
+
+You can also access the 3rd-Party App Governance Admin Portal from multiple locations on the SaaS Security Report and SaaS Assets Report, if you have a subscription to 3rd-Party App Governance. To learn more, see [About the SaaS Security Report](https://help.zscaler.com/zia/about-saas-security-report) and [About the Assets Report](https://help.zscaler.com/zia/about-assets-report).
+
+[Image: SaaS Security Report showing 3rd-Party App Governance SSO Link]
+
+## Navigating within the 3rd-Party App Governance Admin Portal
+
+The 3rd-Party App Governance Admin Portal has the following items in the left-side navigation:
+
+- App Dashboard
+- Apps
+- Users
+- Policies
+- Reports
+- Audit Log
+- Settings
+- Log Out
+
+Click **App Dashboard** to get a high-level overview of your active and deactivated apps, as well as risky, potentially harmful, dormant, and overprivileged apps; see top apps, users, and findings; and leverage the remediation map to further assist in taking the right remediation actions. To learn more, see [About the 3rd-Party App Governance Dashboard](https://help.zscaler.com/zia/about-3rd-party-app-governance-dashboard)[.](https://help.zscaler.com/node/1462556/)
+
+Click **Apps** to view, manage, and govern your apps. You can also search 3rd-Party App Governance's app catalog to assist in pre-vetting use cases. To learn more, see [About the App Inventory](https://help.zscaler.com/zia/about-app-inventory) and [Searching for Apps](https://help.zscaler.com/zia/searching-apps).
+
+Click **Users** to view a list of current users and explore individual user access and activities. To learn more, see [About User Inventory](https://help.zscaler.com/zia/about-user-inventory).
+
+Click **Policies** to create and manage app policies. To learn more, see [3rd-Party App Governance Policies](https://help.zscaler.com/zia/3rd-party-app-governance-policies).
+
+Click **Reports**to view predefined, out-of-the-box reports or custom reports that you have created.
+
+Click the **Audit Log** icon to view details on changes made by users and admins in 3rd-Party App Governance.
+
+Click the **Settings**icon to view and manage the list of currently integrated tenants and to configure notifications. To learn more, see [About Settings in 3rd-Party App Governance](https://help.zscaler.com/zia/about-settings-3rd-party-app-governance).
+
+Click the **Logout** icon to see the currently logged-in user. Select **Logout** to log out of 3rd-Party App Governance when you are done.
+
+[Image: 3rd-Party App Governance Admin Portal home screen showing left-side navigation]
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -296,324 +377,13 @@ If you need to revert from SCIM to AD provisioning:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-admin-roles","lastmod":"2026-09-18T11:51Z","nid":"1399711"} -->
-## Adding Admin Roles
-
-- Source: https://help.zscaler.com/zia/adding-admin-roles
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role Management > Adding Admin Roles
-- Last modified: 2026-09-18T11:51Z
-- Summary: How to add administrator roles in the Zscaler Admin Console.
-
-[Watch a video about Configuring Admin Roles.](https://fast.wistia.net/embed/iframe/8byizrie9e) (shows legacy UI).
-
-Configuring an admin role is one of the tasks that you must complete when [configuring role-based administration](https://help.zscaler.com/zia/configuring-role-based-administration). You can [edit or delete](https://help.zscaler.com/zia/editing-deleting-duplicating-items) admin roles at any time. You can add up to 64 admin roles. For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/zia/ranges-limitations).
-
-## Prerequisites
-
-To configure admin roles, make sure the following prerequisites are met:
-
-- You must have permissions to the Role Management feature to configure roles.
-- You must have access to create, edit, or delete roles with a lower [rank](https://help.zscaler.com/zia/about-admin-rank). To manage admins with a lower rank, the admin rank feature must be enabled for your tenant on the [Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings) page. If admin ranking is not enabled, only super admins (rank 0) can manage roles and permissions for other admins. To learn more, see [About Admin Rank](https://help.zscaler.com/zia/about-admin-rank).
-- You must be assigned organizational [admin scope](https://help.zscaler.com/zia/understanding-admin-scope).
-
-Admin rank and scope don't apply to SD-WAN partner API clients. To learn more, see [Adding SD-WAN Partner API Clients](https://help.zscaler.com/zia/adding-sd-wan-partner-api-clients).
-
-## Adding Admin Roles
-
-To add and configure admin roles:
-
-1. Go to **Administration**>**Admin Management**>**Role Based Access Control**>**Internet & SaaS**.
-2. Click **Add Administrator Role**. The **Add Administrator Role** window appears.
-3. In the **Add Administrator Role** window: Assign permissions to regulate access to Internet & SaaS features. For each admin role, you can configure the following permissions: When you select **None**for a feature, that feature does not show up in the Zscaler Admin Console for that admin role. You can configure permissions for the following categories:
-  - **Name**: Enter a namefor the admin role.
-  - **Enable Permissions for Executive Insights App**: Enable to give the admin assigned this role the permissions and scope required to access the Executive Insights App. This setting is disabled by default. If you enable this setting, the Zscaler service enables the following scopes regardless of your configuration: **Data Loss Prevention**, **Security**, and **Firewall, DNAT, DNS & IPS**. Enabling this setting also enables the **Policy and Resource Management** option for **Access Control (Web and Mobile)**.
-  - **Permissions**: Permissions allow you to control an admin's access to the major features of the Zscaler Admin Console. For each admin, select permissions for the following categories: See image.
-    - Admin Rank
-    - Logs Limit (Days)
-    - Dashboard Access
-    - Reporting Access
-    - Insights Access
-    - Alerts Access
-    - User Names
-    - Device Information
-    - Gen AI Prompt
-  - **Full**: This permission provides admins with full (i.e., edit) access to the feature.
-  - **View Only**: This permission only allows admins to view the feature. Admins cannot edit any data within the feature.
-  - **None**: This permission does not allow admins to access the feature.
-  - **Custom**: Assign granular permissions (Full, View Only, and None) for each Internet & SaaS feature.
-  - Policy & Components
-  - Cloud Configuration & Integration
-  - Traffic Forwarding
-  - Administration Controls
-  - Reporting Data
-4. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-Select an admin rank for the role if this feature is enabled in [Advanced Settings](https://help.zscaler.com/zia/about-advanced-settings#admin-ranking). Admin rank enables you to create a hierarchy between admins and ensures that policies and settings configured by admins with a higher rank cannot be overridden by admins with a lower rank. To learn more, see [About Admin Rank](https://help.zscaler.com/zia/about-admin-rank).
-
-Enter the number of days an admin in this role can view logs. Admins can view real-time logs of every transaction performed by your users, regardless of where they are in the world. To learn more, see [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
-
-By specifying a limit in **Logs Limit (Days)**, you can control the number of days admins are allowed to view logs. By default, admins can view logs for an unrestricted amount of time. If you need temporary access to the logs to verify compliance, admins can only view logs for the specified number of days. For example, if you select a limit of 30days, then admins can only view logs for 30 days.
-
-In **Dashboards**, admins can view predefined dashboards that enable real-time visibility of your organization's internet traffic. Admins can customize the dashboards if they have **Full** access permission.
-
-Choose one of the following permissions for an admin's dashboard access:
-
-- **Full**:Allows admins to view, edit, and delete dashboards
-- **View** **Only**: Allows admins to only view all dashboards
-
-In **Analytics**>**Reporting**, admins can access a wide range of standard reports and can also create custom reports.By specifying permissions in **Reporting Access**, you can control the admin's access to these features.
-
-Choose one of the following permissions for an admin's reporting access:
-
-- **Full**: Allows admins access to all features in **Interactive Reports** and **Scheduled Reports**. Admins must have full permission here to obtain detailed transaction logs from the **View Logs** field in Insights. In addition, only admins with the super admin role can schedule executive reports and delete any custom reports; otherwise, admins can delete their own custom reports only.
-- **View Only**:
-  - **Interactive Reports**: Allows admins to view standard reports and custom reports created by other admins
-  - **Scheduled Reports**: Allows admins full access to features
-- **None**: Doesn't allow admins access to **Reporting** and **Insights**. The **Analytics** menu disappears from the Zscaler Admin Console. The **Insights Access** permission option also disappears.
-
-If you select**Enable Permissions for Executive Insights App** with the **Reporting Access** selection as **None**, then the **Reporting Access** selection defaults to **View Only** after saving.
-
-In **Analytics**>**Insights**, admins can interactively mine logs for data on specific transactions. By specifying permissions in **Insights Access**,you can control the access that admins have to this feature.
-
-Choose one of the following permissions for an admin's insights access:
-
-- **View Only**: Allows admins full access to **Insights**. However, the role must be given **Full**permissionto **Reporting Access** to obtain detailed transaction logs. Admins cannot view these detailed transaction logs if they have **View Only** permission to **Reporting Access**.
-- **None**: Doesn't allow admins access to **Insights**. The **Insights** page disappears from the **Analytics**menu.
-
-This category appears only if the role has been given **Full** or **View Only**permissions for **Reporting Access**.
-
-In **Alerts**, you can control admins' access to the **Alerts** dashboard, **Alerts Rules**, and **Webhooks**. For the features that are disabled for your role, the **Alerts** page displays a **View Restricted** message. To learn more, see [About Security Alerts](https://help.zscaler.com/zia/about-security-alerts).
-
-Choose one of the following permissions for an admin's alerts access:
-
-- **Full**: Admins can both view and edit.
-- **View Only**: Admins can only view and cannot edit.
-- **None**: Admins have no access to alerts.
-
-Choose whether real usernames are visible to admins when they view dashboards, reports, or insights:
-
-- **Visible**: Usernames are visible.
-- **Obfuscated**: Usernames are obfuscated.
-
-If an admin is assigned a role with username obfuscation, but requires access to real usernames, an auditor's permission is required. To learn more, see [About Auditors](https://help.zscaler.com/zia/about-auditors).
-
-Choose whether device information (i.e., device name, device hostname, and device owner) is visible to admins when they view dashboards, reports, or insights:
-
-- **Visible**: Device information is visible.
-- **Obfuscated**: Device information is obfuscated.
-
-If an admin is assigned a role with device information obfuscation, but requires access to device information, an auditor's permission is required. To learn more, see [About Auditors](https://help.zscaler.com/zia/about-auditors).
-
-Choose whether generative AI (Gen AI) prompts are visible to admins when they view the Web Insights Logs:
-
-- **Visible**: Gen AI prompts are visible.
-- **Obfuscated**: Gen AI prompts are obfuscated.
-
-The **Policy & Components** section includes the following categories:
-
-- Security
-- Access Control
-- Data Protection
-- Decryption
-- URL Categories
-- Shared Policy Components
-
-The **Cloud Configuration & Integration** section includes the following categories:
-
-- Integrations
-- Cloud Configuration
-- Business Continuity
-
-The **Traffic Forwarding** section includes Traffic Forwarding, Traffic Forwarding Methods, and Traffic Forwarding Components.
-
-You can assign **Full**, **View Only**,**None**, or **Custom**permissions to the admin to access the traffic-forwarding features. If you select **Full**, **View Only**, or**None**permissions, the selected permission applies to all the following features:
-
-The **Custom** permission is available for traffic forwarding methods and traffic forwarding components. Select **Custom**to assign field-wise permissions to those features.
-
-- Traffic Forwarding:
-  - Forwarding Control
-- Traffic Forwarding Methods:
-  - Static IPs
-  - GRE Tunnels
-  - Locations
-  - VPN Credentials Management
-  - Hosted PAC Files
-- Traffic Forwarding Components:
-  - Proxies & Gateways
-  - Zscaler Client Connector Portal
-  - Subclouds & DC Exclusion
-  - Traffic Capture
-
-See image.
-
-The **Administration Controls** section includes Administration Controls and Backup Controls.
-
-You can assign **Full**, **View Only**,**None**, or **Custom** permissions to the admin to access the Administration Controls and Backup Controls features. If you select **Full**, **View Only**, or**None**permissions, the selected permission applies to all the features. To assign custom permissions, select **Custom**and assign appropriate permissions for the following features:
-
-- Administration Controls:
-  - Advanced Settings
-  - Administrator Management
-  - Audit Logs
-  - User Management
-  - Remote Assistance Management
-  - Alerts
-  - Authentication Settings
-  - Identity Proxy Settings
-  - Role Management
-- Backup Controls:
-  - Backup
-  - Restore
-
-See image.
-
-You can assign **View Only**,**None**,or**Custom** permissions to the admin to access the reporting features. If you select **View Only** or**None**permissions, the selected permission applies to all the features. To assign custom permissions, select **Custom**and assign appropriate permissions for the reporting features:
-
-- Security
-- Web Data
-- DLP
-- Firewall
-- URL Categories
-- IoT Discovery
-- Sandbox
-
-See image.
-
-For example, providing **View Only** permissions to Web Data allows you to view and access the Web Insights and Web Logs on the **Analytics** page. If you provide **None** permissions to Web Data, you can not view the Web Insights option on the **Analytics** page.
-
-You can assign **Full**, **View Only**,**None**,or**Custom** permissions to the admin to access the security features. If you select **Full**, **View Only**, or**None**permissions, the selected permission applies to all the features. To assign custom permissions, select **Custom**and assign appropriate permissions for the following features:
-
-- Malware Protection
-- Advanced Threat Protection
-- Sandbox
-- IPS Control
-- Mobile Malware Protection
-- Secure Browsing
-- Endpoint Context
-
-See image.
-
-You can assign **Full**, **View Only**,**None**,or**Custom** permissions to the admin to access the URL category features. If you select **Full**, **View Only**, or**None**permissions, the selected permission applies to all the features. To assign custom permissions, select **Custom**and assign appropriate permissions for the following features:
-
-- Zscaler Defined URL Category Management This option allows admins to edit predefined URL categories (e.g., Entertainment, Music, etc.), using **Custom URLs**, **URLs Retaining Parent Category**, **Keywords Retaining Parent Category**, and **Review Matches fields**. The **Custom URLs** and **Custom Keywords** fields have view-only access along with all fields in custom categories.
-- Custom URL Category Management This option allows admins to create and edit custom categories using the **URLs Retaining Parent Category** and **Keywords Retaining Parent Category** fields. The **Custom URLs**, **Custom Keywords**, and all fields in predefined categories have view-only access.
-- Override Existing Categories You can only assignaccess to the **Override Existing Categories** field if you have assigned **Full** access in the **Custom URL Category Management** field to an admin. This option allows admins full access to create and edit custom categories using the **Custom URLs**, **URLs Retaining Parent Category**, **Keywords Retaining Parent Category**, and **Custom Keywords**fields. Predefined categories have view-only access.
-
-See image.
-
-You can assign **Full**, **View Only**,**None**,or**Custom** permissions to the admin to access the shared-policy components features. If you select **Full**, **View Only**, or**None**permissions, the selected permission applies to all the features. To assign custom permissions, select **Custom**and assign appropriate permissions for the following features:
-
-- IP & FQDN Groups
-- Browser Isolation Providing admins permissions access Zero Trust Browser (formerly Isolation) also includes access to Zscaler integrated [Votiro](https://votiro.com/resource-center/?fwp_resource_categories=guides) CDR services. Zero Trust Browser customers can enable the Votiro functionality on isolation profiles to allow the file-sanitization capability. To learn more, see [Understanding Partner Integrations](https://help.zscaler.com/zia/understanding-partner-integrations#Votiro-CDR).
-- Device Management
-- Time Intervals
-
-See image.
-
-You can assign **Full**, **View Only**,**None**,or**Custom** permissions to the admin to access the access control features. If you select **Full**, **View Only**, or**None**permissions, the selected permission applies to all the features. To assign custom permissions, select **Custom**and assign appropriate permissions for the following features:
-
-- Policy Control:
-  - URL Filtering Policy
-  - Cloud App Control
-  - Firewall Control
-  - DNS Control
-  - NAT Control
-  - File Type Control
-  - Mobile App Store Control
-  - Bandwidth Control
-  - FTP Control
-- Policy Components:
-  - Tenant Profiles
-  - Bandwidth Classes
-
-See image.
-
-You can assign **Full**, **View Only**,**None**,or**Custom** permissions to the admin to access the data-protection features. If you select **Full**, **View Only**, or**None**permissions, the selected permission applies to all the features. To assign custom permissions, select **Custom**and assign appropriate permissions for the following features:
-
-- Policy Control:
-  - Data Loss Prevention
-  - Endpoint DLP
-  - Data At Rest Scanning
-  - SaaS Security Posture Management
-- Policy Components:
-  - DLP Dictionaries & Engines
-  - Notification Templates
-  - SaaS Application Tenants
-  - DLP Incident Receiver
-
-See image.
-
-You can assign **Full**, **View Only**,**None**,or**Custom** permissions to the admin to access the decryption features. If you select **Full**, **View Only**, or**None**permissions, the selected permission applies to all the features. To assign custom permissions, select **Custom**and assign appropriate permissions for the following features:
-
-- Policy Control:
-  - SSL/TLS Inspection
-- Policy Components:
-  - Intermediate CA Certificates
-  - Root Certificates
-
-See image.
-
-This section provides the applications that are integrated with the Zscaler service for your organization. You can assign **Full**, **View Only**,**None**,or**Custom** permissions to the admin to access the integrated applications. If you select **Full**, **View Only**, or**None**permissions, the selected permission applies to all applications. To assign custom permissions, select **Custom**and assign appropriate permissions for the following applications:
-
-- Microsoft Cloud App Security
-- SD-WAN
-- Azure Virtual WAN
-- CrowdStrike
-- Microsoft Defender for Endpoint
-- Workflow Automation
-
-The applications appear only if your organization has access to or subscriptions to those applications.
-
-See image.
-
-You can assign **Full**, **View Only**,**None**,or**Custom** permissions to the admin to access the cloud-configuration features. If you select **Full**, **View Only**, or**None**permissions, the selected permission applies to all the features. To assign custom permissions, select **Custom**and assign appropriate permissions for the following features:
-
-- Nanolog Streaming Service
-- Virtual Service Edges
-- API Key Management
-
-See image.
-
-You can assign **Full**, **View Only**,**None**,or**Custom** permissions to the admin to access Business Continuity.
-
-See image.
-
-[Image: Options in the Permissions section of the Add Administrator role window]
-
-[Image: Policy & Components - Security]
-
-[Image: Policy & Components - Access Control]
-
-[Image: Policy & Components - Data Protection]
-
-[Image: Policy & Components - Decryption]
-
-[Image: Policy & Components - URL Categories]
-
-[Image: Policy & Components - Shared Policy Components]
-
-[Image: Cloud Configuration & Integration - Integrations]
-
-[Image: Cloud Configuration & Integration - Cloud Configuration]
-
-[Image: Traffic Forwarding]
-
-[Image: The Traffic Forwarding section in the Add Administrator Role window]
-
-[Image: Administration Controls]
-
-[Image: Reporting Data]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/adding-ai-ml-applications-rule-cloud-app-control","lastmod":"2026-09-16T23:15Z","nid":"1459041"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-ai-ml-applications-rule-cloud-app-control","lastmod":"2026-09-29T00:48Z","nid":"1459041"} -->
 ## Adding an AI & ML Applications Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-ai-ml-applications-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding an AI & ML Applications Rule for Cloud App Control
-- Last modified: 2026-09-16T23:15Z
+- Last modified: 2026-09-29T00:48Z
 - Summary: Information on how to add a rule for AI & ML Applications cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud applications are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -626,7 +396,7 @@ You can specify which applications your users are allowed to access and define a
 
 To add a rule for AI & ML Applications apps:
 
-1. Go to **Policies**> **Access Control**> **Internet & SaaS** > **Cloud App Control**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Inline CASB** > **SaaS/Cloud App Policy**.
 2. In the left-side menu, select **AI & ML Applications**, then click **Add Rule**. The **AI & ML Applications**page appears.
 3. On the **AI & ML Applications**page, you can configure the following sections:
   - Criteria
@@ -813,54 +583,13 @@ To subscribe and receive the alerts through email:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-alerts","lastmod":"2026-09-24T23:44Z","nid":"1399156"} -->
-## Adding Alerts
-
-- Source: https://help.zscaler.com/zia/adding-alerts
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Alerts > Adding Alerts
-- Last modified: 2026-09-24T23:44Z
-- Summary: How to configure alerts in the Zscaler Admin Console.
-
-[Watch a video about Alerts, including how to configure them](https://fast.wistia.net/embed/iframe/9to9j2rhzn) (shows legacy UI).
-
-To add alerts:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Alerts**> **Internet & SaaS**.
-2. Select the **Define Alerts** tab.
-3. Click **Add Alert Definition**. The **Add Alert Definition** drawer appears.
-4. In the **Add Alert Definition**drawer, you can do the following:
-
-- **Alert ID**: ID assigned to the alert.
-- **Status**: **Enable** or **Disable** the alert.
-- **Alert Name**: Select the specific event for which you wish to be notified. The lists include all the trigger events for which the Zscaler service can generate an alert. The **Policy Violation** event sends an alert if the total number of events from all other classes and categories reach the configured threshold.
-- **Alert Class**: After you select an **Alert Name**, the class of the event appears in **Alert Class.** You cannot edit this option. To learn more, see [About Alerts](https://help.zscaler.com/zia/about-alerts).
-- **Minimum Occurrences**: Select the number of times the event must occur before an alert is generated. You can select 1, 5, 10, 100, or 1,000 occurrences. This value is used together with the **Within Time Interval** value. An alert is triggered when the event occurs at the **Minimum Occurrences**value in the **Within Time Interval** time period.
-- **Within Time Interval**: Select the span of time within which an event's occurrence triggers an alert. You can choose from 5 minutes, 15 minutes, 30 minutes, 1 hour, or 1 day. The service generates an alert when an event occurs at the **Minimum Occurrences** value in the **Within Time Interval**time period.
-- **Applies To**: Specify whether the alert is triggered by events in the organization, a location, department or user, then choose the specific location, department, or user.
-- **Severity**: Assign a severity level of **Critical**, **Major**, **Minor**, **Info**, or **Debug**to the event. This is useful if you want to create multiple alerts for the same kind of event (such as detection of outbound viruses or data leakage), but establish different thresholds for each.
-
-See image.
-
-1. (Optional) Enter any **Comments** about the event. The comments cannot exceed 10,240 characters.
-2. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-To subscribe to the alert, see [Adding Alert Subscriptions](https://help.zscaler.com/zia/adding-alert-subscriptions). You can also [disable alerts after you create them](https://help.zscaler.com/zia/how-do-i-disable-alerts).
-
-For example, you can set the severity level of an event with 5 occurrences in 5 minutes to **Minor** and set the severity level of the same event with 500 occurrences in 5 minutes to **Critical**. Set the **Severity** of each alert to reflect its threshold’s deviation from the norm.
-
-[Image: Add Alert Definition Page]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/adding-api-roles","lastmod":"2026-09-22T13:47Z","nid":"1411441"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-api-roles","lastmod":"2026-09-30T13:12Z","nid":"1411441"} -->
 ## Adding API Roles
 
 - Source: https://help.zscaler.com/zia/adding-api-roles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role Management > Adding API Roles
-- Last modified: 2026-09-22T13:47Z
+- Last modified: 2026-09-30T13:12Z
 - Summary: How to add Internet & SaaS API roles in the Zscaler Admin Console.
 
 [Watch a video about Adding API Roles](https://fast.wistia.net/embed/iframe/leihuwkgjo) (shows legacy UI).
@@ -873,7 +602,7 @@ You can [edit or delete](https://help.zscaler.com/zia/editing-deleting-duplicati
 
 ## Prerequisites
 
-To configure API roles, the admin must be assigned to a role that has full permission to Administration > API Configuration > Legacy API > Internet & SaaS API in the Zscaler Admin Console. To learn more, see [Adding Admin Roles](https://help.zscaler.com/zia/adding-admin-roles).
+To configure API roles, the admin must be assigned to a role that has full permission to Administration > API > Internet & SaaS API in the Zscaler Admin Console. To learn more, see [Adding Internet & SaaS Admin Roles](https://help.zscaler.com/zia/adding-internet-saas-admin-roles).
 
 [Admin rank](https://help.zscaler.com/zia/understanding-admin-rank) cannot be specified for API roles because the admin rank for API roles is always 7. API roles cannot make modifications to any admin users.
 
@@ -881,7 +610,7 @@ To configure API roles, the admin must be assigned to a role that has full permi
 
 To add and configure API roles:
 
-1. Go to **Administration**>**Admin Management**>**Role Based Access Control**>**Internet & SaaS**.
+1. Go to **Administration**>**Role Management**>**Internet & SaaS**.
 2. Click **Add API Role**. The **Add API Role** window appears.
 3. In the **Add API Role** window: Assign appropriate permissions for the API categories that the client application can access. Assigning permissions allows you to control a client application's access to the major API categories of the Zscaler cloud service API with more granularity. For each API role, you can configure the following permissions to access various API categories You can configure permissions for the following categories:
   - **Name**: Enter a namefor the API role.
@@ -1105,13 +834,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-auditors","lastmod":"2026-09-09T21:06Z","nid":"1399011"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-auditors","lastmod":"2026-09-29T13:44Z","nid":"1399011"} -->
 ## Adding Auditors
 
 - Source: https://help.zscaler.com/zia/adding-auditors
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Adding Auditors
-- Last modified: 2026-09-09T21:06Z
+- Last modified: 2026-09-29T13:44Z
 - Summary: How to add auditors in the Zscaler Admin Console.
 
 [Watch a video about Auditors](https://fast.wistia.net/embed/iframe/68fj7gj7xh) (shows legacy UI).
@@ -1120,7 +849,7 @@ You must have a super admin [role](https://help.zscaler.com/zia/adding-admin-rol
 
 To add an auditor:
 
-1. Go to **Administration**>**Admin Management**>**Administrator Management**>**Internet Access Administrators**> **Auditors**.
+1. Go to **Administration**>**Legacy Admin Management**>**Internet & SaaS**>**Auditors**.
 2. Click **Add Auditor**. The **Add Auditor** window appears.
 3. In the **Add Auditor** window:
   - **Login ID**: Enter the login ID the auditor uses to log in from your SSO provider portal, and select the appropriate domain name. The domain names you provided to Zscaler appear in the drop-down menu.
@@ -2341,13 +2070,13 @@ To configure a Cloud NSS feed for web logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-collaboration-online-meetings-rule-for-cloud-app-control","lastmod":"2026-09-16T23:16Z","nid":"1400146"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-collaboration-online-meetings-rule-for-cloud-app-control","lastmod":"2026-09-29T00:53Z","nid":"1400146"} -->
 ## Adding a Collaboration & Online Meetings Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-collaboration-online-meetings-rule-for-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Collaboration & Online Meetings Rule for Cloud App Control
-- Last modified: 2026-09-16T23:16Z
+- Last modified: 2026-09-29T00:53Z
 - Summary: How to add a rule for Collaboration and Online Meeting cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -2362,7 +2091,7 @@ When users browse these sites after their quota has been reached, the Zscaler se
 
 To add a rule for Collaboration & Online Meetings apps:
 
-1. Go to **Policies**> **Access Control**> **Internet & SaaS** > **Cloud App Control**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Inline CASB**> **SaaS/Cloud App Policy**.
 2. In the left-side menu, select **Collaboration & Online Meetings**, then click **Add Rule**. The **Collaboration & Online Meetings**page appears.
 3. On the **Collaboration & Online Meetings**page, you can configure the following sections:
   - Criteria
@@ -2519,13 +2248,13 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-consumer-rule-cloud-app-control","lastmod":"2026-09-16T23:18Z","nid":"1400141"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-consumer-rule-cloud-app-control","lastmod":"2026-09-29T01:19Z","nid":"1400141"} -->
 ## Adding a Consumer Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-consumer-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Consumer Rule for Cloud App Control
-- Last modified: 2026-09-16T23:18Z
+- Last modified: 2026-09-29T01:19Z
 - Summary: Information on how to add a rule for Consumer cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -2538,7 +2267,7 @@ When users browse these sites after their quota has been reached, the Zscaler se
 
 To add a rule for Consumer apps:
 
-1. Go to **Policies** > **Access Control** > **Internet & SaaS** > **Cloud App Control**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Inline CASB** > **SaaS/Cloud App Policy**.
 2. In the left-side menu, select **Consumer**, then click **Add Rule**. The **Consumer**page appears.
 3. On the **Consumer**page, you can configure the following sections:
   - Criteria
@@ -2681,13 +2410,13 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-custom-applications-rule-cloud-app-control","lastmod":"2026-09-16T23:19Z","nid":"1440851"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-custom-applications-rule-cloud-app-control","lastmod":"2026-09-29T01:50Z","nid":"1440851"} -->
 ## Adding a Custom Applications Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-custom-applications-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Custom Applications Rule for Cloud App Control
-- Last modified: 2026-09-16T23:19Z
+- Last modified: 2026-09-29T01:50Z
 - Summary: Information about how to add a rule for Custom cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 Custom cloud applications provide greater flexibility when creating rules to control access to custom applications. This feature consists of two parts:
@@ -2705,7 +2434,7 @@ When users browse these custom sites after they reach their quota, the Zscaler s
 
 To add a rule for Custom Applications apps:
 
-1. Go to **Policies**> **Access Control**> **Internet & SaaS** > **Cloud App Control**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Inline CASB** > **SaaS/Cloud App Policy**.
 2. In the left-side menu, select **Custom Applications**,thenclick **Add Rule**. The **Custom Applications**page appears.
 3. On the **Custom Applications**page, you can configure the following sections:
   - Criteria
@@ -3643,13 +3372,13 @@ To add a custom cloud application:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-custom-dlp-dictionary","lastmod":"2026-09-27T07:06Z","nid":"1400076"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-custom-dlp-dictionary","lastmod":"2026-10-04T07:06Z","nid":"1400076"} -->
 ## Adding Custom DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/adding-custom-dlp-dictionary
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Adding Custom DLP Dictionaries
-- Last modified: 2026-09-27T07:06Z
+- Last modified: 2026-10-04T07:06Z
 - Summary: How to add a custom Data Loss Prevention (DLP) dictionary to the Zscaler service.
 
 Adding a custom Data Loss Prevention (DLP) dictionary is one of the tasks you can complete when configuring DLP policy rules. To learn more, see [Configuring Policies Using Zscaler DLP Engines](https://help.zscaler.com/zia/how-do-i-configure-policy-using-zscaler-dlp-engines).
@@ -3847,13 +3576,46 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-dlp-and-endpoint-resources","lastmod":"2026-09-16T11:58Z","nid":"1541427"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-departments","lastmod":"2026-10-01T15:20Z","nid":"1398866"} -->
+## Adding Departments
+
+- Source: https://help.zscaler.com/zia/adding-departments
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Departments > Adding Departments
+- Last modified: 2026-10-01T15:20Z
+- Summary: How to add a department for your users in the Zscaler Admin Console.
+
+[Watch a video about User Management, including how to add a department](https://fast.wistia.net/embed/iframe/65aszz5npz) (shows legacy UI).
+
+The Zscaler service provides a number of ways to provision [users](https://help.zscaler.com/zia/about-users), [groups](https://help.zscaler.com/zia/about-groups), and departments as described in [About Provisioning and Authentication Methods](https://help.zscaler.com/zia/choosing-provisioning-and-authentication-methods). You can also add departments when you configure policies. This article describes how to add a department on the Departments page in the Zscaler Admin Console.
+
+You can use a [CSV file to add multiple departments](https://help.zscaler.com/zia/about-departments#import-multiple-departments) at once.
+
+To add a new department:
+
+1. Go to **Administration**>**Legacy Admin Management**> **Internet & SaaS Users**>**Departments**.
+2. Click the**Departments**tab.
+3. Click **Add Department**.
+
+The **Add Department** window appears.
+
+1. In the **Add Department** window:
+  - **Department Name**: Enter adepartment name.
+  - **Comments**: Optionally, enter additional notes or information. The content cannot exceed 10,240 characters.
+2. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+After creating the department, you can [add users](https://help.zscaler.com/zia/adding-users) to it.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/adding-dlp-and-endpoint-resources","lastmod":"2026-09-30T21:06Z","nid":"1541427"} -->
 ## Adding DLP and Endpoint Resources
 
 - Source: https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Adding DLP and Endpoint Resources
-- Last modified: 2026-09-16T11:58Z
+- Last modified: 2026-09-30T21:06Z
 - Summary: Information on how to add DLP and endpoint resources to prevent data loss on endpoints.
 
 The page for Data Loss Prevention (DLP) and Endpoint resources (Data Security > Endpoint DLP > Endpoint DLP Resources) has slightly different names based on the Zscaler products licensed for your organization:
@@ -4387,13 +4149,13 @@ The custom path is not applicable to TCP and UDP queries and cannot be specified
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-dns-over-https-services-rule-cloud-app-control","lastmod":"2026-09-16T23:21Z","nid":"1401436"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-dns-over-https-services-rule-cloud-app-control","lastmod":"2026-09-29T02:46Z","nid":"1401436"} -->
 ## Adding a DNS Over HTTPS Services Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a DNS Over HTTPS Services Rule for Cloud App Control
-- Last modified: 2026-09-16T23:21Z
+- Last modified: 2026-09-29T02:46Z
 - Summary: Information on how to add a rule for DNS Over HTTPS Services cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -4404,7 +4166,7 @@ DNS resolution, which was a plain text connection, is now an encrypted and secur
 
 To add a rule for DNS Over HTTPS Services apps:
 
-1. Go to **Policies**> **Access Control**> **Internet & SaaS** > **Cloud App Control**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Inline CASB** > **SaaS/Cloud App Policy**.
 2. In the left-side menu, select **DNS Over HTTPS Services**, then click **Add Rule**. The **DNS Over HTTPS Services**page appears.
 3. On the **DNS Over HTTPS Services**page, you can configure the following sections:
   - Criteria
@@ -4555,13 +4317,13 @@ To add domain profiles:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-editing-redaction-profiles","lastmod":"2026-09-24T23:59Z","nid":"1529359"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-editing-redaction-profiles","lastmod":"2026-09-29T11:23Z","nid":"1529359"} -->
 ## Adding & Editing Redaction Profiles
 
 - Source: https://help.zscaler.com/zia/adding-editing-redaction-profiles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Data at Rest Scanning Policies > Rights Management > Adding & Editing Redaction Profiles
-- Last modified: 2026-09-24T23:59Z
+- Last modified: 2026-09-29T11:23Z
 - Summary: How to add and edit redaction profiles in the Zscaler Admin Console.
 
 You can use redaction profiles as part of your SaaS Security Data at Rest Scanning Data Loss Prevention (DLP) policy to hide sensitive content that triggers policy rules. When sensitive content triggers a SaaS Security Data at Rest Scanning DLP rule, the Zscaler service uses the redaction profile associated with the policy rule to replace the content you want to protect with asterisk (`*`) or hash (`#`) characters. The Zscaler service supports redaction profiles for the following file types:
@@ -4606,13 +4368,13 @@ You can use redaction profiles as part of your SaaS Security Data at Rest Scanni
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-editing-watermark-profiles","lastmod":"2026-09-24T22:58Z","nid":"1498311"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-editing-watermark-profiles","lastmod":"2026-09-29T11:20Z","nid":"1498311"} -->
 ## Adding & Editing Watermark Profiles
 
 - Source: https://help.zscaler.com/zia/adding-editing-watermark-profiles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Data at Rest Scanning Policies > Rights Management > Adding & Editing Watermark Profiles
-- Last modified: 2026-09-24T22:58Z
+- Last modified: 2026-09-29T11:20Z
 - Summary: How to add and edit watermark profiles in the Zscaler Admin Console.
 
 You can use watermark profiles as part of your SaaS Security Data at Rest Scanning Data Loss Prevention (DLP) policy to protect files that trigger policy rules. When sensitive content triggers a SaaS Security Data at Rest Scanning DLP rule, the Zscaler service uses the watermark profile associated with the policy rule to superimpose text diagonally across pages and images to clearly identify the content you want to protect. Additionally, you can include headers and footers as part of your watermark profiles.
@@ -4645,9 +4407,9 @@ You can use watermark profiles as part of your SaaS Security Data at Rest Scanni
 
 [Image: Editing an existing watemark profile]
 
-<div class="subc"> <p> <a class="ck-anchor" id="add-watermark-profile-dialog"></a><img src="/downloads/zia/policies/saas-security/data-rest-scanning-policies/rights-management/adding-editing-watermark-profiles/add-watermark-xc.png" data-entity-uuid="0" data-entity-type="image" alt="The Add Watermark Profile window where you can add details, header and footer, and watermark text" title="Add Watermark Profile" width="800" height="795"> </p>
-
 <div class="subc"> <p> <a class="ck-anchor" id="edit-watermark-profile-dialog"></a><img src="/downloads/zia/policies/saas-security/data-rest-scanning-policies/rights-management/adding-editing-watermark-profiles/edit-watermark-xc.png" data-entity-uuid="0" data-entity-type="image" alt="The Edit Watermark Profile window where you can add details, header and footer, and watermark text" title="Edit Watermark Profile" width="795" height="796"> </p>
+
+<div class="subc"> <p> <a class="ck-anchor" id="add-watermark-profile-dialog"></a><img src="/downloads/zia/policies/saas-security/data-rest-scanning-policies/rights-management/adding-editing-watermark-profiles/add-watermark-xc.png" data-entity-uuid="0" data-entity-type="image" alt="The Add Watermark Profile window where you can add details, header and footer, and watermark text" title="Add Watermark Profile" width="800" height="795"> </p>
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4685,13 +4447,13 @@ To add an ECS prefix:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-email-label","lastmod":"2026-09-27T07:06Z","nid":"1444181"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-email-label","lastmod":"2026-10-04T07:06Z","nid":"1444181"} -->
 ## Adding an Email Label
 
 - Source: https://help.zscaler.com/zia/adding-email-label
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > Adding an Email Label
-- Last modified: 2026-09-27T07:06Z
+- Last modified: 2026-10-04T07:06Z
 - Summary: How to add an email label for a Gmail or Microsoft Exchange client.
 
 The Zscaler service allows you to create email labels to group Gmail and Microsoft Exchange clients under the Data at Rest Scanning policy into categories based on the sensitivity of the email data.
@@ -4866,75 +4628,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-executive-insights-app-admins","lastmod":"2026-06-22T21:06Z","nid":"1401191"} -->
-## Adding Executive Insights App Admins
-
-- Source: https://help.zscaler.com/zia/adding-executive-insights-app-admins
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Administrators > Adding Executive Insights App Admins
-- Last modified: 2026-06-22T21:06Z
-- Summary: How to add an administrator for the Zscaler Executive Insights App.
-
-[Watch a video about Executive Insights App Administrators](https://fast.wistia.net/embed/iframe/ec953gtt44) (shows legacy UI).
-
-The Executive Insights App admin has access to the Executive Insights App, but not the Zscaler Admin Console. If you want to give an admin access to the Executive Insights App along with other permissions and functional scopes in the Zscaler Admin Console, you can create an [admin role](https://help.zscaler.com/zia/adding-admin-roles) with **Enable Permissions for Executive Insights App** selected, and then assign the new role to the admin.
-
-To add an Executive Insights App admin:
-
-1. Go to **Administration**> **Administrator Management**.
-2. Click **Add Executive Insights App Administrator**.
-
-The **Add Executive Insights App Administrator** window appears.
-
-1. In the **Add Executive Insights App Administrator** window:
-  - **Login ID**: Enter the admin's login ID. The Zscaler service uses this ID to identify the admin's activity. The domain names you provided to Zscaler appear in the drop-down menu.
-  - **Email**: Enter the admin's valid business email address. This email address will receive the Executive Insights App download email after the admin account is added, and is also required to initiate the authentication on the Executive Insights App.
-
-When you update an admin's email address, all the devices that are registered with the old email address get unauthorized. Ensure to reauthorize the devices by registering with the new email address.
-
-- **Name**: Enter a name for the admin.
-- **Role**: The admin uses the default Executive Insights App role. It has **Enable Permissions for Executive Insights App** selected, which gives the admin the permissions and scope required to access the Executive Insights App. You can't modify this field, but you can edit the role. To learn more, see [Editing the Default Executive Insights App Role](https://help.zscaler.com/zia/editing-default-executive-insights-app-role).
-- **Status**: Enable or disable the admin. If you disable the admin, the password is automatically cleared. So, when you re-enable the status of the disabled admin, you must set a new password. If SAML is enabled, then setting a password is optional. You can save your changes only after the admin authentication is complete.
-- **Scope**: The admin requires an **Organization** scope to access the Executive Insights App. You can't modify this field.
-- **Executive Insights App Access**: Allows the admin access to the Executive Insights App. You can't modify this field.
-  - **Authorized Mobile Devices**: Displays the admin’s devices that are authorized to use the Executive Insights App. Admins can register up to 8 devices. You can click the **Unauthorize** icon to remove and unauthorize the device. Only one device can be unauthorized at a time.
-
-See image.
-
-For each device, you can see its name, ID, and registration date. This field is only visible if you're editing an admin with **Executive Insights App Access** enabled.
-
-Zscaler recommends you to log out of the Executive Insights App before uninstalling it from a registered device.
-
-- **Comments**: (Optional) Enter additional notes or information. The comments cannot exceed 10,240 characters.
-- **Security Updates**:Enable if you want the admin to receive the latest information on vulnerabilities and threats that may affect your organization.
-- **Service Updates**:Enable if you want the admin to receive new Zscaler service and product enhancements, including new data center notification and cloud release information.
-- **Product Updates**:Enable if you want the admin to receive communication regarding important changes and updates for the Zscaler service.
-
-See image.
-
-1. Click **Save**.
-
-The **Confirm Sending the Executive Insights App Download Email** window appears.
-
-1. In the ****Confirm Sending the Executive Insights App Download Email****window, click **Send** to send the admin an email with download instructions for the Executive Insights App.
-2. [Activate the change](https://help.zscaler.com/zia/saving-and-activating-changes-admin-portal).
-
-You can [edit](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal) or [delete](https://help.zscaler.com/zia/deleting-admins) admins at any time.
-
-[Image: Screenshot of the Unauthorize icon under Authorized Mobile Devices]
-
-[Image: All fields in the Add Executive Insights App Administrator window.]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/adding-file-sharing-rule-cloud-app-control","lastmod":"2026-09-16T23:23Z","nid":"1400696"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-file-sharing-rule-cloud-app-control","lastmod":"2026-09-29T02:54Z","nid":"1400696"} -->
 ## Adding a File Sharing Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-file-sharing-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a File Sharing Rule for Cloud App Control
-- Last modified: 2026-09-16T23:23Z
+- Last modified: 2026-09-29T02:54Z
 - Summary: How to add a rule for File Sharing cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -4945,7 +4645,7 @@ A typical file sharing rule restricts viewing (or downloading) media files to 30
 
 To add a rule for File Sharing apps:
 
-1. Go to **Policies**> **Access Control** >**Internet & SaaS**>**Cloud App Control**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Inline CASB** > **SaaS/Cloud App Policy**.
 2. In the left-side menu, select **File Sharing**, then click **Add Rule**. The **File Sharing**page appears.
 3. On the **File Sharing**page, you can configure the following sections:
   - Criteria
@@ -5103,13 +4803,13 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-finance-rule-cloud-app-control","lastmod":"2026-09-16T23:26Z","nid":"1402141"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-finance-rule-cloud-app-control","lastmod":"2026-09-29T03:20Z","nid":"1402141"} -->
 ## Adding a Finance Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-finance-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Finance Rule for Cloud App Control
-- Last modified: 2026-09-16T23:26Z
+- Last modified: 2026-09-29T03:20Z
 - Summary: Information on how to add a rule for Finance cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -5122,7 +4822,7 @@ When users browse these sites after their quota has been reached, the Zscaler se
 
 To add a rule for Finance apps:
 
-1. Go to **Policies**> **Access Control** > **Internet & SaaS**> **Cloud App Control**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Inline CASB** > **SaaS/Cloud App Policy**.
 2. In the left-side menu, select **Finance**, then click **Add Rule**. The **Finance** page appears.
 3. On the **Finance**page, you can configure the following sections:
   - Criteria
@@ -5264,13 +4964,48 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-health-care-rule-cloud-app-control","lastmod":"2026-09-16T23:29Z","nid":"1402146"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-groups","lastmod":"2026-10-01T14:51Z","nid":"1398831"} -->
+## Adding Groups
+
+- Source: https://help.zscaler.com/zia/adding-groups
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Groups > Adding Groups
+- Last modified: 2026-10-01T14:51Z
+- Summary: How to add a group for your users in the ZIA Admin Portal.
+
+[Watch a video about User Management, including how to add a group](https://fast.wistia.net/embed/iframe/65aszz5npz) (shows legacy UI).
+
+The Zscaler service provides a number of ways to provision [users](https://help.zscaler.com/zia/about-users), groups, and [departments](https://help.zscaler.com/zia/about-departments) as described in [About Provisioning and Authentication Methods](https://help.zscaler.com/zia/choosing-provisioning-and-authentication-methods). You can also add groups when you configure policies. This article describes how to add groups on the Groups page in the Zscaler Admin Console.
+
+You can use a [CSV file to add multiple groups](https://help.zscaler.com/zia/about-groups#import-multiple-groups) at once.
+
+To add a new group:
+
+1. Go to **Administration**>**Legacy Admin Management**>**Internet & SaaS Users**>**Groups**.
+2. Click **Add Group**.
+
+The **Add Group** window appears.
+
+1. In the **Add Group**window:
+  - **Name**: Enter a group name. The name can contain up to 128 characters.
+  - **Comments**: Optionally, enter additional notes or information. The content can't exceed 10,240 characters.
+
+A company can have up to 140K groups. A user can be associated with maximum 127 groups via API and the Zscaler Admin Console. However, when a user is created or updated via Directory Sync or SCIM, they can be associated with more than 127 groups.
+
+1. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+After creating the group, you can [add users](https://help.zscaler.com/zia/adding-users) to it.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/adding-health-care-rule-cloud-app-control","lastmod":"2026-09-29T04:40Z","nid":"1402146"} -->
 ## Adding a Health Care Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-health-care-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Health Care Rule for Cloud App Control
-- Last modified: 2026-09-16T23:29Z
+- Last modified: 2026-09-29T04:40Z
 - Summary: Information on how to add a rule for Health Care cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -5283,7 +5018,7 @@ When users browse these sites after their quota has been reached, the Zscaler se
 
 To add a rule for Health Care apps:
 
-1. Go to **Policies**> **Access Control** > **Internet & SaaS**> **Cloud App Control**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Inline CASB** > **SaaS/Cloud App Policy**.
 2. In the left-side menu, select **Health Care**, then click **Add Rule**. The **Health Care**page appears.
 3. On the **Health Care**page, you can configure the following sections:
   - Criteria
@@ -5425,13 +5160,13 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-hosting-providers-rule-cloud-app-control","lastmod":"2026-09-16T23:31Z","nid":"1400631"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-hosting-providers-rule-cloud-app-control","lastmod":"2026-09-29T04:43Z","nid":"1400631"} -->
 ## Adding a Hosting Providers Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-hosting-providers-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Hosting Providers Rule for Cloud App Control
-- Last modified: 2026-09-16T23:31Z
+- Last modified: 2026-09-29T04:43Z
 - Summary: How to add a rule for Hosting Provider cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -5444,7 +5179,7 @@ When users browse these sites after their quota has been reached, the Zscaler se
 
 To add a rule for Hosting Providers apps:
 
-1. Go to **Policies**> **Access Control**> **Internet & SaaS**>**Cloud App Control**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Inline CASB** > **SaaS/Cloud App Policy**.
 2. In the left-side menu, select **Hosting Providers**, then click **Add Rule**. The **Hosting Providers**page appears.
 3. On the **Hosting Providers**page, you can configure the following sections:
   - Criteria
@@ -6560,13 +6295,13 @@ To configure an HTTP NSS feed for web logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-human-resources-rule-cloud-app-control","lastmod":"2026-09-16T23:35Z","nid":"1401546"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-human-resources-rule-cloud-app-control","lastmod":"2026-09-29T04:46Z","nid":"1401546"} -->
 ## Adding a Human Resources Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-human-resources-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Human Resources Rule for Cloud App Control
-- Last modified: 2026-09-16T23:35Z
+- Last modified: 2026-09-29T04:46Z
 - Summary: Information on how to add a rule for Human Resources cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -6577,7 +6312,7 @@ The Human Resources category consists of applications that support the managemen
 
 To add a rule for Human Resources apps:
 
-1. Go to **Policies** > **Access Control** > **Internet & SaaS** > **Cloud App Control**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Inline CASB** > **SaaS/Cloud App Policy**.
 2. In the left-side menu, select **Human Resources**, then click **Add Rule**. The **Human Resources** page appears.
 3. On the **Human Resources**page, you can configure the following sections:
   - Criteria
@@ -6719,16 +6454,18 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-icap-receiver","lastmod":"2026-09-20T23:49Z","nid":"1401951"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-icap-receiver","lastmod":"2026-10-02T04:54Z","nid":"1401951"} -->
 ## Adding an ICAP Receiver
 
 - Source: https://help.zscaler.com/zia/adding-icap-receiver
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > ICAP Receivers > Adding an ICAP Receiver
-- Last modified: 2026-09-20T23:49Z
+- Last modified: 2026-10-02T04:54Z
 - Summary: Information on adding an ICAP receiver for the URL filtering policy in the Zscaler Admin Console.
 
 Zscaler's [ICAP Receiver](https://help.zscaler.com/zia/about-icap-receivers-url-filtering) feature allows you to forward the inbound and outbound traffic of all the sites of the selected URL categories in the URL Filtering policy rule to an ICAP receiver. It consists of adding ICAP receivers and associating them to a URL Filtering policy.
+
+ICAP Receiver works either with Private Service Edge or Virtual Service Edge and it's not enabled by default. To enable ICAP receiver for Private Service Edge or Virtual Service Edge, see [Enabling ICAP Receiver: Private Service Edge and Virtual Service Edge for Internet & SaaS](https://help.zscaler.com/zia/enabling-icap-receiver-private-service-edge-virtual-service-edge-internet-saas).
 
 To add an ICAP receiver:
 
@@ -6862,13 +6599,13 @@ The **Add Index Tool Configuration** window appears.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-instant-messaging-rule-cloud-app-control","lastmod":"2026-09-16T23:37Z","nid":"1400156"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-instant-messaging-rule-cloud-app-control","lastmod":"2026-09-29T04:48Z","nid":"1400156"} -->
 ## Adding an Instant Messaging Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-instant-messaging-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding an Instant Messaging Rule for Cloud App Control
-- Last modified: 2026-09-16T23:37Z
+- Last modified: 2026-09-29T04:48Z
 - Summary: Information on how to add a rule for Instant Messaging cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -6885,7 +6622,7 @@ You can completely block or selectively disable IM applications. Client-based IM
 
 To add a rule for Instant Messaging apps:
 
-1. Go to **Policies** > **Access Control** > **Internet & SaaS** > **Cloud App Control**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Inline CASB** > **SaaS/Cloud App Policy**.
 2. In the left-side menu, select **Instant Messaging**, then click **Add Rule**. The **Instant Messaging** page appears.
 3. On the **Instant Messaging**page, you can configure the following sections:
   - Criteria
@@ -7062,13 +6799,13 @@ To add an IP pool:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-it-services-rule-cloud-app-control","lastmod":"2026-09-16T23:39Z","nid":"1400636"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-it-services-rule-cloud-app-control","lastmod":"2026-09-29T04:51Z","nid":"1400636"} -->
 ## Adding an IT Services Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-it-services-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding an IT Services Rule for Cloud App Control
-- Last modified: 2026-09-16T23:39Z
+- Last modified: 2026-09-29T04:51Z
 - Summary: Information on how to add a rule for IT Services cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -7081,7 +6818,7 @@ When users browse these sites after their quota has been reached, the Zscaler se
 
 To add a rule for IT Services apps:
 
-1. Go to **Policies** > **Access Control** > **Internet & SaaS** > **Cloud App Control**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Inline CASB** > **SaaS/Cloud App Policy**.
 2. In the left-side menu, select **IT Services**, then Click **Add Rule**. The **IT Services** page appears.
 3. On the **IT Services**page, you can configure the following sections:
   - Criteria
@@ -7229,13 +6966,13 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-legal-rule-cloud-app-control","lastmod":"2026-09-16T23:40Z","nid":"1402151"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-legal-rule-cloud-app-control","lastmod":"2026-09-29T04:53Z","nid":"1402151"} -->
 ## Adding a Legal Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-legal-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Legal Rule for Cloud App Control
-- Last modified: 2026-09-16T23:40Z
+- Last modified: 2026-09-29T04:53Z
 - Summary: Information on how to add a rule for Legal cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -7248,7 +6985,7 @@ When users browse these sites after their quota has been reached, the Zscaler se
 
 To add a rule for Legal apps:
 
-1. Go to **Policies**> **Access Control**> **Internet & SaaS** > **Cloud App Control**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Inline CASB** > **SaaS/Cloud App Policy**.
 2. In the left-side menu, select **Legal**, then click **Add Rule**.
 3. The **Legal** page appears.
 4. On the **Legal**page, you can configure the following sections:
@@ -7830,13 +7567,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-productivity-crm-tools-rule-cloud-app-control","lastmod":"2026-09-16T23:42Z","nid":"1400151"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-productivity-crm-tools-rule-cloud-app-control","lastmod":"2026-09-29T04:57Z","nid":"1400151"} -->
 ## Adding a Productivity & CRM Tools Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-productivity-crm-tools-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Productivity & CRM Tools Rule for Cloud App Control
-- Last modified: 2026-09-16T23:42Z
+- Last modified: 2026-09-29T04:57Z
 - Summary: Information on how to add a rule for Productivity and CRM cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -7849,7 +7586,7 @@ When users browse these sites after their quota has been reached, the Zscaler se
 
 To add a rule for Productivity & CRM Tools apps:
 
-1. Go to **Policy** > **Access Control** > **Internet & SaaS** > **Cloud App Control**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Inline CASB** > **SaaS/Cloud App Policy**.
 2. In the left-side menu, select **Productivity & CRM Tools**, then click **Add Rule**. The **Productivity & CRM Tools** page appears.
 3. On the **Productivity & CRM Tools**page, you can configure the following sections:
   - Criteria
@@ -8021,13 +7758,13 @@ To add recipient profiles:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-resource-tags","lastmod":"2026-09-16T12:43Z","nid":"1541431"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-resource-tags","lastmod":"2026-09-30T21:06Z","nid":"1541431"} -->
 ## Adding Resource Tags
 
 - Source: https://help.zscaler.com/zia/adding-resource-tags
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Context > Adding Resource Tags
-- Last modified: 2026-09-16T12:43Z
+- Last modified: 2026-09-30T21:06Z
 - Summary: Information on how to add DLP and endpoint resource tags to use in Endpoint Data Loss Prevention (DLP) policy rules and for Endpoint Context.
 
 Grouping [DLP & Endpoint resources](https://help.zscaler.com/zia/about-endpoint-dlp-resources) allows you to apply Endpoint Data Loss Prevention (DLP) policy rules to multiple resources at the same time. Additionally, you can use tags to build custom application lists for [Endpoint Context](https://help.zscaler.com/zia/about-endpoint-context). After you create a resource tag group, you add that group to the [Endpoint DLP policy rules that you configure](https://help.zscaler.com/zia/configuring-endpoint-dlp-policy-rules). For example, suppose that you work at a company with corporate headquarters in the United States, but you want to apply a country-specific set of endpoint policy rules to the network printers in your Canadian branch office. In that case, you can create a DLP resource group that includes all network printers in the branch office, and then you apply the policy rules to the resource group you created.
@@ -8200,22 +7937,22 @@ On the **Applications** (Policies > Data Protection > Endpoint DLP Resources > A
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-restore-points-manually","lastmod":"2026-08-28T11:19Z","nid":"1398976"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-restore-points-manually","lastmod":"2026-09-30T00:26Z","nid":"1398976"} -->
 ## Adding Restore Points Manually
 
 - Source: https://help.zscaler.com/zia/adding-restore-points-manually
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Backup & Restore > Adding Restore Points Manually
-- Last modified: 2026-08-28T11:19Z
-- Summary: Information on how to back up and restore a set of policies and configuration settings for the Zscaler service.
+- Last modified: 2026-09-30T00:26Z
+- Summary: Information on how to back up and restore a set of policies and configuration settings in the Zscaler Admin Console.
 
 [Watch a video about Backup & Restore including adding Restore Points manually.](https://fast.wistia.net/embed/iframe/t0q87g3oly)
 
-You can back up and restore a set of policies and configuration settings, and save up to 12 restore points. To learn more, see [About Backup and Restore](https://help.zscaler.com/zia/about-backup-and-restore).
+You can back up and restore a set of policies and configuration settings, and save up to 12 restore points. If the number of restore points reaches a limit of 12, you cannot add a new restore point manually without deleting an existing one. To learn more, see [About Backup and Restore](https://help.zscaler.com/zia/about-backup-and-restore).
 
 To add a restore point:
 
-1. Go to **Administration**> **Backup & Restore**>**Internet & SaaS Applications**.
+1. Go to **Administration**> **Backup & Restore**>**Internet & SaaS**.
 2. Click **Add Restore Point**.
 
 The **Add Restore Point** window appears.
@@ -8223,15 +7960,15 @@ The **Add Restore Point** window appears.
 1. In the **Add Restore Point** window:
 
 - **Restore Point Name**:Enter a name to identify the restore point.
-- **Golden Restore Point**: Enable this option if you want to set the restore point as the golden restore point.
+- **Golden Restore Point**: Enable this option if you want to set the restore point as the Golden Restore Point.
 
 There can be only one golden restore point at any given point in time, and you cannot delete it.
 
 - **Description**:(Optional) Enter additional notes or information.
 
-1. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+1. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console). See image.
 
-If the number of restore points reaches a limit of 12, you cannot add a new restore point manually without deleting an existing one.
+[Image: Adding a restore point]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -8267,13 +8004,13 @@ To add a root certificate for proxy chaining:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-rule-label","lastmod":"2026-09-16T07:56Z","nid":"1402206"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-rule-label","lastmod":"2026-10-01T12:01Z","nid":"1402206"} -->
 ## Adding a Rule Label
 
 - Source: https://help.zscaler.com/zia/adding-rule-label
 - Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Adding a Rule Label
-- Last modified: 2026-09-16T07:56Z
+- Path: Internet & SaaS (ZIA) Help > Policies > Rule Labels > Adding a Rule Label
+- Last modified: 2026-10-01T12:01Z
 - Summary: Information on how to add a rule label in the Zscaler Admin Console.
 
 Zscaler's rule label feature allows you to logically group all your organization's policies. The feature consists of two parts: creating rule labels and associating the labels with all the policy rules.
@@ -8299,13 +8036,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-rules-bandwidth-control-policy","lastmod":"2026-09-15T09:18Z","nid":"1399881"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-rules-bandwidth-control-policy","lastmod":"2026-09-28T08:22Z","nid":"1399881"} -->
 ## Adding Rules to the Bandwidth Control Policy
 
 - Source: https://help.zscaler.com/zia/adding-rules-bandwidth-control-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Bandwidth Control & Classes > Adding Rules to the Bandwidth Control Policy
-- Last modified: 2026-09-15T09:18Z
+- Last modified: 2026-09-28T08:22Z
 - Summary: Information on how to add rules to the Bandwidth Control policy in the Zscaler Admin Console.
 
 [Watch a video about Bandwidth Control](https://fast.wistia.net/embed/iframe/z9h2f81rrs) (shows legacy UI).
@@ -8335,7 +8072,7 @@ Before adding rules to the Bandwidth Control policy, ensure that you have config
 
 To add a Bandwidth Control policy rule:
 
-1. Go to **Internet & SaaS** > **Policy** > **Bandwidth Control**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Policy** > **Bandwidth Control**.
 2. Click **Add Rule**. The **Add Rule** page appears. See Image.
 3. On the **Add Rule** page, you can configure the following sections:
   - Criteria
@@ -8424,13 +8161,13 @@ To learn how this policy fits into the overall order of policy enforcement, see 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-rules-cloud-app-control-policy","lastmod":"2026-09-16T23:11Z","nid":"1399401"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-rules-cloud-app-control-policy","lastmod":"2026-09-29T00:34Z","nid":"1399401"} -->
 ## Adding Rules to the Cloud App Control Policy
 
 - Source: https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding Rules to the Cloud App Control Policy
-- Last modified: 2026-09-16T23:11Z
+- Last modified: 2026-09-29T00:34Z
 - Summary: How to create rules to control access to specific cloud applications.
 
 [Click to watch a video about Cloud App Control Policy, including how to add rules to the Cloud App Control policy](https://fast.wistia.net/embed/iframe/0bvxqh6pko) (shows legacy UI).
@@ -8449,7 +8186,7 @@ The Cloud App Control policy supports different rule conditions, grouped into ca
 
 ## Adding a Cloud App Control Rule
 
-To add a rule, you can go to **Policies**>**Access Control**> **Internet & SaaS**> **Cloud App Control** and choose a category.
+To add a rule, you can go to **Data Security**>**Inline CASB**> **SaaS/Cloud App Policy** and choose a category.
 
 See image.
 
@@ -8486,13 +8223,13 @@ For information on the order in which the service enforces all policies, includi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-saas-application-tenants","lastmod":"2026-09-25T07:37Z","nid":"1401256"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-saas-application-tenants","lastmod":"2026-10-01T01:55Z","nid":"1401256"} -->
 ## Adding SaaS Application Tenants
 
 - Source: https://help.zscaler.com/zia/adding-saas-application-tenants
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > Adding SaaS Application Tenants
-- Last modified: 2026-09-25T07:37Z
+- Last modified: 2026-10-01T01:55Z
 - Summary: How to add a SaaS application tenant for Data at Rest Scanning.
 
 [Watch a video about SaaS Application Tenants](https://fast.wistia.net/embed/iframe/net3zjd13m) (shows legacy UI).
@@ -10285,33 +10022,36 @@ To add ServiceNow as a SaaS application tenant:
 
 Zscaler and Slack are technology partners. To learn more about the Zscaler and Slack integration, see the [Zscaler and Slack Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-slack-deployment-guide).
 
+- Zscaler defined
+- Custom
+
 To configure Slack:
 
-1. Under **Enter the Slack Admin Email ID**, enter your admin email ID used to log in to the Slack portal.
+1. Under **Authorize the SaaS Application**, configure the following:
+  1. **SaaS Connector**: Choose **Zscaler Defined**. See image. For SSPM Scan and Workflow Automation, this option is by default set to **Zscaler Defined**.
+  2. **Slack Admin Email ID**: Enter your admin email ID used to log in to your Slack account.
+  3. Click **Provide Admin Credentials**. See image. The Slack portal appears.
+2. Log in to Slack.
+3. Review the required permissions for the Zscaler service to access Slack, and click **Allow**.
+4. Under **Authorize Access to a Slack Bot**, click **Create a Bot**. See image.
+5. Review the required permissions for the Zscaler service to send notifications to users through the custom Slack bot, and click **Allow**. See image.
 
-See image.
+To create a custom Slack connector, you must first configure permissions in Slack. This authorizes your Slack account within the Zscaler Admin Console, allowing the Zscaler service to securely access the application. To learn more, see [Authorizing a Custom Zscaler Connector for Slack](https://help.zscaler.com/tech-pubs-drafts/authorizing-custom-zscaler-connector-slack-draft-doc-65006).
 
-1. Under **Authorize the SaaS Application**, click **Provide Admin Credentials**.
-
-See image.
-
-The Slack portal appears.
-
-1. Log in to Slack.
-2. Review the required permissions for the Zscaler service to access Slack, and click **Allow**.
-3. In the Zscaler Admin Console, under **Authorize Access to a Slack Bot**, click **Provide Admin Credentials**.
-
-See image.
-
-The Slack portal appears.
-
-1. Review the required permissions for the Zscaler service to send notifications to users through a custom Slack bot, and click **Allow**.
+- Some necessary scopes (like discovery scopes) require the Slack team's approval, which can take 3–5 business days. Zscaler recommends securing these approvals before configuring your custom Slack connector. Refer to the [Slack documentation](https://slack.com/intl/en-gb/help/articles/360002079527-A-guide-to-Slack%E2%80%99s-Discovery-APIs) to raise a support request.
+- Slack custom connector is only available for DLP and Malware scanning.
 
 [Image: The Slack Admin Email ID field in the Enter the Slack Admin Email ID section.]
+
+[Image: Option to choose a connector for DLP and Malware Scan]
 
 [Image: The Provide Admin Credentials button in the Authorize the SaaS Application section.]
 
 [Image: The Provide Admin Credentials button in the Authorize Access to a Slack Bot section.]
+
+[Image: Authorize Access to a Slack Bot]
+
+[Image: Review bot permissions in Slack]
 
 To configure Smartsheet:
 
@@ -10792,13 +10532,13 @@ The following list includes details and limitations of the Zoom DLP and Malware 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-sales-marketing-rule-cloud-app-control","lastmod":"2026-09-16T23:43Z","nid":"1400161"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-sales-marketing-rule-cloud-app-control","lastmod":"2026-09-29T05:00Z","nid":"1400161"} -->
 ## Adding a Sales & Marketing Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-sales-marketing-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Sales & Marketing Rule for Cloud App Control
-- Last modified: 2026-09-16T23:43Z
+- Last modified: 2026-09-29T05:00Z
 - Summary: Information on how to add a rule for Sales and Marketing cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -10811,7 +10551,7 @@ When users browse to these sites after their quota has been reached, the Zscaler
 
 To add a rule for Sales & Marketing apps:
 
-1. Go to **Policies** > **Access Control**>**Internet & SaaS** > **Cloud App Control**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Inline CASB** > **SaaS/Cloud App Policy**.
 2. In the left-side menu, select **Sales and Marketing**, then click **Add Rule**. The **Sales and Marketing** page appears.
 3. On the **Sales and Marketing**page, you can configure the following sections:
   - Criteria
@@ -10953,18 +10693,18 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-sd-wan-partner-api-clients","lastmod":"2026-09-10T21:06Z","nid":"1400626"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-sd-wan-partner-api-clients","lastmod":"2026-09-29T14:22Z","nid":"1400626"} -->
 ## Adding SD-WAN Partner API Clients
 
 - Source: https://help.zscaler.com/zia/adding-sd-wan-partner-api-clients
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Administrators > Adding SD-WAN Partner API Clients
-- Last modified: 2026-09-10T21:06Z
+- Last modified: 2026-09-29T14:22Z
 - Summary: How to add and remove SD-WAN partner API clients for the Zscaler service.
 
 To add an SD-WAN partner API client:
 
-1. Go to **Administration**>**Admin Management**>**Administrator Management**>**Internet Access Administrators**.
+1. Go to **Administration**>**Legacy Admin Management**>**Internet & SaaS**>**Administrators**.
 2. On the **Administrators** tab, click **Add SD-WAN Partner API Client**: The **Add SD-WAN Partner API Client** window appears.
 3. In the **Add SD-WAN Partner API Client** window: See image.
   - **Login ID**: Enter the login ID the SD-WAN partner API client uses to log in, and select the appropriate domain name. The domain names you provided to Zscaler appear in the drop-down menu.
@@ -10984,13 +10724,13 @@ You can [edit](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-it
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-sd-wan-partner-api-roles","lastmod":"2026-08-28T19:55Z","nid":"1400621"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-sd-wan-partner-api-roles","lastmod":"2026-09-30T13:05Z","nid":"1400621"} -->
 ## Adding SD-WAN Partner API Roles
 
 - Source: https://help.zscaler.com/zia/adding-sd-wan-partner-api-roles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role Management > Adding SD-WAN Partner API Roles
-- Last modified: 2026-08-28T19:55Z
+- Last modified: 2026-09-30T13:05Z
 - Summary: How to add and remove SD-WAN partner API roles for the Zscaler service.
 
 [Watch a video about SD-WAN Partner API Roles.](https://fast.wistia.net/embed/iframe/a5gc2g3evl) (shows legacy UI).
@@ -11013,7 +10753,7 @@ An SD-WAN partner API is not the same as a System Integration partner.
 
 To add an SD-WAN partner API role:
 
-1. Go to **Administration**>**Admin Management**>**Role Based Access Control**>**Internet & SaaS**.
+1. Go to **Administration**>**Role Management**>**Internet & SaaS**.
 2. Click **Add SD-WAN Partner API Role**.
 3. In the **Add SD-WAN Partner API Role** window: See image.
   - **Name**: Enter a name for the SD-WAN partner API role.
@@ -11032,13 +10772,13 @@ To add an SD-WAN partner API role:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-social-networking-rule-cloud-app-control","lastmod":"2026-09-16T23:45Z","nid":"1400166"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-social-networking-rule-cloud-app-control","lastmod":"2026-09-29T05:02Z","nid":"1400166"} -->
 ## Adding a Social Networking Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-social-networking-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Social Networking Rule for Cloud App Control
-- Last modified: 2026-09-16T23:45Z
+- Last modified: 2026-09-29T05:02Z
 - Summary: How to add a rule for Social Networking cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -11057,7 +10797,7 @@ You can configure rules to control access to the most popular social networking 
 
 To add a rule for Social Networking apps:
 
-1. Go to **Policy**>**Access Control**> **Internet & SaaS** >**Cloud App Control**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Inline CASB** > **SaaS/Cloud App Policy**.
 2. In the left-side menu, select **Social Networking**, then click **Add Rule**. The **Social Networking**page appears.
 3. On the **Social Networking**page, you can configure the following sections:
   - Criteria
@@ -11209,13 +10949,13 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-streaming-media-rule-cloud-app-control","lastmod":"2026-09-16T23:46Z","nid":"1400171"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-streaming-media-rule-cloud-app-control","lastmod":"2026-09-29T05:04Z","nid":"1400171"} -->
 ## Adding a Streaming Media Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-streaming-media-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Streaming Media Rule for Cloud App Control
-- Last modified: 2026-09-16T23:46Z
+- Last modified: 2026-09-29T05:04Z
 - Summary: Information on how to add a rule for Streaming Media cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -11230,7 +10970,7 @@ You can create different YouTube for Schools rules for different schools or loca
 
 To add a rule for Streaming Media apps:
 
-1. Go to **Policies** > **Access Control** > **Internet & SaaS** > **Cloud App Control**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Inline CASB** > **SaaS/Cloud App Policy**.
 2. In the left-side menu, select **Streaming Media**, then click **Add Rule**. The **Streaming Media** page appears.
 3. On the **Streaming Media**page, you can configure the following sections:
   - Criteria
@@ -11378,13 +11118,13 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-system-development-rule-cloud-app-control","lastmod":"2026-09-16T23:47Z","nid":"1400176"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-system-development-rule-cloud-app-control","lastmod":"2026-09-29T05:06Z","nid":"1400176"} -->
 ## Adding a System & Development Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-system-development-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a System & Development Rule for Cloud App Control
-- Last modified: 2026-09-16T23:47Z
+- Last modified: 2026-09-29T05:06Z
 - Summary: Information on how to add a rule for System and Development cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -11395,7 +11135,7 @@ System and development rules aid in managing the system and development applicat
 
 To add a rule for System & Development apps:
 
-1. Go to **Policies** > **Access Control**> **Internet & SaaS** >**Cloud App Control**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Inline CASB** > **SaaS/Cloud App Policy**.
 2. In the left-side menu, select **System & Development**, then click **Add Rule**. The **System & Development** page appears.
 3. On the **System & Development** page, enter the rule attributes:
   - Criteria
@@ -12336,4 +12076,102 @@ To configure a TCP NSS feed for SaaS Security logs:
 
 - **SaaS Application**: Filter logs based on the specific sanctioned SaaS application. You can specify multiple applications.
 - **SaaS Application Tenant**: Filter logs based on the specific SaaS application tenant. You can specify multiple tenants.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-sandbox-verdict-logs","lastmod":"2026-06-23T06:55Z","nid":"1520331"} -->
+## Adding TCP NSS Feeds for Sandbox Verdict Logs
+
+- Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-sandbox-verdict-logs
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Sandbox Verdict Logs
+- Last modified: 2026-06-23T06:55Z
+- Summary: How to add TCP NSS feeds for Sandbox verdict logs in the Zscaler Admin Console.
+
+You can configure up to 8 TCP Nanolog Streaming Service (NSS) feeds to specify the data from the Sandbox verdict logs that the NSS sends to the security information and event management (SIEM) system.
+
+A large number of filters or complex filters, such as string searches, can impact the NSS performance. Before you start configuring a feed for Sandbox verdict logs, consider the [guidelines for configuring feeds](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats).
+
+To configure a TCP NSS feed for Sandbox verdict logs:
+
+1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+2. On the **NSS Feeds** tab, click **Add TCP NSS Feed**. The **Add TCP NSS Feed** window appears.
+3. In the**Add TCP NSS Feed** window:
+  - **Feed Name:**Enter the name of the feed. Each feed is a connection between the NSS and your SIEM.
+  - **NSS Type**: **NSS for Web** is selected by default.
+  - **NSS Server**:Select an NSS server from the list. A [configured NSS server](https://help.zscaler.com/zia/adding-nss-servers) is required to add an NSS feed.
+  - **Status:**The NSS feed is **Enabled** by default. Select **Disabled** if you want to activate it at a later time.
+  - **SIEM Destination Type**: Select the type of destination.
+    - **SIEM IP Address**:Appears when**IP Address**is selected as the destination type.Enter the IP address of the SIEM to which the logs are streamed.
+    - **SIEM FQDN**: Appears when**FQDN**is selected as the destination type. Enter the destination for the TCP connection to which the logs are streamed. This allows failover from one IP to the other without manual intervention, but rather relying on updating the DNS entry. NSS re-resolves the FQDN only when the existing connection goes down. This feature cannot be used for DNS-based load balancing.
+  - **SIEM TCP Port**: Enter the port number of the SIEM to which the logs are streamed. Ensure that the SIEM is configured to accept the feed from the NSS.
+  - **SIEM Rate**: Leave as **Unlimited**, unless you need to throttle the output stream due to SIEM licensing or other constraints.
+    - **SIEM Rate Limit (Events per Second)**: Enter an appropriate rate limit for the events per second that you want to be streamed to your SIEM. A limit that is too low for the traffic volume causes log loss. This field is available only if you select **Limited** in the **SIEM Rate**field.
+  - **Log Type**:Select **Sandbox Verdict**.
+  - **Feed Output Type**:The output is a comma-separated (**CSV**) list by default. Select **Tab-separated**to create a tab-separated list. Select **Custom**to use a different delimiter, such as a dash, and enter the delimiter when you specify the **Feed Output Format**.
+  - **Feed Escape Character**: The Zscaler service hex encodes all non-printable ASCII characters that are in URLs when it sends logs to the NSS. Any URL character that is less than 0x21, or above 0x7E, is encoded as `%HH`. This ensures that your SIEM is able to parse the URLs in case they contain non-printable characters. For example, a `\n` char in a URL is encoded as `%0A`, and a space is encoded as `%20`. In this field, you can specify additional characters that you want to encode. For example, enter a comma (`,`) to encode it as `%2C`. This is useful if you are using this character as your delimiter and want to ensure it does not cause erroneous delimitation. Note that the service encodes characters in URLs, hostnames, and referrer URLs only. If custom encoding is done for a record, the `%s{eedone}` field is `YES` for that record.
+  - **Feed Output Format**:These are the fields that display in the output. You can edit the default list and if you select **Custom**as the **Feed Output Type**, change the delimiter as well. To learn more about the available fields and their syntax, see [NSS Feed Output Format: Sandbox Verdict Logs](https://help.zscaler.com/zia/nss-feed-output-format-sandbox-verdict-logs).
+  - **Time Zone**:By default, this is set to the organization's time zone. The time zone you set applies to the time field in the output file. The time zone automatically adjusts to changes in daylight saving in the specific time zone. The configured time zone can be output to the logs as a separate field. The list of time zones is derived from the IANA Time Zone database. Direct GMT offsets can also be specified.
+  - **Duplicate Logs**: To ensure that no logs are skipped during downtime, specify the number of minutes that the NSS sends duplicate logs. Zscaler recommends setting the number to 5 minutes, or more if required. This allows the NSS to send up to 60 minutes (one hour) of logs to the SIEM after the connection is restored. To learn more, see [General Guidelines for NSS Feeds and Feed Formats](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats#duplicate-logs-example).
+4. Define the filters:
+  - Security
+  - File Type
+  - Sandbox Verdict
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+- **Threat Names**: Use this filter to limit the logs based on specific threats detected in the transaction. You can enter multiple threat names. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
+
+- **Download File Type**: Use this filter to limit the logs based on the type of file downloaded in the transaction. Multiple selections are allowed. This filter currently includes file types that are not eligible for Sandbox analysis. No log data is available for these file types, if selected. For a list of eligible file types, see [About Sandbox](https://help.zscaler.com/zia/about-sandbox#SandboxFileTypes).
+- **MD5**: Use this filter to limit the logs based on the MD5 hash of a file. You can enter multiple hashes. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
+- **SHA**: Use this filter to limit the logs based on the SHA-256 hash of a file. You can enter multiple hashes. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
+
+- **Sandbox Verdicts**: Use this filter to limit the logs based on the verdict of the Sandbox analysis. This filter includes verdicts related to [Sandbox](https://help.zscaler.com/zia/configuring-sandbox-policy) (e.g., Sandbox Adware), [Advanced Threat Protection](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy) (e.g., Suspicious Content), and [Malware Protection](https://help.zscaler.com/zia/configuring-malware-protection-policy) (e.g., Trojan) policies. Optionally, select **Benign** to limit the logs to non-malicious verdicts. Multiple selections are allowed.
+- **Tactic**: Use this filter to limit the logs based on the MITRE ATT&CK tactic (e.g., TAC028). You can enter multiple tactics. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears. If you do not specify tactics in this filter, verdicts associated with any possible MITRE ATT&CK tactic are displayed.
+- **Technique**: Use this filter to limit the logs based on the MITRE ATT&CK technique (e.g., T1005). You can enter multiple techniques. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears. If you do not specify techniques in this filter, verdicts associated with any possible MITRE ATT&CK technique are displayed.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-scim-logs","lastmod":"2026-06-23T07:00Z","nid":"1534220"} -->
+## Adding TCP NSS Feeds for SCIM Logs
+
+- Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-scim-logs
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for SCIM Logs
+- Last modified: 2026-06-23T07:00Z
+- Summary: How to add TCP NSS feeds for SCIM logs in the Zscaler Admin Console.
+
+The initial SCIM Nanolog Streaming Service (NSS) feed takes up to 5 hours to stream to the NSS and your security information and event management (SIEM) system. However, this delay does not occur if you have already configured and are streaming [Audit Logs](https://help.zscaler.com/zia/adding-nss-feeds-admin-audit-logs).
+
+You can configure up to 8 TCP Nanolog Streaming Service (NSS) feeds that define the SCIM logs that the NSS sends to the security information and event management (SIEM) system. You can also configure multiple types of filters. Many filters or complex filters, such as string searches, can impact the performance of the NSS.
+
+Ensure that you enable appropriate role permissions for Log Streaming in the Authentication Service.
+
+Before you start configuring a feed for SCIM logs, consider the [guidelines for configuring feeds](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats).
+
+To configure a TCP NSS feed for SCIM logs:
+
+1. Go to **Logs**>**Logs Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+2. On the **NSS Feeds** tab, click **Add TCP NSS Feed**. The **Add TCP NSS Feed** window appears.
+3. In the**Add TCP NSS Feed** window: See image.
+  - **Feed Name:**Enter or edit the name of the feed. Each feed is a connection between the NSS and your SIEM system.
+  - **NSS Type**: **NSS for Web** is selected by default.
+  - **NSS Server**: Select an NSS server from the list. A [configured NSS server](https://help.zscaler.com/zia/adding-nss-servers) is required to add an NSS feed.
+  - **Status:**The NSS feed is **Enabled** by default. Choose **Disabled** if you want to activate it at a later time.
+  - **SIEM Destination Type**: Select the type of destination:
+    - **SIEM IP Address**:Enter the IP address of the SIEM system to which the logs are streamed.
+    - **SIEM FQDN**: Enter the destination for the TCP connection to which the logs are streamed. This allows failover from one IP to the other without manual intervention, but rather relying on updating the DNS entry. The NSS re-resolves the FQDN only when the existing connection goes down. This feature cannot be used for DNS-based load balancing.
+  - **SIEM TCP Port**: Enter the port number of the SIEM system to which the logs are streamed. Ensure that the SIEM system is configured to accept the feed from the NSS.
+  - **SIEM Rate**: Leave as **Unlimited**, unless you need to throttle the output stream due to licensing or other constraints.
+    - **SIEM Rate Limit (Events per Second)**: This is only applicable if you selected **Limited** under SIEM Rate. Enter an appropriate rate limit for the events per second that you want streamed to your SIEM system. This number must be between 100 and 1,000,000. A limit that is too low for the traffic volume causes log loss.
+  - **Log Type**:Choose **SCIM**.
+  - **Feed Output Type**:The output is a comma-separated (**CSV**) list by default. Choose **Tab-separated**to create a tab-separated list. Choose **Custom**to use a different delimiter, such as a dash, and enter the delimiter when you specify the feed output format. This menu also lists feed output types for specific SIEM systems.
+  - **Feed Escape Character**: The Zscaler service hex encodes all non-printable ASCII characters that are in URLs when it sends logs to the NSS. Any URL character that is less than 0x21, or above 0x7E, is encoded as `%HH`. This ensures that your SIEM system is able to parse the URLs in case they contain non-printable characters. For example, a `\n` char in a URL is encoded as `%0A`, and a space is encoded as `%20`. In this field, you can specify additional characters that you want to encode. For example, type a comma (,) to encode it as `%2C`. This is useful if you are using this character as your delimiter and want to ensure it does not cause erroneous delimitation. Note that the service encodes characters in URLs, hostnames, and referrer URLs only. If custom encoding was done for a record, the `%s{eedone}` field is `YES` for that record.
+  - **Feed Output Format**:These are the fields that are displayed in the output. You can edit the default list and if you chose **Custom**as the **Feed Output Type**, change the delimiter as well. To learn more about the available fields and their syntax, see [NSS Feed Output Format: SCIM Logs](https://help.zscaler.com/zia/nss-feed-output-format-zidentity-authentication-logs).
+  - **Time Zone**:By default, this is set to the organization's time zone. The time zone you set applies to the time field in the output file. The time zone automatically adjusts to changes in daylight savings in the specific time zone. The configured time zone can be output to the logs as a separate field. The list of time zones is derived from the IANA Time Zone database. Direct GMT offsets can also be specified.
+  - **Duplicate Logs**: To ensure that no logs are skipped during downtime, specify the number of minutes that the NSS sends duplicate logs. Zscaler recommends setting the number to 5 minutes, or more if required. This allows the NSS to send up to 60 minutes (one hour) of logs to the SIEM system after the connection is restored. To learn more, see [General Guidelines for NSS Feeds and Feed Formats](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats#duplicate-logs-example).
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+[Image: The NSS configurations for SCIM logs in the Add TCP NSS Feed window]
 <!-- /ZS-ARTICLE -->

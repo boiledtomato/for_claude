@@ -1,7 +1,7 @@
 # Zscaler Help — AI Security (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-28 09:01 UTC
+Generated: 2026-10-05 09:38 UTC
 Articles in this file: 88
 
 ---
@@ -909,30 +909,38 @@ The AI Guard API Reference Guide contains API resources for the following catego
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/ai-guard-audit-log","lastmod":"2026-07-23T12:08Z","nid":"1541875"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/ai-guard-audit-log","lastmod":"2026-10-02T12:33Z","nid":"1541875"} -->
 ## AI Guard Audit Log
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/ai-guard-audit-log
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Monitoring > AI Guard Audit Log
-- Last modified: 2026-07-23T12:08Z
-- Summary: Learn how to view the AI Guard Audit Log.
+- Last modified: 2026-10-02T12:33Z
+- Summary: Learn how to view the AI Guard Audit Log. View, Export, and Revert changes made by users in AI Guard.
 
-The Audit Log page tracks any changes users made inside AI Guard. This can range from anything from updating a policy control to signing in.
+The Audit Log page tracks any changes users make inside AI Guard. This can range from anything from updating a policy control to signing in.
 
 To view the AI Guard Audit Log page:
 
 1. Go to **AI Security Admin Portal** > **AI Guard** > **Audit Log**. See image.
 2. The Audit Log page allows you to view the following information:
-  1. **Timestamp**: The date and time that an action was logged.
-  2. **Initiator**: The email address of the user that triggered the action.
-  3. **Action**: The action performed, such as: Update, View, or Create.
-  4. **Entity Type**: More granular detail about the action. For example, an Action of Update may have an Entity Type of Policy Control, meaning that the user made an update to a policy control.
+  1. **Date Range**: Select the date range you want to see the logs for.
+  2. **Refresh**: Update the audit log.
+  3. **Export CSV**: Download a CSV file of the filtered audit log.
+  4. **Timestamp**: The date and time that an action was logged.
+  5. **Initiator**: The email address of the user that triggered the action.
+    1. Click the **Search** button in the header to search for a specific initiator.
+  6. **Action**: The action performed, such as: Update, View, or Create.
+    1. Click the **Filter** button in the header to select which actions you want to see.
+  7. **Entity Type**: More granular detail about the action. For example, an Action of Update may have an Entity Type of Policy Control, meaning that the user made an update to a policy control.
+    1. Click the **Filter** button in the header to select which entity types you want to see.
 3. For more information about the logged event, in the **Details** column, click the **View Request Details** button. See image.
 4. The **Actions Details** window shows the following information:
   1. **Initiator**, **Action**, and **Entity Type**: The same information from the main Audit Log page.
   2. **Entity ID**: The ID number associated with the action.
-  3. **Payload**: The code payload of the action.
+  3. **Changes**: A field-by-field table that shows any changes from a specific log. Nested fields are a single level deep, anything further is shown as an object or array placeholder. Only relevant changes are shown, noise (such as `id` or `lastUpdatedAt` fields) that are empty of changes are hidden.
+  4. **Advanced**: View the full JSON code changes.
+  5. **Revert**: This undoes Create, Update, or Delete on all supported detectors. It will ask for confirmation before reverting the changes.
 
 [Image: AI Guard Audit Log page]
 
@@ -3648,13 +3656,13 @@ To register a Red Teaming broker, do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/release-upgrade-summary-2026","lastmod":"2026-09-15T13:29Z","nid":"1539124"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/release-upgrade-summary-2026","lastmod":"2026-10-02T16:53Z","nid":"1539124"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/release-upgrade-summary-2026
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-15T13:29Z
+- Last modified: 2026-10-02T16:53Z
 - Summary: Secure AI Apps & Infrastructure Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Secure AI Apps & Infrastructure.
@@ -4391,13 +4399,13 @@ accept: application/json
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/troubleshooting-ai-red-teaming-broker-issues","lastmod":"2026-08-10T19:19Z","nid":"1541957"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/troubleshooting-ai-red-teaming-broker-issues","lastmod":"2026-10-01T07:06Z","nid":"1541957"} -->
 ## Troubleshooting AI Red Teaming Broker Issues
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/troubleshooting-ai-red-teaming-broker-issues
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > AI Red Teaming > Brokers > Troubleshooting AI Red Teaming Broker Issues
-- Last modified: 2026-08-10T19:19Z
+- Last modified: 2026-10-01T07:06Z
 - Summary: This Zscaler runbook outlines troubleshooting steps for AI Red Teaming Brokers.
 
 The AI Security Red Teaming Broker is a lightweight agent that you deploy inside your network to enable Red Teaming to reach private AI applications without opening inbound firewall ports. Use this article to diagnose and resolve common broker connectivity, authentication, and routing issues.
@@ -5137,33 +5145,38 @@ The AI Guard API Reference Guide contains API resources for the following catego
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/ai-guard-audit-log","lastmod":"2026-07-21T13:16Z","nid":"1541874"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/ai-guard-audit-log","lastmod":"2026-10-02T12:32Z","nid":"1541874"} -->
 ## AI Guard Audit Log
 
 - Source: https://help.zscaler.com/secure-ai-users/ai-guard-audit-log
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > AI Guard for Users > Monitoring > AI Guard Audit Log
-- Last modified: 2026-07-21T13:16Z
+- Last modified: 2026-10-02T12:32Z
 - Summary: Learn how to view the AI Guard Audit Log.
 
-The Audit Log page tracks any changes users made inside AI Guard. This can range from anything from updating a policy control to signing in.
+The Audit Log page tracks any changes users make inside AI Guard. This can range from anything from updating a policy control to signing in.
 
 To view the AI Guard Audit Log page:
 
 1. Go to **AI Security Admin Portal** > **AI Guard** > **Audit Log**. See image.
 2. The Audit Log page allows you to view the following information:
-  1. **Timestamp**: The date and time that an action was logged.
-  2. **Initiator**: The email address of the user that triggered the action.
+  1. **Date Range**: Select the date range you want to see the logs for.
+  2. **Refresh**: Update the audit log.
+  3. **Export CSV**: Download a CSV file of the filtered audit log.
+  4. **Timestamp**: The date and time that an action was logged.
+  5. **Initiator**: The email address of the user that triggered the action.
     1. Click the **Search** button in the header to search for a specific initiator.
-  3. **Action**: The action performed, such as: Update, View, or Create.
+  6. **Action**: The action performed, such as: Update, View, or Create.
     1. Click the **Filter** button in the header to select which actions you want to see.
-  4. **Entity Type**: More granular detail about the action. For example, an Action of Update may have an Entity Type of Policy Control, meaning that the user made an update to a policy control.
+  7. **Entity Type**: More granular detail about the action. For example, an Action of Update may have an Entity Type of Policy Control, meaning that the user made an update to a policy control.
     1. Click the **Filter** button in the header to select which entity types you want to see.
 3. For more information about the logged event, in the **Details** column, click the **View Request Details** button. See image.
 4. The **Actions Details** window shows the following information:
   1. **Initiator**, **Action**, and **Entity Type**: The same information from the main Audit Log page.
   2. **Entity ID**: The ID number associated with the action.
-  3. **Payload**: The code payload of the action.
+  3. **Changes**: A field-by-field table that shows any changes from a specific log. Nested fields are a single level deep, anything further is shown as an object or array placeholder. Only relevant changes are shown, noise (such as `id` or `lastUpdatedAt` fields) that are empty of changes are hidden.
+  4. **Advanced**: View the full JSON code changes.
+  5. **Revert**: This undoes Create, Update, or Delete on all supported detectors. It will ask for confirmation before reverting the changes.
 
 [Image: AI Guard Audit Log page]
 
@@ -6012,13 +6025,13 @@ To create a custom block message:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/integrating-zia-ai-guard","lastmod":"2026-09-24T09:36Z","nid":"1540870"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/integrating-zia-ai-guard","lastmod":"2026-10-02T08:15Z","nid":"1540870"} -->
 ## Integrating ZIA with AI Guard
 
 - Source: https://help.zscaler.com/secure-ai-users/integrating-zia-ai-guard
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > AI Guard for Users > Getting Started > Integrating ZIA with AI Guard
-- Last modified: 2026-09-24T09:36Z
+- Last modified: 2026-10-02T08:15Z
 - Summary: Learn how to forward traffic from ZIA to AI Guard for processing AI traffic for AI users.
 
 Thanks to the integration of AI Guard with Internet & SaaS (ZIA), you can configure ZIA to invoke AI Guard for processing user's AI traffic.
@@ -6042,8 +6055,8 @@ Before you can integrate ZIA with AI Guard, ensure that you:
   | DeepAI | Web Browsers | `*.api.deepai.org` |
   | Gamma | Web Browsers | `*.api.gamma.app` `*.ai.api.gamma.app` |
   | ElevenLabs | Web Browsers: Text-to-speech supported | `api.us.elevenlabs.io` |
-  | GitHub Copilot | Web Browsers; GitHub in VS Code | `api.individual.githubcopilot.com` |
-  | GitHub Copilot Enterprise | Web Browsers | `api.business.githubcopilot.com` `api.enterprise.githubcopilot.com` `api.individual.githubcopilot.com` |
+  | GitHub Copilot | Web Browsers | `api.individual.githubcopilot.com` |
+  | GitHub Copilot Enterprise | Web Browsers; GitHub in Visual Studio (VS) Code | `api.business.githubcopilot.com` `api.enterprise.githubcopilot.com` `api.individual.githubcopilot.com` |
   | Glean | Web Browser Chat | `*.glean.com` |
   | Google Gemini | Web Browsers | `*.gemini.google.com` |
   | Google Gemini Code | Web Browsers | `*.gemini.google.com` `cloudcode-pa.googleapis.com` |
@@ -6093,7 +6106,7 @@ To configure your ZIA proxy:
 2. In the **Proxies** tab, click **Add Proxy**. The **Add Proxy** window appears. See image.
 3. In the **Add Proxy** window:
   - **Proxy Name**: Enter a user-friendly name for the third-party proxy that you are defining.
-  - **IP Address/FQDN**: `forward.zseclipse.net`.
+  - **IP Address/FQDN**: `forward.zsaiguard.net`.
   - **Port**: `9443`.
   - **Proxy's Root Certificate**: Select the root certificate you previously created.
   - **Insert X-Authenticated-User**: Enable this setting.
@@ -6648,13 +6661,13 @@ With the webhook integrated, create a policy to detect webhook traffic and creat
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/quick-start-guide-chatgpt","lastmod":"2026-07-22T09:41Z","nid":"1541877"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/quick-start-guide-chatgpt","lastmod":"2026-10-02T08:23Z","nid":"1541877"} -->
 ## Quick Start Guide for ChatGPT
 
 - Source: https://help.zscaler.com/secure-ai-users/quick-start-guide-chatgpt
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > AI Guard for Users > Getting Started > Quick Start Guide for ChatGPT
-- Last modified: 2026-07-22T09:41Z
+- Last modified: 2026-10-02T08:23Z
 - Summary: This guide takes you through the configuration steps you need to set up AI Guard, integrate with ZIA, and set up the policies necessary to provide run-time protection for your ChatGPT applications.
 
 This guide takes you through the configuration steps you need to set up AI Guard, integrate with Zscaler Internet Access (ZIA), and set up the policies necessary to provide run-time protection for your ChatGPT applications.
@@ -6707,7 +6720,7 @@ To configure your ZIA proxy:
 2. In the **Proxies** tab, click **Add Proxy**. The **Add Proxy** window appears. See image.
 3. In the **Add Proxy** window:
   - **Proxy Name**: Enter a user-friendly name for the third-party proxy that you are defining.
-  - **IP Address/FQDN**: Enter `forward.zseclipse.net`.
+  - **IP Address/FQDN**: Enter `forward.zsaiguard.net`.
   - **Port**: Enter `9443`.
   - **Proxy's Root Certificate**: Select the root certificate you previously created.
   - **Insert X-Authenticated-User**: Enable this setting.
@@ -6828,13 +6841,13 @@ To create a ChatGPT application policy control:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/quick-start-guide-microsoft-365-copilot","lastmod":"2026-07-22T09:44Z","nid":"1541876"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/quick-start-guide-microsoft-365-copilot","lastmod":"2026-10-02T08:22Z","nid":"1541876"} -->
 ## Quick Start Guide for Microsoft 365 Copilot
 
 - Source: https://help.zscaler.com/secure-ai-users/quick-start-guide-microsoft-365-copilot
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > AI Guard for Users > Getting Started > Quick Start Guide for Microsoft 365 Copilot
-- Last modified: 2026-07-22T09:44Z
+- Last modified: 2026-10-02T08:22Z
 - Summary: This guide takes you through the configuration steps you need to set up AI Guard, integrate with ZIA, and set up the policies necessary to provide run-time protection for your Microsoft 365 Copilot applications.
 
 This guide takes you through the configuration steps you need to set up AI Guard, integrate with Zscaler Internet Access (ZIA), and set up the policies necessary to provide run-time protection for your Microsoft 365 Copilot applications.
@@ -6887,7 +6900,7 @@ To configure your ZIA proxy:
 2. In the **Proxies** tab, click **Add Proxy**. The **Add Proxy** window appears. See image.
 3. In the **Add Proxy** window:
   - **Proxy Name**: Enter a user-friendly name for the third-party proxy that you are defining.
-  - **IP Address/FQDN**: Enter `forward.zseclipse.net`.
+  - **IP Address/FQDN**: Enter `forward.zsaiguard.net`.
   - **Port**: Enter `9443`.
   - **Proxy's Root Certificate**: Select the root certificate you previously created.
   - **Insert X-Authenticated-User**: Enable this setting.
@@ -7012,13 +7025,13 @@ To create a Microsoft 365 Copilot application policy control:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/release-upgrade-summary-2026","lastmod":"2026-09-15T13:29Z","nid":"1539123"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/release-upgrade-summary-2026","lastmod":"2026-09-28T13:14Z","nid":"1539123"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/secure-ai-users/release-upgrade-summary-2026
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-15T13:29Z
+- Last modified: 2026-09-28T13:14Z
 - Summary: Secure Access to AI Apps Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Secure Access to AI Apps.

@@ -1,7 +1,7 @@
 # Zscaler Help — Zscaler Deception (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-28 09:01 UTC
+Generated: 2026-10-05 09:38 UTC
 Articles in this file: 297
 
 ---
@@ -5621,7 +5621,7 @@ If the group attribute specified is not part of the SAML assertion when logging 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-saml-single-sign","lastmod":"2026-06-19T02:48Z","nid":"1540424"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-saml-single-sign","lastmod":"2026-06-19T02:48Z","nid":"1542339"} -->
 ## Configuring SAML for Single Sign-On
 
 - Source: https://help.zscaler.com/deception/configuring-saml-single-sign
@@ -6243,7 +6243,7 @@ To test AD decoys, log in to a decoy AD user account. You can see events trigger
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-subnet","lastmod":"2025-08-15T07:06Z","nid":"1539153"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-subnet","lastmod":"2025-08-15T07:06Z","nid":"1542275"} -->
 ## Configuring a Subnet
 
 - Source: https://help.zscaler.com/deception/configuring-subnet
@@ -10302,7 +10302,7 @@ You can select the **Deception** filter on the [Application Segments](https://he
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/customizing-event-notification-templates","lastmod":"2026-08-11T21:06Z","nid":"1540462"} -->
+<!-- ZS-ARTICLE {"url":"/deception/customizing-event-notification-templates","lastmod":"2026-08-11T21:06Z","nid":"1542377"} -->
 ## Customizing Event Notification Templates
 
 - Source: https://help.zscaler.com/deception/customizing-event-notification-templates
@@ -10327,7 +10327,7 @@ To customize the email notification template:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/customizing-landmine-installer","lastmod":"2025-08-15T07:06Z","nid":"1539183"} -->
+<!-- ZS-ARTICLE {"url":"/deception/customizing-landmine-installer","lastmod":"2025-08-15T07:06Z","nid":"1542305"} -->
 ## Customizing Landmine Installer
 
 - Source: https://help.zscaler.com/deception/customizing-landmine-installer
@@ -11612,7 +11612,7 @@ The AD decoy personality is downloaded to your system as a JSON file.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/downloading-and-uploading-subnet-configuration","lastmod":"2024-01-03T01:15Z","nid":"1539154"} -->
+<!-- ZS-ARTICLE {"url":"/deception/downloading-and-uploading-subnet-configuration","lastmod":"2024-01-03T01:15Z","nid":"1542276"} -->
 ## Downloading and Uploading the Subnet Configuration
 
 - Source: https://help.zscaler.com/deception/downloading-and-uploading-subnet-configuration
@@ -11677,7 +11677,7 @@ To download a file dataset:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/downloading-file-template","lastmod":"2025-05-12T02:56Z","nid":"1539410"} -->
+<!-- ZS-ARTICLE {"url":"/deception/downloading-file-template","lastmod":"2025-05-12T02:56Z","nid":"1542532"} -->
 ## Downloading a File Template
 
 - Source: https://help.zscaler.com/deception/downloading-file-template
@@ -11727,7 +11727,7 @@ To download landmine agent logs from an endpoint:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/downloading-landmine-agentless","lastmod":"2024-03-15T07:06Z","nid":"1539181"} -->
+<!-- ZS-ARTICLE {"url":"/deception/downloading-landmine-agentless","lastmod":"2024-03-15T07:06Z","nid":"1542303"} -->
 ## Downloading Landmine Agentless
 
 - Source: https://help.zscaler.com/deception/downloading-landmine-agentless
@@ -12268,7 +12268,7 @@ The default custom service datasets cannot be deleted.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-deception-strategy","lastmod":"2025-05-14T20:49Z","nid":"1539320"} -->
+<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-deception-strategy","lastmod":"2025-05-14T20:49Z","nid":"1542442"} -->
 ## Editing or Deleting a Strategy
 
 - Source: https://help.zscaler.com/deception/editing-or-deleting-deception-strategy
@@ -12675,7 +12675,7 @@ The default network decoy personalities cannot be deleted.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-safe-process","lastmod":"2026-06-14T07:06Z","nid":"1539310"} -->
+<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-safe-process","lastmod":"2026-06-14T07:06Z","nid":"1542432"} -->
 ## Editing or Deleting a Safe Process
 
 - Source: https://help.zscaler.com/deception/editing-or-deleting-safe-process
@@ -12833,7 +12833,7 @@ Zscaler Deception uses Private Access (ZPA) or Threat Intelligence (TI) subnets 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-threat-intelligence-decoy-personality","lastmod":"2025-05-12T03:29Z","nid":"1539383"} -->
+<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-threat-intelligence-decoy-personality","lastmod":"2025-05-12T03:29Z","nid":"1542505"} -->
 ## Editing or Deleting a Threat Intelligence Decoy Personality
 
 - Source: https://help.zscaler.com/deception/editing-or-deleting-threat-intelligence-decoy-personality
@@ -13467,7 +13467,7 @@ All AD decoy personalities are downloaded to your system in a compressed (.zip) 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/exporting-landmine-agent-configurations","lastmod":"2024-07-09T07:06Z","nid":"1539179"} -->
+<!-- ZS-ARTICLE {"url":"/deception/exporting-landmine-agent-configurations","lastmod":"2024-07-09T07:06Z","nid":"1542301"} -->
 ## Exporting Landmine Agent Configurations
 
 - Source: https://help.zscaler.com/deception/exporting-landmine-agent-configurations
@@ -13546,7 +13546,7 @@ All network decoy personalities are downloaded to your system in a compressed (.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/exporting-network-decoys-configuration","lastmod":"2022-11-08T20:09Z","nid":"1539145"} -->
+<!-- ZS-ARTICLE {"url":"/deception/exporting-network-decoys-configuration","lastmod":"2022-11-08T20:09Z","nid":"1542267"} -->
 ## Exporting Network Decoys Configuration
 
 - Source: https://help.zscaler.com/deception/exporting-network-decoys-configuration
@@ -14346,7 +14346,7 @@ To show Private Access interfaces:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/managing-agent-update-groups","lastmod":"2024-05-18T07:06Z","nid":"1539189"} -->
+<!-- ZS-ARTICLE {"url":"/deception/managing-agent-update-groups","lastmod":"2024-05-18T07:06Z","nid":"1542311"} -->
 ## Managing Agent Update Groups
 
 - Source: https://help.zscaler.com/deception/managing-agent-update-groups
@@ -15349,7 +15349,7 @@ To delete an OpenID IdP Configuration:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/managing-orchestration-rules","lastmod":"2026-08-13T21:06Z","nid":"1540494"} -->
+<!-- ZS-ARTICLE {"url":"/deception/managing-orchestration-rules","lastmod":"2026-08-13T21:06Z","nid":"1542409"} -->
 ## Managing Orchestration Rules
 
 - Source: https://help.zscaler.com/deception/managing-orchestration-rules
@@ -15439,7 +15439,7 @@ To delete resource groups:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/managing-saml-idp-configurations","lastmod":"2026-07-28T19:18Z","nid":"1540647"} -->
+<!-- ZS-ARTICLE {"url":"/deception/managing-saml-idp-configurations","lastmod":"2026-07-28T19:18Z","nid":"1542562"} -->
 ## Managing SAML IdP Configurations
 
 - Source: https://help.zscaler.com/deception/managing-saml-idp-configurations
@@ -15669,7 +15669,7 @@ Using this method, you can download the deployment script as a PSM1 file, upload
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/processing-rules","lastmod":"2026-05-12T22:03Z","nid":"1539285"} -->
+<!-- ZS-ARTICLE {"url":"/deception/processing-rules","lastmod":"2026-05-12T22:03Z","nid":"1542407"} -->
 ## Processing Rules
 
 - Source: https://help.zscaler.com/deception/processing-rules
@@ -15825,7 +15825,7 @@ The following table shows the ranges and limitations for the [Enterprise](https:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/rebooting-private-access-app-connector","lastmod":"2026-06-09T22:27Z","nid":"1540632"} -->
+<!-- ZS-ARTICLE {"url":"/deception/rebooting-private-access-app-connector","lastmod":"2026-06-09T22:27Z","nid":"1542547"} -->
 ## Rebooting a Private Access App Connector
 
 - Source: https://help.zscaler.com/deception/rebooting-private-access-app-connector
@@ -15847,7 +15847,7 @@ To reboot an App Connector:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/release-upgrade-summary-2022","lastmod":"2025-05-16T07:41Z","nid":"1539237"} -->
+<!-- ZS-ARTICLE {"url":"/deception/release-upgrade-summary-2022","lastmod":"2025-05-16T07:41Z","nid":"1542359"} -->
 ## Release Upgrade Summary (2022)
 
 - Source: https://help.zscaler.com/deception/release-upgrade-summary-2022
@@ -15927,7 +15927,7 @@ The illusionblack.com cloud represents all clouds, and updates to specific cloud
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/removing-landmine-agentless-registration-and-policy","lastmod":"2024-03-15T07:06Z","nid":"1539215"} -->
+<!-- ZS-ARTICLE {"url":"/deception/removing-landmine-agentless-registration-and-policy","lastmod":"2024-03-15T07:06Z","nid":"1542337"} -->
 ## Removing Landmine Agentless Policy and Registration
 
 - Source: https://help.zscaler.com/deception/removing-landmine-agentless-registration-and-policy
@@ -15977,7 +15977,7 @@ To remove the landmine agentless policy and registration on Linux:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/resetting-two-factor-authentication","lastmod":"2025-06-10T07:11Z","nid":"1539132"} -->
+<!-- ZS-ARTICLE {"url":"/deception/resetting-two-factor-authentication","lastmod":"2025-06-10T07:11Z","nid":"1542254"} -->
 ## Resetting Two-Factor Authentication
 
 - Source: https://help.zscaler.com/deception/resetting-two-factor-authentication
@@ -17656,7 +17656,7 @@ A file decoy can be configured as a custom file decoy (PPT, EXCEL, WORD, or HTML
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/testing-network-decoy","lastmod":"2022-04-25T02:56Z","nid":"1539148"} -->
+<!-- ZS-ARTICLE {"url":"/deception/testing-network-decoy","lastmod":"2022-04-25T02:56Z","nid":"1542270"} -->
 ## Testing a Network Decoy
 
 - Source: https://help.zscaler.com/deception/testing-network-decoy

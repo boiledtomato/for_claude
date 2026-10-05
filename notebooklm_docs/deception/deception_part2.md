@@ -1,7 +1,7 @@
 # Zscaler Help — Zscaler Deception (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-28 09:01 UTC
+Generated: 2026-10-05 09:38 UTC
 Articles in this file: 26
 
 ---
@@ -373,7 +373,7 @@ To learn more about ZPA architecture, see [Understanding the ZPA Cloud Architect
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/uninstalling-or-deleting-landmine-agents","lastmod":"2024-03-15T07:06Z","nid":"1539178"} -->
+<!-- ZS-ARTICLE {"url":"/deception/uninstalling-or-deleting-landmine-agents","lastmod":"2024-03-15T07:06Z","nid":"1542300"} -->
 ## Uninstalling or Deleting Landmine Agents
 
 - Source: https://help.zscaler.com/deception/uninstalling-or-deleting-landmine-agents
@@ -530,7 +530,7 @@ To view AD decoy computers:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/viewing-and-managing-decoy-deployment","lastmod":"2025-12-30T20:48Z","nid":"1539463"} -->
+<!-- ZS-ARTICLE {"url":"/deception/viewing-and-managing-decoy-deployment","lastmod":"2025-12-30T20:48Z","nid":"1542585"} -->
 ## Viewing and Managing Decoy Deployment
 
 - Source: https://help.zscaler.com/deception/viewing-and-managing-decoy-deployment
@@ -1222,7 +1222,7 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/viewing-policy-details","lastmod":"2026-02-04T04:28Z","nid":"1539273"} -->
+<!-- ZS-ARTICLE {"url":"/deception/viewing-policy-details","lastmod":"2026-02-04T04:28Z","nid":"1542395"} -->
 ## Viewing Policy Details
 
 - Source: https://help.zscaler.com/deception/viewing-policy-details

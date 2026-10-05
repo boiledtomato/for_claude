@@ -1,18 +1,18 @@
 # Zscaler Help — Branch / Cellular / Cloud Connector (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-28 09:01 UTC
-Articles in this file: 159
+Generated: 2026-10-05 09:38 UTC
+Articles in this file: 158
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-amazon-web-services-account-groups","lastmod":"2026-09-22T13:43Z","nid":"1479491"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-amazon-web-services-account-groups","lastmod":"2026-09-30T14:29Z","nid":"1479491"} -->
 ## About Amazon Web Services Account Groups
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-account-groups
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > AWS Partner Integrations > About Amazon Web Services Account Groups
-- Last modified: 2026-09-22T13:43Z
+- Last modified: 2026-09-30T14:29Z
 - Summary: Information about Amazon Web Services account groups and their functionality.
 
 Amazon Web Services (AWS) account groups enable Zscaler Cloud Connector to be aware of other accounts it can get the workload tags from. Therefore, the Cloud Connector is not tied to the account where it is deployed.
@@ -27,7 +27,7 @@ To use AWS tags with Zero Trust Gateways, you must configure AWS groups as descr
 
 ## About the Groups Page
 
-On the Groups page (Infrastructure > Connectors > Cloud > Management > Partner Integrations > AWS > Groups), you can do the following:
+On the Account Groups page (Zero Trust Cloud > Common Resources > AWS > Account Groups), you can do the following:
 
 1. Filter the list of groups by the following criteria:
   - **Account ID**: The ID of the account.
@@ -52,13 +52,13 @@ On the Groups page (Infrastructure > Connectors > Cloud > Management > Partner I
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-amazon-web-services-accounts","lastmod":"2026-09-22T13:43Z","nid":"1463456"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-amazon-web-services-accounts","lastmod":"2026-09-30T14:37Z","nid":"1463456"} -->
 ## About Amazon Web Services Accounts
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-accounts
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > AWS Partner Integrations > About Amazon Web Services Accounts
-- Last modified: 2026-09-22T13:43Z
+- Last modified: 2026-09-30T14:37Z
 - Summary: Information about the AWS Accounts page in the Zscaler Admin Console.
 
 Amazon Web Services (AWS) partner integrations enable you to add AWS accounts by allowing the Zscaler service to fetch metadata from those accounts. An AWS account has credentials that provide access to a single AWS account. Adding an AWS account allows you to use user-defined tags in Zscaler security policies.
@@ -151,52 +151,13 @@ On the AWS page (Zero Trust Cloud > Zero Trust Gateway > AWS), you can do the fo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-api-key-management","lastmod":"2026-09-02T21:06Z","nid":"1420801"} -->
-## About API Key Management
-
-- Source: https://help.zscaler.com/cloud-branch-connector/about-api-key-management
-- Product: Cloud & Branch Connector
-- Path: Zscaler Cloud & Branch Connector Help > Administration > API Key Management > About API Key Management
-- Last modified: 2026-09-02T21:06Z
-- Summary: Information on API key management within the Zscaler Admin Console.
-
-Your organization's API key is initially provisioned by Zscaler, enabled, and displayed within the API Key Management page along with the base URL. The base URL and key are required to authenticate via the API and create a session.
-
-API Key Management provides the following benefits and enables you to:
-
-- Provide API key access only to authorized admins configured with appropriate functional scope access to the API services.
-- Regenerate the API key whenever required or in events when you suspect vulnerabilities for an attack.
-- Ensure that no further API requests are possible after you finish consuming the API services by deleting the API key.
-
-An organization can have only one API key. However, if you are managing multiple organizations within the Zscaler Admin Console and want to maintain the same key string across them, Zscaler recommends editing the key instead of adding a new one or regenerating it. This allows you to use the same key string across organizations, if necessary.
-
-## About the API Key Management Page
-
-On the API Key Management page (Administration > API Configuration > Legacy API > Cloud & Branch Connector API), you can do the following:
-
-1. View the base URL for the API.
-2. [Add a new Cloud Service API Key](https://help.zscaler.com/cloud-branch-connector/managing-organization-api-keys#AddNewKey). You must delete the existing key before you can add a new one.
-3. View information regarding your organization's API key. For the key, you can see:
-  - **Key**: The API key string.
-  - **Last Modified By**: Only Zscaler modifies the key.
-  - **Last Modified On**: The date and time the key was last modified.
-4. Modify the table and its columns.
-5. [Edit the API key](https://help.zscaler.com/cloud-branch-connector/managing-organization-api-keys#EditNewKey).
-6. [Regenerate the API key](https://help.zscaler.com/cloud-branch-connector/managing-organization-api-keys#RegenerateKey).
-7. [Delete the API key](https://help.zscaler.com/cloud-branch-connector/managing-organization-api-keys#DeleteKey).
-
-[Image: The API Key Management page in the Zscaler Admin Console]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-audit-logs","lastmod":"2026-09-24T11:29Z","nid":"1420581"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-audit-logs","lastmod":"2026-09-30T13:38Z","nid":"1420581"} -->
 ## About Audit Logs
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-audit-logs
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Administrator & Role Management > About Audit Logs
-- Last modified: 2026-09-24T11:29Z
+- Last modified: 2026-09-30T13:38Z
 - Summary: Information regarding audit logs, including policy and configuration change logs, within the Zscaler Admin Console.
 
 Zscaler records the login name and IP address of every admin who logs in to the Zscaler Admin Console and changes policies or configuration settings. Audit logs display an admin's login and logout record (time stamps, actions, IP, etc.) and any configuration changes they completed. If an admin account makes 5 unsuccessful attempts to log in within one minute, the account is locked out for 5 minutes and the failed attempts are recorded.
@@ -302,13 +263,13 @@ There are two types of changes you can view:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-branch-configuration-templates","lastmod":"2026-09-02T21:06Z","nid":"1420651"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-branch-configuration-templates","lastmod":"2026-09-30T13:25Z","nid":"1420651"} -->
 ## About Branch Configuration Templates
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-branch-configuration-templates
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Provisioning & Configuration > About Branch Configuration Templates
-- Last modified: 2026-09-02T21:06Z
+- Last modified: 2026-09-30T13:25Z
 - Summary: Information on the Branch Configuration Template page in the Zscaler Admin Console.
 
 [Watch a video about Branch Configuration Templates (shows legacy UI).](https://fast.wistia.net/embed/iframe/fip1hlj1kl)
@@ -322,9 +283,9 @@ Branch Connector Configuration Templates provide the following benefits and enab
 - Set the Zero Trust Branch Device to run as an inline gateway or non-gateway (One-Arm Mode).
 - Preconfigure your Zero Trust Branch Devices for Zero Touch Provisioning.
 
-## About the Branch Connector Configuration Template Page
+## About the Branch Configuration Page
 
-On the Branch Configuration Templates page (Infrastructure > Connectors > Edge > Management > Branch Provisioning), you can do the following:
+On the Branch Configuration page for virtual devices (Infrastructure > Branch Connector > VM Provisioning) or physical devices (Infrastructure > Branch Connector > Device Provisioning), you can do the following:
 
 1. Refresh the table.
 2. Search for a branch configuration template.
@@ -342,19 +303,17 @@ On the Branch Configuration Templates page (Infrastructure > Connectors > Edge >
 6. Click the arrow in the **Template Name** field to copy the branch configuration URL.
 7. Edit the branch configuration template. Branch configuration templates are editable before and after provisioning and deployment.
 8. Delete the branch configuration template.
-
-[Image: The Branch Configuration Template page in the Zscaler Admin Console]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-cloud-connector-groups","lastmod":"2026-09-24T12:03Z","nid":"1420476"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-cloud-connector-groups","lastmod":"2026-09-30T12:39Z","nid":"1420476"} -->
 ## About Cloud Connector Groups
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-cloud-connector-groups
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Group Management > About Cloud Connector Groups
-- Last modified: 2026-09-24T12:03Z
+- Last modified: 2026-09-30T12:39Z
 - Summary: Information on Cloud Connector Groups in the Zscaler Admin Console.
 
 Cloud Connector groups are automatically created when you deploy a Zscaler Cloud Connector in Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
@@ -368,7 +327,7 @@ When deploying a Cloud Connector, only deploy an autoscaling group (ASG) with an
 
 ## About the Overview Page
 
-On the Overview page (Infrastructure > Connectors > Cloud > Management > Cloud Connector Groups > Overview), you can do the following:
+On the Overview page (Zero Trust Cloud > Cloud Connector > Cloud Connector Groups > Overview), you can do the following:
 
 1. Filter the list of groups by the following criteria:
   - **Cloud**: From the drop-down menu, select **AWS**, **Azure**, or **GCP**.
@@ -450,14 +409,14 @@ A Cloud NSS feed behaves differently according to HTTP/S response status codes f
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-cloud-provisioning-templates","lastmod":"2026-09-02T21:06Z","nid":"1420426"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-cloud-provisioning-templates","lastmod":"2026-09-30T10:41Z","nid":"1420426"} -->
 ## About Cloud Provisioning Templates
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-cloud-provisioning-templates
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Provisioning & Configuration > About Cloud Provisioning Templates
-- Last modified: 2026-09-02T21:06Z
-- Summary: Information on the Cloud Provisioning Template page in the Zscaler Admin Console.
+- Last modified: 2026-09-30T10:41Z
+- Summary: Information on the Provisioning Templates page in the Zscaler Admin Console.
 
 [Watch a video about Cloud Provisioning Templates (shows legacy UI).](https://fast.wistia.net/embed/iframe/577qniv2zj)
 
@@ -472,16 +431,16 @@ Cloud Connector Provisioning Templates provide the following benefits and enable
 
 You must use the same provisioning URL for the Cloud Connector VMs deployed in a single Virtual Private Cloud (VPC).
 
-## About the Cloud Provisioning Template Page
+## About the Provisioning Templates Page
 
-On the Cloud Provisioning Templates page (Infrastructure > Connectors > Cloud > Management > Provisioning), you can do the following:
+On the Provisioning Templates page (Zero Trust Cloud > Cloud Connector > Provisioning Templates), you can do the following:
 
 1. Refresh the table.
 2. Search for a cloud provisioning template.
 3. [Add a Cloud Connector Provisioning Template](https://help.zscaler.com/cloud-branch-connector/configuring-provisioning-templates).
 4. View a list of all cloud provisioning templates that are configured for your organization.
   - **Template Name**: The name of the template.
-  - **Cloud Provider Type**: The Cloud Provider (AWS, Azure, or GCP).
+  - **Cloud Provider Type**: The cloud provider (AWS, Azure, or GCP).
   - **Status**: The status of the template deployment.
   - **VM Size**: The size of the virtual machine.
   - **Auto Scaling**: The status of autoscaling (i.e., **True** or **False**). Zscaler supports autoscaling in AWS, Azure, and GCP. In the AWS Marketplace, autoscaling is referred to as Auto Scaling. In the Azure Marketplace, autoscaling is referred to as Virtual Machine Scale Sets (VMSS). In the Google Cloud Marketplace, autoscaling is referred to as a Managed Instance Group (MIG) with autoscaling. In the Zscaler Admin Console, references to autoscaling also refer to VMSS and a MIG with autoscaling. To enable Auto Scaling, VMSS, or a MIG with autoscaling, contact Zscaler Support.
@@ -492,19 +451,17 @@ On the Cloud Provisioning Templates page (Infrastructure > Connectors > Cloud > 
 7. Edit the cloud provisioning template.
 8. Delete the cloud provisioning template.
 9. View the cloud provisioning template configurations.
-
-[Image: The Cloud Connector Provisioning Template Page in the Zscaler Admin Console]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-destination-ip-groups","lastmod":"2026-05-14T21:06Z","nid":"1420381"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-destination-ip-groups","lastmod":"2026-09-28T10:04Z","nid":"1420381"} -->
 ## About Destination IP Groups
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-destination-ip-groups
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Firewall Filtering > About Destination IP Groups
-- Last modified: 2026-05-14T21:06Z
+- Last modified: 2026-09-28T10:04Z
 - Summary: Information on Destination IP Groups in the Zscaler Admin Console, which allow you to group together destinations you want to control in firewall rules.
 
 Destination IP Groups simplify policy creation by grouping multiple IP addresses into one destination, reducing the chance for error to occur. You can create groups of destination IP addresses, countries where servers are located, and URL categories, and apply firewall policies to them.
@@ -516,7 +473,7 @@ Destination IP Groups provide the following benefits and enable you to:
 
 ## About the Destination IP Groups Page
 
-On the Destinations IP Groups page (Infrastructure > Common Resources > Application > IP Group & FQDN > Destination IP Groups), you can do the following:
+On the Destinations IP Groups page (Internet Access > Resources > IP & FQDN Groups > Destination IPv4 Groups tab), you can do the following:
 
 1. [Add a destination IP group](https://help.zscaler.com/cloud-branch-connector/configuring-destination-ip-groups). Although destination IP groups can be created for Wildcard Domain and Other, these destination IP group types are currently not supported in Cloud & Branch Connector forwarding policies.
 2. View a list of all destination IP groups. For each group, you can view:
@@ -528,7 +485,7 @@ On the Destinations IP Groups page (Infrastructure > Common Resources > Applicat
 3. View a list of predefined groups created by Zscaler. They are disabled by default, but you can enable them. Predefined rules appear based on the licenses enabled in your tenant: Predefined groups are only applicable to hardware devices deployed in gateway mode.
   - **LAN Destinations Group**: This group contains all LAN directly connected networks and configured static routes from a given Branch Connector.
   - **WAN Destinations Group**: This group contains all WAN directly connected networks and DNS servers.
-  - **Zscaler Domains**: This group contains all Zscaler public cloud domains (i.e., Internet & SaaS, Private Access, and Zscaler Digital Experience (ZDX)).
+  - **Zscaler Domains**: This group contains all Zscaler public cloud domains (i.e., Internet & SaaS, Private Access, and Digital Experience (ZDX)).
 4. Edit a destination IP group.
 5. Delete a destination IP group.
 6. View a destination IP group.
@@ -537,13 +494,13 @@ On the Destinations IP Groups page (Infrastructure > Common Resources > Applicat
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-dns-gateways","lastmod":"2026-05-13T21:06Z","nid":"1471251"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-dns-gateways","lastmod":"2026-09-28T10:24Z","nid":"1471251"} -->
 ## About DNS Gateways
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-dns-gateways
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Forwarding Methods > About DNS Gateways
-- Last modified: 2026-05-13T21:06Z
+- Last modified: 2026-09-28T10:24Z
 - Summary: Information on DNS gateways in the Zscaler Admin Console.
 
 DNS gateways provide the ability to redirect the DNS request received by the Cloud or Branch Connector to specific DNS servers.
@@ -557,7 +514,7 @@ To use DNS gateway and policy functionalities, design your network where workloa
 
 ## About the DNS Gateway Page
 
-On the DNS Gateway page (Infrastructure > Common Resources > Gateways > DNS), you can do the following:
+On the DNS Gateway page (Zero Trust Cloud > Gateways > DNS Gateway), you can do the following:
 
 1. Search for a gateway.
 2. Modify the table and its columns.
@@ -624,13 +581,13 @@ On the DNS Policies page (Zero Trust Cloud > Policy > DNS Forwarding), you can d
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-google-cloud-platform-accounts","lastmod":"2026-09-24T11:42Z","nid":"1528867"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-google-cloud-platform-accounts","lastmod":"2026-09-30T11:46Z","nid":"1528867"} -->
 ## About Google Cloud Platform Accounts
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-google-cloud-platform-accounts
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > GCP Partner Integrations > About Google Cloud Platform Accounts
-- Last modified: 2026-09-24T11:42Z
+- Last modified: 2026-09-30T11:46Z
 - Summary: Information on the Google Cloud Platform accounts page in the Zscaler Admin Console.
 
 Google Cloud Platform (GCP) partner integrations enable you to use user-defined tags and resource attributes in Zscaler security policies. To fetch this information from the GCP tenant and projects, you must provide a service principal. Zscaler configuration requires a service account called a GCP account, which maps to service principal credentials that have access to a set of subscriptions in the same tenant.
@@ -643,7 +600,7 @@ Partner integrations provide the following benefits and enable you to:
 
 ## About the GCP Page
 
-On the GCP page (Infrastructure > Connectors > Cloud > Management > Partner Integrations > GCP), you can do the following:
+On the GCP page (Zero Trust Cloud > Common Resources > GCP), you can do the following:
 
 1. [Add a GCP account](https://help.zscaler.com/cloud-branch-connector/adding-google-cloud-platform-account).
 2. Search for an account.
@@ -828,13 +785,13 @@ From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-internet-access-gateways","lastmod":"2026-05-13T21:06Z","nid":"1420556"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-internet-access-gateways","lastmod":"2026-09-28T10:29Z","nid":"1420556"} -->
 ## About Internet Access Gateways
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-internet-access-gateways
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Forwarding Methods > About Internet Access Gateways
-- Last modified: 2026-05-13T21:06Z
+- Last modified: 2026-09-28T10:29Z
 - Summary: Information on Internet Access gateways in the Zscaler Admin Console.
 
 [Watch a video about Internet Access gateways (shows legacy UI).](https://fast.wistia.net/embed/iframe/gv4u5q32dx)
@@ -848,7 +805,7 @@ Internet Access gateways provide the following benefits and enable you to:
 
 ## About the Internet Access Gateway Page
 
-On the ZIA Gateway page (Infrastructure > Common Resources > Gateway > Internet Access), you can do the following:
+On the ZIA Gateway page (Zero Trust Cloud > Gateways > Internet Access Gateway), you can do the following:
 
 1. Search for a gateway.
 2. Modify the table and its columns.
@@ -868,13 +825,13 @@ On the ZIA Gateway page (Infrastructure > Common Resources > Gateway > Internet 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-ip-pool","lastmod":"2026-06-08T07:56Z","nid":"1420391"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-ip-pool","lastmod":"2026-09-28T10:06Z","nid":"1420391"} -->
 ## About IP Pool
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-ip-pool
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Firewall Filtering > About IP Pool
-- Last modified: 2026-06-08T07:56Z
+- Last modified: 2026-09-28T10:06Z
 - Summary: Information on IP Pool in the Zscaler Admin Console.
 
 The IP Pool is only used in DNS control policies to forward traffic to Private Access when the network traffic action under the DNS filtering rule is set as Resolved by Private Access. A default Private Access IP Pool is automatically created. You can also configure different IP pools for each location based on your requirements. To learn more, see [Networking Deployed Software Components](https://help.zscaler.com/zpa/networking-deployed-software-components).
@@ -888,7 +845,7 @@ IP Pool provides the following benefits and enables you to:
 
 IP pools allow users to control the IP address space that cloud workloads interact with by offering a customizable space where IP addresses do not overlap.
 
-On the IP Pool page (Infrastructure > Common Resources > Application > IP Group & FQDN > IP Pool), you can do the following:
+On the IP Pool page (Internet Access > Resources > IP & FQDN Groups > IP Pool tab), you can do the following:
 
 1. Search for an IP pool.
 2. Modify the table and its columns.
@@ -906,13 +863,13 @@ On the IP Pool page (Infrastructure > Common Resources > Application > IP Group 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-location-templates","lastmod":"2026-09-25T15:58Z","nid":"1420601"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-location-templates","lastmod":"2026-09-28T09:46Z","nid":"1420601"} -->
 ## About Location Templates
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-location-templates
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Location Management > About Location Templates
-- Last modified: 2026-09-25T15:58Z
+- Last modified: 2026-09-28T09:46Z
 - Summary: Information on the Location Templates page in the Zscaler Admin Console.
 
 A location template is composed of different attributes that are applied to a [location](https://help.zscaler.com/cloud-branch-connector/about-locations). Locations are created automatically when you deploy Zscaler Cloud Connector or Zscaler Branch Connector on a cloud. To have a location automatically created from a template, you must select a location template when configuring a Cloud Provisioning Template or Branch Configuration Template. To learn more, see [Configuring a Cloud Provisioning Template](https://help.zscaler.com/cloud-branch-connector/configuring-cloud-provisioning-template) and [Configuring a Branch Configuration Template](https://help.zscaler.com/cloud-branch-connector/configuring-branch-configuration-template).
@@ -926,7 +883,7 @@ Location templates provide the following benefits and enable you to:
 
 ## About the Location Templates Page
 
-On the Location Templates page (Infrastructure > Locations > Location Resources > Location Templates), you can do the following:
+On the Location Templates page (Infrastructure > Location Management > Location Templates), you can do the following:
 
 1. Search for a location template.
 2. Modify the table and its columns.
@@ -944,13 +901,13 @@ On the Location Templates page (Infrastructure > Locations > Location Resources 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-locations","lastmod":"2026-05-12T21:06Z","nid":"1420551"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-locations","lastmod":"2026-09-28T11:20Z","nid":"1420551"} -->
 ## About Locations
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-locations
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Location Management > About Locations
-- Last modified: 2026-05-12T21:06Z
+- Last modified: 2026-09-28T11:20Z
 - Summary: Information about how locations identify the various networks from which an organization sends its cloud traffic to the Zscaler service.
 
 Locations identify the various networks from which your organization sends its cloud traffic. When you deploy Zscaler Cloud Connector or Zscaler Branch Connector, the Zscaler service automatically creates a location using a [location template](https://help.zscaler.com/cloud-branch-connector/about-location-templates) with defined attributes.
@@ -964,7 +921,7 @@ Locations provide the following benefits and enable you to:
 
 ## About the Locations Page
 
-On the Locations page (Infrastructure > Locations > Location Management > Locations > Cloud), you can do the following:
+On the Locations page (Infrastructure >Location Management > Locations > Cloud tab), you can do the following:
 
 1. Sync your locations and sublocations.
 2. Search for a location or sublocations.
@@ -1025,13 +982,13 @@ You cannot duplicate or delete the default log and control forwarding rule.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-log-and-control-gateways","lastmod":"2026-05-13T21:06Z","nid":"1420566"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-log-and-control-gateways","lastmod":"2026-09-28T10:34Z","nid":"1420566"} -->
 ## About Log and Control Gateways
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-log-and-control-gateways
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Forwarding Methods > About Log and Control Gateways
-- Last modified: 2026-05-13T21:06Z
+- Last modified: 2026-09-28T10:34Z
 - Summary: Information on log and control gateways in the Zscaler Admin Console.
 
 [Watch a video about log and control gateways (shows legacy UI).](https://fast.wistia.net/embed/iframe/deglhl0jps)
@@ -1045,7 +1002,7 @@ Log and control gateways provide the following benefits and enable you to:
 
 ## About the Log and Control Gateway Page
 
-On the Log and Control Gateway page (Infrastructure > Common Resources > Gateways > Log and Control), you can do the following:
+On the Log and Control Gateway page (Zero Trust Cloud > Gateways > Log and Control Gateway), you can do the following:
 
 1. Search for a gateway.
 2. Modify the table and its columns.
@@ -1064,13 +1021,13 @@ On the Log and Control Gateway page (Infrastructure > Common Resources > Gateway
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-microsoft-azure-accounts","lastmod":"2026-09-22T13:43Z","nid":"1507556"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-microsoft-azure-accounts","lastmod":"2026-09-30T11:17Z","nid":"1507556"} -->
 ## About Microsoft Azure Accounts
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-microsoft-azure-accounts
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > Azure Partner Integrations > About Microsoft Azure Accounts
-- Last modified: 2026-09-22T13:43Z
+- Last modified: 2026-09-30T11:17Z
 - Summary: Information on the Microsoft Azure accounts page in the Zscaler Admin Console.
 
 Microsoft Azure partner integrations enable you to use user-defined tags and resource attributes in Zscaler security policies. To fetch this information from the Azure tenant and subscriptions, you must provide a service principal. Zscaler configuration requires a service account called an Azure account, which maps to service principal credentials that have access to a set of subscriptions in the same tenant.
@@ -1085,7 +1042,7 @@ Partner integrations provide the following benefits and enable you to:
 
 ## About the Azure Page
 
-On the Azure page (Infrastructure > Connectors > Cloud > Management > Partner Integrations > Azure), you can do the following:
+On the Azure page (Zero Trust Cloud > Common Resources > Azure), you can do the following:
 
 1. [Add an Azure account](https://help.zscaler.com/cloud-branch-connector/configuring-workload-discovery-service-microsoft-azure-accounts).
 2. Search for an account.
@@ -1109,13 +1066,13 @@ On the Azure page (Infrastructure > Connectors > Cloud > Management > Partner In
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-network-service-groups","lastmod":"2026-05-13T21:06Z","nid":"1420401"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-network-service-groups","lastmod":"2026-09-28T10:40Z","nid":"1420401"} -->
 ## About Network Service Groups
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-network-service-groups
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Firewall Filtering > About Network Service Groups
-- Last modified: 2026-05-13T21:06Z
+- Last modified: 2026-09-28T10:40Z
 - Summary: Information on Network Service Groups. These are a group of predefined or custom network services.
 
 You can group predefined and custom network services for use in policies.
@@ -1131,14 +1088,14 @@ Network Service Groups provide the following benefits and enable you to:
 
 ## About the Network Service Group Page
 
-On the Network Service Group page (Policies > Access Control > Firewall > Network Services > Services > Service Groups), you can do the following:
+On the Network Service Group page (Internet Access > Resources > Network Services > Service Groups tab), you can do the following:
 
 1. [Add a network service group](https://help.zscaler.com/cloud-branch-connector/configuring-network-service-groups).
 2. View a list of all network service groups. For each group, you can view:
   - **Name**: The name of the network service group.
   - **Description**: The description of the group, if available.
   - **Services**: The network services included in the group.
-3. [Edit a network service group](https://help.zscaler.com/cloud-branch-connector/editing-deleting-or-duplicating-items).
+3. Edit a network service group.
 4. View a network service group.
 5. Modify the table and its columns.
 6. Search for a network service group.
@@ -1149,13 +1106,13 @@ On the Network Service Group page (Policies > Access Control > Firewall > Networ
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-network-services","lastmod":"2026-05-13T21:06Z","nid":"1420396"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-network-services","lastmod":"2026-09-28T10:12Z","nid":"1420396"} -->
 ## About Network Services
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-network-services
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Firewall Filtering > About Network Services
-- Last modified: 2026-05-13T21:06Z
+- Last modified: 2026-09-28T10:12Z
 - Summary: Information on Network Services of Zscaler Cloud & Branch Connector.
 
 Zscaler firewall has over 50 predefined services and an admin can configure up to 1,024 additional custom services. You can add, modify, or delete ports in all predefined services except ICMP_any, UDP_any, TCP_any, and OTHER. To learn more, see [Configuring Network Services](https://help.zscaler.com/cloud-branch-connector/configuring-network-services).
@@ -1174,7 +1131,7 @@ Network Services provide the following benefits and enable you to:
 
 ## About the Network Services Page
 
-On the Network Services page (Policies > Access Control > Firewall > Network Services), you can do the following:
+On the Network Services page (Internet Access > Resources > Network Services > Services tab), you can do the following:
 
 1. [Add a network service](https://help.zscaler.com/cloud-branch-connector/configuring-network-services).
 2. Filter the network services by protocol (TCP or UDP).
@@ -1339,13 +1296,13 @@ To learn more about adding an NSS server and deploying an NSS virtual appliance,
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-physical-branch-devices","lastmod":"2026-09-24T12:22Z","nid":"1467026"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-physical-branch-devices","lastmod":"2026-09-30T13:32Z","nid":"1467026"} -->
 ## About Physical Branch Devices
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-physical-branch-devices
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Branch Connector Device Management > About Physical Branch Devices
-- Last modified: 2026-09-24T12:22Z
+- Last modified: 2026-09-30T13:32Z
 - Summary: Information on the Physical Branch Devices page in the Zscaler Admin Console.
 
 [Watch a video about Cloud & Branch Connector Upgrades (shows legacy UI).](https://fast.wistia.net/embed/iframe/i91vzo6kqu)
@@ -1359,7 +1316,7 @@ Physical Branch Devices provide the following benefits and enable you to:
 
 ## About the Physical Branch Devices Page
 
-On the Physical Branch Devices page (Infrastructure > Connectors > Edge > Management > Branch Devices > Physical), you can do the following:
+On the Physical Branch Devices page (Infrastructure > Branch Connector > Appliances Group), you can do the following:
 
 1. Search for a physical branch device.
 2. View a list of physical branch devices. For each device, you can view:
@@ -1382,13 +1339,13 @@ On the Physical Branch Devices page (Infrastructure > Connectors > Edge > Manage
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-role-management","lastmod":"2026-09-24T11:28Z","nid":"1420521"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-role-management","lastmod":"2026-09-29T09:46Z","nid":"1420521"} -->
 ## About Role Management
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-role-management
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Administrator & Role Management > About Role Management
-- Last modified: 2026-09-24T11:28Z
+- Last modified: 2026-09-29T09:46Z
 - Summary: Information on managing roles in the Zscaler Admin Console.
 
 The role admins are assigned dictates the level of access they have to the Zscaler Admin Console. Zscaler provides a default super admin role which has full access to the portal. The super admin role is assigned to the default admin, but you can assign this role to other admins as necessary. For each additional role you create, you must define the role's access by specifying permissions.
@@ -1424,13 +1381,13 @@ On the Role Management page (Administration > Role Management > Branch and Cloud
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-source-ip-groups","lastmod":"2026-05-12T21:06Z","nid":"1420386"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-source-ip-groups","lastmod":"2026-09-28T09:54Z","nid":"1420386"} -->
 ## About Source IP Groups
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-source-ip-groups
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Firewall Filtering > About Source IP Groups
-- Last modified: 2026-05-12T21:06Z
+- Last modified: 2026-09-28T09:54Z
 - Summary: Information on the Source IP groups feature available in the Zscaler Admin Console.
 
 Grouping source IP addresses together facilitates their use in policies.
@@ -1442,7 +1399,7 @@ Source IP Groups provide the following benefits and enable you to:
 
 ## About the Source IP Groups Page
 
-On the Source IP Groups page (Infrastructure > Common Resources > Application > IP Group & FQDN > Source IP Groups), you can do the following:
+On the Source IP Groups page (Internet Access > Resources > IP & FQDN Groups > Source IPv4 Groups tab), you can do the following:
 
 1. Search for a source IP group.
 2. Modify the table and its columns.
@@ -1507,13 +1464,13 @@ On the Traffic Forwarding page (Zero Trust Cloud > Policy > Traffic Forwarding),
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-upgrade-manager","lastmod":"2026-08-13T07:06Z","nid":"1534347"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-upgrade-manager","lastmod":"2026-09-30T12:51Z","nid":"1534347"} -->
 ## About Upgrade Manager
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-upgrade-manager
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Group Management > About Upgrade Manager
-- Last modified: 2026-08-13T07:06Z
+- Last modified: 2026-09-30T12:51Z
 - Summary: Information on Upgrade Manager in the Zscaler Admin Console.
 
 The upgrade manager allows you to view detailed information about your Cloud Connector group release channel.
@@ -1525,7 +1482,7 @@ Upgrade manager provides the following benefits and enables you to:
 
 ## About the Upgrade Manager Page
 
-On the Upgrade Manager page (Infrastructure > Connectors > Cloud > Management > Cloud Connector Groups > Upgrade Manager), you can do the following:
+On the Upgrade Manager page (Zero Trust Cloud > Cloud Connector > Cloud Connector Groups > Upgrade Manager), you can do the following:
 
 1. Filter the list of groups by the following criteria:
   - **Cloud**: From the drop-down menu, select **AWS**, **Azure**, or **GCP**.
@@ -1564,13 +1521,13 @@ On the Upgrade Manager page (Infrastructure > Connectors > Cloud > Management > 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-vdi-devices","lastmod":"2026-09-15T14:25Z","nid":"1471691"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-vdi-devices","lastmod":"2026-09-29T21:06Z","nid":"1471691"} -->
 ## About VDI Devices
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-vdi-devices
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > About VDI Devices
-- Last modified: 2026-09-15T14:25Z
+- Last modified: 2026-09-29T21:06Z
 - Summary: Information on the VDI Devices page in the Zscaler Admin Console.
 
 In the Zscaler Admin Console, the VDI Devices page displays all the devices in your organization that have Zscaler Client Connector for VDI deployed.
@@ -1638,13 +1595,13 @@ On the VDI Forwarding Profile page (Infrastructure > Client Connector > VDI Forw
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-vdi-groups","lastmod":"2026-09-15T14:29Z","nid":"1471696"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-vdi-groups","lastmod":"2026-09-29T21:06Z","nid":"1471696"} -->
 ## About VDI Groups
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-vdi-groups
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > About VDI Groups
-- Last modified: 2026-09-15T14:29Z
+- Last modified: 2026-09-29T21:06Z
 - Summary: Information on the VDI groups page of the Zscaler Admin Console.
 
 In the Zscaler Admin Console, the VDI Groups page displays a list of Virtual Desktop Infrastructure (VDI) device groups that are defined based on criteria entered by an admin. The VDI devices that have Zscaler Client Connector for VDI deployed are categorized under groups based on the match criteria.
@@ -1727,13 +1684,13 @@ On the VDI Templates page (Infrastructure > Client Connector > VDI Templates), y
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-virtual-branch-devices","lastmod":"2026-09-24T12:25Z","nid":"1467036"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-virtual-branch-devices","lastmod":"2026-09-30T13:36Z","nid":"1467036"} -->
 ## About Virtual Branch Devices
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-virtual-branch-devices
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Branch Connector Device Management > About Virtual Branch Devices
-- Last modified: 2026-09-24T12:25Z
+- Last modified: 2026-09-30T13:36Z
 - Summary: Information on the Virtual Branch Devices page in the Zscaler Admin Console.
 
 [Watch a video about Cloud & Branch Connector Upgrades (shows legacy UI).](https://fast.wistia.net/embed/iframe/i91vzo6kqu)
@@ -1747,7 +1704,7 @@ Virtual Branch Devices provide the following benefits and enable you to:
 
 ## About the Virtual Branch Devices Page
 
-On the Virtual Branch Devices page (Infrastructure > Connectors > Edge > Management > Branch Devices > Virtual), you can do the following:
+On the Virtual Branch Devices page (Infrastructure > Branch Connector > VM Group), you can do the following:
 
 1. View a list of virtual branch devices. For each device, you can view:
 
@@ -1772,13 +1729,13 @@ On the Virtual Branch Devices page (Infrastructure > Connectors > Edge > Managem
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-zero-trust-branch-devices","lastmod":"2026-09-24T12:03Z","nid":"1467021"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-zero-trust-branch-devices","lastmod":"2026-09-30T12:54Z","nid":"1467021"} -->
 ## About Zero Trust Branch Devices
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-zero-trust-branch-devices
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Branch Connector Device Management > About Zero Trust Branch Devices
-- Last modified: 2026-09-24T12:03Z
+- Last modified: 2026-09-30T12:54Z
 - Summary: Information on the Zero Trust Branch Devices page in the Zscaler Admin Console.
 
 Zero Trust Branch Devices are installed in your organization’s on-premises locations such as branches and data centers. They enable Zero Trust connectivity from any unauthenticated users, servers, or IoT/OT devices in any location or over any network. To learn more, see [Understanding Zero Trust Branch Devices](https://help.zscaler.com/cloud-branch-connector/understanding-zero-trust-branch-devices).
@@ -1791,7 +1748,7 @@ Zero Trust Branch Devices provide the following benefits and enable you to:
 
 ## About the Zero Trust Branch Devices Page
 
-On the ZT Devices page (Infrastructure > Connectors > Edge > Management > ZT Devices), you can do the following:
+On the ZT Devices page (Infrastructure > Branch Connector > ZT Devices), you can do the following:
 
 1. Search for a Zero Trust Branch Device.
 2. View a list of appliances configured for your organization. You can see:
@@ -1804,7 +1761,7 @@ On the ZT Devices page (Infrastructure > Connectors > Edge > Management > ZT Dev
 3. Modify the table and its columns.
 4. [Edit](https://help.zscaler.com/cloud-branch-connector/editing-zero-trust-branch-devices) a Zero Trust Branch Device.
 
-[Image: The About ZT Devices page in the Zscaler Admin Console]
+[Image: The ZT Devices page in the Zscaler Admin Console]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1914,13 +1871,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-admin-roles","lastmod":"2026-09-24T11:29Z","nid":"1420576"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-admin-roles","lastmod":"2026-09-29T14:46Z","nid":"1420576"} -->
 ## Adding Admin Roles
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-admin-roles
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Administrator & Role Management > Adding Admin Roles
-- Last modified: 2026-09-24T11:29Z
+- Last modified: 2026-09-29T14:46Z
 - Summary: How to add administrator roles in the Zscaler Admin Console.
 
 Configuring admin roles is one of the tasks you must complete when configuring role-based permissions for [admins](https://help.zscaler.com/cloud-branch-connector/adding-cloud-connector-admins) in the Zscaler Admin Console.
@@ -2048,13 +2005,13 @@ To enable this feature, contact Zscaler Support.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-amazon-web-services-account","lastmod":"2026-09-22T13:43Z","nid":"1464091"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-amazon-web-services-account","lastmod":"2026-09-30T14:37Z","nid":"1464091"} -->
 ## Adding an Amazon Web Services Account
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-amazon-web-services-account
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > AWS Partner Integrations > Adding an Amazon Web Services Account
-- Last modified: 2026-09-22T13:43Z
+- Last modified: 2026-09-30T14:37Z
 - Summary: How to add an Amazon Web Services account on the Partner Integrations page of the Zscaler Admin Console.
 
 This article provides information on how to onboard an Amazon Web Services (AWS) account to enable tag discovery services within the Zscaler Admin Console. To learn more, see [About Amazon Web Services Accounts](https://help.zscaler.com/cloud-branch-connector/about-partner-integrations).
@@ -2065,7 +2022,7 @@ To enable this feature, contact Zscaler Support.
 
 To add an AWS account:
 
-1. Go to **Infrastructure**> **Connectors** > **Cloud** > **Management** > **Partner Integrations** > **AWS** > **Accounts**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud** > **Common Resources** > **AWS** > **Accounts**.
 2. Click **Add Account**. See image. The **Add Account**window appears.
 3. In the **Add Account** window:
   1. In the **Configuration** section: See image.
@@ -2083,7 +2040,7 @@ To add an AWS account:
     - **Launch Cloudformation template in AWS console**: After launching the CloudFormation template, you are prompted to log in to your AWS account. The CloudFormation template is displayed in your AWS account with custom values based on the information you entered in the Zscaler Admin Console. To proceed, you must confirm the information and execute the template.
     - **Download CloudFormation Template for Later Execution**: If the Zscaler admin user does not have permission to execute the CloudFormation template in their AWS account, download the CloudFormation template to deploy at a later date.
 
-[Image: Adding an AWS Account on the Partner Integrations page]
+[Image: Adding an AWS account on the Partner Integrations page]
 
 [Image: The Configuration section of the Add AWS Account page]
 
@@ -2098,13 +2055,13 @@ After the CloudFormation template is executed, your account is onboarded into th
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-amazon-web-services-account-group","lastmod":"2026-09-22T13:43Z","nid":"1479496"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-amazon-web-services-account-group","lastmod":"2026-09-30T14:29Z","nid":"1479496"} -->
 ## Adding an Amazon Web Services Account Group
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-amazon-web-services-account-group
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > AWS Partner Integrations > Adding an Amazon Web Services Account Group
-- Last modified: 2026-09-22T13:43Z
+- Last modified: 2026-09-30T14:29Z
 - Summary: How to add an Amazon Web Services account group on the Partner Integrations Groups page of the Zscaler Admin Console.
 
 This article provides information on how to add an Amazon Web Services (AWS) account group in the Zscaler Admin Console. To learn more, see [About Amazon Web Services Account Groups](https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-account-groups).
@@ -2113,7 +2070,7 @@ This article provides information on how to add an Amazon Web Services (AWS) acc
 
 To add an AWS account group:
 
-1. Go to **Infrastructure** > **Connectors** > **Cloud** > **Management** > **Partner Integrations** > **AWS Groups**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Zero Trust Cloud** > **Common Resources** > **AWS** > **Account Groups**.
 2. Click **Add Group**. See image. The **Add AWS Group** window appears.
 3. In the **Add AWS Group** window:
   - **Name**: Enter a name for the AWS account group.
@@ -2455,13 +2412,13 @@ You can enter multiple entries. Press `Enter` after each entry, then click **Add
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-google-cloud-platform-account","lastmod":"2026-09-24T11:42Z","nid":"1528924"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-google-cloud-platform-account","lastmod":"2026-09-30T13:45Z","nid":"1528924"} -->
 ## Adding a Google Cloud Platform Account
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-google-cloud-platform-account
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > GCP Partner Integrations > Adding a Google Cloud Platform Account
-- Last modified: 2026-09-24T11:42Z
+- Last modified: 2026-09-30T13:45Z
 - Summary: How to configure a Google Cloud Platform account using the Workload Discovery Service on the GCP tab of the Partner Integrations page of the Zscaler Admin Console.
 
 This article provides information on how to onboard a Google Cloud Platform (GCP) account to enable tag discovery services within the Zscaler Admin Console. To learn more, see [About Google Cloud Platform Accounts](https://help.zscaler.com/cloud-branch-connector/about-google-cloud-platform-accounts).
@@ -2471,7 +2428,7 @@ This article provides information on how to onboard a Google Cloud Platform (GCP
 To add a GCP account:
 
 1. Sign in to the Zscaler Admin Console.
-2. Go to **Infrastructure** > **Connectors** > **Cloud** > **Management** > **Partner Integrations** > **GCP**.
+2. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud** > **Common Resources** > **GCP**.
 3. Click **Add Account**. See image. The **Add GCP Account** window appears.
 4. In the **Add GCP Account** window:
   1. On the **Account Name And Credential** tab:
@@ -2818,13 +2775,13 @@ To download the SSL certificate:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/admin-saml-configuration-guide-ad-fs-3.0","lastmod":"2026-08-18T21:06Z","nid":"1420896"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/admin-saml-configuration-guide-ad-fs-3.0","lastmod":"2026-09-30T13:39Z","nid":"1420896"} -->
 ## Admin SAML Configuration Guide for AD FS 3.0
 
 - Source: https://help.zscaler.com/cloud-branch-connector/admin-saml-configuration-guide-ad-fs-3.0
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Administrator & Role Management > SAML for Admins > Admin SAML Configuration Guide for AD FS 3.0
-- Last modified: 2026-08-18T21:06Z
+- Last modified: 2026-09-30T13:39Z
 - Summary: How to configure AD FS 3.0 as the identity provider for Zscaler Cloud & Branch Connector and use SAML single sign-on for administrators.
 
 This guide demonstrates how to configure a Windows Server 2012 R2 running Active Directory Federation Services (AD FS) 3.0 as the identity provider (IdP) for the Zscaler service and use [SAML single sign-on (SSO) for your organization's admins](https://help.zscaler.com/cloud-branch-connector/accessing-administrator-management). To learn more about the steps in the Windows Server 2012 R2, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/windows-server/identity/active-directory-federation-services).
@@ -2944,13 +2901,13 @@ where `<AD FS Server>` is the exact AD FS server name. For example, if your serv
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/admin-saml-configuration-guide-azure-active-directory","lastmod":"2026-08-18T21:06Z","nid":"1420901"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/admin-saml-configuration-guide-azure-active-directory","lastmod":"2026-09-30T13:39Z","nid":"1420901"} -->
 ## Admin SAML Configuration Guide for Azure Active Directory
 
 - Source: https://help.zscaler.com/cloud-branch-connector/admin-saml-configuration-guide-azure-active-directory
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Administrator & Role Management > SAML for Admins > Admin SAML Configuration Guide for Azure Active Directory
-- Last modified: 2026-08-18T21:06Z
+- Last modified: 2026-09-30T13:39Z
 - Summary: Step-by-step configuration guide for Azure Active Directory SAML 2.0 with Zscaler Cloud & Branch Connector.
 
 This guide demonstrates how to configure Microsoft Azure Active Directory (Azure AD) as the identity provider (IdP) for Zscaler Cloud & Branch Connector and use [SAML single-sign-on (SSO) for your organization's admins](https://help.zscaler.com/cloud-branch-connector/accessing-administrator-management). To learn more about how to configure SAML within the Azure portal, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal).
@@ -3082,13 +3039,13 @@ If you have disabled application visibility, demonstrated in Enable IdP-Initiate
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/admin-saml-configuration-guide-okta","lastmod":"2026-08-18T21:06Z","nid":"1420891"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/admin-saml-configuration-guide-okta","lastmod":"2026-09-29T15:00Z","nid":"1420891"} -->
 ## Admin SAML Configuration Guide for Okta
 
 - Source: https://help.zscaler.com/cloud-branch-connector/admin-saml-configuration-guide-okta
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Administrator & Role Management > SAML for Admins > Admin SAML Configuration Guide for Okta
-- Last modified: 2026-08-18T21:06Z
+- Last modified: 2026-09-29T15:00Z
 - Summary: How to configure Okta as the identity provider for Zscaler Cloud & Branch Connector and use SAML single sign-on for administrators.
 
 This guide demonstrates how to configure Okta as the identity provider for Zscaler Cloud & Branch Connector and use [SAML single sign-on (SSO) for admins](https://help.zscaler.com/cloud-branch-connector/accessing-administrator-management). To learn more about the steps in the Okta portal, refer to the [Okta documentation](https://help.okta.com/).
@@ -3109,7 +3066,7 @@ To configure Okta as the IdP for Cloud & Branch Connector and use SAML SSO for a
 
 - Step 1: Add the Zscaler Cloud and Branch Connector Administrator Application
 - Step 2: Configure the SAML Admin SSO in Okta
-- Step 3: Configure SAML Admin SSO in the Zscaler Admin Console
+- [Step 3: Configure SAML Admin SSO in the Zscaler Admin Console](https://help.zscaler.com/cloud-branch-connector/configuring-saml-admins)
 
 1. Log in to [Okta](https://www.okta.com/login/).
 2. On the left-side navigation, select **Applications**, then click **Applications**. See image
@@ -3129,13 +3086,6 @@ To configure Okta as the IdP for Cloud & Branch Connector and use SAML SSO for a
 4. On the **Zscaler Cloud and Branch Connector Administrator Application** page, click **Sign On**. See image.
 5. Under **SAML Setup**, click **View SAML setup instructions**. See image.
 6. On the **How to Configure SAML 2.0 for Zscaler Cloud and Branch Connector Administrator Application** page, copy the **Identity Provider Issuer**. See image. Under **X.509 Certificate**, click **Download certificate**. See image. Okta downloads the certificate as a `.cert`, but the Zscaler Admin Console supports only `.cer` or `.pem` files. Ensure that the file is converted before uploading it to the portal.
-
-1. In the portal, go to **Administration** > **Administrator Management** > **Administrators Management**.
-2. In the **SAML Authentication for Administrators** section, under **IdP SAML Certificate**, click **Upload**. See image.
-3. In the **IdP SAML Certificate** window, click **Choose File** and upload the certificate, then click **Upload** when complete. See image.
-4. Under **Issuer**, paste the **Identity Provider Identifier** you copied from Okta, then click **Add Items**. See image.
-5. Enable SAML Authentication. See image.
-6. Click **Save**and [activate the changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 ## Testing the Admin SAML SSO
 
@@ -3173,14 +3123,6 @@ To test the SAML admin SSO, you can initiate the SAML connection from the Zscale
 
 [Image: X.509 Certificate in Okta]
 
-[Image: Upload under IdP SAML Certificate in the Zscaler Cloud & Branch Connector Admin Portal]
-
-[Image: Choose File in the IdP SAML Certificate window in the Zscaler Cloud & Branch Connector Admin Portal]
-
-[Image: Issuer under SAML Authentication for Administrators in the Zscaler Cloud & Branch Connector Admin Portal]
-
-[Image: Enable SAML Authentication in the Zscaler Cloud & Branch Connector Admin Portal]
-
 [Image: Four Square Icon in Okta]
 
 [Image: My end user dashboard under Okta apps in Okta]
@@ -3190,13 +3132,13 @@ To test the SAML admin SSO, you can initiate the SAML connection from the Zscale
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-amazon-web-services-account-details","lastmod":"2026-09-22T13:43Z","nid":"1529425"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-amazon-web-services-account-details","lastmod":"2026-09-30T14:27Z","nid":"1529425"} -->
 ## Analyzing Amazon Web Services Account Details
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-amazon-web-services-account-details
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > AWS Partner Integrations > Analyzing Amazon Web Services Account Details
-- Last modified: 2026-09-22T13:43Z
+- Last modified: 2026-09-30T14:27Z
 - Summary: Information on the Amazon Web Services (AWS) account details in the Zscaler Admin Console.
 
 The Amazon Web Services (AWS) account details page provides general and management information for a selected AWS account. You can access the AWS account details page by going to the Partner Integrations page and clicking the name of an account on the [AWS Accounts](https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-accounts) page.
@@ -3272,13 +3214,13 @@ Supported regions for AWS include:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-amazon-web-services-account-group-details","lastmod":"2026-09-22T13:43Z","nid":"1529426"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-amazon-web-services-account-group-details","lastmod":"2026-09-30T14:29Z","nid":"1529426"} -->
 ## Analyzing Amazon Web Services Account Group Details
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-amazon-web-services-account-group-details
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > AWS Partner Integrations > Analyzing Amazon Web Services Account Group Details
-- Last modified: 2026-09-22T13:43Z
+- Last modified: 2026-09-30T14:29Z
 - Summary: Information on the Amazon Web Services (AWS) account group details in the Zscaler Admin Console.
 
 The Amazon Web Services (AWS) account group details page provides general and management information for a selected AWS account group. You can access the AWS account group details page by clicking the name of an account group on the [AWS Groups](https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-account-groups) page.
@@ -4461,13 +4403,13 @@ To configure advanced settings:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-branch-connector-configuration-template","lastmod":"2026-09-02T21:06Z","nid":"1420656"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-branch-connector-configuration-template","lastmod":"2026-09-30T13:28Z","nid":"1420656"} -->
 ## Configuring a Branch Connector Configuration Template
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-branch-connector-configuration-template
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Provisioning & Configuration > Configuring a Branch Connector Configuration Template
-- Last modified: 2026-09-02T21:06Z
+- Last modified: 2026-09-30T13:28Z
 - Summary: How to configure a branch configuration template in the Zscaler Admin Console.
 
 The Branch Connector Configuration Template provides configuration information for virtual and physical branch devices. The configuration URL is required for deploying virtual and physical branch devices. For virtual branch devices, the administrator provides the configuration URL to the virtual device. For physical branch devices, you retrieve the configuration URL using the Zero Touch Provisioning process.
@@ -4476,7 +4418,7 @@ For Branch Connectors to function in high availability, configure each Branch Co
 
 To add a Branch Connector Configuration Template:
 
-1. Go to **Infrastructure** > **Connectors** > **Edge** > **Management** > **Branch Provisioning**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure** > **Branch Connector** > **VM Provisioning** for hypervisor hosts or **Infrastructure** > **Branch Connector** > **Device Provisioning** for hardware devices.
 2. Click **Add Branch Connector Configuration Template**.
 3. On the page, decide whether to deploy a hypervisor host or a hardware device, and follow the appropriate steps:
 
@@ -4961,13 +4903,13 @@ To learn more about DHCP options, refer to the [IANA documentation](https://www.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-cloud-provisioning-template","lastmod":"2026-09-03T12:48Z","nid":"1420466"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-cloud-provisioning-template","lastmod":"2026-09-30T10:41Z","nid":"1420466"} -->
 ## Configuring a Cloud Provisioning Template
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-cloud-provisioning-template
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Provisioning & Configuration > Configuring a Cloud Provisioning Template
-- Last modified: 2026-09-03T12:48Z
+- Last modified: 2026-09-30T10:41Z
 - Summary: How to configure a cloud provisioning template in the Zscaler Admin Console.
 
 [Watch a video about Cloud Provisioning Templates (shows legacy UI).](https://fast.wistia.net/embed/iframe/577qniv2zj)
@@ -4976,7 +4918,7 @@ This article provides information on how to configure a [cloud provisioning temp
 
 To add a Cloud Connector Provisioning Template:
 
-1. Go to **Infrastructure** > **Connectors** > **Cloud** > **Management** > **Provisioning**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud** > **Cloud Connector** > **Provisioning Templates**.
 2. Click **Add Cloud Connector Provisioning Template**.
 3. On the **Add Cloud Connector Provisioning Template** page:
   1. On the **General Information** tab: See image.
@@ -4989,7 +4931,7 @@ To add a Cloud Connector Provisioning Template:
   4. On the **Group Information** tab:
     - **Cloud Connector Group Creation**: This field is set to **Automatic**.
     - **VM Size**: Depending on your selected cloud provider, you can configure your Cloud Connector VM size.
-      - **Amazon Web Services**: Select from **Small**, **Medium**, or **Large**. **Small** is set by default when auto scaling is enabled.
+      - **Amazon Web Services**: Select from **Small**, **Medium**, or **Large**. **Small** is set by default when autoscaling is enabled.
       - **Azure**: **Small** is set by default.
       - **GCP**: **Small** is set by default.
     - **Auto Scaling**: Enable or disable autoscaling for AWS, Azure, or GCP. In the AWS Marketplace, autoscaling is referred to as Auto Scaling. In the Azure Marketplace, autoscaling is referred to as Virtual Machine Scale Sets (VMSS). In the Google Cloud Marketplace, autoscaling is referred to as a Managed Instance Group (MIG) with autoscaling. In the Zscaler Admin Console, references to autoscaling also refer to Auto Scaling, VMSS, and a MIG with autoscaling. To enable Auto Scaling, VMSS, or a MIG with autoscaling, contact Zscaler Support.
@@ -5015,22 +4957,22 @@ To add a Cloud Connector Provisioning Template:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-destination-ip-groups","lastmod":"2026-05-14T21:06Z","nid":"1420461"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-destination-ip-groups","lastmod":"2026-09-28T10:01Z","nid":"1420461"} -->
 ## Configuring Destination IP Groups
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-destination-ip-groups
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Firewall Filtering > Configuring Destination IP Groups
-- Last modified: 2026-05-14T21:06Z
+- Last modified: 2026-09-28T10:01Z
 - Summary: Information on how to group destination IPs to use in Zscaler Cloud & Branch Connector forwarding policies.
 
 You can group destinations by specifying IP addresses and countries where servers are located.
 
 To create a destination IP group:
 
-1. Go to **Infrastructure** > **Common Resources** > **Application** > **IP Group & FQDN** > **Destination IP Groups**.
-2. On the **Destination IP Groups** page, click **Add Destination IP Group.** The **Add Destination IP Group** window appears.
-3. In the **Add Destination IP Group**window:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access > Resources > IP & FQDN Groups > Destination IPv4 Groups** tab.
+2. On the **Destination IPv4 Groups** tab, click **Add Destination IPv4 Group.** The **Add Destination IPv4 Group** window appears.
+3. In the **Add Destination IPv4 Group**window:
   - **Name**:Enter a name for the destination IP address group. You can only use alphanumeric characters, underscores, hyphens, and periods.
   - **Type**:Select **IP Address**, **FQDN**, **Wildcard Domain**, or **Other**. To enter multiple items, press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page, filter the list by searching for a word, phrase, or number contained in an item, and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
     - **IP Address**: You can add IP addresses in any of the following formats:
@@ -5093,20 +5035,20 @@ To configure a DNS Filtering rule:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-dns-gateway","lastmod":"2026-05-13T21:06Z","nid":"1471256"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-dns-gateway","lastmod":"2026-09-28T10:27Z","nid":"1471256"} -->
 ## Configuring a DNS Gateway
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-dns-gateway
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Forwarding Methods > Configuring a DNS Gateway
-- Last modified: 2026-05-13T21:06Z
+- Last modified: 2026-09-28T10:27Z
 - Summary: Information on how to configure DNS gateways in the Zscaler Admin Console.
 
 DNS gateways redirect the DNS request received by the Zscaler Cloud or Branch Connector to specific DNS servers. To learn more, see [About DNS Gateways](https://help.zscaler.com/cloud-branch-connector/about-dns-gateways).
 
 To add a DNS gateway:
 
-1. Go to **Infrastructure** > **Common Resources** > **Gateways** > **DNS**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud > Gateways > DNS Gateway**.
 2. On the **DNS Gateway** page, click **Add DNS Gateway**. See image. The **Add DNS Gateway** window appears.
 3. In the **Add DNS Gateway** window:
   - **Name**: Enter a user-friendly name for the gateway.
@@ -5130,13 +5072,13 @@ To add a DNS gateway:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-iam-roles-and-permissions-microsoft-azure","lastmod":"2026-09-24T11:42Z","nid":"1507516"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-iam-roles-and-permissions-microsoft-azure","lastmod":"2026-09-29T09:06Z","nid":"1507516"} -->
 ## Configuring IAM Roles and Permissions for Microsoft Azure
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-iam-roles-and-permissions-microsoft-azure
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > Azure Partner Integrations > Configuring IAM Roles and Permissions for Microsoft Azure
-- Last modified: 2026-09-24T11:42Z
+- Last modified: 2026-09-29T09:06Z
 - Summary: Configuring IAM roles and permissions in the Microsoft Azure Portal allows you to add an Azure account in the Zscaler Admin Console.
 
 Configuring IAM roles and permissions for Microsoft Azure allows you to add Azure accounts in the Zscaler Admin Console. When configuring IAM roles and permissions, you can use Terraform or Azure. When adding permissions in Azure, you can use the built-in role of Reader or create a custom role. To learn more, see [Configuring the Workload Discovery Service for Microsoft Azure Accounts](https://help.zscaler.com/cloud-branch-connector/configuring-workload-discovery-service-microsoft-azure-accounts).
@@ -5146,7 +5088,7 @@ To configure IAM roles and permissions:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the Azure portal, under **Azure Resources**, select **App registrations**. See image.
 3. On the **App registrations** page, select **New registration**. See image.
-4. On the **Register an application** page, configure the following:
+4. On the **Register an application** page:
   - **Name**: Enter a name for your app.
   - **Supported account types**: Select **Accounts in this organizational directory only**.
   - **Redirect URI (optional)**: Do not configure this field. See image.
@@ -5169,7 +5111,7 @@ To configure IAM roles and permissions:
 13. On your subscription page, from the left-side navigation, select **Access control (IAM)**. See image.
 14. On the **Access control (IAM)** page, select **Add**, and from the drop-down menu select **Add custom role**. See image.
 15. On the **Create a custom role** page:
-  1. On the **Basics** tab, configure the following:
+  1. On the **Basics** tab:
     - **Custom role name**: Enter a name for the custom role.
     - **Description**: Enter a description for the custom role.
     - **Baseline permissions**: Select **Start from scratch**. See image.
@@ -5181,7 +5123,7 @@ To configure IAM roles and permissions:
 16. On the **Access control (IAM)** page, select **Add**, and from the drop-down menu select **Add role assignment**. See image.
 17. On the **Add role assignment** page:
   1. On the **Role** tab, under **Job function roles**, select the custom role you created and click **Next**.
-  2. On the **Members** tab, configure the following:
+  2. On the **Members** tab:
     - **Selected role**: This field displays the custom role you selected.
     - **Assign access to**: Select **User, group, or service principal**. See image.
     - **Members**: Click **Select members**. The **Select members** window appears.
@@ -5227,22 +5169,22 @@ In the Zscaler Admin Console, you can use the **Application (client) ID**, **Dir
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-internet-access-gateway","lastmod":"2026-06-02T09:39Z","nid":"1420561"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-internet-access-gateway","lastmod":"2026-09-28T10:32Z","nid":"1420561"} -->
 ## Configuring an Internet Access Gateway
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-internet-access-gateway
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Forwarding Methods > Configuring an Internet Access Gateway
-- Last modified: 2026-06-02T09:39Z
+- Last modified: 2026-09-28T10:32Z
 - Summary: Information on how to configure Internet Access gateways in the Zscaler Admin Console.
 
 [Watch a video about Internet Access gateways (shows legacy UI).](https://fast.wistia.net/embed/iframe/gv4u5q32dx)
 
 You can create gateway objects to configure the proxy gateway which enables you to forward any traffic to specific destinations via Internet & SaaS. A proxy gateway allows you to define a primary proxy and a secondary proxy to which the traffic can be forwarded and define how traffic should be handled when both the proxies are unreachable.
 
-In the **Add ZIA Gateway** window:
+To add an Internet Access Gateway:
 
-1. Go to **Infrastructure** > **Common Resources** > **Gateways** > **Internet Access**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud > Gateways > Internet Access Gateway**.
 2. On the **Internet Access Gateway** page, click **Add Internet Access Gateway**. See image.
 3. Enter the following information in the window:
   - **Name**: Enter a user-friendly name for the gateway.
@@ -5267,20 +5209,20 @@ In the **Add ZIA Gateway** window:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-ip-pool","lastmod":"2026-05-13T21:06Z","nid":"1420471"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-ip-pool","lastmod":"2026-09-28T10:09Z","nid":"1420471"} -->
 ## Configuring IP Pool
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-ip-pool
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Firewall Filtering > Configuring IP Pool
-- Last modified: 2026-05-13T21:06Z
+- Last modified: 2026-09-28T10:09Z
 - Summary: How to add an IP Pool in the Zscaler Admin Console.
 
 You can use the default IP Pool which is automatically created, or configure a customized IP pool of IP addresses based on your requirements.
 
 To add an IP pool:
 
-1. Go to **Infrastructure** > **Common Resources** > **Application** > **IP Group & FQDN** > **IP Pool**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access > Resources > IP & FQDN Groups > IP Pool** tab.
 2. On the **IP Pool** tab, select **Add IP Pool**. See image.
 3. In the **Add IP pool** window:
   - **Name**: Enter a name for the IP pool. Only alphanumeric characters, underscores, hyphens, and periods are allowed.
@@ -5298,20 +5240,20 @@ To add an IP pool:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-location-template","lastmod":"2026-05-12T21:06Z","nid":"1420606"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-location-template","lastmod":"2026-09-28T09:46Z","nid":"1420606"} -->
 ## Configuring a Location Template
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-location-template
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Location Management > Configuring a Location Template
-- Last modified: 2026-05-12T21:06Z
+- Last modified: 2026-09-28T09:46Z
 - Summary: Information on how to add a location template in the Zscaler Admin Console.
 
 Within the Zscaler Admin Console, you can create location templates. The selected attributes in the template are applied to a [location](https://help.zscaler.com/cloud-branch-connector/about-locations). To learn more, see [About Location Templates](https://help.zscaler.com/cloud-branch-connector/about-location-templates).
 
 To configure a location template:
 
-1. Go to **Infrastructure** > **Locations** > **Location Resources** > **Location Templates**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure** > **Location Management** > **Location Templates**.
 2. Select **Add Location Template**. The **Add Location Template** window appears.
 3. In the **Add Location Template** window:
   - **Name**: Enter a name for the location template. This field is mandatory.
@@ -5365,13 +5307,13 @@ A default log and control forwarding rule with a default gateway forwarding acti
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-log-and-control-gateway","lastmod":"2026-05-13T21:06Z","nid":"1420571"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-log-and-control-gateway","lastmod":"2026-09-28T10:35Z","nid":"1420571"} -->
 ## Configuring a Log and Control Gateway
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-log-and-control-gateway
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Forwarding Methods > Configuring a Log and Control Gateway
-- Last modified: 2026-05-13T21:06Z
+- Last modified: 2026-09-28T10:35Z
 - Summary: Information on how to add a log and control gateway in the Zscaler Admin Console.
 
 [Watch a video about log and control gateways (shows legacy UI).](https://fast.wistia.net/embed/iframe/deglhl0jps)
@@ -5380,7 +5322,7 @@ You can configure a log and control gateway to control the traffic logs and the 
 
 To configure a log and control gateway:
 
-1. Go to **Infrastructure** > **Common Resources** > **Gateways** > **Log and Control**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud > Gateways > Log and Control Gateway**.
 2. On the **Log and Control Gateway** page, click **Add Log And Control Gateway**. See image.
 3. Enter the following information in the window:
   - **Name**: Enter a user-friendly name for the gateway.
@@ -5402,20 +5344,20 @@ To configure a log and control gateway:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-network-service-groups","lastmod":"2026-05-13T21:06Z","nid":"1420446"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-network-service-groups","lastmod":"2026-09-28T10:19Z","nid":"1420446"} -->
 ## Configuring Network Service Groups
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-network-service-groups
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Firewall Filtering > Configuring Network Service Groups
-- Last modified: 2026-05-13T21:06Z
+- Last modified: 2026-09-28T10:19Z
 - Summary: How to group network services in the Zscaler Admin Console.
 
 You can group network services into a service group for easy application of firewall policies.
 
 To create a network services group:
 
-1. Go to **Policies** > **Access Control** > **Firewall** > **Network Services** > **Services** > **Service Groups**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access > Resources > Network Services > Service Groups** tab.
 2. On the **Service Groups** tab, click **Add Network Service Group**. See image.
 3. In the **Add Network Service Group**window:
   - **Name**: Enter a name for the network services group.
@@ -5430,20 +5372,20 @@ To create a network services group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-network-services","lastmod":"2026-05-13T21:06Z","nid":"1420441"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-network-services","lastmod":"2026-09-28T10:14Z","nid":"1420441"} -->
 ## Configuring Network Services
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-network-services
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Firewall Filtering > Configuring Network Services
-- Last modified: 2026-05-13T21:06Z
+- Last modified: 2026-09-28T10:14Z
 - Summary: How to add a network service in the Zscaler Admin Console.
 
 You can define custom network services to add to the [Firewall](https://help.zscaler.com/zia/about-firewall-control), [DNS](https://help.zscaler.com/zia/about-dns-control), and [NAT](https://help.zscaler.com/zia/about-nat-control) policies. Additionally, you can define custom services that include [custom ports](https://help.zscaler.com/zia/configuring-custom-ports) for HTTP, HTTPS, DNS, FTP, RTSP, or PPTP.
 
 To add a custom network service:
 
-1. Go to **Policies** > **Access Control** > **Firewall** > **Network Services** > **Services**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access > Resources > Network Services > Services**tab.
 2. On the **Services** tab, select **Add Network Service**. See image.
 3. In the **Add Network Service** window:
   - In the **Network Service** section:
@@ -5495,20 +5437,20 @@ If the support tunnel enablement fails, attach the logs at `/var/log/zscaler/ecs
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-saml-admins","lastmod":"2024-11-14T14:15Z","nid":"1420806"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-saml-admins","lastmod":"2026-09-29T14:55Z","nid":"1420806"} -->
 ## Configuring SAML for Admins
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-saml-admins
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Administrator & Role Management > SAML for Admins > Configuring SAML for Admins
-- Last modified: 2024-11-14T14:15Z
-- Summary: How to configure SAML authentication for administrators in the Zscaler Cloud & Branch Connector Admin Portal.
+- Last modified: 2026-09-29T14:55Z
+- Summary: How to configure SAML authentication for administrators in the Zscaler Admin Console.
 
-The Zscaler service supports authenticating administrators using SAML initiated by an identity provider (IdP). An admin can log in to the Zscaler Cloud & Branch Connector Admin Portal directly via single sign-on (SSO) by clicking the Zscaler application icon within the provider's portal. This feature also enables you to integrate admin authentication with your existing two-factor authentication solution.
+The Zscaler service supports authenticating administrators using SAML initiated by an identity provider (IdP). An admin can log in to the Zscaler Admin Console directly via single sign-on (SSO) by clicking the Zscaler application icon within the provider's portal. This feature also enables you to integrate admin authentication with your existing two-factor authentication solution.
 
-Admins are not added through auto-provisioning. Rather, you must add an admin in the Cloud & Branch Connector Admin Portal, and then they can use SAML authentication to log in to it.
+Admins are not added through auto-provisioning. Rather, you must add an admin in the Zscaler Admin Console, and then they can use SAML authentication to log in to it.
 
-Although the Zscaler service provides a password authentication option for admins, Zscaler recommends that admins use SAML authentication to log in to the Cloud & Branch Connector Admin Portal. However, Zscaler also recommends that you have at least one [super admin](https://help.zscaler.com/cloud-branch-connector/adding-super-admins) with password authentication enabled to ensure that an admin can still access the Cloud & Branch Connector Admin Portal even if SAML servers external to the Zscaler service become unreachable. The Zscaler service supports SAML 2.0 and later.
+Although the Zscaler service provides a password authentication option for admins, Zscaler recommends that admins use SAML authentication to log in to the Zscaler Admin Console. However, Zscaler also recommends that you have at least one [super admin](https://help.zscaler.com/cloud-branch-connector/adding-super-admins) with password authentication enabled to ensure that an admin can still access the Zscaler Admin Console even if SAML servers external to the Zscaler service become unreachable. The Zscaler service supports SAML 2.0 and later.
 
 ## Prerequisites
 
@@ -5516,52 +5458,34 @@ Ensure that you do the following before configuring SAML SSO for admins:
 
 - [Create admin accounts for your organization's admins](https://help.zscaler.com/cloud-branch-connector/adding-admins).
 - Configure an IdP, such as Active Directory Federation Services (AD FS), Okta, Azure Active Directory, etc.
-- Obtain the SAML certificate of the IdP. You upload this certificate to the Cloud & Branch Connector Admin Portal when you configure the service to use SAML.
+- Obtain the SAML certificate of the IdP. You upload this certificate to the Zscaler Admin Console when you configure the service to use SAML.
 
 ## Configuring SAML SSO for Admins
 
-If you are subscribed to Authentication Service, some of the following options are only configurable within the Authentication Service Admin Portal. To learn more, see [What Is Authentication Service?](https://help.zscaler.com/zidentity/what-zidentity)
+To configure SAML SSO for admins in the Zscaler Admin Console:
 
-To configure SAML SSO for admins in the Cloud & Branch Connector Admin Portal:
-
-1. Go to**Administration**>**Administrator Management**.
-2. Click the **Administrators Management** tab.
-3. In the **SAML Authentication for Administrators** section:
-  - **Enable** **SAML Authentication**: Enable to allow admins to log in to Cloud & Branch Connector via SSO from their identity provider's portal. Before you enable SAML authentication, you must configure an IdP (e.g., AD FS, Okta, etc.) for your organization. Also, you must add the admin account to the Cloud & Branch Connector Admin Portal, because admins cannot be added using auto-provisioning.
-  - **IdP SAML Certificate**:Upload the SAML public certificate that is used to verify the digital signature of the IdP. This is the Base64-encoded PEM format that you downloaded from the IdP. The file extension must be `.pem` or `.cer` and have no other periods (.) in the file name.
-
-See image.
-
-- **Download XML Metadata**:Download the XML metadata of the Zscaler service. The metadata details Zscaler SAML capabilities and is used for auto-configuration. Some IdPs require the metadata to configure service providers.
-- **Issuer**: (Optional) Enter the IdP issuer associated with the Zscaler service, and click **Add Items**. You can enter multiple issuers. Press`Enter` after each entry. You can add up to 25,000 custom URLs (across all categories). For item lists, you can view up to 500 items on a page. Filter the list by searching for a word, phrase, or number contained in an item. To remove all items from the list, click **Remove All**. To remove all items from only a specific page, click **Remove Page**. When you select**Remove All** or **Remove Page**, a confirmation window is displayed.
-
-See image.
-
-1. Click **Save** and [activate the change](https://help.zscaler.com/cloud-branch-connector/saving-and-activating-changes).
-
-[Image: Upload button in the IdP SAML Certificate window in the Zscaler Cloud & Branch Connector Admin Portal]
-
-[Image: SAML Authentication for Administrators section on the Administrator Management page in the Zscaler Cloud & Branch Connector Admin Portal]
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to**Administration**>**Legacy Admin Management** > **Branch and Cloud Connector** > **Administrators Management**.
+2. Click **ZIdentity Administration** to configure your administrators. To learn more, see [What Is Authentication Service?](https://help.zscaler.com/zidentity/what-zidentity)
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-source-ip-groups","lastmod":"2026-05-12T21:06Z","nid":"1420456"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-source-ip-groups","lastmod":"2026-09-28T10:02Z","nid":"1420456"} -->
 ## Configuring Source IP Groups
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-source-ip-groups
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Firewall Filtering > Configuring Source IP Groups
-- Last modified: 2026-05-12T21:06Z
+- Last modified: 2026-09-28T10:02Z
 - Summary: Information on how to group IP addresses into Source IP Groups in the Zscaler Admin Console.
 
 Grouping source IP addresses together enables easier creation of policies. The source IP groups are used for forwarding policies.
 
 To create a source IP address group:
 
-1. Go to **Infrastructure** > **Common Resources** > **Application** > **IP Group & FQDN** > **Source IP Groups**.
-2. On the **Source IP Groups** page, click **Add Source IP Group**. See image.
-3. In the **Add Source IP Group** window:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access > Resources > IP & FQDN Groups > Source IPv4 Groups**tab.
+2. On the **Source IPv4 Groups**tab, click **Add Source IPv4 Group**. See image.
+3. In the **Add Source IPv4 Group** window:
   - **Name**: Enter a name for the source IP address group. Only alphanumeric characters, underscores, hyphens, and periods are allowed.
   - **IP Addresses**: Enter any number of IP addresses in the following formats.
     - An IP address (for example, `198.51.100.100`)
@@ -6040,13 +5964,13 @@ To add a VDI template:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-workload-discovery-service-microsoft-azure-accounts","lastmod":"2026-09-22T13:43Z","nid":"1507561"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-workload-discovery-service-microsoft-azure-accounts","lastmod":"2026-09-30T11:18Z","nid":"1507561"} -->
 ## Configuring the Workload Discovery Service for Microsoft Azure Accounts
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-workload-discovery-service-microsoft-azure-accounts
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > Azure Partner Integrations > Configuring the Workload Discovery Service for Microsoft Azure Accounts
-- Last modified: 2026-09-22T13:43Z
+- Last modified: 2026-09-30T11:18Z
 - Summary: How to configure a Microsoft Azure account using the Workload Discovery Service on the Azure tab of the Partner Integrations page of the Zscaler Admin Console.
 
 This article provides information on how to onboard a Microsoft Azure account to enable workload discovery services within the Zscaler Admin Console. To learn more, see [About Microsoft Azure Accounts](https://help.zscaler.com/cloud-branch-connector/about-microsoft-azure-accounts).
@@ -6070,7 +5994,7 @@ Before you configure an Azure account, ensure that the following prerequisites a
 To add an Azure account:
 
 1. Sign in to the Zscaler Admin Console.
-2. Go to **Infrastructure** > **Connectors** > **Cloud** > **Management** > **Partner Integrations** > **Azure**.
+2. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud** > **Common Resources** > **Azure**.
 3. Click **Add Account**. See image. The **Add Azure Account window** appears.
 4. In the **Add Azure Account** window:
   1. On the **Credentials** tab:
@@ -6246,13 +6170,13 @@ The partner configuration authorization is created.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-workload-discovery-workloads-amazon-web-services","lastmod":"2026-09-22T13:43Z","nid":"1470596"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-workload-discovery-workloads-amazon-web-services","lastmod":"2026-09-30T14:29Z","nid":"1470596"} -->
 ## Configuring Workload Discovery for Workloads in Amazon Web Services
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-workload-discovery-workloads-amazon-web-services
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > AWS Partner Integrations > Configuring Workload Discovery for Workloads in Amazon Web Services
-- Last modified: 2026-09-22T13:43Z
+- Last modified: 2026-09-30T14:29Z
 - Summary: Information on how to configure workload discovery for workloads in Amazon Web Services (AWS).
 
 The workload discovery service is a Zscaler-managed service that discovers workloads in your Amazon Web Services (AWS) account. The service also fetches associated metadata such as user-defined tags and cloud service provider-generated attributes. These user-defined tags and cloud service provider-generated attributes are used in security policies.
@@ -6474,13 +6398,13 @@ The Terraform deployment package:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/customizing-zscaler-client-connector-vdi-install-options-msi","lastmod":"2026-09-15T14:22Z","nid":"1472251"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/customizing-zscaler-client-connector-vdi-install-options-msi","lastmod":"2026-09-29T21:06Z","nid":"1472251"} -->
 ## Customizing Zscaler Client Connector for VDI with Install Options for MSI
 
 - Source: https://help.zscaler.com/cloud-branch-connector/customizing-zscaler-client-connector-vdi-install-options-msi
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > Customizing Zscaler Client Connector for VDI with Install Options for MSI
-- Last modified: 2026-09-15T14:22Z
+- Last modified: 2026-09-29T21:06Z
 - Summary: How to customize the Zscaler Client Connector for VDI MSI file with install options by creating and deploying a golden image, or running the MSI with command-line options.
 
 If you are deploying Zscaler Client Connector for Virtual Desktop Infrastructure (VDI) to your users using Microsoft Azure, Amazon Web Services (AWS), Citrix XenCenter, or other device management methods that support Microsoft Software Installer (MSI) files, you can download and use the MSI file. After downloading and configuring Zscaler Client Connector for VDI, you can deploy the file as is using your device management method. Alternatively, you can use the MSI file to manually install Zscaler Client Connector for VDI on a device. To learn more about the required configuration tasks, see [Step-by-Step Configuration Guide for Zscaler Client Connector for VDI](https://help.zscaler.com/cloud-branch-connector/step-step-configuration-guide-zscaler-client-connector-vdi).
@@ -12043,20 +11967,20 @@ To download Zscaler Client Connector for VDI:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/editing-cloud-connectors","lastmod":"2026-09-24T12:03Z","nid":"1420856"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/editing-cloud-connectors","lastmod":"2026-09-30T12:41Z","nid":"1420856"} -->
 ## Editing Cloud Connectors
 
 - Source: https://help.zscaler.com/cloud-branch-connector/editing-cloud-connectors
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Group Management > Editing Cloud Connectors
-- Last modified: 2026-09-24T12:03Z
+- Last modified: 2026-09-30T12:41Z
 - Summary: How to edit Cloud Connectors from the Cloud Connector Groups page in the Zscaler Admin Console.
 
 Modifying Zscaler Cloud Connectors and Cloud Connector groups is one of the tasks you can complete after deployment.
 
 To edit a Cloud Connector or Cloud Connector group:
 
-1. Go to **Infrastructure** > **Connectors** > **Cloud** > **Management** > **Cloud Connector Groups**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud** > **Cloud Connector** > **Cloud Connector Groups**.
 2. Select the **Overview** or **Upgrade Manager** tab, depending on your requirements.
 3. Locate the group or the individual connector you want to modify and click the **Edit** icon. See image.
 
@@ -12140,20 +12064,20 @@ To edit a Cloud Connector or Cloud Connector group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/editing-physical-branch-devices","lastmod":"2026-09-24T12:22Z","nid":"1467031"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/editing-physical-branch-devices","lastmod":"2026-09-30T13:34Z","nid":"1467031"} -->
 ## Editing Physical Branch Devices
 
 - Source: https://help.zscaler.com/cloud-branch-connector/editing-physical-branch-devices
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Branch Connector Device Management > Editing Physical Branch Devices
-- Last modified: 2026-09-24T12:22Z
+- Last modified: 2026-09-30T13:34Z
 - Summary: How to edit physical branch devices from the Physical Branch Devices page in the Zscaler Admin Console.
 
 After deployment, you can modify physical branch devices.
 
 To edit a physical branch device:
 
-1. Go to **Infrastructure** > **Connectors** > **Edge** > **Management** > **Branch Devices** > **Physical**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure** > **Branch Connector** > **Appliances Group**.
 2. From the [Physical Branch Devices](https://help.zscaler.com/cloud-branch-connector/about-physical-branch-devices) page, locate the group or the individual device you want to modify and click the **Edit** icon.
 
 - Group
@@ -12209,20 +12133,20 @@ To edit a physical branch device:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/editing-virtual-branch-devices","lastmod":"2026-09-24T12:25Z","nid":"1467041"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/editing-virtual-branch-devices","lastmod":"2026-09-30T13:37Z","nid":"1467041"} -->
 ## Editing Virtual Branch Devices
 
 - Source: https://help.zscaler.com/cloud-branch-connector/editing-virtual-branch-devices
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Branch Connector Device Management > Editing Virtual Branch Devices
-- Last modified: 2026-09-24T12:25Z
+- Last modified: 2026-09-30T13:37Z
 - Summary: How to edit virtual branch devices from the Virtual Branch Devices page in the Zscaler Admin Console.
 
 After deployment, you can modify virtual branch devices.
 
 To edit a virtual branch device:
 
-1. Go to **Infrastructure** > **Connectors** > **Edge** > **Management** > **Branch Devices** > **Virtual**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure** > **Branch Connector** > **VM Group**.
 2. From the [Virtual Branch Devices](https://help.zscaler.com/cloud-branch-connector/about-virtual-branch-devices) page, locate the group or the individual device you want to modify and click the **Edit** icon.
 
 - Group
@@ -12267,28 +12191,28 @@ To edit a virtual branch device:
     - **Load Balancer**: The load balancer IP address.
 2. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-[Image: The Edit Physical Branch Device window for a group of devices in the Zscaler Admin Console]
+[Image: The Edit Virtual Branch Device window for a group of devices in the Zscaler Admin Console]
 
-[Image: The Edit Physical Branch Device window for an individual device in the Zscaler Admin Console]
+[Image: The Edit Virtual Branch Device window for an individual device in the Zscaler Admin Console]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/editing-zero-trust-branch-devices","lastmod":"2026-09-24T12:22Z","nid":"1483146"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/editing-zero-trust-branch-devices","lastmod":"2026-09-30T12:58Z","nid":"1483146"} -->
 ## Editing Zero Trust Branch Devices
 
 - Source: https://help.zscaler.com/cloud-branch-connector/editing-zero-trust-branch-devices
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Branch Connector Device Management > Editing Zero Trust Branch Devices
-- Last modified: 2026-09-24T12:22Z
+- Last modified: 2026-09-30T12:58Z
 - Summary: Information on how to edit Zero Trust Branch Devices in the Zscaler Admin Console.
 
 Modifying Zero Trust Branch Devices is one of the tasks you can complete after deployment.
 
 To edit a Zero Trust Branch Device:
 
-1. Go to **Infrastructure** > **Connectors** > **Edge** > **Management** > **ZT Devices**.
-2. From the [ZT Devices](https://help.zscaler.com/cloud-branch-connector/about-zero-trust-branch-devices) page, locate the device you want to modify and click the **Edit** icon. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure** > **Branch Connector** > **ZT Devices**.
+2. On the [ZT Devices](https://help.zscaler.com/cloud-branch-connector/about-zero-trust-branch-devices) page, locate the device you want to modify and click the **Edit** icon. See image.
 3. In the **Edit ZT Device** window:
   - **Device Name**: Enter a name for the Zero Trust Branch Device.
   - **Serial Number**: View the serial number of the Zero Trust Branch Device.
@@ -12350,13 +12274,13 @@ In the **Edit Group** window, you can view the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/enabling-remote-assistance","lastmod":"2026-09-25T13:10Z","nid":"1420811"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/enabling-remote-assistance","lastmod":"2026-09-28T18:17Z","nid":"1420811"} -->
 ## Enabling Remote Assistance
 
 - Source: https://help.zscaler.com/cloud-branch-connector/enabling-remote-assistance
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Troubleshooting > Enabling Remote Assistance
-- Last modified: 2026-09-25T13:10Z
+- Last modified: 2026-09-28T18:17Z
 - Summary: Enabling Remote Assistance in the Zscaler Admin Console.
 
 At times, Zscaler Support might need access to your Zscaler Admin Console for a limited period to troubleshoot issues. Remote assistance allows Zscaler Support to securely and remotely log in to the portal. This can be done with either view-only or full [admin](https://help.zscaler.com/cloud-branch-connector/about-administrator) privileges.
@@ -12366,7 +12290,7 @@ This procedure allows Zscaler Support to access the portal until the specified d
 To enable remote assistance:
 
 1. Log in to the Zscaler Admin Console.
-2. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Help**> **Tools & Resources** >**Remote Assistance**.
+2. Go to **Help**> **Tools & Resources** >**Remote Assistance**.
 3. In the **Remote Assistance** window, select your access preferences and **User Name Visibility**.
   - Select **Allow Remote Assistance**, then select **View Only**, **Full Access (Read/Write)**, or both. After enabling your access preferences, select the amount of time you want the access enabled. Zscaler recommends that you select a length of at least one year when choosing view-only access and at least two days when choosing full access.
   - Select **Obfuscate Data** if desired. By default, this is set to off. Admins with [Remote Assistance Management](https://help.zscaler.com/cloud-branch-connector/adding-cloud-connector-roles#remote-assist) enabled for their role can make changes in the **Remote Assistance** window.
@@ -12816,13 +12740,13 @@ In the cloud provisioning template, you can select Stable, Latest, or Beta as yo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/managing-organization-api-keys","lastmod":"2026-09-02T21:06Z","nid":"1420826"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/managing-organization-api-keys","lastmod":"2026-09-30T10:12Z","nid":"1420826"} -->
 ## Managing Organization API Keys
 
 - Source: https://help.zscaler.com/cloud-branch-connector/managing-organization-api-keys
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > API Key Management > Managing Organization API Keys
-- Last modified: 2026-09-02T21:06Z
+- Last modified: 2026-09-30T10:12Z
 - Summary: How to replace, edit, regenerate, and delete your organization's API key within the Zscaler Admin Console.
 
 After your API subscription is enabled, your organization's cloud service API key is initially provisioned by Zscaler, enabled, and displayed on the API Key Management page along with the base URL.
@@ -12838,13 +12762,13 @@ Your API key can be disabled by Zscaler or your service provider. The key can be
 
 You must contact Zscaler Support or your service provider to re-enable the key.
 
-If your API subscription expires, you still have access to the API Key Management page, but you are not able to make any modifications. Also, your existing API key is still valid but disabled. It is re-enabled after your subscription is renewed. If this occurs, contact Zscaler Support.
+If your API subscription expires, you still have access to the Cloud & Branch Connector API page, but you are not able to make any modifications. Also, your existing API key is still valid but disabled. It is re-enabled after your subscription is renewed. If this occurs, contact Zscaler Support.
 
 Your organization can only have one API key. You must delete the existing key before you can add a new one.
 
 To add a new API key:
 
-1. Go to **Administration** >**API Configuration**> **Legacy API** > **Cloud & Branch Connector API**.
+1. Go to **Administration** > **Legacy API** > **Cloud & Branch Connector API**.
 2. Delete the existing key. After the key is removed, the **Add Cloud Service API Key** option becomes available.
 3. Click **Add Cloud Service API Key**.
 
@@ -12854,7 +12778,7 @@ After an API key is edited, the action cannot be undone. You cannot edit the Clo
 
 To edit the Cloud Service API key:
 
-1. Go to **Administration** >**API Configuration**> **Legacy API** > **Cloud & Branch Connector API**.
+1. Go to **Administration** > **Legacy API** > **Cloud & Branch Connector API**.
 2. Click the **Edit** icon.
 
 The **Edit Cloud Service API Key** window appears.
@@ -12873,7 +12797,7 @@ After an API key is regenerated, the action cannot be undone.
 
 To regenerate the Cloud Service API key:
 
-1. Go to **Administration** >**API Configuration**> **Legacy API** > **Cloud & Branch Connector API**.
+1. Go to **Administration** > **Legacy API** > **Cloud & Branch Connector API**.
 2. Click the **Regenerate**icon.
 3. In the confirmation window that appears, click **OK**.
 
@@ -12883,7 +12807,7 @@ After an API key is deleted, the action cannot be undone.
 
 To delete the API key:
 
-1. Go to **Administration** >**API Configuration**> **Legacy API** > **Cloud & Branch Connector API**.
+1. Go to **Administration** > **Legacy API** > **Cloud & Branch Connector API**.
 2. Click the **Delete** icon.
 3. In the confirmation window that appears, click **OK**.
 
@@ -14076,13 +14000,13 @@ This article provides a summary of all new features and enhancements for Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/release-upgrade-summary-2026","lastmod":"2026-09-24T11:27Z","nid":"1534301"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/release-upgrade-summary-2026","lastmod":"2026-09-30T14:44Z","nid":"1534301"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/cloud-branch-connector/release-upgrade-summary-2026
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Release Notes > Zscaler Cloud & Branch Connector Service Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-24T11:27Z
+- Last modified: 2026-09-30T14:44Z
 - Summary: Zscaler Cloud & Branch Connector Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Zscaler Cloud & Branch Connector. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -14398,13 +14322,13 @@ The Zscaler service provides real-time log consolidation across the globe, so yo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/step-step-configuration-guide-zscaler-client-connector-vdi","lastmod":"2026-09-15T14:20Z","nid":"1472246"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/step-step-configuration-guide-zscaler-client-connector-vdi","lastmod":"2026-09-29T21:06Z","nid":"1472246"} -->
 ## Step-by-Step Configuration Guide for Zscaler Client Connector for VDI
 
 - Source: https://help.zscaler.com/cloud-branch-connector/step-step-configuration-guide-zscaler-client-connector-vdi
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > Step-by-Step Configuration Guide for Zscaler Client Connector for VDI
-- Last modified: 2026-09-15T14:20Z
+- Last modified: 2026-09-29T21:06Z
 - Summary: Information on the configuration tasks an organization must complete to begin using Zscaler Client Connector for VDI.
 
 This guide takes you step-by-step through the configuration tasks you must complete to begin using Zscaler Client Connector for Virtual Desktop Infrastructure (VDI) for your organization.

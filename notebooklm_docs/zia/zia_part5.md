@@ -1,8 +1,576 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 5)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-28 09:01 UTC
-Articles in this file: 140
+Generated: 2026-10-05 09:38 UTC
+Articles in this file: 149
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/determining-the-optimal-mtu-for-gre-or-ipsec-tunnels","lastmod":"2026-07-08T09:13Z","nid":"1400336"} -->
+## Determining Optimal MTU for GRE or IPSec Tunnels
+
+- Source: https://help.zscaler.com/zia/determining-the-optimal-mtu-for-gre-or-ipsec-tunnels
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Determining Optimal MTU for GRE or IPSec Tunnels
+- Last modified: 2026-07-08T09:13Z
+- Summary: Information on how to determine the optimal MTU for your organization's tunnels.
+
+A suboptimal maximum transmission unit (MTU) for your organization's GRE or IPSec tunnel results in severe performance degradation. This article teaches you how to determine the optimal MTU for your organization's tunnels.
+
+## Overview
+
+When a user from your organization requests a website, the user's traffic first travels from your organization's edge network appliance (for example, a router or firewall) to a Public Service Edge for Internet & SaaS (ZIA) via a primary or secondary GRE or IPSec tunnel. From there, the Public Service Edge sends the traffic out to the requested destination web server if it complies with your organization's security and compliance policies.
+
+**[Image: Flow of user traffic through the Public Service Edge and GRE Tunnel to the user’s appliance]**
+
+When you configure a GRE or IPSec tunnel to the Public Service Edge, you must set an MTU for the tunnel. The MTU determines the maximum packet size that can be sent over that tunnel, and setting an optimal MTU here is crucial. A suboptimal MTU for the tunnel results in significantly poorer performance for your users.
+
+An optimal tunnel MTU is equal to or lower than the following key values:
+
+- The Network Appliance MTU: The maximum total data per packet allowed by the edge network appliance from which the tunnel is built
+- The Path MTU: The maximum total data per packet allowed by appliances that stand in the path between your network appliance and the Public Service Edge
+
+If your tunnel MTU is larger than either value, the network or path appliance divides each packet into fragments. The appliance then places each fragment into its own packet, with its own header. (The appliance thus must ensure that the maximum size of each fragment is its own MTU minus the header size.) The appliance also records in the header the following information so that the receiving appliance can properly identify the fragments and reassemble them into the original packet that was sent:
+
+- **Total Length:** The size of the fragment.
+- **Identification:** The value that identifies the original packet the fragment belongs to.
+- **More Fragments (MF):** A flag set to a 1 for all fragments except the last one, which is set to 0. A flag set to a 1 indicates to the receiving appliance that more fragments of this packet are coming, while a flag set to a 0 indicates that the appliance has received the last fragment of the packet.
+- **Fragment Offset:** A value that helps the receiving appliance reassemble the packet fragments into the right sequence.
+
+When this fragmentation process occurs for each packet sent through your tunnel, your users experience significant performance issues.
+
+To help avoid this scenario and ensure efficient packet transport, Zscaler recommends you complete the following tasks to determine and set the optimal MTU for your tunnels.
+
+## Configuration Instructions
+
+- 1. Determine the Network Appliance MTU: the maximum total data per packet allowed by your network appliance
+- 2. Determine the Maximum Segment Size (MSS): the maximum payload data per packet allowed by appliances that stand in the path between your network appliance and the Public Service Edge
+- 3. Calculate the path MTU value: the maximum total data per packet allowed by appliances that stand in the path between your network appliance and the Public Service Edge
+- 4. Compare your Network Appliance MTU and path MTU and set the lesser value as the MTU for your tunnel
+
+After you complete these tasks, the packets transported through your tunnel do not exceed the network appliance MTU or the path MTU. This helps ensure the most efficient transport for your packets and vastly improves performance.
+
+Refer to your network appliance documentation to learn how to determine the appliance MTU. For example, if you have a Cisco appliance, you can find instructions [here](http://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst4500/12-2/25sg/configuration/guide/conf/sw_int.html#wp1049274).
+
+You must determine the network appliance MTU before proceeding to the next step.
+
+Before you begin, make sure you have the following information ready:
+
+- Your network appliance MTU (referenced above)
+- The IP addresses of the primary and secondary Public Service Edges to which your organization forwards traffic. Click to learn how to locate this information for your organization.
+
+You can determine the MSS for your appliance using the following procedures based on the OS of the appliance:
+
+- For macOS
+- For Windows
+- For Linux
+
+The `-g` component of the ping command applies only to appliances running macOS.
+
+1. Execute the following ping command to the Public Service Edge or VPN hostname using the appliance from which you're building the GRE or IPSec tunnels:
+
+```
+ping -g [network appliance MTU value minus 50] -G 1600 -h 10 -D [destination]
+```
+
+- This command allows you to discover a range for the MSS⁠—that is, a range for the maximum payload data per packet allowed by appliances that stand in the path between your network appliance and the Public Service Edge. It directs your appliance to send to the destination ping sweeps—a sequence of packets that incrementally increase in size (by 10 bytes, in this case)⁠—until the packets reach a specified size, or until the packets reach a point at which adding another 10 bytes makes the packets exceed the MSS.
+- Following is a more detailed explanation of the command components and the values to use.
+  - `-g`: Packet size to start with when sending the ping sweep. The value to plug in for g must equal the network appliance MTU minus 50. For example, if your network appliance MTU is 1450, the value is 1400.
+  - `-G`: Packet segment size to end with when sending the ping sweep. For this command, use the value 1600.
+  - `-h`: Increment (in number of bytes) by which to increase the size of packets when sending the ping sweep. For this command, use the value 10.
+  - `-D`: Prevents the tunnel from fragmenting packets. This is critical to ultimately discovering the MSS. Even if the appliance doesn't reach the G value (the size with which to end the ping sweep), because of this component, the appliance stops sending packets once it finds it has to fragment packets to keep them from exceeding the MSS. Without this limitation, the appliance simply continues to send packets by fragmenting them. For example, if the MSS is 1470, and your packet size was 1478, it fragments that packet into two packets so that the first is 1400 bytes, and the second packet 8 bytes.
+  - `[destination]`: This is the packet destination**.** These are the IP addresses of the primary and secondary Public Service Edges to which your organization forwards traffic.
+- For example, if your organization's network appliance MTU is 1450, and your destination IP address is 10.10.10.13, your ping command is:
+
+```
+ping -g [1400] -G 1600 -h 10 -D 10.10.10.13
+```
+
+1. When the appliance ends the ping sweeps, identify the packet size at which your pings stopped. You now know that the MSS is somewhere between this value and this value plus 10.
+2. Execute the same ping command, but change the values entered for -g and -h.
+  - For `-g`, enter the packet size at which your appliance stopped sending packets, as identified in step 2.
+  - For `-h`, use 1 so that the appliance increases the packet size by increments of 1.
+
+```
+ping -g [packet size at which appliance stopped sending packets, identified in step 2] -G 1600 -h 1 -D [destination]
+```
+
+- For example, if the value you identified in step 2 was 1450, your ping command is:
+
+```
+ping -g [1450] -G 1600 -h 1 -D 10.10.10.13
+```
+
+1. Again, identify the packet size at which your pings stopped. That value is your MSS.
+
+- See an example.
+
+For appliances running Windows, execute the following bash loop command to perform a ping sweep:
+
+```
+for /l %i in(
+<Sweep Min Size, Sweep Count Increase By, Sweep Max Size>
+)do @ping -n 1 -w 100
+<Ping Destination IP>
+-l %i -f.
+```
+
+- See an example.
+
+The command:
+
+```
+for /l %i in (1400,1,1404) do @ping -n 1 -w 100 8.8.8.8 -l %i -f
+```
+
+The expected output of the command:
+
+```
+C:\Windows\system32>for /l %i in (1400,1,1404) do @ping -n 1 -w 8.8.8.8 -l %i -f
+
+Pinging 8.8.8.8. with 1400 bytes of data:
+Reply from 8.8.8.8: bytes=1400 time=6ms TTL=64
+
+Ping statistics for 8.8.8.8:
+Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+Minimum = 6ms, Maximum = 6ms, Average = 6ms
+
+Pinging 8.8.8.8 with 1401 bytes of data:
+Reply from 8.8.8.8: bytes=1401 time<1ms TTL=64
+
+Ping statistics for 8.8.8.8:
+Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+Pinging 8.8.8.8 with 1402 bytes of data:
+Reply from 8.8.8.8: bytes=1402 time<1ms TTL=64
+
+Ping statistics for 8.8.8.8:
+Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+Pinging 8.8.8.8 with 1403 bytes of data:
+Reply from 8.8.8.8: bytes=1403 time<1ms TTL=64
+
+Ping statistics for 8.8.8.8:
+Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+Minimum = 0ms, Maximum = 0ms, Average = 0ms
+```
+
+For appliances running Linux, enter the following bash loop command to perform a ping sweep:
+
+```
+for size in {
+<Sweep Min Size>
+..
+<Sweep Max Size>
+..
+<Sweep Count Increase By>
+}; do ping -s $size -c 1 -M do
+<Ping Destination IP>
+; done
+```
+
+- See an example.
+
+The command:
+
+```
+for size in {900..904..1}; do ping -s $size -c 1 -M do 8.8.8.8; done
+```
+
+The expected output of the command:
+
+```
+root@user1-ubuntu:~# for size in {900..904..1}; do ping -s $size -c 1 -M do 8.8.8.8; done
+PING 8.8.8.8 (8.8.8.8) 900(928) bytes of data.
+76 bytes from 8.8.8.8: icmp_seq=1 ttl=114 (truncated)
+
+— 8.8.8.8 ping statistics —
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 22.078/22.078/22.078/0.000 ms
+PING 8.8.8.8 (8.8.8.8) 901(929) bytes of data.
+76 bytes from 8.8.8.8: icmp_seq=1 ttl=114 (truncated)
+
+— 8.8.8.8 ping statistics —
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 17.283/17.283/17.283/0.000 ms
+PING 8.8.8.8 (8.8.8.8) 902(930) bytes of data.
+76 bytes from 8.8.8.8: icmp_seq=1 ttl=114 (truncated)
+
+— 8.8.8.8 ping statistics —
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 22.515/22.515/22.515/0.000 ms
+PING 8.8.8.8 (8.8.8.8) 903(931) bytes of data.
+76 bytes from 8.8.8.8: icmp_seq=1 ttl=114 (truncated)
+
+— 8.8.8.8 ping statistics —
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 16.494/16.494/16.494/0.000 ms
+PING 8.8.8.8 (8.8.8.8) 904(932) bytes of data.
+76 bytes from 8.8.8.8: icmp_seq=1 ttl=114 (truncated)
+
+— 8.8.8.8 ping statistics —
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 8.494/8.494/8.494/0.000 ms
+```
+
+- GRE Tunnels: If you're building GRE tunnels, Zscaler Customer Support can provide you with the IP addresses of the primary and secondary Public Service Edges to which your organization must forward traffic. See [Configuring GRE Tunnels](https://help.zscaler.com/zia/configuring-gre-tunnels) for more information.
+- IPSec Tunnels: If you're building IPSec tunnels, see [Locating the Hostnames and IP Addresses for Public Service Edges for Internet & SaaS](https://help.zscaler.com/zia/locating-hostnames-and-ip-addresses-zia-public-service-edges).
+
+In this example:
+
+- The network appliance MTU is 1330.
+- The destination Public Service Edge IP address is 192.152.0.19.
+
+In this case, execute the following ping command:
+
+```
+ping -g 1330 -G 1600 -h 10 -D 192.152.0.19
+```
+
+The appliance sent to the IP address 192.152.0.19 pings starts at a packet segment size of 1330 bytes, increasing the size by increments of 10.
+
+The appliance stopped sending packets once they reached 1468 bytes (even before they reached the G value of 1600 bytes). Since the command specified that packets cannot be fragmented, the appliance stopped sending packets when adding another 10 bytes to 1468 makes the packet size exceed the MSS—in other words, the point at which the appliance begins fragmenting packets in order to transport them.
+
+From this, you can deduce that the MSS is somewhere between 1468 and 1478.
+
+```
+PING 192.152.0.19 (10.152.0.19): (1330 ... 1600) data bytes
+1338 bytes from 192.152.0.19: icmp_seq=0 ttl=121 time=418.883 ms
+1348 bytes from 192.152.0.19: icmp_seq=1 ttl=121 time=441.258 ms
+1358 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
+1368 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
+1378 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
+1388 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
+1398 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
+1408 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
+1418 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
+1428 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
+1438 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
+1448 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
+1458 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
+1468 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
+ping: sendto: Message too long
+ping: sendto: Message too long
+ping: sendto: Message too long
+```
+
+With the information from the first ping command, execute the following second ping command:
+
+```
+ping -g 1468 -G 1478 -h 1 -D 192.152.0.19
+```
+
+From this result, you can conclude that your MSS is 1472 bytes.
+
+```
+PING 192.152.0.19 (10.152.0.19): (1330 ... 1600) data bytes
+1468 bytes from 192.152.0.19: icmp_seq=0 ttl=121 time=418.883 ms
+1469 bytes from 192.152.0.19: icmp_seq=1 ttl=121 time=441.258 ms
+1470 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
+1471 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
+1472 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
+ping: sendto: Message too long
+ping: sendto: Message too long
+ping: sendto: Message too long
+```
+
+With your MSS, you can now calculate the path MTU⁠—the maximum packet size allowed by appliances that stand in the path between your network appliance and the Public Service Edge. The path MTU is the MSS value plus the values for the IP header (20 bytes) and the ICMP header (8 bytes). Use the following calculation.
+
+```
+Path MTU = MSS + 20 Bytes (IP Header) + 8 bytes (ICMP Header)
+```
+
+For example, if your MSS is 1472, your path MTU is 1500 (that is, 1472 + 20 + 8).
+
+Compare your network appliance MTU and your path MTU. Subtract the tunnel header length from the lower of these two MTU values to set your tunnel MTU.
+
+For example, if your network appliance MTU is 1500, and your path MTU is 1300, the value you set as the tunnel MTU is:
+
+```
+Tunnel MTU = Path MTU - Tunnel Header Length in bytes
+```
+
+For GRE tunnel, the header length = 24 bytes.
+For IPSec tunnel, the header length is variable and can be up to 64 bytes.
+
+This ensures that packets traveling through your GRE or IPSec tunnel do not exceed the packet size limitations of your network appliance or other appliances in the path between your network appliance and the Public Service Edge.
+
+If you experience issues performing the tasks above, Zscaler recommends that you use a tunnel MTU of 1400.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/disabling-alerts","lastmod":"2026-09-24T09:18Z","nid":"1400366"} -->
+## Disabling Alerts
+
+- Source: https://help.zscaler.com/zia/disabling-alerts
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Alerts > Disabling Alerts
+- Last modified: 2026-09-24T09:18Z
+- Summary: Information on how to disable alerts in the Zscaler Admin Console.
+
+You can disable alerts after creating them. When you disable an alert, Zscaler Admin Console stops sending alert notifications. To learn more, see [About Alerts](https://help.zscaler.com/zia/about-alerts).
+
+To disable alerts:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Alerts**>**Internet & SaaS**.
+2. Click the**Edit** icon next to the alert you want to disable. The **Edit Alert Definition** drawer appears.
+3. In the **Edit Alert Definition** drawer, under **Status**, select **Disabled** from the drop-down menu. See image.
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/distributing-pac-file-url-my-users","lastmod":"2026-09-02T07:40Z","nid":"1399431"} -->
+## Distributing a PAC File URL to Users
+
+- Source: https://help.zscaler.com/zia/distributing-pac-file-url-my-users
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > PAC Files > Using PAC Files > Distributing a PAC File URL to Users
+- Last modified: 2026-09-02T07:40Z
+- Summary: How to distribute PAC file URL to users and to enforce the PAC file settings.
+
+If your organization uses Active Directory along with Microsoft Internet Explorer, Microsoft Edge, Google Chrome, Mozilla Firefox, or Opera, you can use Group Policy Objects (GPOs) to distribute a PAC file URL to all Windows (Professional, Enterprise, Education, and Ultimate Editions only) and Windows Server devices in your organization. When you configure Internet Explorer to use a PAC file, browsers such as Microsoft Edge, Google Chrome, and Opera follow the same configuration. However, Mozilla Firefox requires a separate method of configuration. To distribute a PAC file URL to Firefox browsers using GPOs, download the ADMX templates for Firefox at [https://support.mozilla.org/en-US/kb/customizing-firefox-using-group-policy-windows](https://support.mozilla.org/en-US/kb/customizing-firefox-using-group-policy-windows).
+
+## Distributing a PAC File URL to Mozilla Firefox
+
+To distribute a PAC file URL to Mozilla Firefox:
+
+- 1. Download and install GPO templates for Mozilla Firefox.
+- 2. Create a new GPO.
+- 3. Deploy and enforce PAC file setting for Mozilla Firefox using GPO.
+
+## Distributing a PAC File URL to Other Browsers
+
+To distribute a PAC file URL using browsers other than Mozilla Firefox, such as Microsoft Internet Explorer, Microsoft Edge, Google Chrome, or Opera:
+
+- 1. Create a new GPO.
+- 2. Distribute the PAC file URL.
+- 3. Enforce the PAC file setting.
+
+Mozilla Firefox does not follow the system proxy configuration like the other browsers do. You must download and install separate Group Policy templates for Firefox to use GPOs to deploy and enforce the PAC file setting.
+
+- Download and install Mozilla Firefox GPO templates for Windows Server Core.
+- Download and install Mozilla Firefox GPO templates for Windows Server with Desktop Experience.
+
+1. Log in to a domain-joined Windows 10 client as a user with administrative permissions on the domain.
+2. Open a remote PowerShell session into your domain controller.
+3. Execute the following PowerShell commands:
+
+```
+Invoke-WebRequest -Uri https://github.com/mozilla/policy-templates/archive/master.zip -OutFile .\master.zip
+Expand-Archive -Path .\master.zip -DestinationPath .\master
+Copy-Item -Path .\master\policy-templates-master\windows\*.admx -Destination C:\Windows\PolicyDefinitions
+Copy-Item -Path .\master\policy-templates-master\windows\en-US\*.adml -Destination C:\Windows\PolicyDefinitions\en-US
+```
+
+If you are using a Group Policy Central Store, replace the file path in the `Destination` parameter with that of your Central Store.
+
+1. Log in to your domain controller with administrative permissions on the domain.
+2. Open the **Start Menu >** **Windows PowerShell** folder. Right-click on **Windows PowerShell** and select **Run as administrator**.
+3. Execute the following PowerShell commands:
+
+```
+Invoke-WebRequest -Uri https://github.com/mozilla/policy-templates/archive/master.zip -OutFile .\master.zip
+Expand-Archive -Path .\master.zip -DestinationPath .\master
+Copy-Item -Path .\master\policy-templates-master\windows\*.admx -Destination C:\Windows\PolicyDefinitions
+Copy-Item -Path .\master\policy-templates-master\windows\en-US\*.adml -Destination C:\Windows\PolicyDefinitions\en-US
+```
+
+If you are using a Group Policy Central Store, replace the file path in the Destination parameter with that of your Central Store.
+
+You can use the Group Policy Management Console (GPMC) to create a new GPO for distributing a PAC file URL to the Windows devices in your organization. To access the GPMC on a Windows Server Core, you need a Windows client machine (Professional, Enterprise, Education, and Ultimate Editions only) that is installed with Remote Server Administration Tools (RSAT).
+
+Ensure that your client machine is compatible with your server version and has the appropriate administrative permissions on your domain.
+On a Windows Server with Desktop Experience, the GPMC is already installed.
+
+To create a new GPO:
+
+1. Open the GPMC.
+2. In the **Group Policy** management tree, navigate to the forest, domain, or organizational unit to which you are applying the GPO.
+3. Right-click on the forest, domain, or organizational unit and select **Create a GPO in this domain, and Link it here**.
+
+The **New GPO** window appears.
+
+1. In the**New GPO**window, provide a name for the GPO and leave the **Source Starter GPO** field blank.
+2. Click **OK**.
+
+A new GPO is created under your domain or organizational unit.
+
+1. Right-click on the newly created GPO and then select **Link Enabled**.
+
+See image.
+
+1. Select your forest, domain, or organizational unit and then move the new GPO to **Link Order 1** under the **Linked Group Policy Objects** tab.
+
+See image.
+
+It might take up to 20 minutes for the GPO to be replicated to your Windows client machine.
+
+To deploy and enforce the PAC file setting for Mozilla Firefox:
+
+1. Open the GPMC.
+2. Navigate to the domain or organizational unit to which you applied the GPO and expand it.
+3. Right-click on the newly created GPO and select **Edit**.
+4. To apply the policy to the entire computer, navigate to **Computer Configuration > Policies > Administrative Templates > Mozilla > Firefox**.
+
+See image.
+
+1. To apply the policy only for the domain users, navigate to **User Configuration > Policies > Administrative Templates > Mozilla > Firefox**.
+
+See image.
+
+1. From the **Firefox** folder, double-click **Proxy Settings**.
+
+The **Proxy Settings** window appears.
+
+1. Under **Proxy Settings**, select **Enabled**.
+2. Under **Options**, configure the following fields:
+
+See image.
+
+- **Don’t allow proxy settings to be changed:** Select this option to enforce the PAC file settings.
+- **Connection Type:** Select **Manual proxy configuration** to configure your custom proxy settings. To use the proxy configured in your system, choose **Use system proxy settings**.
+- **SOCKS Version:** Select **SOCKS v5**.
+- **Automatic proxy configuration URL:** Enter the PAC file URL in this field if you selected **Manual proxy configuration** in the **Connection Type** field.
+
+1. Click **OK**.
+
+Users can no longer modify the proxy settings in Mozilla Firefox.
+
+[Image: Computer configuration for Firefox in GPMC]
+
+[Image: User configuration for Firefox in GPMC]
+
+[Image: Proxy setting for Firefox browser to distribute a PAC file URL]
+
+You can use the GPMC to create a new GPO for distributing a PAC file URL to the Windows devices in your organization. To access GPMC from a Windows server core, you need a Windows client machine (Professional, Enterprise, Education, or Ultimate Editions only) that is installed with Remote Server Administration Tools (RSAT).
+
+Ensure that your client machine is compatible with your server version and has the appropriate administrative permissions on your domain.
+On a Windows server with Desktop Experience, the GPMC is already installed.
+
+To create a new GPO:
+
+1. Open the GPMC.
+2. In the **Group Policy** management tree, navigate to the forest, domain, or organizational unit to which you are applying the GPO.
+3. Right-click on the forest, domain, or organizational unit and select **Create a GPO in this domain, and Link it here**. The **New GPO** window appears.
+4. In the**New GPO**window, provide a name for the GPO and leave the **Source Starter GPO** field blank.
+5. Click **OK**.
+
+To distribute the PAC file URL using the GPO:
+
+1. Open the GPMC.
+2. Navigate to the domain or organizational unit to which you applied the GPO and expand it.
+3. Right-click on the newly created GPO and select **Edit**.
+4. Navigate to **User Configuration > Preferences > Control Panel Settings**.
+5. Right-click on **Internet Settings** and select **New > Internet Explorer 10**.
+
+See image.
+
+1. From the **Connections** tab, click **LAN settings**.
+
+See image.
+
+1. Enter the PAC file URL in the **Address** field.
+
+If you see a red dotted underline in the **Address** field, ensure to place your cursor in the text box and press the **F6** function key. This enables the field and is indicated by a solid green underline.
+
+See image.
+
+1. Click **OK**.
+2. (Optional) If you want to apply the GPO to the entire computer irrespective of the signed in user:
+  1. Navigate to **Computer Configuration > Policies > Administrative Templates > Windows Components > Internet Explorer** in the GPMC.
+  2. From the **Internet Explorer** folder, double-click **Make proxy settings per-machine (rather than per-user)**. The **Make proxy settings per-machine (rather than per-user)** window appears.
+  3. Under **Make proxy settings per-machine (rather than per-user)**, select **Enabled** and click **OK**.
+
+See image.
+
+You can use the Group Policy Results wizard to verify the policy settings of the users or computers in the domain.
+
+[Image: Screenshot of Link Enabled option selected for the new GPO]
+
+[Image: Screenshot of the new GPO's Link Order in the organizational unit page]
+
+[Image: Internet settings for IE in GPMC]
+
+[Image: Internet Explorer Properties in GPMC]
+
+[Image: Internet Explorer PAC URL Settings in GPMC]
+
+[Image: Internet Explorer Optional configuration in GPMC]
+
+You can enforce the PAC file setting so that the users in your organization cannot modify it even when logged in as an administrator.
+
+To enforce the PAC file setting:
+
+1. Open the GPMC.
+2. Navigate to the domain or organizational unit to which you applied the GPO and expand it.
+3. Right-click on the newly created GPO and select **Edit**.
+4. To apply the policy to the entire computer, navigate to **Computer Configuration > Policies > Administrative Templates > Windows Components > Internet Explorer**.
+5. To apply the policy only for the domain users, navigate to **User Configuration > Policies > Administrative Templates > Windows Components > Internet Explorer**.
+6. From the **Internet Explorer** folder, double-click **Disable changing Automatic Configuration settings**.
+
+The **Disable changing Automatic Configuration settings** window appears.
+
+1. Under **Disable changing Automatic Configuration settings**, select **Enabled** and click **OK**.
+
+See image.
+
+1. Double-click **Prevent changing proxy settings**. The **Prevent changing proxy settings** window appears.
+2. Under **Prevent changing proxy settings**, select **Enabled** and click **OK**.
+
+See image.
+
+Users can no longer change the proxy settings.
+
+Based on your authentication configuration, your users must log in to the service at least once for the service to start protecting their web traffic. If the users log in to a captive portal, such as those present on public Wi-Fi networks (e.g., Starbucks and McDonalds), they must close the browser and open it again to reload the PAC file. The browser tries to fetch the PAC file only when there is a PAC URL timeout.
+
+[Image: Internet Explorer Disable Changing Auto Config Settings]
+
+[Image: Internet Explorer Prevent Changing Proxy Settings]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/dlp-policy-configuration-example-match-only","lastmod":"2023-06-16T08:50Z","nid":"1401736"} -->
+## DLP Policy Configuration Example: Match Only
+
+- Source: https://help.zscaler.com/zia/dlp-policy-configuration-example-match-only
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Policy Configuration Example: Match Only
+- Last modified: 2023-06-16T08:50Z
+- Summary: Information on how using Data Loss Prevention (DLP) policy Allow rules with the Match Only option affects how DLP policy evaluates its rules.
+
+Using rules with the Match Only option selected or unselected affects how the DLP policy evaluates its rules when inspecting transactions. A rule with Match Only selected only triggers when transactions match the rule’s specified DLP engines and no other engines from different rules. This allows you to prevent users from leaking sensitive data when sending out non-sensitive data.
+
+The following example illustrates how the Match Only option affects how the DLP policy evaluates its rules.
+
+In this scenario, your organization’s DLP policy includes the following rules:
+
+[Image: An example of a Zscaler Data Loss Prevention (DLP) policy]
+
+- Rule 1 allows your organization’s finance team to send out credit card numbers.
+- Rule 2 allows your organization’s human resources team to send out social security numbers.
+- Rule 3 blocks the rest of your organization from sending out credit card numbers and social security numbers.
+
+A member of the finance team sends out a document that includes both credit card numbers and social security numbers. Your DLP policy's action for this transaction depends on whether your Allow rules (i.e., Rule 1 and Rule 2) have the Match Only option selected or unselected.
+
+For example, you have selected Match Only for Rule 1 and Rule 2.
+
+- The document does not match Rule 1, despite belonging to a finance team member. This is because Rule 1 only triggers if a document only contains credit card numbers and no additional content that triggers other engines from different rules.
+- The document does not match Rule 2, because the document’s owner is not a human resources team member.
+- The document matches Rule 3, because the document contains both credit card numbers and social security numbers. This results in the DLP policy blocking the transaction, and the finance team member is unsuccessful in sending out the social security numbers.
+
+If you did not select Match Only for both rules, the DLP policy will take a different action instead.
+
+For example, you have not selected Match Only for Rule 1 and Rule 2. The document matches Rule 1, despite containing social security numbers. This is because Rule 1 triggers if a document contains credit card numbers and any additional content. This results in the DLP policy allowing the transaction, and the finance team member succeeds in sending out the social security numbers.
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -323,13 +891,13 @@ Displays data associated with the DNS tunneling categories and network services.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/dns-end-user-notifications","lastmod":"2026-09-22T10:40Z","nid":"1529651"} -->
+<!-- ZS-ARTICLE {"url":"/zia/dns-end-user-notifications","lastmod":"2026-09-29T03:14Z","nid":"1529651"} -->
 ## DNS End User Notifications
 
 - Source: https://help.zscaler.com/zia/dns-end-user-notifications
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > DNS Control > DNS End User Notifications
-- Last modified: 2026-09-22T10:40Z
+- Last modified: 2026-09-29T03:14Z
 - Summary: Information on the different types of End User Notifications (EUNs) supported by the DNS Control policy.
 
 Zscaler supports different types of End User Notifications (EUNs) for the DNS Control policy. These EUNs are displayed to end users when their activities trigger DNS Control rules with specific actions, such as blocking traffic or redirecting responses. All these notifications are configured at the individual rule level.
@@ -377,7 +945,7 @@ To configure this static EUN for a DNS Control rule:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access**> **Policy** > **DNS Control**, and add a new rule or edit an existing rule.
 2. On the DNS rule configuration page, select the necessary rule conditions.
-3. Under **Action**: See image.
+3. Under **Actions**: See image.
   1. Select **Redirect Response**from the **Network Traffic** drop-down menu.
   2. Enter `34.215.46.88` in the **IP Address** field.
 4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
@@ -401,9 +969,9 @@ The following sections describe how to customize the Zscaler Client Connector EU
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Policy** > **DNS Control**, and add a new rule or edit an existing rule.
 2. On the DNS rule configuration page, select the necessary rule conditions.
-3. Under **Action**, select **Block**or **Redirect Response** action from the **Network Traffic** drop-down menu, as required for the rule.
+3. Under **Actions**, select **Block**or **Redirect Response** action from the **Network Traffic** drop-down menu, as required for the rule.
 4. Under **Notification**: See image.
-  - Select **Enable** for **Client Connector EUN**.
+  - Select **Enabled** for **Client Connector EUN**.
   - Select the default or custom message from the **Notification Message** drop-down menu.
 5. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
@@ -411,7 +979,7 @@ The following sections describe how to customize the Zscaler Client Connector EU
 2. Click **Edit**.
 3. In the **Edit** drawer that appears:
   - Under **Configure Notifications**:
-    - **Notification Type**: Select **Default** .
+    - **Notification Type**: Select **Default**.
     - **Display Reason**: Enable to display the reason for blocking access in the notification.
     - **Display Company Name**: Enable to include your organization's name in the notification.
     - **Display Company Logo**: Enable to display your organization's logo in the notification. You can upload your organization's logo on the [Company Profile](https://help.zscaler.com/unified/configuring-company-profile) page.
@@ -421,11 +989,11 @@ The following sections describe how to customize the Zscaler Client Connector EU
 
 These customization settings are shared by other browser-based EUNs, such as block notifications for other policies, caution messages, and quarantine notifications, so ensure that the customizations are considered globally for all browser-based EUNs. To learn more, see [Configuring Browser-Based Global End User Notifications](https://help.zscaler.com/zia/configuring-browser-based-global-end-user-notifications).
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Policy** > **DNS Control**, and add a new rule or edit an existing rule.
+1. Go to **Internet Access** > **Policy** > **DNS Control**, and add a new rule or edit an existing rule.
 2. On the DNS rule configuration page, select the necessary rule conditions.
-3. Under **Action**: See image.
+3. Under **Actions**: See image.
   1. Select **Block**from the **Network Traffic** drop-down menu.
-  2. Select **Enable** for **Web EUN**.
+  2. Select **Enabled** for **Web EUN**.
 4. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 To learn more, see [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
@@ -669,13 +1237,13 @@ These codes are not listed under the DNS Error Code filter. Zscaler uses these e
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/dns-static-web-end-user-notification","lastmod":"2026-09-22T10:21Z","nid":"1529181"} -->
+<!-- ZS-ARTICLE {"url":"/zia/dns-static-web-end-user-notification","lastmod":"2026-09-29T03:22Z","nid":"1529181"} -->
 ## DNS Static Web End User Notification
 
 - Source: https://help.zscaler.com/zia/dns-static-web-end-user-notification
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > DNS Control > DNS Static Web End User Notification
-- Last modified: 2026-09-22T10:21Z
+- Last modified: 2026-09-29T03:22Z
 - Summary: Information about Zscaler-hosted end user notification web page for blocked domains.
 
 Zscaler's [DNS Control policy](https://help.zscaler.com/zia/configuring-dns-control-policy) includes a Redirect Response action that replaces the IP address of the resolved hostname in the DNS response with a preferred IP address before sending the response to the client. Organizations can use this Redirect Response action to direct users to an end user notification (EUN) page when access to a domain is blocked. This page can either be a custom EUN web page hosted at a dedicated IP address managed by the organization, or a Zscaler-hosted static EUN web page hosted at `34.215.46.88`. To use the Zscaler-hosted EUN web page, you must manually configure this IP address in the Redirect Response action. This EUN page notifies users that access to the requested domain has been blocked based on your organization's policy.
@@ -786,18 +1354,56 @@ See sample files.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/downloading-location-info-to-CSV","lastmod":"2026-09-17T22:50Z","nid":"1399241"} -->
+<!-- ZS-ARTICLE {"url":"/zia/downloading-department-information-csv-file","lastmod":"2026-10-01T15:25Z","nid":"1401116"} -->
+## Downloading Department Information to a CSV File
+
+- Source: https://help.zscaler.com/zia/downloading-department-information-csv-file
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Departments > Downloading Department Information to a CSV File
+- Last modified: 2026-10-01T15:25Z
+- Summary: How to obtain a list of departments configured in the Zscaler Admin Console.
+
+To download a CSV file of departments and their information:
+
+1. Go to **Administration**>**Legacy Admin Management**>**Internet & SaaS Users**>**Departments**.
+2. Click **Download**.
+
+This CSV file can't be used to [import departments](https://help.zscaler.com/zia/importing-department-information-csv-file) because it uses a different format. If you need to import a CSV file to make modifications to departments, use the same format as the **Sample Import CSV file** provided by the Zscaler service.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/downloading-group-information-csv-file","lastmod":"2026-10-01T14:56Z","nid":"1401106"} -->
+## Downloading Group Information to a CSV File
+
+- Source: https://help.zscaler.com/zia/downloading-group-information-csv-file
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Groups > Downloading Group Information to a CSV File
+- Last modified: 2026-10-01T14:56Z
+- Summary: How to obtain a list of groups configured in the ZIA Admin Portal.
+
+To download a CSV file of groups and their information:
+
+1. Navigate to **Administration > Legacy Admin Management > Internet & SaaS Users > Groups**.
+2. Click **Download**.
+
+This CSV file can't be used to [import groups](https://help.zscaler.com/zia/importing-group-information-csv-file) because it uses a different format. If you need to import a CSV file to make modifications to groups, use the same format as the **Sample Import CSV file** provided by the Zscaler service.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/downloading-location-info-to-CSV","lastmod":"2026-09-29T05:45Z","nid":"1399241"} -->
 ## Downloading Location and Sublocation Information to a CSV File
 
 - Source: https://help.zscaler.com/zia/downloading-location-info-to-CSV
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Downloading Location and Sublocation Information to a CSV File
-- Last modified: 2026-09-17T22:50Z
+- Last modified: 2026-09-29T05:45Z
 - Summary: How to obtain a list of locations and sublocations that identify the various networks from which an organization sends its Internet traffic to the Zscaler service.
 
 To download a CSV file of locations and sublocations:
 
-1. Go to **Infrastructure**>**Locations**>**Locations**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure**>**Location Management**>**Legacy Locations**.
 2. Click **Download CSV**. You can download only one file per hour. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).; If you have thousands of locations, then it takes more time to download all the available locations.
 3. **Save**the file.
 
@@ -806,20 +1412,19 @@ The CSV file you download here cannot be used to [import location and sublocatio
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/downloading-user-information-csv-file","lastmod":"2026-09-03T08:41Z","nid":"1401096"} -->
+<!-- ZS-ARTICLE {"url":"/zia/downloading-user-information-csv-file","lastmod":"2026-10-01T14:26Z","nid":"1401096"} -->
 ## Downloading User Information to a CSV File
 
 - Source: https://help.zscaler.com/zia/downloading-user-information-csv-file
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Users > Downloading User Information to a CSV File
-- Last modified: 2026-09-03T08:41Z
+- Last modified: 2026-10-01T14:26Z
 - Summary: How to obtain a list of users configured in the Zscaler Admin Console.
 
-To download a CSV file of users and their information:
+To download a CSV file of Internet & SaaS users and their information:
 
-1. Go to **Administration**>**Identity**>**Internet & SaaS**>**User Management**.
-2. Ensure you're in the**Users**tab.
-3. Click **Download**.
+1. Go to **Administration**>**Legacy Admin Management**>**Internet & SaaS Users**>**Users**.
+2. Click **Download**.
 
 See image.
 
@@ -876,20 +1481,20 @@ To download a Virtual Service Edge VM for each Virtual Service Edge in a cluster
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/downloading-zscaler-authentication-bridge-vm","lastmod":"2026-05-07T21:06Z","nid":"1401126"} -->
+<!-- ZS-ARTICLE {"url":"/zia/downloading-zscaler-authentication-bridge-vm","lastmod":"2026-09-30T19:29Z","nid":"1401126"} -->
 ## Downloading the Zscaler Authentication Bridge VM
 
 - Source: https://help.zscaler.com/zia/downloading-zscaler-authentication-bridge-vm
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Zscaler Authentication Bridge > Downloading the Zscaler Authentication Bridge VM
-- Last modified: 2026-05-07T21:06Z
+- Last modified: 2026-09-30T19:29Z
 - Summary: How to download the Zscaler Authentication Bridge virtual machine in the Zscaler Admin Console.
 
 Downloading the Zscaler Authentication Bridge (ZAB) virtual machine (VM) is one of the tasks you must complete when deploying a ZAB. For a complete list of tasks, see [Deploying a Zscaler Authentication Bridge](https://help.zscaler.com/zia/how-do-i-deploy-zscaler-authentication-bridge).
 
 To download the ZAB VM:
 
-1. Go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings** > **Authentication Bridges**.
+1. Go to **Administration**>**Internet & SaaS Authentication**>**Internet Authentication Settings**> **Authentication Bridges**.
 2. Click **Download ZAB VM**. The **Download ZAB VM**window appears.
 3. In the **Download ZAB VM**window, enter the **Number of Users** that the ZAB synchronizes, and optionally, authenticates.
 4. Click **Compute**to compute the appropriate resources for your ZAB. The recommended ZAB specifications appears. The ZAB can synchronize and authenticate hundreds of thousands of users. The ZAB specifications are determined by the number of users that the ZAB provisions. See image.
@@ -901,20 +1506,20 @@ To download the ZAB VM:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/editing-default-executive-insights-app-role","lastmod":"2026-09-11T21:06Z","nid":"1401186"} -->
+<!-- ZS-ARTICLE {"url":"/zia/editing-default-executive-insights-app-role","lastmod":"2026-09-30T13:14Z","nid":"1401186"} -->
 ## Editing the Default Executive Insights App Role
 
 - Source: https://help.zscaler.com/zia/editing-default-executive-insights-app-role
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role Management > Editing the Default Executive Insights App Role
-- Last modified: 2026-09-11T21:06Z
+- Last modified: 2026-09-30T13:14Z
 - Summary: How to edit the default Executive Insights App role in the Zscaler Admin Console.
 
 The Executive Insights App admin role is one of the default roles Zscaler provides. It gives the admin the permissions and scope required to access the Executive Insights App, but not the Zscaler Admin Console. If you want to give an admin other permissions and functional scopes in the Zscaler Admin Console along with access to the Executive Insights App, you can create an [admin role](https://help.zscaler.com/zia/adding-admin-roles) with **Executive Insights App Access** enabled, and then assign the new role to the admin.
 
 To edit the Executive Insights App role:
 
-1. Go to **Administration**>**Admin Management**>**Role Based Access Control**>**Internet & SaaS**.
+1. Go to **Administration**>**Role Management**>**Internet & SaaS**.
 2. Click the **Edit** icon for the **Executive Insights App** role. The **Edit Administrator Role** window appears.
 3. In the **Edit Administrator Role** window, you can see and configure the following fields: See image.
   - **Name**: The name of the admin role.
@@ -1073,13 +1678,13 @@ To delete a root certificate:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/editing-dlp-and-endpoint-resources","lastmod":"2026-09-16T12:28Z","nid":"1541429"} -->
+<!-- ZS-ARTICLE {"url":"/zia/editing-dlp-and-endpoint-resources","lastmod":"2026-09-30T21:06Z","nid":"1541429"} -->
 ## Editing DLP and Endpoint Resources
 
 - Source: https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Editing DLP and Endpoint Resources
-- Last modified: 2026-09-16T12:28Z
+- Last modified: 2026-09-30T21:06Z
 - Summary: Information on how to edit DLP and endpoint resources to prevent data loss on endpoints.
 
 The page for Data Loss Prevention (DLP) and Endpoint resources (Data Security > Endpoint DLP > Endpoint DLP Resources) has slightly different names based on the Zscaler products licensed for your organization:
@@ -1559,13 +2164,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/editing-locations","lastmod":"2026-09-14T21:06Z","nid":"1535315"} -->
+<!-- ZS-ARTICLE {"url":"/zia/editing-locations","lastmod":"2026-09-29T18:55Z","nid":"1535315"} -->
 ## Editing Locations
 
 - Source: https://help.zscaler.com/zia/editing-locations
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Editing Locations
-- Last modified: 2026-09-14T21:06Z
+- Last modified: 2026-09-29T18:55Z
 - Summary: Information on editing locations in the Zscaler Admin Console.
 
 In the Zscaler Admin Console, you can edit or delete an existing location from the Locations page. You can also use a CSV file to [add and remove multiple locations and sublocations](https://help.zscaler.com/zia/configuring-multiple-locations-and-sublocations).
@@ -1574,7 +2179,7 @@ In the Zscaler Admin Console, you can edit or delete an existing location from t
 
 To edit an existing location:
 
-1. Go to **Infrastructure > Locations > Legacy Locations**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure > Location Management > Legacy Locations**.
 2. Click **Edit** for the location you want to modify. The**Edit Location** window appears.
 3. In the **Edit Location** window, modify the location parameters. See image.
 4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
@@ -1583,7 +2188,7 @@ To edit an existing location:
 
 To delete an existing location:
 
-1. Go to **Infrastructure > Locations > Legacy Locations**.
+1. rom the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure > Location Management > Legacy Locations**.
 2. Click **Edit** for the location you want to delete. The **Edit Location** window appears.
 3. In the **Edit Location** window, click **Delete**. See image.
 4. Read the warning message that appears and then click **Confirm** to delete the location. See image.
@@ -1841,13 +2446,13 @@ To edit recipient profiles:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/editing-resource-tag","lastmod":"2026-09-16T12:51Z","nid":"1541434"} -->
+<!-- ZS-ARTICLE {"url":"/zia/editing-resource-tag","lastmod":"2026-09-30T21:06Z","nid":"1541434"} -->
 ## Editing a Resource Tag
 
 - Source: https://help.zscaler.com/zia/editing-resource-tag
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Context > Editing a Resource Tag
-- Last modified: 2026-09-16T12:51Z
+- Last modified: 2026-09-30T21:06Z
 - Summary: Information on how to edit DLP and endpoint resource tags to use in Endpoint Data Loss Prevention (DLP) policy rules and for Endpoint Context.
 
 You can edit a [resource tag](https://help.zscaler.com/zia/adding-resource-tags) to change basic information, or add and remove resources from the tag.
@@ -2273,13 +2878,13 @@ Displays Email DLP data associated with users. The trend chart does not support 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/email-dlp-insights-logs-columns","lastmod":"2026-04-26T23:11Z","nid":"1479356"} -->
+<!-- ZS-ARTICLE {"url":"/zia/email-dlp-insights-logs-columns","lastmod":"2026-09-30T08:08Z","nid":"1479356"} -->
 ## Email DLP Insights Logs: Columns
 
 - Source: https://help.zscaler.com/zia/email-dlp-insights-logs-columns
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > Email DLP Insights Logs: Columns
-- Last modified: 2026-04-26T23:11Z
+- Last modified: 2026-09-30T08:08Z
 - Summary: Information on the different columns in the Email DLP Insights Logs page in the Zscaler Admin Console.
 
 You can customize your Email Data Loss Prevention (DLP) logs by using the column fields. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
@@ -2287,7 +2892,7 @@ You can customize your Email Data Loss Prevention (DLP) logs by using the column
 The following are the Email DLP column fields:
 
 - **Application:**The name of the email application.
-- **User**: The user who sent the email and is provisioned to Internet & SaaS.
+- **User**: The user who sent the email and is provisioned to Internet & SaaS (ZIA).
 - **Triggered Recipients**: The users who received email and a policy action was taken.
 - **Other Recipients**: The users who received emails, but no policy was triggered.
 - **Rule Name**: The name of the DLP rule that triggered by the activity performed by the user.
@@ -2296,7 +2901,7 @@ The following are the Email DLP column fields:
 - **DLP Identifier**: A unique identifier used to search for the activity. Whenever a DLP rule is hit, and the appropriate alert is configured, an email containing this ID is sent to your auditors.
 - **DLP Dictionaries**: Indicates if data leakage was detected by a DLP dictionary.
 - **DLP Engine**: Indicates if data leakage was detected by a DLP engine.
-- **Severity**: The severity of the activity as per the triggered rule (e.g., Information, Medium, etc.).
+- **Severity**: The severity of the activity as per the triggered rule (e.g., Information, Medium).
 - **Action Taken**: The action taken on the user activity per the configured rule.
 - **File Name**: The name of the file that was attached with the email. You can click the file name to view attachments that have details such as file name, document type, file size, file type category, and MD5.
 - **Mail Sent Time**: The date and time when the email was sent.
@@ -2312,13 +2917,13 @@ The following are the Email DLP column fields:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/email-dlp-insights-logs-filters","lastmod":"2026-09-25T03:07Z","nid":"1479671"} -->
+<!-- ZS-ARTICLE {"url":"/zia/email-dlp-insights-logs-filters","lastmod":"2026-09-30T08:22Z","nid":"1479671"} -->
 ## Email DLP Insights Logs: Filters
 
 - Source: https://help.zscaler.com/zia/email-dlp-insights-logs-filters
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > Email DLP Insights Logs: Filters
-- Last modified: 2026-09-25T03:07Z
+- Last modified: 2026-09-30T08:22Z
 - Summary: Information on the different filters in the Email DLP Insights Logs page in the Zscaler Admin Console.
 
 Filters define the traffic information that you view in your Email Data Loss Prevention (DLP) Insights Logs. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
@@ -2363,7 +2968,7 @@ Following are the Email DLP Insights Logs filters that you can select:
   - Technical
   - Transportation and Motor Department
   - Unknown
-- **External Users**: Use this filter to limit the email activities of a user who sent the email, but is not provisioned to Internet & SaaS.
+- **External Users**: Use this filter to limit the email activities of a user who sent the email, but is not provisioned to Internet & SaaS (ZIA).
 - **File MD5**: Use this filter to enter the 32-character file MD5 in the text field.
 - **File Name:** Use this filter to limit emails by specific file name. Enter all or part of the file name in the text field, and choose **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Does Not Start With**,**Not Null**, or **Is Null**.
 - **File Types**: Use this filter to limit emails by specific file types.
@@ -2386,6 +2991,7 @@ Following are the Email DLP Insights Logs filters that you can select:
   - 30 Min–1 Hour
   - Above 1 Hour
   - Custom
+- **Sender**: Use this filter to limit emails associated with a specific sender.
 - **Severity**: Use this filter to limit emails associated with a specific rule severity. The following severities appear under this filter:
   - High
   - Information
@@ -2402,13 +3008,13 @@ Following are the Email DLP Insights Logs filters that you can select:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/enabling-firewall-locations","lastmod":"2026-09-01T08:23Z","nid":"1399931"} -->
+<!-- ZS-ARTICLE {"url":"/zia/enabling-firewall-locations","lastmod":"2026-10-01T00:19Z","nid":"1399931"} -->
 ## Enabling the Firewall for Locations
 
 - Source: https://help.zscaler.com/zia/enabling-firewall-locations
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Enabling the Firewall for Locations
-- Last modified: 2026-09-01T08:23Z
+- Last modified: 2026-10-01T00:19Z
 - Summary: How to enforce firewall controls on specific locations for the Zscaler service.
 
 The firewall can be enabled on a per-location basis.
@@ -2435,8 +3041,8 @@ Before enabling the firewall, ensure the following prerequisites are met:
 
 To enable the firewall for a location:
 
-1. Go to **Infrastructure**>**Locations**>**Legacy Locations**.
-2. Click the **Edit** icon next to the location you want to enable.
+1. Go to **Infrastructure**>**Location Management**>**Legacy Locations**.
+2. In the **Locations** tab on the **Location Management** page, click the **Edit** icon next to the location you want to enable.
 
 [Image: The Zscaler firewall location section highlighting edit icon]
 
@@ -2446,6 +3052,28 @@ To enable the firewall for a location:
 [Image: Enabling firewall and IPS control]
 
 1. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/enabling-icap-receiver-private-service-edge-virtual-service-edge-internet-saas","lastmod":"2026-10-02T02:06Z","nid":"1540054"} -->
+## Enabling ICAP Receiver: Private Service Edge and Virtual Service Edge for Internet & SaaS
+
+- Source: https://help.zscaler.com/zia/enabling-icap-receiver-private-service-edge-virtual-service-edge-internet-saas
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > ICAP Receivers > Enabling ICAP Receiver: Private Service Edge and Virtual Service Edge for Internet & SaaS
+- Last modified: 2026-10-02T02:06Z
+- Summary: Information on how to enable the ICAP receiver for Private Service Edges and Virtual Service Edges for Internet & SaaS (ZIA).
+
+Zscaler's [ICAP Receiver](https://help.zscaler.com/zia/about-icap-receivers) feature works only with Private Service Edges and Virtual Service Edges for Internet & SaaS (ZIA). However, this feature is not enabled by default on Service Edges.
+
+To enable an ICAP receiver for a Service Edge:
+
+1. Go to the /sc/sme/conf folder: `cd /sc/sme/conf`
+2. Edit the `sc.conf` file: `vi sc.conf`
+3. Enter the following parameters in the `sc.conf` file and save: `[SME] icap_respmod_enable=1 icap_respmod_max_request_size=10000 icap_respmod_request_max_fails=3 icap_respmod_request_max_age=60 icap_respmod_http_max_hold_time=1 [-end-of-SME-]`
+4. Ensure that the entries are saved in the `sc.conf` file: `cat sc.conf`
+5. Restart the Virtual Service Edge instance: `/sc/update/vzen stop sme /sc/update/vzen start sme`
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -3158,16 +3786,16 @@ Be aware of the following guidelines:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/excluding-data-center-based-traffic-forwarding-method","lastmod":"2026-09-23T23:42Z","nid":"1474521"} -->
+<!-- ZS-ARTICLE {"url":"/zia/excluding-data-center-based-traffic-forwarding-method","lastmod":"2026-09-28T12:42Z","nid":"1474521"} -->
 ## Excluding a Data Center Based on Traffic Forwarding Method
 
 - Source: https://help.zscaler.com/zia/excluding-data-center-based-traffic-forwarding-method
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Excluding a Data Center Based on Traffic Forwarding Method
-- Last modified: 2026-09-23T23:42Z
+- Last modified: 2026-09-28T12:42Z
 - Summary: How to configure a data center exclusion on the Traffic Forwarding Method page in the Zscaler Admin Console.
 
-To enable the DC Exclusion for Traffic Forwarding option for your tenant, submit a Support ticket from the Zscaler Admin Console.
+To enable the Data Center Exclusion for Traffic Forwarding option for your tenant, submit a Support ticket from the Zscaler Admin Console.
 
 If a Zscaler data center (DC) is having an issue affecting the service, you can disable all IPSec VPN tunnels terminating at a virtual IP (VIP) address of the affected DC directly from the Zscaler Admin Console. With this action, you trigger a failover from primary to secondary tunnels at the endpoint of your organization’s premises, ensuring business continuity and connectivity resilience.
 
@@ -3177,7 +3805,7 @@ The DC is restored for service to your organization when the configured exclusio
 
 To add a DC exclusion:
 
-1. Go to **Infrastructure**> **Location Management** > **Data Center Exclusion**.
+1. From the [navigating menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure**> **Location Management** > **Location Resources** > **Data Center Exclusion**.
 2. Click **Add DC Exclusion**. See image. The **Add DC Exclusion**drawer appears.
 3. In the **Add DC Exclusion** drawer: See image.
   1. **Data Center**: Select a DC.
@@ -3200,13 +3828,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/excluding-locations-user-related-reports","lastmod":"2026-06-21T21:51Z","nid":"1399996"} -->
+<!-- ZS-ARTICLE {"url":"/zia/excluding-locations-user-related-reports","lastmod":"2026-09-28T09:06Z","nid":"1399996"} -->
 ## Excluding Locations in User-Related Reports
 
 - Source: https://help.zscaler.com/zia/excluding-locations-user-related-reports
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > Excluding Locations in User-Related Reports
-- Last modified: 2026-06-21T21:51Z
+- Last modified: 2026-09-28T09:06Z
 - Summary: How to exclude locations in user-related widgets and Insights in the Zscaler Admin Console.
 
 You can create user-related [widgets](https://help.zscaler.com/zia/what-widget) in the dashboard and [reports](https://help.zscaler.com/zia/about-interactive-reports) or when [analyzing charts](https://help.zscaler.com/zia/analyzing-traffic-using-insights) in [Web, Mobile, Firewall, or DNS Insights](https://help.zscaler.com/zia/about-insights). For example, you can create a report to view and export a list of users who browse the web the most.
@@ -3355,13 +3983,13 @@ The report contains the following widgets:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/exempting-urls-cloud-apps-authentication","lastmod":"2026-06-10T14:30Z","nid":"1399536"} -->
+<!-- ZS-ARTICLE {"url":"/zia/exempting-urls-cloud-apps-authentication","lastmod":"2026-09-30T19:11Z","nid":"1399536"} -->
 ## Exempting URLs and Cloud Apps from Authentication
 
 - Source: https://help.zscaler.com/zia/exempting-urls-cloud-apps-authentication
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Exempting URLs and Cloud Apps from Authentication
-- Last modified: 2026-06-10T14:30Z
+- Last modified: 2026-09-30T19:11Z
 - Summary: How to exclude URLs and cloud apps from authentication.
 
 Some client applications and websites don't support [cookie-based authentication](https://help.zscaler.com/zia/about-zscaler-cookies) or don't respond when the Zscaler service sends an HTTP 307 code that redirects the browser to authenticate to the Zscaler service. For example, the AIM client application and some Microsoft 365 applications don't respond to the HTTP 307 redirect sent by the service. To enable users to access these applications and websites, you can add these URLs to an Authentication Exemptions list in the Zscaler Admin Console or add the URLs to your [PAC file](https://help.zscaler.com/zia/understanding-pac-file). Use tools like Fiddler or Wireshark to find the URL that the application or website is trying to access.
@@ -3372,7 +4000,7 @@ This URL exemption configuration only applies to traffic originating from known 
 
 To exempt URLs and cloud apps from authentication:
 
-1. Go to **Policies**> **Common Configuration**> **Advanced** >**Advanced Settings**.
+1. Go to **[[Variable:Internet-access]]**>**Setting**>**Advanced Settings**.
 2. In the **Authentication Exemptions**section:
   - **Exempted** **URL Categories**: Select the [URL categories](https://help.zscaler.com/zia/about-url-categories) that you want to exempt from cookie authentication.
   - **Exempted URLs**: Enter the URLs that you want to exempt from cookie authentication. To learn more, see [URL Format Guidelines](https://help.zscaler.com/zia/url-format-guidelines).
@@ -3394,13 +4022,13 @@ The exception is applicable only for the traffic generated from a known location
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/exporting-importing-reports","lastmod":"2026-06-22T00:30Z","nid":"1399546"} -->
+<!-- ZS-ARTICLE {"url":"/zia/exporting-importing-reports","lastmod":"2026-09-28T09:09Z","nid":"1399546"} -->
 ## Exporting and Importing Reports
 
 - Source: https://help.zscaler.com/zia/exporting-importing-reports
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > Exporting and Importing Reports
-- Last modified: 2026-06-22T00:30Z
+- Last modified: 2026-09-28T09:09Z
 - Summary: How to export and import custom reports to a plain-text JSON file in the Zscaler Admin Console.
 
 You can export custom reports to a plain-text JSON file that includes the report definitions. This is useful when you want to back up reports or create duplicates of a report. For example, if you have more than one organization, you can export a report from one organization and import it into another.
@@ -3413,10 +4041,9 @@ You can export custom reports only. To export a standard report, you can [copy](
 
 To export a report:
 
-1. Go to **Analytics**, and at the bottom of the left-side navigation, enable the toggle **Switch to Existing Reports**.
-2. In the left-side navigation, go to **Internet & SaaS** > **Analytics** >**Interactive Reports**.
-3. From the **Custom Reports** tab, select the check box of the report you want to export.
-4. Click **Export**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics** > **Reports** >**Interactive Reports**.
+2. From the **Custom Reports** tab, select the check box of the report you want to export.
+3. Click **Export**.
 
 The service exports it to the default Downloads folder on your computer.
 
@@ -3424,10 +4051,9 @@ The service exports it to the default Downloads folder on your computer.
 
 To import a report:
 
-1. Go to **Analytics**, and at the bottom of the left-side navigation, enable the toggle **Switch to Existing Reports**.
-2. In the left-side navigation, go to **Internet & SaaS** > **Analytics** >**Interactive Reports**.
-3. Click **New Report** > **Import**. The **Import** window appears.
-4. In the**Import**window: The imported report appears in the **Custom Reports** tab.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics** > **Reports** >**Interactive Reports**.
+2. Click **New Report** > **Import**. The **Import** window appears.
+3. In the**Import**window: The imported report appears in the **Custom Reports** tab.
   1. Click **Choose File** and select the JSON file.
   2. Click **Upload**.
 
@@ -3724,13 +4350,13 @@ Displays data about the web traffic of each location in your organization. You c
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/extranet-insights-logs-columns","lastmod":"2026-04-26T23:17Z","nid":"1506991"} -->
+<!-- ZS-ARTICLE {"url":"/zia/extranet-insights-logs-columns","lastmod":"2026-09-30T08:40Z","nid":"1506991"} -->
 ## Extranet Insights Logs: Columns
 
 - Source: https://help.zscaler.com/zia/extranet-insights-logs-columns
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > Extranet Insights Logs: Columns
-- Last modified: 2026-04-26T23:17Z
+- Last modified: 2026-09-30T08:40Z
 - Summary: Information on the different columns in the Extranet Insights Logs page in the Zscaler Admin Console.
 
 You can customize your extranet logs using the columns. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
@@ -3742,7 +4368,7 @@ You can select the following extranet field columns:
 - **Client Destination IP**: This is the IP address to which the end user wants to connect. For aggregated sessions, this is the client destination IP address of the last session in the aggregate.
 - **Client Destination Name**: The client destination FQDN for Advanced Firewall. For aggregated sessions, this is the client destination FQDN of the last session in the aggregate.
 - **Client Destination Port**: The client-side destination IP address. For aggregated sessions, this is the client destination port of the last session in the aggregate. For ICMP traffic, you might see source port and destination port values. This means, for ICMP, the destination port shows as ICMP Sequence Number.
-- **Client Source IP**: This is the IP address of the end user trying to access the internet via Internet & SaaS. For aggregated sessions, this is the client source IP address of the last session in the aggregate. You can sort and search through this column.
+- **Client Source IP**: This is the IP address of the end user trying to access the internet via Internet & SaaS (ZIA). For aggregated sessions, this is the client source IP address of the last session in the aggregate. You can sort and search through this column.
 - **Client Source Port**: The client-side source port. For aggregated sessions, this is the client source port of the last session in the aggregate. For ICMP traffic, you might see source port and destination port values. This means, for ICMP, the source port shows the ICMP Identifier.
 - **Client Tunnel IP**: The tunnel IP address of the client (source). For aggregated sessions, this is the client's tunnel IP address corresponding to the last session in the aggregate.
 - **Data Center**: The data center associated with the transaction.
@@ -3754,8 +4380,8 @@ You can select the following extranet field columns:
 - **Device Owner**: The owner of the device.
 - **Device Platform**: The platform of the device.
 - **Device Type**: The type of device used to connect to the network.
-- **Extranet Gateway IP**: This is the Zscaler data center IPsec IP.
-- **Extranet Gateway Port**: This is the Zscaler data center IPsec VPN port.
+- **Extranet Gateway IP**: The Zscaler data center IPSec IP.
+- **Extranet Gateway Port**: The Zscaler data center IPSec VPN port.
 - **Extranet Location**: The extranet location configured for your organization.
 - **Extranet Location IP**: The partner side public IP which is used to establish the IPSec VPN tunnel.
 - **Extranet Location Port**: The partner side port which is used to establish the IPSec VPN tunnel.
@@ -3769,7 +4395,7 @@ You can select the following extranet field columns:
 - **OS Version**: The OS version the device uses.
 - **Outbound Bytes**: The number of bytes received by the server. For aggregated sessions, this is the total bytes received by the server across all sessions in the aggregate.
 - **Protocol**: Indicates the protocol that is used to establish a connection. **ICMP**, **TCP**, and **UDP** are the options available.
-- **Server Destination IP**: This is the IP address to which the end user's traffic is directed. For example, if a redirect rule is actionable on the client destination IP to forward the traffic to a different IP address, this column shows the IP address to which the traffic was directed. For aggregated sessions, this is the server destination IP address of the last session in the aggregate. When you use Source IP Anchoring for the URL or domain, Zscaler doesn't log the server IP address at the proxy layer because the client request is forwarded to Zscaler Private Access (ZPA), and the proxy code is already completed. Therefore, the IP address 0.0.0.1 is logged to indicate the internal redirection within Zscaler.
+- **Server Destination IP**: This is the IP address to which the end user's traffic is directed. For example, if a redirect rule is actionable on the client destination IP to forward the traffic to a different IP address, this column shows the IP address to which the traffic was directed. For aggregated sessions, this is the server destination IP address of the last session in the aggregate. When you use Source IP Anchoring for the URL or domain, Zscaler doesn't log the server IP address at the proxy layer because the client request is forwarded to Private Access (ZPA), and the proxy code is already completed. Therefore, the IP address 0.0.0.1 is logged to indicate the internal redirection within Zscaler.
 - **Server Destination Port**: The server-side destination port. For aggregated sessions, this is the server destination port of the last session in the aggregate.
 - **Session Duration**: The duration of the session in milliseconds. For aggregated sessions, this indicates the sum of individual session durations.
 - **Server Source IP**: This is the Zscaler IP address from which the end user request is sent. For aggregated sessions, this is the server source IP address of the last session in the aggregate.
@@ -3783,13 +4409,13 @@ You can select the following extranet field columns:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/extranet-insights-logs-filters","lastmod":"2026-04-26T23:19Z","nid":"1507046"} -->
+<!-- ZS-ARTICLE {"url":"/zia/extranet-insights-logs-filters","lastmod":"2026-09-30T08:45Z","nid":"1507046"} -->
 ## Extranet Insights Logs: Filters
 
 - Source: https://help.zscaler.com/zia/extranet-insights-logs-filters
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > Extranet Insights Logs: Filters
-- Last modified: 2026-04-26T23:19Z
+- Last modified: 2026-09-30T08:45Z
 - Summary: Information on the different filters in the Extranet Insights Logs page in the Zscaler Admin Console.
 
 Filters define the traffic information that you view in your Extranet Insight Logs. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
@@ -3806,7 +4432,7 @@ Following are the Extranet Insights Log filters that you can select:
 - **Client Tunnel IP**: Use this filter to limit the data to traffic associated with a specific client tunnel IP address.
 - **Data Center**: Use this filter to limit the data to traffic associated with a specific data center.
 - **Department**: Use this filter to limit the data to the traffic of a specific [department](https://help.zscaler.com/zia/about-departments). Use the Search function to find a specific department.
-- **Device Appversion**: Use this filter to limit the data to the traffic of a specific device app version.
+- **Device App Version**: Use this filter to limit the data to the traffic of a specific device app version.
 - **Device Hostname**: The hostname information from support devices. This filter is not available for admins with [device information obfuscation](https://help.zscaler.com/zia/obfuscating-device-information-admins) enabled.
 - **Device Model**: Use this filter to view transactions associated with a specific device model. Enter all or part of the device model in the text field and an operator such as: **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
 - **Device Name**: Use this filter to view transactions associated with a specific device name. Enter all or part of the device name in the text field and an operator such as: **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**. This filter is not available for admins with [device information obfuscation](https://help.zscaler.com/zia/obfuscating-device-information-admins) enabled.
@@ -3816,8 +4442,9 @@ Following are the Extranet Insights Log filters that you can select:
 - **Enrolled Device appversion**: Use this filter to view transactions associated with a specific enrolled device app version. Enter all or part of the enrolled device app version in the text field and an operator such as: **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
 - **External Device ID**: Use this filter to view transactions associated with a specific external device ID. Enter all or part of the device model in the text field and choose an operator such as: **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
 - **Extranet Gateway IP**: Use this filter to view transactions associated with a specific extranet gateway IP address.
-- **Extranet Gateway Port**: Use this filter to limit the data to the extranet gateway port. Enter a value from 1 to 65536.
+- **Extranet Gateway Port**: Use this filter to limit the data to the extranet gateway port. Enter a value from 1 to 65,536.
 - **Extranet Location**: Use this filter to view the transactions associated with a specific extranet location. The default option for this filter is **Any**. You can search for specific locations.
+- **Extranet Location IP**: Use this filter to view transactions associated with a specific extranet location IP address.
 - **Extranet Location Port**: Use this filter to limit the data to the extranet location port.
 - **Extranet Tunnel Data Center**: Use this filter to limit the data to the extranet tunnel data center.
 - **Extranet Name**: Use this filter to limit the data to the business partner name configured by your organization.
@@ -6258,6 +6885,33 @@ The trend toward cloud-based services, internet offloading, and protection for m
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/zia/importing-department-information-csv-file-new","lastmod":"2026-10-01T15:22Z","nid":"1401121"} -->
+## Importing Department Information from a CSV File
+
+- Source: https://help.zscaler.com/zia/importing-department-information-csv-file-new
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Departments > Importing Department Information from a CSV File
+- Last modified: 2026-10-01T15:22Z
+- Summary: How to add new departments, and modify existing departments, using a CSV file.
+
+You can import up to 3,000 departments using a CSV file. If you want to add multiple users to an existing department or change the department for multiple users, you must use the [user sample import CSV file](https://help.zscaler.com/zia/importing-user-information-csv-file).
+
+To import new departments, or modify existing departments, using a CSV file:
+
+1. Go to **Administration**>**Legacy Admin Management**>**Internet & SaaS Users**>**Departments**.
+2. Click **Sample Import CSV file** to download the department information template.
+3. Enter your department information in the CSV file template.
+4. Once you have the CSV file in the correct format, click **Import**.
+
+The **Import Departments** window appears.
+
+1. In the **Import Departments** window, click **Choose file**, and navigate to the CSV file, then click **Open**.
+2. Click **Import**.
+3. After the CSV file is successfully imported, click **Close**.
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/zia/importing-exporting-custom-signature-rules","lastmod":"2026-09-24T00:52Z","nid":"1403211"} -->
 ## Importing and Exporting Custom IPS Signature Rules
 
@@ -6346,20 +7000,60 @@ Review your CSV file and ensure that there is no duplication. If you attempt to 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/importing-locations-using-a-csv","lastmod":"2026-09-17T22:52Z","nid":"1399256"} -->
+<!-- ZS-ARTICLE {"url":"/zia/importing-group-information-csv-file","lastmod":"2026-10-01T14:55Z","nid":"1401111"} -->
+## Importing Group Information from a CSV File
+
+- Source: https://help.zscaler.com/zia/importing-group-information-csv-file
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Groups > Importing Group Information from a CSV File
+- Last modified: 2026-10-01T14:55Z
+- Summary: How to add new groups, and modify existing groups, using a CSV file.
+
+You can import up to 3,000 user groups onto the Zscaler service at one time by using CSV files. Ensure that the CSV file is in a Zscaler-supported format before importing.
+
+To create and import a Zscaler-supported CSV file:
+
+1. Go to **Administration**>**Legacy Admin Management**>**Internet & SaaS Users**>**Groups**.
+2. To create your CSV file:
+  1. Download the group information template by clicking the **Sample Import CSV file** button. See image.
+  2. Open and update the sample CSV file with your group information. Ensure that the group information is in the following format to successfully import the file:
+  - Retain the first line of the file, which is the header row. You will see **Action**, **Name**, and **Comments** columns.
+  - Enter each group entry in a separate row: See image.
+    - To add a new group, enter `+` under the **Action** column and the group name under the **Name**column. You can optionally enter your comments under the **Comments** column.
+    - To remove a group, enter `-` under the **Action** column and the group name under the **Name** column.
+3. When your CSV file is ready to import, click **Import**.
+4. In the **Import Groups** window:
+  1. Click **Choose file**.
+  2. Browse and select the CSV file, then click **Open**.
+  3. Click **Import**.
+
+See image.
+
+1. After the CSV file is successfully imported, click **Close**.
+
+[Image: Download Sample Import CSV file]
+
+[Image: Sample CSV File]
+
+[Image: Import Groups Window]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/importing-locations-using-a-csv","lastmod":"2026-09-29T05:46Z","nid":"1399256"} -->
 ## Importing Location and Sublocation Information from a CSV File
 
 - Source: https://help.zscaler.com/zia/importing-locations-using-a-csv
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Importing Location and Sublocation Information from a CSV File
-- Last modified: 2026-09-17T22:52Z
+- Last modified: 2026-09-29T05:46Z
 - Summary: How to import a CSV file in order to add, edit, or delete locations and sublocations for the Zscaler service using the Zscaler Admin Console.
 
 This article describes how to add, edit, or delete multiple locations and sublocations by importing a CSV file. You can add up to 32,000 locations and 2,000 sublocations per location. For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
 
 To import a CSV file to add, edit, or delete locations and sublocations:
 
-1. Go to **Infrastructure**>**Locations**>**Locations**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure**>**Location Management**>**Legacy Locations**.
 2. Click **Import Locations**. The **Import Location** window appears.
 3. In the **Import Location** window, click **Choose File**, navigate to the CSV file, then click **Open**. Make sure that the CSV file you are importing is in the same format as the **Sample Import CSV file** provided by Zscaler.
 4. (Optional) If you want to update your existing locations, including deleting locations, as well as add new locations, select the **Override Existing Entries** checkbox. Do not select this option if you only want to add new locations. If you attempt to add a location that already exists and this option is not selected, the Zscaler service displays an error message stating that identical locations cannot be imported. If this occurs, review your CSV file and ensure that there is no duplication. To learn more, see [Configuring Multiple Locations and Sublocations](https://help.zscaler.com/zia/configuring-multiple-locations-and-sublocations).
@@ -6369,20 +7063,20 @@ To import a CSV file to add, edit, or delete locations and sublocations:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/importing-static-ip-address-csv-file","lastmod":"2026-05-21T21:06Z","nid":"1447901"} -->
+<!-- ZS-ARTICLE {"url":"/zia/importing-static-ip-address-csv-file","lastmod":"2026-09-28T13:04Z","nid":"1447901"} -->
 ## Importing Static IP Address from a CSV File
 
 - Source: https://help.zscaler.com/zia/importing-static-ip-address-csv-file
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Importing Static IP Address from a CSV File
-- Last modified: 2026-05-21T21:06Z
+- Last modified: 2026-09-28T13:04Z
 - Summary: Information on how to add a new Static IP address, edit an existing Static IP address, and delete a Static IP address with a CSV file in the Zscaler Admin Console.
 
 This article describes how to add, edit, or delete multiple static IP addresses by importing a CSV file. You can add up to 3,000 static IP addresses. For a complete list of ranges and limits, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
 
 To import a CSV file:
 
-1. Go to **Infrastructure**>**Locations**> **Static IPs & GRE Tunnel**.
+1. From the [navigating menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure**>**Location Management**> **Location Resources** > **Static IPs & GRE Tunnel**.
 2. Click **Sample Import CSV file** to download the static IP address template.
 3. Enter your static IP addresses in the CSV file template in the following format so that the Zscaler service successfully imports the CSV file:
   - **Action**:Enter + or - to indicate whether you want to add or delete a static IP address.
@@ -6407,6 +7101,51 @@ Review your CSV file and ensure that there is no duplication. If you attempt to 
 
 1. Click **Import**.
 2. After the CSV file imports, click **Close**.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/importing-user-information-csv-file","lastmod":"2026-10-01T14:23Z","nid":"1401101"} -->
+## Importing User Information from a CSV File
+
+- Source: https://help.zscaler.com/zia/importing-user-information-csv-file
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Users > Importing User Information from a CSV File
+- Last modified: 2026-10-01T14:23Z
+- Summary: How to add new users, edit existing user information, and delete users with a CSV file.
+
+You can import up to 3,000 users using a CSV file.
+
+To edit and import a CSV file :
+
+1. Go to **Administration**>**Legacy Admin Management**>**Internet & SaaS Users**>**Users**.
+2. Click **Sample Import CSV file** to download the user information template. When configuring the CSV file, ensure the following:
+  - The file name must have a `.csv` extension.
+  - The first line of the file is the header row.
+  - Each user must be on a separate line.
+  - Each user's email address must have a domain name that was defined in the Zscaler Admin Console. If the authentication method is a one-time token or one-time link, then either this field or the **Temp auth email** field must contain a valid email address.
+3. Enter your user information in the CSV file template in the following format so that the Zscaler service successfully imports the CSV file:
+  - **Action**: Enter one of the following:
+    - Enter `+` to add a new user or modify an existing one. When adding a user, **Email-ID**, **User Name**,**Dept**,and **Group** must be filled in. A user can belong to up to 128 groups.
+    - Enter `-` to delete an existing user. When deleting a user, only **Email-ID** is required.
+  - **Email-ID**: Enter a user ID. The user ID consists of a user name and domain name in email format. Enter the user name and any domain name for your organization that is available on the Zscaler service. The email-ID must be in the form of an email address. It does not have to be a valid email address, but it must be unique, and its domain must belong to the organization. The **Email-ID** field allows values of alphanumeric characters and certain special characters up to a maximum of 127 characters. This field corresponds to the email field in the API. However, the data validation in the API supports a broader range of characters.
+  - **User Name**: Enter a display name for the user. Typically, the full name of the user. This appears when choosing users for policies. The **User Name** field allows values containing UTF-8 characters up to a maximum of 127 characters.
+  - **Dept**: Enter the department that the user belongs to. [Departments](https://help.zscaler.com/zia/about-departments) are used in policies and reports. A user can belong to only one department.
+  - **Password**: Enter the user’s password. If you selected **Form-Based** when [configuring the default authentication profile](https://help.zscaler.com/zia/configuring-default-authentication-profile), the password must follow the guidelines that you defined. If you selected **One-time Token** or **One-time Link** as the **Temporary Authentication** method, you can leave this field blank. If the **Password**field is left blank, users must log in to the Zscaler service for the first time using a one-time token or one-time link.
+  - **Status**: Enter one of the following user statuses: Disabling a user with the same user name as an [admin](https://help.zscaler.com/zia/about-administrators) also disables the admin.
+    - Enter `Enabled` to enable the user.
+    - Enter `Disabled` to disable the user.
+  - **Comments**: (Optional) Enter additional notes or information. The content cannot exceed 10,240 characters.
+  - **Temp auth e-mail**: Enter a valid email address for temporary authentication. Users are sent the one-time token or one-time link to this email address and are able to log in. If you use a one-time token, they are prompted to create a new password. The temporary email address can have any domain name, but it must be a valid email address. The email is sent when you click **Send Authentication E-mail**on the Authentication Default Settings page. To learn more, see [Configuring a One-Time Token or One-Time Link](https://help.zscaler.com/zia/configuring-one-time-token-or-one-time-link).
+  - **Groups**: Enter the groups that the user belongs to. Enter each group beyond the first in a new column. [Groups](https://help.zscaler.com/zia/about-groups) are used in policies. You can control access to apps based on user groups.
+4. After you have configured the CSV file in the correct format, click **Import**. The **Import Users** window appears.
+5. In the **Import Users** window: See image. Review your CSV file and ensure that there is no duplication. If you attempt to add a new user that already exists without selecting this option, the Zscaler service displays an error message.
+  - **Override Existing Entries**: Select this checkbox if you want to update any existing user information (e.g., group, password, and department). Do not select this option if you only want to add new users.
+  - **Choose File**: Click this and select the CSV file, then click **Open**.
+6. Click **Import**.
+7. After the CSV file is successfully imported, click **Close**.
+
+[Image: The Import Users window with the option to Override Existing Entries and Upload a CSV file]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6593,13 +7332,13 @@ To install the LB:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/installing-private-service-edges-internet-saas","lastmod":"2026-09-16T04:48Z","nid":"1401246"} -->
+<!-- ZS-ARTICLE {"url":"/zia/installing-private-service-edges-internet-saas","lastmod":"2026-09-30T21:06Z","nid":"1401246"} -->
 ## Installing Private Service Edges for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/installing-private-service-edges-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Private Service Edge > Installing Private Service Edges for Internet & SaaS
-- Last modified: 2026-09-16T04:48Z
+- Last modified: 2026-09-30T21:06Z
 - Summary: Instructions for properly installing Private Service Edge for Internet & SaaS (ZIA) within your organization.
 
 Upon receipt of the hardware, install your pair of Private Service Edges for Internet & SaaS (ZIA) according to the instructions provided. Both Private Service Edges must be installed in the same location.
@@ -8813,13 +9552,13 @@ If Kerberos authentication fails, the Zscaler service displays a page with an er
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/ipsec-vpn-configuration-guide-cisco-881-isr","lastmod":"2026-08-04T02:13Z","nid":"1399056"} -->
+<!-- ZS-ARTICLE {"url":"/zia/ipsec-vpn-configuration-guide-cisco-881-isr","lastmod":"2026-09-30T10:19Z","nid":"1399056"} -->
 ## IPSec VPN Configuration Guide for Cisco 881 ISR
 
 - Source: https://help.zscaler.com/zia/ipsec-vpn-configuration-guide-cisco-881-isr
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPSec > IPSec VPN Configuration Guide for Cisco 881 ISR
-- Last modified: 2026-08-04T02:13Z
+- Last modified: 2026-09-30T10:19Z
 - Summary: How to configure two IPSec VPN tunnels from a Cisco 881 Integrated Services Router (ISR) to two Public Service Edges for Internet & SaaS (ZIA).
 
 This article uses only sample IP addresses in the configuration steps and screenshots. For tunnel interface configuration, you must use only RFC 1918 IP addresses and not APIPA addresses.
@@ -8899,7 +9638,7 @@ Zscaler does not support Extended Sequence Number (ESN) based proposals during I
 
 ## Troubleshooting
 
-In the Zscaler Admin Console, you can go to Logs > Insights > Internet & SaaS - Tunnel Insights to see data as well as monitor the health and status of your configured IPSec VPN tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
+In the Zscaler Admin Console, you can go to Data Explorer > Internet & SaaS > Tunnel Insights to see data as well as monitor the health and status of your configured IPSec VPN tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
 
 On the Cisco router, you can use the following troubleshooting commands while setting up the tunnels. Note the values in green while troubleshooting.
 
@@ -9435,13 +10174,13 @@ port 500
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/ipsec-vpn-configuration-guide-cisco-asa-55xx","lastmod":"2026-08-04T02:16Z","nid":"1399046"} -->
+<!-- ZS-ARTICLE {"url":"/zia/ipsec-vpn-configuration-guide-cisco-asa-55xx","lastmod":"2026-09-30T10:19Z","nid":"1399046"} -->
 ## IPSec VPN Configuration Guide for Cisco ASA 55xx
 
 - Source: https://help.zscaler.com/zia/ipsec-vpn-configuration-guide-cisco-asa-55xx
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPSec > IPSec VPN Configuration Guide for Cisco ASA 55xx
-- Last modified: 2026-08-04T02:16Z
+- Last modified: 2026-09-30T10:19Z
 - Summary: How to configure two IPSec VPN tunnels between a Cisco Adaptive Security Appliance (ASA) 55xx (5505, 5510, 5520, 5525-X, 5540, 5550, 5580-20, 5580-40) firewall and two Public Service Edges for Internet & SaaS (ZIA).
 
 This article uses only sample IP addresses in the configuration steps and screenshots. For tunnel interface configuration, you must use only RFC 1918 IP addresses and not APIPA addresses.
@@ -9790,7 +10529,7 @@ nat (inside,outside) after-auto source dynamic any interface
 
 ## Troubleshooting
 
-In the Zscaler Admin Console, you can go to Logs > Insights > Internet & SaaS - Tunnel Insights to see data as well as monitor the health and status of your configured IPSec VPN tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
+In the Zscaler Admin Console, you can go to Data Explorer > Internet & SaaS > Tunnel Insights to see data as well as monitor the health and status of your configured IPSec VPN tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
 
 On the Cisco router, you can use the following troubleshooting commands while setting up the tunnels. They apply to all tested ASA versions: 9.6 and 9.0. Note the values in green while troubleshooting.
 
@@ -10166,13 +10905,13 @@ If you want to forward only HTTP and HTTPS traffic to the Zscaler service:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/ipsec-vpn-configuration-guide-juniper-srx","lastmod":"2026-08-04T02:13Z","nid":"1399071"} -->
+<!-- ZS-ARTICLE {"url":"/zia/ipsec-vpn-configuration-guide-juniper-srx","lastmod":"2026-09-30T10:19Z","nid":"1399071"} -->
 ## IPSec VPN Configuration Guide for Juniper SRX
 
 - Source: https://help.zscaler.com/zia/ipsec-vpn-configuration-guide-juniper-srx
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPSec > IPSec VPN Configuration Guide for Juniper SRX
-- Last modified: 2026-08-04T02:13Z
+- Last modified: 2026-09-30T10:19Z
 - Summary: How to configure two IPSec VPN tunnels from a Juniper SRX 300 firewall to two Public Service Edges for Internet & SaaS (ZIA).
 
 This article uses only sample IP addresses in the configuration steps and screenshots. For tunnel interface configuration, you must use only RFC 1918 IP addresses and not APIPA addresses.
@@ -10505,7 +11244,7 @@ st0.3
 
 ## Troubleshooting
 
-In the Zscaler Admin Console, you can go to Logs > Insights > Internet & SaaS - Tunnel Insights to see data as well as monitor the health and status of your configured IPSec VPN tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
+In the Zscaler Admin Console, you can go to Data Explorer > Internet & SaaS > Tunnel Insights to see data as well as monitor the health and status of your configured IPSec VPN tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
 
 In Junos OS, you can use the following CLI commands to monitor and troubleshoot the IPSec VPN tunnels.
 
@@ -11366,13 +12105,13 @@ nat {
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/ipsec-vpn-configuration-guide-juniper-ssg-20","lastmod":"2026-08-04T02:14Z","nid":"1400766"} -->
+<!-- ZS-ARTICLE {"url":"/zia/ipsec-vpn-configuration-guide-juniper-ssg-20","lastmod":"2026-09-30T10:19Z","nid":"1400766"} -->
 ## IPSec VPN Configuration Guide for Juniper SSG 20
 
 - Source: https://help.zscaler.com/zia/ipsec-vpn-configuration-guide-juniper-ssg-20
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPSec > IPSec VPN Configuration Guide for Juniper SSG 20
-- Last modified: 2026-08-04T02:14Z
+- Last modified: 2026-09-30T10:19Z
 - Summary: How to configure two IPSec VPN tunnels from a Juniper SSG 20 firewall running ScreenOS 6.2.0r1.0 to two Public Service Edges for Internet & SaaS (ZIA).
 
 This article uses only sample IP addresses in the configuration steps and screenshots. For tunnel interface configuration, you must use only RFC 1918 IP addresses and not APIPA addresses.
@@ -11440,7 +12179,7 @@ You can test the configuration by browsing from the Trust zone (through the wire
 
 ## Troubleshooting
 
-In the Zscaler Admin Console, you can go to Logs > Insights > Internet & SaaS - Tunnel Insights to see data as well as monitor the health and status of your configured IPSec VPN tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
+In the Zscaler Admin Console, you can go to Data Explorer > Internet & SaaS > Tunnel Insights to see data as well as monitor the health and status of your configured IPSec VPN tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
 
 On the SSG 20 device, you can use the following CLI commands to monitor and troubleshoot the IPSec VPN tunnels.
 
@@ -11942,13 +12681,13 @@ ssg5-serial-wlan-> clear sa 21
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/ipsec-vpn-configuration-guide-palo-alto-networks-firewall","lastmod":"2026-08-04T02:15Z","nid":"1399101"} -->
+<!-- ZS-ARTICLE {"url":"/zia/ipsec-vpn-configuration-guide-palo-alto-networks-firewall","lastmod":"2026-09-30T10:19Z","nid":"1399101"} -->
 ## IPSec VPN Configuration Guide for Palo Alto Networks Firewall
 
 - Source: https://help.zscaler.com/zia/ipsec-vpn-configuration-guide-palo-alto-networks-firewall
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPSec > IPSec VPN Configuration Guide for Palo Alto Networks Firewall
-- Last modified: 2026-08-04T02:15Z
+- Last modified: 2026-09-30T10:19Z
 - Summary: How to configure two IPSec VPN tunnels from a Palo Alto Networks appliance to two Public Service Edges for Internet & SaaS (ZIA).
 
 This article uses only sample IP addresses in the configuration steps and screenshots. For tunnel interface configuration, you must use only RFC 1918 IP addresses and not APIPA addresses.
@@ -12013,7 +12752,7 @@ You need to create some additional security policies on the firewall to allow th
 
 ## Troubleshooting
 
-In the Zscaler Admin Console, you can go to Logs > Insights > Internet & SaaS - Tunnel Insights to see data as well as monitor the health and status of your configured IPSec VPN tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
+In the Zscaler Admin Console, you can go to Data Explorer > Internet & SaaS > Tunnel Insights to see data as well as monitor the health and status of your configured IPSec VPN tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
 
 On the PAN appliance, the following are some sample commands that you can use to monitor and troubleshoot the VPNs. Make an SSH connection to the PAN-OS and log in to the CLI to execute the commands.
 
@@ -12370,13 +13109,13 @@ id      destination           nexthop            flags  interface          mtu
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/ipsec-vpn-configuration-guide-sonicwall-tz-350","lastmod":"2026-08-04T02:15Z","nid":"1401686"} -->
+<!-- ZS-ARTICLE {"url":"/zia/ipsec-vpn-configuration-guide-sonicwall-tz-350","lastmod":"2026-09-30T10:19Z","nid":"1401686"} -->
 ## IPSec VPN Configuration Guide for SonicWall TZ 350
 
 - Source: https://help.zscaler.com/zia/ipsec-vpn-configuration-guide-sonicwall-tz-350
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPSec > IPSec VPN Configuration Guide for SonicWall TZ 350
-- Last modified: 2026-08-04T02:15Z
+- Last modified: 2026-09-30T10:19Z
 - Summary: How to configure two IPSec VPN tunnels from a SonicWALL TZ 350 firewall to two Public Service Edges for Internet & SaaS (ZIA).
 
 This article uses only sample IP addresses in the configuration steps and screenshots. For tunnel interface configuration, you must use only RFC 1918 IP addresses and not APIPA addresses.
@@ -12428,7 +13167,7 @@ See image.
 
 ## Troubleshooting
 
-In the Zscaler Admin Console, you can go to Logs > Insights > Internet & SaaS - Tunnel Insights to see data as well as monitor the health and status of your configured IPSec VPN tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
+In the Zscaler Admin Console, you can go to Data Explorer > Internet & SaaS > Tunnel Insights to see data as well as monitor the health and status of your configured IPSec VPN tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
 
 To troubleshoot your configuration on the SonicWall GUI:
 
@@ -13240,21 +13979,20 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/managing-cloud-service-api-key","lastmod":"2026-07-31T07:06Z","nid":"1400506"} -->
+<!-- ZS-ARTICLE {"url":"/zia/managing-cloud-service-api-key","lastmod":"2026-09-29T03:54Z","nid":"1400506"} -->
 ## Managing Cloud Service API Key
 
 - Source: https://help.zscaler.com/zia/managing-cloud-service-api-key
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > API Security > Managing Cloud Service API Key
-- Last modified: 2026-07-31T07:06Z
-- Summary: How to replace, edit, regenerate, and delete your organization's cloud service API key and Sandbox Submission API token within the Zscaler Admin Console.
+- Last modified: 2026-09-29T03:54Z
+- Summary: How to manage your organization's cloud service API key and Sandbox Submission API token within the Zscaler Admin Console.
 
 After your API subscription is enabled, your organization's cloud service API key is initially provisioned by Zscaler, enabled, and displayed within the Cloud Service API Key page along with the base URL. An organization can only have one API key for the cloud service API. To learn more, see [Getting Started](https://help.zscaler.com/zia/api-getting-started).
 
-- If you need to obtain API keys or secrets to access [Zscaler OneAPI](https://help.zscaler.com/oneapi) endpoints, see [API Client Authentication](https://help.zscaler.com/zidentity/integration/oneapi-authentication) in the Authentication Service.
-- Admins have view access to the Cloud Service API Key page information within the [Zscaler Cloud Connector Portal](https://help.zscaler.com/cloud-branch-connector/about-cloud-connector-portal).
+If you need to obtain API keys or secrets to access [Zscaler OneAPI](https://help.zscaler.com/oneapi) endpoints, see [Understanding OneAPI Authentication](https://help.zscaler.com/authentication-service/understanding-oneapi-authentication).
 
-From this page, you can:
+From this page, you can do the following:
 
 - Add a new API key
 - Edit the API key
@@ -13271,55 +14009,61 @@ Your organization can only have one API key. You must delete the existing key be
 
 To add a new cloud service API key:
 
-1. Go to **Administration** > **API Configuration** > **Legacy API** > **Internet & SaaS API** > **Cloud Service API Key**.
-2. On the Cloud Service API Key tab, make sure that you have deleted the existing key. After the key is deleted, the **Add API Key** option becomes available.
+1. Go to **Administration** > **API** > **Legacy API** > **Internet & SaaS API** > **Cloud Service API Key**.
+2. On the **Cloud Service API Key** tab, make sure that you have deleted the existing key. After the key is deleted, the **Add API Key** option becomes available. See image.
 3. Click **Add API Key**.
-4. You can immediately start using the new **API key** displayed on the tab.
+4. You can immediately start using the new **Key** displayed on the tab.
 
 This action cannot be undone.
 
 To edit the cloud service API key:
 
-1. Go to **Administration** > **API Configuration** > **Legacy API** > **Internet & SaaS API** > **Cloud Service API Key**.
+1. Go to **Administration** > **API** > **Legacy API** > **Internet & SaaS API** > **Cloud Service API Key**.
 2. On the **Cloud Service API Key** tab, click the **Edit** icon. The **Edit API Key** window appears.
 3. In the **Edit API Key** window, enter the **New API** **Key**. The new key must meet the following requirements: See image.
   - The new key must be alphanumeric (i.e., A-Z, a-z, 0-9) and exactly 12 characters in length.
   - The new key cannot be the same as the current API Key.
-4. Click **Confirm**. After confirmation, the old API key is immediately invalidated.
+4. Click **Save**. After this, the old API key is immediately invalidated.
 
 This action cannot be undone.
 
 To regenerate the cloud service API key:
 
-1. Go to **Administration** > **API Configuration** > **Legacy API** > **Internet & SaaS API** > **Cloud Service API Key**.
+1. Go to **Administration** > **API** > **Legacy API** > **Internet & SaaS API** > **Cloud Service API Key**.
 2. On the **Cloud Service API Key** tab, click the **Regenerate** icon.
-3. In the confirmation window that appears, click **Ok**. After confirmation, a randomized key string is immediately generated and the old string is invalidated.
+3. In the **Regenerate API Key** window that appears, click **Regenerate API Key**. See image. After this, a randomized key string is immediately generated and the old string is invalidated.
 
 This action cannot be undone.
 
 To delete the cloud service API key:
 
-1. Go to **Administration** > **API Configuration** > **Legacy API** > **Internet & SaaS API** > **Cloud Service API Key**.
+1. Go to **Administration** > **API** > **Legacy API** > **Internet & SaaS API** > **Cloud Service API Key**.
 2. On the **Cloud Service API Key** tab, click the **Delete** icon.
-3. In the confirmation window that appears, click **Ok**. After confirmation, the key is immediately removed and invalidated.
+3. In the **Delete API Key** window that appears, manually enter CONFIRM and click **Delete**. See image. After this, the key is immediately removed and invalidated.
 
-[Image: A screenshot of the API key in the disabled status]
+[Image: API key in the disabled status]
 
 [Image: A screenshot of the Edit API Key window]
+
+[Image: Add a new API Key]
+
+[Image: Regenerate API Key window to regenerate the API key]
+
+[Image: Delete API Key window to delete existing API key]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/managing-forced-reauthentication","lastmod":"2026-06-10T11:20Z","nid":"1458906"} -->
+<!-- ZS-ARTICLE {"url":"/zia/managing-forced-reauthentication","lastmod":"2026-09-30T19:02Z","nid":"1458906"} -->
 ## Managing Forced Reauthentication
 
 - Source: https://help.zscaler.com/zia/managing-forced-reauthentication
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Managing Forced Reauthentication
-- Last modified: 2026-06-10T11:20Z
+- Last modified: 2026-09-30T19:02Z
 - Summary: Information about forced reauthentication in the Zscaler Admin Console.
 
-You can force all users to reauthenticate on the Default Settings page (Administration > Identity > Internet & SaaS > Internet Authentication Settings > Default Settings).
+You can force all users to reauthenticate on the Default Settings page (Administration > Internet & SaaS Authentication > Internet Authentication Settings > Default Settings).
 
 Instead of forcing reauthentication, Zscaler recommends using [SCIM](https://help.zscaler.com/zia/about-scim) [provisioning](https://help.zscaler.com/zia/choosing-provisioning-and-authentication-methods) for complete user lifecycle management.
 
@@ -13543,14 +14287,14 @@ You can edit the default nearby sharing device rule, but you cannot delete it.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/managing-oauth-2.0-authorization-servers","lastmod":"2026-05-31T07:06Z","nid":"1415056"} -->
+<!-- ZS-ARTICLE {"url":"/zia/managing-oauth-2.0-authorization-servers","lastmod":"2026-09-30T18:16Z","nid":"1415056"} -->
 ## Managing OAuth 2.0 Authorization Servers
 
 - Source: https://help.zscaler.com/zia/managing-oauth-2.0-authorization-servers
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > API Security > Managing OAuth 2.0 Authorization Servers
-- Last modified: 2026-05-31T07:06Z
-- Summary: Information on how to add and manage external OAuth 2.0 authorization servers on the Zscaler Admin Console
+- Last modified: 2026-09-30T18:16Z
+- Summary: Information on how to add and manage external OAuth 2.0 authorization servers on the Zscaler Admin Console.
 
 When using OAuth 2.0 for API authentication, the Zscaler service requires you to add your authorization servers to the Zscaler Admin Console to authorize client applications. You can add and manage your authorization servers from the OAuth 2.0 Authorization Servers page. You need an admin role with the API Key Management permission enabled to manage your authorization servers. To learn more, see [Adding Admin Roles](https://help.zscaler.com/zia/adding-admin-roles).
 
@@ -13566,7 +14310,7 @@ From the OAuth 2.0 Authorization Servers page, you can perform the following tas
 
 An organization can have up to two OAuth 2.0 authorization servers with only one being enabled at a time. To add your authorization server:
 
-1. Go to **Administration** > **API Configuration**>**Legacy API**> **Internet & SaaS API** >**Cloud Service API Security**.
+1. Go to **Administration** > **API**>**Legacy API**> **Internet & SaaS API** >**Cloud Service API Security**.
 2. Click the **OAuth 2.0 Authorization Servers** tab.
 3. Click **Add Authorization Server**.
 
@@ -13574,14 +14318,14 @@ The **Add Authorization Server** window opens.
 
 1. In the **Add Authorization Server** window:
 
-- **Enable:** Enable the authorization server configuration. The authorization server configuration must be enabled for the JWT verification to take place. Only one authorization server can be enabled at a time.
+- **Status:** Enable this for the authorization server configuration to be enabled. The authorization server configuration must be enabled for the JSON Web Token (JWT) verification to take place. Only one authorization server can be enabled at a time.
 - **Name:** Enter a name for your authorization server configuration. The name can only contain alphanumeric characters without spaces and cannot exceed 64 characters.
 - **Description:** Enter a description for the authorization server configuration. The description cannot exceed 256 characters.
 - **OAuth 2.0 JWKS Location:** Enter the JSON Web Key Set (JWKS) endpoint that returns the public key set of the authorization server in the JWKS format. This public key set is fetched by the Zscaler service on a regular basis to cryptographically verify the authenticity of the JWT in API requests.
 
 Click **Validate** to verify that the JWKS endpoint is configured correctly. The **Save** button appears only after the JWKS endpoint is validated.
 
-- **JWKS Server Certificate Validation:** If the authorization server uses an SSL certificate signed by an unrecognized Certificate Authority (CA) or has a root certificate issued by an unrecognized CA, an SSL handshake error occurs when the Zscaler service tries to establish an SSL connection with the JWKS endpoint. To avoid this error, you can disable the certificate validation using the **JWKS Server Certificate Validation** option or change the server certificate.
+- **JWKS Certificate Authentication:** If the authorization server uses an SSL certificate signed by an unrecognized Certificate Authority (CA) or has a root certificate issued by an unrecognized CA, an SSL handshake error occurs when the Zscaler service tries to establish an SSL connection with the JWKS endpoint. To avoid this error, you can disable the certificate authentication using the **JWKS Certificate Authentication** option or change the server certificate.
 - **Audience URI:** (Optional) Enter the `aud` claim value that identifies the recipient of the JWT. If a value is specified for this field, requests are accepted only if the JWT contains a matching `aud` claim.
 - **Issuer URI:** (Optional) Enter the `iss` claim value that identifies the issuer of the JWT. If a value is specified for this field, requests are accepted only if the JWT contains a matching `iss` claim.
 - **Client ID:** (Optional) Enter the client ID of the client application that is requesting access to the Internet & SaaS (ZIA) API service. The client ID is issued by the authorization server at the time of client application registration and can be obtained from the OAuth 2.0 service console. If a value is specified for this field, requests are accepted only if the JWT contains a matching `client_id` claim. If multiple client applications need access to the cloud service API, leave this field blank.
@@ -13596,7 +14340,7 @@ You can edit the OAuth 2.0 authorization servers added to the Zscaler Admin Cons
 
 To edit an authorization server configuration:
 
-1. Go to **Administration** > **API Configuration**>**Legacy API**> **Internet & SaaS API** >**Cloud Service API Security**.
+1. Go to **Administration** > **API**>**Legacy API**> **Internet & SaaS API** >**Cloud Service API Security**.
 2. Click the **OAuth 2.0 Authorization Servers** tab.
 3. Click the **Edit** icon next to the authorization server that you want to edit.
 
@@ -13605,23 +14349,21 @@ The **Edit Authorization Server** window opens.
 1. In the **Edit Authorization Server** window, you can modify the necessary configurations. For the list of fields available in this window, see Add an Authorization Server.
 2. Click **Save**.
 
-You can delete the OAuth 2.0 authorization servers added to the ZIA Admin Portal. If you delete an authorization server that is currently in use, client applications can no longer access the cloud service API using OAuth 2.0.
+You can delete the OAuth 2.0 authorization servers added to the Zscaler Admin Console. If you delete an authorization server that is currently in use, client applications can no longer access the cloud service API using OAuth 2.0.
 
 To delete an authorization server configuration:
 
-1. Go to **Administration** > **API Configuration**>**Legacy API**> **Internet & SaaS API** >**Cloud Service API Security**.
+1. Go to **Administration** > **API**>**Legacy API**> **Internet & SaaS API** >**Cloud Service API Security**.
 2. Click the **OAuth 2.0 Authorization Server**s tab.
 3. Click the **Delete** icon next to the authorization server that you want to delete.
 
-A confirmation dialog box appears.
+The **Delete Authorization Server** window opens. Manually enter CONFIRM in the field provided and click **Delete**.
 
 See image.
 
-1. Click **OK**.
+[Image: Add Authorization Server window to add a new authorization server]
 
-[Image: A screenshot of the Add Authorization server window]
-
-[Image: A screenshot of the confirmation dialog for OAuth 2.0 Authorization server]
+[Image: Delete Authorization Server window to delete existing authorization server]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -13989,26 +14731,24 @@ The **Add Removable Storage Device Per User Rule** window opens. Specify setting
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/managing-sandbox-api-token","lastmod":"2025-07-08T11:29Z","nid":"1415071"} -->
+<!-- ZS-ARTICLE {"url":"/zia/managing-sandbox-api-token","lastmod":"2026-09-30T18:15Z","nid":"1415071"} -->
 ## Managing Sandbox API Token
 
 - Source: https://help.zscaler.com/zia/managing-sandbox-api-token
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > API Security > Managing Sandbox API Token
-- Last modified: 2025-07-08T11:29Z
-- Summary: Information on how to add and manage Sandbox API tokens used for authenticating Sandbox Submission API
+- Last modified: 2026-09-30T18:15Z
+- Summary: Information on how to add and manage Sandbox API tokens used for authenticating Sandbox Submission API.
 
 After your Sandbox subscription is enabled, your organization's sandbox API tokens are initially provisioned by Zscaler, enabled, and displayed within the Sandbox API Token page along with the base URL. An organization can only have one API token for the Sandbox Submission API. To learn more, see [Getting Started](https://help.zscaler.com/zia/api-getting-started).
 
-Admins have view access to the Sandbox API Token page information within the [Zscaler Cloud Connector Portal](https://help.zscaler.com/cloud-branch-connector/about-cloud-connector-portal).
-
-From this page, you can:
+From this page, you can do the following:
 
 - Add a new API token
 - Regenerate the API token
 - Delete the API token
 
-Your sandbox API token can be disabled by Zscaler or your service provider. The token might be disabled if your organization exceeds the threshold number of API calls allowed or the code developed for your organization violates Zscaler's terms and conditions. If this occurs, the ability to add, regenerate, or delete the token is removed and a Disabled status appears. You must contact Zscaler Support or your service provider to re-enable the token.
+Your sandbox API token can be disabled by Zscaler or your service provider. The token might be disabled if your organization exceeds the threshold number of API calls allowed or the code developed for your organization violates Zscaler's terms and conditions. If this occurs, the ability to add, regenerate, or delete the token is removed and a **Disabled** status appears. You must contact Zscaler Support or your service provider to re-enable the token.
 
 If your Sandbox subscription expires, you still have access to the Sandbox API Token page, but you cannot make any modifications (i.e., you lose access to the POST and PUT actions within the API). Also, your existing API token is still valid but disabled. If this occurs, contact Zscaler Support. The API token is re-enabled after your subscription is renewed.
 
@@ -14018,33 +14758,37 @@ Be aware that regenerating the token will immediately invalidate the previous to
 
 To add a new cloud service API token:
 
-1. Go to **Administration** > **Cloud Service API Security** > **Sandbox API Token**.
+1. Go to **Administration** > **API** > **Legacy API** > **Internet & SaaS API** > **Cloud Service API Security** > **Sandbox API Token**.
 2. If you already have 5 tokens on the Sandbox API Token tab, make sure that you delete an existing token. After a token is removed, the **Add Sandbox API Token** option becomes available.
-3. Click **Add Sandbox API Token**.
+3. Click **Add Sandbox API Token**. See image.
 
-You can immediately start using the new API token displayed on the tab. The token information is hidden by default, but you can view it by clicking the **Eye** icon.
-
-[Image: A screenshot of the masked Sandbox API token]
+The new API token is displayed on the tab. Enter a name and click **Save**. You can then view the Sandbox API Token (hidden by default) by clicking the **Eye** icon.
 
 This action cannot be undone.
 
 To regenerate the Sandbox API token:
 
-1. Go to **Administration** > **Cloud Service API Security** > **Sandbox API Token**.
+1. Go to **API** > **Legacy API** > **Internet & SaaS API** > **Cloud Service API Security** > **Sandbox API Token**..
 2. On the **Sandbox API Token** tab, click the **Regenerate** icon.
-3. In the confirmation window that appears, click **Ok**.
+3. In the Regenerate API Token window that appears, click **Regenerate API Token**. See image.
 
-After confirmation, a randomized token string is immediately generated and the old string is invalidated.
+After this, a randomized token string is immediately generated and the old string is invalidated.
 
 This action cannot be undone.
 
 To delete the Sandbox API token:
 
-1. Go to **Administration** > **Cloud Service API Security** > **Sandbox API Token**.
+1. Go to **API** > **Legacy API** > **Internet & SaaS API** > **Cloud Service API Security** > **Sandbox API Token**.
 2. On the **Sandbox API Token** tab, click the **Delete** icon.
-3. In the confirmation window that appears, click **Ok**.
+3. In the Delete API Token window that appears, manually enter CONFIRM in the field provided and click **Delete**. See image.
 
-After confirmation, the token is immediately removed and invalidated.
+After this, the token is immediately removed and invalidated.
+
+[Image: Add Sandbox API Token button to add a new sandbox token]
+
+[Image: Regenerate Sandbox API Token button to regenerate sandbox token]
+
+[Image: Delete Sandbox API Token button to remove a sandbox token]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -15901,13 +16645,13 @@ To edit or delete an Index Tool configuration:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/modifying-predefined-dns-control-rules","lastmod":"2026-09-22T06:45Z","nid":"1399921"} -->
+<!-- ZS-ARTICLE {"url":"/zia/modifying-predefined-dns-control-rules","lastmod":"2026-09-29T03:07Z","nid":"1399921"} -->
 ## Modifying the Predefined DNS Control Rules
 
 - Source: https://help.zscaler.com/zia/modifying-predefined-dns-control-rules
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > DNS Control > Modifying the Predefined DNS Control Rules
-- Last modified: 2026-09-22T06:45Z
+- Last modified: 2026-09-29T03:07Z
 - Summary: How to modify the default DNS Control rules in the Zscaler Admin Console.
 
 The DNS Control policy has predefined rules based on best practice recommendations to manage specific types of traffic. These rules can be used readily by an organization to protect its traffic against specific threats. Depending on the rule functionality and the severity of threats against which they offer protection, some rules are highly restrictive and do not support customization for rule conditions and actions, whereas others allow for greater flexibility, including rule deletion. Similarly, certain rules contain system-defined Rule Order (i.e., default Rule Order), which cannot be modified by admins. These rules with default Rule Order always maintain the lowest precedence.
@@ -15987,7 +16731,7 @@ Choose the **Rule Label** for the rule.
   - **Request Categories**: Botnet Callback, Domain Generation Algorithm (DGA) Domains, Malicious Content, Phishing, and Spyware/Adware are selected.
   - **Response Categories**: Botnet Callback, Domain Generation Algorithm (DGA) Domains, Malicious Content, Phishing, and Spyware/Adware are selected.
 3. View the rule action details and configure the Traffic Capture option as follows:
-  - **Action**: (Non-modifiable) Action is set to **Block**.
+  - **Network Traffic**: (Non-modifiable) **Block** is selected.
   - **Logging**: (Non-modifiable) **Full Logging** is configured.
   - **Capture**: (Modifiable) If [Traffic Capture is enabled](https://help.zscaler.com/zia/configuring-traffic-capture), the Capture option appears. By enabling this option, you can capture blocked traffic and store it in PCAP files for later analysis. To learn more, see [About Traffic Capture Settings](https://help.zscaler.com/zia/about-traffic-capture).
 4. Configure an end user notification (EUN) using one of the following options: Both Client Connector EUN and Web EUN cannot function simultaneously. When both options are enabled, the Web EUN takes precedence and only this notification is displayed to users. To learn more, see [DNS End User Notifications](https://help.zscaler.com/zia/dns-end-user-notifications) and [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
@@ -16001,7 +16745,7 @@ Choose the **Rule Label** for the rule.
 2. View the rule criteria information (read-only) in the following bulleted list: The rule is configured only with specific criteria in the **DNS Application** category.
   - **DNS Tunnels & Network Apps**: All DNS tunnels that are classified under the **Commonly Blocked DNS Tunnels** category by Zscaler are selected.
 3. View the rule action details and configure the Traffic Capture option as follows:
-  - **Action**: (Non-modifiable) Action is set to **Block**.
+  - **Network Traffic**: (Non-modifiable) **Block** is selected.
   - **Logging**: (Non-modifiable) **Full Logging** is configured.
   - **Capture**: (Modifiable) If [Traffic Capture is enabled](https://help.zscaler.com/zia/configuring-traffic-capture), the Capture option appears. By enabling this option, you can capture blocked traffic and store it in PCAP files for later analysis. To learn more, see [About Traffic Capture Settings](https://help.zscaler.com/zia/about-traffic-capture).
 4. Configure an end user notification (EUN) using one of the following options: Both Client Connector EUN and Web EUN cannot function simultaneously. When both options are enabled, the Web EUN takes precedence and only this notification is displayed to users. To learn more, see [DNS End User Notifications](https://help.zscaler.com/zia/dns-end-user-notifications) and [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
@@ -16016,7 +16760,7 @@ Choose the **Rule Label** for the rule.
   - **Request Categories**: Newly Registered and Observed Domains, Newly Revived Domains, and Other Security are selected.
   - **Response Categories**: Newly Registered and Observed Domains, Newly Revived Domains, and Other Security are selected.
 3. View the rule action details and configure the Traffic Capture option as follows:
-  - **Action**: (Non-modifiable) Action is set to **Block**.
+  - **Network Traffic**: (Non-modifiable) **Block** is selected.
   - **Logging**: (Non-modifiable) **Full Logging** is configured.
   - **Capture**: (Modifiable) If [Traffic Capture is enabled](https://help.zscaler.com/zia/configuring-traffic-capture), the Capture option appears. By enabling this option, you can capture blocked traffic and store it in PCAP files for later analysis. To learn more, see [About Traffic Capture Settings](https://help.zscaler.com/zia/about-traffic-capture).
 4. Configure an end user notification (EUN) using one of the following options: Both Client Connector EUN and Web EUN cannot function simultaneously. When both options are enabled, the Web EUN takes precedence and only this notification is displayed to users. To learn more, see [DNS End User Notifications](https://help.zscaler.com/zia/dns-end-user-notifications) and [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
@@ -16030,7 +16774,7 @@ Choose the **Rule Label** for the rule.
 2. View the rule criteria information (read-only) in the following bulleted list. The rule is configured only with specific criteria in the DNS Application category.
   - **DNS Tunnels & Network Apps**: All DNS tunnels that are classified under the **Unknown DNS Tunnels** category by Zscaler are selected.
 3. View the rule action details and configure the Traffic Capture option as follows:
-  - **Action**: (Non-modifiable) Action is set to **Block**.
+  - **Network Traffic**: (Non-modifiable) **Block** is selected.
   - **Logging**: (Non-modifiable) **Full Logging** is configured.
   - **Capture**: (Modifiable) If [Traffic Capture is enabled](https://help.zscaler.com/zia/configuring-traffic-capture), the Capture option appears. By enabling this option, you can capture blocked traffic and store it in PCAP files for later analysis. To learn more, see [About Traffic Capture Settings](https://help.zscaler.com/zia/about-traffic-capture).
 4. Configure an end user notification (EUN) using one of the following options: Both Client Connector EUN and Web EUN cannot function simultaneously. When both options are enabled, the Web EUN takes precedence and only this notification is displayed to users. To learn more, see [DNS End User Notifications](https://help.zscaler.com/zia/dns-end-user-notifications) and [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
@@ -16698,837 +17442,4 @@ This configuration uses a captive portal as the authentication mechanism. Howeve
 [Image: Palo Alto Networks Firewall Captive Portal Settings Icon]
 
 [Image: Palo Alto Networks Firewall Captive Portal Settings]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/nss-deployment-guide-amazon-web-services","lastmod":"2026-07-31T11:25Z","nid":"1401561"} -->
-## NSS Deployment Guide for Amazon Web Services
-
-- Source: https://help.zscaler.com/zia/nss-deployment-guide-amazon-web-services
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Deployment Guides > NSS Deployment Guide for Amazon Web Services
-- Last modified: 2026-07-31T11:25Z
-- Summary: Information on the tasks required to deploy Nanolog Streaming Service (NSS) via Amazon Web Services (AWS).
-
-Zscaler's [Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/understanding-nanolog-streaming-service) can be deployed via Amazon Web Services (AWS). This guide describes the tasks required for NSS deployment, enabling you to stream either web or firewall logs to your security information and event management (SIEM).
-
-As shown in the following diagram, the web and mobile traffic logs and the firewall logs are stored in the [Nanolog](https://help.zscaler.com/zia/about-zscaler-cloud-architecture) in the Zscaler cloud. An organization can deploy the NSS instance on an EC2 instance on AWS. When an organization deploys one NSS for web and mobile logs and another NSS for firewall logs, each NSS opens a secure tunnel to the Nanolog in the Zscaler cloud. The Nanolog then streams copies of the logs to each NSS in a highly compressed format to reduce bandwidth footprint; the original logs are retained in the Nanolog.
-
-[Image: Diagram of copies of web and mobile logs and firewall logs being streamed to each NSS in a compressed format through AWS]
-
-## Prerequisites
-
-Ensure you have a [subscription](https://help.zscaler.com/unified/viewing-subscriptions) to either NSS for Web or NSS for Firewall and review the following specifications and requirements:
-
-- VM Specs
-- Network Specs
-- Firewall Requirements
-
-## Deploying NSS
-
-To deploy NSS:
-
-- Step 1: In the Zscaler Admin Console, Add an NSS Server and Download the SSL Certificate
-- Step 2: In the Zscaler Admin Console, Compute the Recommended VM Instance Specifications
-- Step 3: In the AWS Management Console, Provision and Configure an EC2 Instance
-- Step 4: Configure and Verify the NSS on the VM Instance
-- Step 5: In the Zscaler Admin Console, Add a TCP NSS Feed
-- (Optional) Step 6: In the Zscaler Admin Console, Add an HTTP NSS Feed
-
-## Post-Deployment Tasks
-
-After you have verified your deployment, you can perform additional tasks:
-
-- Troubleshoot Deployed NSS Servers
-- Configure Advanced NSS Settings
-- Deploy Multiple NSS Virtual Machines for Reliability
-
-- EC2 instance type: One of the following dual-core instances. NSS uses one core for the control plane and another core for the data plane:
-  - t2.large
-  - t2.xlarge
-  - t2.2xlarge
-  - m4.large
-  - m4.4xlarge
-  - r4.large
-  - r4.xlarge
-  - r4.4xlarge
-  - c4.8xlarge
-- Instance memory:
-  - 8 GB for up to 15K users
-  - 16 GB for up to 40K users
-  - 32 GB for up to 100K users
-- EBS storage volume type: Magnetic is sufficient, but General Purpose SSD is recommended.
-- Data disk size: 500 GB
-
-To learn more, see [Compute the Recommended VM Instance Specifications](https://help.zscaler.com/zia/nss-deployment-guide-amazon-web-services#step-get-recommended-vm-specs).
-
-- Two network interfaces: Second management or service network interfaces are currently not supported in the NSS over AWS deployment.
-  - The first network interface is the management IP address. It is used for control connections to the Zscaler cloud and to make an SSH connection to the NSS VM for configuration and management. You can customize the deployment and define a separate IP address for the SSH connection to the NSS VM.
-  - The second network interface is the service IP address. It is used for data connections to the Zscaler cloud and to the SIEM.
-- Two Elastic IPs to assign a public IP address with both network interfaces. The two elastic IPs are not required when using a NAT. A NAT network configuration works correctly as long as it has sufficient network bandwidth.
-- Bandwidth for log download: 11 Mbps for 10K users is an example average value.
-
-The firewall requirements are as follows:
-
-- You must deploy the NSS instance behind a VM network security group. The NSS instance requires only outbound connections to the Zscaler cloud. It doesn't require any inbound connections to your network from the Zscaler cloud.
-- To view the firewall requirements for your specific account, refer to the Zscaler Cloud Configuration Requirements for your Zscaler cloud: https://config.zscaler.com/<Zscaler Cloud Name>/nss. You can find the name of your Zscaler cloud in the URL you use to log in to the Zscaler service. For example, if you log in to admin.zscaler.net, then go to [https://config.zscaler.com/zscaler.net/nss](https://config.zscaler.com/zscaler.net/nss). To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
-- The IP address ranges are necessary to ensure that the service isn't affected by future Zscaler cloud expansion.
-- Communication from the NSS instance to the Zscaler cloud must be excluded from Secure Sockets Layer (SSL) inspection to ensure that the NSS can authenticate to the Nanolog cluster using Mutual Transport Layer Security (mTLS).
-- Zscaler does not recommend or support forwarding outbound traffic from the NSS to or through the Public Service Edge for Internet & SaaS (ZIA) as this can result in networking, latency, and administration issues.
-
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming - Nanolog Streaming Service**.
-2. From the **NSS Servers**tab, click **Add NSS Server**. The **Add NSS Server** window appears.
-3. In the **Add NSS Server**window: See image.
-  - **Name**: Enter a name for the NSS server.
-  - **Type**: The **NSS for Web**type is selected by default. To configure NSS for firewall logs, select **NSS for Firewall**. If you have Zscaler Cloud & Branch Connector, **NSS for Firewall** (NSS type) displays as **NSS for Firewall, Cloud & Branch Connector**.
-  - **Status**: The NSS is **Enabled** by default.
-4. Click **Save**.
-5. Click **Download** in the **SSL Certificate** column of your newly added NSS server and save the certificate for later [configuring the NSS on the VM instance](https://help.zscaler.com/zia/nss-deployment-guide-amazon-web-services#step-configure-start-nss). See image.
-
-[Image: Screenshot of the Add NSS Server window in the Zscaler Admin Console]
-
-[Image: Screenshot of the NSS Servers tab in the Zscaler Admin Console. The Download button under the SSL Certificate column is highlighted.]
-
-You must enter information about your traffic and users so that the Zscaler service can compute the appropriate resources for your NSS.
-
-The NSS buffers the logs for at least one hour. If a SIEM goes offline for maintenance, or if the connection between the NSS and the SIEM is disrupted, the NSS buffers the logs and sends them when the connection is re-established. The amount of memory required to buffer the logs is incorporated into the VM spec computation. The buffer size increases proportionally to the amount of RAM allocated to the NSS.
-
-To compute the appropriate resources for your NSS:
-
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming - Nanolog Streaming Service**.
-2. Click **Deploy NSS Virtual Appliance** to enter data that the Zscaler service needs to compute the appropriate resources for your NSS. The **NSS Virtual Appliance Deployment** window appears.
-3. In the **NSS Virtual Appliance Deployment**window, choose either of the following NSS types: If you have Zscaler Cloud & Branch Connector, **NSS for Firewall** (NSS type) displays as **NSS for Firewall, Cloud & Branch Connector**.
-  - NSS for Web
-  - NSS for Firewall
-4. For the platform, select **AWS**.
-5. Click **Compute**.
-
-The recommended EC2 instance type is displayed. You use this information when later setting up the EC2 instance. You can click the **Configuration Info** links for more information on AWS and how to set up an EC2 instance.
-
-See image.
-
-See the following table for AWS EC2 instance specifications:
-
-| Instance Type | Memory | Cores |
-| --- | --- | --- |
-| t2.large | 8 GB | 2 |
-| t2.xlarge | 16 GB | 4 |
-| t2.2xlarge | 32 GB | 8 |
-| m4.large | 8 GB | 2 |
-| m4.4xlarge | 64 GB | 16 |
-| r4.large | 15.25 GB | 2 |
-| r4.xlarge | 30.5 GB | 4 |
-| r4.4xlarge | 122 GB | 16 |
-| c4.8xlarge | 60 GB | 36 |
-
-1. Click **Close**.
-
-[Image: Recommended EC2 instance type and configuration info in the NSS Virtual Appliance Deployment window in the Zscaler Admin Console]
-
-To determine the memory and bandwidth requirements:
-
-- **Number of Users**:Enter the number of users. The service displays the recommended resources for NSS and the EC2 instance.
-- **Peak Transactions per Hour**: Enter the peak number of transactions in an hour. You can retrieve this data by going to **Analytics** > **Internet & SaaS** > **Dashboard**> **Web Overview**. This is recommended to adjust the VM specification to your organization’s workload.
-
-See image.
-
-The recommended internet bandwidth is the peak bandwidth required to download the logs from the Nanolog in the Zscaler cloud. If NSS is not allocated the bandwidth it needs, the logs can accumulate in the Nanolog. This can result in frequent connection resets and the logs not being streamed to NSS.
-
-[Image: The NSS Virtual Appliance Deployment window with NSS for Web selected. The platform is AWS.]
-
-To determine the memory and bandwidth requirements:
-
-- **Number of Users**:Enter the number of users. The service displays the recommended resources for NSS and the EC2 instance.
-- **Peak Sessions per Hour**:Enter the peak number of sessions in an hour. You can retrieve this data by going to **Analytics** > **Internet & SaaS** > **Dashboard** > **Firewall Overview**. This is recommended to adjust the VM specification to your organization’s workload.
-- **Peak DNS Requests per Hour**: Enter the peak number of DNS requests in an hour. You can retrieve this data by going to **Analytics** > **Internet & SaaS** > **Dashboard** > **DNS Overview**. This is recommended to adjust the VM specification to your organization’s workload.
-
-See image.
-
-The recommended internet bandwidth is the peak bandwidth required to download the logs from the Nanolog in the Zscaler cloud. If NSS is not allocated the bandwidth it needs, the logs can accumulate in the Nanolog. This can result in frequent connection resets and the logs not being streamed to NSS.
-
-[Image: The NSS Virtual Appliance Deployment window with NSS for Firewall selected. The platform is AWS.]
-
-Use the following procedure to launch a new EC2 instance with an NSS AMI, configure two network interfaces with Elastic IPs, and configure the required security group settings:
-
-1. In AWS, in the top-right corner of the screen, select the region where you want to launch the instance. See image.
-2. Create a security group:
-  1. Go to **EC2**.
-  2. In the left-side navigation, go to **Network & Security** > **Security Groups**.
-  3. Click **Create security group**. The **Create security group** page appears.
-  4. In the **Basic details** section: See image.
-    - **Security group name**: Enter a name for the security group (e.g., `Zscaler NSS`). You later assign this security group to the two network interfaces that you create when launching an EC2 instance.
-    - **Description**: Enter a description of the security group.
-    - **VPC**: The virtual private cloud (VPC) of the security group
-  5. In the **Inbound rules** section, click **Add rule** and configure the connection requirements. See image. To connect to your EC2 instance via SSH, you are required to open port 22 for inbound connections. In production, you should authorize only a specific IP address or range of addresses to access your instance and not use 0.0.0.0. To learn more, refer to the [AWS documentation](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/authorizing-access-to-an-instance.html).
-  6. In the **Outbound rules** section, click **Add rule**and configure the connection requirements. See image. The inbound and outbound rules are required to enable the NSS AMI to communicate with the Zscaler cloud and Nanolog and enable remote control of the instance via SSH. To learn more about the outbound connection requirements, refer to https://config.zscaler.com/<Zscaler Cloud Name>/nss. The <Zscaler Cloud Name> can be found in the URL that you use to log in to the Zscaler Admin Console. For example, if you log in to admin.zscaler.net, then go to [https://config.zscaler.com/zscaler.net/nss.](https://config.zscaler.com/zscaler.net/nss.)
-  7. Click **Create security group**.
-3. Launch an EC2 instance:
-  1. Go to **EC2** > **Instances**.
-  2. Click **Launch instances**. The **Launch an instance**page appears.
-  3. In the **Name and tags** section, enter a name for the instance.
-  4. In the **Application and OS Images (Amazon Machine Image)** section:
-    1. Click **Browse more AMIs**. See image. The **Choose an Amazon Machine Image (AMI)** page appears.
-    2. Enter `zsos42` in the search bar and press `Enter`.
-    3. Select **AWS Marketplace AMIs**.
-    4. Click **Select** next to **Zscaler NSS (ZSOS42) AMI** in the results. See image.
-    5. Click **Subscribe now**when prompted. You are redirected to the **Application and OS Images (Amazon Machine Image)** section, which shows that the AMI is verified. See image.
-  5. In the **Instance type** section, select the recommended EC2 instance type [previously computed](https://help.zscaler.com/zia/nss-deployment-guide-amazon-web-services#step-get-recommended-vm-specs) in the Zscaler Admin Console. See image. Zscaler’s EC2 instance type recommendation is based on the expected number of transactions, users, and the most economical option for the customer. If you are unable to select the recommended type, contact Zscaler Support.
-  6. In the **Key pair (login)** section, select or create a key pair. Creating a key pair generates a PEM file that you later use to [log in to the VM instance](https://help.zscaler.com/zia/nss-deployment-guide-amazon-web-services#remote-login) via SSH. To create a key pair:
-    1. Click **Create new key pair**. The **Create key pair** window appears.
-    2. In the **Create key pair** window: See image.
-      - **Key pair name**: Enter a name for the key pair.
-      - **Key pair type**: Select **RSA**.
-      - **Private key file format**: Select **.pem**.
-    3. Click **Create key pair**. The PEM file is automatically downloaded.
-  7. In the **Network settings** section, click **Edit** and configure the following fields:
-    1. **Subnet**: Select the subnet of the instance.
-    2. **Auto-assign public IP**: Ensure that this setting is disabled. Auto-assign IP can only be assigned to instances with one network interface; NSS requires two network interfaces.
-    3. **Firewall (security groups)**: Click **Select existing security group** and select the security group that you previously created (e.g., Zscaler NSS). See image.
-    4. In the **Advanced network configuration** subsection:
-      1. **Network interface 1**: Leave all fields in their default settings, and then click **Add network interface**. See image.
-      2. **Network interface 2**: Ensure that the second network interface is in the same subnet as the first network interface. Otherwise, leave all fields in their default settings. See image. By default, the EC2 instance has one network interface (eth0), but NSS requires an additional interface (eth1) in the same subnet. The management interface (eth0) is used for control connections to the Zscaler cloud and to make an SSH connection to the NSS for configuration and management. The service interface (eth1) is used for data connections to the Zscaler cloud (streaming Nanologs) and to the SIEM (syslog feed).
-  8. In the **Configure storage** section, select the storage specifications [previously computed](https://help.zscaler.com/zia/nss-deployment-guide-amazon-web-services#step-get-recommended-vm-specs) in the Zscaler Admin Console. **General purpose SSD (gp3)** is recommended, but **Magnetic (standard)** is sufficient. See image.
-  9. Review your EC2 instance configuration, and then click **Launch instance**. After the instance launches, a success message appears with the instance ID link. See image.
-  10. Click the instance ID link. You are redirected to the **Instances** page.
-  11. On the **Instances** page, click the **Instance ID** of the instance. See image.
-  12. Scroll down and click the **Networking** tab. See image.
-  13. In the **Network Interfaces** section, copy and save the interface IDs of the two network interfaces created for the instance. You use the IDs when associating Elastic IPs to the network interfaces. See image. The first network interface is the management interface (eth0). The second network interface is the service interface (eth1).
-4. Allocate and associate two Elastic IPs:
-  1. Go to **Network & Security** > **Elastic IPs**.
-  2. Click **Allocate Elastic IP address**. The **Allocate Elastic IP address** page appears.
-  3. Ensure the **Network border group** is in the same region you previously selected, and then click **Allocate**. See image. You are redirected to the **Elastic IP addresses** page, and a success message appears.
-  4. Click the newly allocated Elastic IP address. See image. This is the public IP address of the management interface. You later use this IP address to [log in to the VM instance](https://help.zscaler.com/zia/nss-deployment-guide-amazon-web-services#remote-login).
-  5. Click **Associate Elastic IP address**. See image. The **Associate Elastic IP address** page appears.
-  6. On the **Associate Elastic IP** **address** page:
-    1. **Resource type**: Select **Network interface**.
-    2. **Network interface**: Enter the interface ID of the first (i.e., management) network interface that you previously copied and saved.
-    3. **Private IP address**: Select the private IP address of the network interface that automatically populates in the field. See image.
-    4. Click **Associate**. After the Elastic IP address is associated, a success message appears.
-    5. Go to your EC2 instance page (**EC2** > **Instances**) to verify that the Elastic IP address is allocated. See image.
-  7. Repeat the entire procedure to allocate and associate a second Elastic IP address to the second (i.e., service) interface.
-
-[Image: Region drop-down menu in AWS]
-
-[Image: Create security group page with Basic details configured in AWS]
-
-[Image: Inbound rules configured for a security group in AWS]
-
-[Image: Outbound rules configured for a security group in AWS]
-
-[Image: Browse more AMIs in AWS. An AMI is a template that contains the software configuration required to launch an EC2 instance.]
-
-[Image: The Zscaler NSS (ZSOS42) AMI selected in AWS]
-
-[Image: The Zscaler NSS (ZSOS42) AMI is from a verified provider]
-
-[Image: m4.large is one of several recommended instance types for deploying NSS over AWS]
-
-[Image: Key pairs generate a .pem file for download that is used for securely login purposes]
-
-[Image: The Network settings configuration in AWS for deploying NSS]
-
-[Image: The Advanced network configuration of Network interface 1 of an EC2 instance in AWS]
-
-[Image: Network interface 2 of an EC2 instance in AWS. Deploying NSS requires two network interfaces in the same subnet]
-
-[Image: General purpose SSD is the recommended storage specification for NSS over AWS deployment]
-
-[Image: The launch of an instance in AWS is successfully initiated]
-
-[Image: The Instance ID of a launched EC2 instance in AWS]
-
-[Image: The Networking tab has details on an instance and its network interfaces]
-
-[Image: Copy the interface ID of the network interfaces of an EC2 instance]
-
-[Image: Allocate an Elastic IP address to an EC2 instance in AWS]
-
-[Image: After allocating an Elastic IP address, it can be associated to a network interface]
-
-[Image: The Associate Elastic IP address button in AWS]
-
-[Image: The Associate Elastic IP address configuration for an allocated Elastic IP address in AWS]
-
-[Image: The Instance summary shows an allocated and associated Elastic IP address]
-
-The following NSS configuration procedure runs through an SSH terminal connection. You use the PEM file that you [previously downloaded](https://help.zscaler.com/zia/nss-deployment-guide-amazon-web-services#create-key-pair-pem-file) to log in to the VM instance.
-
-Before you start:
-
-1. Ensure you have completed the [provisioning and configuration of an EC2 instance](https://help.zscaler.com/zia/nss-deployment-guide-amazon-web-services#step-provision-configure-ec2-instance).
-2. Note the private IP address and subnet mask of the service network interface (eth1) that you created for the EC2 instance:
-  1. In AWS, go to **EC2**.
-  2. In the left-side navigation, go to **Instances**.
-  3. Select your newly launched EC2 instance, and then scroll down and click the **Networking** tab. See image.
-  4. In the **Network Interfaces** section, copy the **Private IPv4 address**of thesecond (i.e.,service - eth1) network interface and save for [configuring the NSS network settings](https://help.zscaler.com/zia/nss-deployment-guide-amazon-web-services#configure-nss). See image.
-  5. In the **Networking details** section, click the **Subnet ID** link. See image. The **Subnets**page appears.
-  6. On the **Subnets** page, select the subnet and note the subnet mask (e.g., /24) in the**IPv4 CIDR** column. See image.
-
-### Configuring the NSS Virtual Appliance on AWS
-
-To configure the NSS virtual appliance on the VM:
-
-- a. Copy the SSL certificate.
-- b. Remote log in to the VM instance.
-- c. Install the SSL certificate.
-- d. Configure the NSS network settings.
-- e. Download the NSS binaries.
-- f. Start the NSS.
-- g. Verify the configuration.
-- h. (Optional) Remove the SSL certificate.
-
-1. Using FTP, SCP, or SFTP, copy the SSL certificate file that you [previously downloaded](https://help.zscaler.com/zia/nss-deployment-guide-amazon-web-services#step-add-nss-server-download-ssl-certificate) from the Zscaler Admin Console to the VM.
-2. Find the public hostname or IP address of your instance in the VM.
-
-Use the following SSH command with your previously downloaded PEM file and public IP address of your instance to get shell access to the VM.
-
-```
-ssh -i
-<key-pair-name>
-.pem zsroot@
-<instance-public-IP-address>
-```
-
-The following is an example:
-
-```
-ssh -i
-nss-zscaler
-.pem zsroot@
-44.239.205.223
-```
-
-NSS uses an SSL certificate to authenticate itself to the Zscaler service. Make sure that the SSL certificate is installed on only one active NSS VM at a time. Having multiple NSS VMs that use only one certificate causes cloud connection flapping, which disrupts the streaming of logs to the NSS.
-
-1. Copy the `NssCertificate.zip` file to the `/home/zsroot` root directory.
-2. Run the following command:
-
-```
-sudo nss install-cert NssCertificate.zip
-```
-
-1. Check the configuration by running the following command**:**
-
-```
-sudo nss dump-config
-```
-
-1. Enter the command `netstat -rn` and note the default gateway IP address. For example:
-  | Destination | Gateway |
-  | --- | --- |
-  | Default | 172.31.16.1 |
-  | 127.0.0.1 | link#1 |
-  | 172.31.16.0/20 | link#3 |
-  | 172.31.30.202 | link#3 |
-
-The first network interface (i.e., management - eth0) is configured by default when you start the VM.
-
-1. Configure the NSS network (i.e., the service interface - eth1 only) by running the command `sudo nss configure` and completing the following IP configurations:
-  1. Enter a name server (e.g., 172.31.0.2). You can change (`C`), delete (`D`), or not change it (`N`). In this case, enter `N`.
-  2. You can optionally add a name server. In this case, enter `N`.
-  3. Enter the service interface IP address with the subnet mask (smnet_dev). This is the private IP address and subnet mask of the second network interface (i.e., service interface - eth1) that you previously noted in AWS.
-  4. Enter the service interface default gateway IP address (smnet_dflt_gw). This is the default gateway IP address (e.g., 172.31.16.1) that you noted previously after running the command `netstat -rn`.
-
-[Image: The Networking tab of an EC2 instance in AWS]
-
-[Image: Private IPv4 address of service interface in AWS]
-
-[Image: The subnet ID link for the service interface in AWS]
-
-[Image: The subnet mask of the service interface in AWS]
-
-Before starting the NSS, run the following commandto download and install the NSS binaries:
-
-```
-sudo nss update-now
-```
-
-After the first NSS software deployment, the software is automatically updated with new versions.
-
-Unless you are planning to use this instance for passive backup, run the command `sudo nss start` and ensure that the command shows that the NSS virtual appliance started successfully. It can take a few minutes for the NSS to start streaming logs to the SIEM.
-
-After starting the NSS for the first time, you can run the following command to check that the latest NSS software version is installed:
-
-```
-sudo nss checkversion
-```
-
-To enable the NSS to start automatically after a restart, run the following command:
-
-```
-sudo nss enable-autostart
-```
-
-You can also explore other options by running the following command:
-
-```
-sudo nss help
-```
-
-To verify the configuration, run the following command:
-
-```
-sudo nss troubleshoot netstat|grep tcp
-```
-
-When the output of the command is displayed, verify that the following TCP connections are established in the following order:
-
-1. **Connection to the Zscaler cloud on port 443**: This is the control connection that is used to authenticate NSS to the Zscaler Central Authority (CA) and to download the configuration. It's also the data connection to the Nanolog so it can stream the logs.
-2. **Connection to the SIEM**: This is the long-lived TCP connection to the SIEM on the specified log data port. If there are multiple feeds configured, multiple connections must be listed.
-
-The absence of any one of the preceding connections, even after waiting a few minutes, usually indicates that there is a firewall configuration issue and the logs cannot be streamed. To troubleshoot issues, see [Troubleshooting Deployed NSS Servers](https://help.zscaler.com/zia/troubleshooting-nss).
-
-As a security measure, you can remove the SSL certificate from the VM. To remove the SSL certificate, run the `rm` command. See the following example:
-
-```
-rm NssCertificate.zip
-```
-
-If you do not remove the SSL certificate from the VM, you must change the file permission to be readable only by the root user.
-
-A TCP Nanolog Streaming Service (NSS) feed specifies the data from the logs that the NSS sends to the security information and event management (SIEM) system. You can filter the data so that you send only the data you need to the SIEM, and you can add up to 16 TCP NSS feeds for each [NSS server](https://help.zscaler.com/zia/about-nss-servers). ([Web](https://help.zscaler.com/zia/adding-nss-feeds-web-logs) and [Firewall](https://help.zscaler.com/zia/adding-nss-feeds-firewall-logs) logs are each limited to 8 feeds per NSS server to ensure optimal performance.) Each feed can have different filters and fields, and a different output format (e.g., CSV). To learn more about how to configure each feed, see:
-
-- [Adding TCP NSS Feeds for Web Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-web-logs)
-- [Adding TCP NSS Feeds for Firewall Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-firewall-logs)
-- [Adding TCP NSS Feeds for DNS Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-dns-logs)
-- [Adding TCP NSS Feeds for Tunnel Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-tunnel-logs)
-- [Adding TCP NSS Feeds for SaaS Security Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-saas-security-logs)
-- [Adding TCP NSS Feeds for SaaS Security Activity Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-saas-security-activity-logs)
-- [Adding TCP NSS Feeds for Alerts](https://help.zscaler.com/zia/adding-tcp-nss-feeds-alerts)
-- [Adding TCP NSS Feeds for Admin Audit Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-admin-audit-logs)
-- [Adding TCP NSS Feeds for Endpoint DLP Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-endpoint-dlp-logs)
-- [Adding TCP NSS Feeds for Email DLP Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-email-dlp-logs)
-- [Adding TCP NSS Feeds for Sandbox Verdict Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-sandbox-verdict-logs)
-- [Adding TCP NSS Feeds for Authentication Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-authentication-logs)
-- [Adding TCP NSS Feeds for SCIM Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-scim-logs)
-- [Adding TCP NSS Feeds for 3rd-Party App Governance Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-3rd-party-app-governance-logs)
-- [Adding TCP NSS Feeds for Posture Management Logs](https://help.zscaler.com/zia/adding-tcp-nss-feeds-posture-management-logs)
-
-In addition to TCP-based NSS feeds, you can optionally stream NSS logs to SIEM over HTTP connections. To add HTTP-based NSS feeds, you must:
-
-1. Run the following command in your VM instance: `nss configure-nssas`
-2. (Optional) Run the following command to configure a self-signed certificate: You can use self-signed or internally issued certificates for the SIEM connectivity test. `nss add-cert-to-trust <self-signed certificate>`Replace <self-signed certificate> with the path of your self-signed certificate from the NSS node in the command.
-3. Run the following command to restart the NSS service: `sudo nss restart`
-
-After the NSS restarts, you can configure HTTPS-based NSS feeds for Internet & SaaS (ZIA).
-
-An HTTP NSS feed specifies the data from the logs that the HTTP NSS sends to the security information and event management (SIEM) system. You can add up to 8 HTTP NSS feeds for each [NSS server](https://help.zscaler.com/zia/about-nss-servers). [Web](https://help.zscaler.com/zia/adding-nss-feeds-web-logs) and [firewall](https://help.zscaler.com/zia/adding-nss-feeds-firewall-logs) log types are each limited to two feeds per NSS server to ensure optimal performance.
-
-To learn more about how to configure each feed, see the following links:
-
-- [Adding HTTP NSS Feeds for Web Logs](https://help.zscaler.com/zia/adding-http-nss-feeds-web-logs)
-- [Adding HTTP NSS Feeds for Firewall Logs](https://help.zscaler.com/zia/adding-http-nss-feeds-firewall-logs)
-- [Adding HTTP NSS Feeds for DNS Logs](https://help.zscaler.com/zia/adding-http-nss-feeds-dns-logs)
-- [Adding HTTP NSS Feeds for Tunnel Logs](https://help.zscaler.com/zia/adding-http-nss-feeds-tunnel-logs)
-- [Adding HTTP NSS Feeds for SaaS Security Logs](https://help.zscaler.com/zia/adding-http-nss-feeds-saas-security-logs)
-- [Adding HTTP NSS Feeds for SaaS Security Activity Logs](https://help.zscaler.com/zia/adding-http-nss-feeds-saas-security-activity-logs)
-- [Adding HTTP NSS Feeds for Alerts](https://help.zscaler.com/zia/adding-http-nss-feeds-alerts)
-- [Adding HTTP NSS Feeds for Admin Audit Logs](https://help.zscaler.com/zia/adding-http-nss-feeds-admin-audit-logs)
-- [Adding HTTP NSS Feeds for Endpoint DLP Logs](https://help.zscaler.com/zia/adding-http-nss-feeds-endpoint-dlp-logs)
-- [Adding HTTP NSS Feeds for Email DLP Logs](https://help.zscaler.com/zia/adding-http-nss-feeds-email-dlp-logs)
-- [Adding HTTP NSS Feeds for Sandbox Verdict Logs](https://help.zscaler.com/zia/adding-http-nss-feeds-sandbox-verdict-logs)
-
-An [NSS server](https://help.zscaler.com/zia/adding-nss-servers) represents the NSS VM in the Zscaler Admin Console. When you create an NSS server in the console, an SSL certificate is generated. You download the SSL certificate from the console and upload it to the NSS VM that you configure and [deploy](https://help.zscaler.com/zia/deploying-nss-virtual-appliances). The newly configured NSS VM uses the SSL certificate to authenticate itself to the Zscaler service.
-
-Each NSS server supports up to 16 [NSS feeds](https://help.zscaler.com/zia/adding-nss-feeds). ([Web](https://help.zscaler.com/zia/adding-nss-feeds-web-logs) and [Firewall](https://help.zscaler.com/zia/adding-nss-feeds-firewall-logs) logs are each limited to 8 feeds per NSS to ensure optimal performance.) Each NSS feed can have different filters and fields and a different output format (e.g., CSV).
-
-For site reliability, you can deploy multiple NSS VMs, either in an active-active or active-passive configuration.
-
-### Active-Active Configuration
-
-Zscaler recommends leveraging two NSS servers per NSS type (i.e., NSS for Web and NSS for Firewall) and deploying each pair in an active-active configuration. In this configuration, you create two NSS servers of the same NSS type in the Zscaler Admin Console with separate SSL certificates.
-
-Running multiple active NSS VMs with the same SSL certificate causes cloud connection flapping, which disrupts the streaming of logs to the NSS.
-
-Optionally, for optimal reliability, you can configure the NSS VMs to stream logs to two separate SIEMs. In this configuration, each NSS VM runs independently, streaming logs to its respective SIEM at the same time.
-
-Zscaler does not recommend configuring two NSS VMs of the same NSS type to stream logs to a single SIEM. In this case, each NSS VM sends copies of the same logs to the SIEM, which might not be able to deduplicate them.
-
-### Active-Passive Configuration
-
-Alternatively, you can deploy multiple NSS VMs in an active-passive configuration. In this configuration, you create one NSS server (for Web or Firewall) in the Zscaler Admin Console and use the generated SSL certificate to deploy one active NSS VM; the second VM serves as a cold standby. Both NSS VMs use the same SSL certificate in this configuration, but they should not connect to the Zscaler [Nanolog](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture) at the same time as this results in connection flapping.
-
-If the active NSS VM fails, you must perform failover activities, ideally within one hour of the failure to prevent data loss. In this time frame, you can leverage the following NSS reliability mechanisms:
-
-- **NSS to SIEM**: The NSS buffers the logs in the VM memory to increase its resiliency to transient network issues between the SIEM and the NSS. If the connection drops, the NSS replays logs from the buffer, according to the Duplicate Logs setting.
-- **Nanolog to SIEM**: If the connectivity between the Zscaler cloud and the NSS is interrupted, the NSS misses logs that arrived at the [Nanolog cluster](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture) during the interruption, and they are not delivered to the SIEM. When the connection is restored, the NSS one-hour recovery allows the Nanolog to replay logs up to one hour back.
-
-To learn more about NSS for Web, NSS for Firewall, and NSS Log Recovery subscriptions, contact Zscaler Support.
-
-When deploying the NSS, additional features that facilitate successful deployment require advanced NSS settings in cases where you have specific requirements or restrictions. It includes the following topics:
-
-The first three sections listed pertain to the [NSS deployment over VMware vSphere](https://help.zscaler.com/zia/nss-deployment-guide-vmware-vsphere) only.
-
-- Configuring a Second Management Interface
-- Configuring a Second Service Interface
-- Configuring the Additional Interfaces from the Console
-- Configuring a Local NTP Server
-- Configuring NSS in Explicit Proxy Mode
-- Updating an NSS VM Hostname
-- Allowing SSH Access to the NSS Only from a Specific Subnet or IP Address
-- Setting Up Key-Based Authentication to the NSS
-
-Sometimes, the default management interface can't be used for SSH due to VLAN restrictions. In those cases, Zscaler recommends that you add an additional interface just for management, so the first interface is used only for control connections to the cloud.
-
-There are two ways to add a second management interface:
-
-- Zscaler recommends that you log in to your client and configure the additional interface from the console tab. See [Configuring the Additional Interfaces from the Console](https://help.zscaler.com/zia/nss-advanced-deployment#Additional).
-- Alternatively, you can manually configure the second management interface.
-
-To manually add a management interface:
-
-1. Shut down the NSS and stop the VM.
-2. Using your client, assign an additional interface to the VM. Map it to an appropriate network or VLAN.
-3. Reboot the NSS.
-4. Run the following command and ensure that the em2 interface is active:
-
-```
-ifconfig
-```
-
-1. Update the system configuration file `/etc/rc.conf` to configure the interface automatically after each system restart. To do this, run the following command:
-
-```
-sudo vi /etc/rc.conf
-```
-
-1. Add the em2 interface to the list of network interfaces. Modify the line that starts with `network_interfaces` and change it to:
-
-```
-network_interfaces="em0 em1 em2 lo0"
-```
-
-1. Add a new line at the end of the file:
-
-```
-ifconfig_em2="
-<subnet-ip-address>
-"
-```
-
-Ensure that you replace <subnet-ip-address> with the IP address of the subnet. For example:
-
-```
-ifconfig_em2="
-192.168.1.100/24
-”
-```
-
-1. The default gateway is automatically added via the em0 interface. To add a static route to a different subnet or VLAN for the newly added em2 interface, add the following lines at the end of the file:
-
-```
-static_routes="em2"
-route_em2="-net
-<destination-subnet> <gateway-ip-address>
-"
-```
-
-Replace <destination-subnet> with the IP address of the destination subnet, and replace <gateway-ip-address>with the appropriate gateway IP address. For example:
-
-```
-static_routes="em2"
-route_em2="-net
-198.51.100.0/24 192.168.1.3
-"
-```
-
-1. Reboot the VM.
-2. To verify the changes, ping the newly added subnet gateway and run the following command to print the route information:
-
-```
-sudo netstat -rn
-```
-
-The NSS typically uses the service interface to download logs from the Nanolog in the Zscaler cloud and send them to your security information and event management (SIEM).
-
-Some organizations might need to use one interface to connect to the Zscaler cloud and another interface to connect to the SIEM. For example, an organization might have a SIEM in a management LAN that is not routed to the internet, and it might also have a service LAN that is routed to the internet but not to the management LAN, as shown in the following diagram:
-
-See image.
-
-If your organization has a similar requirement, you can configure a second service interface. You can then use one interface to connect to the Zscaler cloud to download the logs and a different interface to send the logs to the SIEM located in the management LAN.
-
-There are two ways to add a second service interface:
-
-- Zscaler recommends that you log in to your client and configure the additional interface from the console tab. See [Configuring the Additional Interfaces from the Console](https://help.zscaler.com/zia/nss-advanced-deployment#Additional).
-- Alternatively, you can manually configure the second service interface.
-
-[Image: One interface connecting to the Zscaler cloud and another interface connecting to the SIEM.]
-
-To manually add a second service interface:
-
-1. Shut down the NSS and stop the VM.
-2. Using your client, assign an additional interface to the VM. Map it to an appropriate network or VLAN.
-3. Reboot the NSS.
-4. Run the following command and ensure that the em2 interface is active:
-
-```
-ifconfig
-```
-
-1. Copy the `sc.conf` file.
-
-```
-cp /sc/conf/sc.conf /sc/conf/sc.conf.old
-```
-
-1. Use the vi Editor to edit the `sc.conf` file. Run the following command:
-
-```
-vi /sc/conf/sc.conf
-```
-
-1. Add the following lines to the file, replacing the sample values in red per your configuration:
-
-```
-smnet_dev=em2=zs1:
-192.168.223.41/24
-smnet_route=
-10.0.0.0/8
-/
-192.168.223.1
-```
-
-In this example, em2=zs1 is the second service interface, and 192.168.223.41/24 is the service IP address with the subnet mask. If your SIEM is in the same subnet, then the second line is not required. If your SIEM is in a different subnet, add `smnet_route` and define values in the second line. For example, to reach 10.0.0.0/8, use gateway 192.168.223.1.
-
-1. Save the changes in the file and then restart the NSS by running the following command:
-
-```
-sudo nss restart
-```
-
-1. Verify whether the NSS is using the second service interface by running the following command:
-
-```
-sudo nss dump-config
-```
-
-To configure both a second management interface and service interface, first ensure that you run the followingcommand to establish your network settings:
-
-```
-sudo nss configure
-```
-
-Then, run the following command to specify the IP addresses for the additional interfaces and their corresponding routes:
-
-```
-sudo nss configure split-interface
-```
-
-****[Image: The FreeBSD command prompt showing the command sudo nss configure split-interface]****
-
-During a split-interface configuration, the NSS asks for an `smnet_route`. If your SIEM is in a different network compared to the NSS smnet interface (em3=zs1) subnet, you can enter specific routes for feeds.
-
-See the following example:
-
-```
-[root@NSS /sc/update]# nss configure split-interface
-            ifconfig_em2 (Internal Management interface IP address with netmask) [1.1.1.1/23]:
-            route_net:-net 1.1.1.2/12 2.1.1.1 (Options <c:change, d:delete, n:no change>) [n]
-            Do you wish to add a new route_net? <n:no y:yes> [n]:
-            smnet_dev=em3 (Internal Service interface IP address with netmask) [10.10.35.20/24]:
-Do you wish to add a new smnet_route? <n:no y:yes> [n]: y
-            Atleast one entry required for smnet_route
-            smnet_route (Static route for Siem N/w ,e.g (network/subnet/gateway): 172.12.1.0/21/10.10.35.1) []: 1.3.2.1/2/2.2.1.2
-            Do you wish to add a new smnet_route? <n:no y:yes> [n]: 2.1.2.3/2/43.3.3.2
-```
-
-If you have a local NTP server, you can configure the NSS to synchronize time with that server:
-
-1. Run the following command as root:
-
-```
-crontab -e
-```
-
-1. Run the following command:
-
-```
-PATH=/sbin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/games:/sc/update:/home/zsroot/bin:/sc/update
-```
-
-1. Run the following command:
-
-```
-*/10 * * * * ntpdate
-<ntp-server-name>
-```
-
-Replace <ntp-server-name> with your local NTP server's FQDN or IP address.
-
-1. Save and exit.
-
-The time synchronization command runs every 10 minutes. You can find logs for the NTP process in `/var/log/cron.`
-
-Some customers might have a [no-default route environment](https://help.zscaler.com/zia/implementing-zscaler-no-default-route-environments). This prevents the NSS from establishing connections to the Zscaler cloud. For this scenario, you can configure the NSS in explicit proxy mode, so that it tunnels all Zscaler cloud-bound connections through a proxy. These include [network connections](https://config.zscaler.com/zscaler.net/nss) and TCP connections from the NSS to the:
-
-- Nanolog (SMSM)
-- Zscaler Central Authority (CA) (SMCA)
-- Update server (SMCDSS) for software updates
-- Kafka server for audit log streaming
-
-Connections from the NSS to the SIEM are not tunneled.
-
-The NSS in explicit proxy mode can tunnel Zscaler cloud-bound connections. Based on your configuration, you can tunnel these connections without the need for internet-facing DNS resolution.
-
-If you configure the `dnsoverproxy` flag to `1`, then the NSS in explicit proxy mode makes a CONNECT request to the following domains, and the explicit proxy performs the name resolution:
-
-- msmca.<cloudname> for the connection to the Zscaler CA
-- zdistribute.<cloudname> for the connection to the update server
-- kproxy.hdeu1.zdataservices.net for the connection to the Kafka server
-
-If you configure the `dnsoverproxy` flag to `0`, then the NSS needs DNS resolution for the connections to the current master CA IP address, update server, and Kafka server.
-
-NTP connections are not tunneled. The NSS needs DNS resolution for the NTP server. To learn more, see [Configuring a Local NTP Server](https://help.zscaler.com/zia/configuring-advanced-nss-settings#Local).
-
-To configure the NSS in explicit proxy mode:
-
-1. Run the `nss configure` command to configure the two network interfaces.
-2. Run the `nss configure proxy` command. For example:
-
-```
-[root@NSS /usr/home/zsroot]#
-nss configure proxy
-proxyserver (Proxy Host ) [10.81.153.26]:
-        proxyport (Proxy Port ) [443]:
-        dnsoverproxy (DNS over proxy: 0/1 ) []:
-1
-Successfully configured proxy
-```
-
-To undo this configuration, you can use `remove`:
-
-```
-nss configure proxy
-remove
-```
-
-1. Run the `sudo nss restart` command to restart the NSS service. When the NSS starts, it tries to connect to the Zscaler CA or Nanolog using the proxy it configured.
-2. Run the `nss troubleshoot netstat` command to verify the proxy (e.g., 10.81.153.26) connections for the Zscaler CA and Nanolog. See image.
-
-[Image: The established TCP connections to the Zscaler Central Authority (CA) and Nanolog]
-
-To update your NSS VM hostname:
-
-1. Log in to your NSS VM.
-2. Edit the file `/etc/rc.conf` using the vi Editor.
-
-```
-[zsroot@New_Hostname ~/$ vi /etc/rc.conf
-```
-
-1. Add the hostname entry to the file.
-
-```
-hostname=<name>
-```
-
-1. Run the `reboot` command.
-
-```
-root@New_Hostname:/usr/home/zsroot # reboot
-```
-
-1. After the NSS restarts, your new hostname appears.
-
-You can restrict SSH access based on IP/Subject using the following configuration in `sshd_config`:
-
-```
-AllowUsers zsroot@10.66.70.*
-```
-
-In this example, SSH is allowed only from the source IP address range 10.66.70.0/24. Then, run the followingcommand to make the configuration change effective:
-
-```
-service sshd restart
-```
-
-To configure key-based authentication:
-
-1. Create a .ssh directory in the home directory:`/home/zsroot/` under the user`root`*.*
-2. Upload your user public key file to the file `authorized_keys` under the directory `/home/zsroot/.ssh.`
-3. Adjust the file `/etc/ssh/sshd_config` with the following updates: (Make a backup of this file before changing it.)
-
-```
-ChallengeResponseAuthentication no
-PasswordAuthentication no
-```
-
-These entries are set to `yes` by default. You can set them to `no`or comment them out.
-
-1. Use the following command to restart the `sshd` service:
-
-```
-service sshd restart
-```
-
-Replace option `restart` with `stop` and `start` as required.
-
-1. Test the new configuration on the client side using SSH (e.g., PuTTY).
-
-You can use the following commands within the virtual machine (VM) console for your platform to configure and troubleshoot the NSS server. By default, root login is not permitted, so admins must use the `sudo` utility to run a command with higher privileges.
-
-- To start the service: `sudo nss start`
-- To stop the service: `sudo nss stop`
-- To restart the service: `sudo nss restart`
-- To smoothly shut down the OS: `sudo nss halt`
-- To change the network configuration (i.e., IP addresses, gateway information) for the service: `sudo nss configure`To learn more, see the [NSS deployment guide](https://help.zscaler.com/zia/deploying-nss-virtual-appliances) for your platform.
-- To configure additional interfaces: `sudo nss configure split-interface`To learn more, see [Configuring the Additional Interfaces from the Console](https://help.zscaler.com/zia/nss-advanced-deployment#Additional).
-- To configure an explicit proxy: `sudo nss configure proxy`To learn more, see [Configuring NSS in Explicit Proxy Mode](https://help.zscaler.com/zia/nss-advanced-deployment#proxy).
-- To remove the configuration (if you configured additional interfaces using the `sudo nss configure split-interface` command): `sudo nss configure split-interface --wipe`
-- To remove the network settings that were configured using the `sudo nss configure` command: `sudo nss configure --wipe`
-- To display the configuration file that was changed using the `sudo nss configure` command: `sudo nss dump-config`
-- To install NSS certificates from a specified certificate bundle file: `sudo nss install-cert <certificate bundle file>`
-- To check whether a new NSS version is available: `sudo nss checkversion`
-- To manually update the NSS to the latest version: `sudo nss update-now`
-- To force the NSS to update, regardless of whether a new version is available: `sudo nss force-update-now`
-- To check the firewall configuration: `sudo nss test-firewall`This command does active firewall configuration probing by attempting to resolve the DNS names and establishing outbound connections to the Zscaler cloud. This command doesn't reset the management IP interface, so you can run it on an SSH connection.
-- To view troubleshooting help command information: `sudo nss troubleshoot help`
-- To show the active connections on the service IP address: `sudo nss troubleshoot netstat`The output is similar to that of the `netstat` utility.
-- To show the connections and their statuses: `sudo nss troubleshoot connection`This command probes the connection status over a period of time and indicates whether the connections are stable or flapping.
-- To show the status of the NSS feeds for TCP, HTTP, and Cloud NSS: `sudo nss troubleshoot feeds`This command probes the status of the feeds and determines whether the logs are queued due to the slow consumption of logs by your security information and event management (SIEM).
-- To generate diagnostic information to send to Zscaler Support: `sudo nss collect-diagnostics`This command collects the configuration, vital statistics regarding the health of the NSS, and error statistics, and then downloads the data to a local file. You can email this file to Zscaler Support for troubleshooting purposes.
-- To reset the network configuration: `sudo nss reset-network`
-- To change the SNMP admin user configuration: `sudo nss snmp-admin-configure`You must restart the NSS using the `sudo nss restart` command for the changes to take effect.
-- To change the SNMP trap configuration: `sudo nss snmp-trap-configure`You must restart the NSS using the `sudo nss restart` command for the changes to take effect.
-- To set the SNMP community string: `sudo nss snmp-community-string <community string>`You must restart the NSS using the `sudo nss restart` command for the changes to take effect.
-- To automatically start the NSS after reboot: `sudo nss enable-autostart`
-- To disable the automatic start of the NSS after reboot: `sudo nss disable-autostart`
-- To set up and enable MCAS: `sudo nss configure-mcas2`You must restart the NSS using the `sudo nss restart` command for the changes to take effect. To learn more, see [Integrating with Microsoft Cloud App Security](https://help.zscaler.com/zia/integrating-microsoft-cloud-app-security).
-- To disable MCAS: `sudo nss disable-mcas`You must restart the NSS using the `sudo nss restart` command for the changes to take effect. You can re-enable MCAS by re-issuing the `sudo nss configure-mcas2` command.
-
-## Enabling Remote Access
-
-An admin can request remote assistance and allow Zscaler Support to log in to their NSS server without having to open a firewall connection for inbound traffic. This feature is disabled by default and must be enabled explicitly for the duration that remote support assistance is required.
-
-Use the following commands to manage remote access to your NSS server:
-
-- To enable Zscaler Support to access your NSS server: `sudo nss support-access-start`This creates a long-lived SSH tunnel to the Zscaler cloud and sets up remote port forwarding. Zscaler Support can then use this tunnel to log in to your NSS server.
-- To disable Zscaler Support access to your NSS server: `sudo nss support-access-stop`This brings down the long-lived SSH tunnel to the Zscaler cloud and all the remote connections.
-- To check the status of the Zscaler Support access to your NSS server: `sudo nss support-access-status`This checks the status of the long-lived SSH tunnel to the Zscaler cloud, which Zscaler Support uses to log in to your NSS server.
-- To enable a remote debugging session: `sudo nss enable-remote-debugging`
-- To disable a remote debugging session: `sudo nss disable-remote-debugging`
-
-## Error Codes
-
-The following are error codes that you might encounter when executing the `sudo nss update-now` command:
-
-| Error Code | Description |
-| --- | --- |
-| 96 | The client certificate is invalid. |
-| 97 | A timeout occurred while contacting the upgrade server. |
-| 99 | A problem occurred while downloading and installing the latest version. The `sudo force-update-now` command needs to be explicitly issued. |
-
-## Use Case
-
-You can use the following commands to check the DNS resolution issues on the service interface and routes to the surface interface:
-
-- To check the reachability of a server IP address using ICMP: `/sc/bin/smmgr -ys smnet='ping <IP address or Domain Name>'`
-- To print the server interface IP address config details: `/sc/bin/smmgr -ys smnet=ifconfig`
-- To check the DNS resolution of a hostname: `/sc/bin/smmgr -ys smnet='route'/sc/bin/smmgr -ys host="<Domain Name>" -ys connect=dns`
-- To check the communication or port reachability of a server: `/sc/bin/smmgr -ys host="<FQDN of SIEM server>" -ys port=<Listening port> -ys connect=tcp`
-
-## What happens if the NSS goes down?
-
-In the event of a connection loss between the NSS server and the cloud [Nanolog](https://help.zscaler.com/zia/about-zscaler-cloud-architecture), the cloud retransmits the logs to the NSS up to a maximum of one hour. If the NSS is down for more than an hour, the logs falling out of the one-hour window aren't retrieved by the NSS.
 <!-- /ZS-ARTICLE -->

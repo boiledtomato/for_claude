@@ -1,106 +1,8 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-28 09:01 UTC
-Articles in this file: 99
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-sandbox-verdict-logs","lastmod":"2026-06-23T06:55Z","nid":"1520331"} -->
-## Adding TCP NSS Feeds for Sandbox Verdict Logs
-
-- Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-sandbox-verdict-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Sandbox Verdict Logs
-- Last modified: 2026-06-23T06:55Z
-- Summary: How to add TCP NSS feeds for Sandbox verdict logs in the Zscaler Admin Console.
-
-You can configure up to 8 TCP Nanolog Streaming Service (NSS) feeds to specify the data from the Sandbox verdict logs that the NSS sends to the security information and event management (SIEM) system.
-
-A large number of filters or complex filters, such as string searches, can impact the NSS performance. Before you start configuring a feed for Sandbox verdict logs, consider the [guidelines for configuring feeds](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats).
-
-To configure a TCP NSS feed for Sandbox verdict logs:
-
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
-2. On the **NSS Feeds** tab, click **Add TCP NSS Feed**. The **Add TCP NSS Feed** window appears.
-3. In the**Add TCP NSS Feed** window:
-  - **Feed Name:**Enter the name of the feed. Each feed is a connection between the NSS and your SIEM.
-  - **NSS Type**: **NSS for Web** is selected by default.
-  - **NSS Server**:Select an NSS server from the list. A [configured NSS server](https://help.zscaler.com/zia/adding-nss-servers) is required to add an NSS feed.
-  - **Status:**The NSS feed is **Enabled** by default. Select **Disabled** if you want to activate it at a later time.
-  - **SIEM Destination Type**: Select the type of destination.
-    - **SIEM IP Address**:Appears when**IP Address**is selected as the destination type.Enter the IP address of the SIEM to which the logs are streamed.
-    - **SIEM FQDN**: Appears when**FQDN**is selected as the destination type. Enter the destination for the TCP connection to which the logs are streamed. This allows failover from one IP to the other without manual intervention, but rather relying on updating the DNS entry. NSS re-resolves the FQDN only when the existing connection goes down. This feature cannot be used for DNS-based load balancing.
-  - **SIEM TCP Port**: Enter the port number of the SIEM to which the logs are streamed. Ensure that the SIEM is configured to accept the feed from the NSS.
-  - **SIEM Rate**: Leave as **Unlimited**, unless you need to throttle the output stream due to SIEM licensing or other constraints.
-    - **SIEM Rate Limit (Events per Second)**: Enter an appropriate rate limit for the events per second that you want to be streamed to your SIEM. A limit that is too low for the traffic volume causes log loss. This field is available only if you select **Limited** in the **SIEM Rate**field.
-  - **Log Type**:Select **Sandbox Verdict**.
-  - **Feed Output Type**:The output is a comma-separated (**CSV**) list by default. Select **Tab-separated**to create a tab-separated list. Select **Custom**to use a different delimiter, such as a dash, and enter the delimiter when you specify the **Feed Output Format**.
-  - **Feed Escape Character**: The Zscaler service hex encodes all non-printable ASCII characters that are in URLs when it sends logs to the NSS. Any URL character that is less than 0x21, or above 0x7E, is encoded as `%HH`. This ensures that your SIEM is able to parse the URLs in case they contain non-printable characters. For example, a `\n` char in a URL is encoded as `%0A`, and a space is encoded as `%20`. In this field, you can specify additional characters that you want to encode. For example, enter a comma (`,`) to encode it as `%2C`. This is useful if you are using this character as your delimiter and want to ensure it does not cause erroneous delimitation. Note that the service encodes characters in URLs, hostnames, and referrer URLs only. If custom encoding is done for a record, the `%s{eedone}` field is `YES` for that record.
-  - **Feed Output Format**:These are the fields that display in the output. You can edit the default list and if you select **Custom**as the **Feed Output Type**, change the delimiter as well. To learn more about the available fields and their syntax, see [NSS Feed Output Format: Sandbox Verdict Logs](https://help.zscaler.com/zia/nss-feed-output-format-sandbox-verdict-logs).
-  - **Time Zone**:By default, this is set to the organization's time zone. The time zone you set applies to the time field in the output file. The time zone automatically adjusts to changes in daylight saving in the specific time zone. The configured time zone can be output to the logs as a separate field. The list of time zones is derived from the IANA Time Zone database. Direct GMT offsets can also be specified.
-  - **Duplicate Logs**: To ensure that no logs are skipped during downtime, specify the number of minutes that the NSS sends duplicate logs. Zscaler recommends setting the number to 5 minutes, or more if required. This allows the NSS to send up to 60 minutes (one hour) of logs to the SIEM after the connection is restored. To learn more, see [General Guidelines for NSS Feeds and Feed Formats](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats#duplicate-logs-example).
-4. Define the filters:
-  - Security
-  - File Type
-  - Sandbox Verdict
-5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-- **Threat Names**: Use this filter to limit the logs based on specific threats detected in the transaction. You can enter multiple threat names. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-
-- **Download File Type**: Use this filter to limit the logs based on the type of file downloaded in the transaction. Multiple selections are allowed. This filter currently includes file types that are not eligible for Sandbox analysis. No log data is available for these file types, if selected. For a list of eligible file types, see [About Sandbox](https://help.zscaler.com/zia/about-sandbox#SandboxFileTypes).
-- **MD5**: Use this filter to limit the logs based on the MD5 hash of a file. You can enter multiple hashes. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-- **SHA**: Use this filter to limit the logs based on the SHA-256 hash of a file. You can enter multiple hashes. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-
-- **Sandbox Verdicts**: Use this filter to limit the logs based on the verdict of the Sandbox analysis. This filter includes verdicts related to [Sandbox](https://help.zscaler.com/zia/configuring-sandbox-policy) (e.g., Sandbox Adware), [Advanced Threat Protection](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy) (e.g., Suspicious Content), and [Malware Protection](https://help.zscaler.com/zia/configuring-malware-protection-policy) (e.g., Trojan) policies. Optionally, select **Benign** to limit the logs to non-malicious verdicts. Multiple selections are allowed.
-- **Tactic**: Use this filter to limit the logs based on the MITRE ATT&CK tactic (e.g., TAC028). You can enter multiple tactics. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears. If you do not specify tactics in this filter, verdicts associated with any possible MITRE ATT&CK tactic are displayed.
-- **Technique**: Use this filter to limit the logs based on the MITRE ATT&CK technique (e.g., T1005). You can enter multiple techniques. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears. If you do not specify techniques in this filter, verdicts associated with any possible MITRE ATT&CK technique are displayed.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-scim-logs","lastmod":"2026-06-23T07:00Z","nid":"1534220"} -->
-## Adding TCP NSS Feeds for SCIM Logs
-
-- Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-scim-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for SCIM Logs
-- Last modified: 2026-06-23T07:00Z
-- Summary: How to add TCP NSS feeds for SCIM logs in the Zscaler Admin Console.
-
-The initial SCIM Nanolog Streaming Service (NSS) feed takes up to 5 hours to stream to the NSS and your security information and event management (SIEM) system. However, this delay does not occur if you have already configured and are streaming [Audit Logs](https://help.zscaler.com/zia/adding-nss-feeds-admin-audit-logs).
-
-You can configure up to 8 TCP Nanolog Streaming Service (NSS) feeds that define the SCIM logs that the NSS sends to the security information and event management (SIEM) system. You can also configure multiple types of filters. Many filters or complex filters, such as string searches, can impact the performance of the NSS.
-
-Ensure that you enable appropriate role permissions for Log Streaming in the Authentication Service.
-
-Before you start configuring a feed for SCIM logs, consider the [guidelines for configuring feeds](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats).
-
-To configure a TCP NSS feed for SCIM logs:
-
-1. Go to **Logs**>**Logs Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
-2. On the **NSS Feeds** tab, click **Add TCP NSS Feed**. The **Add TCP NSS Feed** window appears.
-3. In the**Add TCP NSS Feed** window: See image.
-  - **Feed Name:**Enter or edit the name of the feed. Each feed is a connection between the NSS and your SIEM system.
-  - **NSS Type**: **NSS for Web** is selected by default.
-  - **NSS Server**: Select an NSS server from the list. A [configured NSS server](https://help.zscaler.com/zia/adding-nss-servers) is required to add an NSS feed.
-  - **Status:**The NSS feed is **Enabled** by default. Choose **Disabled** if you want to activate it at a later time.
-  - **SIEM Destination Type**: Select the type of destination:
-    - **SIEM IP Address**:Enter the IP address of the SIEM system to which the logs are streamed.
-    - **SIEM FQDN**: Enter the destination for the TCP connection to which the logs are streamed. This allows failover from one IP to the other without manual intervention, but rather relying on updating the DNS entry. The NSS re-resolves the FQDN only when the existing connection goes down. This feature cannot be used for DNS-based load balancing.
-  - **SIEM TCP Port**: Enter the port number of the SIEM system to which the logs are streamed. Ensure that the SIEM system is configured to accept the feed from the NSS.
-  - **SIEM Rate**: Leave as **Unlimited**, unless you need to throttle the output stream due to licensing or other constraints.
-    - **SIEM Rate Limit (Events per Second)**: This is only applicable if you selected **Limited** under SIEM Rate. Enter an appropriate rate limit for the events per second that you want streamed to your SIEM system. This number must be between 100 and 1,000,000. A limit that is too low for the traffic volume causes log loss.
-  - **Log Type**:Choose **SCIM**.
-  - **Feed Output Type**:The output is a comma-separated (**CSV**) list by default. Choose **Tab-separated**to create a tab-separated list. Choose **Custom**to use a different delimiter, such as a dash, and enter the delimiter when you specify the feed output format. This menu also lists feed output types for specific SIEM systems.
-  - **Feed Escape Character**: The Zscaler service hex encodes all non-printable ASCII characters that are in URLs when it sends logs to the NSS. Any URL character that is less than 0x21, or above 0x7E, is encoded as `%HH`. This ensures that your SIEM system is able to parse the URLs in case they contain non-printable characters. For example, a `\n` char in a URL is encoded as `%0A`, and a space is encoded as `%20`. In this field, you can specify additional characters that you want to encode. For example, type a comma (,) to encode it as `%2C`. This is useful if you are using this character as your delimiter and want to ensure it does not cause erroneous delimitation. Note that the service encodes characters in URLs, hostnames, and referrer URLs only. If custom encoding was done for a record, the `%s{eedone}` field is `YES` for that record.
-  - **Feed Output Format**:These are the fields that are displayed in the output. You can edit the default list and if you chose **Custom**as the **Feed Output Type**, change the delimiter as well. To learn more about the available fields and their syntax, see [NSS Feed Output Format: SCIM Logs](https://help.zscaler.com/zia/nss-feed-output-format-zidentity-authentication-logs).
-  - **Time Zone**:By default, this is set to the organization's time zone. The time zone you set applies to the time field in the output file. The time zone automatically adjusts to changes in daylight savings in the specific time zone. The configured time zone can be output to the logs as a separate field. The list of time zones is derived from the IANA Time Zone database. Direct GMT offsets can also be specified.
-  - **Duplicate Logs**: To ensure that no logs are skipped during downtime, specify the number of minutes that the NSS sends duplicate logs. Zscaler recommends setting the number to 5 minutes, or more if required. This allows the NSS to send up to 60 minutes (one hour) of logs to the SIEM system after the connection is restored. To learn more, see [General Guidelines for NSS Feeds and Feed Formats](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats#duplicate-logs-example).
-4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-[Image: The NSS configurations for SCIM logs in the Add TCP NSS Feed window]
-<!-- /ZS-ARTICLE -->
+Generated: 2026-10-05 09:38 UTC
+Articles in this file: 98
 
 ---
 
@@ -304,13 +206,13 @@ To configure a TCP NSS feed for web logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-tenant-profiles","lastmod":"2026-09-07T08:29Z","nid":"1401746"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-tenant-profiles","lastmod":"2026-09-28T21:15Z","nid":"1401746"} -->
 ## Adding Tenant Profiles
 
 - Source: https://help.zscaler.com/zia/adding-tenant-profiles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Tenant Restriction > Adding Tenant Profiles
-- Last modified: 2026-09-07T08:29Z
+- Last modified: 2026-09-28T21:15Z
 - Summary: Information on how to add a tenant profile in the Zscaler Admin Console.
 
 Zscaler's tenancy restriction feature allows you to restrict access either to personal accounts, business accounts, or both for certain cloud applications. The feature consists of two parts: creating [tenant profiles](https://help.zscaler.com/zia/about-tenant-profiles) and associating the profiles with the [Cloud App Control policy rules](https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy).
@@ -587,7 +489,7 @@ To configure a tenant profile for Claude, in the **Workspace ID for Claude** fie
 
 To enter multiple entries, press `Enter` after each entry, then click **Add Items**. You can add up to 16 workspace IDs per profile. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). For item lists, you can filter the list by searching for a word, phrase, or number contained in an item, and you can remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
 
-The service intercepts requests related to claude.ai and its subdomain (claude.ai*) and adds the HTTP header anthropic-allowed-org-ids (values of the **Workspace ID for Claude** field).
+The service intercepts requests related to Claude (claude.ai and claude.com) and Anthropic (anthropic.com) and adds the HTTP header anthropic-allowed-org-ids (values of the **Workspace ID for Claude** field).
 
 To learn more about associating Claude tenant profiles with the Cloud App Control policy rule, see [Adding an AI & ML Applications Rule for Cloud App Control](https://help.zscaler.com/zia/adding-ai-ml-applications-rule-cloud-app-control).
 
@@ -691,27 +593,26 @@ To learn how this policy fits into the overall order of policy enforcement, see 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-users","lastmod":"2024-09-26T15:28Z","nid":"1398816"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-users","lastmod":"2026-10-01T11:53Z","nid":"1398816"} -->
 ## Adding Users
 
 - Source: https://help.zscaler.com/zia/adding-users
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Users > Adding Users
-- Last modified: 2024-09-26T15:28Z
+- Last modified: 2026-10-01T11:53Z
 - Summary: How to add user accounts in the ZIA Admin Portal.
 
-[Watch a video about User Management, including how to add a user](https://fast.wistia.net/embed/iframe/65aszz5npz)
+[Watch a video about User Management, including how to add a user](https://fast.wistia.net/embed/iframe/65aszz5npz) (shows legacy UI).
 
-Zscaler provides a number of ways to provision users, [groups](https://help.zscaler.com/zia/about-groups), and [departments](https://help.zscaler.com/zia/about-departments) as described in [About Provisioning and Authentication Methods](https://help.zscaler.com/zia/choosing-provisioning-and-authentication-methods). You can also add users when you configure policies. This article describes how to add individual user accounts on the Users page in the ZIA Admin Portal. When adding users, you must specify their groups and departments. You can also add new groups and departments. A user can belong to up to 128 groups. The Zscaler service uses groups when it applies policies and uses departments for reporting purposes.
+The Zscaler service provides a number of ways to provision users, [groups](https://help.zscaler.com/zia/about-groups), and [departments](https://help.zscaler.com/zia/about-departments) as described in [About Provisioning and Authentication Methods](https://help.zscaler.com/zia/choosing-provisioning-and-authentication-methods). You can also add users when you configure policies. This article describes how to add individual user accounts on the Users page in the Zscaler Admin Console. When adding users, you must specify their groups and departments. You can also add new groups and departments. A user can belong to up to 128 groups. The Zscaler service uses groups when it applies policies and uses departments for reporting purposes.
 
 You can use a [CSV file to add multiple users](https://help.zscaler.com/zia/importing-user-information-csv-file) at once.
 
 To add a user:
 
-1. Go to **Administration**>**User Management**.
-2. Click **Add User**.
-3. The **Add User** window appears.
-4. In the **Add User** window:
+1. Go to **Administration** >**Legacy Admin Management** >**Internet & SaaS Users**>**Users**.
+2. Click **Add User**. The **Add User** window appears.
+3. In the **Add User** window:
   - **User ID**:Enter a user ID.The user ID consists of a user name and domain name in email format. Enter the user name and if your organization has more than one domain, select the domain name. The username must be in the form of an email address. It does not have to be a valid email address, but it must be unique, and its domain must belong to the organization. The User ID field allows values of alphanumeric characters and certain special characters up to a maximum of 127 characters. This field corresponds to the email field in the API. However, the data validation in the API supports a broader range of characters.
   - **User Name**: Enter a display name for the user. Typically, the full name of the user. This appears when choosing users for policies. The User Name field allows values containing UTF-8 characters up to a maximum of 127 characters.
   - **Groups**: Select the groups that the user belongs to. Click the **Add** icon to add a new group.[Groups](https://help.zscaler.com/zia/about-groups) are used in policies. You can control access to apps based on user groups. A company can have up to 140K groups. A user can be associated with maximum 127 groups via API and the ZIA Admin Portal. However, when a user is created or updated via Directory Sync or SCIM, they can be associated with more than 127 groups.
@@ -721,7 +622,7 @@ To add a user:
   - **Password**: Enter the user’s password.If you selected password as the authentication method, it must follow the guidelines that you defined.
   - **Confirm Password**:Retype the user's password.
   - **Temporary Authentication Email**: Enter a valid email address for the temporary authentication. This only appears if you selected [One-time Token or One-time Link](https://help.zscaler.com/zia/about-one-time-tokens-or-links) as the temporary authentication method in [Authentication Profile](https://help.zscaler.com/zia/about-authentication-profile#temporary-authentication).
-5. Click **Save** and [activate the change](https://help.zscaler.com/zia/saving-and-activating-changes-admin-portal).
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -887,13 +788,13 @@ To add a webhook:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-webmail-rule-cloud-app-control","lastmod":"2026-09-16T23:48Z","nid":"1400181"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-webmail-rule-cloud-app-control","lastmod":"2026-09-29T05:07Z","nid":"1400181"} -->
 ## Adding a Webmail Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-webmail-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Webmail Rule for Cloud App Control
-- Last modified: 2026-09-16T23:48Z
+- Last modified: 2026-09-29T05:07Z
 - Summary: Information on how to add a rule for Webmail cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -910,7 +811,7 @@ Webmail rules help prevent productivity loss, leakage of corporate intellectual 
 
 To add a rule for Webmail apps:
 
-1. Go to **Policies** > **Access Control** > **Internet & SaaS**>**Cloud App Control**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Inline CASB** > **SaaS/Cloud App Policy**.
 2. In the left-side menu, select **Webmail**, then click **Add Rule**. The **Webmail** page appears.
 3. On the **Webmail** page, enter the rule attributes:
   - Criteria
@@ -1060,20 +961,20 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-zscaler-authentication-bridge","lastmod":"2026-05-07T21:06Z","nid":"1400016"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-zscaler-authentication-bridge","lastmod":"2026-09-30T19:27Z","nid":"1400016"} -->
 ## Adding a Zscaler Authentication Bridge
 
 - Source: https://help.zscaler.com/zia/adding-zscaler-authentication-bridge
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Zscaler Authentication Bridge > Adding a Zscaler Authentication Bridge
-- Last modified: 2026-05-07T21:06Z
+- Last modified: 2026-09-30T19:27Z
 - Summary: How to add a Zscaler Authentication Bridge, a virtual machine, in the Zscaler Admin Console.
 
 Configuring a Zscaler Authentication Bridge (ZAB) is one of the tasks you must complete when deploying a ZAB. For a complete list of tasks, see [Deploying a Zscaler Authentication Bridge](https://help.zscaler.com/zia/how-do-i-deploy-zscaler-authentication-bridge).
 
 To add a ZAB:
 
-1. Go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings** > **Authentication Bridges**.
+1. Go to **Administration > Internet & SaaS Authentication > Internet Authentication Settings >** **Authentication Bridges**.
 2. Click **Add Authentication Bridge**.
 
 The **Add Authentication Bridge** window appears.
@@ -1125,29 +1026,29 @@ To add the Zscaler Client Connector Portal as the IdP in the Zscaler Admin Conso
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-zscaler-incident-receiver","lastmod":"2026-09-24T11:32Z","nid":"1401711"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-zscaler-incident-receiver","lastmod":"2026-09-30T11:09Z","nid":"1401711"} -->
 ## Adding a Zscaler Incident Receiver
 
 - Source: https://help.zscaler.com/zia/adding-zscaler-incident-receiver
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Adding a Zscaler Incident Receiver
-- Last modified: 2026-09-24T11:32Z
+- Last modified: 2026-09-30T11:09Z
 - Summary: How to add an Incident Receiver in the Zscaler Admin Console.
 
 To add a Zscaler Incident Receiver:
 
-1. Go to **Data Security**> **Common Resources**> **DLP Incident Receiver**.
-2. Click the **Zscaler Incident Receiver** tab.
-3. Click **Add Incident Receiver**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Common Resources**> **DLP Incident Receiver**.
+2. Select the **Zscaler Incident Receiver** tab.
+3. Click **Add**.
 
-The **Add Incident Receiver** window appears.
+The **Add Zscaler Incident Receiver** drawer appears.
 
-1. In the **Add Incident Receiver** window:
+1. In the **Add Zscaler Incident Receiver** drawer:
   - **Incident Receiver Name**: Enter a unique name for the Zscaler Incident Receiver.
-  - **Status**: Select **Enable** to allow the service to send communications to the Zscaler Incident Receiver. If you **Disable** a receiver, the Public Service Edge cannot send information to the receiver.
-  - **IP address**: Enter the Zscaler Incident Receiver URI. The URI must follow the format: icaps://<FQDN or IP address>:<port number>/
+  - **Status**: Select **Enabled** to allow the service to send communications to the Zscaler Incident Receiver. If you select **Disabled**, the Public Service Edge cannot send information to the receiver.
+  - **Server URI**: Enter the Zscaler Incident Receiver URI. The URI must follow the format: icaps://<FQDN or IP address>:<port number>/
     - By default, this field is prepopulated with icaps:// because Zscaler recommends sending transaction information via secure ICAP.
-    - The FQDN or IP address for the Zscaler Incident Receiver is accepted.
+    - The <FQDN or IP address> for the Zscaler Incident Receiver is accepted.
     - A <port number> must be included. The default port number is 1344. If you change the port number, you must also update the port number configuration in the Zscaler Incident Receiver to match. To learn more, see [Configuring the Zscaler Incident Receiver](https://help.zscaler.com/zia/configuring-zscaler-incident-receiver).
     - You must include a forward slash (/) at the end of the URI.
 
@@ -1764,13 +1665,13 @@ However, if Host Corp. has authentication disabled at the location, the Guest us
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/authorizing-custom-zscaler-connector-google-applications","lastmod":"2026-09-23T04:30Z","nid":"1493761"} -->
+<!-- ZS-ARTICLE {"url":"/zia/authorizing-custom-zscaler-connector-google-applications","lastmod":"2026-10-01T01:15Z","nid":"1493761"} -->
 ## Authorizing a Custom Zscaler Connector for Google Applications
 
 - Source: https://help.zscaler.com/zia/authorizing-custom-zscaler-connector-google-applications
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > Authorizing a Custom Zscaler Connector for Google Applications
-- Last modified: 2026-09-23T04:30Z
+- Last modified: 2026-10-01T01:15Z
 - Summary: Authorize a custom Zscaler connector for Gmail, Google Cloud Platform, Google Drive, and Google Workspace.
 
 The Zscaler service supports custom, client-side connector onboarding for access to Gmail, Google Cloud Platform, Google Drive, and Google Workspace. With this functionality, instead of requiring full administrator credentials, the Zscaler service can use a minimum set of credentials to access these Google applications.
@@ -1916,6 +1817,8 @@ When creating custom connectors, provide the following application-specific API 
 | https://www.googleapis.com/auth/admin.directory.orgunit.readonly | Scanning |
 | https://www.googleapis.com/auth/gmail.settings.sharing | Remediation |
 | https://www.googleapis.com/auth/gmail.settings.basic | Remediation |
+| https://www.googleapis.com/auth/admin.directory.device.mobile.readonly | Scanning |
+| https://www.googleapis.com/auth/cloud-identity.policies | Scanning |
 
 - 1. Assign permissions.
 - 2. Create a service account.
@@ -2014,7 +1917,7 @@ These instructions allow Zscaler to make API calls to the project resource by en
 5. Enable the APIs by running the following command in a *single line*: `gcloud services enable cloudresourcemanager.googleapis.com storage.googleapis.com iam.googleapis.com logging.googleapis.com pubsub.googleapis.com cloudkms.googleapis.com`
 6. In the left-side navigation, click **APIs & Services** and verify API access status.
 
-1. In the Zscaler Admin Console, go to **Data Security** > **DSPM**> **SaaS Application Tenants**and click **Add**.
+1. In the Zscaler Admin Console, go to **Policies** > **Common Configuration** > **Out-of-Band CASB** >**SaaS Application Tenants** and click **Add SaaS Application Tenant**.
 2. Select **Google Cloud**.
 3. Under **Name the SaaS Application Tenant**, enter a name for the SaaS application tenant. It must be unique. This name is displayed when configuring the Data at Rest ScanningDLP policy, Malware Detection policy, and Scan Configuration.
 4. Enter the **Google Cloud Admin Email ID**, which should be the organization admin or user email address. This value is treated as the tenant ID, and Zscaler internally fetches the tenant domain from it.
@@ -2104,7 +2007,7 @@ These instructions allow Zscaler to make API calls to the project resource by en
   3. Select the same privileges listed previously in Step b, ii.
 4. After you have the role, select it and go to **Assign role** > **Assign members** to add a user to this role.
 
-1. In the Zscaler Admin Console, go to **Data Security > DSPM > SaaS Application Tenants** and click **Add**.
+1. In the Zscaler Admin Console, go to **Policies** > **Common Configuration** > **Out-of-Band CASB** >**SaaS Application Tenants** and click **Add SaaS Application Tenant**.
 2. Select **Gmail**.
 3. Under **Name the SaaS Application Tenant**, enter a name for the SaaS application tenant. It must be unique. This name is displayed when configuring the Data at Rest ScanningDLP policy, Malware Detection policy, and Scan Configuration.
 4. Enter the **Google Admin Email ID** associated with the role you previously assigned. This value is treated as the tenant ID, and Zscaler internally fetches the tenant domain from it.
@@ -2156,7 +2059,7 @@ These instructions allow Zscaler to make API calls to the project resource by en
   3. Select the same privileges listed previously in Step b, ii.
 4. After you have the role, select it and go to **Assign role** > **Assign members** to add a user to this role.
 
-1. In the Zscaler Admin Console, go to **Data Security > DSPM > SaaS Application Tenants**and click **Add**.
+1. In the Zscaler Admin Console, go to **Policies** > **Common Configuration** > **Out-of-Band CASB** >**SaaS Application Tenants** and click **Add SaaS Application Tenant**.
 2. Select **Google Drive**.
 3. Under **Name the SaaS Application Tenant**, enter a name for the SaaS application tenant. It must be unique. This name is displayed when configuring the Data at Rest ScanningDLP policy, Malware Detection policy, and Scan Configuration.
 4. Enter the **Google Admin Email ID** associated with the role you previously assigned. This value is treated as the tenant ID, and Zscaler internally fetches the tenant domain from it.
@@ -2192,12 +2095,12 @@ These instructions allow Zscaler to make API calls to the project resource by en
 2. Go to **Security** > **Access and Data Control** > **API controls**. See image.
 3. Click **MANAGE DOMAIN WIDE DELEGATION**.
 4. Click **Add New**. See image.
-5. Add the Service Account Client ID noted down earlier to the **Client ID** field, paste in the following scopes to the **OAuth Scopes** field, and click **Authorize**. For more information about the APIs or OAuth Scopes, see the API/Oauth Scope Permissions table. `https://www.googleapis.com/auth/admin.directory.user, https://www.googleapis.com/auth/drive, https://www.googleapis.com/auth/admin.reports.audit.readonly, https://www.googleapis.com/auth/admin.reports.usage.readonly, https://mail.google.com/, https://www.googleapis.com/auth/admin.directory.user.security, https://www.googleapis.com/auth/admin.directory.group.readonly, https://www.googleapis.com/auth/admin.directory.orgunit.readonly, https://www.googleapis.com/auth/gmail.settings.sharing, https://www.googleapis.com/auth/gmail.settings.basic`
+5. Add the Service Account Client ID noted down earlier to the **Client ID** field, paste in the following scopes to the **OAuth Scopes** field, and click **Authorize**. For more information about the APIs or OAuth Scopes, see the API/Oauth Scope Permissions table. `https://www.googleapis.com/auth/admin.directory.user, https://www.googleapis.com/auth/drive, https://www.googleapis.com/auth/admin.reports.audit.readonly, https://www.googleapis.com/auth/admin.reports.usage.readonly, https://mail.google.com/, https://www.googleapis.com/auth/admin.directory.user.security, https://www.googleapis.com/auth/admin.directory.group.readonly, https://www.googleapis.com/auth/admin.directory.orgunit.readonly, https://www.googleapis.com/auth/gmail.settings.sharing, https://www.googleapis.com/auth/gmail.settings.basic https://www.googleapis.com/auth/admin.directory.device.mobile.readonly https://www.googleapis.com/auth/cloud-identity.policies`
 
 1. From the Google Admin Console, go to **Account** > **Admin roles**. See image.
 2. Confirm that the chosen Workspace admin account is assigned the **Super Admin** role.
 
-1. In the Zscaler Admin Console, go to **Data Security > DSPM > SaaS Application Tenants**and click **Add.**
+1. In the Zscaler Admin Console, go to **Policies** > **Common Configuration** > **Out-of-Band CASB** >**SaaS Application Tenants** and click **Add SaaS Application Tenant**.
 2. Select **Google Workspace**.
 3. Under **Name the SaaS Application Tenant**, enter a name for the SaaS application tenant. It must be unique. This name is displayed when configuring the Data at Rest ScanningDLP policy, Malware Detection policy, and Scan Configuration.
 4. Enter the **Google Workspace Admin Email ID**, which should be the organization admin or user email address. This value is treated as the tenant ID, and Zscaler internally fetches the tenant domain from it.
@@ -2248,13 +2151,13 @@ These instructions allow Zscaler to make API calls to the project resource by en
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/authorizing-custom-zscaler-connector-microsoft-applications","lastmod":"2026-09-27T07:06Z","nid":"1483116"} -->
+<!-- ZS-ARTICLE {"url":"/zia/authorizing-custom-zscaler-connector-microsoft-applications","lastmod":"2026-10-04T07:06Z","nid":"1483116"} -->
 ## Authorizing a Custom Zscaler Connector for Microsoft Applications
 
 - Source: https://help.zscaler.com/zia/authorizing-custom-zscaler-connector-microsoft-applications
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > Authorizing a Custom Zscaler Connector for Microsoft Applications
-- Last modified: 2026-09-27T07:06Z
+- Last modified: 2026-10-04T07:06Z
 - Summary: Information on how to configure Microsoft applications to use a custom Zscaler connector.
 
 The Zscaler service supports custom, client-side connector onboarding for access to the following Microsoft applications: Exchange, Microsoft Information Protection (MIP) Labels, OneDrive, SharePoint, Microsoft Azure Blob Storage, Teams, Dynamics 365, Copilot, and Microsoft 365. With this functionality, instead of requiring full administrator credentials, the Zscaler service can use a minimum set of credentials to access your Microsoft applications.
@@ -3301,6 +3204,112 @@ Instructions for adding permissions can be found in the Create permission set se
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/zia/authorizing-custom-zscaler-connector-slack","lastmod":"2026-10-01T01:46Z","nid":"1546142"} -->
+## Authorizing a Custom Zscaler Connector for Slack
+
+- Source: https://help.zscaler.com/zia/authorizing-custom-zscaler-connector-slack
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > Authorizing a Custom Zscaler Connector for Slack
+- Last modified: 2026-10-01T01:46Z
+- Summary: Information on how to create a custom connector for Slack.
+
+The Zscaler service supports custom, client-side connector onboarding for access to specific Slack workspaces. With this functionality, you can enable selective monitoring of specific workspaces within your Slack enterprise account for DLP and Malware scanning.
+
+When you create a custom connector for Slack for DLP and Malware scanning, you must provide the Slack workspace ID, client ID, client secret during tenant onboarding in the Zscaler Admin Console so that the Zscaler service can access the application. You must also configure the right permissions so that Zscaler can securely authorize the application.
+
+To create a custom connector for Slack:
+
+1. Log in to [Slack API: Applications](https://api.slack.com/apps/).
+2. Click **Create New App**. See image. The **Create New App** window appears.
+3. In the **Create New App** window, select **Blank App** and click **Continue**to create a custom connector from scratch. See image.
+4. In the **Name app & choose workspace** window, enter the following details: See image.
+  - **App Name**: Name of the app.
+  - **Workspace**: Select a workspace from the available workspaces.
+5. Click **Create App** to create the connector. You're redirected to the **OAuth & Permissions** page under **Settings**.
+6. On the **OAuth & Permissions** page under **Redirect URLs**, click **Add New Redirect URL** and enter the URL for your Zscaler server. List of Zscaler URLs: See image.
+  - `https://admin.zscalerbeta.net`
+  - `https://admin.zscalertwo.net`
+  - `https://admin.zscalerthree.net`
+  - `https://admin.zscaler.net`
+  - `https://admin.zscloud.net`
+7. Under **Scopes**, enter the following bot and user scopes:
+  - Bot Token Scopes
+  - User Token Scopes
+8. Go to **Manage Distribution** under **Settings**and click **Activate Distribution** to allow installation. See image.
+
+Under **Bot Token Scopes**, click **Add an Oauth Scope** and add the following **Bot Scopes**:
+
+- `channels:manage`
+- `channels:read`
+- `chat:write`
+- `groups:write`
+- `im:write`
+- `mpim:write`
+- `groups:read`
+- `im:read`
+- `files:write`
+- `mpim:read`
+
+See image.
+
+Under **User Token Scopes**, click **Add an Oauth Scope** and add the following **User Scopes**:
+
+- `admin.teams:read`
+- `auditlogs:read`
+- `channels:read`
+- `discovery:read`
+- `discovery:write`
+- `files:read`
+- `im:read`
+- `files:write`
+- `team:read`
+
+See image.
+
+The `discovery:read` and `discovery:write` scopes are request-only scopes. You need to request the Slack team for approval of discovery scopes:
+
+1. Raise a support request with the Slack team as described in this [Slack documentation](https://slack.com/intl/en-gb/help/articles/360002079527-A-guide-to-Slack%E2%80%99s-Discovery-APIs).
+2. Share your **App ID**.
+3. Request approval for Discovery Scopes.
+4. When approved, these scopes become available in the drop-down list.
+
+[Image: Click Create New App to create a new connector]
+
+[Image: Choose Blank App to create a connector from scratch]
+
+[Image: Enter name and choose a workspace for the app]
+
+[Image: Add Redirect URL]
+
+[Image: Select bot scopes]
+
+[Image: Select user scopes]
+
+[Image: Activate distribution]
+
+## Finding Slack Workspace ID
+
+While onboarding your Slack tenant, you're required to enter your Slack workspace ID. This ID depends on your Slack account type, for example, Enterprise Grid or Non-Grid (Enterprise Select, Pro, or Business+).
+
+To find your Slack Workspace ID for your account type, follow the respective steps:
+
+- Enterprise-Grid Accounts
+- Non-Grid Accounts
+
+1. Log in to your Slack organization.
+2. Click the organization name in the left-side navigation.
+3. Go to **Organization Settings** under **Tools & Settings**.
+4. Go to **All Workspaces** under **Workspaces**.
+5. Click the **three-dot menu** icon next to the workspace you want to scan.
+6. Select **Copy Workspace ID**. Paste this Workspace ID into the **Slack Workspace ID** field on the SaaS Application Tenants page in the Zscaler Admin Console.
+
+1. Log in to your Slack workspace.
+2. The address bar shows the URL `https://app.slack.com/client/TXXXXXXX/CXXXXXXX`
+3. Copy the T-prefixed ID from the URL (the segment after `/client/`). Paste this Workspace ID into the **Slack Workspace ID** field on the SaaS Application Tenants page in the Zscaler Admin Console.
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/zia/avoiding-google-captcha-and-geolocation-issues","lastmod":"2026-02-19T23:46Z","nid":"1398966"} -->
 ## Avoiding Google Captcha and Geolocation Issues
 
@@ -3560,13 +3569,13 @@ route-map ZS-NET-PORT permit 10
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/best-practices-dns-control-rules","lastmod":"2026-09-22T07:03Z","nid":"1459191"} -->
+<!-- ZS-ARTICLE {"url":"/zia/best-practices-dns-control-rules","lastmod":"2026-09-30T08:55Z","nid":"1459191"} -->
 ## Best Practices for DNS Control Rules
 
 - Source: https://help.zscaler.com/zia/best-practices-dns-control-rules
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > DNS Control > Best Practices for DNS Control Rules
-- Last modified: 2026-09-22T07:03Z
+- Last modified: 2026-09-30T08:55Z
 - Summary: Information on the best practices for configuring and using Zscaler's DNS Control.
 
 Zscaler recommends the following best practices for using the [DNS Control policy](https://help.zscaler.com/zia/configuring-dns-control-policy). These best practices are applicable when DNS traffic is forwarded to the Zscaler service and inspected by the DNS Control module of Zscaler Firewall.
@@ -3939,13 +3948,13 @@ The benefits and limitations of using PAC files to forward traffic to one or mor
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/best-practices-writing-pac-files","lastmod":"2026-09-02T07:06Z","nid":"1399381"} -->
+<!-- ZS-ARTICLE {"url":"/zia/best-practices-writing-pac-files","lastmod":"2026-09-29T04:07Z","nid":"1399381"} -->
 ## Best Practices for Writing PAC Files
 
 - Source: https://help.zscaler.com/zia/best-practices-writing-pac-files
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > PAC Files > Using PAC Files > Best Practices for Writing PAC Files
-- Last modified: 2026-09-02T07:06Z
+- Last modified: 2026-09-29T04:07Z
 - Summary: Best practices for writing PAC files for Internet & SaaS (ZIA).
 
 If your organization needs to use [custom PAC files](https://help.zscaler.com/zia/writing-pac-file), Zscaler highly recommends that you copy and paste the default PAC file in the Zscaler Admin Console and edit the file accordingly. This article provides best practices for [writing a PAC file](https://help.zscaler.com/zia/writing-pac-file):
@@ -4283,20 +4292,20 @@ The following table shows native applications that use certificate pinning:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/checking-ip-addresses-on-denylist","lastmod":"2026-08-28T15:29Z","nid":"1400221"} -->
+<!-- ZS-ARTICLE {"url":"/zia/checking-ip-addresses-on-denylist","lastmod":"2026-09-30T21:49Z","nid":"1400221"} -->
 ## Checking for IP Addresses on the Denylist
 
 - Source: https://help.zscaler.com/zia/checking-ip-addresses-on-denylist
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Checking for IP Addresses on the Denylist
-- Last modified: 2026-08-28T15:29Z
+- Last modified: 2026-09-30T21:49Z
 - Summary: How to check for IP addresses placed on the denylist within the Zscaler Admin Console.
 
 You can check if the Zscaler service is placing service access from an IP address on the denylist, due to suspicious traffic activity.
 
 To check if the Zscaler service is placing an IP address on the denylist:
 
-1. Go to **Policies > Common Configuration > Resources > Denylist IP** **Check**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access > Tools > Denylist IP** **Check**.
 2. Enter the IP address you want to check, and click **Check Denylist**.
 
 The Zscaler service displays the results. If the Zscaler service placed the IP address on the denylist, it displays the IP address with additional comments. If it didn't place the IP address on the denylist, then there are no results.
@@ -5403,13 +5412,13 @@ Zscaler's DLP inspection and prompt capture capabilities are currently limited t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-advanced-settings","lastmod":"2026-09-16T20:36Z","nid":"1399146"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-advanced-settings","lastmod":"2026-09-30T21:06Z","nid":"1399146"} -->
 ## Configuring Advanced Settings
 
 - Source: https://help.zscaler.com/zia/configuring-advanced-settings
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Configuring Advanced Settings
-- Last modified: 2026-09-16T20:36Z
+- Last modified: 2026-09-30T21:06Z
 - Summary: Information on how to configure the Advanced Settings page in the Zscaler Admin Console.
 
 On the Advanced Settings page in the Zscaler Admin Console, you can configure settings for a variety of Zscaler service features.
@@ -6009,20 +6018,20 @@ To configure an email notification:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-azure-vwan-locations","lastmod":"2026-09-14T21:06Z","nid":"1400941"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-azure-vwan-locations","lastmod":"2026-09-29T06:00Z","nid":"1400941"} -->
 ## Configuring Azure Virtual WAN Locations
 
 - Source: https://help.zscaler.com/zia/configuring-azure-vwan-locations
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Configuring Azure Virtual WAN Locations
-- Last modified: 2026-09-14T21:06Z
+- Last modified: 2026-09-29T06:00Z
 - Summary: How to sync Microsoft Azure Virtual WAN (VWAN) hubs, as well as set up their tunnel configurations, locations, and VPN credentials information for the Zscaler service.
 
 To configure an Azure Virtual WAN (VWAN) location:
 
 You must complete the procedure for [Configuring a Microsoft Azure Virtual WAN Integration](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration) before you can sync and configure tunnels for your Azure hubs.
 
-1. Go to **Infrastructure**>**Locations**>**Azure Virtual WAN Locations**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure > Location Management > Azure Virtual WAN Locations**.
 
 All newly synced Azure hubs have their tunnel configuration listed as **Not Configured**.
 
@@ -6065,13 +6074,13 @@ You can view all Azure hub locations from this tab under the **Locations** tab. 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-bandwidth-control-policy","lastmod":"2026-09-15T09:14Z","nid":"1398771"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-bandwidth-control-policy","lastmod":"2026-09-30T09:48Z","nid":"1398771"} -->
 ## Configuring the Bandwidth Control Policy
 
 - Source: https://help.zscaler.com/zia/configuring-bandwidth-control-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Bandwidth Control & Classes > Configuring the Bandwidth Control Policy
-- Last modified: 2026-09-15T09:14Z
+- Last modified: 2026-09-30T09:48Z
 - Summary: How to configure the bandwidth control policy for a location in the ZIA Admin Portal.
 
 [Click to watch a video about Configuring the Bandwidth Control Policy](https://fast.wistia.net/embed/iframe/z9h2f81rrs) (shows legacy UI).
@@ -6110,35 +6119,26 @@ To configure the Bandwidth Control policy of a location:
 
 You can then go to the [Bandwidth Control dashboard](https://help.zscaler.com/zia/about-dashboards#bandwidth-control) to view your organization's bandwidth usage in real time or go to [Interactive Reports](https://help.zscaler.com/zia/about-interactive-reports) to view the Bandwidth Control standard reports.
 
-1. Go to **Infrastructure** > **Location Management**> **Locations**.
-2. To [edit](https://help.zscaler.com/zia/editing-deleting-duplicating-items) the location, click the location name. See Image. The **Location Overview** page appears.
-3. On the **Location Overview** page, select the **Edit** icon. See Image.
-4. On the **Location Overview** page, select the **Connection Options** to configure the **Bandwidth Control** section:
-  1. **Enforce Bandwidth Control:**Enable to enforce Bandwidth Control for the location.
-  2. **Download (Mbps):**Specify the maximum bandwidth limit.
-  3. **Upload (Mbps):**Specify the maximum bandwidth limit. See Image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure** > **Location Management**> **Legacy Locations**.
+2. To [edit](https://help.zscaler.com/zia/editing-deleting-duplicating-items) the location, click the **Edit** icon. The **Edit Location** window appears.
+3. In the **Edit Location** window, configure the **Bandwidth Control** section: See image.
+  - **Enforce Bandwidth Control**: Enable to enforce Bandwidth Control for the location.
+  - **Download (Mbps)**: Specify the maximum bandwidth limit.
+  - **Upload (Mbps)**: Specify the maximum bandwidth limit.
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+1. Go to **Infrastructure** > **Location Management**> **Legacy Locations**.
+2. To [edit](https://help.zscaler.com/zia/editing-deleting-duplicating-items) the sublocation, click on the sublocation number. The**View Sublocation** window appears.
+3. Click the **Edit** icon for the sublocation.
+4. In the **Edit Location** window, configure the **Bandwidth Control** section: See image.
+  1. **Use Location Bandwidth**:Enable this so that any potential bandwidth available at the location will be given to this sublocation. Sharing happens on a first-come, first-serve basis when using this option.
+  2. **Override**: Enable on the sublocation and then specify the maximum bandwidth limits for **Download (Mbps)** and **Upload (Mbps)**. This bandwidth is dedicated to the sublocation and not shared with others.
+  3. **Disable**: Disable Bandwidth Control for this sublocation.
 5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-1. Go to **Infrastructure** > **Location Management**> **Locations**.
-2. To [edit](https://help.zscaler.com/zia/editing-deleting-duplicating-items) the sublocation, click on the sublocation number. See Image. The **Sublocation Overview** page appears.
-3. On the**Sublocation Overview** page, select **Connection Options**. See Image.
-4. In the **Connection Options** section, configure the **Bandwidth Control** section: See Image.
-  1. **Enforce Bandwidth Control:**Enable to enforce Bandwidth Control for the location.
-  2. **Download (Mbps):**Specify the maximum bandwidth limit.
-  3. **Upload (Mbps):**Specify the maximum bandwidth limit.
-5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+[Image: Enforce Bandwidth Control section for the Locations]
 
-[Image: Locations Page with location name, type, sublocations]
-
-[Image: Locations Overview page with location details and edit option]
-
-[Image: Sublocations field in the Locations page]
-
-[Image: Sublocations Overview page on Locations window]
-
-[Image: Enforce Bandwidth Control section on the Connection options window on Locations]
-
-[Image: Enforce Bandwidth Control on the Sublocations Overview page]
+[Image: Enforce Bandwidth Control section for the Sublocations]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6415,13 +6415,13 @@ In addition to the notification text configured here, the quarantine notificatio
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-browser-control-policy","lastmod":"2026-09-25T03:54Z","nid":"1398716"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-browser-control-policy","lastmod":"2026-09-29T20:13Z","nid":"1398716"} -->
 ## Configuring the Browser Control Policy
 
 - Source: https://help.zscaler.com/zia/configuring-browser-control-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Browser Control > Configuring the Browser Control Policy
-- Last modified: 2026-09-25T03:54Z
+- Last modified: 2026-09-29T20:13Z
 - Summary: Information on the Browser Control policy and how to enable warnings for browsers, plugins, and applications as well as block browsers and their versions.
 
 [Watch a video about Browser Control](https://fast.wistia.net/embed/iframe/hwz5y9619y) (shows legacy UI).
@@ -6587,13 +6587,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-custom-authentication-timeout-profiles","lastmod":"2026-06-10T11:38Z","nid":"1457561"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-custom-authentication-timeout-profiles","lastmod":"2026-09-30T19:07Z","nid":"1457561"} -->
 ## Configuring Custom Authentication Timeout Profiles
 
 - Source: https://help.zscaler.com/zia/configuring-custom-authentication-timeout-profiles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Configuring Custom Authentication Timeout Profiles
-- Last modified: 2026-06-10T11:38Z
+- Last modified: 2026-09-30T19:07Z
 - Summary: Information on configuring custom authentication timeout profiles in the Zscaler Admin Console.
 
 By default, the authentication timeout is shared across all locations; however, you can create and assign custom authentication timeout profiles to locations in your organization. You can create a maximum of 8 profiles, and assign each profile to any number of locations. To learn more, see [About Authentication Profiles](https://help.zscaler.com/zia/about-authentication-profiles).
@@ -6604,7 +6604,7 @@ This feature is not available by default. To access this feature, contact your Z
 
 To create an authentication profile:
 
-1. Go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings** > **Authentication Profiles**.
+1. Go to **Administration**>**Internet & SaaS Authentication**>**Internet Authentication Settings**> **Authentication Profiles**.
 2. Click **Add Authentication Profile**. The **Add Authentication Profile**window appears.
 3. In the **Add Authentication Profile**window: The minimum frequency is 5 minutes and the maximum is 999 days. Zscaler recommends a frequency of 30 minutes or higher for a better user experience.
   - **Name**: Enter a name for the profile.
@@ -6616,7 +6616,7 @@ To create an authentication profile:
 
 To assign a custom authentication profile to a location:
 
-1. Go to **Infrastructure** >**Locations**> **Legacy Locations**.
+1. Go to **Infrastructure > Location Management > Legacy Locations**.
 2. Select the location you wish to assign the profile to from the list or use the search bar.
 3. Click the **Edit**icon for the location. The **Edit Location**window appears.
 4. In the **Gateway Options**section, select an **Authentication Profile**from the drop-down menu.
@@ -6754,13 +6754,13 @@ alert [protocol] any any -> any any
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-custom-ports","lastmod":"2026-09-01T08:58Z","nid":"1399926"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-custom-ports","lastmod":"2026-10-01T01:36Z","nid":"1399926"} -->
 ## Configuring Custom Ports
 
 - Source: https://help.zscaler.com/zia/configuring-custom-ports
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Configuring Custom Ports
-- Last modified: 2026-09-01T08:58Z
+- Last modified: 2026-10-01T01:36Z
 - Summary: How to configure Internet & SaaS (ZIA) to use custom ports for specific types of traffic.
 
 By default, the Zscaler service *listens to* the following ports:
@@ -6778,33 +6778,37 @@ If your organization uses other or additional ports for these types of traffic, 
 
 [Watch a video about Network Services, including how to add a network service](https://fast.wistia.net/embed/iframe/fa5a6c5wtm) (shows legacy UI).
 
-You can define custom network services to add to the [Firewall](https://help.zscaler.com/zia/about-firewall-filtering), [DNS](https://help.zscaler.com/zia/about-dns-control) and [NAT](https://help.zscaler.com/zia/about-nat-control) policies. Additionally, you can define custom services that include [custom ports](https://help.zscaler.com/zia/configuring-custom-ports) for HTTP, HTTPS, DNS, FTP, RTSP, or PPTP.
+A custom network service is defined as a combination of protocols and ports used at the source and destination. Custom network services allow you to define your own protocol and port combinations so you can apply precise Firewall, DNS, and NAT policies to non-standard or specialized traffic that is not covered by predefined services. For example, you can create custom services that include custom ports for HTTP, HTTPS, DNS, FTP, RTSP, and PPTP for additional control over how these applications are handled in your policies.
 
-Custom network services can be defined as a combination of protocols and ports used at the source and destination. These are the available combination of protocols and ports:
+You can configure the following protocol-port combinations:
 
-- TCP Source Ports
-- UDP Source Ports
-- TCP Destination Ports
-- UDP Destination Ports
+- TCP source ports
+- UDP source ports
+- TCP destination ports
+- UDP destination ports
 
-When defining a custom network service, these protocol-port combinations are associated using implicit logical relationships based on source and destination, explained as follows:
+When you define a custom network service, these protocol-port combinations are evaluated using implicit logical relationships between source and destination, shown as follows: (TCP Source Ports `OR` UDP Source Ports) `AND` (TCP Destination Ports `OR` UDP Destination Ports)
 
-[(TCP Source Ports `OR` UDP Source Ports) `AND` (TCP Destination Ports `OR` UDP Destination Ports)]
+Within the source or destination, all entities have an `OR` relationship. Between source and destination, the relationship is `AND`. Let's say you configure a network service with the following configuration:
 
-All source and destination entities have an `OR` relationship within them and a combination of source and destination entities have an `AND` relationship. For example, if you have configured a network service with TCP Destination Port 444, UDP Destination Port 333, and TCP Source Port 111, the traffic is identified with the network service only if it originates from port 111 over TCP *and*is destined to either TCP 444 *or*UDP 333 port.
+- TCP source port 111
+- TCP destination port 444
+- UDP destination port 333
+
+In this case, traffic matches this network service only if it originates from TCP port 111 and is destined to either TCP port 444 or UDP port 333.
 
 To add a custom network service:
 
-1. Go to **Policies**> **Access Control** > **Firewall** >**Network Services**.
-2. On the **Services** tab, click **Add Network Service**. The **Add Network Service** window appears.
-3. In the **Add Network Service** window: To enter multiple items for the ports, press `Enter` after entering each port and click **Add Items**. You can search for and also remove items as needed by using the **Delete** icon. To remove multiple items at once, click the **Remove** drop-down menu and select **Remove All** or **Remove Page** and approve your selected action in the confirmation window that appears. The **Remove Page** option removes all items from the current page, and a maximum of 500 items are displayed on a page. See image.
-  - **Name**: Enter a name for the application layer service that you want to control. It can include any character and spaces.
-  - **Definition**: The service displays **Custom** to indicate that this is an admin-defined service.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access**> **Resources** >**Network Services**.
+2. On the **Services** tab, click **Add Network Service**. The **Add Network Service** drawer appears.
+3. In the **Add Network Service** drawer: To add multiple entries, press `Enter` after entering each port value or click **Add**. A maximum of 8 entries is allowed for each port. The values added for each port appear in a paginated list. You can also search for and remove items as needed by using the **Delete** icon. To remove multiple entries at once, click **Remove All**. See image.
+  - **Name**: Enter a name for the application layer service that you want to manage using policies.
+  - **Definition**: **Custom** is automatically populated for admin-defined services.
   - **Description**: Optionally, enter additional notes or information. The description cannot exceed 10,240 characters.
-  - **TCP Source Ports**: Enter the port number (e.g., 50) or port number range (e.g., 1000–1050), if any, that is used by the network service. You can add up to 8 ports.
-  - **TCP Destination Ports**: Enter the port number (e.g., 50) or port number range (e.g., 1000–1050), if any, that is used by the network service. You can add up to 8 ports.
-  - **UDP Source Ports**: Enter the port number (e.g., 50) or port number range (e.g., 1000–1050), if any, that is used by the network service. You can add up to 8 ports.
-  - **UDP Destination Ports**: Enter the port number (e.g., 50) or port number range (e.g., 1000–1050), if any, that is used by the network service. You can add up to 8 ports.
+  - **TCP Source Ports**: Enter the port number (e.g., 50) or range (e.g., 1000–1050) used by the network service.
+  - **TCP Destination Ports**: Enter the port number or range used by the network service.
+  - **UDP Source Ports**: Enter the port number or range used by the network service.
+  - **UDP Destination Ports**: Enter the port number or range used by the network service.
 4. Click **Save** and [activate the change.](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console)
 
 [Image: Add a network service by adding a description and the different available ports]
@@ -6813,8 +6817,8 @@ To add a custom network service:
 
 To configure the Zscaler proxy service to accept traffic from custom ports:
 
-1. Go to **Policies**> **Common Configuration** > **Advanced**>**Advanced Settings**.
-2. Complete the following information:
+1. Go to **Internet Access**> **Setting** > **Advanced Settings**.
+2. Click the **Edit** icon and complete the following information:
   - **Services Forwarded to HTTP Web Proxy**:From the **HTTP Services** and **HTTPS Services** lists, choose the custom service that specifies the ports your organization uses for HTTP and HTTPS.
   - **Services Applicable to DNS Transaction Policies**: From the **DNS Services** list, choose the custom service that specifies the ports your organization uses for DNS traffic. If no values are selected for the **DNS Services** option, [DNS Control policies](https://help.zscaler.com/zia/about-dns-control) are not enforced on your organization's traffic. However, Zscaler might still resolve your DNS queries if the predefined NAT rule, [Zscaler Trusted DNS Resolver](https://help.zscaler.com/zia/about-nat-control), is enabled. You can manually disable this rule, if required.
   - **Services Forwarded to FTP Proxy**:From the **FTP Services** list, choose the custom service that specifies the ports your organization uses for FTP traffic.
@@ -6896,13 +6900,13 @@ Admin A has a Location Group scope of England. The England location group contai
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-data-rest-scanning-dlp-policy-content-inspection","lastmod":"2026-09-15T13:21Z","nid":"1529452"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-data-rest-scanning-dlp-policy-content-inspection","lastmod":"2026-09-30T04:13Z","nid":"1529452"} -->
 ## Configuring the Data at Rest Scanning DLP Policy with Content Inspection
 
 - Source: https://help.zscaler.com/zia/configuring-data-rest-scanning-dlp-policy-content-inspection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Data at Rest Scanning Policies > Configuring the Data at Rest Scanning DLP Policy with Content Inspection
-- Last modified: 2026-09-15T13:21Z
+- Last modified: 2026-09-30T04:13Z
 - Summary: How to configure Zscaler SaaS Security Data at Rest Scanning DLP policy rules using Zscaler DLP engines for content inspection.
 
 [Watch a video about SaaS Security Data at Rest Scanning and policy configuration](https://fast.wistia.net/embed/iframe/c6vd9jag4e) (shows legacy UI).
@@ -6915,7 +6919,7 @@ To inspect content based on a configured policy rule's specifications, you must 
 
 To configure the Data at Rest Scanning DLP policy:
 
-1. Go to **Policies > Data Protection > Policy > Out-of-Band CASB**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security > DSPM > SaaS DLP**.
 2. On the **Data Loss Prevention** tab, choose one of the following SaaS application types from the drop-down menu:
   - Collaboration
   - CRM
@@ -7366,13 +7370,13 @@ To add a DLP rule for source code repository applications:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-data-rest-scanning-dlp-policy-exceptions","lastmod":"2026-06-01T03:53Z","nid":"1401786"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-data-rest-scanning-dlp-policy-exceptions","lastmod":"2026-09-30T04:20Z","nid":"1401786"} -->
 ## Configuring the Data at Rest Scanning DLP Policy Exceptions
 
 - Source: https://help.zscaler.com/zia/configuring-data-rest-scanning-dlp-policy-exceptions
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Data at Rest Scanning Policies > Configuring the Data at Rest Scanning DLP Policy Exceptions
-- Last modified: 2026-06-01T03:53Z
+- Last modified: 2026-09-30T04:20Z
 - Summary: How to configure Zscaler SaaS Security API Data Loss Prevention (DLP) policy exceptions.
 
 Optionally, you can configure [SaaS Security Data Loss Prevention (DLP)](https://help.zscaler.com/zia/about-saas-security-api-dlp) policy exceptions for sanctioned SaaS applications.
@@ -7381,7 +7385,7 @@ For example, you can create an exception for your organization’s CEO if you do
 
 To configure SaaS Security Data at Rest Scanning DLP policy exceptions:
 
-1. Go to **Policies > Data Protection > Policy > Data at Rest Scanning**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security > DSPM > SaaS DLP**.
 2. In the **Data Loss Prevention** tab, choose one of the following SaaS application types from the drop-down menu:
   - Collaboration
   - CRM
@@ -7447,13 +7451,13 @@ To create exceptions for source code repository applications:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-data-rest-scanning-dlp-policy-without-content-inspection","lastmod":"2026-09-15T13:24Z","nid":"1529455"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-data-rest-scanning-dlp-policy-without-content-inspection","lastmod":"2026-09-30T04:15Z","nid":"1529455"} -->
 ## Configuring the Data at Rest Scanning DLP Policy without Content Inspection
 
 - Source: https://help.zscaler.com/zia/configuring-data-rest-scanning-dlp-policy-without-content-inspection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Data at Rest Scanning Policies > Configuring the Data at Rest Scanning DLP Policy without Content Inspection
-- Last modified: 2026-09-15T13:24Z
+- Last modified: 2026-09-30T04:15Z
 - Summary: How to configure Zscaler SaaS Security Data at Rest Scanning DLP policy rules without using Zscaler DLP engines for content inspection.
 
 [Watch a video about SaaS Security Data at Rest Scanning and policy configuration](https://fast.wistia.net/embed/iframe/c6vd9jag4e) (shows legacy UI).
@@ -7466,7 +7470,7 @@ To inspect content based on a configured policy rule's specifications, you must 
 
 To configure the Data at Rest Scanning DLP policy:
 
-1. Go to **Policies > Data Protection > Policy > Out-of-Band CASB**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security > DSPM > SaaS DLP**.
 2. On the **Data Loss Prevention** tab, choose one of the following SaaS application types from the drop-down menu:
   - Collaboration
   - CRM
@@ -7896,13 +7900,13 @@ To add a DLP rule for source code repository applications:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-data-rest-scanning-exceptions","lastmod":"2026-06-10T08:30Z","nid":"1402236"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-data-rest-scanning-exceptions","lastmod":"2026-09-29T10:45Z","nid":"1402236"} -->
 ## Configuring the Data at Rest Scanning Exceptions
 
 - Source: https://help.zscaler.com/zia/configuring-data-rest-scanning-exceptions
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Data at Rest Scanning Policies > Configuring the Data at Rest Scanning Exceptions
-- Last modified: 2026-06-10T08:30Z
+- Last modified: 2026-09-29T10:45Z
 - Summary: How to configure Zscaler SaaS Security Scanning Exceptions.
 
 Optionally, you can create Data at Rest Scanning exceptions for file sharing applications.
@@ -7911,7 +7915,7 @@ Configuring a scanning exception allows you to exempt specific folders or users 
 
 To configure a scanning exception:
 
-1. Go to **Policies > Data Protection > Policy > Data at Rest Scanning >** **Scanning Exceptions**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Data Security > DSPM >** **Scanning Exceptions**.
 2. Under **Do Not Inspect Content From Any of the Following Locations**:
   - To add an exception for a folder:
     1. Click **Add Exception**. A row with the **Tenant**, **Owner**, and **Folder** fields appears.
@@ -7925,18 +7929,18 @@ To configure a scanning exception:
 3. Click **Add Exceptions** to exempt more folders or users from inspection. You can add up to 64 exceptions for folders and users. To remove an exception, click the **Remove** icon for the row. See image.
 4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-[Image: The Data at Rest Scanning Exceptions page allows you to remove exceptions while scanning a rule.]
+[Image: The Scanning Exceptions page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-data-rest-scanning-malware-detection-policy","lastmod":"2026-06-10T05:31Z","nid":"1401791"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-data-rest-scanning-malware-detection-policy","lastmod":"2026-09-29T11:09Z","nid":"1401791"} -->
 ## Configuring the Data at Rest Scanning Malware Detection Policy
 
 - Source: https://help.zscaler.com/zia/configuring-data-rest-scanning-malware-detection-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Data at Rest Scanning Policies > Configuring the Data at Rest Scanning Malware Detection Policy
-- Last modified: 2026-06-10T05:31Z
+- Last modified: 2026-09-29T11:09Z
 - Summary: How to configure Zscaler SaaS Security Data at Rest Scanning Malware Detection policy rules.
 
 [Watch a video about SaaS Security Data at Rest Scanning and policy configuration](https://fast.wistia.net/embed/iframe/c6vd9jag4e) (shows legacy UI).
@@ -7947,8 +7951,8 @@ In order to inspect content based on a configured policy rule's specifications, 
 
 To configure the Malware Detection policy:
 
-1. Go to **Policies > Cybersecurity > SaaS Security API > Malware Scanning**.
-2. In the **Malware Detection** tab, choose one of the following SaaS application types from the drop-down menu:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Data Security > DSPM > Malware Scanning**.
+2. On the **Malware Detection** page, choose one of the following SaaS application types you want to create a rule for:
   - Collaboration
   - CRM
   - Email
@@ -7960,15 +7964,16 @@ To configure the Malware Detection policy:
 
 To add a Malware Detection rule for collaboration applications:
 
-1. Click **Add Malware Detection Rule**.
+1. Click **Add Rule**.
 
-The **Add Malware Detection Rule** window appears.
+The **Add Malware Detection Rule**drawer appears.
 
-1. In the **Add Malware Detection Rule** window:
+1. In the **Add Malware Detection Rule**drawer, under criteria:
+  - **Rule Name**: Enter a unique name for the policy.
   - **Application**: Select an application from the list.
-  - **Saas Application Tenant**: Select the [tenant](https://help.zscaler.com/zia/about-saas-application-tenants) for the application.
-  - **Status**: Enable or disable the Zscaler service from inspecting data for malware.
-  - **Rule Label**: Select a [rule label](https://help.zscaler.com/zia/about-rule-labels) to associate it with the rule.
+  - **SaaS Application Tenant**: Select the [tenant](https://help.zscaler.com/zia/about-saas-application-tenants) for the application.
+  - **Rule Status:** Enable or disable the Zscaler service from inspecting data for malware.
+  - **Add Rule Label**: Click **Add Rule Label** to select a [label](https://help.zscaler.com/zia/about-rule-labels) to associate with the rule.
 2. For **Action**: Select the action for the rule to take when it detects malware:
   - **Quarantine Malware**: The Zscaler service quarantines the malware:
     - For Slack, the Zscaler service creates a channel called `Zscaler_Quarantine` and moves the malware to the channel for quarantine.
@@ -7981,15 +7986,16 @@ The **Add Malware Detection Rule** window appears.
 
 To add a Malware Detection rule for CRM applications:
 
-1. Click **Add Malware Detection Rule**.
+1. Click **Add Rule**.
 
-The **Add Malware Detection Rule** window appears.
+The **Add Malware Detection Rule**drawer appears.
 
-1. In the **Add Malware Detection Rule** window:
+1. In the **Add Malware Detection Rule** drawer, under criteria:
+  - **Rule Name**: Enter a unique name for the policy.
   - **Application**: Select an application from the list.
-  - **Saas Application Tenant**: Select the [tenant](https://help.zscaler.com/zia/about-saas-application-tenants) for the application.
-  - **Status**: Enable or disable the Zscaler service from inspecting data for malware.
-  - **Rule Label**: Select a [rule label](https://help.zscaler.com/zia/about-rule-labels) to associate it with the rule.
+  - **SaaS Application Tenant**: Select the [tenant](https://help.zscaler.com/zia/about-saas-application-tenants) for the application.
+  - **Rule Status:** Enable or disable the Zscaler service from inspecting data for malware.
+  - **Add Rule Label**: Click **Add Rule Label** to select a [label](https://help.zscaler.com/zia/about-rule-labels) to associate with the rule.
 2. For **Action**: Select the action for the rule to take when it detects malware:
   - **Quarantine Malware**: The Zscaler service quarantines suspicious files.
   - **Quarantine Location**: This field appears only if you select the **Quarantine Malware** action. This is the location where malicious files are moved for quarantine. The Zscaler service creates a folder or library called `Zscaler_Quarantine` for the location.
@@ -8000,15 +8006,16 @@ The **Add Malware Detection Rule** window appears.
 
 To add a Malware Detection rule for email applications:
 
-1. Click **Add Malware Detection Rule**.
+1. Click **Add Rule**.
 
-The **Add Malware Detection Rule** window appears.
+The **Add Malware Detection Rule**drawer appears.
 
-1. In the **Add Malware Detection Rule** window:
+1. In the **Add Malware Detection Rule** drawer, under criteria:
+  - **Rule Name**: Enter a unique name for the policy.
   - **Application**: Select an application from the list.
-  - **Saas Application Tenant**: Select the [tenant](https://help.zscaler.com/zia/about-saas-application-tenants) for the application.
-  - **Status**: Enable or disable the Zscaler service from inspecting data for malware.
-  - **Rule Label**: Select a [rule label](https://help.zscaler.com/zia/about-rule-labels) to associate it with the rule.
+  - **SaaS Application Tenant**: Select the [tenant](https://help.zscaler.com/zia/about-saas-application-tenants) for the application.
+  - **Rule Status:** Enable or disable the Zscaler service from inspecting data for malware.
+  - **Add Rule Label**: Click **Add Rule Label** to select a [label](https://help.zscaler.com/zia/about-rule-labels) to associate with the rule.
   - **Scan Inbound Email Links**: Select **Enabled** to allow the Zscaler service to inspect links included in inbound emails. If you select **Disabled**, the Zscaler service doesn’t inspect the links.
 2. For **Action**: Select the action for the rule to take when it detects malware:
 
@@ -8019,16 +8026,17 @@ The **Add Malware Detection Rule** window appears.
 
 To add a Malware Detection rule for file sharing applications:
 
-1. Click **Add Malware Detection Rule**.
+1. Click **Add Rule**.
 
-The **Add Malware Detection Rule** window appears.
+The **Add Malware Detection Rule**drawer appears.
 
-1. In the **Add Malware Detection Rule** window:
+1. In the **Add Malware Detection Rule** drawer, under criteria:
+  - **Rule Name**: Enter a unique name for the policy.
   - **Application**: Select an application from the list.
-  - **Saas Application Tenant**: Select the [tenant](https://help.zscaler.com/zia/about-saas-application-tenants) for the application.
+  - **SaaS Application Tenant**: Select the [tenant](https://help.zscaler.com/zia/about-saas-application-tenants) for the application.
   - **Site**: Select the sites to which you want to apply the rule. You can search for a site or select all sites.
-  - **Status**: Enable or disable the Zscaler service from inspecting data for malware.
-  - **Rule Label**: Select a [rule label](https://help.zscaler.com/zia/about-rule-labels) to associate it with the rule.
+  - **Rule Status:** Enable or disable the Zscaler service from inspecting data for malware.
+  - **Add Rule Label**: Click **Add Rule Label** to select a [label](https://help.zscaler.com/zia/about-rule-labels) to associate with the rule.
 2. For **Action**: Select the action for the rule to take when it detects malware.
   - **Quarantine Malware**: The Zscaler service quarantines the suspicious file.
   - **Quarantine Location**: This field appears only if you select the **Quarantine Malware** action. This is the location where malicious files are moved for quarantine. The Zscaler service creates a folder or library called `Zscaler_Quarantine` for the location. To specify the quarantine location:
@@ -8046,27 +8054,28 @@ The **Add Malware Detection Rule** window appears.
 
 To add a Malware Detection rule for Generative AI applications:
 
-1. Click **Add Malware Detection Rule**. The **Add Malware Detection Rule** window appears.
-2. Define the criteria:
-  - **Rule Name**: Enter a rule name for the policy.
-  - **Status**: Enable or disable the Zscaler service from inspecting data for malware.
+1. Click **Add Rule**. The **Add Malware Detection Rule**drawer appears.
+2. In the **Add Malware Detection Rule** drawer, under criteria:
+  - **Rule Name**: Enter a unique name for the policy.
+  - **Rule Status:** Enable or disable the Zscaler service from inspecting data for malware.
   - **Application**: Select an application from the list.
-  - **Saas Application Tenant**: Select the [tenant](https://help.zscaler.com/zia/about-saas-application-tenants) for the application.
-  - **Rule Label**: Select a [rule label](https://help.zscaler.com/zia/about-rule-labels) to associate it with the rule.
+  - **SaaS Application Tenant**: Select the [tenant](https://help.zscaler.com/zia/about-saas-application-tenants) for the application.
+  - **Add Rule Label**: Click **Add Rule Label** to select a [label](https://help.zscaler.com/zia/about-rule-labels) to associate with the rule.
 3. For **Action**: This field cannot be changed. The Zscaler service reports the incident, but doesn’t quarantine or remove the malware.
 4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 To add a Malware Detection rule for ITSM applications:
 
-1. Click **Add Malware Detection Rule**.
+1. Click **Add Rule**.
 
-The **Add Malware Detection Rule** window appears.
+The **Add Malware Detection Rule**drawer appears.
 
-1. In the **Add Malware Detection Rule** window:
+1. In the **Add Malware Detection Rule** drawer, under criteria:
+  - **Rule Name**: Enter a unique name for the policy.
   - **Application**: Select an application from the list.
-  - **Saas Application Tenant**: Select the [tenant](https://help.zscaler.com/zia/about-saas-application-tenants) for the application.
-  - **Status**: Enable or disable the Zscaler service from inspecting data for malware.
-  - **Rule Label**: Select a [rule label](https://help.zscaler.com/zia/about-rule-labels) to associate it with the rule.
+  - **SaaS Application Tenant**: Select the [tenant](https://help.zscaler.com/zia/about-saas-application-tenants) for the application.
+  - **Rule Status:** Enable or disable the Zscaler service from inspecting data for malware.
+  - **Add Rule Label**: Click **Add Rule Label** to select a [label](https://help.zscaler.com/zia/about-rule-labels) to associate with the rule.
 2. For **Action**: Select the action for the rule to take when it detects malware.
   - **Quarantine Malware**: The Zscaler service quarantines suspicious files.
   - **Quarantine Location**: This field appears only if you select the **Quarantine Malware** action. This is the location where malicious files are moved for quarantine. The Zscaler service creates a folder or library called `Zscaler_Quarantine` for the location.
@@ -8079,20 +8088,21 @@ To enable Amazon S3, Google Cloud Platform, and Microsoft Azure for your organiz
 
 To add a Malware Detection rule for public cloud storage applications:
 
-1. Click **Add Malware Detection Rule**.
+1. Click **Add Rule**.
 
-The **Add Malware Detection Rule** window appears.
+The **Add Malware Detection Rule**drawer appears.
 
-1. In the **Add Malware Detection Rule** window:
+1. In the **Add Malware Detection Rule** drawer, under criteria:
+  - **Rule Name**: Enter a unique name for the policy.
   - **Application**: Select an application from the list.
-  - **Saas Application Tenant**: Select the [tenant](https://help.zscaler.com/zia/about-saas-application-tenants) for the application.
+  - **SaaS Application Tenant**: Select the [tenant](https://help.zscaler.com/zia/about-saas-application-tenants) for the application.
   - **Buckets**: This is only applicable for Amazon S3 and Google Cloud Platform tenants. Select the buckets for the Zscaler service to inspect for malware. You can select up to 1,000 buckets.
   - **Blob Containers**: This is only applicable for Microsoft Azure tenants. Select the blob containers for the Zscaler service to inspect for malware. You can select up to 1,000 blob containers.
 
 Before you can select buckets or blob containers, you must have saved this rule and [created a scan schedule](https://help.zscaler.com/zia/configuring-saas-security-api-scan-schedules). To learn more, see [Configuring the Data at Rest Scanning Policy](https://help.zscaler.com/zia/configuring-saas-security-api-control-policy).
 
-- **Status**: Enable or disable the Zscaler service from inspecting data for malware.
-- **Rule Label**: Select a [rule label](https://help.zscaler.com/zia/about-rule-labels) to associate it with the rule.
+- **Rule Status:** Enable or disable the Zscaler service from inspecting data for malware.
+- **Add Rule Label**: Click **Add Rule Label** to select a [label](https://help.zscaler.com/zia/about-rule-labels) to associate with the rule.
 
 1. For **Action**: Select the action for the rule to take when it detects malware. The number of actions available depends on the selected SaaS Application Tenant.
   - **Quarantine Malware**: The Zscaler service moves the malware to the quarantine bucket or blob container created for the tenant. To learn more, see [Adding SaaS Application Tenants](https://help.zscaler.com/zia/adding-saas-application-tenants).
@@ -8103,29 +8113,30 @@ Before you can select buckets or blob containers, you must have saved this rule 
 
 To add a Malware Detection rule for source code repository applications:
 
-1. Click **Add Malware Detection Rule**.
+1. Click **Add Rule**.
 
-The **Add Malware Detection Rule** window appears.
+The **Add Malware Detection Rule**drawer appears.
 
-1. Define the criteria:
+1. In the **Add Malware Detection Rule** drawer, under criteria:
+  - **Rule Name**: Enter a unique name for the policy.
   - **Application**: Select an application from the list.
-  - **Saas Application Tenant**: Select the [tenant](https://help.zscaler.com/zia/about-saas-application-tenants) for the application.
+  - **SaaS Application Tenant**: Select the [tenant](https://help.zscaler.com/zia/about-saas-application-tenants) for the application.
   - **Buckets**: This is only applicable for GitLab tenants. Select the buckets for the Zscaler service to inspect for malware. You can select up to 32 buckets.
-  - **Status**: Enable or disable the Zscaler service from inspecting data for malware.
-  - **Rule Label**: Select a [rule label](https://help.zscaler.com/zia/about-rule-labels) to associate it with the rule.
+  - **Rule Status:** Enable or disable the Zscaler service from inspecting data for malware.
+  - **Add Rule Label**: Click **Add Rule Label** to select a [label](https://help.zscaler.com/zia/about-rule-labels) to associate with the rule.
 2. For **Action**: This field cannot be changed. The Zscaler service reports the incident, but doesn’t quarantine or remove the malware.
 3. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-data-rest-scanning-malware-detection-policy-exceptions","lastmod":"2026-05-27T08:00Z","nid":"1401796"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-data-rest-scanning-malware-detection-policy-exceptions","lastmod":"2026-09-30T06:08Z","nid":"1401796"} -->
 ## Configuring the Data at Rest Scanning Malware Detection Policy Exceptions
 
 - Source: https://help.zscaler.com/zia/configuring-data-rest-scanning-malware-detection-policy-exceptions
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Data at Rest Scanning Policies > Configuring the Data at Rest Scanning Malware Detection Policy Exceptions
-- Last modified: 2026-05-27T08:00Z
+- Last modified: 2026-09-30T06:08Z
 - Summary: How to configure Zscaler SaaS Security API Malware Detection policy exceptions.
 
 Optionally, you can configure the SaaS Security Data at Rest Scanning [Malware Detection](https://help.zscaler.com/zia/about-saas-security-api-malware-detection) policy exceptions for sanctioned SaaS applications.
@@ -8134,7 +8145,7 @@ For example, you can create an exception for your organization’s CEO if you do
 
 To configure Malware Detection policy exceptions:
 
-1. Go to **Policies > Cybersecurity > SaaS Security API > Malware Scanning**.
+1. Go to **Data Security > DSPM > Malware Scanning**.
 2. In the **Malware Detection** tab, choose one of the following SaaS application types from the drop-down menu:
   - Collaboration
   - CRM
@@ -8272,16 +8283,16 @@ After you configure the proxy ports on the Zscaler Admin Console, edit the [PAC 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-default-authentication-profile","lastmod":"2026-06-10T11:11Z","nid":"1458901"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-default-authentication-profile","lastmod":"2026-09-30T18:56Z","nid":"1458901"} -->
 ## Configuring the Default Authentication Profile
 
 - Source: https://help.zscaler.com/zia/configuring-default-authentication-profile
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Configuring the Default Authentication Profile
-- Last modified: 2026-06-10T11:11Z
+- Last modified: 2026-09-30T18:56Z
 - Summary: Information about configuring the default authentication profile settings in the Zscaler Admin Console.
 
-In the Authentication Profile section on the Default Settings page (Administration > Identity > Internet & SaaS > Internet Authentication Settings > Default Settings), you can:
+In the Authentication Profile section on the Default Settings page (Administration > Internet & SaaS Authentication > Internet Authentication Settings > Default Settings), you can:
 
 - Configure a User Repository
 - Disable Directory Sync & Enable SCIM Provisioning
@@ -8700,31 +8711,54 @@ To inspect HTTP GET Query Parameters for sensitive data:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-cloud-cloud-incident-forwarding","lastmod":"2026-06-11T11:23Z","nid":"1531158"} -->
-## Configuring DLP Cloud-to-Cloud Incident Forwarding
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-cloud-cloud-incident-forwarding-aws","lastmod":"2026-09-30T11:46Z","nid":"1542619"} -->
+## Configuring DLP Cloud-to-Cloud Incident Forwarding for AWS
 
-- Source: https://help.zscaler.com/zia/configuring-dlp-cloud-cloud-incident-forwarding
+- Source: https://help.zscaler.com/zia/configuring-dlp-cloud-cloud-incident-forwarding-aws
 - Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Configuring DLP Cloud-to-Cloud Incident Forwarding
-- Last modified: 2026-06-11T11:23Z
-- Summary: Information on how to configure cloud storage to set up for Cloud-to-Cloud Incident Forwarding.
+- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Cloud to Cloud Incident Forwarding > Configuring DLP Cloud-to-Cloud Incident Forwarding for AWS
+- Last modified: 2026-09-30T11:46Z
+- Summary: Information on how to configure cloud storage to set up for Cloud-to-Cloud Incident Forwarding for Amazon Web Services.
 
-Zscaler Cloud-to-Cloud Incident Forwarding allows you to send metadata and evidence from Data Loss Prevention (DLP) violations directly to your public cloud storage without deploying appliances.
+Zscaler Cloud-to-Cloud Incident Forwarding allows you to send evidence data and metadata from Data Loss Prevention (DLP) violations directly to your public cloud storage without deploying appliances.
 
 Cloud-to-Cloud Incident Forwarding does not support using the same public cloud account to onboard multiple tenants that are hosted on the same Zscaler cloud. For example, suppose your pre-production and production tenants are hosted on the same Zscaler cloud. In that case, you cannot use the same Azure account to onboard both tenants. To use the same Azure account, you must ensure that each tenant is hosted on a separate Zscaler cloud.
 
-To configure Cloud-to-Cloud Incident Forwarding onboarding, you must first onboard your public cloud account:
+To configure Cloud-to-Cloud Incident Forwarding onboarding, you must first configure storage accounts on your cloud provider and onboard your public cloud account:
 
-1. Create storage accounts on your cloud provider to receive incident data from Zscaler. If you are configuring your storage account with [Workflow Automation](https://help.zscaler.com/legacy-workflow-automation/what-workflow-automation), you already created the necessary resources when you configured your accounts for DLP integration. You do not need to create additional resources at this time. Also note that you must use the same bucket names to onboard your accounts in Cloud-to-Cloud as you did when configuring Workflow Automation. AWS S3; Google Cloud; Microsoft Azure
-2. In the Zscaler Admin Console go to **Policies**> **Data Protection**> **Common Resources**> **Incident Management**>**DLP Incident Receiver** and go to the **Cloud-to-Cloud Incident Receiver** tab.
-3. Click **Add Account**.
-4. Choose or search for the **SaaS Application Provider**(e.g., Azure, Amazon S3, or Google Cloud).
-5. Enter a **Tenant Name** for the SaaS Application tenant.
-6. Authorize the SaaS Application:
-  - AWS S3
-  - Google Cloud
-  - Microsoft Azure
-7. Click **Save**.
+1. On the **Create bucket** page in the AWS Management console, create one bucket for evidence data and one bucket for metadata. If you are configuring your AWS storage account with Workflow Automation, two separate S3 buckets are created for you during the creation of the CloudFormation stack in AWS. You do not need to create additional resources at this time. If you are not using your Incident Receiver with Workflow Automation, you can use a single S3 bucket for data and JSON files, or you can use separate buckets. The following example uses separate S3 buckets. To learn more, see [Configuring the Amazon Web Services DLP Application Integration Using Cloud-to-Cloud Incident Forwarding](https://help.zscaler.com/workflow-automation/configuring-amazon-web-services-dlp-application-integration-using-cloud-cloud-incident-forwarding).
+  1. In the AWS Management console, search for `**S3**`.
+  2. In the search results, select **S3**. The Amazon S3 dashboard appears, displaying all the existing buckets. See image.
+  3. Click **Create bucket**. The **Create bucket** page appears.
+  4. On the **Create bucket** page: See image.
+    1. In the **General configuration** section:
+      - **Bucket type**: Select **General Purpose**.
+      - **Bucket name**: Enter the name of the bucket as `<bucketNamePrefix>-data` (e.g., `zscaler-dlp-data`). No periods can be used in the name.
+    2. In the **Object Ownership** section, select **ACLs disabled (recommended)**.
+    3. In the **Block Public Access settings for this bucket** section, select the **Block*****all*****public access**checkbox.
+    4. In the **Bucket Versioning** section, select **Disable**.
+    5. In the **Default encryption** section, leave the default settings.
+    6. Click **Create bucket**. The **Buckets**page appears, listing the bucket you have just created.
+  5. On the **Create bucket** page in the AWS console, create an S3 bucket for the metadata bucket.
+    1. On the **Buckets** page, click **Create bucket**. The **Create bucket** page appears.
+    2. On the **Create bucket** page:
+      - In the **General configuration** section:
+        - **Bucket type**: Select **General Purpose**.
+        - **Bucket name**: Enter the name of the bucket as `<bucketNamePrefix>-metadata` (e.g.,`zscaler-dlp-metadata`). No periods can be used in the name.
+      - In the **Object Ownership** section, select **ACLs disabled (recommended)**.
+      - In the **Block Public Access settings for this bucket** section, select **Block*****all*****public access**.
+      - In the **Bucket Versioning** section, select **Disable**.
+      - In the **Default encryption** section, leave the default settings.
+      - Click **Create bucket**. The **Buckets**page reappears, listing the bucket you have just created.
+2. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Common Resources**> **DLP Incident Receiver** and select the **Cloud-to-Cloud Incident Forwarding** tab.
+3. Choose **Amazon S3**for the **SaaS Application Provider**and click **Next**.
+4. Enter a **Tenant Name** for the SaaS application tenant and click **Next**.
+5. Authorize the SaaS application: You need your Zscaler Connector Account Number, Zscaler Connector User ARN, and External ID to authorize the SaaS Application in the AWS Management console. Remember these account numbers. See image.
+  - a. Create an IAM role for AWS.
+  - b. Specify IAM role permissions.
+  - c. Edit trust policy.
+  - d. Register the SaaS application.
+6. Click [Save and activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 After onboarding is complete, you can configure your DLP policy rules to use Cloud-to-Cloud Incident Forwarding. To learn more, see:
 
@@ -8735,49 +8769,134 @@ After onboarding is complete, you can configure your DLP policy rules to use Clo
 - [Configuring Outbound Email Policy Rules](https://help.zscaler.com/legacy-zia/configuring-outbound-email-policy-rules)
 - [Configuring the Data at Rest Scanning DLP Policy with Content Inspection](https://help.zscaler.com/legacy-zia/configuring-data-rest-scanning-dlp-policy-content-inspection)
 - [Configuring the Data at Rest Scanning DLP Policy without Content Inspection](https://help.zscaler.com/legacy-zia/configuring-data-rest-scanning-dlp-policy-without-content-inspection)
-
-On the **Create bucket** page in the AWS Management Console, create one bucket for evidence data and one bucket for metadata.
-
-If you are configuring your AWS storage account with [Workflow Automation](https://help.zscaler.com/legacy-workflow-automation/what-workflow-automation), two separate S3 buckets are created for you during the creation of the CloudFormation stack in AWS. You do not need to create additional resources at this time. If you are not using your Incident Receiver with Workflow Automation, you can use a single S3 bucket for data and JSON files, or you can use separate buckets. The following example uses separate S3 buckets.
-
-1. In the AWS Management Console, search for `**S3**`.
-2. In the search results, select **S3**. The Amazon S3 dashboard appears, displaying all the existing buckets. See image.
-3. Click **Create bucket**. The **Create bucket** page appears.
-4. On the **Create bucket** page: See image.
-  1. In the **General configuration** section:
-    - **Bucket type**: Select **General Purpose**.
-    - **Bucket name**: Enter the name of the bucket as `<bucketNamePrefix>data` (e.g., `zscaler-dlp-data`). No periods can be used in the name.
-  2. In the **Object Ownership** section, select **ACLs disabled (recommended)**.
-  3. In the **Block Public Access settings for this bucket** section, select the **Block*****all*****public access**checkbox.
-  4. In the **Bucket Versioning** section, select **Disable**.
-  5. In the **Default encryption** section, leave the default settings.
-  6. Click **Create bucket**. The **Buckets**page appears, listing the bucket you have just created.
-5. On the **Create bucket** page in the AWS Management Console, create an S3 bucket for the metadata bucket.
-  1. On the **Buckets** page, click **Create bucket**. The **Create bucket** page appears.
-  2. On the **Create bucket** page:
-    1. In the **General configuration** section:
-      - **Bucket type**: Select **General Purpose**.
-      - **Bucket name**: Enter the name of the bucket as `<bucketNamePrefix>metadata` (e.g.,`zscaler-dlp-metadata`). No periods can be used in the name.
-    2. In the **Object Ownership** section, select **ACLs disabled (recommended)**.
-    3. In the **Block Public Access settings for this bucket** section, select **Block*****all*****public access**.
-    4. In the **Bucket Versioning** section, select **Disable**.
-    5. In the **Default encryption** section, leave the default settings.
-    6. Click **Create bucket**. The **Buckets**page reappears, listing the bucket you have just created.
+- [Configuring the Data at Rest Scanning Malware Detection Policy](https://help.zscaler.com/zia/configuring-data-rest-scanning-malware-detection-policy)
 
 [Image: Amazon S3 Account Dashboard]
 
 [Image: Create S3 Buckets on AWS]
 
-Create one bucket for evidence and one bucket for metadata for your Google Cloud storage account.
+You must create roles in AWS to ensure that the Zscaler service can properly access the application:
+
+1. Click **Go to AWS**to give Zscaler access to Amazon S3 and configure roles and permissions. See image.
+2. Log into the **AWS console**.
+3. Go to **Services** > **IAM**.
+4. In the left-side navigation, go to **Access management** > **Roles**.
+5. Click **Create role**.
+6. On the Select Trusted entity page, in the **Trusted entity type**section, select**AWS account.**
+7. In the **An AWS account** section, select **Another AWS account**and check **Require external ID**. See image.
+8. Enter the **Account Number**and the **External ID** from the Zscaler instance that you copied from the Zscaler Admin Console. See image.
+9. Click **Next.**
+10. In **Attach permissions policies**, do not select permissions. Click **Next**.
+11. On the **Name, review and create** page add:
+  - **Role name**: Enter a role name.
+  - **Description**: (Optional) Enter additional notes or information.
+12. Click **Create role**.
+
+[Image: Select the trusted entity type]
+
+[Image: Copy the External ID from the Zscaler Admin Console]
+
+1. In the AWS Management console, click the **Role Name** of the IAM role you previously created (Identity and Access Management > Access Management > Roles). You are redirected to the **Role**page.
+2. On the **Permissions**tab, click **Add permissions** > **Create inline policy**. See image.
+3. In the **Policy editor**, click **JSON** in the **policy editor**. See image.
+4. Enter the following JSON string into the policy editor with the bucket names you created in step 1. `{ "Version": "2012-10-17", "Statement": [ { "Sid": "Statement1", "Effect": "Allow", "Action": [ "s3:ListBucket" ], "Resource": [ "arn:aws:s3:::<metadata-bucket-name>", "arn:aws:s3:::<evidence-data-bucket-name>" ] }, { "Sid": "AllowPutObject", "Effect": "Allow", "Action": [ "s3:PutObject" ], "Resource": [ "arn:aws:s3:::<metadata-bucket-name>/*", "arn:aws:s3:::<evidence-data-bucket-name>/*" ] } ] }`Alternatively, if you are using Workflow Automation and KMS keys, enter the following JSON string: `{ "Version": "2012-10-17", "Statement": [ { "Sid": "Statement1", "Effect": "Allow", "Action": [ "s3:ListBucket" ], "Action": [ "kms:Decrypt", "kms:GenerateDataKey*" ], "Resource": [ "<bucket kms key arn>" ], "Effect": "Allow", "Sid": "S3KMSPermissions" } ] }`
+5. Click **Next**.
+6. Enter a **Policy name**for your policy.
+7. Click **Create policy**. You can see the policy you just created attached to the role on the Role Summary page in the AWS console (IAM > Access Management > Roles > your role). See image.
+
+[Image: The policy attached to the role you created in the AWS console]
+
+[Image: Go to Create inline policy to add permission to S3]
+
+[Image: Select JSON to edit JSON file in editor]
+
+Edit the Trust relationships for the role you created for the Zscaler service:
+
+1. In the AWS Management console, on the page for the IAM role you just created, go to the **Trust Relationships** tab. See image.
+2. Click **Edit trust policy**. In the **Edit trust policy**window: `{ "Version": "2012-10-17", "Statement": [ { "Effect": "Allow", "Principal": { "AWS": "arn:aws:iam::0112847471234:user/Zscaler_SaaS_Connector" }, "Action": "sts:AssumeRole", "Condition": { "StringEquals": { "sts:ExternalId": "l9UktUQAEPZ7VJVz" } } } ] }`
+  - In the **Principal AWS**field, delete the existing AWS value, and enter the **Zscaler Connector User ARN**(the number you copied from the Zscaler Admin Console). See image.
+  - In the External ID field, enter the External ID (copied from the Zscaler Admin Console). See image.
+3. Click **Update Policy**. The **Summary**page appears for the role you just created appears.
+4. On the **Summary** page, copy the **Role ARN**. You must enter it into the Zscaler Admin Console when you register the SaaS application. See image.
+
+[Image: Go to the Trust relationships tab in the AWS console]
+
+[Image: Zscaler Connector User ARN]
+
+[Image: AWS External ID]
+
+[Image: AWS ARN]
+
+1. In the Zscaler Admin Console, complete the register the SaaS Application process by adding the account using the IAM roles you configured in AWS to register the SaaS application: To find the following information, click your account name on the top right-hand corner of your AWS page.
+  - **AWS Account ID:** Enter your AWS Account ID.
+  - **IAM Role ARN**: Enter the role you just created (Role ARN) in step 1.
+  - **Configuration Name:**Enter a configuration name.
+  - **Region**:From the drop-down menu, select a region. Your region must match the region your bucket created is in. To find your region, go to the AWS console and look at your Bucket Summary page.
+  - **Bucket Name for Evidence:**Enter the name of the evidence data bucket (e.g., `<bucketNamePrefix>-data`) that you created in AWS.
+  - **Bucket Name for Metadata JSON:**Enter the name of the metadata bucket (e.g., `<bucketNamePrefix>-metadata`) that you created in AWS.
+
+If you are configuring with Workflow Automation, two different buckets were created. One of the buckets is for evidence data and the other bucket is for metadata.
+
+1. Click **Save**.
+
+[Image: Click to go to AWS]
+
+[Image: Zscaler Connector Accounts]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-cloud-cloud-incident-forwarding-google-cloud-0","lastmod":"2026-09-30T11:46Z","nid":"1546218"} -->
+## Configuring DLP Cloud-to-Cloud Incident Forwarding for Google Cloud
+
+- Source: https://help.zscaler.com/zia/configuring-dlp-cloud-cloud-incident-forwarding-google-cloud-0
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Cloud to Cloud Incident Forwarding > Configuring DLP Cloud-to-Cloud Incident Forwarding for Google Cloud
+- Last modified: 2026-09-30T11:46Z
+- Summary: Information on how to configure cloud storage to set up for Cloud-to-Cloud Incident Forwarding for Google Cloud.
+
+Zscaler Cloud-to-Cloud Incident Forwarding allows you to send evidence data and metadata from Data Loss Prevention (DLP) violations directly to your public cloud storage without deploying appliances.
+
+Cloud-to-Cloud Incident Forwarding does not support using the same public cloud account to onboard multiple tenants that are hosted on the same Zscaler cloud. For example, suppose your pre-production and production tenants are hosted on the same Zscaler cloud. In that case, you cannot use the same Azure account to onboard both tenants. To use the same Azure account, you must ensure that each tenant is hosted on a separate Zscaler cloud.
+
+To configure Cloud-to-Cloud Incident Forwarding onboarding, you must first configure storage accounts on your cloud provider and onboard your public cloud account:
+
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal) go to **Data Security**> **Common Resources**> **DLP Incident Receiver**.
+2. Select the **Cloud-to-Cloud Incident Forwarding** tab.
+3. Click **Add**. The **Add**page appears.
+4. On the **Add**page, choose **Google Cloud Platform** for **Choose the SaaS Application Provider** and click **Next**.
+5. Enter a **Tenant Name** for the SaaS application tenant and click **Next**.
+6. In the **Enterprise ID** step, enter the Google Cloud Admin Email ID that you use to log in to the Google Admin console. Click **Next**.
+7. To authorize the SaaS application:
+  - a. Create buckets.
+  - b. Assign permissions.
+  - c. Create a service account.
+  - d. Grant access to storage accounts.
+  - e. Enable Google Cloud APIs.
+  - f. Onboard in the Zscaler Admin Console.
+8. Click [Save and activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+After onboarding is complete, you can configure your DLP policy rules to use Cloud-to-Cloud Incident Forwarding. To learn more, see:
+
+- [Configuring DLP Policy Rules with Content Inspection](https://help.zscaler.com/legacy-zia/configuring-dlp-policy-rules-content-inspection)
+- [Configuring DLP Policy Rules without Content Inspection](https://help.zscaler.com/legacy-zia/configuring-dlp-policy-rules-without-content-inspection)
+- [Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled](https://help.zscaler.com/legacy-zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled)
+- [Configuring Endpoint DLP Policy Rules](https://help.zscaler.com/legacy-zia/configuring-endpoint-dlp-policy-rules)
+- [Configuring Outbound Email Policy Rules](https://help.zscaler.com/legacy-zia/configuring-outbound-email-policy-rules)
+- [Configuring the Data at Rest Scanning DLP Policy with Content Inspection](https://help.zscaler.com/legacy-zia/configuring-data-rest-scanning-dlp-policy-content-inspection)
+- [Configuring the Data at Rest Scanning DLP Policy without Content Inspection](https://help.zscaler.com/legacy-zia/configuring-data-rest-scanning-dlp-policy-without-content-inspection)
+- [Configuring the Data at Rest Scanning Malware Detection Policy](https://help.zscaler.com/zia/configuring-data-rest-scanning-malware-detection-policy)
+
+Create one bucket for evidence data and one bucket for metadata for your Google Cloud storage account:
 
 If you are using your Google Cloud Platform account with [Workflow Automation](https://help.zscaler.com/legacy-workflow-automation/what-workflow-automation), you already created the necessary resources when you configured the DLP Application Integration. You do not need to create additional resources at this time. To learn more, see [Configuring the DLP Application Integration Using Google Cloud Platform](https://help.zscaler.com/legacy-workflow-automation/configuring-dlp-application-integration-using-google-cloud-platform).
 
 1. Log in to the [Google Admin console](https://console.cloud.google.com) and go to the **Google Cloud Storage Overview** page.
 2. Click **Create Bucket**. See image.
-3. On the **Create a bucket**page, enter a name for your Evidence bucket (e.g., `Evidence`). No periods can be used in the name. In Workflow Automation this is called a Data Bucket. Name the bucket (e.g., `Data Bucket`). See image.
+3. On the **Create a bucket**page, enter a name for your evidence data bucket as `<bucketNamePrefix>-data` (e.g., `zscaler-dlp-data`). No periods can be used in the name. In Workflow Automation, this is called a data bucket. See image.
 4. Click **Create**.
 5. On the **Google Cloud Storage Overview** page, click **Create Bucket**. See image.
-6. On the **Create a bucket**page, enter a name for your Metadata bucket (e.g., `Metadata`). No periods can be used in the name.
+6. On the **Create a bucket**page, enter a name for your Metadata bucket as `<bucketNamePrefix>-metadata` (e.g.,`zscaler-dlp-metadata`). No periods can be used in the name.
 7. Click **Create**.
 
 [Image: Select Create bucket on the Google Cloud storage page]
@@ -8786,74 +8905,55 @@ If you are using your Google Cloud Platform account with [Workflow Automation](h
 
 [Image: Enter a name for your bucket then click create]
 
-- Zscaler Defined
-- Custom
-
-1. Enter the **Google Cloud Admin Email ID**.
-2. Enter bucket configuration names.
-  - Enter the **Configuration Name**.
-  - Enter the name of your **Evidence Bucket**: The bucket you created [when configuring a Google Cloud storage account](https://help.zscaler.com/legacy-zia/configure-dlp-cloud-cloud-incident-forwarding#step-1).
-  - Enter the name of your **Metadata Bucket**: The bucket you created [when configuring a Google Cloud storage account](https://help.zscaler.com/legacy-zia/configure-dlp-cloud-cloud-incident-forwarding).
-3. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-- a. Assign permissions.
-- b. Create a service account.
-- c. Grant access to storage accounts.
-- d. Enable Google Cloud APIs.
-- e. Onboard in the Zscaler Admin Console.
-
 1. Log in to the [Google Admin console](https://console.cloud.google.com).
 2. Go to your organization using the **Project Selection** drop-down menu and select the appropriate domain. See image.
 3. On the **Google Cloud console**, click **Activate Cloud Shell**. See image.
 4. At the Cloud Shell prompt, enter: ``nano Zscaler_GCP_SMIR_role.yaml``Use the role name exactly as provided and do not modify or rename the role.
-5. Create a custom role by copying one of the following options and pasting it into the file: `title: Zscaler_GCP_SMIR_Role description: Role Supporting Zscaler SMIR to GCP stage: ALPHA includedPermissions: - storage.objects.create - storage.multipartUploads.create - storage.objects.delete`
-6. When pasted, press `CTRL+O` to write to file. To save and exit the nano editor:
-  1. Press `Ctrl+X`to begin exiting.
-  2. Press `Y` for Yes to save when prompted.
-  3. Press `Enter`to confirm the file name and save.
-7. To create or update a role and attach it to the organization, run one of the following commands, then enter either your organization ID or project ID where indicated: To get the organization ID, click the project at the top of the page. In the **Select from** window, click the **All** tab and click the organization that the project is under. The organization name has an accompanying ID. See image.
-  - Organization-Level Role (Recommended): Role can be granted to resources in any project within your entire organization. Zscaler recommends creating the role at the Organization-level if there is any possibility that this role is needed in other projects. `gcloud iam roles create Zscaler_GCP_SMIR_Role \ --organization=<organization-id> \ --file=zscaler_readwrite_role.yaml`
-  - Project-Level Role (recommended): Role is confined to a single project and can only be granted on resources (like storage buckets) that exist within that same project. Zscaler recommends this role to provide more scoped access. `gcloud iam roles create Zscaler_GCP_SMIR_Role \ --project=<project-id> \ --file=zscaler_readwrite_role.yaml`
-8. To verify the role is created, run one of the following commands according to role, and enter either the organization ID or project ID where indicated:
+5. Create a custom role by copying pasting the following into the file: `title: Zscaler_GCP_SMIR_Role description: Role Supporting Zscaler SMIR to GCP stage: ALPHA includedPermissions: - storage.objects.create - storage.multipartUploads.create - storage.objects.delete`After pasted, press `CTRL+0`to write to file, press `Enter`to not change the file name, and press `CTRL+X`to exit.
+6. To create or update a role and attach it to the organization, run one of the following commands, then enter either your organization ID or project ID where indicated: To get the organization ID, click the project at the top of the page. In the **Select a Resource**window, click the **All** tab and click the organization that the project is under. The organization name has an accompanying ID. See image.
+  - Organization-Level Role: Role can be granted to resources in any project within your entire organization. Zscaler recommends creating the role at the Organization-level if there is any possibility that this role is needed in other projects. `gcloud iam roles create Zscaler_GCP_SMIR_Role \ --organization=<organization-id> \ --file=zscaler_readwrite_role.yaml`
+  - Project-Level Role: Role is confined to a single project and can only be granted on resources (like storage buckets) that exist within that same project. Zscaler recommends this role to provide more scoped access. `gcloud iam roles create Zscaler_GCP_SMIR_Role \ --project=<project-id> \ --file=zscaler_readwrite_role.yaml`
+7. To verify the role is created, run one of the following commands according to role, and enter either the organization ID or project ID where indicated:
   1. Organization-Level Role: `gcloud iam roles describe --organization=<organization-id> Zscaler_GCP_SMIR_Role`
   2. Project-Level Role: `gcloud iam roles describe --project=<project-id> Zscaler_GCP_SMIR_Role`
 
 [Image: Select your organization in the project selection menu]
 
-[Image: Copy your Google Admin Console Org ID]
+[Image: Copy the Organization ID from the Google Cloud Platform]
 
 [Image: Click Activate Cloud Shell]
 
 In addition to creating the service account, you also download your private key, which is required later for fetching the OAuth token.
 
-1. Select any project within your organization’s folder and create a service account for the project. To do this, in the left-side navigation, click **Service Accounts** > **Create Service Account**. See image.
-2. Enter a name for the service account and click **Create and Continue**. Click **Continue** without granting access or permissions to the project. See image.
+1. Select any project within your organization’s folder and create a service account for the project. To do this, in the left-navigation menu, click **Service Accounts**> **Create Service Account**. See image.
+2. Enter a name for the service account, copy the email address, and click **Create and Continue**. Click **Continue** without granting access or permissions to the project, then click **Done**. See image.
 3. On the **Service accounts** page, click the service account you created and select the **Keys** tab. See image.
-4. Click **Add Key** from the drop-down menu and click **Create new key**. See image.
+4. Select **Add Key** from the drop-down menu and click **Create new key**. See image.
 5. In the **Create private key for "<service account>"** window, select the **Key type**as **JSON** and click **Create**. The private key downloads to your computer. See image.
 6. Click **Close**.
 
-[Image: Go to Create Service Account in the Google Admin Console]
+[Image: Go to Create Service Account in the GC console]
 
 [Image: Enter the Service account details on the Create service account page]
 
-[Image: Go to the Keys tab in the Google Admin Console]
+[Image: Go to the Keys tab]
 
-[Image: Create a new key in the Google Admin Console]
+[Image: Create a new key in the Google Cloud Platform]
 
 [Image: Create a private key]
 
-1. In the [Google Admin console](https://console.cloud.google.com), select the **Details** tab of the service account and copy the email address. This service account must be added as an IAM member in the organization you are setting up for storage scan. See image.
-2. Select the**Evidence bucket** you created. You must complete the remaining steps for the Metadata JSON file bucket as well.
-3. Click the **Permissions** tab. See image.
-4. On the **Permissions tab,**click **Grant Access**. See image.
-5. Paste the service account email address you copied previously into the **New principals**text box. See image.
-6. Click **Select a role** and select **Custom,**then select **Zscaler_ReadWrite_Role**. See image.
-7. Click **Save**.
+1. Select the **Details** tab of the service account and copy the email address. This service account must be added as an IAM member in the organization you are setting up for storage scan. See image.
+2. Go to the **Google Cloud Storage Overview**page, and from the left-side menu, click **Buckets**.
+3. Select the evidence data bucket you created. You must complete the remaining steps for the Metadata JSON bucket as well.
+4. Click the **Permissions** tab. See image.
+5. On the **Permissions**tab, click **Grant Access**. See image.
+6. Paste the service account email address you copied previously into the **New principals**text box. See image.
+7. Click **Select a role** and select **Custom,**then select **Zscaler_ReadWrite_Role**. See image.
+8. Click **Save**.
 
-[Image: Copy the email from the details page of the Google Admin console]
+[Image: Copy the email from the details page of the Google Cloud Platform]
 
-[Image: In the Google Admin Console, go to the Permissions tab]
+[Image: In the Google Cloud Platform, go to the Permissions tab]
 
 [Image: On the permissions tab, select Grant access]
 
@@ -8861,80 +8961,487 @@ In addition to creating the service account, you also download your private key,
 
 [Image: Select which Roles to Assign to the principal]
 
-1. Open the [Google Admin console](https://console.cloud.google.com).
-2. Go to the project where you initially created the service account and copy it for the following steps. The project ID is typically displayed on the main dashboard of the selected project.
-3. In the Google Admin console, click the **Activate Cloud Shell** icon. See image.
-4. To set a default project, run the following command: `gcloud config set project <project-id>`
-5. Enable the APIs by running the following command in a single line: `gcloud services enable storage.googleapis.com`
-6. In the left-side navigation, click **APIs & Services** and verify API access status.
+1. Go to the project where you initially created the service account and copy it for the following steps. The Project ID is typically displayed on the main dashboard of the selected project.
+2. Click the **Activate Cloud Shell** icon. See image.
+3. To set a default project, run the following command: `gcloud config set project <project-id>`
+4. Enable the APIs by running the following command in a single line: `gcloud services enable storage.googleapis.com`
+5. In the left-side navigation, click **APIs & Services** and verify API access status.
 
 [Image: Click the Activate Cloud Shell icon]
 
-In the Zscaler Admin Console:
+1. In the Zscaler Admin Console select the type of SaaS Connector.
+  - Zscaler Defined
+  - Custom
 
-1. Enter the **Organization ID**. The organization ID can be found in the [GCP Admin console](https://console.cloud.google.com/). In the **Select from** window, click the **All** tab and click the organization that the project is under. The organization name has an accompanying ID. See image.
-2. Upload the private key JSON file that you downloaded while creating a service account and click **Authorize**. See image.
-3. Under the **Bucket Configuration Names** section:
-  1. **Configuration Name**: Enter a name for the configuration.
-  2. **Bucket Name for Evidence**: Enter the bucket name for evidence you created [when configuring a Google Cloud storage account](https://help.zscaler.com/legacy-zia/configure-dlp-cloud-cloud-incident-forwarding).
-  3. **Bucket Name for Metadata JSON**: Enter the bucket name for metadata JSON you created [when configuring a Google Cloud storage account](https://help.zscaler.com/legacy-zia/configure-dlp-cloud-cloud-incident-forwarding).
-4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+For **Enter Bucket Configuration**, click **Add Bucket**and enter the following information:
 
-[Image: Copy the Organization ID from the Google Admin Console]
+- **Configuration Name**: Enter a name for the configuration.
+- **Bucket Name for Evidence**: Enter the evidence data bucket name you created when configuring a Google Cloud storage account.
+- **Bucket Name for Metadata JSON**: Enter the metadata JSON bucket name you created when configuring a Google Cloud storage account.
 
-[Image: Click Upload File in the Zscaler Admin Console]
+1. Enter the **Organization ID**. See image. The organization ID can be found in the [GCP Admin console](https://console.cloud.google.com/) In the Select from window, click the All tab and click the organization that the project is under. The organization name has an accompanying ID. See image.
+2. Upload the **Private Key JSON**file that you downloaded [when creating a service account](https://help.zscaler.com/tech-pubs-drafts/configuring-dlp-cloud-cloud-incident-forwarding-google-cloud-modernized#gcp-create-service-account). See image.
+3. Click **Add Bucket** and enter the following information: See image.
+  - **Configuration Name**: Enter a name for the configuration.
+  - **Bucket Name for Evidence**: Enter the bucket name for evidence you created [when configuring a Google Cloud storage account](https://help.zscaler.com/tech-pubs-drafts/configuring-dlp-cloud-cloud-incident-forwarding-google-cloud-modernized#create-storage-account-buckets).
+  - **Bucket Name for Metadata JSON**: Enter the bucket name for metadata JSON you created [when configuring a Google Cloud storage account](https://help.zscaler.com/tech-pubs-drafts/configuring-dlp-cloud-cloud-incident-forwarding-google-cloud-modernized).
+
+[Image: Locate your GCP organization ID]
+
+[Image: Enter the Organization ID]
+
+[Image: Upload the Private Key JSON file]
+
+[Image: Enter the bucket configuration information]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-cloud-cloud-incident-forwarding-microsoft-azure","lastmod":"2026-09-30T11:48Z","nid":"1546220"} -->
+## Configuring DLP Cloud-to-Cloud Incident Forwarding for Microsoft Azure
+
+- Source: https://help.zscaler.com/zia/configuring-dlp-cloud-cloud-incident-forwarding-microsoft-azure
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Cloud to Cloud Incident Forwarding > Configuring DLP Cloud-to-Cloud Incident Forwarding for Microsoft Azure
+- Last modified: 2026-09-30T11:48Z
+- Summary: Information on how to configure cloud storage to set up for Cloud-to-Cloud Incident Forwarding for Microsoft Azure.
+
+Zscaler Cloud-to-Cloud Incident Forwarding allows you to send evidence data and metadata from Data Loss Prevention (DLP) violations directly to your public cloud storage without deploying appliances.
+
+Cloud-to-Cloud Incident Forwarding does not support using the same public cloud account to onboard multiple tenants that are hosted on the same Zscaler cloud. For example, suppose your pre-production and production tenants are hosted on the same Zscaler cloud. In that case, you cannot use the same Azure account to onboard both tenants. To use the same Azure account, you must ensure that each tenant is hosted on a separate Zscaler cloud.
+
+To configure Cloud-to-Cloud Incident Forwarding:
+
+- 1. Create a resource group and storage account in Azure.
+- 2. Begin onboarding the SaaS application.
+- 3. Authorize the SaaS application.
+
+After onboarding is complete, you can configure [DLP Policy rules and settings](https://help.zscaler.com/zia/policies/data-loss-prevention). You can also configure [Cloud-to-Cloud Incident Forwarding for AWS](https://help.zscaler.com/zia/configuring-dlp-cloud-cloud-incident-forwarding-aws) and [Google Cloud Platform](https://help.zscaler.com/tech-pubs-drafts/configuring-dlp-cloud-cloud-incident-forwarding-google-cloud-modernized).
+
+Before you can deploy a Cloud-to-Cloud Incident Receiver in Azure, you must first create a resource group to hold all resources for the Incident Receiver VM, as well as a storage account for the Incident Receiver files.
+
+- a. Create a storage account.
+- b. Add evidence and metadata buckets.
+
+1. Log in to the [Azure portal](https://portal.azure.com/) with your Global Administrator account.
+2. Go to **Storage accounts**.
+3. Click **Create**to create the storage account. See image.
+4. On the **Basics**tab enter the following information: See image.
+  - **Resource group**: Click **Create new** and create a new resource group.
+  - **Storage account name**: Enter a name for the storage account.
+  - **Region**: From the drop-down menu, select a region.
+  - **Primary service**: From the drop-down menu, select a primary service.
+  - **Performance**: Select either **Standard**or **Premium**.
+  - **Redundancy**: From the drop-down menu, select a redundancy.
+5. Click **Review + create**.
+6. The **Create a storage account** page opens. Click **Create**.
+7. You need to make sure your storage account is accessible to the necessary IP addresses. To do so, go to **Security + networking > Networking**. To learn which IP addresses to connect to, see [Zscaler Hub IP Addresses](https://config.zscaler.com/zscaler.net/hubs).
+
+1. Go to the **Storage Account** you just created.
+2. Go to **Data storage**> **Containers**and click **Add container**. The **New Container** pane appears. See image.
+3. In the **New Container** pane, enter the name for your evidence data container as <bucketNamePrefix>-data then click **Create**. No periods can be used in the name.
+4. In the same storage account, click **Add container**. The **New Container** pane appears.
+5. In the **New Container** pane, enter the name for your metadata container as <bucketNamePrefix>-metadata then click **Create**. No periods can be used in the name. You need the names of the containers you created to enter them in the Zscaler Admin Console.
+
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Common Resources**> **DLP Incident Receiver**.
+2. Select the **Cloud-to-Cloud Incident Forwarding** tab.
+3. Click **Add**.
+4. Choose **Microsoft Azure** for the **SaaS Application Provider**and click **Next**.
+5. Enter a **Tenant Name** for the SaaS application tenant and click **Next**.
+6. Ensure the **Cloud-to-Cloud Incident Forwarding**checkbox is checked and click **Next**. (Optional) To onboard with Workflow Automation, select the **Workflow Automation** checkbox. See image. If you are configuring your Azure account with [Workflow Automation](https://help.zscaler.com/legacy-workflow-automation/what-workflow-automation), you already created the resources needed for configuration. You do not need to create additional resources at this time. See [Configuring the Azure DLP Application Integration Using Cloud-to-Cloud Incident Forwarding](https://help.zscaler.com/legacy-workflow-automation/configuring-azure-dlp-application-integration-using-cloud-cloud-incident-forwarding).
+
+In the Zscaler Admin Console, on the **Add** page, select the functionality you want to enable:
+
+See image.
 
 - Zscaler Defined
 - Custom
 
-- a. Configure Microsoft Azure.
-- b. Create and assign a role.
+1. Click **Provide Admin Credentials**, and sign in with your Microsoft Azure account credentials. See image.
+2. Copy the Zscaler SaaS Connector ID. See image.
+3. Log in to the [Azure portal](https://portal.azure.com/) with your Global Administrator account. Go to **Azure Active Directory**> **Enterprise Applications**. See image.
+4. Copy the application name matching the Zscaler SaaS Connector ID. See image.
+5. Go back to the Azure portal home page, then go to **Subscriptions** and select your subscription. See image.
+6. Select **Access Control (IAM)** > **Role Assignments** > **Add**> **Add role assignment**. See image.
+7. Search for `Storage Blob Data Contributor`.
+8. Select **Storage Blob Data Contributor** then click **Next**.
+9. Search for `Storage Blob Data Contributor`.
+10. Select**Storage Account Contributor** and then click **Next**.
+11. Click **Select members** and add the application name as a member to **Storage Blob Data Contributor** and **Storage Account Contributor.** See image.
+12. Select **Review + assign**.
+13. In the Zscaler Admin Console, under **Enter Bucket Configuration**, select **Add Bucket**. See image.
+14. Add the following details: See image.
+  - **Configuration Name**
+  - **Bucket Name for Evidence**
+  - **Bucket Name for Metadata JSON**
+15. Click [Save and activate the change](https://help.zscaler.com/unified/1.0/saving-and-activating-changes-admin-console).
 
-1. Go to **Authorize the SaaS Application section** and click **Provide Admin Credentials**, and sign in with your Microsoft Azure account credentials. See image.
-2. For **Register the SaaS Application**:
-  1. Sign in to the Azure portal as an admin and enter:
-    - Your Microsoft Azure **Enterprise ID**.
-    - Your **Metadata and Evidence storage accounts**.
-  2. Click **Save**.
-
-1. Copy the **Zscaler SaaS Connector**ID. See image.
-2. Log in to the [Azure portal](https://portal.azure.com/) with your Global Administrator account. Go to **Azure Active Directory**> **Enterprise Application**.
-3. Copy the application name matching the Zscaler SaaS Connector ID.
-4. Go back to the Azure portal home page, then go to **Subscriptions** and select your subscription. You must do this for each of your subscriptions.
-5. Select **Access Control (IAM)** > **Role Assignments** > **Add**> **Add role assignment**.
-6. Search for `Storage Blob Data Contributor`.
-7. Select **Storage Blob Data Contributor** then click **Next**.
-8. Select **Review + assign**.
-
-[Image: Click to provide MS Azure Admin Credentials]
-
-[Image: Copy Zscaler SaaS Connector ID]
-
-To create a custom Microsoft Azure Blob Storage Connector, you must first create blobs, configure permissions, and assign roles in Azure so that you can provide the client ID, client secret, and tenant ID for the Microsoft Azure Blob Storage account in the Zscaler Admin Console to be able to provide the configuration name, storage account name for evidence, and storage account name for metadata JSON.
-
-- a. Create the custom connector and client secret.
-- b. Generate API permissions for the connector.
-- c. Add role assignments.
-- d. Authorize the custom connector.
-
-- i. Register the application or service.
-- ii. Configure and copy the client secret.
+- a. Create the custom connector
+- b. Provide Zscaler access to the application.
+- c. Create API permissions for the connector.
+- d. Add role assignments.
+- e. Authorize the custom connector.
 
 1. Sign in to the [Azure portal](https://azure.microsoft.com/).
-2. In the **Azure Services** section, click **App registrations**. The **App registrations**page appears. See image.
-3. Click **New registration**. See image.
-
-The **Register an application** window opens.
-
-1. In the **Register an application** window:
+2. In the **Azure Services** section, click **App registrations**. See image. The **App registrations**page appears.
+3. Click **New registration**. See image. The **Register an application** window opens.
+4. In the **Register an application** window: See image.
   - **Name**: Enter a name for the application that is representative of the Zscaler connection you are creating (e.g., `Zscaler Storage Account`).
   - **Supported account types**: Ensure that this option is set to the **Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant)** value.
-  - **Redirect URI (optional)**: Select **Web** as the platform, then provide the URL of the Zscaler account (e.g., `https://admin.zscalertwo.net/`). Save the URL for later use. See image.
-2. Click **Register**.
+  - **Redirect URI (optional)**: Select **Web** as the platform, then provide the URL of the Zscaler account (e.g., `https://admin.zscalertwo.net/`). Save the URL for later use.
+5. Click **Register**. The application is registered and the application's **Overview** page is displayed. Copy the **Application (client) ID** and **Directory (tenant) ID** values from the **Overview** page and save them to enter your Client ID and Tenant ID into the Zscaler Admin Console to complete the configuration process. See image.
 
-The application is registered and the application's **Overview** page is displayed. Copy the **Application (client) ID** and **Directory (tenant) ID** values from the **Overview** page and save them for later use.
+In the Zscaler Admin Console, on the **Add**page, select the **Application Type** you would like to integrate with:
 
 See image.
+
+- Client Secret
+- Private Key
+
+1. In the Azure portal, in the left-side navigation, go to **Manage**> **Certificates & Secrets**. See image.
+2. On the **Client secrets**tab, click **New client secret**. See image. The **Add a client secret** pane appears.
+3. On the **Add a client secret** pane: See image.
+  - **Description**: Enter information about the client secret.
+  - **Expires**: From the drop-down menu, select the appropriate expiration time.
+4. Click **Add**. The client secret value is generated and displayed.
+5. Copy the secret value and save it for later use. You need the client secret to enter it into the Zscaler Admin Console to complete the configuration process. The client secret value is displayed only once and cannot be retrieved after you navigate away from the page. See image.
+
+Generate a private key PEM file:
+
+- For Windows users
+- For Mac users
+
+- Generate a certificate, private key, and combined PEM file.
+- Upload the certificate file to the created client connector.
+
+For additional information about the files you need to create, refer to the following table:
+
+| File Name | Description | Usage |
+| --- | --- | --- |
+| `private_key.pem` | AES-256 encrypted RSA private key | Used to create `combined.pem`. |
+| `certificate.pem` | Self-signed certificate | Upload on Azure portal. |
+| `combined.pem` | Combined PEM file containing the private key and certificate | Upload on Internet & SaaS onboarding page. |
+
+To generate a certificate on a Windows device, copy the following code and run the commands using OpenSSL:
+
+```
+<#
+.SYNOPSIS
+  Generate AES-encrypted RSA key and a self-signed certificate with an interactive pause.
+
+.DESCRIPTION
+  - Prompts for a passphrase (masked).
+  - Generates encrypted private key using OpenSSL.
+  - Pauses so operator can choose interactive subject prompts or provide a subject string.
+  - Decrypts the private key, combines key + certificate into a single PEM.
+  - Cleans up temporary passfile and clears sensitive memory.
+#>
+
+[CmdletBinding()]
+param(
+    [string]$OpenSSL = 'C:\Program Files\OpenSSL-Win64\bin\openssl.exe',
+    [string]$WorkingDir = "$env:USERPROFILE\Downloads",
+    [int]$Days = 365
+)
+
+Set-StrictMode -Version Latest
+$ErrorActionPreference = 'Stop'
+
+# Paths
+$EncryptedKey = Join-Path $WorkingDir "private_encrypted.pem"
+$DecryptedKey = Join-Path $WorkingDir "private_decrypted.pem"
+$Certificate  = Join-Path $WorkingDir "certificate.pem"
+$CombinedPEM  = Join-Path $WorkingDir "combined.pem"
+
+# Validate OpenSSL
+if (-not (Test-Path -Path $OpenSSL)) {
+    Write-Error "OpenSSL not found at '$OpenSSL'. Update the path or install OpenSSL."
+    exit 1
+}
+
+# Ensure working directory exists
+if (-not (Test-Path -Path $WorkingDir)) {
+    New-Item -ItemType Directory -Path $WorkingDir -Force | Out-Null
+}
+
+# Prompt for passphrase (masked)
+$passwordSecure = Read-Host -AsSecureString "Enter passphrase to encrypt the private key (masked)"
+if ($null -eq $passwordSecure) {
+    Write-Error "No passphrase provided. Aborting."
+    exit 1
+}
+
+# Prompt for passphrase (masked)
+$Days = Read-Host -AsString "Enter cert days expiry"
+if ($null -eq $days) {
+    Write-Error "invalid days"
+    exit 1
+}
+
+# Convert SecureString to plain in memory briefly
+$BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($passwordSecure)
+try {
+    $PlainPassword = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
+}
+finally {
+    # Zero and free the BSTR immediately
+    [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($BSTR)
+}
+
+# Create a temporary passfile for OpenSSL to read (avoids exposing passphrase in process args)
+$passFile = [System.IO.Path]::GetTempFileName()
+
+try {
+    # Write passphrase without newline
+    Set-Content -Path $passFile -Value $PlainPassword -NoNewline -Encoding UTF8
+
+    # Best-effort: restrict ACL to current user
+    try {
+        $currentUser = (whoami)
+        $acl = Get-Acl -Path $passFile
+        $acl.SetAccessRuleProtection($true, $false)
+        $rule = New-Object System.Security.AccessControl.FileSystemAccessRule($currentUser, "FullControl", "Allow")
+        $acl.SetAccessRule($rule)
+        Set-Acl -Path $passFile -AclObject $acl
+    } catch {
+        Write-Warning "Could not tighten ACL on passfile: $_"
+    }
+
+    Write-Host ""
+    Write-Host "Step 1: Generating AES-256 encrypted RSA private key..."
+    & $OpenSSL genpkey -algorithm RSA -aes256 -pass file:"$passFile" -out "$EncryptedKey" -pkeyopt rsa_keygen_bits:2048
+    Write-Host "Encrypted key created at: $EncryptedKey"
+
+    Write-Host ""
+    Write-Host "Step 2: Prepare to create the self-signed certificate."
+    Write-Host "  Option A: Press Enter to let OpenSSL prompt you interactively for subject fields."
+    Write-Host "  Option B: Paste a subject string now to run non-interactive (example: /C=US/ST=State/L=City/O=Org/OU=Unit/CN=example.com)"
+    $userInput = Read-Host "Press Enter for interactive prompts, or paste subject and press Enter"
+
+    if ([string]::IsNullOrWhiteSpace($userInput)) {
+        Write-Host ""
+        Write-Host "Running OpenSSL in interactive mode. You will be prompted for subject fields."
+        & $OpenSSL req -new -x509 -key "$EncryptedKey" -passin file:"$passFile" -out "$Certificate" -days $Days
+    } else {
+        $subj = $userInput.Trim()
+        Write-Host ""
+        Write-Host "Creating certificate non-interactively with subject: $subj"
+        & $OpenSSL req -new -x509 -key "$EncryptedKey" -passin file:"$passFile" -out "$Certificate" -days $Days -subj $subj
+    }
+
+    Write-Host "Certificate created at: $Certificate"
+    Start-Sleep -Seconds 1
+
+    Write-Host ""
+    Write-Host "Step 3: Decrypting private key to plain PEM..."
+    & $OpenSSL pkey -in "$EncryptedKey" -passin file:"$passFile" -out "$DecryptedKey"
+    Write-Host "Decrypted key written to: $DecryptedKey"
+
+    Start-Sleep -Seconds 1
+
+    Write-Host ""
+    Write-Host "Step 4: Combining decrypted key and certificate into combined PEM..."
+    # Ensure private key first, then certificate
+    Get-Content -Path $EncryptedKey -Raw | Out-File -FilePath $CombinedPEM -Encoding ascii
+    Get-Content -Path $Certificate -Raw | Out-File -FilePath $CombinedPEM -Encoding ascii -Append
+    Write-Host "Combined PEM created at: $CombinedPEM"
+
+    Write-Host ""
+    Write-Host "Certificate expiry:"
+    & $OpenSSL x509 -in "$Certificate" -noout -enddate
+
+} finally {
+    # Cleanup: remove passfile and clear sensitive variables
+    if (Test-Path $passFile) {
+        try {
+            # Overwrite with zeros (best-effort) then delete
+            $zero = [byte[]]::new(1024)
+            $fs = [System.IO.File]::Open($passFile, [System.IO.FileMode]::Open, [System.IO.FileAccess]::Write)
+            try { $fs.Write($zero, 0, $zero.Length) } catch {}
+            finally { $fs.Close() }
+        } catch {}
+        Remove-Item -Path $passFile -Force -ErrorAction SilentlyContinue
+    }
+
+    # Clear sensitive variables
+    if ($null -ne $PlainPassword) { $PlainPassword = $null }
+    if ($null -ne $passwordSecure) { $passwordSecure.Dispose() }
+    [System.GC]::Collect(); [System.GC]::WaitForPendingFinalizers()
+}
+
+Write-Host ""
+Write-Host "Done. Files created in: $WorkingDir"
+```
+
+1. In the Azure portal, in the left-side navigation, go to**App registrations**and click on the client connector you created.
+2. In the left-side navigation, go to **Manage**> **Certificates & secrets**. See image.
+3. Click the **Certificates**tab and then click **Upload certificate**. See image.
+4. In the **Description**field, enter a description for the certificate.
+5. Upload the public certificate PEM file and click **Add**.
+
+- Generate a certificate, private key, and combined PEM file.
+- Upload the certificate file to the created client connector.
+
+For additional information about the files you need to create, refer to the following table:
+
+| File Name | Description | Usage |
+| --- | --- | --- |
+| `private_key.pem` | AES-256 encrypted RSA private key | Used to create `combined.pem`. |
+| `certificate.pem` | Self-signed certificate | Upload on Azure Portal. |
+| `combined.pem` | Combined PEM file containing the private key and certificate | Upload on Internet & SaaS onboarding page. |
+
+To generate a certificate on a Mac device, copy the following code block, paste it into OpenSSL, and run.
+
+```
+#!/bin/bash
+
+set -e  # Exit the script if any command fails
+
+# Prompt for missing values
+read_if_missing() {
+  local varname="$1"; local prompt="$2"; local default="${3:-}"
+  if [[ -z "${!varname:-}" ]]; then
+    if [[ -n "$default" ]]; then
+      read -rp "$prompt [$default]: " val
+      val="${val:-$default}"
+    else
+      read -rp "$prompt: " val
+    fi
+    printf -v "$varname" '%s' "$val"
+  fi
+}
+
+read_if_missing DAYS "Certificate validity in days" "$DAYS"
+
+# File definitions
+ENCRYPTED_PRIVATE_KEY="private_key.pem"       # AES-encrypted private key
+CERTIFICATE="certificate.pem"                # Self-signed certificate
+COMBINED_PEM="combined.pem"                  # Final combined PEM file
+
+# Step 1: Generate an AES-encrypted RSA private key
+echo "🔐 Generating an AES-256 encrypted RSA private key..."
+openssl genpkey -algorithm RSA -aes256 -out "$ENCRYPTED_PRIVATE_KEY" -pkeyopt rsa_keygen_bits:2048
+if [[ $? -ne 0 ]]; then
+    echo "❌ Failed to generate AES-encrypted private key."
+    exit 1
+fi
+echo "✅ Successfully created AES-encrypted private key: '$ENCRYPTED_PRIVATE_KEY'."
+
+# Step 2: Create a self-signed certificate using the encrypted private key
+echo "📜 Generating a self-signed certificate..."
+openssl req -new -x509 -key "$ENCRYPTED_PRIVATE_KEY" -out "$CERTIFICATE" -days $DAYS 
+if [[ $? -ne 0 ]]; then
+    echo "❌ Failed to create certificate."
+    exit 1
+fi
+echo "✅ Successfully created self-signed certificate: '$CERTIFICATE'."
+
+# Step 3: Combine encrypted private key and certificate into a single PEM file
+echo "📦 Combining encrypted private key and certificate into '$COMBINED_PEM'..."
+cat "$ENCRYPTED_PRIVATE_KEY" "$CERTIFICATE" > "$COMBINED_PEM"
+if [[ $? -ne 0 ]]; then
+    echo "❌ Failed to combine files into PEM."
+    exit 1
+fi
+echo "✅ Successfully created combined PEM file: '$COMBINED_PEM'."
+
+# Step 5: Confirm Encryption Details in the Encrypted Key
+echo "🔍 Confirming encryption type used in the private key..."
+openssl asn1parse -in "$ENCRYPTED_PRIVATE_KEY"
+
+echo "🎉 All steps completed successfully! The combined PEM file is located at '$COMBINED_PEM'."
+```
+
+1. In the Azure portal, go to**App registrations**and click on the client connector you created.
+2. In the left-side navigation, go to **Manage**> **Certificates & secrets**. See image.
+3. Click the **Certificates**tab and then click **Upload certificate**. See image.
+4. In the **Description**field, enter a description for the certificate.
+5. Upload the public certificate PEM file and click **Add**.
+
+1. In the Azure portal, in the left-side navigation, go to **Manage**> **API permissions**. See image.
+2. Click **Configured permissions**then **Add a permission**. See image. The **Request API permissions** page is displayed.
+3. On the **Microsoft APIs** tab, click an API to assign permissions. You need to assign two permissions: Azure Storage and Azure Service Management. Each one maps to the `user_impersonation` permission. The permissions appear in the **Configured permissions** list on the **API permissions** page. See image.
+  1. In the **Request API permissions**list, select **Azure Service Management**. See image.
+  2. Select the permission `user_impersonation` and then click **Add permissions**. See image.
+  3. On the **Microsoft APIs** tab, in the **Select permissions** list, select **Azure Storage**.
+  4. Select the permission `user_impersonation` and then click **Add permissions**.
+
+1. In the Azure portal, in the left-side navigation, go to **Azure Services**> **Enterprise Applications**. See image.
+2. Select a storage account and the Overview page appears.
+3. Copy the **Name**, **Application ID**, and the **Object ID.** See image.
+4. Go back to the Azure portal home page, and in the **Azure Services** section, click **Subscriptions**.
+5. Select your subscription. See image. The page for the selected subscription appears.
+6. In the left-hand menu, click **Access Control (IAM).** See image. The **Access Control (IAM)** page appears.
+7. Click the **Role Assignments** tab, then click **Add**> **Add role assignment**. See image.
+8. Search for `Storage Blob Data Contributor`. Select **Storage Blob Data Contributor** then click **Next**. See image.
+9. Search for `Storage Account Contributor`. Select **Storage Account Contributor** then click **Next**.
+10. On the **Add role assignment** page, click **Select members**. See image.
+11. Select or search for the application you created when [creating the custom connector](https://help.zscaler.com/legacy-zia/configuring-dlp-cloud-cloud-incident-forwarding#step1-create-custom-connector), then add it as a member to **Storage Blob Data Contributor**. **.** See image.
+12. Click **Submit**.
+
+1. In the Zscaler Admin Console, on the **Add**page:
+  - If you selected Client Secret:
+  - If you selected Private Key:
+2. Click [Save and activate the change](https://help.zscaler.com/unified/1.0/saving-and-activating-changes-admin-console). If you have onboarded the Azure application tenant for Workflow Automation, and used a private key, a new DLP Azure integration in disabled state is automatically added for you in Workflow Automation. To learn more, see [Configuring the Azure DLP Application Integration Using Cloud-to-Cloud Incident Forwarding](https://help.zscaler.com/workflow-automation/configuring-azure-dlp-application-integration-using-cloud-cloud-incident-forwarding).
+
+1. Enter the **Client ID**,**Client Secret**, and the **Tenant ID**.
+2. Click **Add Bucket**.
+3. Enter the bucket configuration information: See image.
+  - **Configuration Name**:Enter a name for the configuration.
+  - **Bucket Name for Evidence**: Enter the evidence data bucket name by following these steps:
+    1. Go to the Azure portal.
+    2. Select your storage account.
+    3. Go to the containers section and select the storage account name container to copy its URL: `https://<storage_account>.blob.core.windows.net/<container_name>`
+  - **Bucket Name for Metadata JSON**: Enter the metadata JSON bucket name by following these steps:
+    1. Go to the Azure portal.
+    2. Select your storage account.
+    3. Go to the containers section and select the storage account name container to copy its URL: `https://<storage_account>.blob.core.windows.net/<container_name>`
+4. Click **Authorize**.
+
+1. Upload the**Private Key Certificate File**. See image.
+2. Enter the **Client ID** and **Tenant ID**.
+3. Click **Add Bucket**.
+4. Enter the bucket configuration information: See image.
+  - **Configuration Name**:Enter a name for the configuration.
+  - **Bucket Name for Evidence**: Enter the evidence data bucket name by following these steps:
+    1. Go to the Azure portal.
+    2. Select your storage account.
+    3. Go to the containers section and select the storage account name container to copy its URL: `https://<storage_account>.blob.core.windows.net/<container_name>`
+  - **Bucket Name for Metadata JSON**: Enter the metadata JSON bucket name by following these steps:
+    1. Go to the Azure portal.
+    2. Select your storage account.
+    3. Go to the containers section and select the storage account name container to copy its URL: `https://<storage_account>.blob.core.windows.net/<container_name>`
+5. Click **Authorize**.
+
+[Image: Select Create to create a storage account]
+
+[Image: Create a storage account in Azure]
+
+[Image: Add a container in Azure]
+
+[Image: Select the Workflow Automation Checkbox]
+
+[Image: Select which SaaS Connector to configure]
+
+[Image: Select the Application Type]
+
+[Image: Go to Provide Admin Credentials]
+
+[Image: Select Add Bucket to add a Bucket Configuration]
+
+[Image: Copy the Zscaler SaaS Connector ID]
+
+[Image: Bucket Configuration Details]
+
+[Image: Go to the IAM Add page]
+
+[Image: Enterprise applications page]
+
+[Image: Connector ID]
+
+[Image: Select the Subscription name]
+
+[Image: Select members to add role assignments]
 
 [Image: Copy Application ID and Directory ID]
 
@@ -8944,39 +9451,21 @@ See image.
 
 [Image: On the App registrations page, select New Registration]
 
-1. In the left-side navigation, go to **Manage**> **Certificates & secrets**. See image.
-2. On the **Client secrets**tab, click **New client secret**. See image.
-
-The **Add a client secret** pane opens.
-
-1. In the **Add a client secret** pane: See image.
-  - **Description**: Provide information about the client secret.
-  - **Expires**: Select the appropriate expiration time from the drop-down menu.
-2. Click **Add**.
-
-The client secret value is generated and displayed.
-
-1. Copy the secret value and save it for later use. See image. The client secret value is displayed only once and cannot be retrieved after you navigate away from the page.
-
 [Image: Copy the client secret in Azure]
+
+[Image: Go to Certificates and Secrets page]
+
+[Image: Upload certificate]
+
+[Image: Go to Certificates and Secrets page]
+
+[Image: Upload certificate]
 
 [Image: Enter a description and select expiration for the client secret in Azure]
 
 [Image: Click Add new client secret]
 
 [Image: Go to Manage and then Certificates and Secrets]
-
-You must assign specific API permissions for each Microsoft connector you create for the Zscaler service.
-
-1. In the left-side navigation, go to **Manage**> **API permissions**. See image.
-2. Click **Configured permissions**then **Add a permission**. See image. The **Request API permissions** page is displayed.
-3. On the **Microsoft APIs** tab, click an API to assign permissions. You need to assign two permissions: Azure Storage and Azure Service Management. Each one maps to the `user_impersonation` permission.
-  1. In the **Request API permissions**list, select **Azure Service Management**. See image.
-  2. Select the permission `user_impersonation` and then click **Add permissions**. See image.
-  3. On the **Microsoft APIs** tab, in the **Select permissions** list, select **Azure Storage**.
-  4. Select the permission `user_impersonation` and then click **Add permissions**.
-4. Click **Add permissions**.
-5. Select the permission `user_impersonation`. The permissions appear in the **Configured permissions** list on the **API permissions** page. See image.
 
 [Image: API permissions in Azure]
 
@@ -8987,19 +9476,6 @@ You must assign specific API permissions for each Microsoft connector you create
 [Image: Select Add a Permission on the API permissions page]
 
 [Image: Go to Manage then click API permissions]
-
-You must add additional role assignments in Azure to ensure that the Zscaler service can properly access the application:
-
-1. Go to **Azure Services** > **Enterprise Applications** to get to the **Overview** page. See image.
-2. Copy the **Name**, **Application ID**, and the **Object ID.** See image.
-3. Go back to the Azure portal home page, then go to **Subscriptions**.
-4. Select your subscription. See image. The page for the selected subscription opens.
-5. Go to **Access Control (IAM).** See image. The **Access Control (IAM)** page opens.
-6. Go to the **Role Assignments** tab, then select **Add**> **Add role assignment**. See image.
-7. Search for `Storage Blob Data Contributor`. Select **Storage Blob Data Contributor** then click **Next**. See image.
-8. On the **Add role assignment** page, click **Select members**. See image.
-9. Select or search for the application you created when [creating the custom connector](https://help.zscaler.com/legacy-zia/configuring-dlp-cloud-cloud-incident-forwarding#step1-create-custom-connector), then add it as a member to **Storage Blob Data Contributor**. Click **Submit**. See image.
-10. Click **Submit**.
 
 [Image: Select Storage account for Azure Role]
 
@@ -9017,142 +9493,26 @@ You must add additional role assignments in Azure to ensure that the Zscaler ser
 
 [Image: Copy the information from your storage account overview in Azure]
 
-Configure a storage account for Evidence and a storage account for Metadata.
-
-If you are configuring your Azure account with [Workflow Automation](https://help.zscaler.com/legacy-workflow-automation/what-workflow-automation), you already created the resources needed for configuration. You do not need to create additional resources at this time. See [Configuring the Azure DLP Application Integration Using Cloud-to-Cloud Incident Forwarding](https://help.zscaler.com/legacy-workflow-automation/configuring-azure-dlp-application-integration-using-cloud-cloud-incident-forwarding).
-
-1. From the Azure homepage, go to **Storage accounts**.
-2. Click **Create**to create the storage account for Evidence. See image.
-3. On the **Basics**tab: See image.
-  - **Resource group**: Create a new resource group.
-  - **Storage account name**: Enter a name.
-  - **Region**: Select a region from the drop-down menu.
-  - **Primary service**: Select a primary service from the drop-down menu.
-  - **Performance**: Choose either **Standard**or **Premium**.
-  - **Redundancy**: Select a redundancy from the drop-down menu.
-4. Click **Review + create**. You can also create one account for both Evidence and Metadata and then add an Evidence and Metadata bucket to that account. If you are only creating one account, skip steps e–j.
-5. The **Create a storage account** page opens. Click **Create**.
-6. Next, you need to create another storage account for Metadata. From the Azure homepage, go to **Storage accounts**.
-7. Click **Create**.
-8. On the **Basics**tab: See image.
-  - **Resource group**: Create a new resource group.
-  - **Storage account name**: Enter a name.
-  - **Region**: Select a region from the drop-down menu.
-  - **Primary service**: Select a primary service from the drop-down menu.
-  - **Performance**: Choose either **Standard**or **Premium**.
-  - **Redundancy**: Select a redundancy from the drop-down menu.
-9. Click **Review + create**.
-10. The **Create a storage account** page opens. Click **Create**.
-11. You need to make sure your storage accounts are accessible to the necessary IP addresses. To do so, go to **Security + networking > Networking**. To learn which IP addresses to connect to, see [Zscaler Hub IP Addresses](https://config.zscaler.com/zscaler.net/hubs).
-12. Go to the **Storage Account** you just created.
-13. Go to **Data storage**> **Containers**and select **Add container**. See image.
-14. Name your container `evidence` then click **Create**. No periods can be used in the name.
-15. Select **Add container**.
-16. Name your container `metadata` then click **Create**. No periods can be used in the name. You need the names of the containers you created to enter them in the Zscaler Admin Console.
-
 [Image: Add a container in Azure]
-
-[Image: Create storage account for metadata in Azure]
 
 [Image: Create a storage account in Azure]
 
-[Image: Select Create to create a storage account]
+[Image: Enter Bucket and Configuration Information]
 
-To authorize a custom connector, you must first manually update the Azure login URL to grant permissions for the application on the tenant. After that, you must provide the client ID, client secret, and tenant ID in the Zscaler Admin Console so that the Zscaler service can access the application.
+[Image: Upload Private Key]
 
-1. In the Zscaler Admin Console, enter the values for the **Application** **Client ID**, **Client Secret**, and **Tenant ID** that you copied earlier, then click **Authorize**.
-2. Enter the **Configuration Name**.
-3. Enter the **Bucket Name for Evidence**:
-  1. Go to the Azure portal.
-  2. Select your storage account.
-  3. Go to the containers section and select the storage account name container to copy its URL: `https://<storage_account>.blob.core.windows.net/<container_name>`
-4. Enter the **Bucket Name for Metadata**: See image.
-  1. Go to the Azure portal.
-  2. Select your storage account.
-  3. Go to the containers section and select the storage account name container to copy its URL: `https://<storage_account>.blob.core.windows.net/<container_name>`
-5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-[Image: Enter Bucket Config info in theZscaler Admin Console]
-
-You need your Zscaler Connector Account Number, Zscaler Connector User ARN, and External ID to authorize the SaaS Application in the AWS Management Console. Remember these account numbers.
-See image.
-
-- a. Create an IAM role for AWS.
-- b. Specify IAM role permissions.
-- c. Edit trust policy.
-- d. Register the SaaS application.
-
-You must create roles in AWS to ensure that the Zscaler service can properly access the application:
-
-1. Click **Go to AWS**to give Zscaler access to Amazon S3 and configure roles and permissions. See image.
-2. Log into the AWS Management Console.
-3. Go to **Services** > **IAM**.
-4. In the left-side navigation, go to **Access management** > **Roles**.
-5. Click **Create role**.
-6. In **Select type of trusted entity**, select **AWS Account**.
-7. From the AWS Account page, click **AWS account**and enter the **Account ID** and the **External ID** from the Zscaler instance that you copied from the Zscaler Admin Console.
-8. Click **Next**
-9. In**Edit trust Policy**, click **Edit**.
-10. Click **Next**.
-11. In **Attach permissions policies**, do not select permissions.
-12. Click **Next: Tags**.
-13. In **Add tags (optional)**, enter a key-value pair.
-14. Click **Next: Review**.
-15. In **Review**:
-  1. **Role name**: Enter a role name.
-  2. **Description**: (Optional) Enter additional notes or information.
-16. Click **Create role**.
-
-You need to create storage accounts for evidence data and metadata files in AWS to configure the appliance:
-
-1. In the AWS Management Console, click the **Role Name** of the IAM role you previously created.
-2. On the Permissions tab click **Add permissions** > **Create inline policy**. See image.
-3. Click **JSON** in the **policy editor**. See image.
-4. Enter the following JSON string with your storage account names and Zscaler Connector User ARN. Names cannot contain periods. `{ "Version": "2012-10-17", "Statement": [ { "Sid": "Statement1", "Effect": "Allow", "Action": [ "s3:ListBucket" ], "Resource": [ "arn:aws:s3:::<metadata-bucket-name>", "arn:aws:s3:::<evidence-data-bucket-name>" ] }, { "Sid": "AllowPutObject", "Effect": "Allow", "Action": [ "s3:PutObject" ], "Resource": [ "arn:aws:s3:::<metadata-bucket-name>/*", "arn:aws:s3:::<evidence-data-bucket-name>/*" ] } ] }`Alternatively, if you are using Workflow Automation and KMS keys, enter the following JSON string: `{ "Version": "2012-10-17", "Statement": [ { "Sid": "Statement1", "Effect": "Allow", "Action": [ "s3:ListBucket" ], "Action": [ "kms:Decrypt", "kms:GenerateDataKey*" ], "Resource": [ "<bucket kms key arn>" ], "Effect": "Allow", "Sid": "S3KMSPermissions" } ] }`
-5. Click **Next**.
-6. Enter a **Policy name**for your policy.
-
-[Image: Go to Create inline policy to add permission to AWS S3]
-
-[Image: Select JSON to edit JSON file in editor]
-
-You must edit the Trust relationships for the role you created for the Zscaler service:
-
-1. In the AWS Management Console, click the **Role Name** of the IAM role you previously created.
-2. Go to the **Trust Relationships** tab.
-3. Click **Edit trust policy**.
-4. In the **Principal AWS**field delete the existing AWS value, and enter the **Zscaler Connector User ARN**(the number you copied from the Zscaler Admin Console). See image.
-5. Click **Update Policy**. The **Summary**page appears.
-6. On the **Summary** page, copy the **Role ARN**.
-
-[Image: Zscaler Connector User ARN]
-
-1. Use the IAM roles you configured in the AWS S3 page to register the SaaS application:
-  - **AWS Account ID:** Enter your AWS Account ID.
-  - **IAM Role**: Enter the role you just created (ARN Role Name).
-  - **Configuration Name:**Enter a configuration name.
-  - **Region:**Select a Region.
-  - **Storage Bucket Name for Evidence:**Enter the name of the evidence storage account you created. The prefix "arn" is not accepted.
-  - **Storage Bucket Name for Metadata:**Enter the name of the metadata storage account you created. The prefix "arn" is not accepted.
-
-If you are configuring with Workflow Automation, you will have two different buckets. You can use the same name for both buckets.
-
-1. Click **Save**.
-
-[Image: Click to go to AWS]
-
-[Image: Zscaler Connector Accounts]
+[Image: Enter Bucket Configuration information]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-notification-templates","lastmod":"2026-08-20T05:18Z","nid":"1400041"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-notification-templates","lastmod":"2026-09-28T12:30Z","nid":"1400041"} -->
 ## Configuring DLP Notification Templates
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-notification-templates
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Notification Templates > Configuring DLP Notification Templates
-- Last modified: 2026-08-20T05:18Z
+- Last modified: 2026-09-28T12:30Z
 - Summary: How to configure Data Loss Prevention (DLP) notification templates within the Zscaler Admin Console.
 
 [Watch a video about Adding DLP Notification Templates](https://fast.wistia.net/embed/iframe/buqs745qjx) (shows legacy UI).
@@ -9161,7 +9521,7 @@ You can create templates for the email notification, which can be referenced whi
 
 To add a DLP notification template:
 
-1. Go to **Policies**>**Data Protection**>**Common Resources**>**Notification Templates**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **End User Notification** > **DLP Notification Templates**.
 2. On the **DLP** tab, click **Add DLP Notification Template**.
 3. In the **Add DLP Notification Template** window:
   1. Enter a **Name** for the notification.
@@ -9186,7 +9546,7 @@ See image.
 
 To modify an existing DLP notification template:
 
-1. Go to **Policies**>**Data Protection**>**Common Resources**>**Notification Templates**.
+1. Go to **Administration** > **End User Notification** > **DLP Notification Templates**.
 2. On the **DLP** tab, locate the notification template you want to modify in the table, and click the **Edit** icon.
 3. You can edit the **Name**, **Subject**, **Message as Plain Text**, and **Message as HTML** fields. You can also enable or disable the **Attach Violating Content** and **Use TLS** settings. See image.
 
@@ -9407,13 +9767,13 @@ The attached content triggered an Endpoint DLP rule for your organization.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-content-inspection","lastmod":"2026-09-27T07:06Z","nid":"1400121"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-content-inspection","lastmod":"2026-10-04T07:06Z","nid":"1400121"} -->
 ## Configuring DLP Policy Rules with Content Inspection
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Configuring DLP Policy Rules with Content Inspection
-- Last modified: 2026-09-27T07:06Z
+- Last modified: 2026-10-04T07:06Z
 - Summary: How to configure a Data Loss Prevention (DLP) policy for the Zscaler service using Zscaler DLP engines.
 
 [Watch a video about configuring Data Loss Prevention (DLP) Policy with or without content inspection](https://fast.wistia.net/embed/iframe/za6nr8ax7t) (shows legacy UI).
@@ -9584,13 +9944,13 @@ If you enabled the policy for unauthenticated users under[Advanced Settings](htt
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled","lastmod":"2026-09-27T07:06Z","nid":"1471836"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled","lastmod":"2026-10-04T07:06Z","nid":"1471836"} -->
 ## Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled
-- Last modified: 2026-09-27T07:06Z
+- Last modified: 2026-10-04T07:06Z
 - Summary: How to configure a Data Loss Prevention (DLP) policy for the Zscaler service using Evaluate All Rules mode.
 
 This article applies only to organizations with Evaluate All Rules mode enabled. To access this feature, contact your Zscaler Account team.
@@ -10116,13 +10476,13 @@ Otherwise, the information that Zscaler sends to your solution regarding a parti
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-without-content-inspection","lastmod":"2026-09-27T07:06Z","nid":"1400126"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-without-content-inspection","lastmod":"2026-10-04T07:06Z","nid":"1400126"} -->
 ## Configuring DLP Policy Rules without Content Inspection
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-policy-rules-without-content-inspection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Configuring DLP Policy Rules without Content Inspection
-- Last modified: 2026-09-27T07:06Z
+- Last modified: 2026-10-04T07:06Z
 - Summary: How to configure a Data Loss Prevention (DLP) policy for the Zscaler service using external DLP engines.
 
 This article does not apply to organizations with Evaluate All Rules mode enabled. To learn more, see [Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled](https://help.zscaler.com/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled).
@@ -10318,13 +10678,13 @@ To create a DNS application group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dns-control-policy","lastmod":"2026-09-22T10:39Z","nid":"1399991"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dns-control-policy","lastmod":"2026-09-29T02:43Z","nid":"1399991"} -->
 ## Configuring the DNS Control Policy
 
 - Source: https://help.zscaler.com/zia/configuring-dns-control-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > DNS Control > Configuring the DNS Control Policy
-- Last modified: 2026-09-22T10:39Z
+- Last modified: 2026-09-29T02:43Z
 - Summary: Information on how to create a DNS Control policy rule to control DNS requests and responses in the Zscaler Admin Console.
 
 [Watch a video about Configuring DNS Control Policy.](https://fast.wistia.net/embed/iframe/6e9wlolezd)
@@ -10438,8 +10798,7 @@ By default, the fields are set to **Any**. If you don't make specific selections
 - **DNS Tunnels & Network Apps**: Select the [DNS tunnels](https://help.zscaler.com/zia/detecting-and-controlling-dns-tunnels)to which the rule applies. Tunnels are categorized as **Commonly Allowed DNS Tunnels**, **Commonly Blocked DNS Tunnels**, or **Unknown DNS Tunnels**. In addition to controlling tunneling traffic, you can also include specific **Web** pages, **Social Networking** sites, **Search Engines**, or **Network Services** that you wish to control at the DNS level.
 - **DNS Application Group**: Select the [DNS Application Groups](https://help.zscaler.com/zia/detecting-and-controlling-dns-tunnels) to which the rule applies.
 - **Resolved IP-Based Countries**: Select the countries you want to control. Their destination is identified based on the server location.
-- **Requested Categories**: Select the request categories from [URL](https://help.zscaler.com/zia/about-url-categories) and [TLD](https://help.zscaler.com/zia/about-tld-categories) categories to which the rule applies.
-- **Resolved Categories:**Select the response categories from [URL](https://help.zscaler.com/zia/about-url-categories) and [TLD](https://help.zscaler.com/zia/about-tld-categories) categories to which the rule applies.
+- **Request/Response Categories**: Select the request and response [URL](https://help.zscaler.com/zia/about-url-categories) and [TLD](https://help.zscaler.com/zia/about-tld-categories) categories to which the rule applies. To reuse the same set of categories, click **Sync with Response Categories** or **Sync with Request Categories**.
 - **DNS Request Type**: Select the DNS request types to which the rule applies. Policy control and action enforcement are supported for all available DNS request types, but DNS logs might not display the specific request type values for all DNS request types, as indicated in the following section. See the mapping between DNS request types displayed in policy rules vs. DNS logs.
 - **Protocols**: Select the protocols you want to control from **DNS Over HTTPS**, **TCP**, and **UDP**. The protocols displayed might vary with the **Action** selected for the rule. For example, only **DNS Over HTTPS**and **TCP** are shown for the **Redirect Request Using TCP** action, whereas **DNS Over HTTPS** and **UDP** are shown for the **Redirect Request Using UDP** action.
 - **Endpoint Applications**: Choose whether the rule should specifically include the selected endpoint applications, or exclude them to cover all other non-specified applications. You can designate up to 1,024 endpoint applications to govern traffic originating from these selected applications. [Zscaler Endpoint Context](https://help.zscaler.com/zia/about-endpoint-context) leverages telemetry from Zscaler Client Connector to enrich an inventory of frequently targeted applications found on endpoint devices. These endpoint applications and their associated tags are used as policy rule criteria to implement dynamic, risk-based, and application-aware security controls.
@@ -10604,13 +10963,13 @@ Iterative DNS requests from DNS servers should only transit Internet & SaaS (i.e
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dynamic-location-groups","lastmod":"2026-09-14T21:06Z","nid":"1401361"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dynamic-location-groups","lastmod":"2026-09-29T05:58Z","nid":"1401361"} -->
 ## Configuring Dynamic Location Groups
 
 - Source: https://help.zscaler.com/zia/configuring-dynamic-location-groups
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Configuring Dynamic Location Groups
-- Last modified: 2026-09-14T21:06Z
+- Last modified: 2026-09-29T05:58Z
 - Summary: How to add, edit, and delete dynamic location groups within the Zscaler Admin Console.
 
 This article describes how to create a [dynamic location group](https://help.zscaler.com/zia/about-location-groups) and configure location attributes that locations or sublocations must match to be assigned to the dynamic group. You can add up to 256 groups, inclusive of dynamic and manual location groups. For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
@@ -10629,7 +10988,7 @@ One of these predefined dynamic location groups is automatically populated in th
 
 To add a dynamic location group:
 
-1. Go to **Infrastructure**>**Locations**>**Location Groups**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure > Location Management > Location Groups**.
 2. Click **Add Dynamic Group**. The **Add Dynamic Group**window appears.
 3. In the **Add Dynamic Group** window, on the **Group Information** tab: See image.
   - In the **General**section:
@@ -10664,7 +11023,7 @@ When saved, the dynamic group continues to automatically update to include any n
 
 To edit or delete a dynamic location group:
 
-1. Go to **Infrastructure**>**Locations**>**Location Groups**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure > Location Management > Location Groups**.
 2. Locate the location group in the table and click **Edit**. The **Edit Dynamic Group** window appears.
 3. In the **Edit Dynamic Group**window, modify the **Name**,**Description**, or **Group Conditions**. If you want to remove the group, click **Delete**. See image.
 4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
@@ -11000,13 +11359,13 @@ You can configure exception rules for the following types of channels:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-endpoint-dlp-policy-rules","lastmod":"2026-09-16T11:06Z","nid":"1463231"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-endpoint-dlp-policy-rules","lastmod":"2026-09-30T21:06Z","nid":"1463231"} -->
 ## Configuring Endpoint DLP Policy Rules
 
 - Source: https://help.zscaler.com/zia/configuring-endpoint-dlp-policy-rules
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Configuring Endpoint DLP Policy Rules
-- Last modified: 2026-09-16T11:06Z
+- Last modified: 2026-09-30T21:06Z
 - Summary: How to configure an Endpoint Data Loss Prevention (DLP) policy using Endpoint Data Loss Prevention (DLP) to prevent data loss on endpoints.
 
 You can use Zscaler Endpoint Data Loss Prevention (DLP) to detect data, allow or block activities, require end users to confirm activities, protect files saved to removable storage devices, and notify your organization's auditor when a user's activity on an endpoint triggers an Endpoint DLP rule. If your organization uses a Zscaler Incident Receiver, the service can forward information about end user activities that trigger a DLP policy to your Incident Receiver via secure Internet Content Adaptation Protocol (ICAP). However, Zscaler does not take ICAP responses from your Incident Receiver; instead, the service only monitors or blocks content according to the policy you configure, then forwards information about activities so that your organization can take necessary remediation steps.
@@ -11445,157 +11804,4 @@ You can edit custom notification messages, but the **Channel** field cannot be m
 After customizing the notification message, you must enable the EUN for a [DNS Control rule](https://help.zscaler.com/zia/configuring-dns-control-policy) and associate an appropriate notification message. To learn more, see the [Step-by-Step Configuration Guide for Zscaler Client Connector-Based EUNs](https://help.zscaler.com/zia/step-step-configuration-guide-zscaler-client-connector-based-euns).
 
 [Image: Add custom message for DNS channel of Zscaler Client Connector EUN]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/configuring-euns-endpoint-dlp","lastmod":"2026-09-21T21:39Z","nid":"1486511"} -->
-## Configuring EUNs for Endpoint DLP
-
-- Source: https://help.zscaler.com/zia/configuring-euns-endpoint-dlp
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Configuring EUNs for Endpoint DLP
-- Last modified: 2026-09-21T21:39Z
-- Summary: How to customize notification messages for Zscaler Client Connector-based EUNs triggered by Endpoint DLP policy in the Zscaler Admin Console.
-
-You can customize the Zscaler Client Connector-based notifications displayed to end users when an [Endpoint Data Loss Prevention (DLP) policy](https://help.zscaler.com/zia/about-endpoint-dlp) is triggered by their activity. For example, you can block your organization's users from transferring sensitive corporate data from their endpoints to their personal cloud storage accounts and display a notification explaining policy violation. In another scenario, you can allow your users to print documents containing sensitive data using a network printer, but display a notification that cautions them about the associated risks.
-
-These end user notifications (EUNs) are triggered by Zscaler service based on your policy configuration and are delivered by Zscaler Client Connector installed on users' endpoints. The Zscaler service provides a default notification for each supported Endpoint DLP channel including Printing, Removable Storage, Network Share, and Personal Cloud Storage. You can also create custom messages and associate distinct notifications with individual Endpoint DLP rules based on context. To learn more, see [About Zscaler Client Connector-Based End User Notifications](https://help.zscaler.com/zia/about-zscaler-client-connector-based-end-user-notifications).
-
-The following sections describe the steps required to create custom notification messages for supported Endpoint DLP policy channels.
-
-- Removable Storage
-- Printing
-- Network Share
-- Personal Cloud Storage
-
-You can edit custom notification messages, but the **Channel** field cannot be modified.
-
-After customizing the notification message, you must enable the EUN for an [Endpoint DLP rule](https://help.zscaler.com/zia/configuring-endpoint-dlp-policy-rules) and associate the appropriate notification message. To learn more, see the [Step-by-Step Configuration Guide for Zscaler Client Connector-Based EUNs](https://help.zscaler.com/zia/step-step-configuration-guide-zscaler-client-connector-based-euns).
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **End User Notification** > **End User Notifications**.
-2. Select the **Client Connector** tab.
-3. Click **Add Custom Message**. The **Add Custom Message** drawer appears.
-4. In the **Add Custom Message** drawer: See image.
-  1. Under **General**:
-    - **Name**: Enter a unique name for the custom message.
-    - **Channel**: Select **Removable Storage**.
-  2. Under **Message**, select the language in which you want to customize the notification message from the drop-down menu. Preconfigured messages appear for supported policy actions in the selected language. You can customize this message for each policy action as needed: You can embed links in the message content by using the following format: `__url[Link text | example.com]` (note the double underscore at the beginning). For example, `__url[Learn more | https://acme.com/policy]`. You can also introduce line breaks in the message content by using the `//n` character. When you modify one or more preconfigured messages, a **Reset All** option appears. Clicking this option restores the original messages for all available actions. For Endpoint DLP rules that are configured with the Confirm action, the Zscaler service provides an EUN message that is customized separately. To learn more, see [Configuring User Confirmation Notification Templates](https://help.zscaler.com/zia/configuring-user-confirmation-notification-templates).
-    - **Allow**: Customize the notification message that appears when an end user's activity triggers an Endpoint DLP rule, but the service allows the traffic and logs the activity.
-    - **Block**: Customize the notification message that appears when an end user's activity triggers an Endpoint DLP rule and the service blocks the activity.
-    - **Protect**: Customize the notification message that appears when an end user's activity triggers a rule and the service encrypts an affected file. When a file is encrypted, users who receive the file must use the Zscaler service to decrypt the file.
-  3. Under **Additional Information**, select the matched rule details that you want to display in the notification:
-    - **File Name**: Include the name of the file that triggered the rule.
-    - **Destination**: Include the destination IP address or domain name that triggered the rule.
-    - **Rule Name**: Include the name of the triggered rule.
-    - **DLP Engines**: Include the DLP engines that triggered the rule.
-  4. Under **Preview**, you can view your configured notification messages by clicking the respective message tabs. You can view the full message by clicking **Show more**. The notification preview also includes the customization made under [Settings](https://help.zscaler.com/zia/configuring-settings-zscaler-client-connector-based-euns), which are general settings applicable to all Zscaler Client Connector-based EUNs.
-5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **End User Notification** > **End User Notifications**.
-2. Select the **Client Connector** tab.
-3. Click **Add Custom Message**. The **Add Custom Message** drawer appears.
-4. In the **Add Custom Message** drawer: See image.
-  1. Under **General**:
-    - **Name**: Enter a unique name for the custom message.
-    - **Channel**: Select **Printing**.
-  2. Under **Message**, select the language in which you want to customize the notification message from the drop-down menu. Preconfigured messages appear for supported policy actions in the selected language. You can customize this message for each policy action as needed: You can embed links in the message content by using the following format: `__url[Link text | example.com]` (note the double underscore at the beginning). For example, `__url[Learn more | https://acme.com/policy]`. You can also introduce line breaks in the message content by using the `//n` character. When you modify one or more preconfigured messages, a **Reset All** option appears. Clicking this option restores the original messages for all available actions. For Endpoint DLP rules that are configured with the Confirm action, the Zscaler service provides an EUN message that is customized separately. To learn more, see [Configuring User Confirmation Notification Templates](https://help.zscaler.com/zia/configuring-user-confirmation-notification-templates).
-    - **Allow**: Customize the notification message that appears when an end user's activity triggers an Endpoint DLP rule, but the service allows the traffic and logs the activity.
-    - **Block**: Customize the notification message that appears when an end user's activity triggers an Endpoint DLP rule and the service blocks the activity.
-  3. Under **Additional Information**, select the matched rule details that you want to display in the notification:
-    - **File Name**: Include the name of the file that triggered the rule.
-    - **Destination**: Include the destination IP address or domain name that triggered the rule.
-    - **Rule Name**: Include the name of the triggered rule.
-    - **DLP Engines**: Include the DLP engines that triggered the rule.
-  4. Under **Preview**, you can view your configured notification messages by clicking the respective message tabs. You can view the full message by clicking **Show more**. The notification preview also includes the customization made under [Settings](https://help.zscaler.com/zia/configuring-settings-zscaler-client-connector-based-euns), which are general settings applicable to all Zscaler Client Connector-based EUNs.
-5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **End User Notification** > **End User Notifications**.
-2. Select the **Client Connector** tab.
-3. Click **Add Custom Message**. The **Add Custom Message** drawer appears.
-4. In the **Add Custom Message** drawer: See image.
-  1. Under **General**:
-    - **Name**: Enter a unique name for the custom message.
-    - **Channel**: Select **Network Share**.
-  2. Under **Message**, select the language in which you want to customize the notification message from the drop-down menu. Preconfigured messages appear for supported policy actions in the selected language. You can customize this message for each policy action as needed: You can embed links in the message content by using the following format: `__url[Link text | example.com]` (note the double underscore at the beginning). For example, `__url[Learn more | https://acme.com/policy]`. You can also introduce line breaks in the message content by using the `//n` character. When you modify one or more preconfigured messages, a **Reset All** option appears. Clicking this option restores the original messages for all available actions. For Endpoint DLP rules that are configured with the Confirm action, the Zscaler service provides an EUN message that is customized separately. To learn more, see [Configuring User Confirmation Notification Templates](https://help.zscaler.com/zia/configuring-user-confirmation-notification-templates).
-    - **Allow**: Customize the notification message that appears when an end user's activity triggers an Endpoint DLP rule, but the service allows the traffic and logs the activity.
-    - **Block**: Customize the notification message that appears when an end user's activity triggers an Endpoint DLP rule and the service blocks the activity.
-  3. Under **Additional Information**, select the matched rule details that you want to display in the notification:
-    1. **File Name**: Include the name of the file that triggered the rule.
-    2. **Destination**: Include the destination IP address or domain name that triggered the rule.
-    3. **Rule Name**: Include the name of the triggered rule.
-    4. **DLP Engines**: Include the DLP engines that triggered the rule.
-  4. Under **Preview**, you can view your configured notification messages by clicking the respective message tabs. You can view the full message by clicking **Show more**. The notification preview also includes the customization made under [Settings](https://help.zscaler.com/zia/configuring-settings-zscaler-client-connector-based-euns), which are general settings applicable to all Zscaler Client Connector-based EUNs.
-5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **End User Notification** > **End User Notifications**.
-2. Select the **Client Connector** tab.
-3. Click **Add Custom Message**. The **Add Custom Message** drawer appears.
-4. In the **Add Custom Message** drawer: See image.
-  1. Under **General**:
-    - **Name**: Enter a unique name for the custom message.
-    - **Channel**: Select **Personal Cloud Storage**.
-  2. Under **Message**, select the language in which you want to customize the notification message from the drop-down menu. Preconfigured messages appear for supported policy actions in the selected language. You can customize this message for each policy action as needed: You can embed links in the message content by using the following format: `__url[Link text | example.com]` (note the double underscore at the beginning). For example, `__url[Learn more | https://acme.com/policy]`. You can also introduce line breaks in the message content by using the `//n` character. When you modify one or more preconfigured messages, a **Reset All** option appears. Clicking this option restores the original messages for all available actions. For Endpoint DLP rules that are configured with the Confirm action, the Zscaler service provides an EUN message that is customized separately. To learn more, see [Configuring User Confirmation Notification Templates](https://help.zscaler.com/zia/configuring-user-confirmation-notification-templates).
-    - **Allow**: Customize the notification message that appears when an end user's activity triggers an Endpoint DLP rule, but the service allows the traffic and logs the activity.
-    - **Block**: Customize the notification message that appears when an end user's activity triggers an Endpoint DLP rule and the service blocks the activity.
-  3. Under **Additional Information**, select the matched rule details that you want to display in the notification:
-    1. **File Name**: Include the name of the file that triggered the rule.
-    2. **Destination**: Include the destination IP address or domain name that triggered the rule.
-    3. **Rule Name**: Include the name of the triggered rule.
-    4. **DLP Engines**: Include the DLP engines that triggered the rule.
-  4. Under **Preview**, you can view your configured notification messages by clicking the respective message tabs. You can view the full message by clicking **Show more**. The notification preview also includes the customization made under [Settings](https://help.zscaler.com/zia/configuring-settings-zscaler-client-connector-based-euns), which are general settings applicable to all Zscaler Client Connector-based EUNs.
-5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-[Image: Configuring custom Zscaler Client Connector EUN message for Removable Storage channel]
-
-[Image: Configuring custom Zscaler Client Connector EUN message for Printing channel]
-
-[Image: Configuring custom Zscaler Client Connector EUN message for Network Share channel]
-
-[Image: Configuring custom Zscaler Client Connector EUN message for Personal Cloud Storage channel]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/configuring-euns-firewall-filtering","lastmod":"2026-09-15T12:37Z","nid":"1532832"} -->
-## Configuring EUNs for Firewall Filtering
-
-- Source: https://help.zscaler.com/zia/configuring-euns-firewall-filtering
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Configuring EUNs for Firewall Filtering
-- Last modified: 2026-09-15T12:37Z
-- Summary: How to customize notification messages for Zscaler Client Connector-based EUNs triggered by the Firewall Filtering policy in the Zscaler Admin Console.
-
-When the [Firewall Filtering policy](https://help.zscaler.com/zia/configuring-firewall-filtering-policy) blocks specific non-web traffic from your users' devices, the Zscaler service can notify users of the policy action through Zscaler Client Connector installed on users' endpoints. The Zscaler service provides a default notification message that can be readily associated with policy rules. Additionally, you can create custom messages and associate distinct notification messages with individual Firewall Filtering rules, depending on your requirements. To learn more, see [About Zscaler Client Connector-Based End User Notifications](https://help.zscaler.com/zia/about-zscaler-client-connector-based-end-user-notifications).
-
-- This feature configuration requires Advanced Firewall.
-- The Firewall Filtering policy EUN is designated specifically for non-web traffic and the EUN is triggered only when there is a policy match with non-web traffic (i.e., non-HTTP/HTTPS traffic). Traffic mapped to standard web ports such as 80, 443, and 8080 and identified as HTTP or HTTPS do not trigger this EUN.
-- The EUN is supported on Windows devices running Zscaler Client Connector version 4.8 or later over Z-Tunnel 2.0. You must also have configured the required settings in Zscaler Client Connector in the Zscaler Admin Console to display these EUNs for DNS Control. To learn more, see [Configuring Zscaler Client Connector App Profiles](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles).
-
-To add a custom notification message:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **End User Notification** > **End User Notifications**.
-2. Select the **Client Connector** tab.
-3. Click **Add Custom Message**. The **Add Custom Message** drawer appears.
-4. In the **Add Custom Message** drawer: See image.
-  1. Under **General**:
-    - **Name**: Enter a unique name for the custom message.
-    - **Channel**: Select **Firewall**.
-  2. Under **Message**, select the language in which you want to customize the notification message from the drop-down menu. A preconfigured message appears for the Block action in the selected language. In the **Block** field, you can customize the notification message that appears when the service blocks the user activity. The EUN applies to all block actions of the Firewall Filtering policy, including **Block/Drop**, **Block/ICMP**, and **Block/Reset** actions. You can embed links in the message content by using the following format: `__url[``Link text``|``example.com``]` (note the double underscore at the beginning). For example, `__url[Learn more | https://acme.com/policy]`. You can also introduce line breaks in the message content by using the `//n` character. When the preconfigured message is modified, a **Reset All** option that allows you to restore the original message appears.
-  3. Under **Additional Information**, select the matched rule details that you want to display in the notification:
-    - **Network Service**: The network service that was matched.
-    - **Server Destination IP**: The destination server's IP address or domain that was matched.
-    - **Network Application**: The network application that was matched.
-    - **Application Service Group**: The network application service group that was matched.
-    - **Client Source IP**: The client's source IP address that was matched.
-    - **Server Destination Port**: The destination server's port that was matched.
-    - **Server Destination Protocol**: The protocol defined in the network service criteria that was matched.
-  4. Under **Preview**, you can view your configured notification message. You can view the full notification by clicking **Show more**. The notification preview also includes the customization made under [Settings](https://help.zscaler.com/zia/configuring-settings-zscaler-client-connector-based-euns), which are general settings applicable to all Zscaler Client Connector-based EUNs.
-5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-You can edit custom notification messages, but the **Channel** field cannot be modified.
-
-After customizing the notification message, you must enable the EUN for a [Firewall Filtering rule](https://help.zscaler.com/zia/configuring-firewall-filtering-policy) and associate the appropriate notification message. To learn more, see the [Step-by-Step Configuration Guide for Zscaler Client Connector-Based EUNs](https://help.zscaler.com/zia/step-step-configuration-guide-zscaler-client-connector-based-euns).
-
-[Image: Add custom message for Firewall channel of Zscaler Client Connector EUN]
 <!-- /ZS-ARTICLE -->

@@ -1,7 +1,7 @@
 # Zscaler Help — API / SDK (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-28 09:01 UTC
+Generated: 2026-10-05 09:38 UTC
 Articles in this file: 91
 
 ---
@@ -12035,13 +12035,13 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/sandbox-policy-settings","lastmod":"2026-08-30T23:58Z","nid":"1403026"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/sandbox-policy-settings","lastmod":"2026-10-01T07:06Z","nid":"1403026"} -->
 ## Sandbox Policy & Settings
 
 - Source: https://help.zscaler.com/legacy-apis/sandbox-policy-settings
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Sandbox Policy & Settings
-- Last modified: 2026-08-30T23:58Z
+- Last modified: 2026-10-01T07:06Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 
@@ -17853,13 +17853,13 @@ If you receive a ZDX Score of -1 on the ZDX API, then there is no data available
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/understanding-zia-api","lastmod":"2026-08-28T16:50Z","nid":"1400486"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/understanding-zia-api","lastmod":"2026-09-29T07:06Z","nid":"1400486"} -->
 ## Understanding ZIA APIs
 
 - Source: https://help.zscaler.com/legacy-apis/understanding-zia-api
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > Understanding ZIA APIs
-- Last modified: 2026-08-28T16:50Z
+- Last modified: 2026-09-29T07:06Z
 - Summary: Introductory information about Zscaler's APIs, which give programmatic access to various Zscaler Internet Access (ZIA) features.
 
 Zscaler Internet Access (ZIA) provides three APIs: the cloud service API, Sandbox Submission API, and 3rd-Party App Governance API. To learn more about authentication, making API calls, and activating configuration changes, see [Getting Started](https://help.zscaler.com/zia/api-getting-started). For detailed information on all available API calls, endpoints, and parameters, see the [Reference Guide](https://help.zscaler.com/zia/about-api). For a table summarizing all available API calls, endpoints, and rate limits, see the [API Rate Limit Summary](https://help.zscaler.com/zia/api-rate-limit-summary). To try out requests and responses for API calls using the Postman app, see [Configuring the Postman REST API Client](https://help.zscaler.com/zia/configuring-postman-rest-api-client).

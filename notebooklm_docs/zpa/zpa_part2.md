@@ -1,18 +1,18 @@
 # Zscaler Help — ZPA — Private Access (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-28 09:01 UTC
-Articles in this file: 212
+Generated: 2026-10-05 09:38 UTC
+Articles in this file: 215
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-administrator-roles","lastmod":"2026-09-23T16:27Z","nid":"1484001"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-administrator-roles","lastmod":"2026-09-28T11:21Z","nid":"1484001"} -->
 ## Configuring Administrator Roles
 
 - Source: https://help.zscaler.com/zpa/configuring-administrator-roles
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Administration > Admins and Roles > Configuring Administrator Roles
-- Last modified: 2026-09-23T16:27Z
+- Last modified: 2026-09-28T11:21Z
 - Summary: How to add and configure a new admin role within the Zscaler Admin Console.
 
 This article describes how to add a new admin role. For a complete list of ranges and limits for roles, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#private-applications).
@@ -268,13 +268,13 @@ Enable to allow **Full**or **Read Only** access to the following **VPN (For Lega
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-agent-groups","lastmod":"2026-09-18T10:47Z","nid":"1531956"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-agent-groups","lastmod":"2026-10-02T21:06Z","nid":"1531956"} -->
 ## Configuring Agent Groups
 
 - Source: https://help.zscaler.com/zpa/configuring-agent-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Agent Management > Agent Groups > Configuring Agent Groups
-- Last modified: 2026-09-18T10:47Z
+- Last modified: 2026-10-02T21:06Z
 - Summary: How to configure agent groups for Microsegmentation in the Zscaler Admin Console.
 
 Agents in Microsegmentation are installed on servers' workloads, such as virtual machines, bare metal servers, or Kubernetes clusters. You can install agents using most configuration management tools that accommodate Windows `.msi` files or Linux `.deb` and `.rpm` files. Agent groups allow admins to group together different agents to organize them depending on different local machines they are deployed to.
@@ -634,13 +634,13 @@ To configure settings for the AI-Powered Recommendations page:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-app-connector-groups","lastmod":"2026-08-20T14:50Z","nid":"1538699"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-app-connector-groups","lastmod":"2026-09-30T15:58Z","nid":"1538699"} -->
 ## Configuring App Connector Groups
 
 - Source: https://help.zscaler.com/zpa/configuring-app-connector-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Groups > Configuring App Connector Groups
-- Last modified: 2026-08-20T14:50Z
+- Last modified: 2026-09-30T15:58Z
 - Summary: How to add and configure a new App Connector group within the Zscaler Admin Console.
 
 [Watch a video about App Connector Groups.](https://fast.wistia.net/embed/iframe/zbtq82bmh0)
@@ -649,7 +649,7 @@ Within the Zscaler Admin Console, you can create App Connector groups and config
 
 To add a new App Connector group:
 
-1. Go to **Infrastructure > Private Access > Component > App Connector Groups**.
+1. Go to **Private Access**>**Private Infrastructure** >**App Connector Groups**.
 2. Click **Add**. The **Add App Connector Group**page appears.
 3. On the **Details**tab:
   - **Name**: Enter a name for the group. The name cannot contain special characters, with the exception of periods (.), hyphens (-), and underscores ( _ ).
@@ -697,20 +697,20 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-app-connector-provisioning-keys","lastmod":"2026-07-20T09:25Z","nid":"1538700"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-app-connector-provisioning-keys","lastmod":"2026-09-30T16:04Z","nid":"1538700"} -->
 ## Configuring App Connector Provisioning Keys
 
 - Source: https://help.zscaler.com/zpa/configuring-app-connector-provisioning-keys
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Provisioning Keys > Configuring App Connector Provisioning Keys
-- Last modified: 2026-07-20T09:25Z
+- Last modified: 2026-09-30T16:04Z
 - Summary: How to configure App Connector provisioning keys within the Zscaler Admin Console.
 
 Within the Zscaler Admin Console, you can enroll an App Connector using OAuth 2.0 enrollment tokens (preferred method) or provisioning keys.
 
 To add a new App Connector provisioning key:
 
-1. Go to **Infrastructure** > **Private Access**>**Component** > **App Connector Keys**.
+1. Go to **Private Access**>**Private Infrastructure** > **App Connector Keys**.
 2. Click **Add**. The **Add App Connector Provisioning Keys** page appears.
 3. On the**Add App Connector Provisioning Key**page:
   - **View or Export Provisioning Key After Creation**: Disable this option to hide the provisioning key from the **Provisioning Key** column of the table and disable copying or downloading the key after creation. If disabled, you cannot enable this option. If this option is enabled, you can disable it at a later time. This option is enabled by default.
@@ -730,20 +730,20 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-app-connectors-settings","lastmod":"2026-06-23T08:01Z","nid":"1485811"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-app-connectors-settings","lastmod":"2026-09-30T15:53Z","nid":"1485811"} -->
 ## Configuring App Connector Settings
 
 - Source: https://help.zscaler.com/zpa/configuring-app-connectors-settings
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connectors > Configuring App Connector Settings
-- Last modified: 2026-06-23T08:01Z
+- Last modified: 2026-09-30T15:53Z
 - Summary: How to configure App Connector settings.
 
 The App Connector Settings allow you to enable Auto Delete for App Connectors with a disconnected status.
 
 To configure your App Connector settings:
 
-1. Go to **Infrastructure**>**Private Access**>**Component**>**App Connectors**.
+1. Go to**Private Access**>**Private Infrastructure**>**App Connectors**.
 2. Click the **Settings** icon. The **App Connector Settings** drawer appears.
 3. Select **Enabled** to allow **Auto Delete** to delete App Connectors with a disconnected status. **Auto Delete** is set to **Disabled**by default.
 4. Set the specific expiration date for App Connectors with a disconnected status to be deleted.
@@ -811,20 +811,20 @@ If you move a server group to a new Microtenant, you must reassign the load bala
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-appprotection-dynamic-rules","lastmod":"2026-09-03T12:29Z","nid":"1485796"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-appprotection-dynamic-rules","lastmod":"2026-09-29T18:40Z","nid":"1485796"} -->
 ## Configuring AppProtection Dynamic Rules
 
 - Source: https://help.zscaler.com/zpa/configuring-appprotection-dynamic-rules
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > AppProtection for Private Application Traffic > AppProtection for Private Application Traffic Profiles > Configuring AppProtection Dynamic Rules
-- Last modified: 2026-09-03T12:29Z
+- Last modified: 2026-09-29T18:40Z
 - Summary: How to add and configure a new AppProtection dynamic rule in the Zscaler Admin Console.
 
 After you have created [access policies](https://help.zscaler.com/zpa/about-access-policy) and set up an [AppProtection profile](https://help.zscaler.com/zpa/about-appprotection-profiles), you can create dynamic rules to automatically create AppProtection policies to inspect the traffic of your domains.
 
 To add a dynamic rule to an AppProtection profile:
 
-1. Go to **Policies** > **Cybersecurity**>**Inline Security** >**AppProtection Policy**.
+1. Go to **Private Access** > **Private App Protection**>**App Protection Policy**.
 2. Click **Add Dynamic Rule**.
 
 The **Add AppProtection Dynamic Rule** window appears.
@@ -1683,13 +1683,13 @@ In this scenario, you would define the following two application segments:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-chrome-enterprise-browser-connector-settings","lastmod":"2026-09-18T03:06Z","nid":"1526401"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-chrome-enterprise-browser-connector-settings","lastmod":"2026-10-02T21:06Z","nid":"1526401"} -->
 ## Configuring Chrome Enterprise Browser Connector Settings
 
 - Source: https://help.zscaler.com/zpa/configuring-chrome-enterprise-browser-connector-settings
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Browser Access > Configuring Chrome Enterprise Browser Connector Settings
-- Last modified: 2026-09-18T03:06Z
+- Last modified: 2026-10-02T21:06Z
 - Summary: How to configure Chrome Enterprise Browser Connector settings.
 
 Within the Zscaler Admin Console, you can configure Chrome Enterprise Browser Connector settings to allow Private Access (ZPA) to create access policies to verify if a user is accessing private applications via the Chrome Enterprise browser.
@@ -1746,13 +1746,13 @@ To learn more, refer to the [Chrome Enterprise documentation](https://support.go
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-chrome-posture-profiles","lastmod":"2026-09-18T03:02Z","nid":"1529371"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-chrome-posture-profiles","lastmod":"2026-10-02T21:06Z","nid":"1529371"} -->
 ## Configuring Chrome Posture Profiles
 
 - Source: https://help.zscaler.com/zpa/configuring-chrome-posture-profiles
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Browser Access > Configuring Chrome Posture Profiles
-- Last modified: 2026-09-18T03:02Z
+- Last modified: 2026-10-02T21:06Z
 - Summary: How to configure Chrome posture profiles.
 
 Chrome posture profiles are device posture profiles configured specifically for devices that use the Chrome Enterprise browser. They are a set of criteria that are evaluated on the device depending on the configured posture type.
@@ -2167,13 +2167,13 @@ To configure your organization's profile for Private Access (ZPA):
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-connectors","lastmod":"2026-08-10T07:06Z","nid":"1483546"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-connectors","lastmod":"2026-09-30T15:49Z","nid":"1483546"} -->
 ## Configuring App Connectors
 
 - Source: https://help.zscaler.com/zpa/configuring-connectors
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connectors > Configuring App Connectors
-- Last modified: 2026-08-10T07:06Z
+- Last modified: 2026-09-30T15:49Z
 - Summary: How to add and configure a new App Connector in the Zscaler Admin Console.
 
 If you are using OAuth enrollment, use this page to associate the App Connector with the Oauth enrollment tokens and groups. To learn more, see [Understanding Oauth Enrollment](https://help.zscaler.com/zpa/understanding-oauth-enrollment). For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
@@ -2183,7 +2183,7 @@ If you want to use a provisioning key to enroll an App Connector, create an [App
 
 To add a new App Connector:
 
-1. Go to **Infrastructure** >**Private Access > Component** > **App Connectors**.
+1. Go to **Private Access**>**Private Infrastructure**> **App Connectors**.
 2. Click **Add**. The **Add App Connectors**page appears.
 3. On the **Add App Connectors**page: See image.
   1. **App Connector Group**: Select an existing App Connector group from the **Group**drop-down menu. If a signing certificate is associated with the App Connector group, it appears under **Signing Certificate**. Otherwise, select a signing certificate from the drop-down menu.
@@ -2383,20 +2383,20 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-custom-controls","lastmod":"2026-08-27T15:50Z","nid":"1484986"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-custom-controls","lastmod":"2026-09-29T18:30Z","nid":"1484986"} -->
 ## Configuring Custom Controls
 
 - Source: https://help.zscaler.com/zpa/configuring-custom-controls
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > AppProtection for Private Application Traffic > Custom Controls > Configuring Custom Controls
-- Last modified: 2026-08-27T15:50Z
+- Last modified: 2026-09-29T18:30Z
 - Summary: How to add and configure a new set of custom controls for AppProtection profiles in the Zscaler Admin Console.
 
 You can add custom controls to use as part of your AppProtection profiles in the Zscaler Admin Console. To learn more, see [About AppProtection Profiles](https://help.zscaler.com/zpa/about-appprotection-profiles). For a complete list of ranges and limits for custom controls, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
 
 To add a new custom control:
 
-1. Go to **Policies**>**Cybersecurity**>**Inline Security**>**Protection Controls**>**Custom Controls**.
+1. Go to **Private Access**>**Private App Protection**>**Protection Controls** >**Custom Controls**.
 2. Click **Add**. The **Add Custom Control** window appears.
 3. In the **Add Custom Control** window, complete the following steps:
   - Select Control Type
@@ -2868,19 +2868,19 @@ If you do not need to make any policy changes, click **Cancel**.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-diagnostics-settings","lastmod":"2026-09-23T13:15Z","nid":"1532456"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-diagnostics-settings","lastmod":"2026-09-28T08:30Z","nid":"1532456"} -->
 ## Configuring Diagnostics Settings
 
 - Source: https://help.zscaler.com/zpa/configuring-diagnostics-settings
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Configuring Diagnostics Settings
-- Last modified: 2026-09-23T13:15Z
+- Last modified: 2026-09-28T08:30Z
 - Summary: How to configure the diagnostics settings in the Zscaler Admin Console.
 
 To configure settings for diagnostics pages in the Zscaler Admin Console:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer**> **Private Access** > **Private Diagnostics**.
-2. Click the **Settings** icon ([Image: Settings icon within the diagnostics pages]). The **Settings** drawer appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer> Private Access > Private Diagnostics**.
+2. Click the **Settings** icon. The **Settings** drawer appears.
 3. In the **Settings** drawer, select the default filter operator (i.e., **Equals** or **Contains**) from thedrop-down menu. The **Default Filter Operator** is set to **Equals** by default. See image.
 4. Click **Save** to apply your changes. The selected filter operator is saved for future sessions.
 
@@ -3164,6 +3164,32 @@ To add an external router:
 4. Click **Save**.
 
 [Image: The Add External Router drawer to add a new router for BGP]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-idp-attribute-objects","lastmod":"2026-10-02T09:17Z","nid":"1546234"} -->
+## Configuring IdP Attribute Objects
+
+- Source: https://help.zscaler.com/zpa/configuring-idp-attribute-objects
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > VPN Access Policy > Configuring IdP Attribute Objects
+- Last modified: 2026-10-02T09:17Z
+- Summary: How to configure an IdP attribute object.
+
+You can use an IdP attribute object to save and reuse identity-based criteria from your Identity Provider (IdP). By creating an object for your identity rules, you can apply those rules across multiple policies. To learn more about VPN access policies, see [Configuring VPN Access Policies](https://help.zscaler.com/zpa/configuring-vpn-access-policies).
+
+To configure an IdP attribute object:
+
+1. Go to **Private Access**>**VPN (for Legacy Apps)**>**VPN Access Policy IdP Address**.
+2. Click **Add Rule**. The **Add IdP Attribute Object**page appears.
+3. On the **Add IdP Attribute Object** page:
+  - **Select IdP**: Create granular access rules based on user identity information provided by your IdP. You can build rules that rely on a single attribute or multiple attributes from the same IdP, or you use a combination of attributes spanning different IdPs.
+  - **Name**: Enter a name for the IdP attribute object.
+  - **Description**: Enter a description. See image.
+4. Click **Save**.
+
+[Image: Adding an IdP attribute object]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -3769,13 +3795,13 @@ Your new policy rule appears in the list of rules on the [Resource Policies](htt
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-microtenants","lastmod":"2026-09-25T13:21Z","nid":"1485686"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-microtenants","lastmod":"2026-10-02T07:06Z","nid":"1485686"} -->
 ## Configuring Microtenants
 
 - Source: https://help.zscaler.com/zpa/configuring-microtenants
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Administration > Delegated Tenant Administration > Configuring Microtenants
-- Last modified: 2026-09-25T13:21Z
+- Last modified: 2026-10-02T07:06Z
 - Summary: How to add and configure a new Microtenant within the Zscaler Admin Console.
 
 Within the Zscaler Admin Console, you can add Microtenants. For a complete list of ranges and limitations for Microtenants, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#private-applications).
@@ -4026,16 +4052,16 @@ The**Add** **Network Segment**drawer appears.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-notifications","lastmod":"2026-09-17T15:07Z","nid":"1485441"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-notifications","lastmod":"2026-10-02T13:21Z","nid":"1485441"} -->
 ## Configuring Notifications
 
 - Source: https://help.zscaler.com/zpa/configuring-notifications
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Notification Management > Configuring Notifications
-- Last modified: 2026-09-17T15:07Z
+- Last modified: 2026-10-02T13:21Z
 - Summary: How to add and configure a new notification within the Zscaler Admin Console.
 
-In the Zscaler Admin Console, you can create notifications.
+You can create notifications in the Zscaler Admin Console.
 
 ## Adding a Notification
 
@@ -4076,7 +4102,8 @@ On the **General Information**tab:
   - **Partner Federation Configuration**: Indicates events related to partner federation configurations.
   - **System Resource**: Indicates notifications regarding the component system resources.
   - **Usage Metrics**: Indicates notifications regarding the component usage metrics.
-2. **Priorities**: Select the priority of the notification (i.e., **Low**, **Medium**, and **High**). You can select an individual priority, click **Select All Displayed** to select all priorities displayed in the drop-down menu, or click **Clear All**to remove all selections. All priorities are selected by default.
+2. **Priorities**: Select the priority of the notification (i.e., **Low**, **Medium**, or **High**). You can select an individual priority, click **Select All**to select all priorities displayed in the drop-down menu, or click **Remove All**to remove all selections. All priorities are selected by default.
+3. Click **Next**.
 
 See image.
 
@@ -4126,11 +4153,12 @@ The following table provides a list of events, as well as the category and compo
 
 On the **Action**tab:
 
-1. **Throttling**:By default, this setting is disabled. Select **Enable** to enforce limits and timeout durations on a notification, and the following fields appear.
+1. **Throttling**:By default, this setting is disabled. Select **Enabled** to enforce limits and timeout durations on a notification, and the following fields appear:
   - **Throttling Limit**: Enter an integer value to indicate the throttling limit.
   - **Throttling Timeout**: Enter an integer value in hours to indicate the throttling timeout. For example, the **Throttling Limit** value is 3, and the **Throttling Timeout** value is 1 hour. If the notification is set to trigger when the App Connector CPU is greater than 80%, the recipients receive only three email notifications within the last hour if the CPU of the App Connector exceeds the 80% threshold.
 2. **Recipients**: Select the recipients from the drop-down menu. You can search for a specific recipient, select an individual recipient, click **Select All**to select all recipients displayed in the drop-down menu, click **Remove All**to remove all selections, or click the **Delete**icon next to the selected recipient to remove it.
 3. **Distribution List**: Enter the desired distribution list in the following format: `example@test.com`. Click **Add**so that the distribution list receives notifications after the notification is configured. See an example email sent to a configured recipient.
+4. Click **Next**.
 
 See image.
 
@@ -4165,16 +4193,16 @@ Notifications that are managed by Zscaler are read only and cannot be configured
 
 To edit a notification:
 
-1. Go to **Administration**>**Alerts**> **Private Access**>**Notifications**.
-2. In the table, locate the notification you want to modify and click the **Edit**icon. The **Edit Notification** page appears.
+1. Go to **Administration**>**Alerts**> **Private Access**.
+2. Locate the notification you want to edit, and click the **Edit**icon. The **Edit Notification** page appears.
 3. On the **Edit Notification** page, modify fields as necessary, and then continue the steps to edit a notification.
 
 ## Copying a Notification
 
 To copy a notification:
 
-1. Go to **Administration**>**Alerts**>**Private Access**> **Notifications**.
-2. In the table, locate the notification you want to copy and click the **Copy**icon. The **Duplicate** page appears that contains the prepopulated fields from the copied notification.
+1. Go to **Administration**>**Alerts**>**Private Access**.
+2. Locate the notification you want to copy, and click the **Copy**icon. The **Duplicate** page appears that contains the prepopulated fields from the copied notification.
 3. On the **Duplicate** page, modify fields as necessary, and then continue the steps to add the new notification.
 <!-- /ZS-ARTICLE -->
 
@@ -5060,13 +5088,13 @@ Choose a specific SCIM group from the drop-down menu to apply the rule action to
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-resource-groups","lastmod":"2026-09-18T10:16Z","nid":"1531946"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-resource-groups","lastmod":"2026-10-02T11:46Z","nid":"1531946"} -->
 ## Configuring Resource Groups
 
 - Source: https://help.zscaler.com/zpa/configuring-resource-groups
 - Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Microsegmentation > Resource Management > Resources > Configuring Resource Groups
-- Last modified: 2026-09-18T10:16Z
+- Path: Private Access (ZPA) Help > Microsegmentation > Resource Management > Configuring Resource Groups
+- Last modified: 2026-10-02T11:46Z
 - Summary: How to configure resource groups for Microsegmentation in the Zscaler Admin Console.
 
 Resource groups are collections of resources. Policies are applied to traffic between two resource groups, or a resource group and the special object, ANY. To learn more, see [About Resource Groups](https://help.zscaler.com/zpa/about-resource-groups) and [About Microsegmentation Policies](https://help.zscaler.com/zpa/about-microsegmentation-policies).
@@ -5126,13 +5154,13 @@ Your new resource group appears in the list. If you added a perimeter policy to 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-resource-tags","lastmod":"2026-09-04T06:27Z","nid":"1538475"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-resource-tags","lastmod":"2026-10-02T11:50Z","nid":"1538475"} -->
 ## Configuring Resource Tags
 
 - Source: https://help.zscaler.com/zpa/configuring-resource-tags
 - Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Microsegmentation > Resource Management > Resources > Configuring Resource Tags
-- Last modified: 2026-09-04T06:27Z
+- Path: Private Access (ZPA) Help > Microsegmentation > Resource Management > Configuring Resource Tags
+- Last modified: 2026-10-02T11:50Z
 - Summary: How to configure tags for resources in Microsegmentation in the Zscaler Admin Console.
 
 Tags are resource components used when configuring criteria for [resource groups](https://help.zscaler.com/zpa/configuring-resource-groups). You can create and delete tags individually. To learn more, see [About Resource Groups](https://help.zscaler.com/zpa/about-resource-groups) and [About Resources](https://help.zscaler.com/zpa/about-resources).
@@ -6370,28 +6398,38 @@ After the Zscaler Assigned version profile is deactivated, individual software c
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-vpn-access-policies","lastmod":"2026-09-21T09:00Z","nid":"1533883"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-vpn-access-policies","lastmod":"2026-10-02T08:57Z","nid":"1533883"} -->
 ## Configuring VPN Access Policies
 
 - Source: https://help.zscaler.com/zpa/configuring-vpn-access-policies
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > VPN Access Policy > Configuring VPN Access Policies
-- Last modified: 2026-09-21T09:00Z
+- Last modified: 2026-10-02T08:57Z
 - Summary: How to configure a VPN access policy rule.
 
 VPN access policy rules enable you to allow or block network traffic on VPN Service Edges. VPN (for Legacy Apps) supports a maximum of 1,000 policy rules. For a complete list of ranges and limitations for access policy rules, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#private-applications).
 
 Per Private Access (ZPA) policy evaluation, VPN (for Legacy Apps) evaluates access policy rules using a top-down, specific-match principle. Traffic that doesn't match any access policy rule is blocked by default. If you are new to VPN (for Legacy Apps), you must create a policy rule to allow any traffic through the VPN tunnel.
 
-Before you configure an access policy rule, consider configuring [address books](https://help.zscaler.com/zpa/about-address-book) for grouping Classless Inter-Domain Routings (CIDRs) and IP addresses that can be used as a source or destination network in multiple policy rules to help organize the network resources to protect.
+Before you configure an access policy rule, consider configuring [IP address objects](https://help.zscaler.com/zpa/about-address-book) for grouping Classless Inter-Domain Routings (CIDRs) and IP addresses that can be used as a source or destination network in multiple policy rules to help organize the network resources to protect.
 
 To configure an access policy rule:
 
 1. Go to **Private Access**>**VPN (for Legacy Apps)**>**VPN Access Policy**.
 2. Click **Add**. The **Add Rule** page appears.
 3. On the**Add Rule**page: See image.
-  - **Source Networks**: Enter a source IP address and click **Add**. Use a comma to separate multiple entries. A maximum of 64 IP addresses or IP subnets is allowed. Click **Import LAN/Client Subnets** or **Address Book** to import source networks.
-  - **Destination Networks**: Enter a destination IP address. Use a comma to separate multiple entries. A maximum of 64 IP addresses or IP subnets is allowed. Click **Import LAN/Client Subnets** or **Address Book** to import destination networks. If you manually enter or import LAN/Client Subnet entries, each time you update a Network segment, you must make a corresponding change to the access policy to add the LAN/Client Subnet entries. If you use the address book, any host or subnet added to the address book is automatically added to the access policy.
+  - In **Source Networks**, choose one of the following
+    - **IP Addresses**
+      - **IP Address**: Enter an IP address, and click **Add**. A maximum of 64 IP addresses or IP subnets is allowed. You can also click **Import LAN/Client Subnets**or**Address Book**to define destinations from a predefined list.
+    - **IdP Attributes**
+      - **Select** **IdP:** Create granular access rules based on user identity information provided by your IdP. You can build rules that rely on a single attribute or multiple attributes from the same IdP, or you use a combination of attributes spanning different IdPs.
+      - **Import IdP Attribute Object:** Apply a preconfigured set of IdP criteria.
+  - In **Destination Networks**, choose one of the following
+    - **IP Addresses**
+      - **IP Address**: Enter an IP address, and click **Add**. A maximum of 64 IP addresses or IP subnets is allowed. You can also click **Import LAN/Client Subnets**or**Address Book**to define destinations from a predefined list.
+    - **IdP Attributes**
+      - **Select** **IdP:** Create granular access rules based on user identity information provided by your IdP. You can build rules that rely on a single attribute or multiple attributes from the same IdP, or you use a combination of attributes spanning different IdPs.
+      - **Import IdP Attribute Object:** Apply a preconfigured set of IdP criteria.
   - **Protocols**: Select an IP protocol for communication.
   - **Action**: Select one of the following actions when the traffic matches the rule:
     - **Allow**: Allows access to the network.
@@ -6630,20 +6668,20 @@ Choose a specific SCIM group name from the drop-down menu to apply the rule acti
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-websocket-controls","lastmod":"2026-09-27T07:06Z","nid":"1485211"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-websocket-controls","lastmod":"2026-10-04T07:06Z","nid":"1485211"} -->
 ## Configuring WebSocket Controls
 
 - Source: https://help.zscaler.com/zpa/configuring-websocket-controls
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > AppProtection for Private Application Traffic > WebSocket Controls > Configuring WebSocket Controls
-- Last modified: 2026-09-27T07:06Z
+- Last modified: 2026-10-04T07:06Z
 - Summary: How to add and configure a new set of WebSocket custom controls for AppProtection profiles within the Zscaler Admin Console.
 
 You can add WebSocket Controls to use as part of your [AppProtection profiles](https://help.zscaler.com/zpa/about-appprotection-profiles) in the Zscaler Admin Console. To learn more, see [About WebSocket Controls](https://help.zscaler.com/zpa/about-websocket-controls).
 
 To add a new WebSocket control:
 
-1. Go to **Policies** >**Cybersecurity**>**Inline Security**>**Protection Controls**> **WebSocket Controls**.
+1. Go to **Private Access**>**Private App Protection**> **Protection Controls**>**WebSocket Controls**.
 2. Click **Add**. The **Add WebSocket Custom Control** window appears.
 3. In the **Add WebSocket Custom Control** window, complete the following steps:
 
@@ -6710,13 +6748,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/connector-deployment-guide-amazon-web-services","lastmod":"2026-08-21T08:32Z","nid":"1483831"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/connector-deployment-guide-amazon-web-services","lastmod":"2026-09-30T16:14Z","nid":"1483831"} -->
 ## App Connector Deployment Guide for Amazon Web Services
 
 - Source: https://help.zscaler.com/zpa/connector-deployment-guide-amazon-web-services
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Deployment Guides for Supported Platforms > App Connector Deployment Guide for Amazon Web Services
-- Last modified: 2026-08-21T08:32Z
+- Last modified: 2026-09-30T16:14Z
 - Summary: How to deploy an App Connector on Amazon Web Services (AWS), including platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy an App Connector on Amazon Web Services (AWS), and post-deployment verification checks. For general information regarding App Connector deployment for Private Access, see [About Deploying App Connectors](https://help.zscaler.com/zpa/about-deploying-connectors).
@@ -6755,7 +6793,7 @@ The following specifications are recommended by Zscaler for each App Connector:
 
 - Memory: 4 GB RAM
 
-For Zscaler Digital Experience (ZDX) deployments, Zscaler recommends App Connectors to have 8 GB of RAM. If the ZDX probes exceed a count of 2,000 at an interval of 5 minutes, further scaling should be considered. If alerts are observed that exceed a configured bandwidth of 250 Mbps on each App Connector, further scaling of 32 GB of RAM should be considered.
+For Digital Experience (ZDX) deployments, Zscaler recommends App Connectors to have 8 GB of RAM. If the ZDX probes exceed a count of 2,000 at an interval of 5 minutes, further scaling should be considered. If alerts are observed that exceed a configured bandwidth of 250 Mbps on each App Connector, further scaling of 32 GB of RAM should be considered.
 
 - CPU:
   - 2 CPU cores (Xeon E5 class) for physical machines without hyperthreading
@@ -7547,13 +7585,13 @@ Add a Network Connector and enter the OAuth enrollment token on the **Add Networ
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/connector-deployment-guide-microsoft-azure","lastmod":"2026-09-18T10:47Z","nid":"1483836"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/connector-deployment-guide-microsoft-azure","lastmod":"2026-10-01T07:02Z","nid":"1483836"} -->
 ## App Connector Deployment Guide for Microsoft Azure
 
 - Source: https://help.zscaler.com/zpa/connector-deployment-guide-microsoft-azure
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Deployment Guides for Supported Platforms > App Connector Deployment Guide for Microsoft Azure
-- Last modified: 2026-09-18T10:47Z
+- Last modified: 2026-10-01T07:02Z
 - Summary: How to deploy an App Connector on Microsoft Azure, including platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy an App Connector on Microsoft Azure, and post-deployment verification checks. For general information regarding App Connector deployment for Private Access (ZPA), see [About Deploying App Connectors](https://help.zscaler.com/zpa/about-deploying-connectors).
@@ -8249,13 +8287,13 @@ Add a Network Connector and enter the OAuth enrollment token on the **Add Networ
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/connector-deployment-guide-vmware-platforms","lastmod":"2026-09-20T07:06Z","nid":"1483731"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/connector-deployment-guide-vmware-platforms","lastmod":"2026-09-30T16:47Z","nid":"1483731"} -->
 ## App Connector Deployment Guide for VMware Platforms
 
 - Source: https://help.zscaler.com/zpa/connector-deployment-guide-vmware-platforms
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Deployment Guides for Supported Platforms > App Connector Deployment Guide for VMware Platforms
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-09-30T16:47Z
 - Summary: How to deploy an App Connector on VMware platforms with vCenter or vSphere Hypervisor (ESXi), including platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy an App Connector on a VMware platform with vCenter or vSphere Hypervisor (ESXi), and post-deployment verification checks. For general information regarding App Connector deployment for Private Access, see [About Deploying App Connectors](https://help.zscaler.com/zpa/about-deploying-connectors).
@@ -8414,7 +8452,7 @@ The following specifications are recommended by Zscaler for each App Connector:
 
 - Memory: 4 GB RAM
 
-For Zscaler Digital Experience (ZDX) deployments, Zscaler recommends App Connectors to have 8 GB of RAM. If the ZDX probes exceed a count of 2,000 at an interval of 5 minutes, further scaling should be considered. If alerts are observed that exceed a configured bandwidth of 250 Mbps on each App Connector, further scaling of 32 GB of RAM should be considered.
+For Digital Experience (ZDX) deployments, Zscaler recommends App Connectors to have 8 GB of RAM. If the ZDX probes exceed a count of 2,000 at an interval of 5 minutes, further scaling should be considered. If alerts are observed that exceed a configured bandwidth of 250 Mbps on each App Connector, further scaling of 32 GB of RAM should be considered.
 
 - CPU:
   - 2 CPU cores (Xeon E5 class) for physical machines without hyperthreading
@@ -9660,13 +9698,13 @@ To create a scheduled backup configuration:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/defining-browser-access-application-different-external-vs-internal-domains","lastmod":"2026-09-18T03:09Z","nid":"1484231"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/defining-browser-access-application-different-external-vs-internal-domains","lastmod":"2026-10-02T21:06Z","nid":"1484231"} -->
 ## Defining a Browser Access Application with Different External vs. Internal Domains
 
 - Source: https://help.zscaler.com/zpa/defining-browser-access-application-different-external-vs-internal-domains
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Browser Access > Defining a Browser Access Application with Different External vs. Internal Domains
-- Last modified: 2026-09-18T03:09Z
+- Last modified: 2026-10-02T21:06Z
 - Summary: How to define a Browser Access-enabled web application for Private Access (ZPA) when it uses a different external DNS hostname than its internal hostname.
 
 The following guide provides the methods and requirements to define a Browser Access application that utilizes different external and internal domains.
@@ -9772,13 +9810,13 @@ Your users should now be able to access the [applications you defined](https://h
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/defining-browser-access-application-multiple-ports-same-domain","lastmod":"2026-09-18T02:47Z","nid":"1484161"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/defining-browser-access-application-multiple-ports-same-domain","lastmod":"2026-10-02T21:06Z","nid":"1484161"} -->
 ## Defining a Browser Access Application with Multiple Ports on the Same Domain
 
 - Source: https://help.zscaler.com/zpa/defining-browser-access-application-multiple-ports-same-domain
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Browser Access > Defining a Browser Access Application with Multiple Ports on the Same Domain
-- Last modified: 2026-09-18T02:47Z
+- Last modified: 2026-10-02T21:06Z
 - Summary: How to define a Browser Access-enabled web application with multiple ports on the same domain for Private Access.
 
 In many cases, the applications you want to make available via Browser Access are running on a single web server. Because it's not necessary for the externally advertised DNS hostnames to match the internal ones, unmatched hostnames can be used to handle scenarios where one host is serving web applications on multiple ports.
@@ -9860,13 +9898,13 @@ To learn more, see [Explicitly Defining Servers](https://help.zscaler.com/zpa/ex
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/defining-browser-access-application-within-existing-application-segment","lastmod":"2026-09-18T02:52Z","nid":"1484091"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/defining-browser-access-application-within-existing-application-segment","lastmod":"2026-10-02T21:06Z","nid":"1484091"} -->
 ## Defining a Browser Access Application within an Existing Application Segment
 
 - Source: https://help.zscaler.com/zpa/defining-browser-access-application-within-existing-application-segment
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Browser Access > Defining a Browser Access Application within an Existing Application Segment
-- Last modified: 2026-09-18T02:52Z
+- Last modified: 2026-10-02T21:06Z
 - Summary: How to define a Browser Access-enabled web application within an existing application segment for Private Access.
 
 You can define applications for Browser Access when [configuring a new application segment](https://help.zscaler.com/zpa/configuring-defined-application-segments). You can also modify existing application segments to enable Browser Access for an application. To learn more, see [About Browser Access](https://help.zscaler.com/zpa/about-browser-access).
@@ -10090,13 +10128,13 @@ Example - California driver's license number:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/deleting-agent-groups","lastmod":"2026-09-18T10:47Z","nid":"1531958"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/deleting-agent-groups","lastmod":"2026-10-02T21:06Z","nid":"1531958"} -->
 ## Deleting Agent Groups
 
 - Source: https://help.zscaler.com/zpa/deleting-agent-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Agent Management > Agent Groups > Deleting Agent Groups
-- Last modified: 2026-09-18T10:47Z
+- Last modified: 2026-10-02T21:06Z
 - Summary: How to delete agent groups for Microsegmentation in the Zscaler Admin Console.
 
 Admins can [configure](https://help.zscaler.com/zpa/configuring-agent-groups), [edit](https://help.zscaler.com/zpa/editing-agent-groups), and delete agent groups as needed.
@@ -10148,13 +10186,13 @@ The page refreshes and removes the agent provisioning key from the list.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/deleting-agents","lastmod":"2026-09-14T07:29Z","nid":"1531954"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/deleting-agents","lastmod":"2026-09-28T21:06Z","nid":"1531954"} -->
 ## Deleting Agents
 
 - Source: https://help.zscaler.com/zpa/deleting-agents
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Agent Management > Agents > Deleting Agents
-- Last modified: 2026-09-14T07:29Z
+- Last modified: 2026-09-28T21:06Z
 - Summary: How to delete agents for Microsegmentation in the Zscaler Admin Console.
 
 Admins can [edit](https://help.zscaler.com/zpa/editing-agents) and delete agents as needed.
@@ -10222,13 +10260,13 @@ Deleting a backup also deletes the linked [restore activities](https://help.zsca
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/deleting-disconnected-app-connectors","lastmod":"2026-06-23T07:54Z","nid":"1485216"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/deleting-disconnected-app-connectors","lastmod":"2026-09-30T15:52Z","nid":"1485216"} -->
 ## Deleting Disconnected App Connectors
 
 - Source: https://help.zscaler.com/zpa/deleting-disconnected-app-connectors
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connectors > Deleting Disconnected App Connectors
-- Last modified: 2026-06-23T07:54Z
+- Last modified: 2026-09-30T15:52Z
 - Summary: How to delete disconnected App Connectors in the Zscaler Admin Console.
 
 Zscaler recommends that you evaluate your service configuration to confirm there is no service outage before deleting disconnected App Connectors.
@@ -10237,7 +10275,7 @@ This article describes how to delete disconnected App Connectors.
 
 To delete a disconnected App Connector:
 
-1. Go to **Infrastructure**>**Private Access**>**Component**>**App Connectors**.
+1. Go to **Private Access**>**Private Infrastructure**>**App Connectors**.
 2. Select the **Disconnected** filter.
 
 See image.
@@ -10333,7 +10371,7 @@ The page reloads and your namespace is removed from the list.
 
 - Source: https://help.zscaler.com/zpa/deleting-perimeter-policy
 - Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Microsegmentation > Policy > Deleting a Perimeter Policy
+- Path: Private Access (ZPA) Help > Microsegmentation > Policy Management > Deleting a Perimeter Policy
 - Last modified: 2026-09-18T10:12Z
 - Summary: How to delete a perimeter policy.
 
@@ -10352,13 +10390,13 @@ To delete a perimeter policy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/deleting-resource-groups","lastmod":"2026-09-04T06:22Z","nid":"1531948"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/deleting-resource-groups","lastmod":"2026-10-02T11:47Z","nid":"1531948"} -->
 ## Deleting Resource Groups
 
 - Source: https://help.zscaler.com/zpa/deleting-resource-groups
 - Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Microsegmentation > Resource Management > Resources > Deleting Resource Groups
-- Last modified: 2026-09-04T06:22Z
+- Path: Private Access (ZPA) Help > Microsegmentation > Resource Management > Deleting Resource Groups
+- Last modified: 2026-10-02T11:47Z
 - Summary: How to delete resource groups for Microsegmentation.
 
 You can [configure](https://help.zscaler.com/zpa/configuring-resource-groups), [edit](https://help.zscaler.com/zpa/editing-resource-groups), and delete resource groups at any time to provide flexibility in managing traffic that can change over time. To learn more, see [About Resource Groups](https://help.zscaler.com/zpa/about-resource-groups).
@@ -10378,13 +10416,13 @@ To delete a resource group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/deleting-resource-tags","lastmod":"2026-09-04T06:35Z","nid":"1538476"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/deleting-resource-tags","lastmod":"2026-10-02T11:49Z","nid":"1538476"} -->
 ## Deleting Resource Tags
 
 - Source: https://help.zscaler.com/zpa/deleting-resource-tags
 - Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Microsegmentation > Resource Management > Resources > Deleting Resource Tags
-- Last modified: 2026-09-04T06:35Z
+- Path: Private Access (ZPA) Help > Microsegmentation > Resource Management > Deleting Resource Tags
+- Last modified: 2026-10-02T11:49Z
 - Summary: How to delete resource tags in Microsegmentation.
 
 [Resource tags](https://help.zscaler.com/zpa/configuring-resource-tags) are used to define criteria when creating a resource group. You can manually delete individual tags from the list at any time.
@@ -10464,13 +10502,13 @@ If the IdP is Okta, users are not deleted. Instead, users are deactivated. Deact
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/deploying-app-connector-private-service-edge-zpa-appliances","lastmod":"2026-09-21T16:43Z","nid":"1540963"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/deploying-app-connector-private-service-edge-zpa-appliances","lastmod":"2026-09-29T17:10Z","nid":"1540963"} -->
 ## Deploying App Connector and Private Service Edge ZPA Appliances
 
 - Source: https://help.zscaler.com/zpa/deploying-app-connector-private-service-edge-zpa-appliances
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > ZPA Appliance > Deploying App Connector and Private Service Edge ZPA Appliances
-- Last modified: 2026-09-21T16:43Z
+- Last modified: 2026-09-29T17:10Z
 - Summary: Information on deploying App Connector or Private Service Edge for Private Access (ZPA) software on the ZPA hardware appliance.
 
 The ZPA hardware appliance is shipped with an App Connector or Private Service Edge for Private Access (ZPA) installed on it. Before you can use the appliance, you need to enroll the App Connector or Private Service Edge, including applying a provisioning key. The provisioning key functions like a credential, enabling the Private Access cloud to verify the App Connector's or Private Service Edge's authenticity and complete the deployment process. Furthermore, each key is associated with a specific App Connector or Private Service Edge group, so the key allows the Private Access cloud to identify the correct group to which an App Connector or Private Service Edge must be deployed.
@@ -10607,7 +10645,7 @@ The output should return the provisioning key you entered in the previous step.
   2. Check that the ZPA appliance for App Connector you deployed appears in the table of configured App Connectors. [Image: ZPA Appliance on the App Connectors Page]
   3. Click the App Connector name and verify that the Host Platform has ZS-ZPA-APPL-8010. [Image: ZPA Appliance in the App Connectors Details Drawer]
 - To check the status of a ZPA appliance for App Connector on the Health page:
-  1. Search for **Health** and select the option for **Analytics > Private Applications**. [Image: Option to search for health] The **Health** page for Private Applications appears.
+  1. Go to **Private Access** > **Dashboards** > **Health**. [Image: Option to search for health] The **Health** page for Private Applications appears.
   2. Check that the ZPA appliance you deployed appears in the **Appliances**widget. The App Connector must have enrolled successfully at least once for it to appear within the Health dashboard. [Image: ZPA Appliances on the Health Page]
 
 - To check the status of a ZPA appliance for Private Service Edge on the Private Service Edges page:
@@ -10615,7 +10653,7 @@ The output should return the provisioning key you entered in the previous step.
   2. Check that the ZPA appliance for Private Service Edge you deployed appears in the table of configured Private Service Edges. [Image: ZPA Appliance on the Private Service Edges Page]
   3. Click the Private Service Edge name and verify that the Host Platform is ZS-ZPA-PSE-8010. [Image: ZPA Appliance in Private Service Edge details]
 - To check the status of a ZPA appliance for Private Service Edge on the Health page:
-  1. Search for **Health** and select the option for **Analytics > Private Applications**. [Image: Option to search for health] The **Health** page for Private Applications appears.
+  1. Go to **Private Access** > **Dashboards** > **Health**. [Image: Option to search for health] The **Health** page for Private Applications appears.
   2. Check that the ZPA Appliance you deployed appears in the **Appliances**widget. The Private Service Edge must have enrolled successfully at least once for it to appear within the Health dashboard. [Image: ZPA Appliances on the Health Page]
 <!-- /ZS-ARTICLE -->
 
@@ -10692,18 +10730,47 @@ The deployment process differs depending on the platform used for the Private Cl
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/deploying-vpn-service-edges-china","lastmod":"2026-06-29T07:06Z","nid":"1538982"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/deploying-service-edges","lastmod":"2026-10-02T11:00Z","nid":"1484476"} -->
+## Deploying Private Service Edges
+
+- Source: https://help.zscaler.com/zpa/deploying-service-edges
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Deployment Guides for Supported Platforms > Deploying Private Service Edges
+- Last modified: 2026-10-02T11:00Z
+- Summary: Information on how to enroll and deploy Private Service Edges for Private Access (ZPA).
+
+After you [add a Private Service Edge for Private Access (ZPA)](https://help.zscaler.com/zpa/configuring-service-edges), you must deploy it. Deployment consists of installing and enrolling the Private Service Edge, which allows it to obtain a TLS client certificate that it must use to authenticate itself to the Private Access cloud. After deployment, the Private Service Edge is ready to securely connect users to App Connectors and applications.
+
+## Understanding Private Service Edge Enrollment
+
+When a Private Service Edge is installed for the first time, it does not yet have a key pair (i.e., a local private key and a corresponding TLS client certificate). Instead, the Private Service Edge must first generate the local private key, which it encrypts using a hardware fingerprint. Then, the Private Service Edge must obtain the TLS client certificate through enrollment, which consists of the following processes:
+
+- The Private Service Edge uses the local private key to generate a Certificate Signing Request (CSR).
+- It uses the provisioning key to authenticate the CSR to the Private Access cloud. This is the [provisioning key](https://help.zscaler.com/zpa/about-service-edge-provisioning-keys) that you generated in the Zscaler Admin Console and provided to the Private Service Edge during installation.
+- It receives a signed TLS client certificate from the Private Access cloud.
+- The signed TLS client certificate is pinned to the Private Service Edge's hardware fingerprint.
+
+Once the Private Service Edge is enrolled, it is paired with a single customer account, and it cannot be enrolled again. Private Service Edges that are running in virtual machine (VM) environments should never be cloned, because the keys will no longer match the virtual hardware fingerprints.
+
+## Deploying a Private Service Edge on a Supported Platform
+
+Before you begin a deployment, read [Private Service Edge Deployment Prerequisites](https://help.zscaler.com/zpa/private-cloud-controller-deployment-prerequisites), which provides detailed information on VM image sizing and scalability, supported platform requirements, deployment best practices, and other essential guidelines.
+
+The deployment process differs depending on the platform used for the Private Service Edge. Zscaler recommends that Private Service Edges be deployed in pairs, to ensure continuous availability during software upgrades. To learn more, see the [Deployment Guide for the platform](https://help.zscaler.com/zpa/private-service-edge-management/private-service-edge-deployment-guides-supported-platforms).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/deploying-vpn-service-edges-china","lastmod":"2026-09-30T10:28Z","nid":"1538982"} -->
 ## Deploying VPN Service Edges in China
 
 - Source: https://help.zscaler.com/zpa/deploying-vpn-service-edges-china
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > VPN Configuration > Deploying VPN Service Edges in China
-- Last modified: 2026-06-29T07:06Z
+- Last modified: 2026-09-30T10:28Z
 - Summary: Information on how to manage VPN (for Legacy Apps) in some uses cases for China.
 
 Private Access (ZPA) supports deploying a VPN Service Edge in Beijing, China, for specific use cases. Before configuring this deployment, review the following supported and unsupported scenarios.
-
-This feature is in limited availability. To learn more, contact Zscaler Support.
 
 ## Supported Scenario
 
@@ -10846,36 +10913,34 @@ If you only want to change an access policy rule's place in the **Rule Order**, 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/editing-address-book-objects","lastmod":"2026-09-21T09:34Z","nid":"1533893"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/editing-address-book-objects","lastmod":"2026-10-02T09:00Z","nid":"1533893"} -->
 ## Editing IP Address Book Objects
 
 - Source: https://help.zscaler.com/zpa/editing-address-book-objects
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > VPN Access Policy > Editing IP Address Book Objects
-- Last modified: 2026-09-21T09:34Z
+- Last modified: 2026-10-02T09:00Z
 - Summary: How to edit an IP address object.
 
 To edit an IP address object:
 
-1. Go to **Private Access** >**VPN (for Legacy Apps)**>**VPN Access Policy**>**IP Address Object**.
-2. Locate the address book object you want to edit, and click the **Edit**icon.
-3. On the **Edit Address Object**page, modify fields as necessary. For more information about each field, see [Configuring Address Book Objects](https://help.zscaler.com/zpa/configuring-address-book-objects). See image.
+1. Go to **Private Access > VPN (for Legacy Apps) > VPN Access Policy IP Address**.
+2. Locate the IP address object you want to edit, and click the **Edit**icon.
+3. On the **Edit IP Address Object**page, modify fields as necessary. For more information about each field, see [Configuring IP Address Objects](https://help.zscaler.com/zpa/configuring-address-book-objects). See image.
 4. Click **Save**.
 
-[Image: Edit an address book from the Address Book page]
-
-<p class="rteindent1"> <img alt="Edit Access Policy window within the Zscaler Admin Console" src="/downloads/zpa/documentation-knowledgebase/policies/access-policy/about-accesspolicy-edit/zpa-editacesspolicy.png" title="Editing an access policy rule within the Zscaler Admin Console" /> </p>
+[Image: Edit an IP address object from the edit page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/editing-agent-groups","lastmod":"2026-09-18T10:47Z","nid":"1531957"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/editing-agent-groups","lastmod":"2026-10-02T21:06Z","nid":"1531957"} -->
 ## Editing Agent Groups
 
 - Source: https://help.zscaler.com/zpa/editing-agent-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Agent Management > Agent Groups > Editing Agent Groups
-- Last modified: 2026-09-18T10:47Z
+- Last modified: 2026-10-02T21:06Z
 - Summary: How to edit agent groups for Microsegmentation in the Zscaler Admin Console.
 
 Admins can [configure](https://help.zscaler.com/zpa/configuring-agent-groups), edit, and [delete](https://help.zscaler.com/zpa/deleting-agent-groups) agent groups as needed.
@@ -10926,13 +10991,13 @@ Your updated provisioning key appears in the list of agent provisioning keys.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/editing-agents","lastmod":"2026-09-14T07:28Z","nid":"1531953"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/editing-agents","lastmod":"2026-09-28T21:06Z","nid":"1531953"} -->
 ## Editing Agents
 
 - Source: https://help.zscaler.com/zpa/editing-agents
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Agent Management > Agents > Editing Agents
-- Last modified: 2026-09-14T07:28Z
+- Last modified: 2026-09-28T21:06Z
 - Summary: How to edit agents for Microsegmentation in the Zscaler Admin Console.
 
 Admins can edit and [delete](https://help.zscaler.com/zpa/deleting-agents) agents as needed.
@@ -11156,20 +11221,20 @@ If you only want to change a client forwarding policy rule's place in the **Rule
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/editing-connector-groups","lastmod":"2026-06-23T14:53Z","nid":"1483596"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/editing-connector-groups","lastmod":"2026-09-30T16:00Z","nid":"1483596"} -->
 ## Editing App Connector Groups
 
 - Source: https://help.zscaler.com/zpa/editing-connector-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Groups > Editing App Connector Groups
-- Last modified: 2026-06-23T14:53Z
+- Last modified: 2026-09-30T16:00Z
 - Summary: How to edit existing App Connector groups within the Zscaler Admin Console.
 
 This article describes how to edit an App Connector group. To learn about configuring an App Connector group and the available options, see [About App Connector Groups](https://help.zscaler.com/zpa/about-connector-groups) or [Configuring a Version Profile](https://help.zscaler.com/zpa/configuring-version-profile).
 
 To edit a configured App Connector group:
 
-1. Go to **Infrastructure**>**Private Access**>**Component**>**App Connector Groups**.
+1. Go to **Private Access**>**Private Infrastructure**>**App Connector Groups**.
 2. In the table, locate the App Connector group you want to modify and click the **Edit**icon. App Connector groups that are managed by Zscaler are read only and cannot be edited.
 
 The **Edit App Connector Group** page appears.
@@ -11185,18 +11250,18 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/editing-connector-provisioning-keys","lastmod":"2026-06-25T13:44Z","nid":"1483601"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/editing-connector-provisioning-keys","lastmod":"2026-09-30T16:05Z","nid":"1483601"} -->
 ## Editing App Connector Provisioning Keys
 
 - Source: https://help.zscaler.com/zpa/editing-connector-provisioning-keys
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Provisioning Keys > Editing App Connector Provisioning Keys
-- Last modified: 2026-06-25T13:44Z
+- Last modified: 2026-09-30T16:05Z
 - Summary: How to edit existing App Connector provisioning keys within the Zscaler Admin Console.
 
 To edit an App Connector provisioning key:
 
-1. Go to **Infrastructure** > **Private Access** > **Component** > **App Connector Keys**.
+1. Go to **Private Access** > **Private Infrastructure** > **App Connector Keys**.
 2. In the table, locate the App Connector provisioning key you want to modify and click the **Edit icon**. Only keys that can be viewed or exported after creation appear in the table. App Connector provisioning keys that are managed by Zscaler are read only and cannot be edited. The **Edit App Connector Provisioning Key** page appears.
 3. In the**Edit App Connector Provisioning Key**page, you can only modify the following fields:
   - **View or Export Provisioning Key After Creation**: Disable this option to hide the provisioning key from the **Provisioning Key** column of the table and disable copying or downloading the key after creation. If disabled, you cannot enable this option. If this option is enabled, you can disable it at a later time. This option is enabled by default.
@@ -11296,20 +11361,20 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/editing-custom-controls","lastmod":"2026-08-05T17:16Z","nid":"1484991"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/editing-custom-controls","lastmod":"2026-09-29T18:36Z","nid":"1484991"} -->
 ## Editing Custom Controls
 
 - Source: https://help.zscaler.com/zpa/editing-custom-controls
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > AppProtection for Private Application Traffic > Custom Controls > Editing Custom Controls
-- Last modified: 2026-08-05T17:16Z
+- Last modified: 2026-09-29T18:36Z
 - Summary: How to edit a custom control in the Zscaler Admin Console.
 
 All [custom controls](https://help.zscaler.com/zpa/about-custom-controls) can be edited, even ones currently in use by an [AppProtection profile](https://help.zscaler.com/zpa/about-inspection-profiles).
 
 To edit a custom control:
 
-1. Go to **Policies**>**Cybersecurity**>**Inline Security**>**Protection Controls**> **Custom Controls**.
+1. Go to **Private Access**>**Private App Protection**>**Protection Controls**>**Custom Controls**.
 2. Locate the custom control you want to edit, and click the **Edit** icon.
 
 The **Edit Custom Control** window appears.
@@ -11371,18 +11436,18 @@ If there are required fields missing, the **Incomplete Configuration** icon appe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/editing-deployed-connector","lastmod":"2026-06-29T15:20Z","nid":"1483491"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/editing-deployed-connector","lastmod":"2026-09-30T15:51Z","nid":"1483491"} -->
 ## Editing a Deployed App Connector
 
 - Source: https://help.zscaler.com/zpa/editing-deployed-connector
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connectors > Editing a Deployed App Connector
-- Last modified: 2026-06-29T15:20Z
+- Last modified: 2026-09-30T15:51Z
 - Summary: How to edit a deployed App Connector.
 
 To edit a deployed App Connector:
 
-1. Go to **Infrastructure**>**Private Access**>**Component**>**App Connectors**.
+1. Go to **Private Access**>**Private Infrastructure**> **App Connectors**.
 2. In the table, locate the App Connector you want to modify and click the **Edit** icon. App Connectors that are managed by Zscaler are read only and cannot be edited. The **Edit App Connector** drawer appears.
 3. In the **Edit App Connector**drawer, you can only modify the following fields:
 
@@ -11576,6 +11641,27 @@ To edit an external router:
 [Image: Edit a external router from the External Routers page]
 
 <p class="rteindent1"> <img alt="Edit Access Policy window in the Zscaler Admin Console" src="/downloads/zpa/documentation-knowledgebase/policies/access-policy/about-accesspolicy-edit/zpa-editacesspolicy.png" title="Editing an access policy rule in the Zscaler Admin Console" /> </p>
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/editing-idp-attribute-objects","lastmod":"2026-10-02T09:18Z","nid":"1546233"} -->
+## Editing IdP Attribute Objects
+
+- Source: https://help.zscaler.com/zpa/editing-idp-attribute-objects
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > VPN Access Policy > Editing IdP Attribute Objects
+- Last modified: 2026-10-02T09:18Z
+- Summary: How to edit an IdP attribute object.
+
+To edit an IdP attribute object:
+
+1. Go to **Private Access > VPN (for Legacy Apps) > VPN Access Policy IdP Address**.
+2. Locate the IdP attribute object you want to edit, and click the **Edit**icon.
+3. On the **Edit IdP Attribute Object**page, modify fields as necessary. For more information about each field, see [Configuring IdP Attribute Objects](https://help.zscaler.com/zpa/configuring-idp-attribute-objects). See image.
+4. Click **Save**.
+
+[Image: Edit an IdP attribute object]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -12170,13 +12256,13 @@ To edit a redirection policy rule:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/editing-resource-groups","lastmod":"2026-09-04T06:19Z","nid":"1531947"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/editing-resource-groups","lastmod":"2026-10-02T11:47Z","nid":"1531947"} -->
 ## Editing Resource Groups
 
 - Source: https://help.zscaler.com/zpa/editing-resource-groups
 - Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Microsegmentation > Resource Management > Resources > Editing Resource Groups
-- Last modified: 2026-09-04T06:19Z
+- Path: Private Access (ZPA) Help > Microsegmentation > Resource Management > Editing Resource Groups
+- Last modified: 2026-10-02T11:47Z
 - Summary: How to edit resource groups for Microsegmentation in the Zscaler Admin Console.
 
 You can [configure](https://help.zscaler.com/zpa/configuring-resource-groups), edit, and [delete](https://help.zscaler.com/zpa/deleting-resource-groups) resource groups at any time to provide flexibility in managing security posture.
@@ -12479,13 +12565,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/editing-vpn-access-policies","lastmod":"2026-09-21T09:00Z","nid":"1533890"} -->
-## Editing VPN Access Policies
+<!-- ZS-ARTICLE {"url":"/zpa/editing-vpn-access-policies","lastmod":"2026-10-02T08:41Z","nid":"1533890"} -->
+## Editing VPN Access Policy Rules
 
 - Source: https://help.zscaler.com/zpa/editing-vpn-access-policies
 - Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > VPN Access Policy > Editing VPN Access Policies
-- Last modified: 2026-09-21T09:00Z
+- Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > VPN Access Policy > Editing VPN Access Policy Rules
+- Last modified: 2026-10-02T08:41Z
 - Summary: How to edit a VPN access policy rule.
 
 To edit a VPN access policy rule:
@@ -12493,14 +12579,14 @@ To edit a VPN access policy rule:
 1. Go to **Private Access**>**VPN (for Legacy Apps)**>**VPN Access Policy**.
 2. Locate the access policy rule you want to edit, and click the **Edit**icon.
 
-If you only want to change an access policy rule's place in the **Rule Order**, you can manually enter a new value on the [VPN Access Policy](https://help.zscaler.com/zpa/about-vpn-access-policy) page.
+To change the value of an access policy rule, click the value in the **Rule Order**column.
 
 1. On the **Edit Rule**page, modify fields as necessary. For more information about each field, see [Configuring VPN Access Policies](https://help.zscaler.com/zpa/configuring-vpn-access-policies). See image.
 2. Click **Save**.
 
 [Image: Edit a VPN access policy rule from the VPN Access Policy page]
 
-<p class="rteindent1"> <img alt="Edit Access Policy window within the ZPA Admin Portal" src="/downloads/zpa/documentation-knowledgebase/policies/access-policy/about-accesspolicy-edit/zpa-editacesspolicy.png" title="Editing an access policy rule within the ZPA Admin Portal" /> </p>
+<p class="rteindent1"> <img alt="Edit a VPN access policy rule" src="/downloads/zpa/documentation-knowledgebase/policies/access-policy/about-accesspolicy-edit/zpa-editacesspolicy.png" title="The Edit Rule page for a VPN access policy" /> </p>
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -12580,20 +12666,20 @@ To replace an expired certificate, you must upload a new one. To learn more, see
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/editing-websocket-controls","lastmod":"2026-09-27T07:06Z","nid":"1485206"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/editing-websocket-controls","lastmod":"2026-10-04T07:06Z","nid":"1485206"} -->
 ## Editing WebSocket Controls
 
 - Source: https://help.zscaler.com/zpa/editing-websocket-controls
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > AppProtection for Private Application Traffic > WebSocket Controls > Editing WebSocket Controls
-- Last modified: 2026-09-27T07:06Z
+- Last modified: 2026-10-04T07:06Z
 - Summary: How to edit a WebSocket custom control within the Zscaler Admin Console.
 
 All [WebSocket custom controls](https://help.zscaler.com/zpa/about-websocket-controls) can be edited, even ones currently in use by an [AppProtection profile](https://help.zscaler.com/zpa/about-inspection-profiles).
 
 To edit a custom control:
 
-1. Go to **Policies**>**Cybersecurity**>**Inline Security**>**Protection Controls**> **WebSocket Controls**.
+1. Go to **Private Access** >**Private App Protection** >**Protection Controls** >**WebSocket Controls**.
 2. Locate the WebSocket custom control you want to edit, and click the **Edit** icon.
 
 The **Edit WebSocket Custom Control** window appears.
@@ -13104,13 +13190,13 @@ To learn more about using SAML attributes for defining policies, see [About Poli
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/installing-upgrading-agent-manager","lastmod":"2026-09-14T07:21Z","nid":"1531951"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/installing-upgrading-agent-manager","lastmod":"2026-09-28T21:06Z","nid":"1531951"} -->
 ## Installing & Upgrading the Agent Manager
 
 - Source: https://help.zscaler.com/zpa/installing-upgrading-agent-manager
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Agent Management > Agents > Installing & Upgrading the Agent Manager
-- Last modified: 2026-09-14T07:21Z
+- Last modified: 2026-09-28T21:06Z
 - Summary: How to install the Zscaler Microsegmentation agent manager.
 
 The agent manager installs the Zscaler Microsegmentation agent service onto your device. It performs initial installation of the agent as well as agent upgrades.
@@ -13148,13 +13234,13 @@ The agent manager downloads and installs the specified agent version to your dev
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/locating-browser-access-error-codes","lastmod":"2026-09-18T02:54Z","nid":"1484186"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/locating-browser-access-error-codes","lastmod":"2026-10-02T21:06Z","nid":"1484186"} -->
 ## Locating Browser Access Error Codes
 
 - Source: https://help.zscaler.com/zpa/locating-browser-access-error-codes
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Browser Access > Locating Browser Access Error Codes
-- Last modified: 2026-09-18T02:54Z
+- Last modified: 2026-10-02T21:06Z
 - Summary: Information about Browser Access-enabled web application end user notifications (EUNs) and error codes that are displayed for Private Access.
 
 If you encounter an issue when attempting to access a Browser Access-enabled application, the end user notification (EUN) includes the error code. For example:
@@ -13168,13 +13254,13 @@ To learn more about Private Access error and policy block codes, including possi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/managing-agent-groups","lastmod":"2026-09-18T10:48Z","nid":"1540845"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/managing-agent-groups","lastmod":"2026-10-02T21:06Z","nid":"1540845"} -->
 ## Managing Agent Groups
 
 - Source: https://help.zscaler.com/zpa/managing-agent-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Agent Management > Agent Groups > Managing Agent Groups
-- Last modified: 2026-09-18T10:48Z
+- Last modified: 2026-10-02T21:06Z
 - Summary: How to manage agent groups for Microsegmentation in the Zscaler Admin Console.
 
 [Agent groups](https://help.zscaler.com/zpa/about-agent-groups) are agents that are manually organized together based on upgrade plan and location. You can make bulk updates to a set of agents by managing a single agent group.
@@ -13196,13 +13282,13 @@ To manage an agent group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/managing-chrome-posture-profiles","lastmod":"2026-09-18T03:09Z","nid":"1529369"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/managing-chrome-posture-profiles","lastmod":"2026-10-02T21:06Z","nid":"1529369"} -->
 ## Managing Chrome Posture Profiles
 
 - Source: https://help.zscaler.com/zpa/managing-chrome-posture-profiles
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Browser Access > Managing Chrome Posture Profiles
-- Last modified: 2026-09-18T03:09Z
+- Last modified: 2026-10-02T21:06Z
 - Summary: How to edit or delete your Chrome posture profiles.
 
 Zscaler recommends reviewing your Chrome posture profiles periodically to ensure security evaluation is required for your devices using the Chrome Enterprise browser.
@@ -14457,13 +14543,13 @@ To learn more about using SAML attributes for defining policies, see [About Poli
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/manually-updating-software-components","lastmod":"2026-09-24T21:06Z","nid":"1541045"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/manually-updating-software-components","lastmod":"2026-09-29T08:37Z","nid":"1541045"} -->
 ## Manually Updating Software Components
 
 - Source: https://help.zscaler.com/zpa/manually-updating-software-components
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Access Software Components > Private Access Software Component Updates > Manually Updating Software Components
-- Last modified: 2026-09-24T21:06Z
+- Last modified: 2026-09-29T08:37Z
 - Summary: How to manually update software in the Zscaler Admin Console.
 
 When an update is scheduled for a software component, you can't [change the periodic software update time](https://help.zscaler.com/zpa/how-do-i-schedule-periodic-software-update-connector-group) for that particular component. However, you can update the software component manually. Software components refer to App Connectors, Private Service Edges for Private Access (ZPA), Private Cloud Controllers, and Network Connectors.
@@ -14831,13 +14917,13 @@ Certain pages within the Zscaler Admin Console are read only after migration. La
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/monitoring-connector-performance","lastmod":"2026-06-25T13:59Z","nid":"1484611"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/monitoring-connector-performance","lastmod":"2026-09-30T16:53Z","nid":"1484611"} -->
 ## Monitoring App Connector Performance
 
 - Source: https://help.zscaler.com/zpa/monitoring-connector-performance
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Managing & Troubleshooting > Monitoring App Connector Performance
-- Last modified: 2026-06-25T13:59Z
+- Last modified: 2026-09-30T16:53Z
 - Summary: Detailed information on how to monitor App Connectors and their performance.
 
 There are a variety of things to consider when monitoring App Connectors and their performance. The most important thing is to make sure your App Connectors are deployed in a manner that follows Zscaler's recommendations for image sizing and scalability, supported platform requirements, deployment best practices, networking configurations, and other essential guidelines. To learn more, see [App Connector Deployment Prerequisites](https://help.zscaler.com/zpa/connector-deployment-prerequisites) and [Networking Deployed Software Components](https://help.zscaler.com/zpa/networking-deployed-software-components).
@@ -15125,13 +15211,13 @@ sudo sysctl -w fs.file-max=1000000
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/monitoring-private-service-edge-performance","lastmod":"2026-09-17T17:35Z","nid":"1485371"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/monitoring-private-service-edge-performance","lastmod":"2026-10-01T21:06Z","nid":"1485371"} -->
 ## Monitoring Private Service Edge Performance
 
 - Source: https://help.zscaler.com/zpa/monitoring-private-service-edge-performance
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Managing & Troubleshooting > Monitoring Private Service Edge Performance
-- Last modified: 2026-09-17T17:35Z
+- Last modified: 2026-10-01T21:06Z
 - Summary: Detailed information on how to monitor Private Service Edges for Private Access (ZPA) and their performance.
 
 There are a variety of things to consider when monitoring Private Service Edges for Private Access (ZPA) and their performance. The most important thing is to make sure your Private Service Edges are deployed in a manner that follows Zscaler's recommendations for image sizing and scalability, supported platform requirements, deployment best practices, networking configurations, and other essential guidelines. To learn more, see [Private Service Edge Deployment Prerequisites](https://help.zscaler.com/zpa/service-edge-deployment-prerequisites) and [Networking Deployed Software Components](https://help.zscaler.com/zpa/networking-deployed-software-components).
