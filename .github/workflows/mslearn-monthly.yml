@@ -1,0 +1,208 @@
+name: Microsoft Learn Docs Monthly Update
+
+on:
+  schedule:
+    # 毎月 1 日 13:30 JST (04:30 UTC)
+    # daily-update (00:00 UTC)・各 weekly (月曜 02:30 / 03:30 UTC) と開始時刻をずらし、
+    # push の衝突を避ける (衝突しても push_with_retry が rebase して再試行する)
+    - cron: "30 4 1 * *"
+  workflow_dispatch:
+    inputs:
+      docsets:
+        description: "対象ドキュメントセット (空白区切り。空欄なら既定の entra)"
+        type: string
+        default: ""
+      limit:
+        description: "取得ページ数の上限 (動作確認用。0 = 全ページ)"
+        type: string
+        default: "0"
+      sync:
+        description: "NotebookLM への同期"
+        type: choice
+        options: [enabled, dry-run, skip]
+        default: enabled
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mslearn-docs
+  cancel-in-progress: false
+
+env:
+  # 定期実行の対象。ドキュメントセットを増やすときはここに足す
+  # (sitemap 名。https://learn.microsoft.com/_sitemaps/<名前>_ja-jp_1.xml)
+  DEFAULT_DOCSETS: "entra"
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      docsets: ${{ steps.list.outputs.docsets }}
+    steps:
+      - id: list
+        env:
+          INPUT_DOCSETS: ${{ inputs.docsets }}
+        run: |
+          list="${INPUT_DOCSETS:-$DEFAULT_DOCSETS}"
+          json=$(printf '%s\n' $list | python3 -c 'import json,sys; print(json.dumps([l.strip() for l in sys.stdin if l.strip()]))')
+          echo "docsets=$json" >> "$GITHUB_OUTPUT"
+          echo "対象: $json"
+
+  update:
+    needs: plan
+    runs-on: ubuntu-latest
+    # 全ページ (Entra で約 4,800) の取得が 15〜30 分、初回の NotebookLM 登録
+    # (約 83 ソース) が 1〜2 時間
+    timeout-minutes: 300
+    strategy:
+      # 同じブランチへ push するので 1 つずつ。取得先への負荷も抑える
+      max-parallel: 1
+      fail-fast: false
+      matrix:
+        docset: ${{ fromJSON(needs.plan.outputs.docsets) }}
+
+    # secrets は if: 条件で直接参照できないので、job の env に持ち上げて判定する
+    env:
+      NOTEBOOKLM_STORAGE_STATE_JSON: ${{ secrets.NOTEBOOKLM_STORAGE_STATE_JSON }}
+      DOCSET: ${{ matrix.docset }}
+      NOTEBOOK_TITLE: MSLearn_${{ matrix.docset }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Check all pages and rebuild Markdown
+        id: build
+        env:
+          LIMIT: ${{ inputs.limit }}
+        run: |
+          set -- --docset "$DOCSET"
+          if [ -n "$LIMIT" ] && [ "$LIMIT" != "0" ]; then
+            set -- "$@" --limit "$LIMIT"
+          fi
+          python scripts/build_mslearn_docs.py "$@"
+
+      - name: Commit updated docs
+        id: commit
+        run: |
+          # push が弾かれるのは他のワークフローが先に main を進めたときで、
+          # 単に再試行しても通らない。origin/main に rebase してから試し、
+          # 4回とも駄目ならステップを失敗させる（握り潰すとコミットが黙って失われる）。
+          push_with_retry() {
+            for i in 1 2 3 4; do
+              if git push origin HEAD; then
+                return 0
+              fi
+              echo "push rejected (attempt $i) — rebasing onto origin/main"
+              sleep $((2 ** i))
+              git fetch origin main || continue
+              git rebase origin/main || { git rebase --abort || true; continue; }
+            done
+            echo "::error::4回試行しても push できませんでした。コミットが失われています。"
+            return 1
+          }
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "mslearn_docs/$DOCSET" "data/mslearn_${DOCSET}_index.json"
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "docs: Microsoft Learn ($DOCSET) 月次更新 $(TZ=Asia/Tokyo date '+%Y-%m-%d')"
+            push_with_retry
+          fi
+
+      # Markdown を GitHub に保存してから同期する。同期が失敗しても取得結果は失われない。
+      # 状態ファイルとノートブックはドキュメントセットごとに分ける (共有すると互いの
+      # ソースを「ローカルに無い」として削除し合う)。
+      - name: Sync to NotebookLM
+        id: sync
+        if: ${{ steps.commit.outcome == 'success' && env.NOTEBOOKLM_STORAGE_STATE_JSON != '' && inputs.sync != 'skip' }}
+        env:
+          SYNC_MODE: ${{ inputs.sync }}
+        run: |
+          pip install notebooklm-py
+          printf '%s' "$NOTEBOOKLM_STORAGE_STATE_JSON" > "$RUNNER_TEMP/storage_state.json"
+          export NOTEBOOKLM_STORAGE_STATE="$RUNNER_TEMP/storage_state.json"
+          set -- \
+            --docs-dir "mslearn_docs/$DOCSET" \
+            --state-file "data/mslearn_${DOCSET}_notebooklm_sync_state.json" \
+            --notebook-title "$NOTEBOOK_TITLE" \
+            --report-json "output/mslearn/$DOCSET/sync.json"
+          if [ "$SYNC_MODE" = "dry-run" ]; then
+            set -- "$@" --dry-run
+          fi
+          python scripts/sync_notebooklm.py "$@"
+
+      - name: Commit sync state
+        # schedule 実行では inputs が空になるため、"dry-run/skip でないこと" で判定する
+        if: ${{ always() && steps.sync.outcome != 'skipped' && inputs.sync != 'dry-run' && inputs.sync != 'skip' }}
+        run: |
+          push_with_retry() {
+            for i in 1 2 3 4; do
+              if git push origin HEAD; then
+                return 0
+              fi
+              echo "push rejected (attempt $i) — rebasing onto origin/main"
+              sleep $((2 ** i))
+              git fetch origin main || continue
+              git rebase origin/main || { git rebase --abort || true; continue; }
+            done
+            echo "::error::4回試行しても push できませんでした。コミットが失われています。"
+            return 1
+          }
+
+          state="data/mslearn_${DOCSET}_notebooklm_sync_state.json"
+          if [ ! -f "$state" ]; then
+            echo "同期状態ファイルがありません"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "$state"
+          if git diff --staged --quiet; then
+            echo "No sync state changes"
+          else
+            git commit -m "chore: Microsoft Learn ($DOCSET) 同期状態を更新 $(TZ=Asia/Tokyo date '+%Y-%m-%d')"
+            push_with_retry
+          fi
+
+      # 結果に関わらず必ず送る (変更なし・失敗でも)。メールが来ないことを
+      # 「変更なし」と取り違えないため。
+      - name: Send email notification
+        if: ${{ always() }}
+        env:
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          NOTIFY_EMAIL_TO: ${{ secrets.NOTIFY_EMAIL_TO }}
+          BUILD_OUTCOME: ${{ steps.build.outcome }}
+          COMMIT_OUTCOME: ${{ steps.commit.outcome }}
+          SYNC_OUTCOME: ${{ steps.sync.outcome }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          # GitHub への保存に失敗した場合はビルド失敗として知らせる
+          if [ "$BUILD_OUTCOME" = "success" ] && [ "$COMMIT_OUTCOME" != "success" ]; then
+            BUILD_OUTCOME="failure"
+          fi
+          python scripts/notify_mslearn_update.py \
+            --docset "$DOCSET" \
+            --notebook-title "$NOTEBOOK_TITLE" \
+            --build-outcome "$BUILD_OUTCOME" \
+            --sync-outcome "$SYNC_OUTCOME" \
+            --run-url "$RUN_URL"
+
+      - name: Upload report
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: mslearn-${{ matrix.docset }}-${{ github.run_number }}
+          path: output/mslearn/
+          if-no-files-found: ignore
