@@ -1,0 +1,188 @@
+{
+ "checked_at": "2026-10-07T00:42:33Z",
+ "docset": "entra",
+ "locale": "ja-jp",
+ "pages": {
+  "entra": {
+   "category": "fundamentals",
+   "first_seen": "2026-10-07",
+   "hash": "b9b251008028d558",
+   "last_changed": "2026-10-07",
+   "lastmod": "2026-10-01",
+   "ms_date": "2025-11-10",
+   "title": "Microsoft Entra のドキュメント"
+  },
+  "entra/agent-id": {
+   "category": "developer",
+   "first_seen": "2026-10-07",
+   "hash": "10d6bd4ee68f2136",
+   "last_changed": "2026-10-07",
+   "lastmod": "2026-10-01",
+   "ms_date": "2026-06-19",
+   "title": "Microsoft Entra エージェント ID のドキュメント"
+  },
+  "entra/agent-id/agent-access-packages": {
+   "category": "developer",
+   "first_seen": "2026-10-07",
+   "hash": "a85392beac4f0ec1",
+   "last_changed": "2026-10-07",
+   "lastmod": "2026-08-31",
+   "ms_date": "2026-05-01",
+   "title": "Microsoft Entraのエージェント ID のパッケージにアクセスする - Microsoft Entra Agent ID"
+  },
+  "entra/agent-id/agent-autonomous-app-oauth-flow": {
+   "category": "developer",
+   "first_seen": "2026-10-07",
+   "hash": "36df67d2a7ccf5a5",
+   "last_changed": "2026-10-07",
+   "lastmod": "2026-06-16",
+   "ms_date": "2025-11-04",
+   "title": "エージェント自律アプリの OAuth フロー - アプリ専用プロトコル - Microsoft Entra Agent ID"
+  },
+  "entra/agent-id/agent-blueprint": {
+   "category": "developer",
+   "first_seen": "2026-10-07",
+   "hash": "52e7dfafb6783722",
+   "last_changed": "2026-10-07",
+   "lastmod": "2026-04-28",
+   "ms_date": "2026-04-28",
+   "title": "Microsoft Entra エージェント IDのエージェント ID ブループリント - Microsoft Entra Agent ID"
+  },
+  "entra/agent-id/agent-id-ai-guided-setup": {
+   "category": "developer",
+   "first_seen": "2026-10-07",
+   "hash": "32289b5c84228d4a",
+   "last_changed": "2026-10-07",
+   "lastmod": "2026-05-14",
+   "ms_date": "2026-05-12",
+   "title": "Microsoft Entra エージェント ID用の AI ガイド付きセットアップ"
+  },
+  "entra/agent-id/agent-id-creation-channels": {
+   "category": "developer",
+   "first_seen": "2026-10-07",
+   "hash": "0b9b94619f7de9b3",
+   "last_changed": "2026-10-07",
+   "lastmod": "2026-05-01",
+   "ms_date": "2026-04-16",
+   "title": "エージェント ID はどのように作成されますか?"
+  },
+  "entra/agent-id/agent-identities": {
+   "category": "developer",
+   "first_seen": "2026-10-07",
+   "hash": "f6e229fb31e1b424",
+   "last_changed": "2026-10-07",
+   "lastmod": "2026-05-01",
+   "ms_date": "2026-03-30",
+   "title": "Microsoft Entraでのエージェント ID の概要"
+  },
+  "entra/agent-id/agent-lists": {
+   "category": "developer",
+   "first_seen": "2026-10-07",
+   "hash": "c96216e9ad505167",
+   "last_changed": "2026-10-07",
+   "lastmod": "2026-05-01",
+   "ms_date": "2026-05-01",
+   "title": "テナント内のエージェント ID の表示とフィルター処理 - Microsoft Entra Agent ID"
+  },
+  "entra/agent-id/agent-oauth-protocols": {
+   "category": "developer",
+   "first_seen": "2026-10-07",
+   "hash": "8491f8c90af5ddcf",
+   "last_changed": "2026-10-07",
+   "lastmod": "2026-06-12",
+   "ms_date": "2025-11-04",
+   "title": "エージェントの認証プロトコル - Microsoft Entra Agent ID"
+  },
+  "entra/agent-id/agent-on-behalf-of-oauth-flow": {
+   "category": "developer",
+   "first_seen": "2026-10-07",
+   "hash": "c5d9ca1a247e2118",
+   "last_changed": "2026-10-07",
+   "lastmod": "2026-08-13",
+   "ms_date": "2025-11-04",
+   "title": "エージェント OAuth フロー - On-Behalf-Of フロー - Microsoft Entra Agent ID"
+  },
+  "entra/agent-id/agent-owners-sponsors-managers": {
+   "category": "developer",
+   "first_seen": "2026-10-07",
+   "hash": "f4310d1be05a37c7",
+   "last_changed": "2026-10-07",
+   "lastmod": "2026-05-01",
+   "ms_date": "2026-04-16",
+   "title": "Microsoft Entra エージェント IDの管理関係 (所有者、スポンサー、マネージャー) - Microsoft Entra Agent ID"
+  },
+  "entra/agent-id/agent-registry-convergence": {
+   "category": "developer",
+   "first_seen": "2026-10-07",
+   "hash": "1823cdb262440e79",
+   "last_changed": "2026-10-07",
+   "lastmod": "2026-05-09",
+   "ms_date": "2026-04-05",
+   "title": "Microsoft Agent 365 とのエージェント レジストリの統合"
+  },
+  "entra/agent-id/agent-service-principals": {
+   "category": "developer",
+   "first_seen": "2026-10-07",
+   "hash": "7a88d6e41cd5bfda",
+   "last_changed": "2026-10-07",
+   "lastmod": "2026-04-30",
+   "ms_date": "2026-04-30",
+   "title": "エージェント ID、サービス プリンシパル、およびアプリケーション - Microsoft Entra Agent ID"
+  },
+  "entra/agent-id/agent-token-claims": {
+   "category": "developer",
+   "first_seen": "2026-10-07",
+   "hash": "47a84e893b0f4458",
+   "last_changed": "2026-10-07",
+   "lastmod": "2026-04-08",
+   "ms_date": "2025-11-04",
+   "title": "エージェントIDのトークン請求参照 - Microsoft Entra Agent ID"
+  },
+  "entra/agent-id/agent-tokens": {
+   "category": "developer",
+   "first_seen": "2026-10-07",
+   "hash": "6a263a8d815383cf",
+   "last_changed": "2026-10-07",
+   "lastmod": "2026-04-08",
+   "ms_date": "2025-11-10",
+   "title": "Microsoft エージェント ID プラットフォームのトークン - Microsoft Entra Agent ID"
+  },
+  "entra/agent-id/agent-user-oauth-flow": {
+   "category": "developer",
+   "first_seen": "2026-10-07",
+   "hash": "10f07dee85a55a3f",
+   "last_changed": "2026-10-07",
+   "lastmod": "2026-04-08",
+   "ms_date": "2025-10-30",
+   "title": "エージェントのユーザー アカウント偽装プロトコル - Microsoft Entra Agent ID"
+  },
+  "entra/agent-id/agent-users": {
+   "category": "developer",
+   "first_seen": "2026-10-07",
+   "hash": "bad45872691b62cd",
+   "last_changed": "2026-10-07",
+   "lastmod": "2026-06-12",
+   "ms_date": "2025-11-04",
+   "title": "Microsoft Entra エージェント IDでのエージェントのユーザー アカウントについて説明します - Microsoft Entra Agent ID"
+  },
+  "entra/agent-id/authentication-with-auth-sdk-sidecar": {
+   "category": "developer",
+   "first_seen": "2026-10-07",
+   "hash": "5ac97deaf83bf734",
+   "last_changed": "2026-10-07",
+   "lastmod": "2026-08-14",
+   "ms_date": "2026-04-28",
+   "title": "Microsoft Entra ID認証 SDK (サイドカー) を使用した認証 - Microsoft Entra Agent ID"
+  },
+  "entra/agent-id/authorization-agent-id": {
+   "category": "developer",
+   "first_seen": "2026-10-07",
+   "hash": "ae93451ffa3481f8",
+   "last_changed": "2026-10-07",
+   "lastmod": "2026-06-12",
+   "ms_date": "2026-06-12",
+   "title": "Microsoft Entra エージェント ID での承認"
+  }
+ },
+ "partial": true
+}
