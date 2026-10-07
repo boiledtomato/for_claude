@@ -384,6 +384,15 @@ async def sync(args) -> int:
         print(f"[WARN] {len(failures)} 件で失敗しました: {', '.join(failures[:10])}")
 
     write_step_summary(added, updated, deleted, skipped, failures, title, args.dry_run)
+    if args.report_json:
+        # 結果を後続のメール通知 (notify_mslearn_update.py) に渡す
+        path = Path(args.report_json)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps({
+            "notebook": title, "dry_run": args.dry_run, "added": added,
+            "updated": updated, "deleted": deleted, "skipped": skipped,
+            "failures": failures,
+        }, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     return 1 if failures else 0
 
 
@@ -438,6 +447,8 @@ def main() -> int:
                     default=int(os.environ.get("NOTEBOOKLM_MAX_SOURCES", DEFAULT_MAX_SOURCES)),
                     help=f"append 時にノートブックに保持するソース数の上限 "
                          f"(既定: {DEFAULT_MAX_SOURCES})")
+    ap.add_argument("--report-json", metavar="PATH",
+                    help="同期結果 (追加/更新/削除/失敗) を JSON で書き出す")
     args = ap.parse_args()
 
     DOCS_DIR = Path(args.docs_dir)

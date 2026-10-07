@@ -25,6 +25,8 @@ for_claude/
 │   │   └── community-zscaler-chain.pem   # Intermediate cert the community site omits
 │   ├── sync_notebooklm.py            # Pushes the Markdown into a NotebookLM notebook
 │   ├── weekly_release_digest.py      # Weekly release-notes digest → Gmail
+│   ├── build_mslearn_docs.py         # learn.microsoft.com → NotebookLM Markdown builder
+│   ├── notify_mslearn_update.py      # Monthly MS Learn result mail (always sent)
 │   └── validate_repo.py              # Static checks run by pr-checks.yml
 ├── data/
 │   ├── articles.json                 # Generated output — do not hand-edit
@@ -34,13 +36,17 @@ for_claude/
 │   ├── notebooklm_sync_state.json    # Sync state for the help-docs notebook
 │   ├── community_notebooklm_sync_state.json  # Sync state for the community notebook
 │   ├── release_digest_seen.json      # Known release-note entry ids for the weekly digest
-│   └── release_notes_notebooklm_sync_state.json  # Sync state for the release-notes notebook
+│   ├── release_notes_notebooklm_sync_state.json  # Sync state for the release-notes notebook
+│   ├── mslearn_<docset>_index.json   # Per-page state for build_mslearn_docs.py
+│   └── mslearn_<docset>_notebooklm_sync_state.json  # Sync state per MS Learn notebook
 ├── notebooklm_docs/                  # help.zscaler.com Markdown — not published
 │   ├── README.md                     # File list + word counts
 │   └── <category>/<category>_partN.md
 ├── community_docs/                   # Zenith Community Markdown — not published
 │   ├── README.md
 │   └── <category>/community_<category>_partN.md
+├── mslearn_docs/                     # Microsoft Learn Markdown — not published
+│   └── <docset>/<category>/mslearn_<docset>_<category>_partN.md
 ├── docs/
 │   └── notebooklm-setup.md           # One-time auth setup for the sync
 ├── .github/
@@ -49,6 +55,7 @@ for_claude/
 │       ├── notebooklm-weekly.yml     # Weekly help.zscaler.com doc refresh
 │       ├── community-weekly.yml      # Weekly community.zscaler.com doc refresh
 │       ├── weekly-release-digest.yml # Friday release-notes digest email
+│       ├── mslearn-monthly.yml       # Monthly Microsoft Learn refresh + mail
 │       └── pr-checks.yml             # Required status check for PRs
 └── README.md
 ```
@@ -446,6 +453,45 @@ digest to `ciderred1239@gmail.com` (override with the `NOTIFY_EMAIL_TO` secret).
   `release_digest_seen.json`, and aborts if any page fails to fetch, so a gap in the
   history cannot go unnoticed. Weeks with no updates produce no file.
 
+### `scripts/build_mslearn_docs.py` / `.github/workflows/mslearn-monthly.yml`
+
+Builds NotebookLM-ready Markdown from a Microsoft Learn **docset** (default `entra`,
+Japanese `ja-jp`, ~4,800 pages) and refreshes it **monthly** (`cron: "30 4 1 * *"`,
+1st of the month 13:30 JST). Same marker/part-file design as `build_help_docs.py`.
+
+- **Page list:** `/_sitemaps/sitemapindex.xml` → every `<docset>_<locale>_N.xml`.
+  Decode sitemap bytes with `utf-8-sig` — `resp.text` mis-guesses the charset and
+  turns the BOM into `ï»¿`, which breaks the XML parse.
+- **Body:** `<page>?accept=text/markdown` — Learn's own Markdown (front matter + body),
+  so there is no HTML scraping. `convert_body()` drops the H1, shifts headings down one
+  level, replaces images with `[Image: alt]`, absolutizes relative links and strips
+  the `toc=`/`bc=` query noise.
+- **Every run refetches every page** and compares a hash of the rendered block —
+  sitemap `lastmod` is not trusted (it moves on rebuilds, and MT re-translations change
+  text without it). Blocks deliberately omit `lastmod`/`updated_at` and part files carry
+  no timestamp, and unchanged files are not rewritten, so the mirror sync only re-uploads
+  sources whose content actually changed.
+- **Safety:** a page that fails to fetch keeps its previous block (reported as
+  取得失敗); pages are removed only when they leave the sitemap; if the sitemap has
+  < 50 % of the recorded pages the run aborts without touching anything; > 20 % fetch
+  failures fail the step.
+- **Categories:** `DOCSETS[<docset>]["categories"]` — `(stem, 表示名, [path prefixes])`,
+  first match wins (so `identity/` catch-all sits after the specific `identity/*`
+  entries). A docset not in `DOCSETS` is bucketed by its first path segment, so adding
+  one to `DEFAULT_DOCSETS` in the workflow works without code changes.
+- **Part size:** `MAX_CHARS_PER_PART = 500_000` — Japanese has no spaces, so this stays
+  under NotebookLM's 500k-word limit even if every character counted as a word. Entra
+  comes to ~83 sources, 27 of them `saas_apps` (above the free plan's 50 per notebook).
+- **Notebook:** `MSLearn_<docset>`, mirror mode, state
+  `data/mslearn_<docset>_notebooklm_sync_state.json`; filenames are prefixed
+  `mslearn_<docset>_` so they never collide with the Zscaler notebooks.
+- **Mail:** `notify_mslearn_update.py` runs under `if: always()` and sends **every
+  run** — first run (「初回登録」), no changes, build failure (no `report.json`) and
+  sync failure alike. It reads `output/mslearn/<docset>/report.json` (from the builder)
+  and `sync.json` (from `sync_notebooklm.py --report-json`) and attaches `changes.md`.
+- `--limit N` runs mark the index `partial`, so the first full run after a test is
+  still reported as 初回登録.
+
 ### `.github/workflows/pr-checks.yml`
 
 The only `pull_request`-triggered workflow, and the repository's single required
@@ -613,11 +659,13 @@ Commit bodies may be written in Japanese.
 - **Deduplication is URL-based** via SHA-256 ID. Changing a feed's URL for an existing article will cause it to appear as a new entry.
 - **General feeds are noisy** — `ZSCALER_KEYWORDS` and `PRODUCT_TAGS` keywords must stay conservative to avoid unrelated articles.
 - **GitHub Pages serves a staged copy of the repo root** — `daily-update.yml` copies
-  everything except `.git`, `_site`, `notebooklm_docs` and `community_docs` into
+  everything except `.git`, `_site`, `notebooklm_docs`, `community_docs` and
+  `mslearn_docs` into
   `_site/` and publishes that. Do not place sensitive files at the top level, and keep
   both doc directories excluded: `notebooklm_docs` is a full-text reproduction of
   Zscaler's copyrighted documentation, and `community_docs` reproduces user posts
-  including author display names. Neither may be served publicly. **Adding a new doc
+  including author display names. Neither may be served publicly (nor may
+  `mslearn_docs`, a full-text copy of Microsoft Learn). **Adding a new doc
   directory means adding a matching `--exclude` to that `tar` command.**
 - **Every workflow that commits must push through `push_with_retry`** — a bare
   `git push` (or a retry loop whose last command is `sleep`) exits 0 when the push was

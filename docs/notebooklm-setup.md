@@ -120,6 +120,30 @@ python scripts/weekly_release_digest.py --backfill-from 2026-04-01 --end-date 20
 なった登録済みソース（ファイル名の付け方を変える前のもの）は、追記モードの実行時に
 削除されます。
 
+### Microsoft Learn（ドキュメントセットごとに別ノートブック）
+
+`mslearn-monthly.yml` は毎月 1 日に Microsoft Learn のドキュメントセット（既定は
+Microsoft Entra の日本語版、約 4,800 ページ）を**全ページ取り直し**、新規・更新・削除を
+反映した `mslearn_docs/<docset>/` を **`MSLearn_<docset>`**（例: `MSLearn_entra`）
+ノートブックへミラー同期し、結果を毎回メールで送ります（変更が無い月も送ります）。
+
+```bash
+python scripts/build_mslearn_docs.py --docset entra
+python scripts/sync_notebooklm.py \
+  --docs-dir mslearn_docs/entra \
+  --state-file data/mslearn_entra_notebooklm_sync_state.json \
+  --notebook-title MSLearn_entra --dry-run
+```
+
+Entra は約 83 ソース（うち `saas_apps` が 27）になります。NotebookLM 無料プランの 1 ノートブック 50 ソースを
+超えるため、無料プランでは同期の途中から追加に失敗します（失敗はメールに出ます）。
+その場合は `saas_apps`（SaaS 連携チュートリアル約 2,000 ページ）など不要なカテゴリを
+`--only` で外して手動同期するか、Pro プランを使ってください。
+
+**初回の実行:** Actions → **Microsoft Learn Docs Monthly Update** → Run workflow。
+まず `limit` に `20`、`sync` に `dry-run` を入れて流れとメールを確認し、問題なければ
+`limit` を `0` に戻して実行すると全ページの初回登録になり、「初回登録」のメールが届きます。
+
 ## 4. GitHub Actions に登録する
 
 `storage_state.json` の中身を `NOTEBOOKLM_STORAGE_STATE_JSON` という名前の
