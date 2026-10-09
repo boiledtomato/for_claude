@@ -1,7 +1,7 @@
 {
  "notebook": {
   "id": "952e994e-01be-44a4-89e0-c0fa0b7b760a",
-  "title": "Zscaler_release_notes"
+  "title": "Zscaler_updates"
  },
  "sources": {
   "Zscaler_release_20260401-20260403.md": {
@@ -165,7 +165,13 @@
    "rel": "Zscaler_release_20260926-20261002.md",
    "sha256": "0c74305daadaf49cec9bf3ed2197693dc298b51351f92641cbff50ab5199ebda",
    "source_id": "825ec65a-cf02-48f6-8025-01a934f269e2"
+  },
+  "Zscaler_release_20261003-20261009.md": {
+   "added_at": "2026-10-09T11:29:42Z",
+   "rel": "2026-10-09/Zscaler_release_20261003-20261009.md",
+   "sha256": "ac950f47bef74c6deeffd5de82acaa4ba6c8065c8eeb8d0456f6778d465bc8b8",
+   "source_id": "e83a48b6-8d3b-42fc-9184-5c0fd9e91c39"
   }
  },
- "synced_at": "2026-10-04T15:54:55Z"
+ "synced_at": "2026-10-09T11:29:42Z"
 }
