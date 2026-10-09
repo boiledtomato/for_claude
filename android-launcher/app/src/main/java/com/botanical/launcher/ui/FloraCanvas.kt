@@ -267,7 +267,7 @@ private fun DrawScope.drawReach(
         val fr = vine.bloom[idx]
         val bmp = fr.bitmap ?: continue
         val size = vine.size * 1.22f
-        val centre = polar(tip, ang, size * 0.40f * (0.55f + 0.45f * swell))
+        val centre = reach.bloomCentre(i, size, swell)
         val s = t.scale * flora.sample * (size / vine.size) *
             (0.62f + 0.38f * smooth(swell))
         matrix.setTranslate(fr.off.x / flora.sample, fr.off.y / flora.sample)

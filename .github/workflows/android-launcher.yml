@@ -68,9 +68,30 @@ jobs:
           key: gradle-${{ runner.os }}-${{ hashFiles('android-launcher/**/*.gradle.kts', 'android-launcher/gradle/libs.versions.toml') }}
           restore-keys: gradle-${{ runner.os }}-
 
+      # バージョンはここで決める。app/build.gradle.kts に固定値を書くと、
+      # リリースのたびに上げ忘れて同じ versionCode の APK が並び、端末が
+      # 「更新」と認識できなくなる（v0.2.0〜v0.4.1 が全部 3 で出ていた）。
+      - name: Decide the version
+        id: ver
+        run: |
+          # 実行番号から作るので単調に増える。旧リリースの 3 より必ず大きい。
+          code=$(( 1000 + GITHUB_RUN_NUMBER ))
+          tag="${{ inputs.release_tag }}"
+          if [ -n "$tag" ]; then
+            name="${tag#launcher-v}"
+          else
+            name="0.0.0-ci${GITHUB_RUN_NUMBER}"
+          fi
+          echo "code=${code}" >> "$GITHUB_OUTPUT"
+          echo "name=${name}" >> "$GITHUB_OUTPUT"
+          echo "versionCode=${code} versionName=${name}"
+
       - name: Build debug APK
         working-directory: android-launcher
-        run: ./gradlew --no-daemon assembleDebug
+        run: |
+          ./gradlew --no-daemon assembleDebug \
+            -PherbariumVersionCode="${{ steps.ver.outputs.code }}" \
+            -PherbariumVersionName="${{ steps.ver.outputs.name }}"
 
       - name: Name the APK
         id: apk
@@ -99,7 +120,7 @@ jobs:
             echo "### Herbarium Launcher"
             echo
             echo "- APK: \`${{ steps.apk.outputs.name }}\`"
-            echo "- 図版: $(ls android-launcher/app/src/main/assets/plates | grep -v index.json | tr '\n' ' ')"
+            echo "- バージョン: \`${{ steps.ver.outputs.name }}\` (versionCode ${{ steps.ver.outputs.code }})"
             echo
             echo "インストール後、設定 → アプリ → デフォルトのアプリ → ホームアプリ で選ぶ。"
           } >> "$GITHUB_STEP_SUMMARY"
