@@ -24,6 +24,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.graphics.graphicsLayer
@@ -150,14 +151,20 @@ fun HomeScreen() {
     }
 
     fun startReach(target: TapTarget, keys: List<String>, launchWhenOpen: Boolean) {
-        val heading = if (target.at.x < flora.width / 2f) -142f else -38f
-        reach = Reach(
+        // 咲いた花が画面からはみ出さない向きを選ぶ。押した位置だけで
+        // 向きを決めると、画面端の部位から伸ばしたとき花が見切れる。
+        val tl = transform.toScene(Offset.Zero)
+        val br = transform.toScene(Offset(canvasSize.width, canvasSize.height))
+        val bloomSize = bloomSizeOf(flora)
+        reach = fittingReach(
             originId = target.id,
             origin = target.at,
-            heading = heading,
-            length = flora.width * 0.42f,
             seed = target.id.hashCode(),
             appKeys = keys,
+            baseLength = flora.width * 0.42f,
+            bloomSize = bloomSize,
+            flowerRadius = bloomSize * 1.15f,
+            bounds = Rect(tl.x, tl.y, br.x, br.y),
         )
         scope.launch {
             reachGrow.snapTo(0f)
@@ -230,7 +237,7 @@ fun HomeScreen() {
                             val open = reach
                             // 咲いている花のどれかを押したら、そのアプリを起動
                             if (open != null && open.appKeys.size > 1) {
-                                val picked = pickFlower(open, transform, p)
+                                val picked = pickFlower(open, transform, p, bloomSizeOf(flora))
                                 if (picked != null) {
                                     appsByKey[open.appKeys[picked]]
                                         ?.let { AppRepository.launch(context, it) }
@@ -350,15 +357,23 @@ private fun hitTest(flora: Flora, t: SceneTransform, p: Offset): TapTarget? {
     return best
 }
 
-/** 咲いている花のどれを押したか。 */
-private fun pickFlower(reach: Reach, t: SceneTransform, p: Offset): Int? {
-    val size = 108f
+/** 咲いた花の大きさ。描画と判定で同じ値を使うための 1 か所。 */
+private fun bloomSizeOf(flora: Flora): Float = (flora.vine?.size ?: 120f) * 1.22f
+
+/**
+ * 咲いている花のどれを押したか。
+ *
+ * [size] は描画側と同じ値を渡すこと。別の値を置くと、判定の円が絵からずれて
+ * 「花を押しているのに反応しない」ことになる（以前は判定だけ 108 固定で、
+ * 絵は vine.size * 1.22 ＝ 約 153 だった）。
+ */
+private fun pickFlower(reach: Reach, t: SceneTransform, p: Offset, size: Float): Int? {
     var best: Int? = null
     var bestD = Float.MAX_VALUE
     for (i in reach.tips.indices) {
-        val c = t.toScreen(reach.flowerCentre(i, size))
+        val c = t.toScreen(reach.bloomCentre(i, size))
         val d = hypot(p.x - c.x, p.y - c.y)
-        if (d <= size * 0.7f * t.scale && d < bestD) {
+        if (d <= size * 0.72f * t.scale && d < bestD) {
             bestD = d
             best = i
         }

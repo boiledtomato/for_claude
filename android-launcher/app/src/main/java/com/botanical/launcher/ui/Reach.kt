@@ -1,6 +1,7 @@
 package com.botanical.launcher.ui
 
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Rect
 import com.botanical.launcher.pencil.along
 import com.botanical.launcher.pencil.polar
 import com.botanical.launcher.pencil.rand01
@@ -70,9 +71,14 @@ class Reach(
     /** 蔓ごとの葉。(蔓の index, 蔓上の位置 t, 左右, 素材 index, 大きさ) */
     val leaves: List<LeafOnVine> = buildLeaves()
 
-    fun flowerCentre(index: Int, size: Float): Offset {
+    /**
+     * 咲いた花の中心。[size] は描画側と同じ値、[swell] は蕾のふくらみ具合。
+     * 画面に収まるかの判定と実際の描画が別々の式を持つとずれるので、
+     * ここ 1 か所に置いて両方から呼ぶ。
+     */
+    fun bloomCentre(index: Int, size: Float, swell: Float = 1f): Offset {
         val (tip, ang) = tips[index]
-        return polar(tip, ang, size * 0.42f)
+        return polar(tip, ang, size * 0.40f * (0.55f + 0.45f * swell))
     }
 
     /** 主軸の伸び具合。枝は主軸が伸びきってから出る。 */
@@ -143,3 +149,55 @@ data class LeafOnVine(
     val sprite: Int,
     val scale: Float,
 )
+
+
+/**
+ * 画面に収まる向きと長さを選んで蔦を作る。
+ *
+ * 押した位置だけで向きを決め打ちすると、画面端の部位から伸ばしたときに
+ * 咲いた花が画面の外へ出て見切れる。候補をいくつか組み立てて、花が
+ * すべて収まるものを選ぶ。どれも収まらなければ、はみ出しがいちばん
+ * 少ないものを使う。
+ *
+ * [bounds] は版面座標での可視範囲、[flowerRadius] は咲いた花の半径。
+ */
+fun fittingReach(
+    originId: String,
+    origin: Offset,
+    seed: Int,
+    appKeys: List<String>,
+    baseLength: Float,
+    bloomSize: Float,
+    flowerRadius: Float,
+    bounds: Rect,
+): Reach {
+    // 押した位置から見て、空いている側を先に試す。
+    val outward = if (origin.x < bounds.center.x)
+        listOf(-38f, -72f, -14f, -104f, 14f, -90f, 42f)
+    else
+        listOf(-142f, -108f, -166f, -76f, 194f, -90f, 222f)
+    val fit = Rect(
+        bounds.left + flowerRadius, bounds.top + flowerRadius,
+        bounds.right - flowerRadius, bounds.bottom - flowerRadius,
+    )
+
+    var best: Reach? = null
+    var bestMiss = Float.MAX_VALUE
+    for (factor in floatArrayOf(1f, 0.78f, 0.58f, 0.44f)) {
+        for (heading in outward) {
+            val r = Reach(originId, origin, heading, baseLength * factor, seed, appKeys)
+            var miss = 0f
+            for (i in r.tips.indices) {
+                val c = r.bloomCentre(i, bloomSize)
+                miss += maxOf(0f, fit.left - c.x) + maxOf(0f, c.x - fit.right) +
+                    maxOf(0f, fit.top - c.y) + maxOf(0f, c.y - fit.bottom)
+            }
+            if (miss <= 0f) return r
+            if (miss < bestMiss) {
+                bestMiss = miss
+                best = r
+            }
+        }
+    }
+    return best!!
+}
