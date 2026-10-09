@@ -57,7 +57,7 @@ fun SettingsDialog(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    Text("アプリ名を表示", style = serif, modifier = Modifier.weight(1f))
+                    Text("Show app names", style = serif, modifier = Modifier.weight(1f))
                     Switch(
                         checked = labelsVisible,
                         onCheckedChange = onToggleLabels,
@@ -73,7 +73,7 @@ fun SettingsDialog(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    Text("タップできる範囲を表示", style = serif, modifier = Modifier.weight(1f))
+                    Text("Show tap areas", style = serif, modifier = Modifier.weight(1f))
                     Switch(
                         checked = hitAreasVisible,
                         onCheckedChange = onToggleHitAreas,
@@ -87,26 +87,26 @@ fun SettingsDialog(
                 }
                 Spacer(Modifier.height(12.dp))
                 Text(
-                    "花や葉を長押しすると、その部位にアプリを割り当てられます。複数選べます。",
+                    "Long-press a flower or leaf to pin apps to it. You can pin several.",
                     style = serif.copy(fontSize = 13.sp, color = Palette.InkSoft),
                 )
                 Spacer(Modifier.height(6.dp))
                 Text(
-                    "蕾をタップするとアプリ一覧が開きます。",
+                    "Tap the bud at the stem tip to open the full list.",
                     style = serif.copy(fontSize = 13.sp, color = Palette.InkSoft),
                 )
                 Spacer(Modifier.height(14.dp))
                 TextButton(onClick = onOpenHomeSettings) {
-                    Text("端末のホームアプリ設定を開く", style = serif.copy(color = Palette.InkSoft))
+                    Text("Open device home-app settings", style = serif.copy(color = Palette.InkSoft))
                 }
                 TextButton(onClick = onClearAll) {
-                    Text("この図版の割り当てを解除", style = serif.copy(color = Palette.Crimson))
+                    Text("Unpin everything on this plate", style = serif.copy(color = Palette.Crimson))
                 }
             }
         },
         confirmButton = {
             TextButton(onClick = onDismiss) {
-                Text("閉じる", style = serif.copy(color = Palette.Ink))
+                Text("Close", style = serif.copy(color = Palette.Ink))
             }
         },
     )

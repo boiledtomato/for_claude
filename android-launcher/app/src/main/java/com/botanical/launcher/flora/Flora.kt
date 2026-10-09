@@ -32,7 +32,7 @@ data class Flora(
     /** タップできる器官と、アプリ一覧を開く蕾。 */
     val tapTargets: List<TapTarget> =
         organs.mapNotNull { o -> o.hit?.let { TapTarget(o.id, it.at, it.r, o.label) } } +
-            listOfNotNull(gemma?.let { TapTarget(it.id, it.hit.at, it.hit.r, "蕾") })
+            listOfNotNull(gemma?.let { TapTarget(it.id, it.hit.at, it.hit.r, "Bud") })
 
     val bindable: List<String> = organs.mapNotNull { o -> o.hit?.let { o.id } }
 
@@ -129,9 +129,9 @@ private fun JSONObject.hit() = Hit(getJSONArray("at").offset(), getDouble("r").t
 
 /** 葉か花かを id から読む。表示名に使うだけなので簡単に判定する。 */
 private fun labelOf(id: String): String = when {
-    id.contains("flos") -> "花"
-    id.contains("leaf") -> "葉"
-    else -> "部位"
+    id.contains("flos") -> "Flower"
+    id.contains("leaf") -> "Leaf"
+    else -> "Part"
 }
 
 fun parseFlora(json: String): Flora {

@@ -9,6 +9,7 @@ import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -21,6 +22,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
@@ -138,8 +140,8 @@ fun AppDrawer(
                         style = title(24),
                     )
                     Text(
-                        text = if (assign == null) "${apps.size} 点の標本"
-                        else "標本のひとつを、この部位に留める",
+                        text = if (assign == null) "${apps.size} specimens"
+                        else "Pin a specimen to this part",
                         style = body(12),
                     )
                 }
@@ -196,13 +198,19 @@ fun AppDrawer(
         }
 
         // 決定は画面下に固定する。一覧を下までたどってから探し回らずに済む。
+        //
+        // navigationBarsPadding を必ず付けること。外側の Box は画面全体なので、
+        // 付けないとボタンがナビゲーションバー（ジェスチャーバー）の下に
+        // 潜り、押したつもりの操作がシステム側へ吸われる。割り当てが
+        // 保存されず、「部位に留めたのに花が開かない」という形で表に出る。
+        // 逃げ道は ✕ だけになるが、✕ は取り消しなので何も残らない。
         if (assign != null) {
             ConfirmBar(
                 count = chosen.size,
                 hadBinding = assign.initial.isNotEmpty(),
                 onClear = { chosen.clear() },
                 onConfirm = { onConfirmAssign(chosen.toList()) },
-                modifier = Modifier.align(Alignment.BottomCenter),
+                modifier = Modifier.align(Alignment.BottomCenter).navigationBarsPadding(),
             )
         }
     }
@@ -258,9 +266,9 @@ private fun SpecimenLabel(
             Spacer(Modifier.height(2.dp))
             Text(
                 text = when {
-                    chosen.isEmpty() -> "まだ何も留めていません"
-                    chosen.size == 1 -> "1 件 ・ 押すとすぐ咲いて開きます"
-                    else -> "${chosen.size} 件 ・ 蔦が分かれて並びます"
+                    chosen.isEmpty() -> "Nothing pinned yet"
+                    chosen.size == 1 -> "1 pinned  ·  opens as soon as it blooms"
+                    else -> "${chosen.size} pinned  ·  the vine forks for each"
                 },
                 style = body(11),
             )
@@ -306,7 +314,7 @@ private fun SpecimenLabel(
                             )
                         },
                     ) {
-                        Text("＋", style = body(13, Palette.InkSoft))
+                        Text("+", style = body(15, Palette.InkSoft))
                     }
                 }
             }
@@ -340,14 +348,14 @@ private fun ConfirmBar(
             enter = fadeIn() + expandVertically(),
             exit = fadeOut() + shrinkVertically(),
         ) {
-            SealButton("選び直す", primary = false, onClick = onClear)
+            SealButton("Clear", primary = false, onClick = onClear)
         }
         Spacer(Modifier.weight(1f))
         SealButton(
             text = when {
-                count > 0 -> "この部位に留める（$count）"
-                hadBinding -> "留めたものをはずす"
-                else -> "閉じる"
+                count > 0 -> "Pin to this part  ($count)"
+                hadBinding -> "Unpin all"
+                else -> "Close"
             },
             primary = count > 0,
             onClick = onConfirm,
@@ -355,9 +363,11 @@ private fun ConfirmBar(
     }
 }
 
+/** 丸みのあるボタン。縁は二重の罫で、銅版の囲みの作法を保つ。 */
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 private fun SealButton(text: String, primary: Boolean, onClick: () -> Unit) {
+    val shape = RoundedCornerShape(percent = 50)
     Text(
         text = text,
         style = TextStyle(
@@ -366,21 +376,11 @@ private fun SealButton(text: String, primary: Boolean, onClick: () -> Unit) {
             color = if (primary) Palette.Cream else Palette.Ink,
         ),
         modifier = Modifier
-            .clip(RoundedCornerShape(3.dp))
+            .clip(shape)
+            .background(if (primary) Palette.Ink else Palette.Cream, shape)
+            .border(1.4.dp, Palette.Ink.copy(alpha = 0.55f), shape)
             .combinedClickable(onClick = onClick)
-            .drawBehind {
-                drawRect(if (primary) Palette.Ink else Palette.Cream)
-                drawRect(Palette.Ink.copy(alpha = 0.55f), style = Stroke(width = 1.4f))
-                // 内側にもう 1 本。銅版の罫囲みの作法。
-                val i = 3f
-                drawRect(
-                    color = (if (primary) Palette.Cream else Palette.Ink).copy(alpha = 0.35f),
-                    topLeft = Offset(i, i),
-                    size = Size(size.width - i * 2, size.height - i * 2),
-                    style = Stroke(width = 0.9f),
-                )
-            }
-            .padding(horizontal = 18.dp, vertical = 11.dp),
+            .padding(horizontal = 22.dp, vertical = 12.dp),
     )
 }
 
@@ -423,7 +423,7 @@ private fun SearchLine(
             Box {
                 if (query.isEmpty()) {
                     Text(
-                        text = "さがす",
+                        text = "Search",
                         style = TextStyle(
                             fontFamily = serif, fontSize = 16.sp, fontStyle = FontStyle.Italic,
                             color = Palette.InkSoft.copy(alpha = 0.7f),
