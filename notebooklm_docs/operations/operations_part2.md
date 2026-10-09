@@ -1,18 +1,18 @@
 # Zscaler Help — Deployment / Operations / Terms (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-07 03:10 UTC
+Generated: 2026-10-05 09:38 UTC
 Articles in this file: 60
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incidents","lastmod":"2026-09-06T07:06Z","nid":"1420341"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incidents","lastmod":"2026-10-04T07:06Z","nid":"1420341"} -->
 ## Managing Incidents
 
 - Source: https://help.zscaler.com/workflow-automation/managing-incidents
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Incidents
-- Last modified: 2026-09-06T07:06Z
+- Last modified: 2026-10-04T07:06Z
 - Summary: Information about the Incidents page in the Zscaler Admin Console.
 
 The Incidents page in Workflow Automation captures and displays a list of the transactions that have violated the Data Protection policies (Inline DLP, Endpoint DLP, Email DLP, and SaaS Security DLP) that your organization has configured in the Zscaler Admin Console. Each such recorded transaction is known as an incident. This page enables you to review and remediate Data Loss Prevention (DLP) incidents.
@@ -33,7 +33,7 @@ A restricted admin can only assign an incident to a super admin.
 
 ## Viewing Incidents
 
-On the Incidents page (Administration > Workflow Automation > Data Protection > Incidents), you can do the following:
+On the Incidents page (Data Security > Workflow Automation > Incidents), you can do the following:
 
 1. Export incidents to a CSV file.
 2. Refresh the page to display the latest information.
@@ -469,13 +469,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-integration-users","lastmod":"2026-04-10T09:46Z","nid":"1457436"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-integration-users","lastmod":"2026-09-16T13:38Z","nid":"1457436"} -->
 ## Managing Integration Users
 
 - Source: https://help.zscaler.com/workflow-automation/managing-integration-users
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Admin, User, & Role Management > Managing Integration Users
-- Last modified: 2026-04-10T09:46Z
+- Last modified: 2026-09-16T13:38Z
 - Summary: How to manage integration users in Workflow Automation.
 
 Adding integration users on the Integration Users page is required if you are integrating Workflow Automation with a ticketing integration application (e.g., ServiceNow or Jira Software). During the remediation of an incident on the Incident Details page in Workflow Automation, admins can perform a ticket action against an incident. This action creates and assigns a ticket in the ticketing integration application to a user and associates that ticket with the incident. When performing this ticket action, the admin must select a user who already exists on the Integration Users page. After the ticket is created in the ticketing integration application, the ticket information displays in the Ticket section on the Incident Details page. The Ticket section contains an incident link that enables the admins to access the ticketing integration application for that specific ticket if they have the appropriate credentials for the application.
@@ -486,7 +486,7 @@ The user assigned to the ticket can manage that ticket within the ticketing inte
 
 To add an integration user:
 
-1. Go to **Administration** > **Identity** > **Workflow Automation** > **Integration Users**. The **Integration Users** page appears, listing all the integration users who were added for your organization.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation User Management** > **Integration Users**. The **Integration Users** page appears, listing all the integration users who were added for your organization.
 2. On the **Integration Users** page, click **Add More**. The **Add User** window appears.
 3. In the **Add User** window: See image.
   1. **Integration**: From the drop-down menu, select the tenant ID associated with the ticketing integration application (e.g., ServiceNow or Jira Software).
@@ -497,7 +497,7 @@ To add an integration user:
 
 To view integration users:
 
-1. Go to **Administration** > **Identity** > **Workflow Automation** > **Integration Users**. The **Integration Users** page appears, listing all the integration users who were added for your organization.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation User Management** > **Integration Users**. The **Integration Users** page appears, listing all the integration users who were added for your organization.
 2. For each integration user, you can view the following information:
   - **Name**: The name of the user associated with the ticketing integration application.
   - **Email ID**: The email ID for the user.
@@ -506,41 +506,41 @@ To view integration users:
 
 See image.
 
-[Image: Integration Users Page - Add User window]
+[Image: Viewing the Add User window after the fields are entered]
 
-[Image: Integration Users Page - View All Existing Users]
+[Image: Viewing existing users on the Integration Users page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-labels","lastmod":"2026-07-14T11:56Z","nid":"1450111"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-labels","lastmod":"2026-09-24T21:06Z","nid":"1450111"} -->
 ## Managing Labels
 
 - Source: https://help.zscaler.com/workflow-automation/managing-labels
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Labels
-- Last modified: 2026-07-14T11:56Z
+- Last modified: 2026-09-24T21:06Z
 - Summary: How to manage labels in Workflow Automation.
 
-Adding labels is optional when configuring Workflow Automation. Admins with access to Workflow Automation can manage custom labels and the values associated with those labels. After you add labels, you can assign those labels to the different incidents that have occurred in your organization on the Incidents page and the Incident Details page. To learn more, see [Managing Incidents](https://help.zscaler.com/workflow-automation/managing-incidents) and [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details).
+Adding labels is optional when configuring Workflow Automation. Admins with access to Workflow Automation can manage custom labels and the values associated with those labels. After you add labels, you can assign those labels to the different incidents that have occurred in your organization on the Incidents page and the Incident Details drawer. To learn more, see [Managing Incidents](https://help.zscaler.com/workflow-automation/managing-incidents) and [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details).
 
 ## Adding Labels
 
 To add a label:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Labels**. The **Labels** page appears, listing all the labels for your organization. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Workflow Automation** > **Labels**. The **Labels** page appears, listing all the labels for your organization. See image.
 2. On the **Labels** page, click **Add More**.The **Add Label** window appears. See image.
-3. In the **Add Label** window: See image.
+3. On the **Add Label** window: See image.
   1. **Label Name**: Enter the name for the label.
   2. (Optional) **Label** **Values**: Click **Add New** and enter a value for the label. Then press `Tab` or press `Enter`. The value is added to the label.
   3. (Optional) Click **Add More**to add another value to the label.
-4. Click **Add.**
+4. Click **Update.**
 
 ## Editing Labels
 
 To edit the label:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Labels**. The **Labels** page appears, listing all the labels for your organization.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Workflow Automation** > **Labels**. The **Labels** page appears, listing all the labels for your organization.
 2. (Optional) On the **Labels** page, use the **Search** field to locate the label for which you want to edit.
 3. Click the **Edit** icon next to the label. The **Edit Label** window appears.
 4. Change the **Label Name** field for the label or change the values for the label by doing one of these options:
@@ -554,11 +554,11 @@ See image.
 
 To delete the label along with its associated values, click the **Delete** icon next to the label on the **Labels** page.
 
-If you delete the entire label, there might still be incidents in Workflow Automation that were previously assigned to that label on the **Incidents** page or the **Incident Details** page. You need to manually find those incidents and remove the label that was deleted. To learn more, see [Managing Incidents](https://help.zscaler.com/workflow-automation/managing-incidents) and [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details).
+If you delete the entire label, there might still be incidents in Workflow Automation that were previously assigned to that label on the **Incidents** page or the **Incident Details** drawer. You need to manually find those incidents and remove the label that was deleted. To learn more, see [Managing Incidents](https://help.zscaler.com/workflow-automation/managing-incidents) and [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details).
 
 ## Viewing Labels
 
-To view labels, go to **Administration** > **Workflow Automation** > **Data Protection** > **Labels**. The **Labels** page appears, listing all the labels for your organization. For labels, you can view the following information:
+To view labels, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Workflow Automation** > **Labels**. The **Labels** page appears, listing all the labels for your organization. For labels, you can view the following information:
 
 - **Label Name**: The name of the label.
 - **Label Value**: The values associated with the label.
@@ -578,13 +578,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-notification-templates","lastmod":"2026-08-11T07:55Z","nid":"1419961"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-notification-templates","lastmod":"2026-09-23T21:06Z","nid":"1419961"} -->
 ## Managing Notification Templates
 
 - Source: https://help.zscaler.com/workflow-automation/managing-notification-templates
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Notifications > Managing Notification Templates
-- Last modified: 2026-08-11T07:55Z
+- Last modified: 2026-09-23T21:06Z
 - Summary: How to manage notification templates in Workflow Automation.
 
 Adding notification templates in Workflow Automation is one of the tasks in configuring Workflow Automation. Admins with access to Workflow Automation must add and map the notification templates. Notification templates provide:
@@ -634,7 +634,7 @@ On the Notification Templates page in the Zscaler Admin Console, admins can:
 
 To view notification templates:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Notification Templates**. The **Notification Templates**page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Notification Templates**. The **Notification Templates**page appears.
 2. (Optional) Filter the templates by status, type, template family, or language. You can also search for specific templates that you want to view.
 3. (Optional) Reset all the applied filters.
 4. View a list of notification templates configured for your organization. For each notification template, you can see: See image.
@@ -649,7 +649,7 @@ To view notification templates:
 
 To add a notification template:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Notification Templates**. The **Notification Templates** page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Notification Templates**. The **Notification Templates** page appears.
 2. Click **Add More**. The **Notification Template** page appears. See image.
 3. On the **Notification Template**page, you can create a custom notification template for the following types of notifications:
   - [Adding an Email Notification Template](https://help.zscaler.com/workflow-automation/adding-email-notification-templates)
@@ -660,7 +660,7 @@ To add a notification template:
 
 To preview a notification template:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Notification Templates**. The **Notification Templates**page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Notification Templates**. The **Notification Templates**page appears.
 2. In the **Action** column next to a template, click the **View Template** icon. The **Notification Template** page appears, displaying the notification template. The following images show examples of an email notification template, a Slack notification template, and a Microsoft Teams notification template. See image.
 3. (Optional) Click **Edit Template**. You are redirected to a page where you can modify and publish the notification template. To learn more, see Add Notification Templates. See image.
 4. Click **Close**.
@@ -680,7 +680,7 @@ You can only edit draft and published notification templates. You cannot edit or
 
 To edit a draft notification template:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Notification Templates**. The **Notification Templates** page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Notification Templates**. The **Notification Templates** page appears.
 2. In the **Action** column next to a draft template, click the**Edit Template** icon. The **Notification Template** page appears, displaying the notification template. See image.
 3. Edit the template details or the notification template design using the tools or format options provided for the template. To learn more, see Add Notification Templates. You cannot edit the template family for a template after the template is added.
 4. (Optional) Click **Save as Draft**. The edited template appears on the **Notification Templates** page with a draft status. You can come back later and continue to work on the template design.
@@ -692,7 +692,7 @@ To delete a draft notification template, click the **Delete Template** icon in t
 
 To edit a published notification template:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Notification Templates**. The **Notification Templates** page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Notification Templates**. The **Notification Templates** page appears.
 2. In the **Action** column next to a published template, click the**Edit Template** icon. The **Notification Template** page appears, displaying the notification template. See image.
 3. Edit the template details or the notification template design using the tools or format options provided for the template. To learn more, see Add Notification Templates. You cannot edit the template family for a template after the template is added.
 4. Click **Update Template**. The published template is updated. The template still appears on the **Notification Templates** page with a published status.
@@ -703,7 +703,7 @@ To delete a published notification template, click the **Delete Template** icon 
 
 To translate a notification template into a different language:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Notification Templates**. The **Notification Templates** page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Notification Templates**. The **Notification Templates** page appears.
 2. In the **Action** column next to a template, click the **Translate Template** icon. The **Notification Template** page appears, with the **Translate**dialogwindow. See image.
   1. In the **Translate** dialog window, from the **Translate To** drop-down menu, select a language to which you want to translate the template.
   2. To view the translated template, click **Preview**. The template displays in the selected language. See image.
@@ -719,7 +719,7 @@ To translate a notification template into a different language:
 
 To clone a notification template:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Notification Templates**. The **Notification Templates** page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Notification Templates**. The **Notification Templates** page appears.
 2. In the **Action** column next to a template, click the **Clone Template** icon. The **Notification Template**page appears. In the **Template Name** field, "Clone of" appears in front of the name of the notification template that you cloned. See image.
 3. (Optional) In the **Template Name** field, change the template name.
 4. Edit the template details or the notification template design using the tools or format options provided for the template. To learn more, see Add Notification Templates.
@@ -739,13 +739,13 @@ You can only update the [template mappings](https://help.zscaler.com/workflow-au
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-priorities","lastmod":"2026-07-23T21:06Z","nid":"1418036"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-priorities","lastmod":"2026-09-24T21:06Z","nid":"1418036"} -->
 ## Managing Priorities
 
 - Source: https://help.zscaler.com/workflow-automation/managing-priorities
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Priorities
-- Last modified: 2026-07-23T21:06Z
+- Last modified: 2026-09-24T21:06Z
 - Summary: How to manage priorities in Workflow Automation.
 
 Adding priorities to incident groups in Workflow Automation is one of the tasks for configuring Workflow Automation. Admins with access to Workflow Automation can add a priority to all the different incident groups for their organization. They can assign a priority of critical, high, medium, or low to an incident group.
@@ -760,7 +760,7 @@ Before managing priorities for incident groups, add incident groups on the Incid
 
 To add an incident group priority:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Priorities**. The **Priorities** page appears, listing all the incident groups and their assigned priorities for your organization.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Workflow Automation** > **Priorities**. The **Priorities** page appears, listing all the incident groups and their assigned priorities for your organization.
 2. On the **Priorities** page, click **Add More**. A new row appears after the last incident group that is displayed. See image.
 3. In the new row:
   1. **Incident Group**: From the drop-down menu, select an incident group.
@@ -771,7 +771,7 @@ To add an incident group priority:
 
 To edit an incident group priority:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Priorities**. The **Priorities** page appears, listing all the incident groups and their assigned priorities for your organization.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Workflow Automation** > **Priorities**. The **Priorities** page appears, listing all the incident groups and their assigned priorities for your organization.
 2. (Optional) On the **Priorities** page, use the **Search** field to locate the incident group for which you want to edit the priority.
 3. Next to the incident group, select a different **Priority**. You can also use the **Incident Group** drop-down menu to change the incident group. If you change the incident group, the priority is removed from the previous incident group and added to the new incident group.
 4. Click **Save**.
@@ -782,25 +782,25 @@ To delete an incident group priority configuration, click the **Delete** icon ne
 
 To view incident group priorities:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Priorities**. The **Priorities** page appears, listing all the incident groups and their assigned priorities for your organization.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Workflow Automation** > **Priorities**. The **Priorities** page appears, listing all the incident groups and their assigned priorities for your organization.
 2. For each incident group, you can view: See image.
   - **Incident Group**: The name of the incident group.
   - **Priority**: The priority assigned to the incident group. Priorities are **Critical**, **High**, **Medium**, or **Low**.
 
 [Image: Adding a priority to an incident group on the Priorities page in the Zscaler Admin Console]
 
-[Image: Viewing incident groups and their assigned priorities on the Priorities Page in the Zscaler Admin Console]
+[Image: Viewing incident groups and their assigned priorities on the Priorities page in the Zscaler Admin Console]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-roles-and-permissions","lastmod":"2026-04-10T09:22Z","nid":"1471471"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-roles-and-permissions","lastmod":"2026-09-16T13:41Z","nid":"1471471"} -->
 ## Managing Roles and Permissions
 
 - Source: https://help.zscaler.com/workflow-automation/managing-roles-and-permissions
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Admin, User, & Role Management > Managing Roles and Permissions
-- Last modified: 2026-04-10T09:22Z
+- Last modified: 2026-09-16T13:41Z
 - Summary: Information on how to configure Roles and Permissions for DLP admins in Workflow Automation.
 
 Workflow Automation enables you to create roles and assign permissions for the admins to access the various features of the Workflow Automation application. Doing so provides you with the flexibility to control admin permissions based on roles. Permissions allow you to control an admin's access to the major features of Workflow Automation in the Zscaler Admin Console.
@@ -830,7 +830,7 @@ On the Roles page, you can perform the following actions:
 
 To add a role and configure permissions:
 
-1. Go to **Administration** > **Admin Management** > **Role Based Access Control** > **Workflow Automation**. The **Roles** page appears, listing all the roles configured for your organization, including the default roles.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Role Management** > **Workflow Automation**. The **Roles** page appears, listing all the roles configured for your organization, including the default roles.
 2. On the **Roles** page, click **Add More**. The **Add Role** window appears.
 3. In the **Add Role** window:
   1. **Role**: Enter a name for the role.
@@ -859,7 +859,7 @@ When managing roles, you can view roles and the details for a role.
 - Viewing Roles
 - Viewing Role Details
 
-To view a role, go to **Administration** > **Admin Management** > **Role Based Access Control** > **Workflow Automation**. The **Roles** page appears, listing all the roles configured for your organization, including the default roles. For each role, you can view the following information:
+To view a role, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Role Management** > **Workflow Automation**. The **Roles** page appears, listing all the roles configured for your organization, including the default roles. For each role, you can view the following information:
 
 - **Role**: The name of the role.
 - **Edit Access**: The features for which edit access is enabled.
@@ -869,46 +869,48 @@ See image.
 
 To view role details:
 
-1. Go to **Administration** > **Admin Management** > **Role Based Access Control** > **Workflow Automation**. The **Roles** page appears, listing all the roles configured for your organization.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Role Management** > **Workflow Automation**. The **Roles** page appears, listing all the roles configured for your organization.
 2. In the **Action** column next to the role you want to view, click the **View** icon. The **View Permissions**window appears, displaying the details for the role. See image.
 
 To edit a role:
 
-1. Go to **Administration** > **Admin Management** > **Role Based Access Control** > **Workflow Automation**. The **Roles** page appears, listing all the roles configured for your organization.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Role Management** > **Workflow Automation**. The **Roles** page appears, listing all the roles configured for your organization.
 2. In the **Action** column next to the role you want to edit, click the **Edit** icon. The **Edit Permissions** window appears. See image.
 3. In the **Edit Permissions**window, modify permissions for any category.
 4. Click **Save**.
 
 To delete a role, click the **Delete** icon in the **Action** column next to the role and then click **Yes** in the dialog window that appears.
 
-[Image: Add Role Window]
+[Image: Adding a role on the Add Role window]
 
-[Image: Roles page]
+[Image: Viewing all roles on the Roles page]
 
-[Image: View Permissions Window]
+[Image: Viewing permissions for a role on the View Permissions window]
 
-[Image: Roles Page - Edit icon]
+[Image: Edit icon on the Roles page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-survey-templates","lastmod":"2026-08-11T06:52Z","nid":"1420016"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-survey-templates","lastmod":"2026-09-23T21:06Z","nid":"1420016"} -->
 ## Managing Survey Templates
 
 - Source: https://help.zscaler.com/workflow-automation/managing-survey-templates
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Notifications > Managing Survey Templates
-- Last modified: 2026-08-11T06:52Z
+- Last modified: 2026-09-23T21:06Z
 - Summary: How to manage survey templates in Workflow Automation.
 
 Adding survey templates is one of the tasks in configuring Workflow Automation. Admins with access to Workflow Automation can add and map survey templates. A survey template provides the format for the survey that a user or approver must complete when responding to an incident notification from Workflow Automation. The survey includes questions that, when answered, provide the justification for the incident.
 
 When an admin configures a notification template, they can choose to format a link in the notification template that enables the user or approver to view the incident details and the survey template where they can enter the response to the notification. Then, when a user or approver receives a notification that is using that notification template, they can click that link, which opens the Incidents page and the survey that they must complete for the incident. The template settings on the Template Mappings page determine the notification template and the survey templates that Workflow Automation uses for the different source Data Loss Prevention (DLP) types and notification types. To learn more, see [Managing Incident and Digest Template Mappings](https://help.zscaler.com/workflow-automation/managing-incident-and-digest-template-mappings).
 
-Workflow Automation provides the following system default survey template families:
+Workflow Automation provides the following system default survey template families and templates:
 
-- End-user Justification - Questionnaire Template
-- Escalation - Questionnaire Template
+| Notification Template Family | Notification Template |
+| --- | --- |
+| End-user Justification - Questionnaire Template | End-user Justification - Questionnaire Template |
+| Escalation - Questionnaire Template | Escalation - Questionnaire Template |
 
 For each template family, you can create only one template in each language. You cannot create two templates of the same language for a single template family.
 
@@ -925,7 +927,7 @@ On the Survey Templates page in the Zscaler Admin Console, admins can:
 
 To view existing survey templates:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Survey Builder**. The **Survey Templates** page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Survey Builder**. The **Survey Templates** page appears.
 2. (Optional) Filter the templates by status, type, template family, or language. You can also search for specific templates that you want to view.
 3. (Optional) Click the **Reset** icon to reset all the applied filters.
 4. View a list of survey templates configured for your organization. For each survey template, you can see the following: See image.
@@ -938,7 +940,7 @@ To view existing survey templates:
 
 To add a survey template:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Survey Builder**. The **Survey Templates** page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Survey Builder**. The **Survey Templates** page appears.
 2. On the **Survey Templates** page, click **Add More**. The **Survey Template** page appears. See image.
 3. On the **Survey Template** page: After you select the template type, the survey creator section appears below the row. The survey creator section contains a **Designer** tab and a **Preview** tab and contains a placeholder drop-down type question titled Reason. Workflow Automation uses the Survey Creator component from SurveyJS. Using this drag-and-drop survey builder, you can create a survey template, change the content, include pictures, and link to files. In addition, you can change the template's structure and style. See image.
   - **Template Name**: Enter a name for the template.
@@ -986,7 +988,7 @@ To add a survey template:
 
 To preview a survey template:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Survey Builder**. The **Survey Templates** page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Survey Builder**. The **Survey Templates** page appears.
 2. In the **Action** column next to an existing template, click the **View Template** icon. The **Survey Template** page appears, displaying the survey template on the **Designer** tab. See image.
 3. On the **Survey Template** page, click the **Preview** tab to view the survey template in its rendered format. See image.
 4. (Optional) Click **Edit Template**. You are redirected to the **Designer** tab of the **Survey Template** page, where you can modify and publish the survey template.
@@ -994,7 +996,7 @@ To preview a survey template:
 
 To edit a survey template:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Survey Builder**. The **Survey Templates** page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Survey Builder**. The **Survey Templates** page appears.
 2. In the**Action** column next to an existing published or draft template, click the **Edit Template** icon. You cannot edit a system default template. The **Survey Template** page appears, displaying the survey template on the **Designer** tab. See image.
 3. Edit the survey template details or the survey template design using one or more of the question and panel types in the toolbox. You cannot edit the template family for a template after the template is added.
 4. (Optional) Click **Save as Draft**. You can come back later and continue to work on the template design. This button is not available for published templates.
@@ -1006,7 +1008,7 @@ You can translate a published, system default, or draft template.
 
 To translate a survey template into a different language:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Survey Builder**. The **Survey Templates** page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Survey Builder**. The **Survey Templates** page appears.
 2. In the**Action** column next to a template, click the **Translate Template** icon. The **Survey Template** page appears, with the **Translate**window. See image.
   1. In the **Translate** window, from the **Translate To** drop-down menu, select a language to which you want to translate the template.
   2. To view the translated template, click **Preview**. The template displays in the selected language. See image.
@@ -1018,7 +1020,7 @@ You can clone a published, system default, or draft template.
 
 To clone a survey template:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Survey Builder**. The **Survey** **Templates** page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Survey Builder**. The **Survey** **Templates** page appears.
 2. In the **Action** column next to a template, click the **Clone Template** icon. The **Survey Template** page appears. In the **Template Name** field, "Clone of" appears in front of the name of the survey template that you cloned. See image.
 3. (Optional) In the **Template Name** field, change the template name.
 4. Edit the template details or the survey template design using one or more of the question and panel types in the toolbox.
@@ -1031,36 +1033,36 @@ To clone a survey template:
 
 You can only update the [template mappings](https://help.zscaler.com/workflow-automation/managing-incident-and-digest-template-mappings) with templates that are in a published status. You also receive notifications from Workflow Automation to update the template mappings to use this template.
 
-[Image: Survey Templates Page - Viewing Templates]
+[Image: Viewing survey templates on the Survey Templates page]
 
-[Image: Survey Templates Page - Add More Button]
+[Image: Viewing the Add More button on the Survey Templates page. The Add More button is highlighted.]
 
-[Image: Survey Template Page - Adding a Template]
+[Image: Adding a survey template on the Survey Template page]
 
-[Image: Survey Template Page - Viewing a Template]
+[Image: Viewing a survey template on the Survey Template page. The Designer tab is highlighted.]
 
-[Image: Survey Template Page - Previewing a Template]
+[Image: Previewing a survey template on the Survey Template page. The Preview tab is highlighted.]
 
-[Image: Survey Template Page - Editing a Template]
+[Image: Editing a survey template on the Survey Template page]
 
-[Image: Survey Template Page - Cloned Template]
+[Image: Cloned template on the Survey Template page. The Template Name is highlighted.]
 
-[Image: Survey Templates Page - Viewing a Survey Template with a Draft Status]
+[Image: Viewing a survey template with a Draft status on the Survey Templates page]
 
-[Image: Viewing the Translate Template Icons on the Survey Templates Page]
+[Image: Viewing the Translate Template icons on the Survey Templates page. The Translate Template icons are highlighted for each survey template.]
 
-[Image: Viewing the Language Drop-Down Menu and Preview Button in the Translate Window for Survey Templates]
+[Image: Viewing the Translate window with the translate to language selected and the Preview button highlighted.]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-user-attributes","lastmod":"2026-04-10T09:44Z","nid":"1503486"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-user-attributes","lastmod":"2026-09-16T06:36Z","nid":"1503486"} -->
 ## Managing User Attributes
 
 - Source: https://help.zscaler.com/workflow-automation/managing-user-attributes
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Admin, User, & Role Management > Managing User Attributes
-- Last modified: 2026-04-10T09:44Z
+- Last modified: 2026-09-16T06:36Z
 - Summary: Information on how to use and manage the User Attributes page in Workflow Automation.
 
 Workflow Automation fetches the end user information (i.e., user attributes) that is displayed in the Zscaler Admin Console, such as the employee ID, email address, and manager's name, from the following two data sources:
@@ -1087,7 +1089,7 @@ Importing a CSV file with numerous user attributes takes time to complete. You r
 
 To import the user attributes as a CSV file:
 
-1. Go to **Administration** > **Identity** > **Workflow Automation** > **User Attributes**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation User Management** > **User Attributes**.
 2. Click **Import CSV**.
 3. On the**Import CSV** page, complete the following sections: See image.
   1. **Prerequisite**: Complete the prerequisites to import a CSV file.
@@ -1108,7 +1110,7 @@ For CSV file imports that are partially successful or failed, you can restart th
 
 To restart importing a CSV file:
 
-1. Go to **Administration** > **Identity** > **Workflow Automation** > **User Attributes**. The **User Attributes** page appears, listing all the CSV files uploaded.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation User Management** > **User Attributes**. The **User Attributes** page appears, listing all the CSV files uploaded.
 2. For a partially complete CSV file import, in the **Actions** column, click the **Resume** icon to restart the action. The import action restarts, and the progress is displayed in the **Status** column. See image.
 3. For a failed CSV file import, in the **Actions** column, click the **Retry** icon to restart the action. The import action restarts, and the progress is displayed in the **Status** column. See image.
 
@@ -1118,12 +1120,12 @@ See image.
 
 To download a previously uploaded CSV file:
 
-1. Go to **Administration** > **Identity** > **Workflow Automation** > **User Attributes**. The **User Attributes** page appears, listing all the CSV files uploaded.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation User Management** > **User Attributes**. The **User Attributes** page appears, listing all the CSV files uploaded.
 2. For the CSV file you want to download, in the **Actions** column, click the**Download** icon. The CSV file is downloaded onto your local system.
 
 See image.
 
-To view the user attributes CSV files, go to **Administration** > **Identity** > **Workflow Automation** > **User Attributes**. The **User Attributes** page appears.
+To view the user attributes CSV files, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation User Management** > **User Attributes**. The **User Attributes** page appears.
 
 On the **User Attributes** page, you can do the following:
 
@@ -1162,13 +1164,13 @@ On the **User Attributes** page, you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-automation-api-keys","lastmod":"2026-05-01T06:17Z","nid":"1452006"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-automation-api-keys","lastmod":"2026-09-10T06:05Z","nid":"1452006"} -->
 ## Managing Workflow Automation API Keys
 
 - Source: https://help.zscaler.com/workflow-automation/managing-workflow-automation-api-keys
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > API Management > Managing Workflow Automation API Keys
-- Last modified: 2026-05-01T06:17Z
+- Last modified: 2026-09-10T06:05Z
 - Summary: Information on how to manage API keys in the Zscaler Admin Console.
 
 If you have a subscription to Workflow Automation, API Management is automatically accessible to an admin role. An admin can create and display the API key required for authenticating with the Workflow Automation API to make API calls.
@@ -1186,7 +1188,7 @@ The **Create API Key** action allows you to create API keys for an admin. An API
 
 To create a new API key:
 
-1. Go to **Administration**>**API Configuration**>**Legacy API**>**Workflow Automation API**.The **API Keys** page appears, listing the API keys.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**API**>**Workflow Automation API**.The **API Keys** page appears, listing the API keys.
 2. Click **Add More**. The **Create API Key** window appears.
 3. In the **Create API Key** window:
 
@@ -1211,7 +1213,7 @@ When created, the API key is enabled by default. You can use the blue toggle cor
 
 To disable an API key:
 
-1. Go to **Administration**>**API Configuration**>**Legacy API**>**Workflow Automation API**. The **API Keys** page appears, listing the API keys.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**API**> **Workflow Automation API**. The **API Keys** page appears, listing the API keys.
 2. On the **API Keys** page, click the blue toggle in the **Action** column to disable a specific API key.
 
 See image.
@@ -1222,7 +1224,7 @@ You can generate a new key secret for the same admin and the key ID.
 
 To regenerate an API key:
 
-1. Go to **Administration**>**API Configuration**>**Legacy API**>**Workflow Automation API**. The **API Keys** page appears, listing the API keys.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**API**>**Workflow Automation API**. The **API Keys** page appears, listing the API keys.
 2. On the **API Keys** page, click the **Regenerate** icon corresponding to a specific API key.
 3. Click **Yes** in the pop-up window that appears.
 
@@ -1234,7 +1236,7 @@ The **Delete** action allows you to delete the specified API key.
 
 To delete an API key:
 
-1. Go to **Administration**>**API Configuration**>**Legacy API**>**Workflow Automation API**. The **API Keys** page appears, listing the API keys.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**API**>**Workflow Automation API**. The **API Keys** page appears, listing the API keys.
 2. On the **API Keys** page, click the **Delete** icon for a specific API key.
 3. Click **Yes**in the pop-up window that appears.
 
@@ -1255,16 +1257,16 @@ The API key is deleted permanently.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-automation-integration-jira-software","lastmod":"2026-07-21T13:52Z","nid":"1461951"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-automation-integration-jira-software","lastmod":"2026-10-02T21:06Z","nid":"1461951"} -->
 ## Managing Workflow Automation Integration with Jira Software
 
 - Source: https://help.zscaler.com/workflow-automation/managing-workflow-automation-integration-jira-software
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Managing Workflow Automation Integration with Jira Software
-- Last modified: 2026-07-21T13:52Z
+- Last modified: 2026-10-02T21:06Z
 - Summary: Information about Workflow Automation integration with Jira Software.
 
-Workflow Automation can integrate with Jira Software, a sanctioned Software as a Service (SaaS) application for Zscaler. During the remediation process for a data protection incident in Workflow Automation, admins can create and assign a Jira ticket to an incident on the Incident Details page. When the ticket action is initiated on the Incident Details page for an incident, the admin selects the user to assign the ticket to in Jira Software and specifies the Jira project where the ticket is created in Jira Software. The user they select must exist in Jira Software and must have already been added to the Integration Users page in Workflow Automation. To learn more, see [Managing Integration Users](https://help.zscaler.com/workflow-automation/managing-integration-users) and [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details).
+Workflow Automation can integrate with Jira Software, a sanctioned Software as a Service (SaaS) application for Zscaler. During the remediation process for a data protection incident in Workflow Automation, admins can create and assign a Jira ticket to an incident on the Incident Details drawer. When the ticket action is initiated on the Incident Details drawer for an incident, the admin selects the user to assign the ticket to in Jira Software and specifies the Jira project where the ticket is created in Jira Software. The user they select must exist in Jira Software and must have already been added to the Integration Users page in Workflow Automation. To learn more, see [Managing Integration Users](https://help.zscaler.com/workflow-automation/managing-integration-users) and [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details).
 
 When configuring the Jira Software integration in Workflow Automation, you can select whether you want to sync the project list and the ticket status between Jira Software and Workflow Automation. If you choose to sync the ticket status, you can also select whether to close the incident in Workflow Automation when the ticket is completed in Jira Software. When configuring the Jira Software integration in Workflow Automation, you can specify the Jira complete status to use for the ticket closure. After Workflow Automation receives the specified complete status through the sync process, it automatically closes the incident.
 
@@ -1275,19 +1277,15 @@ The workflow functionality in Workflow Automation also has an Auto Create Ticket
 Before you can integrate Workflow Automation with Jira Software, you must:
 
 - Configure the Data Loss Prevention (DLP) application integration for your organization using Amazon Web Services, Azure, or Google Cloud Platform. Ensure that you add a DLP application integration in Workflow Automation during this process. To learn more, see [Configuring the DLP Application Integration Using Amazon Web Services](https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-amazon-web-services), [Configuring the DLP Application Integration Using Azure](https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-azure), and [Configuring the DLP Application Integration Using Google Cloud Platform](https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-google-cloud-platform).
-- Obtain and configure Jira Software for your organization.
+- Obtain and configure Jira Software for your organization. To learn more, refer to the [Jira Software documentation](https://confluence.atlassian.com/jirasoftware/jira-software-documentation-774242447.html).
   - Ensure that you define the different users for your organization who can use Jira Software.
   - Ensure that you have admin credentials for Jira Software. These credentials are required to integrate Workflow Automation with Jira Software.
 
-To learn more, refer to the [Jira Software documentation](https://confluence.atlassian.com/jirasoftware/jira-software-documentation-774242447.html).
-
 To integrate Workflow Automation with Jira Software:
 
-1. In the Zscaler Admin Console, go to **Policies** > **Common Configuration** > **Out-of-Band CASB** > **SaaS Application Tenants**.
-2. Click **Add SaaS Application Tenant**. The **Add SaaS Application Tenant** page appears.
-3. On the **Add SaaS Application Tenant** page, configure and add Jira Software as a SaaS application tenant using the Jira Software admin credentials. When adding the tenant, ensure that you select the **Workflow Automation** checkbox under the **Onboard SaaS Application for** section. This process authorizes Jira Software with Internet & SaaS (ZIA) and integrates Jira Software with Workflow Automation. On the **Integrations** dashboard in Workflow Automation, the Jira Cloud tile appears in the **Connected Apps** section. To learn more, see [Adding SaaS Application Tenants](https://help.zscaler.com/zia/adding-saas-application-tenants).
-
-See image.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Configuration** > **SaaS Application Tenants**.
+2. On the **Manage Tenants** tab, click **Add.** The **Add Tenant** page appears.
+3. On the **Add Tenant** page, configure and add Jira Software as a SaaS application tenant using the Jira Software admin credentials. When adding the tenant, ensure that you select the **Workflow Automation** checkbox in the **Select Features** section. This process authorizes Jira Software with Internet & SaaS (ZIA) and integrates Jira Software with Workflow Automation. On the **Integrations** dashboard in Workflow Automation, the Jira Cloud tile appears in the **Connected Apps** section. To learn more, see [Adding SaaS Application Tenants](https://help.zscaler.com/zia/adding-saas-application-tenants). See image.
 
 ## Managing Jira Software Integrations in Workflow Automation
 
@@ -1303,76 +1301,44 @@ To configure a Jira Software integration in Workflow Automation:
 - 1. Configure project settings for a Jira Software integration.
 - 2. Configure integration settings for a Jira Software integration.
 
-Before you can create a Jira Software ticket on the Incident Details page in Workflow Automation, you must configure the project settings for the Jira projects in Workflow Automation. This process includes defining the field mappings for the project and specifying a complete status for the project. To learn more, see [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details).
+Before you can create a Jira Software ticket on the Incident Details drawer in Workflow Automation, you must configure the project settings for the Jira projects in Workflow Automation. This process includes defining the field mappings for the project and specifying a complete status for the project. To learn more, see [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details).
 
 To configure project settings for a Jira Software integration in Workflow Automation:
 
-1. Go to **Administration**>**Workflow Automation**>**Data Protection** > **Integrations**. The **Integrations** dashboard appears, displaying a **Jira Cloud** application tile in the**Connected Apps** section. The **Tile View** icon is selected by default.
-
-See image.
-
-1. Perform one of the following steps:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation**> **Integrations**. The **Integrations** dashboard appears, displaying a **Jira Cloud** application tile in the**Connected Apps** section. The **Tile View** icon is selected by default. See image.
+2. Perform one of the following steps: The **Jira Integration** details page appears. In the **Connected Accounts** section, all the Jira Cloud integrations appear along with their statuses (Enabled and Disabled). To display the deleted application integrations, click **Show Deleted Accounts** at the top right of the **Connected Accounts** section. See image.
   - In the tile view, in the **Connected Apps**section, click anywhere on the **Jira Cloud** tile.
   - In the list view, in the **Connected Apps** section, click **View Details**next to the Jira Cloud integration.
-
-The **Jira Integration** details page appears. In the **Connected Accounts** section, all the Jira Cloud integrations appear along with their statuses (Enabled and Disabled). To display the deleted application integrations, click **Show Deleted Accounts** at the top right of the **Connected Accounts** section.
-
-See image.
-
-1. On the **Jira Integration** details page, click the **Expand** icon for a connected account. The Jira projects display along with their metadata associated with the Jira Cloud integration. When you enable the Jira Cloud integration for the first time, all the projects and their metadata for the Jira Cloud integration are synced with Workflow Automation and are displayed on the page.
-
-See image.
-
-1. (Optional) At the top right of the project details section, click **Sync Project List**to manually sync the Jira Cloud integration project list with Workflow Automation.
-2. In the project details section, configure the complete status settings for each project associated with the Jira Cloud account. From the **Complete Status** drop-down menu, select a status for when the Jira tickets are considered complete in the project in the Jira Software application. If a status has not been selected, **Click to change status** appears for the **Complete Status** field. All the completed statuses for the project in Jira Software are available for selection—for example, **In Progress**, **To Do**, **In Review**, **Done**, and **Closed**.
-
-See image.
-
-1. Enter the field mapping for the Jira tickets in the project between the Jira Cloud integration and Workflow Automation.
-  1. Click the **Add Field Mapping** icon next to a project. The **Required Fields Mappings** page appears.
-
-See image.
-
-1. On the **Required Fields Mappings** page, select an issue type from the **Issue Type** drop-down menu. The menu displays the issue types available for that project in the Jira Cloud account (e.g., **Task**, **Bug**, and **Epic**). After you select an issue type, all the required Jira fields for that project and issue type are listed on the page and cannot be deleted. The system automatically maps the Issue Type Jira field for you. For the **Issue Type** field, the **Zscaler Fields**value is set to **None** and the **Default Value** is set to the same value as the issue type that you selected. You cannot edit or delete the Issue Type Jira field mapping.
-2. Enter the field mapping for all the other required Jira fields:
-  - Next to the required field:
-    - If applicable, from the **Zscaler Fields** drop-down menu, select the Zscaler field that you want to map to that Jira field. The drop-down menu displays all Zscaler fields that are available on the Incident Details page.
-    - If applicable, set a default value that you want to map to that Jira field. Enter the **Default Value** field or select the default value from the **Default Value** drop-down menu. Some fields that have predefined values have a drop-down menu that you can select from, and other fields allow you to enter a value.
-  - Click **Save**. The field mapping is configured. After you map the last required field and save it, the **Add More** button becomes available. You can only edit a required field mapping. You cannot delete required field mappings.
-
-See image.
-
-1. (Optional) Add optional Jira field mappings for the ticket:
-  1. Click the **Add More** button. An additional row appears at the bottom of the table.
-  2. In the new row:
-    - From the **Jira Fields** drop-down menu, select the optional Jira field.
-    - If applicable, from the **Zscaler Fields** drop-down menu, select the Zscaler field to map to this Jira field. All potential Zscaler fields that match this Jira field are available in the drop-down menu.
-    - If applicable, enter the default value that you want to map to that Jira field in the **Default Value** field or select the default value from the **Default Value** drop-down menu. Some fields that have predefined values have a drop-down menu that you can select from, and other fields allow you to enter a value.
-  3. Click **Save**at the end of the row. The field mapping is configured.
-
-See image.
-
-You can edit or delete optional field mappings.
+3. On the **Jira Integration** details page, click the **Expand** icon for a connected account. The Jira projects display along with their metadata associated with the Jira Cloud integration. When you enable the Jira Cloud integration for the first time, all the projects and their metadata for the Jira Cloud integration are synced with Workflow Automation and are displayed on the page. See image.
+4. (Optional) At the top right of the project details section, click **Sync Project List**to manually sync the Jira Cloud integration project list with Workflow Automation.
+5. In the project details section, configure the complete status settings for each project associated with the Jira Cloud account. From the **Complete Status** drop-down menu, select a status for when the Jira tickets are considered complete in the project in the Jira Software application. If a status has not been selected, **Click to change status** appears for the **Complete Status** field. All the completed statuses for the project in Jira Software are available for selection (e.g., **In Progress**, **To Do**, **In Review**, **Done**, and **Closed**). See image.
+6. Enter the field mapping for the Jira tickets in the project between the Jira Cloud integration and Workflow Automation.
+  1. Click the **Add Field Mapping** icon next to a project. The **Required Fields Mappings** page appears. See image.
+  2. On the **Required Fields Mappings** page, select an issue type from the **Issue Type** drop-down menu. The menu displays the issue types available for that project in the Jira Cloud account (e.g., **Task**, **Bug**, and **Epic**). After you select an issue type, all the required Jira fields for that project and issue type are listed on the page and cannot be deleted. The system automatically maps the Issue Type Jira field for you. For the **Issue Type** field, the **Zscaler Fields**value is set to **None** and the **Default Value** is set to the same value as the issue type that you selected. You cannot edit or delete the Issue Type Jira field mapping.
+  3. Enter the field mapping for all the other required Jira fields:
+    1. Next to the required field:
+      - If applicable, from the **Zscaler Fields** drop-down menu, select the Zscaler field that you want to map to that Jira field. The drop-down menu displays all Zscaler fields that are available on the **Incident Details** drawer.
+      - If applicable, set a default value that you want to map to that Jira field. Enter the **Default Value** field or select the default value from the **Default Value** drop-down menu. Some fields that have predefined values have a drop-down menu that you can select from, and other fields allow you to enter a value.
+    2. Click **Save**. The field mapping is configured. After you map the last required field and save it, the **Add More** button becomes available. You can only edit a required field mapping. You cannot delete required field mappings. See image.
+  4. (Optional) Add optional Jira field mappings for the ticket: You can edit or delete optional field mappings.
+    1. Click the **Add More** button. An additional row appears at the bottom of the table.
+    2. In the new row:
+      - From the **Jira Fields** drop-down menu, select the optional Jira field.
+      - If applicable, from the **Zscaler Fields** drop-down menu, select the Zscaler field to map to this Jira field. All potential Zscaler fields that match this Jira field are available in the drop-down menu.
+      - If applicable, enter the default value that you want to map to that Jira field in the **Default Value** field or select the default value from the **Default Value** drop-down menu. Some fields that have predefined values have a drop-down menu that you can select from, and other fields allow you to enter a value.
+    3. Click **Save**at the end of the row. The field mapping is configured. See image.
 
 To configure integration settings for a Jira Software integration in Workflow Automation:
 
-1. Go to **Administration**>**Workflow Automation**>**Data Protection** > **Integrations**. The **Integrations** dashboard appears, displaying a **Jira Cloud** application tile in the**Connected Apps** section. The **Tile View** icon is selected by default.
-
-See image.
-
-1. Perform one of the following steps:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation**> **Integrations**. The **Integrations** dashboard appears, displaying a **Jira Cloud** application tile in the**Connected Apps** section. The **Tile View** icon is selected by default. See image.
+2. Perform one of the following steps: The **Jira Integration** details page appears. In the **Connected Accounts** section, all the Jira Cloud integrations appear along with their statuses (Enabled and Disabled). To display the deleted application integrations, click **Show Deleted Accounts** at the top right of the **Connected Accounts** section. See image.
   - In the tile view, in the **Connected Apps**section, click anywhere on the **Jira Cloud** tile.
   - In the list view, in the **Connected Apps** section, click **View Details**next to the Jira Cloud integration.
-
-The **Jira Integration** details page appears. In the **Connected Accounts** section, all the Jira Cloud integrations appear along with their statuses (Enabled and Disabled). To display the deleted application integrations, click **Show Deleted Accounts** at the top right of the **Connected Accounts** section.
-
-See image.
-
-1. On the **Jira Integration** details page, click the **Edit** icon next to the connected account you want to configure. The **Jira Integration** editing page appears.
-2. On the **Jira Integration** editing page:
+3. On the **Jira Integration** details page, click the **Edit** icon next to the connected account you want to configure. The edit **Jira Integration**page appears.
+4. On the edit **Jira Integration**page:
   1. (Optional) **Integration Name**: Edit the integration name.
   2. (Optional) **Sync project list**: Select this checkbox if you want to automatically sync the project list between the Jira Cloud integration and Workflow Automation. The sync process runs daily. To manually sync the project list, on the **Jira Integration** details page, click the **Sync Project List** button at the top right of the project details section.
-  3. (Optional) **Sync ticket status**: Select this checkbox if you want to sync the ticket status between the Jira Cloud integration and Workflow Automation. The sync process runs daily. On the **Incident Details** page in Workflow Automation, only the complete status that you specified for a project appears in the Ticket section for an incident. This status appears when a ticket matches that complete status for the project in the Jira Cloud integration. None of the other Jira Cloud integration ticket statuses appear on the **Incident Details** page. After you select this checkbox, the **Close incident when ticket is closed** checkbox appears on the page.
+  3. (Optional) **Sync ticket status**: Select this checkbox if you want to sync the ticket status between the Jira Cloud integration and Workflow Automation. The sync process runs daily. On the **Incident Details** drawer in Workflow Automation, only the complete status that you specified for a project appears in the Ticket section for an incident. This status appears when a ticket matches that complete status for the project in the Jira Cloud integration. None of the other Jira Cloud integration ticket statuses appear on the **Incident Details** drawer. After you select this checkbox, the **Close incident when ticket is closed** checkbox appears on the page.
   4. (Optional) **Close incident when ticket is closed**: Select this checkbox if you want Workflow Automation to automatically close the incident in Workflow Automation when the Jira ticket matches the complete status you defined for the project on the **Jira Integration** details page. If you do not select this checkbox, Workflow Automation does not automatically close the ticket. See image.
   5. Click **Save Changes**.
 
@@ -1383,195 +1349,135 @@ You can edit both project settings and integration settings for a Jira Software 
 
 To edit project settings for a Jira Software integration in Workflow Automation:
 
-1. Go to **Administration**>**Workflow Automation**>**Data Protection** > **Integrations**. The **Integrations** dashboard appears, displaying a **Jira Cloud** application tile in the**Connected Apps** section. The **Tile View** icon is selected by default.
-
-See image.
-
-1. Perform one of the following steps:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation**> **Integrations**. The **Integrations** dashboard appears, displaying a **Jira Cloud** application tile in the**Connected Apps** section. The **Tile View** icon is selected by default. See image.
+2. Perform one of the following steps: The **Jira Integration** details page appears. In the **Connected Accounts** section, all the Jira Cloud integration accounts appear along with the status of each account (Enabled and Disabled), the date each account was last modified, the name of the individual who performed the modification, the total number of projects for the account, and the total number of mapped projects for the account. To display the deleted application integrations, click **Show Deleted Accounts** at the top right of the **Connected Accounts** section. See image.
   - In the tile view, in the **Connected Apps**section,click anywhere on the **Jira Cloud** tile.
   - In the list view, in the **Connected Apps** section, click **View Details**next to the Jira Cloud integration.
-
-The **Jira Integration** details page appears. In the **Connected Accounts** section, all the Jira Cloud integration accounts appear along with the status of each account (Enabled and Disabled), the date each account was last modified, the name of the individual who performed the modification, the total number of projects for the account, and the total number of mapped projects for the account. To display the deleted application integrations, click **Show Deleted Accounts** at the top right of the **Connected Accounts** section.
-
-See image.
-
-1. On the **Jira Integration** details page, click the **Expand** icon for a connected account. The Jira projects display along with their metadata associated with the Jira Cloud integration. When you enable the Jira Cloud integration for the first time, all the projects and their metadata for the Jira Cloud integration sync with Workflow Automation and display on the page.
-
-See image.
-
-1. (Optional) In the top right of the project details section, click **Sync Project List**to manually sync the Jira Cloud integration project list with Workflow Automation.
-2. (Optional) In the project details section, modify the complete status settings for each project associated with the Jira Cloud account. Select a different status from the **Complete Status** drop-down menu for each project.
-3. Edit the field mapping for the Jira tickets in the project between the Jira Cloud integration and Workflow Automation.
+3. On the **Jira Integration** details page, click the **Expand** icon for a connected account. The Jira projects display along with their metadata associated with the Jira Cloud integration. When you enable the Jira Cloud integration for the first time, all the projects and their metadata for the Jira Cloud integration sync with Workflow Automation and display on the page. See image.
+4. (Optional) In the top right of the project details section, click **Sync Project List**to manually sync the Jira Cloud integration project list with Workflow Automation.
+5. (Optional) In the project details section, modify the complete status settings for each project associated with the Jira Cloud account. Select a different status from the **Complete Status** drop-down menu for each project.
+6. Edit the field mapping for the Jira tickets in the project between the Jira Cloud integration and Workflow Automation.
   1. Click the **View Field Mapping** icon next to a project. The **Required Fields Mappings** page appears, listing all the current field mappings.
-  2. On the **Required Fields Mappings** page:
+  2. On the **Required Fields Mappings** page: You can delete optional field mappings. To delete an optional field mapping, click **Delete** in the **Action** column.
     - Edit the existing values or enter new field mapping values for each required field for the Jira issue type. In the **Action** column, click **Save**. You cannot delete a required field value mapping.
     - Edit the field mapping values for each existing optional field for the Jira issue type and click **Save**in the**Action**column. Alternatively, click **Add More** and configure a new optional field mapping and click **Save**in the **Action**column.
 
-You can delete optional field mappings. To delete an optional field mapping, click **Delete** in the **Action** column.
-
 To edit integration settings for a Jira Software integration in Workflow Automation:
 
-1. Go to **Administration**>**Workflow Automation**>**Data Protection** > **Integrations**. The **Integrations**dashboard appears, displaying a **Jira Cloud** application tile in the**Connected Apps** section. The **Tile View** icon is selected by default.
-
-See image.
-
-1. Perform one of the following steps:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation**> **Integrations**. The **Integrations**dashboard appears, displaying a **Jira Cloud** application tile in the**Connected Apps** section. The **Tile View** icon is selected by default. See image.
+2. Perform one of the following steps: The **Jira Integration** details page appears. In the **Connected Accounts** section, all the Jira Cloud integration accounts appear, along with the status of each account (Enabled and Disabled), the date each account was last modified, the name of the individual who performed the modification, the total number of projects for the account, and the total number of mapped projects for the account. To display the deleted application integrations, click **Show Deleted Accounts** at the top right of the **Connected Accounts** section. See image.
   - In the tile view, in the **Connected Apps** section,click anywhere on the **Jira Cloud** tile.
   - In the list view, in the **Connected Apps** section, click **View Details**next to the Jira Cloud integration.
-
-The **Jira Integration** details page appears. In the **Connected Accounts** section, all the Jira Cloud integration accounts appear, along with the status of each account (Enabled and Disabled), the date each account was last modified, the name of the individual who performed the modification, the total number of projects for the account, and the total number of mapped projects for the account. To display the deleted application integrations, click **Show Deleted Accounts** at the top right of the **Connected Accounts** section.
-
-See image.
-
-1. On the **Jira Integration**details page, click the **Edit** icon next to the connected account you want to edit. The **Jira Cloud Integration** editing page appears.
-
-See image.
-
-1. On the **Jira Integration** editing page, edit any of the fields that are displayed.
-2. Click **Save Changes**.
+3. On the **Jira Integration**details page, click the **Edit** icon next to the connected account you want to edit. The edit **Jira Integration**page appears. See image.
+4. On the edit **Jira Integration**page, edit any of the fields that are displayed.
+5. Click **Save Changes**.
 
 To disable or enable a Jira Software integration in Workflow Automation:
 
-1. Go to **Administration**>**Workflow Automation**>**Data Protection** > **Integrations**. The **Integrations**dashboard appears, displaying a **Jira Cloud** application tile in the**Connected Apps** section. The **Tile View** icon is selected by default.
-
-See image.
-
-1. Perform one of the following steps:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation**> **Integrations**. The **Integrations**dashboard appears, displaying a **Jira Cloud** application tile in the**Connected Apps** section. The **Tile View** icon is selected by default. See image.
+2. Perform one of the following steps: The **Jira Integration** details page appears. In the **Connected Accounts** section, all the Jira Cloud integration accounts appear, along with the status of each account (Enabled and Disabled), the date each account was last modified, the name of the individual who performed the modification, the total number of projects for the account, and the total number of mapped projects for the account. See image.
   - In the tile view, in the **Connected Apps**section,click anywhere on the **Jira Cloud** tile.
   - In the list view, in the **Connected Apps** section, click **View Details**next to the Jira Cloud integration.
-
-The **Jira Integration** details page appears. In the **Connected Accounts** section, all the Jira Cloud integration accounts appear, along with the status of each account (Enabled and Disabled), the date each account was last modified, the name of the individual who performed the modification, the total number of projects for the account, and the total number of mapped projects for the account.
-
-See image.
-
-1. On the **Jira Integration** details page, click the **Edit** icon next to a connected account with an Enabled status that you want to disable or an account with a Disabled status that you want to enable. The **Jira Integration** editing page appears.
-2. On the **Jira Integration** editing page, click **Disable Integration**or**Enable Integration.**The status of the integration changes to Disabled or Enabled. You cannot enable or disable Jira Cloud integrations that have been deleted.
+3. On the **Jira Integration** details page, click the **Edit** icon next to a connected account with an Enabled status that you want to disable or an account with a Disabled status that you want to enable. The edit **Jira Integration**page appears.
+4. On the edit **Jira Integration**page, click **Disable Integration**or**Enable Integration.**The status of the integration changes to Disabled or Enabled. You cannot enable or disable Jira Cloud integrations that have been deleted.
 
 To view Jira Software integrations in Workflow Automation:
 
-1. Go to **Administration**>**Workflow Automation**>**Data Protection** > **Integrations**. The **Integrations**dashboard appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation**> **Integrations**. The **Integrations**dashboard appears.
 2. On the **Integrations**dashboard:
 
-- Filter the integrations that are displayed on the dashboard. Select **All** to display all the integrations or select **Connected** to display only those integrations that are connected. By default, all integrations are displayed.
-
-See image.
-
-- Change the layout of the dashboard. Select the **Tile View** icon to view the integrations in a tile format or select the **List View** icon to view the integrations in a list format. By default, the dashboard displays in the tile view.
-
-See image.
+- Filter the integrations that are displayed on the dashboard. Select **All** to display all the integrations or select **Connected** to display only those integrations that are connected. By default, all integrations are displayed. See image.
+- Change the layout of the dashboard. Select the **Tile View** icon to view the integrations in a tile format or select the **List View** icon to view the integrations in a list format. By default, the dashboard displays in the tile view. See image.
 
 1. View the list of all Jira Cloud integrations that have been added to your organization:
-
-In the tile view, in the **Connected Apps** section, you can view the following information:
-
-1. **App**: The application that is associated with the integration (e.g., **Jira Cloud**).
-2. **Account Details**: The integration name for each account associated with the integration.
-3. **Status**: The status of the accounts for the integration. An oval at the top of the tile lists the number of accounts that are connected and the status of **Connected**. This number does not include accounts with a Deleted status.
-
-See image.
-
-In the list view, in the **Connected Apps** section, you can view the following information:
-
-- **App Integration:** The application that is associated with the integration.
-- **Account Details**: The integration name for each account associated with the integration.
-- **Status**: The status of the accounts for the integration. An oval in this field lists the number of accounts that are connected and the status of **Connected.**This number does not include accounts with a Deleted status.
-- **Account Connected**: The number of accounts that are connected.
-
-See image.
-
-1. View additional configuration details for the Jira Cloud integrations:
-  1. On the **Integrations** dashboard, perform one of the following steps:
-
-- In the tile view, in the **Connected Apps**section,click anywhere in the **Jira Cloud** tile.
-- In the list view, in the **Connected Apps** section, click **View Details** next to the Jira Cloud application integration.
-
-The **Jira Integration** details page appears, displaying a **Configuration Steps** tab and a **Configuration** tab. The **Configuration Steps** tab provides a link to the instructions on how to manage the Workflow Automation integration with Jira Software. On the **Configuration** tab, you can view the list of Jira Cloud integration accounts along with the status of each account (Enabled and Disabled), the date when each account was last modified, the name of the individual who performed the modification, the total number of projects for the account, and the total number of mapped projects for the account. To display the deleted application integrations, click **Show Deleted Accounts** at the top right of the **Connected Accounts** section.
-
-1. On the **Configuration** tab, click the **Edit** icon next to a Jira Cloud integration account to view the configuration details for that integration.
-
-1. View project settings for the Jira Cloud integrations:
-  1. On the **Integrations** dashboard, perform one of the following steps:
+  - In the tile view, in the **Connected Apps** section, you can view: See image.
+    1. **App**: The application that is associated with the integration (e.g., **Jira Cloud**).
+    2. **Account Details**: The integration name for each account associated with the integration.
+    3. **Status**: The status of the accounts for the integration. An oval at the top of the tile lists the number of accounts that are connected and the status of **Connected**. This number does not include accounts with a Deleted status.
+  - In the list view, in the **Connected Apps** section, you can view: See image.
+    - **App Integration:** The application that is associated with the integration.
+    - **Account Details**: The integration name for each account associated with the integration.
+    - **Status**: The status of the accounts for the integration. An oval in this field lists the number of accounts that are connected and the status of **Connected.**This number does not include accounts with a Deleted status.
+    - **Account Connected**: The number of accounts that are connected.
+2. View additional configuration details for the Jira Cloud integrations:
+  1. On the **Integrations** dashboard, perform one of the following steps: The **Jira Integration** details page appears, displaying a **Configuration Steps** tab and a **Configuration** tab. The **Configuration Steps** tab provides a link to the instructions on how to manage the Workflow Automation integration with Jira Software. On the **Configuration** tab, you can view the list of Jira Cloud integration accounts along with the status of each account (Enabled and Disabled), the date when each account was last modified, the name of the individual who performed the modification, the total number of projects for the account, and the total number of mapped projects for the account. To display the deleted application integrations, click **Show Deleted Accounts** at the top right of the **Connected Accounts** section.
+    - In the tile view, in the **Connected Apps**section,click anywhere in the **Jira Cloud** tile.
+    - In the list view, in the **Connected Apps** section, click **View Details** next to the Jira Cloud application integration.
+  2. On the **Configuration** tab, click the **Edit** icon next to a Jira Cloud integration account to view the configuration details for that integration.
+3. View project settings for the Jira Cloud integrations:
+  1. On the **Integrations** dashboard, perform one of the following steps: The **Jira Integration** details page appears, displaying a **Configuration Steps** tab and a **Configuration** tab.
     - In the tile view, in the **Connected Apps** section,click anywhere in the **Jira Cloud** tile.
     - In the list view, in the **Connected Apps** section, click **View Details** next to the Jira Cloud application integration.
+  2. On the **Jira Integration** details page, click the **Expand** icon for a connected account. The project details section appears, listing all the project configurations for that account. To view all projects (mapped and unmapped) for the integration, select **All**at the top of the section. To view projects that have been mapped, select **Only Mapped** at the top of the section. In the project details section, you can see: See image.
+    - **Project**: The name of the project.
+    - **Modified By**: The name of the user who modified the project settings.
+    - **Complete Status**: The complete status specified for the project. If a status has not been selected, **Click to change status** appears for the field.
+    - **Auto Sync**: Indicates whether auto sync is **Enabled** or **Disabled** for the project. To view the reason the auto sync is disabled, click the **Information** icon next to the **Disabled** status. You can disable auto sync for the following reasons:
+      - **Mapping is Empty**: The field mapping has not been added for the project using this section of the page. Click the **Add Field Mapping** icon next to a project to add the field mapping for the project.
+      - **Labels Not Supported**: The Labels field is not supported for the project in the Jira Software application. Workflow Automation uses labels to search for and sync the tickets in Jira Software with the tickets on the **Incident Details** drawer in Workflow Automation. To correct this issue, you must add the **Labels** field to the project in the Jira Software.
+    - **Field Mappings**: Displays either the **Add Field Mapping** icon or the **View Field Mapping** icon. The **Add Field Mapping** icon appears if no field mapping has been added for the project. The **View Field Mapping** icon appears if field mapping has been added for the project.
+  3. To view the existing field mapping for the project, click the **View Field Mapping** icon next to a project. The **Required Fields Mappings** page appears, displaying the existing field mappings. See image.
 
-The **Jira Integration** details page appears, displaying a **Configuration Steps** tab and a **Configuration** tab.
-
-1. On the **Jira Integration** details page, click the **Expand** icon for a connected account. The project details section appears, listing all the project configurations for that account. To view all projects (mapped and unmapped) for the integration, select **All**at the top of the section. To view projects that have been mapped, select **Only Mapped** at the top of the section. In the project details section, you can see:
-
-- **Project**: The name of the project.
-- **Modified By**: The name of the user who modified the project settings.
-- **Complete Status**: The complete status specified for the project. If a status has not been selected, **Click to change status** appears for the field.
-- **Auto Sync**: Indicates whether auto sync is **Enabled** or **Disabled** for the project. To view the reason the auto sync is disabled, click the **Information** icon next to the **Disabled** status. You can disable auto sync for the following reasons:
-  - **Mapping is Empty**: The field mapping has not been added for the project using this section of the page. Click the **Add Field Mapping** icon next to a project to add the field mapping for the project.
-  - **Labels Not Supported**: The Labels field is not supported for the project in the Jira Software application. Workflow Automation uses labels to search for and sync the tickets in Jira Software with the tickets on the Incident Details page in Workflow Automation. To correct this issue, you must add the **Labels** field to the project in Jira Software.
-- **Field Mappings**: Displays either the **Add Field Mapping** icon or the **View Field Mapping** icon. The **Add Field Mapping** icon appears if no field mapping has been added for the project. The **View Field Mapping** icon appears if field mapping has been added for the project.
-
-See image.
-
-1. To view the existing field mapping for the project, click the **View Field Mapping** icon next to a project. The **Required Fields Mappings** page appears, displaying the existing field mappings.
-
-See image.
-
-[Image: Adding Jira Software as a SaaS Application Tenant in the Zscaler Admin Console]
+[Image: Adding Jira Software as a SaaS application tenant on the Add Tenant page]
 
 [Image: Viewing the Jira Cloud tile on the Integrations dashboard in the Zscaler Admin Console]
 
 [Image: Viewing the Jira Integration details page for an integration in the Integrations dashboard]
 
-[Image: Viewing the Jira Integration details page with an account row expanded in the Integrations dashboard]
+[Image: Viewing the Jira Integration details page with an account row expanded]
 
-[Image: Selecting the complete status for a project on the Jira Cloud Integration Details page in the Integrations Dashboard]
+[Image: Selecting the complete status for a project on the Jira Cloud Integration Details page]
 
-[Image: Viewing the Required Fields Mapping page in the Integrations dashboard]
+[Image: Viewing the Required Fields Mapping page]
 
-[Image: Viewing the Required Fields Mapping page with all the required fields entered in the Integrations dashboard]
+[Image: Viewing the Required Fields Mapping page with all the required fields entered]
 
-[Image: Required Fields Mapping page with optional fields entered in the Integrations dashboard]
+[Image: Required Fields Mapping page with optional fields entered]
 
-[Image: Viewing the Jira Cloud tile on the Integrations dashboard in the Zscaler Admin Console]
+[Image: Viewing the Jira Cloud tile on the Integrations dashboard]
 
-[Image: Viewing the Jira Integration details page with an account enabled in the Integrations dashboard]
+[Image: Viewing the Jira Integration details page with an account enabled]
 
-[Image: Configuring Jira Cloud configuration settings on the Jira Integration editing page in the Integrations dashboard]
+[Image: Configuring Jira Cloud configuration settings on the edit Jira Integration page]
 
-[Image: Viewing the Jira Cloud tile on the Integrations dashboard in the Zscaler Admin Console]
+[Image: Viewing the Jira Cloud tile on the Integrations dashboard]
 
-[Image: Viewing the Jira Integration details page with an account that has been edited in the Integrations dashboard]
+[Image: Viewing the Jira Integration details page with an account that has been edited]
 
-[Image: Viewing the Jira Integration details page with an account row expanded in the Integrations dashboard]
+[Image: Viewing the Jira Integration details page with an account row expanded]
 
-[Image: Viewing the Jira Cloud tile on the Integrations dashboard in the Zscaler Admin Console]
+[Image: Viewing the Jira Cloud tile on the Integrations dashboard]
 
-[Image: Viewing the Jira Integration details page with an account that has been edited in the Integrations dashboard]
+[Image: Viewing the Jira Integration details page with an account that has been edited]
 
-[Image: Viewing the Jira Integration details page with an account that has been edited in the Integrations dashboard]
+[Image: Viewing the Jira Integration details page with an account that has been edited]
 
-[Image: Viewing the Jira Cloud tile on the Integrations dashboard in the Zscaler Admin Console]
+[Image: Viewing the Jira Cloud tile on the Integrations dashboard]
 
-[Image: Viewing the Jira Integration details page with an account that has been edited in the Integrations dashboard]
+[Image: Viewing the Jira Integration details page with an account that has been edited]
 
-[Image: Viewing the All and Connected icons on the Integrations dashboard in the Zscaler Admin Console]
+[Image: Viewing the All and Connected icons on the Integrations dashboard]
 
-[Image: Viewing the Tile and List View icons on the Integrations dashboard in the Zscaler Admin Console]
+[Image: Viewing the Tile and List View icons on the Integrations dashboard]
 
-[Image: Viewing the Jira Cloud Integration tile in the Integrations dashboard in the Zscaler Admin Console]
+[Image: Viewing the Jira Cloud Integration tile in the Integrations dashboard]
 
-[Image: Viewing the Jira Cloud list entry in the list view on the Integrations dashboard in the Zscaler Admin Console]
+[Image: Viewing the Jira Cloud entry in the list view on the Integrations dashboard]
 
-[Image: Viewing the Jira Integration details page with an account row expanded in the Integrations dashboard]
+[Image: Viewing the Jira Integration details page with an account row expanded]
 
-[Image: Viewing all the existing field mappings on the Required Fields Mapping page in the Zscaler Admin Console]
+[Image: Viewing all the existing field mappings on the Required Fields Mapping page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-automation-integration-microsoft-teams","lastmod":"2026-07-21T13:53Z","nid":"1461676"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-automation-integration-microsoft-teams","lastmod":"2026-10-01T21:06Z","nid":"1461676"} -->
 ## Managing Workflow Automation Integration with Microsoft Teams
 
 - Source: https://help.zscaler.com/workflow-automation/managing-workflow-automation-integration-microsoft-teams
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Managing Workflow Automation Integration with Microsoft Teams
-- Last modified: 2026-07-21T13:53Z
+- Last modified: 2026-10-01T21:06Z
 - Summary: Information about Workflow Automation integration with Microsoft Teams.
 
 Workflow Automation can integrate with Microsoft Teams, a sanctioned Software as a Service (SaaS) application for Zscaler. During the remediation process for a data protection incident in Workflow Automation, admins or the application can initiate different notifications (user, escalation, and digest) to remediate the incident. When Workflow Automation is integrated with the Microsoft Teams application, these notifications can be delivered through Teams messages to the appropriate users or admins associated with the incident. To learn more, see [Managing Incidents](https://help.zscaler.com/workflow-automation/managing-incidents), [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details), [Managing Notification Templates](https://help.zscaler.com/workflow-automation/managing-notification-templates), [Managing Incident and Digest Template Mappings](https://help.zscaler.com/workflow-automation/managing-incident-and-digest-template-mappings), [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments), and [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings).
@@ -1591,27 +1497,27 @@ To learn more, refer to the [Microsoft Teams admin documentation](https://learn.
 
 To integrate Workflow Automation with Microsoft Teams:
 
-1. In the Zscaler Admin Console, go to **Policies** > **Common Configuration** > **Out-of-Band CASB** > **SaaS Application Tenants**.
-2. Click **Add SaaS Application Tenant**. The **Add SaaS Application Tenant** page appears.
-3. On the **Add SaaS Application Tenant** page, add the Microsoft Teams application as a SaaS application tenant using the Microsoft Teams admin credentials. When adding the tenant, ensure that you select the **Workflow Automation** checkbox under the **Onboard SaaS Application for** section. This process authorizes the Microsoft Teams application with Internet & SaaS (ZIA) and integrates the Microsoft Teams application with Workflow Automation. You can now select the Teams channel for the notifications initiated within Workflow Automation. To learn more, see [Adding SaaS Application Tenants](https://help.zscaler.com/zia/adding-saas-application-tenants).
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Configuration** > **SaaS Application Tenants**.
+2. On the **Manage Tenants** tab, click **Add.** The **Add Tenant** page appears.
+3. On the **Add Tenant** page, add the Microsoft Teams application as a SaaS application tenant using the Microsoft Teams admin credentials. When adding the tenant, ensure that you select the **Workflow Automation** checkbox under the **Select Features** section. This process authorizes the Microsoft Teams application with Internet & SaaS (ZIA) and integrates the Microsoft Teams application with Workflow Automation. You can now select the Teams channel for the notifications initiated within Workflow Automation. To learn more, see [Adding SaaS Application Tenants](https://help.zscaler.com/zia/adding-saas-application-tenants).
 
 See image.
 
-[Image: Adding Microsoft Teams as a SaaS Application Tenant in the Add SaaS Application Tenant Page in the Zscaler Admin Console]
+[Image: Adding Microsoft Teams as a SaaS application tenant on the Add Tenant page in the Zscaler Admin Console]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-automation-integration-servicenow","lastmod":"2026-07-17T10:23Z","nid":"1457511"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-automation-integration-servicenow","lastmod":"2026-10-02T21:06Z","nid":"1457511"} -->
 ## Managing Workflow Automation Integration with ServiceNow
 
 - Source: https://help.zscaler.com/workflow-automation/managing-workflow-automation-integration-servicenow
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Managing Workflow Automation Integration with ServiceNow
-- Last modified: 2026-07-17T10:23Z
+- Last modified: 2026-10-02T21:06Z
 - Summary: Information about Workflow Automation integration with ServiceNow.
 
-Workflow Automation can integrate with ServiceNow, a sanctioned Software as a Service (SaaS) application for Zscaler. During the remediation process for a data protection incident in Workflow Automation, admins can create and assign a ServiceNow ticket to an incident on the Incident Details page. When the ticket action is initiated on the Incident Details page for an incident, the admin selects the user to assign to the ticket in ServiceNow. The user they select must exist in the ServiceNow application and must have already been added on the Integration Users page in Workflow Automation. To learn more, see [Managing Integration Users](https://help.zscaler.com/workflow-automation/managing-integration-users) and [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details). test
+Workflow Automation can integrate with ServiceNow, a sanctioned Software as a Service (SaaS) application for Zscaler. During the remediation process for a data protection incident in Workflow Automation, admins can create and assign a ServiceNow ticket to an incident on the Incident Details drawer. When the ticket action is initiated on the Incident Details drawer for an incident, the admin selects the user to assign to the ticket in ServiceNow. The user they select must exist in the ServiceNow application and must have already been added on the Integration Users page in Workflow Automation. To learn more, see [Managing Integration Users](https://help.zscaler.com/workflow-automation/managing-integration-users) and [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details).
 
 When configuring the ServiceNow integration in Workflow Automation, you can select whether you want to sync the ticket status between ServiceNow and Workflow Automation. If you choose to sync the ticket status, you can also select whether to close the incident in Workflow Automation when the ticket is closed in ServiceNow. If you enable this option, after Workflow Automation receives the Closed status through the sync process, it automatically closes the incident.
 
@@ -1622,17 +1528,15 @@ The workflow functionality in Workflow Automation also has an Auto Create Ticket
 Before you can integrate Workflow Automation with ServiceNow, you must:
 
 - Configure the Data Loss Prevention (DLP) application integration for your organization using Amazon Web Services, Azure, or Google Cloud Platform. Ensure that you add a DLP application integration in Workflow Automation during this process. To learn more, see [Configuring the DLP Application Integration Using Amazon Web Services](https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-amazon-web-services), [Configuring the DLP Application Integration Using Azure](https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-azure), and [Configuring the DLP Application Integration Using Google Cloud Platform](https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-google-cloud-platform).
-- Obtain and configure the ServiceNow application for your organization.
+- Obtain and configure the ServiceNow application for your organization. To learn more, refer to the [ServiceNow documentation](https://docs.servicenow.com/en-US/).
   - Ensure that you define the different users for your organization who can use the ServiceNow application.
   - Ensure that you have admin credentials for the ServiceNow application. These credentials are required to integrate Workflow Automation with ServiceNow.
 
-To learn more, refer to the [ServiceNow documentation](https://docs.servicenow.com/en-US/).
-
 To integrate Workflow Automation with ServiceNow:
 
-1. In the Zscaler Admin Console, go to **Policies** > **Common Configuration** > **Out-of-Band CASB** > **SaaS Application Tenants**.
-2. Click **Add SaaS Application Tenant**. The **Add SaaS Application Tenant** page appears.
-3. On the **Add SaaS Application Tenant** page, configure and add the ServiceNow application as a SaaS application tenant using the ServiceNow admin credentials. When adding the tenant, ensure that you select the **Workflow Automation** checkbox in the **Onboard SaaS Application for** section. This process authorizes the ServiceNow application with Internet & SaaS (ZIA) and integrates the ServiceNow application with Workflow Automation. On the **Integrations** dashboard in Workflow Automation, the ServiceNow application appears as a tile in the **Connected Apps** section. To learn more, see [Adding SaaS Application Tenants](https://help.zscaler.com/zia/adding-saas-application-tenants). See image.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Configuration** > **SaaS Application Tenants**.
+2. On the **Manage Tenants** tab, click **Add.** The **Add Tenant** page appears.
+3. On the **Add Tenant** page, configure and add the ServiceNow application as a SaaS application tenant using the ServiceNow admin credentials. When adding the tenant, ensure that you select the **Workflow Automation** checkbox in the **Select Features**section. This process authorizes the ServiceNow application with Internet & SaaS (ZIA) and integrates the ServiceNow application with Workflow Automation. On the **Integrations** dashboard in Workflow Automation, the ServiceNow application appears as a tile in the **Connected Apps** section. To learn more, see [Adding SaaS Application Tenants](https://help.zscaler.com/zia/adding-saas-application-tenants). See image.
 
 ## Managing ServiceNow Integrations in Workflow Automation
 
@@ -1645,119 +1549,88 @@ On the Integrations dashboard in the Zscaler Admin Console, admins can:
 
 To configure a ServiceNow integration in Workflow Automation:
 
-1. Go to **Administration**>**Workflow Automation**>**Data Protection** > **Integrations**. The **Integrations** dashboard appears, displaying a **ServiceNow** application tile in the**Connected Apps** section. The **Tile View** icon is selected by default. See image.
-2. Perform one of the following steps:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation**> **Integrations**. The **Integrations** dashboard appears, displaying a **ServiceNow** application tile in the**Connected Apps** section. The **Tile View** icon is selected by default. See image.
+2. Perform one of the following steps: The **ServiceNow Integration** details page appears. In the **Connected Accounts** section, all the ServiceNow integrations appear along with their statuses (Enabled and Disabled). To display the deleted application integrations, click **Show Deleted Accounts** at the top right of the **Connected Accounts** section. See image.
   - In the tile view, in the **Connected Apps**section,click anywhere on the **ServiceNow** tile.
   - In the list view, in the **Connected Apps** section, click **View Details**next to the ServiceNow integration.
-
-The **ServiceNow Integration** details page appears. In the **Connected Accounts** section, all the ServiceNow integrations appear along with their statuses (Enabled and Disabled). To display the deleted application integrations, click **Show Deleted Accounts** at the top right of the **Connected Accounts** section.
-
-See image.
-
-1. On the **ServiceNow Integration** details page, click the **Edit** icon next to the connected account you want to configure. The **ServiceNow Integration** editing page appears.
-2. On the **ServiceNow Integration** editing page:
-  1. (Optional) **Sync ticket status**: Select this checkbox if you want to sync the ticket status between ServiceNow and Workflow Automation. The sync process runs daily. When the ticket is closed in ServiceNow, only the **Closed** status for a ticket appears on the **Incident Details** page in Workflow Automation. None of the other ServiceNow ticket statuses appear on the **Incident Details** page. After you select this checkbox, the **Close incident when ticket is closed** checkbox appears on the page.
+3. On the **ServiceNow Integration** details page, click the **Edit** icon next to the connected account you want to configure. The edit **ServiceNow Integration**page appears.
+4. On the edit **ServiceNow Integration**page: See image.
+  1. (Optional) **Sync ticket status**: Select this checkbox if you want to sync the ticket status between ServiceNow and Workflow Automation. The sync process runs daily. When the ticket is closed in ServiceNow, only the **Closed** status for a ticket appears on the **Incident Details** drawer in Workflow Automation. None of the other ServiceNow ticket statuses appear on the **Incident Details** drawer. After you select this checkbox, the **Close incident when ticket is closed** checkbox appears on the page.
   2. (Optional) **Close incident when ticket is closed**: Select this checkbox if you want Workflow Automation to automatically close the incident in Workflow Automation when the ticket is closed in ServiceNow.
-
-See image.
-
-1. Click **Save Changes**.
+5. Click **Save Changes**.
 
 To edit a ServiceNow integration in Workflow Automation:
 
-1. Go to **Administration**>**Workflow Automation**>**Data Protection** > **Integrations**. The **Integrations**dashboard appears, displaying a **ServiceNow** application tile in the**Connected Apps** section. The **Tile View** icon is selected by default.
-2. Perform one of the following steps:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation**> **Integrations**. The **Integrations**dashboard appears, displaying a **ServiceNow** application tile in the**Connected Apps** section. The **Tile View** icon is selected by default.
+2. Perform one of the following steps: The **ServiceNow Integration** details page appears. In the **Connected Accounts** section, all the ServiceNow integrations appear, along with the status of each integration (Enabled and Disabled), the date each integration was last modified, and the name of the individual who performed the modification. To display the deleted application integrations, click **Show Deleted Accounts** at the top right of the **Connected Accounts** section. See image.
   - In the tile view, in the **Connected Apps**section,click anywhere on the **ServiceNow** tile.
   - In the list view, in the **Connected Apps** section, click **View Details**next to the ServiceNow integration.
-
-The **ServiceNow Integration** details page appears. In the **Connected Accounts** section, all the ServiceNow integrations appear, along with the status of each integration (Enabled and Disabled), the date each integration was last modified, and the name of the individual who performed the modification. To display the deleted application integrations, click **Show Deleted Accounts** at the top right of the **Connected Accounts** section.
-
-See image.
-
-1. On the **ServiceNow Integration** details page, click the **Edit** icon next to the connected account you want to edit. The **ServiceNow Integration** editing page appears.
-2. On the **ServiceNow Integration** editing page, edit any of the fields that are displayed.
-3. Click **Save Changes**.
+3. On the **ServiceNow Integration** details page, click the **Edit** icon next to the connected account you want to edit. The edit **ServiceNow Integration**page appears.
+4. On the edit **ServiceNow Integration**page, edit any of the fields that are displayed.
+5. Click **Save Changes**.
 
 To disable or enable a ServiceNow integration in Workflow Automation:
 
-1. Go to **Administration**>**Workflow Automation**>**Data Protection** > **Integrations**. The **Integrations**dashboard appears, displaying a **ServiceNow** application tile in the**Connected Apps** section. The **Tile View** icon is selected by default.
-2. Perform one of the following steps:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation**> **Integrations**. The **Integrations**dashboard appears, displaying a **ServiceNow** application tile in the**Connected Apps** section. The **Tile View** icon is selected by default.
+2. Perform one of the following steps: The **ServiceNow Integration** details page appears. In the **Connected Accounts** section, all the ServiceNow integrations appear, along with their statuses (Enabled and Disabled), the date each integration was last modified, and the name of the individual who performed the modification. See image.
   - In the tile view, in the **Connected Apps** section, click anywhere on the **ServiceNow** tile.
   - In the list view, in the **Connected Apps** section, click **View Details**next to the ServiceNow integration.
-
-The **ServiceNow Integration** details page appears. In the **Connected Accounts** section, all the ServiceNow integrations appear, along with their statuses (Enabled and Disabled), the date each integration was last modified, and the name of the individual who performed the modification.
-
-See image.
-
-1. On the **ServiceNow Integration** details page, click the **Edit** icon next to a connected account with an Enabled status that you want to disable or an account with a Disabled status that you want to enable. The **ServiceNow Integration** editing page appears.
-2. On the **ServiceNow Integration** editing page, click **Disable Integration**or**Enable Integration.**The status of the integration changes to Disabled or Enabled. You cannot enable or disable ServiceNow integrations that have been deleted.
+3. On the **ServiceNow Integration** details page, click the **Edit** icon next to a connected account with an Enabled status that you want to disable or an account with a Disabled status that you want to enable. The edit **ServiceNow Integration**page appears.
+4. On the edit **ServiceNow Integration**page, click **Disable Integration**or**Enable Integration.**The status of the integration changes to Disabled or Enabled. You cannot enable or disable ServiceNow integrations that have been deleted.
 
 To view ServiceNow integrations in Workflow Automation:
 
-1. Go to **Administration**>**Workflow Automation**>**Data Protection** > **Integrations**. The **Integrations**dashboard appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation**> **Integrations**. The **Integrations**dashboard appears.
 2. On the **Integrations**dashboard:
 
 - Filter the integrations that are displayed on the dashboard. Select **All** to display all the integrations or select **Connected** to display only those integrations that are connected. By default, all integrations display. See image.
 - Change the layout of the dashboard. Select the **Tile View** icon to view the integrations in a tile format or select the **List View** icon to view the integrations in a list format. By default, the dashboard displays in the tile view. See image.
 
 1. View the list of all ServiceNow integrations that have been added to your organization.
+  - In the tile view, in the **Connected Apps** section, you can view: See image.
+    1. **App**: The application that is associated with the integration—for example, ServiceNow.
+    2. **Account Details**: The integration name for each account associated with the integration.
+    3. **Status**: The status of the accounts for the integration. An oval at the top of the tile lists the number of accounts that are connected and the status of **Connected**. This number does not include accounts with a Deleted status.
+  - In the list view, in the **Connected Apps** section, you can view: See image.
+    - **App Integration:** The application that is associated with the integration.
+    - **Account Details**: The integration name for each account associated with the integration.
+    - **Status**: The status of the accounts for the integration. An oval in this field lists the number of accounts that are connected and the status of **Connected.**This number does not include accounts with a Deleted status.
+    - **Account Connected**: The number of accounts that are connected.
+2. View additional details for the ServiceNow integrations by performing one of the following steps: The **ServiceNow Integration** details page appears, displaying a **Configuration Steps** tab and a **Configuration** tab. The **Configuration Steps** tab provides a link to the instructions on how to manage the Workflow Automation integration with ServiceNow. On the **Configuration** tab, you can view the list of ServiceNow integration accounts along with the status of each account, the date when each account was last modified, and the individual who performed the modification. To display the deleted application integrations, click **Show Deleted Accounts** at the top right of the **Connected Accounts** section.
+  - In the tile view, in the **Connected Apps** section, click anywhere in the **DLP** tile.
+  - In the list view, in the **Connected Apps** section, click **View Details** next to the DLP application integration.
+3. On the **Configuration** tab, click the **Edit** icon next to a ServiceNow integration account to view the specific details for that integration.
 
-In the tile view, in the **Connected Apps** section, you can view the following information:
+[Image: Adding ServiceNow as a SaaS application tenant on the Add Tenant page]
 
-1. **App**: The application that is associated with the integration—for example, ServiceNow.
-2. **Account Details**: The integration name for each account associated with the integration.
-3. **Status**: The status of the accounts for the integration. An oval at the top of the tile lists the number of accounts that are connected and the status of **Connected**. This number does not include accounts with a Deleted status.
+[Image: Viewing the ServiceNow application tile on the Integrations dashboard]
 
-See image.
+[Image: Viewing the ServiceNow Integration details page with an enabled ServiceNow integration]
 
-In the list view, in the **Connected Apps** section, you can view the following information:
+[Image: Configuring the ServiceNow Integration on the edit ServiceNow Integration page]
 
-- **App Integration:** The application that is associated with the integration.
-- **Account Details**: The integration name for each account associated with the integration.
-- **Status**: The status of the accounts for the integration. An oval in this field lists the number of accounts that are connected and the status of **Connected.**This number does not include accounts with a Deleted status.
-- **Account Connected**: The number of accounts that are connected.
-
-See image.
-
-1. View additional details for the ServiceNow integrations by performing one of the following steps:
-
-- In the tile view, in the **Connected Apps** section, click anywhere in the **DLP** tile.
-- In the list view, in the **Connected Apps** section, click **View Details** next to the DLP application integration.
-
-The **ServiceNow Integration** details page appears, displaying a **Configuration Steps** tab and a **Configuration** tab. The **Configuration Steps** tab provides a link to the instructions on how to manage the Workflow Automation integration with ServiceNow. On the **Configuration** tab, you can view the list of ServiceNow integration accounts along with the status of each account, the date when each account was last modified, and the individual who performed the modification. To display the deleted application integrations, click **Show Deleted Accounts** at the top right of the **Connected Accounts** section.
-
-1. On the **Configuration** tab, click the **Edit** icon next to a ServiceNow integration account to view the specific details for that integration.
-
-[Image: Adding ServiceNow as a SaaS Application Tenant on the Add SaaS Application Tenant page in the Zscaler Admin Console]
-
-[Image: Viewing the ServiceNow connected application tile on the Integrations Dashboard in the Zscaler Admin Console]
-
-[Image: Viewing the ServiceNow Integration details page with an enabled ServiceNow integration in the Zscaler Admin Console]
-
-[Image: Configuring the ServiceNow Integration on the ServiceNow Integration editing page in the Zscaler Admin Console]
-
-[Image: Viewing all the ServiceNow integrations on the ServiceNow Integration details page in the Zscaler Admin Console]
+[Image: Viewing all the ServiceNow integrations on the ServiceNow Integration details page]
 
 [Image: Viewing the ServiceNow Integration details page after editing a ServiceNow integration]
 
-[Image: Viewing the All and Connected icons on the Integrations Dashboard in the Zscaler Admin Console]
+[Image: Viewing the All and Connected icons on the Integrations dashboard]
 
-[Image: Viewing the Tile and List View icons on the Integrations Dashboard in the Zscaler Admin Console]
+[Image: Viewing the Tile and List View icons on the Integrations dashboard]
 
-[Image: Viewing the ServiceNow Integration tile on the Integrations Dashboard in the Zscaler Admin Console]
+[Image: Viewing the ServiceNow Integration tile on the Integrations dashboard]
 
-[Image: Viewing the ServiceNow list entry on the Integrations Dashboard in the Zscaler Admin Console]
+[Image: Viewing the ServiceNow applications in list view on the Integrations dashboard]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-automation-integration-slack","lastmod":"2026-07-21T13:53Z","nid":"1457291"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-automation-integration-slack","lastmod":"2026-10-01T21:06Z","nid":"1457291"} -->
 ## Managing Workflow Automation Integration with Slack
 
 - Source: https://help.zscaler.com/workflow-automation/managing-workflow-automation-integration-slack
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Managing Workflow Automation Integration with Slack
-- Last modified: 2026-07-21T13:53Z
+- Last modified: 2026-10-01T21:06Z
 - Summary: Information about Workflow Automation integration with Slack.
 
 Workflow Automation can integrate with Slack, a sanctioned Software as a Service (SaaS) application for Zscaler. During the remediation process for a data protection incident in Workflow Automation, admins or the application can initiate different notifications (user, escalation, and digest) to remediate the incident. When Workflow Automation is integrated with the Slack application, these notifications can be delivered through Slack messages to the appropriate users or admins associated with the incident. To learn more, see [Managing Incidents](https://help.zscaler.com/workflow-automation/managing-incidents), [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details), [Managing Notification Templates](https://help.zscaler.com/workflow-automation/managing-notification-templates), [Managing Incident and Digest Template Mappings](https://help.zscaler.com/workflow-automation/managing-incident-and-digest-template-mappings), [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments), and [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings).
@@ -1777,24 +1650,24 @@ To learn more, refer to the [Slack help center](https://slack.com/help).
 
 To integrate Workflow Automation with Slack:
 
-1. In the Zscaler Admin Console, go to **Policies** > **Common Configuration** > **Out-of-Band CASB** > **SaaS Application Tenants**.
-2. Click **Add SaaS Application Tenant**. The **Add SaaS Application Tenant** page appears.
-3. On the **Add SaaS Application Tenant** page, add the Slack application as a SaaS application tenant using the Slack admin credentials. When adding the tenant, ensure that you select the **Workflow Automation** checkbox under the **Onboard SaaS Application for** section. This process authorizes the Slack application with Internet & SaaS (ZIA) and integrates the Slack application with Workflow Automation. You can now select the Slack channel for the notifications initiated within Workflow Automation. To learn more, see [Adding SaaS Application Tenants](https://help.zscaler.com/zia/adding-saas-application-tenants).
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Configuration** > **SaaS Application Tenants**.
+2. On the **Manage Tenants** tab, click **Add.** The **Add Tenant** page appears.
+3. On the **Add Tenant** page, add the Slack application as a SaaS application tenant using the Slack admin credentials. When adding the tenant, ensure that you select the **Workflow Automation** checkbox under the **Select Features** section. This process authorizes the Slack application with Internet & SaaS (ZIA) and integrates the Slack application with Workflow Automation. You can now select the Slack channel for the notifications initiated within Workflow Automation. To learn more, see [Adding SaaS Application Tenants](https://help.zscaler.com/zia/adding-saas-application-tenants).
 
 See image.
 
-[Image: Adding Slack as a SaaS Application Tenant in the Add SaaS Application Tenant Page in the Zscaler Admin Console]
+[Image: Adding Slack as a SaaS application tenant on the Add Tenant page in the Zscaler Admin Console]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-mappings","lastmod":"2026-08-12T09:56Z","nid":"1455966"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-mappings","lastmod":"2026-09-17T06:25Z","nid":"1455966"} -->
 ## Managing Workflow Mappings
 
 - Source: https://help.zscaler.com/workflow-automation/managing-workflow-mappings
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Workflows > Managing Workflow Mappings
-- Last modified: 2026-08-12T09:56Z
+- Last modified: 2026-09-17T06:25Z
 - Summary: How to manage workflow mappings in Workflow Automation.
 
 A workflow mapping specifies the incidents that are associated with the workflow. Only admins with full access to Workflow Automation can map the workflows. Incidents are mapped to workflows, which are based on one or more of the attributes available in an incident transaction. These mappings can be simple or more complex to meet your requirements. Then, when an incident occurs in your organization that contains those attributes, the workflow automatically triggers and performs the actions that the workflow specifies.
@@ -1817,7 +1690,7 @@ In the Zscaler Admin Console, ensure that workflows have been added on the Workf
 
 To add a workflow mapping:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflow Mappings**. The **Workflow** **Mappings** page appears, listing all the workflows that have been mapped.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflow Mappings**. The **Workflow** **Mappings** page appears, listing all the workflows that have been mapped.
 2. On the **Workflow Mappings** page, at the top left of the page, click **Add Statement**. A new expanded row appears after the last workflow mapping. The statement section appears within that row. See image. You can also access the **Workflow Mappings** page from the **Workflows** page. In the table, click the **Add Workflow Mapping** icon in the **Mapping** column for the workflow you want to map. See image.
 3. In the new row, from the **Workflow Name**drop-down menu, select the name of the workflow that you want to map. See image.
 4. Configure a basic or advanced incident property mapping for the workflow, as required.
@@ -2119,7 +1992,7 @@ To configure an advanced workflow mapping:
 
 To edit a workflow mapping:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflow Mappings**. The **Workflow** **Mappings** page appears, listing all the workflows that have been mapped.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflow Mappings**. The **Workflow** **Mappings** page appears, listing all the workflows that have been mapped.
 2. (Optional) On the **Workflow Mappings** page, use the **Search** field to locate the workflow you want to edit the mappings for.
 3. At the end of the row next to the workflow you want to edit, click the **Expand** icon. The row expands to display the mappings in the statement section for the workflow. See image.
 4. In the statement section, edit any of the existing predicates and conditions for the statement. You can edit the properties, operations for the properties, and property values within the existing predicates and the function for the condition.
@@ -2130,12 +2003,12 @@ To delete a predicate or condition within a statement, click the **Delete** icon
 
 To view workflow mappings:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflow Mappings**. The**Workflow** **Mappings** page appears, listing all the workflows that have been mapped. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflow Mappings**. The**Workflow** **Mappings** page appears, listing all the workflows that have been mapped. See image.
 2. On the **Workflow Mappings** page, at the end of the row next to a workflow, click the **Expand** icon. The row expands to display the mappings in the statement section for that workflow. See image.
 
 To delete a workflow mapping:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflow Mappings**. The **Workflow** **Mappings** page appears, listing all the workflows that have been mapped.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflow Mappings**. The **Workflow** **Mappings** page appears, listing all the workflows that have been mapped.
 2. On the **Workflow Mappings** page, click the **Delete** icon next to a workflow. A message appears asking whether you are sure that you want to delete this statement. See image.
 3. Click **OK**.
 
@@ -2143,48 +2016,48 @@ Rules equate to statements in Workflow Automation.
 
 To arrange workflow mapping rules:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflow Mappings**. The **Workflow** **Mappings** page appears, listing all the workflows that have been mapped.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflow Mappings**. The **Workflow** **Mappings** page appears, listing all the workflows that have been mapped.
 2. On the **Workflow Mappings** page, click the down arrow or up arrow next to a workflow to arrange the order in which the rules are processed. Workflow Automation stops processing an incident after it finds its first rule match for the incident. See image.
 3. Click **Save**.
 
-[Image: Viewing the Workflow Mappings Page with the Add Statement Button Highlighted]
+[Image: Viewing the Workflow Mappings page with the Add Statement button highlighted]
 
-[Image: Viewing the Workflows Page with the Add Workflow Mapping Icons highlighted on the Table]
+[Image: Viewing the Workflows page with the Add Workflow Mapping icons highlighted on the table]
 
-[Image: Viewing the Workflow Mappings Page with the Workflow Name Selected in the Statement Row]
+[Image: Viewing the Workflow Mappings page with the workflow name selected in the statement row]
 
-[Image: Example of a Workflow Mapping with a Contains_Exact Operation on the Workflow Mappings Page]
+[Image: Example of a workflow mapping with a Contains_Exact operation on the Workflow Mappings page]
 
-[Image: Viewing the Workflow Mappings Page with a Basic Mapping Added]
+[Image: Viewing the Workflow Mappings page with a basic mapping added]
 
-[Image: Adding Another Predicate to a Basic Mapping on the Workflow Mappings Page. The New Row Under the First Row is highlighted for the Statement.]
+[Image: Adding another predicate to a basic mapping on the Workflow Mappings page. The new row under the first row is highlighted for the statement.]
 
-[Image: Viewing a Basic Mapping with Two Predicates Configured. The Second Predicate Row is Highlighted and the Function Options are Highlighted.]
+[Image: Viewing a basic mapping with two predicates configured. The second predicate row is highlighted and the function options are highlighted.]
 
-[Image: Adding Another Condition to a Basic Mapping on the Workflow Mappings Page. The New Condition Row is Highlighted.]
+[Image: Adding another condition to a basic mapping on the Workflow Mappings page. The new condition row is highlighted.]
 
-[Image: Adding an Advanced Mapping on the Workflow Mappings Page.]
+[Image: Adding an advanced mapping on the Workflow Mappings page]
 
-[Image: Editing a Mapping on the Workflow Mappings Page]
+[Image: Editing a mapping on the Workflow Mappings page]
 
-[Image: Viewing All Workflow Mappings on the Workflow Mappings Page]
+[Image: Viewing all workflow mappings on the Workflow Mappings page]
 
-[Image: Viewing the Details for a Specific Workflow Mapping on the Workflow Mappings Page]
+[Image: Viewing the details for a specific workflow mapping on the Workflow Mappings page]
 
-[Image: Deleting a Workflow Mapping on the Workflow Mappings Page. The Delete Icon is Highlighted Next to a Workflow Mapping.]
+[Image: Deleting a workflow mapping on the Workflow Mappings page. The Delete icon is highlighted next to a workflow mapping.]
 
-[Image: Arranging Workflow Mapping Rules on the Workflow Mappings Page. The Up and Down Arrow Icons are Highlighted Next to Each Mapping.]
+[Image: Arranging workflow mapping rules on the Workflow Mappings page. The up and down arrow icons are highlighted next to each mapping.]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-templates","lastmod":"2026-04-08T13:17Z","nid":"1455806"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-templates","lastmod":"2026-09-17T06:24Z","nid":"1455806"} -->
 ## Managing Workflow Templates
 
 - Source: https://help.zscaler.com/workflow-automation/managing-workflow-templates
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Workflows > Managing Workflow Templates
-- Last modified: 2026-04-08T13:17Z
+- Last modified: 2026-09-17T06:24Z
 - Summary: How to manage workflow templates in Workflow Automation.
 
 Workflow templates are used as the basis for the workflows you add in Workflow Automation. Workflow Automation provides several different templates that address different scenarios. To add a workflow for your organization, you must select one of the templates provided. Admins use the workflows that are added and mapped to assist them with remediating the incidents that occur in your organization.
@@ -2211,7 +2084,7 @@ On the Workflow Templates page in the Zscaler Admin Console, admins can:
 
 To view workflow templates:
 
-Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflow Templates**. The **Workflow Templates** page appears, listing all the workflow templates that Workflow Automation provides. For workflow templates, you can view:
+From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflow Templates**. The **Workflow Templates** page appears, listing all the workflow templates that Workflow Automation provides. For workflow templates, you can view:
 
 - **Template Name**: The name of the template.
 - **Template Description**: The description for the template.
@@ -2221,7 +2094,7 @@ See image.
 
 To view workflow template definitions:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflow Templates**. The **Workflow Templates** page appears, listing all the workflow templates that Workflow Automation provides.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflow Templates**. The **Workflow Templates** page appears, listing all the workflow templates that Workflow Automation provides.
 2. On the **Workflow Templates** page, click the **View Workflow Template** icon in the **Action** column next to the template for which you want to view the definition. The **Workflow Settings** page appears, displaying the workflow definition. On the left side of the page, a graphic representation of the workflow definition is displayed. On the right side of the page, the workflow definition fields that are required for this workflow definition are displayed. The graphic and workflow definition fields vary depending on the workflow template that you select. The **Notification Channel** fields are only available if you have integrated Workflow Automation with Slack or Microsoft Teams. If the **Notification Channel** fields are not available, the notifications are by email. The following image is an example of the Auto Notify User and Escalate template when Workflow Automation has been integrated with Slack or Microsoft Teams.
 
 See image.
@@ -2232,27 +2105,27 @@ To add a workflow:
 
 You can add workflows from the **Workflow Templates** page or the **Workflows** page.
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflow Templates**. The **Workflow Templates** page appears, listing all the workflow templates that Workflow Automation provides.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflow Templates**. The **Workflow Templates** page appears, listing all the workflow templates that Workflow Automation provides.
 2. On the **Workflow Templates** page, click the **Add New Workflow Definition** icon in the **Action** column next to the template on which you want to base the workflow. The **Workflow Settings** page appears, displaying the workflow definition for that template. On the left side of the page, a graphic representation of the workflow definition is displayed.
 3. On the **Workflow Settings** page, on the right side of the page, enter values in the workflow definition fields required for that particular type of workflow.
 4. Click **Save**. The workflow is added. The **Workflows** page appears, listing the workflow.
 
 To learn more about adding workflows, see [Managing Workflows](https://help.zscaler.com/workflow-automation/managing-workflows) and [Managing Workflow Mappings](https://help.zscaler.com/workflow-automation/managing-workflow-mappings).
 
-[Image: Workflow Templates Page]
+[Image: Viewing all the workflow templates on the Workflow Templates page]
 
-[Image: Workflow Settings Page - Viewing workflow template definition]
+[Image: Viewing a workflow template definition on the Workflow Settings page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflows","lastmod":"2026-07-27T07:06Z","nid":"1455941"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflows","lastmod":"2026-09-17T06:22Z","nid":"1455941"} -->
 ## Managing Workflows
 
 - Source: https://help.zscaler.com/workflow-automation/managing-workflows
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Workflows > Managing Workflows
-- Last modified: 2026-07-27T07:06Z
+- Last modified: 2026-09-17T06:22Z
 - Summary: How to manage predefined and custom workflows in Workflow Automation.
 
 Workflows enable remediation actions to be performed against an incident that occurs in your organization without manual user intervention. You can add a predefined workflow in Workflow Automation based on a workflow template that specifies one or more actions and the order in which those actions are to be performed against an incident, or you can add a custom workflow where you choose and configure the different steps and actions required for the workflow without using a template. In either case, you must then map the workflow to one or more of the attributes available on an incident transaction. Then, when an incident occurs in your organization that contains those attributes, the workflow automatically triggers those actions specified in the workflow.
@@ -2277,7 +2150,7 @@ You can add predefined workflows from the **Workflows** page or the **Workflow T
 
 To add a predefined workflow:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflows**. The **Workflows** page appears, listing all the workflows.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflows**. The **Workflows** page appears, listing all the workflows.
 2. On the **Workflows** page, click **Add Pre-defined Workflow**. The **Workflow Templates** page appears, listing all the available workflow templates.
 3. On the **Workflow Templates** page, in the **Action** column, click the **Add New Workflow Definition** icon next to the template on which you want to base the workflow. The **Workflow Settings** page appears, displaying the workflow definition for that template. The left side of the page displays a graphic representation of the workflow definition.
 4. On the **Workflow Settings** page, on the right side of the page, enter values in the workflow definition fields required for that particular type of workflow.
@@ -2445,7 +2318,7 @@ The custom workflow functionality in Workflow Automation is currently a preview 
 
 To add a custom workflow:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflows**. The **Workflows** page appears, listing all the workflows.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflows**. The **Workflows** page appears, listing all the workflows.
 2. On the **Workflows** page, click **Add Custom Workflow**. The custom workflow builder page appears, displaying the following: See image.
   1. The custom workflow name field at the top left of the page. Use this field to name the custom workflow.
   2. The **Description** button at the top right of the page. Click this button to add a description for the custom workflow.
@@ -2656,7 +2529,7 @@ You can also delete a tile by clicking on the tile and then pressing `Backspace`
 
 To delete an edge connector, click the edge connector (i.e., connection line) that you want to delete in the custom workflow design area, and press `Backspace`.
 
-Go to **Administration** > **Workflow Automation**> **Data Protection** > **Workflows**. The **Workflows** page appears, listing all the workflows. For each workflow, you can view:
+From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflows**. The **Workflows** page appears, listing all the workflows. For each workflow, you can view:
 
 - **Workflow Name**: The name of the workflow.
 - **Workflow Description**: The description of the workflow.
@@ -2673,7 +2546,7 @@ You can edit a predefined workflow that was configured using a template, and you
 
 To edit a predefined workflow:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflows**. The **Workflows** page appears, listing all the workflows.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflows**. The **Workflows** page appears, listing all the workflows.
 2. (Optional) On the **Workflows** page, apply filtersto locate the workflow you want to edit. To apply filters:
   1. Click **Filters**. The **Filters** window appears, displaying all the available filters on the left side of the window.
   2. Select a filter and then select the filter values on the right side of the window. As you select the filter values, the number of values selected appears next to the filter. You can select multiple filters and their values. You can include or exclude all the filter values by selecting the **Select All** checkbox. To remove all the selected filters, click **Reset**.
@@ -2689,7 +2562,7 @@ To delete a workflow, click the **Delete**icon in the **Action** column next to 
 
 To edit a draft custom workflow:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflows**. The **Workflows** page appears, listing all the workflows.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflows**. The **Workflows** page appears, listing all the workflows.
 2. (Optional) On the **Workflows** page, apply filtersto locate the workflow you want to edit. To apply filters:
   1. Click **Filters**. The **Filters** window appears, displaying all the available filters on the left side of the window.
   2. Select a filter and then select the filter values on the right side of the window. As you select the filter values, the number of values selected appears next to the filter. You can select multiple filters and their values. You can include or exclude all the filter values by selecting the **Select All** checkbox. To remove all the selected filters, click **Reset**.
@@ -2710,7 +2583,7 @@ To delete a draft custom workflow, click the **Delete**icon in the **Action** co
 
 To edit a published custom workflow:
 
-1. Go to **Administration** > **Workflow Automation**> **Data Protection** > **Workflows**. The **Workflows** page appears, listing all the workflows.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflows**. The **Workflows** page appears, listing all the workflows.
 2. (Optional) On the **Workflows** page, apply filtersto locate the workflow you want to edit. To apply filters:
   1. Click **Filters**. The **Filters** window appears, displaying all the available filters on the left side of the window.
   2. Select a filter and then select the filter values on the right side of the window. As you select the filter values, the number of values selected appears next to the filter. You can select multiple filters and their values. You can include or exclude all the filter values by selecting the **Select All** checkbox. To remove all the selected filters, click **Reset**.
@@ -2737,7 +2610,7 @@ You can only clone custom workflows.
 
 To clone a draft custom workflow:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflows**. The **Workflows** page appears, listing all the workflows.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflows**. The **Workflows** page appears, listing all the workflows.
 2. (Optional) On the **Workflows** page, apply filters or use the **Search** fieldto locate the custom workflow you want to clone.
 3. In the **Action** column next to a custom workflow, click the **Clone**icon. The custom workflow builder page appears. In the **Workflow Name** field, "Clone of" appears in front of the name of the custom workflow that you cloned. See image.
 4. (Optional) In the **Workflow Name** field, change the workflow name.
@@ -2750,7 +2623,7 @@ To clone a draft custom workflow:
 
 To clone a published custom workflow:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflows**. The **Workflows** page appears, listing all the workflows.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflows**. The **Workflows** page appears, listing all the workflows.
 2. (Optional) On the **Workflows** page, apply filters or use the **Search** fieldto locate the custom workflow you want to clone.
 3. Click the **Clone**icon in the **Action** column next to a custom workflow. The custom workflow builder page appears. In the **Workflow Name** field, "Clone of" appears in front of the name of the custom workflow that you cloned. See image.
 4. (Optional) In the **Workflow Name** field, change the workflow name.
@@ -2766,60 +2639,62 @@ A custom workflow must be in a Published state before you can map it.
 
 To add a workflow mapping:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflows**. The **Workflows** page appears, listing all the workflows.
-2. On the **Workflows** page, click the **Add**icon in the **Mapping**column next to a workflow. The **Workflow Mappings** page appears, displaying an expanded row for the workflow. See image.
-3. Add the workflow mapping for the workflow. To learn more, see [Managing Workflow Mappings](https://help.zscaler.com/workflow-automation/managing-workflow-mappings#add-workflow-mappings).
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflows**. The **Workflows** page appears, listing all the workflows.
+2. (Optional) On the **Workflows** page, apply filters or use the **Search** fieldto locate the workflow you want to map.
+3. Click the **Add**icon in the **Mapping**column next to a workflow. The **Workflow Mappings** page appears, displaying an expanded row for the workflow. See image.
+4. Add the workflow mapping for the workflow. To learn more, see [Managing Workflow Mappings](https://help.zscaler.com/workflow-automation/managing-workflow-mappings#add-workflow-mappings).
 
 Only admins with full access to Workflow Automation can map a workflow. You can add workflow mappings to a workflow from the **Workflows** page and the **Workflow Mappings** page.
 
 To view workflow mappings:
 
-1. Go to **Administration** > **Workflow Automation** > **Data Protection** > **Workflows**. The **Workflows** page appears, listing all the workflows.
-2. On the **Workflows** page, in the **Mapping**column, click the **View** icon next to a workflow. See image. The **Workflow Mappings** page appears, displaying the mapping for the workflow.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Workflows**. The **Workflows** page appears, listing all the workflows.
+2. (Optional) On the **Workflows** page, apply filters or use the **Search** fieldto locate the workflow you want to view the mappings for.
+3. Click the **View** icon in the **Mapping**column next to a workflow. See image. The **Workflow Mappings** page appears, displaying the mapping for the workflow.
 
-[Image: Workflow Settings Page - Add Auto Notify Workflow]
+[Image: Adding an Auto Notify workflow on the Workflow Settings page]
 
-[[Image: Workflow Settings Page - Auto Notify User and Close Incident Workflow]](https://help.zscaler.com/downloads/zia/workflow-automation/workflows/managing-workflows/ZIA-WA-Workflow-Settings-Page-Add-AutoNotifyCloseIncident.png)
+[[Image: Adding an Auto Notify User and Close Incident workflow on the Workflow Settings page]](https://help.zscaler.com/downloads/zia/workflow-automation/workflows/managing-workflows/ZIA-WA-Workflow-Settings-Page-Add-AutoNotifyCloseIncident.png)
 
-[Image: Workflow Settings Page - Adding Auto Escalate Workflow]
+[Image: Adding an Auto Escalate workflow on the Workflow Settings page]
 
-[Image: Workflow Settings Page - Adding Auto Notify User and Escalate to Manager or Approver Workflow]
+[Image: Adding an Auto Notify User and Escalate workflow on the Workflow Settings page]
 
-[Image: Workflow Settings Page - Adding Auto Notify User and Concurrently Escalate Workflow]
+[Image: Adding an Auto Notify User and Concurrently Escalate workflow on the Workflow Settings page]
 
-[Image: Workflow Settings Page - Adding Auto Notify User and Escalate to Manager Workflow]
+[Image: Adding an Auto Notify User and Escalate to Manager workflow on the Workflow Settings page]
 
-[[Image: Workflow Settings Page - Adding Auto Close Data Loss Protection Incident with Resolution Label Workflow]](https://help.zscaler.com/downloads/zia/workflow-automation/workflows/managing-workflows/ZIA-WA-Workflow-Settings-PG-AutoCloseIncidentResolutionLabel.png)
+[[Image: Adding an Auto Close Data Loss Protection Incident with Resolution Label workflow on the Workflow Settings page]](https://help.zscaler.com/downloads/zia/workflow-automation/workflows/managing-workflows/ZIA-WA-Workflow-Settings-PG-AutoCloseIncidentResolutionLabel.png)
 
-[Image: Workflow Settings Page - Add Auto Close Data Protection Incident Workflow]
+[Image: Adding an Auto Close Data Protection Incident workflow on the Workflow Settings page]
 
-[Image: Workflow Settings Page - Adding Auto Create Tickets Workflow]
+[Image: Adding an Auto Create Tickets workflow on the Workflow Settings page]
 
-[Image: Viewing the custom workflow builder page. The page is highlighted to indicate the different areas of the page.]
+[Image: Viewing the custom workflow builder page. The different areas of the page are highlighted.]
 
 [Image: Configure Notify Node window with the values populated for a user notification]
 
-[Image: Notify Rich Text Editor with all the fields populated for a user notification. The optional fields are highlighted.]
+[Image: Notify rich text editor with all the fields populated for a user notification. The optional fields are highlighted.]
 
 [Image: Custom workflow design area with a user notification tile configured. The edge connector line is highlighted along with the connection points.]
 
-[Image: Configure Notify Node window with the values populated for a manager escalation.]
+[Image: Configure Notify Node window with the values populated for a manager escalation]
 
-[Image: Notify Rich Text Editor with all the fields populated for a manager escalation notification. The optional fields are highlighted.]
+[Image: Notify rich text editor with all the fields populated for a manager escalation notification. The optional fields are highlighted.]
 
-[Image: Custom workflow design area with an escalate to manager escalation tile configured. The edge connector line is highlighted along with the connection points.]
+[Image: Custom workflow design area with an Escalate to Manager Notify tile configured. The edge connector line is highlighted along with the connection points.]
 
 [Image: Configure Notify Node window with the values populated for an approver escalation notification]
 
-[Image: Notify Rich Text Editor with all the fields populated for an approver escalation notification. The optional fields are highlighted.]
+[Image: Notify rich text editor with all the fields populated for an approver escalation notification. The optional fields are highlighted.]
 
-[Image: Custom workflow design area with an escalate to approver escalation tile configured. The edge connector line is highlighted along with the connection points.]
+[Image: Custom workflow design area with an Escalate to Approver Notify tile configured. The edge connector line is highlighted along with the connection points.]
 
 [Image: Configure Notify Node window with the values populated for an other person escalation notification]
 
-[Image: Notify Rich Text Editor with all the fields populated for an other person escalation notification. The optional fields are highlighted.]
+[Image: Notify rich text editor with all the fields populated for an other person escalation notification. The optional fields are highlighted.]
 
-[Image: Custom workflow design area with an escalate to other escalation tile configured. The edge connector line is highlighted along with the connection points.]
+[Image: Custom workflow design area with an Escalate to Other Notify tile configured. The edge connector line is highlighted along with the connection points.]
 
 [Image: Video showing how to add a Close Incident tile on the custom workflow builder page.]
 
@@ -2829,9 +2704,9 @@ To view workflow mappings:
 
 [Image: Custom workflow design area with a Policy Exception tile configured. The edge connector line is highlighted for the policy exception tile.]
 
-[Image: Policy Exception Rich Text Editor. This Rich Text Editor contains a Default exception duration field.]
+[Image: Policy Exception rich text editor. This rich text editor contains a default exception duration field.]
 
-[Image: Custom workflow design area with an escalate to manager Notify tile and a Policy Exception tile that are both configured. The edge connector line is highlighted between the escalate to manager Notify tile and another notify user Notify tile.]
+[Image: Custom workflow design area with an Escalate to Manager Notify tile and a Policy Exception tile that are both configured. The edge connector line is highlighted between the Escalate to Manager Notify tile and another Notify User Notify tile.]
 
 [Image: Viewing a custom workflow where the tiles have errors on the custom workflow builder page. The page shows a Close Incident tile connected to an Escalate to Manager Notify tile, and then that tile is connected to an Escalate to Approver Notify tile.]
 
@@ -2839,25 +2714,25 @@ To view workflow mappings:
 
 [Image: Viewing the available tile options (Duplicate and Delete) for a tile in the custom workflow design area.]
 
-[Image: Viewing the custom workflow builder page when editing a draft custom workflow.]
+[Image: Viewing the custom workflow builder page when editing a draft custom workflow]
 
-[Image: Viewing the custom workflow builder page when updating the justification condition for an edge connector between two tiles in a draft custom workflow. One of the edge connectors is highlighted in the workflow and the Update Justification Condition Real Text Editor is displayed.]
+[Image: Viewing the custom workflow builder page when updating the justification condition for an edge connector between two tiles in a draft custom workflow. One of the edge connectors is highlighted in the workflow and the Update Justification Condition real text editor is displayed.]
 
-[Image: Viewing the custom workflow builder page when editing a published custom workflow.]
+[Image: Viewing the custom workflow builder page when editing a published custom workflow]
 
-[Image: Viewing the custom workflow builder page when updating the justification condition for an edge connector between two tiles in a published custom workflow. One of the edge connectors is highlighted in the workflow and the Update Justification Condition Real Text Editor is displayed.]
+[Image: Viewing the custom workflow builder page when updating the justification condition for an edge connector between two tiles in a published custom workflow. One of the edge connectors is highlighted in the workflow and the Update Justification Condition real text editor is displayed.]
 
-[Image: Workflows Page - Viewing a List of Workflows]
+[Image: Viewing a list of workflows on the Workflows page]
 
-[Image: Workflow Settings Page - Editing a Workflow]
+[Image: Editing a workflow on the Workflow Settings page]
 
-[Image: Workflow Mappings Page - Adding a Mapping]
+[Image: Adding a mapping to a workflow on the Workflow Mappings page]
 
-[Image: Workflows Page - Icons for Viewing Workflow Mappings]
+[Image: Icons for viewing workflow mappings on the Workflows page]
 
-[Image: Viewing the Workflows page with the Clone icon for a couple of draft custom workflows highlighted.]
+[Image: Viewing the Workflows page with the Clone icon highlighted for a couple of draft custom workflows]
 
-[Image: Viewing the Workflows page with the Clone icon for a published custom workflow highlighted.]
+[Image: Viewing the Workflows page with the Clone icon highlighted for a published custom workflow]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2876,13 +2751,13 @@ This article provides a summary of all new features and enhancements for Workflo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/release-upgrade-summary-2024","lastmod":"2025-01-02T16:49Z","nid":"1473541"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/release-upgrade-summary-2024","lastmod":"2026-09-21T14:12Z","nid":"1473541"} -->
 ## Release Upgrade Summary (2024)
 
 - Source: https://help.zscaler.com/workflow-automation/release-upgrade-summary-2024
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Release Notes > Release Upgrade Summary (2024)
-- Last modified: 2025-01-02T16:49Z
+- Last modified: 2026-09-21T14:12Z
 - Summary: Workflow Automation Release Upgrade Summary for service updates deployed in 2024.
 
 This article provides a summary of all new features and enhancements for Workflow Automation.
@@ -2904,13 +2779,13 @@ This article provides a summary of all new features and enhancements for Workflo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/release-upgrade-summary-2026","lastmod":"2026-08-31T08:15Z","nid":"1534330"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/release-upgrade-summary-2026","lastmod":"2026-09-30T07:47Z","nid":"1534330"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/workflow-automation/release-upgrade-summary-2026
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-31T08:15Z
+- Last modified: 2026-09-30T07:47Z
 - Summary: Workflow Automation Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Workflow Automation.
@@ -2984,13 +2859,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/responding-end-user-notification","lastmod":"2026-09-06T07:06Z","nid":"1421056"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/responding-end-user-notification","lastmod":"2026-10-04T07:06Z","nid":"1421056"} -->
 ## Responding to an End User Notification
 
 - Source: https://help.zscaler.com/workflow-automation/responding-end-user-notification
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Responding to an End User Notification
-- Last modified: 2026-09-06T07:06Z
+- Last modified: 2026-10-04T07:06Z
 - Summary: Information on how to review and respond to an end user notification from the Zscaler Admin Console.
 
 The format of the notification and survey might not be the same as illustrated in this article. It depends upon the notification and the survey template that your organization configured in Workflow Automation.
@@ -4264,13 +4139,13 @@ To delete saved filters:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-alert-notifications","lastmod":"2026-04-10T11:28Z","nid":"1452701"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-alert-notifications","lastmod":"2026-09-23T21:06Z","nid":"1452701"} -->
 ## Viewing Alert Notifications
 
 - Source: https://help.zscaler.com/workflow-automation/viewing-alert-notifications
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Alerts and Settings > Viewing Alert Notifications
-- Last modified: 2026-04-10T11:28Z
+- Last modified: 2026-09-23T21:06Z
 - Summary: How to view alert notifications in Workflow Automation.
 
 The Notification Center page in Workflow Automation displays alerts that affect the operation of Workflow Automation. The following are the alert notifications that you might view on the Notification Center page:
@@ -4286,7 +4161,7 @@ The Notification Center page in Workflow Automation displays alerts that affect 
 
 To view alert notifications:
 
-Go to **Administration** > **Workflow Automation** > **Data Protection** > **Alerts**. The **Notification Center** page appears, listing all the alert notifications. For each alert notification, you can view:
+From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Alerts** > **Workflow Automation**. The **Notification Center** page appears, listing all the alert notifications. For each alert notification, you can view:
 
 - **ID**: The ID associated with the alert notification. It is a unique generated sequential ID.
 - **Module**: The feature area of Workflow Automation that is related to this alert notification. For example, Filewatcher, Integration, Notification, Incident Receiver, or Incident Group.
@@ -4297,23 +4172,23 @@ Go to **Administration** > **Workflow Automation** > **Data Protection** > **Ale
 
 See image.
 
-[Image: Viewing Alert Notifications on the Notification Center page]
+[Image: Viewing alert notifications on the Notification Center page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-managing-incident-details","lastmod":"2026-09-06T07:06Z","nid":"1420336"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-managing-incident-details","lastmod":"2026-10-04T07:06Z","nid":"1420336"} -->
 ## Viewing & Managing Incident Details
 
 - Source: https://help.zscaler.com/workflow-automation/viewing-managing-incident-details
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Viewing & Managing Incident Details
-- Last modified: 2026-09-06T07:06Z
+- Last modified: 2026-10-04T07:06Z
 - Summary: Information about the Incidents Details page and how to manage incidents in the Zscaler Admin Console.
 
 Workflow Automation provides access to the Incident Details drawer, which displays detailed information about an incident, such as an overview of the incident, violation details, violation content, and the state changes for the incident. This drawer also allows you to manage and take action on an incident.
 
-You can access theIncident Details drawer from the [Incidents](https://help.zscaler.com/workflow-automation/managing-incidents) page by clicking any field in the row for an incident. In the Incident Details drawer, you can click **Refresh**at the top of the drawer to display the latest information for the incident.
+You can access theIncident Details drawer from the [Incidents](https://help.zscaler.com/workflow-automation/managing-incidents) page by clicking any field in the row for an incident. At the top of the Incident Details drawer, you can use the Next Incident and Previous Incident icons to navigate through the list of incidents, and you can click **Refresh**to display the latest information for the incident. After you close the Incident Details drawer, the system automatically refreshes the Incidents page.
 
 ## Viewing Incident Details
 
@@ -4324,13 +4199,14 @@ You can view details about the incident on the following tabs:
 - Violation Content
 - State Changes
 
+After you open the Incident Details drawer, the Overview tab appears with a blue star next to the tab heading, by default. The blue star indicates the default tab. To change the tab that first appears when you open the Incident Details drawer, click the star icon next to one of the tab headings. This tab setting is stored in your browser's local storage so that your change is preserved for the next time you log on. If you clear your cache or use a different browser, this setting is lost.
+
 See image.
 
 On the Overview tab, you can see:
 
 - Duplicate Incidents
-- Overview
-- Current State Details
+- Overview Information
 - Notes
 - Ticket Details
 
@@ -4349,21 +4225,29 @@ See image.
 
 To learn more, see [Understanding Duplicate Incidents in Workflow Automation](https://help.zscaler.com/workflow-automation/understanding-duplicate-incidents-workflow-automation).
 
-In the Overview section, you can see:
+At the top of the Overview tab, you can see:
 
+- **Status**: The current status of the incident. Statuses are:
+  - **New**
+  - **Investigating**
+  - **Validating with User**
+  - **Justification Response Received**
+  - **Escalated**
+  - **Resolved**
 - **Incident ID**: The ID of the incident.
 - **System Creation Date**: The date and time when the incident was created in the system.
 - **Incident Date**: The date and time when the incident was generated due to a policy violation. The date and time display in the local time zone of the user.
-- **Severity**: The severity of the incident. Severities can be **Critical**, **High**, **Low**, **Medium**, and **Info**.
+- **Severity**: The severity of the incident. Severities are **Critical**, **High**, **Low**, **Medium**, and **Info**.
 - **Priority**: The priority of the incident. Priorities are **Critical**, **High**, **Medium**, and **Low**.
-- **Action**: The action associated with the incident. This field is not available for incidents with a Source DLP type of **Email**.
+- **User**: The person from whom you need a response to move forward with the incident. The person can be the end user, another user, the end user's manager, or another approver. If you choose the User Name attribute or Manager Name attribute for obfuscation, multiple asterisks appear for this field depending on the state. To learn more about user data obfuscation, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
 - **DLP Admin**: The Data Loss Prevention (DLP) admin who is responsible for validating the incident.
 - **Source DLP Type**: The source DLP type of the incident. Source DLP types are **Inline**, **Email**,**SaaS Security**, and **Endpoint**.
+- **Action**: The action associated with the incident. This field is not available for incidents with a Source DLP type of **Email**.
 - **Incident Groups**: The incident groups mapped to the incident.
 - **Labels**: The labels assigned to the incident. This field only appears for incidents that have been assigned labels.
 - **Action Recipient Count**: The actions taken against the recipients of the incident. The number of times the action was taken against the recipients displays next to the action (e.g., Block: 3, Allow: 1, and Quarantine: 2). This field is only available for incidents with a Source DLP type of **Email**.
 - **Resolution Date**: The date and time when the incident was resolved (i.e., closed). This field only appears for resolved incidents.
-- **Integration**: The name of the DLP application integration in Workflow Automation where the incident occurred. To learn more, see [Configuring the DLP Application Integration Using Amazon Web Services](https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-amazon-web-services), [Configuring the DLP Application Integration Using Azure](https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-azure), and [Configuring the DLP Application Integration Using Google Cloud Platform](https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-google-cloud-platform).
+- **Integration**: The name of the DLP application integration in Workflow Automation where the incident occurred.
 - **Quarantined Email Status**: The status of the quarantined email release process for the recipients of the quarantined email. This field is only available for incidents with a Source DLP type of **Email**. To view the quarantined email status:
   1. Click the **View Status** link provided in this field. The **Quarantined Email Status**page appears.
   2. On the **Quarantined Email Status**page, you can view: See image.
@@ -4395,13 +4279,6 @@ The following table lists the error messages that can display, the reason why th
 | Something went wrong | Error while processing the action (i.e., generic error) | Try again |
 | Exchange Online connection failure | Authentication or connectivity problems with Microsoft 365 services | Verify that the certificate file exists and the password is correct; Check that AppId and TenantId are valid; Ensure that the app has the required permissions (Exchange.ManageAsApp, Directory.Read.All); Confirm network connectivity to Microsoft 365 |
 
-In the Current State Details section, you can see:
-
-- **Status**: The current status of the incident.
-- **User**: The person from whom you need a response to move forward with the incident. The person can be the end user, another user, the end user's manager, or another approver. If you choose the User Name attribute or Manager Name attribute for obfuscation, multiple asterisks appear for this field depending on the state. To learn more about user data obfuscation, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
-
-See image.
-
 The Ticket section appears in the drawer only after you have integrated Workflow Automation with a ticketing integration application (e.g., ServiceNow or Jira Software) and you have executed the Ticket action for the data protection incident in the Incident Details drawer.
 
 In the Ticket section, you can see:
@@ -4417,6 +4294,7 @@ See image.
 
 On the Violation Details tab, you can see:
 
+- Partial Overview Information
 - Originating User
 - Policy
 - Content
@@ -4425,6 +4303,28 @@ On the Violation Details tab, you can see:
 - Collaborators
 - Recipients (Source DLP type SaaS Security)
 - Other Recipients (Source DLP type Email)
+
+Some of the overview fields from the Overview tab are displayed at the top of the Violation Details tab. At the top of the Violation Details tab, you can see:
+
+- **Status**: The current status of the incident. Statuses are:
+  - **New**
+  - **Investigating**
+  - **Validating with User**
+  - **Justification Response Received**
+  - **Escalated**
+  - **Resolved**
+- **Incident ID**: The ID of the incident.
+- **System Creation Date**: The date and time when the incident was created in the system.
+- **Incident Date**: The date and time when the incident was generated due to a policy violation. The date and time display in the local time zone of the user.
+- **Severity**: The severity of the incident. Severities are **Critical**, **High**, **Low**, **Medium**, and **Info**.
+- **Priority**: The priority of the incident. Priorities are **Critical**, **High**, **Medium**, and **Low**.
+- **DLP Admin**: The Data Loss Prevention (DLP) admin who is responsible for validating the incident.
+- **Source DLP Type**: The source DLP type of the incident. Source DLP types are **Inline**, **Email**,**SaaS Security**, and **Endpoint**.
+- **Action**: The action associated with the incident. This field is not available for incidents with a Source DLP type of **Email**.
+- **Incident Groups**: The incident groups mapped to the incident.
+- **Integration**: The name of the DLP application integration in Workflow Automation where the incident occurred.
+
+See image.
 
 The attributes that appear under the Originating User subsection can vary, depending on how and what information was imported to Workflow Automation through the primary user data source of System for Cross-domain Identity Management (SCIM) or a CSV file. To learn more, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings), [Managing User Attributes](https://help.zscaler.com/workflow-automation/managing-user-attributes), and [SAML & SCIM Configuration Guide for Microsoft Entra ID](https://help.zscaler.com/zia/saml-scim-configuration-guide-microsoft-entra-id).
 
@@ -4448,6 +4348,8 @@ In the Originating User section, you can see:
   2. In the **Additional Information** window, you can view data associated with the incident such as end user attributes, manager attributes, and addresses. If you choose user attributes for obfuscation, these obfuscated attributes appear with multiple asterisks in this window. To learn more about obfuscation settings, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments). The additional information is fetched from the primary user data source (i.e, CSV or SCIM) you selected during the incident generation. For example, if you select CSV as the primary user data source during the incident generation, the **Additional Information** window displays the user attributes fetched from the imported CSV file. To learn more, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings). The additional information displayed for an incident does not change if you alter the primary user data source. The change of the primary user data source settings impacts only new incidents. See image.
 
 See image.
+
+This section is available only if the **Hide Policy Details - Admin** field is not selected for the DLP application integration in the Zscaler Admin Console.
 
 In the Policy section, you can see:
 
@@ -4742,7 +4644,7 @@ See image.
 
 ## Managing the Incident
 
-The Incident Details drawer allows you to perform certain actions to manage the incidents assigned to you. All the actions you perform, except for the Delete action, are logged on the State Changes tab. In the Incident Details drawer, you can click **Refresh**at the top of the drawer to display the latest information for the incident.
+The Incident Details drawer allows you to perform certain actions from the Actions drop-down menu to manage the incidents assigned to you. All the actions you perform, except for the Delete action, are logged on the State Changes tab. At the top of the Incident Details drawer, you can click **Refresh** to display the latest information for the incident.
 
 See image.
 
@@ -4967,13 +4869,15 @@ To release the email to its recipients:
 
 [Image: Viewing the duplicate incidents for an incident in the Duplicate Incidents dialog window]
 
-[Image: Viewing the Overview section on the Overview tab]
+[Image: Viewing the overview information on the Overview tab]
 
 [Image: Viewing the Quarantined Email Status page where the release process failed for a couple of the recipients]
 
 [Image: Viewing the originating user prefiltered name link in the Originating User section on the Violation Details tab]
 
-[Image: Viewing the Originating User section on the violation Details tab]
+[Image: Viewing the partial overview information on the Violation Details tab]
+
+[Image: Viewing the Originating User section on the Violation Details tab]
 
 [Image: Viewing the File Content tab in the Policy section for the triggered engines and dictionaries associated to the incident. This tab displays the Engines field and the Dictionaries with Match Count field.]
 
@@ -5036,8 +4940,6 @@ To release the email to its recipients:
 [Image: Viewing the trigger data for an incident of Source DLP type Email in the File Attachments tab of the View Trigger Data field. This tab displays subtabs for each attachment that caused a violation. Each attachment subtab displays the trigger data for that attachment.]
 
 [Image: Viewing the trigger data in the View Trigger Data field on the Violation Content tab for an incident of Source DLP type Email]
-
-[Image: Viewing the Current State Details section on the Overview tab]
 
 [Image: Viewing the Notes section on the Overview tab]
 
@@ -5386,7 +5288,7 @@ Review the following considerations:
 
 - [List of platforms supported by ZPA](https://help.zscaler.com/zpa/about-connectors#platforms).
 - By design, certificate verification is not configurable to maintain the service's integrity. Ensure that *.prod.zpath.net is in your SSL bypass list for traffic originating from the App Connector, which is necessary for App Connectors to resolve and reach ZPA Public Service Edges or ZPA Private Service Edges.
-- For ZPA integration with Zscaler Digital Experience (ZDX), App Connector firewall requirements must align with the respective ZDX configuration and require the configured report protocols to egress the App Connector (i.e., UDP, ICMP, or UDP). The traffic must egress the App Connector towards the configured application port and to the Zscaler Public Service Edge on port 443.
+- For ZPA integration with Digital Experience (ZDX), App Connector firewall requirements must align with the respective ZDX configuration and require the configured report protocols to egress the App Connector (i.e., UDP, ICMP, or UDP). The traffic must egress the App Connector towards the configured application port and to the Zscaler Public Service Edge on port 443.
 - The customer is responsible for maintaining the host on which the App Connector is running. Zscaler does not maintain the underlying operating system, only the App Connector application. To learn more about updating the App Connector system software, see [Update App Connector System Software](https://help.zscaler.com/zpa/managing-deployed-connectors#Updating).
 
 ## Operations Phase

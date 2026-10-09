@@ -1,40 +1,583 @@
 # Zscaler Help — Data Security — DSPM (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-07 03:10 UTC
-Articles in this file: 20
+Generated: 2026-10-05 09:38 UTC
+Articles in this file: 25
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-graph-databases","lastmod":"2026-08-13T00:41Z","nid":"1532158"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-compliance-details","lastmod":"2026-09-23T21:26Z","nid":"1514771"} -->
+## Viewing Compliance Details
+
+- Source: https://help.zscaler.com/dspm/viewing-compliance-details
+- Product: Data Security Posture Management (DSPM)
+- Path: Data Security Posture Management (DSPM) Help > Compliance > Viewing Compliance Details
+- Last modified: 2026-09-23T21:26Z
+- Summary: Viewing additional compliance details of compliance breaches in the Zscaler Admin Console.
+
+You can view additional details of the compliance breaches, such as the list of [policies](https://help.zscaler.com/dspm/about-data-posture-policies) that are noncompliant for a specific compliance framework, failed [resources](https://help.zscaler.com/dspm/viewing-resource-details), and policies mapped to compliance frameworks. This allows you to quickly investigate and remediate the issue.
+
+To view the compliance details:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **DSPM** > **Compliance**.
+2. On the **Compliance**page, click any tile to view the compliance details. See image.
+3. On the compliance framework page, you can see the following tabs: See image. The following fields are common across the tabs:
+  - Summary
+  - Policies
+  - Resources
+  - Findings
+  - Configuration
+  - **Cloud**: The name of the cloud service provider.
+  - **Cloud Account**: The account ID of the cloud account where the resource is stored.
+  - **Region**: The region where the resource is located.
+  - **Policy Name**: The name of the failed policy. Click to view the [policy details](https://help.zscaler.com/dspm/viewing-policy-details).
+  - **DLP Engines**: The DLP engines that match the data in the resource.
+  - **Resource ID**: The unique identifier for the resource.
+  - **Control Category**: The control category groups security controls addressing similar risks or compliance requirements.
+  - **Severity**: The severity (**Critical**, **High**, **Medium**, or **Low**) of policy failure.
+4. On each tab, you can: See image.
+  1. Apply [filters](https://help.zscaler.com/unified/using-tables) to view specific data.
+  2. [Customize and save a page setting](https://help.zscaler.com/dspm/customizing-page-settings).
+  3. Search for a specific policy (not applicable for the **Summary**tab).
+  4. Export the data and [download the report](https://help.zscaler.com/dspm/about-reports) as an Excel file (not applicable for the **Summary**tab).
+
+View a high-level overview of the total failed policies by severity and control category. You can see:
+
+1. The compliance framework details:
+  - **Description**: The name of the compliance framework.
+  - **DLP Engines**: The DLP engines mapped to the compliance framework.
+  - **Data Stores**: The total number of noncompliant data stores.
+2. The number of failed policies by severity (**Critical**, **High**, **Medium**, and **Low**). Hover over the donut chart to see the number of failed policies for each severity. Click to view the list of policies on the **Policies**tab with the severity filter preselected.
+3. The number of failed policies for each control category. Click to view the list of policies on the **Policies**tab with the control category filter preselected.
+4. The failed compliance trend for policies and resources. Hover over the chart to view the number of failed policies and resources for the control category. You can view the data for the last 7, 15, 30, 60, or 90 days.
+
+[Image: The summary tab with the list of policies and alerts for compliance issues]
+
+[Image: The Compliance dashboard with annotation around one of the compliance tiles]
+
+View the policies mapped to compliance frameworks. For each policy, you can see:
+
+- **Policy Name**: The name of the policy mapped to the compliance framework.
+- **Control Number**: A unique identifier assigned to a specific policy within a compliance framework.
+
+[Image: The configuration tab displaying the mapping of DSPM policies to compliance frameworks]
+
+View the list of noncompliant [resources](https://help.zscaler.com/dspm/about-data-inventory). For each resource, you can see the name of the noncompliant resource along with its additional details.
+
+[Image: The resources tab displaying the list of failed resources]
+
+View the list of noncompliant policies. For each failed policy, you can see:
+
+- **Control Number**: A unique identifier assigned to a specific policy within a compliance framework.
+- **Data Stores**: The number of data stores for which the policy failed. Click to view the noncompliant policies and resources on the Findingstab with the Policy ID preselected.
+
+[Image: The policies tab displaying the list of failed policies]
+
+View the list of noncompliant policies along with the corresponding resources for the selected compliance framework. For each policy, you can see the name of the noncompliant resource along with its additional details.
+
+[Image: The findings tab displaying the list of failed policies and resources]
+
+[Image: The Compliance page with annotation around the available tabs for the selected compliance framework]
+
+[Image: The Findings tab with annotation around the common options across the compliance framework tabs]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-data-discovery-dashboard","lastmod":"2026-09-28T22:32Z","nid":"1477746"} -->
+## Viewing the Data Discovery Dashboard
+
+- Source: https://help.zscaler.com/dspm/viewing-data-discovery-dashboard
+- Product: Data Security Posture Management (DSPM)
+- Path: Data Security Posture Management (DSPM) Help > Dashboards > Viewing the Data Discovery Dashboard
+- Last modified: 2026-09-28T22:32Z
+- Summary: Information about the aggregated scan results displayed on the DSPM Data Discovery dashboard in the Zscaler Admin Console.
+
+[Watch a video about the DSPM data discovery dashboard](https://fast.wistia.net/embed/iframe/0s27bvrf53) (shows legacy UI).
+
+The DSPM Data Discovery dashboard provides a high-level overview of your cloud accounts' data security posture. The dashboard includes interactive widgets that visually depict the number of data stores scanned, sensitive data discovered, top accounts and data stores that contain the maximum amount of sensitive data, number of DLP engines and dictionaries used to classify the sensitive data, geographic location of your cloud accounts along with the resources containing sensitive data, and data types. All of this information helps you prioritize and take the necessary action. Some of the data displayed on this dashboard are clickable, and you can go to other pages (Alerts, Policies, Resource Inventory, etc.) to gather more context and information for further analysis.
+
+To view the Data Discovery dashboard:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Data Discovery**.
+2. On the **Data Discovery Dashboard** page, you can view the following widgets:
+  - Data Stores Discovered and Scanned
+  - Top Accounts by Sensitive Data
+  - Top Data Stores by Sensitive Data
+  - Data Insights
+  - Data Regions
+
+The total number of data stores that are discovered and scanned. Click the number to view additional details on the [Resource Inventory](https://help.zscaler.com/dspm/about-resource-inventory) page.
+
+See image.
+
+The following tabs include additional details:
+
+- **Gen AI Classification**: The chart displays the files classified using generative AI. Click each circle to view a specific file type discovered in different data stores. Click the number to view additional details on the [Resource Inventory](https://help.zscaler.com/dspm/about-resource-inventory) page. See image.
+- **DLP Engines**: The chart displays the number of DLP engines used for data classification. Click each circle to view the total number of files classified in different data stores and triggers in various regions. Click the number to view additional details on the [Resource Inventory](https://help.zscaler.com/dspm/about-resource-inventory) page. See image.
+
+[Image: Total data stores that are discovered and scanned]
+
+The top accounts with the maximum amount of sensitive data. The accounts are displayed in descending order based on the amount of sensitive data and alerts triggered for each account. Click the **Cloud Account** name to view additional details on the [Resource Inventory](https://help.zscaler.com/dspm/about-resource-inventory) page.
+
+See image.
+
+The top data stores with the maximum amount of sensitive data. The data stores are displayed in descending order based on the amount of sensitive data and alerts triggered for each account. Click the **Data Store** name to view the graph on the [Resource Inventory](https://help.zscaler.com/dspm/about-resource-inventory) page.
+
+See image.
+
+The different data types discovered in the data stores.
+
+See image.
+
+A world map shows the geographic regions where all of your cloud accounts and data stores are located.
+
+See image.
+
+- Select the **Show sensitive data only** checkbox to view only those regions with data stores containing sensitive data.
+- Click the numbers on the map to view the cloud accounts, data stores, and data types in that region. See image.
+
+The size of the circles is relative to each other. A bigger circle indicates that the region has more number of sensitive records when compared to the region represented by a smaller circle. The number in the circle indicates that there are multiple regions in the same geographical location.
+
+[Image: Accounts with the maximum amount of sensitive data]
+
+[Image: Data stores with the maximum amount of sensitive data]
+
+[Image: Types of files and documents discovered]
+
+[Image: Cloud accounts discovered in various locations]
+
+[Image: World map shows regions where cloud accounts are located]
+
+[Image: Data discovered by Gen AI]
+
+[Image: DLP engines used for data classification]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-graph-ai-services","lastmod":"2026-09-29T03:14Z","nid":"1524201"} -->
+## Viewing the Graph for AI Services
+
+- Source: https://help.zscaler.com/dspm/viewing-graph-ai-services
+- Product: Data Security Posture Management (DSPM)
+- Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the Graph for AI Services
+- Last modified: 2026-09-29T03:14Z
+- Summary: Information on the Resource Inventory graph for AI services that have access to sensitive data.
+
+After DSPM scans an Artificial Intelligence (AI) service, the Resource Inventory graph provides information about the primary resource, its associated resources, and its security posture. Depending on the AI service, the graph displays access paths to resources containing sensitive data, entities that can access the AI service, and public exposure information.
+
+You can view graphs for the following AI services:
+
+- AWS Bedrock Custom Model
+- AWS Bedrock Imported Model
+- AWS Bedrock Knowledge Base
+- AWS Bedrock Agent
+- Azure AI Foundry Hub
+- Azure AI Foundry
+- Azure OpenAI
+
+To view the graph for an AI service:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Resource Inventory**.
+2. Click any AI service name to view the AI service's details page. The AI service's details page appears.
+3. On the AI service's details page, select the **Risk Explorer** tab. You can see the graph for the selected service:
+
+- Azure AI Foundry Hub
+- AWS Bedrock Knowledge Base
+
+The following image is a sample of an Azure AI Foundry Hub graph:
+
+[Image: Azure AI Foundry Hub has access to sensitive records.]
+
+Click the nodes to view additional details of each entity:
+
+The nodes displayed on the graph vary depending on the selected resource and its associated resources.
+
+- 1. Public Internet
+- 2. Primary Resource
+- 3. Storage Account
+- 4. Resource with Sensitive Data
+- 5. Sensitive Records
+- 6. Services
+- 7. Managed Identity
+- 8. Users
+- 9. External
+- 10. Applications
+
+The following image is a sample of an AWS Bedrock Knowledge Base graph:
+
+[Image: AWS Bedrock Knowledge Base has access to sensitive data records.]
+
+Click the nodes to view additional details of each entity:
+
+The nodes displayed on the graph vary depending on the selected resource and its associated resources.
+
+- 1. Primary Resource
+- 2. Resource
+- 3. Resource with Sensitive Data
+- 4. Sensitive Data Records
+- 5. Roles
+- 6. Federated
+- 7. Users
+- 8. Services
+- 9. External
+
+View details of AWS Bedrock Knowledge Base.
+
+- **Resource Category**: The type of data store.
+- **Resource Type**: The type of primary resource.
+- **Account ID**: The unique identifier of the account to which the primary resource belongs.
+- **Account Name**: The name of the account in which the resource is located.
+- **Organization ID**: The unique identifier of the organization to which the project belongs.
+- **Region**: The region where the resource is located.
+- **Latest Scan Status**: The status of the last scan.
+- **Last Completed Scan**: The status of the last scan.
+- **Triggers**: Number of alerts raised for the resource.
+- **Matched Files**: The number of files that matched the DLP engines.
+- **DLP Engines**: The [DLP engines](https://help.zscaler.com/dspm/understanding-dlp-engines-and-dictionaries) that match sensitive records.
+- **DLP Dictionaries**: The dictionaries associated with the DLP engines.
+- **Document Categories**: The category of document detected in the resource.
+- **Document Types**: The number of documents detected in the resource.
+- **ARN**: Copy the Amazon Resource Name (ARN) to identify this resource in the AWS account.
+- **Tags**: The tags associated with the resource.
+- **Posture**: The [security posture](https://help.zscaler.com/dspm/understanding-security-posture-state)of the resource.
+
+[Image: Details of the primary source with blurred out sensitive information.]
+
+View details of the Amazon Bedrock resource types.
+
+[Image: A list of resource types available in the AWS Bedrock Knowledge Base.]
+
+View the list of users who can access the resource.
+
+[Image: A list of users and their access level to a resource, and blurred out sensitive information.]
+
+View the identity and access management (IAM) roles that has permissions to access the resource.
+
+[Image: A list of IAM roles that have permission to access the resource, and blurred out sensitive information.]
+
+View the services that can access the resource.
+
+[Image: A list of services that can access the resource, and blurred out sensitive information.]
+
+View the external entities that can access the resource. These entities are part of a different cloud account that is not onboarded into the Zscaler Admin Console.
+
+[Image: A list of external entities that can access the resource, and blurred out sensitive information.]
+
+View the federated identities that can access the resource.
+
+[Image: A list of federated identities that can access the resource, and blurred out sensitive information.]
+
+View details of the resources that contain sensitive data.
+
+[Image: Lists the resources that contain sensitive data records.]
+
+View details of the sensitive record.
+
+[Image: The sensitive data records for an AWS Bedrock Knowledge Base with blurred out sensitive information.]
+
+The storage account that contains the sensitive records.
+
+[Image: The scan result for the storage account.]
+
+View the details of the storage account.
+
+[Image: View Azure storage account details]
+
+The details of the sensitive record, including the DLP engines and dictionaries that match the record, the security posture of the record, ID and tags, and the timestamp of the last completed scan.
+
+[Image: The details of the file containing credit card numbers.]
+
+The reason why the AI service is publicly exposed to the internet.
+
+[Image: Details of how the Azure AI Foundry instance is exposed to the internet.]
+
+The users who can access the AI service.
+
+[Image: Viewing the list of users and their access levels to access the AI service]
+
+The external entities that can access the AI service. These entities are part of a different cloud account that is not onboarded to the DSPM Admin Portal.
+
+[Image: Viewing the external entities that can access the AI service.]
+
+The applications that can access the AI service.
+
+[Image: Applications that can access the AI service.]
+
+The services that can access the AI service.
+
+[Image: The services that can access the AI service.]
+
+The managed identities (service principals) that can access the AI service.
+
+[Image: The managed identities that can access the AI service.]
+
+View details of the primary resource.
+
+[Image: View the primary resource details]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-graph-aws-data-stores","lastmod":"2026-09-25T09:58Z","nid":"1519996"} -->
+## Viewing the Graph for AWS Data Stores
+
+- Source: https://help.zscaler.com/dspm/viewing-graph-aws-data-stores
+- Product: Data Security Posture Management (DSPM)
+- Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the Graph for AWS Data Stores
+- Last modified: 2026-09-25T09:58Z
+- Summary: Information on the Resource Inventory graph that depict the AWS data stores containing sensitive data.
+
+After DSPM scans an AWS resource, the Resource Inventory graph provides information about the resource, its associated resources, and its security posture. Depending on the resource, the graph displays sensitive data, entities that can access the resource, public exposure vulnerabilities, malware, and other associated resources.
+
+You can view graphs for the following AWS data stores:
+
+- Simple Storage Service (S3)
+- AWS EC2 instances
+- RDS instance and clusters (MySQL, PostgreSQL, Aurora MySQL, Aurora PostgreSQL)
+- AWS Dynamo DB tables
+- NoSQL data stores (DynamoDB tables)
+- Unmanaged PostgreSQL, MySQL server, MS SQL servers and databases, Oracle Instance, and Oracle PDB
+- AWS Bedrock Knowledge Base
+- AWS Databricks
+
+The following graph depicts the scan results for an AWS EC2 instance.
+
+[Image: Graph that shows all the resources associated with an EC2 instance.]
+
+The graph includes the following nodes:
+
+The nodes displayed on the graph vary depending on the primary resource and its associated resources.
+
+- 1. Public Exposure Path
+- 2. Primary Resource
+- 3. Volumes
+- 4. CVE
+- 5. Impacted Volume
+- 6. Sensitive Records
+- 7. Roles
+- 8. External
+- 9. Users
+- 10. Services
+- 11. Federated
+
+View the details of the primary resource:
+
+- **Resource Category**: The type of data store.
+- **Resource Type**: The primary resource.
+- **Account ID**: The unique identifier of the account in which the resource is located.
+- **Account Name**: The name of the account in which the resource is located.
+- **Organization ID**: The unique identifier of the organization to which the account belongs.
+- **Region**: The region where the organization is located.
+- **Latest Scan Status**: The status of the last scan.
+- **Last Completed Scan**: The date and time when the last scan was completed.
+- **Triggers**: The number of alerts raised for this resource.
+- **Matched Files**: The number of files that matched the DLP engines.
+- **DLP Engines**: The [DLP engines](https://help.zscaler.com/dspm/understanding-dlp-engines-and-dictionaries) that match the sensitive records.
+- **DLP Dictionaries**: The dictionaries associated with the DLP engines.
+- **Document Types**: The number of documents detected in the resource.
+- **ARN**: Copy the Amazon Resource Name (ARN) to identify this resource in the AWS account.
+- **Tags**: The tags associated with the resource.
+- **Posture**: The [security posture](https://help.zscaler.com/dspm/understanding-security-posture-state) of the resource.
+- **Metadata**: Click to view the metadata for the resource.
+
+[Image: AWS resource properties along with the scan details.]
+
+View the details of the EBS volume that contains sensitive data.
+
+[[Image: Details of the volume associated with the primary resource.]](https://help.zscaler.com/dspm/understanding-security-posture-state)
+
+View all the volumes, including those that do not contain any sensitive data and the ones that are not scanned.
+
+[Image: The list of EBS volumes associated with the primary resource]
+
+View the services that can access the resource.
+
+[Image: The service that is associated with the primary resource]
+
+View the list of users who can access the resource.
+
+[Image: Users who can access the primary resource]
+
+View the identity and access management (IAM) roles that has permissions to access the resource.
+
+[Image: Roles that have access to the primary resource]
+
+View the publicly exposed resources. Click **Show Public Exposure Path** to view another graph that depicts how the resource is publicly exposed. To learn more, see [Viewing the Public Exposure Path](https://help.zscaler.com/dspm/viewing-public-exposure-path). See image.
+
+[Image: The entity that has publicly exposed the primary resource]
+
+View the common vulnerabilities and exposure (CVE) details. Click **View All CVEs** to see the [vulnerability details](https://help.zscaler.com/dspm/viewing-vulnerability-details).
+
+[Image: View the vulnerabilities classified by severity]
+
+View the details of a sensitive record.
+
+[Image: The file that contains sensitive data.]
+
+[Image: The public exposure graph with the entities that are misconfigured.]
+
+View the federated identities that can access the resource.
+
+[Image: The federated entities that can access the primary resource]
+
+View the external entities that can access the resource. These entities are part of a different cloud account that is not onboarded to the DSPM Admin Portal.
+
+[Image: External users that can access the primary resource]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-graph-azure-data-stores","lastmod":"2026-09-25T10:25Z","nid":"1519951"} -->
+## Viewing the Graph for Azure Data Stores
+
+- Source: https://help.zscaler.com/dspm/viewing-graph-azure-data-stores
+- Product: Data Security Posture Management (DSPM)
+- Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the Graph for Azure Data Stores
+- Last modified: 2026-09-25T10:25Z
+- Summary: Information on the Resource Inventory graph that depicts AWS data stores containing sensitive data.
+
+After DSPM scans an [Azure resource](https://help.zscaler.com/dspm/supported-data-stores), the Resource Inventory graph provides information about the primary resource, its associated resources, and its security posture. Depending on the resource, the graph displays details about sensitive data, entities that can access the resource, public exposure, vulnerabilities, and malware.
+
+You can view graphs for the following Azure data stores:
+
+| **Managed Data Stores** | **Unmanaged Data Stores** |
+| --- | --- |
+| Storage accounts and associated containers (Blobs); Azure Virtual Machines; SQL Databases and Servers; PostgreSQL Flexible Server; Azure Databricks; Azure File Share; Azure Table Storage; Azure OpenAI; Azure Cosmos DB | Unmanaged MS SQL Server Databases; Unmanaged PostgreSQL Databases; Unmanaged Oracle Databases; Unmanaged MySQL Databases; Microsoft Foundry |
+
+The following graph depicts the scan results for an Azure virtual machine.
+
+[Image: Graph for an Azure virtual machine and all the associated resources.]
+
+The graph includes the following nodes:
+
+The nodes displayed on the graph vary depending on the selected resource and its associated resources.
+
+- 1. Public Exposure Path
+- 2. Primary Resource
+- 3. Resources
+- 4. Resource with Sensitive Data
+- 5. Sensitive Records
+- 6. Services
+- 7. Third-Party Application
+- 8. Users
+- 9. Internal Application
+- 10. User-Assigned Managed Identity
+- 11. External
+- 12. Microsoft Application
+- 13. System-Assigned Managed Identity
+- 14. AI Agent Identity
+
+- **Resource Category**: The type of data store.
+- **Resource Type**: The primary resource.
+- **Subscription ID**: The unique identifier of the subscription in which the resource is stored.
+- **Subscription Name**: The name of the subscription in which the resource is stored.
+- **Tenant ID**: The unique identifier of the tenant to which the subscription belongs.
+- **Region**: The region where the resource is located.
+- **Latest Scan Status**: The status of the last scan.
+- **Last Completed Scan**: The date and time when the last scan was completed.
+- **Triggers**: The number of sensitive records in the resource.
+- **Matched Files**: The number of files that matched the DLP engines.
+- **DLP Engines**: The [DLP engines](https://help.zscaler.com/dspm/understanding-dlp-engines-and-dictionaries) that match the sensitive records.
+- **DLP Dictionaries**: The dictionaries associated with the DLP engines.
+- **Document Types**: The number of documents detected in the resource.
+- **Document Categories**: The document categories to which the detected document belongs.
+- **ID**: Copy the tenant ID to identify this resource in the Azure tenant.
+- **Tags**: The tags associated with the resource.
+- **Posture**: The [security posture](https://help.zscaler.com/dspm/understanding-security-posture-state) of the resource.
+- **Metadata**: Click to view the metadata for the resource.
+
+[Image: Details of the Azure virtual machine]
+
+View the publicly exposed resources. Click **Show Public Exposure Path** to view another graph that shows how the resource is publicly exposed due to misconfigurations or vulnerabilities in the associated resources. To learn more, see [Viewing the Public Exposure Path](https://help.zscaler.com/dspm/viewing-public-exposure-path).
+See image.
+
+[Image: The details of the network interface that is misconfigured]
+
+View the details of the database that contains sensitive data.
+
+[Image: Details of the database that contains sensitive data]
+
+View the details of the sensitive record.
+
+View all the associated resources (servers, managed and unmanaged databases), including those that do not contain any sensitive data and the ones that are not scanned.
+
+[Image: All the resources that are associated with the primary resource.]
+
+View the Microsoft applications that can access the resource.
+
+[Image: The Microsoft applications that can access the primary resource]
+
+View the external entities that can access the resource. These entities are part of a different cloud account that is not onboarded to the DSPM Admin Portal.
+
+[Image: The list of external users who can access the primary resource.]
+
+View the user-assigned managed entities that can access the primary resource.
+
+[Image: The user-assigned managed identities that can access the primary resource]
+
+View the list of users who can access the resource.
+
+[Image: The list of users who can access the primary resource.]
+
+View the Azure services that can access the resource.
+
+[Image: The list of Azure services that can access the primary resource.]
+
+[Image: Public exposure graph shows the misconfigured entity that caused the resource to be publicly exposed.]
+
+View the system-assigned managed entities that can access the primary resource.
+
+[Image: System-assigned managed identities with Service Principals as the entity type]
+
+View the internal applications registered with your Azure tenant that can access the resource.
+
+[Image: Internal application with Service Principals as the entity type]
+
+View the third-party applications that can access the resource.
+
+[Image: Third-party application with Service Principals as the entity type]
+
+View the AI agent identities that can access the resource.
+
+[Image: AI Agent Identity with Service Principals as the entity type]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-graph-databases","lastmod":"2026-09-29T03:01Z","nid":"1532158"} -->
 ## Viewing the Graph for Databases
 
 - Source: https://help.zscaler.com/dspm/viewing-graph-databases
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the Graph for Databases
-- Last modified: 2026-08-13T00:41Z
+- Last modified: 2026-09-29T03:01Z
 - Summary: Graph for a database (unmanaged, on-premises, or Snowflake) is a visual representation of the scan result.
 
-The graph for a database (unmanaged, on-premises, or Snowflake) is a visual representation of the scan result. The graph provides in-depth details of the databases containing sensitive data, the DLP engines and dictionaries that match the sensitive data, whether data is publicly exposed to the internet, including the public exposure path, and the list of entities that can access the databases. These details are helpful to quickly evaluate and remediate the issues, protect the sensitive data, and maintain a strong security posture.
+After DSPM completes the [data scan](https://help.zscaler.com/dspm/about-scan-settings) of the resources, scan results are displayed in the [Resource Inventory](https://help.zscaler.com/dspm/about-resource-inventory) graph. The graph illustrates data stores containing sensitive records, matching DLP engines and dictionaries, public internet exposure paths, and the entities (users, roles, and services) with access permissions. Security administrators use these graphs to evaluate risk relationships, inspect access paths, and remediate misconfigurations.
 
-You can view graphs for the following databases:
+You can view graphs for the following [database](https://help.zscaler.com/dspm/supported-data-stores-file-types-and-regions) and resource types:
 
-- Managed Database
-- Unmanaged Database
-- Snowflake
-- On-Premises File Servers
-- Databricks
-- Unmanaged AWS and Azure MongoDB Servers
-- On-Premises MongoDB Servers
+- Managed Databases:
+  - Managed Database (e.g., AWS RDS, Azure SQL)
+  - Snowflake Databases
+  - Databricks
+- Unmanaged Databases:
+  - Unmanaged Database (Cloud & On-Premises)
+  - Unmanaged AWS and Azure MongoDB Servers
+- On-Premises Resources:
+  - On-Premises File Servers
+  - On-Premises MongoDB Servers
 
 To view the graph for a database:
 
-1. Go to **Analytics**> **Data Security** > **DSPM**> **Resource Inventory**.
-2. Click any resource name to view the resource's details page. See image.
-3. In the resource's details page, select the **Risk Explorer** tab. The following information is displayed:
-  - On-Premises Database
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Resource Inventory**.
+2. Click any resource name to view the resource's details page. See image. The resource's details page appears.
+3. On the resource's details page, select the **Risk Explorer** tab. The following information is displayed:
+  - Managed Database
   - Unmanaged Database
-  - Snowflake Database
+  - On-Premises Database
 
 [Image: View all the resource details]
 
@@ -118,7 +661,7 @@ View all the databases, including those that do not contain any sensitive data a
 
 The following graph is for an unmanaged database:
 
-[Image: Shows the Risk Explorer graph for an unmanaged database.]
+[Image: Shows the Risk Explorer graph for an unmanaged database]
 
 Click the nodes to view additional details of each entity:
 
@@ -263,16 +806,16 @@ View all the associated resources, including those that do not contain any sensi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-graph-gcp-data-stores","lastmod":"2026-04-24T21:06Z","nid":"1520001"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-graph-gcp-data-stores","lastmod":"2026-09-25T10:31Z","nid":"1520001"} -->
 ## Viewing the Graph for GCP Data Stores
 
 - Source: https://help.zscaler.com/dspm/viewing-graph-gcp-data-stores
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the Graph for GCP Data Stores
-- Last modified: 2026-04-24T21:06Z
+- Last modified: 2026-09-25T10:31Z
 - Summary: Information on the Resource Inventory graph that depicts the GCP data stores containing sensitive data.
 
-The Resource Inventory graph for GCP data stores is a visual representation of the scan result. The graph provides in-depth details of the GCP storage bucket, GCP Cloud Storage instance, and GCP Cloud SQL instance that contain sensitive data, the DLP engines and dictionaries that match the sensitive data, whether it is publicly exposed to the internet, including the public exposure path, the list of entities that can access the resource, and the vulnerabilities and malware detected in the resource. These details are helpful to quickly evaluate and remediate the issues, protect the data, and maintain the security posture.
+After DSPM scans a GCP resource, the Resource Inventory graph provides information about the primary resource, its associated resources, and its security posture. Depending on the resource, the graph displays details about sensitive data, entities that can access the resource, public exposure, vulnerabilities, and malware.
 
 You can view graphs for the following GCP data stores:
 
@@ -286,6 +829,8 @@ The following graph depicts the scan results for a GCP storage bucket.
 [Image: Graph for a storage bucket containing sensitive data along with the associated resources.]
 
 The graph includes the following nodes:
+
+The nodes displayed on the graph vary depending on the selected resource and its associated resources.
 
 - 1. Public Exposure Path
 - 2. Primary Resource
@@ -354,20 +899,20 @@ View the service accounts that can access the primary resource.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-investigation-results","lastmod":"2026-04-28T21:06Z","nid":"1478451"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-investigation-results","lastmod":"2026-10-01T04:52Z","nid":"1478451"} -->
 ## Viewing the Investigation Results
 
 - Source: https://help.zscaler.com/dspm/viewing-investigation-results
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Investigation > Viewing the Investigation Results
-- Last modified: 2026-04-28T21:06Z
+- Last modified: 2026-10-01T04:52Z
 - Summary: Information about the investigation queries created in the Zscaler Admin Console.
 
 The investigation queries you create are displayed on the [Investigation page](https://help.zscaler.com/dspm/about-investigation). You can run the investigation query and view the investigation results.
 
 To view the investigation results:
 
-1. Go to **Logs** >**Insights**>**Investigation**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**>**DSPM**>**Investigation**.
 2. On the **Investigation** page, you can do the following: The investigation results are displayed. See image. Resources with the highest level of severity are displayed in hierarchical order. When you sort the data in the **Risk** or **Resource Name** column, resources with the highest risk are displayed first, followed by the ones with lower risk. Click the **Resource Name** to view the [resource details](https://help.zscaler.com/dspm/viewing-resource-details).
   - By default, the **History** tab displays all the queries that you've created. Click the **Actions** icon () for any query, then select **Run Query**. See image.
   - Select the **Saved** tab to view the saved queries. Click the **Actions** icon () for any query, then select **Run Query**. See image.
@@ -382,22 +927,22 @@ To view the investigation results:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-malware-details","lastmod":"2026-06-30T04:25Z","nid":"1504446"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-malware-details","lastmod":"2026-09-30T02:16Z","nid":"1504446"} -->
 ## Viewing the Malware Details
 
 - Source: https://help.zscaler.com/dspm/viewing-malware-details
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Resource Inventory > Resource Details > Viewing the Malware Details
-- Last modified: 2026-06-30T04:25Z
+- Last modified: 2026-09-30T02:16Z
 - Summary: Information on malware and malicious files in the cloud resources that are scanned and displayed on the Zscaler Admin Console.
 
 Malware is malicious software or code that can compromise systems, steal data, or disrupt operations. Common forms of malware include viruses, worms, ransomware, spyware, etc. DSPM detects malware in your resources and displays the details on the [Resource Inventory page](https://help.zscaler.com/dspm/about-resource-inventory).
 
 To view the malware details:
 
-1. Go to **Analytics**> **Data Security** > **DSPM**> **Resource Inventory**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Resource Inventory.**
 2. Click any **Resource Name** to view the resource's details page. See image.
-3. In the resource's details page, select the **Malware**tab. The following information is displayed:
+3. On the resource's details page, select the **Malware**tab. See image. The following information is displayed:
   - **Total Malware Files**: The total number of malware files.
   - **Malware**: The type of malware (e.g., Virus, Exploit) with their respective numbers.
   - The list of resources containing malware data is displayed. For each file, you can see:
@@ -413,48 +958,52 @@ To view the malware details:
     - **Created Date**: The date and time the resource was created.
   - Click the **Malware Type** filter to view the data for a specific malware type. See image.
 
-[Image: View the malware details detected in the resource.]
+[Image: View the malware details detected in the resource]
 
-[Image: View malware type filter]
+[Image: Select a resource name to view additional details]
 
-[Image: The Report Management page shows information about your Excel files and the chance to download them]
+[Image: Malware type filter with options to search for and select a malware type]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-onboarded-account-details","lastmod":"2026-04-24T22:29Z","nid":"1520536"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-onboarded-account-details","lastmod":"2026-09-29T08:12Z","nid":"1520536"} -->
 ## Viewing the Onboarded Account Details
 
 - Source: https://help.zscaler.com/dspm/viewing-onboarded-account-details
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > Cloud Account Management > Viewing the Onboarded Account Details
-- Last modified: 2026-04-24T22:29Z
+- Last modified: 2026-09-29T08:12Z
 - Summary: Information about the Cloud Accounts page and the actions available in the Zscaler Admin Console.
 
 After onboarding the accounts successfully, you can view the details of all the onboarded accounts on the Cloud Accounts page.
 
 To view the onboarded account details:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Cloud Accounts**.
-2. Click the required cloud account (AWS, Azure, or GCP). See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM**> **Cloud Accounts**. The **Cloud Accounts** page appears.
+2. On the **Cloud Accounts** page, click the required cloud account (AWS, Azure, or GCP).
 3. Select the **Accounts** tab for AWS, **Subscriptions** tab for Azure, and **Projects** tab for GCP. See image. The tab name varies depending on the selected cloud account.
 
-In this article, the **Subscriptions** tab is shown as an example. On the **Subscriptions** tab, you can do the following:
+In this article, the **Accounts**tab is shown as an example. On the **Accounts**tab, you can do the following:
 
 1. Select different actions from the **Manage** drop-down menu. To learn more, see [About Cloud Accounts](https://help.zscaler.com/dspm/about-cloud-accounts). See image.
-2. [Add filters to view specific accounts.](https://help.zscaler.com/unified/using-tables#filter)
+2. [Apply filters to view specific data.](https://help.zscaler.com/unified/using-tables)
 3. Search for a specific account in the searchable columns.
-4. For each subscription, you can see:
-  - **Subscription Name:** The name of the subscription. Click the name to view additional details:
+4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables#hide).
+5. Select multiple accounts and perform the same action on all of them at the same time, like [changing the business unit](https://help.zscaler.com/dspm/changing-business-unit) or [deleting the onboarded accounts](https://help.zscaler.com/dspm/deleting-onboarded-account).
+6. For each account, you can see:
+  - **Account Name:** The name of the account. Click the name to view additional details:
     - Details
     - Issues
-  - **Subscription ID:**The unique identifier of the subscription.
+  - **Account ID:**The unique identifier of the account.
   - **Business Unit:** The business unit assigned to the account.
   - **Status:** The status of the scan configuration (Successfully Configured, Pending Configuration, Needs Attention).
   - **Last Validated**: The date and time when the account is validated to check all configurations.
-5. Select multiple accounts and perform the same action on all of them at the same time, like [changing the business unit](https://help.zscaler.com/dspm/changing-business-unit) or [deleting the onboarded accounts](https://help.zscaler.com/dspm/deleting-onboarded-account).
-6. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables#hide).
-7. Click the **Action** icon to [change the business unit](https://help.zscaler.com/dspm/changing-business-unit) or [delete](https://help.zscaler.com/dspm/deleting-onboarded-account) a subscription.
+7. Click the **Action** icon to do one of the following:
+  - [Change the business unit](https://help.zscaler.com/dspm/changing-business-unit)
+  - [Update CloudTrail](https://help.zscaler.com/dspm/changing-aws-cloudtrail-details)
+  - [Validate](https://help.zscaler.com/dspm/validating-cloud-accounts)the account
+  - [Delete](https://help.zscaler.com/dspm/deleting-onboarded-account) the account
 
 - **Status:** The [status of the scan configuration](https://help.zscaler.com/dspm/viewing-orchestrator-status) (Successfully Configured, Pending Configuration, Needs Attention) for the account.
 - **Business Unit:** The [business unit](https://help.zscaler.com/dspm/changing-business-unit) assigned with the account.
@@ -467,33 +1016,36 @@ In this article, the **Subscriptions** tab is shown as an example. On the **Subs
 - View the configuration issues that occurred while onboarding the account along with the resolution steps. To learn more, see [Viewing Onboarding Issues](https://help.zscaler.com/dspm/viewing-onboarding-issues).
 - From the **Actions** drop-down menu, you can [change the business unit](https://help.zscaler.com/dspm/changing-business-unit) or [delete an onboarded account](https://help.zscaler.com/dspm/deleting-onboarded-account). See image.
 
-[Image: DSPM cloud account details page with the Issues tab selected, showing issues and resolution steps. Within the Issues tab, the Action menu is annotated, showing available options.]
+[Image: Account details page opened in the Details tab, showing the details of the cloud account]
 
-[Image: Account details page opened in the Details tab, showing the details of the cloud account.]
+[Image: Manage action menu, displaying available options]
 
-[Image: Manage action menu, displaying available options.]
+[Image: The Cloud Accounts page with the Accounts tab selected showing basic details about each account]
 
-[Image: The Cloud Accounts page with the Subscriptions tab selected showing basic details about each subscription.]
-
-[Image: The Cloud Accounts page, with an annotation around the Subscriptions tab, showing the basic details for each subscription.]
-
-[Image: The list of onboarded cloud accounts with one account selected.]
+[Image: The Cloud Accounts page, with an annotation around the Accounts tab, showing the basic details for each account]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-onboarding-issues","lastmod":"2024-10-27T07:06Z","nid":"1474921"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-onboarding-issues","lastmod":"2026-09-29T23:01Z","nid":"1474921"} -->
 ## Viewing Onboarding Issues
 
 - Source: https://help.zscaler.com/dspm/viewing-onboarding-issues
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > Cloud Account Management > Viewing Onboarding Issues
-- Last modified: 2024-10-27T07:06Z
+- Last modified: 2026-09-29T23:01Z
 - Summary: Information about how to resolve issues in the cloud account.
 
 DSPM detects issues in the [onboarded AWS organization](https://help.zscaler.com/dspm/onboarding-aws-organization), [GCP organization](https://help.zscaler.com/dspm/onboarding-gcp-organization), or [Azure tenant](https://help.zscaler.com/dspm/onboarding-microsoft-azure-tenant) and lists them on the Issues tab. You can also view the resolution steps to resolve the issue.
 
 If the issues are not addressed, they might impact the [scanning of the data stores](https://help.zscaler.com/dspm/about-scan-settings).
+
+To view the onboarding issues:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM**> **Cloud Accounts**. The **Cloud Accounts** page appears.
+2. On the **Cloud Accounts** page, click the required cloud account (AWS, Azure, or GCP).
+3. Select the **Issues** tab to view the list of issues along with the resolution steps. See image.
+4. Click **See Accounts** to view the list of affected accounts, projects, or subscriptions.
 
 The following issues might occur while onboarding accounts:
 
@@ -510,116 +1062,115 @@ The following issues might occur while onboarding accounts:
 
 If an issue is detected in the target accounts, or projects, the status of the target accounts or projects moves to the **Needs Attention** state until the issue is resolved.
 
-To view the onboarding issues:
-
-1. Go to **Administration** > **Configuration** > **Cloud Accounts**.
-2. Select the organization, project, or tenant from the list.
-3. Select the **Issues** tab to view the list of issues along with the resolution steps. See image.
-4. Click **See Accounts** to view the list of affected accounts, projects, or subscriptions. See image.
-
 [Image: View the issues in the onboarded account]
-
-[Image: Target account issues]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-onboarding-status","lastmod":"2026-04-24T22:31Z","nid":"1520571"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-onboarding-status","lastmod":"2026-09-29T22:49Z","nid":"1520571"} -->
 ## Viewing the Onboarding Status
 
 - Source: https://help.zscaler.com/dspm/viewing-onboarding-status
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > Cloud Account Management > Viewing the Onboarding Status
-- Last modified: 2026-04-24T22:31Z
+- Last modified: 2026-09-29T22:49Z
 - Summary: How to view the onboarding status for a cloud account in the Zscaler Admin Console.
 
-DSPM runs a health validation service to check if the onboarding templates are deployed successfully and roles and permissions are configured for each account. After the validation is completed, the onboarding status of the target accounts and [orchestrator accounts](https://help.zscaler.com/dspm/understanding-orchestrator) are displayed on the Overview tab.
+DSPM runs a health validation service to check if the onboarding templates are deployed successfully and roles and permissions are configured for each [cloud account](https://help.zscaler.com/dspm/about-cloud-accounts). After the validation is completed, the onboarding status of the target accounts and [orchestrator accounts](https://help.zscaler.com/dspm/understanding-orchestrator) are displayed on the Overview tab.
 
 In this article, an AWS account's status is shown as an example.
 
 The field names vary depending on the cloud account: **Account**for AWS, **Subscription**for Azure, and **Project**for GCP.
 
-On the **Overview**tab, you can view the following details:
+To view the onboarding status:
 
-1. **New template available for deployment** (Optional): A notification banner is displayed if a new template (e.g., Tree Discovery, Onboarding) is available for deployment. DSPM releases new templates that include additional functionalities for scanning and collecting metadata. Click **See Details** to view the available templates on the [Roles and Templates](https://help.zscaler.com/dspm/viewing-roles-and-templates) tab. See image. If you close the notification banner, it is removed only for the current session. The message is displayed when you log in again.
-2. **Account Status**: The number of accounts configured for [data scan](https://help.zscaler.com/dspm/about-scan-settings) versus the total number of accounts in the organization displayed in the donut chart. You can see the following statuses:
-  - **Successfully Configured**: The number of accounts that are configured and validated successfully.
-  - **Needs Attention**: The number of accounts that have [misconfigurations or permission issues](https://help.zscaler.com/dspm/resolving-onboarding-issues).
-  - **Pending Configuration**: The number of accounts for which the roles and permissions are yet to be configured and validated.
-  - **Monitored Regions**: The list of [regions](https://help.zscaler.com/dspm/managing-regions) where the target accounts are located.
-  - The list of [services](https://help.zscaler.com/dspm/managing-services)selected for monitoring and scanning.
-3. **Orchestrator Details**: The details about the [orchestrator account](https://help.zscaler.com/dspm/understanding-orchestrator) in which the DSPM's orchestrator template is deployed. You can see:
-  - **Account Name**: The account name.
-  - **Account ID**: The account ID.
-  - **Custom Tags**: The number of [custom tags](https://help.zscaler.com/dspm/managing-custom-tags) added.
-  - **Region**: The primary region selected while onboarding.
-  - **Network Type**: The network configuration used for onboarding the account or organization.
-  - **DSPM Connection Status**: The [connection status](https://help.zscaler.com/dspm/viewing-orchestrator-status) (**Successful** or **Failed**) of the orchestrator instance with DSPM.
-  - **Configuration Status**: The [configuration status](https://help.zscaler.com/dspm/viewing-orchestrator-status) (**Successful**, **Warning**, **Failed**, or **Pending Validation**) indicating whether all accounts are available and permissions are configured correctly in the orchestrator subscription.
-  - **Last Connected**: The last time the orchestrator instance was successfully connected with DSPM.
-4. **CloudTrail**: The details of the [organization CloudTrail](https://help.zscaler.com/dspm/understanding-aws-cloudtrail) provided while [onboarding](https://help.zscaler.com/dspm/onboarding-aws-organization). You can see: This field is available only for AWS organizations.
-  - **CloudTrail Bucket Name**: The name of the S3 bucket where the CloudTrail events are logged.
-  - **Prefix**: The prefix specified in the CloudTrail bucket path.
-  - **Bucket Account ID**: The AWS account ID where the CloudTrail S3 bucket is present.
-  - **Status**: The status (**Enabled** or **Failed**) of the CloudTrail configuration.
-5. **Evidence**: The details of the S3 bucket where the evidence data is stored.
-  - **S3 Bucket Name**: The S3 bucket name.
-  - **Storage Type**: The storage type (**Zscaler** or **Custom**).
-  - **S3 Bucket Account ID**: The S3 bucket account ID.
-6. **Data Events**: The details of the CloudTrail where the data events are stored. You can see: This field is available only for AWS organizations.
-  - **CloudTrail Bucket Name**: The name of the S3 bucket where the data events are stored.
-  - **Prefix**: The prefix specified in the CloudTrail bucket path.
-  - **Bucket Account ID**: The AWS account ID where the S3 bucket is present.
-  - **Status**: The status (**Enabled** or **Failed**) of the CloudTrail configuration.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM**> **Cloud Accounts**. The **Cloud Accounts** page appears.
+2. On the **Cloud Accounts** page, click the required cloud account (AWS, Azure, or GCP).
+3. Select the **Overview**tab to view the following details:
+  1. **New template available for deployment** (Optional): A notification banner is displayed if a new template (e.g., Tree Discovery, Onboarding) is available for deployment. DSPM releases new templates that include additional functionalities for scanning and collecting metadata. Click **See Details** to view the available templates on the [Roles and Templates](https://help.zscaler.com/dspm/viewing-roles-and-templates) tab. See image. If you close the notification banner, it is removed only for the current session. The message is displayed when you log in again.
+  2. **Account Status**: The number of accounts configured for [data scan](https://help.zscaler.com/dspm/about-scan-settings) versus the total number of accounts in the organization displayed in the donut chart. You can see the following statuses:
+    - **Successfully Configured**: The number of accounts that are configured and validated successfully.
+    - **Needs Attention**: The number of accounts that have [misconfigurations or permission issues](https://help.zscaler.com/dspm/resolving-onboarding-issues).
+    - **Pending Configuration**: The number of accounts for which the roles and permissions are yet to be configured and validated.
+    - **Monitored Regions**: The list of [regions](https://help.zscaler.com/dspm/managing-regions) where the target accounts are located.
+    - The list of [services](https://help.zscaler.com/dspm/managing-services)selected for monitoring and scanning.
+  3. **Orchestrator Details**: The details about the [orchestrator account](https://help.zscaler.com/dspm/understanding-orchestrator) in which the DSPM's orchestrator template is deployed. You can see:
+    - **Account Name**: The account name.
+    - **Account ID**: The account ID.
+    - **Custom Tags**: The number of [custom tags](https://help.zscaler.com/dspm/managing-custom-tags) added.
+    - **Region**: The primary region selected while onboarding.
+    - **Network Type**: The network configuration used for onboarding the account or organization.
+    - **DSPM Connection Status**: The [connection status](https://help.zscaler.com/dspm/viewing-orchestrator-status) (**Successful** or **Failed**) of the orchestrator instance with DSPM.
+    - **Configuration Status**: The [configuration status](https://help.zscaler.com/dspm/viewing-orchestrator-status) (**Successful**, **Warning**, **Failed**, or **Pending Validation**) indicating whether all accounts are available and permissions are configured correctly in the orchestrator subscription.
+    - **Last Connected**: The last time the orchestrator instance was successfully connected with DSPM.
+  4. **CloudTrail**: The details of the [organization CloudTrail](https://help.zscaler.com/dspm/understanding-aws-cloudtrail) provided while [onboarding](https://help.zscaler.com/dspm/onboarding-aws-organization). You can see: This field is available only for AWS organizations.
+    - **CloudTrail Bucket Name**: The name of the S3 bucket where the CloudTrail events are logged.
+    - **Prefix**: The prefix specified in the CloudTrail bucket path.
+    - **Bucket Account ID**: The AWS account ID where the CloudTrail S3 bucket is present.
+    - **Status**: The status (**Enabled** or **Failed**) of the CloudTrail configuration.
+  5. **Evidence**: The details of the S3 bucket where the evidence data is stored.
+    - **S3 Bucket Name**: The S3 bucket name.
+    - **Storage Type**: The storage type (**Zscaler** or **Custom**).
+    - **S3 Bucket Account ID**: The S3 bucket account ID.
+  6. **Data Events**: The details of the CloudTrail where the data events are stored. You can see: This field is available only for AWS organizations.
+    - **CloudTrail Bucket Name**: The name of the S3 bucket where the data events are stored.
+    - **Prefix**: The prefix specified in the CloudTrail bucket path.
+    - **Bucket Account ID**: The AWS account ID where the S3 bucket is present.
+    - **Status**: The status (**Enabled** or **Failed**) of the CloudTrail configuration.
 
-[Image: The Overview tab for an AWS account that shows the account status, orchestrator account, and CloudTrail details.]
+[Image: Overview tab for an AWS account that shows account status and details about the orchestrator, CloudTrail, and S3 bucket]
 
-[Image: View the notification banner at the top of the Overview tab.]
+[Image: View the notification banner at the top of the Overview tab]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-orchestrator-status","lastmod":"2026-04-24T22:30Z","nid":"1487776"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-orchestrator-status","lastmod":"2026-09-29T22:55Z","nid":"1487776"} -->
 ## Viewing Orchestrator Status
 
 - Source: https://help.zscaler.com/dspm/viewing-orchestrator-status
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > Cloud Account Management > Viewing Orchestrator Status
-- Last modified: 2026-04-24T22:30Z
+- Last modified: 2026-09-29T22:55Z
 - Summary: Information about the orchestrator status in the Zscaler Admin Console.
 
-DSPM regularly scans the data stores (databases, virtual machines, etc.) within your target accounts by leveraging the [orchestrator](https://help.zscaler.com/dspm/understanding-orchestrator)that is deployed in your account during the onboarding process. The orchestrator instance launches [scanner instances](https://help.zscaler.com/dspm/understanding-scanner-instances) in the regions where the target account data stores exist and scans the data.
+DSPM regularly scans the data stores (databases, virtual machines, etc.) within your target accounts by leveraging the [orchestrator](https://help.zscaler.com/dspm/understanding-orchestrator)that is deployed in your [cloud account](https://help.zscaler.com/dspm/about-cloud-accounts) during the onboarding process. The orchestrator instance launches [scanner instances](https://help.zscaler.com/dspm/understanding-scanner-instances) in the regions where the target account data stores exist and scans the data.
 
-On the **Overview** tab, you can view the following status types for the orchestrator connection and configuration:
+To view the orchestrator status:
 
-- **DSPM Connection Status**: The connection status between the orchestrator and DSPM.
-  - **Successful**: The orchestrator instance is connected to DSPM successfully.
-  - **Failed**: The orchestrator instance is unable to establish a connection with DSPM.
-  - **Waiting for connection**: The orchestrator template is not yet deployed in the cloud service provider (CSP).
-- **Configuration Status**:Indicates whether all resources are available and permissions are configured in the orchestrator account. The configuration status can be one of the following:
-  - **Successful**: All resources are successfully deployed and permissions are configured in the orchestrator account.
-  - **Warning**: Some resources or permissions are unavailable, tampered with, or not visible.
-  - **Failed**: The orchestrator instance cannot launch scanner instances, or some roles and permissions are missing in the orchestrator account.
-  - **Pending**: The orchestrator account has changed or the template is yet to be deployed in the CSP.
-- **Last Connected**: The last time the orchestrator instance was successfully connected with DSPM.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM**> **Cloud Accounts**. The **Cloud Accounts** page appears.
+2. On the **Cloud Accounts** page, click the required cloud account (AWS, Azure, or GCP).
+3. Select the **Overview**tab and scroll to the **Orchestrator Details** section:
+  - **DSPM Connection Status**: The connection status between the orchestrator and DSPM.
+    - **Successful**: The orchestrator instance is connected to DSPM successfully.
+    - **Failed**: The orchestrator instance is unable to establish a connection with DSPM.
+    - **Waiting for connection**: The orchestrator template is not yet deployed in the cloud service provider (CSP).
+  - **Configuration Status**:Indicates whether all resources are available and permissions are configured in the orchestrator account. The configuration status can be one of the following:
+    - **Successful**: All resources are successfully deployed and permissions are configured in the orchestrator account.
+    - **Warning**: Some resources or permissions are unavailable, tampered with, or not visible.
+    - **Failed**: The orchestrator instance cannot launch scanner instances, or some roles and permissions are missing in the orchestrator account.
+    - **Pending**: The orchestrator account has changed or the template is yet to be deployed in the CSP.
+  - **Last Connected**: The last time the orchestrator instance was successfully connected with DSPM.
+
+[Image: The Overview tab with annotation around orchestrator status section]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-policy-details","lastmod":"2026-04-21T21:06Z","nid":"1478166"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-policy-details","lastmod":"2026-09-28T08:02Z","nid":"1478166"} -->
 ## Viewing the Policy Details
 
 - Source: https://help.zscaler.com/dspm/viewing-policy-details
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Data Posture Policies > Viewing the Policy Details
-- Last modified: 2026-04-21T21:06Z
+- Last modified: 2026-09-28T08:02Z
 - Summary: Information about the data posture policy details in the Zscaler Admin Console.
 
 Data posture policies are queries that looks for vulnerabilties or misconfigurations in the data stores and detect any potential possibilities of a data breach. You can view the details of policies that are used to query data stores in AWS, Azure, and GCP cloud resources. You can see the policy description, the query used to define the policy, remediation steps, and options to disable or clone the policy. To learn more, see [About Data Posture Policies](https://help.zscaler.com/dspm/about-data-posture-policies).
 
 To view the policy details:
 
-1. Go to **Policies**> **Data Protection** > **Policy**> **Data Posture Policies**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**>**DSPM**> **Data Posture Policies**.
 2. Under the **Policy Name** column, click any policy. See image. The Policy page appears with the following tabs:
   - Policy Overview
   - Remediation
@@ -657,13 +1208,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-public-exposure-path","lastmod":"2026-04-24T21:06Z","nid":"1480566"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-public-exposure-path","lastmod":"2026-09-29T04:03Z","nid":"1480566"} -->
 ## Viewing the Public Exposure Path
 
 - Source: https://help.zscaler.com/dspm/viewing-public-exposure-path
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the Public Exposure Path
-- Last modified: 2026-04-24T21:06Z
+- Last modified: 2026-09-29T04:03Z
 - Summary: How to view the graph related to the public exposure path in the Zscaler Admin Console.
 
 Attack paths allow you to address security issues in your cloud infrastructure. A public exposure path is an attack path that shows the resources that contain sensitive data and are publicly exposed, which could allow adversaries to directly access such resources from the internet, leading to data breaches.
@@ -674,14 +1225,15 @@ The public exposure path is enabled only for the EC2 instances, virtual machines
 
 To view the graph for a public exposure path:
 
-1. Go to **Analytics** > **Data Security**> **DSPM**> **Resource Inventory**.
-2. On the **Resource Inventory** page, click the **Resource Name**. See image. In the resource's details page, the graph is displayed on the **Risk Explorer** tab. See image.
-3. Click the **Public Internet** node to view the associated components through which the primary resource is exposed to the internet. See image.
-4. Click **Show Public Exposure Path**to view a graph that visually represents the associated components, including those that have misconfigurations and vulnerabilities. See image. For cloud storage buckets and Azure containers, the reason for exposure is displayed with the following options: See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**>**DSPM**> **Resource Inventory**.
+2. On the **Resource Inventory** page, click the **Resource Name**. See image. The resource's details page appears.
+3. On the resource's details page, select the **Risk Explorer** tab. See image.
+4. Click the **Public Internet** node to view the associated components through which the primary resource is exposed to the internet. See image.
+5. Click **Show Public Exposure Path**to view a graph that visually represents the associated components, including those that have misconfigurations and vulnerabilities. See image. For cloud storage buckets and Azure containers, the reason for exposure is displayed with the following options: See image.
   1. **View Metadata**: View the JSON file, copy or download the metadata, or go to the cloud service provider (CSP) portal to view the specific resource details. See image.
   2. **Verify Exposed Files**: View the list of publicly exposed files that can be accessed anonymously. You can copy the file path, download the file, or export the files in CSV format to investigate the issue. You can also go to the CSP portal to view the file details. See image.
   3. **Verify Static Website**: View the static website hosted in the storage bucket or container.
-5. Click each node to view additional details for the entity. See image.
+6. Click each node to view additional details for the entity. See image.
   - Click the **Warning** icon () to see the security issue. See image.
   - Click **Go to AWS**to view the details in the AWS Management Console.
   - Click **</> Metadata** to view the JSON file, copy or download the metadata, or go to the CSP portal. See image.
@@ -731,13 +1283,13 @@ The resources are publicly exposed in the following ways:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-remediation-details","lastmod":"2026-04-15T00:34Z","nid":"1478186"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-remediation-details","lastmod":"2026-09-29T02:36Z","nid":"1478186"} -->
 ## Viewing Remediation Details
 
 - Source: https://help.zscaler.com/dspm/viewing-remediation-details
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Alerts > Alert Details > Viewing Remediation Details
-- Last modified: 2026-04-15T00:34Z
+- Last modified: 2026-09-29T02:36Z
 - Summary: Information on DSPM alert remediation details.
 
 You can manually remediate the [alerts](https://help.zscaler.com/dspm/about-alerts) generated for a [policy](https://help.zscaler.com/dspm/about-data-posture-policies). The Remediation tab provides detailed steps that you need to perform in your cloud service provider (CSP) to address the policy violation. After the violation is addressed in the CSP, all the corresponding alerts generated for that policy are [resolved](https://help.zscaler.com/dspm/alert-status).
@@ -746,9 +1298,9 @@ When you remediate an alert, the policy violation is resolved in the CSP and the
 
 To view the remediation details:
 
-1. Go to **Administration**> **Alerts**> **Alerts**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM**> **Alerts**.
 2. Select the **All Alerts** tab.
-3. Click the **Alert ID**. See image.
+3. Click the **Alert ID**. See image. The individual alert's page appears.
 4. On the individual alert's page, select the **Remediation** tab to view the details. See image. You can also access the Remediation tab from the [Grouped by Policy](https://help.zscaler.com/dspm/viewing-alerts-grouped-policy) tab, [Grouped by Resource](https://help.zscaler.com/dspm/viewing-alerts-grouped-resource) tab, [Dashboard](https://help.zscaler.com/dspm/about-dashboard), and the [Resource Inventory](https://help.zscaler.com/dspm/about-resource-inventory) page.
 
 [Image: View all alerts triggered in the Zscaler Admin Console.]
@@ -758,20 +1310,20 @@ To view the remediation details:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-resource-details","lastmod":"2026-06-30T05:54Z","nid":"1474781"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-resource-details","lastmod":"2026-09-29T21:41Z","nid":"1474781"} -->
 ## Viewing the Resource Details
 
 - Source: https://help.zscaler.com/dspm/viewing-resource-details
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Resource Inventory > Resource Details > Viewing the Resource Details
-- Last modified: 2026-06-30T05:54Z
+- Last modified: 2026-09-29T21:41Z
 - Summary: Information about vulnerabilities and sensitive data detected in resources and displayed in the Zscaler Admin Console.
 
 You can view additional details of the resource that contains sensitive data or that has vulnerabilities. The granular information about the resource allows you to quickly investigate and take the necessary action.
 
 To view the resource details:
 
-1. Go to **Analytics** > **Data Security**> **DSPM**> **Resource Inventory**. The **Resource Inventory** page appears. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Resource Inventory.**
 2. Click any **Resource Name** to view the following tabs:
   - Risk Explorer
   - Sensitive Data
@@ -814,50 +1366,51 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-resource-inventory-graph","lastmod":"2026-04-27T21:06Z","nid":"1478111"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-resource-inventory-graph","lastmod":"2026-09-29T03:11Z","nid":"1478111"} -->
 ## Viewing the Resource Inventory Graph
 
 - Source: https://help.zscaler.com/dspm/viewing-resource-inventory-graph
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the Resource Inventory Graph
-- Last modified: 2026-04-27T21:06Z
+- Last modified: 2026-09-29T03:11Z
 - Summary: Viewing the resource details and its associated vulnerabilities as a graph in the Zscaler Admin Console.
 
-After DSPM completes the [data scan](https://help.zscaler.com/dspm/about-scan-settings) of the resources, the scan results are displayed in the form of graphs that are visually appealing and highly interactive. The graphs consist of interactive nodes that provide contextual information (e.g., cloud account name, primary resource type, ID, file path, number of files containing sensitive data, access levels) about the primary resource and the associated secondary resources.
+After DSPM [scans a resource](https://help.zscaler.com/dspm/about-scan-settings), the graph provides information about the primary resource, its associated resources, and its security posture. It displays details such as the cloud account, resource type, resource ID, file path, sensitive data, and access levels. The graph also displays applicable attack paths, including public exposure, malware, IAM access, and vulnerabilities. These paths help you identify potential security risks associated with the resource.
 
-The graphs also include attack paths that show how the resource is compromised either through public exposure, malware, by an IAM entity (user, service, role) with access privileges, vulnerabilities, etc. This information helps you analyze the issues in detail and remediate them immediately.
-
-The following nodes and attack paths are depicted in the Resource Inventory graph:
+The Resource Inventory graph includes the following nodes and attack paths:
 
 - List of Nodes
 - Attack Paths
 
 To view the Resource Inventory graph for a resource:
 
-1. Go to **Analytics**> **Data Security** > **DSPM**> **Resource Inventory**. On the **Resource Inventory** page, you can see the scanned results for AWS, Azure, and GCP resources.
-2. Click any **Resource Name** to view the drawer. See image.
-3. In the resource's details page, select the **Risk Explorer** tab. You can see the graph for the selected resource: The nodes and access paths vary depending on the [primary resource](https://help.zscaler.com/dspm/supported-data-stores) and its associated resources.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Resource Inventory**. On the **Resource Inventory** page, you can see the scanned results for AWS, Azure, and GCP resources.
+2. Click any **Resource Name** to view the resource's details page. See image. The resource's details page appears.
+3. On the resource's details page, select the **Risk Explorer** tab. You can see the graph for the selected resource: The nodes and access paths vary depending on the [primary resource](https://help.zscaler.com/dspm/supported-data-stores) and its associated resources.
   - [AWS](https://help.zscaler.com/dspm/viewing-graph-aws-data-stores)
   - [Azure](https://help.zscaler.com/dspm/viewing-graph-azure-data-stores)
   - [GCP](https://help.zscaler.com/dspm/viewing-graph-gcp-data-stores)
+  - [Databases](https://help.zscaler.com/dspm/viewing-graph-databases)
+  - [AI services](https://help.zscaler.com/dspm/viewing-graph-ai-services)
 
 [Image: Select the resource name]
 
-The following table explains each node and the entity it represents on the graph.
+The following table lists the nodes represented on the graph:
 
 | Node | Description |
 | --- | --- |
 | Account | The cloud account that contains the resource with sensitive data. |
-| Applications | The applications that can access the resource. |
+| AI Agent Identity | The AI agent identity that can access the resource. |
 | Auto Scaling Group | A logical group that contains a collection of EC2 instances for automatic scaling and management. |
 | AWS Elastic Network Interface (ENI) | A networking component (virtual card interface) attached to an EC2 instance for enabling network connectivity. |
 | External | The external entities that can access the resource. |
 | Federated | The federated entities that can access the resource. |
 | Group | A logical container that consists of several users who are assigned the same role. |
 | Instance Profile | A container for an IAM role that is used to pass the role information to an EC2 instance when the instance starts. |
+| Internal Application | The internal application that can access the resource. |
 | Internet Gateway | A virtual private cloud (VPC) component that enables resources in your public subnets (e.g., EC2 instances) to connect to the internet. |
 | Load Balancer | Distributes incoming application traffic across multiple targets, such as EC2 instances, in multiple availability zones. |
-| Managed Identity | The managed entities that can access the resource. |
+| Microsoft Application | The Microsoft application that can access the resource. |
 | Network Access Control List (ACL) | The ACL defines which accounts and groups are granted access to S3 buckets along with the type of access. |
 | Organization | The onboarded AWS organization comprising all the resources that are scanned by DSPM. |
 | Organization Unit | A logical unit comprising a list of cloud accounts in a tenant. |
@@ -866,11 +1419,14 @@ The following table explains each node and the entity it represents on the graph
 | Roles | The roles assigned to users and groups to perform various actions in the DSPM Admin Portal. |
 | Route Table | A set of rules called routes that determine the destination of the network traffic from your subnet or gateway. |
 | Security Group | Controls the inbound and outbound traffic for the cloud resource. |
-| Services | The services (e.g., Azure App Services) that have access to the resource. |
 | Service Accounts | The service accounts that have access to the resource. |
+| Services | The services (e.g., Azure App Services) that have access to the resource. |
 | Subnet | A range of IP addresses used to launch the resources in your VPC. You can connect a subnet to the internet, other VPCs, etc., and route traffic to and from your subnets using route tables. |
+| System-Assigned Managed Identity | The system-assigned managed identity that can access the resource. |
+| Third-Party Application | The third-party application that can access the resource. |
 | [Unmanaged Database](https://help.zscaler.com/dspm/about-unmanaged-database) | Databases that are deployed on virtual machines in the cloud. DSPM scans these databases for sensitive data. |
 | User | The IAM users who can access the resource. |
+| User-Assigned Managed Identity | The user-assigned managed identity that can access the resource. |
 | Web Application Firewall (WAF) | Allows to monitor the HTTP(S) requests and control access to your data. |
 
 - **Public Exposure Path**: Represents the misconfigurations in the primary and associated resources that could allow adversaries to gain initial access or perform lateral movement.
@@ -883,22 +1439,22 @@ The following table explains each node and the entity it represents on the graph
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-roles-and-templates","lastmod":"2026-04-24T22:29Z","nid":"1518586"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-roles-and-templates","lastmod":"2026-09-29T09:04Z","nid":"1518586"} -->
 ## Viewing the Roles and Templates
 
 - Source: https://help.zscaler.com/dspm/viewing-roles-and-templates
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > Cloud Account Management > Viewing the Roles and Templates
-- Last modified: 2026-04-24T22:29Z
+- Last modified: 2026-09-29T09:04Z
 - Summary: Information on how to view roles and download onboarding templates in the Zscaler Admin Console.
 
 DSPM creates IAM or custom roles in the cloud accounts, and these roles are assigned with various permissions that allow DSPM to connect to the cloud account and discover resources for data scanning. You can view these roles on the Roles and Templates tab, copy them and verify if they are the same in the respective cloud account, in case of any [issues](https://help.zscaler.com/dspm/viewing-onboarding-issues).
 
 To view the roles or download the templates:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Cloud Accounts**.
-2. Select the cloud account from the list.
-3. Select the **Roles and Templates** tab. You can view the templates and the corresponding roles created for the organization. The file name of the downloaded template includes the template version number.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM**> **Cloud Accounts**. The **Cloud Accounts** page appears.
+2. On the **Cloud Accounts** page, click the required cloud account (AWS, Azure, or GCP).
+3. Select the **Roles and Templates** tab. You can view the templates and the corresponding roles created for the organization. The file name of the downloaded template includes the template version number. See image.
   - AWS
   - Microsoft Azure
   - GCP
@@ -932,41 +1488,31 @@ Download either the CloudFormation or Terraform template to your local system, e
 
 You can view and copy the external ID, an optional identifier that is attached to the role. AWS recognizes this external ID and allows DSPM to access the AWS resources. To learn more, refer to the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_third-party.html).
 
-See image.
-
 Download the following templates to your local system, extract the ZIP file, and run it on the Azure tenant.
 
 - Tree Discovery
 - Azure Onboarding
 - Evidence
 
-See image.
-
 Download the following templates to your local system, extract the ZIP file, and run it on the GCP organization.
 
 - Tree Discovery
 - GCP Onboarding
 
-See image.
-
-[Image: View the Azure Roles and Templates]
-
 [Image: New template notification]
 
 [Image: View the AWS Roles and Templates]
-
-[Image: View the GCP Roles and Templates]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-saas-overview-dashboard","lastmod":"2026-08-12T21:25Z","nid":"1542064"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-saas-overview-dashboard","lastmod":"2026-09-28T22:49Z","nid":"1542064"} -->
 ## Viewing the SaaS Overview Dashboard
 
 - Source: https://help.zscaler.com/dspm/viewing-saas-overview-dashboard
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Dashboards > Viewing the SaaS Overview Dashboard
-- Last modified: 2026-08-12T21:25Z
+- Last modified: 2026-09-28T22:49Z
 - Summary: Information on the SaaS Overview dashboard in DSPM.
 
 Software as a Service (SaaS) applications often handle sensitive data, including customer information, financial data, and intellectual property. This data needs to be protected from unauthorized access, breaches, and data loss. Identifying and addressing vulnerabilities within SaaS applications reduces the risk of security incidents, such as data breaches, malware infections, or insider threats.
@@ -977,7 +1523,7 @@ DSPM systematically scans the [SaaS applications](https://help.zscaler.com/dspm/
 
 To view the SaaS Overview dashboard:
 
-1. Go to **Analytics** > **Data Security** >**DSPM** > **SaaS Overview**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**>**DSPM**> **SaaS Overview**.
 2. On the **SaaS Overview Dashboard** page, you can view the following widgets: See image.
   - SaaS Incidents
   - Top Users with SaaS Incidents
@@ -1008,20 +1554,20 @@ This table shows details about the SaaS applications with the most data exposure
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-sensitive-data-details","lastmod":"2026-08-13T03:31Z","nid":"1478121"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-sensitive-data-details","lastmod":"2026-09-30T02:04Z","nid":"1478121"} -->
 ## Viewing the Sensitive Data Details
 
 - Source: https://help.zscaler.com/dspm/viewing-sensitive-data-details
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Resource Inventory > Resource Details > Viewing the Sensitive Data Details
-- Last modified: 2026-08-13T03:31Z
+- Last modified: 2026-09-30T02:04Z
 - Summary: Information about cloud resources containing sensitive data that is detected by DSPM.
 
 You can view additional details of sensitive data found in the data stores.
 
 To view the sensitive data:
 
-1. Go to **Analytics**> **Data Security** > **DSPM**> **Resource Inventory**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Resource Inventory**.
 2. On the **Resource Inventory** page, click any **Resource Name** to view the resource details. See image.
 3. On the resource's details page, select the **Sensitive Data** tab to view the following details: See image. Some columns are shown for both files and tables and some are specific to files or tables:
   - **Matched Files**/**Matched Tables**: The total number of files or tables that matched the DLP engines.
@@ -1050,18 +1596,18 @@ To view the sensitive data:
 
 [Image: Sensitive data discovered in an EBS volume]
 
-[Image: Click the resource name to view the sensitive data details]
+[Image: Select a resource name to view additional details]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-timeline-details-resources","lastmod":"2026-06-30T04:25Z","nid":"1529338"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-timeline-details-resources","lastmod":"2026-09-30T02:19Z","nid":"1529338"} -->
 ## Viewing the Timeline Details for Resources
 
 - Source: https://help.zscaler.com/dspm/viewing-timeline-details-resources
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Resource Inventory > Resource Details > Viewing the Timeline Details for Resources
-- Last modified: 2026-06-30T04:25Z
+- Last modified: 2026-09-30T02:19Z
 - Summary: Information on the resource timeline, which provides a consolidated view of events related to configuration and management changes made to a resource for a given period of time.
 
 The Timeline tab on the [Resource Inventory page](https://help.zscaler.com/dspm/about-resource-inventory) provides a consolidated view of events related to configuration changes made to a resource for a given period of time. DSPM provides complete visibility into the changes made to the resource, the entity that made the change, and the time at which it occurred. This allows you to investigate and remediate the issue and maintain the security posture.
@@ -1070,9 +1616,9 @@ The resource timeline is limited to a maximum of 30 days.
 
 To view the events related to a resource:
 
-1. Go to **Analytics**> **Data Security**> **DSPM**> **Resource Inventory**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Resource Inventory.**
 2. Click any Resource Name to view the resource's details page. See image.
-3. In the resource's details page, select the **Timeline**tab. The following information is displayed: See image.
+3. On the resource's details page, select the **Timeline**tab. The following information is displayed: See image.
   - **Events Over Time**: A timeline chart that shows events for the selected time range.
   - **Events Found**: A list of all the events that occurred in the selected time range with the following details:
     - **Event Time**: The date and time when the event occurred.
@@ -1082,27 +1628,27 @@ To view the events related to a resource:
       - **Event Name**: The name of the event that occurred.
       - **IP Address**: The IP address of the entity that accessed the resource.
 
-[Image: Timeline tab provides a consolidated view of events related to configuration changes made to a resource.]
+[Image: Timeline tab provides a consolidated view of events related to configuration changes made to a resource]
 
-[Image: Shows the Resource Inventory page.]
+[Image: Select a resource name to view additional details]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-user-access-path","lastmod":"2026-04-22T21:06Z","nid":"1482986"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-user-access-path","lastmod":"2026-09-28T08:22Z","nid":"1482986"} -->
 ## Viewing the User Access Path
 
 - Source: https://help.zscaler.com/dspm/viewing-user-access-path
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the User Access Path
-- Last modified: 2026-04-22T21:06Z
+- Last modified: 2026-09-28T08:22Z
 - Summary: Information about the graph that depicts the user access to cloud resources.
 
 The user access path includes details of identity and access management (IAM) entities that can access the primary resource containing sensitive data. The nodes in the graph are interactive. You can click each node to view granular details of each entity.
 
 To view the access path for an IAM entity:
 
-1. Go to **Analytics**> **Data Security** > **DSPM**> **Resource Inventory**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**>**DSPM**> **Resource Inventory**.
 2. Click any **Resource Name** to view the Resource Inventory graph. You can view the user access path for the following cloud environments:
   - AWS
   - Azure
@@ -1117,7 +1663,9 @@ Click the IAM nodes to see:
 - **Entity Type**: The type of IAM entity.
 - **Account ID**: The account ID of the entity.
 - **Access Level**: The permissions assigned to the entity.
-- **Last Activity**: The date and time the IAM entity last accessed the primary resource. See image.
+- **Last Activity**: The date and time the IAM entity last accessed the primary resource.
+
+See image.
 
 Click **ARN** to view the additional details.
 See image.
@@ -1137,7 +1685,7 @@ See image.
 
 [Image: View the Resource Inventory graph]
 
-The Resource Inventory graph displays the sensitive records found in the primary resource along with users, external, applications, managed identity, and services that have access to this primary resource.
+The Resource Inventory graph displays the sensitive records found in the primary resource along with entity entitlements such as users, external application, internal application, third-party application, Microsoft application, system-assigned managed identity, user-assigned managed identity, AI agent identity, and services that have access to this primary resource.
 See image.
 
 Click the IAM nodes to see:
@@ -1145,7 +1693,9 @@ Click the IAM nodes to see:
 - **Entity Name**: The name of the Azure entity.
 - **Entity Type**: The type of IAM entity.
 - **Access Level**: The permissions assigned to the entity.
-- **Last Activity**: The date and time the IAM entity last accessed the primary resource. See image.
+- **Last Activity**: The date and time the IAM entity last accessed the primary resource.
+
+See image.
 
 Click **Entity Name**to view the additional details.
 See image.
@@ -1196,13 +1746,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-vulnerability-details","lastmod":"2026-06-30T04:22Z","nid":"1478116"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-vulnerability-details","lastmod":"2026-09-29T21:47Z","nid":"1478116"} -->
 ## Viewing the Vulnerability Details
 
 - Source: https://help.zscaler.com/dspm/viewing-vulnerability-details
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Resource Inventory > Resource Details > Viewing the Vulnerability Details
-- Last modified: 2026-06-30T04:22Z
+- Last modified: 2026-09-29T21:47Z
 - Summary: Information about viewing the vulnerabilities associated with the cloud resources in the Zscaler Admin Console.
 
 A security vulnerability refers to a system misconfiguration, an error in the software code, etc., that increases the risk of a data breach. Some of the common types of vulnerabilities include publicly exposed resources containing sensitive data, insufficient monitoring and logs, lack of data encryption, misconfigured system components, weak credentials, and inadequate authentication.
@@ -1211,7 +1761,7 @@ DSPM detects vulnerabilities in the Amazon EC2 instances and virtual machines an
 
 To view the vulnerability details:
 
-1. Go to **Analytics**> **Data Security**> **DSPM**> **Resource Inventory**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Resource Inventory.**
 2. Click any **Resource Name** to view the resource's details page. See image.
 3. In the resource's details page, select the **Vulnerabilities**tab. For each package, you can see:
   - **Package Name**: The name of the package.
@@ -1225,7 +1775,7 @@ To view the vulnerability details:
 
 [Image: The CVEs that match the vulnerability]
 
-[Image: Shows the Resource Inventory page.]
+[Image: Select a resource name to view additional details]
 <!-- /ZS-ARTICLE -->
 
 ---

@@ -23,27 +23,40 @@ for_claude/
 │   ├── build_community_docs.py       # community.zscaler.com → NotebookLM Markdown builder
 │   ├── certs/
 │   │   └── community-zscaler-chain.pem   # Intermediate cert the community site omits
-│   └── sync_notebooklm.py            # Pushes the Markdown into a NotebookLM notebook
+│   ├── sync_notebooklm.py            # Pushes the Markdown into a NotebookLM notebook
+│   ├── weekly_release_digest.py      # Weekly release-notes digest → Gmail
+│   ├── build_mslearn_docs.py         # learn.microsoft.com → NotebookLM Markdown builder
+│   ├── notify_mslearn_update.py      # Monthly MS Learn result mail (always sent)
+│   └── validate_repo.py              # Static checks run by pr-checks.yml
 ├── data/
 │   ├── articles.json                 # Generated output — do not hand-edit
 │   ├── help_docs_index.json          # Per-article state for build_help_docs.py
 │   ├── help_bulletins.json           # "New & Improved Articles" snapshot
 │   ├── community_docs_index.json     # Per-post state for build_community_docs.py
 │   ├── notebooklm_sync_state.json    # Sync state for the help-docs notebook
-│   └── community_notebooklm_sync_state.json  # Sync state for the community notebook
+│   ├── community_notebooklm_sync_state.json  # Sync state for the community notebook
+│   ├── release_digest_seen.json      # Known release-note entry ids for the weekly digest
+│   ├── release_notes_notebooklm_sync_state.json  # Sync state for the release-notes notebook
+│   ├── mslearn_<docset>_index.json   # Per-page state for build_mslearn_docs.py
+│   └── mslearn_<docset>_notebooklm_sync_state.json  # Sync state per MS Learn notebook
 ├── notebooklm_docs/                  # help.zscaler.com Markdown — not published
 │   ├── README.md                     # File list + word counts
 │   └── <category>/<category>_partN.md
 ├── community_docs/                   # Zenith Community Markdown — not published
 │   ├── README.md
 │   └── <category>/community_<category>_partN.md
+├── mslearn_docs/                     # Microsoft Learn Markdown — not published
+│   └── <docset>/<category>/mslearn_<docset>_<category>_partN.md
 ├── docs/
 │   └── notebooklm-setup.md           # One-time auth setup for the sync
 ├── .github/
 │   └── workflows/
 │       ├── daily-update.yml          # Scheduled fetch + GitHub Pages deploy
 │       ├── notebooklm-weekly.yml     # Weekly help.zscaler.com doc refresh
-│       └── community-weekly.yml      # Weekly community.zscaler.com doc refresh
+│       ├── community-weekly.yml      # Weekly community.zscaler.com doc refresh
+│       ├── weekly-release-digest.yml # Friday release-notes digest email
+│       ├── mslearn-monthly.yml       # Monthly Microsoft Learn refresh + mail
+│       └── pr-checks.yml             # Required status check for PRs
 └── README.md
 ```
 
@@ -59,7 +72,7 @@ They share `sync_notebooklm.py` but nothing else. Keep them separate.
 | Index | `data/help_docs_index.json` | `data/community_docs_index.json` |
 | Sync state | `data/notebooklm_sync_state.json` | `data/community_notebooklm_sync_state.json` |
 | Notebook | `Zscaler_help_docs` | `Zscaler_community` |
-| Workflow | `notebooklm-weekly.yml` (Mon 00:00 UTC) | `community-weekly.yml` (Mon 01:00 UTC) |
+| Workflow | `notebooklm-weekly.yml` (Mon 02:30 UTC) | `community-weekly.yml` (Mon 03:30 UTC) |
 
 Official documentation is reviewed; forum posts are not. Mixing them into one
 notebook makes NotebookLM cite unvetted, sometimes years-old answers as
@@ -237,7 +250,7 @@ shell for `/s/` and for an individual question are byte-identical.
 
 **Two fetch modes** (`--fetch-mode`), because neither is strictly better:
 
-- **`api`** (default) — calls the Aura endpoint `/s/sfsites/aura` as a guest, the
+- **`api`** — calls the Aura endpoint `/s/sfsites/aura` as a guest, the
   same API the SPA uses. `fwuid` is re-read from the shell on every run because it
   changes with each Salesforce release; hardcoding it breaks silently.
   **Hard limits, all verified against the live site:**
@@ -249,12 +262,17 @@ shell for `/s/` and for an individual question are byte-identical.
 
   So this mode yields **question bodies and metadata only** — no answers, no
   articles/guides/blogs. Those are counted and reported as "本文取得不可".
-- **`prerender`** — reads the server-side-rendered page Salesforce returns to
+- **`prerender`** (default) — reads the server-side-rendered page Salesforce returns to
   search engines, which contains the question, every answer (with author role and
   date), and the custom-object bodies. It is only returned to recognised crawler
   UAs (Googlebot/bingbot verified; Chrome and a custom UA both get the empty
-  shell), so using it means **claiming to be Googlebot**. Off by default; the
-  script prints a warning when it is enabled.
+  shell), so using it means **claiming to be Googlebot**. The script prints a
+  warning on every run. It is the default because `api` mode collects no answer
+  text at all: when a reply lands, the incremental run refetches the thread and
+  the only thing that changes in the part file is `Answers: 2` → `Answers: 3`.
+
+  **Do not flip the default back to `api` casually.** A `--fetch-mode` change is
+  treated as a full refetch, so the next run would discard every prerendered body.
 
 **TLS gotcha:** `community.zscaler.com` serves its leaf certificate without the
 DigiCert intermediate. Browsers recover via AIA fetching; `requests`/OpenSSL do
@@ -338,7 +356,8 @@ already holds other material does not wipe it. Deletion is skipped entirely unde
 `--only`, which only sees a subset of the local files.
 
 Flags: `--dry-run` (report adds/updates/deletes without touching anything),
-`--only <category…>`, `--wait-timeout`, `--docs-dir`, `--state-file`.
+`--only <category…>`, `--wait-timeout`, `--docs-dir`, `--state-file`, `--glob`,
+`--mode mirror|append`, `--max-sources` (append only).
 
 **Security:** `storage_state.json` holds live Google session cookies — effectively full
 account access. Prefer a dedicated Google account for this notebook rather than a
@@ -346,7 +365,7 @@ personal one.
 
 ### `.github/workflows/notebooklm-weekly.yml`
 
-- **Trigger:** `cron: "0 0 * * 1"` (Monday 00:00 UTC = 09:00 JST) + `workflow_dispatch`
+- **Trigger:** `cron: "30 2 * * 1"` (Monday 02:30 UTC = 11:30 JST) + `workflow_dispatch`
   with `mode` (`incremental` / `full`) and `categories` inputs
 - **Trigger inputs:** also `sync` (`enabled` / `dry-run` / `skip`)
 - **Permissions:** `contents: write` only — this workflow does not deploy Pages
@@ -365,7 +384,7 @@ personal one.
 
 Same shape as `notebooklm-weekly.yml`, with the doc-set-specific values.
 
-- **Trigger:** `cron: "0 1 * * 1"` (Monday 01:00 UTC = 10:00 JST) + `workflow_dispatch`
+- **Trigger:** `cron: "30 3 * * 1"` (Monday 03:30 UTC = 12:30 JST) + `workflow_dispatch`
   with `mode`, `fetch_mode` (`api` / `prerender`), `categories`, `sync` inputs
 - **Deliberately one hour after `notebooklm-weekly.yml`** — both workflows commit and
   push to the same branch, so overlapping runs would collide on push
@@ -373,6 +392,132 @@ Same shape as `notebooklm-weekly.yml`, with the doc-set-specific values.
 - **Commit message format:** `docs: Zenith Community 週次更新 YYYY-MM-DD`
 - Syncs with `--docs-dir community_docs --state-file
   data/community_notebooklm_sync_state.json --notebook-title Zscaler_community`
+
+### `scripts/weekly_release_digest.py` / `.github/workflows/weekly-release-digest.yml`
+
+Every Friday morning (`cron: "0 22 * * 4"` = Thursday 22:00 UTC = Friday 07:00 JST;
+the cron day is Thursday because of the UTC offset) collects the release notes of
+**every** Zscaler service deployed in the week Saturday–Friday (JST) and mails a
+digest to `ciderred1239@gmail.com` (override with the `NOTIFY_EMAIL_TO` secret).
+
+- **Pages are discovered, not listed.** Every sitemap URL matching
+  `/<service>/*release[-upgrade]-summary-<year>` is fetched (27 pages for 2026 —
+  release-upgrade summaries plus ZCC app, ZDX module, App Connector, PSE, Endpoint DLP …).
+  A new product's release notes are picked up without a code change.
+- **Data comes from `body.release_notes` of `/zapi/fetch-data`**, not the page HTML.
+  It is shaped `entries[date][kind][status] = [{version, title, entries: [{id, title,
+  description}]}]`, and its values are sometimes JSON *strings* — decode with `_j()`.
+  The response only covers one cloud (or OS); each page is refetched per
+  `applicable_category=<id>` from `mainCategories`, and entries are merged by `id`
+  so one feature shows every cloud it rolled out to with its date. Clouds roll out
+  on different days (`zscalerthree.net` often a week after `zscaler.net`), so a
+  feature reappears in the week it reaches another cloud — that is intended.
+- **Grouping is by the first URL segment** — all three ZCC pages land in one ZCC file.
+- **Output per service:** `<service>_<YYYYMMDD>.md` (original text via
+  `build_help_docs.html_to_md`) and `<service>_<YYYYMMDD>.html` (Japanese summary).
+  Both are attached; the mail body is an overview table. Written to
+  `output/release_digest/<end-date>/` (gitignored) and uploaded as a workflow artifact.
+- **The HTML is translated into Japanese with the Claude API** (`claude-opus-5-5`,
+  structured output, streaming, `fallbacks: "default"`) when the `ANTHROPIC_API_KEY`
+  secret is set: per item a Japanese title, a 1–2 sentence summary and a **full
+  translation** of the body, plus a per-service overview. Items are sent in chunks of
+  `TRANSLATE_CHUNK_CHARS` (ZCC fix lists get long); a failed chunk leaves only those
+  items in English and the header says `日本語訳 n/m 件`. The English original is
+  kept under a collapsed `<details>`. Without the key the HTML shows the original text.
+  The `.md` files are always the untranslated original.
+- **Late-posted entries:** `data/release_digest_seen.json` records every entry id seen.
+  An unseen entry whose deployment dates are all before the window is included as
+  「遅れて掲載」 — that Friday's own deployments are usually not posted yet at 07:00 JST,
+  so they normally arrive in the following week's mail this way. A missing state
+  file disables this for one run. The state is saved only after the mail is sent.
+- **A mail is sent every week, even with zero updates**, and lists any page that
+  failed to fetch — silence must never be mistaken for "nothing changed".
+- **NotebookLM:** one combined file per week, `Zscaler_release_<start>-<end>.md`
+  (every service's original text, headings shifted down one level; not written for a
+  week with no updates), is added to the `Zscaler_release_notes` notebook with
+  `sync_notebooklm.py --mode append --glob "Zscaler_release_*.md"` — one source per
+  week, so 90 sources hold ~1¾ years. The per-service `.md` files are for the mail
+  only. In append mode, recorded sources that no longer match `--glob` (the
+  per-service files the first run uploaded) are deleted as an obsolete naming scheme
+  (state:
+  `data/release_notes_notebooklm_sync_state.json`). Unlike the mirror mode the help /
+  community notebooks use, past weeks are kept; when the notebook would exceed
+  `NOTEBOOKLM_MAX_SOURCES` (90) the oldest sources this workflow uploaded are deleted
+  first — by the `YYYYMMDD` in the filename, then `added_at`, because one run uploads
+  several files in the same second. Manually added sources count but are never deleted.
+  Skipped when `NOTEBOOKLM_STORAGE_STATE_JSON` is unset. The sync reads
+  `output/release_digest/*/Zscaler_release_*.md`, so every week directory a run
+  produced is picked up.
+- **Backfill:** `workflow_dispatch` input `backfill_from` (→ `--backfill-from`) fetches
+  the pages once and writes one weekly file per Saturday–Friday week from that date
+  through `end_date`'s week; the first week is clipped to start on `backfill_from`
+  (`Zscaler_release_20260401-20260403.md`). It sends no mail, never touches
+  `release_digest_seen.json`, and aborts if any page fails to fetch, so a gap in the
+  history cannot go unnoticed. Weeks with no updates produce no file.
+
+### `scripts/build_mslearn_docs.py` / `.github/workflows/mslearn-monthly.yml`
+
+Builds NotebookLM-ready Markdown from a Microsoft Learn **docset** (default `entra`,
+Japanese `ja-jp`, ~4,800 pages) and refreshes it **monthly** (`cron: "30 4 1 * *"`,
+1st of the month 13:30 JST). Same marker/part-file design as `build_help_docs.py`.
+
+- **Page list:** `/_sitemaps/sitemapindex.xml` → every `<docset>_<locale>_N.xml`.
+  Decode sitemap bytes with `utf-8-sig` — `resp.text` mis-guesses the charset and
+  turns the BOM into `ï»¿`, which breaks the XML parse.
+- **Body:** `<page>?accept=text/markdown` — Learn's own Markdown (front matter + body),
+  so there is no HTML scraping. `convert_body()` drops the H1, shifts headings down one
+  level, replaces images with `[Image: alt]`, absolutizes relative links and strips
+  the `toc=`/`bc=` query noise.
+- **Every run refetches every page** and compares a hash of the rendered block —
+  sitemap `lastmod` is not trusted (it moves on rebuilds, and MT re-translations change
+  text without it). Blocks deliberately omit `lastmod`/`updated_at` and part files carry
+  no timestamp, and unchanged files are not rewritten, so the mirror sync only re-uploads
+  sources whose content actually changed.
+- **Safety:** a page that fails to fetch keeps its previous block (reported as
+  取得失敗); pages are removed only when they leave the sitemap; if the sitemap has
+  < 50 % of the recorded pages the run aborts without touching anything; > 20 % fetch
+  failures fail the step.
+- **Categories:** `DOCSETS[<docset>]["categories"]` — `(stem, 表示名, [path prefixes])`,
+  first match wins (so `identity/` catch-all sits after the specific `identity/*`
+  entries). A docset not in `DOCSETS` is bucketed by its first path segment, so adding
+  one to `DEFAULT_DOCSETS` in the workflow works without code changes.
+- **Part size:** `MAX_CHARS_PER_PART = 500_000` — Japanese has no spaces, so this stays
+  under NotebookLM's 500k-word limit even if every character counted as a word. Entra
+  comes to ~83 sources, 27 of them `saas_apps` (above the free plan's 50 per notebook).
+- **Notebook:** `MSLearn_<docset>`, mirror mode, state
+  `data/mslearn_<docset>_notebooklm_sync_state.json`; filenames are prefixed
+  `mslearn_<docset>_` so they never collide with the Zscaler notebooks.
+- **Mail:** `notify_mslearn_update.py` runs under `if: always()` and sends **every
+  run** — first run (「初回登録」), no changes, build failure (no `report.json`) and
+  sync failure alike. It reads `output/mslearn/<docset>/report.json` (from the builder)
+  and `sync.json` (from `sync_notebooklm.py --report-json`) and attaches `changes.md`.
+- `--limit N` runs mark the index `partial`, so the first full run after a test is
+  still reported as 初回登録.
+
+### `.github/workflows/pr-checks.yml`
+
+The only `pull_request`-triggered workflow, and the repository's single required
+status check. It exists so auto-merge has something to gate on — GitHub refuses to
+arm auto-merge on a PR that is already mergeable, so without a required check every
+PR is "clean" and auto-merge cannot be enabled at all.
+
+Runs `scripts/validate_repo.py`, which touches no network and finishes in under a
+minute:
+
+| Check | What it catches |
+|---|---|
+| Workflow YAML parses, has `on:` and `jobs:` | A malformed workflow that would silently never run |
+| `bash -n` on every `run:` block | Unbalanced `if`/`fi`, quotes, heredocs |
+| `py_compile` on `scripts/**/*.py` | Syntax errors |
+| `json.load` on `data/*.json` | A truncated or corrupt state file |
+
+`${{ … }}` expressions are substituted out before `bash -n`, since they are not valid
+shell. Generated directories (`notebooklm_docs/`, `community_docs/`) are deliberately
+not inspected — tens of MB, and their correctness belongs to the build scripts.
+
+**This is a syntax gate, not a review.** It cannot tell whether a change is correct,
+only whether it parses. Requiring it for auto-merge means a PR can reach `main`
+without anyone reading it.
 
 ## Development Workflows
 
@@ -511,17 +656,39 @@ Commit bodies may be written in Japanese.
 ## Constraints and Gotchas
 
 - **No requirements.txt** — dependencies (`feedparser`, `requests`) are installed inline in the workflow. If adding new Python dependencies, update the `pip install` line in `daily-update.yml`.
-- **`.gitignore` covers only `__pycache__/` and `_site/`** — everything else in the repo is tracked. Avoid creating ephemeral files without adding them to `.gitignore` first.
+- **`.gitignore` covers only `__pycache__/`, `_site/` and `output/`** — everything else in the repo is tracked. Avoid creating ephemeral files without adding them to `.gitignore` first.
 - **`data/articles.json` is auto-committed** by the Actions bot. Avoid manually editing it; changes will be overwritten on the next run.
 - **Deduplication is URL-based** via SHA-256 ID. Changing a feed's URL for an existing article will cause it to appear as a new entry.
 - **General feeds are noisy** — `ZSCALER_KEYWORDS` and `PRODUCT_TAGS` keywords must stay conservative to avoid unrelated articles.
 - **GitHub Pages serves a staged copy of the repo root** — `daily-update.yml` copies
-  everything except `.git`, `_site`, `notebooklm_docs` and `community_docs` into
+  everything except `.git`, `_site`, `notebooklm_docs`, `community_docs` and
+  `mslearn_docs` into
   `_site/` and publishes that. Do not place sensitive files at the top level, and keep
   both doc directories excluded: `notebooklm_docs` is a full-text reproduction of
   Zscaler's copyrighted documentation, and `community_docs` reproduces user posts
-  including author display names. Neither may be served publicly. **Adding a new doc
+  including author display names. Neither may be served publicly (nor may
+  `mslearn_docs`, a full-text copy of Microsoft Learn). **Adding a new doc
   directory means adding a matching `--exclude` to that `tar` command.**
+- **Every workflow that commits must push through `push_with_retry`** — a bare
+  `git push` (or a retry loop whose last command is `sleep`) exits 0 when the push was
+  rejected, so the job would stay green while the commit was silently dropped.
+  `push_with_retry` rebases onto `origin/main` between attempts (a rejection is almost
+  always another workflow having pushed first, which plain retries can never resolve)
+  and returns 1 when it gives up. This is a latent hazard that was fixed before it
+  ever bit: no commit has actually been lost — `main`'s ref chain is continuous from
+  2026-07-19 onward and the activity API records no force push.
+- **A shallow clone makes `git log` look like history is missing.** The container
+  clones at limited depth, so commits outside that window simply are not present and a
+  date-ranged `git log` shows a hole that does not exist. Run
+  `git fetch --deepen=2000 origin main` (or `--unshallow`) before concluding anything
+  about older history. Related trap: `git merge-base --is-ancestor <sha> origin/main`
+  exits **128** when the object is not present locally, which is indistinguishable from
+  the **1** that means "not an ancestor" — check `git cat-file -e <sha>` first, or an
+  absent object reads as deleted history.
+- **Scheduled pushes must not share a start minute** — `daily-update.yml` fires at
+  `0 0 * * *`, so the weeklies were moved to 02:30 /
+  03:30 UTC. GitHub also starts scheduled runs 1–4 hours late under load, so treat the
+  cron as "no earlier than", never as a guaranteed time.
 - **`notebooklm_docs/*.md` are machine-managed** — the `<!-- ZS-ARTICLE {…} -->` markers
   are how `build_help_docs.py` locates and replaces individual articles on an
   incremental run. Hand-editing a part file will be silently overwritten, and removing
@@ -531,7 +698,12 @@ Commit bodies may be written in Japanese.
   `FeedComment` and the custom objects' body fields from guest access. A question
   block will show `Answers: 5` with no answer text. This is a platform limit, not a
   bug; only `--fetch-mode prerender` closes it, at the cost of presenting a crawler
-  User-Agent.
+  User-Agent. `prerender` is therefore the default.
+- **Article/Guide/Blog pages return a generic `<title>`** (`Article Details`), so the
+  real title has to be read out of the rendered body — the line two after
+  `posted an Article`. Falling back to the slug loses Japanese titles.
+- **Sitemap slugs are percent-encoded** — `unquote()` them or Japanese titles arrive as
+  `%E5%B9%B4…` and neither `CATEGORIES` nor `EXCLUDE_PATTERNS` match them.
 - **`community.zscaler.com` omits its TLS intermediate** — certifi alone fails with
   `unable to get local issuer certificate`, in CI as well as locally. The fix is the
   committed `scripts/certs/community-zscaler-chain.pem`; do not work around it by

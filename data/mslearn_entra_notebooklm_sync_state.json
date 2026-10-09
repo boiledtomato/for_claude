@@ -1,0 +1,507 @@
+{
+ "notebook": {
+  "id": "aa397e03-d5ab-4929-8682-b6a718cc36b2",
+  "title": "MSLearn_entra"
+ },
+ "sources": {
+  "mslearn_entra_applications_part1.md": {
+   "added_at": "2026-10-07T00:53:33Z",
+   "rel": "applications/mslearn_entra_applications_part1.md",
+   "sha256": "4002dd56e9b28b99e7f8a214063360b7dcd003644838642fa6952e9eae360bce",
+   "source_id": "8759cdc1-3fa7-4a2c-aa85-81bceeae74e9"
+  },
+  "mslearn_entra_applications_part2.md": {
+   "added_at": "2026-10-07T00:53:58Z",
+   "rel": "applications/mslearn_entra_applications_part2.md",
+   "sha256": "a7e037eeb33ed650d468ed27e77072b2c456beed48f4385cf9215b49bc592de6",
+   "source_id": "2ee702cb-9a9e-4747-a70c-389942a4d5eb"
+  },
+  "mslearn_entra_applications_part3.md": {
+   "added_at": "2026-10-07T00:54:23Z",
+   "rel": "applications/mslearn_entra_applications_part3.md",
+   "sha256": "66dc177dbe617efa3d163f5cab79a0f57066469ced6219d079f9a016cce2e530",
+   "source_id": "9a3d0d9c-6bb0-41a4-8925-1d37ca1bc370"
+  },
+  "mslearn_entra_applications_part4.md": {
+   "added_at": "2026-10-07T00:54:49Z",
+   "rel": "applications/mslearn_entra_applications_part4.md",
+   "sha256": "42e9b1d0a7dd22dc37f3a751fa676d5bb7e99a55ef47b7f811689dfdfd238268",
+   "source_id": "82f4bcc4-c5f3-499f-860f-4f87d4508809"
+  },
+  "mslearn_entra_applications_part5.md": {
+   "added_at": "2026-10-07T00:55:14Z",
+   "rel": "applications/mslearn_entra_applications_part5.md",
+   "sha256": "c7bc257056a844bfbcdcf84efabbe8ad2fea08b25f59dd8d2c1f85ed4e792b0e",
+   "source_id": "644bd0e7-acc3-4ede-9552-56432a2b5dd4"
+  },
+  "mslearn_entra_applications_part6.md": {
+   "added_at": "2026-10-07T00:55:26Z",
+   "rel": "applications/mslearn_entra_applications_part6.md",
+   "sha256": "2b3e33ce927ad978ccf0cd476ecfb1ab1bd9f07eab42fb64bf5673dc0a90a53b",
+   "source_id": "667e31db-2040-46e9-817c-8539c0468434"
+  },
+  "mslearn_entra_authentication_part1.md": {
+   "added_at": "2026-10-07T00:55:51Z",
+   "rel": "authentication/mslearn_entra_authentication_part1.md",
+   "sha256": "1bc5a212943f1a3c6689d26ee2c449527e808a49560849bfcdfae6dd005fd285",
+   "source_id": "9e24ae4b-a337-425b-bbb9-07c1c0472182"
+  },
+  "mslearn_entra_authentication_part2.md": {
+   "added_at": "2026-10-07T00:56:17Z",
+   "rel": "authentication/mslearn_entra_authentication_part2.md",
+   "sha256": "3c0a21bf5d958cbe4df4c3446454c4d176a8d5464d0d66c66edf178244c5167a",
+   "source_id": "d012fe71-7280-4258-b95f-7e27f848106f"
+  },
+  "mslearn_entra_authentication_part3.md": {
+   "added_at": "2026-10-07T00:56:43Z",
+   "rel": "authentication/mslearn_entra_authentication_part3.md",
+   "sha256": "32f9a9df199fb4adbb3369138fdb288b0a2e761695164e798132dca79332562b",
+   "source_id": "87c90161-8510-40d6-a0f5-895c1b8c4f73"
+  },
+  "mslearn_entra_conditional_access_part1.md": {
+   "added_at": "2026-10-07T00:57:09Z",
+   "rel": "conditional_access/mslearn_entra_conditional_access_part1.md",
+   "sha256": "8e8da5a36a9322476446bb4c16a554ae1f52da54bc5af9de1d2b10a81a1c93c0",
+   "source_id": "1e27624c-e50c-49ea-a7f8-b5b87b6a23a9"
+  },
+  "mslearn_entra_conditional_access_part2.md": {
+   "added_at": "2026-10-07T00:57:12Z",
+   "rel": "conditional_access/mslearn_entra_conditional_access_part2.md",
+   "sha256": "47b55f5bd2d0c6691561f1ee6a35ef95506825fc477e64d71f571477d6ed0dc3",
+   "source_id": "c2a57aca-83da-467b-bae8-cbaa6313bcbf"
+  },
+  "mslearn_entra_developer_part1.md": {
+   "added_at": "2026-10-07T00:57:48Z",
+   "rel": "developer/mslearn_entra_developer_part1.md",
+   "sha256": "756c9bb7fddd8fdb835f4cdc5e1c4b2167918b4441af805e489fc644eadf5ee3",
+   "source_id": "9be56635-cb14-4fbe-9219-abd1b88f5fc9"
+  },
+  "mslearn_entra_developer_part10.md": {
+   "added_at": "2026-10-07T00:58:06Z",
+   "rel": "developer/mslearn_entra_developer_part10.md",
+   "sha256": "4c9364894c240281ce5a15298434f219504f2c8e628ae903178af367fb8e4ef5",
+   "source_id": "3806d304-4aa5-4719-b0a4-ac9a54b1ab3c"
+  },
+  "mslearn_entra_developer_part11.md": {
+   "added_at": "2026-10-07T00:58:24Z",
+   "rel": "developer/mslearn_entra_developer_part11.md",
+   "sha256": "410378e10088695d6e6eadcf56b6d57962b36ac4b26d6cd8ec42bd25f1b9bd16",
+   "source_id": "09acfdf7-0dac-4644-b12a-a51b08eba8a5"
+  },
+  "mslearn_entra_developer_part12.md": {
+   "added_at": "2026-10-07T00:58:42Z",
+   "rel": "developer/mslearn_entra_developer_part12.md",
+   "sha256": "0c7d6413e07c84e26fac7d51a0367c3867c0ab429ef58a6d7549f76a91d38eb0",
+   "source_id": "3842c93f-368c-4338-8913-17d70fe6eb40"
+  },
+  "mslearn_entra_developer_part13.md": {
+   "added_at": "2026-10-07T00:59:00Z",
+   "rel": "developer/mslearn_entra_developer_part13.md",
+   "sha256": "53dd0d70a04c8425017ab1ef10ed79f8f09d657b414197575dff57f70f705dc7",
+   "source_id": "4603110e-c0fc-4956-80ab-4a4e6e5f0d0f"
+  },
+  "mslearn_entra_developer_part2.md": {
+   "added_at": "2026-10-07T00:59:19Z",
+   "rel": "developer/mslearn_entra_developer_part2.md",
+   "sha256": "b4c8516688cb1ccd386cf040760f075d6fbfdaf941aff7e34c21bcf7c5122a63",
+   "source_id": "5952fa55-0707-475d-925a-72a76794d992"
+  },
+  "mslearn_entra_developer_part3.md": {
+   "added_at": "2026-10-07T00:59:45Z",
+   "rel": "developer/mslearn_entra_developer_part3.md",
+   "sha256": "9a4f616c60f090a74b1bb5c125fc4ccf762004cc5bdfd843fca2bb147824c5d9",
+   "source_id": "faf01df9-4127-40e9-a87f-24d838bf5e98"
+  },
+  "mslearn_entra_developer_part4.md": {
+   "added_at": "2026-10-07T01:00:04Z",
+   "rel": "developer/mslearn_entra_developer_part4.md",
+   "sha256": "423afc1aa855397e2e8e6c0cf39fafa88c00b07682f7c8f13610633652582d28",
+   "source_id": "da4e0a14-5ad8-49fd-b337-99bf837462ab"
+  },
+  "mslearn_entra_developer_part5.md": {
+   "added_at": "2026-10-07T01:00:22Z",
+   "rel": "developer/mslearn_entra_developer_part5.md",
+   "sha256": "654cbdb81bf1bd3879daf5c9ca6d132da248061bc8e85267131ae5ed68f404cb",
+   "source_id": "12921860-a47a-4db9-aded-039eaef3ba3f"
+  },
+  "mslearn_entra_developer_part6.md": {
+   "added_at": "2026-10-07T01:00:49Z",
+   "rel": "developer/mslearn_entra_developer_part6.md",
+   "sha256": "87199d5c07d7922737fa1ab5401ac43db4287e786718543228d87eb6001686f3",
+   "source_id": "58a4e8aa-2316-4c65-ab7f-b87df61da97d"
+  },
+  "mslearn_entra_developer_part7.md": {
+   "added_at": "2026-10-07T01:01:07Z",
+   "rel": "developer/mslearn_entra_developer_part7.md",
+   "sha256": "dfa2cb53761040afaf0eeb9aedc13aa473ceae811199f9df7d569bd8e3d4512b",
+   "source_id": "d094ed2f-2f3f-4440-9aa0-ab4f290c28cf"
+  },
+  "mslearn_entra_developer_part8.md": {
+   "added_at": "2026-10-07T01:01:35Z",
+   "rel": "developer/mslearn_entra_developer_part8.md",
+   "sha256": "91203211ee73ba5b886365e702413a044311ad925de8a8c98a39c9e4d30b00e5",
+   "source_id": "02007fa5-b824-4a2c-b5c4-ee18ce098dbc"
+  },
+  "mslearn_entra_developer_part9.md": {
+   "added_at": "2026-10-07T01:02:02Z",
+   "rel": "developer/mslearn_entra_developer_part9.md",
+   "sha256": "0e2235931bb6273c7860060c69678c426505c0aa18b6361c0fe163cc32408bb8",
+   "source_id": "fbfd8c2d-0d5e-4720-a644-db84436b7789"
+  },
+  "mslearn_entra_domain_services_part1.md": {
+   "added_at": "2026-10-07T01:02:29Z",
+   "rel": "domain_services/mslearn_entra_domain_services_part1.md",
+   "sha256": "611c32d1656444c1778b65dd55ab582b6da1f6549a3888f7efb6c98821deffad",
+   "source_id": "554bac02-3c69-40f8-bd52-21008628dbee"
+  },
+  "mslearn_entra_domain_services_part2.md": {
+   "added_at": "2026-10-07T01:02:39Z",
+   "rel": "domain_services/mslearn_entra_domain_services_part2.md",
+   "sha256": "62b2b4f3498ea9866d11d369f047cbb5b2e54696426259c385c802e0b95c5bfd",
+   "source_id": "3062cc09-bbdb-4d03-ad45-387675a86cee"
+  },
+  "mslearn_entra_external_id_part1.md": {
+   "added_at": "2026-10-07T01:02:58Z",
+   "rel": "external_id/mslearn_entra_external_id_part1.md",
+   "sha256": "0f217758d82338945ddbd85f656bd9e242b870db73a5901ea89bdae2550d3e98",
+   "source_id": "ca19712f-9c96-4677-8ed0-9326a1235ba6"
+  },
+  "mslearn_entra_external_id_part2.md": {
+   "added_at": "2026-10-07T01:03:26Z",
+   "rel": "external_id/mslearn_entra_external_id_part2.md",
+   "sha256": "2ead7d0a6f479ea76e145676e66f518c2868f53ff7777e133f992a71f572d941",
+   "source_id": "8d63890a-eec9-43d7-a7a9-c0a3f902c218"
+  },
+  "mslearn_entra_external_id_part3.md": {
+   "added_at": "2026-10-07T01:03:45Z",
+   "rel": "external_id/mslearn_entra_external_id_part3.md",
+   "sha256": "3add725e8c3c1eb725c2e73fb502a81da5ac23f184aa8def8c582984fb2e6a72",
+   "source_id": "f6a58e28-751e-4e48-ac61-32480cfb244a"
+  },
+  "mslearn_entra_fundamentals_part1.md": {
+   "added_at": "2026-10-07T01:04:04Z",
+   "rel": "fundamentals/mslearn_entra_fundamentals_part1.md",
+   "sha256": "aadb1a675489c337fa15afe5a6a2ca1858ddbb3b659155b224b5b0627eec309d",
+   "source_id": "3462bcd6-29d0-4c0d-887c-f935bac9f25a"
+  },
+  "mslearn_entra_fundamentals_part2.md": {
+   "added_at": "2026-10-07T01:04:32Z",
+   "rel": "fundamentals/mslearn_entra_fundamentals_part2.md",
+   "sha256": "4c24fac6ecca0bb6cdf5b25e89337f986b89b1e99f3e638cffe600d4f43bceca",
+   "source_id": "1c3a65a4-3f75-4733-8a66-c0ed360bb20b"
+  },
+  "mslearn_entra_fundamentals_part3.md": {
+   "added_at": "2026-10-07T01:05:10Z",
+   "rel": "fundamentals/mslearn_entra_fundamentals_part3.md",
+   "sha256": "fb4558a3143d8014075e16f388611056d451ee1fa8a4dbd8441aebd5f2314bf4",
+   "source_id": "242e4197-2448-444a-9c8f-498e24beb139"
+  },
+  "mslearn_entra_fundamentals_part4.md": {
+   "added_at": "2026-10-07T01:05:29Z",
+   "rel": "fundamentals/mslearn_entra_fundamentals_part4.md",
+   "sha256": "e156f6df2ab1458ade12919c61f441c61dc4336816f95d2bed8a3084e974af7b",
+   "source_id": "51151ad5-e387-4792-8961-6f11f64e9b83"
+  },
+  "mslearn_entra_fundamentals_part5.md": {
+   "added_at": "2026-10-07T01:05:49Z",
+   "rel": "fundamentals/mslearn_entra_fundamentals_part5.md",
+   "sha256": "2790596dd232cbfadb4318511f42c325a59897578265459ca4c75419e3781f72",
+   "source_id": "0d800fee-6666-4aeb-a382-ed4018268541"
+  },
+  "mslearn_entra_fundamentals_part6.md": {
+   "added_at": "2026-10-07T01:06:03Z",
+   "rel": "fundamentals/mslearn_entra_fundamentals_part6.md",
+   "sha256": "1620eaa4822c8a791301c383786faa0646e7f7a9cc41ead55f03ee525003a6a3",
+   "source_id": "c14916c5-b789-4d2a-92f7-aea2175ae28b"
+  },
+  "mslearn_entra_global_secure_access_part1.md": {
+   "added_at": "2026-10-07T01:06:30Z",
+   "rel": "global_secure_access/mslearn_entra_global_secure_access_part1.md",
+   "sha256": "1341b714e6c7d0c995423da7b660ee57bc52b2ab3f0d8939e873f5a4e459fd2b",
+   "source_id": "a66f053d-5dad-40c5-8222-a1d69e29dd6b"
+  },
+  "mslearn_entra_global_secure_access_part2.md": {
+   "added_at": "2026-10-07T01:06:58Z",
+   "rel": "global_secure_access/mslearn_entra_global_secure_access_part2.md",
+   "sha256": "725d5f48626a4f9bc8fb6c1b7ad3bea7d18114725de359d0f8af5cb875064abb",
+   "source_id": "7d92c979-1e96-4f74-a9ae-cee489bb3190"
+  },
+  "mslearn_entra_global_secure_access_part3.md": {
+   "added_at": "2026-10-07T01:07:26Z",
+   "rel": "global_secure_access/mslearn_entra_global_secure_access_part3.md",
+   "sha256": "50f8b6996ab55fad67785e7e68d4031df47ba61157f7019245293161beb9dd54",
+   "source_id": "1ded8387-1440-4444-bd92-a943c86da5c6"
+  },
+  "mslearn_entra_hybrid_part1.md": {
+   "added_at": "2026-10-07T01:07:55Z",
+   "rel": "hybrid/mslearn_entra_hybrid_part1.md",
+   "sha256": "6229694c62d92209cac14ff5635e7b38250447cc59558b258da00cf129657505",
+   "source_id": "5d326793-83f3-446e-8f96-51640c075c12"
+  },
+  "mslearn_entra_hybrid_part2.md": {
+   "added_at": "2026-10-07T01:08:22Z",
+   "rel": "hybrid/mslearn_entra_hybrid_part2.md",
+   "sha256": "11d95a17c9d573d46dde3b9ba2067d6490b6b773a1bd240601096bcf70e423c9",
+   "source_id": "ddb4fe57-27e2-406e-a5e2-546e26836689"
+  },
+  "mslearn_entra_hybrid_part3.md": {
+   "added_at": "2026-10-07T01:09:02Z",
+   "rel": "hybrid/mslearn_entra_hybrid_part3.md",
+   "sha256": "b6a3f247d73e4bf1362216bf13c5dd13b9a12ebfff782467a1e06d2e74bcb2ee",
+   "source_id": "44ef8909-4782-4d12-bb60-dd418baa8e4d"
+  },
+  "mslearn_entra_hybrid_part4.md": {
+   "added_at": "2026-10-07T01:09:41Z",
+   "rel": "hybrid/mslearn_entra_hybrid_part4.md",
+   "sha256": "a6dfe96825334338b1471bae37a93d76d0f78b12668bb29d40ccb1c2028e7a9a",
+   "source_id": "fad45718-efa1-4a13-88be-f759989cb2fd"
+  },
+  "mslearn_entra_hybrid_part5.md": {
+   "added_at": "2026-10-07T01:09:55Z",
+   "rel": "hybrid/mslearn_entra_hybrid_part5.md",
+   "sha256": "b00ad4433f60eda434c5b266356a3bafea4d0db5aabd21d4c333f4eaf4a1ab51",
+   "source_id": "d1e5c057-7d62-48cc-b253-a936ecbb65fd"
+  },
+  "mslearn_entra_id_governance_part1.md": {
+   "added_at": "2026-10-07T01:10:15Z",
+   "rel": "id_governance/mslearn_entra_id_governance_part1.md",
+   "sha256": "a330d9fc31061ed5f53d162bb583863389b9eff52be606a27e05afbcf4fc8f49",
+   "source_id": "978f6800-9e84-44a7-9983-f56d93b8613f"
+  },
+  "mslearn_entra_id_governance_part2.md": {
+   "added_at": "2026-10-07T01:10:35Z",
+   "rel": "id_governance/mslearn_entra_id_governance_part2.md",
+   "sha256": "a4ae4c97acce7ec449b4afcfe6ec80579816be4060fc009fd7d3b98c53cc329a",
+   "source_id": "f8b98ad7-87ef-46d7-8b31-87152d66326e"
+  },
+  "mslearn_entra_id_governance_part3.md": {
+   "added_at": "2026-10-07T01:11:03Z",
+   "rel": "id_governance/mslearn_entra_id_governance_part3.md",
+   "sha256": "21463660e97eeaa63e8daae7ea23edc52fb3375dda9cc722cd3503649d866070",
+   "source_id": "7a33f8b3-c916-4b89-a65c-2e7c5d6b2fe3"
+  },
+  "mslearn_entra_id_governance_part4.md": {
+   "added_at": "2026-10-07T01:11:24Z",
+   "rel": "id_governance/mslearn_entra_id_governance_part4.md",
+   "sha256": "c7661c816a2843c70dc372c7c7b30cf4c1f57cfeae9bfb45b38d396508cf4cc1",
+   "source_id": "f34984f3-4664-45a5-95ee-145ec73ce132"
+  },
+  "mslearn_entra_id_protection_part1.md": {
+   "added_at": "2026-10-07T01:11:38Z",
+   "rel": "id_protection/mslearn_entra_id_protection_part1.md",
+   "sha256": "6236bc4f52a3ca46bdfab0b2e5188dbe864197f4fad57ef8970d56a46f393d94",
+   "source_id": "bc19a7ed-adcd-4ad8-9815-031692ed4d6a"
+  },
+  "mslearn_entra_identity_core_part1.md": {
+   "added_at": "2026-10-07T01:11:59Z",
+   "rel": "identity_core/mslearn_entra_identity_core_part1.md",
+   "sha256": "1cd3835678452b18f2251bdcf8d663b61e7d313a219facc51d74aa9f5c4552dd",
+   "source_id": "8cf15f2e-929a-454b-a834-adfff30ae618"
+  },
+  "mslearn_entra_identity_core_part2.md": {
+   "added_at": "2026-10-07T01:12:19Z",
+   "rel": "identity_core/mslearn_entra_identity_core_part2.md",
+   "sha256": "26bfb277593a9fe492760d7d4bf87d88370c6c884f7d988db23e20fabedea9f3",
+   "source_id": "8243e931-2ed6-452b-a28d-451f0ba742ac"
+  },
+  "mslearn_entra_identity_core_part3.md": {
+   "added_at": "2026-10-07T01:12:48Z",
+   "rel": "identity_core/mslearn_entra_identity_core_part3.md",
+   "sha256": "95f3d9cba07b70a6c0353112e8f67ac3a66b3220f2ebeb6c776c8464300a1ae6",
+   "source_id": "4b0083e6-4bb7-448b-825f-e3eed1d1d520"
+  },
+  "mslearn_entra_identity_core_part4.md": {
+   "added_at": "2026-10-07T01:13:09Z",
+   "rel": "identity_core/mslearn_entra_identity_core_part4.md",
+   "sha256": "97b1a002fb54b5795ccdbafc237860e42dd586bbefb2997a61f7e5949a444687",
+   "source_id": "21a21648-ebf6-4cb2-85ea-d3b9a555737b"
+  },
+  "mslearn_entra_identity_core_part5.md": {
+   "added_at": "2026-10-07T01:13:30Z",
+   "rel": "identity_core/mslearn_entra_identity_core_part5.md",
+   "sha256": "256f2495b7c7a83d9970ec419a5509b619293a74df25160dcbda11714847c090",
+   "source_id": "6f806081-4898-4042-b2ab-f24cb34cb6b7"
+  },
+  "mslearn_entra_identity_core_part6.md": {
+   "added_at": "2026-10-07T01:13:37Z",
+   "rel": "identity_core/mslearn_entra_identity_core_part6.md",
+   "sha256": "c0ab66f37e0cfeb14188d40916e4aa3e29653132dc4429d99c0955e68d36c7bc",
+   "source_id": "1b78ac49-15ba-413e-a5f8-1ffb2096c3a1"
+  },
+  "mslearn_entra_identity_core_part7.md": {
+   "added_at": "2026-10-07T01:13:53Z",
+   "rel": "identity_core/mslearn_entra_identity_core_part7.md",
+   "sha256": "54ffd4454fd2119e08f8fd8f300c903041a80be8b83ac87310dabe6979af390a",
+   "source_id": "9aaad218-74fc-4b9e-bb19-0a2c80f259ea"
+  },
+  "mslearn_entra_monitoring_part1.md": {
+   "added_at": "2026-10-07T01:14:14Z",
+   "rel": "monitoring/mslearn_entra_monitoring_part1.md",
+   "sha256": "51391465826b36243a79d6ae72c65000bd577154868d6a7d21fa65a996aa977a",
+   "source_id": "d27612b9-edba-46bc-8519-e008d8891436"
+  },
+  "mslearn_entra_saas_apps_part1.md": {
+   "added_at": "2026-10-07T01:14:44Z",
+   "rel": "saas_apps/mslearn_entra_saas_apps_part1.md",
+   "sha256": "62bbb8b78e67f0964e6e5389aeaba2e36b056600c4d50d6156cd844595725a22",
+   "source_id": "80920eb7-841b-41fe-b39b-b72efa4e2154"
+  },
+  "mslearn_entra_saas_apps_part10.md": {
+   "added_at": "2026-10-07T01:15:05Z",
+   "rel": "saas_apps/mslearn_entra_saas_apps_part10.md",
+   "sha256": "3d15348d9b52f4bdb15218aa637b19eb01381a58779ebb821d726923eeda851b",
+   "source_id": "e61def2f-378c-4784-b544-60994a5f6c1d"
+  },
+  "mslearn_entra_saas_apps_part11.md": {
+   "added_at": "2026-10-07T01:15:26Z",
+   "rel": "saas_apps/mslearn_entra_saas_apps_part11.md",
+   "sha256": "6ae1965f04489c8f85e6acb2883608e49f17fef58952b8c11d471ae2a4ecb3ae",
+   "source_id": "4d195e9b-0835-45bf-b5c9-feda89bb5001"
+  },
+  "mslearn_entra_saas_apps_part12.md": {
+   "added_at": "2026-10-07T01:15:56Z",
+   "rel": "saas_apps/mslearn_entra_saas_apps_part12.md",
+   "sha256": "2439e63e8c0dc0f11d0754ec020b602e0eeaaf942444f1845586bc6f987ee47c",
+   "source_id": "27392dc6-6ab8-471c-849e-6e46b39ebe07"
+  },
+  "mslearn_entra_saas_apps_part13.md": {
+   "added_at": "2026-10-07T01:16:37Z",
+   "rel": "saas_apps/mslearn_entra_saas_apps_part13.md",
+   "sha256": "f5e15840118e46c8a8cd3d443dbb99c791f3086d3d5cc70d21eaf65e0a40b602",
+   "source_id": "d75d8784-268a-4a53-91fc-a6fb3ef2407b"
+  },
+  "mslearn_entra_saas_apps_part14.md": {
+   "added_at": "2026-10-07T01:17:07Z",
+   "rel": "saas_apps/mslearn_entra_saas_apps_part14.md",
+   "sha256": "be0f7f4bec253403bb066b21adfed8c77ed10bb6beddf069a6decf5cede46cb7",
+   "source_id": "54668d52-d559-4aa6-aca0-99b0c23baaa7"
+  },
+  "mslearn_entra_saas_apps_part15.md": {
+   "added_at": "2026-10-07T01:17:49Z",
+   "rel": "saas_apps/mslearn_entra_saas_apps_part15.md",
+   "sha256": "8070fe8ca27d67c2bff5694a7e04ae09d29302eb3506f22dd83de1068e6d9b16",
+   "source_id": "e1ea6dd1-44f1-40a9-a3c8-7292774b88aa"
+  },
+  "mslearn_entra_saas_apps_part16.md": {
+   "added_at": "2026-10-07T01:18:19Z",
+   "rel": "saas_apps/mslearn_entra_saas_apps_part16.md",
+   "sha256": "242e006be09b8ce0446a7c99333a8a8ce4d9e5e0a68f838510a1be501a05dabc",
+   "source_id": "664e56e1-e44f-4d0b-b4f4-fc301f1fec42"
+  },
+  "mslearn_entra_saas_apps_part17.md": {
+   "added_at": "2026-10-07T01:18:50Z",
+   "rel": "saas_apps/mslearn_entra_saas_apps_part17.md",
+   "sha256": "543dba807a0565408a4d85916853fbbded21cfd2066d4d8313a75ff6c04b3e2d",
+   "source_id": "ee0b742c-c7a5-4d8b-b2e6-2a503bd92399"
+  },
+  "mslearn_entra_saas_apps_part18.md": {
+   "added_at": "2026-10-07T01:19:20Z",
+   "rel": "saas_apps/mslearn_entra_saas_apps_part18.md",
+   "sha256": "efe122889b715f3dad161238f1616d4b60b594ebaae71a9687e4d0122363e83f",
+   "source_id": "cfc5799a-248e-4d83-a358-836afa7462da"
+  },
+  "mslearn_entra_saas_apps_part19.md": {
+   "added_at": "2026-10-07T01:19:51Z",
+   "rel": "saas_apps/mslearn_entra_saas_apps_part19.md",
+   "sha256": "0e71e7dd2055c10a7ec9d48efe9ccb2746ddacf5f36fb71c17a9a3bee85aa9bc",
+   "source_id": "9cae5dcb-12a2-4d0c-8ec1-722e88557198"
+  },
+  "mslearn_entra_saas_apps_part2.md": {
+   "added_at": "2026-10-07T01:20:22Z",
+   "rel": "saas_apps/mslearn_entra_saas_apps_part2.md",
+   "sha256": "ce8c907817e125dfab56d732f2447f6b6adae8fecb07959b2423d4db93fbb44a",
+   "source_id": "12c61166-1ab5-4da5-abab-fccc081c5f97"
+  },
+  "mslearn_entra_saas_apps_part20.md": {
+   "added_at": "2026-10-07T01:20:53Z",
+   "rel": "saas_apps/mslearn_entra_saas_apps_part20.md",
+   "sha256": "4945dbdd91bd9a911a0f3f967b89c05ed71e318e385bb653296489fffd256235",
+   "source_id": "401c9bcf-ea44-452a-a347-a738b7f418d7"
+  },
+  "mslearn_entra_saas_apps_part21.md": {
+   "added_at": "2026-10-07T01:21:34Z",
+   "rel": "saas_apps/mslearn_entra_saas_apps_part21.md",
+   "sha256": "832d1f18f3b28f6c7c285df75294136f870a25c3ec70c6dd03abfef4d04a6429",
+   "source_id": "d5ea3a9f-aafe-4c65-bc64-16f7dfd31b7a"
+  },
+  "mslearn_entra_saas_apps_part22.md": {
+   "added_at": "2026-10-07T01:22:05Z",
+   "rel": "saas_apps/mslearn_entra_saas_apps_part22.md",
+   "sha256": "bba26399276fb1d3fd051bab044bab6c3c18586810c48047269485ab4b869ab3",
+   "source_id": "32ab2b50-3781-4429-b062-776f8f6a5857"
+  },
+  "mslearn_entra_saas_apps_part23.md": {
+   "added_at": "2026-10-07T01:22:27Z",
+   "rel": "saas_apps/mslearn_entra_saas_apps_part23.md",
+   "sha256": "d5a8e5492d5cbffa681ff7e9fabfbe36e051572d6bc8c941e4331eedcebbdb75",
+   "source_id": "31019c29-5a5c-4a71-b434-be3d1e010171"
+  },
+  "mslearn_entra_saas_apps_part24.md": {
+   "added_at": "2026-10-07T01:22:50Z",
+   "rel": "saas_apps/mslearn_entra_saas_apps_part24.md",
+   "sha256": "2a25c9163054259ea509aa50b9b766d0aac6a135067812e4618287175c4317eb",
+   "source_id": "27a347fc-c4af-4fec-bd95-ba1590915248"
+  },
+  "mslearn_entra_saas_apps_part25.md": {
+   "added_at": "2026-10-07T01:23:21Z",
+   "rel": "saas_apps/mslearn_entra_saas_apps_part25.md",
+   "sha256": "24899c97c4b16f721b1bdd0b407c215235e108ac7f35fd9e9935bc72059253a7",
+   "source_id": "26e40449-dcb0-473d-8d0c-afdfe785c2d0"
+  },
+  "mslearn_entra_saas_apps_part26.md": {
+   "added_at": "2026-10-07T01:23:53Z",
+   "rel": "saas_apps/mslearn_entra_saas_apps_part26.md",
+   "sha256": "7e7fd3993a5b5e77c49a481e3204867668b53f36e5f185ffc567db5a440f1a1f",
+   "source_id": "0d5d88bd-30eb-4a92-b208-abce6477fd81"
+  },
+  "mslearn_entra_saas_apps_part27.md": {
+   "added_at": "2026-10-07T01:24:16Z",
+   "rel": "saas_apps/mslearn_entra_saas_apps_part27.md",
+   "sha256": "5552d3e2806f78b27dae683c1a59ef346ee1a3df2e70fa8751f11d504b6f19c4",
+   "source_id": "8fbf7b11-af9d-426f-aee0-bc5fddcdae7b"
+  },
+  "mslearn_entra_saas_apps_part3.md": {
+   "added_at": "2026-10-07T01:24:47Z",
+   "rel": "saas_apps/mslearn_entra_saas_apps_part3.md",
+   "sha256": "cb39e08a6e1d2f3bc842eae34f2f99cd78835203a6d79a0ca4f99fec65137d6f",
+   "source_id": "c157670d-4c26-44d9-ade1-1d03067af985"
+  },
+  "mslearn_entra_saas_apps_part4.md": {
+   "added_at": "2026-10-07T01:25:09Z",
+   "rel": "saas_apps/mslearn_entra_saas_apps_part4.md",
+   "sha256": "3abf90c9ea11e7fe21402b74d7229c6a06a1ff8506f8572a6edec284f1221596",
+   "source_id": "a7338ea8-3f04-4f80-9293-86ed1a4b8217"
+  },
+  "mslearn_entra_saas_apps_part5.md": {
+   "added_at": "2026-10-07T01:25:51Z",
+   "rel": "saas_apps/mslearn_entra_saas_apps_part5.md",
+   "sha256": "f4d8aebafdcaea7ff3f356b1263857033a507a623f0323d34972bd8bd8b58133",
+   "source_id": "996a74ff-04a3-46aa-aad7-869717c2899d"
+  },
+  "mslearn_entra_saas_apps_part6.md": {
+   "added_at": "2026-10-07T01:26:23Z",
+   "rel": "saas_apps/mslearn_entra_saas_apps_part6.md",
+   "sha256": "3619865fdee8e75fc4c6c4e55af936f731cf5b8db023392872e8993ef36e99cf",
+   "source_id": "cae098a9-a566-4583-875d-ccbbcf46281a"
+  },
+  "mslearn_entra_saas_apps_part7.md": {
+   "added_at": "2026-10-07T01:27:07Z",
+   "rel": "saas_apps/mslearn_entra_saas_apps_part7.md",
+   "sha256": "86d1d1f427ef9eb37060fab6bfc7f8a719c4210763a279ac6f63d67b6c3d4796",
+   "source_id": "b2a07b5b-8ad0-4de4-8be3-1b4211f35397"
+  },
+  "mslearn_entra_saas_apps_part8.md": {
+   "added_at": "2026-10-07T01:27:30Z",
+   "rel": "saas_apps/mslearn_entra_saas_apps_part8.md",
+   "sha256": "e64652a08bc36994d4808d23dd4dc03e226eab3390ba0dbadee5069faa9a6cb8",
+   "source_id": "cf1fd857-bb72-49f1-b447-8eb9fd55338d"
+  },
+  "mslearn_entra_saas_apps_part9.md": {
+   "added_at": "2026-10-07T01:27:53Z",
+   "rel": "saas_apps/mslearn_entra_saas_apps_part9.md",
+   "sha256": "450d5dd6081b3b3de0df450e68e4627b17cc8a3dcd58764f943230d6ce3c9b11",
+   "source_id": "e7c3fc63-ea80-4236-96c7-dd52f6e8d41e"
+  }
+ },
+ "synced_at": "2026-10-07T01:27:53Z"
+}

@@ -1,7 +1,7 @@
 # Zscaler Help — API / SDK (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-07 03:10 UTC
+Generated: 2026-10-05 09:38 UTC
 Articles in this file: 88
 
 ---
@@ -2880,13 +2880,13 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/api-rate-limit-summary","lastmod":"2026-08-10T07:06Z","nid":"1400476"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/api-rate-limit-summary","lastmod":"2026-09-12T07:06Z","nid":"1400476"} -->
 ## API Rate Limit Summary
 
 - Source: https://help.zscaler.com/legacy-apis/api-rate-limit-summary
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > API Rate Limit Summary
-- Last modified: 2026-08-10T07:06Z
+- Last modified: 2026-09-12T07:06Z
 - Summary: Summarization of Zscaler's API resources and their rate limits for each method.
 
 The following table summarizes the Zscaler Internet Access (ZIA) API resources and their rate limits for each method.
@@ -7767,13 +7767,13 @@ Gets a list of all the cloud browser isolation profiles in the Isolation Profile
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/browser-profiles","lastmod":"2026-07-31T16:37Z","nid":"1542219"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/browser-profiles","lastmod":"2026-09-20T07:06Z","nid":"1542219"} -->
 ## Browser Profiles
 
 - Source: https://help.zscaler.com/legacy-apis/browser-profiles
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Reference Guide > Browser Profiles
-- Last modified: 2026-07-31T16:37Z
+- Last modified: 2026-09-20T07:06Z
 
 To access detailed ZPA API documentation, including references and use cases, refer to the [Zscaler Help Portal](/zpa/about-zpa-api).
 
@@ -9801,13 +9801,13 @@ Gets all configured Cloud Connector groups for the specified customer.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-nanolog-streaming-service-nss","lastmod":"2026-09-06T07:06Z","nid":"1510451"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-nanolog-streaming-service-nss","lastmod":"2026-10-04T07:06Z","nid":"1510451"} -->
 ## Cloud Nanolog Streaming Service (NSS)
 
 - Source: https://help.zscaler.com/legacy-apis/cloud-nanolog-streaming-service-nss
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Cloud Nanolog Streaming Service (NSS)
-- Last modified: 2026-09-06T07:06Z
+- Last modified: 2026-10-04T07:06Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 
@@ -18284,13 +18284,13 @@ A successful response returns code 204, meaning the application segment is delet
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-certificates-using-api","lastmod":"2026-08-04T11:55Z","nid":"1484831"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-certificates-using-api","lastmod":"2026-09-27T07:06Z","nid":"1484831"} -->
 ## Configuring Certificates Using API
 
 - Source: https://help.zscaler.com/legacy-apis/configuring-certificates-using-api
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Configuring Certificates Using API
-- Last modified: 2026-08-04T11:55Z
+- Last modified: 2026-09-27T07:06Z
 - Summary: Information about certificate use cases applicable to the Zscaler Private Access (ZPA) cloud service API.
 
 This article provides information on managing Zscaler Private Access (ZPA) certificate use cases using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
@@ -29363,13 +29363,13 @@ A successful response yields code 204, meaning the server is deleted.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-tag-groups-using-api","lastmod":"2026-08-04T13:23Z","nid":"1541728"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-tag-groups-using-api","lastmod":"2026-09-20T07:06Z","nid":"1541728"} -->
 ## Configuring Tag Groups Using API
 
 - Source: https://help.zscaler.com/legacy-apis/configuring-tag-groups-using-api
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Configuring Tag Groups Using API
-- Last modified: 2026-08-04T13:23Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: Information on configuring tag groups using Zscaler Private Access (ZPA) cloud service API.
 
 This article provides information on configuring ZPA [tag groups](https://help.zscaler.com/zpa/about-tag-management-application-segments) using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
@@ -29655,13 +29655,13 @@ The following table includes available fields you can use for the tag key API us
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-tag-key-value-pairs-using-api","lastmod":"2026-08-04T13:17Z","nid":"1541720"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-tag-key-value-pairs-using-api","lastmod":"2026-09-27T07:06Z","nid":"1541720"} -->
 ## Configuring Tag Key-Value Pairs Using API
 
 - Source: https://help.zscaler.com/legacy-apis/configuring-tag-key-value-pairs-using-api
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Configuring Tag Key-Value Pairs Using API
-- Last modified: 2026-08-04T13:17Z
+- Last modified: 2026-09-27T07:06Z
 - Summary: Information on configuring tag key-value pairs using Zscaler Private Access (ZPA) cloud service API.
 
 This article provides information on configuring ZPA [tag key-value pairs](https://help.zscaler.com/zpa/about-tag-management-application-segments) using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
@@ -29970,13 +29970,13 @@ The following table includes available fields you can use for the tag key API us
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-tag-namespaces-using-api","lastmod":"2026-08-04T13:15Z","nid":"1541693"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-tag-namespaces-using-api","lastmod":"2026-09-27T07:06Z","nid":"1541693"} -->
 ## Configuring Tag Namespaces Using API
 
 - Source: https://help.zscaler.com/legacy-apis/configuring-tag-namespaces-using-api
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Configuring Tag Namespaces Using API
-- Last modified: 2026-08-04T13:15Z
+- Last modified: 2026-09-27T07:06Z
 - Summary: Information on configuring tag namespaces using Zscaler Private Access (ZPA) cloud service API.
 
 This article provides information on configuring ZPA [tag namespaces](https://help.zscaler.com/zpa/about-tag-management-application-segments) using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
@@ -30348,13 +30348,13 @@ HTTP/1.1 204 No Content
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-tags-and-tag-groups-policy-rules-using-api","lastmod":"2026-08-04T13:28Z","nid":"1541752"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-tags-and-tag-groups-policy-rules-using-api","lastmod":"2026-09-27T07:06Z","nid":"1541752"} -->
 ## Configuring Tags and Tag Groups with Policy Rules Using API
 
 - Source: https://help.zscaler.com/legacy-apis/configuring-tags-and-tag-groups-policy-rules-using-api
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Configuring Tags and Tag Groups with Policy Rules Using API
-- Last modified: 2026-08-04T13:28Z
+- Last modified: 2026-09-27T07:06Z
 - Summary: Information on managing tags and tag groups for policy rules applicable to the Zscaler Private Access (ZPA) cloud service API.
 
 This article provides information for managing ZPA tags and tag groups for poicy rules using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
@@ -30586,13 +30586,13 @@ The following table includes descriptions of available fields you can use for th
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-tags-application-segments-using-api","lastmod":"2026-08-04T13:31Z","nid":"1541748"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-tags-application-segments-using-api","lastmod":"2026-09-27T07:06Z","nid":"1541748"} -->
 ## Configuring Tags for Application Segments Using API
 
 - Source: https://help.zscaler.com/legacy-apis/configuring-tags-application-segments-using-api
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Configuring Tags for Application Segments Using API
-- Last modified: 2026-08-04T13:31Z
+- Last modified: 2026-09-27T07:06Z
 - Summary: Information on managing tags for application segments applicable to the Zscaler Private Access (ZPA) cloud service API.
 
 This article provides information for managing Zscaler Private Access (ZPA) application segments with tags using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).

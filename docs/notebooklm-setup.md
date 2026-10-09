@@ -82,6 +82,68 @@ python scripts/sync_notebooklm.py \
 
 認証情報は両方のノートブックで同じものを使えます。
 
+### 週次リリースノート（追記型ノートブック）
+
+`weekly-release-digest.yml` は、毎週のダイジェストで全サービスを1つにまとめた
+`Zscaler_release_<開始日>-<終了日>.md`（例: `Zscaler_release_20260926-20261002.md`）を
+**`Zscaler_release_notes`** ノートブックに追加します（1週 = 1ソース）。サービスごとの
+`.md` はメール添付用で、ノートブックには入れません。
+上の2つと違い **追記モード** (`--mode append`) で動きます。
+
+- ローカルに無いファイル（過去の週）のソースは**消さずに残す**
+- ノートブックのソース数が `--max-sources`（ワークフローでは
+  `NOTEBOOKLM_MAX_SOURCES: "90"`）を超えるときだけ、**このワークフローが登録した
+  ソースを古い週から削除**して空きを作る。手動で追加したソースは数には入るが
+  削除はしない
+- アカウントのソース上限が取得できて、それが厳しい場合（例: 無料プランの 50）は
+  「上限 − 10」まで自動で下げる
+- 同じ週を再実行したときは、同名のソースを差し替える（増えない）
+
+```bash
+python scripts/weekly_release_digest.py --end-date 2026-10-02 --no-email --no-save-state
+python scripts/sync_notebooklm.py --mode append \
+  --docs-dir output/release_digest/2026-10-02 --glob "Zscaler_release_*.md" \
+  --state-file data/release_notes_notebooklm_sync_state.json \
+  --notebook-title Zscaler_release_notes --dry-run
+```
+
+**過去分の一括登録:** Actions → **Zscaler Weekly Release Digest** → Run workflow で
+`backfill_from` に開始日（例: `2026-04-01`）、`end_date` に最後の金曜（例:
+`2026-09-25`）を入れて実行すると、その間の各週の週次まとめを作って一度に登録します。
+メールは送られず、既知記事の記録も変わりません。
+
+```bash
+python scripts/weekly_release_digest.py --backfill-from 2026-04-01 --end-date 2026-09-25
+```
+
+1週 1 ソースなので、90 件でおよそ 1 年 9 か月分が残ります。`--glob` に一致しなく
+なった登録済みソース（ファイル名の付け方を変える前のもの）は、追記モードの実行時に
+削除されます。
+
+### Microsoft Learn（ドキュメントセットごとに別ノートブック）
+
+`mslearn-monthly.yml` は毎月 1 日に Microsoft Learn のドキュメントセット（既定は
+Microsoft Entra の日本語版、約 4,800 ページ）を**全ページ取り直し**、新規・更新・削除を
+反映した `mslearn_docs/<docset>/` を **`MSLearn_<docset>`**（例: `MSLearn_entra`）
+ノートブックへミラー同期し、結果を毎回メールで送ります（変更が無い月も送ります）。
+
+```bash
+python scripts/build_mslearn_docs.py --docset entra
+python scripts/sync_notebooklm.py \
+  --docs-dir mslearn_docs/entra \
+  --state-file data/mslearn_entra_notebooklm_sync_state.json \
+  --notebook-title MSLearn_entra --dry-run
+```
+
+Entra は約 83 ソース（うち `saas_apps` が 27）になります。NotebookLM 無料プランの 1 ノートブック 50 ソースを
+超えるため、無料プランでは同期の途中から追加に失敗します（失敗はメールに出ます）。
+その場合は `saas_apps`（SaaS 連携チュートリアル約 2,000 ページ）など不要なカテゴリを
+`--only` で外して手動同期するか、Pro プランを使ってください。
+
+**初回の実行:** Actions → **Microsoft Learn Docs Monthly Update** → Run workflow。
+まず `limit` に `20`、`sync` に `dry-run` を入れて流れとメールを確認し、問題なければ
+`limit` を `0` に戻して実行すると全ページの初回登録になり、「初回登録」のメールが届きます。
+
 ## 4. GitHub Actions に登録する
 
 `storage_state.json` の中身を `NOTEBOOKLM_STORAGE_STATE_JSON` という名前の

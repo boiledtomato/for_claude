@@ -1,8 +1,453 @@
 # Zscaler Help — Risk & Exposure Management (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-07 03:10 UTC
-Articles in this file: 158
+Generated: 2026-10-05 09:38 UTC
+Articles in this file: 165
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/understanding-identity-protection-architecture","lastmod":"2026-08-30T23:24Z","nid":"1539481"} -->
+## Understanding Identity Protection Architecture
+
+- Source: https://help.zscaler.com/identity-protection/understanding-identity-protection-architecture
+- Product: Identity Protection
+- Path: Identity Protection Help > Understanding Identity Protection Architecture
+- Last modified: 2026-08-30T23:24Z
+- Summary: Information about the Identity Protection architecture.
+
+Identity Protection is an effective identity threat detection and response solution (ITDR) integrated with the Zscaler Security Operations (SecOps) platform. Identity Protection protects users with continuous visibility into identity misconfigurations, risky permissions, and exposed credentials. It detects and stops identity-based attacks such as credential theft, multi-factor authentication bypass, privilege escalation, etc
+
+The Identity Protection architecture includes the following key components:
+
+[Image: Identity Protection Architecture]
+
+- **Identities App**: Built into the SecOps platform and serves as the central point of management and analysis for the Identity Protection service. To learn more, see [What Is Identity Protection?](https://help.zscaler.com/identity-protection/what-identity-protection)
+- **ITDR Connector**: The data connector that serves as the source stream from the ITDR solution to the data fabric.
+- **Data Fabric Cluster**: The entire data fabric cluster responsible for processing raw data from various sources.
+- **Zscaler Zero Trust Exchange (ZTE)**: Identity Protection leverages the ZTE platform to mitigate risk with access policy controls that block compromised users when an identity attack is detected. Integration with Internet & SaaS (ZIA) and Private Access (ZPA) provides better visibility, enrichment, and containment capabilities.
+- **Identity Posture Scan**: Identity Protection provides the ability to assess identity infrastructures, such as Active Directory (AD), Entra ID, Okta, etc. to obtain a comprehensive view of your identity posture, risky identities, misconfigurations, and vulnerabilities. A MITRE ATT&CK mapping helps you locate blind spots, prioritize where to focus, and remediate risks.
+  - **AD Posture Scan**: You can configure an AD scan by specifying the AD domain you want to assess. For assessing the AD domain, Zscaler Client Connector must be installed on a domain-joined Windows machine. Identity Protection audits an AD domain by running LDAP queries to build a map of schema, users, computers, OUs, and other objects in your identity store. It then runs checks against these objects to find misconfigurations and vulnerabilities that exist in your AD domains. After the assessment is complete, the results are available in the Identities app. To learn more, see [About Identity Findings](https://help.zscaler.com/identity-protection/about-identity-findings) and [About Active Directory Posture Scan](https://help.zscaler.com/itdr/about-active-directory-posture).
+  - **Entra ID Posture Scan**: You can connect your organization's Entra ID tenants with Identity Protection to assess the posture of your Entra ID. The posture checks for Entra ID include identifying misconfigurations and potential risks across Entra ID users, service principals, and roles. Identity Protection uses a deployment script to set up all necessary resources such as resource group, app, storage account, service principal, etc. in the Entra ID tenant. Diagnostic settings are also enabled by the deployment script to enable change detection using logs. The audit logs are analyzed, and the results are available in the Identities app. To learn more, see [About Identity Findings](https://help.zscaler.com/identity-protection/about-identity-findings) and [About Entra ID Posture Scan](https://help.zscaler.com/itdr/about-entra-id-posture-scan).
+  - **Okta Integration**: Identity Protection integrates with Okta to enrich the identity metadata, identify real-time changes on an Okta identity, and perform actions on an Okta identity like activate user, suspend user, clear user sessions, etc. To learn more, see [Integrating ITDR with Okta](https://help.zscaler.com/itdr/integrating-itdr-okta).
+- **Identity Change Detection**: After you have visibility of your identity attack surface, you can build identity hygiene. Identity Protection provides real-time monitoring of critical changes in your AD domains and Entra ID tenants that introduce new risks and open pathways for attackers to escalate privileges and move laterally. In addition to real-time alerting, you also get remediation guidance in the form of video tutorials, commands, and scripts that can be used to resolve issues. To learn more, see [About Active Directory Change Detection](https://help.zscaler.com/itdr/about-active-directory-change-detection) and [About Entra ID Change Detection](https://help.zscaler.com/itdr/about-entra-id-change-detection).
+- **Credential Exposure Scan**: Identity Protection scans endpoints to check for risky identity material, such as usernames, passwords, API keys, SSH keys, certificate files, and other credentials stored locally on endpoints. In post-compromise scenarios, the presence of such credentials on an endpoint is a critical source of risk and enables adversaries to escalate privileges and access sensitive data and applications. The exploitation of these local credentials has been observed in several publicly reported breaches. Visibility into these credentials presents an opportunity to clean them up and enforce policies for securely storing them, thereby reducing the post-compromise attack surface available to an adversary. To learn more, see [About Endpoint Credential Exposure Scan](https://help.zscaler.com/itdr/about-endpoint-credential-exposure-scan).
+- **Identity Threat Detection**: Identity Protection has a threat detection capability that alerts security teams and threat hunters of malicious activities directed toward potentially malicious misuse and theft of identities. Identity threat detection is enabled as an endpoint policy on designated machines with Zscaler Client Connector installed. Security teams can enable detectors (DCSync, DCShadow, Kerberoasting, etc.) via policies on designated endpoints. If a pattern is noticed, Zscaler Client Connector sends signals to Identity Protection indicating that a threat has been detected. Identity Protection enriches the threat signal with information relevant to the security team to perform an investigation. The security team can configure orchestration capabilities to perform automated actions. To learn more, see [About Threat Detection Policies](https://help.zscaler.com/itdr/about-threat-detection-policies).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/viewing-identity-finding-details","lastmod":"2026-05-17T07:06Z","nid":"1538793"} -->
+## Viewing Identity Finding Details
+
+- Source: https://help.zscaler.com/identity-protection/viewing-identity-finding-details
+- Product: Identity Protection
+- Path: Identity Protection Help > Identity Findings > Viewing Identity Finding Details
+- Last modified: 2026-05-17T07:06Z
+- Summary: How to view details of identity findings.
+
+You can view detailed information about identity security risks detected in your environment on the Identity Findings page. These findings help security teams identify misconfigurations, exposed credentials, and other identity-related risks across connected identity sources such as Active Directory or Entra ID. Each identity finding includes contextual information such as the risk description, severity, affected tenants, MITRE ATT&CK mapping, and recommended remediation steps. This information helps you quickly understand the potential impact and take appropriate action to mitigate the risk.
+
+To access detailed identity finding information:
+
+1. In the Zscaler Security Operations (SecOps) platform, go to **Identities**>**Identity Findings**. See image.
+2. On the **Identity Findings**page, click an identity finding to view its details. The identity finding details drawer appears.
+3. In the identity finding details drawer, you can access the following tabs:
+  - Details
+  - Affected Identities
+  - Affected Tenants
+  - Remediation
+
+The Details tab provides an overview of the identity risk and its security context, helping you to review and decide which identity environments require investigation and remediation.
+
+This section typically includes:
+
+- **Identity Finding**: The name of the detected identity risk.
+- **Last Seen**: When the finding was first and most recently detected.
+- **Tactics**: The relevant MITRE tactic associated with the risk.
+- **Type of Risk**: The classification of the detected issue.
+- **Techniques**: The relevant MITRE techniques associated with the risk.
+- **Vulnerability Exploit Ease**: Indicates how easily an attacker can exploit the vulnerability based on required skills, conditions, and available tools.
+- **Sub Techniques**: The relevant MITRE sub-techniques associated with the risk.
+- **Vulnerability Remediate** **Ease**: Indicates how easily the vulnerability can be fixed based on required effort, changes, and potential impact on systems and operations.
+- **Sources**: The identity systems where the risk was detected (e.g., Active Directory or Entra ID).
+
+In addition, you can view details about the type of finding, its impact, and related reference documentation.
+
+See image.
+
+The Affected Identities tab lists all identities impacted by the finding. You can review and decide which identity requires investigation and remediation.
+
+You can also apply filters, download the list of tenants as a CSV file, or customize the columns displayed in the table.
+
+See image.
+
+The Affected Tenants tab lists all tenants or identity environments impacted by the finding. You can review and decide which identity environments require investigation and remediation.
+
+You can also apply filters, download the list of tenants as a CSV file, or customize the columns displayed in the table.
+
+See image.
+
+The Remediation tab provides recommended steps to resolve the detected issue. Depending on the environment and configuration, the remediation guidance can include actions or a remediation workflow that helps you to understand the recommended steps to address the detected identity risk. The workflow guides you through possible actions, such as evaluating whether the configuration is required, implementing alternative security controls, removing insecure configurations, or applying appropriate mitigations.
+
+See image.
+
+For each action, you can view detailed information, including videos, script, etc. to accomplish the action.
+
+See image.
+
+If the configuration cannot be changed immediately, admins can choose to safelist the finding after evaluating the associated risk.
+
+See image.
+
+[Image: Identity Findings page with the navigation highlighted]
+
+[Image: Viewing the Details tab]
+
+[Image: Viewing Affected Identities tab]
+
+[Image: Viewing the Affected Tenants tab]
+
+[Image: Viewing the Remediation tab]
+
+[Image: Viewing various remediation steps]
+
+[Image: Adding an object to safelist]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/viewing-managing-alerts","lastmod":"2026-09-29T04:58Z","nid":"1540824"} -->
+## Viewing & Managing Alerts
+
+- Source: https://help.zscaler.com/identity-protection/viewing-managing-alerts
+- Product: Identity Protection
+- Path: Identity Protection Help > Alerts > Viewing & Managing Alerts
+- Last modified: 2026-09-29T04:58Z
+- Summary: How to view detailed alerts information in Identity Protection.
+
+You can analyze [alerts in Identity Protection](https://help.zscaler.com/identity-protection/about-alerts) by viewing the detailed information about each alert. This helps security teams understand the associated tactics and techniques, related incidents, and impacted users or assets, and take the necessary remediation.
+
+To view the alert details:
+
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Identities**.
+2. In the left-side navigation, click **Alerts**. The **Alerts**page appears.
+3. Click the alert you want to view. See image. A drawer appears with the following details and tabs:
+  - Top Panel
+  - Details
+  - Entities
+  - Related Incidents
+4. Click **Apply Changes** after making changes to the alert, or close the drawer.
+
+In the top panel of the alert drawer, you can view:
+
+- **Name**: The name of the alert.
+- **First Seen**: The date and time when the alert was first seen.
+- **Last Seen**: The date and time when the alert was last seen.
+- **Alert ID**: The ID of the alert.
+- **Risk Score**: The alert's severity level and severity score. By default, it reflects the highest severity score among the findings detected on the asset.
+
+Additionally, you can perform the following actions:
+
+- **Copy**icon: Copy a shareable link to the alert.
+- **Expand**icon: Expand the alert's drawer to full screen.
+- **Close**icon: Close the alert drawer.
+- **Alert Status**: Mark the status of the alert (**Discovered**, **Acknowledged**, **Confirmed**, or **Remediated**).
+
+See image.
+
+On the **Details**tab, you can view:
+
+- **Source**: The source of the alert (e.g., Okta Alerts).
+- **Frequency**: The count of alerts with the same name for the last month.
+- **Tactic**: The [MITRE ATT&CK tactic](https://attack.mitre.org/) associated with the alert.
+- **Technique**: The MITRE ATT&CK technique associated with the alert.
+- **Incidents**: The number of incidents associated with the alert.
+- **Created Time**: The date and time when the alert was triggered.
+- **Verdict**: The verdict of the alert which is used to calculate the alert risk score. Select one of the following verdicts:
+  - **No verdict**: No determination is made for the alert yet.
+  - **Benign**: The alert does not indicate a security threat.
+  - **False Positive**: The alert is triggered, but the detected condition does not represent the threat the alert is intended to detect.
+  - **Inconclusive**: The available evidence is not enough to determine whether the alert indicates a legitimate or malicious condition.
+  - **Malicious**: The alert indicates a malicious condition that represents a security threat.
+  - **Suspicious**: The alert indicates a potential security threat, but the available evidence is not enough to confirm it as malicious.
+  - **True Positive**: The alert identifies the security condition or threat it is intended to detect.
+- **Description**: The description of the alert.
+- **Score Calculation**: The alert's cumulative score that is calculated by summing the severity scores of the alert (i.e., **Critical**, **High**, **Medium**, **Low**) and the alert verdict, and rounding the result. This indicator can be used to prioritize alerts.
+
+See image.
+
+The **Entities**tab displays the list of [users](https://help.zscaler.com/unified/viewing-user-details) or [assets](https://help.zscaler.com/uvm/viewing-managing-assets-uvm) that received alerts. At the top, the three entities with the most alerts are listed. Click an entity to go to its respective page.
+
+See image.
+
+On the **Related Incidents** tab, you can do the following:
+
+- Click the **Export as CSV**icon to export the incidents list to a CSV file.
+- Click the **Manage Table Columns** icon to modify the columns displayed in the table. To learn more, see [Managing Table Columns](https://help.zscaler.com/unified/managing-table-columns).
+- Apply filters to view specific data. To learn more, see [Using Filters](https://help.zscaler.com/unified/using-filters).
+- View the incident's details:
+  - **ID**: The ID of the incident.
+  - **Alerts**: The number of alerts associated with incidents.
+  - **Incident Risk Mass**: The risk mass calculated for the incident.
+  - **Assignee**: The user assigned to the incident.
+  - **Status**: The current status of the incident (**Discovered**, **Acknowledged**, **Confirmed**, or **Remediated**).
+
+See image.
+
+[Image: Alerts page]
+
+[Image: Alert details tab]
+
+[Image: Entities tab]
+
+[Image: Related Incidents tab]
+
+[Image: Top panel on alert detail's page]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/viewing-tenant-details","lastmod":"2026-05-17T07:06Z","nid":"1539030"} -->
+## Viewing Tenant Details
+
+- Source: https://help.zscaler.com/identity-protection/viewing-tenant-details
+- Product: Identity Protection
+- Path: Identity Protection Help > Tenants > Viewing Tenant Details
+- Last modified: 2026-05-17T07:06Z
+- Summary: How to view a tenant's detailed information in Identity Protection.
+
+You can view detailed information about tenants and identity findings. This helps security teams to review the severity level of each tenant and details of these findings to understand the potential security risks and remediate the issues.
+
+To view tenant details:
+
+1. In the Zscaler Security Operations (SecOps) platform, go to **Identities**> **Tenants**. See image.
+2. On the **Tenants**page, click a tenant. A tenant details drawer appears.
+3. In the tenant details drawer, you can access the following tabs:
+  - Details
+  - Identity Findings
+  - Identities
+  - MITRE ATT&CK
+
+On the **Details**tab, you can view:
+
+- **Tenant ID**: The unique identifier of the tenant.
+- **Last Scan**: The date and time of the last scan for a data sync.
+- **Scan Frequency**: The frequency of the scan (e.g., **Daily**, **Weekly**, etc.).
+- **Source**: The source of the identity finding (e.g., **ITDR Change Detection AD**, **ITDR Domains AD**, etc.). Hover over each icon to view the source.
+- **Identity Findings**: The total number of **Critical**, **High**, **Medium**, and **Low**identity findings for the tenant. See image.
+
+On the **Identity Findings** tab, you can do the following:
+
+- Click the **Export as CSV**icon to export the identity findings list for a tenant to a CSV file.
+- Click the **Settings**icon to modify the columns displayed in the table.
+- Apply filters to the identity findings list (e.g., filtering the findings by a particular state, title, or severity score). To learn more, see [Using Filters](https://help.zscaler.com/identity-protection/using-filters).
+- View the identity findings details: See image.
+  - **Severity**: The severity level (**Critical**, **High**, **Medium**, or **Low**). The **Critical**and **High**severity findings are prioritized.
+  - **Name**: The name of the identity finding.
+  - **Type of Risk**: The type of risk (e.g., **Kerberos Abuse**, **Account Management**, **Credential Exposure**, etc.).
+  - **MITRE Tactics**: The [MITRE ATT&CK tactic](https://attack.mitre.org/tactics/) ID.
+  - **MITRE Techniques**: The [MITRE ATT&CK technique](https://attack.mitre.org/techniques/enterprise/) that the adversary used.
+
+On the **Identities**tab, you can do the following:
+
+- Click the **Export as CSV**icon to export the identity findings list for a user to a CSV file.
+- Click the **Settings**icon to modify the columns displayed in the table.
+- Apply filters to the identity findings list (e.g., filtering the findings by a particular state, title, or severity score). To learn more, see [Using Filters](https://help.zscaler.com/identity-protection/using-filters).
+- View the identities details: See image.
+  - **Name**: The name of the user.
+  - **Identity Type**: The type of identity (**User**, **Service Principa**l, or **Special Identities**).
+  - **Is Admin**: The user's admin role status. If the user is an admin, this field shows `true`.
+  - **Type**: The type of user (**Internal**or **External**).
+
+On the MITRE ATT&CK tab, you can view the identity findings categorized in [MITRE ATT&CK tactics](https://attack.mitre.org/tactics/). Hover over the tactic to see the **Read more** icon, and click the icon to go to the MITRE tactics web page.
+
+See image.
+
+[Image: Tenants page displaying configured tenants.]
+
+[Image: The Details tab on Tenants page]
+
+[Image: The Identity Findings tab on Tenants page]
+
+[Image: The Identities tab on Tenants page.]
+
+[Image: The MITRE ATT&CK tab on Tenants page.]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/what-identity-protection","lastmod":"2026-08-30T23:23Z","nid":"1535399"} -->
+## What Is Identity Protection?
+
+- Source: https://help.zscaler.com/identity-protection/what-identity-protection
+- Product: Identity Protection
+- Path: Identity Protection Help > What Is Identity Protection?
+- Last modified: 2026-08-30T23:23Z
+- Summary: Information on what Identity Protection is and why it is used.
+
+Identity has become the new target for attackers because human and non-human identities have permissions to access critical applications, assets, and sensitive data. Security teams are overwhelmed by fragmented findings and disconnected tools, and risks are increasing faster than the time it takes to resolve them. When an identity is compromised, security teams need more details, such as who the identity is, what it can access, whether it is over-privileged, whether its credentials are weak or exposed, and whether its behavior deviates from normal. This information can help security teams to prioritize, take immediate action, and reduce the risks.
+
+Identity Protection helps organizations move from fragmented visibility to actionable identity security. It detects anomalous activities such as compromised credentials, suspicious logins, sensitive data theft, etc., and provides continuous and unified visibility into identity risks.
+
+Identity Protection is part of the Zscaler Security Operations (SecOps) platform and works alongside Unified Vulnerability Management (UVM), Asset Exposure Management (AEM), and Security Operations Center (SOC) Workbench to deliver a cohesive security operations experience. This allows you to unify disparate identity data from multiple systems to get a complete view of users, understand their posture, dynamically measure identity risks, and mitigate identity attacks.
+
+## Key Features and Benefits
+
+Identity Protection includes the following features and benefits:
+
+- **Detect Risks Associated with Identities**: Detect compromised accounts, suspicious sign‑ins, leaked credentials, and anomalies in authentication activities to stop threats before they escalate.
+- **Mitigate Identity Attacks**: Detect and contain identity-based attacks before they can cause harm.
+- **Strengthen Identity Posture**: Find and fix weak passwords, exposed credentials, and excessive privileges.
+- **Single Identity View**: Unify identity data from disparate sources into one view. Correlates signals from sign‑ins, credentials, permissions, and behavior to display findings related to identities.
+- **Drive Broader SecOps Outcomes**: Prioritize threats and exposures associated with risky identities to accelerate response and reduce future risk.
+- **Reports and Dashboards**: Custom dashboards and reports to view specific results as required.
+
+## How Does Identity Protection Work?
+
+Identity Protection takes a proactive and integrated approach to secure user identities.
+
+Identity Protection consists of the core capabilities:
+
+- **Identity Risk Detection**: Detect anomalies in authentication activity, suspicious sign‑ins, and compromised credentials. The correlated signals are mapped into the SecOps platform, providing visibility into risks across assets, vulnerabilities, and exposures.
+- **Data Ingestion via Connectors:**Identity Protection uses connectors to ingest data from sources such as posture scans, change detections, alerts, and identity records. These connectors also integrate with identity providers like Okta and Microsoft Entra, enabling the system to consume identity data directly from the customer's IdP and bring it into the protection framework.
+- **Data Fabric as the Backbone:**Data Fabric is the backbone of the SecOps platform. It ensures that all incoming identity signals are normalized, correlated, and enriched. This allows the platform to unify disparate data streams and provide security teams with a coherent view of identity-related risks across the environment.
+- **Custom Configuration:** Manage and fine-tune identity protection through the SecOps platform. Within the Settings page, you can adjust scan configurations and review clear explanations for each option. When deeper configuration is required, certain links redirect you to the legacy ITDR experience, ensuring continuity for advanced tasks while maintaining a modern interface for routine adjustments.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/risk360/about-alerts","lastmod":"2024-12-16T06:06Z","nid":"1483176"} -->
+## About Alerts
+
+- Source: https://help.zscaler.com/risk360/about-alerts
+- Product: Risk360
+- Path: About Alerts
+- Last modified: 2024-12-16T06:06Z
+- Summary: Information on Alerting in the Risk360 Admin Portal.
+
+Alerting helps you meet your security compliance requirements and reduce potential financial losses by getting timely notifications when the configured criteria in the alert rule are met. This also helps take swift action towards events impacting your organization's risk exposure.
+
+Alerts provide the following benefits and enable you to:
+
+- Configure alert rules that help trigger alerts when an alert rule is activated.
+- Configure rules for various criteria (i.e., change in risk score at the organization, factor group, and factor levels, and change in potential financial loss).
+- Receive triggered notifications sent via emails and webhooks.
+- Get actionable recommendations as part of alerts to tackle security events.
+
+## How Alerting Works
+
+1. When the alert rule's criteria is satisfied for the throttling period defined in the alert rule, the alert becomes an ongoing alert and starts to get displayed on the Ongoing Alerts tab.
+2. The users receive an alert notification in the form of an email and webhook, depending on the configured delivery method.
+3. The Started On field in the alert notification shows the date and time when the alert started and the Ended On field shows Ongoing because the alert is still persisting.
+4. Users receive a daily alert notification as long as the alert criteria are true and until the alert rule is not modified, disabled, deleted, or muted.
+  - Disabling an alert rule causes the alerting engine not to evaluate the alert criteria. However, the alert rule stays configured on the Alert Rules tab. You can enable the alert at a later time based on your alert requirement.
+  - Deleting an alert removes the alert rule from the Alert Rules page.
+  - Muting an ongoing alert stops sending alert notifications. However, it doesn't impact the evaluation of the alert, and you can still track the ongoing alert on the Ongoing Alerts tab.
+5. When the criteria of the alert are no longer satisfied, the alert stops and is listed under the Alert History tab. Subsequently, the users receive an alert notification with the Ended On field in the notification showing the date and time when the alert ended.
+
+## About the Alerts Page
+
+The Alerts page contains the following 4 tabs to manage various alerting stages:
+
+- Ongoing Alerts
+- Alerts History
+- Alert Rules
+- Webhooks
+
+The Ongoing Alerts tab (Alerts > Ongoing Alerts) shows alerts that are currently being triggered and persisting. On this page, you can do the following:
+
+1. Filter the data on the page for the last 1 day, 2, 5, 7, or 14 days.
+2. Filter the ongoing alerts by Severity or Rule Name.
+3. View a list of ongoing alerts. For each alert, you can view:
+  - **Severity**: The severity of the alert rule (Critical, High, Medium, or Low).
+  - **Rule Name**: The name of the rule.
+  - **Alert ID**: The unique ID assigned to the alert.
+  - **Criteria**: The criteria added in the rule that triggers the rule.
+  - **Cause**: The reason the criteria in the rule were satisfied and the alert was triggered. Alert rules can be defined at the following 4 levels: The cause of an alert is due to risk score or financial loss changes at one level below the defined alert criteria. For example, if the criteria is defined at the organization level, then the cause is due to changes in the 4 attack stages. When the alert criteria is a composite rule with the criteria at different levels, the alerting engine breaks the rule into each element and derives the cause for each element separately. For example, if the rule criteria has an Org level and factor group elements, the causes would be due to changes at the 4 attack stages of the attack and the changes in the factors under the factor group.
+    - Organization
+    - Category
+    - Factor group
+    - Factor
+  - **Throttling**: The time frame during which the criteria in the rule persisted.
+  - **Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
+  - **Muted?**: Whether the alert is currently on mute or not.
+  - **Started On**: The date and time when the alert started. Click an alert to view the following information in the drawer view.
+    - Drawer
+
+The Alert History tab (Alerts > Alert History) shows all the historically configured alerts. On this page, you can do the following:
+
+1. Filter the data on the page for the last 1 day, 2, 5, 7, or 14 days.
+2. Filter completed alerts by Severity, Rule Name, or Status.
+3. View a list of completed alerts. For each alert, you can view:
+  - **Severity**: The severity of the alert rule (Critical, High, Medium, or Low).
+  - **Rule Name**: The name of the rule.
+  - **Criteria**: The criteria added in the rule that triggers the rule.
+  - **Alert ID**: The unique ID assigned to the alert.
+  - **Cause**: The reason the criteria in the rule were satisfied and the alert was triggered. Alert rules can be defined at the following 4 levels: The cause of an alert is due to risk score or financial loss changes at one level below the defined alert criteria. For example, if the criteria is defined at the organization level, then the cause is due to changes in the 4 attack stages. When the alert criteria is a composite rule with the criteria at different levels, the alerting engine breaks the rule into each element and derives the cause for each element separately. For example, if the rule criteria has an Org level and factor group elements, the causes would be due to changes at the 4 attack stages of the attack and the changes in the factors under the factor group.
+    - Organization
+    - Category
+    - Factor group
+    - Factor
+  - **Throttling**: The time frame during which the criteria in the rule persisted.
+  - **Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
+  - **Started On**: The date and time when the alert started.
+  - **Ended On**: The date and time when the alert ended. Click an alert to view the following information in the drawer view.
+    - Drawer
+
+The Alert Rules tab (Alerts > Alert Rules) shows all the configured alerts. On this page, you can do the following:
+
+1. Filter the alerts by Severity or Rule Name.
+2. [Add an alert rule](https://help.zscaler.com/risk360/configuring-alert-rule).
+3. View a list of alerts. For each alert, you can view:
+  - **Rule Name**: The name of the rule.
+  - **Severity**: The severity of the alert rule (Critical, High, Medium, or Low).
+  - **Criteria**: The criteria added in the rule that triggers the rule alert.
+  - **Throttling**: The time frame during which the criteria in the rule were satisfied.
+  - **Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
+  - **Status**: The status of the alert, whether enabled or disabled.
+4. Edit a rule.
+5. Mute or unmute notifications from an alert rule. This ensures the rule is enabled, but no notification is initiated when the alert is triggered.
+6. Delete an alert rule or clone the rule to configure a new alert rule.
+
+The Webhook tab (Alerts > Webhook) shows all the configured webhook integrations. You can use integrations into an alert rule from the third-party provider to receive alerts. On this page, you can do the following:
+
+1. Filter the ongoing alerts by Name, Authentication Type, or Status.
+2. [Add webhook](https://help.zscaler.com/risk360/configuring-webhooks).
+3. View a list of configured integrations. For each integration, you can view:
+  - **Name**: The name of the integration.
+  - **URL**: The URL of the integration.
+  - **Authentication Type**: The authentication type configured for the integration (Basic or Token).
+  - **Authentication Status**: This shows the integration authentication status (Active, Error, or In Progress). Fix the configuration if the field displays an error.
+  - **Alert Status**: The status of the alert, whether enabled or disabled.
+4. Edit an integration.
+5. Delete an integration.
+
+The drawer consists of the following two tabs:
+
+### Details
+
+The Details tab shows the following information about the alert:
+
+- **Alert ID**: The unique ID assigned to the alert.
+- **Criteria**: The criteria added in the rule that triggers the alert.
+- **Throttling**: The time frame during which the criteria in the rule persisted.
+- **Alert Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
+- **Cause**: The change in the risk score or potential loss at different levels (i.e., organization, category, factor group, and factor) in the last 24 hours. The red, green, and gray colors indicate an increase, decrease, and no change in the risk score or potential financial loss, respectively. See image.
+
+### Alert Cause History
+
+The Alert Cause History tab shows the history of whenever the alert is triggered for the change in the risk score or potential loss at different levels (i.e., organization, category, factor group, and factor). The red, green, and gray colors indicate an increase, decrease, and no change in the risk score or potential financial loss, respectively. Click the dropdowns to view the change cause for that date.
+
+See image.
+
+The drawer shows the following information about the alert:
+
+- **Alert ID**: The unique ID assigned to the alert.
+- **Criteria**: The criteria added in the rule that triggers the alert.
+- **Throttling**: The time frame during which the criteria in the rule persisted.
+- **Alert Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
+- **Cause**: The change in the risk score or potential loss at different levels (i.e., organization, category, factor group, and factor) in the last 24 hours. The red, green, and gray colors indicate an increase, decrease, and no change in the risk score or potential financial loss, respectively. See image.
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -128,13 +573,13 @@ Suspicious behavior indicators are similar to pre-infection indicators, with les
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/about-audit-logs","lastmod":"2026-04-07T12:14Z","nid":"1463846"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/about-audit-logs","lastmod":"2026-09-29T08:32Z","nid":"1463846"} -->
 ## About Audit Logs
 
 - Source: https://help.zscaler.com/risk360/about-audit-logs
 - Product: Risk360
 - Path: Risk360 Help > Logs > About Audit Logs
-- Last modified: 2026-04-07T12:14Z
+- Last modified: 2026-09-29T08:32Z
 - Summary: Information regarding audit logs within the Risk360 service.
 
 [Watch a video About Audit Logs in Risk360.](https://fast.wistia.net/embed/iframe/6vloz7chdy)
@@ -148,12 +593,14 @@ Audit Logs provide the following benefits and enable you to:
 
 ## About the Risk360 Audit Logs Page
 
-On the Audit Logs page (Administration > Admin Management > Audit Logs > Risk360), you can do the following:
+On the Audit Logs page (Data Explorer > Risk360 > Audit Logs), you can do the following:
 
-1. Download a CSV file. The times mentioned in the CSV file are in PDT.
-2. Search for the logs by Resource, Admin ID, or Client IP.
-3. Filter logs by Time Range, Action, Category, Sub Category, Interface, or Result.
-4. View a list of user logins. For each user login, you can see:
+1. Search for the logs by Resource, Admin ID, or Client IP.
+2. Download a CSV file. The times mentioned in the CSV file are in PDT.
+3. [Modify the columns](https://help.zscaler.com/unified/using-tables).
+4. Show or hide filters.
+5. Filter logs by Time Range, Action, Category, Sub-Category, Interface, or Result.
+6. View a list of user logins. For each user login, you can see:
   - **Timestamp**: The date and time of the user's action.
   - **Action**:The action performed by the user in the Risk360 Admin Portal.
   - **Category**: A location within the Risk360 Admin Portal where the action is performed.
@@ -428,13 +875,13 @@ On the Insights page, you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/about-role-management-risk360","lastmod":"2026-04-16T10:25Z","nid":"1456991"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/about-role-management-risk360","lastmod":"2026-09-29T08:08Z","nid":"1456991"} -->
 ## About Role Management
 
 - Source: https://help.zscaler.com/risk360/about-role-management-risk360
 - Product: Risk360
 - Path: Risk360 Help > Role Management > About Role Management
-- Last modified: 2026-04-16T10:25Z
+- Last modified: 2026-09-29T08:08Z
 - Summary: Information on managing roles in the Zscaler Admin Console.
 
 [Watch a video about Role Management in Risk360.](https://fast.wistia.net/embed/iframe/zg7mhxhigs)
@@ -449,7 +896,7 @@ Roles provide the following benefits and enable you to:
 
 ## About the Role Management Page
 
-On the Role Management page (Administration > Admin Management > Role Based Access Control > Risk360), you can do the following:
+On the Role Management page (Administration > Role Management > Risk360), you can do the following:
 
 1. [Add an admin role](https://help.zscaler.com/risk360/adding-admin-roles-risk360).
 2. Search for a configured admin role.
@@ -470,13 +917,13 @@ On the Role Management page (Administration > Admin Management > Role Based Acce
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/about-seeds-management","lastmod":"2026-04-16T10:27Z","nid":"1504376"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/about-seeds-management","lastmod":"2026-09-29T08:15Z","nid":"1504376"} -->
 ## About Seeds Management
 
 - Source: https://help.zscaler.com/risk360/about-seeds-management
 - Product: Risk360
 - Path: Risk360 Help > Seed Management > About Seeds Management
-- Last modified: 2026-04-16T10:27Z
+- Last modified: 2026-09-29T08:15Z
 - Summary: Information on managing domains for external surface attack analysis in the Zscaler Admin Console].
 
 [Watch a video about Seeds Management in Risk360.](https://fast.wistia.net/embed/iframe/el04010hfk)
@@ -491,7 +938,7 @@ Seeds Management provides the following benefits and allows you to:
 
 ## About the Seeds Management Page
 
-On the Seeds Management Page (Administration > Admin Management > Administrator Management > Seeds Management), you can do the following:
+On the Seeds Management Page (Administration > Legacy Admin Management > Risk360), you can do the following:
 
 1. View scan frequency that detects external surface vulnerabilities of the domains.
 2. [Add a domain](https://help.zscaler.com/risk360/adding-domain-external-attack-surface-analysis).
@@ -504,13 +951,13 @@ On the Seeds Management Page (Administration > Admin Management > Administrator 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/adding-admin-roles-risk360","lastmod":"2026-03-27T08:48Z","nid":"1456996"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/adding-admin-roles-risk360","lastmod":"2026-09-29T08:11Z","nid":"1456996"} -->
 ## Adding Admin Roles
 
 - Source: https://help.zscaler.com/risk360/adding-admin-roles-risk360
 - Product: Risk360
 - Path: Risk360 Help > Role Management > Adding Admin Roles
-- Last modified: 2026-03-27T08:48Z
+- Last modified: 2026-09-29T08:11Z
 - Summary: How to add administrator roles in the Zscaler Admin Console.
 
 [Watch a video about Role Management in Risk360.](https://fast.wistia.net/embed/iframe/zg7mhxhigs)
@@ -528,7 +975,7 @@ When configuring roles:
 
 To configure admin roles:
 
-1. Go to **Administration**> **Admin Management** > **Role Based Access Control > Risk360**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Role Management**>**Risk360**.
 2. Click **Add Risk360 Role**.
 
 The **Add Risk360 Role** window appears.
@@ -589,20 +1036,20 @@ Choose one of the following permissions:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/adding-domain-external-attack-surface-analysis","lastmod":"2026-03-11T23:12Z","nid":"1504406"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/adding-domain-external-attack-surface-analysis","lastmod":"2026-09-29T08:17Z","nid":"1504406"} -->
 ## Adding a Domain for External Attack Surface Analysis
 
 - Source: https://help.zscaler.com/risk360/adding-domain-external-attack-surface-analysis
 - Product: Risk360
 - Path: Risk360 Help > Seed Management > Adding a Domain for External Attack Surface Analysis
-- Last modified: 2026-03-11T23:12Z
+- Last modified: 2026-09-29T08:17Z
 - Summary: Information on how to add domains for external attack surface analysis in the Zscaler Admin Console.
 
 You can add domains on the Seeds Management page to run frequent scans on them to detect vulnerabilities for external attack surfaces. The Risk360 service then quantifies the risk determined on various parameters for potential breach and visualizes the risk as factors on the [Factors](https://help.zscaler.com/unified/viewing-risk-factors) page.
 
 To add a domain:
 
-1. Go to **Administration > Admin Management > Administrator Management > Seeds Management**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Legacy Admin Management**>**Risk360**.
 2. In the **Domains** field, enter the domain that you want to scan for external attack surface analysis. You can add up to 10 domains.
 3. Click **Add**. See image.
 
@@ -613,20 +1060,20 @@ The domain is added successfully. The Risk360 service takes up to 24–48 hours 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/adding-domains-using-csv","lastmod":"2026-03-11T23:21Z","nid":"1504411"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/adding-domains-using-csv","lastmod":"2026-09-29T08:18Z","nid":"1504411"} -->
 ## Adding Domains Using a CSV
 
 - Source: https://help.zscaler.com/risk360/adding-domains-using-csv
 - Product: Risk360
 - Path: Risk360 Help > Seed Management > Adding Domains Using a CSV
-- Last modified: 2026-03-11T23:21Z
+- Last modified: 2026-09-29T08:18Z
 - Summary: Information on how to add domains for external attack surface analysis in the Zscaler Admin Console.
 
 You can add domains on the Seeds Management page to run frequent scans on them to detect vulnerabilities for external attack surfaces. The Risk360 service then quantifies the risk determined on various parameters on exposed assets for potential breach and visualizes them as factors on the [Factors](https://help.zscaler.com/unified/viewing-risk-factors) page.
 
 To add domains:
 
-1. Go to **Administration > Admin Management > Administrator Management > Seeds Management**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Legacy Admin Management**>**Risk360**.
 2. In the **Domains** field, click **Upload File**.
 3. Click **Download CSV Template**. A CSV template for uploading the domains is downloaded to your device. See image.
 4. Update the file with the list of domains that you want to scan for external attack surface analysis. You can add up to 10 domains. See image.
@@ -1445,13 +1892,13 @@ This article provides a summary of all new features and enhancements for Risk360
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/release-upgrade-summary-2026","lastmod":"2026-08-13T22:39Z","nid":"1534327"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/release-upgrade-summary-2026","lastmod":"2026-09-30T12:59Z","nid":"1534327"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/risk360/release-upgrade-summary-2026
 - Product: Risk360
 - Path: Risk360 Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-13T22:39Z
+- Last modified: 2026-09-30T12:59Z
 - Summary: Risk360 Advanced Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Risk360 Advanced.
@@ -2187,18 +2634,18 @@ There are a variety of font sizes for the Help Browser. You can click the **Font
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/viewing-risk360-score-change-logs","lastmod":"2026-04-06T14:10Z","nid":"1538852"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/viewing-risk360-score-change-logs","lastmod":"2026-09-29T08:24Z","nid":"1538852"} -->
 ## Viewing the Risk360 Score Change Logs
 
 - Source: https://help.zscaler.com/risk360/viewing-risk360-score-change-logs
 - Product: Risk360
 - Path: Risk360 Help > Logs > Viewing the Risk360 Score Change Logs
-- Last modified: 2026-04-06T14:10Z
+- Last modified: 2026-09-29T08:24Z
 - Summary: Information regarding risk score change logs within the Risk360 service.
 
 [Watch a video about Score Change Logs in Risk360.](https://fast.wistia.net/embed/iframe/pajjdp57lb)
 
-The Score Change Log page (Logs > Insights > Score Change Log) records the risk score change logs across categories and factors. You can monitor risk score changes and review the action or event that resulted in a risk score change.
+The Score Change Log page (Data Explorer > Risk360 > Score Change Log) records the risk score change logs across categories and factors. You can monitor risk score changes and review the action or event that resulted in a risk score change.
 
 ## Filtering
 
@@ -2298,7 +2745,7 @@ On the Assets page (Vulnerabilities > Assets), you can do the following:
 9. [Modify the columns displayed in the table.](https://help.zscaler.com/uvm/managing-table-columns)
 10. Select all assets on the page.
 11. Click an asset to open individual [asset drawers](https://help.zscaler.com/uvm/managing-assets-uvm). When the default **Active**saved view is selected, you can see the following details for each asset:
-  - **ID**: The asset's ID in the Security Operations Platform.
+  - **ID**: The asset's ID in the Agentic Security Operations Platform.
   - **Type**: The asset type (e.g., **Windows Workstation**, **Web Application**, **Container Image**).
   - **Name**: The asset's name.
   - **Risk Score**: The risk level of findings associated with the asset. The risk score is initially set by the default [reconciliation function](https://help.zscaler.com/uvm/attribute-reconciliation-default-functions), and reflects the highest severity score among the findings. The default can be customized through [Data Unification](https://help.zscaler.com/uvm/what-data-unification).
@@ -2443,6 +2890,151 @@ The Tickets page includes system views with predefined filter selections, provid
 - **Over SLA**: All open tickets with expired service level agreements (SLA).
 - **Pending Confirmation**: All tickets are automatically set as inactive when they no longer contain active findings, but have not yet been manually set as closed by the assignee.
 - **Tickets With New Findings**: All tickets to which findings were added in the last week.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-apache-kafka-outegration","lastmod":"2026-09-24T14:19Z","nid":"1540205"} -->
+## Configuring the Apache Kafka Outegration
+
+- Source: https://help.zscaler.com/uvm/configuring-apache-kafka-outegration
+- Product: Unified Vulnerability Management (UVM)
+- Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Outegration Configuration Guides > Configuring the Apache Kafka Outegration
+- Last modified: 2026-09-24T14:19Z
+- Summary: How to configure the Apache Kafka outegration to dispatch tickets.
+
+The Apache Kafka outegration is used to publish entity data from the Zscaler Security Operations (SecOps) platform applications (e.g., UVM) to an external Kafka topic, ensuring a secure and reliable data flow.
+
+This article is a step-by-step guide to configuring the Kafka outegration.
+
+## Prerequisites
+
+Before configuring the outegration, make sure you have met the following prerequisites:
+
+- Create a Kafka topic.
+- Configure mTLS for authentication.
+- Configure the isolation level.
+- Enable ACL rules.
+- Configure the port in Internet & SaaS (ZIA).
+
+A Kafka topic must be previously created and configured for each outegration.
+
+Authentication is handled via Mutual TLS (mTLS), where the SecOps platform and Kafka broker verify each other's certificates. To set up mTLS authentication, ensure that you retrieve the following to enter them in the corresponding fields during the outegration setup:
+
+- Client Private Key: Generate an RSA-2048 private key (size must be exactly 2048 bits) or ECDSA (size can be 256, 384, and 521 bits) in PEM format. This key can be optionally encrypted.
+- Key Password: Obtain the password to decrypt the private key. This is required only if the generated client private key is encrypted.
+- Client Certificate Chain: Create the complete certificate chain (client certificate followed by any intermediate Certificate Authorities) in PEM format.
+- Broker CA Certificate: Obtain the Kafka broker's Certificate Authority (CA) certificate in PEM format. This is necessary if your broker uses a private CA.
+
+To learn more, refer to the [Kafka documentation](https://docs.confluent.io/platform/current/kafka/configure-mds/mutual-tls-auth-rbac.html).
+
+Kafka outegration ensures exactly-once behavior by publishing via transactions. For consistent behavior, the isolation level must be explicitly configured with `isolation.level=read_committed`. Failure to set this property potentially results in consumers reading messages from rolled-back transactions, which can compromise data integrity.
+
+Ensure that the Kafka cluster allows the transaction ID `zscaler-producer-transactional` in the ACL rules.
+
+```
+ACL Rules:
+kafka-acls.sh --bootstrap-server <your-broker-address>:<port> --add \
+     --allow-principal 'User:provider-test-client' \
+     --operation WRITE --operation DESCRIBE \
+     --transactional-id 'zscaler-producer-transactional'
+
+kafka-acls.sh --bootstrap-server <your-broker-address>:<port> --add \
+   --allow-principal 'User:provider-test-client' \
+   --operation IDEMPOTENT_WRITE \
+   --cluster
+```
+
+In Internet & SaaS network configuration, port 9094 is the only authorized port open to all IP addresses for Kafka traffic. To request the opening of any new or additional ports, contact Zscaler Support.
+
+## Configuring the Kafka Outegration
+
+To configure the Kafka outegration, complete the following steps:
+
+- Step 1: Authenticate the Kafka Connection (Connect)
+- Step 2: Configure the Outegration Visibility and Behavior (Settings)
+- Step 3: Map the Outegration Fields (Mapping)
+
+To establish a secure connection with the Kafka cluster, you need to authenticate with the security certificates you previously generated.
+
+1. In the SecOps platform, go to **Configure** > **Outegrations**. See image.
+2. Click **Create** and select **Kafka**. The **Connect**step appears.
+3. In the **Details** section: See image.
+  1. **Display Name**: Enter a name for the outegration.
+  2. **Active**: Enable to activate the Kafka outegration.
+  3. **Bootstrap Servers**: Enter the bootstrap endpoint in `host:port` format (e.g., `kafka-broker1:9092`, `kafka-broker2:9092`).
+  4. **Topic**: Enter the name of the Kafka topic for publishing ticket details.
+  5. **Authentication**: Select an existing authentication ID, or click **Create New** to set up a new authentication and enter the required parameters you retrieved earlier into the corresponding fields. See image.
+4. Click **Test** in the bottom-right corner of the page to verify the connection.
+5. After the connection is verified, click **Next**to proceed to the **Settings**step.
+
+[Image: List of outegrations]
+
+[Image: Kafka outegration setup details]
+
+[Image: Kafka outegration authentication setup]
+
+In the Settings step of the outegration setup wizard, configure Kafka outegration's visibility and behavior within the SecOps platform. In this step, you'll set the SecOps entity that triggers the Kafka dispatch (e.g., ticket, policy violation).
+
+To configure the outegration's visibility and behavior, in the **Advanced Settings** section, from the **Create Kafka item from**drop-down menu, select the entity that you want to configure the outegration for.
+
+See image.
+
+[Image: Advanced Settings options]
+
+In the Mapping step, configure the field mapping between your SecOps ticket fields and Kafka record value fields.
+
+The main objective of the mapping process is to map source fields with their corresponding Kafka record value fields. To do this, specify the source field on the left and the Kafka record value field on the right.
+
+### Creating a New Mapping
+
+To create a new mapping from a SecOps ticket to Kafka:
+
+1. Configure the source field value (left):
+  1. Click**Mapping**.
+  2. Click **Add value** on the left. See image.
+  3. The **Field Editor** appears. In the **Field Editor**, select one of the following methods to configure the value of the field:
+    - Field (Dictionary)
+    - Expression
+2. Enter a value in the Kafka field (right). See image.
+
+Repeatthe mapping process for any Kafka field you want to map.
+
+You can also set a SecOps ticket field as mandatory by selecting the **Set as Mandatory**checkbox in the Column Menu to the right of the mapping. Some fields can be set as mandatory by default.
+
+See image.
+
+Setting a field as mandatory guarantees that critical fields (e.g., Ticket Assignee) are always populated before a ticket is dispatched. Attempts to dispatch a ticket without a value in a mandatory field will trigger an error message.
+
+### Previewing the Ticket to Kafka Mapping
+
+After completing the field mappings from SecOps ticket to Kafka record value fields dispatch mapping, preview the mapping to review the configuration. This helps ensure that ticket dispatch is behaving as expected and that the Kafka record fields are populated correctly.
+
+To preview the mapping, click **Preview**on the bottom right of the data mapping fields. The Mapping Preview window appears. In the left of the Mapping Preview window, tickets in your account are listed and organized by ticket ID. You can select, filter, or search for tickets and preview the mapping to their corresponding Kafka record value fields. You can also open the actual ticket in a new tab for a more in-depth review.
+
+See image.
+
+For use cases that require more advanced configuration, you can use the Expression Editor to configure the field value to be mapped to the target field.
+
+[Image: Expression Editor]
+
+[Image: Mapping fields to populate on the right]
+
+[Image: Mapping fields to populate on the left]
+
+The field dictionary allows you to create mappings between specific values from the field on the right and values of the field on the left.
+
+Kafka outegration does not support the dictionary feature.
+
+See image.
+
+[Image: Create mappings between specific values from the field on the right and values from the field on the left]
+
+[Image: Mapping Preview details]
+
+[Image: Select the Set as Mandatory checkbox to set a SecOps ticket field as mandatory]
+
+When the outegration setup is complete, you can begin dispatching SecOps alerts and events to Kafka. To learn more, see [Creating & Managing Third-Party Tickets](https://help.zscaler.com/uvm/creating-managing-third-party-tickets).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6633,13 +7225,13 @@ You can retrieve the URL from the browser address bar while logged in to your JF
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-jira-issues-connector","lastmod":"2026-08-03T14:41Z","nid":"1541622"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-jira-issues-connector","lastmod":"2026-09-20T07:06Z","nid":"1541622"} -->
 ## Configuring the Jira Issues Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-jira-issues-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the Jira Issues Connector
-- Last modified: 2026-08-03T14:41Z
+- Last modified: 2026-09-20T07:06Z
 - Summary: How to configure the Jira Issues connector, including setting up authentication and data retrieval filters and specifications.
 
 Jira enables organizations to handle complex workflows and manage their work.
@@ -6720,7 +7312,7 @@ Each Jira issue type (e.g., Bug, Task, Feature) requires a separate outegration 
 
 ## Prerequisites
 
-Before getting started, identify the Jira platform your organization uses: Jira Cloud or Jira Data Center. While the setup process for both Jira outegrations is mostly similar, Jira Data Center users must first set up a gateway and then proceed to follow the standard Jira outegration setup process. To learn more, see [Configuring the Security Operations Platform Gateway](https://help.zscaler.com/unified/configuring-security-operations-platform-gateway).
+Before getting started, identify the Jira platform your organization uses: Jira Cloud or Jira Data Center. While the setup process for both Jira outegrations is mostly similar, Jira Data Center users must first set up a gateway and then proceed to follow the standard Jira outegration setup process. To learn more, see [Configuring the Agentic Security Operations Platform Gateway](https://help.zscaler.com/unified/configuring-security-operations-platform-gateway).
 
 Retrieve the required authentication parameters based on your Jira deployment type (i.e., Jira Cloud or Jira Data Center), and enter them in the corresponding fields during the Connect step of the outegration setup wizard.
 
@@ -6770,7 +7362,7 @@ To generate an API key:
 6. Click**Confirm**.
 7. Copy and securely save the key to be used in the Connect step.
 
-Before proceeding, make sure a Zscaler Gateway has been configured. To learn more, see [Configuring the Security Operations Platform Gateway](https://help.zscaler.com/unified/configuring-security-operations-platform-gateway).
+Before proceeding, make sure a Zscaler Gateway has been configured. To learn more, see [Configuring the Agentic Security Operations Platform Gateway](https://help.zscaler.com/unified/configuring-security-operations-platform-gateway).
 
 Obtain the following required parameters for the Jira Data Center outegration:
 
@@ -10493,14 +11085,14 @@ In the field, optionally enter the sensor names. A sensor is a script that runs 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-teams-outegration","lastmod":"2026-09-03T12:06Z","nid":"1528061"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-teams-outegration","lastmod":"2026-10-04T07:06Z","nid":"1528061"} -->
 ## Configuring the Teams Outegration
 
 - Source: https://help.zscaler.com/uvm/configuring-teams-outegration
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Outegration Configuration Guides > Configuring the Teams Outegration
-- Last modified: 2026-09-03T12:06Z
-- Summary: How to configure the Microsoft Teams outegration in the Security Operations Platform.
+- Last modified: 2026-10-04T07:06Z
+- Summary: How to configure the Microsoft Teams outegration in the Agentic Security Operations Platform.
 
 The Microsoft Teams outegration is used to send exposure and remediation notifications into Teams, enabling collaboration and efficiency between security and IT teams.
 
@@ -10520,7 +11112,7 @@ To configure the Microsoft Teams outegration:
 - Step 1: Authenticate the Teams Connection
 - Step 2: Configure Settings and Mapping
 
-1. In the SecOps Platform Admin Portal, go to **Configure** > **Outegrations**. See image.
+1. In the Agentic SecOps Platform Admin Portal, go to **Configure** > **Outegrations**. See image.
 2. Click **Create**. The **Connect a New Outegration** page appears.
 3. On the **Connect a New Outegration** page, select **Teams**. The **Create Teams Outegration** page appears. See image.
 4. In the **Details** section: See image.
@@ -10972,7 +11564,7 @@ Ticket workflows in Unified Vulnerability Management (UVM) allow you to automate
 
 You can create and manage the list of available ticket statuses on the Ticket Statuses page. To learn more, see [Managing Ticket Statuses in UVM](https://help.zscaler.com/uvm/managing-ticket-status).
 
-On initial setup of your Security Operations Platform (SecOps Platform) account, the Ticket Workflows page displays default system logic. You can customize these rules to align with your organization's remediation policies across three primary categories:
+On initial setup of your Agentic Security Operations Platform (SecOps Platform) account, the Ticket Workflows page displays default system logic. You can customize these rules to align with your organization's remediation policies across three primary categories:
 
 - **Ticket Status Management**: Automate transitions based on finding activity, such as auto-closing tickets when findings are no longer detected or reopening them if they resurface.
 - **Lock Ticket Scope Triggers**: Define conditions to automatically lock a ticket's scope, preventing automated system logic from adding or removing findings after a ticket has been manually modified.
@@ -10986,7 +11578,7 @@ For access to ticket workflows, your assigned role must include the **Read**, **
 
 To configure ticket workflow rule sets:
 
-1. In the SecOps Platform Admin Portal, go to **Vulnerabilities** > **Settings**> **Ticket Lifecycle**. The **Ticket Lifecycle** page appears. See image.
+1. In the Agentic SecOps Platform Admin Portal, go to **Vulnerabilities** > **Settings**> **Ticket Lifecycle**. The **Ticket Lifecycle** page appears. See image.
 2. Click **Ticket Workflows**. The **Ticket Workflows**page appears, displaying one of the following states: See image.
   - If no custom rules have been defined, the page displays the default system workflow logic.
   - If workflows are currently managed through [data unification](https://help.zscaler.com/unified/what-data-unification), click **Unlink & Override**to enable local rule configuration.
@@ -11478,13 +12070,13 @@ Your cloud name is located in the URL that the admin uses to log in to the Zscal
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-zscaler-advanced-detection-connector","lastmod":"2026-08-26T09:06Z","nid":"1543059"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-zscaler-advanced-detection-connector","lastmod":"2026-09-17T11:46Z","nid":"1543059"} -->
 ## Configuring the Zscaler Advanced Detection Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-zscaler-advanced-detection-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the Zscaler Advanced Detection Connector
-- Last modified: 2026-08-26T09:06Z
+- Last modified: 2026-09-17T11:46Z
 - Summary: How to configure the Zscaler Advanced Detection connector.
 
 Zscaler Advanced Detections uses expert-driven Internet & SaaS (ZIA) detections to find behavioral patterns that match adversarial techniques within your Zscaler-specific threats. When an attacker infiltrates your security environment, Zscaler Advanced Detection analyzes the raw telemetry — not just alerts — using two primary classes of analytics:
@@ -11508,7 +12100,7 @@ See image.
 
 ## Prerequisites
 
-To configure the Zscaler Advanced Detections connector, ensure you have active Internet & SaaS and SOC Workbench subscriptions. To learn more, see [Viewing Subscriptions](https://help.zscaler.com/unified/viewing-subscriptions).
+To configure the Zscaler Advanced Detections connector, ensure you have active Internet & SaaS and Agentic SOC subscriptions. To learn more, see [Viewing Subscriptions](https://help.zscaler.com/unified/viewing-subscriptions).
 
 ## Configuring the Connector
 
@@ -11520,7 +12112,7 @@ To create the Zscaler Advanced Detections data source in the Security Operations
 
 For complete configuration instructions, see [Creating Data Sources](https://help.zscaler.com/unified/creating-data-sources).
 
-Your Zscaler Account team sets up the Zscaler Advanced Detections connector on your behalf. You do not need to configure or adjust your user roles for SOC Workbench.
+Your Zscaler Account team sets up the Zscaler Advanced Detections connector on your behalf. You do not need to configure or adjust your user roles for Agentic SOC.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -12303,7 +12895,7 @@ You can split findings from a ticket into one or more new tickets. For example, 
 
 To split findings from an existing ticket into a new ticket:
 
-1. In the SecOps Platform Admin Portal, go to **Vulnerabilities**> **Tickets**. The **Tickets**page appears. See image.
+1. In the Agentic SecOps Platform Admin Portal, go to **Vulnerabilities**> **Tickets**. The **Tickets**page appears. See image.
 2. Click the ticket you want to split. The ticket details drawer appears.
 3. Click the **Findings**tab.
 4. Select the findings you want to split, using filters if needed. To select all filtered findings, select the checkbox at the top of the list. To select more than 20 findings, click **Select all**<#>**rows**. See image. The **Split Into a New Ticket** drop-down menu appears.
@@ -12584,13 +13176,13 @@ This article provides a summary of all new features and enhancements for Unified
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/release-upgrade-summary-2026","lastmod":"2026-08-31T02:50Z","nid":"1534299"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/release-upgrade-summary-2026","lastmod":"2026-09-22T08:05Z","nid":"1534299"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/uvm/release-upgrade-summary-2026
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-31T02:50Z
+- Last modified: 2026-09-22T08:05Z
 - Summary: Unified Vulnerability Management (UVM) Release Upgrade Summary for commercial service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Unified Vulnerability Management (UVM).
@@ -13262,13 +13854,13 @@ When a ticket includes many findings, Remediation Copilot might run in limited-c
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/viewing-findings-uvm","lastmod":"2026-07-13T21:06Z","nid":"1531067"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/viewing-findings-uvm","lastmod":"2026-09-16T10:17Z","nid":"1531067"} -->
 ## Viewing Findings in UVM
 
 - Source: https://help.zscaler.com/uvm/viewing-findings-uvm
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Remediate for UVM > Viewing Findings in UVM
-- Last modified: 2026-07-13T21:06Z
+- Last modified: 2026-09-16T10:17Z
 - Summary: How to view findings details in the Unified Vulnerability Management (UVM) app in the SecOps Platform.
 
 Unified Vulnerability Management (UVM) findings represent vulnerabilities or misconfigurations detected on assets and linked to specific sources. Selecting a finding on the Findings page opens its drawer, where you can view detailed information. To learn more, see [About Findings](https://help.zscaler.com/uvm/about-findings-operational-view-uvm). The actions you can perform in the finding drawer depend on your user role in the UVM app. To learn more, see [Understanding System Roles](https://help.zscaler.com/uvm/understanding-system-roles) and [Creating Custom Roles](https://help.zscaler.com/uvm/creating-custom-roles).
@@ -13306,11 +13898,12 @@ Additionally, you can perform the following actions:
 On the **Details**tab, you can view:
 
 - **Asset**: The related asset affected by the finding.
-- **Ticket**: The related ticket that aggregated the finding.
+- **Ticket**: The related ticket that aggregated the findings.
 - **Sources**: The source that reported the finding.
 - **CVE ID**: If applicable, the CVE ID linked to the issue, with a direct link to the National Vulnerability Database (NVD) for further information.
 - **First Seen**: The date the finding was first detected.
 - **Last Seen**: The most recent date the finding was detected.
+- **Is False Positive**: Indicates if the finding is a false positive. You can set this field to `True` if the finding was incorrectly identified by [EASM](https://help.zscaler.com/uvm/understanding-zscaler-easm-capabilities). This field is only available for EASM findings.
 - **Description**: The description of the finding as provided by the source.
 - **Score Explanation**: A detailed breakdown of the factors that contributed to the finding's severity score and how the score was calculated, including risk and mitigation criteria. To learn more, see [Understanding Severity Score](https://help.zscaler.com/uvm/understanding-severity-score).
 
@@ -13342,13 +13935,13 @@ On the **Finding Evidence** tab, you can view:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/viewing-managing-assets-uvm","lastmod":"2026-07-15T21:06Z","nid":"1531065"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/viewing-managing-assets-uvm","lastmod":"2026-09-16T10:27Z","nid":"1531065"} -->
 ## Viewing & Managing Assets in UVM
 
 - Source: https://help.zscaler.com/uvm/viewing-managing-assets-uvm
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Remediate for UVM > Viewing & Managing Assets in UVM
-- Last modified: 2026-07-15T21:06Z
+- Last modified: 2026-09-16T10:27Z
 - Summary: How to view and manage asset details in the Unified Vulnerability Management (UVM) application in the SecOps Platform.
 
 A Unified Vulnerability Management (UVM) asset represents a single asset in your environment, unified (i.e., merged) and enriched with information from multiple sources. Selecting an asset on the Assets page opens its drawer, where you can view detailed information and perform multiple actions for the asset. To learn more, see [About Assets in UVM](https://help.zscaler.com/uvm/about-assets-operational-view-uvm).
@@ -13387,6 +13980,7 @@ On the **Details**tab, you can view:
 - **Asset Type**: The classification or category that the asset belongs to, such as server, workstation, or application.
 - **Sources**: The sources that the findings on the asset were detected on.
 - **Assignee**: The agent or team responsible for handling the asset.
+- **Is False Positive**: Indicates if the asset is a false positive. You can set this field to `True` if the asset was incorrectly identified by [EASM](https://help.zscaler.com/uvm/understanding-zscaler-easm-capabilities). This field is only available for EASM assets.
 - **Risk Mass**: The asset's cumulative risk exposure, calculated by summing the severity scores of active findings for each severity level (i.e., Critical, High, Medium, Low), and rounding the result. This indicator can be used to prioritize assets with similar risk profiles.
 - **Has PII Data**: Indicates whether the asset contains Personally Identifiable Information (PII), highlighting its sensitivity and compliance requirements.
 - **Discovery Chain**: The asset's full discovery path, featuring the seed asset, intermediate nodes, and the current asset in a sequence, along with the services and attributes used to identify assets in each discovery hop as applicable. It enables source traceability and provides attestation of auto-attributed assets based on a seed, allowing you to self-validate your assets using the investigative trail provided. The discovery chain is only available for assets ingested using [Zscaler's EASM capabilities](https://help.zscaler.com/uvm/understanding-zscaler-easm-capabilities). When an asset is discovered in more than one way by EASM, the discovery path with the highest confidence is shown.

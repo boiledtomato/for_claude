@@ -1,8 +1,8 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-07 03:10 UTC
-Articles in this file: 179
+Generated: 2026-10-05 09:38 UTC
+Articles in this file: 175
 
 ---
 
@@ -142,6 +142,75 @@ The following table lists the best practice policies widely adopted by our clien
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/zia/Configuring-bandwidth-classes","lastmod":"2026-09-08T10:56Z","nid":"1399911"} -->
+## Configuring Bandwidth Classes
+
+- Source: https://help.zscaler.com/zia/Configuring-bandwidth-classes
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Bandwidth Control & Classes > Configuring Bandwidth Classes
+- Last modified: 2026-09-08T10:56Z
+- Summary: How to add bandwidth classes by editing the predefined classes or by adding new ones in the Zscaler Admin Portal.
+
+[Watch a video about Bandwidth Classes](https://fast.wistia.net/embed/iframe/jjpc536mhm) (shows legacy UI).
+
+Bandwidth classes identify the URL categories and applications to which the service allocates bandwidth. You must configure the bandwidth classes before you can reference them in the [Bandwidth Control](https://help.zscaler.com/zia/about-bandwidth-control) policy rules. To configure cloud application bandwidth classes, edit the predefined bandwidth classes or add new bandwidth classes (custom), then group URL categories, applications, or domains into the bandwidth classes.
+
+On the **Cloud Applications**tab:
+
+- You can add up to 245 custom bandwidth classes.
+- You can have up to 8 bandwidth classes with custom domains.
+- You can add up to 25,000 domains across all bandwidth classes (including URL categories).
+
+## Managing Predefined Bandwidth Classes
+
+The Cloud Applicationstab lists predefined bandwidth classes to which you can add URL domains. You can also add your own custom domains. To learn more about predefined bandwidth classes, see [About Bandwidth Classes](https://help.zscaler.com/zia/about-bandwidth-classes).
+
+The following are the predefined bandwidth classes:
+
+- **File Share**: Includes URLs that represent file-sharing sites.
+- **Finance:** Includes URLs that represent business-oriented, financial web-based applications or tools, such as Smith Barney or E*Trade.
+- **General Surfing:** Includes all URL categories and cloud apps that do not fall into the following categories: Webmail, Instant Messaging, Streaming Media/File Share, and Social Networks/Blogging. This class can't be edited.
+- **Sales/Support Apps:** Includes URLs that represent business-oriented, sales/support web-based applications or tools, such as Salesforce or NetSuite.
+- **Streaming Media:** Includes URLs that represent streaming sites.
+
+To manage domains to the predefined bandwidth classes:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Resources**> **Bandwidth Classes**.
+2. Go to the **Cloud applications** tab.
+3. Click the **Edit** icon next to the bandwidth class you want to edit. The **Edit Bandwidth Class** drawerappears.
+4. In the **Edit Bandwidth Class**drawer: See image.
+  - **Domains:**Enter the URLs you want to include in the bandwidth class, andclick **Add**. Use the [URL format guidelines](https://help.zscaler.com/zia/url-format-guidelines) for adding domains.
+  - Click the **Edit** or **Delete**icon to modify or remove an existing domain, respectively.
+5. Click **Save** and [activate your changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+You cannot delete a predefined bandwidth class.
+
+## Adding Custom Bandwidth Classes
+
+In addition to predefined bandwidth classes, you can add custom bandwidth classes and specify the URL categories and cloud applications. If you have created a custom bandwidth class that isn't being used in any policies for a location, then the custom class is added to the location’s default [Bandwidth Control](https://help.zscaler.com/zia/configuring-bandwidth-control-policy) rule. The default rule includes all internet traffic not covered by other rules. By default, it's not guaranteed any bandwidth, but it can consume up to 100% of the bandwidth when available.
+
+To add a custom bandwidth class:
+
+1. Go to **Internet Access** > **Resources**> **Bandwidth Classes**.
+2. Go to the **Cloud Applications**tab.
+3. Click **Add Bandwidth Class**. The **Add Bandwidth Class** drawer appears.
+4. In the **Add Bandwidth Class** drawer: See image.
+  - **Name:**Enter a name for the class.
+  - **Definition**: Displays custom in the field. This is a non-editable field.
+  - **URL Categories:**Select [URL categories](https://help.zscaler.com/zia/about-url-categories) to add to the bandwidth class.
+  - **Cloud Applications:** Select [cloud applications](https://help.zscaler.com/zia/understanding-cloud-app-categories) to add to the bandwidth class. You can select cloud application categories or individual cloud applications. See image.
+  - **Domains:**Enter the URLs that you want to include in the bandwidth class and click **Add Items**. You can enter multiple entries. Press `Enter` after each entry. You can add domains for up to 8 individual bandwidth classes. For guidance on entering URLs, see the [URL format guidelines](https://help.zscaler.com/zia/url-format-guidelines). For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove the first 25,000 items from the list (**Remove 25K Items**) or only items from a specific page (**Remove Page**). If you select **Remove 25K Items** or **Remove Page**, a confirmation window appears.
+5. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+[Image: The Edit Bandwidth Class drawer for a predefined class]
+
+[Image: The Add Bandwidth Class drawer in the Cloud Applications tab]
+
+[Image: The Add Bandwidth Class drawer displaying the options for the Cloud Applications field]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/zia/about-3rd-party-app-governance-dashboard","lastmod":"2026-01-21T04:19Z","nid":"1463436"} -->
 ## About the 3rd-Party App Governance Dashboard
 
@@ -235,16 +304,16 @@ The **Users** widget displays a list of users. Use the drop-down menu to display
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-activities-report","lastmod":"2026-08-05T02:32Z","nid":"1402126"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-activities-report","lastmod":"2026-09-29T04:26Z","nid":"1402126"} -->
 ## About the Activities Report
 
 - Source: https://help.zscaler.com/zia/about-activities-report
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > SaaS Security > About the Activities Report
-- Last modified: 2026-08-05T02:32Z
+- Last modified: 2026-09-29T04:26Z
 - Summary: Information about the SaaS Security Activities Report, which shows the audit trail of all SaaS application activities.
 
-The SaaS Activities page within the SaaS Security Report page shows the data for all the activities performed in various SaaS applications. This data helps in tracking specific activities and view the users who performed the activities for further analysis and action.
+The Activities page within the SaaS Security Report page shows the data for all the activities performed in various SaaS applications. This data helps in tracking specific activities and view the users who performed the activities for further analysis and action.
 
 The Activities page provides the following benefits and enables you to:
 
@@ -253,7 +322,7 @@ The Activities page provides the following benefits and enables you to:
 
 ## About the Activities Page
 
-On the Activities page (click **Analytics**, enable the toggle **Switch to Existing Reports**, and then go to **Internet & SaaS** > **Analytics**>**SaaS Security Report**> **Activities**), you can do the following:
+On the Activities page (Analytics > Reports > SaaS Security Report > Activities), you can do the following:
 
 1. Download a CSV file of the report.
 2. Filter SaaS Activities using the following filters and click **Apply** to update the page with your selections. You can click **Reset** at any time:
@@ -397,13 +466,13 @@ Sync activities apply to only File Sharing applications such as OneDrive and Sha
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-administrators-internet-saas","lastmod":"2026-08-28T19:47Z","nid":"1399846"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-administrators-internet-saas","lastmod":"2026-09-29T14:18Z","nid":"1399846"} -->
 ## About Administrators for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/about-administrators-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Administrators > About Administrators for Internet & SaaS
-- Last modified: 2026-08-28T19:47Z
+- Last modified: 2026-09-29T14:18Z
 - Summary: Information on using role-based administration for Internet & SaaS administrators in the Zscaler Admin Console.
 
 Zscaler’s Internet & SaaS (ZIA) [role-based administration](https://help.zscaler.com/zia/configuring-role-based-administration) enables you to control what different Internet & SaaS admins can do in the Zscaler Admin Console. You can delegate responsibilities among admins and granularly control their level of access to the Zscaler Admin Console to ensure they do not create conflicting policies and settings. To learn more about other use cases for role-based administration, see [Role-Based Administration Configuration Examples](https://help.zscaler.com/zia/examples-role-based-administration).
@@ -447,7 +516,7 @@ Configuring an admin is one of the tasks you must complete when configuring role
 
 On the Administrators page for Internet & SaaS, you can only edit an existing admin's scope and enroll them to receive security, service, and product updates. The admins are configured with Authentication Service. To learn more, see [What Is Authentication Service?](https://help.zscaler.com/zidentity/what-zidentity)
 
-On the Administrators page (Administration > Admin Management > Administrator Management > Internet Access Administrators > Administrators), you can do the following:
+On the Administrators page (Administration > Legacy Admin Management > Internet & SaaS > Administrators), you can do the following:
 
 1. [Add an SD-WAN partner API client](https://help.zscaler.com/zia/adding-partner-admins).
 2. Search for a configured admin.
@@ -470,14 +539,16 @@ On the Administrators page (Administration > Admin Management > Administrator Ma
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-advanced-threat-protection","lastmod":"2026-06-24T10:31Z","nid":"1541360"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-advanced-threat-protection","lastmod":"2026-09-24T14:35Z","nid":"1541360"} -->
 ## About Advanced Threat Protection
 
 - Source: https://help.zscaler.com/zia/about-advanced-threat-protection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Advanced Threat Protection > About Advanced Threat Protection
-- Last modified: 2026-06-24T10:31Z
+- Last modified: 2026-09-24T14:35Z
 - Summary: Information on Advanced Threat Protection and the Advanced Threat Protection page in the Zscaler Admin Console.
+
+[Watch a video about Advanced Threat Protection.](https://fast.wistia.net/embed/iframe/j0lvovtkvd)
 
 The Zscaler service uses the Advanced Threats Protection policy to protect your traffic from fraud, unauthorized communication, and other malicious objects and scripts. The Zscaler service identifies malicious scripts and applications on both hacked and legitimate websites and prevents them from downloading to the end user's browser by using a combination of methods to detect various phishing techniques, including signature-based and AI/ML models and to protect against URL-based phishing techniques, such as typosquatting, punycode, character substitution, domain hijacking, and many more.
 
@@ -688,25 +759,32 @@ On the Alert Rules page (Administration > Alerts > Security & UEBA Alerts > Aler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-alert-subscriptions","lastmod":"2026-05-12T21:06Z","nid":"1400211"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-alert-subscriptions","lastmod":"2026-09-25T03:25Z","nid":"1400211"} -->
 ## About Alert Subscriptions
 
 - Source: https://help.zscaler.com/zia/about-alert-subscriptions
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Alerts > About Alert Subscriptions
-- Last modified: 2026-05-12T21:06Z
+- Last modified: 2026-09-25T03:25Z
 - Summary: Information on alert subscriptions and the Publish Alerts page in the Zscaler Admin Console.
 
 [Watch a video about Alerts](https://fast.wistia.net/embed/iframe/9to9j2rhzn) (shows legacy UI).
 
 You can configure the Zscaler service to email specific individuals when certain events occur, so your organization can take action in a timely manner. You can create an alert for different types of events, such as when the service detects incoming or outgoing malware or when there is a policy violation. To learn more, see [About Alerts](https://help.zscaler.com/zia/about-alerts).
 
+The Alert Subscriptions page provides the following benefits and enables you to:
+
+- Receive immediate email notifications when critical security events such as malware detection or policy violations occur.
+- Customize notifications for specific event types, giving the organization or department a focused visibility into the security incidents.
+
 ## About the Publish Alerts Page
 
-On the Publish Alerts page (Administration > Alerts > Internet & SaaS > Platform Alerts > Publish Alerts), you can do the following:
+On the Publish Alerts page (Administration > Alerts > Internet & SaaS > Publish Alerts), you can do the following:
 
-1. [Add an alert subscription](https://help.zscaler.com/zia/adding-alert-subscriptions)
-2. View a list of all alert subscriptions. For alert subscriptions, you can see the following:
+1. Search for an alert subscription.
+2. [Add an alert subscription](https://help.zscaler.com/zia/adding-alert-subscriptions).
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View a list of all alert subscriptions. For alert subscriptions, you can see the following:
   - **Email**: The email address of the alert recipient.
   - **Description**: The description of the alert subscription, if available.
   - **Patient 0 Alerts**: Lists the severity levels of the Patient 0 Alert class information that the recipient receives.
@@ -714,24 +792,23 @@ On the Publish Alerts page (Administration > Alerts > Internet & SaaS > Platform
   - **Access Control Alerts**: Lists the severity levels of the [Access Control Alert class](https://help.zscaler.com/zia/about-alerts#About) information that the recipient receives.
   - **Data Loss Prevention Alerts**: Lists the severity levels of the [Data Loss Prevention Alert class](https://help.zscaler.com/zia/about-alerts#About) information that the recipient receives.
   - **System Alerts**: Lists the severity levels of the [System Alert class](https://help.zscaler.com/zia/about-alerts#About) information that the recipient receives.
-3. Edit an existing alert subscription.
-4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-5. Search for an alert subscription.
-6. Click the **Global Configuration**tab to [resend alerts](https://help.zscaler.com/zia/resending-alerts).
-7. Click the **Define Alerts** tab to configure an alert. To learn more, see [About Alerts](https://help.zscaler.com/zia/about-alerts).
+5. Edit an existing alert subscription.
+6. The alert subscriptions are paginated with up to 500 alerts per page.
+7. [Go to theDefine Alerts page](https://help.zscaler.com/zia/about-alerts).
+8. [Go to theGlobal Configurationpage](https://help.zscaler.com/zia/resending-alerts).
 
 [Image: Screenshot of the Publish Alerts page in the Zscaler Admin Console.]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-alerts","lastmod":"2026-06-22T01:06Z","nid":"1399136"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-alerts","lastmod":"2026-09-25T01:56Z","nid":"1399136"} -->
 ## About Alerts
 
 - Source: https://help.zscaler.com/zia/about-alerts
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Alerts > About Alerts
-- Last modified: 2026-06-22T01:06Z
+- Last modified: 2026-09-25T01:56Z
 - Summary: Information on the alerts for the different types of events and alert classes in the Zscaler Admin Console.
 
 [Watch a video about Alerts](https://fast.wistia.net/embed/iframe/9to9j2rhzn) (shows legacy UI).
@@ -761,21 +838,23 @@ If configuring alerts in your SIEM via NSS, refer to the Security Alerts table b
 
 ## About the Define Alerts Page
 
-On the Define Alerts page (Administration > Alerts >Internet & SaaS > Platform Alerts), you can do the following:
+On the Define Alerts page (Administration > Alerts > Internet & SaaS > Define Alerts), you can do the following:
 
-1. [Add an alert](https://help.zscaler.com/zia/adding-alerts).
-2. View a list of all configured alerts. For alerts, you can see the following:
-  - **Alert Name**: Displays the trigger event that generated the alert.
-  - **Alert Class**: Displays the class of the event that triggered the alert.
+1. Search for an alert.
+2. [Add an alert definition](https://help.zscaler.com/zia/adding-alerts).
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables#hide).
+4. View a list of all configured alerts. For alerts, you can see:
+  - **Alert Name**: Displays the trigger event that generated the alert. You can sort this column.
+  - **Alert Class**: Displays the class of the event that triggered the alert. You can sort this column.
   - **Triggered By**: Displays the number of event occurrences for a given time period.
-  - **Applies To**: Displays whether the event is applied to the Organization, a Location, Department or User.
+  - **Applies To**: Displays whether the event is applied to the Organization, Location, Department or User.
   - **Severity**: Displays the severity level of the event (i.e., Critical, Major, Minor, Info, or Debug).
-  - **Status**: Displays whether the alert is enabled or disabled.
-3. [Edit an alert](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
-4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-5. Search for an alert.
-6. Click the**Global Configuration** tab to [resend alerts](https://help.zscaler.com/zia/resending-alerts).
-7. Click the **Publish Alerts** tab to specify [alert subscriptions](https://help.zscaler.com/zia/about-alert-subscriptions) for email recipients.
+  - **Status**: Displays whether the alert is enabled or disabled. You can sort this column.
+  - **Comments**: Displays the comment, if available.
+5. [Edit or delete an alert](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+6. The alert definitions are paginated with up to 500 alerts per page.
+7. [Go to the Publish Alerts page](https://help.zscaler.com/zia/about-alert-subscriptions).
+8. [Go to the Global Configuration page](https://help.zscaler.com/zia/resending-alerts).
 
 [Image: The Alerts page]
 
@@ -1246,13 +1325,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-application-service-groups","lastmod":"2026-06-12T02:46Z","nid":"1401961"} -->
-## About Application Service Groups
+<!-- ZS-ARTICLE {"url":"/zia/about-application-services","lastmod":"2026-09-24T01:00Z","nid":"1401961"} -->
+## About Application Services
 
-- Source: https://help.zscaler.com/zia/about-application-service-groups
+- Source: https://help.zscaler.com/zia/about-application-services
 - Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > About Application Service Groups
-- Last modified: 2026-06-12T02:46Z
+- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > About Application Services
+- Last modified: 2026-09-24T01:00Z
 - Summary: Information about application service groups in the Zscaler Admin Console.
 
 Zscaler provides predefined and custom application service groups that can be used in [Firewall Filtering](https://help.zscaler.com/zia/configuring-firewall-filtering-policy) and [Forwarding](https://help.zscaler.com/zia/configuring-forwarding-policies) policies to manage specific application traffic. These groups cover various categories of applications and services, including productivity, communication, and collaboration software applications (e.g., Microsoft 365 and Zoom) and cloud service providers (e.g., Amazon Web Services (AWS) and Google Cloud Platform (GCP)). Defined using metadata—including IP addresses, ports, protocols, and domains—these groups rely on the information published by the respective providers to identify the traffic belonging to their services. Zscaler continuously updates and validates the latest IP addresses and other information published by the providers, ensuring that organizations have up-to-date information for traffic identification and policy enforcement.
@@ -1269,21 +1348,22 @@ Application service groups provide the following benefits and enable you to:
 
 Zscaler's application services are identified at the first packet and therefore can result in the policy action hitting that first packet. The custom firmware pre-assembles the metadata received from the first packet, such as the domain and subdomains, along with their destination IP addresses, protocol types, and ports to identify the associated application service. This is different from the identification of packets for network applications. This means that policies using application services should be in a higher priority rule than a similar policy using network applications so that the former can be matched first. To learn more, see [About Network Applications](https://help.zscaler.com/zia/about-network-applications).
 
-The Application Service Groups page contains a list of application service groups that you can use as criteria when configuring your Firewall Filtering and Forwarding rules. On this page, you can view the list of available application service groups and search for a service group from the list.
+## About the Application Services Page
 
-## About the Application Service Groups Page
+On the Application Services page (Internet Access > Resources > Application Services), you can do the following:
 
-On the Application Service Groups page (Policies > Access Control > Firewall > Application Services), you can do the following:
-
-1. [Add an Application Service Group.](https://help.zscaler.com/zia/configuring-application-service-groups) The Custom Application Service Group is available if Advanced Firewall is enabled for your organization.
+1. [Add a custom application service group.](https://help.zscaler.com/zia/configuring-application-service-groups) Advanced Firewall is required for configuring custom application service groups.
 2. Search for an application service group by name.
-3. View the list of all application service groups. For each group, you can view:
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View the list of all application service groups. For each group, you can view:
   - **Name**: The name of the application service group. The name with the suffix Authoritative (AU) is the predefined application service and Custom (CU) is the custom application service.
   - **Definition**: Shows the IP Address or Wildcard FQDN, TCP Destination Ports, and UDP Destination Ports added to an application service group.
-4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-5. [Edit a custom application service group](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+  - **Actions**: The actions you can perform on an application service group, such as viewing, editing, and deleting.
+5. [Edit or delete a custom application service group](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+6. View details for read-only predefined application service groups.
+7. The application service groups are paginated with up to 500 groups displayed per page.
 
-[Image: The Application Service Groups page containing a list of predefined groups]
+[Image: The Application Services page containing a list of application service groups, their designated IP addresses or FQDNs, and ports]
 
 - AWS
 - GCP
@@ -1298,13 +1378,13 @@ On the Application Service Groups page (Policies > Access Control > Firewall > A
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-assets-report","lastmod":"2026-05-11T21:06Z","nid":"1401771"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-assets-report","lastmod":"2026-09-29T05:39Z","nid":"1401771"} -->
 ## About the Assets Report
 
 - Source: https://help.zscaler.com/zia/about-assets-report
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > SaaS Security > About the Assets Report
-- Last modified: 2026-05-11T21:06Z
+- Last modified: 2026-09-29T05:39Z
 - Summary: Information about the SaaS Security Assets Report, which shows you the current state of your files and email messages.
 
 The SaaS Assets Report shows you the current state of your files, email messages, and objects. It also allows you to see the activity for any particular file, email message, or object all in one place.
@@ -1316,7 +1396,7 @@ The SaaS Assets Report provides the following benefits and enables you to:
 
 ## About the SaaS Assets Report Page
 
-On the SaaS Assets Report page (click **Analytics**, enable the toggle **Switch to Existing Reports**, and then go to **Internet & SaaS** > **Analytics**>**SaaS Security Report** > **Assets**), you can do the following:
+On the SaaS Assets Report page (Analytics > Reports > SaaS Security Report > Assets), you can do the following:
 
 1. Select an **Application Category**toview the report for that category.
 2. Select to view the scans for a particular time frame. You can choose to view scans for the current day, the current week, the last 24 hours, the last 7 days, or customize up to the last 90 days.
@@ -1557,13 +1637,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-attack-surface-report","lastmod":"2026-06-19T07:06Z","nid":"1401996"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-attack-surface-report","lastmod":"2026-09-18T04:23Z","nid":"1401996"} -->
 ## About the Attack Surface Report
 
 - Source: https://help.zscaler.com/zia/about-attack-surface-report
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > About the Attack Surface Report
-- Last modified: 2026-06-19T07:06Z
+- Last modified: 2026-09-18T04:23Z
 - Summary: Information about the Attack Surface Report, which shows the apps and servers of your organization exposed to a public network.
 
 The Attack Surface Report provides you with the details of your organization's exposed applications and servers to a public network, such as the internet, and their possible exploitation.
@@ -1585,7 +1665,7 @@ This report captures the following vulnerabilities and exposures:
 
 ## About the Attack Surface Report Page
 
-On the Attack Surface Report page (click Analytics, enable the toggle Switch to Existing Reports, and then go to Internet & SaaS > Analytics > Attack Surface Report), you can do the following:
+On the Attack Surface Report page (Analytics > Reports > Attack Surface Report), you can do the following:
 
 1. [Notify about the latest available report](https://help.zscaler.com/zia/configuring-attack-surface-report-notification).
 2. View the domain name.
@@ -1636,13 +1716,13 @@ This section of the report displays the public cloud instances managed by your o
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-audit-logs","lastmod":"2026-08-27T11:31Z","nid":"1399126"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-audit-logs","lastmod":"2026-09-29T13:52Z","nid":"1399126"} -->
 ## About Audit Logs
 
 - Source: https://help.zscaler.com/zia/about-audit-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > About Audit Logs
-- Last modified: 2026-08-27T11:31Z
+- Last modified: 2026-09-29T13:52Z
 - Summary: Information regarding audit logs, including policy and configuration change logs, within the Internet & SaaS service.
 
 [Watch a video about Audit Logs](https://fast.wistia.net/embed/iframe/5a5n89evki) (shows legacy UI).
@@ -1660,7 +1740,7 @@ If an admin account makes 5 unsuccessful attempts to log in within 1 minute, the
 
 ## About the Audit Logs Page
 
-On the Audit Logs page (Administration > Admin Management > Audit Logs > Internet & SaaS), you can do the following:
+On the Audit Logs page (Data Explorer > Audit Logs > Internet & SaaS), you can do the following:
 
 1. Filter by time range, action, category, sub-category, interface, and result.
 2. Search for an audit log by resource, admin ID, client IP, trace ID, or configuration changes. The search only shows results starting with or completely matching the search string.
@@ -1905,13 +1985,13 @@ There are two types of changes you can view:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-auditors","lastmod":"2026-08-26T10:48Z","nid":"1399001"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-auditors","lastmod":"2026-09-29T13:42Z","nid":"1399001"} -->
 ## About Auditors
 
 - Source: https://help.zscaler.com/zia/about-auditors
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > About Auditors
-- Last modified: 2026-08-26T10:48Z
+- Last modified: 2026-09-29T13:42Z
 - Summary: Information on the Zscaler Auditors page and its features in the Zscaler Admin Console.
 
 [Watch a video about Auditors](https://fast.wistia.net/embed/iframe/68fj7gj7xh) (shows legacy UI).
@@ -1934,7 +2014,7 @@ You can add, edit, or delete auditors at any time, but you must have a super adm
 
 ## About the Auditors Page
 
-On the Auditors page (Administration > Admin Management > Administrator Management > Internet Access Administrators > Auditors), you can do the following:
+On the Auditors page (Administration > Legacy Admin Management > Internet & SaaS > Auditors), you can do the following:
 
 1. [Add an auditor.](https://help.zscaler.com/zia/adding-auditors)
 2. Search for an auditor.
@@ -1957,13 +2037,13 @@ On the Auditors page (Administration > Admin Management > Administrator Manageme
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-authentication-default-settings","lastmod":"2026-07-10T13:49Z","nid":"1400051"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-authentication-default-settings","lastmod":"2026-09-30T18:54Z","nid":"1400051"} -->
 ## About Authentication Default Settings
 
 - Source: https://help.zscaler.com/zia/about-authentication-default-settings
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > About Authentication Default Settings
-- Last modified: 2026-07-10T13:49Z
+- Last modified: 2026-09-30T18:54Z
 - Summary: Information on the authentication Default Settings page in the Zscaler Admin Console.
 
 Zscaler supports different types of [provisioning and authentication methods](https://help.zscaler.com/zia/choosing-provisioning-and-authentication-methods). You can configure the default authentication profile according to the authentication method you choose. To learn more about authenticating users, see [Understanding User Provisioning and Authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users).
@@ -1977,7 +2057,7 @@ The Default Settings page displays limited options. Authentication settings are 
 
 ## About the Default Settings Page
 
-On the Default Settings page (Administration > Identity > Internet & SaaS > Internet Authentication Settings > Default Settings), you can do the following:
+On the Default Settings page (Administration > Internet & SaaS Authentication > Internet Authentication Settings > Default Settings), you can do the following:
 
 1. Configure the authentication frequency.
 2. [Configure Kerberos authentication](https://help.zscaler.com/zia/deploying-kerberos-authentication).
@@ -1988,13 +2068,13 @@ On the Default Settings page (Administration > Identity > Internet & SaaS > Inte
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-authentication-profiles","lastmod":"2026-07-10T12:03Z","nid":"1458911"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-authentication-profiles","lastmod":"2026-09-30T19:05Z","nid":"1458911"} -->
 ## About Authentication Profiles
 
 - Source: https://help.zscaler.com/zia/about-authentication-profiles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > About Authentication Profiles
-- Last modified: 2026-07-10T12:03Z
+- Last modified: 2026-09-30T19:05Z
 - Summary: Information about the Authentication Profiles page in the Zscaler Admin Console.
 
 Zscaler allows for granular control of the authentication timeout on a per-location basis. You can create and manage custom authentication profiles on this page. To learn more, see [Configuring Custom Authentication Timeout Profiles](https://help.zscaler.com/zia/configuring-custom-authentication-timeout-profiles).
@@ -2010,7 +2090,7 @@ The Authentication Profiles page is unavailable if you're subscribed to the Auth
 
 ## About the Authentication Profiles Page
 
-On the Authentication Profiles page (Administration > Identity > Internet & SaaS > Internet Authentication Settings > Authentication Profiles), you can do the following:
+On the Authentication Profiles page (Administration > Internet & SaaS Authentication > Internet Authentication Settings > Authentication Profiles), you can do the following:
 
 1. [Add a new authentication profile](https://help.zscaler.com/zia/configuring-custom-authentication-timeout-profiles).
 2. Search for a previously configured authentication profile.
@@ -2028,14 +2108,14 @@ On the Authentication Profiles page (Administration > Identity > Internet & SaaS
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-backup-and-restore","lastmod":"2026-09-06T07:06Z","nid":"1398956"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-backup-and-restore","lastmod":"2026-10-04T07:06Z","nid":"1398956"} -->
 ## About Backup and Restore
 
 - Source: https://help.zscaler.com/zia/about-backup-and-restore
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Backup & Restore > About Backup and Restore
-- Last modified: 2026-09-06T07:06Z
-- Summary: Information about backing up and restoring policies, and configuration settings, within the Zscaler service.
+- Last modified: 2026-10-04T07:06Z
+- Summary: Information about backing up and restoring policies and configuration settings in the Zscaler Admin Console.
 
 [Watch a video about Backup & Restore.](https://fast.wistia.net/embed/iframe/t0q87g3oly)
 
@@ -2043,7 +2123,7 @@ You can create a backup of policies and configuration settings and restore them 
 
 When you restore policies and configuration settings from a restore point, it overwrites all your current policies and configuration settings, including all the rules and their components (e.g., URL categories and time intervals). If your current configuration has a component that is not present in the restore point, that component is removed when the restore point is restored. Therefore, ensure that you review the policies and configurations saved at a restore point before restoring them. To learn more, see [Viewing or Restoring Policies and Configurations from a Restore Point](https://help.zscaler.com/zia/viewing-restoring-policies-configurations-from-restore-point).
 
-Backup and Restore features provide the following benefits and enable you to:
+Backup and Restore provides the following benefits and enables you to:
 
 - Create backups to secure your policies and configuration settings and restore them in the event of policy failure, misconfiguration, or undesired outcomes.
 - Schedule automated backups to create backups periodically without manual intervention.
@@ -2059,14 +2139,14 @@ You can back up and restore policies and configuration settings in the following
 - You want a strict policy with very little tolerance for risk that you can revert to in case of a virus outbreak or if your security infrastructure suddenly changes.
 - You want to schedule backups to ensure the creation of restore points periodically without any manual intervention, which helps comply with Business Continuity Plans and Disaster Recovery Plans of your organization.
 
-An organization can have up to 12 restore points, including manual and scheduled backups. You can designate one of the restore points as the Golden Restore Point that exists indefinitely and allows you to restore the corresponding policies and configurations at any point in time. The golden restore point cannot be deleted.
+An organization can have up to 12 restore points, including manual and scheduled backups. You can designate one of the restore points as the Golden Restore Point that exists indefinitely and allows you to restore the corresponding policies and configurations at any point in time. The Golden Restore Point cannot be deleted.
 
 - If the number of restore points reaches a limit of 12, you cannot add a new restore point manually without deleting an existing one. However, during scheduled automatic backup, the oldest restore point is removed to create the new one when the limit is exceeded. If the oldest restore point is a golden restore point, then the next oldest restore point is removed.
 - For organizations with [Exact Data Match (EDM)](https://help.zscaler.com/zia/about-exact-data-match) or [Indexed Document Match (IDM)](https://help.zscaler.com/zia/about-indexed-document-match) enabled, the Backup and Restore feature doesn’t restore the [Data Loss Prevention (DLP)](https://help.zscaler.com/zia/about-data-loss-prevention) policies.
 
 ## About the Backup & Restore Page
 
-On the Backup & Restore page (Administration > Backup & Restore > Internet & SaaS Applications), you can do the following:
+On the Backup & Restore page (Administration > Backup & Restore > Internet & SaaS), you can do the following:
 
 1. [Add a restore point manually](https://help.zscaler.com/zia/adding-restore-points-manually).
 2. Search for an existing restore point.
@@ -2081,7 +2161,7 @@ A restore point with the **Flag** icon alongside it represents a Golden Restore 
 1. [Modify the display of columns in the table](https://help.zscaler.com/unified/using-tables).
 2. [View or restore stored policies and configurations from a restore point](https://help.zscaler.com/zia/viewing-restoring-policies-configurations-from-restore-point).
 
-[Image: Backup & Restore page within the Admin Console]
+[Image: Backup & Restore page within the Zscaler Admin Console]
 
 - [Advanced Threat Protection policies](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy)
 - [Bandwidth Control policies](https://help.zscaler.com/zia/about-bandwidth-control)
@@ -2106,155 +2186,131 @@ A restore point with the **Flag** icon alongside it represents a Golden Restore 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-bandwidth-classes","lastmod":"2026-07-01T10:17Z","nid":"1398911"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-bandwidth-classes","lastmod":"2026-09-08T10:58Z","nid":"1398911"} -->
 ## About Bandwidth Classes
 
 - Source: https://help.zscaler.com/zia/about-bandwidth-classes
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Bandwidth Control & Classes > About Bandwidth Classes
-- Last modified: 2026-07-01T10:17Z
-- Summary: Information on bandwidth classes and the Bandwidth Classes page in the ZIA Admin Portal.
+- Last modified: 2026-09-08T10:58Z
+- Summary: Information on bandwidth classes and the Bandwidth Classes page in the Zscaler Admin Console.
 
 [Watch a video about Bandwidth Classes](https://fast.wistia.net/embed/iframe/jjpc536mhm) (shows legacy UI).
 
-Bandwidth classes help you organize applications, URL categories and domains so you can apply consistent bandwidth policies across the organization. By grouping similar traffic into bandwidth classes, you can simplify policy management, prioritize business-critical applications, and optimize network bandwidth usage.
+Bandwidth classes identify the [URL categories](https://help.zscaler.com/zia/about-url-categories) and [cloud applications](https://help.zscaler.com/zia/about-cloud-app-control) to which the service allocates bandwidth. It helps you organize applications, URL categories, and domains and group similar traffic into bandwidth classes to apply consistent bandwidth policies across the organization. You must configure the bandwidth classes before you can reference them in [Bandwidth Control](https://help.zscaler.com/zia/about-bandwidth-control) policy rules.
 
-Bandwidth classes identify the [URL categories](https://help.zscaler.com/zia/about-url-categories) and [cloud applications](https://help.zscaler.com/zia/about-cloud-app-control) to which the service allocates bandwidth. You must configure the bandwidth classes before you can reference them in [Bandwidth Control](https://help.zscaler.com/zia/about-bandwidth-control) policy rules. To configure bandwidth classes, you can edit the predefined bandwidth classes or add new bandwidth classes by grouping URL categories, applications, or domains into it. For example, if you want to control bandwidth for service updates, you could create a custom bandwidth class including the URLs for the App Store and apply your desired policy.
+To configure bandwidth classes, you can edit the predefined bandwidth classes or add new bandwidth classes by grouping URL categories, applications, or domains into it. For example, if you want to control bandwidth for service updates, you could create a custom bandwidth class including the URLs for the App Store and apply your desired policy.
 
-If you have created a custom bandwidth class that isn't being used in any policies for a location, then the custom class is added to the location’s default Bandwidth Control rule. The default rule includes all internet traffic not covered by other rules. By default, it's not guaranteed any bandwidth, but it can consume up to 100% of the bandwidth when available. These bandwidth settings can be changed by editing the default rule.
+The Bandwidth Classes page has 4 tabs:
 
-The Cloud Applications tab lists predefined bandwidth classes to which you can add domains. The predefined bandwidth classes can't be deleted. You can also add your own custom domains.
+- **Cloud Applications**: Allows you to [configure both custom and predefined bandwidth classes](https://help.zscaler.com/zia/configuring-bandwidth-classes), which you can manage by adding or removing URL domains. The predefined bandwidth classes can't be deleted.
+- **Large files**: Allows you to configure the minimum file size for this bandwidth class.
+- **Web Conference Applications**: Allows you to enable or disable web conferencing applications for this bandwidth class.
+- **VoIP Applications**: Allows you to enable or disable VoIP applications for this bandwidth class.
 
-The following are the predefined bandwidth classes:
+The Bandwidth Classes page provides the following benefits and enables you to:
 
-- **File Share**: You can enter URLs that represent file-sharing sites.
-- **Finance:** You can enter URLs that represent business-oriented, financial web-based applications or tools, such as Smith Barney or E-Trade.
-- **General Surfing:** This class includes all URL categories and cloud apps that do not fall into one of the following categories: Webmail, Instant Messaging, Streaming Media/File Share, and Social Networks/Blogging. This class can't be edited.
-- **Sales/Support Apps:** You can enter URLs that represent business-oriented, sales/support web-based applications or tools, such as Salesforce or NetSuite.
-- **Streaming Media:** You can enter URLs that represent streaming sites.
-
-To add domains to the predefined bandwidth classes:
-
-1. Go to **Infrastructure** > **Internet & SaaS** > **Network Policies** > **Classes** to manage bandwidth classes.
-2. Go to the **Cloud applications** tab.
-3. [Edit](https://help.zscaler.com/zia/editing-deleting-duplicating-items) a predefined bandwidth class.
-
-The **Edit Bandwidth Class**window appears.
-
-1. In the **Edit Bandwidth Class**window:
-
-- **Domains:**Enter the URLs you want to include in the bandwidth class, andclick **Add Items**. Use the [URL format guidelines](https://help.zscaler.com/zia/url-format-guidelines) when adding domains.
-
-1. Click **Save** and [activate your changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+- Create custom bandwidth classes for your organization and use them in Bandwidth Control rules for more granular traffic management.
+- Group similar traffic into bandwidth classes to simplify policy management, prioritize business-critical applications, and optimize network bandwidth usage.
 
 ## About the Bandwidth Classes Page
 
-On the Bandwidth Classes page (Infrastructure > Internet & SaaS > Network Policies > Classes):
+On the Bandwidth Classes page (Internet Access > Resources > Bandwidth Classes > Cloud Applications), you can:
 
-1. You can add up to 25,000 custom URLs (across all categories), and up to 64 custom categories. For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
-2. Click the **Large Files** tab to configure that bandwidth class. To learn more, see [Configuring the Large Files Bandwidth Class](https://help.zscaler.com/zia/configuring-large-files-bandwidth-class).
-3. Click the **Web Conferencing Applications**tab to configure that bandwidth class. To learn more, see [Configuring the Web Conferencing Applications Bandwidth Class](https://help.zscaler.com/zia/configuring-web-conferencing-applications-bandwidth-class).
-4. Click the **VoIP** **Applications**tab to configure that bandwidth class. To learn more, see [Configuring the VoIP Applications Bandwidth Class](https://help.zscaler.com/zia/configuring-voip-applications-bandwidth-class).
-5. [Add a bandwidth class for cloud applications](https://help.zscaler.com/zia/adding-bandwidth-classes).
-6. Search for a configured bandwidth class.
-7. View a list of all configured bandwidth classes:
+1. Search for a bandwidth class.
+2. [Add a bandwidth class for cloud applications](https://help.zscaler.com/zia/configuring-bandwidth-classes).
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View a list of all bandwidth classes. You can click on any predefined or custom to view details of that bandwidth class. For each bandwidth class, you can see:
   - **Name**: The name of the bandwidth class. You can sort this column.
-  - **URL Categories**: Which URL categories are included in the URL categories. To learn more about URL categories, see [About URL Categories](https://help.zscaler.com/zia/about-url-categories).
+  - **URL Categories**: The [URL categories](https://help.zscaler.com/zia/about-url-categories) included in the bandwidth class.
   - **Cloud Applications**: The cloud applications included in the bandwidth class. You can select [cloud application categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) or individual cloud applications.
   - **Domains**: The domains included in the bandwidth class. You can add domains for up to 8 individual bandwidth classes.
-8. Edit a bandwidth class. To learn more, see [Editing, Deleting, or Duplicating Items](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
-9. Modify the table and its columns. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables).
-10. View the General Surfing bandwidth class. This class includes all URL categories and cloud apps that do not fall into one of the following categories: Webmail, Instant Messaging, Streaming Media, File Share, and Social Networks/Blogging.
+5. [Edit a predefined or custom bandwidth class](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+6. [Delete a custom bandwidth class](https://help.zscaler.com/zia/editing-deleting-duplicating-items). You cannot delete a predefined bandwidth class.
+7. Click **General Surfing** to view details of this bandwidth class. This class includes all URL categories and cloud apps that do not belong to the following categories: Webmail, Instant Messaging, Streaming Media, File Share, and Social Networks/Blogging.
+8. Go to the [Large Files](https://help.zscaler.com/zia/configuring-large-files-bandwidth-class) tab to configure the minimum file size for bandwidth classes.
+9. Go to the [Web Conferencing Applications](https://help.zscaler.com/zia/configuring-web-conferencing-applications-bandwidth-class)tab to configure the web conferencing bandwidth class.
+10. Go to the [VoIP Applications](https://help.zscaler.com/zia/configuring-voip-applications-bandwidth-class)tab to configure the VoIP bandwidth classes.
+11. You can add up to 75,000 custom URLs (across all categories), and up to 64 custom categories. For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
 
 [Image: Bandwidth Classes page with labeled parts]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-bandwidth-control","lastmod":"2026-08-21T08:20Z","nid":"1398776"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-bandwidth-control","lastmod":"2026-09-28T08:24Z","nid":"1398776"} -->
 ## About Bandwidth Control
 
 - Source: https://help.zscaler.com/zia/about-bandwidth-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Bandwidth Control & Classes > About Bandwidth Control
-- Last modified: 2026-08-21T08:20Z
+- Last modified: 2026-09-28T08:24Z
 - Summary: Information on bandwidth control and the Bandwidth Control page on the Zscaler Admin Console.
 
 [Watch a video about Bandwidth Control including configuring the Bandwidth Control Policy](https://fast.wistia.net/embed/iframe/z9h2f81rrs) (shows legacy UI).
 
 Bandwidth Control allows you to preserve access to your business-critical applications regardless of your internet pipe consumption. This enables you to do things like adding more restrictive rules around social media and streaming media. For example, you can allocate a maximum of 10% of the bandwidth to the streaming media, social media, or file share bandwidth classes. When bandwidth is restricted, these classes are not guaranteed any bandwidth and are restricted to 10% of the bandwidth when it is available.
 
-Bandwidth Control enables organizations to optimize network performance by prioritizing business-critical applications and limiting non-essential traffic during periods of high bandwidth usage.
+Bandwidth Control enables organizations to optimize network performance by prioritizing business-critical applications and limiting non-essential traffic during periods of high bandwidth usage. To see a sample policy for bandwidth management, see the [Bandwidth Control Policy Example](https://help.zscaler.com/zia/bandwidth-control-policy-example).
+
+The following sections explain the working methods of Bandwidth Control policy at various levels:
 
 - Bandwidth Control at Two Levels
 - How Bandwidth Control Works
 - Best Practices for Bandwidth Control policy
-- Recommended Bandwidth Control policy
-
-To see a sample policy for bandwidth management, see the [Bandwidth Control Policy Example](https://help.zscaler.com/zia/bandwidth-control-policy-example).
 
 To see how this policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
 
-You can go to the Bandwidth Control [dashboard](https://help.zscaler.com/zia/about-dashboards) (Analytics > Internet & SaaS > Dashboard > Bandwidth Control) to view your organization's bandwidth usage in real time. You can also go to Analytics >Internet & SaaS> Analytics >Interactive Reports to view the [standard reports](https://help.zscaler.com/zia/about-interactive-reports) for bandwidth control and to [create custom reports](https://help.zscaler.com/zia/creating-copying-report) as well.
+The Bandwidth Control page provides the following benefits:
+
+- Prevents network congestion by limiting or prioritizing bandwidth for specific users, groups, locations, or applications.
+- Protects business-critical apps by ensuring important traffic gets sufficient bandwidth instead of being crowded out by non-essential usage.
+
+You can go to the [Bandwidth Control dashboard](https://help.zscaler.com/zia/about-dashboards#bandwidth-control) to view your organization's bandwidth usage in real time. You can also go to [Interactive Reports](https://help.zscaler.com/zia/about-interactive-reports) to view the [standard reports](https://help.zscaler.com/zia/about-interactive-reports) for bandwidth control and to [create custom reports](https://help.zscaler.com/zia/creating-copying-report) as well.
 
 ## About the Bandwidth Control Page
 
-On the Bandwidth Control page (Infrastructure > Internet & SaaS > Network Policies > Rules), you can:
+On the Bandwidth Control page (Internet Access > Policy >Bandwidth Control), you can:
 
 1. [Configure a Bandwidth Control policy rule](https://help.zscaler.com/zia/configuring-bandwidth-control-policy).
-2. View the recommended policy for Bandwidth Control.
-
-See image.
-
-1. Select one of the following **View by** options to see the Bandwidth Control rules accordingly:
-
-- **Rule Order**: Displays the rules based on the rule order. By default, the rules are listed in the ascending rule order.
-
-See image.
-
-- **Rule Label**: Displays the rules based on the rule labels. The rules are grouped under the associated rule labels.
-
-See image.
-
-You can expand or collapse all the rule labels using the **Expand All** or **Collapse All** buttons.
-
-1. Search for a configured Bandwidth Control policy rule.
-2. View a list of all configured Bandwidth Control policy rules:
-  - **Rule Order:** The rule order number. Bandwidth Control rules are evaluated in ascending numerical order and the default rule is evaluated last. You can sort this column.
+2. Select one or more **Rule Label** to display only the associated Bandwidth Control rules. **Clear** the selection to display all rules.
+3. Search for a configured Bandwidth Control policy rule.
+4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+5. View a list of all configured Bandwidth Control policy rules:
+  - **Rule Order:** The order in which the rules are evaluated. Bandwidth Control rules are evaluated in ascending numerical order and the default rule is evaluated last. You can sort this column.
+  - **Rule Name:** The name of the policy rule. You can sort this column.
   - **Admin Rank:**The assigned [admin rank](https://help.zscaler.com/unified/about-admin-rank) for the rule. This is only visible if you have enabled admin ranking in the [Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings). You can sort this column.
-  - **Rule Name:** The name of the rule. You can sort this column.
-  - **Criteria:** The criteria of the rule (e.g., Bandwidth Classes, Protocols, etc.).
-  - **Action:** Displays the configured Bandwidth Control actions of the rule.
-  - **Label and Description**: The label and description of the policy rule, if available.
-3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-4. [Edit the Bandwidth Control policy rule](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
-5. [Duplicate the Bandwidth Control policy rule](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+  - **Bandwidth Classes:** The bandwidth classes associated with the rule.
+  - **Rule Action:** Displays the configured Bandwidth Control actions of the rule.
+  - **Rule Status:** Indicates whether the rule is **Enabled** or **Disabled**.
+  - **Protocols:** The protocols to which the rule applies.
+  - **Locations:** The locations where the rule is applied.
+  - **Time:** The time schedule associated with the rule, if configured.
+  - **Rule Label:** The rule label assigned to the policy, if configured.
+6. [Edit the Bandwidth Control policy rule](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+7. [Delete the Bandwidth Control policy rule](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+8. [Duplicate the Bandwidth Control policy rule](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
 
-[Image: . Zscaler Admin Console Bandwidth Control page]
+[Image: Bandwidth Control page shows a list of bandwidth rules]
 
 Zscaler provides Bandwidth Control at two levels:
 
-- At the first level, the Zscaler service provides Bandwidth Control by [location](https://help.zscaler.com/zia/about-locations). You can configure maximum upload and download bandwidth limits for each location in your organization. These limits apply to the traffic that is proxied to Zscaler for Bandwidth Control. Further, you can also control bandwidth management by [sublocation](https://help.zscaler.com/zia/understanding-sublocations). This provides admins with the versatility of configuring different policies for different sublocations. Different sublocations can use bandwidth from the location or, if desired, sublocations can have a specific bandwidth limit enforced. Enforcing limits is particularly useful for guest Wi-Fi networks.
-
-The service applies bandwidth controls to traffic from known locations only (i.e., locations that are configured in the Zscaler Admin Console). The Bandwidth Control policy does not apply to remote users because their traffic does not come from a configured location and their source IP address has unknown upload and download bandwidth values.
-
+- At the first level, the Zscaler service provides Bandwidth Control by [location](https://help.zscaler.com/zia/about-locations). You can configure maximum upload and download bandwidth limits for each location in your organization. These limits apply to the traffic that is proxied to Zscaler for Bandwidth Control. Further, you can also control bandwidth management by [sublocation](https://help.zscaler.com/zia/understanding-sublocations). This provides admins with the versatility of configuring different policies for different sublocations. Different sublocations can use bandwidth from the location or, if desired, sublocations can have a specific bandwidth limit enforced. Enforcing limits is particularly useful for guest Wi-Fi networks. The service applies bandwidth controls to traffic from known locations only (i.e., locations that are configured in the Zscaler Admin Console). The Bandwidth Control policy does not apply to remote users because their traffic does not come from a configured location and their source IP address has unknown upload and download bandwidth values.
 - At the second level, for each location, you can configure bandwidth-shaping rules based on bandwidth classes, such as VoIP or Web Conferencing, URL categories, or custom application classes that you define. The Zscaler bandwidth algorithm allows an application class full bandwidth utilization until there is contention for the bandwidth by a traffic class with a higher priority. When application classes compete for bandwidth, the service takes action based on the multiple bandwidth control policies that you configured in the Bandwidth Control policy, as shown below:
 
 [Image: Bandwidth Control Policy QoS Controls]
 
-You must configure upload and download bandwidth limits for your locations or sublocations to use the second level of bandwidth controls.
+You must configure upload and download bandwidth limits fo r your locations or sublocations to use the second level of bandwidth controls.
 
 The Zscaler service rebalances the bandwidth in real time and buffers packets for application classes that hit the bandwidth quota limit during one-second intervals. This behavior ensures that business-critical applications run at full speed, with no deterioration in quality. The Zscaler service applies the policy to all HTTP and HTTPS traffic from the location. You do not need to enable SSL interception because it works at the TCP level. Bandwidth Control only applies to the TCP traffic for the following protocols:
 
 - HTTP
 - HTTPS
 - HTTP Proxy
-- SSL
+- SSL/TLS
 - Native FTP
 - DNS over HTTPS
-- Tunnel SSL
-
-HTTP/2 connections are bandwidth controlled at the HTTP/2 stream level within a single TCP connection. No changes to your Bandwidth Control rules are required.
+- Tunnel SSL/TLS
 
 First, you specify the maximum upload and download bandwidth limits for each location in your organization. About 5–7% of TCP traffic is overhead, such as packet headers. The Zscaler service does not include these in its bandwidth calculations. It only includes the application traffic.
 
@@ -2271,44 +2327,25 @@ The minimum bandwidth percentage is only enforced when there is contention on a 
 The following are the best practices for setting up the Bandwidth Control policy for locations:
 
 - You must specify the maximum upload and download bandwidth limits for each location in your organization. Ensure that you exclude UDP traffic sent to Zscaler and traffic not forwarded to Zscaler while specifying the limits.
-- About 5–7% of TCP traffic is overhead, such as packet headers. The Zscaler service does not include these in its bandwidth calculations. It only includes the application traffic that is proxied to Zscaler. Therefore, computing a location's bandwidth is shown in the following equation:
+- About 5–7% of TCP traffic is overhead, such as packet headers. The Zscaler service does not include these in its bandwidth calculations. It only includes the application traffic that is proxied to Zscaler. Therefore, computing a location's bandwidth is shown in the following equation: Only 70–80% of the overall bandwidth per location is the ideal setting for upload and download limits.
   - (Actual bandwidth) – (10–15% overhead) = Upload and Download bandwidth
 
-Only 70–80% of the overall bandwidth per location is the ideal setting for upload and download limits.
-
-The following are the best practices for setting up the Bandwidth Control policy for sublocations:
+The following are the best practices for setting up the bandwidth control policy for sublocations:
 
 - If Bandwidth Control is disabled on the main location but enabled on a sublocation, then an admin has to manually enter the upload and download limits for the sublocation.
 - Whenever the main location has Bandwidth Control enabled after a sublocation does, it needs to have upload and download limits added. The value of upload and download limits added to the main location must be greater than or equal to the total value of limits used for all the sublocations. For example, say you first enable Bandwidth Control on the sublocation *San Jose* and set it to have a download limit of 15 Mbps and an upload limit of 80 Mbps. If you then enable Bandwidth Control on the main location, *California*, and San Jose is its only sublocation, then California's download and upload limits should be at least 15 Mbps and 80 Mbps respectively.
 - If you manually set the Bandwidth Control on a sublocation to a number that is equal to the bandwidth of the main location, Bandwidth Control is disabled on all other sublocations.
-
-Zscaler recommends that you configure the following Bandwidth Control policy:
-
-- **Rule Order**: 1
-- **Rule Status**: Enabled
-- **Bandwidth Classes**: Any
-- **Locations**: Any
-- **Location Groups**: Any
-- **Time**: Always
-- **Min. Bandwidth**: 0%
-- **Max. Bandwidth**: 100%
-
-[Image: Recommended Bandwidth Control Policy in the Bandwidth Control page]
-
-[Image: Zscaler Admin Console Bandwidth Control page with Rule Order]
-
-[Image: Zscaler Admin Console Bandwidth Control page with Rule Label]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-browser-eun-template","lastmod":"2025-06-26T21:29Z","nid":"1487306"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-browser-eun-template","lastmod":"2026-09-15T23:45Z","nid":"1487306"} -->
 ## About Browser EUN Template
 
 - Source: https://help.zscaler.com/zia/about-browser-eun-template
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Browser EUNs > Templates > About Browser EUN Template
-- Last modified: 2025-06-26T21:29Z
+- Last modified: 2026-09-15T23:45Z
 - Summary: Information on the Zscaler's browser end user notification template. These notification appear on the browser when a URL filtering or cloud app control policy block or caution rule is trigerred.
 
 You can configure the browser end user notification (EUN) templates with custom block and custom caution messages. To display the EUNs on the browser when the [Cloud App Control Policy](https://help.zscaler.com/zia/about-cloud-app-control), [URL Filtering](https://help.zscaler.com/zia/about-url-filtering) rule, or [File Type Control](https://help.zscaler.com/zia/about-file-type-control) rule with block or caution action is triggered, you must reference one of the templates created here in the Cloud App Control Policy, URL Filtering rule, and File Type Control rule. To learn more, see [Configuring the URL Filtering Policy](https://help.zscaler.com/zia/configuring-url-filtering-policy), [Adding Rules to the Cloud App Control Policy](https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy), and [Configuring the File Type Control Policy](https://help.zscaler.com/zia/configuring-file-type-control-policy).
@@ -2318,23 +2355,26 @@ Browser EUN templates provide the following benefits and allow you to:
 - Configure custom messages in addition to modifying default messages for the block and caution actions on a per policy rule basis.
 - Associate the EUN templates with the Cloud App Control policy, URL Filtering rules, and File Type Control rule.
 
-Zscaler browser EUNs come with default notification messages for each policy type, which can be customized. You can customize various elements of the notification, including the notification message for different policy actions, company name, logo, information displayed on the notification, duration of the notification, and more.
+Zscaler EUNs come with default notification messages for each policy type, which can be customized. You can customize various elements of the notification, including the notification message for different policy actions, company name, logo, information displayed on the notification, duration of the notification, and more.
 
-## About the Browser EUN Templates Page
+## About the EUN Templates Page
 
-On the Browser EUN Templates page (Administration > End User Notifications> Browser > Templates), you can do the following:
+On the EUN Templates page (Administration > End User Notification > End User Notifications > EUN Templates), you can do the following:
 
-1. [Add a custom message for a browser EUN template](https://help.zscaler.com/zia/configuring-browser-eun-template).
-2. Search for a browser EUN template.
-3. View a list of all browser EUN templates that were configured for your organization. For each template, you can see the following:
-  - **Name**: The name of the browser EUN template. You can sort this column.
+1. Search for an EUN template.
+2. [Add a custom message for an EUN template](https://help.zscaler.com/zia/configuring-browser-eun-template).
+3. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
+4. Select to show or hide the Channel filter available for this page.
+5. Filter the template list by a specific policy type. The All option displays the templates configured for all the policy types.
+6. View a list of all EUN templates that were configured for your organization. For each template, you can see the following:
+  - **Name**: The name of the EUN template. You can sort this column.
   - **Channel**: The policy type (Cloud App Control, URL Filtering, or File Type Control) for which the custom message is added. You can sort this column.
-4. [Edit or delete a browser EUN template](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
-5. Filter the template list by a specific policy type. The All option displays the templates configured for all the policy types. The All option is the default filter option.
-6. Go to the Global Configuration tab.
-7. Go to the [Client Connector EUN](https://help.zscaler.com/zia/about-zscaler-client-connector-based-end-user-notifications) page.
+7. [Edit or delete an EUN template](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+8. The EUN templates are paginated with up to 500 templates displayed per page.
+9. Go to the [Global EUN Configuration](https://help.zscaler.com/zia/configuring-browser-based-global-end-user-notifications) tab.
+10. Go to the [Client Connector](https://help.zscaler.com/zia/about-zscaler-client-connector-based-end-user-notifications) tab.
 
-[Image: Screenshot of ZIA End User Notification Browser Templates]
+[Image: End User Notification Browser Templates Page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2531,18 +2571,18 @@ You might encounter any of the following error messages while running the Bulk U
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-cloud-app-control","lastmod":"2026-06-03T22:32Z","nid":"1399386"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-cloud-app-control","lastmod":"2026-09-29T00:06Z","nid":"1399386"} -->
 ## About Cloud App Control
 
 - Source: https://help.zscaler.com/zia/about-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > About Cloud App Control
-- Last modified: 2026-06-03T22:32Z
+- Last modified: 2026-09-29T00:06Z
 - Summary: Information on the Cloud App Control policy. This provides control over popular websites and applications, and the ability to define a daily quota by bandwidth or time.
 
-The Cloud App Control policy provides granular control over popular websites and applications. Cloud apps are organized by function into [categories](https://help.zscaler.com/zia/cloud-app-categories) for easy reference and to facilitate defining rules for similar apps.
+The Cloud App Control policy provides granular control over popular websites and applications. Cloud apps are organized by function into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) for easy reference and to facilitate defining rules for similar apps.
 
-You can [create rules](https://help.zscaler.com/zia/how-do-i-add-rules-cloud-app-control-policy) to control how your users access specific cloud applications. For example, you can define a rule for instant messaging apps that allows chatting, but blocks file transfers.
+You can [create rules](https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy) to control how your users access specific cloud applications. For example, you can define a rule for instant messaging apps that allows chatting, but blocks file transfers.
 
 The Cloud App Control policy rules can also be applied to Internet of Things (IoT) devices from a [location](https://help.zscaler.com/zia/configuring-locations) or a [sublocation](https://help.zscaler.com/zia/configuring-sublocations) that has the Enforce IoT Policy Control option enabled. You can apply the rules to IoT devices that are identified and classified (e.g., printers, sensors, etc.) by the Zscaler AI/ML under the IoT group in the Device Groups criterion.
 
@@ -2553,7 +2593,7 @@ The Cloud App Control policy provides the following benefits and enables you to:
 - Allow administrators to set rules for applications and specific application instances.
 - Ensure secure data-usage policies.
 
-Zscaler provides the Allow Unauthenticated Traffic for IoT Classifications predefined rules for all the [categories](https://help.zscaler.com/zia/cloud-app-categories). You can enable these rules to temporarily allow unauthenticated traffic that could be blocked by other rules, so that the Zscaler AI/ML can classify devices. These rules are disabled by default and cannot be deleted. You can modify the Rule Order, Rule Status, Rule Label, and Description for these rules and cannot edit other attributes.
+Zscaler provides the Allow Unauthenticated Traffic for IoT Classifications predefined rules for all the [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories). You can enable these rules to temporarily allow unauthenticated traffic that could be blocked by other rules, so that the Zscaler AI/ML can classify devices. These rules are disabled by default and cannot be deleted. You can modify the Rule Order, Rule Status, Rule Label, and Description for these rules and cannot edit other attributes.
 
 Additionally, you can define a daily quota by bandwidth or time. When users browse these sites after their quota has been reached, the Zscaler service displays a message that explains that the content cannot be viewed because they exceeded their daily quota.
 
@@ -2561,56 +2601,69 @@ For information on the order in which the service enforces all policies, includi
 
 ## About the Cloud App Control Policy Page
 
-On the Cloud App Control Policy page (Policies > Access Control > Internet & SaaS > Cloud App Control), you can do the following:
+On the Cloud App Control Policy page (Data Security > Inline CASB > SaaS/Cloud App Policy), you can do the following:
 
-1. View the configured Cloud App Control rules by App Types or Rules.
-2. Search for a Cloud App Control rule by application type.
+1. View the configured Cloud App Control rules using one of the following options:
+  - Application Category
+  - Rules
+2. Search for an application category.
 3. Search for a Cloud App Control rule.
-4. Select the following column options to view the Cloud App Control rules accordingly:
+4. [Add a Cloud App Control rule](https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy).
+5. Select the following column options to view the Cloud App Control rules accordingly:
   - List of columns
-5. [Add a Cloud App Control rule](https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy).
-6. Filter the Cloud App Control rule by Rule Label, Rule Name, Rule Order, Description, Action, Location, Location Group, Department, Group, User, Device, Device Group, Source IP Group, URL Categories, or HTTP Header Profile.
-7. View a list of all configured Cloud App Control rules. For each rule, you can see the following:
+6. Enable or disable the filter for Cloud App Control rules.
+7. Filter the Cloud App Control rule by Rule Label.
+8. View a list of all configured Cloud App Control rules. For each rule, you can see the following:
   - **Rule Order**: The policy rule order number. Cloud App Control rules are evaluated in ascending numerical order.
   - **Admin Rank**: The Admin Rank for this rule. This is only visible if you have enabled it in the Advanced Settings.
   - **Rule Name**: The name of the policy rule.
   - **Rule Action**: Displays whether the policy rule is disabled or what's set to Allow, Block, or Isolate. The Isolate action is available only if Zero Trust Browser (formerly Isolation) is enabled for your organization and if the rule is not for DNS over HTTPS apps.
   - **Rule Label**: The label of the policy rule, if available.
   - **Description**: The description of the policy rule, if available.
-8. [Edit, duplicate, or delete a Cloud App Control rule.](https://help.zscaler.com/zia/editing-deleting-duplicating-items)
+9. [Edit, duplicate, or delete a Cloud App Control rule.](https://help.zscaler.com/zia/editing-deleting-duplicating-items)
 
 **[Image: Cloud App Control Policy Page]**
 
-- Application Type
+Displays the rules based on the selected application category. By default, this option is selected.
+
+[Image: Cloud App Control Policy page viewed based on application category]
+
+Displays all the Cloud App Control rules with the predefined rules listed first, followed by configured rules.
+
+[Image: Cloud App Control Policy page viewed based on rules option]
+
+- Application Category
 - Admin Rank
 - Rule Name
 - Rule Action
-- Cloud Application
+- Cloud Applications
 - Cloud Application Instances
 - Users
 - Groups
 - Departments
 - Locations
-- Locations Groups
+- Location Groups
 - Time
 - Devices
 - Device Groups
-- DEVICE_TRUST_LEVELS
+- Device Trust Level
 - User Agents
-- User Risk Profiles
+- User Risk Profile
 - Rule Label
-- Descriptions
+- Description
+
+The Rule Order and Actions columns are selected by default and they can't be unselected.
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-cloud-application-instances","lastmod":"2026-05-25T06:51Z","nid":"1403151"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-cloud-application-instances","lastmod":"2026-09-09T03:30Z","nid":"1403151"} -->
 ## About Cloud Application Instances
 
 - Source: https://help.zscaler.com/zia/about-cloud-application-instances
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud Application Instances > About Cloud Application Instances
-- Last modified: 2026-05-25T06:51Z
+- Last modified: 2026-09-09T03:30Z
 - Summary: Information on Cloud Application Instances in the Zscaler Admin Console.
 
 The cloud application instances feature allows you to create instances for cloud applications where you can add specific instance identifiers (e.g., domains). The feature consists of two parts:
@@ -2652,32 +2705,34 @@ For cloud applications, if you allow access to an instance and block the rest us
 
 The feature enables you to granularly control the actions based on the domain types in the [Cloud App Control](https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy) policy, [DLP policy with content inspection](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection#Rules), and [DLP policy without content inspection](https://help.zscaler.com/zia/configuring-dlp-policy-rules-without-content-inspection#Add).
 
-## About the Cloud Application Instances Page
+## About the Instances Page
 
-On the Cloud Application Instances page (Policies > Access Control > Internet & SaaS > SaaS Applications > Instances), you can do the following:
+On the Instances page (Data Security > Inline CASB > SaaS Applications > Instances), you can do the following:
 
 1. [Add a cloud application instance.](https://help.zscaler.com/zia/adding-cloud-application-instance)
-2. Filter for cloud application instances based on the instance type (e.g., Any, Appspace, Bitbucket).
-3. Search for a cloud application instance.
-4. View a list of all configured cloud application instances. For each cloud application instance, you can see:
+2. [Modify the column option to view the cloud application instances accordingly.](https://help.zscaler.com/unified/using-tables#hide)
+3. Enable or disable the filter for cloud application instances.
+4. Filter for cloud application instances based on the instance type (e.g., Any, Appspace, Bitbucket).
+5. Search for a cloud application instance.
+6. View a list of all configured cloud application instances. For each cloud application instance, you can see:
   - **Cloud Application Instance Name**: The name of the cloud application instance that is displayed when configuring the Cloud App Control policy rule or DLP policy rule. You can sort this column.
   - **Instance Type**: The parent cloud application to which the instance is tied.
   - **No. of Instance Identifiers**: The total number of instance identifiers for the instance.
-5. [Edit or delete a cloud application instance.](https://help.zscaler.com/zia/editing-deleting-duplicating-items)
-6. [View the Applications page](https://help.zscaler.com/zia/about-cloud-applications).
+7. [Edit or delete a cloud application instance.](https://help.zscaler.com/zia/editing-deleting-duplicating-items)
+8. [View the Applications page](https://help.zscaler.com/zia/about-cloud-applications).
 
-[Image: Zscaler Admin Console Cloud Application Instances page]
+[Image: Cloud Application Instances page showing application instances with their details]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-cloud-application-risk-profile","lastmod":"2026-05-26T04:01Z","nid":"1402271"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-cloud-application-risk-profile","lastmod":"2026-09-15T07:57Z","nid":"1402271"} -->
 ## About Cloud Application Risk Profile
 
 - Source: https://help.zscaler.com/zia/about-cloud-application-risk-profile
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Risk Profiles > About Cloud Application Risk Profile
-- Last modified: 2026-05-26T04:01Z
+- Last modified: 2026-09-15T07:57Z
 - Summary: Information on the Cloud Application Risk Profile in Zscaler Admin Console
 
 The cloud application risk profile feature allows you to control how cloud applications are used in your organization. The feature consists of two parts: creating a cloud application risk profile and associating the profile with the Cloud App Control policy rules.
@@ -2694,35 +2749,36 @@ Risk profiles provide the following benefits and allow you to:
 - Identify applications that fall into risk categories that require tighter controls.
 - Control application access based on application status, hosting information, and security information.
 
-## About the Cloud Application Page
+## About the Risk Profiles Page
 
-On the Cloud Application page (Policies > Access Control > Internet & SaaS > Risk Profiles), you can do the following:
+On the Risk Profiles page (Data Security > Inline CASB > Risk Profiles), you can do the following:
 
-1. [Add a cloud application risk profile](https://help.zscaler.com/zia/adding-cloud-application-risk-profile).
-2. Search for a configured cloud application risk profile.
-3. View a list of all configured cloud application risk profiles. For each cloud application risk profile, you can see the following:
+1. Search for a configured cloud application risk profile.
+2. [Add a cloud application risk profile](https://help.zscaler.com/zia/adding-cloud-application-risk-profile).
+3. [Modify the column option to view the risk profiles accordingly.](https://help.zscaler.com/unified/using-tables#hide)
+4. View a list of all configured cloud application risk profiles. For each cloud application risk profile, you can see the following:
   - **Profile Name**: The name of the cloud application risk profile that is displayed when configuring the Cloud App Control policy rule. You can sort this column.
-  - **Application Status**: The state of the application (Sanctioned or Unsanctioned).
+  - **Application Status**: The state of the application (Sanctioned or Unsanctioned). You can sort this column.
   - **Risk Index**: The risk index number of the cloud applications. It represents the risk score assigned to each cloud application based on the risk attribute values. All the cloud applications, including those with risk index overrides from the [Application Information](https://help.zscaler.com/zia/about-application-information) page, are evaluated in the policy if the risk index criterion matches.
-  - **Certifications Supported**: The types of certifications that the cloud applications support. You can choose to include or exclude certificates.
+  - **Certifications**: The types of certifications that the cloud applications support. You can choose to include or exclude certificates.
   - **Details**: The details of the cloud application risk profile.
-4. [Edit, duplicate, or delete a cloud application risk profile](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+5. [Edit, duplicate, or delete a cloud application risk profile](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
 
-[Image: Cloud Application tab on the Risk Profiles page.]
+[Image: Risk Profiles page.showing the risk profiles and its details]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-cloud-application-tags","lastmod":"2026-08-20T03:19Z","nid":"1452271"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-cloud-application-tags","lastmod":"2026-09-07T08:17Z","nid":"1452271"} -->
 ## About Cloud Application Tags
 
 - Source: https://help.zscaler.com/zia/about-cloud-application-tags
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > About Cloud Application Tags
-- Last modified: 2026-08-20T03:19Z
+- Last modified: 2026-09-07T08:17Z
 - Summary: Information about cloud application tags.
 
-Zscaler's cloud application tag allows you to logically group cloud applications based on your organization's requirements. This provides access control for specific cloud applications belonging to custom and/or predefined categories.
+Zscaler's cloud application tag allows you to logically group cloud applications based on your organization's requirements. This provides access control for specific cloud applications belonging to custom or predefined categories or both.
 
 This feature consists of three parts:
 
@@ -2734,78 +2790,82 @@ To learn more about associating a tag with a cloud application, see [About Cloud
 
 Cloud application tags provide the following benefits and enable you to:
 
-- Group cloud applications (i.e., custom and/or predefined applications) from different categories based on your organization's requirements.
+- Group cloud applications (i.e., custom or predefined applications or both) from different categories based on your organization's requirements.
 - Create cloud application risk profiles based on cloud application tags.
 - Handle traffic to specific cloud applications by applying cloud app control policies with tag-based risk profiles.
 
 ## About the Cloud Application Tags Page
 
-On the Cloud Application Tags page (Policies > Access Control > Internet & SaaS > Application Tags), you can do the following:
+On the Cloud Application Tags page (Data Security > Inline CASB > Application Tags), you can do the following:
 
 1. [Add a cloud application tag](https://help.zscaler.com/zia/adding-cloud-application-tag).
 2. Search for a cloud application tag.
-3. [Edit or delete a cloud application tag](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+3. [Modify the column options to view the Cloud Application Tags accordingly.](https://help.zscaler.com/unified/using-tables#hide) The columns are not editable.
+4. [Edit or delete a cloud application tag](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
 
 [Image: Cloud Application Tags page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-cloud-applications","lastmod":"2026-05-22T06:15Z","nid":"1402256"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-cloud-applications","lastmod":"2026-09-09T03:09Z","nid":"1402256"} -->
 ## About Cloud Applications
 
 - Source: https://help.zscaler.com/zia/about-cloud-applications
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud Applications > About Cloud Applications
-- Last modified: 2026-05-22T06:15Z
+- Last modified: 2026-09-09T03:09Z
 - Summary: Information on the Cloud Application Status page in the Zscaler Admin Console.
 
-The Cloud Applications page allows you to add custom cloud applications, which provides greater flexibility to add an application if it's not already present in Zscaler for discovery and usage metrics and to create rules to control access to custom applications. You can also edit the status of all the cloud applications of your organization from here, in addition to the [Application Information](https://help.zscaler.com/zia/about-application-information) page, to one of the following application statuses:
+The SaaS Applications page allows you to add custom cloud applications, which provides greater flexibility to add an application if it's not already present in Zscaler for discovery and usage metrics and to create rules to control access to custom applications. You can also edit the status of all the cloud applications of your organization from here, in addition to the [Application Information](https://help.zscaler.com/zia/about-application-information) page, to one of the following application statuses:
 
 - Sanctioned: If you approve the application for your organization's use because it meets all your security requirements.
 - Unsanctioned: If you don't approve the application for your organization’s use because of its attack vulnerability.
 
 You can select the application status for cloud applications while adding a [cloud application risk profile](https://help.zscaler.com/zia/adding-cloud-application-risk-profile), and select the risk profile as a criterion in the [Cloud App Control policy](https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy) rule.
 
-The Cloud Applications page provides the following benefits and enables you to:
+The SaaS Applications page provides the following benefits and enables you to:
 
 - View a list of all supported cloud applications along with their category and risk index. This helps organizations define the cloud app control rules proactively for apps not yet discovered in your Shadow IT Report.
 - Add custom cloud applications.
 - Tag cloud applications with predefined and custom labels.
 - Create cloud app instances to distinguish corporate and personal instances of cloud applications and manage access controls at a granular level for those instances.
 
-SSL/TLS inspection must be enabled for the custom cloud application lookup.
+SSL/TLS Inspection must be enabled for the custom cloud application lookup.
 
-## About the Cloud Applications Page
+## About the Applications Page
 
-On the Cloud Applications page (Policies > Access Control > Internet & SaaS > SaaS Applications), you can do the following:
+On the Applications page (Data Security > Inline CASB > SaaS Applications), you can do the following:
 
 1. [Add a custom cloud application](https://help.zscaler.com/zia/adding-custom-cloud-applications).
-2. Filter and search for cloud applications based on the Application Category, Application Status (All, Sanctioned, or Unsanctioned), Application Type (All, Custom, or Predefined), Cloud Application Name, Risk Index, and Tag.
-3. Search for an application.
-4. View a list of all the cloud applications of your organization. For each cloud application, you can see the following attributes:
+2. [Modify the column option to view the cloud applications accordingly.](https://help.zscaler.com/unified/using-tables#hide)
+3. Enable or disable the filter for cloud applications.
+4. Select a criterion (Cloud Application Name, Application Category, Application Status (All, Sanctioned, Unsanctioned, Unclassified, or Under Review), Application Type (All, Custom, or Predefined), Risk Index, or Tag) based on which you want to filter or search for cloud applications.
+5. Search for cloud applications.
+6. View a list of all the cloud applications of your organization. For each cloud application, you can see the following attributes:
   - **Cloud Application Name**: The name of the application. You are redirected to the **Application Information**page when you click the predefined cloud application name link. The [security attributes](https://help.zscaler.com/zia/about-application-information#security-char) of the predefined cloud applications are displayed on this page.
   - **Application Category**: The category to which the application belongs.
   - **Application Status**: The state of the application (Sanctioned or Unsanctioned).
   - **Application Type**: The type of application (All, Custom, or Predefined).
   - **Tags**: The tags associated with the applications. To learn more, see [About Cloud Application Tags](https://help.zscaler.com/zia/about-cloud-application-tags).
   - **Risk Index**: The risk index number (1–5, 1 being the lowest risk and 5 being the highest) of the application.
-5. Edit the cloud application. Based on the application type you choose to edit, either the **Edit Predefined Cloud Application**or the **Edit Custom Cloud Application**window appears. In the **Edit Predefined Cloud Application** window, you can edit the Application Status (Sanctioned or Unsanctioned), Risk Index, and Tags. However, in the **Edit Custom Cloud Application** window, you can edit the Cloud Application Name, Application Status (Sanctioned or Unsanctioned), Risk Index, Tags, URLs, and Description.
-6. Delete the custom cloud application. The p​​​​redefined cloud applications cannot be deleted.
-7. [View the Instances page](https://help.zscaler.com/zia/about-cloud-application-instances).
+  - **Description**: The description of the application, if available.
+7. Edit the cloud application. Based on the application type you choose to edit, either the **Edit Predefined Cloud Application**or the **Edit Custom Cloud Application**drawer appears. In the **Edit Predefined Cloud Application** drawer, you can edit the Application Status (Sanctioned or Unsanctioned), Risk Index, and Tags. However, in the **Edit Custom Cloud Application** drawer, you can edit the Cloud Application Name, Application Status (Sanctioned or Unsanctioned), Risk Index, Tags, URLs, and Description.
+8. Delete the custom cloud application. The p​​​​redefined cloud applications cannot be deleted.
+9. [View the Instances page](https://help.zscaler.com/zia/about-cloud-application-instances).
 
-[Image: Cloud Applications Page]
+[Image: SaaS Applications page showing custom or predefined applications and their details]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-cloud-cloud-incident-forwarding","lastmod":"2026-07-16T08:18Z","nid":"1531106"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-cloud-cloud-incident-forwarding","lastmod":"2026-09-30T11:42Z","nid":"1531106"} -->
 ## About Cloud-to-Cloud Incident Forwarding
 
 - Source: https://help.zscaler.com/zia/about-cloud-cloud-incident-forwarding
 - Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > About Cloud-to-Cloud Incident Forwarding
-- Last modified: 2026-07-16T08:18Z
+- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Cloud to Cloud Incident Forwarding > About Cloud-to-Cloud Incident Forwarding
+- Last modified: 2026-09-30T11:42Z
 - Summary: Information on Cloud-to-Cloud Incident Forwarding and how it can be configured in the Zscaler Admin Console.
 
 With Cloud-to-Cloud Incident Forwarding, you can send information about transactions that violate Data Loss Prevention (DLP) policy rules directly to public cloud storage accounts you defined in the Zscaler Admin Console. After you set up your storage accounts, you can then configure your DLP policy rules to use Cloud-to-Cloud Incident Forwarding.
@@ -2817,7 +2877,7 @@ Cloud-to-Cloud Incident Forwarding provides the following benefits and allows yo
 
 ## About the Cloud-to-Cloud Incident Forwarding Page
 
-On the Cloud-to-Cloud Incident Forwarding page (Policies > Data Protection > Common Resources > DLP Incident Receiver > Cloud-to-Cloud Incident Forwarding), you can do the following:
+On the Cloud-to-Cloud Incident Forwarding page (Data Security > Common Resources > DLP Incident Receiver > Cloud-to-Cloud Incident Forwarding), you can do the following:
 
 1. [Add a public cloud account](https://help.zscaler.com/zia/configure-dlp-cloud-cloud-incident-forwarding).
 2. Search for a Cloud-to-Cloud Incident Forwarding configuration.
@@ -2889,18 +2949,18 @@ A Cloud NSS feed behaves differently according to HTTP/S response status codes f
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-cloud-service-api-key","lastmod":"2026-07-31T07:06Z","nid":"1400501"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-cloud-service-api-key","lastmod":"2026-09-29T03:22Z","nid":"1400501"} -->
 ## About Cloud Service API Key
 
 - Source: https://help.zscaler.com/zia/about-cloud-service-api-key
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > API Security > About Cloud Service API Key
-- Last modified: 2026-07-31T07:06Z
+- Last modified: 2026-09-29T03:22Z
 - Summary: Information on cloud service API key (and Sandbox Submission API token) management within the Zscaler Admin Console.
 
-You can authenticate with the cloud service API using a combination of API key (an alphanumeric key of 12 characters in length) and Internet & SaaS admin credentials (i.e., username and password).
+You can authenticate with the cloud service API using a combination of API key (an alphanumeric key of 12 characters in length) and Internet & SaaS (ZIA) admin credentials (i.e., username and password).
 
-If you need to obtain API keys or secrets to access [Zscaler OneAPI](https://help.zscaler.com/oneapi) endpoints, see [API Client Authentication](https://help.zscaler.com/zidentity/integration/oneapi-authentication) in the Authentication Service.
+If you need to obtain API keys or secrets to access [Zscaler OneAPI](https://help.zscaler.com/oneapi) endpoints, see [Understanding OneAPI Authentication](https://help.zscaler.com/authentication-service/understanding-oneapi-authentication) in the Authentication Service.
 
 Cloud Service API Key enhances your API experience by enabling you to:
 
@@ -2908,47 +2968,40 @@ Cloud Service API Key enhances your API experience by enabling you to:
 - Prevent API service abuse via stolen API key by regenerating the API key whenever required or in events you suspect vulnerabilities for an attack.
 - Ensure no further API requests are possible after you finish consuming the API services by deleting the API key.
 
-You need a valid [API subscription](https://help.zscaler.com/unified/viewing-subscriptions) to access and manage your organization’s API key. When an API subscription is applied to your organization, your organization's API key is initially provisioned by Zscaler, enabled, and displayed within the Cloud Service API Key page along with the base URL. The base URL and key are required in order to [authenticate via the API and create a session](https://help.zscaler.com/zia/api-getting-started#CreateSession).
+You need a valid [API subscription](https://help.zscaler.com/unified/viewing-subscriptions) to access and manage your organization’s API key. When an API subscription is applied to your organization, your organization's API key is initially provisioned by Zscaler, enabled, and displayed within the Cloud Service API Key page along with the base URL. The base URL and key are required to [authenticate via the API and create a session](https://help.zscaler.com/zia/api-getting-started#CreateSession).
 
-On the Cloud Service API Key page, you can:
-
-- Add API key
-- Edit the API key.
-- Delete the API key
-- Regenerate the API key, which randomly generates a new key string that replaces the old string.
-
-An organization can only have one API key. However, if you are managing multiple organizations within Zscaler and want to maintain the same key string across them, Zscaler recommends editing the key instead of adding a new one or regenerating it. This allows you to use the same key string across organizations, if necessary.
+An organization can only have one API key. To [add a new API key](https://help.zscaler.com/zia/managing-cloud-service-api-key), you must delete the existing one. 
+If you are managing multiple organizations within Zscaler and want to maintain the same key string across them, Zscaler recommends editing the key instead of adding a new one or regenerating it. This allows you to use the same key string across organizations, if necessary.
 
 Adding, editing, or regenerating an API key, immediately invalidates the old key. If you replaced or edited a key, you also need to replace any references to the old key within any code developed for your organization. To learn more about the cloud service API, including developer getting started information and API endpoints, see [Getting Started](https://help.zscaler.com/zia/api-getting-started) and the [API Reference](https://help.zscaler.com/zia/about-api).
 
-Admins have view access to the Cloud Service API Key page information within the [Zscaler Cloud Connector Portal](https://help.zscaler.com/cloud-branch-connector/about-cloud-connector-portal).
-
 ## About the Cloud Service API Key Page
 
-On the Cloud Service API Key page (Administration > API Configuration > Legacy API > Internet & SaaS API > Cloud Service API Key), you can do the following:
+On the Cloud Service API Key page (Administration > API > Legacy API > Internet & SaaS API > Cloud Service API Key), you can do the following:
 
 1. View the base URL for the cloud service API.
-2. [Add a new Cloud Service API Key](https://help.zscaler.com/zia/managing-cloud-service-api-key#AddKey). You must delete the existing key before you can add a new one.
+2. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
 3. View information regarding your organization's cloud service API key. For the key, you can see:
   - **Key:** The API key string.
   - **Last Modified By:** Admin that last modified the key.
   - **Last Modified On:** The date and time the key was last modified.
+  - **Actions:**The add, regenerate, or delete actions that you can perform on the API key.
 4. [Edit the API key.](https://help.zscaler.com/zia/managing-cloud-service-api-key#EditKey)
 5. [Regenerate the API key.](https://help.zscaler.com/zia/managing-cloud-service-api-key#RegenerateKey)
 6. [Delete the API key.](https://help.zscaler.com/zia/managing-cloud-service-api-key#DeleteKey)
-7. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
-8. Go to the [OAuth 2.0 Authorization Servers](https://help.zscaler.com/zia/about-oauth-2.0-authorization-servers) or [Sandbox API Token](https://help.zscaler.com/zia/about-sandbox-api-token) tab.
+
+[Image: Cloud Service API Key page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-company-risk-score-report","lastmod":"2026-06-18T05:55Z","nid":"1400691"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-company-risk-score-report","lastmod":"2026-09-18T00:02Z","nid":"1400691"} -->
 ## About the Company Risk Score Report
 
 - Source: https://help.zscaler.com/zia/about-company-risk-score-report
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > About the Company Risk Score Report
-- Last modified: 2026-06-18T05:55Z
+- Last modified: 2026-09-18T00:02Z
 - Summary: Information on the Company Risk Score, which allows organizations to monitor and assess their organizational, location, and user-level risk exposure.
 
 The Company Risk Score Report allows organizations to monitor and assess their organizational, location, and user-level risk exposure. The report analyzes the various factors that contribute to an organization's risk score, which can include recent malware outbreaks, risky user behavior, and other suspicious factors. Administrators can study how their users' and company's risk score has changed over time and compare their score against their industry peer and Zscaler cloud averages.
@@ -2975,7 +3028,7 @@ The Company Risk Score Report provides the following benefits and enables you to
 
 ## About the Company Risk Score Report Page
 
-On the Company Risk Score Report page (click Analytics, enable the toggle Switch to Existing Reports, and then go to Internet & SaaS > Analytics > Company Risk Score), you can view the following widgets:
+On the Company Risk Score Report page (Analytics > Reports > Company Risk Score), you can view the following widgets:
 
 1. **Your Risk Score Trend**: This graph displays your risk score during a span of 7, 15, and 30 days. The trend isn't computed if there is a low number of authenticated users.
 2. **Current Risk Score**: Your organization’s risk score, your industry vertical's average risk score, and the average risk score of all organizations. You can filter the graph by the following individual events or all of them:
@@ -3049,13 +3102,13 @@ When a single tenant or multiple tenants are onboarded for Advanced SSPM, a mess
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-configuration-risk-report","lastmod":"2026-06-19T07:42Z","nid":"1402426"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-configuration-risk-report","lastmod":"2026-09-28T09:19Z","nid":"1402426"} -->
 ## About the Configuration Risk Report
 
 - Source: https://help.zscaler.com/zia/about-configuration-risk-report
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > About the Configuration Risk Report
-- Last modified: 2026-06-19T07:42Z
+- Last modified: 2026-09-28T09:19Z
 - Summary: Information about the Configuration Risk Report, which calculates the risk of a breach by evaluating your organization's policy configuration, traffic patterns, and feature capabilities against Zscaler's best practices.
 
 Zscaler calculates the risk of a breach by evaluating your organization's policy configuration, traffic patterns, and feature capabilities against Zscaler's best practices. This helps improve your overall security posture to mitigate risk against all the encrypted, web, network, and file-based threats.
@@ -3069,7 +3122,7 @@ The Configuration Risk Report provides the following benefits and enables you to
 
 ## About the Configuration Risk Report Page
 
-In the Configuration Risk Report (click Analytics, enable the toggle Switch to Existing Reports, and then go to Internet & SaaS > Analytics > Configuration Risk Report), you can view the following sections:
+In the Configuration Risk Report (Analytics > Reports > Configuration Risk Report), you can view the following sections:
 
 1. **Configuration Risk Score**: This section displays the organization’s configuration risk score and further breaks down the score contributed from each of the following categories:
 
@@ -3218,13 +3271,13 @@ You must have user or admin permissions to add notes to the control. To learn mo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-custom-ips-signature-rules","lastmod":"2026-06-02T03:13Z","nid":"1403186"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-custom-ips-signature-rules","lastmod":"2026-09-24T00:49Z","nid":"1403186"} -->
 ## About Custom IPS Signature Rules
 
 - Source: https://help.zscaler.com/zia/about-custom-ips-signature-rules
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > IPS Control > About Custom IPS Signature Rules
-- Last modified: 2026-06-02T03:13Z
+- Last modified: 2026-09-24T00:49Z
 - Summary: Information on custom IPS signatures that can be created and deployed on Zscaler's Intrusion Prevention System (IPS) to protect your organization's traffic against malicious activities and threats.
 
 Zscaler's Intrusion Prevention System (IPS) uses signature-based detection to monitor your network for malicious activities and prevent attacks. Signature-based detection compares your traffic with predefined signatures (like fingerprints) of known network attack patterns and performs the specified action when there is a pattern match. Signatures uniquely identify the characteristics of specific types of network activities that indicate an intrusion or a threat of intrusion. The Zscaler service evaluates your network traffic against the signatures through the [IPS Control policy](https://help.zscaler.com/zia/about-ips-control). When a threat is detected based on a signature pattern match, the IPS enforces a preconfigured policy action to allow or block the traffic.
@@ -3251,33 +3304,29 @@ You can then define IPS Control rules using your custom signatures to detect thr
 
 ## About the Custom Signature Rules Page
 
-On the Custom Signature Rules page (Policies > Cybersecurity > Inline Security > Custom IPS Signatures > Custom Signature Rules), you can do the following:
+On the Custom Signature Rules page (Internet Access > Resources > Custom IPS Signatures > Custom Signature Rules), you can do the following:
 
-1. [Add a custom signature rule](https://help.zscaler.com/zia/configuring-custom-ips-signature-rules).
+1. Search for a custom signature rule.
 2. [Import new custom signature rules or modify existing custom signature rules using a CSV file](https://help.zscaler.com/zia/importing-exporting-custom-signature-rules).
 3. [Export your custom signature rules to a CSV file](https://help.zscaler.com/zia/importing-exporting-custom-signature-rules).
 4. Download a sample import CSV file, which can be used to import custom signature rules.
-5. Filter the list of custom signature rules.
-6. Click the **Promote All** button to initiate dynamic validation of all custom signature rules.
-7. Search for a custom signature rule.
-8. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-9. [Edit a custom signature rule](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal). This action also allows you to delete a custom signature rule.
+5. Click **Promote All** to initiate dynamic validation of all custom signature rules.
+6. [Add a custom signature rule](https://help.zscaler.com/zia/configuring-custom-ips-signature-rules).
+7. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+8. Show or hide the filters supported on the Custom Signature Rules page.
+9. Filter the list of custom signature rules by Category and Status. You can select one or more values from the drop-down menu, and the list automatically updates to display relevant items.
 10. View the list of all custom signature rules. By default, the table displays the following information:
   - **Name**: The name of the custom signature rule.
   - **Description**: The description of the custom signature rule.
   - **Signature Rule**: The custom signature rule using Snort-like syntax.
   - **Threat Category**: The threat category that is assigned to the custom signature rule. The custom signature rule can be used in an IPS Control rule via the assigned threat category.
   - **Status**: Status indicates the current position of the custom signature rule in the overall workflow. Available Statuses
-11. [Go to the Threat Categories page to add and manage custom threat categories.](https://help.zscaler.com/zia/about-threat-categories)
+  - **Actions**: The actions you can perform on the custom signature rules, such as editing and deleting.
+11. [Edit or delete a custom signature rule](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+12. The custom signature rules are paginated with up to 500 rules displayed per page.
+13. [Go to the Threat Categories page.](https://help.zscaler.com/zia/about-threat-categories)
 
 [Image: The Custom Signature Rules page shows a list of signature rules, their name, description, threat category, and status]
-
-1. Click the **Apply Filter** icon.
-2. Click **Add Filter** and select an attribute from the drop-down menu. Alternatively, you can search for an attribute and select it.
-3. Click the drop-down menu and select a value for the attribute selected in the previous step. Alternatively, you can search for an attribute value and select it. When you select the attribute value, the list automatically updates to display relevant items.
-4. You can add multiple attributes as filters to narrow down the list further.
-5. Click the **Remove**icon to remove a filter.
-6. After adding the necessary filters, click **Done**.
 
 - **Promote Ready**: Indicates that the signature rule is ready to be sent for dynamic validation. Rules that are saved after successful static validation are assigned this status.
 - **Validation Pending**: Indicates that the dynamic validation is currently in progress, which can take a few minutes.
@@ -3289,13 +3338,13 @@ On the Custom Signature Rules page (Policies > Cybersecurity > Inline Security >
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-cybersecurity-insights","lastmod":"2026-06-12T06:21Z","nid":"1462166"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-cybersecurity-insights","lastmod":"2026-09-16T07:33Z","nid":"1462166"} -->
 ## About Cybersecurity Insights
 
 - Source: https://help.zscaler.com/zia/about-cybersecurity-insights
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > About Cybersecurity Insights
-- Last modified: 2026-06-12T06:21Z
+- Last modified: 2026-09-16T07:33Z
 - Summary: Information about the Cybersecurity Insights in the Zscaler Admin Console.
 
 The Zscaler service protects your organization's traffic against multiple different security threats on a daily basis. The policies that you configure to strengthen your organization's traffic from malicious attacks take effect in fending off and blocking persistent cyberattacks. Zscaler keeps updating the protection perimeter to protect your organization from ever-evolving threats by using Zscaler's progressive security features to stay ahead of the attacker while providing a safe, secure, and seamless experience for your users.
@@ -3313,7 +3362,7 @@ Cybersecurity Insights provides the following benefits and enables you to:
 
 ## About the Cybersecurity Insights Page
 
-On the Cybersecurity Insights page (click Analytics, enable the toggle Switch to Existing Reports, and then go to Internet & SaaS > Analytics > Cybersecurity Insights), you can do the following:
+On the Cybersecurity Insights page (Analytics > Reports > Cybersecurity Insights), you can do the following:
 
 1. Filter to view data for the last 1 hour, 4 hours, 1 day, 7 days, or 14 days. The default time is the last 1 hour.
 2. **Incoming Real-Time Threats**: View the graph for the number of incidents recorded for the selected time period. Hover over a date in the graph to see the total number of incidents for that date and the split between the following threat categories:
@@ -3417,18 +3466,18 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-dashboards","lastmod":"2026-05-27T12:51Z","nid":"1399451"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-dashboards","lastmod":"2026-09-30T09:41Z","nid":"1399451"} -->
 ## About Dashboards
 
 - Source: https://help.zscaler.com/zia/about-dashboards
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > About Dashboards
-- Last modified: 2026-05-27T12:51Z
+- Last modified: 2026-09-30T09:41Z
 - Summary: Information on the basic functionality of dashboards in the Zscaler Admin Console.
 
 [Watch a video about Insights & Dashboards](https://fast.wistia.net/embed/iframe/hn1697gbbr)(shows legacy UI).
 
-Predefined dashboards are available in the Zscaler Admin Console. These dashboards contain widgets according to your organization's subscriptions. For example, if your organization has a subscription to the web security service only, you can see dashboards and widgets that report on web traffic, but not those that report on mobile traffic. Each dashboard contains [widgets](https://help.zscaler.com/zia/what-widget) that present data in interactive charts, so you can instantly jump from a chart to individual transactions. A dashboard or widget displays the message "View Restricted"when you do not have the appropriate permissions to view its content.
+Predefined dashboards (previously called *Web Overview*) are available in the Zscaler Admin Console. These dashboards contain widgets according to your organization's subscriptions. For example, if your organization has a subscription to the web security service only, you can see dashboards and widgets that report on web traffic, but not those that report on mobile traffic. Each dashboard contains [widgets](https://help.zscaler.com/zia/what-widget) that present data in interactive charts, so you can instantly jump from a chart to individual transactions. A dashboard or widget displays the message "View Restricted"when you do not have the appropriate permissions to view its content.
 
 Depending on your [role permission](https://help.zscaler.com/zia/how-do-i-add-admin-roles) and [scope](https://help.zscaler.com/zia/what-admin-scope), you can customize, view and edit the predefined dashboards. When you customize a dashboard, the changes are visible only to you. To view any newly-released widgets, the customized dashboards must be reset.
 
@@ -3440,7 +3489,7 @@ Zscaler dashboards provide the following benefits and enable you to:
 
 By default, user-related widgets include locations and users. You can exclude locations by creating new or editing existing widgets and using the Exclude Location filter. This filter applies to all user-related widgets except for widgets in the default Security dashboard. To learn more, see [Excluding Locations in User-Related Reports](https://help.zscaler.com/zia/how-do-i-exclude-locations-user-related-reports).
 
-Zscaler recommends that you set your dashboards to automatically reset every 15 minutes. This prevents your session from timing out and also keeps the information in your window up to date. Go to Administration > My Profile to enable this. To learn more, see [Customizing Your Admin Account Settings](https://help.zscaler.com/unified/customizing-your-account-settings).
+Zscaler recommends that you set your dashboards to automatically reset every 15 minutes. This prevents your session from timing out and also keeps the information in your window up to date. From the [navigating menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Account Settings** to enable this. To learn more, see [Customizing Your Admin Account Settings](https://help.zscaler.com/unified/customizing-your-account-settings).
 
 ## Predefined Dashboards
 
@@ -3622,7 +3671,7 @@ See image.
 
 ## About the Dashboard Pages
 
-On any Dashboard page (click Analytics, enable the toggle Switch to Existing Reports, and then go to Internet & SaaS > Dashboard), you can do the following:
+On any Dashboard page (go to Internet Access > Dashboard), you can do the following:
 
 1. View another dashboard. In the left-side navigation, click **Dashboard** to see a list of dashboards. Then click the dashboard you want to view.
 2. Change the title of the dashboard. A dashboard title can contain up to 50 characters. Click the title of the dashboard and enter a new name. Click anywhere outside of the title field to save the change.
@@ -3936,16 +3985,16 @@ To learn more, see [Hosting and Security Characteristics](https://help.zscaler.c
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-data-center-exclusion-based-traffic-forwarding-method","lastmod":"2026-07-24T01:23Z","nid":"1474516"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-data-center-exclusion-based-traffic-forwarding-method","lastmod":"2026-09-28T12:40Z","nid":"1474516"} -->
 ## About Data Center Exclusion Based on Traffic Forwarding Method
 
 - Source: https://help.zscaler.com/zia/about-data-center-exclusion-based-traffic-forwarding-method
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > About Data Center Exclusion Based on Traffic Forwarding Method
-- Last modified: 2026-07-24T01:23Z
+- Last modified: 2026-09-28T12:40Z
 - Summary: Information on data center exclusion and the Traffic Forwarding Method page in the Zscaler Admin Console.
 
-To enable the DC Exclusion for Traffic Forwarding option for your tenant, submit a support ticket from the Zscaler Admin Console.
+To enable the DC Exclusion for Traffic Forwarding option for your tenant, submit a Support ticket from the Zscaler Admin Console.
 
 If a Zscaler data center (DC) is having an issue that affects the service, admins can disable all IPSec VPN tunnels terminating at a virtual IP (VIP) address of the affected DC directly from the Zscaler Admin Console. With this action, admins trigger a failover from primary to secondary tunnels at the endpoint on their organization’s premises in the event of service disruptions, [Zscaler Trust Portal](https://trust.zscaler.com/) incidents, disasters, etc. Tunnel failover is then performed according to the VPN endpoint device configuration.
 
@@ -3964,34 +4013,33 @@ DC exclusion based on the traffic forwarding method provides the following benef
 - Initiate a failover from primary to secondary tunnels more quickly and easily, without relying on multiple managed service providers.
 - Disable and enable tunnels according to your organization’s evolving requirements, without needing to delete credentials.
 
-## About the Traffic Forwarding Method Page
+## About the Data Center Exclusion Page
 
-On the Traffic Forwarding Method page (Infrastructure > Internet & SaaS > Traffic Forwarding > DC Exclusion), you can do the following:
+On the Data Center Exclusion page (Infrastructure > Location Management > Location Resources > Data Center Exclusion), you can do the following:
 
-1. [Add a DC exclusion](https://help.zscaler.com/zia/excluding-data-center-based-traffic-forwarding-method).
-2. Search for a configured DC exclusion.
-3. View a list of all DC exclusions. For each DC exclusion, you can view the following information:
+1. Search for a configured Data Center exclusion.
+2. [Add a DC exclusion](https://help.zscaler.com/zia/excluding-data-center-based-traffic-forwarding-method).
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View a list of all DC exclusions. For each DC exclusion, you can view the following information:
   - **Data Center**: The name of the DC.
   - **Traffic Forwarding Method**: The traffic forwarding method (e.g., IPSec VPN tunnels) disabled for the DC.
   - **Begin Time**: The beginning date and time of the DC exclusion.
   - **Expiration Time**: The expiration date and time of the DC exclusion. A warning icon appears when the exclusion is expired.
   - **Description**: (Optional) A description of the DC exclusion.
-4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-5. [Edit a configured DC exclusion](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
-6. [Delete a configured DC exclusion](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+5. [Edit or delete the configured DC exclusion](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
 
-[Image: The Traffic Forwarding Method page in the Zscaler Admin Console]
+[Image: The Data Center Exclusion page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-data-discovery-report","lastmod":"2026-06-21T20:04Z","nid":"1440806"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-data-discovery-report","lastmod":"2026-09-23T22:23Z","nid":"1440806"} -->
 ## About the Data Discovery Report
 
 - Source: https://help.zscaler.com/zia/about-data-discovery-report
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > About the Data Discovery Report
-- Last modified: 2026-06-21T20:04Z
+- Last modified: 2026-09-23T22:23Z
 - Summary: Information on the Data Discovery Report, which allows organizations to monitor and assess their Data Loss Prevention (DLP) activity.
 
 The Data Discovery Report gives high-level visibility and insight into your organization's [Data Loss Prevention (DLP)](https://help.zscaler.com/zia/about-data-loss-prevention) content, allowing you to monitor and analyze DLP data in a single location. The report provides not only information based on your organization's DLP policies and dictionaries, but also on machine-learning data based on Zscaler analysis of the content in your organization.
@@ -4006,7 +4054,7 @@ The Data Discovery Report provides the following benefits and allows you to:
 
 ## About the Data Discovery Report Page
 
-On the Data Discovery Report page (click Analytics, enable the toggle Switch to Existing Reports, and then go to Internet & SaaS > Analytics > Data Discovery Report), you can do the following:
+On the Data Discovery Report page (Data Security > Inline DLP > Data Discovery Report), you can do the following:
 
 1. Choose a different time frame from the menu. By default, the Data Discovery Report displays data for the last 7 days, but it also offers 1-day, 30-day, and 90-day time frames.
 2. Set filters to determine the data shown, then click **Apply**: If you don't want the filters to appear at the top of the report, click **Hide Filters**.
@@ -4021,17 +4069,17 @@ On the Data Discovery Report page (click Analytics, enable the toggle Switch to 
   - Sensitive Files in the Top <Content Type Category>
   - Files Trend
   - Files in Top 10 Categories
-  - Top 10 Users
-  - Timeline for Files in Top 10 Categories
-  - Top 10 Applications
+  - Top Users
+  - Top ML Categories
+  - Top Applications
 
 The widgets on the Data Discovery Report page are not editable and cannot be moved.
 
 [Image: The Data Discovery Report has charts and data to show your organization's DLP content]
 
-Select **All**, **Allow**, or **Block**. To learn more, see [Understanding Policy Enforcement](https://zia/understanding-policy-enforcement).
+Select **All**, **Allow**, or **Block**. To learn more, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
 
-Select **All**, **Sanctioned**, or **Unsanctioned**. To learn more, see [About Cloud Application](https://help.zscaler.com/zia/about-cloud-applications).
+Select **All**, **Sanctioned**, or **Unsanctioned**. To learn more, see [About Cloud Applications](https://help.zscaler.com/zia/about-cloud-applications).
 
 Select an option to filter by content type:
 
@@ -4059,11 +4107,11 @@ A chronological line chart showing the number of files used in sanctioned and un
 
 A Sankey chart based on the selection in the **Content Type** filter that shows information for up to 10 content categories at a time. Hover over a line in the chart to see the percentage that the files in the category represents as it relates to the total number of files.
 
-A bar chart that shows up to 10 of the top users in the organization. Hover over the bars in the chart to see a breakdown of sanctioned vs. unsanctioned application files for each user. The widget also shows the total number of files from users not in the top 10.
+A bar chart that shows top users in the organization. Hover over the bars in the chart to see a breakdown of sanctioned vs. unsanctioned application files for each user. The widget also shows the total number of files from users not in the top spots.
 
-A bubble chart that shows a day-by-day breakdown of the number of files used in up to 10 content categories at a time.
+A bubble chart that shows a day-by-day breakdown of the number of files used for ML categories.
 
-A bar chart that shows the number of applications in the organization during the selected time period. Hover over the bars to see the number and percentage of applications that are sanctioned and unsanctioned. The widget also shows the total number of applications not in the top 10.
+A bar chart that shows the number of applications in the organization during the selected time period. Hover over the bars to see the number and percentage of applications that are sanctioned and unsanctioned.
 
 [Image: Sensitive Files in Top DLP Categories in the Data Discovery Report]
 
@@ -4072,28 +4120,24 @@ A bar chart that shows the number of applications in the organization during the
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-data-loss-prevention","lastmod":"2024-07-11T07:00Z","nid":"1400011"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-data-loss-prevention","lastmod":"2026-09-25T09:05Z","nid":"1400011"} -->
 ## About Data Loss Prevention
 
 - Source: https://help.zscaler.com/zia/about-data-loss-prevention
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > About Data Loss Prevention
-- Last modified: 2024-07-11T07:00Z
+- Last modified: 2026-09-25T09:05Z
 - Summary: Information on how the Zscaler Data Loss Prevention (DLP) policy protects your organization from data loss by monitoring or blocking data using Zscaler DLP engines.
 
-html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"
-
-?xml version='1.0' encoding='UTF-8'?
-
-[Watch a video about Data Loss Prevention (DLP), including DLP Policy.](https://fast.wistia.net/embed/iframe/lzt4umpzny)
+[Watch a video about Data Loss Prevention (DLP), including DLP Policy](https://fast.wistia.net/embed/iframe/lzt4umpzny) (shows legacy UI).
 
 Corporate data can be leaked in different ways (i.e., through web mail, cloud storage, social media, and a variety of other applications). You can use the Zscaler Data Loss Prevention (DLP) policy to protect your organization from data loss.
 
 If your organization has a third-party DLP solution, Zscaler can forward information about transactions that trigger DLP policies to your third-party solution. Zscaler uses secure Internet Content Adaptation Protocol (ICAP) to do this. However, the Zscaler service does not take ICAP responses from your DLP solution. Zscaler only monitors or blocks content according to the policy you configure, then forwards information about transactions so that your organization can take any necessary remediation steps.
 
-Data loss prevention provides the following benefits and enables you to:
+DLP provides the following benefits and enables you to:
 
-- Use Zscaler DLP policy to monitor and prevent the leakage of sensitive data.
+- Use the Zscaler DLP policy to monitor and prevent the leakage of sensitive data.
 - Use Zscaler custom and predefined DLP engines to detect and take action on sensitive data.
 - Forward information about transactions that trigger DLP policies to your third-party DLP solution.
 
@@ -4110,34 +4154,43 @@ To see how this policy fits into the overall order of policy enforcement, see [U
 
 The appearance of the Data Loss Prevention page varies slightly, depending on whether Evaluate All Rules mode is enabled in your organization. To learn more, see [Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled](https://help.zscaler.com/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode).
 
-On the Data Loss Prevention page (Policy > Data Loss Prevention), you can do the following:
+On the Data Loss Prevention page (Data Security > Inline DLP > Data Loss Prevention), you can do the following:
 
 1. Add and [configure a DLP policy rule](https://help.zscaler.com/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode).
-2. Select one of the following **View by** options to see the DLP policy rules accordingly:
-
-- **Rule Order**: Displays the rules based on the rule order. By default, the rules are listed in the ascending rule order.
-
-See image.
-
-- **Rule Label**: Displays the rules based on the rule labels. The rules are grouped under the associated rule labels.
-
-You can expand or collapse all the rule labels using the **Expand All** or **Collapse All** buttons.
-
-See image.
-
-1. Search for a DLP policy rule.
-2. View a list of all configured DLP policy rules and exception rules that were configured for your organization. Exception rules are child rules that allow you to exclude specific users or groups in your organization that need to perform tasks as part of a necessary workflow that might otherwise violate inline DLP policy. For policy rules and exception rules, you can see:
-  - **Rule Order**: The policy rule's order number. Rule order is not enforced for parent rules when the Zscaler service is configured to evaluate all rules. Exception rule evaluation stops at the first match, and an exception replaces a parent rule upon match. To learn more, see [Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled](https://help.zscaler.com/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled).
+2. Select **Rule Label** to view the rules based on the rule labels. The rules are grouped under the associated rule labels. See image. You can expand or collapse all the rule labels using the **Expand All** or **Collapse All** buttons.
+3. Search for a DLP policy rule.
+4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+5. View a list of all configured DLP policy rules and exception rules that were configured for your organization. Exception rules are child rules that allow you to exclude specific users or groups in your organization that need to perform tasks as part of a necessary workflow that might otherwise violate inline DLP policy. For policy rules and exception rules, you can see: Parent rules and exception rules apply only when Evaluate All Rules mode is enabled. To learn more, see [Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled](https://help.zscaler.com/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled).
+  - **Rule Order**: The policy rule's order number. You can sort this column. Rule order is not enforced for parent rules when the Zscaler service is configured to evaluate all rules. Exception rule evaluation stops at the first match, and an exception replaces a parent rule upon match. To learn more, see [Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled](https://help.zscaler.com/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled).
+  - **Admin Rank**: Click **Edit** and select an admin rank 0 to 7 (0 is the highest rank) from the drop-down menu. This option appears if you enable [Admin Ranking](https://help.zscaler.com/zia/about-admin-rank) on the [Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings) page. Your assigned admin rank determines the values you can select (e.g., you cannot select a rank higher than your own). The rule's admin rank determines the value you can select for rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank. You can sort this column.
   - **Rule Name**: The name of the rule. You can sort this column.
-  - **Criteria**: The rule's criteria (i.e., DLP Engines, URL Categories, Protocols, etc.)
-  - **Action**: Displays whether the rule is enabled or disabled.
-  - **Label and Description**: The label and description of the rule, if available.
-3. Expand to show the list of exception rules associated with a parent rule. Parent rules and exception rules apply only when Evaluate All Rules mode is enabled. To learn more, see [Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled](https://help.zscaler.com/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled).
-4. [Modify the table and its columns](https://help.zscaler.com/zia/how-do-i-use-tables-admin-portal).
-5. Add an exception rule to a parent rule (Evaluate All Rules Mode only).
-6. [Edit, duplicate, or delete a rule](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal).
+  - **DLP Engines**: The [DLP engines](https://help.zscaler.com/zia/about-dlp-engines) used to evaluate the rule.
+  - **Cloud Application**: The cloud applications covered by the rule.
+  - **Cloud Application Instances**: The cloud application instances allow you to create instances for cloud applications where you can add specific instance identifiers (e.g., domains).
+  - **Users**: The users to whom the rule applies.
+  - **Groups**: The user groups to which the rule applies.
+  - **Locations**: The locations covered by the rule. To apply this rule to unauthenticated traffic, the rule must apply to all locations.
+  - **Location Groups**: The location groups covered by the rule.
+  - **Departments**: The departments to which the rule applies.
+  - **Domain Profiles**: The domain profiles covered by the rule.
+  - **File Types**: The types of files evaluated by the rule. Note that the file types supported by Zscaler DLP Engine rules differ from those supported by External DLP Engine rules.
+  - **Protocols**: The protocols to which the rule applies.
+  - **Source IP Groups**: The source IP groups covered by the rule.
+  - **Time**: The time intervals during which the rule applies.
+  - **URL Categories**: The URL categories covered by the rule.
+  - **User Risk Profile**: The user risk profiles used during the policy evaluation.
+  - **Workload Groups**: The workload groups covered by the rule.
+  - **ZPA Application Segment**: The Private Access application segments covered by the rule. The list displays only those Private Access application segments that have the Source IP Anchor option enabled.
+  - **Content Locations**: The sections of a file or transaction that are evaluated by the rule.
+  - **Rule Action**: The **Rule Action** section provides options such as **Allow**or **Block**the action. For example, **Block** might be selected to prevent certain activities.
+  - **Label**: The label and description of the rule, if available.
+  - **Description**: The description of the rule, if available.
+  - **Actions**: Displays whether the rule is **Enabled**or **Disabled**.
+6. [Edit the rule](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+7. [Duplicate or delete the rule](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+8. Add an exception rule to a parent rule (Evaluate All Rules Mode only).
 
-[Image: Data Loss Prevention Page within the Admin Portal]
+[Image: DLP Page within the Zscaler Admin Console]
 
 With this option, Zscaler:
 
@@ -4147,7 +4200,7 @@ With this option, Zscaler:
 
 The following is an illustration of the process that occurs when you block data using Zscaler DLP engines. To learn more, see [Configuring DLP Policy Rules with Content Inspection](https://help.zscaler.com/zia/configuring-policy-using-zscaler-dlp-engines).
 
-[Image: Blocking data with Zscaler DLP engines Diagram]
+[Image: Process that occurs when blocking data with Zscaler DLP engines]
 
 With this option, Zscaler:
 
@@ -4160,7 +4213,7 @@ With this option, Zscaler:
 
 The following is an illustration of the process that occurs when you block data using Zscaler DLP engines and forward information to your third-party DLP solution. To learn more, see [Configuring DLP Policy Rules with Content Inspection](https://help.zscaler.com/zia/configuring-policy-using-zscaler-dlp-engines).
 
-[Image: Zscaler DLP Engines Third-Party Diagram]
+[Image: Process that occurs when blocking data with Zscaler DLP engines and forwarding information to third-party DLP solution]
 
 With this option, Zscaler does not use its DLP engines. Instead, the service does the following:
 
@@ -4173,22 +4226,20 @@ With this option, Zscaler does not use its DLP engines. Instead, the service doe
 
 The following is an illustration of the process that takes place when you configure DLP policies for this option. To learn more, see [Configuring DLP Policy Rules without Content Inspection](https://help.zscaler.com/zia/configuring-policy-using-external-dlp-engines).
 
-[Image: DLP Policies Solutions Diagram]
+[Image: Process that occurs when monitoring or blocking data based on specific criteria, then forwarding information to third-party DLP solution]
 
-[Image: Screenshot of Data Loss Prevention Page with Rule Order view selected.]
-
-[Image: Screenshot of Data Loss Prevention Page with Rule Label view selected.]
+[Image: DLP Page with Rule Label view selected.]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-data-rest-scanning-dlp","lastmod":"2026-06-05T00:23Z","nid":"1401446"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-data-rest-scanning-dlp","lastmod":"2026-09-30T04:02Z","nid":"1401446"} -->
 ## About Data at Rest Scanning DLP
 
 - Source: https://help.zscaler.com/zia/about-data-rest-scanning-dlp
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Data at Rest Scanning Policies > About Data at Rest Scanning DLP
-- Last modified: 2026-06-05T00:23Z
+- Last modified: 2026-09-30T04:02Z
 - Summary: Information on the Zscaler SaaS Security Data at Rest Scanning DLP policy and where to configure DLP rules.
 
 [Watch a video about SaaS Security Data at Rest Scanning and policy configuration](https://fast.wistia.net/embed/iframe/c6vd9jag4e) (shows legacy UI).
@@ -4245,7 +4296,7 @@ The following table lists the Zscaler-supported DLP actions categorized by appli
 
 ## About the Data at Rest Scanning DLP Page
 
-On the Data at Rest Scanning page (Policies > Data Protection > Policy > Out-of-Band CASB), you can do the following:
+On the Data at Rest Scanning page (Data Security > DSPM > SaaS DLP), you can do the following:
 
 1. From the drop-down menu, choose an application type to configure the DLP policy for related SaaS applications.
 
@@ -4271,13 +4322,13 @@ To enable Amazon S3, Google Cloud Platform, and Microsoft Azure for your organiz
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-data-rest-scanning-malware-detection","lastmod":"2026-06-05T01:09Z","nid":"1401456"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-data-rest-scanning-malware-detection","lastmod":"2026-09-30T06:03Z","nid":"1401456"} -->
 ## About Data at Rest Scanning Malware Detection
 
 - Source: https://help.zscaler.com/zia/about-data-rest-scanning-malware-detection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Data at Rest Scanning Policies > About Data at Rest Scanning Malware Detection
-- Last modified: 2026-06-05T01:09Z
+- Last modified: 2026-09-30T06:03Z
 - Summary: Information on the Zscaler SaaS Security Data at Rest Scanning Malware Detection policy and where to configure Malware Detection rules.
 
 [Watch a video about SaaS Security Data at Rest Scanning and policy configuration](https://fast.wistia.net/embed/iframe/c6vd9jag4e) (shows legacy UI).
@@ -4321,7 +4372,7 @@ After creating a policy rule, you must schedule a scan for it to inspect content
 
 ## About the SaaS Security Data at Rest Scanning Malware Detection Page
 
-On the Malware Detection page (Policies > Cybersecurity > SaaS Security API > Malware Scanning), you can do the following:
+On the Malware Detection page (Data Security > DSPM > Malware Scanning), you can do the following:
 
 1. From the drop-down menu, choose an application type to configure the Malware Detection policy for related SaaS applications.
 
@@ -4345,13 +4396,13 @@ To enable Amazon S3, Google Cloud Platform, and Microsoft Azure for your organiz
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-dedicated-ip-addresses","lastmod":"2026-06-25T10:49Z","nid":"1499516"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-dedicated-ip-addresses","lastmod":"2026-09-15T05:28Z","nid":"1499516"} -->
 ## About Dedicated IP Addresses
 
 - Source: https://help.zscaler.com/zia/about-dedicated-ip-addresses
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Forwarding Control > Dedicated IP > Zscaler-Managed Dedicated IP > About Dedicated IP Addresses
-- Last modified: 2026-06-25T10:49Z
+- Last modified: 2026-09-15T05:28Z
 - Summary: Information on the Dedicated IP Addresses page in the Zscaler Admin Console.
 
 To enable the Dedicated IP feature for your Internet & SaaS (ZIA) tenant, contact your Zscaler Account team.
@@ -4365,15 +4416,15 @@ The IP Addresses page provides the following benefits and enables you to:
 
 ## About IP Addresses
 
-On the IP Addresses page (Infrastructure > Internet & SaaS > Network Policies > Dedicated IP > IP Addresses), you can do the following:
+On the IP Addresses page (Infrastructure > Internet & SaaS > Dedicated IP > IP Addresses), you can do the following:
 
-1. Download all available data center details to a CSV file.
-2. Search for a data center.
-3. View the list of all data centers and their IP addresses. For each data center, you can view:
+1. Search for a data center.
+2. Download all available data center details to a CSV file.
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View the list of all data centers and their IP addresses. For each data center, you can view:
   - **Data Center**: The location of the data center.
   - **IPv4**: The IPv4 address of the data center.
-4. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
-5. Download individual data center details to a CSV file.
+5. View the individual data center details.
 6. [Go to the Dedicated IP Gateways page](https://help.zscaler.com/zia/about-dedicated-ip-gateways).
 
 [Image: The IP Addresses page that displays the list of assigned dedicated IP addresses]
@@ -4381,13 +4432,13 @@ On the IP Addresses page (Infrastructure > Internet & SaaS > Network Policies > 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-dedicated-ip-gateways","lastmod":"2026-06-24T04:53Z","nid":"1499506"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-dedicated-ip-gateways","lastmod":"2026-09-15T05:30Z","nid":"1499506"} -->
 ## About Dedicated IP Gateways
 
 - Source: https://help.zscaler.com/zia/about-dedicated-ip-gateways
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Forwarding Control > Dedicated IP > Zscaler-Managed Dedicated IP > About Dedicated IP Gateways
-- Last modified: 2026-06-24T04:53Z
+- Last modified: 2026-09-15T05:30Z
 - Summary: Information on using the Dedicated IP Gateways page in the Zscaler Admin Console.
 
 To enable the Dedicated IP feature for your Internet & SaaS (ZIA) tenant, contact your Zscaler Account team.
@@ -4428,45 +4479,96 @@ The Gateways page provides the following benefits and enables you to:
 
 ## About Gateways
 
-On the Gateways page (Infrastructure > Internet & SaaS > Network Policies > Dedicated IP > Gateways), you can do the following:
+On the Gateways page (Infrastructure > Internet & SaaS > Dedicated IP > Gateways), you can do the following:
 
-1. [Add a dedicated IP gateway](https://help.zscaler.com/zia/configuring-dedicated-ip-gateways).
-2. Search for a gateway.
-3. View the list of all configured gateways. For each gateway, you can view:
+1. Search for a gateway.
+2. [Add a dedicated IP gateway](https://help.zscaler.com/zia/configuring-dedicated-ip-gateways).
+3. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
+4. View the list of all configured gateways. For each gateway, you can view:
   - **Name**: The name of the gateway.
-  - **Primary Data Center**: The location of the primary data center for the gateway.
-  - **Secondary Data Center**: The location of the secondary data center for the gateway. If you have selected **Auto**, the Zscaler service automatically selects a data center based on geographical proximity to the Public Service Edge servicing the traffic. The secondary data center location is used when the dedicated IP addresses at the primary data center are unreachable.
+  - **Primary DC**: The location of the primary data center for the gateway.
+  - **Secondary DC**: The location of the secondary data center for the gateway. If you have selected **Auto**, the Zscaler service automatically selects a data center based on geographical proximity to the Public Service Edge servicing the traffic. The secondary data center location is used when the dedicated IP addresses at the primary data center are unreachable.
   - **Description**: Additional notes or information about the gateway.
-4. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
-5. Edit a configured gateway.
-6. Delete a configured gateway.
-7. View the default gateway data center details.
-8. [Go to the Dedicated IP Addresses page](https://help.zscaler.com/zia/about-dedicated-ip-addresses).
+5. Edit or delete a configured gateway.
+6. View the default gateway data center details.
+7. [Go to the Dedicated IP Addresses page](https://help.zscaler.com/zia/about-dedicated-ip-addresses).
 
 [Image: The Gateways page displaying the list of configured gateways with assigned dedicated IPs and the Default gateway]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-destination-ip-groups","lastmod":"2026-06-30T20:21Z","nid":"1400196"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-departments","lastmod":"2026-10-01T15:15Z","nid":"1399866"} -->
+## About Departments
+
+- Source: https://help.zscaler.com/zia/about-departments
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Departments > About Departments
+- Last modified: 2026-10-01T15:15Z
+- Summary: Information on the Zscaler Departments page and its features in the ZIA Admin Portal.
+
+[Watch a video about User Management](https://fast.wistia.net/embed/iframe/65aszz5npz) (shows legacy UI).
+
+Departments are used in policies and reports, so consider your reporting needs when defining departments in the Zscaler service. Ensure that the departments are structured according to your reporting needs so that you get the desired department-based reports.
+
+Unlike groups, a user can belong to only one department. The service tracks usage at the user level. If a user belonged to multiple departments, then they would be reported multiple times. Additionally, with the role-based admin feature, administrators can have control over a set of users in a department. When you set up administrators, you can define their scope by department. If users belong to more than one department, this can cause conflicts.
+
+Zscaler provides a number of ways to provision [users](https://help.zscaler.com/zia/about-users), [groups](https://help.zscaler.com/zia/about-groups), and departments as described in [About Provisioning and Authentication Methods](https://help.zscaler.com/zia/choosing-provisioning-and-authentication-methods). You can also add departments when you configure policies. This article describes how to manage departments on the Departments page as well as provides an overview of its features. You can add up to 140K departments. For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/zia/ranges-limitations).
+
+Departments provide the following benefits and enable you to:
+
+- Manage policies for users based on their departments.
+- View department-based reports.
+- Categorize users based on departments specific to your organization.
+
+On the Departments page, groups are listed as view-only with limited options (i.e., download group data and search for groups) if you use Authentication Service for Admins and Users. To manage groups with Authentication Service, see [About Departments](https://help.zscaler.com/authentication-service/about-departments). If you use Authentication Service for Admins, the Departments page appears with full functionality.
+See image.
+
+## About the Departments Page
+
+On the Departments page (Administration > Legacy Admin Management > Internet & SaaS Users > Departments), you can do the following:
+
+1. [Add a department](https://help.zscaler.com/zia/how-do-i-add-department).
+2. [Download a CSV file that lists your departments](https://help.zscaler.com/zia/downloading-department-information-csv-file).
+3. [Import new departments, or modify existing departments, using a CSV file](https://help.zscaler.com/zia/importing-department-information-csv-file).
+4. Download a Sample Import CSV file that shows the correct CSV format for adding or modifying departments.
+5. Search for a configured department.
+6. View a list of configured departments. For each department, you can see the following information:
+  - **Name**: The name of the department
+  - **Comments**: Comments regarding the department, if available
+7. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+8. [Edit a configured department](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal).
+9. View the default Service Admin department.
+10. Go to the [Users](https://help.zscaler.com/zia/about-users) page.
+11. Go to the [Groups](https://help.zscaler.com/zia/about-groups) page.
+
+[Image: Screenshot of the Departments page and its features]
+
+[Image: Departments page for Authentication Service users]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/about-destination-ip-groups","lastmod":"2026-09-15T21:19Z","nid":"1400196"} -->
 ## About Destination IP Groups
 
 - Source: https://help.zscaler.com/zia/about-destination-ip-groups
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > About Destination IP Groups
-- Last modified: 2026-06-30T20:21Z
+- Last modified: 2026-09-15T21:19Z
 - Summary: Information on destination groups that allows grouping together destination IP addresses, FQDNs, countries, and URL categories for use in Firewall policy rules.
 
 [Watch a video about IP and FQDN Groups](https://fast.wistia.net/embed/iframe/t9xati8hoh) (shows legacy UI).
 
-You can create groups of destination IP addresses, countries where servers are located, and [URL categories](https://help.zscaler.com/zia/about-url-categories), and apply Firewall policies to them.
+Destination IP groups are used as a single, reusable object to enforce rules across various security policies. You can apply destination IP groups to policies, such as [Firewall Filtering](https://help.zscaler.com/zia/configuring-firewall-filtering-policy), [NAT Control](https://help.zscaler.com/zia/configuring-nat-control-policy), [DNS Control](https://help.zscaler.com/zia/configuring-dns-control-policy), [IPS Control](https://help.zscaler.com/zia/configuring-ips-control-policy), and [Forwarding Control](https://help.zscaler.com/zia/configuring-forwarding-policy).
 
 Destination IP groups provide the following benefits and enable you to:
 
-- Combine destination IP addresses and FQDNs, destination countries, and URL categories into groups to manage them collectively in security policies.
-- Use destination IP groups as rule criteria in various policy rules, such as [Firewall Filtering](https://help.zscaler.com/zia/configuring-firewall-filtering-policy), [NAT Control](https://help.zscaler.com/zia/configuring-nat-control-policy), [DNS Control](https://help.zscaler.com/zia/configuring-dns-control-policy), [IPS Control](https://help.zscaler.com/zia/configuring-ips-control-policy), and [Forwarding Control](https://help.zscaler.com/zia/configuring-forwarding-policy), to control your outbound traffic and enforce condition-based actions on your network traffic.
+- Combine destination IP addresses and FQDNs, destination countries, and URL categories into groups so you can manage them collectively in security policies.
+- Use destination IP groups as rule criteria in various policy rules to control your outbound traffic and enforce condition-based actions on your network traffic.
+- Automate policy updates by modifying IP addresses or URL categories within a group once to automatically apply those changes across all linked security controls, minimizing configuration errors.
 
-These destination groups are created and managed for IPv4 and IPv6 addresses separately. The Zscaler service provides two predefined groups, namely All IPv4 and All IPv6, for encompassing all IP addresses of the respective type into a single group. You can also create custom groups based on IPv4 addresses.
+Destination IPv4 and IPv6 addresses are managed in separate groups. The Zscaler service provides two predefined groups (All IPv4 and All IPv6) that contain all addresses of their respective types. Additionally, you can create custom groups for IPv4 addresses using individual IP addresses, subnets, or ranges to define specific network segments.
 
 - Custom groups based on IPv6 addresses are not currently supported.
 - In [SSL/TLS Inspection](https://help.zscaler.com/zia/configuring-ssltls-inspection-policy) and [DNS Control](https://help.zscaler.com/zia/configuring-dns-control-policy) policies, IP-based destination groups used in rule criteria are ignored during policy evaluation if an SNI value is present in HTTPS requests.
@@ -4476,37 +4578,40 @@ You can use the following pages to create and manage destination IP address grou
 - About the Destination IPv4 Groups Page
 - About the Destination IPv6 Groups Page
 
-On the Destinations IPv4 Groups page (Policies > Access Control > Firewall > IP & FQDN Groups > Destination IPv4 Groups), you can do the following:
+On the Destination IPv4 Groups page (Internet Access > Resources > IP & FQDN Groups > Destination IPv4 Groups), you can do the following:
 
-1. [Configure a destination IPv4 group](https://help.zscaler.com/zia/configuring-destination-ip-groups).
-2. Search for a destination IPv4 group.
-3. View the list of all destination IPv4 groups. For each IPv4 group, you can view:
+1. Search for a destination IPv4 group.
+2. [Add a destination IPv4 group](https://help.zscaler.com/zia/configuring-destination-ip-groups).
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View the list of all destination IPv4 groups. For each IPv4 group, you can view:
   - **Name**: The name of the destination group. You can sort this column.
   - **Type**: The type of the destination group, such as IP Address, FQDN, Wildcard FQDN, or Other.
   - **IP Address, FQDN or WildCard FQDN**: The IP addresses, FQDNs, or wildcard FQDNs included in the group.
   - **Countries**: The countries included in the group.
   - **Description**: The description of the group, if available. You can sort this column.
   - **Categories:** The custom URL categories included in the group.
-4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-5. View information about the predefined **All IPv4** group.
-6. [Edit a destination IPv4 group](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal).
-7. Go to the [Source IPv4 Groups](https://help.zscaler.com/zia/about-source-ip-groups#ipv4), [Source IPv6 Groups](https://help.zscaler.com/zia/about-source-ip-groups#ipv6), Destination IPv6 Groups, and [IP Pool](https://help.zscaler.com/zia/about-ip-pool) pages.
+5. [Edit or delete a destination IPv4 group](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal).
+6. View information about the predefined **All IPv4** group.
+7. The destination IPv4 groups are paginated with up to 500 groups displayed per page.
+8. Go to the [Source IPv4 Groups](https://help.zscaler.com/zia/about-source-ip-groups#ipv4), [Source IPv6 Groups](https://help.zscaler.com/zia/about-source-ip-groups#ipv6), Destination IPv6 Groups, and [IP Pool](https://help.zscaler.com/zia/about-ip-pool) pages.
 
 [Image: The Destination IPv4 Groups page shows a list of destination IP groups, IP addresses or FQDNs in the groups, and descriptions]
 
-On the Destination IPv6 Groups page (Policies > Access Control > Firewall > IP & FQDN Groups > Destination IPv6 Groups), you can do the following:
+On the Destination IPv6 Groups page (Internet Access > Resources > IP & FQDN Groups > Destination IPv6 Groups), you can do the following:
 
 1. Search for a destination IPv6 group.
-2. View the list of destination IPv6 groups along with the following information: Only the predefined **All IPv6** group is currently available.
+2. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+3. View the available destination IPv6 groups. Currently, only the predefined All IPv6 group is available. For this group, you can view:
   - **Name**: The name of the destination group. You can sort this column.
   - **Type**: The type of the destination group, such as IP Address, FQDN, Wildcard FQDN, or Other.
-  - **IP Address, FQDN or WildCard FQDN**: The IP addresses, FQDNs, or wildcard FQDNs included in the group.
+  - **IP Address, FQDN or WildCard FQDN**: The IP addresses, FQDNs, and wildcard FQDNs included in the group.
   - **Countries**: The countries included in the group.
-  - **Description**: The description of the group, if available. You can sort this column.
+  - **Description**: The description of the group, if available.
   - **Categories:** The custom URL categories included in the group.
-3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-4. View information about the predefined **All IPv6** group.
-5. Go to the [Source IPv4 Groups](https://help.zscaler.com/zia/about-source-ip-groups#ipv4), [Source IPv6 Groups](https://help.zscaler.com/zia/about-source-ip-groups#ipv6), Destination IPv4 Groups, and [IP Pool](https://help.zscaler.com/zia/about-ip-pool) pages.
+  - **Actions**: An option to view details about this group.
+4. View details for read-only predefined groups.
+5. Pagination is supported to display up to 500 groups per page.
+6. Go to the [Source IPv4 Groups](https://help.zscaler.com/zia/about-source-ip-groups#ipv4), [Source IPv6 Groups](https://help.zscaler.com/zia/about-source-ip-groups#ipv6), Destination IPv4 Groups, and [IP Pool](https://help.zscaler.com/zia/about-ip-pool) pages.
 
 [Image: The Destination IPv6 Groups page shows a list of destination IP groups, IP addresses or FQDNs in the groups, and descriptions]
 <!-- /ZS-ARTICLE -->
@@ -4567,20 +4672,20 @@ On the Device Control page (Analytics > Endpoint Data Scan > Device Control), yo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-device-groups","lastmod":"2026-08-27T23:40Z","nid":"1402251"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-device-groups","lastmod":"2026-09-21T20:16Z","nid":"1402251"} -->
 ## About Device Groups
 
 - Source: https://help.zscaler.com/zia/about-device-groups
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > About Device Groups
-- Last modified: 2026-08-27T23:40Z
+- Last modified: 2026-09-21T20:16Z
 - Summary: Information on the Device Groups page in the Zscaler Admin Console.
 
 The Device Groups page displays a list of predefined groups. These groups are defined based on the OS types of the devices in your organization. The devices that have Zscaler Client Connector deployed are categorized under respective groups based on their OS type.
 
 ## **About the Device Groups Page**
 
-On the Device Groups page (Infrastructure > Connectors > Client > Device Overview), you can:
+On the Device Groups page (Infrastructure > Client Connector > Device Overview), you can:
 
 1. **Add Device Group**: Add a new device group.
 2. Select a search filter for device groups.
@@ -4649,20 +4754,20 @@ Use the arrows at the bottom of the page to go to view the next entries. You can
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-devices","lastmod":"2026-08-30T20:55Z","nid":"1402246"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-devices","lastmod":"2026-09-21T19:30Z","nid":"1402246"} -->
 ## About Devices
 
 - Source: https://help.zscaler.com/zia/about-devices
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > About Devices
-- Last modified: 2026-08-30T20:55Z
+- Last modified: 2026-09-21T19:30Z
 - Summary: Information on the Device Management page in the Zscaler Admin Console.
 
 The Device Management page displays all the devices in your organization that have the Zscaler Client Connector deployed. You can select devices when you configure policies​​​​​.
 
 ## **About the Device Management Page**
 
-On the Device Overview page (Infrastructure > Connectors > Client > Device Overview), you can:
+On the Device Overview page (Infrastructure > Client Connector > Device Overview), you can:
 
 1. Filter devices based on users, state (registered, unregistered etc.), OS type, and activity.
 2. Hide all filters.
@@ -4690,13 +4795,13 @@ For more information on the grouping of all the devices, see [Device Groups](htt
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-discovered-devices","lastmod":"2026-06-21T20:51Z","nid":"1447681"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-discovered-devices","lastmod":"2026-09-28T08:33Z","nid":"1447681"} -->
 ## About Discovered Devices
 
 - Source: https://help.zscaler.com/zia/about-discovered-devices
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > About Discovered Devices
-- Last modified: 2026-06-21T20:51Z
+- Last modified: 2026-09-28T08:33Z
 - Summary: Information on the Discovered Devices page in the Zscaler Admin Console.
 
 The Discovered Devices page shows detailed information about all the discovered devices in the [Internet of Things (IoT) Report](https://help.zscaler.com/zia/about-iot-discovery-report), which includes Internet of Things (IoT) devices, servers, and unmanaged user devices. You can filter the table by device type, category, classification, or location.
@@ -4710,7 +4815,7 @@ Discovered Devices provide the following benefits and enables you to:
 
 ## About the Discovered Devices Page
 
-On the Discovered Devices page (click Analytics, enable the toggle Switch to Existing Reports, and then go to Internet & SaaS > Analytics > IoT Report > any section of the IoT Report), you can do the following:
+On the Discovered Devices page (Analytics > Reports > IoT Report > any section of the IoT Report), you can do the following:
 
 1. Show or hide filters.
 2. Download the data in a CSV format.
@@ -4771,14 +4876,14 @@ This section shows a chart which displays a detailed traffic flow for the device
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-dlp-dictionaries","lastmod":"2026-04-30T14:14Z","nid":"1400066"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-dlp-dictionaries","lastmod":"2026-09-24T10:54Z","nid":"1400066"} -->
 ## About DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/about-dlp-dictionaries
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > About DLP Dictionaries
-- Last modified: 2026-04-30T14:14Z
-- Summary: Information about predefined and custom (i.e., pattern and phrase or exact data match) DLP dictionaries and how to create them in the Zscaler Admin Console.
+- Last modified: 2026-09-24T10:54Z
+- Summary: Information about predefined and custom (i.e., pattern and phrase or exact data match) Data Loss Prevention (DLP) and how to create them in the Zscaler Admin Console.
 
 A Data Loss Prevention (DLP) dictionary contains a set of patented algorithms that are designed to detect specific kinds of information in your users' traffic and activities. The Zscaler service provides predefined dictionaries that you can modify and, in some cases, clone. You can also create custom dictionaries for content not covered by predefined dictionaries. For example, you can create custom dictionaries that trigger based on specific patterns and phrases, or trigger based on exact data matching. To learn more, see [Editing Predefined DLP Dictionaries](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries), [Adding Custom DLP Dictionaries](https://help.zscaler.com/zia/adding-custom-dlp-dictionary), and [Cloning Predefined DLP Dictionaries](https://help.zscaler.com/zia/cloning-predefined-dlp-dictionaries).
 
@@ -4792,7 +4897,7 @@ Any combination of cloned, predefined, and custom dictionaries can be added to a
 
 ## About the DLP Dictionaries Page
 
-On the DLP Dictionaries page (Policies > Data Protection > Common Resources > Dictionaries & Engines), you can do the following:
+On the DLP Dictionaries page (Data Security > Common Resources > Dictionaries & Engines), you can do the following:
 
 1. [Add a DLP dictionary](https://help.zscaler.com/zia/adding-custom-dlp-dictionary).
 2. Search for a DLP dictionary or sub-dictionary.
@@ -4810,16 +4915,16 @@ On the DLP Dictionaries page (Policies > Data Protection > Common Resources > Di
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-dlp-endpoint-resources","lastmod":"2026-08-25T15:51Z","nid":"1541422"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-dlp-endpoint-resources","lastmod":"2026-09-24T14:37Z","nid":"1541422"} -->
 ## About DLP & Endpoint Resources
 
 - Source: https://help.zscaler.com/zia/about-dlp-endpoint-resources
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > About DLP & Endpoint Resources
-- Last modified: 2026-08-25T15:51Z
-- Summary: Information on how Zscaler Endpoint & DLP resources help your organization monitor different channels to prevent data loss on endpoints.
+- Last modified: 2026-09-24T14:37Z
+- Summary: Information on how Zscaler Endpoint & Data Loss Prevention (DLP) resources help your organization monitor different channels to prevent data loss on endpoints.
 
-The page for Data Loss Prevention (DLP) and Endpoint resources (Policies > Data Protection > Policy > Endpoint DLP Resources) has slightly different names based on the Zscaler products licensed for your organization:
+The page for Data Loss Prevention (DLP) and Endpoint resources (Data Security > Endpoint DLP > Endpoint DLP Resources) has slightly different names based on the Zscaler products licensed for your organization:
 
 - If your organization has licensed only Endpoint DLP, this page is called DLP Resources.
 - If your organization has licensed only Endpoint Context, this page is called Endpoint Resources.
@@ -4846,81 +4951,91 @@ DLP and endpoint resources provide the following benefits and allow you to:
 - Monitor printing, saving to removable storage devices, saving to network shares, and saving to personal cloud storage accounts.
 - Use Zscaler custom and predefined DLP engines to detect and take action on sensitive data.
 
-You can use one of the following pages to create DLP and endpoint resources in the Zscaler Admin Console (Policies > Data Protection > Policy > Endpoint DLP Resources):
+You can use one of the following pages to create DLP and endpoint resources in the Zscaler Admin Console (Data Security > Endpoint DLP > Endpoint DLP Resources):
 
 - About the DLP Resources Page
 - About the Endpoint Resources Page
 - About the DLP & Endpoint Resources Page
 
-The **DLP Resources**page is available if your organization has licensed Endpoint DLP but not Endpoint Context.
+The **Endpoint DLP Resources**page is available if your organization has licensed Endpoint DLP but not Endpoint Context.
 
-On the **DLP Resources** page, you can view and add the following resources:
+On the **DLP Resources** page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can view and add the following resources:
 
 - Network Shares
 - Printers
 - Removable Storage Devices
 - Applications
 
-On the **Network Shares** page, you can do the following:
+On the **Network Shares** page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can do the following:
 
-1. [Add and configure a network share](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
-2. [Import network shares](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources) via CSV file.
-3. Search for a network share.
+1. [Import network shares](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources) via CSV file.
+2. [Add and configure a network share](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
 4. View a list of all configured DLP network shares for your organization. For network shares, you can see the following:
   1. **Name**: The network share's name. You can sort this column.
   2. **Server Name**: The name of the server where the network share is located.
-5. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-6. [Edit or delete a network share](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
-7. Go to the **Printers** page.
-8. Go to the **Removable Storage Devices** page.
-9. Go to the **Applications** page.
-10. [Go to the Network Share Tags page](https://help.zscaler.com/zia/adding-resource-tags).
+5. [Edit or delete a network share](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
+6. Search for a network share.
+7. [Go to the Network Share Tags page](https://help.zscaler.com/zia/adding-resource-tags).
+8. Go to the **Printers** page.
+9. Go to the **Printer Tags** page.
+10. Go to the **Removable Storage Devices** page.
+11. Go to the **Removable Storage Devices** **Tags**page.
+12. Go to the **Endpoint Applications** page.
+13. Go to the **Endpoint Applications** page.
 
 [Image: About Network Shares in DLP & Endpoint Resources]
 
-On the **Printers** page, you can do the following:
+On the **Printers** page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can do the following:
 
-1. [Add and configure a network printer](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
-2. [Import network printers](https://help.zscaler.com/legacy-zia/adding-dlp-resources) via CSV file.
-3. Search for a network printer.
+1. [Import network printers](https://help.zscaler.com/legacy-zia/adding-dlp-resources) via CSV file.
+2. [Add and configure a network printer](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
 4. View a list of all configured DLP network printers for your organization. For network printers, you can see the following:
   - **Name**: The printer's name. You can sort this column.
   - **Domain**: The name of the domain where the network printer is located.
   - **Printer Name**: The printer's name as it appears in the operating system list of printers.
   - **IP Address**: The printer's IP address.
   - **Description**: The printer's description.
-5. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-6. [Edit or delete a printer](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
+  - Search for a network printer.
+5. [Edit or delete a printer](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
+6. Search for a Printer.
 7. Go to the **Network Shares** page.
-8. Go to the **Removable Storage Devices** page.
-9. Go to the **Applications** page.
-10. [Go to the Printer Tags page](https://help.zscaler.com/zia/adding-resource-tags).
+8. Go to the **Network Shares Tags** page.
+9. [Go to the Printer Tags page](https://help.zscaler.com/zia/adding-resource-tags).
+10. Go to the **Removable Storage Devices** page.
+11. [Go to the Removable Storage Device Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+12. Go to the **Endpoint Applications** page.
+13. [Go to the Endpoint Applications Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
 
 [Image: About Printers in DLP & Endpoint Resources]
 
-On the **Removable Storage Devices** page, you can do the following:
+On the **Removable Storage Devices** page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can do the following:
 
-1. [Add and configure a removable storage device](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
-2. [Import removable storage devices](https://help.zscaler.com/legacy-zia/adding-dlp-resources) via CSV file.
-3. Search for a removable storage device.
+1. [Import removable storage devices](https://help.zscaler.com/legacy-zia/adding-dlp-resources) via CSV file.
+2. [Add and configure a removable storage device](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
 4. View a list of all configured DLP removable storage devices for your organization. For removable storage devices, you can see the following:
   - **Name**: The removable storage device's name. You can sort this column.
   - **Vendor ID**: The removable storage device's manufacturer.
   - **Product ID**: The removable storage device's product ID number.
   - **Serial Number**: The removable storage device's serial number.
   - **Description**: The removable storage device's description.
-5. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-6. [Edit or delete a removable storage device](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
+5. [Edit or delete a removable storage device](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
+6. Search for a removable storage device.
 7. Go to the **Network Shares** page.
-8. Go to the **Printers** page.
-9. Go to the **Applications**page.
-10. [Go to the Removable Storage Device Tags page](https://help.zscaler.com/zia/adding-resource-tags).
+8. [Go to the Network Shares Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+9. Go to the **Printers** page.
+10. [Go to the Printer Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+11. [Go to the Removable Storage Device Tags page](https://help.zscaler.com/zia/adding-resource-tags).
+12. Go to the **Endpoint Applications**page.
+13. [Go to the Endpoint Applications Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
 
 [Image: `About Removeable Storage Devices in Endpoint DLP Resources]
 
 To access this feature, contact your Zscaler Account team.
 
-On the **Applications** page, you can do the following:
+On the **Applications** page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can do the following:
 
 1. [Add a Windows application](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
 2. [Add a macOS application](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
@@ -4948,7 +5063,7 @@ On the **Applications** page, you can do the following:
 
 The **Endpoint Resources**page is available if your organization has licensed Endpoint Context but not Endpoint DLP.
 
-From the **Endpoint Resources**page, on the **Applications** page, you can do the following:
+From the **Endpoint Resources**page, on the **Applications** page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can do the following:
 
 1. [Add a Windows application.](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources)
 2. [Add a macOS application](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
@@ -4978,14 +5093,14 @@ From the **Endpoint Resources**page, on the **Applications** page, you can do th
 
 The **DLP & Endpoint Resources**page is available if your organization has licensed both Endpoint DLP and Endpoint Context.
 
-On the **DLP & Endpoint Resources** page, you can view and add the following resources:
+On the **DLP & Endpoint Resources** page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can view and add the following resources:
 
 - Network Shares
 - Printers
 - Removable Storage Devices
 - Applications
 
-On the **Network Shares** page, you can do the following:
+On the **Network Shares** page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can do the following:
 
 1. [Add and configure a network share](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
 2. [Import network shares](https://help.zscaler.com/zia/adding-dlp-resources) via CSV file.
@@ -5002,7 +5117,7 @@ On the **Network Shares** page, you can do the following:
 
 [Image: Network Shares in DLP & Endpoint Resources]
 
-On the **Printers** page, you can do the following:
+On the **Printers** page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can do the following:
 
 1. [Add and configure a network printer](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
 2. [Import network printers](https://help.zscaler.com/zia/adding-dlp-resources) via CSV file.
@@ -5022,7 +5137,7 @@ On the **Printers** page, you can do the following:
 
 [Image: Printers in DLP & Endpoint Resources]
 
-On the **Removable Storage Devices** page, you can do the following:
+On the **Removable Storage Devices** page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can do the following:
 
 1. [Add and configure a removable storage device](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
 2. [Import removable storage devices](https://help.zscaler.com/zia/adding-dlp-resources) via CSV file.
@@ -5044,7 +5159,7 @@ On the **Removable Storage Devices** page, you can do the following:
 
 To access this feature, contact your Zscaler Account team.
 
-On the **Applications** page, you can do the following:
+On the **Applications** page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can do the following:
 
 1. [Add a Windows application.](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources)
 2. [Add a macOS application](https://help.zscaler.com/zia/adding-dlp-resources#add-application-single).
@@ -5355,16 +5470,16 @@ On the **Applications** page, you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-dlp-engines","lastmod":"2026-06-12T09:23Z","nid":"1400081"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-dlp-engines","lastmod":"2026-09-24T11:09Z","nid":"1400081"} -->
 ## About DLP Engines
 
 - Source: https://help.zscaler.com/zia/about-dlp-engines
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > About DLP Engines
-- Last modified: 2026-06-12T09:23Z
-- Summary: Information on DLP engines within the Zscaler service and how you can use them to create rules to detect content that includes more than one DLP dictionary.
+- Last modified: 2026-09-24T11:09Z
+- Summary: Information on Data Loss Prevention (DLP) engines within the Zscaler service and how you can use them to create rules to detect content that includes more than one DLP dictionary.
 
-A DLP engine is a collection of one or more [DLP dictionaries](https://help.zscaler.com/zia/about-dlp-dictionaries). When you define your [DLP policy rules](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection) and [Endpoint DLP policy rules](https://help.zscaler.com/zia/configuring-endpoint-dlp-policy-rules), you must reference DLP engines, rather than DLP dictionaries. By using a DLP engine, you can create rules to detect content that encompasses more than one dictionary. For example, if your organization wants to protect social security and credit card numbers, create a rule using an engine that contains the Credit Cards and Social Security Numbers dictionaries.
+A Data Loss Prevention (DLP) engine is a collection of one or more [DLP dictionaries](https://help.zscaler.com/zia/about-dlp-dictionaries). When you define your [DLP policy rules](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection) and [Endpoint DLP policy rules](https://help.zscaler.com/zia/configuring-endpoint-dlp-policy-rules), you must reference DLP engines, rather than DLP dictionaries. By using a DLP engine, you can create rules to detect content that encompasses more than one dictionary. For example, if your organization wants to protect social security and credit card numbers, create a rule using an engine that contains the Credit Cards and Social Security Numbers dictionaries.
 
 The Zscaler service provides predefined DLP engines and supports custom DLP engines. You can [edit predefined engines](https://help.zscaler.com/zia/editing-predefined-dlp-engines), [create custom engines](https://help.zscaler.com/zia/adding-custom-dlp-engine), or [clone existing engines](https://help.zscaler.com/zia/cloning-dlp-engines) to detect content that is relevant to your organization. When configuring a predefined or custom engine, you can also combine dictionaries with Boolean operators to create logical expressions. To learn more, see [Understanding DLP Engines](https://help.zscaler.com/zia/understanding-dlp-engines).
 
@@ -5378,7 +5493,7 @@ Zscaler DLP engines can scan files with a maximum size of 400 MB. For an archive
 
 ## About the DLP Engines Page
 
-On the DLP Engines page (Policies > Data Protection > Common Resources > Dictionaries & Engines > DLP Engines), you can do the following:
+On the DLP Engines page (Data Security > Common Resources > Dictionaries & Engines > DLP Engines), you can do the following:
 
 1. [Add a custom DLP engine.](https://help.zscaler.com/zia/adding-custom-dlp-engine)
 2. View a list of all DLP engines that were configured for your organization. For DLP engines, you can see:
@@ -5396,13 +5511,13 @@ On the DLP Engines page (Policies > Data Protection > Common Resources > Diction
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-dlp-notification-templates","lastmod":"2026-08-21T06:09Z","nid":"1400021"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-dlp-notification-templates","lastmod":"2026-09-28T12:30Z","nid":"1400021"} -->
 ## About DLP Notification Templates
 
 - Source: https://help.zscaler.com/zia/about-dlp-notification-templates
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Notification Templates > About DLP Notification Templates
-- Last modified: 2026-08-21T06:09Z
+- Last modified: 2026-09-28T12:30Z
 - Summary: Information on Data Loss Prevention (DLP) notification templates. These are sent to your organization’s auditors when a DLP policy triggers in the Zscaler service.
 
 [Watch a video about Adding DLP Notification Templates](https://fast.wistia.net/embed/iframe/buqs745qjx) (shows legacy UI).
@@ -5418,7 +5533,7 @@ The notification template macros for the [inline web DLP](https://help.zscaler.c
 
 ## About the DLP Notification Templates Page
 
-On the DLP Notification Templates page (Policies > Data Protection > Common Resources > Notification Templates), you can do the following:
+On the DLP Notification Templates page (Administration > End User Notification > DLP Notification Templates), you can do the following:
 
 1. [Add a DLP notification template](https://help.zscaler.com/zia/configuring-dlp-notification-templates).
 2. Search for a DLP notification template.
@@ -5433,16 +5548,16 @@ On the DLP Notification Templates page (Policies > Data Protection > Common Reso
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-dns-application-groups","lastmod":"2026-05-27T08:54Z","nid":"1400676"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-dns-application-groups","lastmod":"2026-09-21T04:35Z","nid":"1400676"} -->
 ## About DNS Application Groups
 
 - Source: https://help.zscaler.com/zia/about-dns-application-groups
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > About DNS Application Groups
-- Last modified: 2026-05-27T08:54Z
+- Last modified: 2026-09-21T04:35Z
 - Summary: Information about DNS application groups that allow grouping together DNS tunnel types and specific web applications for use in DNS policy rules.
 
-Through DNS Application Groups, you can create groups based on DNS tunneling traffic as well as other web applications. By allowing or blocking traffic at the DNS level, you gain greater granular control and can create new Firewall policies applied specifically to these groups. To learn more, see [Detecting and Controlling DNS Tunnels](https://help.zscaler.com/zia/detecting-and-controlling-dns-tunnels).
+With DNS application groups, you can create groups based on DNS tunneling traffic as well as other web applications to manage them using policies. By allowing or blocking traffic at the DNS level, you gain more granular control and can create Firewall policies that apply specifically to these groups. To learn more, see [Detecting and Controlling DNS Tunnels](https://help.zscaler.com/zia/detecting-and-controlling-dns-tunnels).
 
 DNS application groups provide the following benefits and enable you to:
 
@@ -5452,29 +5567,31 @@ DNS application groups provide the following benefits and enable you to:
 
 ## About the DNS Application Group Page
 
-On the DNS Application Group page (Policies > Access Control > Firewall > DNS Application Group), you can do the following:
+On the DNS Application Group page (Internet Access > Resources > DNS Application Group), you can do the following:
 
 1. [Add a DNS application group](https://help.zscaler.com/zia/configuring-dns-application-groups).
 2. Search for a DNS application group.
-3. View a list of all DNS Application Groups. For each group, you can view the following:
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View a list of all DNS Application Groups. For each group, you can view the following:
   - **Name**: The name of your DNS application group. You can sort this column.
   - **Applications**: The DNS tunnel categories and web applications included in your group.
   - **Description**: The description of the group, if available. You can sort this column.
-4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-5. [Edit a DNS application group](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal).
+  - **Actions**: The actions you can perform on a DNS application group, such as editing and deleting.
+5. [Edit or delete a DNS application group](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+6. The DNS application groups are paginated with up to 500 groups displayed per page.
 
 [Image: The DNS Application Group page shows a list of configured DNS application groups, the applications included in the groups, and descriptions]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-dns-control","lastmod":"2026-08-10T10:24Z","nid":"1399916"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-dns-control","lastmod":"2026-09-29T01:31Z","nid":"1399916"} -->
 ## About DNS Control
 
 - Source: https://help.zscaler.com/zia/about-dns-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > DNS Control > About DNS Control
-- Last modified: 2026-08-10T10:24Z
+- Last modified: 2026-09-29T01:31Z
 - Summary: Information on the Zscaler service DNS Control that allows you to define rules to control DNS requests and responses.
 
 [Watch a video About DNS Control Policy.](https://fast.wistia.net/embed/iframe/khlfl2wrll)
@@ -5518,7 +5635,7 @@ You can apply the DNS Control policy to recursive and iterative DNS requests wit
 
 ## About the DNS Control Page
 
-On the DNS Control page (Policies > Access Control > Firewall > DNS Control), you can do the following:
+On the DNS Control page (Internet Access > Policy > DNS Control), you can do the following:
 
 1. [Add a DNS Filtering policy rule](https://help.zscaler.com/zia/configuring-dns-control-policy).
 2. Filter the DNS policy rules by **Rule Label** to view the rules grouped under the selected labels. By default, the rules are listed in the ascending rule order. Applying Rule Labels
@@ -5536,7 +5653,7 @@ On the DNS Control page (Policies > Access Control > Firewall > DNS Control), yo
 
 See image.
 
-Click **Clear** to remove all rule label selection.
+Click **Clear** to remove all rule label selections.
 
 - **Rule Order**: The rule order number. DNS policy rules are evaluated in ascending numerical order. You can sort this column.
 - **Admin Rank**: The admin rank for this rule. This is only visible if you have enabled it in the [Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings). You can sort this column.
@@ -5586,13 +5703,13 @@ For DNS requests that come from the internal DNS server, you can only apply poli
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-dns-gateways","lastmod":"2026-05-29T06:37Z","nid":"1451566"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-dns-gateways","lastmod":"2026-09-21T07:24Z","nid":"1451566"} -->
 ## About DNS Gateways
 
 - Source: https://help.zscaler.com/zia/about-dns-gateways
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > About DNS Gateways
-- Last modified: 2026-05-29T06:37Z
+- Last modified: 2026-09-21T07:24Z
 - Summary: Information on DNS Gateways and how they can be used in Internet & SaaS (ZIA) to set up DNS high availability and perform protocol translation for DNS lookup by external DNS services.
 
 DNS Gateway extends the capabilities of DNS Control by including support for DNS high availability and protocol translation to perform DNS lookup by external DNS services. You can ensure the high availability of your DNS service by configuring primary and secondary DNS services provided by third-party DNS services. You can also select specific protocols (DoH, UDP, or TCP) that are supported by the external DNS service and configure policies to ensure that your organization's DNS traffic is sent to the external DNS service from the Zscaler service only using those protocols. If the incoming DNS request uses a protocol that is different from the configured server-side protocol, the Zscaler service performs the necessary protocol translation and sends the DNS request to the external DNS service. Then, the Zscaler service extracts the response from the DNS server, applies any configured policies, and forwards the response to the client using the inbound query protocol.
@@ -5611,7 +5728,7 @@ When both primary and secondary DNS resolvers are configured, the Zscaler servic
 - The server is not reachable and the connection to the server times out or fails.
 - The FQDN configured for the server is unresolvable.
 - The DoH server does not provide a DNS response (e.g., a web server that does not provide DoH service).
-- The DNS server sends SERVFAIL or other response codes.
+- The DNS server sends `SERVFAIL` or other response codes.
 - Response timeout occurs.
 
 When both primary and secondary DNS resolvers are configured in DNS Gateway, the DNS requests are forwarded to the primary resolver. If the primary resolver does not return a response to a DNS query, then the primary resolver is considered unavailable, and the request is forwarded to the secondary resolver. If a response is received from the secondary resolver, all subsequent requests are forwarded to the secondary resolver.
@@ -5640,36 +5757,39 @@ The DNS Protocol Translation feature of DNS Gateway is available with Advanced F
 
 ## About the DNS Gateways Page
 
-On the DNS Gateways page (Infrastructure > Internet & SaaS > Network Policies > Proxies and Gateways > DNS Gateways), you can do the following:
+On the DNS Gateways page (Internet Access > Resources > Proxies and Gateways > DNS Gateways), you can do the following:
 
-1. [Add a DNS Gateway](https://help.zscaler.com/zia/adding-dns-gateways).
-2. Search for a specific DNS Gateway using keywords.
-3. View the list of configured DNS Gateways. The default view displays: You can sort the table using the **Gateway Name** and **Failure Behavior** columns.
-  - **Name**: The name of the DNS Gateway.
-  - **Primary Resolver**: Details of the primary DNS service, including IP address or FQDN and ports.
-  - **Secondary Resolver**: Details of the secondary DNS service, including IP address or FQDN and ports.
-  - **Failure Behavior**: The action configured to be performed when both primary and secondary resolvers are unavailable to serve the requests.
-4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-5. [Edit an existing DNS Gateway](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal). You can also delete the DNS Gateway from the **Edit DNS Gateway** window.
+1. Search for a specific DNS Gateway using keywords.
+2. [Add a DNS Gateway](https://help.zscaler.com/zia/adding-dns-gateways).
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View the list of configured DNS Gateways. The default view displays:
+  - **Name**: The name of the DNS Gateway. You can sort this column.
+  - **Primary DNS Server**: Details of the primary DNS service, including IP address or FQDN.
+  - **Primary Ports**: Details of the primary ports.
+  - **Secondary DNS Server**: Details of the secondary DNS service, including IP address or FQDN.
+  - **Secondary Ports**: Details of the secondary ports.
+  - **Failure Behavior**: The action configured to be performed when both primary and secondary resolvers are unavailable to serve the requests. You can sort this column.
+5. [Edit or delete a DNS Gateway](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal).
 6. View a predefined gateway object.
-7. [Go to the Proxies page.](https://help.zscaler.com/zia/about-third-party-proxies)
-8. [Go to the Proxy Gateways page.](https://help.zscaler.com/zia/about-gateways-proxies)
+7. The DNS gateway objects are paginated with up to 500 objects displayed per page.
+8. [Go to the Proxies page](https://help.zscaler.com/zia/about-third-party-proxies).
+9. [Go to the Proxy Gateways page](https://help.zscaler.com/zia/about-gateways-proxies).
 
 [Image: The DNS Gateways page shows a list of configured DNS gateways, the primary and secondary resolvers used by the gateways, and failure behavior]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-dns64-prefix","lastmod":"2026-07-07T23:03Z","nid":"1404796"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-dns64-prefix","lastmod":"2026-09-15T07:55Z","nid":"1404796"} -->
 ## About the DNS64 Prefix
 
 - Source: https://help.zscaler.com/zia/about-dns64-prefix
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPv6 > About the DNS64 Prefix
-- Last modified: 2026-07-07T23:03Z
+- Last modified: 2026-09-15T07:55Z
 - Summary: Information on the DNS64 mechanism supported by Zscaler and the DNS64 Prefix page in the Zscaler Admin Console.
 
-The DNS64 prefix is an IPv6 address prefix used by Zscaler's purpose-built DNS64 mechanism to synthesize AAAA records from A records returned to servers that can be reached via IPv4. Zscaler facilitates the DNS64 mechanism with its own default IPv6 prefix and the well-known prefix (64:ff:9b::/96), without requiring any additional configurations by Internet & SaaS administrators. However, organizations can configure and use their network-specific DNS64 prefixes instead of the default prefixes supported by Zscaler. You can designate one of the configured [NAT64 prefixes](https://help.zscaler.com/zia/about-nat64-prefixes) as the DNS64 prefix for your organization. You can also configure a DNS64 prefix for individual locations and override the global DNS64 prefix for those locations. To learn more, see [Configuring Locations](https://help.zscaler.com/zia/configuring-locations).
+The DNS64 prefix is an IPv6 address prefix used by Zscaler's purpose-built DNS64 mechanism to synthesize AAAA records from A records returned to servers that can be reached via IPv4. Zscaler facilitates the DNS64 mechanism with its own default IPv6 prefix and the well-known prefix (64:ff:9b::/96), without requiring any additional configurations by Internet & SaaS (ZIA) administrators. However, organizations can configure and use their network-specific DNS64 prefixes instead of the default prefixes supported by Zscaler. You can designate one of the configured [NAT64 prefixes](https://help.zscaler.com/zia/about-nat64-prefixes) as the DNS64 prefix for your organization. You can also configure a DNS64 prefix for individual locations and override the global DNS64 prefix for those locations. To learn more, see [Configuring Locations](https://help.zscaler.com/zia/configuring-locations).
 
 Zscaler's support for the DNS64 prefix provides the following benefits:
 
@@ -5686,32 +5806,68 @@ DNS64 prefix selection by Zscaler from the prefixes available at different sourc
 
 To learn more, see [Understanding IPv6 Support](https://help.zscaler.com/zia/understanding-ipv6-support).
 
-## About the DNS64 Prefix page
+## About the DNS64 Prefix Page
 
-On the DNS64 Prefixes page (Infrastructure > Internet & SaaS > Traffic Forwarding > IPv6 Configurations > DNS64 Prefix), you can do the following:
+On the DNS64 Prefix page (Infrastructure > Internet & SaaS > IPv6 Configuration > DNS64 Prefix), you can do the following:
 
-1. [Configure DNS64 prefix at the organization level.](https://help.zscaler.com/zia/configuring-ipv6-settings#configure-dns64-prefix)
-2. Search for a DNS64 prefix.
-3. View the DNS64 prefix configured at the organization level. You can view:
+1. Search for a DNS64 prefix.
+2. [Configure a DNS64 prefix at the organization level.](https://help.zscaler.com/zia/configuring-ipv6-settings#configure-dns64-prefix)
+3. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
+4. View the DNS64 prefix configured at the organization level. You can view:
   - **Name**: The name of the DNS64 prefix.
   - **Prefix/Mask**: The DNS64 prefix and the subnet mask for the prefix.
   - **Description**: The description of the DNS64 prefix.
-4. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
 5. [Edit the DNS64 prefix.](https://help.zscaler.com/zia/editing-deleting-duplicating-items)
-6. Go to the [NAT64 prefixes](https://help.zscaler.com/zia/about-nat64-prefixes) and [Settings](https://help.zscaler.com/zia/configuring-ipv6-settings#enable-ipv6) pages.
+6. Go to the [NAT64 Prefixes](https://help.zscaler.com/zia/about-nat64-prefixes) and [Settings](https://help.zscaler.com/zia/configuring-ipv6-settings#enable-ipv6) pages.
 
 [Image: The DNS64 Prefix page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-edns-client-subnet-injection","lastmod":"2026-05-29T07:13Z","nid":"1449941"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-domain-profiles-standalone","lastmod":"2026-09-24T07:05Z","nid":"1492721"} -->
+## About Domain Profiles
+
+- Source: https://help.zscaler.com/zia/about-domain-profiles-standalone
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > About Domain Profiles
+- Last modified: 2026-09-24T07:05Z
+- Summary: Information on the Domain Profiles page as part of your Zscaler Data Loss Prevention (DLP) policies.
+
+Domain profiles let you create and manage profiles that can be used as part of Zscaler's Data Loss Prevention (DLP) tools to detect and take action on sensitive data across multiple channels. Domain profiles let you group organizational domains, custom domains, and personal email providers into a single entity that can then be applied to policy rules. To learn more, see [About Data Loss Prevention](https://help.zscaler.com/zia/about-data-loss-prevention), [About Data at Rest Scanning DLP](https://help.zscaler.com/zia/about-data-rest-scanning-dlp), and [About Outbound Email Policy](https://help.zscaler.com/zia/about-outbound-email-policy).
+
+Domain profiles provide the following benefits and enable you to:
+
+- Manage personal email and organizational domains that you want to include or exclude from DLP policy rules across channels.
+- Let you group organizational domains, custom domains, and personal email providers into a single entity that can then be applied to policy rules.
+- Easily edit domain profiles to update all policy rules where the profiles are used.
+
+## About the Domain Profiles Page
+
+On the Domain Profiles page (Data Security > Email DLP > Domain Profiles), you can do the following:
+
+1. Select filtering options for the table.
+2. Search for a domain profile.
+3. [Add a domain profile](https://help.zscaler.com/zia/adding-domain-profiles).
+4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+5. View a list of all domain profiles created for your organization. For domain profiles, you can see:
+  - **Profile Name**: The name of the domain profile. You can sort this column.
+  - **Recipient Domains**: The recipient domains associated with each profile.
+  - **Description**: Additional notes or information about the profile.
+6. [Edit](https://help.zscaler.com/zia/editing-domain-profiles), [duplicate, or delete a domain profile](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+
+[Image: The Domain Profiles page shows a list of domains and their details]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/about-edns-client-subnet-injection","lastmod":"2026-09-21T07:50Z","nid":"1449941"} -->
 ## About EDNS Client Subnet Injection
 
 - Source: https://help.zscaler.com/zia/about-edns-client-subnet-injection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > About EDNS Client Subnet Injection
-- Last modified: 2026-05-29T07:13Z
+- Last modified: 2026-09-21T07:50Z
 - Summary: Information about the EDNS Client Subnet option in DNS queries and how to configure ECS prefixes and send them in DNS queries to get geolocated responses from an external DNS service.
 
 Internet & SaaS (ZIA) supports EDNS Client Subnet (ECS) in DNS queries to obtain geolocated responses from DNS resolvers. [Client Subnet](https://datatracker.ietf.org/doc/html/rfc7871) is an option in [Extension Mechanisms for DNS (EDNS(0))](https://datatracker.ietf.org/doc/html/rfc6891) that allows the IP address or subnet information of the requesting client device to be passed in DNS requests. An authoritative or intermediate DNS nameserver resolves the domain name to an IP address that is geographically closer to the client’s (query originator) subnet passed in the DNS request. The client then establishes a connection with the application or service using the resolved IP address.
@@ -5745,7 +5901,7 @@ After configuring the ECS prefixes, you must enable the ECS option and designate
 
 ## About the EDNS Client Subnet Prefix Objects Page
 
-On the EDNS Client Subnet Prefix Objects page (Policies > Access Control > Firewall > EDNS Client Subnet), you can do the following:
+On the EDNS Client Subnet Prefix Objects page (Internet Access > Resources > EDNS Client Subnet), you can do the following:
 
 1. [Add an ECS prefix](https://help.zscaler.com/zia/adding-edns-client-subnet-prefixes).
 2. Search for an ECS prefix.
@@ -5763,13 +5919,13 @@ On the EDNS Client Subnet Prefix Objects page (Policies > Access Control > Firew
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-email-labels","lastmod":"2026-09-06T07:06Z","nid":"1444161"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-email-labels","lastmod":"2026-10-04T07:06Z","nid":"1444161"} -->
 ## About Email Labels
 
 - Source: https://help.zscaler.com/zia/about-email-labels
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > About Email Labels
-- Last modified: 2026-09-06T07:06Z
+- Last modified: 2026-10-04T07:06Z
 - Summary: Information on how to create email labels for Gmail and Microsoft Exchange clients.
 
 Email labels provide the option of adding response actions to Gmail and Microsoft Exchange clients based on the email content. Applying email labels creates categories in the users' email accounts automatically. These labels serve as indications to the users about the type of email content and the level of sensitivity.
@@ -5780,80 +5936,32 @@ Email labels provide the following benefits and enable you to:
 - Add labels to the emails based on the DLP and Malware scans to indicate the sensitivity and safety of the email content.
 - Take corrective actions after the email label is created and secure the usage of the content.
 
-With the [SaaS Security API Control Policy](https://help.zscaler.com/zia/6.1/configuring-saas-security-api-control-policy), email tags can be applied to DLP or Malware policies where the email content is categorized as sensitive or unsafe attachments, respectively.
+With the [Data at Rest Scanning policy](https://help.zscaler.com/zia/understanding-data-rest-scanning-policy), email tags can be applied to DLP or Malware policies where the email content is categorized as sensitive or unsafe attachments, respectively.
 
 ## About the Email Labels Page
 
-On the Email Labels page (Policies> Common Configuration > Out-of-Band CASB > Email Labels), you can do the following:
+On the Email Labels page (Data Security > Email DLP > Email Labels), you can do the following:
 
 1. [Add an email label](https://help.zscaler.com/zia/adding-email-label).
 2. Search for an email label.
-3. [Edit an email label](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
-4. [Delete an email label](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View a list of all email labels created for your organization. For email labels, you can see:
+  - **Label Name**: The name of the email label.
+  - **Label Description**: The description of the email label.
+5. [Edit or delete an email label](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
 
 [Image: Email Labels page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-email-profiles","lastmod":"2026-08-26T10:21Z","nid":"1492721"} -->
-## About Email and Domain Profiles
-
-- Source: https://help.zscaler.com/zia/about-email-profiles
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > About Email and Domain Profiles
-- Last modified: 2026-08-26T10:21Z
-- Summary: Information on the Email and Domain Profiles pages that are part of your Zscaler Data Loss Prevention (DLP) policies.
-
-Email profiles let you create and manage domain and recipient email profiles that can be used as part of Zscaler's Data Loss Prevention (DLP) tools to detect and take action on sensitive data across multiple channels. To learn more, see [About Data Loss Prevention](https://help.zscaler.com/zia/about-data-loss-prevention), [About Data at Rest Scanning DLP](https://help.zscaler.com/zia/about-data-rest-scanning-dlp), and [About Outbound Email Policy](https://help.zscaler.com/zia/about-outbound-email-policy).
-
-Email profiles provide the following benefits and enable you to:
-
-- Manage personal email and organizational domains that you want to include or exclude from DLP policy rules across channels.
-- Manage individual users and groups that you want to include or exclude from outbound email policy rules.
-- Easily edit domain and recipient profiles to update all policy rules where the profiles are used.
-
-## About the Email Profiles Page
-
-- Domain Profiles
-- Recipient Profiles
-
-On the Domain Profiles page (Policies > Data Protection > Common Resources > Domain Profiles), you can do the following:
-
-1. [Add a domain profile](https://help.zscaler.com/zia/adding-domain-profile).
-2. View a list of all domain profiles created for your organization. For domain profiles, you can see:
-  - **Profile Name**: The name of the domain profile. You can sort this column.
-  - **Recipient Domains**: The included domains for each profile. You can sort this column.
-  - **Description**: The description or notes of the domain profile. You can sort this column.
-3. Search for a domain profile.
-4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-5. [Edit, duplicate, or delete a domain profile](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
-
-[Image: The Domain Profiles page shows a list of domains and their details]
-
-On the Recipient Profiles page (Policies > Data Protection > Common Resources > Recipient Profiles), you can do the following:
-
-1. [Add a recipient profile](https://help.zscaler.com/zia/adding-domain-profile).
-2. View a list of all recipient profiles created for your organization. For recipient profiles, you can see:
-  - **Profile Name**: The name of the recipient profiles. You can sort this column.
-  - **Recipient Emails**: The recipient emails included in each profile. You can sort this column.
-  - **Description**: The description or notes of the recipient profile. You can sort this column.
-3. Search for a recipient profile.
-4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-5. [Edit, duplicate, or delete a recipient profile](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal).
-
-[Image: The Recipient Profiles page shows a list of recipients and their details]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/about-email-security-report","lastmod":"2026-06-11T02:19Z","nid":"1479341"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-email-security-report","lastmod":"2026-09-15T08:37Z","nid":"1479341"} -->
 ## About the Email Security Report
 
 - Source: https://help.zscaler.com/zia/about-email-security-report
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > About the Email Security Report
-- Last modified: 2026-06-11T02:19Z
+- Last modified: 2026-09-15T08:37Z
 - Summary: Information about the Email Security Report and its features in the Zscaler Admin Console.
 
 The Email Data Loss Prevention (DLP) Report gives visibility and insight into emails with sensitive data and users with incidents within your organization. The report is divided into two tabs: Overview and Incidents.
@@ -5865,7 +5973,7 @@ The Email Security Report provides the following benefits and enables you to:
 
 ## About the Email Security Report Page
 
-On the Email Security Report page (click Analytics, enable the toggle Switch to Existing Reports, and then go to Internet & SaaS > Analytics > Email Security Reports > Overview), you can do the following:
+On the Email Security Report page (Analytics > Reports > Email Security Reports > Overview), you can do the following:
 
 1. Filter the report for the last 1 day, 7 days, or last month.
 2. **Analyzed Emails**: View the overall count of emails. The bottom of the section shows an increase or decrease in the percentage of emails for the selected time period.
@@ -5881,13 +5989,13 @@ On the Email Security Report page (click Analytics, enable the toggle Switch to 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-email-security-report-incidents","lastmod":"2026-06-11T02:42Z","nid":"1479351"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-email-security-report-incidents","lastmod":"2026-09-15T08:41Z","nid":"1479351"} -->
 ## About Email Security Report: Incidents
 
 - Source: https://help.zscaler.com/zia/about-email-security-report-incidents
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > About Email Security Report: Incidents
-- Last modified: 2026-06-11T02:42Z
+- Last modified: 2026-09-15T08:41Z
 - Summary: Information about the Email Security Report: Incidents page in the Zscaler Admin Console.
 
 The Email Security Report: Incidents page gives visibility and insight into your organization's Email Loss Prevention (DLP) traffic for all the incidents.
@@ -5899,7 +6007,7 @@ The Email Security Report: Incidents page provides the following benefits and en
 
 ## About the Email Security Report: Incidents Page
 
-On the Email Security Report: Incidents page (click Analytics, enable the toggle Switch to Existing Reports, and then go to Internet & SaaS > Analytics > Email Security Reports > Incidents), you can do the following:
+On the Email Security Report: Incidents page (Analytics > Reports > Email Security Reports > Incidents), you can do the following:
 
 1. Filter the report for the last 1 day, 7 days, or month.
 2. **Analyze More**: Further analyze the incidents in a detailed view.
@@ -5942,46 +6050,149 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-email-tenants","lastmod":"2026-09-02T05:01Z","nid":"1492706"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-email-tenants","lastmod":"2026-09-18T09:23Z","nid":"1492706"} -->
 ## About Email Tenants
 
 - Source: https://help.zscaler.com/zia/about-email-tenants
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > About Email Tenants
-- Last modified: 2026-09-02T05:01Z
+- Last modified: 2026-09-18T09:23Z
 - Summary: Information on how to set up email tenants as part of the Zscaler Outbound Email Data Loss Prevention (DLP) policy.
 
-Zscaler's email tenants feature allows you to create email tenants that you can easily add to Zscaler Outbound Email Policy rules to monitor and take action on sensitive data sent by members of your organization to external domains. To learn more, see [About Outbound Email Policy](https://help.zscaler.com/zia/about-outbound-email-policy).
+Email tenants allow you to use the Zscaler service as a smart host for inspecting email content sent to external domains as part of your [outbound email policy rules](https://help.zscaler.com/zia/configuring-outbound-email-policy-rules). The email tenants you create are used as part of the mail flow rules that you configure on your email server to act on content that violates your outbound email policy rules. To learn more, see [Configuring Microsoft Exchange for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp) and [Configuring Gmail for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-gmail-zscaler-outbound-email-dlp).
 
-Email tenants provide the following benefits and enable you to:
+For next-hop validation to enforce strict security checks during SMTP connections, the Zscaler service:
 
-- Manage email tenants that you want to include in, or exclude from, outbound email policy rules.
-- Edit tenants quickly from the profile, which carries over to every setting using that email tenant.
+- Strictly enforces SSL/TLS for secure SMTP connections.
+- Performs server certificate validation that requires the presented certificate to be valid and trusted.
+- Does not allow self-signed, expired, or otherwise invalid certificates.
 
-## About the Email Tenants Page
+To add an email tenant:
 
-On the Email Tenants page (Policies > Data Protection > Policy > Email Tenants), you can do the following:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Email DLP** > **Email Tenants**.
+2. Click **Add Email Tenant**. The **Add Email Tenant**page appears.
+3. On the **Add**page, under **Choose the Email Service Provider**, select **Secure Email Gateway**, **Gmail**, or **Exchange**.
+  - Configure Secure Email Gateway
+  - Configure Gmail
+  - Configure Exchange
+4. Click save and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-1. [Add an email tenant](https://help.zscaler.com/zia/adding-email-tenants).
-2. Search for an email tenant.
-3. View a list of all email tenants created for your organization. For email tenants, you can see:
-  - **Application**: The application used by the email tenant.
-  - **Tenant Name**: The name of the tenant.
-  - **Last Modified On**: The date and time the email tenant was last modified. You can sort this column.
-  - **Last Modified By**: The name of the person in your organization who last modified the email tenant.
-4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-5. [Edit or delete an email tenant](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+1. Under **Name Email Tenant**, enter a unique **Tenant Name**.
+2. Under **Email Tenant Security Options**, the setting for **Outbound Email Security**is automatically selected and is not configurable.
+
+Under **Email Tenant Security Options**, the **Workflow Automation** option is available for Exchange only.
+
+1. Click **Next**.
+2. Under **Configure Connectors and Rules**, click **Get Configuration Info**. The **Key for Transport Rules** information appears. See image.
+3. Copy the values for **Smart Host FQDN** and for **Key for Transport Rules** and save them for later configuration on the email server.
+4. Click **Next**.
+5. Under **Email Domain Configuration**specify the information for the email domain next hop, which is where the Zscaler service sends email content after inspection:
+  - **Domain**: Select a domain from the list. The domains in the list are listed in your [company profile](https://help.zscaler.com/zia/about-company-profile).
+  - **Next Hop Address**: Enter `smtp-relay.gmail.com` as the address of the relay host for the Gmail domain.
+  - **Port Number**: Enter the port number for the email domain (e.g., `587`).
+6. Click **Save**. See image. The tenant information is added to the email tenant.
+
+[Image: Email Tenant Domain Configuration]
+
+1. Under **Name Email Tenant**, enter a unique **Tenant Name**.
+2. (Optional) Under **Email Tenant Security Options**, select **Workflow Automation**. See image. This setting allows you to review and manage quarantined emails from Workflow Automation and is available only for Exchange Online. When you select this option, the **Authorize the SaaS Application** and **Assign Role**sections become available.
+3. Click **Next**.
+4. Under **Configure Connectors and Rules**, click **Get Configuration Info**. The **Key for Transport Rules** information appears.
+5. Copy the values for **Smart Host FQDN** and for **Key for Transport Rules** and save them for later configuration on the email server. See image.
+6. Click **Next**.
+7. Under **Email Domain Configuration**specify the information for the email domain next hop, which is where the Zscaler service sends email content after inspection:
+  - **Domain**: Select a domain from the list. The domains in the list are listed in your [company profile](https://help.zscaler.com/zia/about-company-profile).
+  - **Next Hop Address**: Enter the address of the relay host for the email domain of the tenant you're configuring.
+    - Locate the relay host address for your Microsoft domain.
+  - **Port Number**: Enter the port number for the email domain (e.g., `25`).
+
+See image.
+
+1. Click **Next**.
+2. Under **Authorize the SaaS Application**, click **Provide Admin Credentials**. This option is available only if you previously selected **Workflow Automation** in the **Email Tenant Security Options** section. The Microsoft Exchange Admin Portal opens.
+3. Log in to the [Microsoft Exchange Admin Portal](https://admin.cloud.microsoft/exchange#/homepage) with your administrator account. The **Permissions requested** window opens.
+4. Click **Accept**to authorize the permissions. After successfully authorizing the SaaS Application, the Tenant ID should now be populated in the Zscaler Admin Console. See image.
+5. Under **Assign Role**, click **Assign Role**. See image. The [Azure portal](https://portal.azure.com) opens. You must assign an Exchange admin role to be able to grant assignments and access.
+6. On the **All Roles** page, use the search bar to search for **Exchange Administrator**. See image.
+7. Select the checkbox next to Exchange Administrator.
+8. Click **Add Assignments**. See image.
+9. On the **Add assignments** page, click **No Member selected**. See image.
+10. In the Zscaler Admin Console, under **Authorize the SaaS Application**, copy the Zscaler Saas Connector ID. See image.
+11. In the Azure portal, on the **Select a member** page, paste the Zscaler SaaS Connector ID into the search box. See image.
+12. Select the checkbox next to your Zscaler SaaS Connector ID. See image.
+13. On the **Add assignments**page, click **Next**.
+14. Enter a justification into the text box then click **Assign**.
+15. In the Zscaler Admin Console, click **Save**.
+
+[Image: Select SaaS Connector ID]
+
+[Image: Search for your SaaS Connector ID]
+
+[Image: Click No member selected]
+
+[Image: Select Add assignments in MS Azure]
+
+[Image: Search for role in the MS Exchange Portal]
+
+[Image: Select Assign Role]
+
+[Image: View your SaaS Connector ID]
+
+[Image: View your Tenant ID]
+
+[Image: Workflow Automation check box]
+
+1. Sign in to the [Microsoft 365 Admin Center](https://admin.microsoft.com/Adminportal/Home#/homepage).
+2. In the left-side navigation, go to **Settings > Domains**. See image. The **Domains** page appears.
+3. In the list of domains, click the name of the email domain you're using to configure your outbound email policy. The **Overview** page for the domain appears. See image.
+4. On the **Overview** page, click **DNS Records**. The **DNS Records** page appears.
+5. On the **DNS Records** page, click the name of the mail exchange (MX) record for the domain. The **MX record** page appears.
+6. On the **MX record** page, in the **Expected record** row, copy the value from the **Points to address or Value** column. See image.
+7. In the Zscaler Admin Console, paste the copied value into the **Next Hop Address** field.
+
+[Image: Domains menu option in the Microsoft M365 Admin Center]
+
+[Image: Domain Overview page in the Microsoft M365 Admin Center]
+
+[Image: Copy the MX record value in the Microsoft M365 Admin Center]
+
+[Image: Configure Connectors and Rules for Email Tenants]
+
+[Image: Configure Connectors and Rules for Email Tenants]
+
+[Image: Email Tenant Domain Configuration]
+
+If your organization uses a secure email gateway (SEG) (e.g., Mimecast, Cisco IronPort), you can onboard your SEG tenant to use as part of your outbound email DLP policies. After you onboard SEG tenants on the **Email Tenants** page, you can then select those tenants when creating [outbound email policy rules](https://help.zscaler.com/zia/configuring-outbound-email-policy-rules).
+
+1. Under **Name Email Tenant**, enter a unique **Tenant Name**.
+2. Under **Email Tenant Security Options**, the setting for **Outbound Email Security**is automatically selected and is not configurable.
+3. Click **Next**.
+4. Under **Configure Connectors and Rules**, click **Get Configuration Info**. The **Smart Host FQDN** and **Key for Transport Rules** information appears. See image.
+5. Copy the values for **Smart Host FQDN** and for **Key for Transport Rules** and save them for later configuration on the SEG.
+6. Click **Next**.
+7. Under **Email Domain Configuration**,click **Add Domain** then specify information for the email domain:
+  - **Domain**: Select a domain from the list. The domains in the list are listed in your [company profile](https://help.zscaler.com/zia/about-company-profile). For explicitly configured domains, the Zscaler service uses the source IP address for the incoming connection to determine the mapping to the next hop. Domains that you do not explicitly configure are considered default domains. If you select **Default domain** from the list, the Zscaler service uses the source IP of the incoming connection to map messages to the corresponding next hop servers. For this routing to occur, your SEG must include the `X-Zscaler-TenantID: <tenant-key>` header in messages sent to the Zscaler smart host. To learn more, see [Configuring SEGs for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp).
+  - **Next Hop Address**: Specify information for the next hop, which is where the Zscaler service sends email content after inspection. You can enter an IPv4 address, an IPv6 address, or a valid domain name.
+  - **Port Number**: Enter the port number for the email domain (e.g., `587`).
+  - **Client Certificate Common Name**: Enter the common name associated with the client certificate (e.g., `example.com` or `www.example.com`) then click **Add Items**. This field does not support wildcard characters for subdomain matching (e.g., `*.example.com`). However, if the common name of the connecting client has a wildcard certificate, then the configured common name should match exactly, including wildcard characters.
+  - **Source IP Allow list**: Enter the IP addresses for allowed SMTP traffic (e.g., `10.20.30.0/24` allows SMTP traffic originating from 10.20.30.0 to 10.20.30.255) then click **Add Items**.
+
+See image.
+
+[Image: Configure Connectors and Rules section for email tenant onboarding]
+
+[Image: Email Domain Configuration section for email tenant onboarding]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-endpoint-context","lastmod":"2026-07-22T07:41Z","nid":"1541420"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-endpoint-context","lastmod":"2026-09-30T21:06Z","nid":"1541420"} -->
 ## About Endpoint Context
 
 - Source: https://help.zscaler.com/zia/about-endpoint-context
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Context > About Endpoint Context
-- Last modified: 2026-07-22T07:41Z
+- Last modified: 2026-09-30T21:06Z
 - Summary: Information on how data from Zscaler Endpoint Context protects your organization from data loss by monitoring endpoint application activity from end to end.
 
 Zscaler Endpoint Context uses extensive application data that it collects from Zscaler Client Connector to provide the Zero Trust Exchange (ZTE) with additional endpoint-related telemetry to add to existing identity, network, and cloud telemetry already available. The Zscaler service builds an inventory of commonly abused OS and all non-OS applications residing on each endpoint, both actively running and at rest, and enumerates a rich data set related to each application. This rich data enables you to have a complete end-to-end view of activity across your organization, starting with applications on the endpoints themselves.
@@ -5996,7 +6207,7 @@ Endpoint Context provides the following benefits and allows you to:
 
 ## About the Application Investigation Page
 
-On the Application Investigation page (Policies > Cybersecurity > Threat Prevention > Endpoint Context), you can view the following pages:
+On the Application Investigation page (Cyberthreat Protection > Policy > Endpoint Context), you can view the following pages:
 
 - Overview Page
 - Inventory Page
@@ -6034,8 +6245,8 @@ On the **Inventory** page, you can do the following:
   - **Distinct Versions**: The number of distinct versions of the application running on endpoints across your organization.
   - **Instances**: The number of instances of the application running on endpoints across your organization.
   - **Threat Type**: The threat type for the application (i.e., malicious, suspicious, benign, unknown).
-  - **Vulnerabilities**: The vulnerabilities by the CVE severity level of the application (i.e., critical, high, medium, low)
-7. Add or remove columns from the table.
+  - **Vulnerabilities**: The vulnerabilities by the CVE severity level of the application (i.e., critical, high, medium, low).
+7. [Add or remove columns from the table](https://help.zscaler.com/unified/using-tables).
 8. Specify the number of rows available in the table.
 
 [Image: Endpoint Context Inventory Page]
@@ -6097,13 +6308,13 @@ On the Endpoint Data Scan page (Analytics > Endpoint Data Scan > Endpoint Data S
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-endpoint-dlp","lastmod":"2026-07-09T12:26Z","nid":"1463226"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-endpoint-dlp","lastmod":"2026-09-17T10:40Z","nid":"1463226"} -->
 ## About Endpoint Data Loss Prevention
 
 - Source: https://help.zscaler.com/zia/about-endpoint-dlp
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > About Endpoint Data Loss Prevention
-- Last modified: 2026-07-09T12:26Z
+- Last modified: 2026-09-17T10:40Z
 - Summary: Information on how the Zscaler Endpoint Data Loss Prevention (DLP) policy protects your organization from data loss by monitoring or blocking data using Zscaler DLP engines.
 
 You can use the Zscaler Endpoint Data Loss Prevention (DLP) policy to protect your organization from data loss on endpoints. Endpoint DLP policy complements [Zscaler DLP policy](https://help.zscaler.com/zia/about-data-loss-prevention) by extending the monitoring of sensitive data to the activities that end users take on endpoints (i.e., printing, saving to removable storage devices, saving to network shares, or uploading to personal cloud storage accounts).
@@ -6120,51 +6331,40 @@ Endpoint DLP policy provides the following benefits and allows you to:
 
 ## About the Endpoint Data Loss Prevention Page
 
-On the Endpoint Data Loss Prevention page (Policies > Data Protection > Policy > Endpoint Controls - Data Loss Prevention), you can do the following:
+On the Endpoint Data Loss Prevention page (Data Security > Endpoint DLP > Endpoint DLP Web), you can do the following:
+
+1. Select one or more labels from the **Rule Label** drop-down menu to filter results in the table. You can click **Clear** to remove any selected rule labels.
+
+See image.
 
 1. Add and configure an [Endpoint DLP rule](https://help.zscaler.com/zia/configuring-endpoint-dlp-policy-rules).
-2. Select one of the following **View by** options to see the DLP policy rules accordingly:
-
-- **Rule Order**: Displays the rules based on the rule order. By default, the rules are listed in ascending order.
-
-See image.
-
-- **Rule Label**: Displays the rules based on the rule labels. The rules are grouped under the associated rule labels.
-
-You can expand or collapse all the rule labels using the **Expand All** or **Collapse All** buttons.
-
-See image.
-
-1. Search for a DLP policy rule.
-2. View a list of all configured DLP policy rules for your organization. For policy rules, you can see the following:
+2. Search for a DLP policy rule.
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View a list of all configured DLP policy rules for your organization. For policy rules, you can see the following:
   - **Rule Order**: The policy rule's order number. DLP policy rules are evaluated in ascending numerical order. You can sort this column.
-  - **Channel**: The policy rule's resource channel (i.e., **Printing**, **Removable Storage Devices**, **Network Share**, and **Personal Cloud Storage**). You can sort this column.
+  - **Rule Name**: The policy rule's name. You can sort this column.
+  - **Channel**: The policy rule's resource channel (i.e., **Printing**, **Removable Storage Devices**, **Network Share**, or **Personal Cloud Storage**). You can sort this column.
   - **Rule Status**: The policy rule's status (i.e., **Enabled** or **Disabled**). You can sort this column.
   - **Exceptions**: The number of exceptions associated with the rule. To see the policy rule's exceptions, expand the rule in the first column. You can sort this column.
-  - **Rule Name**: The policy rule's name. You can sort this column.
-  - **Criteria**: The policy rule's criteria (i.e., DLP engines, device groups, departments, etc.).
   - **Action**: The action taken when the rule is triggered (i.e., **Allow**, **Block**, or **Confirm**).
   - **Severity**: The severity assigned to the rule (i.e., **High**, **Medium**, **Low**, or **Information**).
-3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-4. Expand to show the list of exception rules associated with a parent rule.
 5. [Edit, duplicate, or delete a DLP policy rule](https://help.zscaler.com/zia/editing-deleting-duplicating-items). You can also add [an exception rule](https://help.zscaler.com/zia/configuring-endpoint-dlp-policy-rules).
+6. Expand to show the list of exception rules associated with a parent rule.
 
 [Image: Endpoint Data Loss Prevention (DLP) Page within the Zscaler Admin Console]
 
-[Image: Endpoint Data Loss Prevention Page with Rule Order view selected.]
-
-[Image: Endpoint Data Loss Prevention Page with Rule Label view selected.]
+[Image: Rule Label drop-down menu]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-endpoint-dlp-report","lastmod":"2026-06-22T00:48Z","nid":"1452641"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-endpoint-dlp-report","lastmod":"2026-09-22T19:32Z","nid":"1452641"} -->
 ## About Endpoint DLP Report
 
 - Source: https://help.zscaler.com/zia/about-endpoint-dlp-report
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > About Endpoint DLP Report
-- Last modified: 2026-06-22T00:48Z
+- Last modified: 2026-09-22T19:32Z
 - Summary: Information about the Endpoint DLP Report and its features in the Zscaler Admin Console.
 
 The Endpoint Data Loss Prevention (DLP) Report gives visibility and insight into activities that end users take with sensitive data on endpoints, including printing, as well as saving to removable storage, uploading to personal cloud accounts, and network shares. The report is divided into two tabs: Overview and Incidents.
@@ -6176,7 +6376,7 @@ The Endpoint DLP Report provides the following benefits and enables you to:
 
 ## About the Endpoint DLP Report Page
 
-On the Endpoint DLP Report: Overview page (click Analytics, enable the toggle Switch to Existing Reports, and then go to Internet & SaaS > Analytics > Endpoint DLP Report > Overview), you can do the following:
+On the Endpoint DLP Report: Overview page (Data Security > Endpoint DLP > Endpoint DLP Report > Overview), you can do the following:
 
 1. Filter the report for the last 7 days, 15 days, or last month.
 2. **Activities with Sensitive Data**: View the number of activities where sensitive data is involved in the transaction. The bottom of the section shows an increase or decrease in the percentage of activities involving sensitive data for the selected time period.
@@ -6186,18 +6386,18 @@ On the Endpoint DLP Report: Overview page (click Analytics, enable the toggle Sw
 6. **Incidents Distribution by DLP Engines**: View the number of incidents categorized based on DLP engines.
 7. [Go to the Incidents page](https://help.zscaler.com/zia/about-endpoint-dlp-report-incidents).
 
-[Image: Endpoint DLP Report Page]
+[Image: Endpoint DLP Report: Overview tab]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-endpoint-dlp-report-incidents","lastmod":"2026-06-22T00:55Z","nid":"1452646"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-endpoint-dlp-report-incidents","lastmod":"2026-09-22T08:41Z","nid":"1452646"} -->
 ## About Endpoint DLP Report: Incidents
 
 - Source: https://help.zscaler.com/zia/about-endpoint-dlp-report-incidents
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > About Endpoint DLP Report: Incidents
-- Last modified: 2026-06-22T00:55Z
+- Last modified: 2026-09-22T08:41Z
 - Summary: Information about the Endpoint DLP Report: Incident page in the Zscaler Admin Console.
 
 The Endpoint DLP Report: Incidents page gives visibility and insight into your organization's Endpoint Data Loss Prevention (DLP) traffic for all the incidents.
@@ -6209,20 +6409,20 @@ The Endpoint DLP Report: Incidents page provides the following benefits and enab
 
 ## About the Endpoint DLP Report: Incidents Page
 
-On the Endpoint DLP Report: Incidents page (click Analytics, enable the toggle Switch to Existing Reports, and then go to Internet & SaaS > Analytics > Endpoint DLP Report > Incidents), you can do the following:
+On the Endpoint DLP Report: Incidents page (Data Security > Endpoint DLP > Endpoint DLP Report > Incidents), you can do the following:
 
-1. Filter the report for the last 7 days, 15 days, or month.
-2. **Analyze More**: Further analyze the incidents in a detailed view.
+1. **Analyze More**: Further analyze the incidents in a detailed view.
   - Detailed View
+2. Filter the report for the last 7 days, 15 days, or month.
 3. **Incidents by Severity**: View incidents for each severity. Hover over a date to view the number of incidents for each severity for that date. You can choose to view the graph for specific severities from the bottom of the graph. By default, all severities are selected.
 4. **Incidents by Action**: View incidents for each action. Hover over a date to view the number of incidents for each action for that date. You can choose to view the graph for specific actions from the bottom of the graph. By default, all actions are selected.
 5. **Top Users**: View the top users generating the incidents. The number of users displayed in this section depends on the number of incidents generated by the users. You can see the total number of incidents generated by each user. Hover over the severity bars to view the number of incidents generated for each severity by the users. You can choose to view the graph for specific severity from the bottom of the graph. By default, all severities are selected.
 6. **Incidents by Channels**: View incidents by channels. You can see the total number of incidents for each channel. Hover over the action bars to view the number of incidents by each action. You can choose to view the graph for specific action from the bottom of the graph. By default, all actions are selected.
-7. Go to the [Overview](https://help.zscaler.com/zia/about-endpoint-dlp-report) page.
+7. [Go to the Overview page](https://help.zscaler.com/zia/about-endpoint-dlp-report).
 
 [Image: Endpoint DLP Report: Incidents tab]
 
-The detailed view is divided into 3 columns; **Channel**, Content Type (**DLP Dictionaries**,**DLP Engines**, or **ML Categories**), and **Users**. To drill down for specific data:
+The detailed view is divided into 3 columns: **Channel**, Content Type (**DLP Dictionaries**,**DLP Engines**, or **ML Categories**), and **Users**. To drill down for specific data:
 
 1. Select the time period for which you want to see the data. You can select for the last 7 days, 15 days, or last month.
 2. Filter the data for specific action taken, severity, or content type. You can choose to show or hide filters from the top right of the page.
@@ -6246,56 +6446,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-event-logs","lastmod":"2026-08-28T19:44Z","nid":"1403226"} -->
-## About Event Logs
-
-- Source: https://help.zscaler.com/zia/about-event-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > About Event Logs
-- Last modified: 2026-08-28T19:44Z
-- Summary: Information about the Events Logs page in the Zscaler Admin Console.
-
-The Event Logs page lists all the recorded SCIM client activity, such as creating, updating, deleting, etc. user or group accounts in the Zscaler Admin Console. This page also displays the SCIM client's logs (timestamps, error codes, status codes, etc.) and any configuration changes made by them.
-
-The SCIM client's activities are recorded only if the SCIM-based provisioning is enabled for users on the Zscaler service. Additionally, only one SCIM log is audited per day for wrong domain errors.
-
-Event logs provide the following benefits and enable you to:
-
-- View and download all recorded SCIM client activity.
-- Search for and filter logs by a variety of criteria.
-
-## About the Event Logs Page
-
-On the Event Logs page (Administration > Identity > Internet & SaaS > SCIM Event Logs), you can do the following:
-
-1. Filter by time range, category, sub-category, and result. The Time Range filter allows you to filter the event logs for a specified time range within the last 14 days.
-2. Search for an event log by message, error code, or status code.
-3. Download a CSV file. The times in the CSV file are in PDT.
-4. View a list of SCIM events. For each event, you can see:
-  - **Timestamp**: The local time of the SCIM client's last activity or action.
-  - **Category**: The category where the action is performed (i.e., Provisioning).
-  - **Sub-Category**: The sub-category where the action is performed (i.e., SCIM).
-  - **Message**: The action performed by the SCIM client.
-  - **Result**: The outcome of the action.
-    - If the action is a success, a green circle with a checkmark inside is displayed.
-    - If the action is a failure, a red circle with an X inside is displayed.
-  - **Error Code**: The error code that occurred during the action.
-  - **Status Code**: The status code corresponding to the result of the action.
-5. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
-6. See configuration changes. You can view the differences between the pre-configuration and post-configuration changes.
-
-[Image: Event Logs page lists SCIM client activity and other details]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/about-exact-data-match","lastmod":"2026-06-25T11:56Z","nid":"1400851"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-exact-data-match","lastmod":"2026-09-24T10:23Z","nid":"1400851"} -->
 ## About Exact Data Match
 
 - Source: https://help.zscaler.com/zia/about-exact-data-match
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Exact Data Match > About Exact Data Match
-- Last modified: 2026-06-25T11:56Z
+- Last modified: 2026-09-24T10:23Z
 - Summary: Information about Exact Data Match (EDM) templates and how they are applied within custom Data Loss Prevention (DLP) dictionaries and engines for the Zscaler service.
 
 [Watch a video on Exact Data Match](https://fast.wistia.net/embed/iframe/5jnzyl383a) (shows legacy UI).
@@ -6318,7 +6475,7 @@ To learn more, see [About the Index Tool](https://help.zscaler.com/zia/about-ind
 
 ## About the Exact Data Match Page
 
-On the Exact Data Match page (Policies > Data Protection > Common Resources > Index Templates), you can do the following:
+On the Exact Data Match page (Data Security > Common Resources > Index Templates), you can do the following:
 
 1. Search for an EDM index template.
 2. View a list of all EDM templates that are configured for your organization. For the templates, you can see the following:
@@ -6338,13 +6495,13 @@ On the Exact Data Match page (Policies > Data Protection > Common Resources > In
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-extranet","lastmod":"2026-07-24T14:35Z","nid":"1508656"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-extranet","lastmod":"2026-09-30T16:05Z","nid":"1508656"} -->
 ## About Extranet
 
 - Source: https://help.zscaler.com/zia/about-extranet
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Extranet > About Extranet
-- Last modified: 2026-07-24T14:35Z
+- Last modified: 2026-09-30T16:05Z
 - Summary: Information on the Extranet page in the Zscaler Admin Console.
 
 Zscaler Extranet Application Support allows Private Access (ZPA) users to access private applications hosted on a business partner's network, and it gives partners access to secured applications on your organization's network, eliminating the need to install any application connectors on the partner's network or connect a data center to the partner. With Zscaler Extranet Application Support, your organization's partners can establish [IPSec tunnels](https://help.zscaler.com/zia/configuring-ipsec-vpn-tunnel) directly to the Zero Trust Exchange (ZTE).
@@ -6364,7 +6521,7 @@ Extranet Application Support provides the following benefits and enables you to:
 
 ## About the Extranet Page
 
-On the Extranet page (Infrastructure > Private Access > B2B Exchange > Extranet), you can do the following:
+On the Extranet page (Private Access > B2B Exchange > Extranet), you can do the following:
 
 1. [Add an extranet.](https://help.zscaler.com/zia/configuring-extranet)
 2. Search for a configured extranet.
@@ -6381,13 +6538,13 @@ On the Extranet page (Infrastructure > Private Access > B2B Exchange > Extranet)
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-file-type-control-policy","lastmod":"2026-07-15T11:23Z","nid":"1398721"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-file-type-control-policy","lastmod":"2026-09-24T10:46Z","nid":"1398721"} -->
 ## About File Type Control Policy
 
 - Source: https://help.zscaler.com/zia/about-file-type-control-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > File Type Control > About File Type Control Policy
-- Last modified: 2026-07-15T11:23Z
+- Last modified: 2026-09-24T10:46Z
 - Summary: Information on the Zscaler File Type Control policy and its features in the Zscaler Admin Console.
 
 [Watch a video about File Type Control.](https://fast.wistia.net/embed/iframe/dy3uxxv8k2)
@@ -6411,7 +6568,7 @@ To learn how a File Type Control policy fits into the overall order of policy en
 
 ## About the File Type Control Page
 
-On the File Type Control page (Policies > Access Control > Internet & SaaS > File Type Control), you can do the following:
+On the File Type Control page (Internet Access > Policy > File Type Control), you can do the following:
 
 1. [View the recommended policy for File Type Control](https://help.zscaler.com/zia/recommended-file-type-control-policy).
 2. [Configure the File Type Control policy](https://help.zscaler.com/zia/configuring-file-type-control-policy).
@@ -6434,14 +6591,14 @@ On the File Type Control page (Policies > Access Control > Internet & SaaS > Fil
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-firewall-filtering","lastmod":"2026-08-11T05:41Z","nid":"1399861"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-firewall-filtering","lastmod":"2026-09-20T06:40Z","nid":"1399861"} -->
 ## About Firewall Filtering
 
 - Source: https://help.zscaler.com/zia/about-firewall-filtering
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Control > Firewall Filtering > About Firewall Filtering
-- Last modified: 2026-08-11T05:41Z
-- Summary: Information on Firewall Filtering policy that provides granular control over your organization’s outbound TCP, UDP and ICMP traffic.
+- Last modified: 2026-09-20T06:40Z
+- Summary: Information on Firewall Filtering policy that provides granular control over your organization's outbound TCP, UDP and ICMP traffic.
 
 [Watch a video about Firewall Control](https://fast.wistia.net/embed/iframe/aauzes6y9s) (shows legacy UI).
 
@@ -6470,23 +6627,18 @@ For organizations that have subscribed to an enhanced limit for Firewall Filteri
 
 The enhanced limit for Firewall Filtering rules requires an audit for each proposed customer tenant seeking to upgrade. To learn more about the enhanced limit and the qualified use cases for an upgrade, contact your Zscaler Account team.
 
-On the Firewall Filtering Policy page (Policies > Access Control > Firewall > Firewall Filtering Policy), you can do the following:
+On the Firewall Filtering Policy page (Internet Access > Policy > Firewall Control > Firewall Filtering Policy), you can do the following:
 
-1. [Configure a Firewall Filtering rule](https://help.zscaler.com/zia/configuring-firewall-filtering-policy).
-2. View the [Recommended Firewall Filtering Policy](https://help.zscaler.com/zia/recommended-firewall-control-policy).
-3. Select one of the following **View by** option to see the Firewall Filtering rules accordingly:
-  - **Rule Order**: Displays the rules based on the rule order. By default, the rules are listed in the ascending rule order. See image.
-  - **Rule Label**: Displays the rules by grouping them under the associated rule labels. You can expand or collapse all the rule labels using the **Expand All** or **Collapse All** buttons. See image.
-4. Search for a Firewall Filtering rule.
-5. View a list of all configured Firewall Filtering policy rules. For each rule, you can see the following:
-  - **Rule Order**: The rule order number. Firewall Filtering policy rules are evaluated in ascending numerical order. You can sort this column.
-  - **Rule Name**: The name of the policy rule. You can sort this column.
-  - **Criteria**: The policy rule's criteria (e.g., Users or Departments).
-  - **Action**: Displays the action for the policy rule (e.g. Allow).
-  - **Label and Description**: The label and description of the policy rule, if available.
-6. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-7. [Edit or](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal)[duplicate a Firewall Filtering policy rule](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal).
-8. View the NAT Control page. To learn more, see [About NAT Control](https://help.zscaler.com/zia/about-nat-control).
+1. Search for a Firewall Filtering rule.
+2. View the [recommended Firewall Filtering policy](https://help.zscaler.com/zia/recommended-firewall-control-policy).
+3. [Add a Firewall Filtering rule](https://help.zscaler.com/zia/configuring-firewall-filtering-policy).
+4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+5. Choose whether you want to show or hide the filters available on the Firewall Filtering Policy page.
+6. Filter the Firewall Filtering policy rules by Rule Label to view the rules grouped under the selected labels. By default, the rules are listed in the ascending rule order. Applying Rule Labels
+7. View a list of all configured Firewall Filtering policy rules. For each rule, you can see the following. Policy Rule Details
+8. [Edit, duplicate, or delete a Firewall Filtering policy rule](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+9. The Firewall Filtering policy rules are paginated with up to 500 rules displayed per page.
+10. [Go to the NAT Control Policy page](https://help.zscaler.com/zia/about-nat-control).
 
 [Image: Firewall Filtering Policy page]
 
@@ -6527,23 +6679,61 @@ Rule Status, Source Country, and Destination Country filters require you to sele
 
 Source IPv6 Groups and Destination IPv6 Groups filters appear only when IPv6 configuration is enabled for your organization.
 
-[Image: Firewall Filtering Policy page sorted by rule order]
+1. Click **Rule Label**.
+2. From the drop-down menu, select rule labels to view the rules associated with them. You can also search for rule labels.
+3. Click **Apply**. The associated rules populate in the Firewall Filtering policy table.
 
-[Image: Firewall Filtering Policy page sorted by rule label]
+Click **Clear** to remove all rule label selection.
+
+- **Rule Order**: The policy rule order number. Firewall Filtering policy rules are evaluated in ascending numerical order. You can sort this column.
+- **Admin Rank**: The admin rank for this rule. This is only visible if you have enabled it in the [Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings). You can sort this column.
+- **Rule Name**: The name of this rule. You can sort this column.
+- **Action**: The action configured for the policy rule to allow or block traffic.
+- **Users**: The users included in the rule.
+- **Network Services**: The network services included in the rule.
+- **Destination Addresses**: The destination addresses included in the rule.
+- **Destination IP Categories**: The destination URL categories included in the rule.
+- **Destination Countries**: The destination countries included in the rule.
+- **Destination IPv4 Groups**: The destination IPv4 groups included in the rule.
+- **Destination IPv6 Groups**: The destination IPv6 groups included in the rule.
+- **Network Application Groups**: The network application groups included in the rule.
+- **Network Applications**: The network applications included in the rule.
+- **Network Service Groups**: The network service groups included in the rule.
+- **Source IPv4 Groups**: The source IPv4 groups included in the rule.
+- **Source IPv6 Groups**: The source IPv6 groups included in the rule.
+- **Source IP Addresses**: The source IP addresses included in the rule.
+- **Application Service Groups**: The application service groups included in the rule.
+- **Devices**: The devices included in the rule.
+- **Device Groups**: The device groups included in the rule.
+- **Device Trust Level**: The device trust levels included in the rule.
+- **ZPA Application Segment**: The ZPA application segments included in the rule.
+- **Source Countries**: The traffic source countries included or excluded from the rule.
+- **Workload Groups**: The workload groups included in the rule.
+- **Departments**: The departments included in the rule.
+- **Groups**: The user groups included in the rule.
+- **Location Groups**: The location groups included in the rule.
+- **Locations**: The locations included in the rule.
+- **Time**: The time period during which the rule applies.
+- **Endpoint Applications**: The endpoint applications included or excluded from the rule.
+- **Endpoint Application Tags**: The endpoint application tags included or excluded from the rule.
+- **Endpoint Application Risk Level**: The endpoint application risk levels included in the rule.
+- **Status**: Indicates whether the rule is enabled or disabled.
+- **Label**: The label associated with the rule.
+- **Description**: The description of the policy rule, if available.
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-forwarding-policies","lastmod":"2026-06-18T11:27Z","nid":"1401491"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-forwarding-policies","lastmod":"2026-09-28T12:37Z","nid":"1401491"} -->
 ## About Forwarding Control
 
 - Source: https://help.zscaler.com/zia/about-forwarding-policies
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Forwarding Control > About Forwarding Control
-- Last modified: 2026-06-18T11:27Z
+- Last modified: 2026-09-28T12:37Z
 - Summary: Information on Forwarding Control and the Forwarding Control page in the Zscaler Admin Console.
 
-Forwarding Control is used to forward selective Zscaler traffic to specific destinations based on your needs. By configuring appropriate forwarding rules, you can forward specific web traffic to a [third-party proxy service](https://help.zscaler.com/zia/about-third-party-proxy-chaining), to a [dedicated IP address](https://help.zscaler.com/zia/understanding-zscaler-managed-dedicated-ip) provisioned for you, or to a [geolocalization IP (GeoIP) address](https://help.zscaler.com/zia/understanding-geolocalization-ip) mapped to your country. You can forward [Source IP Anchored](https://help.zscaler.com/zia/about-source-ip-anchoring) application traffic to a specific Private Access (ZPA) gateway or internal application traffic through Internet & SaaS (ZIA) threat and data protection engines.
+Forwarding Control is used to forward selective Zscaler traffic to specific destinations based on your needs. By configuring appropriate Forwarding rules, you can forward specific web traffic to a [third-party proxy service](https://help.zscaler.com/zia/about-third-party-proxy-chaining), to a [dedicated IP address](https://help.zscaler.com/zia/understanding-zscaler-managed-dedicated-ip) provisioned for you, or to a [geo IP address](https://help.zscaler.com/zia/understanding-geolocalization-ip) mapped to your country. You can forward [source IP anchored](https://help.zscaler.com/zia/about-source-ip-anchoring) application traffic to a specific Private Access (ZPA) gateway or internal application traffic through Internet & SaaS (ZIA) threat and data protection engines.
 
 - Forwarding Control policies are applicable to traffic originating from a known location or a user using PAC files or Zscaler Client Connector with Z-Tunnel 2.0 and Z-Tunnel 1.0.
 - Any Forwarding Control policy (including Source IP Anchoring) based on user conditions such as custom application service groups, users, groups, departments, or device groups requires a subscription to the Advanced Firewall.
@@ -6553,13 +6743,13 @@ Forwarding Control provides the following benefits and enables you to:
 - Forward traffic directly to the destination server using the Zscaler service IP address.
 - Define criteria for traffic that needs to be forwarded to a third-party proxy service of your choice.
 - Define criteria for traffic that needs to be forwarded through the dedicated IP gateway to specific destinations.
-- Define criteria for traffic that needs to be forwarded through the GeoIP address mapped to the user's country.
+- Define criteria for traffic that needs to be forwarded through the Geo IP address mapped to the user's country.
 - Redirect Source IP Anchored traffic to Private Access App Connector through Private Access gateways.
 - Forward selected traffic to Private Access for scanning of internal applications.
 
 The Forwarding Control policy provides you with the following predefined rules that help to forward traffic to Private Access:
 
-- **Fallback mode of ZPA Forwarding**: Forwards all Source IP Anchored traffic that matches the fallback Private Access IP pools to Private Access. This rule is disabled by default and cannot be deleted. It is only enabled during Internet & SaaS control plane maintenance.
+- **Fallback mode of ZPA Forwarding**: Forwards all source IP anchored traffic that matches the fallback Private Access IP pools to Private Access. This rule is disabled by default and cannot be deleted. It is only enabled during Internet & SaaS control plane maintenance.
 - **ZIA Inspected ZPA Apps**: Forwards all Private Access application segment traffic for Internet & SaaS inspection that has the Inspect Traffic with Internet & SaaS field enabled in the Zscaler Admin Console.
 - **ZPA Pool For Stray Traffic**: Drops all Private Access traffic that does not match any IP address range from the Private Access IP pool.
 
@@ -6575,42 +6765,65 @@ To access Extranet Application Support, contact your Zscaler Account team.
 
 ## About the Forwarding Control Page
 
-On the Forwarding Control page (Infrastructure > Internet & SaaS > Network Policies > Forwarding Control Policy), you can do the following:
+On the Forwarding Control page (Internet Access > Policy > Forwarding Control), you can do the following:
 
-1. [Add a forwarding rule](https://help.zscaler.com/zia/configuring-forwarding-policies).
-2. Select one of the following **View by** option to see the forwarding rules:
-  1. **Rule Order**: Displays the rules based on the rule order. By default, the rules are listed in the ascending rule order. See image.
-  2. **Rule Label**: Displays the rules based on the rule labels. The rules are grouped under the associated rule labels. You can expand or collapse all the rule labels using the **Expand All** or **Collapse All** buttons. See image.
-3. Search for a forwarding rule.
-4. View a list of all forwarding rules. For each forwarding rule, you can view the following information:
+1. [Add a Forwarding rule](https://help.zscaler.com/zia/configuring-forwarding-policies).
+2. Filter Forwarding rules by **Rule Label** to view only the rules grouped under the selected labels. By default, the rules are listed in the ascending rule order.
+  - Applying a Rule Label
+3. Search for a Forwarding rule.
+4. [Modify the columns to view the Forwarding rules accordingly](https://help.zscaler.com/unified/using-tables).
+5. View a list of all Forwarding rules. For each Forwarding rule, you can view the following information:
   - **Rule Order**: The order of the rule.
-  - **Rule Name**: The name of the rule.
-  - **Criteria**: The criteria defined for the rule.
   - **Admin Rank**: The admin rank of the rule.
-  - **Forwarding Method**: The forwarding method used in the rule. It can be Direct, Proxy Chaining, or ZPA.
+  - **Rule Name**: The name of the policy rule.
+  - **Forwarding Method**: The forwarding method used in the rule. It can be **Direct**, **Proxy Chaining**, **Dedicated IP**, **GeoIP**, or **ZPA**.
   - **Gateway**: The gateway that is used to forward the traffic that hits the rule.
   - **Status**: The status of the rule, which indicates if the rule is enabled or disabled.
-  - **Label and Description**: The label and description of the policy rule, if available.
-5. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-6. [Edit a forwarding rule](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal).
-7. [Duplicate a forwarding rule](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+  - **Locations**: The locations of the policy rule.
+  - **Location Groups**: The location groups of the policy rule.
+  - **Departments**: The departments of the policy rule.
+  - **Groups**: The groups of the policy rule.
+  - **Users**: The users of the policy rule.
+  - **Device Groups**: The device groups of the policy rule.
+  - **Source IP Addresses**: The source IP addresses of the policy rule.
+  - **Source IPv4 Groups**: The source IPv4 groups of the policy rule.
+  - **Source IPv6 Groups**: The source IPv6 groups of the policy rule.
+  - **Destination IP Address/Wildcard FQDN**: The destination IP addresses (IPv4 only) or FQDNs of the policy rule.
+  - **URL Category**: The URL category of the policy rule.
+  - **Destination Country**: The destination country of the policy rule.
+  - **Destination IPv4 Groups**: The destination IPv4 groups of the policy rule.
+  - **Destination IPv6 Groups**: The destination IPv6 groups of the policy rule.
+  - **Network Services**: The network services of the policy rule.
+  - **Network Service Groups**: The network service groups of the policy rule.
+  - **Application Service Groups**: The application service groups (predefined and custom) of the policy rule.
+  - **ZPA Application Segment**: The Private Access app segment of the policy rule. This column populates values only for the Private Access Forwarding rules.
+  - **Rule Label**: The label of the rule, if available.
+  - **Description**: The description of the rule.
+6. [E](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal)[dit, duplicate, or delete a F](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal)[orwarding rule](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal).
+7. The Forwarding rules are paginated with up to 500 rules displayed per page.
+
+1. Click **Rule Label**.
+2. From the drop-down menu, search for or select available rule labels for the Forwarding rules.
+3. Click **Apply**. The associated Forwarding rules populate in the Forwarding Control policy table.
+
+Click **Clear**to remove all rule label selection.
+
+See image.
 
 [Image: The Forwarding Control page showing buttons and list used to manage forwarding policies]
 
-[Image: The Forwarding Control page with Rule Order view selected]
-
-[Image: The Forwarding Control page with Rule Label view selected]
+[Image: The Forwarding Control page with Rule Label filter]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-gateways-proxies","lastmod":"2026-06-24T07:22Z","nid":"1401506"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-gateways-proxies","lastmod":"2026-09-15T05:15Z","nid":"1401506"} -->
 ## About Gateways for Proxies
 
 - Source: https://help.zscaler.com/zia/about-gateways-proxies
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Forwarding Control > Third-Party Proxy Chaining > About Gateways for Proxies
-- Last modified: 2026-06-24T07:22Z
+- Last modified: 2026-09-15T05:15Z
 - Summary: Information on gateways for proxies and the Proxy Gateways page in the Zscaler Admin Console.
 
 You can create gateway objects to configure the [Third-Party Proxy Chaining](https://help.zscaler.com/zia/about-third-party-proxy-chaining) feature, which enables you to forward traffic to a third-party proxy service. The default limit for third-party proxies is 8. To increase the limit to a maximum of 255 proxies for your organization, contact Zscaler Support.
@@ -6623,18 +6836,18 @@ The Proxy Gateways page provides the following benefits and enables you to:
 
 ## About the Proxy Gateways Page
 
-On the Proxy Gateways page (Infrastructure > Internet & SaaS > Network Policies > Forwarding Control > Proxies and Gateways > Proxy Gateways), you can do the following:
+On the Proxy Gateways page (Internet Access > Resources > Proxies and Gateways > Proxy Gateways), you can do the following:
 
-1. [Add gateways for third-party proxies](https://help.zscaler.com/zia/configuring-gateways-proxies).
-2. Search for a gateway.
-3. View a list of all gateways. For each gateway, you can view the following information:
+1. Search for a gateway.
+2. [Add gateways for third-party proxies](https://help.zscaler.com/zia/configuring-gateways-proxies).
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View a list of all gateways. For each gateway, you can view the following information:
   - **Gateway Name**: The name of the gateway. You can sort this column.
   - **Primary Proxy**: The primary proxy for the gateway.
   - **Secondary Proxy**: The secondary proxy for the gateway.
   - **Description**: Additional notes or information about the gateway.
   - **Fail Close**: Indicates whether the fail close is enabled to drop the traffic or disabled to allow the traffic when both primary and secondary proxies defined in this gateway are unreachable.
-4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-5. [Edit a gateway](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal).
+5. [Edit or delete a gateway](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal).
 6. [Go to the Proxies page](https://help.zscaler.com/zia/about-third-party-proxies).
 7. [Go to the DNS Gateways page](https://help.zscaler.com/zia/about-dns-gateways).
 
@@ -6643,13 +6856,13 @@ On the Proxy Gateways page (Infrastructure > Internet & SaaS > Network Policies 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-gen-ai-security-report","lastmod":"2026-06-11T05:39Z","nid":"1494701"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-gen-ai-security-report","lastmod":"2026-09-15T08:55Z","nid":"1494701"} -->
 ## About the Gen AI Security Report
 
 - Source: https://help.zscaler.com/zia/about-gen-ai-security-report
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > About the Gen AI Security Report
-- Last modified: 2026-06-11T05:39Z
+- Last modified: 2026-09-15T08:55Z
 - Summary: Information about the Gen AI Security Report and its features in the Zscaler Admin Console.
 
 The Gen AI Security Report gives visibility and insight into the generative AI (Gen AI) applications accessed within your organization.
@@ -6663,7 +6876,7 @@ The Gen AI Security Report provides the following benefits and enables you to:
 
 ## About the Gen AI Security Report Page
 
-On the Gen AI Security Report page (click Analytics, enable the toggle Switch to Existing Reports, and then go to Internet & SaaS > Analytics > Gen AI Security Report), you can do the following:
+On the Gen AI Security Report page (Analytics > Reports > Gen AI Security Report), you can do the following:
 
 1. Filter the report for the **Last 1 Day**, **Last 7 Days**, **Last 15 Days**, **Last Month**, or **Last Quarter**.
 2. Gain a comprehensive view of the Gen AI application activities in your organization, such as:
@@ -6728,16 +6941,16 @@ Additionally, you can click the **Download**icon to download the data to a CSV f
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-gre-tunnels","lastmod":"2026-05-26T13:51Z","nid":"1401921"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-gre-tunnels","lastmod":"2026-09-23T05:33Z","nid":"1401921"} -->
 ## About GRE Tunnels
 
 - Source: https://help.zscaler.com/zia/about-gre-tunnels
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > GRE > About GRE Tunnels
-- Last modified: 2026-05-26T13:51Z
+- Last modified: 2026-09-23T05:33Z
 - Summary: Information on self-provisioning of GRE tunnels in the Zscaler Admin Console.
 
-[Watch a video about GRE Tunnels and Static IP Addresses.](https://fast.wistia.net/embed/iframe/vmf3zi7h8b)
+[Watch a video about GRE Tunnels and Static IP Addresses](https://fast.wistia.net/embed/iframe/vmf3zi7h8b)(shows legacy UI).
 
 The GRE Tunnels page allows you to self-provision the GRE tunnels for your organization via the Zscaler Admin Console. You can use GRE tunnels to forward internet traffic from your corporate network to the Zscaler service.
 
@@ -6749,40 +6962,41 @@ The GRE Tunnels page provides the following benefits and enables you to:
 
 ## About the GRE Tunnels Page
 
-On the GRE Tunnels page (Infrastructure > Locations > Static IPs & GRE Tunnel), you can do the following:
+On the GRE Tunnels page (Infrastructure > Location Management > Static IPs & GRE Tunnel > GRE Tunnels),you can do the following:
 
-1. [Add a GRE tunnel](https://help.zscaler.com/zia/self-provisioning-gre-tunnels).
+1. Search for a configured GRE tunnel.
 2. Import a CSV file.
 3. Download the CSV file.
 4. Download a sample CSV file to create your custom CSV file.
-5. Search for a configured GRE tunnel.
-6. View a list of all GRE tunnels configured for your organization. For each GRE tunnel, you can see the following details:
-  - **Static IP**: The static IP address associated with the GRE tunnel.
-  - **Primary Data Center VIP**: The virtual IP address of the primary data center for the GRE tunnel.
-  - **Secondary Data Center VIP**: The virtual IP address of the secondary data center for the GRE tunnel.
-  - **Managed By**: Indicates if self or a specific Zscaler partner manages it.
-  - **Last Modified Time**: The time at which the GRE tunnel was last modified.
-  - **Last Modified By**: The username of the admin who modified the GRE tunnel last.
-  - **Description**: Additional notes or information about the GRE tunnel.
+5. [Add a GRE tunnel](https://help.zscaler.com/zia/self-provisioning-gre-tunnels).
+6. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
 7. [Edit a configured GRE tunnel](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
-8. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-9. Go to the [Static IP page](https://help.zscaler.com/zia/about-static-ip).
+8. Delete a configured GRE tunnel.
+9. View a list of all GRE tunnels configured for your organization. For each GRE tunnel, you can see the following details:
+  1. **Static IP**: The static IP address associated with the GRE tunnel.
+  2. **Primary Data Center VIP**: The virtual IP address of the primary data center for the GRE tunnel.
+  3. **Secondary Data Center VIP**: The virtual IP address of the secondary data center for the GRE tunnel.
+  4. **Managed By**: Indicates if self or a specific Zscaler partner manages it.
+  5. **Last Modified Time**: The time at which the GRE tunnel was last modified.
+  6. **Last Modified By**: The username of the admin who modified the GRE tunnel last.
+  7. **Description**: Additional notes or information about the GRE tunnel.
+10. Switch between the GRE Tunnels and [Static IP](https://help.zscaler.com/zia/about-static-ip) tabs.
 
-[Image: Screenshot of the GRE Tunnels page]
+[Image: GRE Tunnels Page for Self-Provisioning]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-groups","lastmod":"2026-01-14T13:39Z","nid":"1399886"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-groups","lastmod":"2026-10-01T15:05Z","nid":"1399886"} -->
 ## About Groups
 
 - Source: https://help.zscaler.com/zia/about-groups
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Groups > About Groups
-- Last modified: 2026-01-14T13:39Z
+- Last modified: 2026-10-01T15:05Z
 - Summary: Information on the Zscaler Groups page and its features in the ZIA Admin Portal.
 
-[Watch a video about User Management.](https://fast.wistia.net/embed/iframe/65aszz5npz)
+[Watch a video about User Management](https://fast.wistia.net/embed/iframe/65aszz5npz) (shows legacy UI).
 
 Groups are used in policies. You can control access to apps based on user groups. For example, you can define groups and policies based on the apps that users are allowed to access. You can create a Facebook-users group and a Twitter-users group, define a policy that allows access to Facebook and apply it to the Facebook-users group, and define another policy that allows access to Twitter and apply it to the Twitter-users group. Users can belong to one or both groups, depending on their business needs. A user can belong to up to 128 groups.
 
@@ -6793,12 +7007,12 @@ Groups provide the following benefits and enable you to:
 - Manage access policies for group members.
 - Categorize your users based on your organization's configuration requirements.
 
-On the Groups page, groups are listed as view-only with limited options (i.e., download group data and search for groups) if you're subscribed to the Authentication Service service. The groups for the ZIA service can be configured in the [Authentication Service Admin Portal](https://help.zscaler.com/zidentity/accessing-and-navigating-zidentity-admin-portal). To learn more, see [What Is Authentication Service?](https://help.zscaler.com/zidentity/what-zidentity)
+On the Groups page, groups are listed as view-only with limited options (i.e., download group data and search for groups) if you use Authentication Service for Admins and Users. To manage groups with Authentication Service, see [About User Groups](https://help.zscaler.com/authentication-service/about-user-groups). If you use Authentication Service for Admins, the Groups page appears with full functionality.
 See image.
 
 ## About the Groups Page
 
-On the Groups page (Administration > User Management > Groups), you can do the following:
+On the Groups page (Administration > Legacy Admin Management > Internet & SaaS Users > Groups), you can do the following:
 
 1. [Add a group](https://help.zscaler.com/zia/how-do-i-add-group).
 2. [Download a CSV file that lists your groups](https://help.zscaler.com/zia/downloading-group-information-csv-file).
@@ -6808,7 +7022,7 @@ On the Groups page (Administration > User Management > Groups), you can do the f
 6. View a list of configured groups. For each group, you can see the following information:
   - **Name**: The name of the group.
   - **Comments**: Comments regarding the group, if available.
-7. [Modify the table and its columns](https://help.zscaler.com/zia/how-do-i-use-tables-admin-portal).
+7. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
 8. [Edit a configured group](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal).
 9. View the default Service Admin group.
 10. Go to the [Users](https://help.zscaler.com/zia/about-users) page.
@@ -6821,13 +7035,13 @@ On the Groups page (Administration > User Management > Groups), you can do the f
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-hosted-pac-files","lastmod":"2026-09-02T06:25Z","nid":"1399456"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-hosted-pac-files","lastmod":"2026-09-29T03:11Z","nid":"1399456"} -->
 ## About Hosted PAC Files
 
 - Source: https://help.zscaler.com/zia/about-hosted-pac-files
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > PAC Files > About Hosted PAC Files
-- Last modified: 2026-09-02T06:25Z
+- Last modified: 2026-09-29T03:11Z
 - Summary: Information on hosted PAC files in the Zscaler service.
 
 The Zscaler service hosts 4 default PAC files: recommended.pac, proxy.pac, mobile_proxy.pac, and kerberos.pac. These files are all configured to automatically forward all browser traffic to the nearest Public Service Edge for Internet & SaaS (ZIA). The default PAC files are non-editable, but you can copy them to create and build your custom PAC files. Your organization can use more than one PAC file. For example, you can use one PAC file for mobile devices and another for all other devices. Zscaler recommends using the Kerberos PAC file if you are deploying [Kerberos authentication](https://help.zscaler.com/zia/about-kerberos-authentication).
@@ -6840,7 +7054,7 @@ Hosted PAC files provide the following benefits and enable you to:
 - Configure and host up to 10 versions of your PAC files in the Zscaler cloud to ensure the availability of the PAC file with assured uptime.
 - Leverage the [Zscaler-specific PAC variables](https://help.zscaler.com/zia/writing-pac-file#zscaler-variables) to design optimal custom PAC files.
 
-On the Hosted PAC Files page (Infrastructure > Internet & SaaS > Traffic Forwarding > Hosted PAC Files), you can do the following:
+On the Hosted PAC Files page (Infrastructure > Internet & SaaS > Hosted PAC Files), you can do the following:
 
 1. [Add a custom PAC file](https://help.zscaler.com/zia/using-custom-pac-file-forward-traffic-internet-saas). You can host up to 10 versions of your custom PAC files in the Zscaler Admin Console.
 2. Search for a PAC file.
@@ -6864,13 +7078,13 @@ On the Hosted PAC Files page (Infrastructure > Internet & SaaS > Traffic Forward
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-http-header-insertion-profile","lastmod":"2026-06-05T07:09Z","nid":"1517226"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-http-header-insertion-profile","lastmod":"2026-09-24T07:56Z","nid":"1517226"} -->
 ## About HTTP Header Insertion Profile
 
 - Source: https://help.zscaler.com/zia/about-http-header-insertion-profile
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > HTTP Header Control > About HTTP Header Insertion Profile
-- Last modified: 2026-06-05T07:09Z
+- Last modified: 2026-09-24T07:56Z
 - Summary: Information about how to use the HTTP header insertion profile in the Zscaler Admin Console.
 
 To enable the HTTP Header Control feature, contact Zscaler Support.
@@ -6901,13 +7115,13 @@ On the HTTP Header Insertion Profile page (Policies > Access Control > Internet 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-http-header-profile","lastmod":"2026-06-05T06:48Z","nid":"1517121"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-http-header-profile","lastmod":"2026-09-24T07:50Z","nid":"1517121"} -->
 ## About HTTP Header Profile
 
 - Source: https://help.zscaler.com/zia/about-http-header-profile
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > HTTP Header Control > About HTTP Header Profile
-- Last modified: 2026-06-05T06:48Z
+- Last modified: 2026-09-24T07:50Z
 - Summary: Information on how to use HTTP header profiles in the Zscaler Admin Console.
 
 To enable the HTTP Header Control feature, contact Zscaler Support.
@@ -6938,20 +7152,20 @@ On the HTTP Header Profile page (Policies > Access Control > Internet & SaaS > H
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-icap-receivers-dlp","lastmod":"2026-05-18T21:06Z","nid":"1400096"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-icap-receivers-dlp","lastmod":"2026-09-20T22:20Z","nid":"1400096"} -->
 ## About ICAP Receivers for DLP
 
 - Source: https://help.zscaler.com/zia/about-icap-receivers-dlp
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > About ICAP Receivers for DLP
-- Last modified: 2026-05-18T21:06Z
+- Last modified: 2026-09-20T22:20Z
 - Summary: Information on Internet Content Adaptation Protocol (ICAP) receivers and how they can be configured in the Zscaler service.
 
 You can forward information about transactions that violate the Data Loss Prevention (DLP) policy to the Internet Content Adaptation Protocol (ICAP) receivers you define in the Zscaler Admin Console.
 
 You can configure secure or unencrypted ICAP receivers on the DLP Incident Receiver page. Zscaler recommends sending transaction information via secure ICAP.
 
-If you want to use ICAP receivers for web traffic filtering, see [About ICAP Receivers](https://help.zscaler.com/zia/about-icap-receivers).
+If you want to use ICAP receivers for web traffic filtering, see [About ICAP Receivers for URL Filtering](https://help.zscaler.com/zia/about-icap-receivers-url-filtering).
 
 ICAP receivers provide the following benefits and allow you to:
 
@@ -6960,63 +7174,59 @@ ICAP receivers provide the following benefits and allow you to:
 
 ## About the ICAP Settings Page
 
-On the ICAP Settings page (Policies > Data Protection > Common Resources > DLP Incident Receiver), you can do the following:
-
-1. [Add an ICAP receiver](https://help.zscaler.com/zia/how-do-i-add-icap-server).
-2. Download the Mutual Transport Layer Security (MTLS) Certificate Authority (CA) Certificate that is used when the ICAP server requests client authentication.
-
-The use of this certificate is optional and is only required if the ICAP server is using mutual authentication. After you download the certificate, install the certificate in your ICAP server's tunnel configuration. To learn more, see [Configuring the ICAP Server with the Mutual Transport Layer Security (MTLS) CA Certificate](https://help.zscaler.com/zia/configuring-icap-server-mutual-transport-layer-security-mtls-certificate).
+On the ICAP Settings page (Data Security > Common Resources > DLP Incident Receiver > ICAP Settings), you can do the following:
 
 1. Search for an ICAP receiver.
-2. View a list of all ICAP receivers that were configured for your organization. For ICAP receivers, you can see the following:
+2. Download the Mutual Transport Layer Security (MTLS) Certificate Authority (CA) Certificate that is used when the ICAP server requests client authentication. The use of this certificate is optional and is only required if the ICAP server is using mutual authentication. After you download the certificate, install the certificate in your ICAP server's tunnel configuration. To learn more, see [Configuring the ICAP Server with the Mutual Transport Layer Security (MTLS) CA Certificate](https://help.zscaler.com/zia/configuring-icap-server-mutual-transport-layer-security-mtls-certificate).
+3. [Add an ICAP receiver](https://help.zscaler.com/zia/adding-icap-receiver-dlp).
+4. [Modify the column option to view the ICAP receivers accordingly.](https://help.zscaler.com/unified/using-tables#hide)
+5. View a list of all ICAP receivers that were configured for your organization. For ICAP receivers, you can see the following:
   - **Name**: The name of the ICAP receiver. You can sort this column.
   - **Status**: Displays whether the ICAP receiver is enabled or disabled. You can sort this column.
   - **URI**: The DLP server URI. You can sort this column.
-3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-4. [Edit an ICAP receiver configuration](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal).
-5. [View the Zscaler Incident Receiver page.](https://help.zscaler.com/zia/about-dlp-incident-receiver)
-6. [View the Cloud-to-Cloud Incident Forwarding page](https://help.zscaler.com/zia/about-cloud-cloud-incident-forwarding).
+6. [Edit or delete an ICAP receiver configuration](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+7. [View the Zscaler Incident Receiver page.](https://help.zscaler.com/zia/about-zscaler-incident-receiver)
+8. [View the Cloud-to-Cloud Incident Forwarding page](https://help.zscaler.com/zia/about-cloud-cloud-incident-forwarding).
 
-[Image: Screenshot of the ICAP Settings page and its features]
+[Image: The ICAP Settings page showing details of ICAP receivers]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-icap-receivers-url-filtering","lastmod":"2026-05-26T06:06Z","nid":"1401946"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-icap-receivers-url-filtering","lastmod":"2026-10-02T04:52Z","nid":"1401946"} -->
 ## About ICAP Receivers for URL Filtering
 
 - Source: https://help.zscaler.com/zia/about-icap-receivers-url-filtering
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > ICAP Receivers > About ICAP Receivers for URL Filtering
-- Last modified: 2026-05-26T06:06Z
+- Last modified: 2026-10-02T04:52Z
 - Summary: Information on Internet Content Adaptation Protocol (ICAP) receivers for the URL Filtering policies and how they can be configured in the Zscaler Admin Console.
 
-Zscaler's ICAP Receiver feature allows you to forward the inbound and outbound traffic of all the sites of the selected URL categories in the URL Filtering policy rule to an ICAP server. It consists of two parts: adding ICAP receivers and associating them to a URL Filtering policy. You can configure secure or unencrypted Internet Content Adaptation Protocol (ICAP) servers. However, Zscaler recommends sending transaction information via secure ICAP.
+Zscaler's ICAP Receiver feature allows you to forward the inbound and outbound traffic of all the sites of the selected URL categories in the URL Filtering policy rule to an ICAP server. It consists of adding ICAP receivers and associating them to a URL Filtering policy. You can configure secure or unencrypted Internet Content Adaptation Protocol (ICAP) servers. However, Zscaler recommends sending transaction information via secure ICAP.
 
-This article is about ICAP receivers for the URL Filtering policy only. If you want to use the ICAP receiver for DLP, see [About ICAP Receivers for DLP](https://help.zscaler.com/zia/about-icap-receivers-dlp).
+- This article is about ICAP receivers for the URL Filtering policy only. If you want to use the ICAP receiver for DLP, see [About ICAP Receivers for DLP](https://help.zscaler.com/zia/about-icap-receivers-dlp).
+- ICAP Receiver works either with Private Service Edge or Virtual Service Edge and it's not enabled by default. To enable ICAP receiver for Private Service Edge or Virtual Service Edge, see [Enabling ICAP Receiver: Private Service Edge and Virtual Service Edge for Internet & SaaS](https://help.zscaler.com/zia/enabling-icap-receiver-private-service-edge-virtual-service-edge-internet-saas).
 
 ICAP receivers provide the following benefits and allow you to:
 
 - Securely forward information about web requests to ICAP receivers.
 - Specify ICAP receivers in your URL Filtering policy rules.
 
-## About the ICAP Settings Page
+## About the ICAP Receiver Page
 
-On the ICAP Settings page (Policies > Data Protection > Common Resources > DLP Incident Receiver > ICAP Settings), you can do the following:
+On the ICAP Receiver page (Internet Access > Traffic Capture > ICAP Receiver), you can do the following:
 
 1. [Add an ICAP receiver](https://help.zscaler.com/zia/adding-icap-receiver).
-2. Download the Mutual Transport Layer Security (MTLS) Certificate Authority (CA) Certificate that will be used when the ICAP server requests client authentication. The use of this certificate is optional and is only required if the ICAP server is using mutual authentication. After you download the certificate, install the certificate in your ICAP server tunnel configuration. To learn more, see [Configuring the ICAP Server with the Mutual Transport Layer Security (MTLS) CA Certificate](https://help.zscaler.com/zia/configuring-icap-server-mtls-certificate).
-3. Search for an ICAP receiver.
-4. View a list of all ICAP receivers that were configured for your organization. For each ICAP receiver, you can see the following:
+2. Search for an ICAP receiver.
+3. Download the Mutual Transport Layer Security (MTLS) Certificate Authority (CA) Certificate that will be used when the ICAP server requests client authentication. The use of this certificate is optional and is only required if the ICAP server is using mutual authentication. After you download the certificate, install the certificate in your ICAP server tunnel configuration. To learn more, see [Configuring the ICAP Server with the Mutual Transport Layer Security (MTLS) CA Certificate](https://help.zscaler.com/zia/configuring-icap-server-mtls-certificate).
+4. [Modify the column option to view the ICAP receivers accordingly.](https://help.zscaler.com/unified/using-tables#hide)
+5. View a list of all ICAP receivers that were configured for your organization. For each ICAP receiver, you can see the following:
   - **Name**: The name of the ICAP receiver. You can sort this column.
   - **Status**: Displays whether the ICAP receiver is enabled or disabled.
   - **URI**: The ICAP receiver URI. You can sort this column.
-5. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-6. [Edit an ICAP server configuration](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
-7. [View the Zscaler Incident Receiver page](https://help.zscaler.com/zia/about-zscaler-incident-receiver).
-8. [View the Cloud-to-Cloud Incident Forwarding page](https://help.zscaler.com/zia/about-cloud-cloud-incident-forwarding).
+6. [Edit or delete an ICAP server configuration](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
 
-[Image: ICAP Settings page and its features]
+[Image: ICAP Receiver page showing details of ICAP receivers]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -7107,13 +7317,13 @@ On the Identity Proxy Settings page (Administration > Identity > Internet & SaaS
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-index-tool","lastmod":"2026-09-06T07:06Z","nid":"1400641"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-index-tool","lastmod":"2026-10-04T07:06Z","nid":"1400641"} -->
 ## About the Index Tool
 
 - Source: https://help.zscaler.com/zia/about-index-tool
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > About the Index Tool
-- Last modified: 2026-09-06T07:06Z
+- Last modified: 2026-10-04T07:06Z
 - Summary: Information on Index Tool Configurations and the Index Tool virtual machine (VM), which are used to create index templates that can be applied to custom Data Loss Prevention (DLP) dictionaries and engines for the Zscaler service.
 
 The Index Tool allows you to configure index templates that can be applied when creating custom Data Loss Prevention (DLP) dictionaries and engines for the Zscaler service.
@@ -7132,7 +7342,7 @@ To learn more, see [About Exact Data Match](https://help.zscaler.com/zia/about-e
 
 ## About the Index Tool Page
 
-On the Index Tool page (Policies > Data Protection > Common Resources > Data Classification - Index Tool), you can do the following:
+On the Index Tool page (Data Security > Common Resources > Index Tool), you can do the following:
 
 1. [Add an Index Tool configuration.](https://help.zscaler.com/zia/adding-index-tool-configuration)
 2. [Download the VM (.ova) for the Index Tool.](https://help.zscaler.com/zia/configuring-index-tool)
@@ -7151,13 +7361,13 @@ On the Index Tool page (Policies > Data Protection > Common Resources > Data Cla
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-indexed-document-match","lastmod":"2026-05-13T21:06Z","nid":"1402021"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-indexed-document-match","lastmod":"2026-09-24T10:29Z","nid":"1402021"} -->
 ## About Indexed Document Match
 
 - Source: https://help.zscaler.com/zia/about-indexed-document-match
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Indexed Document Match > About Indexed Document Match
-- Last modified: 2026-05-13T21:06Z
+- Last modified: 2026-09-24T10:29Z
 - Summary: Information on Indexed Document Match (IDM) templates and how to apply them to custom Data Loss Prevention (DLP) dictionaries and engines for the Zscaler service.
 
 [Watch a video on Indexed Document Matching](https://fast.wistia.net/embed/iframe/5jnzyl383a)(shows legacy UI).
@@ -7174,7 +7384,7 @@ For example, your organization uses employee information forms for new employees
 
 ## About the Indexed Document Match Page
 
-On the Indexed Document Match page (Policies > Data Protection > Common Resources > Index Templates > Indexed Document Match), you can do the following:
+On the Indexed Document Match page (Data Security > Common Resources > Index Templates > Indexed Document Match), you can do the following:
 
 1. Search for an index template.
 2. View a list of IDM templates that are configured for your organization. For the templates, you can see the following:
@@ -7192,13 +7402,13 @@ On the Indexed Document Match page (Policies > Data Protection > Common Resource
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-insights","lastmod":"2026-05-07T00:19Z","nid":"1401021"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-insights","lastmod":"2026-09-30T07:49Z","nid":"1401021"} -->
 ## About Insights
 
 - Source: https://help.zscaler.com/zia/about-insights
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > About Insights
-- Last modified: 2026-05-07T00:19Z
+- Last modified: 2026-09-30T07:49Z
 - Summary: Information on Zscaler's Insights pages, the different types of traffic you can view, and the different sections on the pages.
 
 The Insights page is where you can view and define traffic information that you want to view when analyzing traffic through charts. To learn more about how to analyze your traffic on the Insights pages, see [Analyzing Traffic Using Insights](https://help.zscaler.com/zia/analyzing-traffic-using-insights).
@@ -7225,9 +7435,9 @@ Zscaler Support can view Tunnel Insights even if [remote assistance](https://hel
 
 ## About the Insights Pages
 
-To view Insights, go to **Logs > Insights**, and under **Internet & SaaS**,choose the Insights page you want to view. The Web Insights page is used as the example for this article.
+To view Insights, go to **Data Explorer > Internet & SaaS** from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal) and choose the Insights page you want to view. The Web Insights page is used as an example for this article.
 
-On the Web Insights page (Logs > Insights > Web Insights), you can do the following:
+On the Web Insights page (Data Explorer > Internet & SaaS > Web Insights), you can do the following:
 
 1. Clear all filters.
 2. Click to show or hide the left pane.
@@ -7357,13 +7567,13 @@ For URL-based column values in the Logs display and CSV files, there is a charac
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-instance-discovery-report","lastmod":"2026-06-11T07:51Z","nid":"1506326"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-instance-discovery-report","lastmod":"2026-09-22T07:40Z","nid":"1506326"} -->
 ## About the Instance Discovery Report
 
 - Source: https://help.zscaler.com/zia/about-instance-discovery-report
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > About the Instance Discovery Report
-- Last modified: 2026-06-11T07:51Z
+- Last modified: 2026-09-22T07:40Z
 - Summary: Information about the Instance Discovery report, which enables organizations to monitor and review application instances accessed by users at the organization, project, and resource hierarchical levels.
 
 The Instance Discovery Report provides visibility into the instances accessed by the users at the various levels of hierarchy for the SaaS applications.
@@ -7382,7 +7592,7 @@ To enable the Instance Discovery Report for your organization, contact your Zsca
 
 ## About the Instance Discovery Report Page
 
-On the Instance Discovery Report page (click Analytics, enable the toggle Switch to Existing Reports, and then go to Internet & SaaS > Analytics > Instance Discovery Report), you can view insights into the various levels of instance discovery for SaaS applications. The widgets displayed in the report are based on the level of instance discovery for a specific SaaS application. By default, the Google Cloud Platform data is displayed in the report. The SaaS applications are categorized based on the level of discovery that is allowed, as follows:
+On the Instance Discovery Report page (Data Security > Inline CASB > Instance Discovery View), you can view insights into the various levels of instance discovery for SaaS applications. The widgets displayed in the report are based on the level of instance discovery for a specific SaaS application. By default, the Google Cloud Platform data is displayed in the report. The SaaS applications are categorized based on the level of discovery that is allowed, as follows:
 
 - Level One of Discovery
 - Level Two of Discovery
@@ -7395,15 +7605,15 @@ The level three instance types are:
 
 On the Instance Discovery Report, for the applications supporting level three of discovery, you can do the following:
 
-1. Filter the report for the last 1 day, last 7 days, last 15 days, last month, or last quarter.
-2. Select the SaaS application you want to view the Instance Discovery Report for from the drop-down menu.
-3. **Overview**: This section gives a comprehensive view of the instances discovered for the application you selected. You can view the following details:
+1. **Analyze More**: Further analyze the instances in a detailed view in the [Resource Discovery Report](https://help.zscaler.com/zia/viewing-resource-discovery-report).
+2. Filter the report for the last 1 day, last 7 days, last 15 days, last month, or last quarter.
+3. Select the SaaS application you want to view the Instance Discovery Report for from the drop-down menu.
+4. **Overview**: This section gives a comprehensive view of the instances discovered for the application you selected. You can view the following details:
   - **Total Domains**: The number of unique domains discovered.
   - **Total Tenants**: The number of unique tenants discovered.
   - **Total Resources**: The number of unique resources discovered.
   - **Total Bytes**:The total bytes of transactions to the discovered instances.
   - **Total Users**: The number of unique users accessing the discovered instances.
-4. **Analyze More**: Further analyze the instances in a detailed view in the [Resource Discovery Report](https://help.zscaler.com/zia/viewing-resource-discovery-report).
 5. **Instance Analytics**: View the trend for the number of instances discovered over the period of time selected for **Domains**, **Tenants**, or **Resources** in the form of a line chart.
 6. **Top Domains**: View the analytics around the individual instances discovered in the form of a bar chart. You can filter the data by the **Download Bytes**, **Number of Transactions**, **Total Bytes**, or **Upload Bytes**.
 7. **Top Tenants**: View the analytics around the individual instances discovered in the form of a bar chart. You can filter the data by the **Download Bytes**, **Number of Transactions**, **Total Bytes**, or **Upload Bytes**.
@@ -7438,15 +7648,15 @@ The level one instance types are:
 
 On the Instance Discovery Report, for the applications supporting one level of discovery, you can do the following:
 
-1. Filter the report for the last 1 day, last 7 days, last 15 days, last month, or last quarter.
-2. Select the SaaS application you want to view the Instance Discovery Report for from the drop-down menu.
-3. **Overview:**This section gives a comprehensive view of the instances discovered for the application you selected. You can view the following details:
+1. **Analyze More**: Further analyze the instances in a detailed view in the [Resource Discovery Report](https://help.zscaler.com/zia/viewing-resource-discovery-report).
+2. Filter the report for the last 1 day, last 7 days, last 15 days, last month, or last quarter.
+3. Select the SaaS application you want to view the Instance Discovery Report for from the drop-down menu.
+4. **Overview:**This section gives a comprehensive view of the instances discovered for the application you selected. You can view the following details:
   - **Total Domains**: The number of unique domains discovered.
   - **Download Bytes**: The number of bytes downloaded from discovered instances.
   - **Upload Bytes**: The number of bytes uploaded from discovered instances.
   - **Total Bytes:**The total bytes of transactions to the discovered instances.
   - **Total Users**: The number of unique users accessing the discovered instances.
-4. **Analyze More**: Further analyze the instances in a detailed view in the [Resource Discovery Report](https://help.zscaler.com/zia/viewing-resource-discovery-report).
 5. **Instance Analytics**: View the trend for the number of instances discovered over the period of time selected in the form of a line chart.
 6. **Top Domains**: View the analytics around the individual instances discovered in the form of a bar chart. You can filter the data by the **Download Bytes**, **Number of Transactions**, **Total Bytes**, or **Upload Bytes**.
 7. **Top Users**: View the transaction information for the top 10 users in the organization in the form of a bar chart.
@@ -7455,15 +7665,15 @@ On the Instance Discovery Report, for the applications supporting one level of d
 
 On the Instance Discovery Report, for the applications supporting one level of discovery, you can do the following:
 
-1. Filter the report for the last 1 day, last 7 days, last 15 days, last month, or last quarter.
-2. Select the SaaS application you want to view the Instance Discovery Report for from the drop-down menu.
-3. **Overview:**This section gives a comprehensive view of the instances discovered for the application you selected. You can view the following details:
+1. **Analyze More**: Further analyze the instances in a detailed view in the [Resource Discovery Report](https://help.zscaler.com/zia/viewing-resource-discovery-report).
+2. Filter the report for the last 1 day, last 7 days, last 15 days, last month, or last quarter.
+3. Select the SaaS application you want to view the Instance Discovery Report for from the drop-down menu.
+4. **Overview:**This section gives a comprehensive view of the instances discovered for the application you selected. You can view the following details:
   - **Total Domains**: The total number of unique domains discovered.
   - **Download Bytes**: The number of bytes downloaded from discovered instances.
   - **Upload Bytes**: The number of bytes uploaded from discovered instances.
   - **Total Bytes**: The total bytes of transactions to the discovered instances.
   - **Total Users**: The number of unique users accessing the discovered instances.
-4. **Analyze More**: Further analyze the instances in a detailed view in the [Resource Discovery Report](https://help.zscaler.com/zia/viewing-resource-discovery-report).
 5. **Instance Analytics**: View the trend for the number of instances discovered over the period of time selected.
 6. **Top Tenants**: View the analytics around the individual instances discovered in the form of a bar chart. You can filter the data by the **Download Bytes**, **Number of Transactions**, **Total Bytes**, or **Upload Bytes**.
 7. **Top Users**: View the transaction information for the top 10 users in the organization in the form of a bar chart.
@@ -7477,15 +7687,15 @@ The level two instance types are:
 
 On the Instance Discovery Report, for the applications supporting level two of discovery, you can do the following:
 
-1. Filter the report for the last 1 day, last 7 days, last 15 days, last month, or last quarter.
-2. Select the SaaS application you want to view the Instance Discovery Report for from the drop-down menu.
-3. **Overview**: This section gives a comprehensive view of the instances discovered for the application you selected. You can view the following details:
+1. **Analyze More**: Further analyze the instances in a detailed view in the [Resource Discovery Report](https://help.zscaler.com/zia/viewing-resource-discovery-report).
+2. Filter the report for the last 1 day, last 7 days, last 15 days, last month, or last quarter.
+3. Select the SaaS application you want to view the Instance Discovery Report for from the drop-down menu.
+4. **Overview**: This section gives a comprehensive view of the instances discovered for the application you selected. You can view the following details:
   - **Total Domains**: The total number of unique domains discovered.
   - **Workspaces**: The number of unique workspaces discovered.
   - **Upload Bytes**: The number of bytes uploaded from discovered instances.
   - **Total Bytes:**The total bytes of transactions to the discovered instances.
   - **Total Users**: The number of unique users accessing the discovered instances.
-4. **Analyze More**: Further analyze the instances in a detailed view in the [Resource Discovery Report](https://help.zscaler.com/zia/viewing-resource-discovery-report).
 5. **Instance Analytics**: View the trend for the number of instances discovered over the period of time selected in the form of a line chart. You can filter the data by **Domains** or **Workspaces**.
 6. **Top Domains**: View the analytics around the individual instances discovered in the form of a bar chart. You can filter the data by the **Download Bytes**, **Number of Transactions**, **Total Bytes**, or **Upload Bytes**.
 7. **Top Workspaces**: View the transaction information for the top 10 workspaces in the form of a bar chart. You can filter the data by the **Download Bytes**, **Number of Transactions**, **Total Bytes**, or **Upload Bytes**.
@@ -7495,18 +7705,20 @@ On the Instance Discovery Report, for the applications supporting level two of d
 
 On the Instance Discovery Report, for the applications supporting level two of discovery, you can do the following:
 
-1. **Overview**: This section gives a comprehensive view of the instances discovered for the application you selected. You can view the following details:
+1. **Analyze More**: Further analyze the instances in a detailed view in the [Resource Discovery Report](https://help.zscaler.com/zia/viewing-resource-discovery-report).
+2. Filter the report for the last 1 day, last 7 days, last 15 days, last month, or last quarter.
+3. Select the SaaS application you want to view the Instance Discovery Report for from the drop-down menu.
+4. **Overview**: This section gives a comprehensive view of the instances discovered for the application you selected. You can view the following details:
   - **Total Domains**: The total number of unique domains discovered.
   - **Total Sites**: The total number of unique sites discovered.
   - **Upload Bytes**: The number of bytes uploaded from discovered instances.
   - **Total Bytes**: The total bytes of transactions to the discovered instances.
   - **Total Users**: The number of unique users accessing the discovered instances.
-2. Select the SaaS application you want to view the Instance Discovery Report for from the drop-down menu.
-3. **Analyze More**: Further analyze the instances in a detailed view in the [Resource Discovery Report](https://help.zscaler.com/zia/viewing-resource-discovery-report).
-4. **Instance Analytics**: View the trend for the number of instances discovered over the period of time selected in the form of a line chart. You can filter the data by **Domains**or **Sites**.
-5. **Top Domains**: View the analytics around the individual instances discovered. You can filter the data by the **Download Bytes**, **Number of Transactions**, **Total Bytes**, or **Upload Bytes**.
-6. **Top Sites**: View the transaction information for the top 10 sites in the form of a bar chart. You can filter the data by the **Download Bytes**, **Number of Transactions**, **Total Bytes**, or **Upload Bytes**.
-7. **Top Users**: View the transaction information for the top users in the organization in the form of a bar. You can filter the data by **Domains**or **Sites**.
+5. Select the SaaS application you want to view the Instance Discovery Report for from the drop-down menu.
+6. **Instance Analytics**: View the trend for the number of instances discovered over the period of time selected in the form of a line chart. You can filter the data by **Domains**or **Sites**.
+7. **Top Domains**: View the analytics around the individual instances discovered. You can filter the data by the **Download Bytes**, **Number of Transactions**, **Total Bytes**, or **Upload Bytes**.
+8. **Top Sites**: View the transaction information for the top 10 sites in the form of a bar chart. You can filter the data by the **Download Bytes**, **Number of Transactions**, **Total Bytes**, or **Upload Bytes**.
+9. **Top Users**: View the transaction information for the top users in the organization in the form of a bar. You can filter the data by **Domains**or **Sites**.
 
 [Image: Instance Discovery Report shows the Instance Analytics, Top Domains, Top Sites, and Top Users.]
 
@@ -7528,13 +7740,13 @@ On the Instance Discovery Report, for the applications supporting level two of d
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-interactive-reports","lastmod":"2026-06-12T07:53Z","nid":"1399526"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-interactive-reports","lastmod":"2026-09-16T07:36Z","nid":"1399526"} -->
 ## About Interactive Reports
 
 - Source: https://help.zscaler.com/zia/about-interactive-reports
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > About Interactive Reports
-- Last modified: 2026-06-12T07:53Z
+- Last modified: 2026-09-16T07:36Z
 - Summary: Information on interactive reports and the Interactive Reports page in the Zscaler Admin Console.
 
 [Watch a video about Interactive Reports](https://fast.wistia.net/embed/iframe/dj64tv044u) (shows legacy UI).
@@ -7547,7 +7759,7 @@ An administrator's [role](https://help.zscaler.com/zia/how-do-i-add-admin-roles)
 
 ## About the Interactive Reports Page
 
-On the Interactive Reports page (Click Analytics, enable the toggle Switch to Existing Reports, and then go to Internet & SaaS > Analytics > Interactive Reports), you can do the following:
+On the Interactive Reports page (Analytics > Reports > Interactive Reports), you can do the following:
 
 1. Search for a specific report or for any [scheduled reports](https://help.zscaler.com/zia/scheduling-reports).
 2. Create a custom report from scratch, copy from an existing report, or import a report. To learn more, see [Creating or Copying a Report](https://help.zscaler.com/zia/how-do-i-create-new-report) and [Exporting and Importing Reports](https://help.zscaler.com/zia/how-do-i-export-and-import-reports).
@@ -7624,13 +7836,13 @@ On the Interactive Reports page (click Analytics, enable the toggle Switch to Ex
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-intermediate-ca-certificates","lastmod":"2026-05-14T21:06Z","nid":"1402626"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-intermediate-ca-certificates","lastmod":"2026-09-25T04:49Z","nid":"1402626"} -->
 ## About Intermediate CA Certificates
 
 - Source: https://help.zscaler.com/zia/about-intermediate-ca-certificates
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SSL/TLS Inspection > About Intermediate CA Certificates
-- Last modified: 2026-05-14T21:06Z
+- Last modified: 2026-09-25T04:49Z
 - Summary: Information on the Intermediate CA Certificates page on the Zscaler Admin Console.
 
 You can use the Intermediate CA Certificates page to manage your custom or default intermediate CA certificate for SSL/TLS Inspection.
@@ -7644,23 +7856,22 @@ The Intermediate CA Certificates provide the following benefits and enable you t
 
 ## **About the Intermediate CA Certificates Page**
 
-On the Intermediate CA Certificates page (Policies > Common Configuration > SSL/TLS Inspection > SSL/TLS Inspection Intermediate Certificate), you can do the following:
+On the Intermediate CA Certificates page (Internet Access > Resources > SSL Intermediate Certificate), you can do the following:
 
 1. [Add an intermediate CA certificate](https://help.zscaler.com/zia/choosing-ca-certificate-ssl-inspection).
-2. View a list of all intermediate CA certificates. For each intermediate CA certificate (Software Protection or Cloud HSM Protection), you can view:
+2. Search for the intermediate CA certificate by name, protection type, region, key type, or status.
+3. View a list of all intermediate CA certificates. For each intermediate CA certificate (Software Protection or Cloud HSM Protection), you can view:
 
 - **Name**: The name of the certificate.
 - **Protection Type**: The protection type of the certificate.
 - **Region**: The region of the certificate.
-- **Status**: The status of the certificate (enabled or disabled).
 - **Validity Start Date**: The date from which the certificate is valid.
 - **Expiration Date**: The expiration date of the certificate.
 - **Description**: Additional notes or information about the certificate.
 - **Key Type**: The key type selected while configuring the intermediate CA certificate.
-- **Fallback Certificate**: The fallback certificate selected while configuring the intermediate CA certificate.
+- **Status**: The status of the certificate (enabled or disabled).
 
-1. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-2. [Edit or delete a custom intermediate CA certificate.](https://help.zscaler.com/zia/editing-deleting-duplicating-items)
+1. [Edit or delete a custom intermediate CA certificate.](https://help.zscaler.com/zia/editing-deleting-duplicating-items)
 
 You cannot delete a draft or the default intermediate CA certificate.
 
@@ -7671,13 +7882,75 @@ You cannot delete a draft or the default intermediate CA certificate.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-internet-saas-users","lastmod":"2026-09-03T08:13Z","nid":"1399891"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-internet-saas-role-management","lastmod":"2026-09-30T12:21Z","nid":"1399851"} -->
+## About Internet & SaaS Role Management
+
+- Source: https://help.zscaler.com/zia/about-internet-saas-role-management
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role Management > About Internet & SaaS Role Management
+- Last modified: 2026-09-30T12:21Z
+- Summary: Information on managing Internet & SaaS admin roles in the Zscaler Admin Console, including admin rank, permissions, and functional scope.
+
+[Watch a video About Admin Roles](https://fast.wistia.net/embed/iframe/0wtybm3jod) (shows legacy UI).
+
+The admin roles that are assigned to admins dictate the level of access they have to the Zscaler Admin Console. Zscaler provides a default super admin role which has full access to the Zscaler Admin Console and Executive Insights App. This role is assigned to the default admin, but you can assign this role to other admins as necessary. For each additional role you create, you must define the role's access by specifying:
+
+- Admin rank
+- Permissions
+- Functional scope
+
+If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Internet & SaaS are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
+
+Admins who have permission to manage roles can only add, edit, or delete roles with less scope and lower [rank](https://help.zscaler.com/zia/about-admin-rank). To learn more, see [Adding Admin Roles](https://help.zscaler.com/zia/adding-admin-roles) and [Adding SD-WAN Partner API Roles](https://help.zscaler.com/zia/adding-partner-admin-roles).
+
+Configuring an admin is one of the tasks that you must complete while configuring role-based administration. To learn more, see [Configuring Role-Based Administration](https://help.zscaler.com/zia/configuring-role-based-administration).
+
+Role management provides the following benefits and enables you to:
+
+- Configure Internet & SaaS (ZIA) admins for the Zscaler Admin Console based on their role and functional scope in the organization.
+- Assign rank-based roles to admins to maintain hierarchy among the admins so that a lower-ranked admin can't modify the settings of an admin with a higher rank.
+- View all the configured admins and their access levels, functional scope, rank, and other information.
+
+The API role configured in the external OAuth 2.0 authentication server for a client application dictates the client application's permission and access to the different API categories in the Zscaler cloud service API. You add the API role using the Zscaler Admin Console and then configure the external OAuth 2.0 authentication server to use that role. This enables the different APIs within the API categories of the Zscaler cloud service API to be authenticated through the use of an OAuth 2.0 authentication server instead of the APIs passing an admin user, password, and API key.
+
+Adding an API role is one of the tasks that you must complete before you can configure the external OAuth 2.0 authentication server.
+
+To learn more, see [Securing Internet & SaaS APIs with OAuth 2.0](https://help.zscaler.com/zia/securing-zia-apis-oauth-2.0).
+
+## About the Role Management Page
+
+On the Role Management page for Internet & SaaS (Administration > Role Management > Internet & SaaS), you can do the following:
+
+1. [Add an admin role.](https://help.zscaler.com/zia/adding-admin-roles)
+2. [Add an SD-WAN partner API role.](https://help.zscaler.com/zia/adding-sd-wan-partner-api-roles)
+3. [Add an API role.](https://help.zscaler.com/zia/adding-api-roles)
+4. Search for a configured admin role, SD-WAN partner API role, or API role.
+5. View a list of all admin roles, SD-WAN partner API roles, and API roles configured for your organization. For each role, you can view the following information:
+  - **Name**: The name of the role.
+  - **Admin Rank**: The assigned [admin rank](https://help.zscaler.com/zia/about-admin-rank) for the admin role. This is visible only if admin ranking is enabled in the [Advanced Settings](https://help.zscaler.com/zia/about-advanced-settings#admin-ranking). Admin rank does not apply to SD-WAN partner API or API roles.
+  - **Full Access**: The areas of the Zscaler Admin Console where admins with this role have full access or, for API roles, the areas in the cloud service API to which the client application has full access.
+  - **View-Only Access**: The areas of the Zscaler Admin Console where admins with this role have view-only access or, for API roles, the areas in the cloud service API to which the client application has view-only access.
+  - **None Access**: The areas of the Zscaler Admin Console where admins with this role don't have any access or, for API roles, the areas in the cloud service API to which the client application doesn't have any access.
+  - **User Names**: This shows whether the usernames are visible or [obfuscated](https://help.zscaler.com/zia/obfuscating-user-names-zscaler-service) within the Zscaler service or APIs.
+  - **Device Information**: This shows whether the device information (i.e., device hostname, device name, and device owner) is visible or obfuscated within the Zscaler Admin Console or APIs.
+  - **Type**: The type of role. The admin role types are **Standard Admin**, **SD-WAN Partner API**, **Executive App Admin**, or **Standard & Executive App Admin**. The API role type is **API Client.**
+6. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
+7. [Edit the default Executive Insights App role.](https://help.zscaler.com/zia/editing-default-executive-insights-app-role)
+8. View a configured admin role with greater scope and higher rank, or an SD-WAN partner API role.
+9. [Edit a configured admin role with less scope and lower rank, an SD-WAN partner API role, or an API role.](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal)
+
+[Image: Role Management page for Internet & SaaSwhere you can see a list of admin roles and access details]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/about-internet-saas-users","lastmod":"2026-09-25T12:30Z","nid":"1399891"} -->
 ## About Internet & SaaS Users
 
 - Source: https://help.zscaler.com/zia/about-internet-saas-users
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Users > About Internet & SaaS Users
-- Last modified: 2026-09-03T08:13Z
+- Last modified: 2026-09-25T12:30Z
 - Summary: Information on the Internet & SaaS Users page and its features in the Zscaler Admin Console.
 
 [Watch a video about User Management](https://fast.wistia.net/embed/iframe/65aszz5npz) (shows legacy UI).
@@ -7689,36 +7962,32 @@ Users provide the following benefits and enable you to:
 - Manage users within your organization who have access to the Internet & SaaS service.
 - View users enrolled for the Internet & SaaS service.
 
-If you select **Active Directory** or **OpenLDAP** when [configuring the default authentication profile](https://help.zscaler.com/zia/configuring-default-authentication-profile), or if your organization uses Authentication Service for Admins, users are listed as view only with limited options (i.e., download user data and search for users). If your organization uses Authentication Service for Admins, users are configured with Authentication Service. To learn more, see [About Users](https://help.zscaler.com/authentication-service/about-users).
-See image.
+If you select **Active Directory** or **OpenLDAP** when [configuring the default authentication profile](https://help.zscaler.com/zia/configuring-default-authentication-profile), or if your organization uses Authentication Service for Admins, users are listed as view only with limited options (i.e., download user data and search for users). If your organization uses Authentication Service for Admins and Users, users are configured with Authentication Service. To learn more, see [About Users](https://help.zscaler.com/authentication-service/about-users).
 
-## About the Users Page
+## About the Internet & SaaS Users Page
 
-On the Users page (Administration > Identity > Internet & SaaS > User Management > Users), you can do the following:
+On the Internet & SaaS Users page (Administration > Legacy Admin Management > Internet & SaaS Users > Users), you can do the following:
 
-1. [Add a user](https://help.zscaler.com/zia/adding-user-account).
+1. Search for a configured user.
 2. [Download a CSV file that lists your users](https://help.zscaler.com/zia/downloading-user-information-csv-file).
-3. [Import new users or modify existing users, using a CSV file](https://help.zscaler.com/zia/importing-user-information-csv-file).
-4. Download a Sample Import CSV file that shows the correct CSV format for adding or modifying users.
-5. Filter your user search by user ID, name, group, or department.
-6. Search for a configured user.
-7. View a list of configured users. For each user, you can see the following information:
+3. Select which columns are visible in the table.
+4. Enable or disable filtering for the table.
+5. Filter the table by user ID, name, group, or department.
+6. View a list of configured users. For each user, you can see the following information:
   - **User ID or Name**: The user's username or domain name.
-  - **User Name**: The user's display name that is visible throughout the ZIA Admin Portal when configuring policies.
+  - **Display Name**: The user's display name that is visible throughout the Zscaler Admin Console when configuring policies.
   - **Groups**: The groups the user belongs to.
   - **Department**: The department the user belongs to.
   - **Status**: The status of the user.
   - **User Risk Profile**: Displays the User Risk Score that is generated based on DLP violations, risky user behavior, unsanctioned cloud application usage, and other suspicious factors. If the score is higher than Low, you can click the Reset icon next to the score to reset it to Low. To learn more, see [About the User Risk Report](https://help.zscaler.com/zia/user-risk-report). This column only appears if you select Enable Real-Time Risk Score Updates in the [Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings#risk-score).
   - **Comments**: Comments regarding the user, if available.
-8. Modify the table and its columns.
-9. [Edit a configured user.](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal)
-10. Reset the user's risk score.
-11. Go to the [Groups](https://help.zscaler.com/zia/about-groups) page.
-12. Go to the [Departments](https://help.zscaler.com/zia/about-departments) page.
+7. [Edit a configured user.](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal)
+8. Reset the user's risk score.
+9. [Go to the Groups page.](https://help.zscaler.com/zia/about-groups)
+10. View a list of predefined groups created by the Zscaler service.
+11. [Go to the Departments page.](https://help.zscaler.com/zia/about-departments)
 
-[Image: Users Page image in the ZIA Admin Portal]
-
-[Image: View only Users page]
+[Image: All fields and tabs available on the Internet & SaaS Users page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -7839,13 +8108,13 @@ Use the arrows at the bottom of the page to go to view the next entries. You can
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-iot-report","lastmod":"2026-06-21T20:34Z","nid":"1440571"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-iot-report","lastmod":"2026-09-28T08:27Z","nid":"1440571"} -->
 ## About the IoT Report
 
 - Source: https://help.zscaler.com/zia/about-iot-report
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > About the IoT Report
-- Last modified: 2026-06-21T20:34Z
+- Last modified: 2026-09-28T08:27Z
 - Summary: Information on the IoT Report page in the Zscaler Admin Console.
 
 The Internet of Things (IoT) Report shows the device inventory and its insights discovered from unauthenticated web traffic. Zscaler's AI/ML engine classifies all unauthenticated devices automatically to help generate the report. This provides awareness and insight into your organization’s traffic discovered from different IoT devices, the number of devices connected from each device type, the number of devices discovered at each location, the applications they connect to, their traffic destinations, and more. The report is updated every 6 hours for the active devices discovered in the last 24 hours.
@@ -7858,7 +8127,7 @@ The IoT Report provides the following benefits and enables you to:
 
 ## About the IoT Report Page
 
-On the IoT Report page (click Analytics, enable the toggle Switch to Existing Reports, and then go to Internet & SaaS > Analytics > IoT Report), you can do the following:
+On the IoT Report page (Analytics > Reports > IoT Report), you can do the following:
 
 1. Filter the IoT report for locations that have IoT discovery enabled in your organization.
 
@@ -7886,13 +8155,13 @@ Click on a device type to view the details of all the devices for that device ty
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-ip-pool","lastmod":"2026-06-17T07:05Z","nid":"1401531"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-ip-pool","lastmod":"2026-09-15T21:20Z","nid":"1401531"} -->
 ## About IP Pool
 
 - Source: https://help.zscaler.com/zia/about-ip-pool
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > About IP Pool
-- Last modified: 2026-06-17T07:05Z
+- Last modified: 2026-09-15T21:20Z
 - Summary: Information on IP pools available in the Zscaler Admin Console for use with Source IP Anchoring.
 
 IP pools are used by [Source IP Anchoring](https://help.zscaler.com/zia/about-source-ip-anchoring) for transparent traffic. When an incoming DNS request hits any of these rules that are preconfigured to forward the traffic to Private Access (ZPA), Zscaler assigns an ephemeral IP address to the DNS request from the respective IP pool before forwarding it to Private Access.
@@ -7917,30 +8186,33 @@ Configuring the IP pool with public IP addresses is not recommended as it can le
 
 ## About the IP Pool Page
 
-On the IP Pool page (Policies > Access Control > Firewall > IP & FQDN Groups > IP Pool), you can do the following:
+On the IP Pool page (Internet Access > Resources > IP & FQDN Groups > IP Pool), you can do the following:
 
-1. [Add an IP pool](https://help.zscaler.com/zia/adding-ip-pool).
-2. View a list of all the IP pools. For each IP pool, you can view:
+1. Search for an IP pool.
+2. [Add an IP pool](https://help.zscaler.com/zia/adding-ip-pool).
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View a list of all the IP pools. For each IP pool, you can view:
   - **Name**: The name of the IP pool. You can sort this column.
-  - **IP Address**: The range of IP addresses assigned to this pool. You can configure a maximum of one IP address range for an IP pool.
+  - **IP Addresses**: The range of IP addresses assigned to this pool. You can configure a maximum of one IP address range for an IP pool.
   - **Description**: Additional notes or information about the IP pool.
   - **Type**: The type of IP pool. This field displays **Extranet** if the IP pool was created either manually or automatically for [Extranet Application Support](https://help.zscaler.com/zia/understanding-extranet-application-support). It is left blank for IP pools created automatically for Private Access.
-3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-4. [Edit or delete custom IP pools](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
-5. View predefined IP pools.
+5. View details for read-only, predefined IP pools.
+6. [Edit or delete custom IP pools](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+7. The IP pools are paginated with up to 500 IP pools displayed per page.
+8. Go to the [Source IPv4 Groups](https://help.zscaler.com/zia/about-source-ip-groups#ipv4), [Source IPv6 Groups](https://help.zscaler.com/zia/about-source-ip-groups#ipv6), [Destination IPv4 Groups](https://help.zscaler.com/zia/about-destination-ip-groups#ipv4), and Destination IPv6 Groups pages.
 
 [Image: The IP Pool page shows the list of available IP pools, the IP addresses included in the pools, and descriptions]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-ips-control","lastmod":"2026-08-10T10:28Z","nid":"1400966"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-ips-control","lastmod":"2026-09-29T03:33Z","nid":"1400966"} -->
 ## About IPS Control
 
 - Source: https://help.zscaler.com/zia/about-ips-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > IPS Control > About IPS Control
-- Last modified: 2026-08-10T10:28Z
+- Last modified: 2026-09-29T03:33Z
 - Summary: Information on Zscaler's Intrusion Prevention System (IPS) that uses signature-based detection to monitor and protect your network traffic against malicious activities through IPS Control.
 
 [Watch a video about IPS Control policy rules as well as how to configure them.](https://fast.wistia.net/embed/iframe/tnxy9sv0ks)
@@ -7963,18 +8235,18 @@ IPS Control is available only with Advanced Firewall. To learn more, see [Unders
 
 ## About the IPS Control Page
 
-On the IPS Control page (Policies > Cybersecurity > Inline Security > IPS Control), you can do the following:
+On the IPS Control page (Cyberthreat Protection > Policy > IPS Control), you can do the following:
 
 1. Click **Recommended Policy** to view the [policy Zscaler recommends](https://help.zscaler.com/zia/recommended-ips-control-policy).
 2. [Add an IPS Control policy rule](https://help.zscaler.com/zia/configuring-ips-control-policy).
 3. Filter the IPS Control policy rules by **Rule Label** to view the rules grouped under the selected labels. By default, the rules are listed in the ascending rule order. Applying Rule Labels
 4. Search for an IPS Control rule.
-5. View a list of all configured IPS Control policy rules. For each rule you can view the following information. Policy Rule Details
-6. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+5. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+6. View a list of all configured IPS Control policy rules. For each rule you can view the following information. Policy Rule Details
 7. [Edit, duplicate, or delete an IPS Control rule](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
 8. The IPS Control policy rules are paginated with up to 500 rules displayed per page.
 
-[Image: The IPS Control Policy page shows a list of configured IPS rules with criteria, action, rule order, description, and more]
+[Image: The IPS Control page shows a list of configured IPS rules with criteria, action, rule order, description, and more]
 
 1. Click **Rule Label**.
 2. From the drop-down menu, select rule labels to view the rules associated with them. You can also search for rule labels.
@@ -8094,13 +8366,13 @@ Additionally, the following are required in a Windows environment:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-location-groups","lastmod":"2026-08-31T07:59Z","nid":"1400541"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-location-groups","lastmod":"2026-09-29T05:52Z","nid":"1400541"} -->
 ## About Location Groups
 
 - Source: https://help.zscaler.com/zia/about-location-groups
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > About Location Groups
-- Last modified: 2026-08-31T07:59Z
+- Last modified: 2026-09-29T05:52Z
 - Summary: Information on location groups and how they are used to managing locations and sublocations in the Zscaler service.
 
 If you have many locations and associated sublocations within your organization, consider using location groups. You can create manual location groups or dynamic location groups:
@@ -8116,7 +8388,7 @@ The following conditions apply when configuring manual or dynamic location group
 
 ## About the Location Groups Page
 
-On the Location Groups page, you can do the following:
+On the Location Groups page (Infrastructure > Location Management > Location Groups), you can do the following:
 
 1. [Add a manual location group](https://help.zscaler.com/zia/configuring-location-groups)
 2. [Add a dynamic location group](https://help.zscaler.com/zia/configuring-dynamic-location-groups)
@@ -8140,20 +8412,20 @@ On the Location Groups page, you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-locations","lastmod":"2026-08-31T06:18Z","nid":"1399236"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-locations","lastmod":"2026-09-28T03:08Z","nid":"1399236"} -->
 ## About Locations
 
 - Source: https://help.zscaler.com/zia/about-locations
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > About Locations
-- Last modified: 2026-08-31T06:18Z
+- Last modified: 2026-09-28T03:08Z
 - Summary: Information about how locations and sublocations identify the various networks from which an organization sends its Internet traffic to the Zscaler service.
 
 Locations identify the various networks from which your organization sends its internet traffic. When an organization forwards its traffic to the Zscaler service through a [GRE](https://help.zscaler.com/zia/configuring-gre-tunnels) or [IPSec](https://help.zscaler.com/zia/configuring-ipsec-vpn-tunnel) tunnel, Zscaler service provisions your organization's IP addresses, which you then add as locations in the Zscaler Admin Console. You can either [add locations individually](https://help.zscaler.com/zia/configuring-locations) or [import a CSV file with your locations](https://help.zscaler.com/zia/configuring-multiple-locations-and-sublocations).
 
 When the Zscaler service receives traffic, it checks whether the traffic is from a known location (a location that is configured on the Zscaler Admin Console), or from an unknown location (remote user traffic). If the traffic is from a known location, the service processes the traffic based on the location settings. For example, the service checks whether the location has authentication enabled and proceeds accordingly. It also applies any location policies that you configure and logs Internet activity by location.
 
-If your organization has thousands of locations or sublocations, then the Locations page and in any policy that references locations when selected might incur noticeable loading time to retrieve and display the full location list.
+If your organization has thousands of locations or sublocations, then the Locations page and any policy that references locations when selected might incur noticeable loading time to retrieve and display the full location list.
 
 Locations provide the following benefits and enable you to:
 
@@ -8168,7 +8440,7 @@ Locations provide the following benefits and enable you to:
 
 You can use a previously deleted location or sublocation name when you create a new location or sublocation. However, you cannot use a deleted name when modifying an existing location or sublocation. If you want to use a deleted name when creating a new location or sublocation, complete the following steps:
 
-1. Take note of the existing location’s or sublocation’s attributes.
+1. Take note of the existing location's or sublocation's attributes.
 2. [Delete the location or sublocation](https://help.zscaler.com/zia/editing-locations).
 3. Create a new [location](https://help.zscaler.com/zia/configuring-locations) or [sublocation](https://help.zscaler.com/zia/configuring-sublocations) with the deleted name and the proper attributes.
 
@@ -8178,7 +8450,7 @@ See image.
 
 ## About the Locations Page
 
-On the Locations page (Infrastructure > Locations > Legacy Locations), you can do the following:
+On the Locations page (Infrastructure > Location Management > Legacy Locations), you can do the following:
 
 1. [Add a location](https://help.zscaler.com/zia/configuring-locations).
 2. [Import new locations and sublocations, or modify existing locations and sublocations, using a CSV file](https://help.zscaler.com/zia/importing-locations-using-a-csv).
@@ -8214,13 +8486,13 @@ To narrow down the list of locations and sublocations, click the **Apply Filter*
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-microsoft-copilot-readiness-assessment","lastmod":"2026-06-12T05:13Z","nid":"1532822"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-microsoft-copilot-readiness-assessment","lastmod":"2026-09-29T04:04Z","nid":"1532822"} -->
 ## About the Microsoft Copilot Readiness Assessment
 
 - Source: https://help.zscaler.com/zia/about-microsoft-copilot-readiness-assessment
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > About the Microsoft Copilot Readiness Assessment
-- Last modified: 2026-06-12T05:13Z
+- Last modified: 2026-09-29T04:04Z
 - Summary: Information about the Microsoft Copilot Readiness Assessment page on the SaaS Workflows page in the Zscaler Admin Console.
 
 The inadvertent oversharing of sensitive internal files poses a major security risk, which is further amplified by AI integrations like Microsoft Copilot. Because these tools can expose data from improperly secured files, organizations must implement proactive monitoring and access controls to prevent accidental data exposure.
@@ -8251,7 +8523,7 @@ To ensure successful execution of remediation actions for OneDrive, SharePoint, 
 
 ## About the Microsoft Copilot Readiness Assessment Page
 
-On the Microsoft Copilot Readiness Assessment page (click Analytics, enable the toggle Switch to Existing Reports, and then go to Internet & SaaS > Analytics > SaaS Workflows > Microsoft Copilot Readiness Assessment), you can do the following:
+On the Microsoft Copilot Readiness Assessment page (Data Security > DSPM > Workflows > Microsoft Copilot Readiness Assessment), you can do the following:
 
 1. Filter the report by the following:
   - **Time Range**: Choose from **Current Day**, **Current Week**, **Last 24 Hours**, **Last 7 Days**, **Last 15 Days**, or **Custom**.
@@ -8367,13 +8639,13 @@ The following limitations apply for remediation actions:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-microsoft-information-protection-labels","lastmod":"2026-08-21T05:44Z","nid":"1402386"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-microsoft-information-protection-labels","lastmod":"2026-09-09T00:39Z","nid":"1402386"} -->
 ## About Microsoft Information Protection Labels
 
 - Source: https://help.zscaler.com/zia/about-microsoft-information-protection-labels
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > About Microsoft Information Protection Labels
-- Last modified: 2026-08-21T05:44Z
+- Last modified: 2026-09-09T00:39Z
 - Summary: Information about Microsoft Information Protection (MIP) Labels.
 
 Microsoft Information Protection (MIP) provides sensitivity labels, which you can use to identify and protect files with sensitive content. These MIP labels are maintained by Microsoft and, through the addition of an MIP account in the Zscaler Admin Console, these labels can be retrieved from Microsoft so that they can be used when defining a Data Loss Prevention (DLP) in the Zscaler Admin Console.
@@ -8385,45 +8657,38 @@ MIP labels provide the following benefits and enable you to:
 
 ## About the Microsoft Information Protection (MIP) Labels Page
 
-On the Microsoft Information Protection (MIP) Labels page (Policies > Data Protection > Common Resources > MIP Labels), you can do the following:
+On the Microsoft Information Protection (MIP) Labels page (Data Security > Common Resources > MIP Labels), you can do the following:
 
 1. [Add an MIP account](https://help.zscaler.com/zia/adding-mip-account).
 2. Search for an MIP account.
-3. View a list of all MIP accounts that were added for your organization. For MIP accounts, you can view:
-
-- **Account Name**: The name of the account associated with the Microsoft account.
-- **Labels**: The number of labels associated with the account. **No. of Labels**appears in this field for the account until you expand the **Account Name**.
-- **Status**: The status of the account, including the last time the account information was last retrieved from Microsoft. The following states appear:
-  - **Active**: The account is active. MIP labels are retrieved from the Microsoft Portal.
-  - **Retrieval Pending:** The fetching of the MIP labels from the Microsoft Portal is in progress for the MIP account. Validation has been successful and the status of the MIP account is active.
-  - **Tenant Inactive**: The account is inactive. MIP labels are not retrieved from the Microsoft Portal.
-  - **Validation Failed**: The account failed to validate with the Microsoft Portal.
-  - **Validation Success**: The account is validated with the Microsoft Portal.
-  - **Validation Failed**: The account failed to validate with the Microsoft Portal.
-
-To view the current state, you need to explicitly refresh the page. To refresh the page, complete one of the following steps:
-
-- Click the **Reload this page** icon.
-- Click the **Edit** icon for an MIP account.
-- Navigate away from this page and then return to the page.
-
-1. Expand an **Account Name** to view the MIP labels associated with the account.
-2. Download the list of labels associated with the MIP account to a comma-separated value Microsoft Excel spreadsheet.
-3. [Edit an MIP account](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
-4. Delete an MIP account.
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View a list of all MIP accounts that were added for your organization. For MIP accounts, you can view:
+  - **Account Name**: The name of the account associated with the Microsoft account.
+  - **Labels**: The number of labels associated with the account. **No. of Labels**appear in this field for the account until you expand the **Account Name**.
+  - **Status**: The status of the account, including the last time the account information was last retrieved from Microsoft. The following states appear: To view the current state, you need to explicitly refresh the page. To refresh the page, complete one of the following steps: Click the **Reload this page** icon.; Click the **Edit** icon for an MIP account.; Navigate away from this page and then return to the page.
+    - **Active**: The account is active. MIP labels are retrieved from the Microsoft Portal.
+    - **Retrieval Pending:** The fetching of the MIP labels from the Microsoft Portal is in progress for the MIP account. Validation has been successful and the status of the MIP account is active.
+    - **Tenant Inactive**: The account is inactive. MIP labels are not retrieved from the Microsoft Portal.
+    - **Validation Failed**: The account failed to validate with the Microsoft Portal.
+    - **Validation Success**: The account is validated with the Microsoft Portal.
+    - **Validation Failed**: The account failed to validate with the Microsoft Portal.
+5. Expand an **Account Name** to view the MIP labels associated with the account.
+6. Download the list of labels associated with the MIP account to a comma-separated value Microsoft Excel spreadsheet.
+7. [Edit an MIP account](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+8. Delete an MIP account.
 
 [Image: Microsoft Information Protection (MIP) Labels page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-mobile-app-store-control","lastmod":"2026-07-01T14:58Z","nid":"1398766"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-mobile-app-store-control","lastmod":"2026-09-15T14:13Z","nid":"1398766"} -->
 ## About Mobile App Store Control
 
 - Source: https://help.zscaler.com/zia/about-mobile-app-store-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Mobile Security > Mobile App Store Control > About Mobile App Store Control
-- Last modified: 2026-07-01T14:58Z
+- Last modified: 2026-09-15T14:13Z
 - Summary: Information on the Mobile App Store Control policy and how to restrict sites from which users can download mobile apps.
 
 The Mobile App Store Control policy protects users from inadvertently downloading mobile apps from unauthorized or risky app stores. You can define a Mobile App Store Control policy to restrict the app stores from which users are prevented from downloading mobile apps to their mobile devices. When an app store is listed in the policy, users can browse the restricted app stores, but are blocked from downloading apps from those stores. Restricting users to using only official or approved app stores reduces the likelihood that users can download apps from sites that might contain vulnerabilities or that are fake copies of well-known apps.
@@ -8442,40 +8707,48 @@ If your organization has the Mobile Security subscription, you can also define a
 
 ## About the Mobile App Store Control Page
 
-On the Mobile App Store Control page (Policies > Access Control > Internet & SaaS > Mobile App Store Control), you can do the following:
+On the Mobile App Store Control page (Internet Access > Policy > Mobile App Store Control), you can do the following:
 
-1. [Add a Mobile App Store Control policy rule](https://help.zscaler.com/zia/configuring-mobile-app-store-control-policy).
+1. Optionally, filter the rules to limit the mobile app store control rules displayed in the table. You can filter by:
+  - **Rule State**: Display the rules based on the state of the rule, either **Enabled**or **Disabled**.
+  - **Label**: Displays the rules based on the rule labels. The rules are grouped under the associated rule labels. Choose **Select All**to view all rule labels. Click **Clear** to remove all filters.
 2. [View the policy Zscaler recommends](https://help.zscaler.com/zia/recommended-mobile-app-store-control-policy).
-3. Select one of the following **View by** option to see the mobile app store control rules accordingly:
-  - **Rule Order**: Displays the rules based on the rule order. By default, the rules are listed in the ascending rule order. See image.
-  - **Rule Label**: Displays the rules based on the rule labels. The rules are grouped under the associated rule labels. See image. You can expand or collapse all the rule labels using the **Expand All** or **Collapse All** buttons.
+3. [Add a Mobile App Store Control policy rule](https://help.zscaler.com/zia/configuring-mobile-app-store-control-policy).
 4. Search for a mobile app control rule.
-5. View a list of all mobile app store control rules. For each mobile app store control rule, you can view the following information:
+5. Select the columns you want to view in the table.
+6. View a list of all mobile app store control rules. For each mobile app store control rule, you can view the following information (not all columns are shown by default):
   - **Rule Order**: The order of the rule. You can sort this column.
   - **Rule Name**: The name of the rule. You can sort this column.
+  - **Rule Action**: The action defined by the rule, either **Block**or **Allow**.
+  - **Admin Rank**: The assigned [admin rank](https://help.zscaler.com/zia/about-admin-rank) for the rule. This is visible only if admin ranking is enabled in the [Advanced Settings](https://help.zscaler.com/zia/about-advanced-settings#admin-ranking). By default, the admin ranking is disabled. To use this feature, you must enable Admin Rank in Internet Access > Setting > Advanced Settings. To learn more, see [Configuring Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings).
+  - **State**: The state of this rule, either **Enabled**or **Disabled**.
+  - **Labels**: The optional labels of the policy rule, if available.
+  - **Departments**: The departments assigned to the rule.
+  - **App Stores**: The app stores assigned to the rule.
+  - **Groups**: The groups assigned to the rule.
+  - **Users**: The users assigned to the rule.
+  - **Locations**: The locations assigned to the rule.
+  - **Location Groups**: The location groups assigned to the rule.
+  - **Time Windows**: The time windows for the rule.
+  - **Description**: The label and description of the rule, if available.
   - **Criteria**: The criteria defined for the rule.
-  - **Action**: The action configured for the rule.
-  - **Label and Description**: The label and description of the policy rule, if available.
-6. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+  - **Action**: The actions you can take for the rule: edit, copy, or delete.
 7. [Edit a policy rule](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
 8. [Duplicate a policy rule](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+9. [Delete a policy rule](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
 
 **[Image: Screenshot of the Mobile App Store Control page]**
-
-[Image: Screenshot of the Mobile App Store Control page with Rule Order view selected.]
-
-[Image: Screenshot of the Mobile App Store Control page with Rule Label view selected.]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-nat-control","lastmod":"2026-05-25T21:06Z","nid":"1399906"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-nat-control","lastmod":"2026-09-21T21:30Z","nid":"1399906"} -->
 ## About NAT Control
 
 - Source: https://help.zscaler.com/zia/about-nat-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Control > NAT Control > About NAT Control
-- Last modified: 2026-05-25T21:06Z
+- Last modified: 2026-09-21T21:30Z
 - Summary: Information on NAT Control supported by Zscaler's Internet & SaaS to perform destination NAT and redirect traffic to specific IP addresses and ports.
 
 [Watch a video about Firewall Control](https://fast.wistia.net/embed/iframe/67lc77bxsf) (shows legacy UI).
@@ -8495,42 +8768,63 @@ NAT policy-related activities are recorded and displayed in Firewall Insights Lo
 
 The Zscaler service does not monitor the health or the availability status of an endpoint to which NAT rules forward traffic. This means that NAT rules forward traffic to the specified destination irrespective of whether the destination endpoint is reachable or not. So, ensure that the NAT destination endpoint is always available to prevent connection failures.
 
-## About the NAT Control Page
+## About the NAT Control Policy Page
 
-On the NAT Control page (Policies > Access Control > Firewall > Firewall Filtering Policy > NAT Control Policy), you can do the following:
+On the NAT Control Policy page (Internet Access > Policy > NAT Control Policy), you can do the following:
 
-1. [Configure a NAT Control rule](https://help.zscaler.com/zia/configuring-nat-control-policy).
-2. Click **Recommended Policy** to view Zscaler's recommended policy configuration.
-3. Select one of the following **View by** options to see the NAT Control rules accordingly:
-  - **Rule Order**: Displays the rules based on the rule order. By default, the rules are listed in the ascending rule order. See image.
-  - **Rule Label**: Displays the rules based on the rule labels. The rules are grouped under the associated rule labels. You can expand or collapse all the rule labels using the **Expand All** or **Collapse All** buttons. See image.
-4. Search for a NAT Control policy rule.
-5. View a list of all configured and predefined NAT Control policies. For each rule, you can view the following:
-  - **Rule Order**: The policy rule's order number. NAT Control policy rules are evaluated in ascending numerical order. You can sort this column.
-  - **Rule Name**: The name of the rule. You can sort this column.
-  - **Criteria**: Which criteria triggers the rule. You can sort this column.
-  - **Action**: Traffic that matches the criteria is redirected to the specified destination or port.
-  - **Label and Description**: The label and description of the policy rule, if available.
-6. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-7. [Edit or duplicate a NAT Control policy rule](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
-8. Click the **Firewall Filtering Policy** tab to configure Firewall Filtering policy rules. To learn more, see [About Firewall Control](https://help.zscaler.com/zia/about-firewall-control).
+1. Search for a NAT Control policy rule.
+2. Click **Recommended Policy** to view the policy Zscaler recommends.
+3. [Add a NAT Control rule](https://help.zscaler.com/zia/configuring-nat-control-policy).
+4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+5. Choose whether you want to show or hide the filters available on the NAT Control Policy page.
+6. Filter the NAT Control policy rules by **Rule Label** to view the rules grouped under the selected labels. By default, the rules are listed in the ascending rule order. Applying Rule Labels
+7. View a list of all configured and predefined NAT Control policies. For each rule, you can view the following information. Policy Rule Details
+8. [Edit, duplicate, or delete a NAT Control policy rule](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+9. The NAT Control rules are paginated with up to 500 rules displayed per page.
+10. [Go to the Firewall Filtering Policy page](https://help.zscaler.com/zia/configuring-firewall-filtering-policy).
 
-[Image: NAT Control Policy Page]
+[Image: The NAT Control Policy page shows a list of configured NAT rules with criteria, action, rule order, description, and more]
 
-[Image: NAT Control policy rules sorted by rule order]
+1. Click **Rule Label**.
+2. From the drop-down menu, select rule labels to view the rules associated with them. You can also search for rule labels.
+3. Click **Apply**. The associated rules populate in the NAT Control policy table.
 
-[Image: NAT Control policy rules sorted by rule label]
+Click **Clear** to remove all rule label selection.
+
+- **Rule Order**: The policy rule order number. NAT Control policy rules are evaluated in ascending numerical order. You can sort this column.
+- **Admin Rank**: The admin rank for the rule. This is only visible if you have enabled it in the [Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings). You can sort this column.
+- **Rule Name**: The name of the rule. You can sort this column.
+- **Source IP Addresses**: The source IP addresses included in the rule.
+- **Network Services**: The network services included in the rule.
+- **Destination Addresses**: The destination addresses included in the rule.
+- **Action**: The action configured for the policy rule to redirect matched traffic to the specified destination and port.
+- **Destination IP Categories**: The destination URL categories included in the rule.
+- **Destination Countries**: The destination countries included in the rule.
+- **Destination IPv4 Groups**: The destination IPv4 groups included in the rule.
+- **Destination IPv6 Groups**: The destination IPv6 groups included in the rule.
+- **Network Service Groups**: The network service groups included in the rule.
+- **Source IPv4 Groups**: The source IPv4 groups included in the rule.
+- **Source IPv6 Groups**: The source IPv6 groups included in the rule.
+- **Departments**: The departments included in the rule.
+- **Groups**: The user groups included in the rule.
+- **Location Groups**: The location groups included in the rule.
+- **Locations**: The locations included in the rule.
+- **Time**: The time period during which the rule applies.
+- **Users**: The users included in the rule.
+- **Label**: The label associated with the rule.
+- **Description**: The description of the policy rule, if available.
+- **Actions**: The actions you can perform on a rule, such as editing, duplicating, and deleting.
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-nat64-prefixes","lastmod":"2026-07-15T21:06Z","nid":"1404791"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-nat64-prefixes","lastmod":"2026-09-15T07:55Z","nid":"1404791"} -->
 ## About NAT64 Prefixes
 
 - Source: https://help.zscaler.com/zia/about-nat64-prefixes
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPv6 > About NAT64 Prefixes
-- Last modified: 2026-07-15T21:06Z
+- Last modified: 2026-09-15T07:55Z
 - Summary: Information on the NAT64 mechanism supported by Zscaler and the NAT64 Prefixes page in the Zscaler Admin Console.
 
 A NAT64 prefix is used in the algorithmic translation of a synthetic IPv6 address to an IPv4 address. The Zscaler service provides a default NAT64 prefix, supports the well-known prefix (64:ff9b::/96), and also allows you to add your network-specific prefixes to the Zscaler Admin Console. During the NAT64 mechanism, these prefixes are used to match against the destination address prefix in the inbound IPv6 packets and derive an IPv4 address for the destination server. The extracted IPv4 address is then used to establish an IPv4 connection with the destination server from the Zscaler service. To learn more, see [Understanding IPv6 Support](https://help.zscaler.com/zia/understanding-ipv6-support).
@@ -8542,68 +8836,69 @@ NAT64 prefixes provide the following benefits and enable you to:
 
 ## About the NAT64 Prefixes Page
 
-On the NAT64 Prefixes page (Infrastructure > Internet & SaaS > Traffic Forwarding > IPv6 Configurations> NAT64 Prefixes), you can:
+On the NAT64 Prefixes page (Infrastructure > Internet & SaaS > IPv6 Configuration > NAT64 Prefixes), you can:
 
-1. [Configure a NAT64 prefix.](https://help.zscaler.com/zia/configuring-ipv6-settings#configure-nat64-prefix)
-2. Search for a NAT64 prefix.
-3. View a list of all the NAT64 prefixes configured. For each NAT64 prefix, you can view and sort:
+1. Search for a NAT64 prefix.
+2. [Configure a NAT64 prefix.](https://help.zscaler.com/zia/configuring-ipv6-settings#configure-nat64-prefix)
+3. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
+4. View a list of all the NAT64 prefixes configured. For each NAT64 prefix, you can view and sort:
   - **Name**: The name of the NAT64 prefix.
   - **Prefix/Mask**: The NAT64 prefix and the subnet mask for the prefix.
   - **Description**: The description of the configured NAT64 prefix.
-4. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
 5. [Edit or delete a NAT64 prefix.](https://help.zscaler.com/zia/editing-deleting-duplicating-items)
 6. [Go to the Settings page](https://help.zscaler.com/zia/configuring-ipv6-settings#enable-ipv6). You can enable the IPv6 configurations on this page.
-7. [Go to the DNS64 prefix page](https://help.zscaler.com/zia/about-dns64-prefix).
+7. [Go to the DNS64 Prefix page](https://help.zscaler.com/zia/about-dns64-prefix).
 
 [Image: The NAT64 Prefixes page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-network-application-groups","lastmod":"2026-05-22T08:25Z","nid":"1400201"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-network-application-groups","lastmod":"2026-09-10T04:30Z","nid":"1400201"} -->
 ## About Network Application Groups
 
 - Source: https://help.zscaler.com/zia/about-network-application-groups
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > About Network Application Groups
-- Last modified: 2026-05-22T08:25Z
-- Summary: Information on the Network Application Groups page Information and on grouping together the predefined network applications provided by Internet & SaaS (ZIA).
+- Last modified: 2026-09-10T04:30Z
+- Summary: Information on the network application groups that you can create and use in Internet & SaaS (ZIA) policies.
 
-The Zscaler service provides predefined network applications. A network application group enables you to group applications together. This simplifies the creation of your Firewall policy.
+The Zscaler service provides a set of predefined network applications. A network application group allows you to combine these applications into logical groups, which simplifies the creation and management of your Firewall policies.
 
 Network application groups provide the following benefits and enable you to:
 
-- Group network applications into a single entity to manage them collectively in security policies.
-- Configure Firewall Filtering rules based on network application groups and enforce condition-based actions to allow or block traffic.
+- Group related network applications into a single entity so you can manage them collectively in security policies.
+- Reuse consistent application group definitions across multiple Firewall Filtering rules and enforce condition-based actions to allow or block specific types of traffic.
 
-To facilitate rule creation for Microsoft 365 apps, there is a predefined Microsoft Office 365 application group.
+The Zscaler service provides a predefined Microsoft Office 365 network application group that is ready to use in policies.
 
 ## About the Network Application Group Page
 
-On the Network Application Group page (Policies > Access Control > Firewall > Network Application Groups), you can do the following:
+On the Network Application Group page (Internet Access > Resources > Network Application Groups), you can do the following:
 
 1. [Add a network application group](https://help.zscaler.com/zia/adding-network-application-groups).
 2. Search for a network application group.
-3. View a list of all network application groups. For each group, you can view the following:
-  - **Name**: The name of the network application group. You can sort this column.
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View a list of all network application groups. For each group, you can view:
+  - **Name**: The name of the network application group.
   - **Applications**: The applications included in this group.
-  - **Description**: The description of the policy rule, if available. You can sort this column.
-4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-5. [Edit a network application group](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+  - **Description**: The description of the group, if available.
+5. [Edit or delete a network application group](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+6. The network application groups are paginated with up to 500 groups displayed per page.
 
 [Image: The Network Application Groups page shows the list of groups, the applications included in the groups, and descriptions]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-network-applications","lastmod":"2026-06-05T21:06Z","nid":"1399936"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-network-applications","lastmod":"2026-09-18T00:49Z","nid":"1399936"} -->
 ## About Network Applications
 
 - Source: https://help.zscaler.com/zia/about-network-applications
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > About Network Applications
-- Last modified: 2026-06-05T21:06Z
-- Summary: Information on the Network Applications page and the network applications available for use in Internet & SaaS (ZIA) Firewall policies.
+- Last modified: 2026-09-18T00:49Z
+- Summary: Information on the network applications available for use in Internet & SaaS (ZIA) Firewall policies.
 
 Network applications are predefined applications maintained by Zscaler based on information in Layer 7 of the OSI model. The Zscaler service can identify network applications dynamically using Deep Packet Inspection (DPI) and control the network application traffic using Firewall Filtering rules. You can [group network applications](https://help.zscaler.com/zia/adding-network-application-groups) but cannot edit or delete them.
 
@@ -8613,7 +8908,7 @@ Network applications provide the following benefits and allow you to:
 - Define security policies based on network applications and enforce condition-based allow or block action on your network traffic.
 - Group network applications to control them together using the same policies.
 
-You can define Firewall Filtering rules using network application criteria to identify network applications, and allow or block the traffic. Unlike the evaluation of [network service](https://help.zscaler.com/zia/about-network-services) or [application service](https://help.zscaler.com/zia/about-application-service-groups) rule conditions that match on the first packet, the DPI used for identifying network applications often requires more than one packet of traffic directed to the destination to be allowed and assessed before it can determine the type of traffic or network application.
+You can define Firewall Filtering rules using network application criteria to identify network applications, and allow or block the traffic. Unlike the evaluation of [network service](https://help.zscaler.com/zia/about-network-services) or [application service](https://help.zscaler.com/zia/about-application-services) rule conditions that match on the first packet, the DPI used for identifying network applications often requires more than one packet of traffic directed to the destination to be allowed and assessed before it can determine the type of traffic or network application.
 
 If the DPI cannot determine the network application after examining sufficient data, the Firewall module matches the assessed packets to a policy action. The policy action is based on the Firewall rule evaluation at the base protocol (TCP or UDP), encryption (SSL/TLS) protocol, or high-level protocol (HTTP or HTTPS). If the DPI session terminates unexpectedly (e.g., non-gracefully without a FIN or RST) before it could determine the application by examining sufficient data, then the transactions for the allowed packets are logged with the *Allow due to insufficient app data* action. This also assumes that a higher-ranked Firewall rule did not block the base protocol, encryption protocol, or high-level protocol used by the application before the session terminated. However, if the DPI session terminates due to a web policy (e.g., URL Filtering policy or Cloud App Control policy) blocking the traffic, then the transaction is logged using an implicit rule, Blocked by Web Proxy Policy, by the Firewall module. Sessions are logged individually using Full Logging with the Block/Drop action and can be viewed in [Firewall Insights Logs](https://help.zscaler.com/zia/firewall-insights-logs-columns). The full details of these sessions are available in [Web Insights Logs](https://help.zscaler.com/zia/web-insights-logs-filters).
 
@@ -8627,65 +8922,67 @@ Zscaler recommends the following best practices when configuring Firewall Filter
 
 ## About the Network Applications Page
 
-On the Network Applications page (Policies > Access Control > Firewall > Network Applications), you can do the following:
+On the Network Applications page (Internet Access> Resources > Network Applications), you can do the following:
 
 1. Search for a network application.
 2. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-3. View a list of all network applications. For each application, you can view and sort:
+3. View a list of all network applications. For each application, you can view:
   - **Name**: The name of the network application.
-  - **Category**: The category to which the network application belongs.
-  - **Description**: A brief description of the application.
+  - **Category**: The classification that groups the network application into a specific category.
+  - **Description**: A brief description of the network application.
+4. The network applications are paginated with up to 500 applications displayed per page.
 
 [Image: The Network Applications page shows a list of network applications, the categories they belong to, and descriptions]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-network-service-groups","lastmod":"2026-05-22T04:02Z","nid":"1400206"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-network-service-groups","lastmod":"2026-09-15T06:35Z","nid":"1400206"} -->
 ## About Network Service Groups
 
 - Source: https://help.zscaler.com/zia/about-network-service-groups
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > About Network Service Groups
-- Last modified: 2026-05-22T04:02Z
-- Summary: Information on the Network Service Groups page in the Zscaler Admin Console.
+- Last modified: 2026-09-15T06:35Z
+- Summary: Information on the network service groups that can be used in Firewall policies in the Zscaler Admin Console.
 
-You can group predefined and custom network services together for use in policies.
+You can group predefined and custom network services together and reuse them across policies.
 
 Network service groups provide the following benefits and enable you to:
 
-- Group network services into a single entity to manage them collectively in security policies.
-- Configure 5-tuple Firewall rules, NAT rules, IPS Control policies, and Forwarding rules based on network service groups and enforce condition-based actions to allow, block, or redirect your network traffic.
+- Group related network services into a single entity so you can manage them collectively in security policies.
+- Configure 5-tuple Firewall Filtering rules, NAT rules, IPS Control policies, and Forwarding rules based on network service groups, and enforce condition-based actions to allow, block, or redirect network traffic.
 
-Network services configured in Zscaler are identified at the first packet, leading to immediate policy action. In contrast, multiple packets are typically required by deep packet inspection to identify network applications before a policy action can take place. Therefore, Zscaler recommends that you rank Firewall Filtering rules for network service groups higher than rules for network applications to prevent packets from being allowed unnecessarily from traffic that would otherwise be blocked by rules using first-packet identification. To learn more, see [About Network Applications](https://help.zscaler.com/zia/about-network-applications).
+Network services configured in Zscaler are identified at the first packet, resulting in immediate policy action. In contrast, multiple packets are typically required by deep packet inspection to identify network applications before a policy action can take place. Therefore, Zscaler recommends that you rank Firewall Filtering rules for network service groups higher than rules for network applications to prevent packets from being allowed unnecessarily from traffic that would otherwise be blocked by rules using first-packet identification. To learn more, see [About Network Applications](https://help.zscaler.com/zia/about-network-applications).
 
 ## About the Network Service Group Page
 
-On the Network Service Groups page (Policies > Access Control > Firewall > Network Services > Service Groups), you can do the following:
+On the Network Service Groups page (Internet Access> Resources > Network Services > Service Groups), you can do the following:
 
-1. [Add a network service group](https://help.zscaler.com/zia/configuring-network-service-groups).
-2. Search for a network service group.
-3. View a list of all network service groups. For each group, you can view:
-  - **Name**: The name of the network service group. You can sort this column.
+1. Search for a network service group.
+2. [Add a network service group](https://help.zscaler.com/zia/configuring-network-service-groups).
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View a list of all network service groups. For each group, you can view:
+  - **Name**: The name of the network service group.
   - **Services**: The network services included in the group.
-  - **Description**: The description of the group, if available. You can sort this column.
-4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-5. [Edit a network service group](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal).
-6. [Go to the Network Services page.](https://help.zscaler.com/zia/about-network-services)
+  - **Description**: The description of the network service group, if available.
+5. [Edit or modify a network service group](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+6. The network service groups are paginated with up to 500 groups per page.
+7. [Go to the Network Services page.](https://help.zscaler.com/zia/about-network-services)
 
 [Image: The Network Service Groups page shows a list of network service groups and the different services included in the group]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-network-services","lastmod":"2026-05-22T03:53Z","nid":"1399956"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-network-services","lastmod":"2026-09-10T21:39Z","nid":"1399956"} -->
 ## About Network Services
 
 - Source: https://help.zscaler.com/zia/about-network-services
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > About Network Services
-- Last modified: 2026-05-22T03:53Z
-- Summary: Information on the Network Services page and network services that are used as rule criteria in Firewall policies.
+- Last modified: 2026-09-10T21:39Z
+- Summary: Information on the network services that are used as rule criteria in Firewall policies.
 
 [Watch a video about Network Services](https://fast.wistia.net/embed/iframe/fa5a6c5wtm) (shows legacy UI).
 
@@ -8705,22 +9002,24 @@ Network services configured in Zscaler are identified at the first packet, leadi
 
 ## About the Network Services Page
 
-On the Network Services page (Policies > Access Control > Firewall > Network Services), you can do the following:
+On the Network Services page (Internet Access > Resources > Network Services > Services), you can do the following:
 
-1. [Add a custom network service](https://help.zscaler.com/zia/configuring-network-services).
-2. Filter the network services by protocol (i.e., TCP or UDP).
-3. Search for a network service.
-4. View a list of all network services. For each service, you can view:
-  - **Name**: The name of the application service layer you are controlling. You can sort this column.
-  - **TCP Source Ports**: The TCP source port number or port number range, if any, that is used by the network service.
-  - **TCP Destination Ports**: The TCP destination port number or port number range, if any, that is used by the network service.
-  - **UDP Source Ports**: The UDP source port number or port number range, if any, that is used by the network service.
-  - **UDP Destination Ports**: The UDP destination port number or port number range, if any, that is used by the network service.
-  - **Description**: A brief description of the service, either included by default in predefined services or added by admins for custom services. You can sort this column.
-5. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
-6. [Edit a network service.](https://help.zscaler.com/zia/editing-deleting-duplicating-items)
-7. View the details of predefined network services that are non-editable.
-8. [Go to the Network Service Groups page.](https://help.zscaler.com/zia/about-network-service-groups)
+1. Search for a network service.
+2. [Add a custom network service](https://help.zscaler.com/zia/configuring-network-services).
+3. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
+4. Select to show or hide the Protocol filter available for this page.
+5. Filter the network services by protocol (i.e., TCP or UDP).
+6. View a list of all network services. For each service, you can view:
+  - **Name**: The name of the application service layer. You can sort this column.
+  - **TCP Source Ports**: The TCP source port number or range used by the network service.
+  - **TCP Destination Ports**: The TCP destination port number or range used by the network service.
+  - **UDP Source Ports**: The UDP source port number or range that is used by the network service.
+  - **UDP Destination Ports**: The UDP destination port number or range used by the network service.
+  - **Description**: A brief description of the network service.
+  - **Actions**: The actions you can perform on a network service, such as editing and deleting.
+7. [Edit or delete a network service.](https://help.zscaler.com/zia/editing-deleting-duplicating-items) Predefined network services cannot be deleted. A view option is available for predefined network services that cannot be edited.
+8. The network services are paginated with up to 500 services displayed per page.
+9. [Go to the Network Service Groups page.](https://help.zscaler.com/zia/about-network-service-groups)
 
 [Image: The Network Services page shows a list of network services and the different ports they use]
 
@@ -8922,16 +9221,16 @@ On the NSS Servers page (Logs > Log Streaming > Internet Log Streaming - Nanolog
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-oauth-2.0-authorization-servers","lastmod":"2026-04-09T08:37Z","nid":"1415061"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-oauth-2.0-authorization-servers","lastmod":"2026-09-29T02:34Z","nid":"1415061"} -->
 ## About OAuth 2.0 Authorization Servers
 
 - Source: https://help.zscaler.com/zia/about-oauth-2.0-authorization-servers
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > API Security > About OAuth 2.0 Authorization Servers
-- Last modified: 2026-04-09T08:37Z
+- Last modified: 2026-09-29T02:34Z
 - Summary: Information about OAuth 2.0 authorization servers that can be added to the Zscaler Admin Console.
 
-When using the [OAuth 2.0 authentication](https://help.zscaler.com/zia/securing-zia-apis-oauth-2.0) model, the Zscaler service needs to validate the access token (JSON Web Token) in API requests to accept the requests. To allow Zscaler to perform this validation, you need to add your OAuth 2.0 authorization servers to the Zscaler Admin Console. After the authorization server is added, the Zscaler service can obtain the public key set from the authorization server’s JWKS endpoint and cryptographically verify the JWT signature.
+When using the [OAuth 2.0 authentication](https://help.zscaler.com/zia/securing-zia-apis-oauth-2.0) model, the Zscaler service needs to validate the access token (JSON Web Token (JWT)) in API requests to accept the requests. To allow Zscaler to perform this validation, you need to add your OAuth 2.0 authorization servers to the Zscaler Admin Console. After the authorization server is added, the Zscaler service can obtain the public key set from the authorization server’s JSON Web Key Set (JWKS) endpoint and cryptographically verify the JWT signature.
 
 OAuth 2.0 Authorization Server configuration provides the following benefits and enables you to:
 
@@ -8947,20 +9246,19 @@ After verifying the authenticity of the JWT, the Zscaler service evaluates the s
 
 ## About the OAuth 2.0 Authorization Servers Page
 
-On the OAuth 2.0 Authorization Servers page (Administration > API Configuration> Internet & SaaS API > OAuth 2.0 Authorization Servers), you can do the following:
+On the OAuth 2.0 Authorization Servers page (Administration > API > Legacy API > Internet & SaaS API > OAuth 2.0 Authorization Servers), you can do the following:
 
 1. View the base URL for the cloud service API.
 2. [Add a third-party OAuth 2.0 authorization server.](https://help.zscaler.com/zia/managing-oauth-2.0-authorization-servers#add-auth-server)
-3. View information regarding your authorization server. For each authorization server, you can view:
+3. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
+4. View information regarding your authorization server. For each authorization server, you can view:
   - **Authorization Server Name:** The name provided for the authorization server configuration.
   - **Status:** The status of the authorization server configuration (enabled or disabled).
   - **Description:** The description of the authorization server configuration.
   - **Last Successful Fetch Time:** The date and time when the authorization server’s public key was last fetched from its JWKS endpoint.
-4. [Edit the authorization server.](https://help.zscaler.com/zia/managing-oauth-2.0-authorization-servers#edit-auth-server)
-5. [Delete the authorization server.](https://help.zscaler.com/zia/managing-oauth-2.0-authorization-servers#delete-auth-server)
-6. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
-7. Go to the [Sandbox API Token](https://help.zscaler.com/zia/about-sandbox-api-token) tab.
-8. Go to the [Cloud Service API Key](https://help.zscaler.com/zia/about-cloud-service-api-key) tab.
+  - **Actions**: The add or delete actions that you can perform on the authorization server.
+5. [Edit the authorization server.](https://help.zscaler.com/zia/managing-oauth-2.0-authorization-servers#edit-auth-server)
+6. [Delete the authorization server.](https://help.zscaler.com/zia/managing-oauth-2.0-authorization-servers#delete-auth-server)
 
 [Image: A screenshot of OAuth 2.0 Authorization Servers page]
 <!-- /ZS-ARTICLE -->
@@ -9039,13 +9337,13 @@ On the Alert Summary page (Administration > Alerts > Security & UEBA Alerts > Al
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-outbound-email-policy","lastmod":"2026-08-26T12:00Z","nid":"1492691"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-outbound-email-policy","lastmod":"2026-09-18T09:30Z","nid":"1492691"} -->
 ## About Outbound Email Policy
 
 - Source: https://help.zscaler.com/zia/about-outbound-email-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > About Outbound Email Policy
-- Last modified: 2026-08-26T12:00Z
+- Last modified: 2026-09-18T09:30Z
 - Summary: Information about the Zscaler Outbound Email Policy and its configuration options within the Zscaler Admin Console.
 
 The Zscaler Outbound Email Policy lets you use the same Zscaler Data Loss Prevention (DLP) policy tools that you use across other channels to protect your organization from data loss in outbound emails sent to external domains. You can use Zscaler custom and predefined DLP engines to detect sensitive data, allow or block user activities, or to add custom headers to emails that trigger an outbound email policy rule. If you don't use Zscaler DLP engines, the service functions instead as a filter, only flagging content based on specific criteria. To learn more, see [Step-by-Step Configuration Guide for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/step-step-configuration-guide-zscaler-outbound-email-dlp).
@@ -9058,23 +9356,36 @@ The Zscaler Outbound Email Policy provides the following benefits and enables yo
 
 ## About the Outbound Email Policy Page
 
-On the Outbound Email Policy page (Policies > Data Protection > Policy > Data Loss Prevention), you can do the following:
+On the Outbound Email Policy page (Data Security > Email DLP > Outbound Email Controls), you can do the following:
 
-1. [Add an Outbound Email Policy rule](https://help.zscaler.com/zia/configuring-outbound-email-policy-rules).
-2. Sort the list of policy rules by Rule Order or Rule Label.
+1. Filter the list of policy rules by Rule Label.
+2. [Add an Outbound Email Policy rule](https://help.zscaler.com/zia/configuring-outbound-email-policy-rules).
 3. Search for an outbound email policy rule.
 4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
 5. View a list of all outbound email policy rules configured for your organization. For outbound policy rules, you can see:
   - **Rule Order**: The rule order number for policy rules and exception rules. Outbound email policy rules are evaluated in ascending numerical order. You can sort this column.
   - **Rule Name**: The policy rule's name. You can sort this column.
-  - **Criteria**: The policy rule's criteria (i.e., **DLP Engines**, **Device Groups**, **Departments**, etc.)
+  - **DLP Engines**: The DLP engines used by the policy rule.
+  - **Content Locations**: Where the Zscaler service looks for sensitive data (i.e., **Email Attachments**, **Email Body**, or **Email Subject**).
+  - **Email Recipient Domain Profiles**: The domain profiles used by the policy rule.
   - **Action**: The action taken when the rule is triggered (i.e., **Allow**, **Block**, **Custom Header Insertion**, or **Quarantine**).
-  - **Label and Description**: The label and description of the rule, if available.
   - **Exceptions**: The number of exceptions associated with a parent rule. To see the policy rule's exceptions, expand the rule order in the first column. You can sort this column.
-  - **Status**: The policy rule's status (i.e., **Enabled**or **Disabled**).
-6. [Edit, duplicate, or delete a policy rule](https://help.zscaler.com/zia/editing-deleting-duplicating-items). You can also add [an exception rule](https://help.zscaler.com/zia/configuring-outbound-email-policy-rules).
+  - **File Types**: The file types included in the rule.
+  - **Users**: The users to which the rule applies.
+  - **Groups**: The groups to which the rule applies.
+  - **Departments**: The departments to which the rule applies.
+  - **User Risk Profile**: The user risk score levels to which the rule applies.
+  - **Email Recipient Profiles**: The email recipient profiles to which the rule applies.
+  - **Email Tenants**: The email tenants to which the rule applies.
+  - **Time**: The time intervals to which the rule applies.
+  - **Severity**: The severity of the rule violation (i.e., **High**, **Medium**, **Low**, or **Information**).
+  - **Rule Status**: The policy rule's status (i.e., **Enabled**or **Disabled**).
+  - **Rule Label**: The rule label associated with the rule.
+  - **Description**: Additional notes or information about the rule.
+  - **Evaluation Mode**: Whether the rule uses the Outlook Email Add-in or SMTP for message evaluation.
+6. [Edit, duplicate, or delete a policy rule](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal). You can also add [an exception rule](https://help.zscaler.com/zia/configuring-outbound-email-policy-rules).
 
-[Image: About the Outbound Email Policy page]
+[Image: Tasks on the Outbound Email Policy Page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -9292,13 +9603,13 @@ If you have Advanced Posture Management enabled via a license, the Posture Manag
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-private-access-gateway","lastmod":"2026-06-18T12:59Z","nid":"1401521"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-private-access-gateway","lastmod":"2026-09-28T09:00Z","nid":"1401521"} -->
 ## About Zscaler Private Access Gateway
 
 - Source: https://help.zscaler.com/zia/about-private-access-gateway
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Forwarding Control > Dedicated IP > Customer-Managed Dedicated IP (Source IP Anchoring) > About Zscaler Private Access Gateway
-- Last modified: 2026-06-18T12:59Z
+- Last modified: 2026-09-28T09:00Z
 - Summary: Information on Private Access (ZPA) gateway.
 
 Zscaler provides a predefined gateway to direct Private Access (ZPA) application segment traffic marked for inspection from Internet & SaaS (ZIA) to Private Access, which is enabled by default. You cannot edit this gateway. You can also configure separate custom gateways to forward [Source IP Anchored](https://help.zscaler.com/zia/about-source-ip-anchoring) traffic to Private Access.
@@ -9308,33 +9619,33 @@ This page provides the following benefits and enables you to:
 - Create Private Access gateway objects that can be used in forwarding policies to redirect Source IP Anchored application traffic to the destination servers via the Private Access App Connectors.
 - Map Private Access gateways to the Source IP Anchored Private Access server groups and the associated application segments.
 
-## About the Zscaler Private Access Page
+## About the Private Access GW Page
 
-On the Zscaler Private Access (Infrastructure > Internet & SaaS > Network Policies > Zscaler Private Access) page, you can do the following:
+On the Private Access GW page (Infrastructure > Internet & SaaS > Private Access GW), you can do the following:
 
-1. [Add a Private Access Gateway](https://help.zscaler.com/zia/configuring-zpa-gateway).
+1. [Add a Private Access gateway](https://help.zscaler.com/zia/configuring-zpa-gateway).
 2. Search for a Private Access gateway.
-3. View a list of all Private Access gateways. For each gateway, you can view the following information:
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View a list of all Private Access gateways. For each gateway, you can view the following information:
   - **Gateway**: The name of the gateway. You can sort this column.
   - **Server Groups**: The server group configured for this Private Access gateway.
-  - **Application Segment**: The application segments that are associated with the configured server group.
+  - **Application Segments**: The application segments that are associated with the configured server group.
   - **Description**: Additional notes or information about the gateway.
-4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-5. [Edit a gateway](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal).
+5. [Edit or delete a gateway](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal).
 6. View the predefined gateway.
 
-[Image: The Private Access Gateway page showing buttons and list used to manage the gateways]
+[Image: The Private Access GW page showing buttons and list used to manage the gateways]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-quarantine-tombstone-file-templates","lastmod":"2026-08-21T06:00Z","nid":"1452706"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-quarantine-tombstone-file-templates","lastmod":"2026-09-28T12:30Z","nid":"1452706"} -->
 ## About Quarantine Tombstone File Templates
 
 - Source: https://help.zscaler.com/zia/about-quarantine-tombstone-file-templates
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Notification Templates > About Quarantine Tombstone File Templates
-- Last modified: 2026-08-21T06:00Z
+- Last modified: 2026-09-28T12:30Z
 - Summary: About quarantine notification template options within the Zscaler Admin Console.
 
 When a file is quarantined, a tombstone file is created to give the user an idea of why this happened. You are able to customize tombstone file templates and can reference one of them when configuring the malware and DLP detection policy rules. To learn more, see [Configuring the Data at Rest Scanning Malware Detection Policy](https://help.zscaler.com/zia/configuring-data-rest-scanning-malware-detection-policy).
@@ -9346,7 +9657,7 @@ The tombstone file templates provide the following benefits and enable you to:
 
 ## About the Quarantine Notification Templates Page
 
-On the Quarantine Notification Templates page (Policies > Common Configuration > Out-of-Band CASB > Tombstone Template) you can do the following:
+On the Quarantine Notification Templates page (Administration > End User Notification > Tombstone Template), you can do the following:
 
 1. Go to the Notification Templates page.
 2. [Add a tombstone file template](https://help.zscaler.com/zia/configuring-quarantine-tombstone-notification-templates).
@@ -9362,13 +9673,50 @@ On the Quarantine Notification Templates page (Policies > Common Configuration >
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-redaction","lastmod":"2026-06-10T05:20Z","nid":"1516486"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-recipient-profiles","lastmod":"2026-09-24T07:33Z","nid":"1546003"} -->
+## About Recipient Profiles
+
+- Source: https://help.zscaler.com/zia/about-recipient-profiles
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > About Recipient Profiles
+- Last modified: 2026-09-24T07:33Z
+- Summary: Information on the Recipient Profiles page as part of your Zscaler Data Loss Prevention (DLP) policies.
+
+Recipient profiles help your organization detect and manage sensitive data being sent to specific people. They are part of Zscaler's Data Loss Prevention (DLP) tools to use in policy rules that detect and take action on sensitive data across multiple channels. To learn more, see [About Data Loss Prevention](https://help.zscaler.com/zia/about-data-loss-prevention), [About Data at Rest Scanning DLP](https://help.zscaler.com/zia/about-data-rest-scanning-dlp), and [About Outbound Email Policy](https://help.zscaler.com/zia/about-outbound-email-policy).
+
+Recipient profiles provide the following benefits and enable you to:
+
+- Help your organization detect and manage sensitive data being sent to specific people.
+- Manage individual users and groups that you want to include or exclude from outbound email policy rules.
+- Easily edit recipient profiles to update all policy rules where the profiles are used.
+
+## About the Recipient Profiles Page
+
+On the Recipient Profiles page (Data Security > Email DLP > Recipient Profiles), you can do the following:
+
+1. Search for a recipient profile.
+2. [Add a recipient profile](https://help.zscaler.com/zia/adding-recipient-profiles).
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. Show filtering options for the table.
+5. Select filtering options for the table.
+6. View a list of all recipient profiles created for your organization. For recipient profiles, you can see:
+  1. **Profile Name**: The name of the recipient profiles. You can sort this column.
+  2. **Recipient Emails**: The recipient emails included in each profile. You can sort this column.
+  3. **Description**: The description or notes of the recipient profile. You can sort this column.
+7. [Edit](https://help.zscaler.com/zia/editing-recipient-profiles), [duplicate, or delete a recipient profile](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+
+[Image: The Recipient Profiles page shows a list of recipients and their details]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/about-redaction","lastmod":"2026-09-29T11:22Z","nid":"1516486"} -->
 ## About Redaction
 
 - Source: https://help.zscaler.com/zia/about-redaction
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Data at Rest Scanning Policies > Rights Management > About Redaction
-- Last modified: 2026-06-10T05:20Z
+- Last modified: 2026-09-29T11:22Z
 - Summary: Information about the Redaction page in the Zscaler Admin Console.
 
 The Redaction page lets you add, view, and configure redaction profiles to enforce rights management for your organization. You can use redaction profiles as part of your SaaS Security Data at Rest Scanning Data Loss Prevention (DLP) policy to hide sensitive content that triggers policy rules.
@@ -9382,78 +9730,20 @@ The Redaction page provides the following benefits and allows you to:
 
 ## About the Redaction Page
 
-On the Redaction page (Policies > Data Protection > Policy > Rights Management > Redaction), you can do the following:
+On the Redaction page (Data Security > DSPM > Rights Management > Redaction), you can do the following:
 
-1. [Go to the Watermarking page](https://help.zscaler.com/zia/about-watermarking).
+1. Search for a redaction profile.
 2. [Add a redaction profile](https://help.zscaler.com/zia/adding-editing-redaction-profiles).
-3. Search for a redaction profile.
-4. View a list of all redaction profiles configured for your organization. For redaction profiles, you can see:
+3. View a list of all redaction profiles configured for your organization. For redaction profiles, you can see:
   - **Profile Name**: The name of the redaction profile. You can sort this column.
-  - **Details**: The details for the redaction profile. You can sort this column.
-5. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-6. [Edit](https://help.zscaler.com/zia/adding-editing-redaction-profiles#edit-redaction-profile-section) or [delete](https://help.zscaler.com/zia/editing-deleting-duplicating-items) a redaction profile.
+  - **Redaction Type**: The type of redaction used (asterisks or hash signs). You can sort this column.
+  - **Actions**: Actions to [edit](https://help.zscaler.com/zia/adding-editing-watermark-profiles#edit-watermark-profile-section) or [delete](https://help.zscaler.com/zia/editing-deleting-duplicating-items) a redaction profile.
+4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+5. [Go to the Watermarking page](https://help.zscaler.com/zia/about-watermarking).
+
+[Image: About the Redaction page]
 
 <img src="/downloads/zia/policies/saas-security/data-rest-scanning-policies/rights-management/about-redaction/redaction-xc.png" data-entity-uuid="0" data-entity-type="image" alt="The Rights Management page includes the Redaction page." title="Redaction page" width="1608" height="364">
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/about-role-management","lastmod":"2026-08-28T13:40Z","nid":"1399851"} -->
-## About Role Management
-
-- Source: https://help.zscaler.com/zia/about-role-management
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role Management > About Role Management
-- Last modified: 2026-08-28T13:40Z
-- Summary: Information on managing Internet & SaaS admin roles in the Zscaler Admin Console, including admin rank, permissions, and functional scope.
-
-[Watch a video About Admin Roles](https://fast.wistia.net/embed/iframe/0wtybm3jod) (shows legacy UI).
-
-The admin roles that are assigned to admins dictate the level of access they have to the Zscaler Admin Console. Zscaler provides a default super admin role which has full access to the Zscaler Admin Console and Executive Insights App. This role is assigned to the default admin, but you can assign this role to other admins as necessary. For each additional role you create, you must define the role's access by specifying:
-
-- Admin rank
-- Permissions
-- Functional scope
-
-Admins who have permission to manage roles can only add, edit, or delete roles with less scope and lower [rank](https://help.zscaler.com/zia/about-admin-rank). To learn more, see [Adding Admin Roles](https://help.zscaler.com/zia/adding-admin-roles) and [Adding SD-WAN Partner API Roles](https://help.zscaler.com/zia/adding-partner-admin-roles).
-
-Configuring an admin is one of the tasks that you must complete while configuring role-based administration. To learn more, see [Configuring Role-Based Administration](https://help.zscaler.com/zia/configuring-role-based-administration).
-
-Role management provides the following benefits and enables you to:
-
-- Configure Internet & SaaS (ZIA) admins for the Zscaler Admin Console based on their role and functional scope in the organization.
-- Assign rank-based roles to admins to maintain hierarchy among the admins so that a lower-ranked admin can't modify the settings of an admin with a higher rank.
-- View all the configured admins and their access levels, functional scope, rank, and other information.
-
-The API role configured in the external OAuth 2.0 authentication server for a client application dictates the client application's permission and access to the different API categories in the Zscaler cloud service API. You add the API role using the Zscaler Admin Console and then configure the external OAuth 2.0 authentication server to use that role. This enables the different APIs within the API categories of the Zscaler cloud service API to be authenticated through the use of an OAuth 2.0 authentication server instead of the APIs passing an admin user, password, and API key.
-
-Adding an API role is one of the tasks that you must complete before you can configure the external OAuth 2.0 authentication server.
-
-To learn more, see [Securing Internet & SaaS APIs with OAuth 2.0](https://help.zscaler.com/zia/securing-zia-apis-oauth-2.0).
-
-## About the Role Management Page
-
-On the Role Management page for Internet & SaaS (Administration > Admin Management > Role Based Access Control > Internet & SaaS), you can do the following:
-
-1. [Add an admin role.](https://help.zscaler.com/zia/adding-admin-roles)
-2. [Add an SD-WAN partner API role.](https://help.zscaler.com/zia/adding-sd-wan-partner-api-roles)
-3. [Add an API role.](https://help.zscaler.com/zia/adding-api-roles)
-4. Search for a configured admin role, SD-WAN partner API role, or API role.
-5. View a list of all admin roles, SD-WAN partner API roles, and API roles configured for your organization. For each role, you can view the following information:
-  - **Name**: The name of the role.
-  - **Admin Rank**: The assigned [admin rank](https://help.zscaler.com/zia/about-admin-rank) for the admin role. This is visible only if admin ranking is enabled in the [Advanced Settings](https://help.zscaler.com/zia/about-advanced-settings#admin-ranking). Admin rank does not apply to SD-WAN partner API or API roles.
-  - **Full Access**: The areas of the Zscaler Admin Console where admins with this role have full access or, for API roles, the areas in the cloud service API to which the client application has full access.
-  - **View-Only Access**: The areas of the Zscaler Admin Console where admins with this role have view-only access or, for API roles, the areas in the cloud service API to which the client application has view-only access.
-  - **None Access**: The areas of the Zscaler Admin Console where admins with this role don't have any access or, for API roles, the areas in the cloud service API to which the client application doesn't have any access.
-  - **User Names**: This shows whether the usernames are visible or [obfuscated](https://help.zscaler.com/zia/obfuscating-user-names-zscaler-service) within the Zscaler service or APIs.
-  - **Device Information**: This shows whether the device information (i.e., device hostname, device name, and device owner) is visible or obfuscated within the Zscaler Admin Console or APIs.
-  - **Type**: The type of role. The admin role types are **Standard Admin**, **SD-WAN Partner API**, **Executive App Admin**, or **Standard & Executive App Admin**. The API role type is **API Client.**
-6. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
-7. [Edit the default Executive Insights App role.](https://help.zscaler.com/zia/editing-default-executive-insights-app-role)
-8. View a configured admin role with greater scope and higher rank, or an SD-WAN partner API role.
-9. [Edit a configured admin role with less scope and lower rank, an SD-WAN partner API role, or an API role.](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal)
-
-[Image: Role Management page for Internet & SaaSwhere you can see a list of admin roles and access details]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -9485,13 +9775,13 @@ To manage role assignments, contact Zscaler Support.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-root-certificates","lastmod":"2026-04-06T10:21Z","nid":"1449901"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-root-certificates","lastmod":"2026-09-07T22:54Z","nid":"1449901"} -->
 ## About Root Certificates
 
 - Source: https://help.zscaler.com/zia/about-root-certificates
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Certificates > About Root Certificates
-- Last modified: 2026-04-06T10:21Z
+- Last modified: 2026-09-07T22:54Z
 - Summary: Information about root certificates for third-party proxy services and isolation browser in the Zscaler Admin Console.
 
 If you are using a third-party proxy service or isolated browser, Zscaler provides administrators with the capability to upload root certificates of their choice to use for successful SSL/TLS inspection.
@@ -9503,18 +9793,18 @@ The Root Certificates page provides the following benefits and enables you to:
 
 ## About the Root Certificates Page
 
-On the Root Certificates page (Infrastructure > Internet & SaaS > Network Policies > Root Certificates), you can do the following:
+On the Root Certificates page (Internet Access > Resources > Root Certificates), you can do the following:
 
-1. [Add](https://help.zscaler.com/zia/adding-root-certificates) a new root certificate.
+1. [Add a new root certificate](https://help.zscaler.com/zia/adding-root-certificates).
 2. Search for a root certificate.
-3. View the list of all configured root certificates. For each root certificate, you can view the following details:
+3. [Customize the columns for the list](https://help.zscaler.com/unified/using-tables).
+4. View the list of all configured root certificates. For each root certificate, you can view the following details:
   - **Certificate Name**: The name of the root certificate.
   - **Uploaded on**: The uploaded date and time of the root certificate.
   - **Expiration Date**: The expiration date and time of the root certificate.
   - **Type**: The type of root certificate.
-4. Customize the columns for the list.
 5. Download any root certificates that are not the default root certificate.
-6. [Edit](https://help.zscaler.com/zia/editing-root-certificates) or [delete](https://help.zscaler.com/zia/deleting-root-certificates) any root certificates that are not the default root certificate.
+6. [Edit](https://help.zscaler.com/zia/editing-root-certificates-draft#editing-root-cert) or [delete](https://help.zscaler.com/zia/editing-root-certificates-draft#deleting-root-cert) any root certificates that are not the default root certificate.
 7. Click to view the full details for the default root certificate.
 
 [Image: The Root Certificates page in the Zscaler Admin Console]
@@ -9522,13 +9812,13 @@ On the Root Certificates page (Infrastructure > Internet & SaaS > Network Polici
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-rule-labels","lastmod":"2026-09-01T20:07Z","nid":"1402201"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-rule-labels","lastmod":"2026-10-01T12:01Z","nid":"1402201"} -->
 ## About Rule Labels
 
 - Source: https://help.zscaler.com/zia/about-rule-labels
 - Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > About Rule Labels
-- Last modified: 2026-09-01T20:07Z
+- Path: Internet & SaaS (ZIA) Help > Policies > Rule Labels > About Rule Labels
+- Last modified: 2026-10-01T12:01Z
 - Summary: Information on using Rule Labels in the Zscaler Admin Console.
 
 Zscaler's rule label feature allows you to logically group all your organization's policies. The feature consists of two parts: creating rule labels and associating the labels with all the policy rules. You can control the policy rules displayed under a rule label.
@@ -9541,11 +9831,13 @@ Policy rules that are not associated with a rule label are grouped under the Unt
 
 ## About the Rule Labels Page
 
-On the Rule Labels page (Policies > Common Configuration > Resources > Rule Labels), you can do the following:
+On the Rule Labels page (Internet Access > Resources > Rule Labels), you can do the following:
 
-1. [Add a rule label](https://help.zscaler.com/zia/adding-rule-label).
-2. Search for a configured rule label.
-3. View a list of all configured rule labels. For each rule label, you can see and sort the following:
+1. Search for a configured rule label.
+2. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+3. Edit a rule label.
+4. Delete a rule label.
+5. View a list of all configured rule labels. For each rule label, you can see and sort the following:
 
 - **Name**: The name of the rule label that is displayed when configuring a policy rule.
 - **Number of Policies and Rules Tagged**: The number of policies and rules with which the rule label is associated.
@@ -9553,8 +9845,7 @@ On the Rule Labels page (Policies > Common Configuration > Resources > Rule Labe
 - **Last Modified On**: The date and time on which the rule label was last modified.
 - **Description**: The description of the rule label if available.
 
-1. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-2. [Edit, duplicate, or delete a rule label](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+1. [Add a rule label](https://help.zscaler.com/zia/adding-rule-label).
 
 You can delete a rule label only if it's not associated with any policy rule.
 
@@ -9563,13 +9854,13 @@ You can delete a rule label only if it's not associated with any policy rule.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-saas-application-tenants","lastmod":"2026-06-04T04:50Z","nid":"1401251"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-saas-application-tenants","lastmod":"2026-09-23T02:11Z","nid":"1401251"} -->
 ## About SaaS Application Tenants
 
 - Source: https://help.zscaler.com/zia/about-saas-application-tenants
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > About SaaS Application Tenants
-- Last modified: 2026-06-04T04:50Z
+- Last modified: 2026-09-23T02:11Z
 - Summary: Information on SaaS Application tenants for Data at Rest Scanning.
 
 [Watch a video about SaaS Application Tenants](https://fast.wistia.net/embed/iframe/net3zjd13m) (shows legacy UI).
@@ -9586,7 +9877,7 @@ Zscaler has multiple SaaS application tenant technology partners. To learn more 
 
 ## About the SaaS Application Tenants Page
 
-On the SaaS Application Tenants page (Policies > Common Configuration > Out-of-Band CASB > SaaS Application Tenants), you can do the following:
+On the SaaS Application Tenants page (Data Security > DSPM > SaaS Application Tenants), you can do the following:
 
 1. Go to the [Add SaaS Application Tenant](https://help.zscaler.com/zia/adding-saas-application-tenants) page.
 2. Go to the [Manage SaaS Application Components](https://help.zscaler.com/zia/manage-saas-application-components) page.
@@ -9602,7 +9893,7 @@ On the SaaS Application Tenants page (Policies > Common Configuration > Out-of-B
     - **Reauthorization Required**: Edit the tenant, and click **Reauthorize** to log in to the SaaS application and give Zscaler access to it. See image. If you're reauthorizing GitHub, you must revoke the existing Zscaler OAuth application authorization in the GitHub portal. To learn more, refer to the [GitHub documentation](https://docs.github.com/en/github/authenticating-to-github/reviewing-your-authorized-integrations).
   - **Last Modified On**: The last time the SaaS application tenant was edited.
   - **Last Modified By**: The name of the admin who last edited the SaaS application tenant.
-  - **Owner**: Indicates whether the SaaS application tenant was created in Internet & SaaS (ZIA) or Zscaler Digital Experience (ZDX). If the tenant was created in ZDX, the delete functionality is removed in Internet & SaaS. Edits in Internet & SaaS for tenants created in ZDX are allowed on any fields except those relating to Workflow Automation. To learn more about adding or editing applications in ZDX, see [About Applications](https://help.zscaler.com/zdx/about-applications).
+  - **Owner**: Indicates whether the SaaS application tenant was created in Internet & SaaS (ZIA) or Digital Experience (ZDX). If the tenant was created in ZDX, the delete functionality is removed in Internet & SaaS. Edits in Internet & SaaS for tenants created in ZDX are allowed on any fields except those relating to Workflow Automation. To learn more about adding or editing applications in ZDX, see [About Applications](https://help.zscaler.com/zdx/about-applications).
   - **Policy Configured**: The Data at Rest Scanning policies ([DLP](https://help.zscaler.com/zia/about-saas-security-api-dlp) and [Malware Detection](https://help.zscaler.com/zia/about-saas-security-api-malware-detection)) configured for the SaaS application tenant.
   - **External Trusted Domain Profiles**: Displays the total number of added [external trusted domains](https://help.zscaler.com/zia/adding-saas-application-tenants). Click to view a list of the domains. This only applies to email SaaS application tenants. See image.
   - **External Trusted User Profiles**: Displays the total number of added [external trusted users](https://help.zscaler.com/zia/adding-saas-application-tenants). Click to view a list of the users. This only applies to email SaaS application tenants. See image.
@@ -9621,13 +9912,13 @@ On the SaaS Application Tenants page (Policies > Common Configuration > Out-of-B
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-saas-assets-summary-report","lastmod":"2026-06-19T06:47Z","nid":"1401756"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-saas-assets-summary-report","lastmod":"2026-09-18T03:49Z","nid":"1401756"} -->
 ## About the SaaS Assets Summary Report
 
 - Source: https://help.zscaler.com/zia/about-saas-assets-summary-report
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > About the SaaS Assets Summary Report
-- Last modified: 2026-06-19T06:47Z
+- Last modified: 2026-09-18T03:49Z
 - Summary: Information about the SaaS Assets Summary Report, which shows a summary of SaaS Security API-based discovery and remediation activities.
 
 The SaaS Assets Summary Report allows you to view a summary of SaaS Security based discovery and remediation activities. This serves as the starting point when investigating what data is affected and identifying risky users.
@@ -9641,7 +9932,7 @@ To enable Amazon S3, Google Cloud Platform, and Microsoft Azure for your organiz
 
 ## About the SaaS Assets Summary Report Page
 
-On the SaaS Assets Summary Report Page (click Analytics, enable the toggle Switch to Existing Reports, and then go to Internet & SaaS > Analytics > SaaS Assets Summary Report), you can do the following:
+On the SaaS Assets Summary Report Page (Analytics > Reports > SaaS Assets Summary Report), you can do the following:
 
 1. Print the report.
 2. Filter the report by application or its category:
@@ -9676,13 +9967,13 @@ The **unknown_saas_user*** is a user who can access the SaaS application but isn
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-saas-security-insights","lastmod":"2026-05-20T22:58Z","nid":"1401386"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-saas-security-insights","lastmod":"2026-09-30T08:04Z","nid":"1401386"} -->
 ## About SaaS Security Insights
 
 - Source: https://help.zscaler.com/zia/about-saas-security-insights
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > About SaaS Security Insights
-- Last modified: 2026-05-20T22:58Z
+- Last modified: 2026-09-30T08:04Z
 - Summary: Information on Zscaler's SaaS Security Insights page and the different sections and filters on the page.
 
 The SaaS Security Insights page is where you can view and define information that you want to view when analyzing files scanned through charts. To learn more about how to analyze your traffic on the Insights pages, see [Analyzing Traffic Using Insights](https://help.zscaler.com/zia/analyzing-traffic-using-insights).
@@ -9696,7 +9987,7 @@ To enable Amazon S3, Google Cloud Platform, and Microsoft Azure for your organiz
 
 ## About the SaaS Security Insights Page
 
-On the SaaS Security Insights page (Logs > Insights > SaaS Security Insights), you can do the following:
+On the SaaS Security Insights page (Data Explorer > Internet & SaaS > SaaS Security Insights), you can do the following:
 
 1. View the [Logs](https://help.zscaler.com/zia/saas-security-insights-logs) tab.
 2. Clear all filters.
@@ -10487,13 +10778,13 @@ When you select this data type, the **Application Category** section automatical
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-saas-security-insights-logs","lastmod":"2026-07-28T04:31Z","nid":"1401431"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-saas-security-insights-logs","lastmod":"2026-09-25T03:02Z","nid":"1401431"} -->
 ## About SaaS Security Insights Logs
 
 - Source: https://help.zscaler.com/zia/about-saas-security-insights-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > About SaaS Security Insights Logs
-- Last modified: 2026-07-28T04:31Z
+- Last modified: 2026-09-25T03:02Z
 - Summary: Information on Zscaler's SaaS Security Insights Logs page and the different sections and filters on the page.
 
 The Zscaler service provides real-time log consolidation across the globe, so you can view every scan performed by the Zscaler SaaS Connector of data based on your SaaS application tenant.
@@ -10717,6 +11008,7 @@ Each application category has its own set of log filters.
   - Sandbox
   - Spyware
   - Virus
+- **User Group**: Use this filter to view records associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **None**. You can search for specific user groups.
 
 - **Action**: Use this filter to view records based on the Data at Rest Scanning DLP policy rule action. The default option for this filter is **None**. You can search for specific actions. The following actions appear under this filter:
   - Failed to make external sharing read only
@@ -10789,6 +11081,7 @@ Each application category has its own set of log filters.
   - Unwanted Application
   - Web Spam
   - Worm
+- **User Group**: Use this filter to view records associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **None**. You can search for specific user groups.
 
 - **Accessibility Flag:**A multivalue flag that provides the accessibility information of the asset.
   - **Accessible by MS Copilot**: Indicates if the asset is accessible by Microsoft Copilot.
@@ -10927,6 +11220,7 @@ Each application category has its own set of log filters.
   - Sandbox
   - Spyware
   - Virus
+- **User Group**: Use this filter to view records associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **None**. You can search for specific user groups.
 
 - **Accessibility Flag**: A multivalue flag that provides the accessibility information of the asset.
   - **Accessible by MS Copilot**: Indicates if the asset is accessible by Microsoft Copilot.
@@ -11101,6 +11395,7 @@ Each application category has its own set of log filters.
   - Spyware
   - Virus
 - **User**: Use this filter to view records associated with the owner of the questionable file. The default option for this filter is **Any**. Select **Hide Deleted**if you want to remove deleted users from the list. Click **Select All** to select all the configured users. You can search for specific file owners. You can choose to include or exclude certain file owners.
+- **User Group**: Use this filter to view records associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **None**. You can search for specific user groups.
 
 - **Action**: Use this filter to view records based on the Data at Rest Scanning DLP policy rule action. The default option for this filter is **None**. You can search for specific actions. Choose the action **Report Incident Only**under this filter.
 - **Advanced Threat Category**: Use this filter to view records associated with a specific advanced threat category. These threats are detected by **Malware Protection**. The default option for this filter is **Any**. You can search for specific categories. You can also use the toggle to turn on **Threat Name Search** to enter all or part of the threat name in the text field, and choose **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**. The following categories appear under this filter:
@@ -11227,6 +11522,7 @@ Each application category has its own set of log filters.
   - Spyware
   - Virus
 - **User**: Use this filter to view records associated with a specific user. Select **Hide Deleted**if you want to remove deleted users from the list. Click **Select All** to select all the configured users.
+- **User Group**: Use this filter to view records associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **None**. You can search for specific user groups.
 
 - **Action**: Use this filter to view records based on the Data at Rest Scanning DLP policy rule action. The default option for this filter is **None**. You can search for specific actions. The following actions appear under this filter:
   - Failed to make external sharing read only
@@ -11390,6 +11686,7 @@ Each application category has its own set of log filters.
   - Sandbox
   - Spyware
   - Virus
+- **User Group**: Use this filter to view records associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **None**. You can search for specific user groups.
 
 To enable Amazon S3, Google Cloud Platform, and Microsoft Azure for your organization, contact your Zscaler Account team.
 
@@ -11553,6 +11850,7 @@ To enable Amazon S3, Google Cloud Platform, and Microsoft Azure for your organiz
   - Spyware
   - Virus
 - **User**: Use this filter to view records associated with the owner of the questionable file. The default option for this filter is **Any**. Select **Hide Deleted**if you want to remove deleted users from the list. Click **Select All** to select all the configured users. You can search for specific file owners. You can choose to include or exclude certain file owners.
+- **User Group**: Use this filter to view records associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **None**. You can search for specific user groups.
 
 - **Action**: Use this filter to view records based on the Data at Rest Scanning DLP policy rule action. The default option for this filter is **None**. You can search for specific actions. The following actions appear under this filter:
   - Failed to make external sharing read only
@@ -11711,6 +12009,7 @@ To enable Amazon S3, Google Cloud Platform, and Microsoft Azure for your organiz
   - Sandbox
   - Spyware
   - Virus
+- **User Group**: Use this filter to view records associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **None**. You can search for specific user groups.
 
 - **Action**: The Data at Rest Scanning DLP policy rule action.
 
@@ -12304,13 +12603,13 @@ View the hosting and security characteristics of each application. You can modif
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-saas-security-scan-configuration","lastmod":"2026-06-16T22:29Z","nid":"1401461"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-saas-security-scan-configuration","lastmod":"2026-09-29T02:05Z","nid":"1401461"} -->
 ## About SaaS Security Scan Configuration
 
 - Source: https://help.zscaler.com/zia/about-saas-security-scan-configuration
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Data at Rest Scanning Policies > About SaaS Security Scan Configuration
-- Last modified: 2026-06-16T22:29Z
+- Last modified: 2026-09-29T02:05Z
 - Summary: Information on Zscaler SaaS Security Scan Configuration and where to configure scan schedules.
 
 [Watch a video about Scan Configuration](https://fast.wistia.net/embed/iframe/3of852jyfl) (shows legacy UI).
@@ -12328,41 +12627,38 @@ To learn more, see [Understanding SaaS Security Scan Schedules](https://help.zsc
 
 ## About the SaaS Security Scan Configuration Page
 
-On the Scan Configuration page (Policies > Data Protection > Policy > Scan Configuration), you can do the following:
+On the Scan Configuration page (Data Security > DSPM > SaaS Scan Configuration), you can do the following:
 
-1. [Add a new scan schedule.](https://help.zscaler.com/zia/configuring-saas-security-api-scan-schedules)
-2. Search for a scan schedule.
-3. View a list of all configured scan schedules. For scan schedules, you can see the following:
+1. Search for a scan schedule.
+2. [Add a new scan schedule.](https://help.zscaler.com/zia/configuring-saas-security-api-scan-schedules)
+3. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
+4. View a list of all configured scan schedules. For scan schedules, you can see the following:
   - **SaaS Application Tenant**: The [SaaS application tenant](https://help.zscaler.com/zia/about-saas-application-tenants) chosen for the scan schedule.
-  - **Schedule Criteria**: The specified policy and the amount of historical data inspected by the scan.
+  - **Schedule Criteria**: The criteria for the scan:
+    - **Policy**: The specified DLP policy for the scan.
+    - **Data to Scan**: The amount of historical data inspected by the scan.
   - **Description**: The description of the scan schedule, if available.
   - **Status**: Displays the status of each scan.
     - **Scan Initialized**: When a scan is initialized, the necessary prerequisites for the scan are verified and evaluated to ensure readiness. Scan Initialized does not indicate the actual start of the scanning process. When the scan is initialized, the date and time of the initialization are also displayed.
     - **Running**: A scan starts running when the initialization is completed successfully. When the scan is running, the date and time the scan started are also displayed.
     - **Scan Stopped**: When a scan stops, the date and time the scan stopped, and the reason are also displayed.
-4. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
-5. Start a scan at any time.
+  - **Actions**: The buttons to start, stop, [edit, or delete a scan](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+5. Start or stop a scan at any time. Stopping a scan flushes the processing queue. If you stop the scan, you must use one of the following options to start it again. If you configure the scan to inspect all historical data, the scan processes all data from the beginning. This might result in duplicate results for data that the scan has already inspected.; First, analyze your [SaaS Security Insights logs](https://help.zscaler.com/zia/saas-security-insights-logs) to find when the scan stopped processing your historical data. Then, configure the scan to inspect data starting from that date, so it ignores already processed data.
 6. [Edit or delete a scan schedule.](https://help.zscaler.com/zia/editing-deleting-duplicating-items)
 7. Refresh the status of a scan at any time.
-8. Stop a scan at any time.
 
-Stopping a scan flushes the processing queue. If you stop the scan, you must use one of the following options to start it again.
-
-- If you configure the scan to inspect all historical data, the scan processes all data from the beginning. This might result in duplicate results for data that the scan has already inspected.
-- First, analyze your [SaaS Security Insights logs](https://help.zscaler.com/zia/saas-security-insights-logs) to find when the scan stopped processing your historical data. Then, configure the scan to inspect data starting from that date, so it ignores already processed data.
-
-[Image: Add a scan schedule for selected SaaS applications.]
+[Image: Add a scan schedule for selected SaaS applications]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-saas-workflows","lastmod":"2026-06-12T03:41Z","nid":"1532672"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-saas-workflows","lastmod":"2026-09-29T03:44Z","nid":"1532672"} -->
 ## About SaaS Workflows
 
 - Source: https://help.zscaler.com/zia/about-saas-workflows
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > About SaaS Workflows
-- Last modified: 2026-06-12T03:41Z
+- Last modified: 2026-09-29T03:44Z
 - Summary: Information about SaaS Workflows in the Zscaler Admin Console.
 
 SaaS Workflows in the Zscaler Admin Console offer a way to automate routine, manual tasks across your SaaS applications through the creation and execution of automated workflows. This automation helps maintain consistent security and compliance for data at rest by orchestrating actions such as bulk remediation, access and content clean-up, and exposure reduction, thereby minimizing the need for repetitive administrator intervention.
@@ -12376,7 +12672,7 @@ The SaaS Workflows page provides the following benefits and enables you to:
 
 ## About the SaaS Workflows Page
 
-On the SaaS Workflows page (click Analytics, enable the toggle Switch to Existing Reports, and then go to Internet & SaaS > Analytics > SaaS Workflows), you can view the following:
+On the SaaS Workflows page (Data Security > DSPM > Workflows), you can view the following:
 
 1. [View the Microsoft Copilot Readiness Assessment page.](https://help.zscaler.com/zia/about-microsoft-copilot-readiness-assessment)
 2. Remediation Jobs:
@@ -12591,13 +12887,13 @@ On the Sandbox page (Policies > Cybersecurity > Inline Security > Sandbox > Sand
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-sandbox-activity-report","lastmod":"2026-06-18T02:35Z","nid":"1400911"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-sandbox-activity-report","lastmod":"2026-09-16T07:49Z","nid":"1400911"} -->
 ## About the Sandbox Activity Report
 
 - Source: https://help.zscaler.com/zia/about-sandbox-activity-report
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > About the Sandbox Activity Report
-- Last modified: 2026-06-18T02:35Z
+- Last modified: 2026-09-16T07:49Z
 - Summary: Information on the Sandbox Activity Report in the Zscaler Admin Console.
 
 The Sandbox Activity Report highlights the [Sandbox policy action](https://help.zscaler.com/zia/configuring-sandbox-policy) taken for known and unknown files in your organization. Unknown files are files that the sandbox encounters for the first time. Files known by cloud effect are files from any organization that the sandbox analyzed and classified as malicious or benign.
@@ -12606,7 +12902,7 @@ The Sandbox Activity Report also highlights the threat categories, threat names,
 
 ## About the Sandbox Activity Report Page
 
-On the Sandbox Activity Report page (click Analytics, enable the toggle Switch to Existing Reports, and then go to Internet & SaaS > Analytics > Sandbox Activity Report), you can do the following:
+On the Sandbox Activity Report page (Analytics > Reports > Sandbox Activity Report), you can do the following:
 
 1. View the [Sandbox Files Found Malicious Report](https://help.zscaler.com/zia/about-sandbox-files-found-malicious-report) (requires Advanced Sandbox).
 2. Choose the week to view the report for.
@@ -12643,14 +12939,14 @@ Malicious files downloaded due to the **Allow & Scan** policy action are [patien
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-sandbox-api-token","lastmod":"2026-04-09T06:06Z","nid":"1415066"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-sandbox-api-token","lastmod":"2026-09-30T18:16Z","nid":"1415066"} -->
 ## About Sandbox API Token
 
 - Source: https://help.zscaler.com/zia/about-sandbox-api-token
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > API Security > About Sandbox API Token
-- Last modified: 2026-04-09T06:06Z
-- Summary: Information about the API token used for authenticating Sandbox Submission API
+- Last modified: 2026-09-30T18:16Z
+- Summary: Information about the API token used for authenticating Sandbox Submission API.
 
 You can authenticate the Sandbox Submission API using a combination of API token and Internet & SaaS (ZIA) admin credentials (i.e., username and password).
 
@@ -12660,12 +12956,7 @@ Sandbox API Token enhances your API experience by enabling you to:
 - Prevent API service abuse via stolen API token by regenerating the API token whenever required or in events you suspect vulnerabilities for an attack.
 - Ensure no further API requests are possible after you finish consuming the API services by deleting the API token.
 
-You need a valid [Sandbox subscription](https://help.zscaler.com/unified/viewing-subscriptions) to access and manage your organization’s API token. When the Sandbox subscription is applied to your organization, your organization's API token is initially provisioned by Zscaler, enabled, and displayed within the Sandbox API Token page along with the base URL. The base URL and token are required in order to [authenticate via the API and create a session](https://help.zscaler.com/zia/api-getting-started#CreateSession).
-
-On the Sandbox API Token page, you can:
-
-- Add, Remove, and Edit the API token.
-- Regenerate the API token, which randomly generates a new token string that replaces the old string.
+You need a valid [Sandbox subscription](https://help.zscaler.com/unified/viewing-subscriptions) to access and manage your organization’s API token. When the Sandbox subscription is applied to your organization, your organization's API token is initially provisioned by Zscaler, enabled, and displayed within the Sandbox API Token page along with the base URL. The base URL and token are required to [authenticate via the API and create a session](https://help.zscaler.com/zia/api-getting-started#CreateSession).
 
 Regenerating an API token immediately invalidates the old token. If you replace or edit a token, you also need to replace any references to the old token within any code developed for your organization.
 
@@ -12673,36 +12964,34 @@ An organization can have up to 5 API tokens. However, if you are managing multip
 
 Adding, or regenerating an API token, immediately invalidates the old token. If you replace or edit a token, you also need to replace any references to the old token within any code developed for your organization. To learn more about the Sandbox Submission API, including developer guides and API endpoints, see [Getting Started](https://help.zscaler.com/zia/api-getting-started) and [API Reference](https://help.zscaler.com/zia/about-api).
 
-Admins have view access to the Sandbox API Token page information within the [Zscaler Cloud Connector Portal](https://help.zscaler.com/cloud-branch-connector/about-cloud-connector-portal).
-
 ## About the Sandbox API Token Page
 
 On the Sandbox API Token page, you can do the following:
 
-1. Go to the [Cloud Service API Key](https://help.zscaler.com/zia/about-cloud-service-api-key) or [OAuth 2.0 Authorization Servers](https://help.zscaler.com/zia/about-oauth-2.0-authorization-servers) tab.
-2. View the base URL for the Sandbox Submission API.
-3. [Add a new Sandbox API Token.](https://help.zscaler.com/zia/managing-sandbox-api-token#AddToken) You must delete the existing token before adding a new one.
+1. View the base URL for the Sandbox Submission API.
+2. [Add a new Sandbox API Token.](https://help.zscaler.com/zia/managing-sandbox-api-token#AddToken) You must delete the existing token before adding a new one.
+3. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
 4. View information regarding your organization's sandbox API token. For the token, you can see:
   - **Sandbox API Token:** The API token string, displayed upon clicking the eye icon.
   - **Last Modified By:** The last admin to modify the token.
   - **Last Modified On:** The date and time the token was last modified.
+  - **Actions:**The add, regenerate, or delete actions that you can perform on the sandbox API token.
 5. Edit token name.
 6. [Regenerate the API token.](https://help.zscaler.com/zia/managing-sandbox-api-token#RegenerateToken)
 7. [Delete the API token.](https://help.zscaler.com/zia/managing-sandbox-api-token#DeleteToken)
-8. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
 
-[Image: A screenshot of the Sandbox API Token page]
+[Image: Sandbox API Token page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-sandbox-end-user-notifications","lastmod":"2026-04-28T08:12Z","nid":"1400381"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-sandbox-end-user-notifications","lastmod":"2026-09-16T03:49Z","nid":"1400381"} -->
 ## About Sandbox End User Notifications
 
 - Source: https://help.zscaler.com/zia/about-sandbox-end-user-notifications
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Sandbox > About Sandbox End User Notifications
-- Last modified: 2026-04-28T08:12Z
+- Last modified: 2026-09-16T03:49Z
 - Summary: Information on the end user notifications for the Zscaler Sandbox.
 
 When [configuring](https://help.zscaler.com/zia/configuring-sandbox-policy) the Sandbox policy, you can choose the action the Sandbox takes when users download a file. Depending on the following action you choose, your users may see a particular end user notification (EUN).
@@ -12721,7 +13010,7 @@ If your organization has Advanced Sandbox, you can add rules to the Sandbox poli
 
 ****[Image: Screenshot of the Sandbox quarantine end user notification (EUN)]****
 
-You can customize this quarantine notification on the End User Notifications page. To learn more, see [Configuring the Quarantine Notification](https://help.zscaler.com/zia/configuring-quarantine-notification).
+You can customize this quarantine notification on the End User Notifications page. To learn more, see [Configuring Browser-Based Global End User Notifications](https://help.zscaler.com/zia/configuring-browser-based-global-end-user-notifications).
 
 The Sandbox analysis may take a few minutes, depending on the size and type of the file. If the file is safe, the download begins automatically. If the file is unsafe, then based on your configured Sandbox policy, the download might be blocked.
 
@@ -12731,18 +13020,18 @@ If you choose **Block** for **Action for Subsequent Downloads**, users are unabl
 
 ****[Image: Screenshot of the Sandbox block end user notification (EUN)]****
 
-You can customize this block notification on the End User Notifications page under Security Violation Notifications. To learn more, see [Configuring Block Notifications](https://help.zscaler.com/zia/configuring-block-notifications).
+You can customize this block notification on the End User Notifications page under Security Violation Notifications. To learn more, see [Configuring Browser-Based Global End User Notifications](https://help.zscaler.com/zia/configuring-browser-based-global-end-user-notifications).
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-sandbox-files-found-malicious-report","lastmod":"2026-06-18T03:22Z","nid":"1400916"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-sandbox-files-found-malicious-report","lastmod":"2026-09-16T08:12Z","nid":"1400916"} -->
 ## About the Sandbox Files Found Malicious Report
 
 - Source: https://help.zscaler.com/zia/about-sandbox-files-found-malicious-report
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > About the Sandbox Files Found Malicious Report
-- Last modified: 2026-06-18T03:22Z
+- Last modified: 2026-09-16T08:12Z
 - Summary: Information on the Sandbox Files Found Malicious Report in the Zscaler Admin Console.
 
 You must have Advanced Sandbox to view the Sandbox Files Found Malicious Report.
@@ -12755,7 +13044,7 @@ See image.
 
 ## About the Sandbox Files Found Malicious Report Page
 
-On the Sandbox Files Found Malicious page (click Analytics, enable the toggle Switch to Existing Reports, and then go to Internet & SaaS > Analytics > Sandbox Activity Report > Sandbox Files Found Malicious), you can do the following:
+On the Sandbox Files Found Malicious page (Analytics > Reports > Sandbox Activity Report > Sandbox Files Found Malicious), you can do the following:
 
 1. [View the Sandbox Activity Report](https://help.zscaler.com/zia/about-sandbox-activity-report).
 2. Choose the week to view the report for.
@@ -12784,13 +13073,13 @@ On the Sandbox Files Found Malicious page (click Analytics, enable the toggle Sw
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-scheduled-reports","lastmod":"2026-06-21T21:17Z","nid":"1399406"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-scheduled-reports","lastmod":"2026-09-28T08:48Z","nid":"1399406"} -->
 ## About Scheduled Reports
 
 - Source: https://help.zscaler.com/zia/about-scheduled-reports
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > About Scheduled Reports
-- Last modified: 2026-06-21T21:17Z
+- Last modified: 2026-09-28T08:48Z
 - Summary: Information on scheduled reports (standard and custom) and the Scheduled Reports tab in the Zscaler Admin Console.
 
 You can schedule standard and custom reports for regular distribution to specified recipients. For example, you can schedule the Web Overview report for weekly distribution to your IT department and CIO.
@@ -12803,7 +13092,7 @@ The scheduled reports are emailed as links to the recipients. When the recipient
 
 ## About the Scheduled Reports Page
 
-On the Scheduled Reports tab (click Analytics, enable the toggle Switch to Existing Reports, and then go to Internet & SaaS > Analytics > Interactive Reports > Scheduled Reports), you can do the following:
+On the Scheduled Reports tab (Analytics > Reports > Interactive Reports > Scheduled Reports), you can do the following:
 
 1. Add a scheduled report. See [Scheduling Reports](https://help.zscaler.com/zia/scheduling-reports).
 2. View a list of all configured scheduled reports. For each report, you can see:
@@ -12812,7 +13101,7 @@ On the Scheduled Reports tab (click Analytics, enable the toggle Switch to Exist
   - **Schedule:** The frequency and the time of day.
   - **Status:** The status of the scheduled report.
   - **Recipients**: The recipients who will receive the scheduled report.
-3. Modify the table and its columns.
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
 4. [Edit a scheduled report](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
 
 A super admin can view and edit all scheduled reports. Other administrators can view and manage their own scheduled reports only.
@@ -12981,13 +13270,13 @@ On the**Notifications** tab, you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-source-ip-groups","lastmod":"2026-09-03T05:43Z","nid":"1400191"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-source-ip-groups","lastmod":"2026-09-15T21:18Z","nid":"1400191"} -->
 ## About Source IP Groups
 
 - Source: https://help.zscaler.com/zia/about-source-ip-groups
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > About Source IP Groups
-- Last modified: 2026-09-03T05:43Z
+- Last modified: 2026-09-15T21:18Z
 - Summary: Information on source IP groups that can be used in various policy configurations in Internet & SaaS (ZIA).
 
 [Watch a video about IP and FQDN Groups](https://fast.wistia.net/embed/iframe/t9xati8hoh) (shows legacy UI).
@@ -13009,7 +13298,7 @@ You can use the following pages to create and manage source IP address groups:
 - About the Source IPv4 Groups Page
 - About the Source IPv6 Groups Page
 
-On the Source IPv4 Groups page (Policies > Access Control > Firewall > IP & FQDN Groups > Source IPv4 Groups), you can do the following:
+On the Source IPv4 Groups page (Internet Access > Resources > IP & FQDN Groups > Source IPv4 Groups), you can do the following:
 
 1. Search for a source IPv4 group.
 2. [Add a source IPv4 group](https://help.zscaler.com/zia/configuring-source-ip-groups).
@@ -13026,15 +13315,15 @@ On the Source IPv4 Groups page (Policies > Access Control > Firewall > IP & FQDN
 
 [Image: The Source IPv4 Groups page shows a list of configured source IP groups, IP addresses in each group, and descriptions]
 
-On the Source IPv6 Groups page (Policies > Access Control > Firewall > IP & FQDN Groups > Source IPv6 Groups), you can do the following:
+On the Source IPv6 Groups page (Internet Access > Resources > IP & FQDN Groups > Source IPv6 Groups), you can do the following:
 
 1. Search for a source IPv6 group.
-2. View the available source IPv6 groups. Currently, only the predefined **All IPv6** group is available. For this group, you can view:
+2. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+3. View the available source IPv6 groups. Currently, only the predefined **All IPv6** group is available. For this group, you can view:
   - **Name**: The name of the source IPv6 group. You can sort this column.
   - **IP Addresses**: The IPv6 addresses included in the group.
   - **Description**: The description of the group. You can sort this column.
   - **Actions**: An option to view details about this group.
-3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
 4. View details for read-only predefined groups.
 5. Pagination is supported to display up to 500 groups per page.
 6. Go to the Source IPv4 Groups, [Destination IPv4 Groups](https://help.zscaler.com/zia/about-destination-ip-groups#ipv4), [Destination IPv6 Groups](https://help.zscaler.com/zia/about-destination-ip-groups#ipv6), and [IP Pool](https://help.zscaler.com/zia/about-ip-pool) pages.
@@ -13044,13 +13333,13 @@ On the Source IPv6 Groups page (Policies > Access Control > Firewall > IP & FQDN
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-ssltls-inspection-policy","lastmod":"2026-07-02T22:57Z","nid":"1401846"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-ssltls-inspection-policy","lastmod":"2026-09-25T04:37Z","nid":"1401846"} -->
 ## About SSL/TLS Inspection Policy
 
 - Source: https://help.zscaler.com/zia/about-ssltls-inspection-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SSL/TLS Inspection > About SSL/TLS Inspection Policy
-- Last modified: 2026-07-02T22:57Z
+- Last modified: 2026-09-25T04:37Z
 - Summary: Information on the SSL/TLS Inspection Policy page in the Zscaler Admin Console.
 
 [Watch a video about SSL/TLS Inspection Policy](https://fast.wistia.net/embed/iframe/asxajs13w9) (shows legacy UI).
@@ -13083,44 +13372,43 @@ These rules are not editable and can only be implemented as is.
 
 ## About the SSL/TLS Inspection Policy Page
 
-On the SSL/TLS Inspection Policy page (Policies > Common Configuration > SSL/TLS Inspection > SSL/TLS Inspection Policy), you can do the following:
+On the SSL/TLS Inspection Policy page (Internet Access > Policy > SSL/TLS Inspection), you can do the following:
 
 1. View the recommended SSL/TLS Inspection policy. See image.
 2. [Add an SSL/TLS Inspection rule](https://help.zscaler.com/zia/configuring-ssltls-inspection-policy).
-3. Filter the SSL/TLS Inspection rule by Rule Label and then click **Clear**to remove the filter.
+3. Filter the SSL/TLS Inspection rule by Rule Label.
 4. Search for an SSL/TLS Inspection rule.
-5. Select the following column options to view the SSL/TLS Inspection rules accordingly and click **Apply**: See image.
-  - List of columns
+5. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables#hide). See image.
 6. View a list of all SSL/TLS Inspection rules. For each SSL/TLS Inspection rule, you can view:
-  - **Rule Order**: The order of the rule.
-  - **Rule Name**: The name of the rule.
-  - **Rule Action**: The action configured for the rule.
-  - **Rule Label**: The label of the policy rule, if available.
-  - **Description**: The description of the policy rule, if available.
-7. Arrange the **Rule Order** or **Rule Name** column in ascending or descending order.
-8. [Edit, duplicate, or delete an SSL/TLS Inspection rule](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+  - Policy Rule Details
+7. [Edit, duplicate, or delete an SSL/TLS Inspection rule](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+8. The SSL/TLS Inspection rules are paginated with up to 500 rules displayed per page.
 
-- Rule Name
-- Rule Action
-- Source IP Groups
-- URL Categories
-- Cloud Applications
-- Destination Groups
-- Forwarding Gateways
-- ZPA Application Segment
-- Locations
-- Location Groups
-- Users
-- Groups
-- Departments
-- Devices
-- Device Groups
-- Workload Groups
-- Remote Users with Kerberos
-- Device Trust Level
-- CONNECT User-Agent
-- Rule Label
-- Description
+- **Rule Order**: The order of the rule. SSL/TLS Inspection rules are evaluated in ascending numerical order. You can sort this column.
+- **Rule Name**: The name of the rule. You can sort this column.
+- **Admin Rank**: The admin rank of the rule. You can sort this column.
+- **Rule Action**: The action configured for the rule.
+- **Rule Label**: The label of the policy rule, if available.
+- **Source IP Groups**: The source IP groups of the rule, if available.
+- **URL Categories**: The URL categories of the rule, if available.
+- **Cloud Applications**: The cloud applications selected for the rule.
+- **Destination Groups**: The destination groups of the rule, if available.
+- **Forwarding Gateways**: The forwarding gateways of the rule, if available.
+- **ZPA Application Segment**: The Private Access (ZPA) application segment of the rule, if available.
+- **Locations**: The locations of the rule, if available.
+- **Location Groups**: The location groups of the rule, if available.
+- **Users**: The users of the rule, if available.
+- **Groups**: The groups of the rule, if available.
+- **Departments**: The departments of the rule, if available.
+- **Devices**: The devices of the rule, if available.
+- **Device Groups**: The device groups of the rule, if available.
+- **Remote Users with Kerberos**: The remote users with Kerberos of the rule, if available.
+- **Device Trust Level**: The device trust level of the rule, if available.
+- **User Agent**: The user agents of the rule, if available.
+- **Endpoint Applications**: The endpoint applications of the rule, if available.
+- **Endpoint Application Tags**: The endpoint application tags of the rule, if available.
+- **Endpoint Application Risk Level**: The endpoint application risk level of the rule, if available.
+- **Description**: The description of the policy rule, if available.
 
 [Image: SSL/TLS Inspection Policy page]
 
@@ -13177,13 +13465,13 @@ On the Static IP page (Infrastructure > Locations > Static IPs & GRE Tunnel), yo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-subclouds","lastmod":"2026-06-02T22:44Z","nid":"1467811"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-subclouds","lastmod":"2026-09-24T00:01Z","nid":"1467811"} -->
 ## About Subclouds
 
 - Source: https://help.zscaler.com/zia/about-subclouds
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > About Subclouds
-- Last modified: 2026-06-02T22:44Z
+- Last modified: 2026-09-24T00:01Z
 - Summary: Information on what a subcloud is.
 
 A [subcloud](https://help.zscaler.com/zia/understanding-subclouds) is a subset of [Public Service Edges for Internet & SaaS](https://help.zscaler.com/zia/about-zscaler-cloud-architecture) (ZIA), which are full-featured secure internet gateways that inspect all web traffic bidirectionally for malware, and enforce security, compliance, and next-generation firewall (NGFW) policies. Public Service Edges are deployed in Zscaler data centers around the globe, so when your users move to a different location, they can access the internet from any device and the Public Service Edges protect their traffic and apply your corporate policies.
@@ -13197,28 +13485,28 @@ Subclouds provide the following benefits and enable you to:
 
 ## About the Subclouds Page
 
-On the Subclouds page (Infrastructure > Internet & SaaS > Traffic Forwarding > Subclouds), you can do the following:
+On the Subclouds page (Infrastructure > Internet & SaaS > Subclouds), you can do the following:
 
 1. Search for a subcloud.
-2. View a list of all the subclouds set up for your organization. For each subcloud, you can view the following information:
+2. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+3. View a list of all the subclouds set up for your organization. For each subcloud, you can view the following information:
   - **Name**: The name of the subcloud.
   - **Number of Data Centers**: The number of data centers configured for the subcloud.
   - **Number of Disabled Data Centers**: The number of data centers currently removed from the subcloud data center list.
-3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
 4. [Edit a configured subcloud](https://help.zscaler.com/zia/editing-subcloud).
 
-[Image: Subclouds page]
+[Image: Subclouds details page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-system-audit-report","lastmod":"2026-06-25T21:48Z","nid":"1400386"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-system-audit-report","lastmod":"2026-09-16T07:45Z","nid":"1400386"} -->
 ## About the System Audit Report
 
 - Source: https://help.zscaler.com/zia/about-system-audit-report
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > About the System Audit Report
-- Last modified: 2026-06-25T21:48Z
+- Last modified: 2026-09-16T07:45Z
 - Summary: Information about the System Audit Report, which shows GRE tunnel statuses, PAC files and sizes, authentication frequency, and more.
 
 The System Audit Report highlights the status of GRE tunnels, PAC files, authentication frequency, PAC file sizes, Microsoft 365 One Click, and IP visibility. The report runs on the first of every month, and the analysis is presented on everything as of that date. If there are any present issues, the report shows recommendations on how to fix them.
@@ -13229,7 +13517,7 @@ In some cases, the previous month's report will be unavailable to view. In these
 
 ## About the System Audit Report Page
 
-On the System Audit Report page (click Analytics, enable the toggle Switch to Existing Reports, and then go to Internet & SaaS > Analytics > System Audit Report), you can do the following:
+On the System Audit Report page (Analytics > Reports > System Audit Report), you can do the following:
 
 1. View your overall grade and grades in each area
 2. View the High Availability Configuration section:
@@ -13351,13 +13639,13 @@ If you receive a grade of B or C, see [Best Practices for Deploying GRE Tunnels]
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-tenant-profiles","lastmod":"2026-05-27T18:46Z","nid":"1401741"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-tenant-profiles","lastmod":"2026-09-07T08:23Z","nid":"1401741"} -->
 ## About Tenant Profiles
 
 - Source: https://help.zscaler.com/zia/about-tenant-profiles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Tenant Restriction > About Tenant Profiles
-- Last modified: 2026-05-27T18:46Z
+- Last modified: 2026-09-07T08:23Z
 - Summary: Information on using Tenant Profiles in the Zscaler Admin Console.
 
 Zscaler's tenancy restriction feature allows you to restrict access either to personal accounts, business accounts, or both for certain cloud applications. It consists of two parts: creating tenant profiles and associating them with the Cloud App Control policy rules.
@@ -13371,19 +13659,19 @@ Tenant profiles provide the following benefits and allow you to:
 
 ## About the Tenant Profiles Page
 
-On the Tenant Profiles page (Policies > Access Control > Internet & SaaS > Tenant Profiles), you can do the following:
+On the Tenant Profiles page (Data Security > Inline CASB > Tenant Profiles), you can do the following:
 
-1. [Add a tenant profile](https://help.zscaler.com/zia/adding-tenant-profiles).
-2. Search for a configured tenant profile.
-3. View a list of all configured tenant profiles. For each tenant profile, you can see the following:
+1. Search for a configured tenant profile.
+2. [Add a tenant profile](https://help.zscaler.com/zia/adding-tenant-profiles).
+3. [Modify the column options to view the tenant profiles accordingly](https://help.zscaler.com/unified/using-tables#hide).
+4. View a list of all configured tenant profiles. For each tenant profile, you can see the following:
   - **Profile Name**: The name of the tenant profile that is displayed when configuring the Cloud App Control policy rule. You can sort this column.
-  - **Cloud Application**: The cloud application for which the tenant profile is created (e.g., Dropbox, Google, Microsoft Login Services, etc.).
+  - **Cloud Application**: The cloud application for which the tenant profile is created (e.g., Dropbox, Google, Microsoft Login Services).
   - **Details**: The configuration details of the tenant profile.
   - **Description**: A description of the tenant profile if available.
-4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
 5. [Edit, duplicate, or delete a tenant profile](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
 
-[Image: Tenant Profiles page.]
+[Image: The Tenant Profiles page shows a list of profiles alongside their details]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -13468,13 +13756,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-third-party-proxies","lastmod":"2026-06-24T06:55Z","nid":"1401496"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-third-party-proxies","lastmod":"2026-09-15T05:11Z","nid":"1401496"} -->
 ## About Third-Party Proxies
 
 - Source: https://help.zscaler.com/zia/about-third-party-proxies
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Forwarding Control > Third-Party Proxy Chaining > About Third-Party Proxies
-- Last modified: 2026-06-24T06:55Z
+- Last modified: 2026-09-15T05:11Z
 - Summary: Information on third-party proxies and the Proxies page in the Zscaler Admin Console.
 
 You can add proxies to gateways and configure the [Third-Party Proxy Chaining](https://help.zscaler.com/zia/about-third-party-proxy-chaining) feature, which enables you to forward traffic to a third-party proxy service. The default limit for third-party proxies is 8. To increase the limit to a maximum of 255 proxies for your organization, contact Zscaler Support.
@@ -13486,33 +13774,33 @@ The Proxies page provides the following benefits and enables you to:
 
 ## About the Proxies Page
 
-On the Proxies page (Infrastructure > Internet & SaaS > Network Policies > Proxies and Gateways > Proxies), you can do the following:
+On the Proxies page (Internet Access > Resources > Proxies and Gateways > Proxies), you can do the following:
 
-1. [Add proxies for a third-party proxy service](https://help.zscaler.com/zia/configuring-third-party-proxies).
-2. Search for a proxy.
-3. View a list of all proxies. For each proxy, you can view the following information:
+1. Search for a proxy.
+2. [Add proxies for a third-party proxy service](https://help.zscaler.com/zia/configuring-third-party-proxies).
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View a list of all proxies. For each proxy, you can view the following information:
   - **Proxy Name**: The name of the proxy. You can sort this column.
-  - **IP Address/FQDN**:The IP address or the FQDN configured for this proxy.
+  - **IP Address / FQDN**:The IP address or the FQDN configured for this proxy.
   - **Port**: The port number configured for this proxy.
   - **Description**: Additional notes or information about the proxy.
   - **Proxy's Root Certificate**: The root certificate in this proxy which is used by Zscaler to perform SSL/TLS inspection on the traffic being forwarded by Zscaler.
-4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-5. [Edit a proxy](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+5. [Edit or delete a proxy](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
 6. [Go to the DNS Gateways page](https://help.zscaler.com/zia/about-dns-gateways).
 7. [Go to the Proxy Gateways page](https://help.zscaler.com/zia/about-gateways-proxies).
 
-[Image: The Proxies & Gateways > Proxies page for Internet & SaaS]
+[Image: Proxies page for Internet & SaaS]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-threat-categories","lastmod":"2026-05-27T08:50Z","nid":"1403201"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-threat-categories","lastmod":"2026-09-24T00:50Z","nid":"1403201"} -->
 ## About Threat Categories
 
 - Source: https://help.zscaler.com/zia/about-threat-categories
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > IPS Control > About Threat Categories
-- Last modified: 2026-05-27T08:50Z
+- Last modified: 2026-09-24T00:50Z
 - Summary: Information on the predefined and custom threat categories used by Zscaler's Intrusion Prevention System (IPS).
 
 Threat categories group common threats (e.g., viruses, botnets, exploits) together. Zscaler's Intrusion Prevention System (IPS) uses signature-based detection to identify and control these threats. Zscaler provides a number of predefined threat categories, each associated with a collection of [custom IPS signature rules](https://help.zscaler.com/zia/about-custom-signature-rules), which are like fingerprints of known network attack patterns. In addition to the predefined threat categories, you can define custom threat categories with custom signature rules that are specific to your organization’s requirements. Using these threat categories, you can define [IPS Control](https://help.zscaler.com/zia/about-ips-control) rules to monitor and protect your network traffic against malicious activities.
@@ -13529,18 +13817,19 @@ You can add a maximum of 64 custom threat categories.
 
 ## About the Threat Categories Page
 
-On the Threat Categories page (Policies > Cybersecurity > Inline Security> Custom IPS Signatures > Threat Categories), you can do the following:
+On the Threat Categories page (Internet Access > Resources > Custom IPS Signatures > Threat Categories), you can do the following:
 
-1. [Add a custom threat category.](https://help.zscaler.com/zia/adding-threat-categories)
-2. Search for a threat category.
-3. View a list of all threat categories, including predefined and custom threat categories. By default, the table displays the following:
+1. Search for a threat category.
+2. [Add a custom threat category.](https://help.zscaler.com/zia/adding-threat-categories)
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View a list of all threat categories, including predefined and custom threat categories. By default, the table displays the following:
   - **Threat Category**: The name of the threat category. You can sort this column.
   - **Description**: The description of the threat category.
   - **IPS Signature Rule Count**: The number of custom signature rules that are included in the threat category.
-4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-5. View information about a predefined threat category.
-6. [Edit a custom threat category](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal). This action also allows you to delete a threat category.
-7. [Go to the Custom Signature Rules page.](https://help.zscaler.com/zia/about-custom-signature-rules)
+5. [Edit or delete a custom threat category](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+6. View information about a threat category by clicking its name.
+7. The threat categories are paginated with up to 500 categories displayed per page.
+8. [Go to the Custom Signature Rules page.](https://help.zscaler.com/zia/about-custom-signature-rules)
 
 [Image: The Threat Categories page shows a threat categories list, the IPS signature rule count, and descriptions]
 
@@ -13555,7 +13844,7 @@ On the Threat Categories page (Policies > Cybersecurity > Inline Security> Custo
 | Browser Exploit | Browser exploits are web browser vulnerabilities that can be exploited, including exploits for Microsoft Edge and Adobe Flash. |
 | Brute Force Attack | Brute force attacks use the trial and error method to crack passwords, passphrases, login credentials, and encryption keys and gain unauthorized access to individual user accounts or an organization's systems and networks. The attacker systematically tests different combinations of characters against the target until obtaining a successful login, often using tools such as bots and scripts. |
 | Cross-site Scripting | Cross-site scripting (XSS) refers to vulnerabilities in web server applications that allow malicious users to inject their own code into the website. |
-| Crypto Mining | Most organizations prefer to block crypto mining traffic prevent cryptojacking, malicious scripts or programs that secretly use the device to mine cryptocurrency. For example, JavaScript in a compromised website, banner, or ad can use the browser to mine cryptocurrency and harm the user's device. However, in some cases, blocking this traffic might cause certain sites that use crypto mining as a source of income to stop working. It might also interfere with legitimate attempts to use cryptocurrency for payments. |
+| Crypto Mining | Most organizations prefer to block crypto mining traffic to prevent cryptojacking, malicious scripts, or programs that secretly use the device to mine cryptocurrency. For example, JavaScript in a compromised website, banner, or ad can use the browser to mine cryptocurrency and harm the user's device. However, in some cases, blocking this traffic might cause certain sites that use crypto mining as a source of income to stop working. It might also interfere with legitimate attempts to use cryptocurrency for payments. |
 | Denial of Service Attack | A Denial of Service attack is an attack where a computer or internet connection attempts to overload a system, network, or application. |
 | Domain Generation Algorithm (DGA) Domains | Domains that are suspected to be generated using domain generation algorithms. These algorithms are used in various malware families to periodically generate a large number of domain names that can be used by malware-infected devices to connect with command and control servers in order to circumvent the identification and shutting down of malicious domains. |
 | Exploit | An exploit is an attack where known non-web (non-HTTP) vulnerabilities are exploited. |
@@ -13574,13 +13863,13 @@ On the Threat Categories page (Policies > Cybersecurity > Inline Security> Custo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-threat-insights","lastmod":"2026-05-07T04:03Z","nid":"1400906"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-threat-insights","lastmod":"2026-09-30T08:53Z","nid":"1400906"} -->
 ## About Threat Insights
 
 - Source: https://help.zscaler.com/zia/about-threat-insights
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > About Threat Insights
-- Last modified: 2026-05-07T04:03Z
+- Last modified: 2026-09-30T08:53Z
 - Summary: Information on the Threat Insights page in the Zscaler Admin Console and how it displays organization-specific threats.
 
 The Threat Insights page allows you to visually see organization-specific threats in the form of paths from origins to targets. You can choose to view threat statistics in a 2D map or a 3D globe.
@@ -13596,7 +13885,7 @@ Threat Insights provide the following benefits and enable you to:
 
 ## About the Threat Insights Page
 
-On the Threat Insights page (click Analytics, enable the toggle Switch to Existing Reports and then go to Internet & SaaS > Analytics > Threat Insights), you can do the following:
+On the Threat Insights page (Cyberthreat Protection > Insights > Threat Insights), you can do the following:
 
 1. **Expand/Minimize**: Expand or minimize the map or globe.
 2. **Threat Names**:View the top threats, according to how you choose to sort. You can also search and choose specific threats.
@@ -13616,13 +13905,13 @@ On the Threat Insights page (click Analytics, enable the toggle Switch to Existi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-time-intervals","lastmod":"2026-09-02T19:26Z","nid":"1399151"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-time-intervals","lastmod":"2026-09-21T20:19Z","nid":"1399151"} -->
 ## About Time Intervals
 
 - Source: https://help.zscaler.com/zia/about-time-intervals
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > About Time Intervals
-- Last modified: 2026-09-02T19:26Z
+- Last modified: 2026-09-21T20:19Z
 - Summary: How to define time intervals in the Zscaler Admin Console for use in policies.
 
 [Watch a video about Time Intervals](https://fast.wistia.net/embed/iframe/5216rd7peb) (shows legacy UI).
@@ -13635,8 +13924,6 @@ Consider the following example, an organization has a URL Filtering policy using
 
 A user tries to access facebook.com through a Public Service Edge in the Paris data center. They come from a known location with the time zone configured as Europe/London on Tuesday at 5:30 PM. London time.
 
-See image.
-
 This user is blocked from going to the site even though the time in Paris at that point in time is 6:30 PM. The reason for this behavior is that the Public Service Edge uses the time zone of the configured location for policy execution.
 
 Consider another user, who is also in London and generates traffic through the Paris data center. This user is not from a known location, they are a remote user. They also try to go to Facebook at the same time.
@@ -13645,19 +13932,17 @@ This remote user is allowed to access Facebook. The reason for this behavior is 
 
 ## About the Time Intervals Page
 
-On the Time Intervals page (Policies > Common Configuration > Resources > Time Intervals), you can do the following:
+On the Time Intervals page (Internet Access > Resources > Time Intervals), you can do the following:
 
 1. [Define a new time interval](https://help.zscaler.com/zia/how-do-i-define-time-intervals).
 2. Search for a configured time interval.
-3. View a list of all configured time intervals:
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View a list of all configured time intervals:
   - **Name:** The name of the time interval. You can sort this column.
   - **Timeframe:** The days of the week and the time of day.
-4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-5. [Edit a time interval](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal).
+5. [Edit or delete a time interval](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal).
 
 [Image: Time Intervals page]
-
-[Image: London location]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -13707,13 +13992,13 @@ On the TLD Categories page (Policies > Access Control > Internet & SaaS > URL Ca
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-traffic-capture-policy","lastmod":"2026-04-30T21:06Z","nid":"1532181"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-traffic-capture-policy","lastmod":"2026-09-30T16:11Z","nid":"1532181"} -->
 ## About Traffic Capture Policy
 
 - Source: https://help.zscaler.com/zia/about-traffic-capture-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Traffic Capture > About Traffic Capture Policy
-- Last modified: 2026-04-30T21:06Z
+- Last modified: 2026-09-30T16:11Z
 - Summary: Information on the Traffic Capture policy page in the Zscaler Admin Console.
 
 Traffic Capture policy rules enable you to capture and store network traffic in PCAPNG file format with granular control of match criteria and how much traffic is captured. You must enable Traffic Capture in the Traffic Capture Settings, and link an Amazon S3 bucket to use the Traffic Capture policy. To learn more, see [Configuring Traffic Capture Settings](https://help.zscaler.com/zia/configuring-traffic-capture).
@@ -13729,35 +14014,59 @@ The Traffic Capture policy provides the following benefits and enables you to:
 
 ## About the Traffic Capture Policy Page
 
-On the Traffic Capture page (Infrastructure > Internet & SaaS > Traffic Capture > Traffic Capture Policy), you can do the following:
+On the Traffic Capture page (Internet Access > Traffic Capture > Traffic Capture Policy), you can do the following:
 
 1. [Configure a Traffic Capture rule](https://help.zscaler.com/zia/configuring-traffic-capture-policy).
-2. Select one of the following **View by** option to see the Traffic Capture rules accordingly:
-  1. **Rule Order**: Displays the rules based on the rule order. By default, the rules are listed in the ascending rule order.
-  2. **Rule Label**: Displays the rules by grouping them under the associated rule labels. You can expand or collapse all the rule labels using the **Expand All** or **Collapse All** buttons.
-3. Search for a Traffic Capture rule.
-4. View a list of all configured Traffic Capture policy rules. For each rule, you can see the following:
-  - **Rule Order**: The policy rule's order number. Traffic Capture policy rules are evaluated in ascending numerical order. You can sort this column.
-  - **Rule Name**: The name of the policy rule. You can sort this column.
-  - **Criteria**: The policy rule's criteria (i.e., Users, Departments, etc.).
-  - **Action**: Displays either the action for the policy rule (Capture or Skip), or that the rule is disabled.
-  - **Label and Description**: The label and description of the policy rule, if available.
-  - **Admin Rank**: The admin rank for this rule. This is only visible if you have enabled it in the [Advanced Settings](https://help.zscaler.com/zia/about-advanced-settings). You can sort this column.
-5. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-6. [Edit or](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal)[duplicate a Traffic Capture policy rule](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal).
+2. Search for a configured Traffic Capture rule and filter rules by [rule label](https://help.zscaler.com/zia/about-rule-labels).
+3. Select which columns are visible in the table. You can also choose **Show All Columns**.
+4. View a list of all configured Sandbox rules.
+  - View details for each rule
+5. [Edit](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal)[a Traffic Capture policy rule.](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal)
+6. [Duplicate a Traffic Capture policy rule.](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal)
+7. Delete a Traffic Capture policy rule.
 
 [Image: Traffic Capture policy page]
+
+- **Rule Order**: The rule order number. Sandbox rules are evaluated in ascending numerical order. The default rule is evaluated last.
+- **Admin Rank**: The assigned [admin rank](https://help.zscaler.com/zia/about-admin-rank) for the rule. This is visible only if admin ranking is enabled in the [Advanced Settings](https://help.zscaler.com/zia/about-advanced-settings#admin-ranking).
+- **Rule Name**: The name of the rule.
+- **Description**: The description of the rule, if available.
+- **Label**: The rule label applied to the rule, if available.
+- **Users**: The users selected for the rule to apply to
+- **Groups**: The groups selected for the rule to apply to.
+- **Departments**: The departments selected for the rule to apply to.
+- **Locations**: The locations selected for the rule to apply to.
+- **Location Groups**: The location groups selected for the rule to apply to.
+- **Time**: The time intervals selected for the rule to apply during.
+- **Devices**: The devices selected for the rule to apply to.
+- **Device Groups**: The device groups selected for the rule to apply to.
+- **Workload Groups**: The workload groups selected for the rule to apply to.
+- **Device Trust Level**: The device trust level for devices that the rule applies to.
+- **Network Service Groups**: The network service groups selected for the rule to apply to.
+- **Network Services**: The network services selected for the rule to apply to.
+- **Network Application Groups**: The network application groups selected for the rule to apply to.
+- **Network Applications**: The applications selected for the rule to apply to.
+- **Application Service Groups**: The application service groups selected for the rule to apply to.
+- **Source IPv4 Groups**: The source IPv4 groups selected for the rule to apply to.
+- **Source IPv6 Groups**: The source IPv6 groups selected for the rule to apply to.
+- **Source IP Addresses**: The source IP addresses selected for the rule to apply to.
+- **Source Countries**: The source countries selected for the rule to apply to.
+- **Destination IPv4 Groups**: The destination IPv4 groups selected for the rule to apply to.
+- **Destination IPv6 Groups**: The destination IPv6 groups selected for the rule to apply to.
+- **Destination Addresses**: The destination IP addresses selected for the rule to apply to.
+- **Destination Countries**: The destination countries selected for the rule to apply to.
+- **Action**: Displays either the action for the policy rule (Capture or Skip), or that the rule is disabled.
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-traffic-capture-settings","lastmod":"2026-05-22T11:15Z","nid":"1463526"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-traffic-capture-settings","lastmod":"2026-09-30T16:01Z","nid":"1463526"} -->
 ## About Traffic Capture Settings
 
 - Source: https://help.zscaler.com/zia/about-traffic-capture-settings
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Traffic Capture > About Traffic Capture Settings
-- Last modified: 2026-05-22T11:15Z
+- Last modified: 2026-09-30T16:01Z
 - Summary: Information about the Traffic Capture Settings page in the Zscaler Admin Console.
 
 Zscaler offers multiple ways to capture network traffic, which can be accessed later through an Amazon S3 bucket managed by your organization. With Zscaler Traffic Capture Essentials, you can capture traffic as PCAP files for supported actions with the following policies:
@@ -13781,7 +14090,7 @@ The Traffic Capture settings provide the following benefits and enable you to:
 
 ## About the Traffic Capture Settings Page
 
-On the Traffic Capture Settings page (Infrastructure > Internet & SaaS > Traffic Capture > Traffic Capture Setting), you can do the following:
+On the Traffic Capture Settings page (Internet Access > Traffic Capture > Traffic Capture Settings), you can do the following:
 
 1. [Enable Traffic Capture](https://help.zscaler.com/zia/configuring-traffic-capture). This enables both Traffic Capture Essentials and Traffic Capture for NDR.
 2. Connect or manage an Amazon S3 storage bucket. For the settings, you can see:
@@ -14147,13 +14456,13 @@ The number under each column displays up to 20 values when you click it. You can
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-url-filtering","lastmod":"2026-07-15T11:21Z","nid":"1399306"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-url-filtering","lastmod":"2026-09-17T04:58Z","nid":"1399306"} -->
 ## About URL Filtering
 
 - Source: https://help.zscaler.com/zia/about-url-filtering
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > About URL Filtering
-- Last modified: 2026-07-15T11:21Z
+- Last modified: 2026-09-17T04:58Z
 - Summary: Information about the Zscaler service's URL Filtering policy. This limits your exposure to liability by managing access to web content based on a site's categorization.
 
 [Watch a video about URL Filtering Policy](https://fast.wistia.net/embed/iframe/jqu9x18c3e) (shows legacy UI).
@@ -14184,13 +14493,13 @@ The EUNs that you specify in the rules take precedence over the default EUN that
 When you configure a rule, you can specify one of the following actions:
 
 - **Allow**:The service allows access to the URLs in the selected categories. You can still restrict access by specifying a daily quota for bandwidth and time. For example, you can allow your users to access Entertainment and Recreation sites, but restrict the bandwidth allowed for these sites so they don't interfere with business-critical applications. The daily time quota is based on the time that the rule is created. For example, if the rule is created at 11:00 AM PST, then the quota is renewed at 11:00 AM PST the next day.
-- **Caution**:When a user tries to access a site, the service displays a [Caution notification](https://help.zscaler.com/zia/about-acceptable-use-policy-and-end-user-notifications#caution). You can use the system-defined notification, customize the text, or create your own notification and direct users to it. See image.
-- **Block**:The service displays a [Block notification](https://help.zscaler.com/zia/about-acceptable-use-policy-and-end-user-notifications#block). You can use the system-defined notification, customize the text, or create your own notification and direct users to it. See image. Additionally, you can allow some users or groups to override the block with the **Allow Override** option. For example, you can block students from accessing YouTube but allow the teachers. Teachers are prompted to enter their override password. This can be company-provided credentials such as single sign-on credentials or hosted database credentials based on the [Enable Identity-based Block Override](https://help.zscaler.com/zia/configuring-advanced-url-policy-settings#Enable-block-override) settings. Permitted users are allowed to access the blocked page only during their current browser session. They are required to reauthenticate when they try to access it in another browser session. See image.
+- **Caution**:When a user tries to access a site, the service displays a [Caution notification](https://help.zscaler.com/zia/configuring-browser-based-global-end-user-notifications#caution-notification). You can use the system-defined notification, customize the text, or create your own notification and direct users to it. See image.
+- **Block**:The service displays a [Block notification](https://help.zscaler.com/zia/configuring-browser-based-global-end-user-notifications#block-notification). You can use the system-defined notification, customize the text, or create your own notification and direct users to it. See image. Additionally, you can allow some users or groups to override the block with the **Allow Override** option. For example, you can block students from accessing YouTube but allow the teachers. Teachers are prompted to enter their override password. This can be company-provided credentials such as single sign-on credentials or hosted database credentials based on the [Enable Identity-based Block Override](https://help.zscaler.com/zia/configuring-advanced-url-policy-settings#Enable-block-override) settings. Permitted users are allowed to access the blocked page only during their current browser session. They are required to reauthenticate when they try to access it in another browser session. See image.
 - **Isolate**: The service [isolates](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) all the traffic to the URLs in the selected categories through a remote browser.
 
 ## About the URL Filtering Page
 
-On the URL Filtering Policy page (Policies > Access Control > Internet & SaaS > URL Filtering), you can do the following:
+On the URL Filtering Policy page (Internet Access > Policy > URL Filtering), you can do the following:
 
 1. Click **Recommended Policy**to view the policy Zscaler recommends.
 2. [Configure a URL Filtering rule](https://help.zscaler.com/zia/configuring-url-filtering-policy).
@@ -14242,13 +14551,13 @@ On the URL Filtering Policy page (Policies > Access Control > Internet & SaaS > 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-user-confirmation-notification-templates","lastmod":"2026-09-01T21:57Z","nid":"1492901"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-user-confirmation-notification-templates","lastmod":"2026-09-21T21:15Z","nid":"1492901"} -->
 ## About User Confirmation Notification Templates
 
 - Source: https://help.zscaler.com/zia/about-user-confirmation-notification-templates
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > About User Confirmation Notification Templates
-- Last modified: 2026-09-01T21:57Z
+- Last modified: 2026-09-21T21:15Z
 - Summary: Information on user confirmation notification templates. These are sent to your organization’s auditors when an Endpoint Data Loss Prevention (DLP) policy triggers in the Zscaler service.
 
 You can use Endpoint Data Loss Prevention (DLP) and Inline Web DLP policies to identify and act on end user activities that involve sensitive data. If an activity is part of a necessary workflow, you can configure your Endpoint DLP and Inline Web DLP policy rules with a Confirm action that requires users to explain the activity and provide justification for why it requires sensitive data.
@@ -14266,7 +14575,7 @@ User Confirmation notification templates provide the following benefits and allo
 
 ## About the User Confirmation Notification Templates Page
 
-On the User Confirmation Notification Templates page (Policies > Common Configuration > Resources > Data Protection User Confirmation), you can do the following:
+On the User Confirmation Notification Templates page (Administration > End User Notification > Data Protection User Confirmation), you can do the following:
 
 1. [Add a customer user notification message for your organization](https://help.zscaler.com/zia/configuring-user-confirmation-notification-templates).
 2. Search for a user confirmation template.
@@ -14592,13 +14901,13 @@ On the Virtual Service Edges page (Infrastructure > Internet & SaaS > Traffic Fo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-vpn-credentials","lastmod":"2026-06-15T07:28Z","nid":"1399481"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-vpn-credentials","lastmod":"2026-09-23T23:30Z","nid":"1399481"} -->
 ## About VPN Credentials
 
 - Source: https://help.zscaler.com/zia/about-vpn-credentials
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPSec > About VPN Credentials
-- Last modified: 2026-06-15T07:28Z
+- Last modified: 2026-09-23T23:30Z
 - Summary: Information on Virtual Private Network (VPN) credentials and how they are used for configuring IPSec VPN Tunnels for the Zscaler service.
 
 [Watch a video about VPN Credentials](https://fast.wistia.net/embed/iframe/f2ki5pnuhc) (shows legacy UI).
@@ -14618,35 +14927,36 @@ The VPN Credentials page provides the following benefits and enables you to:
 
 ## About the VPN Credentials Page
 
-On the VPN Credentials page (Infrastructure > Locations > VPN Credentials), you can do the following:
+On the VPN Credentials page (Infrastructure > Location Management > VPN Credentials), you can do the following:
 
-1. [Add a VPN credential](https://help.zscaler.com/zia/adding-individual-vpn-credentials).
-2. [Import VPN credentials using a CSV file](https://help.zscaler.com/zia/importing-vpn-credentials-csv-file).
-3. Download a **Sample Import CSV file** and use it as a template to add or remove VPN credentials. Using the sample CSV file as a guide ensures that the format of your entries is correct before you [import the information](https://help.zscaler.com/zia/importing-vpn-credentials-csv-file).
-4. Filter a VPN credential search by **Authentication Type**.
-5. Search for a VPN credential.
-6. View a list of VPN credentials that are configured for your organization. For each VPN credential, you can see the following:
+1. Filter a VPN credential search by **Authentication Type**.
+2. Search for a VPN credential.
+3. [Import VPN credentials using a CSV file](https://help.zscaler.com/zia/importing-vpn-credentials-csv-file).
+4. Download a **Sample Import CSV file** and use it as a template to add or remove VPN credentials. Using the sample CSV file as a guide ensures that the format of your entries is correct before you [import the information](https://help.zscaler.com/zia/importing-vpn-credentials-csv-file).
+5. [Add a VPN credential](https://help.zscaler.com/zia/adding-individual-vpn-credentials).
+6. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+7. View a list of VPN credentials that are configured for your organization. For each VPN credential, you can see the following:
   - **User/Certificate ID**: The User ID or IP address for the VPN credential. You can sort this column.
   - **Authentication Type**: The authentication type used to identify the peer, FQDN, XAUTH, or IP. You can sort this column.
   - **Location**: The name of the location associated with the VPN credential.
+  - **PPK ID**: The post-quantum pre-shared ID.
   - **Comments**: Displays any comments about the VPN credential, if available. You can sort this column.
   - **Status**: The status of the VPN credential.
   - **Managed By**: The name of the partner that manages the VPN credential. To learn more, see [Understanding Partner Integrations](https://help.zscaler.com/zia/understanding-partner-integrations).
-7. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-8. [Edit a VPN credential](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+8. [Edit or delete the VPN credential](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
 
-[Image: VPN Credentials page within the Zscaler Admin Console]
+[Image: The VPN Credentials page where you can view and manage VPN credentials]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-watermarking","lastmod":"2026-06-10T03:46Z","nid":"1516481"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-watermarking","lastmod":"2026-09-29T11:19Z","nid":"1516481"} -->
 ## About Watermarking
 
 - Source: https://help.zscaler.com/zia/about-watermarking
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Data at Rest Scanning Policies > Rights Management > About Watermarking
-- Last modified: 2026-06-10T03:46Z
+- Last modified: 2026-09-29T11:19Z
 - Summary: Information about the Watermarking page in the Zscaler Admin Console.
 
 The Watermarking page lets you add, view, and configure watermark profiles to enforce rights management for your organization. You can use watermarks as part of your SaaS Security Data at Rest Scanning Data Loss Prevention (DLP) policy to superimpose text diagonally across pages and images so that content you want to protect can be clearly and easily identified. In addition to watermark text, the Zscaler service lets you add headers and footers to protected files.
@@ -14660,16 +14970,18 @@ The Watermarking page provides the following benefits and allows you to:
 
 ## About the Watermarking Page
 
-On the Watermarking page (Policies > Data Protection > Policy > Rights Management > Watermarking), you can do the following:
+On the Watermarking page (Data Security > DSPM > Rights Management > Watermarking), you can do the following:
 
-1. [Go to the Redaction page](https://help.zscaler.com/zia/about-redaction).
+1. Search for a watermark profile.
 2. [Add a watermark profile](https://help.zscaler.com/zia/adding-watermark-profiles).
-3. Search for a watermark profile.
-4. View a list of all watermark profiles configured for your organization. For watermark profiles, you can see:
+3. View a list of all watermark profiles configured for your organization. For watermark profiles, you can see:
   - **Profile Name**: The name of the watermark profile. You can sort this column.
-  - **Details**: The details for the watermark profile. You can sort this column.
-5. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-6. [Edit](https://help.zscaler.com/zia/adding-editing-watermark-profiles#edit-watermark-profile-section) or [delete](https://help.zscaler.com/zia/editing-deleting-duplicating-items) a watermark profile.
+  - **Watermark Text**: The text used in the watermark profile. You can sort this column.
+  - **Actions**: Actions to [edit](https://help.zscaler.com/zia/adding-editing-watermark-profiles#edit-watermark-profile-section) or [delete](https://help.zscaler.com/zia/editing-deleting-duplicating-items) a watermark profile.
+4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+5. [Go to the Redaction page](https://help.zscaler.com/zia/about-redaction).
+
+[Image: About the Watermarking page]
 
 <p> <img src="/downloads/zia/policies/saas-security/data-rest-scanning-policies/rights-management/about-watermarking/watermarking-xc.png" data-entity-uuid="0" data-entity-type="image" alt="The Rights Management page includes the Watermarking page." title="Watermarking Page" width="1606" height="916"> </p>
 <!-- /ZS-ARTICLE -->
@@ -14711,13 +15023,13 @@ On the Webhooks page (Administration > Alerts > Security & UEBA Alerts > Webhook
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-workload-groups","lastmod":"2026-07-15T21:06Z","nid":"1461741"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-workload-groups","lastmod":"2026-09-28T12:53Z","nid":"1461741"} -->
 ## About Workload Groups
 
 - Source: https://help.zscaler.com/zia/about-workload-groups
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Workload Groups > About Workload Groups
-- Last modified: 2026-07-15T21:06Z
+- Last modified: 2026-09-28T12:53Z
 - Summary: Information on the Workload Groups page in the Zscaler Admin Console.
 
 Only admins with full policy access can add or edit the workload groups.
@@ -14737,7 +15049,7 @@ Ensure that your organization has a subscription to one of the Workload SKUs and
 
 ## **About the Workload Groups Page**
 
-On the Workload Groups (Policies > Common Configuration > Resources > Workload Groups) page, you can do the following:
+On the Workload Groups (Internet Access > Resources > Workload Groups) page, you can do the following:
 
 1. [Add a workload group](https://help.zscaler.com/zia/configuring-workload-groups).
 2. Search for a workload group.
@@ -14755,13 +15067,13 @@ On the Workload Groups (Policies > Common Configuration > Resources > Workload G
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-zscaler-authentication-bridge","lastmod":"2026-07-31T10:35Z","nid":"1399631"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-zscaler-authentication-bridge","lastmod":"2026-09-30T19:20Z","nid":"1399631"} -->
 ## About the Zscaler Authentication Bridge
 
 - Source: https://help.zscaler.com/zia/about-zscaler-authentication-bridge
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Zscaler Authentication Bridge > About the Zscaler Authentication Bridge
-- Last modified: 2026-07-31T10:35Z
+- Last modified: 2026-09-30T19:20Z
 - Summary: Information on the Zscaler Authentication Bridge, a virtual appliance that you can use to provision and authenticate users.
 
 The Zscaler Authentication Bridge (ZAB) is a virtual appliance that you can use to [provision as well as authenticate users](https://help.zscaler.com/zia/provisioning-and-authenticating-users). You can use the ZAB to automatically import user information from an Active Directory (AD) or a Lightweight Directory Access Protocol (LDAP) server to the Zscaler database, without requiring inbound connections to your directory server. The ZAB can be used solely as a provisioning tool in conjunction with another authentication mechanism, such as [SAML](https://help.zscaler.com/zia/configuring-saml) or [Kerberos](https://help.zscaler.com/zia/about-kerberos-authentication). Alternatively, it can be used for authentication using [LDAP](https://help.zscaler.com/zia/understanding-ldap-user-synchronization) with SSL client certificates.
@@ -14815,7 +15127,7 @@ A ZAB can also be used as an authentication tool. As shown in the diagram, the Z
 
 You must have a ZAB subscription to view the Authentication Bridges page.
 
-On the Authentication Bridges page (Administration > Identity > Internet & SaaS > Internet Authentication Settings > Authentication Bridges), you can do the following:
+On the Authentication Bridges page (Administration > Internet & SaaS Authentication > Internet Authentication Settings > Authentication Bridges), you can do the following:
 
 1. [Add a ZAB.](https://help.zscaler.com/zia/adding-zscaler-authentication-bridge)
 2. [Download the ZAB virtual machine.](https://help.zscaler.com/zia/downloading-zscaler-authentication-bridge-vm)
@@ -14834,13 +15146,13 @@ On the Authentication Bridges page (Administration > Identity > Internet & SaaS 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-zscaler-client-connector-based-end-user-notifications","lastmod":"2026-08-27T01:42Z","nid":"1486481"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-zscaler-client-connector-based-end-user-notifications","lastmod":"2026-09-15T23:48Z","nid":"1486481"} -->
 ## About Zscaler Client Connector-Based End User Notifications
 
 - Source: https://help.zscaler.com/zia/about-zscaler-client-connector-based-end-user-notifications
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > About Zscaler Client Connector-Based End User Notifications
-- Last modified: 2026-08-27T01:42Z
+- Last modified: 2026-09-15T23:48Z
 - Summary: Information on Zscaler Client Connector-based EUNs displayed for end users when specific policies are triggered by Internet & SaaS (ZIA).
 
 When network traffic from user devices is blocked or restricted by your security policies, the Zscaler service can automatically notify users of the policy action through [Zscaler Client Connector](https://help.zscaler.com/client-connector/what-is-zscaler-client-connector) installed on users' endpoints. The end user notification (EUN) provides context to users about traffic restrictions enforced by an organization's security policy when they engage in restricted activities and keeps users informed of your corporate policy.
@@ -14859,37 +15171,42 @@ Zscaler Client Connector-based notifications are supported for the following Int
 - [DNS Control](https://help.zscaler.com/zia/configuring-euns-dns-control)
 - [IPS Control](https://help.zscaler.com/zia/configuring-euns-ips-control)
 
-Zscaler provides a preconfigured notification message for each policy type, which can be customized per requirements. In addition, you can add custom notification messages and associate distinct notification messages with individual policy rules to provide context-sensitive information to end users. You can customize the notification message in [multiple, supported languages](https://help.zscaler.com/zia/multiple-language-support-zscaler-client-connector-based-euns) and include or exclude specific details about the traffic conditions. In addition to the notification message, you can configure the [general, shared settings](https://help.zscaler.com/zia/configuring-settings-zscaler-client-connector-based-euns) for all EUNs, such as the organization name, logo, support details, and more. After customizing the notification, you need to enable the EUN within the policy rule configuration page and associate an appropriate notification message to display to end users when their traffic matches the rule action. To learn more, see the [Step-by-Step Configuration Guide for Zscaler Client Connector-Based EUNs](https://help.zscaler.com/zia/step-step-configuration-guide-zscaler-client-connector-based-euns).
+Zscaler provides a default notification message for each policy. You can also create custom notification messages and associate specific messages with individual policy rules to provide contextual information to end users. You can customize notification messages in [multiple, supported languages](https://help.zscaler.com/zia/multiple-language-support-zscaler-client-connector-based-euns) and choose whether to include specific details about the traffic conditions.
+
+In addition to the notification message, you can configure [shared settings](https://help.zscaler.com/zia/configuring-settings-zscaler-client-connector-based-euns) for all EUNs, such as the organization name, logo, support details, and other information. After customizing the notification, you must enable the EUN in the policy rule configuration page and associate the appropriate notification message so it is displayed to end users when their traffic matches the rule action. To learn more, see the [Step-by-Step Configuration Guide for Zscaler Client Connector-Based EUNs](https://help.zscaler.com/zia/step-step-configuration-guide-zscaler-client-connector-based-euns).
 
 A maximum of 64 custom messages is supported across policies for an organization. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
 
 ## About the Client Connector EUN Page
 
-On the Client Connector EUN page (Policies > Common Configurations > Resources > End User Notifications > Client Connector), you can do the following:
+On the Client Connector EUN page (Administration > End User Notification > End User Notifications > Client Connector), you can do the following:
 
-1. [Configure the notification settings.](https://help.zscaler.com/zia/configuring-settings-zscaler-client-connector-based-euns)
-2. Filter the notification list by a specific type of policy or a category within the policy. Selecting **All** displays notification messages configured across the supported policies.
-3. Add a new custom notification message for different policy types.
-4. Search for a notification message.
-5. View a list of all notification messages. For each notification message, you can see: You can sort the list by either of these fields.
-  - **Channel**: The type of policy or the category within a policy for which the notification message is configured. For example, Cloud App Control is a type of policy, whereas Network Share is a category within the Endpoint DLP policy.
-  - **Name**: The name of the notification message. Default notifications can be identified by their name.
-6. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
-7. Edit or delete a notification message. Default notification messages cannot be deleted. If a custom message that is currently used in one or more policies is deleted, the default notification message for the corresponding channel is automatically assigned to those policies.
-8. [Go to the Browser EUN page.](https://help.zscaler.com/zia/configuring-end-user-notifications)
+1. Search for a notification message.
+2. [Configure notification settings.](https://help.zscaler.com/zia/configuring-settings-zscaler-client-connector-based-euns)
+3. Add a new custom notification message for different policy types. To learn more, see the individual policy EUN configuration articles under [Zscaler Client Connector EUNs](https://help.zscaler.com/zia/authentication-administration/end-user-notifications-euns/zscaler-client-connector-euns).
+4. Select to show or hide the Channel filter available for this page.
+5. Filter the notification list by channel, which represents a specific type of policy or a category within the policy. Selecting **All** displays notification messages configured across the supported policies.
+6. View a list of all notification messages. For each notification message, you can see:
+  - **Channel**: The type of policy or the category within a policy for which the notification message is configured. For example, Cloud App Control is a type of policy, whereas Network Share is a category within the Endpoint DLP policy. Both are recognized as channels for EUN. You can sort this column.
+  - **Name**: The name of the notification message.
+  - **Actions**: The actions you can perform on a notification message, such as editing and deleting.
+7. Click the name of a notification message to view its details. The notification message details appear in a drawer.
+8. Edit or delete a custom notification message. Default notification messages cannot be edited or deleted. If a custom message that is currently used in one or more policies is deleted, the default notification message for the corresponding channel is automatically assigned to those policies.
+9. The notification messages are paginated with up to 500 messages displayed per page.
+10. Go to the [Global EUN Configuration](https://help.zscaler.com/zia/configuring-browser-based-global-end-user-notifications) and [EUN Templates](https://help.zscaler.com/zia/about-browser-eun-template) pages.
 
 [Image: Zscaler Client Connector End User Notifications page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-zscaler-incident-receiver","lastmod":"2026-05-04T13:36Z","nid":"1401706"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-zscaler-incident-receiver","lastmod":"2026-09-24T11:31Z","nid":"1401706"} -->
 ## About Zscaler Incident Receiver
 
 - Source: https://help.zscaler.com/zia/about-zscaler-incident-receiver
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > About Zscaler Incident Receiver
-- Last modified: 2026-05-04T13:36Z
+- Last modified: 2026-09-24T11:31Z
 - Summary: Information on the Zscaler Incident Receiver and the Zscaler Incident Receiver virtual machine (VM).
 
 The Zscaler Incident Receiver is a tool that allows you to receive information about DLP policy violations securely. It can run on an EC2 instance on Amazon Web Services (AWS), on an Azure virtual machine (VM), or on-premises. The Zscaler service sends information about policy violations via ICAP to the Incident Receiver. This tool sends the policy-violating content and a JSON file containing the metadata for the inline web and CASB DLP policy scan (e.g., the URL, Collaborators, DLP dictionaries, DLP engines).
@@ -14908,392 +15225,23 @@ The Zscaler Incident Receiver does not store files locally and requires either a
 
 ## About the Zscaler Incident Receiver Page
 
-On the Zscaler Incident Receiver page (Policies > Data Protection > Common Resources > DLP Incident Receiver), you can do the following:
+On the Zscaler Incident Receiver page (Data Security > Common Resources > DLP Incident Receiver), you can do the following:
 
-1. [Add a Zscaler Incident Receiver.](https://help.zscaler.com/zia/adding-zscaler-incident-receiver)
-2. [Download the VM (.ova) for the Zscaler Incident Receiver.](https://help.zscaler.com/zia/configuring-zscaler-incident-receiver)
-3. Search for a Zscaler Incident Receiver.
+1. [Download the VM (.ova) for the Zscaler Incident Receiver.](https://help.zscaler.com/zia/configuring-zscaler-incident-receiver)
+2. [Add a Zscaler Incident Receiver.](https://help.zscaler.com/zia/adding-zscaler-incident-receiver)
+3. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
 4. View a list of all the Zscaler Incident Receivers for your organization. For each Zscaler Incident Receiver, you can see and sort the following:
   - **Name**: The name of the Incident Receiver.
-  - **Status**: Displays whether the Incident Receiver is enabled or disabled.
   - **URI**: The Incident Receiver URI.
+  - **Status**: Displays whether the Incident Receiver is enabled or disabled.
   - **Certificate**: Displays a link that allows you to download the certificate used by the Incident Receiver.
-5. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
-6. [Add a new client certificate](https://help.zscaler.com/zia/adding-zscaler-incident-receiver).
-7. [Edit a Zscaler Incident Receiver](https://help.zscaler.com/zia/modifying-zscaler-incident-receiver), including the ability to delete a configuration.
-8. [View the ICAP Settings page](https://help.zscaler.com/zia/about-icap-servers).
-9. [View the Cloud-to-Cloud Incident Forwarding page](https://help.zscaler.com/zia/about-cloud-cloud-incident-forwarding).
-
-[Image: About the DLP Incident Receiver page]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/accessing-and-navigating-3rd-party-app-governance-admin-portal","lastmod":"2026-06-09T22:37Z","nid":"1457606"} -->
-## Accessing and Navigating the 3rd-Party App Governance Admin Portal
-
-- Source: https://help.zscaler.com/zia/accessing-and-navigating-3rd-party-app-governance-admin-portal
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > Accessing and Navigating the 3rd-Party App Governance Admin Portal
-- Last modified: 2026-06-09T22:37Z
-- Summary: How to access and navigate the 3rd-Party App Governance Admin Portal.
-
-Zscaler 3rd-Party App Governance allows you to discover, manage, reduce, and control the attack surface introduced by third-party apps, extensions, and add-ons to corporate SaaS applications. With 3rd-Party App Governance, you can uncover and maintain an up-to-date app inventory, gaining full visibility into what is connected, the risks posed, and how each app is used in your environment. To learn more, see [What Is 3rd-Party App Governance?](https://help.zscaler.com/zia/what-3rd-party-app-governance)
-
-## Signing In to the 3rd-Party App Governance Admin Portal
-
-You can access 3rd-Party App Governance upon invitation. After you receive the invitation email, you can sign in to 3rd-Party App Governance.
-
-To access 3rd-Party App Governance:
-
-1. Click **Start Now**in the 3rd-Party App Governance invitation email, or go to [https://apptotal.zscaler.com/](https://apptotal.zscaler.com/:).
-
-The 3rd-Party App Governance sign-in page appears.
-
-See image.
-
-1. On the sign-in page, click **Sign in with Google** or **Sign in with Azure AD**.
-
-The 3rd-Party App Governance dashboard appears.
-
-Authentication is performed using Google, Azure AD federation, or Okta. Passwords are not supported. SAML federation with your own identity provider (IdP) (e.g., Okta) is supported on enterprise tiers.
-
-On the first sign-in, an empty dashboard appears, as 3rd-Party App Governance is not yet connected to any of your platforms. You must click**Connect** in the upper-right corner of the dashboard to connect 3rd-Party App Governance to your platform. To learn more, see [Connecting Your Platforms to 3rd-Party App Governance](https://help.zscaler.com/zia/connecting-your-platforms-3rd-party-app-governance). You can choose between self-onboarding or scheduling a concierge onboarding with Zscaler Support.
-
-A user with admin privileges is required to connect to your platforms. This can be done with any user, not necessarily the user you used to sign in to 3rd-Party App Governance (some clients use dedicated service accounts).
-
-[Image: Screenshot of Sign-in Page]
-
-## Accessing 3rd-Party App Governance from the Zscaler Admin Console
-
-You can access the 3rd-Party App Governance Admin Portal from the Zscaler Admin Console using SSO, if you have subscribed to the 3rd-Party App Governance service. You must also have access to the Data Loss Prevention (DLP) feature and a 3rd-Party App Governance Admin or a Super Admin role assigned to you. To check whether you are subscribed to the 3rd-Party App Governance service, you can view your company subscriptions to confirm if 3rd-Party App Governance license is present. To learn more, see [Viewing Subscriptions](https://help.zscaler.com/unified/viewing-subscriptions).
-
-To access the 3rd-Party App Governance Admin Portal from the Zscaler Admin Console, go to **Analytics** > enable the**Switch to Existing Reports** toggle **>** **Analytics** **>** **SaaS Security Report** **> 3rd-Party App Governance.**
-
-See image.
-
-You can also access the 3rd-Party App Governance Admin Portal from multiple locations on the SaaS Security Report and SaaS Assets Report, if you have a subscription to 3rd-Party App Governance. To learn more, see [About the SaaS Security Report](https://help.zscaler.com/zia/about-saas-security-report) and [About the Assets Report](https://help.zscaler.com/zia/about-assets-report).
-
-[Image: SaaS Security Report showing 3rd-Party App Governance SSO Link]
-
-## Navigating within the 3rd-Party App Governance Admin Portal
-
-The 3rd-Party App Governance Admin Portal has the following items in the left-side navigation:
-
-- App Dashboard
-- Apps
-- Users
-- Policies
-- Reports
-- Audit Log
-- Settings
-- Log Out
-
-Click **App Dashboard** to get a high-level overview of your active and deactivated apps, as well as risky, potentially harmful, dormant, and overprivileged apps; see top apps, users, and findings; and leverage the remediation map to further assist in taking the right remediation actions. To learn more, see [About the 3rd-Party App Governance Dashboard](https://help.zscaler.com/zia/about-3rd-party-app-governance-dashboard)[.](https://help.zscaler.com/node/1462556/)
-
-Click **Apps** to view, manage, and govern your apps. You can also search 3rd-Party App Governance's app catalog to assist in pre-vetting use cases. To learn more, see [About the App Inventory](https://help.zscaler.com/zia/about-app-inventory) and [Searching for Apps](https://help.zscaler.com/zia/searching-apps).
-
-Click **Users** to view a list of current users and explore individual user access and activities. To learn more, see [About User Inventory](https://help.zscaler.com/zia/about-user-inventory).
-
-Click **Policies** to create and manage app policies. To learn more, see [3rd-Party App Governance Policies](https://help.zscaler.com/zia/3rd-party-app-governance-policies).
-
-Click **Reports**to view predefined, out-of-the-box reports or custom reports that you have created.
-
-Click the **Audit Log** icon to view details on changes made by users and admins in 3rd-Party App Governance.
-
-Click the **Settings**icon to view and manage the list of currently integrated tenants and to configure notifications. To learn more, see [About Settings in 3rd-Party App Governance](https://help.zscaler.com/zia/about-settings-3rd-party-app-governance).
-
-Click the **Logout** icon to see the currently logged-in user. Select **Logout** to log out of 3rd-Party App Governance when you are done.
-
-[Image: 3rd-Party App Governance Admin Portal home screen showing left-side navigation]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/accessing-and-navigating-endpoint-data-scan-report","lastmod":"2026-05-27T03:01Z","nid":"1486096"} -->
-## Accessing and Navigating the Endpoint Data Scan Report
-
-- Source: https://help.zscaler.com/zia/accessing-and-navigating-endpoint-data-scan-report
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Accessing and Navigating the Endpoint Data Scan Report
-- Last modified: 2026-05-27T03:01Z
-- Summary: Information on the Endpoint Data Scan Report, including how to access and navigate it.
-
-This article covers the following topics:
-
-- Accessing the Endpoint Data Scan Report
-- Navigating within the Endpoint Data Scan Report
-
-Endpoint Data Scan Report is an analytics and metrics report where in-depth data scan results can be viewed for all the endpoints connected to your organization's user traffic. You can view everyday scan results performed on endpoints by recording and formulating metrics for activities, incidents, and sensitive files discovered for each user in the form of visually intuitive and highly interactive graphs and widgets.
-
-To access the Endpoint Data Scan Report, go to Analytics > Endpoint Data Scan; you're redirected to the Endpoint Data Scan Report pages in a new browser tab.
-
-See image.
-
-The report has the following items on the left-side navigation:
-
-- Endpoint Data Scan
-- User Investigation
-- Device Investigation
-- Device Control
-- Sensitive Information
-- Inventory
-- Activation
-- Configuration
-- Account
-- Logout
-
-[Image: This image shows the Endpoint Data Scan tabs]
-
-Click **User Investigation** to view scan results and data specific to endpoints connected to a user. You can view the user with the most activities, incidents, department information, risk profile, and other significant metrics. To learn more, see [About User Investigation](https://help.zscaler.com/zia/about-user-investigation) and [Analyzing Endpoint DLP Scan for a User](https://help.zscaler.com/zia/analyzing-endpoint-dlp-scan-user).
-
-Click **Device Investigation** for a comprehensive view of all the endpoint details, including real-time device health status. You can view the Shadow IT of all the detected applications on the endpoint. To learn more, see [About Device Investigation](https://help.zscaler.com/zia/about-device-investigation) and [Analyzing Device Investigation Details](https://help.zscaler.com/zia/analyzing-device-investigation-details).
-
-Click **Endpoint Data Scan** to view sensitive data stored locally within all the endpoints connected to your organization's traffic. You can view various metrics for each endpoint and the users connected to these endpoints. To learn more, see [About Endpoint Data Scan](https://help.zscaler.com/zia/about-endpoint-data-scan).
-
-Click **Device Control** to create and manage device control policy rules for removable storage devices (e.g., USB drives, external hard drives) and printers to align within specific use cases within your organization. Administrators can define and set up policy rules for the usage of devices based on rule criteria, such as user, department, endpoint, device, etc. To learn more, see [About Device Control](https://help.zscaler.com/zia/about-device-control).
-
-Click **Inventory**to view information about the devices connected by the end users in the organization and their associated incidents and activities. You can view metrics for each connected device and the users connected to the devices and their endpoints. To learn more, see [About Inventory](https://help.zscaler.com/zia/about-inventory).
-
-Click **Activation**to enable the device control policy rules that you created in the **Device Control**tab or **Inventory**tab, or any changes made in the **Configuration**tab. To learn more, see [Activating Device Control Policy Rules, Configuration, and Indexed Documents Changes](https://help.zscaler.com/zia/activating-device-control-policy-rules-configuration-indexed-documents-changes).
-
-Click **Configuration**to configure endpoint data scan and other endpoint settings, such as continuous classification and endpoint DLP exemption duration. To learn more, see [Configuring Endpoint Data Scan, Endpoint Settings, and Channels](https://help.zscaler.com/zia/configuring-endpoint-data-scan-endpoint-settings).
-
-Click **Sensitive Information** to view Indexed Document Match (IDM) information, which enables authorized users to fingerprint documents containing sensitive data on endpoints. To learn more, see [About Sensitive Information](https://help.zscaler.com/zia/about-sensitive-information) and [Configuring Sensitive Information Settings](https://help.zscaler.com/zia/configuring-sensitive-information-settings).
-
-Click **Account**to view your username, organization name, organization ID, and cloud name.
-
-Click **Logout** to log out when you're done analyzing the endpoint scan data.
-
-[Image: This image shows how to access the Endpoint Data Scan Page.]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/accessing-zscaler-dspm-admin-portal-using-sso","lastmod":"2024-06-24T05:24Z","nid":"1480101"} -->
-## Accessing the DSPM Admin Portal using SSO
-
-- Source: https://help.zscaler.com/zia/accessing-zscaler-dspm-admin-portal-using-sso
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Accessing the DSPM Admin Portal using SSO
-- Last modified: 2024-06-24T05:24Z
-- Summary: How to access the DSPM Admin Portal from the ZIA Admin Portal using SSO.
-
-html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"
-
-Data Security Posture Management (DSPM) helps protect an organization’s data stored in your cloud resources against data theft, misuse, or loss by continuously scanning the data and numerous potential misconfigurations, vulnerabilities, and permissions that might contribute to attack vectors. DSPM provides detailed insights into where this sensitive data resides in your cloud environment, sensitive data types, and misconfigurations in data stores that contain sensitive data. To learn more, see[DSPM Help](https://help.zscaler.com/dspm).
-
-You can access the DSPM Admin Portal from the ZIA Admin Portal using SSO, if you have subscribed to the DSPM service and if a DSPM Admin or DSPM Super Admin role is assigned to you. To learn more about predefined roles and permissions in DSPM, see [About Roles](https://help.zscaler.com/dspm/about-roles). To check if you are subscribed to the DSPM service, you can view your company subscriptions to confirm if a DSPM license is present. To learn more, see [Viewing Subscriptions](https://help.zscaler.com/zia/viewing-subscriptions).
-
-To access the DSPM Admin Portal, in the ZIA Admin Portal, go to **Dashboard** > **Zscaler DSPM Portal**, or **Policy** >**Zscaler DSPM Portal**.
-
-The Admin with view permission can access the DSPM Admin Portal only from the**Dashboard**.
-
-See image.
-
-[Image: Screenshot of DSPM SSO Links]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/accessing-zscaler-snmp-mibs","lastmod":"2026-04-06T10:12Z","nid":"1400401"} -->
-## Accessing the Zscaler SNMP MIBs
-
-- Source: https://help.zscaler.com/zia/accessing-zscaler-snmp-mibs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > SNMP MIBs > Accessing the Zscaler SNMP MIBs
-- Last modified: 2026-04-06T10:12Z
-- Summary: Information about the Simple Network Management Protocol (SNMP), management information bases, and how Zscaler supports them.
-
-The Simple Network Management Protocol (SNMP) is used for network monitoring. It collects and organizes management information about devices on IP networks. SNMP exposes this information in the management information bases (MIBs).
-
-An MIB is a database used to manage the objects within a network. The Zscaler Enterprise SNMP MIBs are downloadable as files, which define all counters and assign them within the Zscaler database. You can use the MIBs to perform health monitoring on several different instances, like the [Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/about-nanolog-streaming-service) and [Virtual Service Edge for Internet & SaaS (ZIA)](https://help.zscaler.com/zia/about-virtual-service-edge).
-
-To access the Zscaler Enterprise SNMP MIBs:
-
-- 1. Download the MIBs
-- 2. Configure the SNMP Admin User
-- 3. Load and View the MIBs
-
-The Zscaler service supports the list of MIBs in the following sections. You can download the MIB files using the links provided in each table.
-
-- Virtual Service Edge MIBs
-- NSS MIBs
-- Zscaler MIB Files
-
-| **Virtual Service Edge MIBs** |  |
-| --- | --- |
-| [VZENMIBS.tgz](https://help.zscaler.com/downloads/zia/documentation-knowledgebase/analytics/snmp-mibs/about-the-zscaler-snmp-mibs/vzenmibs.tgz) | This file contains the following MIB files: ZSCALER-OSNIC-MIB; ZSCALER-PROCESSHEALTH-MIB; ZSCALER-PROCESSWATCHDOG-MIB; ZSCALER-ROLEHEALTH-MIB; ZSCALER-SWAPINFO-MIB; ZSCALER-VSE-MIB; ZSCALER-ZSCALERNIC-MIB |
-
-| **NSS MIBs** |  |
-| --- | --- |
-| [NSSMIBS.tgz](https://help.zscaler.com/downloads/zia/documentation-knowledgebase/analytics/snmp-mibs/about-the-zscaler-snmp-mibs/nssmibs.tgz) | This file contains the following MIB files: ZSCALER-NSSFEED-MIB; ZSCALER-NSS-MIB; ZSCALER-OSNIC-MIB; ZSCALER-PROCESSHEALTH-MIB; ZSCALER-PROCESSWATCHDOG-MIB; ZSCALER-ROLEHEALTH-MIB; ZSCALER-SWAPINFO-MIB; ZSCALER-ZSCALERNIC-MIB |
-
-| **Zscaler MIB Files** | **Description** |
-| --- | --- |
-| [ZSCALER-NSSFEED-MIB.mib](https://help.zscaler.com/downloads/zia/documentation-knowledgebase/analytics/snmp-mibs/about-the-zscaler-snmp-mibs/zscaler-nssfeed-mib.mib) | This module describes information specific to NSS feeds. |
-| [ZSCALER-NSS-MIB.mib](https://help.zscaler.com/downloads/zia/documentation-knowledgebase/analytics/snmp-mibs/about-the-zscaler-snmp-mibs/zscaler-nss-mib.mib) | This module describes information specific to the NSS instance. |
-| [ZSCALER-OSNIC-MIB.mib](https://help.zscaler.com/downloads/zia/documentation-knowledgebase/analytics/snmp-mibs/about-the-zscaler-snmp-mibs/zscaler-osnic-mib.mib) | This module describes the NIC devices managed by the OS. On a Zscaler system, there are NIC devices managed by the Zscaler instances and also by the base OS. |
-| [ZSCALER-PROCESSHEALTH-MIB.mib](https://help.zscaler.com/downloads/zia/documentation-knowledgebase/analytics/snmp-mibs/about-the-zscaler-snmp-mibs/zscaler-processhealth-mib.mib) | This module describes health information for all watched processes in the Zscaler instance. |
-| [ZSCALER-PROCESSWATCHDOG-MIB.mib](https://help.zscaler.com/downloads/zia/documentation-knowledgebase/analytics/snmp-mibs/about-the-zscaler-snmp-mibs/zscaler-processwatchdog-mib.mib) | This module describes the process watchdog information for each of the managed processes of a Zscaler instance (e.g., for a SME type of instance, the watched processes are sme, smavd, smavd2, smcdsc, and sctimer). |
-| [ZSCALER-ROLEHEALTH-MIB.mib](https://help.zscaler.com/downloads/zia/documentation-knowledgebase/analytics/snmp-mibs/about-the-zscaler-snmp-mibs/zscaler-rolehealth-mib.mib) | This module describes the health information for a Zscaler instance. This includes much of the OS level information for the instance, such as CPU, memory, and also some instance-specific information (e.g., current connections on SME). |
-| [ZSCALER-SWAPINFO-MIB.mib](https://help.zscaler.com/downloads/zia/documentation-knowledgebase/analytics/snmp-mibs/about-the-zscaler-snmp-mibs/zscaler-swapinfo-mib.mib) | This module describes the status of the swap devices present on the system. |
-| [ZSCALER-VSE-MIB](https://help.zscaler.com/downloads/zia/documentation-knowledgebase/analytics/snmp-mibs/about-the-zscaler-snmp-mibs/ZSCALER-VSE-MIB.mib) | This module describes the health status of Virtual Service Edge connection to Zscaler Central Authority (CA) and Log and Reporting servers. |
-| [ZSCALER-ZSCALERNIC-MIB.mib](https://help.zscaler.com/downloads/zia/documentation-knowledgebase/analytics/snmp-mibs/about-the-zscaler-snmp-mibs/zscaler-zscalernic-mib.mib) | This module describes the NIC devices managed by the Zscaler instance. On a Zscaler system, there are NIC devices managed by the Zscaler instances and also by the base OS. |
-
-To configure the SNMP admin user, you must log in to the Virtual Service Edge with software such as Xshell or Mobaxterm. In this example, Xshell is used.
-
-The steps for configuring [NSS](https://help.zscaler.com/zia/about-nanolog-streaming-service)are identical to the Virtual Service Edge example shown in this article.
-
-1. Enter the following command to log in to the Virtual Service Edge: `ssh zsroot@<Virtual Service Edge Management IP Address>`In this example, the Virtual Service Edge management IP address is 10.66.79.165. See image.
-2. In the **SSH User Authentication**window, choose **Keyboard Interactive**and click **OK**. See image.
-3. In the window that appears, enter the **Password**, zsroot, and click **OK**. See image.
-4. After you have logged in, change the user using the sudo su command,and enter the password zsroot. See image.
-5. Check if the Virtual Service Edge service is running using the vzen status command. See image.
-6. For NSS, use the nss status command. See image.
-7. Check if SNMP is running using the top command. See image.
-8. If the SNMP (snmpd) process is running, configure an SNMP admin user using the vzen snmp-admin-configure command. Follow the prompts to configure the username, password, authentication type, and encryption type for the admin user. See image.
-
-The following sections explain how to load and view the MIBs:
-
-- a. Load the MIBs
-- b. View the MIBs
-
-Load the downloaded MIBs into your SNMP monitoring tool.
-
-Before viewing the MIBs, you need to add the SNMP admin user configured in a [previous step](https://help.zscaler.com/zia/about-the-zscaler-snmp-mibs#configure-snmp-admin) to the SNMP monitoring tool. In this example, the **iReasoning MIB Browser** is used.
-
-1. Open the MIB browser, then go to **Tools**> **Options**. See image.
-2. In the **Options** window, navigate to the **Agents**tab. Click **Add**to add the SNMP admin user. See image. The **Advanced Properties of SNMP Agents**window appears.
-3. In the **Advanced Properties of SNMP Agents**window: See image.
-  1. In the **Address** field, enter the Virtual Service Edge management IP address.
-  2. For the **SNMP Version** field, select **3**. New fields appear after selecting **3**.
-    - **USM User**: Enter the username of the SNMP admin user.
-    - **Security Level**: Select **auth, priv** for the security level.
-  3. Enter the password of the SNMP admin user in the **Auth Password** and **Privacy Password** fields.
-4. Click **Ok** to save the SNMP admin user. The Virtual Service Edge management IP address and the SNMP admin user's credentials appear in the **Agents** tab. See image.
-5. Exit the **Options** window. From the **MIB Tree**, open the folder containing the Zscaler MIBs by navigating to **iso.org.dod.internet** > **private** > **enterprises** > **zscaler**. See image.
-6. Open the folder for the MIB for which you want to view the details. Right-click on the table icon, then click **Get Bulk**. See image.
-7. From the **Results Table**, you can view the **OID**, **Value**, and **Type**of the MIB object. To view more details, double-click the entry from the **Results Table**. The details appear in the left column. For example, for the **snmpTargetSpinLock**object: See image.
-  - **OID** is .1.3.6.1.6.3.12.1.1.0.
-  - **Value** is 0.
-  - **Type**is Integer.
-
-[Image: Command used to log in to the Zscaler Virtual ZEN (VZEN)]
-
-[Image: SSH User Authentication - Keyboard Interactive window]
-
-[Image: SSH User Authentication window]
-
-[Image: Command for changing the user]
-
-[Image: Command for checking the status of the Zscaler Virtual ZEN (VZEN)]
-
-[Image: Command for checking the status of the Zscaler NSS]
-
-****[Image: Command for checking if SNMP is running]****
-
-[Image: Command for configuring an SNMP admin user]
-
-[Image: MIB browser Tools menu]
-
-[Image: MIB browser Options window]
-
-[Image: MIB browser Advanced Properties of SNMP Agents window]
-
-[Image: Agents tab in Options window]
-
-[Image: MIB Tree folder containing Zscaler MIBs]
-
-[Image: Get Bulk option for Zscaler MIB]
-
-[Image: Zscaler MIB details in the Result table]
-
-****[Image: Zscaler MIB details on the MIB browser]****
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/activating-device-control-policy-rules-configuration-indexed-documents-changes","lastmod":"2026-05-27T03:05Z","nid":"1515421"} -->
-## Activating Device Control Policy Rules, Configuration, and Indexed Documents Changes
-
-- Source: https://help.zscaler.com/zia/activating-device-control-policy-rules-configuration-indexed-documents-changes
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Configuration > Activating Device Control Policy Rules, Configuration, and Indexed Documents Changes
-- Last modified: 2026-05-27T03:05Z
-- Summary: Information on how the Zscaler Endpoint Data Loss Prevention (DLP) policies, configuratoions, and indexed documents are activated, thereby enforcing policies and other changes.
-
-You must activate any changes made to device control policy rules, endpoint configurations, and indexed documents for them to be enforced.
-
-To activate changes made to device control policy rules, configurations, or indexed documents:
-
-1. Go to **Analytics**> **Endpoint Data Scan** > **Activation**.
-2. Hover over the **Activation** menu.
-3. Click **Activate**.
-
-## About the Activation Menu
-
-The Activation menu allows you to activate the device control policy rules that you added or edited, as well as any modifications made to the Configuration and Indexed Documents tabs.
-
-The **Activation**menu displays the **Activation Status** for Policy, Configuration, and Indexed Documents changes as follows:
-
-- **No Activations Pending**: When you have activated your changes.
-- **Pending Activation**: When you have saved your changes but not activated the changes.
-
-Endpoint Data Loss Prevention (DLP) pulls the policy every 15 minutes.
-
-[Image: This image shows the Activation Status for Policy and Configuration]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/active-directory-scim-provisioning-migration-guide","lastmod":"2026-07-13T21:06Z","nid":"1486446"} -->
-## Active Directory with LDAP to SCIM Provisioning Migration Guide
-
-- Source: https://help.zscaler.com/zia/active-directory-scim-provisioning-migration-guide
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > Active Directory with LDAP to SCIM Provisioning Migration Guide
-- Last modified: 2026-07-13T21:06Z
-- Summary: This article contains information on migrating from Active Directory (AD) to SCIM Provisioning.
-
-This guide contains information on how to migrate from Active Directory (AD) with [LDAP user synchronization](https://help.zscaler.com/zia/about-ldap-user-synchronization) to SCIM provisioning in the Zscaler Admin Console.
-
-## Prerequisites
-
-Make sure the following prerequisites are met:
-
-- Set the repository type to [Active Directory](https://help.zscaler.com/zia/synchronizing-user-data-active-directory-openldap) in the Zscaler Admin Console.
-- Use [SAML](https://help.zscaler.com/zia/configuring-saml) for authentication and AD for provisioning.
-- Ensure that the AD is syncing the database to Zscaler and the identity provider (IdP).
-
-When migrating from AD to SCIM, do not change the database type in the Zscaler Admin Console from Active Directory to Hosted DB. Doing so can cause all existing user and group mappings to be deleted and creates duplicate users with SCIM provisioning.
-
-## Migrating to SCIM
-
-To migrate from AD to SCIM provisioning:
-
-1. Go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings** > **Default Settings**.
-2. Click **Sync Now**to perform a manual sync with the AD; this ensures that the Zscaler service has the latest database from the AD. See image.
-3. (Optional) Ensure that you have the latest user data from the AD in your IdP application by performing a manual sync in the IdP application.
-4. In the Zscaler Admin Console, go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings** > **Default Settings** and enable **Disable Directory Sync & Enable SCIM Provisioning**. See image.
-5. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-6. Go to the **Identity Providers**tab and click the **Edit**icon of the IdP you plan to use.
-7. In the **Provisioning Options**section, click **Enable SCIM Provisioning** and copy the **Base URL**and **Bearer Token**as you need them when configuring SCIM in your IdP application. See image Zscaler recommends that you disable **Enable SAML Auto-Provisioning**when using SCIM provisioning**.**
-8. Using the information you copied, [configure SCIM provisioning in your selected IdP application](https://help.zscaler.com/zia/authentication-administration/provisioning-authenticating-users/saml-scim). After the IdP is configured, ensure that users syncing from the IdP match those on the [Users page](https://help.zscaler.com/authentication-service/about-users) in the Zscaler Admin Console. User Management in the Zscaler Admin Console remains read-only because the **User Repository Type** is set to **Active Directory**.
-
-Make sure that you do not disable the **Disable Directory Sync & Enable SCIM Provisioning**option or change the repository types. If you are using Zscaler Authentication Bridge (ZAB), it is safe to disable the ZAB VM if there are no provisioning issues observed after a few days.
-
-If you need to revert from SCIM to AD provisioning:
-
-1. Go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings** > **Identity Providers**, and click the **Edit**icon for the IdP you used.
-2. Disable the **Enable SCIM Provisioning**option.
-3. On the **Default Settings**tab, disable the **Disable Directory Sync & Enable SCIM Provisioning**option.
-4. In the IdP application that you previously configured SCIM for, disable the SCIM configuration.
-5. In the Zscaler Admin Console, go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings** > **Default Settings**, and click **Sync Now.**
-
-[Image: Image of the Sync Now button]
-
-[Image: Image of the Disable Directory Sync & Enable SCIM Provisioning option]
-
-[Image: Image of the Enable SCIM Provisioning option]
+5. Download the Incident Receiver Certificate.
+6. [Edit a Zscaler Incident Receiver](https://help.zscaler.com/zia/modifying-zscaler-incident-receiver).
+7. [Add a new client certificate](https://help.zscaler.com/zia/adding-zscaler-incident-receiver).
+8. [Delete a Zscaler Incident Receiver.](https://help.zscaler.com/zia/modifying-zscaler-incident-receiver)
+9. Search for a Zscaler Incident Receiver.
+10. [View the ICAP Settings page](https://help.zscaler.com/zia/about-icap-servers).
+11. [View the Cloud-to-Cloud Incident Forwarding page](https://help.zscaler.com/zia/about-cloud-cloud-incident-forwarding).
+
+[Image: The Zscaler Incident Receiver page shows a list Incident Receivers and details about each one]
 <!-- /ZS-ARTICLE -->

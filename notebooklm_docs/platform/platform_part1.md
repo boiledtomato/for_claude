@@ -1,18 +1,18 @@
 # Zscaler Help — Unified Platform / Admin / Logs (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-07 03:10 UTC
-Articles in this file: 260
+Generated: 2026-10-05 09:38 UTC
+Articles in this file: 258
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-access-tokens","lastmod":"2026-03-22T23:37Z","nid":"1503966"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-access-tokens","lastmod":"2026-09-28T08:19Z","nid":"1503966"} -->
 ## About Access Tokens
 
 - Source: https://help.zscaler.com/authentication-service/about-access-tokens
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > OneAPI Authentication > About Access Tokens
-- Last modified: 2026-03-22T23:37Z
+- Last modified: 2026-09-28T08:19Z
 - Summary: Information on the access tokens that an API client can use to access the API resources.
 
 Access tokens are [JSON web tokens (JWT)](https://auth0.com/docs/secure/tokens/json-web-tokens) required by API clients for authorization. After the [API client](https://help.zscaler.com/zidentity/about-api-clients) completes the authentication with Authentication Service, an access token is generated in the Zscaler Admin Console and the API client must use this token for authorization. OneAPI verifies the access token and allows the API client to access the required Zscaler service's API resource. The access tokens have limited validity. This ensures the API client can access the API resources only for a specific duration, and they are protected from any security breaches.
@@ -27,7 +27,7 @@ Access tokens include the following benefits:
 
 ## About the Authentication Service Issued Tokens Page
 
-On the Authentication Service Issued Tokens page (Administration > API Configuration > OneAPI > Tokens), you can do the following:
+On the Authentication Service Issued Tokens page (Administration > API > Tokens), you can do the following:
 
 1. View the list of client IDs and the assigned tokens. For each API client, you can see:
   - **Client ID**: The unique identifier for the API client.
@@ -56,13 +56,13 @@ On the Authentication Service Issued Tokens page (Administration > API Configura
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-administrative-entitlements","lastmod":"2026-07-15T07:59Z","nid":"1499221"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-administrative-entitlements","lastmod":"2026-09-22T05:51Z","nid":"1499221"} -->
 ## About Administrative Entitlements
 
 - Source: https://help.zscaler.com/authentication-service/about-administrative-entitlements
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Entitlements > About Administrative Entitlements
-- Last modified: 2026-07-15T07:59Z
+- Last modified: 2026-09-22T05:51Z
 - Summary: Information about the Administrative Entitlements page in the variable:zscaler-admin-console]].
 
 The Administrative Entitlements page shows the list of Zscaler services that your organization is subscribed to. You can assign Authentication Service users as service admins to these Zscaler services and with a role that is created in the Zscaler Admin Console. Admins can view only the assigned services in the Zscaler Admin Console. To learn more, see [Managing Entitlements](https://help.zscaler.com/zidentity/managing-entitlements).
@@ -76,7 +76,7 @@ Administrative Entitlement provides the following benefits and enables you to:
 
 ## About the Administrative Entitlements Page
 
-On the Administrative Entitlements page (Administration > Admin Management > Role Based Access Control > Administrative Entitlements), you can do the following:
+On the Administrative Entitlements page (Administration > Role Management > Administrative Entitlements), you can do the following:
 
 1. View a list of subscribed Zscaler services. For each service, you can view:
   - **Name**: The name of the Zscaler service.
@@ -91,13 +91,13 @@ On the Administrative Entitlements page (Administration > Admin Management > Rol
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-api-client-access-policy","lastmod":"2026-03-19T23:54Z","nid":"1499386"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-api-client-access-policy","lastmod":"2026-09-28T08:24Z","nid":"1499386"} -->
 ## About the API Client Access Policy
 
 - Source: https://help.zscaler.com/authentication-service/about-api-client-access-policy
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > OneAPI Authentication > About the API Client Access Policy
-- Last modified: 2026-03-19T23:54Z
+- Last modified: 2026-09-28T08:24Z
 - Summary: Information about the API client access policies in the Zscaler Admin Console.
 
 The API client access policies determine the API client's access to specific [API resources](https://help.zscaler.com/zidentity/viewing-api-resources) within set time frames. Administrators can define the policy rules and assign them to the required [API clients](https://help.zscaler.com/zidentity/about-api-clients) to prevent unauthorized activity and control access to API resources.
@@ -109,7 +109,7 @@ The API client access policy includes the following benefits:
 
 ## About the API Client Access Policy Page
 
-On the API Client Access Policy page (Administration > API Configuration > OneAPI > API Client Access Policy), you can do the following:
+On the API Client Access Policy page (Administration > API > API Client Access Policy), you can do the following:
 
 1. View the list of API client access policy rules. For each policy rule, you can see:
   - **Rule Name**: The name of the API client access policy rule.
@@ -128,13 +128,13 @@ On the API Client Access Policy page (Administration > API Configuration > OneAP
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-api-clients","lastmod":"2026-06-18T01:06Z","nid":"1499371"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-api-clients","lastmod":"2026-09-28T08:21Z","nid":"1499371"} -->
 ## About API Clients
 
 - Source: https://help.zscaler.com/authentication-service/about-api-clients
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > OneAPI Authentication > About API Clients
-- Last modified: 2026-06-18T01:06Z
+- Last modified: 2026-09-28T08:21Z
 - Summary: Information about the Zscaler OneAPI client authentication feature available in the Zscaler Admin Console.
 
 An API client refers to any application or service that wants to access the [Zscaler API resources](https://help.zscaler.com/zidentity/viewing-api-resources) and retrieve data. You can [configure and manage the API clients](https://help.zscaler.com/zidentity/adding-api-client) in the Zscaler Admin Console, along with their authentication information and necessary scope to access the API resources. Authentication Service is the authorization server that validates the API client's request and issues an [access token](https://help.zscaler.com/zidentity/about-access-tokens) that must be used to access the API resources via the [OneAPI server](https://help.zscaler.com/oneapi/understanding-oneapi).
@@ -145,9 +145,11 @@ API clients include the following key features and benefits:
 - Consistent authorization through Authentication Service.
 - Access resources across all Zscaler services with entitlements via role-based access control.
 
+If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service and some Zscaler services are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
+
 ## About the API Clients Page
 
-On the API Clients page (Administration > API Configuration > OneAPI > API Clients), you can do the following:
+On the API Clients page (Administration > API > API Clients), you can do the following:
 
 1. [Add an API client](https://help.zscaler.com/zidentity/adding-api-client).
 2. Reset the page to the default view.
@@ -166,13 +168,13 @@ On the API Clients page (Administration > API Configuration > OneAPI > API Clien
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-attributes","lastmod":"2026-07-02T21:06Z","nid":"1499296"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-attributes","lastmod":"2026-09-20T21:05Z","nid":"1499296"} -->
 ## About Attributes
 
 - Source: https://help.zscaler.com/authentication-service/about-attributes
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Attributes > About Attributes
-- Last modified: 2026-07-02T21:06Z
+- Last modified: 2026-09-20T21:05Z
 - Summary: Information about the user and session attributes available in Authentication Service.
 
 Authentication Service (formerly ZIdentity) supports user attributes and session attributes that are necessary to configure SAML-based single sign-on (SSO) access for users. For both these attributes, Authentication Service allows you to define custom attributes in addition to the default system-defined attributes.
@@ -196,7 +198,7 @@ The following table lists the system-defined attributes in each category:
 
 ## About the Attributes Page
 
-On the Attributes page (Administration > Identity > Authentication Service > Attributes), you can do the following:
+On the Attributes page (Administration > Authentication > Attributes), you can do the following:
 
 1. [Add a user attribute](https://help.zscaler.com/zidentity/adding-user-attributes).
 2. Import a CSV file that contains a list of user attributes.
@@ -218,13 +220,13 @@ On the Attributes page (Administration > Identity > Authentication Service > Att
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-audit-logs","lastmod":"2026-06-24T06:49Z","nid":"1499166"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-audit-logs","lastmod":"2026-09-17T21:16Z","nid":"1499166"} -->
 ## About Audit Logs
 
 - Source: https://help.zscaler.com/authentication-service/about-audit-logs
 - Product: Authentication Service
 - Path: Authentication Service Help > Audit Logs > About Audit Logs
-- Last modified: 2026-06-24T06:49Z
+- Last modified: 2026-09-17T21:16Z
 - Summary: Information regarding audit logs, including policy and configuration change logs, within the Authentication Service.
 
 Audit logs are records of activities performed by users in Authentication Service. These logs enable administrators to track configuration changes, user management (e.g., creating, updating, and deleting users), tenant management, authentication settings changes, service assignments, and authentication events.
@@ -245,9 +247,13 @@ Audit logs provide the following benefits and enable you to:
 
 ## About the Audit Logs Page
 
-On the Audit Logs page (Administration > Admin Management > Audit Logs > Authentication Service), you can do the following:
+On the Audit Logs page (Data Explorer > Audit Logs > Authentication Service), you can do the following:
 
-1. View logs. For each user, you can see:
+1. Filter the data by time range, action, category, subcategory, interface, or result.
+2. Refresh audit logs to sync new data.
+3. Search for the logs by resource, admin ID, or client IP.
+4. Download a CSV file. The times in the CSV file are in PDT.
+5. View logs. For each user, you can see:
   - **Timestamp**: The date and time when the user performed the activity.
   - **Action**:The action performed by the user in Authentication Service. List of actions
   - **Category**: A UI page in the Zscaler Admin Console where the action is performed. List of categories
@@ -257,13 +263,8 @@ On the Audit Logs page (Administration > Admin Management > Audit Logs > Authent
   - **Client IP**: The IP address for the user.
   - **Interface**: The means by which the user performs their actions. The interface is either UI, Zscaler Client Connector, or API-based.
   - **Result**: The outcome of an action (Success, Failure, or Partially Failed)
-2. Filter the data by time range, action, category, subcategory, interface, or result.
-3. Refresh audit logs to sync new data.
-4. Search for the logs by resource, admin ID, or client IP.
-5. Download a CSV file. The times in the CSV file are in PDT.
-6. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-
-1. See configuration changes.
+6. See configuration changes.
+7. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
 
 [Image: Audit Logs page]
 
@@ -300,16 +301,18 @@ There are two types of changes you can view:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-authentication-service-admin-roles","lastmod":"2026-06-18T03:13Z","nid":"1499256"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-authentication-service-admin-roles","lastmod":"2026-09-23T06:40Z","nid":"1499256"} -->
 ## About Authentication Service Admin Roles
 
 - Source: https://help.zscaler.com/authentication-service/about-authentication-service-admin-roles
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Admins and Roles > About Authentication Service Admin Roles
-- Last modified: 2026-06-18T03:13Z
+- Last modified: 2026-09-23T06:40Z
 - Summary: Information about admin roles in the Zscaler Admin Console.
 
 Zscaler's role-based administration enables you to assign Authentication Service users or user groups with [admin roles and permissions](https://help.zscaler.com/zidentity/admin-roles-and-permissions) and control their level of access to the Zscaler Admin Console.
+
+If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 
 There are 4 predefined admin roles:
 
@@ -329,7 +332,7 @@ Role management provides the following benefits and enables you to:
 
 ## About the Roles Page
 
-On the Roles page (Administration > Admin Management > Role Based Access Control > Unified User Interface), you can do the following:
+On the Roles page (Administration > Role Management > Authentication Service), you can do the following:
 
 1. [Add an admin role](https://help.zscaler.com/zidentity/adding-zidentity-admin-roles).
 2. Search for a role.
@@ -346,13 +349,13 @@ On the Roles page (Administration > Admin Management > Role Based Access Control
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-departments","lastmod":"2026-06-24T06:06Z","nid":"1499456"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-departments","lastmod":"2026-10-01T14:58Z","nid":"1499456"} -->
 ## About Departments
 
 - Source: https://help.zscaler.com/authentication-service/about-departments
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Departments > About Departments
-- Last modified: 2026-06-24T06:06Z
+- Last modified: 2026-10-01T14:58Z
 - Summary: Information about managing departments in the Zscaler Admin Console.
 
 This article describes how to add and manage departments. When you add administrators, you can define their scope by department. Administrators can have control over a set of users in a department. An administrator can belong to only one department.
@@ -363,7 +366,7 @@ Departments provide the following benefits and enable you to:
 - View department-based reports.
 - Categorize users based on departments specific to your organization.
 
-On the Departments page (Administration > Identity > Authentication Service > Departments), you can do the following:
+On the Departments page (Administration > Authentication > Departments), you can do the following:
 
 1. [Add a department](https://help.zscaler.com/zidentity/adding-departments).
 2. [Import departments using a CSV file](https://help.zscaler.com/zidentity/adding-departments).
@@ -380,13 +383,13 @@ On the Departments page (Administration > Identity > Authentication Service > De
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-external-identity-providers","lastmod":"2026-06-24T20:23Z","nid":"1499361"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-external-identity-providers","lastmod":"2026-09-30T19:47Z","nid":"1499361"} -->
 ## About External Identity Providers
 
 - Source: https://help.zscaler.com/authentication-service/about-external-identity-providers
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > About External Identity Providers
-- Last modified: 2026-06-24T20:23Z
+- Last modified: 2026-09-30T19:47Z
 - Summary: Information about adding primary and secondary external identity providers in the Zscaler Admin Console.
 
 You can configure primary and secondary external identity providers (IdPs) in the Zscaler Admin Console based on your organization's requirements. Authentication Service redirects users to different IdPs based on the configured IdP criteria for authenticating users. Authentication Service supports both [OpenID Connect (OIDC)](https://help.zscaler.com/authentication-service/adding-openid-providers) and [Security Assertion Markup Language (SAML)](https://help.zscaler.com/authentication-service/adding-saml-identity-providers) configurations.
@@ -431,9 +434,9 @@ When an admin group from the external IdP is removed, Authentication Service han
 
 ## About the External Identities Page
 
-On the External Identities page (Administration > Identity > Authentication Service > External Identities), you can do the following:
+On the External Identities page (Administration > Authentication > External Identities), you can do the following:
 
-1. View certificate expiry banner: If any of the SAML certificates (IdP certificate, SAML Request Signing and Decryption Certificate) are about to expire within 90 days or have already expired, then the Zscaler Admin Console displays a banner. Click the **Click here** link to manage your external IdP certificates.
+1. View the certificate expiration banner: If any of the SAML certificates (IdP certificate, SAML Request Signing and Decryption Certificate) are about to expire within 90 days or have already expired, then the Zscaler Admin Console displays a banner. Click the **Click here** link to manage your external IdP certificates.
 2. View the configured primary IdP. For the primary IdP, you can see: If you haven't configured a primary IdP, click **Add Primary IdP** to proceed with the IdP configuration. See image.
   - **Name**: The IdP's name.
   - **Type**: The type of authentication method used by the IdP.
@@ -463,13 +466,13 @@ On the External Identities page (Administration > Identity > Authentication Serv
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-ip-location-groups","lastmod":"2026-07-01T21:06Z","nid":"1499141"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-ip-location-groups","lastmod":"2026-09-23T07:00Z","nid":"1499141"} -->
 ## About IP Location Groups
 
 - Source: https://help.zscaler.com/authentication-service/about-ip-location-groups
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Trusted IP Location Groups > About IP Location Groups
-- Last modified: 2026-07-01T21:06Z
+- Last modified: 2026-09-23T07:00Z
 - Summary: Information about location groups and how they are used in Authentication Service.
 
 IP location groups are multiple IP locations that are grouped together to organize source IP address ranges. If you have many locations within your organization, consider using IP location groups. These location groups can be used to configure various [sign-on policies](https://help.zscaler.com/zidentity/about-sign-on-policies) for the users.
@@ -481,7 +484,7 @@ IP Location Groups provide the following benefits and enable you to:
 
 ## About the IP Location Groups Page
 
-On the IP Location Groups page (Administration > Identity > Authentication Service > Trusted IP Location Groups), you can do the following:
+On the IP Location Groups page (Administration > Authentication > Trusted IP Location Groups), you can do the following:
 
 1. View a list of all IP location groups that were configured for your organization. For each location group, you can see:
   - **Name**: The name of the group.
@@ -494,20 +497,20 @@ On the IP Location Groups page (Administration > Identity > Authentication Servi
 6. Search for an IP location group.
 7. Edit a configured IP location group.
 8. Delete a configured IP location group.
-9. Select multiple IP location groups to delete them in bulk.
+9. Select multiple IP location groups to delete them in bulk. You must select more than one IP location group to view the **Actions**option.
 
 [Image: IP Location Groups page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-ip-locations","lastmod":"2026-06-24T06:08Z","nid":"1499126"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-ip-locations","lastmod":"2026-09-23T06:59Z","nid":"1499126"} -->
 ## About IP Locations
 
 - Source: https://help.zscaler.com/authentication-service/about-ip-locations
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Trusted IP Locations > About IP Locations
-- Last modified: 2026-06-24T06:08Z
+- Last modified: 2026-09-23T06:59Z
 - Summary: Information about locations and how they are used in Authentication Service.
 
 An IP location refers to the geographical location associated with an IP address. These IP locations can be used to define and apply various sign-on policies.
@@ -519,7 +522,7 @@ IP locations provide the following benefits and enable you to:
 
 ## About the IP Location Page
 
-On the IP Locations page (Administration > Identity > Authentication Service > Trusted IP Locations), you can do the following:
+On the IP Locations page (Administration > Authentication > Trusted IP Locations), you can do the following:
 
 1. View a list of configured IP locations. For each IP location, you can see:
   - **Name**: The IP location name.
@@ -540,18 +543,18 @@ On the IP Locations page (Administration > Identity > Authentication Service > T
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-log-streaming","lastmod":"2026-07-01T21:06Z","nid":"1539480"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-log-streaming","lastmod":"2026-09-24T01:38Z","nid":"1539480"} -->
 ## About Log Streaming
 
 - Source: https://help.zscaler.com/authentication-service/about-log-streaming
 - Product: Authentication Service
 - Path: Authentication Service Help > Audit Logs > About Log Streaming
-- Last modified: 2026-07-01T21:06Z
+- Last modified: 2026-09-24T01:38Z
 - Summary: Information regarding the Log Streaming page within Authentication Service.
 
 The integration of Nanolog Streaming Service (NSS) and Cloud NSS with Authentication Service enables administrators to stream authentication, admin audit, and [System for Cross-domain Identity Management (SCIM)](https://help.zscaler.com/zidentity/understanding-scim) logs to external security information and event management (SIEM) systems that are linked with Zscaler services (e.g., Internet & SaaS (ZIA)) for centralized monitoring and analysis. By enabling log streaming, you can securely export Authentication Service logs in real time, which helps to investigate security incidents, such as unauthorized access attempts, brute force attacks, or unusual login patterns.
 
-Authentication Service administrators assigned with Full permission to access the Log Streaming module can enable the log streaming option. To learn more, see [Admin Roles and Permissions](https://help.zscaler.com/zidentity/admin-roles-and-permissions).
+Authentication Service administrators assigned with Full permission to access the Log Streaming module can enable the log streaming option. To learn more, see [Admin Roles and Permissions](https://help.zscaler.com/zidentity/admin-roles-and-permissions). If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service and some Zscaler services are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 
 Log Streaming provides the following benefits and enables you to:
 
@@ -560,7 +563,7 @@ Log Streaming provides the following benefits and enables you to:
 
 ## About the Log Streaming Page
 
-On the Log Streaming (Logs > Log Streaming > Authentication Service Log Streaming) page, you can do the following:
+On the Log Streaming (Data Explorer > Log Streaming > Authentication Service Log Streaming) page, you can do the following:
 
 1. **Zscaler Cloud** and **Internet Access Tenant ID**: View the Internet & SaaS tenants that are linked with your organization with its unique identifier.
 2. **Authentication Service Log Streaming**: Enable to stream authentication, admin audit, and SCIM logs to the Internet & SaaS tenant. To learn more, see:
@@ -574,13 +577,13 @@ On the Log Streaming (Logs > Log Streaming > Authentication Service Log Streamin
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-service-entitlements","lastmod":"2026-07-02T21:06Z","nid":"1499241"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-service-entitlements","lastmod":"2026-09-24T04:06Z","nid":"1499241"} -->
 ## About Service Entitlements
 
 - Source: https://help.zscaler.com/authentication-service/about-service-entitlements
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Entitlements > About Service Entitlements
-- Last modified: 2026-07-02T21:06Z
+- Last modified: 2026-09-24T04:06Z
 - Summary: Information about the subscribed Zscaler services, users and user groups in the Zscaler Admin Console.
 
 The Service Entitlements page shows the list of Zscaler services that your organization is subscribed to. You can assign end users to these Zscaler services.
@@ -595,28 +598,27 @@ Service Entitlements provide the following benefits and enable you to:
 
 ## About the Service Entitlements Page
 
-On the Service Entitlements page (Administration > Entitlements > End User Entitlements), you can do the following:
+On the Service Entitlements page (Administration > Subscription > End User Entitlements), you can do the following:
 
 1. View a list of subscribed Zscaler services. For each service, you can view:
   - **Name**: The name of the Zscaler service.
   - **Cloud Name**: The Zscaler cloud name.
   - **Organization Name**: The name of your organization.
-2. Select a service to view or [assign users and user groups](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups#service-entitlements) to that service. See image.
+2. [Manage table columns](https://help.zscaler.com/unified/managing-table-columns).
+3. Select a service to view or [assign users and user groups](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups#service-entitlements) to that service.
 
-[Image: The Service Entitlements page]
-
-[Image: Assign users and user groups to Zscaler services]
+[Image: Service Entitlements page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-sign-on-policies","lastmod":"2026-06-30T21:06Z","nid":"1499066"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-sign-on-policies","lastmod":"2026-09-17T20:46Z","nid":"1499066"} -->
 ## About Sign-On Policies
 
 - Source: https://help.zscaler.com/authentication-service/about-sign-on-policies
 - Product: Authentication Service
 - Path: Authentication Service Help > Policies > About Sign-On Policies
-- Last modified: 2026-06-30T21:06Z
+- Last modified: 2026-09-17T20:46Z
 - Summary: Information about the Sign-On Policy page in the Zscaler Admin Console.
 
 The Admin Sign-On Policy page displays all the sign-on rules configured for the users. The sign-on rules determine whether to allow or deny a user from accessing the Zscaler service. You can use different attributes to configure rules and apply them to the users.
@@ -633,7 +635,7 @@ Sign-on policies provide the following benefits and enable you to:
 
 ## About the Admin Sign-On Policy Page
 
-On the Admin Sign-On Policy page (Administration > Admin Management > Administrator Management > Sign-On Policies), you can do the following:
+On the Admin Sign-On Policy page (Administration > Authentication > Admin Sign-On Policy), you can do the following:
 
 1. [Add a sign-on rule](https://help.zscaler.com/zidentity/configuring-sign-on-policy).
 2. View a list of all configured sign-on rules. For each rule, you can see:
@@ -652,16 +654,16 @@ On the Admin Sign-On Policy page (Administration > Admin Management > Administra
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-token-validators","lastmod":"2026-03-20T04:31Z","nid":"1532124"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-token-validators","lastmod":"2026-09-30T19:08Z","nid":"1532124"} -->
 ## About Token Validators
 
 - Source: https://help.zscaler.com/authentication-service/about-token-validators
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > Token Validators > About Token Validators
-- Last modified: 2026-03-20T04:31Z
+- Last modified: 2026-09-30T19:08Z
 - Summary: Information about token validators for OneAPI in the Zscaler Admin Console.
 
-Token validators are used to validate JSON Web Tokens (JWT). The tokens must contain values that match the configuration of the token validator to gain access to the Zscaler service, like Internet & SaaS. You can create token validators in the Zscaler Admin Console and use them for authorization.
+Token validators are used to validate JSON Web Tokens (JWT). The tokens must contain values that match the configuration of the token validator to gain access to the Zscaler service, like Internet & SaaS (ZIA). You can create token validators in the Zscaler Admin Console and use them for authorization.
 
 Token Validators provide the following benefits and enable you to:
 
@@ -673,35 +675,40 @@ Token Validators provide the following benefits and enable you to:
 
 To use token validators, ensure that the following prerequisite is met:
 
-Internet & SaaS and Private Access tenants must be provisioned in Authentication Service.
+Internet & SaaS and Private Access (ZPA) tenants must be provisioned in Authentication Service.
 
 ## About the Token Validators Page
 
-On the Token Validators page (Administration > API Configuration > OneAPI > Token Validators), you can do the following:
+On the Token Validators page (Administration > Authentication > Token Validators), you can do the following:
 
-1. View the configured Token Validators. For the token validator, you can see:
+1. [Test a JWT token manually](https://help.zscaler.com/zidentity/testing-access-token).
+2. [Add a new token validator](https://help.zscaler.com/zidentity/adding-token-validator).
+3. Search for a token validator by name.
+4. Refresh the list of token validators.
+5. Add or remove columns to customize the token validator table.
+6. Select the token validators to perform bulk deletion.
+7. View the configured Token Validators. For the token validator, you can see:
   - **Name**: The name of the token validator.
   - **Type**: The type of token accepted by the token validator for the authorization request. Currently, Authentication Service only supports JWT token.
-2. [Add a new token validator](https://help.zscaler.com/zidentity/adding-token-validator).
-3. [Test a JWT token manually](https://help.zscaler.com/zidentity/testing-access-token).
-4. Search for a token validator by name.
-5. Edit or delete a token validator.
+8. Edit or delete a token validator.
 
 [Image: View the list of tokens]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-user-groups","lastmod":"2026-07-09T01:07Z","nid":"1499111"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-user-groups","lastmod":"2026-09-23T01:27Z","nid":"1499111"} -->
 ## About User Groups
 
 - Source: https://help.zscaler.com/authentication-service/about-user-groups
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > User Groups > About User Groups
-- Last modified: 2026-07-09T01:07Z
+- Last modified: 2026-09-23T01:27Z
 - Summary: Information on the User Groups page and its features in Authentication Service.
 
 Group is a logical entity that includes several users. Creating user groups helps in assigning multiple users to the Zscaler services quickly. You can create user groups to categorize users for various services and assign these user groups to administrative entitlements, service entitlements, admin roles, etc. You can create custom groups and use the predefined groups for a set of users.
+
+If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service and some Zscaler services are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 
 The predefined groups are:
 
@@ -720,7 +727,7 @@ A user can be part of up to 1,000 groups. You must have similar limits on the re
 
 ## About the User Groups Page
 
-On the User Groups page (Administration > Identity > Authentication Service > User Groups), you can do the following:
+On the User Groups page (Administration > Authentication > User Groups), you can do the following:
 
 1. Click the **Filter**icon to display the search options. You can search for a group by group name or username.
 2. Reset the page to the default view.
@@ -743,16 +750,18 @@ On the User Groups page (Administration > Identity > Authentication Service > Us
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-users","lastmod":"2026-06-24T06:30Z","nid":"1499096"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-users","lastmod":"2026-09-23T01:26Z","nid":"1499096"} -->
 ## About Users
 
 - Source: https://help.zscaler.com/authentication-service/about-users
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Users > About Users
-- Last modified: 2026-06-24T06:30Z
+- Last modified: 2026-09-23T01:26Z
 - Summary: Information on the Users page and its features in Authentication Service.
 
 You can add users to Authentication Service by creating them [locally within Authentication Service](https://help.zscaler.com/zidentity/adding-users) or via an [external identity provider (IdP) provider](https://help.zscaler.com/zidentity/about-external-identity-providers). In addition, you can assign them [admin entitlements](https://help.zscaler.com/zidentity/about-administrative-entitlements) to make them administrators for a Zscaler service (e.g., Internet & SaaS (ZIA), Private Access (ZPA)) or you can assign them [service entitlements](https://help.zscaler.com/zidentity/about-service-entitlements) so they are able to authenticate to a Zscaler service as an end user.
+
+If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service and some Zscaler services are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 
 Managing users provides the following benefits and enables you to:
 
@@ -763,7 +772,7 @@ Managing users provides the following benefits and enables you to:
 
 ## About the Users Page
 
-On the Users page (Administration > Identity > Authentication Service > Users), you can do the following:
+On the Users page (Administration > Authentication > Users), you can do the following:
 
 1. Click the **Filter**icon to display the search options. You can search for a user by username or group name.
 2. Reset the page to the default view.
@@ -786,22 +795,22 @@ On the Users page (Administration > Identity > Authentication Service > Users), 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/adding-api-client","lastmod":"2026-06-18T01:05Z","nid":"1503771"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/adding-api-client","lastmod":"2026-09-28T08:21Z","nid":"1503771"} -->
 ## Adding an API Client
 
 - Source: https://help.zscaler.com/authentication-service/adding-api-client
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > OneAPI Authentication > Adding an API Client
-- Last modified: 2026-06-18T01:05Z
+- Last modified: 2026-09-28T08:21Z
 - Summary: How to add Zscaler OneAPI clients to Zscaler Admin Console.
 
 Any application or service that wants to access the [Zscaler API resources](https://automate.zscaler.com/docs/api-reference-and-guides/guides/UnderstandingOneAPI) must have an [API client](https://help.zscaler.com/zidentity/about-api-clients) created and provisioned in the Zscaler Admin Console. When an API client sends an authentication request, Authentication Service verifies the client secret or assertion depending on the authentication mechanism and issues an access token. The API client uses this access token to request access to the required API resources. Authentication Service supports the [OAuth 2.0 Client Credentials Grant type](https://oauth.net/2/grant-types/) to authorize the API clients.
 
-Authentication Service administrators assigned with Full permission to access the API Clients and API Resources modules can configure API clients in the Zscaler Admin Console. To learn more, see [Admin Roles and Permissions](https://help.zscaler.com/zidentity/admin-roles-and-permissions).
+Authentication Service administrators assigned with Full permission to access the API Clients and API Resources modules can configure API clients in the Zscaler Admin Console. To learn more, see [Admin Roles and Permissions](https://help.zscaler.com/zidentity/admin-roles-and-permissions). If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service and some Zscaler services are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 
 To add an API client:
 
-1. Go to **Administration** > **API Configuration** > **OneAPI** >**API Clients**.
+1. Go to **Administration > API > API Clients**.
 2. Click **Add API Client**.
 3. In the **Add API Client** drawer, the **Client**tab is selected by default. Enter the following details:
   - **Client Information**:
@@ -836,22 +845,22 @@ To add an API client:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/adding-api-client-access-policy-rule","lastmod":"2026-03-18T06:07Z","nid":"1531919"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/adding-api-client-access-policy-rule","lastmod":"2026-09-28T08:25Z","nid":"1531919"} -->
 ## Adding API Client Access Policy Rule
 
 - Source: https://help.zscaler.com/authentication-service/adding-api-client-access-policy-rule
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > OneAPI Authentication > Adding API Client Access Policy Rule
-- Last modified: 2026-03-18T06:07Z
+- Last modified: 2026-09-28T08:25Z
 - Summary: How to add API client access policy rules in the Zscaler Admin Console.
 
 You can add an API client access policy rule by defining the API resources that API clients can access within a set time frame. An API client can be assigned to only one policy rule at a time.
 
-Authentication Service administrators assigned with Full permission to access the API clients and API resources modules can configure an API client access policy rule. To learn more, see [Admin Roles and Permissions](https://help.zscaler.com/zidentity/admin-roles-and-permissions).
+Authentication Service administrators assigned with Full permission to access the API clients and API resources modules can configure an API client access policy rule. To learn more, see [Admin Roles and Permissions](https://help.zscaler.com/zidentity/admin-roles-and-permissions). If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service and some Zscaler services are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 
 To add an API client access policy rule:
 
-1. Go to **Administration** > **API Configuration** > **OneAPI** > **API Client Access Policy.**
+1. Go to **Administration** > **API** > **API Client Access Policy.**
 2. On the **API Client Access Policy** page, click **+Policy Rule.**
 3. On the **Add Policy Rule**page**,** use the query builder to define the policy rule: See image.
   - **Criteria (if)**: Define the criteria:
@@ -882,16 +891,18 @@ To add an API client access policy rule:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/adding-authentication-service-admin-roles","lastmod":"2026-06-24T06:26Z","nid":"1499261"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/adding-authentication-service-admin-roles","lastmod":"2026-09-29T03:35Z","nid":"1499261"} -->
 ## Adding Authentication Service Admin Roles
 
 - Source: https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Admins and Roles > Adding Authentication Service Admin Roles
-- Last modified: 2026-06-24T06:26Z
+- Last modified: 2026-09-29T03:35Z
 - Summary: How to assign users with admin roles and permissions to manage tasks in the Zscaler Admin Console.
 
 This article describes how to assign roles and permissions to admins who manage the Zscaler Admin Console. These admins can manage users and entitlements on the assigned Zscaler services.
+
+If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 
 ## Prerequisites
 
@@ -901,7 +912,7 @@ You need to first [add users](https://help.zscaler.com/zidentity/adding-users) a
 
 To assign admin roles:
 
-1. Go to **Administration**>**Admin Management**>**Role Based Access Control** >**Unified User Interface**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Role Management**> **Authentication Service**.
 2. Click **Add Role**.
 3. In the **Add Role**drawer: See image.
   - **Name**: Enter a namefor the admin role.
@@ -934,49 +945,49 @@ To assign admin roles:
 
 [Image: Add Role page with the list of roles and permissions in ZIdentity.]
 
-Set the access level to **Administration > Admin Management > Administrator Management > Sign-On Policies.**
+Set the access level to **Administration**> **Authentication**> **Admin Sign-On Policy**.
 
 **Condition**: The role must also have Full or View Only access to [IP Locations](https://help.zscaler.com/zidentity/about-ip-locations) to manage or view Sign-On Policy.
 
 Set the access level to:
 
-- **Administration**> **Identity**>**Authentication Service**>**Password Complexity**
-- **Administration** > **Identity**> **Authentication Service** > **Authentication Methods**.
+- **Administration**>**Authentication**>**Password Policy**
+- **Administration** > **Authentication** > **Authentication Methods**
 
-Set the access level to
+Set the access level to:
 
-- **Administration** > **Identity**> **Authentication Service** > **Users**
-- **Administration** > **Identity**> **Authentication Service** > **User Groups**
-- **Administration** > **Identity**> **Authentication Service** > **Attributes**
+- **Administration** > **Authentication** > **Users**
+- **Administration** > **Authentication** > **User Groups**
+- **Administration** > **Authentication** > **Attributes**
 
-**Condition**: This permission doesn't allow access to **Administration** > **Identity**> **Authentication Service** > **Users**>**Edit User**> **Security Settings**. [The role](https://help.zscaler.com/zidentity/admin-roles-and-permissions) must have Full or View Only access to User Credentials to manage or view the Security Settings of users.
+**Condition**: This permission doesn't allow access to **Administration** > **Authentication** > **Users**>**Edit User**> **Security Settings**. [The role](https://help.zscaler.com/zidentity/admin-roles-and-permissions) must have Full or View Only access to User Credentials to manage or view the Security Settings of users.
 
 For Authentication Service tenants who have migrated to Zscaler Admin Console, you must have at least the View Only permission for the Users and User Groups modules to submit a Zscaler Support ticket from within Zscaler Admin Console.
 
-Set the access level to **Administration** > **Identity**> **Authentication Service** > **Users**>**Edit User**> **Security Settings**.
+Set the access level to **Administration** > **Authentication** > **Users**>**Edit User**> **Security Settings**.
 
 **Condition**: The role must have Full or View Only access to [Users](https://help.zscaler.com/zidentity/about-users) and [Groups](https://help.zscaler.com/zidentity/about-user-groups) to manage or view the Security Settings of users.
 
-Set the access level to **Administration** > **Identity**> **Authentication Service** > **External Identities**.
+Set the access level to **Administration** > **Authentication** > **External Identities**.
 
-**Condition**: The Restricted View access allows View-Only access to External Identities but doesn't allow the role to view or access the **Bear Token** field (**Administration** > **Identity**> **Authentication Service** > **External Identities**>**Edit Primary**or**Secondary Identity Provider**>**Provisioning**).
+**Condition**: The Restricted View access allows View-Only access to External Identities but doesn't allow the role to view or access the **Bear Token** field (**Administration** > **Authentication** > **External Identities**>**Edit Primary**or**Secondary Identity Provider**>**Provisioning Details**).
 
-Set the access level to **Administration >** **Identity > Authentication Service**> **Trusted** **IP** **Locations**and **Administration >** **Identity > Authentication Service**> **Trusted** **IP** **Location Groups**.
+Set the access level to **Administration >** **Authentication**> **Trusted** **IP** **Locations**and **Administration >** **Authentication** > **Trusted** **IP** **Location Groups**.
 
-Set the access level to **Administration > Account Management > Linked Services.**
+Set the access level to **Administration > Subscription > Linked Services.**
 
-Set the access level to the Authentication Session section in **Administration** > **Identity**> **Authentication Service** > **Authentication Session**.
+Set the access level to the Authentication Session section in **Administration** > **Authentication**> **Authentication Session**.
 
-Set the access level to **Administration**>**Admin Management**>**Role Based Access Control**>**Administrative Entitlements**.
+Set the access level to **Administration**>**Role Management**>**Administrative Entitlements**.
 
 **Conditions**:
 
 - The admins that are assigned this role can access the configuration on the [Administrative Entitlements: Administrative](https://help.zscaler.com/zidentity/about-administrative-entitlements) page only for the services to which they are assigned as service admins, where their role includes the following permission set to Full:
-  - [Administration > Admin Management > Role Based Access Control > Internet & SaaS](https://help.zscaler.com/zia/adding-admin-roles#administrators-access) in Internet & SaaS (ZIA).
-  - [Administration > Admin Management > Role Based Access Control > Private Access](https://help.zscaler.com/zpa/configuring-administrator-roles#Administration) in Private Access (ZPA).
-  - [Administrator Management](https://help.zscaler.com/zdx/adding-zdx-roles#AdministratorManagement) in Digital Experience Monitoring.
-  - [Administrator Management](https://help.zscaler.com/client-connector/adding-roles) in Zscaler Client Connector.
-  - [Administration > Admin Management > Role Based Access Control > Branch and Cloud Connector](https://help.zscaler.com/cloud-branch-connector/adding-admin-roles#administrator-management) in Zscaler Cloud & Branch Connector.
+  - [Administration > Role Management > Internet & SaaS](https://help.zscaler.com/zia/adding-admin-roles#administrators-access) in Internet & SaaS (ZIA).
+  - [Administration > Role Management > Private Access](https://help.zscaler.com/zpa/configuring-administrator-roles#Administration) in Private Access (ZPA).
+  - [Administration > Role Management > Digital Experience](https://help.zscaler.com/zdx/adding-zdx-roles#AdministratorManagement) in Digital Experience Monitoring.
+  - [Administration > Role Management > Client Connector](https://help.zscaler.com/client-connector/adding-roles) in Zscaler Client Connector.
+  - [Administration > Role Management > Branch and Cloud Connector](https://help.zscaler.com/cloud-branch-connector/adding-admin-roles#administrator-management) in Zscaler Cloud & Branch Connector.
 
 For example, you [assign an Authentication Service user as service admin](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups#admin-entitlements) for the Internet & SaaS and Private Access services with roles that include [full administrative control](https://help.zscaler.com/zia/adding-admin-roles#administrators-access) for the Internet & SaaS service and [Read Only administrative control](https://help.zscaler.com/zpa/configuring-administrator-roles#Administration) for the Private Access service. When you assign this service admin as an admin for Authentication Service, the admin only sees the Internet & SaaS service listed on the [About Administrative Entitlements](https://help.zscaler.com/zidentity/about-administrative-entitlements) page and not the Private Access service, because the admin doesn't have full access to administrative controls in the Private Access service.
 
@@ -993,7 +1004,7 @@ For example, you [assign an Authentication Service user as service admin](https:
   - View all users and user groups assignments
   - Assign users, remove user assignments, assign user groups, and remove user group assignments if they have permission on individual tenants to manage administrators.
 
-Set the access level to **Administration** > **Entitlements**>**End User Entitlements**.
+Set the access level to **Administration** > **Subscription**>**End User Entitlements**.
 
 **Conditions**:
 
@@ -1005,9 +1016,9 @@ Set the access level to **Administration** > **Entitlements**>**End User Entitle
   - View the subscribed services.
   - View all users and user group assignments.
 
-Set the access level to **Administration**>**Admin Management**> **Audit Logs**> **Authentication Service.**
+Set the access level to **Data Explorer**> **Audit Logs**> **Authentication Service.**
 
-Set the access level to **Administration** > **Admin Management**> **Role Based Access Control**> **Unified User Interface**.
+Set the access level to **Administration** > **Role Management**> **Authentication Service**.
 
 **Condition**: To edit or delete admin roles that are currently assigned to admins, you must have Full access to [Administrative Entitlements](https://help.zscaler.com/zidentity/adding-zslogin-admin-roles#admin-entitlements) and Full or View Only access to Users & Groups.
 
@@ -1017,37 +1028,34 @@ Set the access level to **Full**, **View Only**, or **None**.
 
 Set the access level to **Full** or **None**.
 
-Set the access level to **Administration**> **Account Management**> **Branding**.
+Set the access level to **Administration**> **Administration**> **Branding**.
 
-Set the access level to **Administration**> **API Configuration**> **OneAPI**> **API Clients**and **Administration**> **API Configuration**> **OneAPI**> **API Resources**.
+Set the access level to **Administration**> **API**> **API Clients**and **Administration**> **API**> **API Resources**.
 
 The Executive Insights role is assigned to the leadership team (chief executive officer (CEO), chief operating officer (COO), chief financial officer (CFO), etc.) in your organization, allowing them to access the [Executive Insights app](https://help.zscaler.com/zia/accessing-and-using-executive-insights-app).
 
-Set the access level to **Administration**> **API Configuration**> **OneAPI**> **Token Validators**.
+Set the access level to **Administration**> **Authentication**> **Token Validators**.
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/adding-departments","lastmod":"2026-07-01T21:06Z","nid":"1499356"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/adding-departments","lastmod":"2026-10-01T15:17Z","nid":"1499356"} -->
 ## Adding Departments
 
 - Source: https://help.zscaler.com/authentication-service/adding-departments
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Departments > Adding Departments
-- Last modified: 2026-07-01T21:06Z
+- Last modified: 2026-10-01T15:17Z
 - Summary: How to add departments to Authentication Service.
 
-You can add [departments](https://help.zscaler.com/zidentity/about-departments) in the Zscaler Admin Console and assign the specific department to users. A user can belong to only one department.
+You can add [departments](https://help.zscaler.com/zidentity/about-departments) in the Zscaler Admin Console and assign the specific department to users. A user can belong to only one department.You can manually add each department or upload a CSV file that contains a list of departments.
 
-You can manually add each department or upload a CSV file that contains a list of departments.
-
-- Add a Department
-- Import Departments Using a CSV File
+## Adding a Department
 
 To add a new department:
 
-1. Go to **Administration** > **Identity** > **Authentication Service** > **Departments**.
-2. On the **Departments** page, click **Add Department**. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Authentication**> **Departments**.
+2. Click **Add Department**. See image. The **Add Department** drawer appears.
 3. In the **Add Department**drawer: See image.
   - **Department Name**: Enter a department name.
   - **Description**: Optionally, enter additional notes or information. The content cannot exceed 10,240 characters.
@@ -1055,12 +1063,14 @@ To add a new department:
 
 After creating the department, you can add users to it.
 
+## Importing a CSV File
+
 You can import up to 1,000 departments using a CSV file. If you want to add multiple users to an existing department or change the department for multiple users, use the sample CSV file template.
 
 To import new departments or modify existing departments, using a CSV file:
 
-1. Go to **Administration** > **Identity** > **Authentication Service** > **Departments**.
-2. Click **Import CSV**. See image.
+1. Go to **Administration** > **Authentication**> **Departments**.
+2. Click **Import CSV**. See image. The **Import Department** window appears.
 3. In the **Import Department** window, click **Download Sample** to download a sample CSV template. See image.
 4. Enter the department details in the CSV file.
 5. When you have the CSV file in the correct format, in the **Import Department** window, click **Browse File**.
@@ -1083,13 +1093,13 @@ To import new departments or modify existing departments, using a CSV file:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/adding-guest-domains","lastmod":"2026-06-24T06:05Z","nid":"1499281"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/adding-guest-domains","lastmod":"2026-09-30T19:10Z","nid":"1499281"} -->
 ## Adding Guest Domains
 
 - Source: https://help.zscaler.com/authentication-service/adding-guest-domains
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Adding Guest Domains
-- Last modified: 2026-06-24T06:05Z
+- Last modified: 2026-09-30T19:10Z
 - Summary: How to add additional guest domains in the Zscaler Admin Console.
 
 You can add a list of guest domains to allow third-party users (guest users) to access the Zscaler service. Arbitrary guest domains allow you to enable guest users to access the Zscaler service from any domain. You can add users as guests and assign them with specific permissions to access these guest domains.
@@ -1098,11 +1108,12 @@ You can assign guest domains to only those guest users who do not have Zscaler C
 
 To add a guest domain:
 
-1. Go to **Administration** >**Identity** > **Authentication Service**> **Domains.**
-2. Enter the domain name in the **Guest Domain** field, then click **Add**.
-3. Enable **Arbitrary Guest Domains**, if required. Enabling this option allows third-party users to authenticate using any domain even if it is not added to the list of guest domains. Arbitrary Guest Domains are supported only with [Privileged Remote Access (PRA)](https://help.zscaler.com/zpa/understanding-privileged-remote-access).
-4. Click **Save**. See image.
-5. After you add the guest domains:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** >**Authentication**> **Domains.**
+2. On the **Domains**page: See image.
+  - **Guest Domain**: Enter the domain name and then click **Add**.
+  - **Arbitrary Guest Domains**: (optional) Enable to allow third-party users to authenticate using any domain even if it is not added to the list of guest domains. Arbitrary Guest Domains are supported only with [Privileged Remote Access (PRA)](https://help.zscaler.com/zpa/understanding-privileged-remote-access).
+3. Click **Save**.
+4. After you add the guest domains:
   - Add the third-party users to the Zscaler Admin Console. To learn more, see [Adding Users](https://help.zscaler.com/zidentity/adding-users).
   - [Add these guest domains to the required identity provider (IdP)](https://help.zscaler.com/zidentity/adding-saml-identity-providers), so the third-party users can authenticate using single sign-on (SSO) and access the guest domains.
 
@@ -1111,21 +1122,21 @@ To add a guest domain:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/adding-ip-location-groups","lastmod":"2026-06-24T06:21Z","nid":"1499146"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/adding-ip-location-groups","lastmod":"2026-09-23T07:00Z","nid":"1499146"} -->
 ## Adding IP Location Groups
 
 - Source: https://help.zscaler.com/authentication-service/adding-ip-location-groups
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Trusted IP Location Groups > Adding IP Location Groups
-- Last modified: 2026-06-24T06:21Z
+- Last modified: 2026-09-23T07:00Z
 - Summary: How to add IP location groups in the Zscaler Admin Console.
 
 This article describes how to add IP location groups. You can add up to 4,096 IP location groups. You can also use a [CSV file to import multiple location groups](https://help.zscaler.com/zidentity/importing-ip-location-groups-csv-file).
 
 To add a location group:
 
-1. Go to **Administration**>**Identity**> **Authentication Service** > **Trusted IP Location Groups**.
-2. On the **IP Location Groups** page, click **Add Location Group**. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration > Authentication > Trusted IP Location Groups**.
+2. On the **IP Location Groups** page, click **Add Location Group**. See image. The **Add Location Group** drawer appears.
 3. In the **Add Location Group** drawer: See image.
   - **Name**: Enter a name for the location group.
   - **Locations**: Select the locations that you want to assign to this group. Click the checkbox against the location to add them to the group. Click the **X**icon to remove a location or **Clear All** at any time. You can add up to 2,048 locations.
@@ -1139,21 +1150,21 @@ To add a location group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/adding-ip-locations","lastmod":"2026-07-01T21:06Z","nid":"1499131"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/adding-ip-locations","lastmod":"2026-09-23T07:00Z","nid":"1499131"} -->
 ## Adding IP Locations
 
 - Source: https://help.zscaler.com/authentication-service/adding-ip-locations
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Trusted IP Locations > Adding IP Locations
-- Last modified: 2026-07-01T21:06Z
+- Last modified: 2026-09-23T07:00Z
 - Summary: How to add locations in the Authentication Service.
 
 This article describes how to add a single IP location. You can add up to 65,536 IP locations. You can also use a [CSV file to import multiple locations](https://help.zscaler.com/zidentity/importing-ip-locations-csv-file).
 
 To add a location:
 
-1. Go to **Administration**> **Identity** > **Authentication Service** > **Trusted IP Locations**.
-2. On the **IP Locations** page, click **Add Location**. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration > Authentication > Trusted IP Locations**.
+2. On the **IP Locations** page, click **Add Location**. See image. The **Add Location** drawer appears.
 3. In the **Add Location** drawer: See image.
   - **Name**: Enter a name for the location.
   - **Country**: Select the country of the IP location.
@@ -1167,13 +1178,13 @@ To add a location:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/adding-openid-providers","lastmod":"2026-06-24T20:23Z","nid":"1499216"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/adding-openid-providers","lastmod":"2026-09-30T19:47Z","nid":"1499216"} -->
 ## Adding OpenID Providers
 
 - Source: https://help.zscaler.com/authentication-service/adding-openid-providers
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Adding OpenID Providers
-- Last modified: 2026-06-24T20:23Z
+- Last modified: 2026-09-30T19:47Z
 - Summary: Information about how to add an OpenID provider in the Zscaler Admin Console.
 
 OpenID Connect (OIDC) is a single sign-on protocol much like SAML, which is used to authenticate users at an OpenID Provider (OP) and to assert their authenticated identities to Relying Parties (RP).
@@ -1182,7 +1193,7 @@ This article describes how to add an OpenID Provider. You can add a primary OP o
 
 To add an OP (primary or secondary):
 
-1. Go to **Administration**> **Identity**>**Authentication Service** > **External Identities**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Click **Add Primary IdP** if you want to configure an external IdP as your primary IdP or **Add Secondary IdP** if you want to configure an external IdP as a secondary IdP. The **Add Primary Identity Provider** or **Add Secondary Identity Provider** drawer appears. You can add a secondary IdP only if a primary IdP is already configured.
 3. In the **Add Primary Identity Provider** or **Add Secondary Identity Provider** drawer, on the **Basic**tab, add the following details: See image.
   - **Name**: Enter a name for the OP.
@@ -1200,15 +1211,15 @@ To add an OP (primary or secondary):
   - **Requested Scopes**: Enter the scopes you want Authentication Service to include in the authentication request to the OP. Depending on configuration at the OP, it's possible to use scopes to retrieve additional user attributes.
   - **Default Requested Authentication Context (Optional)**: Enter the authentication context class reference values to be passed in the authentication request to the OP. The value defines the authentication method or levels required from the user (e.g., password only, multi-factor authentication, etc.). You can get these values from your OP.
 4. On the **Advanced** tab: See image. If you are configuring Zscaler Identity Proxy for Cloud Apps, you must map the `Is Device Managed` session attribute with the appropriate IdP attribute, and then configure the managed devices settings in the Zscaler Admin Console. To learn more, see [Configuring the Zscaler Identity Proxy for Cloud Apps](https://help.zscaler.com/zia/configuring-zscaler-identity-proxy-cloud-apps).
-  - **IdP Attribute**: Enter the IdP attribute that must be mapped to the session attribute. You can get all the attributes from the OIDC JSON for your IdP.
   - **Login Hint:**Enable the option to automatically populate the **Login ID** field during the login process. The login ID is included in the OIDC authentication request that Authentication Service sends to the external IdP.
+  - **IdP Attribute**: Enter the IdP attribute that must be mapped to the session attribute. You can get all the attributes from the OIDC JSON for your IdP.
   - **Session Attribute**: Select the required attribute from the drop-down menu.
 5. On the **Provisioning**tab: See image.
-  - **Enable Just-in-time (JIT) Provisioning**: Enabling this option allows automated user provisioning to Authentication Service when the user tries to access Authentication Service for the first time and is not provisoned to Authentication Service yet. Authentication Service uses the response sent by the OP containing user information to create a [user database](https://help.zscaler.com/authentication-service/about-users) with Authentication Service in real time. If you disable this option, unprovisioned users are denied access to Authentication Service until the [users are configured](https://help.zscaler.com/authentication-service/adding-users) in the Zscaler Admin Console. For JIT provisioning, add the following details: JIT provisioning for primary IdPs does not support provisioning or updating system-defined groups (e.g., Zscaler Global Administrators).
+  - Enable **Just-in-time (JIT) Provisioning**: Enabling this option allows automated user provisioning to Authentication Service when the user tries to access Authentication Service for the first time and is not provisoned to Authentication Service yet. Authentication Service uses the response sent by the OP containing user information to create a [user database](https://help.zscaler.com/authentication-service/about-users) with Authentication Service in real time. If you disable this option, unprovisioned users are denied access to Authentication Service until the [users are configured](https://help.zscaler.com/authentication-service/adding-users) in the Zscaler Admin Console. For JIT provisioning, add the following details: JIT provisioning for primary IdPs does not support provisioning or updating system-defined groups (e.g., Zscaler Global Administrators).
     - **Just-in-time User Group Attributes**: Enter the JIT user group attribute.
     - **Just-in-time Attribute**: Enter the JIT attribute that you want to map from the OP.
     - **User Attribute**:Select the user attributethat you want to map to the JIT attribute. Click**Add More** to map additional attributes. To remove an attribute mapping, click the **Delete** icon next to the user attribute.
-  - **Enable SCIM Provisioning**: Enable to activate SCIM-based provisioning for users. The following fields appear:
+  - Enable **SCIM Provisioning**: Enable to activate SCIM-based provisioning for users. The following fields appear:
     - **SCIM Endpoint URL**: Copy the SCIM Endpoint URL. This is the base URL for the SCIM server and it's needed when configuring SCIM-based provisioning with your external IdP. The **SCIM Endpoint URL** field appears only if the configurations for the IdP in the **Basic**tab are completed and saved. See image.
     - **Authentication Method**: Select an authentication method:
       - Bearer Token
@@ -1225,7 +1236,7 @@ To add an OP (primary or secondary):
 - **JWKS Endpoint**: Enter the JSON Web Key Set (JWKS) URL where the JWKS is obtained containing public keys that are used to validate digital signatures on ID tokens and access tokens issued by the OP.
 - **UserInfo Endpoint**: Enter the OP's URL from where the user information is received when an access token is provided.
 
-The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities).
+The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities). If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 
 - Click **Generate Token**to generate a token. The token is a unique alphanumeric string that is used by the SCIM client to make authenticated API calls to the Zscaler SCIM server. You need this token when configuring your IdP for SCIM provisioning.
 - Copy the **Bearer Token**value. See image. You can generate a new bearer token for security reasons. If you're generating a new bearer token for an existing SCIM configuration, ensure you update the token for your IdP.
@@ -1249,20 +1260,20 @@ The bearer token is visible only to admins with Full permission enabled for exte
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/adding-saml-identity-providers","lastmod":"2026-06-24T20:23Z","nid":"1499086"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/adding-saml-identity-providers","lastmod":"2026-09-30T19:46Z","nid":"1499086"} -->
 ## Adding SAML Identity Providers
 
 - Source: https://help.zscaler.com/authentication-service/adding-saml-identity-providers
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Adding SAML Identity Providers
-- Last modified: 2026-06-24T20:23Z
+- Last modified: 2026-09-30T19:46Z
 - Summary: Information about adding identity providers (IdPs) in the Zscaler Admin Console.
 
 This article describes how to add an identity provider (IdP). You can add a primary IdP or multiple secondary IdPs and assign a subset of user domains to a specific IdP. You can add up to 64 secondary IdPs.
 
 To add an IdP (primary or secondary):
 
-1. Go to **Administration**> **Identity**> **Authentication Service** > **External Identities**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Click **Add Primary IdP**if you want to configure an external IdP as your primary IdPor **Add Secondary IdP**if you want to configure an external IdP as a secondary IdP. The **Add Primary Identity Provider** or **Add Secondary Identity Provider** drawer appears. You can add a secondary IdP only if a primary IdP is already configured.
 3. In the **Add Primary Identity Provider** or**Add Secondary Identity Provider** drawer, on the **Basic**tab: See image.
   - **Name**: Enter a name for the IdP.
@@ -1284,8 +1295,7 @@ To add an IdP (primary or secondary):
 After configuring information on the **Advanced**tab, you can add a Request Signing and Decryption Certificate from the **Edit Primary or Secondary IdP** page. To learn more, see [Editing or Deleting a SAML Identity Provider](https://help.zscaler.com/authentication-service/editing-or-deleting-saml-identity-provider).
 
 1. On the **Provisioning**tab: See image.
-  - **Enable Just-in-Time (JIT) Provisioning**: Enable this option to allow automated user provisioning to Authentication Service when the user tries to access Authentication Service for the first time. The IdP sends a SAML Assertion (XML file) containing user information, which Authentication Service uses to create a [user database](https://help.zscaler.com/authentication-service/about-users) with Authentication Service in real time. If you disable this option, unprovisioned users are denied access to Authentication Service until the [users are configured](https://help.zscaler.com/authentication-service/adding-users) in the Zscaler Admin Console.
-  - Under **Just-in-Time Attribute Mapping**, add the following details: JIT provisioning for primary IdPs does not support provisioning or updating system-defined groups (e.g., Zscaler Global Administrators).
+  - Enable **Just-in-Time (JIT) Provisioning**: Enable this option to allow automated user provisioning to Authentication Service when the user tries to access Authentication Service for the first time. The IdP sends a SAML Assertion (XML file) containing user information, which Authentication Service uses to create a [user database](https://help.zscaler.com/authentication-service/about-users) with Authentication Service in real time. If you disable this option, unprovisioned users are denied access to Authentication Service until the [users are configured](https://help.zscaler.com/authentication-service/adding-users) in the Zscaler Admin Console. The following fields appear: JIT provisioning for primary IdPs does not support provisioning or updating system-defined groups (e.g., Zscaler Global Administrators).
     - **Just-in-Time User Group Attribute**: Enter a name for the user group attribute.
     - **Just-in-Time Attribute**: Enter a name for the JIT attribute.
     - **User Attribute**: Select the user attribute that you want to map. Click**Add More** to map additional attributes. To remove an attribute mapping, click the **Delete** icon. Authentication Service supports the following default attributes:
@@ -1295,7 +1305,7 @@ After configuring information on the **Advanced**tab, you can add a Request Sign
       - Primary Email
       - Login Name
       - Display Name
-  - **Enable SCIM Provisioning**: Enable to activate SCIM-based provisioning for users. The following fields appear:
+  - Enable **SCIM Provisioning**: Enable to activate SCIM-based provisioning for users. The following fields appear:
     - **SCIM Endpoint URL**: Copy the SCIM Endpoint URL. This is the base URL for the SCIM server and it's needed when configuring SCIM-based provisioning with your external IdP. The **SCIM Endpoint URL**field appears only if the configurations for the IdP in the **Basic**tab are completed and saved. See image.
     - **Authentication Method**: Select an authentication method:
       - Bearer Token
@@ -1326,7 +1336,7 @@ and select the file.
 - **SP Entity ID**: Copy the service provider (SP) entity ID. You need this ID when configuring Authentication Service as your SP.
 - **SP URL**: Copy the SP entity ID. You need this URL when configuring Authentication Service as your SP on the IdP portal.
 
-The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities).
+The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities). If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service and some Zscaler services are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 
 - Click **Generate Token**to generate a token. The token is a unique alphanumeric string that is used by the SCIM client to make authenticated API calls to the Zscaler SCIM server. You need this token when configuring your IdP for SCIM provisioning.
 - Copy the **Bearer Token**value. See image. You can generate a new bearer token for security reasons. If you're generating a new bearer token for an existing SCIM configuration, ensure you update the token for your IdP.
@@ -1352,13 +1362,13 @@ The bearer token is visible only to admins with Full permission enabled for exte
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/adding-session-attributes","lastmod":"2026-07-02T21:06Z","nid":"1499291"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/adding-session-attributes","lastmod":"2026-09-20T21:05Z","nid":"1499291"} -->
 ## Adding Session Attributes
 
 - Source: https://help.zscaler.com/authentication-service/adding-session-attributes
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Attributes > Adding Session Attributes
-- Last modified: 2026-07-02T21:06Z
+- Last modified: 2026-09-20T21:05Z
 - Summary: How to add session attributes in Authentication Service.
 
 You can add session attributes related to the user's session in Authentication Service, so they can be made available to the linked Zscaler services. Session attributes (system-defined or custom) that are mapped with identity provider (IdP) attributes are sent to Zscaler services (e.g., Internet & SaaS (ZIA), Private Access (ZPA)) with the values received from the external IdP as part of SAML assertions or OIDC tokens.
@@ -1386,13 +1396,13 @@ If you are configuring an identity proxy for cloud apps, you must map the `is_de
 
 See image.
 
-## Add Session Attributes
+## Adding a Session Attribute
 
 To add a session attribute:
 
-1. Go to **Administration**>**Identity**>**Authentication Service**>**Attributes**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication**>**Attributes**.
 2. On the **Attributes** page, click the **Session Attribute** tab.
-3. Click **Add Attribute**. See image.
+3. Click **Add Attribute**. See image. The **Add Session Attribute**drawer appears.
 4. In the **Add Session Attribute** drawer, add the following details: See image.
   - **Attribute Name**: Enter the session attribute name.
   - **Display Name**: Enter the display name for the attribute.
@@ -1400,19 +1410,20 @@ To add a session attribute:
   - **Data Type**: Select the type of data (**String**, **Integer**, **Boolean**, **Date**, or **Decimal**) that must be entered for this attribute.
 5. Click **Save**.
 
-## Import a CSV File
+## Importing a CSV File
 
 You can add multiple session attributes to Authentication Service by importing a CSV file.
 
 To import a CSV file that contains a list of session attributes:
 
-1. Go to **Administration**>**Identity**>**Authentication Service**>**Attributes**.
-2. On the **Attributes** page, click the **Session Attribute** tab and click **Import CSV**. See image.
-3. In the **Import Attributes** window, click the **Download Sample** link to download a sample CSV file. See image.
-4. Add the attributes to the CSV file and save it in your local folder.
-5. Click **Browse** to locate the saved CSV file, then click **Open**. The file is uploaded.
-6. Click **Import**. The records are displayed in the **Import Attributes** window. See image.
-7. Review the list, then click **Close**. The attributes are added to the existing list and displayed on the **Attributes** page.
+1. Go to **Administration**>**Authentication**>**Attributes**.
+2. On the **Attributes** page, click the **Session Attribute** tab.
+3. Click **Import CSV**. See image. The **Import Attributes**window appears.
+4. In the **Import Attributes** window, click the **Download Sample** link to download a sample CSV file. See image.
+5. Add the attributes to the CSV file and save it in your local folder.
+6. Click **Browse** to locate the saved CSV file, then click **Open**. The file is uploaded.
+7. Click **Import**. The records are displayed in the **Import Attributes** window. See image.
+8. Review the list, then click **Close**. The attributes are added to the existing list and displayed on the **Attributes** page.
 
 [Image: Click the Add Attribute button on the Session Attribute tab]
 
@@ -1429,24 +1440,24 @@ To import a CSV file that contains a list of session attributes:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/adding-token-validator","lastmod":"2026-03-20T04:35Z","nid":"1532125"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/adding-token-validator","lastmod":"2026-09-30T19:21Z","nid":"1532125"} -->
 ## Adding a Token Validator
 
 - Source: https://help.zscaler.com/authentication-service/adding-token-validator
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > Token Validators > Adding a Token Validator
-- Last modified: 2026-03-20T04:35Z
+- Last modified: 2026-09-30T19:21Z
 - Summary: How to add a token validator for OneAPI in the Zscaler Admin Console.
 
-You can configure a token validator in the Zscaler Admin Console based on your requirements and use it in Internet & SaaS. During authorization requests, Internet & SaaS can verify the identity of the user using the configured claims in Authentication Service.
+You can configure a token validator in the Zscaler Admin Console based on your requirements and use it in Internet & SaaS (ZIA). During authorization requests, Internet & SaaS can verify the identity of the user using the configured claims in Authentication Service.
 
-Authentication Service Administrators assigned with Full permission to access the Token Validators module can configure the token validator. To learn more, see [Admin Roles and Permissions](https://help.zscaler.com/zidentity/admin-roles-and-permissions).
+Authentication Service Administrators assigned with Full permission to access the Token Validators module can configure the token validator. To learn more, see [Admin Roles and Permissions](https://help.zscaler.com/zidentity/admin-roles-and-permissions). If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service and some Zscaler services are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 
 To add a token validator:
 
-1. Go to **Administration**> **API Configuration** > **OneAPI** > **Token Validators**.
-2. Click **Add Token Validator**. See image.
-3. On the **Token Validator** page: See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Authentication** > **Token Validators**.
+2. Click **Add Token Validator**. See image. The **Add Token Validator** drawer appears.
+3. In the **Add Token Validator** drawer: See image.
   - **Name**: Enter a name for the token validator.
   - **Claim Requirements**: Configure the claim requirements for the JSON Web Token (JWT). These claims are validated at the time of authorization request.
     - **Audience**: Displays the audience for whom this token is intended for. You cannot edit this field. Click the **Copy**icon to copy the audience, if required.
@@ -1458,28 +1469,30 @@ To add a token validator:
     - **Certificates and Public Keys**: Upload a certificate that contains the public key. The certificate must be in Base64-encoded PEM format. The file extension must be `.pem` and have no other periods (.) in the file name. You can upload multiple certificates and public keys files.
 4. Click **Save**.
 
-[Image: Token Validators page with highlighted Add Token Validator button.]
+[Image: Token Validators page with highlighted Add Token Validator button]
 
-[Image: Add Token Validator page with blurred Audience, Claim Value, and Client JWKs URL fields.]
+[Image: Add Token Validator page with blurred Audience, Claim Value, and Client JWKs URL fields]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/adding-user-attributes","lastmod":"2026-06-24T06:34Z","nid":"1499451"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/adding-user-attributes","lastmod":"2026-09-20T21:05Z","nid":"1499451"} -->
 ## Adding User Attributes
 
 - Source: https://help.zscaler.com/authentication-service/adding-user-attributes
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Attributes > Adding User Attributes
-- Last modified: 2026-06-24T06:34Z
+- Last modified: 2026-09-20T21:05Z
 - Summary: How to add user attributes in Authentication Service.
 
 You can add user attributes or import them using a CSV file. You can add up to 128 attributes.
 
+## Adding a User Attribute
+
 To add a user attribute:
 
-1. Go to **Administration**>**Identity**>**Authentication Service**>**Attributes**.
-2. On the **Attributes** page, click **Add Attribute**. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication**>**Attributes**.
+2. On the **User Attribute**tab, click **Add Attribute**. See image. The **Add Attribute**drawer appears.
 3. In the **Add Attribute**drawer: See image.
   - **Attribute Name**:Enter the name of the attribute that is required to be mapped to an external IdP (e.g., Manager or Organization).
   - **Display Name**: Enter the display name for the attribute.
@@ -1488,21 +1501,20 @@ To add a user attribute:
   - **Attribute Required**: Select to mandate the attribute information when [adding a user](https://help.zscaler.com/zidentity/adding-users).
 4. Click **Save**.
 
-## Import a CSV File
+## Importing a CSV File
 
 You can add multiple user attributes to Authentication Service by importing a CSV file.
 
 To import a CSV file that contains a list of user attributes:
 
-1. Go to **Administration**>**Identity**>**Authentication Service**>**Attributes**.
-2. On the **Attributes** page, the **User Attribute** tab is displayed by default.
-3. Click **Import CSV**. See image.
-4. In the **Import Attributes** window, click the **Download Sample** link to download a sample CSV file. See image.
-5. Add the user attributes to the CSV file and save it in your local folder.
-6. In the **Import Attributes** window, click **Browse File** to locate and upload the saved CSV file.
-7. If you want to replace the existing list of user attributes, select **Override Existing Entries** checkbox.
-8. Click **Import**. The records are displayed in the **Import Attributes** window.
-9. Review the list, then click **Close**. The attributes are displayed on the **User** **Attributes** tab.
+1. Go to **Administration**>**Authentication**>**Attributes**.
+2. On the **User Attribute**tab, click **Import CSV**. See image. The **Import Attributes** window appears.
+3. In the **Import Attributes** window, click the **Download Sample** link to download a sample CSV file. See image.
+4. Add the user attributes to the CSV file and save it in your local folder.
+5. In the **Import Attributes** window, click **Browse File** to locate and upload the saved CSV file.
+6. If you want to replace the existing list of user attributes, select the **Override Existing Entries** checkbox.
+7. Click **Import**. The records are displayed in the **Import Attributes** window.
+8. Review the list, then click **Close**. The attributes are displayed on the **User** **Attributes** tab.
 
 [Image: Add the user attribute details]
 
@@ -1515,20 +1527,20 @@ To import a CSV file that contains a list of user attributes:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/adding-user-groups","lastmod":"2026-07-02T21:06Z","nid":"1499116"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/adding-user-groups","lastmod":"2026-10-01T14:47Z","nid":"1499116"} -->
 ## Adding User Groups
 
 - Source: https://help.zscaler.com/authentication-service/adding-user-groups
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > User Groups > Adding User Groups
-- Last modified: 2026-07-02T21:06Z
+- Last modified: 2026-10-01T14:47Z
 - Summary: How to add a group for your users in [Authentication Service.
 
 This article describes how to create user groups on the [User Groups](https://help.zscaler.com/zidentity/about-user-groups) page. You can use a [CSV file to add multiple groups](https://help.zscaler.com/zidentity/importing-group-details-csv-file) at once. Before you create a user group, ensure that you have added the users that you want to include in a group, or you can also assign a group to the user when configuring a user. To configure users, see [Adding Users](https://help.zscaler.com/zidentity/adding-users).
 
 To add a new group:
 
-1. Go to **Administration**> **Identity**> **Authentication Service**>**User Groups**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal%20), go to **Administration**> **Authentication**>**User Groups**.
 2. Click **Add Group**. The **Add Group** page appears.
 3. On the **Add Group**page, in the **General Information** section: See image.
   - **Group Name**: Enter a group name. The name can contain up to 128 characters.
@@ -1548,13 +1560,13 @@ To add a new group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/adding-users","lastmod":"2026-08-28T08:42Z","nid":"1499101"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/adding-users","lastmod":"2026-09-30T07:46Z","nid":"1499101"} -->
 ## Adding Users
 
 - Source: https://help.zscaler.com/authentication-service/adding-users
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Users > Adding Users
-- Last modified: 2026-08-28T08:42Z
+- Last modified: 2026-09-30T07:46Z
 - Summary: How to add user accounts for Authentication Service.
 
 You can add individual user accounts in Authentication Service. A user account can belong to up to 1,024 groups. You can use a [CSV file to add multiple users](https://help.zscaler.com/zidentity/importing-user-details-csv-file) at once.
@@ -1563,7 +1575,7 @@ You can also add and manage users via a system for cross-domain identity managem
 
 To add a user:
 
-1. Go to **Administration**> **Identity**> **Authentication Service**> **Users**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Authentication**> **Users**.
 2. Click **Add User**. The **Add User** page appears.
 3. On the **Add User** page, in the **General Information**section: See image.
   - **Login ID**:Enter a user ID.The user ID consists of a username and domain name in email format (e.g., `username@domain.com`). The username must be unique, and its domain must belong to the organization.
@@ -1578,9 +1590,9 @@ To add a user:
   - **Additional Attributes**: Select the user [attributes](https://help.zscaler.com/zidentity/adding-user-attributes) that are already created in Authentication Service by admins.
 4. Click **Next**.
 5. In the **Security Settings** section: See image.
-  - **Change Password Settings:**Enable to modify the password configurations. This option remains disabled until the user is added to Authentication Service. To learn more, see [Configuring Security Settings for Users](https://help.zscaler.com/zidentity/configuring-security-settings-users).
-  - **Skip Second Factor Authentication:** Select this option if you want the user to skip second-factor authentication.
-  - **Skip Until**: Select the date and time up to when the user can skip second-factor authentication. Post this duration, the user must configure second-factor authentication.
+  - Enable to modify the password configurations. This option remains disabled until the user is added to Authentication Service. To learn more, see [Configuring Security Settings for Users](https://help.zscaler.com/zidentity/configuring-security-settings-users).
+  - **Skip Second Factor Authentication:** Select this option if you want the user to skip second-factor authentication. When you enable this option, the following field appears:
+    - **Skip Until**: Select the date and time up to when the user can skip second-factor authentication. Post this duration, the user must configure second-factor authentication.
 6. Click **Next**.
 7. In the **Assign Groups** section, click **Assign Group**.
 8. From the **Assign Groups** drawer, select the [groups](https://help.zscaler.com/zidentity/adding-user-groups) to assign to a user. If you would like to provide super admin privileges to users for Authentication Service and all the services linked to Authentication Service, you need to add those users to the `Zscaler Global Administrators` group. To learn more, see [About User Groups](https://help.zscaler.com/zidentity/about-user-groups). See image.
@@ -1596,16 +1608,18 @@ To add a user:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/admin-roles-and-permissions","lastmod":"2026-06-24T06:28Z","nid":"1499426"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/admin-roles-and-permissions","lastmod":"2026-09-24T01:33Z","nid":"1499426"} -->
 ## Admin Roles and Permissions
 
 - Source: https://help.zscaler.com/authentication-service/admin-roles-and-permissions
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Admins and Roles > Admin Roles and Permissions
-- Last modified: 2026-06-24T06:28Z
+- Last modified: 2026-09-24T01:33Z
 - Summary: Information about the roles and permissions that can be assigned to admins in the Zscaler Admin Console.
 
 Authentication Service (formerly ZIdentity) provides a set of predefined roles and permissions that you can assign to users and groups. As an admin, you can control what objects and services users are entitled to access on the subscribed Zscaler services.
+
+If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service and some Zscaler services are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 
 You can assign a single or multiple roles to users. When a user is assigned multiple roles, the permission levels are hierarchical and the effective level of each permission is the highest from the user’s set of roles. For example, if a user has two roles, and one role has an External Identities permission of Restrictive View and the other has an External Identities permission of View, the effective permission level is View.
 
@@ -1666,30 +1680,32 @@ You can assign a single or multiple roles to users. When a user is assigned mult
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/assigning-cxo-insight-user-role","lastmod":"2026-07-30T21:06Z","nid":"1509541"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/assigning-cxo-insight-user-role","lastmod":"2026-09-29T14:31Z","nid":"1509541"} -->
 ## Assigning CXO Insight User Role
 
 - Source: https://help.zscaler.com/authentication-service/assigning-cxo-insight-user-role
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Admins and Roles > Assigning CXO Insight User Role
-- Last modified: 2026-07-30T21:06Z
+- Last modified: 2026-09-29T14:31Z
 - Summary: How to assign the CXO Insight User role to executive users in Internet & SaaS.
 
 The CXO Insight User role enables executive users to access the [Executive Insights mobile application](https://help.zscaler.com/zia/accessing-and-using-executive-insights-app). The executive users are also assigned to a specific Zscaler service in Authentication Service, which allows them to access the Zscaler service (i.e., Internet & SaaS (ZIA)) in the mobile app.
+
+If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service and some Zscaler services are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 
 ## Prerequisites
 
 Make sure the following prerequisites are met:
 
-Before assigning the role in the Zscaler Admin Console, you might need to authorize the executive users to access Internet & SaaS on the Executive Insights App. To learn more, see [Adding Executive Insights App Admins](https://help.zscaler.com/zia/adding-executive-insights-app-admins).
+Before assigning the role in the Zscaler Admin Console, you might need to authorize the executive users to access Internet & SaaS on the Executive Insights App. To learn more, see [Accessing and Using the Executive Insights App](https://help.zscaler.com/unified/accessing-and-using-executive-insights-app).
 
 ## Assigning CXO Insight User Role
 
 To assign the CXO Insight User role to users for Authentication Service:
 
-1. Go to **Administration**> **Admin Management**> **Role Based Access Control**> **Administrative Entitlements**.
-2. On the **Administrative Entitlements** page, select **Authentication Service Administration**. See image.
-3. You can assign the role to individual users or user groups:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Role Management**> **Administrative Entitlements**.
+2. On the **Administrative Entitlements** page, select **Authentication Service Administration**. See image. The **Authentication Service Administration - Administrative** page appears.
+3. On the **Authentication Service Administration - Administrative** page, you can assign the role to individual users or user groups:
   - Assign a Role to a User Group
   - Assign a Role to an Individual User
 
@@ -1699,9 +1715,9 @@ Executive users must be assigned the Executive Insights App role on all the Inte
 
 To assign the Executive Insights App role to executive users:
 
-1. Go to **Administration**> **Admin Management**> **Role Based Access Control**> **Administrative Entitlements**.
-2. On the **Administrative Entitlements** page, select**Zscaler Internet Access**. See image.
-3. You can assign the role to individual users or user groups:
+1. Go to **Administration**> **Role Management**> **Administrative Entitlements**.
+2. On the **Administrative Entitlements** page, select**Zscaler Internet Access**. See image. The **Zscaler Internet Access - Administrative** page appears.
+3. On the **Zscaler Internet Access - Administrative** page, you can assign the role to individual users or user groups:
   - Assign a Role to a User Group
   - Assign a Role to an Individual User
 
@@ -1764,32 +1780,38 @@ To assign the Executive Insights App role to executive users:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/assigning-entitlements-users-and-user-groups","lastmod":"2026-07-17T08:50Z","nid":"1517711"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/assigning-entitlements-users-and-user-groups","lastmod":"2026-09-29T03:48Z","nid":"1517711"} -->
 ## Assigning Entitlements to Users and User Groups
 
 - Source: https://help.zscaler.com/authentication-service/assigning-entitlements-users-and-user-groups
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Entitlements > Assigning Entitlements to Users and User Groups
-- Last modified: 2026-07-17T08:50Z
+- Last modified: 2026-09-29T03:48Z
 - Summary: Information about how to assign users to Zscaler services in the Zscaler Admin Console.
 
-You can assign an individual Authentication Service user or user group to a Zscaler service. You must [add users](https://help.zscaler.com/zidentity/adding-users) or [user groups](https://help.zscaler.com/zidentity/adding-user-groups) before assigning them to a service. You can assign users to perform administrative tasks via [administrative entitlements](https://help.zscaler.com/zidentity/about-administrative-entitlements) or assign them as end users via [service entitlements](https://help.zscaler.com/zidentity/about-service-entitlements). To view the list of entitlements for a specific user, see [Viewing Entitlements to Assigned to Users](https://help.zscaler.com/zidentity/viewing-entitlements-assigned-users).
+You can assign an individual user or user group to a Zscaler service. You can assign users to perform administrative tasks via [administrative entitlements](https://help.zscaler.com/zidentity/about-administrative-entitlements) or assign them as end users via [service entitlements](https://help.zscaler.com/zidentity/about-service-entitlements). To view the list of entitlements for a specific user, see [Viewing Entitlements Assigned to Users](https://help.zscaler.com/zidentity/viewing-entitlements-assigned-users).
+
+Before assigning users or user groups, you must first add these [users](https://help.zscaler.com/zidentity/adding-users) and [groups](https://help.zscaler.com/zidentity/adding-user-groups) to Authentication Service.
+
+If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 
 ## Administrative Entitlements
 
 To assign users to a Zscaler service for performing administrative tasks:
 
-1. Go to **Administration**> **Admin Management**> **Role Based Access Control** > **Administrative Entitlements**> service's name. See image.
-2. Assign users via one of these methods:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Role Management**> **Administrative Entitlements**.
+2. Click the required Zscaler service's name. See image.
+3. Assign users via one of these methods:
   - Assign users individually
   - Assign users via user groups
 
 ## Service Entitlements
 
-To assign users to a Zscaler service as end users:
+To assign users to a Zscaler service:
 
-1. Go to**Administration**> **Entitlements**> **End User Entitlements**> service's name. See image.
-2. Assign users via one of these methods:
+1. Go to**Administration**> **Subscription**> **End User Entitlements**.
+2. Click the required Zscaler service's name. See image.
+3. Assign users via one of these methods:
   - Assign users individually
   - Assign users via user groups
 
@@ -1798,28 +1820,28 @@ If a user is assigned to a service's admin role individually, but they are also 
 1. On the **User Groups**tab, click **Assign Groups**. See image. The **Assign Groups** wizard appears.
 2. In the **Assign Groups** wizard: See image.
   1. On the **Select Groups & Roles** page, select the user groups that must be assigned to the Zscaler service.
-  2. In the **Role**column, the drop-down menu includes a list of roles configured in the Zscaler Admin Console (e.g., the [Role Management](https://help.zscaler.com/zia/about-role-management) page in the Internet & SaaS (ZIA) service). Select the role that must be assigned to each user group.
-3. (Optional) If you want to apply the same role for all groups, enable **Set same role for all selected groups**, and select the preferred role from the drop-down menu. See image.
-4. The **Microtenant**column is visible only for the Private Access (ZPA) service. Select the Microtenant for the admins within the Private Access service in the Zscaler Admin Console. To learn more, see [About Microtenants](https://help.zscaler.com/zpa/about-microtenants). See image. If no Microtenant is configured in the Private Access, you must select **Default** in the **Microtenant**column.
+  2. From the **Role**column, select the role that must be assigned to each user group. The drop-down menu includes a list of roles configured in the Zscaler Admin Console. To learn more, see [Configuring Administrator Roles](https://help.zscaler.com/unified/configuring-administrator-roles).
+3. (Optional) To apply the same role for all groups, enable **Set same role for all selected groups**, and select the specific role from the drop-down menu. See image.
+4. The **Microtenant**column is visible only for the Private Access (ZPA) service. Select the Microtenant for the admins within the Private Access service in the Zscaler Admin Console. To learn more, see [About Microtenants](https://help.zscaler.com/zpa/about-microtenants). If no Microtenant is configured in the Private Access, you must select **Default** in the **Microtenant**column.
 5. Click **Next**.
-6. On the **Summary**page, review the assignment details and click **Assign**. See image.
-7. The selected user groups are assigned to the Zscaler service with administrative privileges for all users in the groups.
+6. On the **Summary**page, review the assignment details and click **Assign**. See image. The selected user groups are assigned to the Zscaler service with administrative privileges for all users in the groups.
 
 1. On the **Users**tab, click **Assign Users**. See image. The **Assign Users**wizard appears.
-2. In the **Assign Users**wizard: See image. Admins cannot modify or delete the entitlement and role assigned to them in Authentication Service Administration entitlement.
+2. In the **Assign Users**wizard: See image. For tenants that are not enabled with Unified RBAC, admins cannot create, modify or delete the entitlement and role assigned to them in Authentication Service Administrative entitlement.
   1. On the **Select Users & Roles** page, select the users that must be assigned to the Zscaler service.
-  2. In the **Role**column, the drop-down menu includes a list of roles configured in the Zscaler Admin Console (e.g., the [Role Management](https://help.zscaler.com/zia/about-role-management) page in the Internet & SaaS (ZIA) service). Select the role that must be assigned to each user.
-3. (Optional) If you want to apply the same role for all groups, enable **Set same role for all selected users**, and select the preferred role from the drop-down menu. See image.
-4. The **Microtenant**column is visible only for the Private Access (ZPA) service. This is the [Microtenant](https://help.zscaler.com/zpa/configuring-microtenants) that you can assign to other admins: If no Microtenant is configured in the Private Access, you must select **Default** in the **Microtenant**column.
-  - If you have Full permission to manage administrative entitlements in Authentication Service, you can assign any Microtenant to other admins. You can also edit or delete any Microtenant.
-  - If you have Restricted Full permission to manage administrative entitlements in Authentication Service and are assigned a **Default** Microtenant in Private Access, you can assign any Microtenant to other admins. You can also edit or delete any Microtenant.
-  - If you have Restricted Full permission to manage administrative entitlements in Authentication Service and are assigned a Microtenant other than the **Default** Microtenant, you can only assign that Microtenant to other admins. You can edit or delete only the assigned Microtenant. See image.
+  2. From the **Role**column, select the role that must be assigned to each user. The drop-down menu includes a list of roles configured in the Zscaler Admin Console. To learn more, see [Configuring Administrator Roles](https://help.zscaler.com/unified/configuring-administrator-roles).
+3. (Optional) To apply the same role for all groups, enable **Set same role for all selected users**, and select the specific role from the drop-down menu. See image.
+4. The **Microtenant**column is visible only for the Private Access (ZPA) service. You can assign and manage [Microtenants](https://help.zscaler.com/zpa/configuring-microtenants) for other admins if you have the following administrative entitlement permissions: If no Microtenant is configured in Private Access, select **Default** in the **Microtenant**column.
+  | Permission | Description |
+  | --- | --- |
+  | Full | Assign, edit, or delete any Microtenant to other admins |
+  | Restricted Full and assigned a Default Microtenant in Private Access | Assign, edit, or delete any Microtenant to other admins |
+  | Restricted Full and assigned a Microtenant but not Default Microtenant | Assign, edit, or delete assigned Microtenant to other admins |
 5. Click **Next**.
-6. On the **Summary**page, review the assignment details and click **Assign**. See image.
-7. The selected users are assigned to the Zscaler service with administrative privileges.
+6. On the **Summary**page, review the assignment details and click **Assign**. See image. The selected users are assigned to the Zscaler service with administrative privileges.
 
 1. On the **User Groups**tab, click **Assign Groups**. See image. The **Assign Groups** wizard appears.
-2. In the **Assign Groups** wizard: The selected user groups are assigned to the Zscaler service with all users in the groups as end users.
+2. In the **Assign Groups** wizard: The selected user groups are assigned to the Zscaler service.
   1. On the **Select Groups**page, select the user groups that must be assigned to the Zscaler service. See image.
   2. Click **Next**.
   3. On the **Summary**page, review the assignment details and click **Assign**. See image.
@@ -1830,52 +1852,48 @@ If a user is assigned to a service's admin role individually, but they are also 
   2. Click **Next**.
   3. On the **Summary**page, review the assignment details and click **Assign**. See image.
 
-[Image: The Administrative Entitlements page with an annotation around a Zscaler Client Connector service]
+[Image: Administrative Entitlements page]
 
 [Image: The User Groups tab for a Zscaler service with annotation around the Assign Groups button]
 
-[Image: The Select Groups and Roles page with annotations around the groups selected to be assigned to a Zscaler service]
+[Image: Select Groups & Roles page for user group assignment]
 
 [Image: The Select Groups and Roles page with the option to apply roles to all groups]
 
-[Image: The Summary page shows the group assignment summary]
+[Image: Group role assignment summary]
 
 [Image: The Users tab for a Zscaler service with annotation around the Assign Users button]
 
-[Image: The Select Users and Roles page with annotations around the users selected to be assigned to a Zscaler service]
+[Image: Select Users & Roles page for user assignment]
 
 [Image: The Select Users and Roles page with the option to apply roles to all users]
 
-[Image: The Summary page shows the user assignment summary]
+[Image: User role assignment summary]
 
-[Image: The Service Entitlements page with an annotation around a Zscaler service]
+[Image: Service Entitlements page]
 
-[Image: The User Groups tab for a Zscaler service with annotation around the Assign Groups button]
+[Image: User Groups tab]
 
-[Image: The Select Groups page with annotations around the groups selected to be assigned to a Zscaler service]
+[Image: Select groups for service entitlements]
 
-[Image: The Summary page shows the group assignment summary]
+[Image: Summary page for user group assignment]
 
-[Image: The Users tab for a Zscaler service with annotation around the Assign Users button]
+[Image: User tab]
 
-[Image: The Select Users page with annotations around the users selected to be assigned to a Zscaler service]
+[Image: Select users for service entitlements]
 
-[Image: The Summary page shows the user assignment summary]
-
-[Image: The Users & Roles page highlighting the Microtenant column]
-
-[Image: The Select Groups and Roles page highlighting the Microtenant column]
+[Image: Summary page for users assignment]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/automatic-upgrade-to-zscaler-admin-console","lastmod":"2026-08-12T20:10Z","nid":"1539868"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/automatic-upgrade-to-zscaler-admin-console","lastmod":"2026-09-15T05:45Z","nid":"1539868"} -->
 ## Automatic Upgrade to Zscaler Admin Console
 
 - Source: https://help.zscaler.com/authentication-service/automatic-upgrade-to-zscaler-admin-console
 - Product: Authentication Service
 - Path: Authentication Service Help > Automatic Upgrade to Zscaler Admin Console
-- Last modified: 2026-08-12T20:10Z
+- Last modified: 2026-09-15T05:45Z
 - Summary: Information on upgrading Authentication Service tenants to Zscaler Admin Console.
 
 Zscaler is upgrading organizations to Zscaler Admin Console, a centralized unified platform that provides a more secure and streamlined user experience. Administrators can now access and manage all the Zscaler products, unified policies and security analytics in one place.
@@ -1901,17 +1919,23 @@ After the automatic upgrade is completed, the following changes to the login and
 - **IdP Reconfiguration**: Admins must reconfigure the IdP within the new Authentication Service tenant provisioned for your organization. To learn more, see[About External Identity Providers](https://help.zscaler.com/authentication-service/about-external-identity-providers).
 - **Mandatory MFA Enrollment**: For enhanced security, all admins are required to enroll in the Zscaler multi-factor authentication (MFA) to gain initial access to Zscaler Admin Console. This is a one-time requirement that must be completed during the initial login after the upgrade. To learn more, see [Configuring Multi-Factor Authentication](https://help.zscaler.com/authentication-service/configuring-multi-factor-authentication).
 - **API Authentication**: If you have Internet & SaaS API authentication configured in the legacy Authentication Service Admin Portal, you must use the same password during the first login, as creating a new password results in loss of access to your legacy APIs. If you do not have Internet & SaaS API authentication, you can create a new password.
+- **Automatic Upgraded IdP and Admin Redirection:**
+  - If the IdP is configured in Authentication Service and the admin starts an IdP-initiated login from Authentication Service, the admin is redirected to the IdP (e.g., Okta) for verification. The IdP uses the existing valid session and redirects the admin to MFA.
+  - If the password is already configured in Authentication Service, and the admin starts an IdP-initiated login from the Internet & SaaS or Private Access tile in the IdP, the admin is redirected to the Zscaler Admin Console login page, where the admin can log in using the configured password and then proceed to MFA verification.
+  - If the admin does not have an IdP and password set up in Authentication Service and starts an IdP-initiated login from the Internet & SaaS or Private Access tile in the IdP, the admin is redirected to the Zscaler Admin Console login page, where the admin can either log in using the existing Internet & SaaS or Private Access password or create a new password. If the admin logs in using the Internet & SaaS or Private Access password, that password is migrated to Zscaler Admin Console. See image.
+
+[Image: Auto migrated admin login]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-admin-sign-on-policy","lastmod":"2026-06-25T03:26Z","nid":"1499071"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-admin-sign-on-policy","lastmod":"2026-09-17T20:46Z","nid":"1499071"} -->
 ## Configuring an Admin Sign-On Policy
 
 - Source: https://help.zscaler.com/authentication-service/configuring-admin-sign-on-policy
 - Product: Authentication Service
 - Path: Authentication Service Help > Policies > Configuring an Admin Sign-On Policy
-- Last modified: 2026-06-25T03:26Z
+- Last modified: 2026-09-17T20:46Z
 - Summary: How to configure Admin Sign-On policies for service admins in the Zscaler Admin Console.
 
 The article describes how to add a sign-on policy from the [Sign-On Policy](https://help.zscaler.com/zidentity/about-sign-on-policies) page. You can add up to 256 policies.
@@ -1920,7 +1944,7 @@ The article describes how to add a sign-on policy from the [Sign-On Policy](http
 
 To configure a sign-on rule:
 
-1. Go to **Administration**>**Admin Management**>**Administrator Management**>**Sign-On Policies**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication**> **Admin Sign-On Policy**.
 2. Click **Add Rule**.
 
 The **Add Admin** **Sign-On Policy**drawer appears.
@@ -1942,13 +1966,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-auth0-external-idp","lastmod":"2026-07-30T21:06Z","nid":"1499341"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-auth0-external-idp","lastmod":"2026-09-30T19:43Z","nid":"1499341"} -->
 ## Configuring Auth0 as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-auth0-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring Auth0 as an External IdP
-- Last modified: 2026-07-30T21:06Z
+- Last modified: 2026-09-30T19:43Z
 - Summary: This guide provides information on how to configure Auth0 as your OpenID Provider (OP) for Authentication Service.
 
 This guide provides information on how to configure Auth0 as the OpenID Provider (OP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management.
@@ -1959,7 +1983,7 @@ Ensure that you have:
 
 - A subscription to Auth0
 - An existing user directory in Auth0
-- An Authentication Service account with an admin role that allows you to add an IdP configuration
+- An Authentication Service account with an admin role that allows you to add an IdP configuration If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 
 ## IdP-Initiated SSO for Authentication Service Tenants Enabled with Experience Center
 
@@ -2000,7 +2024,7 @@ Complete the following steps to set up Auth0 as an OP for Authentication Service
   1. In the **Basic Information**section, copy the **Client ID** and **Client Secret**values. See image.
   2. Expand the **Advanced Settings**section, select the **Endpoints**tab, and copy the **OpenID Configuration**value. See image.
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Click **Add Primary IdP** (or **Add Secondary IdP**). The **Add Primary Identity Provider** (or **Add Secondary Identity Provider**) drawer appears.
 3. In the **Add Primary Identity Provider** (or **Add Secondary Identity Provider**) drawer, on the **Basic**tab:
   1. In the **General**section: See image.
@@ -2022,7 +2046,7 @@ Complete the following steps to set up Auth0 as an OP for Authentication Service
   1. Paste the **Redirect URI** value copied from the Zscaler Admin Console to the **Application Login URI**and **Allowed Callback URLs**fields.
   2. Click **Save Changes**.
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP entry created for Auth0 in the **Primary Identity Provider**(or **Secondary Identity Providers**) section and click the **Edit**icon.
 3. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
   1. Select the **Provisioning**tab.
@@ -2067,7 +2091,7 @@ To enable step-up authentication:
 
 In the [external IdP integrated with Authentication Service](https://help.zscaler.com/authentication-service/about-external-identity-providers), configure the necessary ACR values and authentication policies. To learn more about the configuration, refer to the respective product documentation.
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**>**Authentication Service**> **External Identities**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
 3. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
   1. Select the **Advanced** tab.
@@ -2104,20 +2128,20 @@ You can configure the necessary policies in the following Zscaler services as re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-authentication-levels","lastmod":"2026-06-24T05:18Z","nid":"1507491"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-authentication-levels","lastmod":"2026-09-29T02:12Z","nid":"1507491"} -->
 ## Configuring Authentication Levels
 
 - Source: https://help.zscaler.com/authentication-service/configuring-authentication-levels
 - Product: Authentication Service
 - Path: Authentication Service Help > Authentication > Configuring Authentication Levels
-- Last modified: 2026-06-24T05:18Z
+- Last modified: 2026-09-29T02:12Z
 - Summary: How to configure Authentication Levels in Zscaler Admin Console.
 
 An authentication level represents a specific strength of authentication with hierarchical levels where higher levels represent stronger authentication methods. When users are authenticated at a higher level, their authentication level satisfies policies that require a sub-level of authentication. These authentication levels are mapped with access policies in supported Zscaler services to enable step-up authentication for resources.
 
 To configure an authentication level:
 
-1. Go to **Administration** >**Identity**>**Authentication Service**> **Authentication Levels**. The **Authentication Levels** page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Authentication**> **Authentication Levels**. The **Authentication Levels** page appears.
 2. On the **Authentication Levels** page: See image.
   1. Click **New Authentication Level**.
   2. **Level Name**: Enter a name for the level.
@@ -2137,28 +2161,28 @@ To configure an authentication level:
 
 After configuring authentication levels, you need to create access policies in the [supported Zscaler services](https://help.zscaler.com/zidentity/understanding-step-authentication).
 
-If you have configured external IdP for authentication via OIDC, you need to map the authentication levels to their respective `acr` values in the IdP. To learn more about external IdPs, see [About External Identity Providers](https://help.zscaler.com/zidentity/about-external-identity-providers).
+If you have configured an external IdP for authentication via OIDC, you need to map the authentication levels to their respective `acr` values in the IdP. To learn more about external IdPs, see [About External Identity Providers](https://help.zscaler.com/zidentity/about-external-identity-providers).
 
 [Image: Authentication Levels page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-authentication-session","lastmod":"2026-06-24T05:26Z","nid":"1499401"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-authentication-session","lastmod":"2026-09-29T02:12Z","nid":"1499401"} -->
 ## Configuring the Authentication Session
 
 - Source: https://help.zscaler.com/authentication-service/configuring-authentication-session
 - Product: Authentication Service
 - Path: Authentication Service Help > Authentication > Configuring the Authentication Session
-- Last modified: 2026-06-24T05:26Z
+- Last modified: 2026-09-29T02:12Z
 - Summary: How to set up the authentication session for service enrollment in the Zscaler Admin Console.
 
 Authentication Service uses session-based authentication to keep track of the authenticated users or enrolled services.
 
 To configure the authentication session:
 
-1. Go to **Administration**>**Identity**>**Authentication Service**>**Authentication Session.**
-2. In the **Authentication Session**page: See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Authentication**> **Authentication Session**.
+2. On the **Authentication Session**page, click **Edit**and configure the following: See image.
   - **Administrator Inactivity Timeout Duration (in Minutes)**: Enter the timeout period after which the user is logged out of the Authentication Service session. You can set the timeout period from 5 to 600 minutes (10 hours).
   - **Authentication Session for Service Entitlement**: Enable to apply the authenticated session of Authentication Service to Zscaler services during user enrollment. This option is disabled by default, as Authentication Service sends users to the organization's identity provider (IdP) for authentication. If enabled, Authentication Service can locally verify active sessions based on the **Service Enrollment Session Timeout** value, instead of always redirecting users to the IdP. For example:
     - **Private Access (ZPA) reauthentication through Zscaler Client Connector**: During reauthentication, if the existing session is still valid, Authentication Service authenticates the user locally. If the session is expired, the user is redirected to the external IdP.
@@ -2172,13 +2196,13 @@ To configure the authentication session:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-microsoft-ad-fs-external-idp","lastmod":"2026-06-24T20:25Z","nid":"1499366"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-microsoft-ad-fs-external-idp","lastmod":"2026-09-30T19:44Z","nid":"1499366"} -->
 ## Configuring Microsoft AD FS as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-microsoft-ad-fs-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring Microsoft AD FS as an External IdP
-- Last modified: 2026-06-24T20:25Z
+- Last modified: 2026-09-30T19:44Z
 - Summary: This guide provides information on how to configure Microsoft AD FS as your SAML Identity Provider (IdP) for Authentication Service.
 
 This guide provides information on how to configure Microsoft Active Directory Federated Services (AD FS) as the Identity Provider (IdP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management.
@@ -2196,8 +2220,8 @@ Before you configure AD FS as an external IdP, ensure that you have:
 - A Microsoft Windows Server with the following components installed and connected:
   - Active Directory
   - AD FS
-- An administrator account for the Windows Server.
-- An Authentication Service account with an admin role that allows you to add an IdP configuration.
+- An administrator account for the Windows Server
+- An Authentication Service account with an admin role that allows you to add an IdP configuration If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 
 ## Configuring Microsoft AD FS as OP for Authentication Service
 
@@ -2208,7 +2232,7 @@ To set up AD FS as an OP for Authentication Service:
 - 3. Provision users for Authentication Service.
 - 4. (Optional) Enable step-up authentication.
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Click **Add Primary IdP**(or **Add Secondary IdP**). The **Add Primary Identity Provider**(or **Add Secondary Identity Provider**)drawer appears.
 3. In the **Add Primary Identity Provider** (or**Add Secondary Identity Provider**) drawer, on the **Basic**tab:
   1. In the **General**section: See image.
@@ -2284,7 +2308,7 @@ To set up AD FS as an OP for Authentication Service:
     1. **Choose** **an access control policy**: Select **Permit everyone**.
     2. Click **Next**.
   6. Complete the subsequent steps.
-14. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+14. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 15. Locate the IdP created for Authentication Service on the **Primary Identity Provider** (or **Secondary Identity Providers**) table, and click the **Edit**icon.
 16. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer:
   1. On the **Basic**tab, in the**OIDC Configuration** section: See image.
@@ -2292,7 +2316,7 @@ To set up AD FS as an OP for Authentication Service:
     2. **Client Secret**: Override the previously configured random value with the actual client secret of the application created in the AD FS Management Console.
   2. Click **Update**.
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP entry created for AD FS in the **Primary Identity Provider**(or **Secondary Identity Providers**) section and click the **Edit**icon.
 3. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
   1. Go to the **Provisioning**tab and select **Enable Just-in-time (JIT) Provisioning**. JIT provisioning for primary IdPs does not support provisioning or updating system-defined groups (e.g., Zscaler Global Administrators).
@@ -2338,7 +2362,7 @@ To enable step-up authentication:
 
 In the [external IdP integrated with Authentication Service](https://help.zscaler.com/authentication-service/about-external-identity-providers), configure the necessary ACR values and authentication policies. To learn more about the configuration, refer to the respective product documentation.
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**>**Authentication Service**> **External Identities**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
 3. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
   1. Select the **Advanced** tab.
@@ -2418,7 +2442,7 @@ You can configure the necessary policies in the following Zscaler services as re
   - Active Directory
   - AD FS
 - An administrator account for the Windows Server
-- An Authentication Service account with an admin role that allows you to add an IdP configuration
+- An Authentication Service account with an admin role that allows you to add an IdP configuration If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 
 ## Configuring Microsoft AD FS as IdP for Authentication Service
 
@@ -2434,7 +2458,7 @@ You can configure the necessary policies in the following Zscaler services as re
 3. Go to **Services**> **Endpoints**and locate the **Metadata URL Path**. The typical URL path is `/FederationMetadata/2007-06/FederationMetadata.xml`. See image.
 4. To download the metadata, enter the following URL in the browser: `https://<computer-name.domain><metadata_URL_path>` For example, if the computer name is `zsad` and the domain name is `zsidentity`, the URL to download the metadata is `https://zsad.zsidentity.com/FederationMetadata/2007-06/FederationMetadata.xml`. The federation metadata is downloaded as an XML file.
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Click **Add Primary IdP**(or **Add Secondary IdP**). The **Add Primary Identity Provider**(or **Add Secondary Identity Provider**)drawer appears.
 3. In the **Add Primary Identity Provider**(or **Add Secondary Identity Provider**)drawer, on the **Basic**tab: The AD FS IdP configuration is saved.
   1. In the **General**section: See image.
@@ -2466,7 +2490,7 @@ You can configure the necessary policies in the following Zscaler services as re
   5. Click **Next**.
   6. Go to the **Finish**step and click **Close**. See image.
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP entry created for AD FS in the **Primary Identity Provider**(or **Secondary Identity Providers**) section and click the **Edit**icon.
 3. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
   1. Go to the **Provisioning**tab.
@@ -2558,13 +2582,13 @@ If you want to change this default behavior and have users redirected to Experie
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-microsoft-entra-id-external-idp","lastmod":"2026-08-24T21:06Z","nid":"1499421"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-microsoft-entra-id-external-idp","lastmod":"2026-09-30T19:44Z","nid":"1499421"} -->
 ## Configuring Microsoft Entra ID as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-microsoft-entra-id-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring Microsoft Entra ID as an External IdP
-- Last modified: 2026-08-24T21:06Z
+- Last modified: 2026-09-30T19:44Z
 - Summary: How to configure Microsoft Entra ID as an external IdP in the Zscaler Admin Console.
 
 This guide provides information on how to configure Microsoft Entra ID as an external identity provider (IdP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management. You can configure Entra ID as an external IdP to enable SSO to Authentication Service using OpenID Connect (OIDC) or Security Assertion Markup Language (SAML) authentication protocols.
@@ -2614,7 +2638,7 @@ Ensure that you have:
 
 - A subscription to Entra ID.
 - An existing user directory in Entra ID.
-- An Authentication Service account with an admin role that allows you to add an IdP configuration.
+- An Authentication Service account with an admin role that allows you to add an IdP configuration. If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 - A preferred choice of provisioning mode (JIT or SCIM) as this determines the number of apps you need to configure in Entra ID — one app for JIT and two apps for SCIM. Implementation Differences Between JIT and SCIM Provisioning Modes
 
 ## Configuring Microsoft Entra ID as OP for Authentication Service
@@ -2692,7 +2716,7 @@ Entra ID only supports JIT provisioning for OIDC apps via the Microsoft Entra Ap
 - Adding an IdP in the Zscaler Admin Console
 - Configuring the Platform Settings in the Entra Admin Center
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Click **Add Primary IdP** (or **Add Secondary IdP**). The **Add Primary Identity Provider** (or **Add Secondary Identity Provider**) drawer appears.
 3. In the **Add Primary Identity Provider** (or **Add Secondary Identity Provider**) drawer, on the **Basic**tab:
   1. In the **General**section: See image.
@@ -2738,7 +2762,7 @@ This section explains how to provision Entra ID users in the Zscaler Admin Conso
 2. In the left-side navigation, go to **Manage**> **Manifest**. The **Manifest**window appears.
 3. In the **Manifest**window, update the required attributes in the graph manifest: These changes are required if you are adding any optional claims in a future step.
   - Updating Microsoft Graph App Manifest
-4. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+4. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 5. Locate the IdP entry created for Entra ID in the **Primary Identity Provider**(or **Secondary Identity Providers**) section and click the **Edit**icon.
 6. In the**Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
   1. On the **Provisioning**tab, select **Enable Just-in-time (JIT) Provisioning**.
@@ -2775,21 +2799,25 @@ This section explains how to provision Entra ID users in the Zscaler Admin Conso
   1. Enter an application name for Authentication Service in the **What's the name of your app?** field. For example, enter `Authentication Service-OIDC-SCIM`.
   2. Select the **Integrate any other application you don't find in the gallery (Non-gallery)** option.
   3. Click **Create**. See image.
-5. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
-6. Locate the IdP entry created for Entra ID in the **Primary Identity Provider**(or **Secondary Identity Providers**) section and click the **Edit**icon. The **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**)drawer appears.
-7. In the**Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer:
+5. In the Entra Admin Center, go to**App registrations**, and open the app created for SCIM provisioning.
+6. In the left-side navigation, go to **Manage**> **Manifest**. The **Manifest**window appears.
+7. In the **Manifest**window, update the required attributes in the graph manifest: These changes are required if you are adding any optional claims in a future step.
+  - Updating Microsoft Graph App Manifest
+8. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
+9. Locate the IdP entry created for Entra ID in the **Primary Identity Provider**(or **Secondary Identity Providers**) section and click the **Edit**icon. The **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**)drawer appears.
+10. In the**Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer:
   1. On the **Provisioning**tab and in the **SCIM Configuration** section: See image.
     1. Select **Enable SCIM Provisioning**.
     2. Copy the **SCIM Endpoint URL**. This value is used in a subsequent step. The **SCIM Endpoint URL** field appears only if the configurations for the IdP in the **Basic** tab are completed and saved. See image.
-    3. Click **Generate Token**and **Bearer Token**value. This value is used in a subsequent step. The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities).
+    3. Click **Generate Token**and **Bearer Token**value. This value is used in a subsequent step. The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities). If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
     4. (Optional) Map the SCIM attributes (e.g., `addresses`) with the corresponding Authentication Service user attribute. This mapping is required only for attributes that need to be mapped to a custom [user attribute](https://help.zscaler.com/authentication-service/adding-user-attributes) in Authentication Service. To learn more about the SCIM attributes that require custom attribute mapping, see [Understanding SCIM](https://help.zscaler.com/authentication-service/understanding-scim). The mapping of the `Primary Email` attribute is mandatory as it is required for functionalities, such as password resetting and multi-factor authentication.
   2. Click **Update**.
-8. In the Entra Admin Center, go to **Identity > Applications > Enterprise applications**. See image.
-9. Locate and click the custom application that you created for SCIM provisioning. The application overview page appears.
-10. In the left-side navigation, click **Users and groups**. The **Users and groups**window appears.
-11. In the **Users and groups**window, select the users and groups that you want to have access to the application. See image. If you want to pass group memberships as claims, make sure that the groups are assigned instead of individual users in the **Users and groups** window.
-12. In the left-side navigation, click **Provisioning**. The **Provisioning**window appears.
-13. In the **Provisioning**window:
+11. In the Entra Admin Center, go to **Identity > Applications > Enterprise applications**. See image.
+12. Locate and click the custom application that you created for SCIM provisioning. The application overview page appears.
+13. In the left-side navigation, click **Users and groups**. The **Users and groups**window appears.
+14. In the **Users and groups**window, select the users and groups that you want to have access to the application. See image. If you want to pass group memberships as claims, make sure that the groups are assigned instead of individual users in the **Users and groups** window.
+15. In the left-side navigation, click **Provisioning**. The **Provisioning**window appears.
+16. In the **Provisioning**window:
   1. **Provisioning Mode**: Select **Automatic** from the **Provisioning Mode** drop-down menu.
   2. In the **Admin Credentials**section:
     1. **Tenant URL**: Enter the endpoint displayed in the **SCIM Endpoint URL** field while adding the primary or secondary IdP in the Zscaler Admin Console. The **SCIM Endpoint URL** field appears only if the configurations for the IdP in the **Basic** tab are completed and saved. See image.
@@ -2824,12 +2852,16 @@ This section explains how to provision Entra ID users in the Zscaler Admin Conso
         | urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department | department |  |
       3. Click **Save** to save the attribute mapping changes.
       4. Return to the **Provisioning** screen.
-14. In the **Settings** section: See image.
+17. In the **Settings** section: See image.
   1. **Send an email notification when a failure occurs**: (Optional) Select this and provide an email to receive a notification when there is a provisioning failure.
   2. **Prevent accidental deletion**: (Optional) Selecting this option allows you to set an accidental deletion threshold. When the option is enabled, deleting a number of groups and users over the threshold requires approval from an admin.
   3. **Scope**: (Optional) Choose **Sync only assigned users and groups**. Zscaler recommends using this setting.
-15. Set the **Provisioning Status** to **On**. See image.
-16. Click **Save** to start the Microsoft Entra ID provisioning service.
+18. Set the **Provisioning Status** to **On**. See image.
+19. Click **Save** to start the Microsoft Entra ID provisioning service.
+
+1. Locate the `groups` entry in `optionalClaims,idToken`, and modify the `additionalProperties` array to include `cloud_displayname`. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-fed-group-claims#configure-the-azure-ad-application-registration-for-group-attributes). See image. `{ "additionalProperties": ["cloud_displayname"], "essential": false, "name": "groups", "source": null }`This configuration is required to send group names instead of group IDs. Authentication Service uses this to display group memberships, map users to roles, and evalute policies in JIT mode.
+2. Change the value of the `acceptMappedClaims` attribute to `true`. This is required to enable Entra ID to accept custom claims (e.g., department, title) for issuing tokens.
+3. Change the value of the `requestedAccessTokenVersion` attribute to `2`. See image.
 
 You can configure step-up authentication to extend the existing authentication process by requiring multi-factor authentication (MFA) when needed, ensuring that access to high-risk or sensitive data is protected.
 
@@ -2868,7 +2900,7 @@ To enable step-up authentication:
     2. Click **Select**. See image. Microsoft Entra ID provides you with various controls for MFA using a combination of [authentication strength](https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-strengths) and [authentication methods](https://learn.microsoft.com/en-us/entra/identity/authentication/concept-authentication-methods-manage).
 8. Click **Create**. The authentication policy mapped with the necessary authentication context is created.
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP entry created for Entra ID in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
 3. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
   1. On the **Advanced** tab, in the **Levels to Authentication context mapping** section, enter the **Authentication Context ID**for each authentication level. To learn more about the supported authentication contexts in Entra ID, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-cloud-apps#authentication-context). Ensure that you map the proper **Authentication context ID**for each level depending on the hierarchy. The highest level of authentication must be mapped to the **Authentication Context ID** for the strongest context.
@@ -2918,6 +2950,10 @@ After configuring step-up authentication in Authentication Service and Entra ID,
 [Image: Selecting custom token properties in Entra Admin Center]
 
 [Image: Configuring optional claims with the groups claim highlighted]
+
+[Image: Configuring manifest using Microsoft Graph App with an API properties highlighted]
+
+[Image: Configuring manifest using Microsoft Graph App with an ID token property highlighted]
 
 [Image: Configuring manifest using Microsoft Graph App with an API properties highlighted]
 
@@ -3015,7 +3051,7 @@ Ensure that you have:
 
 - A subscription to Microsoft Entra ID.
 - An existing directory in Microsoft Entra ID.
-- An Authentication Service account with an admin role that allows you to add an IdP configuration.
+- An Authentication Service account with an admin role that allows you to add an IdP configuration. If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 
 ## Configuring Microsoft Entra ID as IdP for Authentication Service
 
@@ -3025,7 +3061,7 @@ To set up Microsoft Entra ID as an IdP for Authentication Service:
 - 2. Configure Entra ID as an IdP for Authentication Service.
 - 3. Provision users for Authentication Service.
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Click **Add Primary IdP** (or **Add Secondary IdP**). The **Add Primary Identity Provider**(or **Add Secondary Identity Provider**) drawer appears.
 3. In the **Add Primary Identity Provider**(or **Add Secondary Identity Provider**) drawer, on the **Basic**tab: See image. Do not close the drawer as the SP Entity ID is going to be refreshed.
   1. In the **General**section:
@@ -3114,7 +3150,7 @@ You can provision Entra ID users for Authentication Service using Just-in-time (
 - Users created in Authentication Service via SCIM cannot be updated via JIT provisioning. These records must be updated via SCIM provisioning only.
 - JIT provisioning for primary IdPs does not support provisioning or updating system-defined groups (e.g., Zscaler Global Administrators).
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP entry created for Entra ID in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
 3. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
   1. Go to the **Provisioning**tab.
@@ -3140,7 +3176,7 @@ You can provision Entra ID users for Authentication Service using Just-in-time (
     | Manager | `manager` | The manager's login name (manager@company.com). This must be in the email address format. |
   4. Click **Update**.
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP entry created for Entra ID in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
 3. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
   1. Go to the **Provisioning**tab.
@@ -3268,13 +3304,13 @@ You can provision Entra ID users for Authentication Service using Just-in-time (
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-multi-factor-authentication","lastmod":"2026-08-10T05:56Z","nid":"1499196"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-multi-factor-authentication","lastmod":"2026-09-30T19:15Z","nid":"1499196"} -->
 ## Configuring Multi-Factor Authentication
 
 - Source: https://help.zscaler.com/authentication-service/configuring-multi-factor-authentication
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Configuring Multi-Factor Authentication
-- Last modified: 2026-08-10T05:56Z
+- Last modified: 2026-09-30T19:15Z
 - Summary: Information on configuring the authentication method in the Zscaler Admin Console.
 
 Authentication Service (formerly ZIdentity) supports multi-factor authentication (MFA) for enhanced security, and it is required by default for all admins. Zscaler strongly recommends keeping MFA enabled. You can authenticate users with a password and a second factor (i.e., time-based OTP (TOTP), and Fast IDentity Online (FIDO) authentication). In addition, you can configure passwordless authentication by setting up FIDO2 as the primary authenticator.
@@ -3283,7 +3319,7 @@ Authentication Service (formerly ZIdentity) supports multi-factor authentication
 
 To set up MFA or FIDO2:
 
-1. Go to **Administration** > **Authentication**> **Authentication Methods**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Authentication**> **Authentication Methods**.
 2. On the **Authentication Methods** page: See image.
   - **Enable Multi-Factor Authentication (MFA) for Service Enrollment**: This option is shown only when the user single sign-on (SSO) feature is enabled for your tenant. You can choose to disable this option for your [users](https://help.zscaler.com/zidentity/about-users) when required.
   - **Allow FIDO2 as Primary Authenticator**: Enable this option to allow users to configure a passwordless authentication method for their Authentication Service account. When you enable this option, users can skip the password and configure any of the Fast IDentity Online 2 (FIDO2) methods available on their device in the subsequent log-in attempt. The following scenarios occur when you disable FIDO2 authentication method as your primary authenticator:
@@ -3294,6 +3330,8 @@ To set up MFA or FIDO2:
 ## Configuring MFA
 
 You will receive an email from Zscaler Support to set up MFA, when your organization configures an Authentication Service account for you with Zscaler service's access, and the functional scope of your role.
+
+If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 
 To configure MFA:
 
@@ -3325,7 +3363,7 @@ Your Authentication Service account is successfully created. You can make a note
 
 Your Authentication Service account is successfully created. You can make a note of your login ID displayed on the screen and proceed to log in to your account.
 
-### Skip Multi-factor Authentication
+### Skip Multi-Factor Authentication
 
 As an admin, you can skip the MFA for a grace period of 7 days. After the grace period is over, you need to configure MFA in Authentication Service.
 
@@ -3404,13 +3442,13 @@ To verify:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-okta-external-idp","lastmod":"2026-08-24T21:06Z","nid":"1499411"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-okta-external-idp","lastmod":"2026-09-30T19:45Z","nid":"1499411"} -->
 ## Configuring Okta as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-okta-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring Okta as an External IdP
-- Last modified: 2026-08-24T21:06Z
+- Last modified: 2026-09-30T19:45Z
 - Summary: How to configure Okta as an external IdP in the Zscaler Admin Console.
 
 This guide provides information on how to configure Okta as an external Identity Provider (IdP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management. You can configure Okta as an external IdP to enable SSO to Authentication Service using OpenID Connect (OIDC) or Security Assertion Markup Language (SAML) authentication protocols.
@@ -3447,7 +3485,7 @@ Ensure that you have:
 - An Okta account with admin privileges
 - A SCIM provisioning subscription for Okta
 - An existing user directory in Okta
-- An Authentication Service account with an admin role that allows you to add an IdP configuration
+- An Authentication Service account with an admin role that allows you to add an IdP configuration If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 
 ## Supported Features
 
@@ -3486,7 +3524,7 @@ To set up Okta as an OP for Authentication Service:
 9. In the application page, on the **Sign On** tab, copy the **Client ID** and **Client secret**values. These values are used in a subsequent step when configuring Okta as an OP for Authentication Service. See image.
 10. To obtain the metadata URL, right-click the**OpenID Provider Metadata** text, and copy the URL. This value is used in a subsequent step when configuring Okta as an OP for Authentication Service. The metadata URL has the following format: If you are using Org Authorization Server: https://`<your_subdomain>`.okta.com/.well-known/openid-configurationIf you are using Custom Authorization Server: `https://`<your_subdomain>`.okta.com/oauth2/default/.well-known/openid-configuration`See image.
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Click **Add Primary IdP** (or **Add Secondary IdP**). The **Add Primary Identity Provider** (or **Add Secondary Identity Provider**) drawer appears.
 3. In the **Add Primary Identity Provider** (or **Add Secondary Identity Provider**) drawer, on the **Basic**tab:
   1. In the **General**section: See image.
@@ -3519,7 +3557,7 @@ To set up Okta as an OP for Authentication Service:
 - Users created in Authentication Service via SCIM cannot be updated using JIT provisioning. These user records must be updated via SCIM provisioning only.
 - JIT provisioning for primary IdPs does not support provisioning or updating system-defined groups (e.g., Zscaler Global Administrators).
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP entry created for Okta in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
 3. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: On the **Provisioning**tab, select **Enable Just-in-time (JIT) Provisioning**and complete these steps: See image.
   1. Map the required attributes. The mapping of the `Primary Email` attribute is mandatory as it is required for functionalities, such as password resetting and multi-factor authentication. By default, the following attributes in ID tokens are mapped with the corresponding user attributes in Authentication Service: If the external IdP is configured to send different attributes for `First Name`, `Last Name`, or `Display Name`, then you must map those attributes. For example, if the ID token from the external IdP includes `Surname` instead of `family_name`, then you must map it with the `Last Name` user attribute in Authentication Service. See image.; While mapping attributes, ensure that the attributes you enter in the **Just-in-time Attribute** field match exactly with the attributes that are received in the ID tokens.; The `Addresses` attribute in Authentication Service is supported only with SCIM provisioning.
@@ -3546,12 +3584,12 @@ To set up Okta as an OP for Authentication Service:
   3. Open the OIN app created for Authentication Service and go to the **Assignments**tab.
   4. Add users and groups to the application using the **Assign**drop-down menu. See image. The JIT provisioning with Okta users is configured for Authentication Service.
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP entry created for Okta in the **Primary Identity Provider**(or **Secondary Identity Providers**) section and click the **Edit**icon.
 3. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer:
   1. On the **Provisioning**tab, select **Enable SCIM Provisioning**.
   2. Copy the **SCIM Endpoint URL**. This value is used in a subsequent step. The **SCIM Endpoint URL** field appears only if the configurations for the IdP in the **Basic** tab are completed and saved. See image.
-  3. Click **Generate Token**and copy the **Bearer Token** value. This value is used in a subsequent step. The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities).
+  3. Click **Generate Token**and copy the **Bearer Token** value. This value is used in a subsequent step. The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities). If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
   4. (Optional) Map the SCIM attribute (e.g., `addresses`) with the corresponding Authentication Service user attribute. This mapping is required only for attributes that need to be mapped to a custom [user attribute](https://help.zscaler.com/authentication-service/adding-user-attributes) in Authentication Service. To learn more about the SCIM attributes that require custom attribute mapping, see [Understanding SCIM](https://help.zscaler.com/authentication-service/understanding-scim). See image.
 4. Click **Update**.
 5. Go the Okta Admin Console, and go to the OIN app added for Authentication Service.
@@ -3621,7 +3659,7 @@ To enable step-up authentication:
 
 In the [external IdP integrated with Authentication Service](https://help.zscaler.com/authentication-service/about-external-identity-providers), configure the necessary ACR values and authentication policies. To learn more about the configuration, refer to the respective product documentation.
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**>**Authentication Service**> **External Identities**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
 3. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
   1. Select the **Advanced** tab.
@@ -3701,7 +3739,7 @@ Ensure that you have:
 
 - An Okta account with admin privileges
 - An existing user directory in Okta
-- An Authentication Service account with an admin role that allows you to add an IdP configuration
+- An Authentication Service account with an admin role that allows you to add an IdP configuration If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 
 ## Configuring Okta as OP for Authentication Service
 
@@ -3729,7 +3767,7 @@ To set up Okta as an OP for Authentication Service:
 6. Click **Save.**
 7. In the application page, on the **General**tab, copy the **Client ID** and **Client Secret**values. See image.
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Click **Add Primary IdP** (or **Add Secondary IdP**). The **Add Primary Identity Provider** (or **Add Secondary Identity Provider**) drawer appears.
 3. In the **Add Primary Identity Provider** (or **Add Secondary Identity Provider**) drawer, on the **Basic**tab:
   1. In the **General**section: See image.
@@ -3777,12 +3815,12 @@ Okta does not support SCIM provisioning for custom OIDC applications. However, i
 6. On the app details page, click **Add Integration**. See image.
 7. In the **Add Zscaler** window, enter a name for the **Application label**field. See image.
 8. Click **Done**. An OIN app for provisioning users to Authentication Service is added.
-9. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+9. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 10. Locate the IdP entry created for Okta in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
 11. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: On the **Provisioning**tab: See image.
   1. Select **Enable SCIM Provisioning**.
   2. Copy the **SCIM Endpoint URL**. This value is used in a subsequent step. The **SCIM Endpoint URL** field appears only if the configurations for the IdP in the **Basic** tab are completed and saved. See image.
-  3. Click **Generate Token**and copy the **Bearer Token**. The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities).
+  3. Click **Generate Token**and copy the **Bearer Token**. The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities). If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
   4. (Optional) Map the SCIM attributes (e.g., `addresses`) with the corresponding Authentication Service user attribute. This mapping is required only for attributes that need to be mapped to a custom [user attribute](https://help.zscaler.com/authentication-service/adding-user-attributes) in Authentication Service.
 12. In the Okta Admin Console, go to **Applications**> **Applications**.
 13. Open the OIN application created for Authentication Service and do the following: On the **Provisioning**tab:
@@ -3813,7 +3851,7 @@ Okta does not support SCIM provisioning for custom OIDC applications. However, i
   6. In the **Add Attribute** window, enter the necessary values for the attribute, such as **Data Type**, **Display Name**, and **Variable Name**, and click **Add**. Repeat this step to add the necessary attributes for the app.
   7. Click **Mappings**.
   8. In the profile mappings window, map the attributes created for the user with the attribute created for the application.
-3. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+3. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 4. Locate the IdP entry created for Okta in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
 5. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer:
   1. In the **Advanced**tab:
@@ -3880,7 +3918,7 @@ Okta does not support SCIM provisioning for custom OIDC applications. However, i
 8. On the access policy details page, click **Add Rule**. See image.
 9. In the **Add Rule**window, configure the details based on the following image: See image.
 10. Click **Create rule**.
-11. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+11. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 12. Locate the IdP entry created for Okta in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
 13. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer:
   1. (Optional) On the **Advanced**tab: If you have configured custom session attributes, then you must map those attributes with the custom profile app attributes configured in the Okta Admin Console.
@@ -3931,7 +3969,7 @@ To enable step-up authentication:
 
 In the [external IdP integrated with Authentication Service](https://help.zscaler.com/authentication-service/about-external-identity-providers), configure the necessary ACR values and authentication policies. To learn more about the configuration, refer to the respective product documentation.
 
-1. Go to **Integration**> **External Identities**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
 3. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
   1. Select the **Advanced** tab.
@@ -4001,7 +4039,7 @@ This section provides information on how to configure Okta as the SAML Identity 
 
 - A subscription to Okta
 - An existing user directory in Okta
-- An Authentication Service account with an admin role that allows you to add an IdP configuration
+- An Authentication Service account with an admin role that allows you to add an IdP configuration If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 
 ## Configuring Okta as IdP for Authentication Service
 
@@ -4030,7 +4068,7 @@ To configure the `zidServiceId` attribute in Okta for SAML protocol:
 9. Click **Next**.
 10. On the **Feedback**tab, click **Finish**.
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Click **Add Primary IdP**(or **Add Secondary IdP**). The **Add Primary Identity Provider**(or **Add Secondary Identity Provider**)drawer appears.
 3. In the **Add Primary Identity Provider**(or **Add Secondary Identity Provider**)drawer, on the **Basic**tab: See image.
   1. In the **General**section:
@@ -4095,7 +4133,7 @@ You can provision Okta users for Authentication Service using Just-in-time (JIT)
   6. In the **Add Attribute** window, enter the necessary values for the attribute, such as **Data Type**, **Display Name**, and **Variable Name**, and click **Add**. Repeat this step to add the necessary attributes for the app.
   7. Click **Mappings**.
   8. In the profile mappings window, map the attributes created for the user with the attribute created for the application.
-3. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+3. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 4. Locate the IdP entry created for Okta in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
 5. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer:
   1. (Optional) In the **Advanced**tab: If you have configured custom session attributes, then you must map those attributes with the custom profile app attributes configured in the Okta Admin Console.
@@ -4104,7 +4142,7 @@ You can provision Okta users for Authentication Service using Just-in-time (JIT)
       2. **Session Attribute**: Select the session attribute from the drop-down menu.
       3. Click **Add More**and repeat these steps to map all the necessary attributes.
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP entry created for Okta in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
 3. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: On the **Provisioning**tab:
   1. Select**Enable Just-in-time (JIT) Provisioning**.
@@ -4133,13 +4171,13 @@ You can provision Okta users for Authentication Service using Just-in-time (JIT)
 7. Open the SAML application created for Authentication Service and go to the **Assignments**tab.
 8. Add users and groups to the application using the **Assign**drop-down menu. See image. The JIT provisioning with Okta users is configured for Authentication Service.
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**..
 2. Locate the IdP entry created for Okta in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
 3. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
   1. Go to the **Provisioning**tab.
   2. Select **Enable SCIM Provisioning**.
   3. Copy the **SCIM Endpoint URL**. This value is used in a subsequent step. The **SCIM Endpoint URL** field appears only if the configurations for the IdP in the **Basic** tab are completed and saved. See image.
-  4. Click **Generate Token**and copy the **Bearer Token**. The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities).
+  4. Click **Generate Token**and copy the **Bearer Token**. The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities). If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
   5. (Optional) Map the SCIM attributes (e.g., `addresses`) with the corresponding Authentication Service user attribute. This mapping is required only for attributes that need to be mapped to a custom [user attribute](https://help.zscaler.com/authentication-service/adding-user-attributes) in Authentication Service. To learn more about the SCIM attributes that require custom attribute mapping, see [Understanding SCIM](https://help.zscaler.com/authentication-service/understanding-scim).
 4. In the Okta Admin Console, go to **Applications**> **Applications**.
 5. Open the SAML application created for Authentication Service and do the following:
@@ -4201,12 +4239,12 @@ Okta does not support SCIM provisioning for custom OIDC applications. However, i
 6. On the app details page, click **Add Integration**. See image.
 7. In the **Add Zscaler** window, enter a name for the **Application label**field. See image.
 8. Click **Done**. An OIN app for provisioning users to Authentication Service is added.
-9. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+9. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 10. Locate the IdP entry created for Okta in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
 11. In the **Edit Primary IdP**(or **Edit Secondary IdP**) window: On the **Provisioning**tab: See image.
   1. Enable **SCIM Provisioning**.
   2. Copy the **SCIM Endpoint URL**. This value is used in a subsequent step. The **SCIM Endpoint URL** field appears only if the configurations for the IdP in the **Basic** tab are completed and saved. See image.
-  3. Click **Generate Token**and copy the **Bearer Token**. The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities).
+  3. Click **Generate Token**and copy the **Bearer Token**. The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities). If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
   4. (Optional) Map the SCIM attributes (e.g., `addresses`) with the corresponding Authentication Service user attribute. This mapping is required only for attributes that need to be mapped to a custom [user attribute](https://help.zscaler.com/authentication-service/adding-user-attributes) in Authentication Service.
 12. In the Okta Admin Console, go to **Applications**> **Applications**.
 13. Open the SAML application created for Authentication Service and do the following:
@@ -4242,7 +4280,7 @@ Okta does not support SCIM provisioning for custom OIDC applications. However, i
   6. In the **Add Attribute** window, enter the necessary values for the attribute, such as **Data Type**, **Display Name**, and **Variable Name**, and click **Add**. Repeat this step to add the necessary attributes for the app.
   7. Click **Mappings**.
   8. In the profile mappings window, map the attributes created for the user with the attribute created for the application.
-3. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+3. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 4. Locate the IdP entry created for Okta in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
 5. In the **Edit Primary IdP**(or **Edit Secondary IdP**) window:
   1. In the **Advanced**tab:
@@ -4395,13 +4433,13 @@ Okta does not support SCIM provisioning for custom OIDC applications. However, i
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-onelogin-external-idp","lastmod":"2026-06-24T20:26Z","nid":"1499336"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-onelogin-external-idp","lastmod":"2026-09-30T19:41Z","nid":"1499336"} -->
 ## Configuring OneLogin as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-onelogin-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring OneLogin as an External IdP
-- Last modified: 2026-06-24T20:26Z
+- Last modified: 2026-09-30T19:41Z
 - Summary: This guide provides information on how to configure OneLogin as your OpenID Provider (OP) for Authentication Service.
 
 This guide provides information on how to configure OneLogin as the OpenID Provider (OP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management.
@@ -4412,7 +4450,7 @@ Ensure that you have:
 
 - A subscription to OneLogin
 - An existing user directory in OneLogin
-- An Authentication Service account with an admin role that allows you to add an IdP configuration
+- An Authentication Service account with an admin role that allows you to add an IdP configuration If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 
 ## IdP-Initiated SSO for Authentication Service Tenants Enabled with Experience Center
 
@@ -4462,7 +4500,7 @@ Complete the following steps to set up OneLogin as an OP for Authentication Serv
 6. Select the **SSO** tab and copy the**Client ID**,**Client Secret**, and **Issuer URL**values. To copy the **Issuer URL** value, right-click the **Well-known configuration** link, and select **Copy Link Address**(or an equivalent option in your browser). See image. See image.
 7. Assign users to the application either manually or roles and mapping in OneLogin. To learn more, refer to the [OneLogin documentation](https://onelogin.service-now.com/support?id=kb_article&sys_id=e5e35e0047ccbd509d8dfd1f536d43c2&kb_category=e9866930db185340d5505eea4b9619b7).
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Click **Add Primary IdP** (or **Add Secondary IdP**). The **Add Primary Identity Provider** (or **Add Secondary Identity Provider)** drawer appears.
 3. In the **Add Primary Identity Provider** (or **Add Secondary Identity Provider)** drawer, on the **Basic**tab:
   1. In the **General**section: See image.
@@ -4486,7 +4524,7 @@ Complete the following steps to set up OneLogin as an OP for Authentication Serv
     2. Paste the **Redirect URI** value copied from the Zscaler Admin Console to the **Redirect URI's** field.
   2. Click **Save**.
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP entry created for OneLogin in the **Primary Identity Provider**(or **Secondary Identity Providers**) section and click the **Edit**icon.
 3. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
   1. Select the **Provisioning**tab, and select **Enable Just-in-time (JIT) Provisioning**. JIT provisioning for primary IdPs does not support provisioning or updating system-defined groups (e.g., Zscaler Global Administrators).
@@ -4530,7 +4568,7 @@ To enable step-up authentication:
 
 In the [external IdP integrated with Authentication Service](https://help.zscaler.com/authentication-service/about-external-identity-providers), configure the necessary ACR values and authentication policies. To learn more about the configuration, refer to the respective product documentation.
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**>**Authentication Service**> **External Identities**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
 3. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
   1. Select the **Advanced** tab.
@@ -4573,21 +4611,21 @@ You can configure the necessary policies in the following Zscaler services as re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-password-policy","lastmod":"2026-08-19T04:30Z","nid":"1499076"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-password-policy","lastmod":"2026-09-17T20:45Z","nid":"1499076"} -->
 ## Configuring the Password Policy
 
 - Source: https://help.zscaler.com/authentication-service/configuring-password-policy
 - Product: Authentication Service
 - Path: Authentication Service Help > Policies > Configuring the Password Policy
-- Last modified: 2026-08-19T04:30Z
+- Last modified: 2026-09-17T20:45Z
 - Summary: How to configure password policy for administrators logging in to the Zscaler Admin Console.
 
 The password policy is a set of rules that you can use to create or reset passwords for users accessing the Zscaler Admin Console.
 
 To configure the password policy:
 
-1. Go to **Administration** > **Identity**> **Authentication Service** > **Password Complexity**.
-2. Set the **Configuration Type** to **Default**or **Custom**. Zscaler recommends enabling **Default**.If you select **Custom,** you need to configure the following fields:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Authentication**> **Password Policy**.
+2. Under the **Configuration**section, set the **Configuration Type** to **Default**or **Custom**. Zscaler recommends enabling **Default**.If you select **Custom,** you need to configure the following fields:
   - **Password Length**: Set the minimum length of the password.
   - **Minimum No. of Lowercase Letters**: Set the minimum number of lowercase letters required in the password.
   - **Minimum No. of Uppercase Letters**: Set the minimum number of uppercase letters required in the password.
@@ -4609,13 +4647,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-pingfederate-external-idp","lastmod":"2026-08-24T21:06Z","nid":"1499471"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-pingfederate-external-idp","lastmod":"2026-09-30T19:40Z","nid":"1499471"} -->
 ## Configuring PingFederate as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-pingfederate-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring PingFederate as an External IdP
-- Last modified: 2026-08-24T21:06Z
+- Last modified: 2026-09-30T19:40Z
 - Summary: How to configure PingFederate as an external IdP for Authentication Service.
 
 This guide provides information on how to configure PingFederate as an external identity provider (IdP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management. You can configure PingFederate as an external IdP to enable SSO to Authentication Service using the Security Assertion Markup Language (SAML) authentication protocol. You can provision users to Authentication Service from PingFederate using System for Cross-domain Identity Management (SCIM) provisioning.
@@ -4651,7 +4689,7 @@ To set up PingFederate as an IdP for Authentication Service:
 - 3. Provision users for Authentication Service.
 - 4. (Optional) Enabling step-up authentication.
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Click**Add Primary IdP** (or **Add Secondary IdP**). The **Add** **Primary Identity Provider**(or **Add Secondary** **Identity Provider**) drawer appears.
 3. In the **Add Primary Identity Provider**(or **Add Secondary Identity Provider**) drawer, on the **Basic**tab:
   1. In the **General**section: See image.
@@ -4684,7 +4722,7 @@ To set up PingFederate as an IdP for Authentication Service:
   7. **Allowed Grant Types**: Select **Authorization** **Code**.
   8. **Default Access Token Manager**: Select the access token manager that must be configured for the client from the drop-down menu. You must have configured an access token manager as mentioned in the prerequisites. See image.
 5. Click **Save**.
-6. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+6. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 7. Locate the IdP created for PingFederate on the **Primary Identity Provider** (or **Secondary Identity** **Provider**) section, and click the **Edit**icon. The **Edit Primary Identity Provider** (or **Edit** **Secondary Identity Provider**) drawer appears.
 8. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer:
   1. On the **Basic**tab, in the **OIDC Configuration** section: See image.
@@ -4708,7 +4746,7 @@ To set up PingFederate as an IdP for Authentication Service:
 - Users created in Authentication Service via SCIM cannot be updated via JIT provisioning. These records must be updated via SCIM provisioning only.
 - JIT provisioning for primary IdPs does not support provisioning or updating system-defined groups (e.g., Zscaler Global Administrators).
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP entry created for PingFederate in the **Primary Identity Provider**(or **Secondary Identity Providers**) section and click the **Edit**icon.
 3. In the**Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
   1. Select the **Provisioning**tab, and select **Enable Just-in-time (JIT) Provisioning**.
@@ -4734,14 +4772,14 @@ To set up PingFederate as an IdP for Authentication Service:
     | Manager | Needs a custom claim | The manager's login name (manager@company.com). This must be in the email address format. |
 4. Click **Update**.
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP entry created for PingFederate in the **Primary Identity Provider**(or **Secondary Identity Providers**) section, and click the **Edit**icon.
 3. In the**Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer:
   1. Select the **Provisioning**tab.
   2. In the **SCIM Configuration** section:
     1. Select **Enable SCIM Provisioning**.
     2. Copy the **SCIM Endpoint URL**. This value is used in a subsequent step. The **SCIM Endpoint URL** field appears only if the configurations for the IdP in the **Basic** tab are completed and saved. See image.
-    3. Click **Generate Token**and **Bearer Token**value. This value is used in a subsequent step. The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities).
+    3. Click **Generate Token**and **Bearer Token**value. This value is used in a subsequent step. The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities). If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
     4. (Optional) Map the SCIM attributes (e.g., `addresses`) with the corresponding Authentication Service user attribute. This mapping is required only for attributes that need to be mapped to a custom user attribute in Authentication Service. To learn more about the SCIM attributes that require custom attribute mapping, see [Understanding SCIM](https://help.zscaler.com/authentication-service/understanding-scim). See image.
     5. Click **Update**.
 4. In the PingFederate Admin Console, go to **Applications**> **Integration**> **SP Connections**.
@@ -4819,7 +4857,7 @@ To enable step-up authentication:
 
 In the [external IdP integrated with Authentication Service](https://help.zscaler.com/authentication-service/about-external-identity-providers), configure the necessary ACR values and authentication policies. To learn more about the configuration, refer to the respective product documentation.
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**>**Authentication Service**> **External Identities**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
 3. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
   1. Select the **Advanced** tab.
@@ -4920,7 +4958,7 @@ To set up PingFederate as an IdP for Authentication Service:
 - 2. Configure the SAML-based integration in PingFederate.
 - 3. Provision users for Authentication Service.
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Click **Add Primary IdP**(or **Add Secondary IdP**). See image. The **Add Primary Identity Provider**(or **Add Secondary Identity Provider**) drawer appears.
 3. In the **Add Primary Identity Provider**(or **Add Secondary Identity Provider**) drawer, on the **Basic**tab: The IdP is added to the Zscaler Admin Console.
   1. In the **General**section: See image.
@@ -5035,7 +5073,7 @@ To set up PingFederate as an IdP for Authentication Service:
 5. Ensure that the configured **SP Connection**is displayed on the **SP Connections**page.
 6. Click **Select Action**for the configured SP Connection, and click **Export Metadata**. See image. The **Metadata Export**wizard appears.
 7. In the **Metadata Export**wizard, on the **Export & Summary**tab, click **Export**. See image. The **Metadata**file is downloaded.
-8. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+8. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 9. Locate the IdP on the **Primary Identity Provider**(or **Secondary Identity Provider**) table, and click the **Edit**icon. See image. The **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer appears.
 10. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer:
   1. On the **Basic**tab, in the **SAML Configuration**section: See image.
@@ -5051,7 +5089,7 @@ You can provision PingFederate users for Authentication Service using just-in-ti
 - Users created in Authentication Service via SCIM cannot be updated via JIT provisioning. These records must be updated via SCIM provisioning only.
 - JIT provisioning for primary IdPs does not support provisioning or updating system-defined groups (e.g., Zscaler Global Administrators).
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP in the **Primary Identity Provider**(or **Secondary Identity Provider**) section, and click the **Edit**icon. See image. The **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer appears.
 3. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
   1. Go to the **Provisioning**tab.
@@ -5077,12 +5115,12 @@ You can provision PingFederate users for Authentication Service using just-in-ti
     | Manager | `manager` | The manager's login name (manager@company.com). This must be in the email address format. |
 4. Click **Update**.
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP in the **Primary Identity Provider**(or **Secondary Identity Provider**) section, and click the **Edit**icon. See image. The **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer appears.
 3. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
   1. Go to the **Provisioning**tab.
   2. Select **Enable SCIM Provisioning**.
-  3. Copy the **SCIM Endpoint URL**and **Bearer Token**value. This value is used in a subsequent step. The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities).
+  3. Copy the **SCIM Endpoint URL**and **Bearer Token**value. This value is used in a subsequent step. The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities). If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
   4. (Optional) Map the SCIM attributes (e.g., `addresses`) with the corresponding Authentication Service user attribute. This mapping is required only for attributes that need to be mapped to a custom [user attribute](https://help.zscaler.com/authentication-service/adding-user-attributes) in Authentication Service. To learn more about the SCIM attributes that require custom attribute mapping, see [Understanding SCIM](https://help.zscaler.com/authentication-service/understanding-scim).
 4. Click **Update**.
 5. In the PingFederate server, go to **Applications**> **Integration**> **SP Connections**.
@@ -5256,13 +5294,13 @@ To change the default redirection, contact [Zscaler Support](https://help.zscale
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-pingone-external-idp","lastmod":"2026-08-24T21:06Z","nid":"1499331"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-pingone-external-idp","lastmod":"2026-09-30T19:43Z","nid":"1499331"} -->
 ## Configuring PingOne as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-pingone-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring PingOne as an External IdP
-- Last modified: 2026-08-24T21:06Z
+- Last modified: 2026-09-30T19:43Z
 - Summary: This guide provides information on how to configure PingOne as your OpenID Provider (OP) for Authentication Service.
 
 This guide provides information on how to configure PingOne as the OpenID Provider (OP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management.
@@ -5273,7 +5311,7 @@ Ensure that you have:
 
 - A subscription to PingOne
 - An existing user directory in PingOne
-- An Authentication Service account with an admin role that allows you to add an IdP configuration
+- An Authentication Service account with an admin role that allows you to add an IdP configuration If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 
 ## IdP-Initiated SSO for Authentication Service Tenants Enabled with Experience Center
 
@@ -5308,7 +5346,7 @@ Complete the following steps to set up PingOne as an OP for Authentication Servi
   2. Click **Save**.
 8. Click the toggle on the top right to enable the application. See image.
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Click **Add Primary IdP** (or **Add Secondary IdP**). The **Add Primary Identity Provider** (or **Add Secondary Identity Provider**) drawer appears.
 3. In the **Add Primary Identity Provider** (or **Add Secondary Identity Provider**) drawer, on the **Basic**tab:
   1. In the **General**section: See image.
@@ -5337,7 +5375,7 @@ Complete the following steps to set up PingOne as an OP for Authentication Servi
 - Users created in Authentication Service via SCIM cannot be updated through JIT provisioning. These user records must be updated via SCIM provisioning only.
 - JIT provisioning for primary IdPs does not support provisioning or updating system-defined groups (e.g., Zscaler Global Administrators).
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP entry created for PingOne on the **Primary Identity Provider**(or **Secondary Identity Providers**) section and click the **Edit**icon.
 3. In the**Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
   1. Select the **Provisioning**tab.
@@ -5366,14 +5404,14 @@ Complete the following steps to set up PingOne as an OP for Authentication Servi
 - In the Zscaler Admin Console
 - In the PingOne Admin Console
 
-1. Go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP entry created for PingOne on the **Primary Identity Provider**(or **Secondary Identity Providers**) tab and click the **Edit**icon.
 3. In the**Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer:
   1. Select the **Provisioning**tab.
   2. Select **Enable SCIM Provisioning**.
   3. Copy the **SCIM Endpoint URL**. This value is used in a subsequent step. The SCIM Endpoint URL field appears only if the configurations for the IdP on the **Basic** tab are completed and saved. See image.
   4. **Authentication Method**: Select an option from the drop-down menu and complete one of the following steps corresponding to the selected method:
-    - **Bearer Token Method**: Click **Generate Token** and copy the **Bearer Token**value. This value is used in a subsequent step. See image. The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities).
+    - **Bearer Token Method**: Click **Generate Token** and copy the **Bearer Token**value. This value is used in a subsequent step. See image. The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities). If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
     - **Oauth2 Client Credentials Method**: Copy the **Client ID**value and **Token Endpoint**value. Click **Add**for the **Client Secret**field, and copy the generated secret. These values are used in a subsequent step. See image.
   5. (Optional) Map the SCIM attribute (e.g., `addresses`) with the corresponding Authentication Service user attribute. This mapping is required only for attributes that need to be mapped to a custom [user attribute](https://help.zscaler.com/authentication-service/adding-user-attributes) in Authentication Service. To learn more about the SCIM attributes that require custom attribute mapping, see [Understanding SCIM](https://help.zscaler.com/authentication-service/understanding-scim).
   6. Click **Update**.
@@ -5462,7 +5500,7 @@ To enable step-up authentication:
 13. Associate the authentication policies created for the application. See image.
 14. Click **Save**.
 
-1. In the Zscaler Admin Console, go to **Administration**> **Identity**> **Authentication Service**> **External Identities**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP entry created for PingOne in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
 3. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
   1. Select the **Advanced** tab.
@@ -5569,13 +5607,13 @@ After configuring step-up authentication in Authentication Service and PingOne, 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-security-settings-users","lastmod":"2026-06-24T06:32Z","nid":"1503381"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-security-settings-users","lastmod":"2026-09-30T08:00Z","nid":"1503381"} -->
 ## Configuring Security Settings for Users
 
 - Source: https://help.zscaler.com/authentication-service/configuring-security-settings-users
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Users > Configuring Security Settings for Users
-- Last modified: 2026-06-24T06:32Z
+- Last modified: 2026-09-30T08:00Z
 - Summary: How to configure security settings for users in Authentication Service.
 
 This article describes how to configure Security Settings for users.
@@ -5584,7 +5622,7 @@ A user must be added before configuring the security settings. To learn more, se
 
 To configure the security settings:
 
-1. Go to **Administration**> **Identity**> **Authentication Service**> **Users**.
+1. Go to **Administration**> **Authentication**> **Users**.
 2. Click the **Edit**icon for the user you want to configure the security settings. The **Edit User** page appears.
 3. On the **Edit User** page, in the **Security Settings** section, configure the following fields:
   - **Change Password Settings**: Enable to modify the password configurations.
@@ -5609,13 +5647,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-step-authentication","lastmod":"2026-07-10T09:39Z","nid":"1531175"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-step-authentication","lastmod":"2026-09-29T02:12Z","nid":"1531175"} -->
 ## Configuring Step-Up Authentication
 
 - Source: https://help.zscaler.com/authentication-service/configuring-step-authentication
 - Product: Authentication Service
 - Path: Authentication Service Help > Authentication > Configuring Step-Up Authentication
-- Last modified: 2026-07-10T09:39Z
+- Last modified: 2026-09-29T02:12Z
 - Summary: How to configure step-up authentication in the Zscaler Admin Console.
 
 The following article provides information on how to configure step-up authentication in the Zscaler Admin Console to allow dynamic requests for stronger authentication when users attempt to access sensitive resources or when risk signals indicate a potential threat.
@@ -5648,10 +5686,10 @@ The following list provides detailed steps for configuring ACR values and authen
 - [Enabling Step-Up Authentication in Entra ID](https://help.zscaler.com/zidentity/configuring-microsoft-entra-id-external-idp#enabling-step-up-authentication)
 - [Enabling Step-Up Authentication in PingOne](https://help.zscaler.com/zidentity/configuring-pingone-external-idp#enabling-step-up-authentication)
 
-1. Go to **Administration**>**Identity**>**Authentication Service**>**External Identities**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Authentication**> **External Identities**.
 2. Locate the IdP under the **Primary Identity Provider** (or **Secondary Identity Providers**) tab and click the **Edit**icon.
-3. In the **Edit Primary IdP** (or **Edit Secondary IdP**) drawer: See image.
-  1. Select the **Advanced** tab.
+3. In the **Edit Primary IdP** (or **Edit Secondary IdP**) tab: See image.
+  1. Select the **Advanced Configurations** tab.
   2. Under the **Levels to Authentication context mapping** section, enter the **ACR Claim** value for each authentication level. To learn more about the supported ACR claims in external IdP, refer to the respective product documentation. Ensure that you map proper ACR claims for each level depending on the hierarchy. The highest level of authentication must be mapped to the ACR value for the strongest context.
 4. Click **Update**.
 
@@ -5665,13 +5703,13 @@ You can configure the necessary policies in the following Zscaler services as re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/editing-or-deleting-api-client","lastmod":"2026-04-09T21:06Z","nid":"1499446"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/editing-or-deleting-api-client","lastmod":"2026-09-28T08:21Z","nid":"1499446"} -->
 ## Editing or Deleting an API Client
 
 - Source: https://help.zscaler.com/authentication-service/editing-or-deleting-api-client
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > OneAPI Authentication > Editing or Deleting an API Client
-- Last modified: 2026-04-09T21:06Z
+- Last modified: 2026-09-28T08:21Z
 - Summary: How to edit or delete the OneAPI client in the Zscaler Admin Console.
 
 You can edit or delete the API client as necessary.
@@ -5680,9 +5718,9 @@ You can edit or delete the API client as necessary.
 
 To edit an API client:
 
-1. Go to **Administration > API Configuration** > **OneAPI** >**API Clients**.
+1. Go to **Administration > API > API Clients**.
 2. On the **API Clients** page, click the **Edit** icon for the required API client. See image.
-3. Edit the information in the **Client Information** and **Client Authentication** sections, or select the **Resources** tab to select a different role as necessary. After you assign a different role, the access token issued by Authentication Service is applicable to the new scope for that Zscaler service. See image.
+3. Edit the information in the **Client Information** and **Client Authentication** sections, or select the **Resources** tab to select a different role as necessary. After you assign a different role, the access token issued by Authentication Service is applicable to the new scope for that Zscaler service. If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service and some Zscaler services are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team. See image.
 4. After you've changed the values, click **Update**.
 
 A message is displayed indicating the API client is updated successfully.
@@ -5691,7 +5729,7 @@ A message is displayed indicating the API client is updated successfully.
 
 To delete an API client:
 
-1. Go to **Administration > API Configuration** > **OneAPI** >**API Clients**.
+1. Go to **Administration > API > API Clients**.
 2. Click the **Delete** icon for the required API client. See image.
 3. Read the confirmation message, enter `YES`, then click **Delete**. See image.
 
@@ -5706,13 +5744,13 @@ To delete an API client:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/editing-or-deleting-saml-identity-provider","lastmod":"2026-06-24T20:24Z","nid":"1532551"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/editing-or-deleting-saml-identity-provider","lastmod":"2026-09-30T19:46Z","nid":"1532551"} -->
 ## Editing or Deleting a SAML Identity Provider
 
 - Source: https://help.zscaler.com/authentication-service/editing-or-deleting-saml-identity-provider
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Editing or Deleting a SAML Identity Provider
-- Last modified: 2026-06-24T20:24Z
+- Last modified: 2026-09-30T19:46Z
 - Summary: How to edit or delete SAML identity providers and add a new request signing and decryption certificate in the Zscaler Admin Console.
 
 You can edit or delete a SAML identity provider (IdP) as necessary. You can also add a Request Signing and Decryption Certificate for SAML protocol.
@@ -5721,7 +5759,7 @@ You can edit or delete a SAML identity provider (IdP) as necessary. You can also
 
 To edit a SAML IdP:
 
-1. Go to **Administration**>**Identity** > **Authentication Service** > **External Identities**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. On the **External Identities** page, click the **Edit** icon for the required primary or secondary SAML IdP. See image. The **Edit Primary Identity Provider** or**Edit Secondary Identity Provider** drawer appears.
 3. In the **Edit Primary Identity Provider** or**Edit Secondary Identity Provider** drawer, select the **Advanced**tab.
 4. Edit the information in the **Authentication Request**, **Encrypted SAML Assertion**, **Request Signing and Decryption Certificate**, and **Session Attribute Mapping** sections. See image.
@@ -5733,7 +5771,7 @@ A message is displayed indicating the IdP is updated successfully.
 
 To add a new Request Signing and Decryption Certificate:
 
-1. Go to **Administration**>**Identity** > **Authentication Service**> **External Identities**.
+1. Go to **Administration**>**Authentication** > **External Identities**.
 2. On the **External Identities** page, click the **Edit** icon for the required primary or secondary SAML IdP. See image. The **Edit Primary Identity Provider** or**Edit Secondary Identity Provider** drawer appears.
 3. In the **Edit Primary Identity Provider** or**Edit Secondary Identity Provider** drawer, select the **Advanced**tab.
 4. In the **Request Signing and Decryption Certificate**section, click **Add**. A new Request Signing and Decryption Certificate is added with two years of validity. The following items appear for each certificate: You can have a maximum of two Request Signing and Decryption Certificates at a time, out of which only one can be active. See image.
@@ -5749,7 +5787,7 @@ To add a new Request Signing and Decryption Certificate:
 
 To delete a SAML IdP:
 
-1. Go to **Administration**>**Identity** > **Authentication Service** > **External Identities**.
+1. Go to **Administration**>**Authentication** > **External Identities**.
 2. On the **External Identities** page, click the **Delete**icon for the required primary or secondary SAML IdP. See image.
 3. Read the confirmation message, enter `YES`, then click **Delete**. See image.
 
@@ -5768,22 +5806,22 @@ To delete a SAML IdP:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/importing-group-details-csv-file","lastmod":"2026-07-02T21:06Z","nid":"1499121"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/importing-group-details-csv-file","lastmod":"2026-10-01T14:52Z","nid":"1499121"} -->
 ## Importing User Group Details from a CSV File
 
 - Source: https://help.zscaler.com/authentication-service/importing-group-details-csv-file
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > User Groups > Importing User Group Details from a CSV File
-- Last modified: 2026-07-02T21:06Z
+- Last modified: 2026-10-01T14:52Z
 - Summary: How to add new groups, and modify existing groups, using a CSV file.
 
 You can import up to 1,000 user groups into Authentication Service at one time by using CSV files. Ensure that the CSV file is in a Zscaler-supported format before importing.
 
 To import a CSV file:
 
-1. Go to **Administration**> **Identity**> **Authentication Service**> **User Groups.**
-2. Click **Import** **CSV**. See image. The **Import Groups** window appears.
-3. In the **Import Groups** window, click **Download** **Sample** to download the template.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal%20), go to **Administration**> **Authentication**> **User Groups.**
+2. Click **Import** **CSV**. See image. The **Import Groups** drawer appears.
+3. In the **Import Groups** drawer, click **Download** **Sample** to download the template.
 4. Enter the user group details in the CSV file template in the following format so that the Zscaler service successfully imports the CSV file: Each user group must be on a separate line.
   - Retain the first line of the file, which is the header row. You can see the **Action**, **Name**, **Description** and **Disabled** columns.
   - The file name must have a `.csv` extension.
@@ -5792,7 +5830,7 @@ To import a CSV file:
     - - (minus sign) to delete a user group. When deleting a user group, fill in the **Name**column.
 5. (Optional) Select **Override Existing Entries** if you want to update your existing user group details, delete users, or add new user groups. Do not select this option if you only want to add new groups. If you attempt to add a group that already exists and this option is not selected, an error message is displayed stating that an identical group cannot be imported. If this occurs, review your CSV file and ensure that there is no duplication.
 6. Save the CSV file in your local folder.
-7. In the **Import Groups** window, click the **Upload**icon. See image.
+7. In the **Import Groups** drawer, click the **Upload**icon. See image.
 8. Browse and select the CSV file, then click **Open**.
 9. Click **Import.** The CSV file is successfully imported. The user groups are displayed on the Groups page.
 
@@ -5803,21 +5841,21 @@ To import a CSV file:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/importing-ip-location-groups-csv-file","lastmod":"2026-06-24T06:23Z","nid":"1499151"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/importing-ip-location-groups-csv-file","lastmod":"2026-09-23T06:59Z","nid":"1499151"} -->
 ## Importing IP Location Groups from a CSV File
 
 - Source: https://help.zscaler.com/authentication-service/importing-ip-location-groups-csv-file
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Trusted IP Location Groups > Importing IP Location Groups from a CSV File
-- Last modified: 2026-06-24T06:23Z
+- Last modified: 2026-09-23T06:59Z
 - Summary: How to import multiple IP location groups using a CSV file.
 
 The article describes how to import IP location groups using a CSV file.
 
 To import a CSV file:
 
-1. Go to **Administration**>**Identity**> **Authentication Service** > **Trusted IP Location Groups**.
-2. On the **IP Location Groups** page, click **Import CSV**. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration > Authentication > Trusted IP Location Groups**.
+2. On the **IP Location Groups** page, click **Import CSV**. See image. The **Import Location Group** window appears.
 3. In the **Import Location Group** window, click **Download** **Sample** to download the template. See image.
 4. Enter your location group information in the CSV file template in the following format so that Authentication Service successfully imports the CSV file:
   - The file name must have a `.csv` extension.
@@ -5838,21 +5876,21 @@ To import a CSV file:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/importing-ip-locations-csv-file","lastmod":"2026-06-24T06:11Z","nid":"1499136"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/importing-ip-locations-csv-file","lastmod":"2026-09-23T07:00Z","nid":"1499136"} -->
 ## Importing IP Locations from a CSV File
 
 - Source: https://help.zscaler.com/authentication-service/importing-ip-locations-csv-file
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Trusted IP Locations > Importing IP Locations from a CSV File
-- Last modified: 2026-06-24T06:11Z
+- Last modified: 2026-09-23T07:00Z
 - Summary: How to add new IP locations, and modify existing locations, using a CSV file.
 
 You can use a CSV file to import multiple IP locations at the same time.
 
 To import a CSV file:
 
-1. Go to **Administration**> **Identity** > **Authentication Service** > **Trusted IP Locations**.
-2. On the**IP Locations** page, click **Import CSV**. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration > Authentication > Trusted IP Locations**.
+2. On the**IP Locations** page, click **Import CSV**. See image. The**Import Location** window appears.
 3. In the **Import Location** window, click **Download** **Sample** to download the template. See image.
 4. Enter the IP location details in the CSV file template in the following format so that Authentication Service successfully imports the CSV file: Each IP location must be in a separate row.
   - The file name must have a `.csv` extension.
@@ -5878,13 +5916,13 @@ To import a CSV file:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/importing-user-details-csv-file","lastmod":"2026-07-02T21:06Z","nid":"1499106"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/importing-user-details-csv-file","lastmod":"2026-10-01T11:56Z","nid":"1499106"} -->
 ## Importing User Details from a CSV File
 
 - Source: https://help.zscaler.com/authentication-service/importing-user-details-csv-file
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Users > Importing User Details from a CSV File
-- Last modified: 2026-07-02T21:06Z
+- Last modified: 2026-10-01T11:56Z
 - Summary: How to add new users, edit existing user details, and delete users with a CSV file.
 
 You can import up to 1,000 users into Authentication Service at one time by using CSV files.
@@ -5893,9 +5931,9 @@ Ensure that the CSV file is in a Zscaler-supported format before importing.
 
 To import a CSV file that includes user details:
 
-1. Go to **Administration**> **Identity**> **Authentication Service**> **Users**.
-2. Click **Import CSV**. See image.
-3. In the **Import User** window, click **Download** **Sample** to download the template.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Authentication**> **Users**.
+2. Click **Import CSV**. See image. The **Import User** drawer appears.
+3. In the **Import User** drawer, click **Download** **Sample** to download the template.
 4. Enter the user details in the CSV file template in the following format: You can set the **Password Reset**column to either `True` or `False`. Enter `True` to email the user to set their password or `False` to not send the email.; You can use one-time passwords to enable users to log in and set passwords.; Each user must be on a separate line. Each user's email address must have a domain name that was defined in the portal.; If the authentication method is a one-time token or one-time link, then this **Primary Email** field must contain a valid email address.; The **Secondary Email** can specify any domain, but it must be a valid email address.
   - Retain the first line of the file, which is the header row.
   - The file name must have a `.csv` extension.
@@ -5904,7 +5942,7 @@ To import a CSV file that includes user details:
     - **-** (minus sign): To delete a user, fill in the **Login Name**column.
 5. (Optional) Select **Override Existing Entries** if you want to update the existing user details, delete users, or add new users. Do not select this option if you only want to add new users. If you attempt to add a user that already exists and this option is not selected, an error message is displayed, stating that identical users cannot be imported. If this occurs, review your CSV file and ensure that there is no duplication.
 6. Save the CSV file in your local folder.
-7. In the**Import User**window, click the **Upload**icon. See image.
+7. In the**Import User**drawer, click the **Upload**icon. See image.
 8. Browse your folders and select the CSV file, then click **Open**.
 9. Click **Import**. The CSV file is successfully imported. The user details are displayed on the **Users** page.
 
@@ -5915,22 +5953,22 @@ To import a CSV file that includes user details:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/managing-device-groups","lastmod":"2026-06-24T06:36Z","nid":"1499301"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/managing-device-groups","lastmod":"2026-09-29T03:42Z","nid":"1499301"} -->
 ## Managing Device Groups
 
 - Source: https://help.zscaler.com/authentication-service/managing-device-groups
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Entitlements > Managing Device Groups
-- Last modified: 2026-06-24T06:36Z
+- Last modified: 2026-09-29T03:42Z
 - Summary: How to manage device group restrictions in the Zscaler Admin Console.
 
 Users can access the Zscaler services through various devices. For example, one user can have two devices, one personal and one employer-provided. The personal device can be enrolled in Internet & SaaS (ZIA), and the employer-provided device can be enrolled in Internet & SaaS and Private Access (ZPA). The Authentication Service admin can control or restrict the devices that are used to access the Zscaler services (Private Access, Internet & SaaS, etc.) and ensure that only users on authorized devices can enroll in Zscaler services.
 
 To manage device group restrictions:
 
-1. Go to **Administration** > **Entitlements**> **End User Entitlements**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Subscription** > **End User Entitlements**.
 2. On the **Service Entitlements** page, click the required Zscaler service (e.g., Internet & SaaS). See image. The **Internet & SaaS - Service** page appears.
-3. In the top-right corner, click**Manage** > **Device Group Restrictions**. See image.
+3. In the top-right corner, click**Manage** > **Device Group Restrictions**. See image. The **Manage Device Group Restriction** window appears.
 4. In the **Manage Device Group Restrictions** window, select the toggle for **Enable** **Device Group Restrictions**. See image. The list of registered device IDs is displayed. See image. An administrator who can access the service entitlements in Authentication Service but does not have permissions to view the device groups can only see whether the **Enable Device Group Restrictions** option is enabled or not, but cannot change the setting.
 5. Select the devices that must be allowed to access the Zscaler service.
 6. Click **Save**. Users can access the Zscaler service from their registered device.
@@ -5946,13 +5984,13 @@ To manage device group restrictions:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/managing-device-token-authentication","lastmod":"2026-06-24T05:19Z","nid":"1499316"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/managing-device-token-authentication","lastmod":"2026-09-30T19:12Z","nid":"1499316"} -->
 ## Managing Device Token Authentication
 
 - Source: https://help.zscaler.com/authentication-service/managing-device-token-authentication
 - Product: Authentication Service
 - Path: Authentication Service Help > Authentication > Managing Device Token Authentication
-- Last modified: 2026-06-24T05:19Z
+- Last modified: 2026-09-30T19:12Z
 - Summary: How to create and use a device token in the Zscaler Admin Console
 
 Authentication Service manages the device token authentication for Zscaler Client Connector. The device tokens created in Zscaler Client Connector are passed to Authentication Service to be authenticated for registered domains.
@@ -5961,11 +5999,11 @@ You need to first [create the device token](https://help.zscaler.com/client-conn
 
 To enable device token authentication:
 
-1. Go to **Administration**>**Identity**>**Authentication Service**>**IdP Device Token.** The **Client Connector Device Token**page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication**>**Device Token.** The **Client Connector Device Token**page appears.
 2. On the **Client Connector Device Token** page: See image.
-  - **Allow All Domains**: Enable to authenticate all registered domains with the device token.
-  - **Domains**: Select the required domains that must be authenticated with the device token.
-  - **Enable Just-in-Time (JIT) Provisioning**: Enable to automatically enroll users to Authentication Service.
+  - **Enable to allow all the domains**: Enable to authenticate all registered domains with the device token.
+  - **Domains**: Select the required domains that must be authenticated with the device token. This option appears only if the **Enable to allow all the domains** option is disabled.
+  - **Enable for JIT Provisioning**: Enable to automatically enroll users to Authentication Service.
 3. Click **Save**. Users can access the domains with their registered devices.
 
 [Image: Client Connector Device Token page with Just-in-time (JIT) Provisioning option enabled]
@@ -5973,13 +6011,13 @@ To enable device token authentication:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/managing-entitlements","lastmod":"2026-07-15T11:23Z","nid":"1499226"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/managing-entitlements","lastmod":"2026-09-29T03:47Z","nid":"1499226"} -->
 ## Managing Entitlements
 
 - Source: https://help.zscaler.com/authentication-service/managing-entitlements
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Entitlements > Managing Entitlements
-- Last modified: 2026-07-15T11:23Z
+- Last modified: 2026-09-29T03:47Z
 - Summary: Information about Entitlements in the Zscaler Admin Console.
 
 Entitlements refer to the type of access privileges and permissions that are assigned to Authentication Service users and user groups. Authentication Service supports [Administrative](https://help.zscaler.com/zidentity/about-administrative-entitlements) and [Service](https://help.zscaler.com/zidentity/about-service-entitlements) entitlements.
@@ -6008,7 +6046,7 @@ To provide users or user groups administrative access and assign a role:
   - Management Portal for Partners, see [About Roles in the Management Portal for Partners](https://help.zscaler.com/multitenant-partner-portal/about-roles-management-portal-partners).
   - Zscaler Cellular, the [Cellular Edge service](https://help.zscaler.com/zscaler-cellular/what-zscaler-cellular) must be enabled for your organization. To enable Cellular Edge, your organization must have Internet & SaaS, Private Access, and Branch Connector services enabled. Cellular Edge is not supported if your organization has more than one of either Internet & SaaS or Private Access services. To learn more, contact your Zscaler Account team.
 2. Add [users](https://help.zscaler.com/zidentity/adding-users) and [user groups](https://help.zscaler.com/zidentity/adding-user-groups) in the Zscaler Admin Console.
-3. Go to **Administration**> **Admin Management**> **Role Based Access Control** > **Administrative Entitlements**.
+3. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Role Management**> **Administrative Entitlements**.
 4. On the [Administrative Entitlements](https://help.zscaler.com/zidentity/about-administrative-entitlements) page, select the service for which you want to assign users or user groups with admin roles. See image.
 5. On the **Users**or **User Groups** tab, click **Assign Users** or **Assign Groups** to create a new administrative entitlement. You can also edit or delete the entitlements, if required. See image.
 6. [Assign users or user groups with admin roles to the service](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups#admin-entitlements). See image.
@@ -6024,7 +6062,7 @@ The Service entitlements are used for assigning Authentication Service [users](h
 To assign users or user groups to a Zscaler service:
 
 1. Add [users](https://help.zscaler.com/zidentity/adding-users) and [user groups](https://help.zscaler.com/zidentity/adding-user-groups) in the Zscaler Admin Console.
-2. Go to **Administration** > **Entitlements**> **End User Entitlements**. See image.
+2. Go to **Administration** > **Subscription**> **End User Entitlements**. See image.
 3. On the [Service Entitlements](https://help.zscaler.com/zidentity/about-service-entitlements) page, select the service for which you want to assign users or user groups.
 4. [Assign users or user groups to the service](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups#service-entitlements). See image.
 5. (Optional) [View the list of users and user groups assigned to the service](https://help.zscaler.com/zidentity/about-service-entitlements).
@@ -6045,16 +6083,30 @@ To assign users or user groups to a Zscaler service:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/migrating-end-users-authentication-service","lastmod":"2026-08-09T07:06Z","nid":"1528880"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/migrating-end-users-authentication-service","lastmod":"2026-09-30T04:48Z","nid":"1528880"} -->
 ## Migrating End Users to Authentication Service
 
 - Source: https://help.zscaler.com/authentication-service/migrating-end-users-authentication-service
 - Product: Authentication Service
 - Path: Authentication Service Help > Migrating End Users to Authentication Service
-- Last modified: 2026-08-09T07:06Z
+- Last modified: 2026-09-30T04:48Z
 - Summary: How to migrate end users to Authentication Service.
 
-Authentication Service (formerly ZIdentity) is the common identity and authentication service that provides a centralized and unified platform for all Zscaler services. End user migration is the process of migrating existing end user authentication workflows and service entitlements from various Zscaler services to Authentication Service to streamline identity management and improve administrative efficiency, strengthen access control and security. You no longer need to configure the external identity provider (IdP) for each Zscaler service separately.
+Authentication Service (formerly ZIdentity) is the common identity and authentication service that provides a centralized and unified platform for all Zscaler services. End user migration is the process of migrating existing end user authentication workflows and service entitlements from various Zscaler services to Authentication Service to streamline user management and improve administrative efficiency, strengthen access control and security. You no longer need to configure the external identity provider (IdP) for each Zscaler service separately.
+
+After the end user migration, users can authenticate with Authentication Service and enroll into the Zscaler services (Internet & SaaS (ZIA), Private Access (ZPA), Digital Experience (ZDX), and others) with a single set of credentials, eliminating the need for multiple ones. Authentication Service for users also enables new features like [step-up authentication](https://help.zscaler.com/zidentity/understanding-step-up-authentication) and [Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
+
+- Existing customers who have already completed [admin migration](https://help.zscaler.com/zidentity/migrating-zscaler-service-admins-zidentity) can migrate their users. Contact the Zscaler Support to enable your tenant for end user migration.
+- [Privileged Remote Access (PRA)](https://help.zscaler.com/zpa/understanding-privileged-remote-access) or [emergency access](https://help.zscaler.com/zpa/about-emergency-access-users) users are not eligible for end user migration. These users are synced with Authentication Service after migration is completed, and they must reauthenticate as hosted users or guest users with the external IdP depending on the organization's configuration. To learn more, see [Migrating Private Access End Users to Authentication Service](https://help.zscaler.com/zpa/migrating-private-access-end-users-zidentity).
+- The allowlisted domains for Private Access emergency access is synchronized as Authentication Service guest domains.
+- End user migration does not disrupt users, and they are not required to log out and log in again to Zscaler Client Connector during or after the end user migration provided the following supported Zscaler Client Connector versions are used during migration:
+  - Windows 4.8 or later
+  - MacOS 4.8 or later
+  - Android 4.1 or later
+  - iOS 4.4.4 or later
+  - Linux 3.7.2 or later
+- Okta customers must use the Okta Integration Network (OIN) Zscaler App. Customers who have previously set up an Okta integration using any other service need to change to the OIN Zscaler App. If not, Okta's group membership provisioning over SCIM using a custom app results in incomplete group memberships.
+- Deception landmine client is not supported.
 
 End user migration includes the following benefits:
 
@@ -6062,49 +6114,29 @@ End user migration includes the following benefits:
 - Improved user experience: Log in once, log in securely, and access all Zscaler services.
 - Stronger safeguards: Enforce MFA at Zscaler and centralize policy enforcement to minimize security gaps. This is applicable only for hosted users (created in Authentication Service).
 
-After the end user migration, users can authenticate with Authentication Service and enroll into the Zscaler services (Internet & SaaS (ZIA), Private Access (ZPA), Zscaler Digital Experience (ZDX), and others) with a single set of credentials, eliminating the need for multiple ones. Authentication Service for users also enables new features like [step-up authentication](https://help.zscaler.com/zidentity/understanding-step-up-authentication) and [Adaptive Access Engine](https://help.zscaler.com/unified/understanding-adaptive-access-engine).
-
-Authentication Service for end users requires Okta customers to use the Okta Integration Network (OIN) Zscaler App. Customers who have previously set up an Okta integration using any other service need to change to the OIN Zscaler App. If not, Okta's group membership provisioning over SCIM using a custom app results in incomplete group memberships.
-
-- End user migration does not disrupt users, and they are not required to log out and log in again to Zscaler Client Connector during or after the end user migration provided the following supported Zscaler Client Connector versions are used during migration:
-  - Windows 4.8 or later
-  - MacOS 4.8 or later
-  - Android 4.1 or later
-  - iOS 4.4.4 or later
-  - Linux 3.7.2 or later
-- New Authentication Service customers and existing customers who have already completed [admin migration](https://help.zscaler.com/zidentity/migrating-zscaler-service-admins-zidentity) can perform end user migration.
-- [Privileged Remote Access (PRA)](https://help.zscaler.com/zpa/understanding-privileged-remote-access) or [emergency access](https://help.zscaler.com/zpa/about-emergency-access-users) are not eligible for end user migration. These users are synced with Authentication Service after migration is completed, and they must reauthenticate as hosted users or guest users with the external IdP depending on the organization's configuration. To learn more, see [Migrating Private Access End Users to Authentication Service](https://help.zscaler.com/zpa/migrating-private-access-end-users-zidentity).
-- The allowlisted domains for Private Access emergency access synchronized as Authentication Service guest domains.
-
 ## Prerequisites
 
 Before starting the end user migration, you need to complete the following pre-migration tasks:
 
-- When you completed [admin migration to Authentication Service](https://help.zscaler.com/authentication-service/migrating-zscaler-service-admins-authentication-service), only admins were migrated at that stage. To proceed with end user migration, you must now import all end users by adding them to the application created for Authentication Service.
-- IdPs for end users are configured in Authentication Service, which must be the same IdP that is used by admins. Zscaler recommends adding the exact Internet & SaaS and Private Access IdP configurations in Authentication Service. For example, if Internet & SaaS and Private Access have two IdPs mapped with unique domains, then the same two IdPs and domains must be added to Authentication Service.
-- All end user data and group data are provisioned in Authentication Service. This is necessary to properly manage the service entitlements and test users in the migration process, and ensure that policies configured in Internet & SaaS and Private Access continue to work seamlessly.
+- All IdPs configured in Zscaler services like Internet & SaaS, Private Access, etc., must be the same IdPs that are used by admins and must be configured in the exact same way in Authentication Service. Zscaler recommends adding the exact Internet & SaaS and Private Access IdP configurations in Authentication Service. For example, if Internet & SaaS and Private Access have two IdPs mapped with unique domains, then the same two IdPs and domains must be added to Authentication Service. To learn more, see [About External Identity Providers](https://help.zscaler.com/authentication-service/about-external-identity-providers).
+- Any SCIM groups used in policies must be configured properly in Authentication Service.
 - The same domains mapped in Internet & SaaS and Private Access to the external IdP are mapped to the IdP configured in Authentication Service.
-- User and session attributes are defined in Authentication Service.
+- All [end user data](https://help.zscaler.com/authentication-service/about-users) and [group data](https://help.zscaler.com/authentication-service/about-user-groups) are provisioned in Authentication Service. This is necessary to properly manage the service entitlements and test users in the migration process, and ensure that policies configured in Internet & SaaS and Private Access continue to work seamlessly.
+- [User](https://help.zscaler.com/authentication-service/adding-user-attributes) and [session attributes](https://help.zscaler.com/authentication-service/adding-session-attributes) are defined in Authentication Service. If SAML attributes are used in the policies, then these attributes must be configured in Authentication Service.
+- The end user systems must be running the required [Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/what-is-zscaler-client-connector) versions. To learn more, see [Understanding the Zscaler Client Connector App Downloads](https://help.zscaler.com/zscaler-client-connector/understanding-zscaler-client-connector-app-downloads).
 
 The above actions ensure that admins need not reconfigure Internet & SaaS and Private Access policy rules and can use the existing identity data set in the policy rule criteria. The reason to fetch all the data and correlate on Authentication Service is to ensure that Internet & SaaS, Private Access, and Zscaler Client Connector policies function smoothly without any disruption. For example, let’s consider that a Internet & SaaS policy defined for certain groups allows the groups to access a specific internet site. If the group is not correlated on Authentication Service, then the users in the group might be blocked because that group doesn’t exist on Authentication Service. In the case of a Private Access policy, a certain user attribute or session attribute (previously referred to as SCIM attribute and SAML attribute respectively) is used in decision-making to block or allow user access to a private site. Correlation with Authentication Service attributes ensures that they are accounted for after end user migration.
 
-## End User Migration Workflow
-
-The end user migration workflow includes the following stages:
-
-1. **Initial Review**: The admin reviews and completes the IdP, group, and user attribute audits. The admin must also review and verify whether the Zscaler service entitlements are imported from Zscaler Client Connector. The end user systems must be running the required [Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/what-is-zscaler-client-connector) versions. To learn more, see [Understanding the Zscaler Client Connector App Downloads](https://help.zscaler.com/zscaler-client-connector/understanding-zscaler-client-connector-app-downloads).
-2. **Test User Migration**: The admin selects a subset of users as test users and migrates them to Authentication Service in controlled phases to validate the single sign-on (SSO) process and ensure the policies work properly for these users. After the test user migration has started, any new changes to device tokens, device groups, and service entitlements in Zscaler Client Connector are not synced with Authentication Service.
-3. **Complete Migration**: After the test users are migrated successfully, the admin migrates all end users of that tenant to Authentication Service.
-4. **Rollback after Complete Migration**: In case you want to revert the users to the existing external IdP and restore their pre-migration state, you can contact Zscaler Support. Rollback is allowed only for 14 days after migration. After rollback, if there are any changes to users and groups on the external IdP, then the admin must sync the users and groups again before re-initiating the end user migration. Migrating users immediately after rollback is restricted. You must wait for 24 hours before re-initiating end user migration.
+**Rollback after end user migration**: In case you want to revert the users to the existing external IdP and restore their pre-migration state, you can contact Zscaler Support. Rollback is allowed only for 14 days after migration. After rollback, if there are any changes to users and groups on the external IdP, then the admin must sync the users and groups again before re-initiating the end user migration. Migrating users immediately after rollback is restricted. You must wait for 24 hours before re-initiating end user migration.
 
 ## Migrating End Users
 
-The admin user with Super Admin role needs to complete these steps:
+The admin user with a Super Admin role must complete these steps:
 
-1. When you receive an email that your organization is set up for end user migration, click the link in the email and log in to the Authentication Service Admin Portal.
+1. When you receive an email that your organization is set up for end user migration, click the link in the email and log in to the Authentication Service Admin Portal or Zscaler Admin Console if your tenant is enabled for Experience Center. The email is sent from `no-reply@zscaler.com` with the subject line "Authentication Service End User Migration."
 2. The top banner shows a message and a link. Click the link to start the end user migration. See image.
 3. On the next page, read the prerequisites and conditions. See image.
-4. Click **Continue**and complete the following steps: The first three audit activities are required to ensure that the identity configuration and policy rule criteria in Authentication Service is equivalent to what was used in Internet & SaaS and Private Access.
+4. Click **Continue**and complete the following steps: The following first three audit activities must be completed successfully to be able to move to the next step and review the service entitlements. Also, ensure that the identity configuration and policy rule criteria in Authentication Service are equivalent to what was used in Internet & SaaS and Private Access.
   - a. Audit the IdPs.
   - b. Audit the groups.
   - c. Audit the user attributes.
@@ -6114,30 +6146,44 @@ The admin user with Super Admin role needs to complete these steps:
 
 1. On the**IdP Audit** page, the IdPs and domains of the individual Zscaler services that are correctly mapped to the corresponding IdPs and domains in Authentication Service are shown on the **Matched IdPs** tab. A message appears indicating that the IdPs are mapped correctly. See image. Make sure to map the default IdP in Internet & SaaS to the primary IdP in Authentication Service, so the groups can be mapped without any issues. Any mismatched IdPs are shown on the **Unmatched IdPs** tab. Evaluate and adjust the IdPs and domains in the specific Zscaler service and return to this page. For example, if Internet & SaaS has 2 domains mapped (e.g., safemarcha.com and safemarchb.com) and Authentication Service has only safemarcha.com mapped, the admin should either add safemarchb.com to the IdP in Authentication Service, remove safemarchb.com from the IdP in Internet & SaaS, or select the domains that must be excluded from the **Exclude Domains from Audit** drop-down menu. See image. In another scenario, there might be one IdP in Internet & SaaS and 2 IdPs in Private Access. You can proceed to the next step only after you match the IdPs.
 2. To match the IdPs:
-  1. In the Authentication Service Admin Portal, go to **Integrations** > **External Identities**. If you are upgraded to Zscaler Admin Console, go to **Administration** > **Identities** > **Authentication Service** > **External Identities**.
-  2. On the **External Identities** page, click the **Edit** icon for the primary identity provider.
-  3. In the **Edit Identity Provider** window, and on the**Basics** tab, select the required domains from the **Domain** drop-down menu. See image.
+  1. Do one of the following:
+    - In the Authentication Service Admin Portal, go to **Integrations** > **External Identities**.
+    - In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal%20), go to **Administration** > **Authentication** > **External Identities**.
+  2. On the **External Identities** page, click the **Edit** icon for the primary identity provider. The **Edit Identity Provider** window appears.
+  3. In the **Edit Identity Provider** window, on the**Basics** tab, select the required domains from the **Domain** drop-down menu. See image.
   4. Click **Update**.
   5. Click the link in the top banner to go back to the **IdP Audit** page and proceed to the next step.
 
-1. On the **Group Audit** page, select the **Matched Groups** tab to view that the groups in the Zscaler service are mapped correctly to the corresponding group in Authentication Service. See image.
+1. On the **Group Audit** page, select the **Matched Groups** tab to view that the groups in the Zscaler service are mapped correctly to the corresponding group in Authentication Service. To learn more, see [Adding User Groups](https://help.zscaler.com/authentication-service/adding-user-groups). See image.
 2. Click **Next**. The mismatched groups are displayed on the **Unmatched Groups** tab. Evaluate and adjust the group configuration with Authentication Service and return to this page. You can proceed to the next step only after you match the groups.
 
-Review the user attributes to ensure that any policy in Internet & SaaS or Private Access that uses attributes in the criteria has a matching attribute in Authentication Service.
+Review the user attributes to ensure that any policy in Internet & SaaS or Private Access that uses attributes in the criteria has a matching attribute in Authentication Service. To learn more, see [Adding User Attributes](https://help.zscaler.com/authentication-service/adding-user-attributes).
 
 1. On the **User Attribute Audit** page, select the **Matched Attributes** tab to view that the user attributes are mapped correctly to the corresponding user attributes in Authentication Service. See image.
 2. Click **Next**. The mismatched user attributes or session attributes (for Private Access) are displayed on the **Unmatched Attributes** tab. Evaluate and adjust the attributes with Authentication Service and return to this page. You can proceed to the next step only after you match the user attributes.
-  1. In the Authentication Service Admin Portal, go to **Integrations** > **External Identities**. OR In the Zscaler Admin Console, go to **Administration** > **Identities** > **Authentication Service** > **External Identities**.
-  2. On the **External Identities** page, click the **Edit** icon for the primary identity provider.
-  3. In the **Edit Identity Provider** window, and on the**Advanced** tab, define the attribute and select it. Remove the attribute from the policy rule in Internet & SaaS or Private Access if it's no longer being used.
+  1. Do one of the following:
+    - In the Authentication Service Admin Portal, go to **Integrations** > **External Identities**.
+    - In the Zscaler Admin Console, go to **Administration** > **Authentication** > **External Identities**.
+  2. On the **External Identities** page, click the **Edit** icon for the primary identity provider. The **Edit Identity Provider** window appears.
+  3. In the **Edit Identity Provider** window, on the**Advanced** tab, define the attribute and select it. Remove the attribute from the policy rule in Internet & SaaS or Private Access if it's no longer being used.
   4. Click **Update**.
   5. Click the link in the top banner to go back to the **Session Attributes Audit** page and proceed to the next step.
 
-The Zscaler service entitlements are imported from Zscaler Client Connector and assigned to the corresponding Zscaler services.
+The End User Entitlement page is visible only when end user migration is enabled for your tenant. You need to manually assign the entitlements for the first time. Zscaler recommends assigning service entitlements to groups.
 
-Zscaler might not have the complete information of users that were historically assigned to specific Zscaler services because some users are assigned directly to Internet & SaaS or Private Access at the external IdP. You must review the service entitlement assignments in Authentication Service to ensure that the right users are assigned to the right services.
+Zscaler might not have the complete information of users that were historically assigned to specific Zscaler services because some users are assigned directly to Internet & SaaS or Private Access at the external IdP. You must review the [service entitlement assignments](https://help.zscaler.com/authentication-service/assigning-entitlements-users-and-user-groups) in Authentication Service to ensure that the right users are assigned to the right services.
 
-1. On the **Service Entitlements** page, review the user groups and device groups assigned to service entitlements and make adjustments if necessary: Repeat these steps for other Zscaler services, if required.
+If users are using Zscaler Client Connector, then you need to sync the end user Zscaler Client Connector enrolled services to Authentication Service.
+
+1. Do one of the following:
+  - In the Authentication Service Admin Portal, go to **Directory** > **User Groups**.
+  - In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal%20), go to **Administration** > **Authentication** > **User Groups**
+2. [Create a group](https://help.zscaler.com/authentication-service/adding-user-groups) for each Zscaler service using this format: "Migrated [service] Service Entitlements - [cloud-orgid]". For example, "Migrated Internet Access Service Entitlements - zscalertwo.com-123987456".
+3. Do one of the following:
+  - In the Authentication Service Admin Portal, go to **Administration**> **Entitlements** > **Service**.
+  - In the Zscaler Admin Console, go to **Administration** > **Subscription** > **End User Entitlements**.
+4. On the **Service Entitlements** page, click the required Zscaler service and assign user groups to that service. To learn more, see [Assigning Entitlements to Users and User Groups](https://help.zscaler.com/authentication-service/assigning-entitlements-users-and-user-groups). If users do not use Zscaler Client Connector, then you need to [first assign users to the corresponding Zscaler service](https://help.zscaler.com/authentication-service/assigning-entitlements-users-and-user-groups).
+5. Return to the end user migration wizard (click the link in the top banner), go to the **Service Entitlements** page and review the user groups and device groups assigned to service entitlements and make adjustments if necessary.
   1. Click the required service. For example, **Zscaler Internet Access - Services**. See image.
   2. On the **Zscaler Internet Access – Services** page, click **Assign Groups**. See image.
   3. On the **Select Groups** page, select the checkbox for the required groups, and click **Next**. See image.
@@ -6145,11 +6191,15 @@ Zscaler might not have the complete information of users that were historically 
   5. To assign users, go back to the **Zscaler Internet Access – Services** page, select the **Users** tab, and click **Assign Users**. See image.
   6. On the **Select Users** page, select the checkbox for the required users, and click **Next**. See image.
   7. Review the user details, then click **Assign**. See image.
-2. Click **Next**.
+  8. Repeat these steps for other Zscaler services, if required.
+6. Click **Next**.
 
 Before selecting the test users, you must provision the user details from your external IdP using SCIM to Authentication Service. To learn more, see [Adding Users](https://help.zscaler.com/zidentity/adding-users).
 
-Private Access emergency access users cannot be selected as test users.
+You can select a subset of users as test users and migrate them to Authentication Service in controlled phases to validate the single sign-on (SSO) process and ensure the policies work properly for these users.
+
+- After the test user migration has started, any new changes to device tokens, device groups, and service entitlements in Zscaler Client Connector are not synced with Authentication Service.
+- Private Access emergency access users cannot be selected as test users.
 
 1. On the **Test Users** page, the **Users** tab shows the list of users that are yet to assigned as test users. See image.
 2. Select the required users who are considered as test users to check the end user migration. These user details are displayed on the **Test Users** tab, and they are migrated to Authentication Service immediately.
@@ -6206,13 +6256,13 @@ Private Access emergency access users cannot be selected as test users.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/migrating-zscaler-service-admins-authentication-service","lastmod":"2026-08-10T06:05Z","nid":"1499436"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/migrating-zscaler-service-admins-authentication-service","lastmod":"2026-09-24T01:39Z","nid":"1499436"} -->
 ## Migrating Zscaler Service Admins to Authentication Service
 
 - Source: https://help.zscaler.com/authentication-service/migrating-zscaler-service-admins-authentication-service
 - Product: Authentication Service
 - Path: Authentication Service Help > Migrating Zscaler Service Admins to Authentication Service
-- Last modified: 2026-08-10T06:05Z
+- Last modified: 2026-09-24T01:39Z
 - Summary: How to migrate admins of various Zscaler services to Authentication Service.
 
 [Watch a video on Authentication Service admin migration](https://fast.wistia.net/embed/iframe/hmlnvqvvvo) (shows legacy UI).
@@ -6227,9 +6277,12 @@ Migration Process
 
 [Authentication Service](https://help.zscaler.com/zidentity/what-zidentity) is the common identity service for all Zscaler products. Authentication Service provides a centralized platform for managing admin roles and entitlements across all Zscaler services. Authentication Service is being provisioned for all new customers since January 2024. Existing customers began upgrading to Authentication Service in June 2024. At this time, the majority of Zscaler customers are upgraded to Authentication Service.
 
+If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service and some Zscaler services are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
+
 Prior to Authentication Service, customers provisioned and managed administrators and end users directly in individual Zscaler services (e.g., Internet & SaaS (ZIA), Private Access (ZPA)). The external identity provider (IdP) integrations were also configured directly for individual Zscaler services.
 
-With Authentication Service migration, administrator data and their role assignments are transferred from various Zscaler services and synced to Authentication Service. It also offers a unified authentication experience. Administrators can authenticate and access all Zscaler service admin portals with a single set of credentials, eliminating the need for multiple login credentials.
+- With Authentication Service migration, administrator data and their role assignments are transferred from various Zscaler services and synced to Authentication Service. It also offers a unified authentication experience. Administrators can authenticate and access all Zscaler service admin portals with a single set of credentials, eliminating the need for multiple login credentials.
+- Authentication Service creates a default super admin account for tenant recoverability. This account cannot be deleted or disabled and is intended only for emergency (break-glass) use. Use named admin accounts for daily operations.
 
 ## Enrolling for MFA
 
@@ -6269,7 +6322,7 @@ For existing customers, identities might not get synced if they are removed from
 
 1. Customers must contact their Zscaler Account team to provision an Authentication Service tenant and have it linked to all their Zscaler tenants.
 2. Zscaler sends an email to the customer to specify the Zscaler service tenants that must be linked to the Authentication Service tenant and the new Authentication Service super admin’s name and email ID.
-3. Zscaler provisions the Authentication Service tenant and links the customer’s Zscaler service tenants (Internet & SaaS (ZIA), Private Access (ZPA), Zscaler Digital Experience (ZDX), etc.). Next, as the Authentication Service super admin, you need to complete the following:
+3. Zscaler provisions the Authentication Service tenant and links the customer’s Zscaler service tenants (Internet & SaaS (ZIA), Private Access (ZPA), Digital Experience (ZDX), etc.). Next, as the Authentication Service super admin, you need to complete the following:
 4. When you receive the email about the new Authentication Service tenant registration, follow the instructions provided in the email and complete the registration.
 5. Connect your organization's external IdP to Authentication Service and provision your admins (users) to Authentication Service.
 6. Inform the other admins to test Authentication Service by clicking the tile at their IdP to confirm they see the Authentication Service SSO and the assigned Zscaler service tiles. The service tiles are disabled until you complete the migration.; If the admins don't see the assigned tiles, the super admin can review the entitlements assigned to the admins on the [Entitlements tab](https://help.zscaler.com/zidentity/viewing-entitlements-assigned-users) in the Authentication Service Admin Portal. They can also make adjustments to the entitlements on the[Administrative Entitlements page](https://help.zscaler.com/zidentity/about-administrative-entitlements).
@@ -6341,13 +6394,13 @@ This article provides a summary of all new features and enhancements for Authent
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/release-upgrade-summary-2025","lastmod":"2026-08-11T03:03Z","nid":"1515736"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/release-upgrade-summary-2025","lastmod":"2026-09-08T13:05Z","nid":"1515736"} -->
 ## Release Upgrade Summary (2025)
 
 - Source: https://help.zscaler.com/authentication-service/release-upgrade-summary-2025
 - Product: Authentication Service
 - Path: Authentication Service Help > Release Notes > Release Upgrade Summary (2025)
-- Last modified: 2026-08-11T03:03Z
+- Last modified: 2026-09-08T13:05Z
 - Summary: Authentication Service Release Upgrade Summary for service updates deployed in 2025.
 
 This article provides a summary of all new features and enhancements for Authentication Service.
@@ -6355,13 +6408,13 @@ This article provides a summary of all new features and enhancements for Authent
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/release-upgrade-summary-2026","lastmod":"2026-08-19T05:05Z","nid":"1534313"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/release-upgrade-summary-2026","lastmod":"2026-09-30T00:21Z","nid":"1534313"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/authentication-service/release-upgrade-summary-2026
 - Product: Authentication Service
 - Path: Authentication Service Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-08-19T05:05Z
+- Last modified: 2026-09-30T00:21Z
 - Summary: Authentication Service Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Authentication Service.
@@ -6369,13 +6422,13 @@ This article provides a summary of all new features and enhancements for Authent
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/revoking-access-tokens","lastmod":"2026-03-18T05:39Z","nid":"1506051"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/revoking-access-tokens","lastmod":"2026-09-28T08:24Z","nid":"1506051"} -->
 ## Revoking Access Tokens
 
 - Source: https://help.zscaler.com/authentication-service/revoking-access-tokens
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > OneAPI Authentication > Revoking Access Tokens
-- Last modified: 2026-03-18T05:39Z
+- Last modified: 2026-09-28T08:24Z
 - Summary: How to revoke the access tokens in the Zscaler Admin Console.
 
 You can revoke the [access tokens](https://help.zscaler.com/zidentity/about-access-tokens) assigned to the API clients, when required. The revoked access token can no longer be used to access the Zscaler API resources.
@@ -6384,7 +6437,7 @@ You can only revoke active tokens.
 
 To revoke an access token:
 
-1. Go to **Administration** > **API Configuration** > **OneAPI** > **Tokens**.
+1. Go to **Administration** > **API**> **Tokens**.
 2. On the**Authentication Service Issued Tokens** page, search or use the **Status** filter to view the list of active tokens.
 3. Click **Revoke** for the specific active token. See image.
 4. In the **Revoke Token** window, enter `YES` to confirm the action, then click **Revoke**. See image. The token is revoked, and it can no longer be used to access the Zscaler API resources. You need to generate a new token when required.
@@ -7070,22 +7123,22 @@ The server responds with `204 - No Content` upon successful operation.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/skipping-two-factor-authentication","lastmod":"2026-07-02T21:06Z","nid":"1517701"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/skipping-two-factor-authentication","lastmod":"2026-09-30T08:01Z","nid":"1517701"} -->
 ## Skipping Two-Factor Authentication
 
 - Source: https://help.zscaler.com/authentication-service/skipping-two-factor-authentication
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Users > Skipping Two-Factor Authentication
-- Last modified: 2026-07-02T21:06Z
+- Last modified: 2026-09-30T08:01Z
 - Summary: How to allow admins to skip two-factor authentication for a temporary period while signing in to Authentication Service.
 
 Authentication Service administrators can skip two-factor authentication (2FA) for a short duration and use only their password to log in to the subscribed Zscaler service. For example, if a user does not have the device on which they receive the one-time passcode (OTP) for authentication, they can be allowed to skip 2FA temporarily.
 
 To allow users to skip 2FA:
 
-1. Go to **Administration** > **Identity** >**Authentication Service**> **Users**.
-2. On the **Users** page, click the **Edit** icon for the required user. See image.
-3. In the**Edit User** window, click the **Security Settings** section.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal%20), go to **Administration** > **Authentication**> **Users**.
+2. On the **Users** page, click the **Edit** icon for the required user. See image. The **Edit User** page appears.
+3. On the**Edit User** page, click the **Security Settings** section.
 4. Under **Multi-Factor Bypass**, enable **Skip Second Factor Authentication**. See image.
 5. The **Skip Until** field appears, displaying the current date and time. By default, the MFA can be skipped for 8 hours. Click to select a different date and time. The maximum limit is 5 days. See image. The **Skip Second Factor Authentication** option is only available for hosted admins and not for admins authenticating via the external Identity provider (IdP).
 6. Click **Update**.
@@ -7099,13 +7152,13 @@ To allow users to skip 2FA:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/step-step-configuration-guide-authentication-service","lastmod":"2026-06-18T03:18Z","nid":"1499171"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/step-step-configuration-guide-authentication-service","lastmod":"2026-09-24T01:35Z","nid":"1499171"} -->
 ## Step-by-Step Configuration Guide for Authentication Service
 
 - Source: https://help.zscaler.com/authentication-service/step-step-configuration-guide-authentication-service
 - Product: Authentication Service
 - Path: Authentication Service Help > Step-by-Step Configuration Guide for Authentication Service
-- Last modified: 2026-06-18T03:18Z
+- Last modified: 2026-09-24T01:35Z
 - Summary: This is a recommended chronological process that organizations should follow to be able to use Authentication Service.
 
 This article provides the recommended configuration steps to begin using [Authentication Service](https://help.zscaler.com/zidentity/what-zidentity) for your organization.
@@ -7149,6 +7202,8 @@ To create rules to allow or deny access from a specific location, see [Configuri
 
 To create custom roles in Authentication Service for role-based access control for Authentication Service administrators, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/zidentity/adding-zidentity-admin-roles).
 
+If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service and some Zscaler services are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
+
 Ensure that all the required domains are available on the **Domains**page (**Administration**> **Environment**> **Domains**).
 
 See image.
@@ -7167,44 +7222,43 @@ Authentication Service with User Single Sign-On (SSO) is required to enable step
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/testing-access-token","lastmod":"2026-03-20T04:35Z","nid":"1532126"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/testing-access-token","lastmod":"2026-09-30T19:19Z","nid":"1532126"} -->
 ## Testing an Access Token
 
 - Source: https://help.zscaler.com/authentication-service/testing-access-token
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > Token Validators > Testing an Access Token
-- Last modified: 2026-03-20T04:35Z
+- Last modified: 2026-09-30T19:19Z
 - Summary: This article explains how to test JWT tokens in Zscaler Admin Console.
 
 You can test the [JSON Web Token (JWT)](https://auth0.com/docs/secure/tokens/json-web-tokens) before the actual authorization request is sent using that token. To learn more, see [About Access Tokens](https://help.zscaler.com/zidentity/about-access-tokens).
 
-Authentication Service Administrators assigned with Full and View Only permissions to access the Token Validators module can test a token. To learn more, see [Admin Roles and Permissions](https://help.zscaler.com/zidentity/admin-roles-and-permissions).
+Authentication Service Administrators assigned with Full and View Only permissions to access the Token Validators module can test a token. To learn more, see [Admin Roles and Permissions](https://help.zscaler.com/zidentity/admin-roles-and-permissions). If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service and some Zscaler services are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 
 To test a token:
 
-1. Go to **Administration**> **API Configuration** > **OneAPI** > **Token Validators**. On the **Token Validators** page, you can see the list of token validators. See image.
-2. Click **Test Token**. The **Test Token** page appears.
-3. In the **Encoded**field, paste a valid JWT token.
-4. In the **Decoded** field, the results are automatically populated. The token is divided into the following parts: See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Authentication**> **Token Validators**. On the **Token Validators** page, you can see the list of token validators.
+2. Click **Test Token**. See image. The **Test Token**page appears.
+3. On the **Test Token** page, paste a valid JWT into the text field in the **Encoded** section. The results are automatically populated in the **Decoded**section. The results include the following information: See image.
   - **Matching Token Validator**: Displays the token validator from the configured list.
   - **Header**: Displays the algorithm (RS256 or ES256) and token type (JWT).
-  - **Payload**: Displays the claims in the token (e.g., subject, issuer, audience, name, etc.).
+  - **Payload Data**: Displays the claims in the token (e.g., subject, issuer, audience, name, etc.).
   - **Signature**: Displays the signature used to validate the token.
 
-[Image: Token Validators page with highlighted Test Token option and displaying the list of available token validators in Zidentity Admin Portal.]
+[Image: Token Validators page with highlighted Test Token option and displaying the list of available token validators]
 
-[Image: Test Token page displaying the Encoded and Decoded fields.]
+[Image: Test Token page displaying the Encoded and Decoded fields]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/understanding-oneapi-authentication","lastmod":"2026-06-18T01:06Z","nid":"1519366"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/understanding-oneapi-authentication","lastmod":"2026-09-24T01:42Z","nid":"1519366"} -->
 ## Understanding OneAPI Authentication
 
 - Source: https://help.zscaler.com/authentication-service/understanding-oneapi-authentication
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > OneAPI Authentication > Understanding OneAPI Authentication
-- Last modified: 2026-06-18T01:06Z
+- Last modified: 2026-09-24T01:42Z
 - Summary: Information about the OneAPI authentication feature available in the Authentication Service Admin Portal.
 
 OneAPI authentication is the process of verifying the identity of an API client attempting to access the Zscaler service [API resources](https://help.zscaler.com/zidentity/viewing-api-resources). Authentication Service is the centralized platform that acts as an authorization server to validate the [API clients](https://help.zscaler.com/zidentity/about-api-clients) and provide access to the API resources. This process ensures that only authorized API clients can interact with the API resources, protecting the applications and sensitive data from unauthorized access and potential security breaches.
@@ -7217,7 +7271,7 @@ The OneAPI authentication framework includes the following benefits:
 
 - Secure authentication methods that are compliant with industry standards.
 - Secure interactions between the API clients and API resources.
-- Role-based access control (RBAC) is implemented to restrict the API client's access to specific API resources.
+- Role-based access control (RBAC) is implemented to restrict the API client's access to specific API resources. If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service and some Zscaler services are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 
 ## How OneAPI Authentication Works
 
@@ -7398,13 +7452,13 @@ The following table lists the SCIM operations supported by Zscaler SCIM servers.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/understanding-step-up-authentication","lastmod":"2026-06-30T21:06Z","nid":"1507486"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/understanding-step-up-authentication","lastmod":"2026-09-29T02:12Z","nid":"1507486"} -->
 ## Understanding Step-Up Authentication
 
 - Source: https://help.zscaler.com/authentication-service/understanding-step-up-authentication
 - Product: Authentication Service
 - Path: Authentication Service Help > Authentication > Understanding Step-Up Authentication
-- Last modified: 2026-06-30T21:06Z
+- Last modified: 2026-09-29T02:12Z
 - Summary: Information about step-up authentication in Authentication Service.
 
 Step-up authentication allows dynamic requests for stronger authentication when users attempt to access sensitive resources or when risk signals indicate a potential threat. This feature enhances the existing authentication process by requiring multi-factor authentication (MFA) when needed, ensuring that access to high-risk or sensitive data is protected. Step-up authentication is a method that prompts users to reauthenticate with a higher assurance level (e.g., using MFA) when accessing specific resources. This process helps organizations verify user identity with greater certainty, ensuring that only authorized users can access sensitive applications or data. For example, if a user logs in with a username and password (a lower assurance level), they might still be asked to verify their identity via MFA (a higher assurance level) when accessing a sensitive resource, such as financial information or critical applications.
@@ -7437,13 +7491,13 @@ Step-up authentication is configured using authentication levels (e.g., AL1 to A
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/using-authentication-service-with-zscaler-client-connector-device-tokens","lastmod":"2026-06-28T21:55Z","nid":"1499311"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/using-authentication-service-with-zscaler-client-connector-device-tokens","lastmod":"2026-09-30T19:12Z","nid":"1499311"} -->
 ## Using Authentication Service with Zscaler Client Connector Device Tokens
 
 - Source: https://help.zscaler.com/authentication-service/using-authentication-service-with-zscaler-client-connector-device-tokens
 - Product: Authentication Service
 - Path: Authentication Service Help > Authentication > Using Authentication Service with Zscaler Client Connector Device Tokens
-- Last modified: 2026-06-28T21:55Z
+- Last modified: 2026-09-30T19:12Z
 - Summary: How to use Authentication Service with Zscaler Client Connector Device Tokens.
 
 Authentication Service can authenticate users on Zscaler Client Connector using device tokens. With this feature, users need not be tied to your organization’s standard IdP to authenticate to Zscaler Client Connector. Instead, if your organization uses SAML-based single sign-on (SSO), Authentication Service can use a device token to auto-provision and silently authenticate users and devices to Zscaler Client Connector.
@@ -7457,10 +7511,7 @@ To configure Authentication Service to authenticate users on Zscaler Client Conn
 - 3. Assign entitlements to the user.
 - 4. Pass the device token, user domain, and cloud name to users' devices.
 
-1. Go to **Administration**> **Identity**> **Authentication Service Portal**.
-2. On the Authentication Service page, click the **Zscaler Client Connector** tile. See image.
-3. [Create a Device Token.](https://help.zscaler.com/zscaler-client-connector/creating-device-token)
-4. Copy the generated device token shown in Zscaler Client Connector. See image.
+- [1. Create a Device Token.](https://help.zscaler.com/zscaler-client-connector/creating-device-token) 2. Copy the generated device token. See image.
 
 The user is created in Authentication Service when JIT provisioning is enabled. This user must be assigned the service entitlement to ensure that the login is successful.
 
@@ -7478,20 +7529,18 @@ To use Authentication Service as an IdP for your users, you must pass the device
 - For Android with MDM Deployment procedures, see [Customizing Zscaler Client Connector with Install Options for Android](https://help.zscaler.com/zscaler-client-connector/customizing-zscaler-client-connector-install-options-android).
 - For iOS with MDM Deployment procedures, see [Customizing Zscaler Client Connector with Install Options for iOS](https://help.zscaler.com/zscaler-client-connector/customizing-zscaler-client-connector-install-options-ios).
 
-[Image: A screenshot highlighting the [[variable:Zscaler Client Connetor]] tile]
-
-[Image: The device token in Zscaler Client Connector.]
+[Image: The device token in Zscaler Client Connector]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/viewing-api-resources","lastmod":"2026-03-18T05:28Z","nid":"1503371"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/viewing-api-resources","lastmod":"2026-09-28T08:19Z","nid":"1503371"} -->
 ## Viewing API Resources
 
 - Source: https://help.zscaler.com/authentication-service/viewing-api-resources
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > OneAPI Authentication > Viewing API Resources
-- Last modified: 2026-03-18T05:28Z
+- Last modified: 2026-09-28T08:19Z
 - Summary: Information about viewing the Zscaler API resources available in the Zscaler Admin Console.
 
 API resources refer to the Zscaler APIs available via the OneAPI gateway. The API resources are a collection of Zscaler API endpoints that represent various data entities, services, or functionalities that can be accessed by the [API clients](https://help.zscaler.com/zidentity/about-api-clients). To learn more, see [Understanding OneAPI](https://automate.zscaler.com/docs/api-reference-and-guides/guides/UnderstandingOneAPI) and [Adding API Roles](https://help.zscaler.com/zia/adding-api-roles).
@@ -7500,11 +7549,13 @@ The API resources are available for the Zscaler services (Internet & SaaS, Priva
 
 The API resources are automatically created in the Zscaler Admin Console based on the role-based access control (RBAC) roles applicable to the APIs within the various Zscaler services. Each API client is assigned one or more roles (API resources), which define the specific endpoints and operations that the API client is permitted to access. This ensures that the API client can only interact with specific parts of the API, thereby enhancing security and reducing the risk of unauthorized or unintentional actions.
 
+If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service and some Zscaler services are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
+
 While [configuring the API client](https://help.zscaler.com/zidentity/adding-api-client), you can select the API resources that determine the permissions (scope) the API client has to access the API resources of each Zscaler service. You can select only one API resource for each Zscaler service.
 
 To view the API resources:
 
-1. Go to **Administration > API Configuration** > **OneAPI** >**API Resources**. The **API Resources** page appears. See image.
+1. Go to **Administration > API** >**API Resources**. The **API Resources** page appears. See image.
 2. Click the **View** icon () to see the API resources available for each Zscaler service. See image.
 
 [Image: View the API resources]
@@ -7514,26 +7565,26 @@ To view the API resources:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/viewing-entitlements-assigned-users","lastmod":"2026-07-30T21:06Z","nid":"1499266"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/viewing-entitlements-assigned-users","lastmod":"2026-09-30T07:58Z","nid":"1499266"} -->
 ## Viewing Entitlements Assigned to Users
 
 - Source: https://help.zscaler.com/authentication-service/viewing-entitlements-assigned-users
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Users > Viewing Entitlements Assigned to Users
-- Last modified: 2026-07-30T21:06Z
+- Last modified: 2026-09-30T07:58Z
 - Summary: Information on how to view administrative and service entitlements and authenticators that are assigned to users in Authentication Service.
 
 Each Authentication Service user can be assigned to different [service entitlements](https://help.zscaler.com/zidentity/about-service-entitlements) and [administrative entitlements](https://help.zscaler.com/zidentity/about-administrative-entitlements) depending on the role. You can also view the multi-factor authenticators that are configured for the user. You need to first add users, assign them to the subscribed Zscaler services, and then access the [Users page](https://help.zscaler.com/zidentity/about-users) to view the entitlements.
 
 ## Viewing Entitlements
 
-1. Go to **Administration** >**Identity**> **Authentication Service**> **Users**.
-2. Click the name of the user. See image. The user details drawer appears.
-3. In the user details drawer, select the **Entitlements** tab to view the assigned services. See image. Administrative entitlements are displayed only for users with admin roles.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** >**Authentication**> **Users**.
+2. Click the name of the user. See image. The **View User Details** drawer appears.
+3. In the **View User Details** drawer, select the **Entitlements** tab to view the assigned services. See image. Administrative entitlements are displayed only for users with admin roles.
 
 ## Viewing Multi-Factor Authenticator
 
-1. Go to **Administration**> **Identity**> **Authentication Service**> **Users**.
+1. Go to **Administration**> **Authentication**> **Users**.
 2. Click the **Edit** icon for any user. See image. The **Edit User** page appears.
 3. On the **Edit User** page, select the **Security Settings** section to view the configured multi-factor authenticators for the user. You can choose to delete the authenticators, except the email authenticator. See image.
 
@@ -7548,13 +7599,13 @@ Each Authentication Service user can be assigned to different [service entitleme
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/what-authentication-service","lastmod":"2026-08-10T05:54Z","nid":"1499041"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/what-authentication-service","lastmod":"2026-09-24T01:40Z","nid":"1499041"} -->
 ## What Is Authentication Service?
 
 - Source: https://help.zscaler.com/authentication-service/what-authentication-service
 - Product: Authentication Service
 - Path: Authentication Service Help > What Is Authentication Service?
-- Last modified: 2026-08-10T05:54Z
+- Last modified: 2026-09-24T01:40Z
 - Summary: Information on Authentication Service, its key features and how it works as an identity and access management (IAM) service.
 
 ZIdentity has changed to Authentication Service. This name change better reflects the nature of the identity service at Zscaler.
@@ -7575,7 +7626,7 @@ Authentication Service has the following key features and benefits:
 
 - Seamlessly access all the subscribed Zscaler services with a single set of credentials.
 - Use multi-factor authentication (MFA) to securely authenticate users.
-- Control and manage admin roles and access to Zscaler services.
+- Control and manage admin roles and access to Zscaler services. If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service and some Zscaler services are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 - Create and manage user accounts in Authentication Service.
 - Automatically synchronize users with identity providers through SAML just-in-time (JIT) provisioning or SCIM provisioning.
 - Limit administrator access based on source IP address to ensure that admins access the system from authorized locations.
@@ -7979,13 +8030,13 @@ On the Contract Tags page (Applications> Application Settings > Tag Management >
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/about-contracts","lastmod":"2026-09-04T05:33Z","nid":"1506071"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/about-contracts","lastmod":"2026-09-08T09:00Z","nid":"1506071"} -->
 ## About All Contracts
 
 - Source: https://help.zscaler.com/business-insights/about-contracts
 - Product: Business Insights
 - Path: Business Insights Help > Application Insights > About All Contracts
-- Last modified: 2026-09-04T05:33Z
+- Last modified: 2026-09-08T09:00Z
 - Summary: Information about contracts in the Business Insights Admin Portal.
 
 When an organization establishes a contract with vendors to subscribe to SaaS applications, you can upload that contract to the Business Insights Admin Portal. This assists in analyzing the contract for metadata such as the licensing models (i.e., per user, per GB of data, feature based, or an amalgamation of the preceding models), contract end, renewal date, etc. You can visualize each application's annual contract value (ACV) and total contract value (TCV) along with the overall ACV and TCV values from your entire SaaS application subscriptions. The All Contracts page gathers the contract insights in graphs and tables to provide a better SaaS spending overview. This equips you with the necessary insights to take informed actions for maintaining efficient SaaS spending.
@@ -8533,7 +8584,7 @@ On the SaaS Application Tenants page (Administration > Workflow Integration), yo
   - **Reauthorization Required**: Edit the tenant, and click **Reauthorize** to log in to the SaaS application and give Zscaler access to it.
 - **Last Modified On**: The last time the SaaS application tenant was edited.
 - **Last Modified By**: The name of the admin who last edited the SaaS application tenant.
-- **Owner**: Indicates whether the SaaS application tenant was created in Zscaler Internet Access (ZIA) or Zscaler Digital Experience (ZDX).
+- **Owner**: Indicates whether the SaaS application tenant was created in Zscaler Internet Access (ZIA) or Digital Experience (ZDX).
 - **Policy Configured**: The SaaS Security Data At Rest Scanning policies ([DLP](https://help.zscaler.com/zia/about-saas-security-api-dlp) and [Malware Detection](https://help.zscaler.com/zia/about-saas-security-api-malware-detection)) configured for the SaaS application tenant.
 - **External Trusted Domains**: Displays the total number of added external trusted domains. Click to view a list of the domains. This only applies to email SaaS application tenants. See image.
 - **External Trusted Users**: Displays the total number of added external trusted users. Click to view a list of the users. This only applies to email SaaS application tenants. See image.
@@ -8602,7 +8653,7 @@ Tags provide the following benefits and allow you to:
 
 ## About the Workplace Tags Page
 
-On the Tag Management page (Workplaces > Offices and Locations > Offices > click the drop-down menu under the Tags column for any office > Manage All Tags, or click the Tags filter > Manage All Tags), you can do the following:
+On the Tag Management page (Workplace > Workplace Settings > Tag Management), you can do the following:
 
 1. [Add a new tag category](https://help.zscaler.com/business-insights/adding-tag-category).
 2. View a list of configured tag categories. For each category, you can view:
@@ -8791,22 +8842,22 @@ Based on your organization's [authentication preference](https://help.zscaler.co
 - Email One-Time Password (OTP)
 - Security Key or Biometric
 
-1. Enter your **Login ID**. If you want the service to remember your login ID the next time you log in, select **Remember Me**. See image.
+1. Enter your login ID. If you want the service to remember your login ID the next time you log in, select the **Remember Me**checkbox. See image.
 2. Click**Next**.
-3. Enter your **Password**and click **Sign In**. See image.
-4. Based on your organization's multi-factor authentication policy, two-factor authentication (2FA) is required. Complete your 2FA to access the Authentication Service landing page. If you forget your password or want to configure a different secondary authenticator, click **Having trouble signing in?**> **Reset Password**or**Reset Second Factor**, and a reset email is sent to your email ID. The reset link within the email expires after 15 minutes. To learn more, see [Resetting the Login Credentials or MFA](https://help.zscaler.com/unified/resetting-login-credentials-or-mfa).
+3. Enter your passwordand click **Sign In**. See image.
+4. Based on your organization's MFA policy, 2FA is required. Complete your 2FA to access the Authentication Service landing page. If you forget your password or want to configure a different secondary authenticator, click **Having trouble signing in?**> **Reset Password**or**Reset Second Factor**, and a reset link is sent to your email ID. The reset link expires after 15 minutes. To learn more, see [Resetting the Login Credentials or MFA](https://help.zscaler.com/unified/resetting-login-credentials-or-mfa).
 
 If your account is configured with MFA, you can sign in using an email OTP:
 
-1. Enter your **Login ID**. If you want the service to remember your login ID the next time you log in, select **Remember Me**.
-2. Click**Next** and then click **Other Sign-in Options**. See image. The **Sign-in Options** window appears.
+1. Enter your login ID. If you want the service to remember your login ID the next time you log in, select the **Remember Me**checkbox.
+2. Click**Next**,and then click **Other Sign-in Options**. See image. The **Sign-in Options** window appears.
 3. In the **Sign-in Options** window, click **Email OTP**. See image.
 4. Enter the OTP sent to your email address and click **Sign In**. The OTP expires after 15 minutes. If the OTP expires or you don't receive an OTP, click **Resend**to receive another OTP after 60 seconds. See image.
 
-1. Enter your **Login ID**. If you want the service to remember your login ID the next time you log in, select **Remember Me**.
-2. Select **Sign-in using Security Key or Biometric**. See image.
+1. Enter your login ID. If you want the service to remember your login ID the next time you log in, select the **Remember Me**checkbox.
+2. Select the **Sign-in using Security Key or Biometric**checkbox. See image.
 3. Click**Next**.
-4. Based on your configuration, enter your security key or complete the biometric to access the Authentication Service landing page. If you want to configure with a different security key or biometric, click **Having trouble signing in?**> **Reset Security Key or Biometric**, and a reset email is sent to your email ID. The reset link within the email expires after 15 minutes. To learn more, see [Resetting the Login Credentials or MFA](https://help.zscaler.com/unified/resetting-login-credentials-or-mfa).
+4. Based on your configuration, enter your security key or complete the biometric to access the Authentication Service landing page. If you want to configure with a different security key or biometric, click **Having trouble signing in?**> **Reset Security Key or Biometric**, and a reset link is sent to your email ID. The reset link expires after 15 minutes. To learn more, see [Resetting the Login Credentials or MFA](https://help.zscaler.com/unified/resetting-login-credentials-or-mfa).
 
 [Image: Authentication Service login page with blurred Login ID and Remember Me option selected.]
 
@@ -9188,7 +9239,7 @@ You can add tag categories and tags in each category, which can be used to link 
 
 To add a tag category and tags:
 
-1. Go to **Workplaces**> **Offices and Locations**> click the drop-down menu under the Tags column for any office >**Manage All Tags**,or**Workplace Settings**> **Configured Offices**> click the Tags filter> **Manage All Tags**.
+1. Go to **Workplace**> **Workplace Settings**> **Tag Management**.
 2. Click **Create Tag Category**. The **Create New Tag Category** drawer appears.
 3. In the **Create New Tag Category**drawer:
   - **Name**: Enter a name for the tag category.
@@ -12113,13 +12164,13 @@ If the usage exceeds the acceptable amount, contact Zscaler Sales or your Channe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/dspm-logs","lastmod":"2026-09-02T11:37Z","nid":"1483311"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/dspm-logs","lastmod":"2026-09-25T08:59Z","nid":"1483311"} -->
 ## DSPM Logs
 
 - Source: https://help.zscaler.com/logs-fair-use/dspm-logs
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Logs & Data > DSPM Logs
-- Last modified: 2026-09-02T11:37Z
+- Last modified: 2026-09-25T08:59Z
 - Summary: Information about Zscaler Data Security Posture Management (DSPM) logs.
 
 Cloud configuration data, Cloud Service Provider (CSP) activity audit logs, and cloud user directory information are processed by Zscaler in connection with your organization's use of Zscaler Data Security Posture Management (DSPM).
@@ -12133,9 +12184,9 @@ All logs that describe active cloud resources or issues are retained by Zscaler 
 
 During the deployment process, you can choose to have the logs stored in either the United States or the European Union.
 
-###### Feature-specific information
+## Feature-Specific Information
 
-- ZAgent: The DSPM Agent operates through the ZAgent service. To learn more, see [ZAgent Logs](https://help.zscaler.com/logs-fair-use/zagent-logs).
+- **ZAgent:** Certain DSPM features operate through the ZAgent service, which may use one or more sub-agents. For information about supported services and logs, see [ZAgent Logs](https://help.zscaler.com/logs-fair-use/zagent-logs).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -12196,28 +12247,31 @@ Logs are stored in the United States.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zagent-logs","lastmod":"2026-09-02T11:49Z","nid":"1543201"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zagent-logs","lastmod":"2026-09-23T14:35Z","nid":"1543201"} -->
 ## ZAgent Logs
 
 - Source: https://help.zscaler.com/logs-fair-use/zagent-logs
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Logs & Data > ZAgent Logs
-- Last modified: 2026-09-02T11:49Z
+- Last modified: 2026-09-23T14:35Z
 - Summary: Information about ZAgent Logs.
 
 By using ZAgent, you grant Zscaler the right to process, use, reproduce, store, modify, and display information from logs as defined in this article.
 
-- **Definition:** For ZAgent, *logs* are defined as data collected in the form of prompts, responses, and metadata.
-- **Retention:** Zscaler retains Logs for a rolling period of 90 days during your subscription term. The most recent 14 days of logs are accessible through the Zscaler Admin Console. When the subscription term ends or expires, the logs are deleted by Zscaler according to applicable retention cycles. ZAgent is not trained using any customer data.
-- **Storage Location:** During the deployment process, you can choose to have the logs stored in either the United States or European Union.
+- **Definition:** For ZAgent, *logs* consist of prompts, responses, and metadata.
+- **Retention:** Zscaler retains logs for a rolling period of 90 days during your subscription term. The most recent 14 days of session history is accessible through the Zscaler Admin Console. When the subscription term ends or expires, the logs are deleted by Zscaler according to applicable retention cycles. ZAgent is not trained using customer data.
+- **Storage Location:** Logs are stored in the United States or the European Union.
+
+ZAgent uses AI Guard to help protect its services. To learn more, see [What is AI Guard?](https://help.zscaler.com/secure-ai-users/what-ai-guard) and [AI Guard Logs](https://help.zscaler.com/logs-fair-use/zscaler-ai-guard-logs).
 
 ###### Available Agents
 
+The following services include agents supported by the ZAgent framework:
+
 - DSPM
-- Knowledge Agent
 - Risk360
-- ZDX
-- ZPA Segmentation
+- Digital Experience (ZDX)
+- Zscaler Private Access (ZPA)
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -12229,9 +12283,9 @@ By using ZAgent, you grant Zscaler the right to process, use, reproduce, store, 
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Licensing & Fair Use > ZDX Licensing and Fair Use
 - Last modified: 2025-06-10T10:48Z
-- Summary: Information about Zscaler Digital Experience (ZDX) licensing and fair use.
+- Summary: Information about Digital Experience (ZDX) licensing and fair use.
 
-Zscaler Digital Experience (ZDX) is a Software as a Service (SaaS) product that is licensed according to a number of seats purchased for the subscription term in an order. A *seat*is a subscription license for the ZDX service for an individual authorized user. The number of seats required is determined by counting the total number of unique individual users of ZDX over the previous rolling 90-day period.
+Digital Experience (ZDX) is a Software as a Service (SaaS) product that is licensed according to a number of seats purchased for the subscription term in an order. A *seat*is a subscription license for the ZDX service for an individual authorized user. The number of seats required is determined by counting the total number of unique individual users of ZDX over the previous rolling 90-day period.
 
 Ensure that you order the correct number of seats. If additional seats are needed during a subscription term, contact Zscaler Sales or your Channel Partner. Zscaler periodically reviews the number of seats that use the service to ensure license compliance.
 
@@ -12242,16 +12296,16 @@ The usage of ZDX is expected to be in accordance with the [Acceptable Use Policy
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zdx-logs","lastmod":"2026-09-02T11:32Z","nid":"1390936"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zdx-logs","lastmod":"2026-09-25T09:01Z","nid":"1390936"} -->
 ## ZDX Logs
 
 - Source: https://help.zscaler.com/logs-fair-use/zdx-logs
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Logs & Data > ZDX Logs
-- Last modified: 2026-09-02T11:32Z
-- Summary: Information about Zscaler Digital Experience (ZDX) logs.
+- Last modified: 2026-09-25T09:01Z
+- Summary: Information about Digital Experience (ZDX) logs.
 
-In order to provide the Zscaler Digital Experience (ZDX) service, Zscaler has the right to process, use, reproduce, store, modify, and display the information from logs as defined in this article.
+In order to provide the Digital Experience (ZDX) service, Zscaler has the right to process, use, reproduce, store, modify, and display the information from logs as defined in this article.
 
 - **Definition:** For ZDX,*logs* are defined as the telemetry metadata collected via ZDX probes and Microsoft 365 probes, as well as the metadata that correlates with logs of other Zscaler SaaS products, such as Zscaler Internet Access (ZIA) or Zscaler Private Access (ZPA).
 - **Retention:** Zscaler retains the logs on a rolling period of at least two weeks or two days during your subscription term, depending on your subscription. When the subscription term ends or expires, the logs are deleted by Zscaler according to applicable retention cycles.
@@ -12263,9 +12317,9 @@ In order to provide the Zscaler Digital Experience (ZDX) service, Zscaler has th
 - **Data Collected:** Diagnostics might result in the capture and storage of packet capture files, as well as additional telemetry about user devices, including software process level information of the devices (i.e., ZDX Deep Tracing data).
 - **Retention:** Zscaler retains the ZDX Diagnostics reports on a rolling period of at least two weeks or two days during your subscription term, depending on your subscription. When the subscription term ends or expires, the ZDX Diagnostics reports and Diagnostics data are deleted by Zscaler according to applicable retention cycles.
 
-###### Feature-specific Information
+## Feature-Specific Information
 
-- **ZAgent:** The ZDX Agent operates through the ZAgent service. To learn more, see [ZAgent Logs](https://help.zscaler.com/logs-fair-use/zagent-logs).
+- **ZAgent:**Certain ZDX features operate through the ZAgent service, which may use one or more sub-agents. For information about supported services and logs, see [ZAgent Logs](https://help.zscaler.com/logs-fair-use/zagent-logs).
 - **ZDX Managed Monitoring:** Logs are retained by Zscaler for a period of 30 days.
 - **ZDX Network Intelligence:** Aggregated logs are retained by Zscaler for a period of one year.
 - **ZDX Remediation:** ZDX Remediation allows for the execution of remote scripts on user devices. Enabling this feature allows the collection of script output and device telemetry data. All script results and telemetry collected through this feature are retained by Zscaler for 180 days. Authorized users can delete script results at any time via the ZDX Admin Portal.
@@ -12614,47 +12668,60 @@ When the subscription term ends or expires, the logs are deleted by Zscaler acco
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-agentic-secops-licensing-and-fair-use","lastmod":"2026-06-11T10:01Z","nid":"1541024"} -->
-## Zscaler Agentic SecOps Licensing and Fair Use
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-agentic-secops-licensing-and-fair-use","lastmod":"2026-10-02T10:38Z","nid":"1541024"} -->
+## Zscaler Agentic Security Operations Platform Licensing and Fair Use
 
 - Source: https://help.zscaler.com/logs-fair-use/zscaler-agentic-secops-licensing-and-fair-use
 - Product: Logs & Fair Use
-- Path: Logs & Fair Use > Licensing & Fair Use > Zscaler Agentic SecOps Licensing and Fair Use
-- Last modified: 2026-06-11T10:01Z
-- Summary: Information about Zscaler Agentic SecOps Licensing and Fair Use.
+- Path: Logs & Fair Use > Licensing & Fair Use > Zscaler Agentic Security Operations Platform Licensing and Fair Use
+- Last modified: 2026-10-02T10:38Z
+- Summary: Information about Zscaler Agentic Security Operations Platform Licensing and Fair Use.
 
-Zscaler Agentic SecOps is a Software as a Service (SaaS) product that is licensed according to the number of seats purchased for the subscription term in an order. A *seat* is a subscription license for the Agentic SecOps product for an individual authorized user. The number of seats required for a subscription of Agentic SecOps is determined by the total number of unique individual users of the underlying SaaS product to be analyzed by Agentic SecOps over the previous rolling 90-day period.
+Zscaler Agentic SOC is a Software as a Service (SaaS) product that is licensed according to the number of entities purchased for the subscription term in an order. An *entity* is defined as a unique identity, endpoint, or cloud resource. The number of entities required is determined by counting the total number of entities processed and stored in Agentic SOC.
 
-Ensure that you order the correct number of seats. If you require additional seats during a subscription term, contact Zscaler Sales or your Channel Partner. Zscaler periodically reviews the number of seats to ensure license compliance.
+Ensure that you order the correct number of entities. If you require additional entities during a subscription term, contact Zscaler Sales or your Channel Partner. Zscaler periodically reviews the number of entities to ensure license compliance.
 
 ## Fair Use Policy
 
-The usage of Agentic SecOps is expected to be in accordance with the [Acceptable Use Policy](https://help.zscaler.com/product-usage-terms/acceptable-use-policy). The Fair Use Policy for Agentic SecOps is that the average data processing (uncompressed) is expected to be no more than 10MB per user on a daily basis. If the usage exceeds the acceptable amount, contact Zscaler Sales or your Channel Partner to discuss available options.
+The usage of Agentic Security Operations Platform is expected to be in accordance with the [Acceptable Use Policy](https://help.zscaler.com/product-usage-terms/acceptable-use-policy). The Fair Use Policy for Agentic SOC is:
+
+- The average data processing (uncompressed) is expected to be no more than 10MB per entity on a daily basis.
+- The average number of daily queries per account is expected to be no more than 8,000 queries per day.
+
+If your usage exceeds the acceptable amount, contact Zscaler Sales or your Channel Partner to discuss available options.
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-agentic-secops-logs","lastmod":"2026-06-26T09:43Z","nid":"1541023"} -->
-## Zscaler Agentic SecOps Logs
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-agentic-secops-logs","lastmod":"2026-10-02T10:45Z","nid":"1541023"} -->
+## Zscaler Agentic Security Operations Platform Logs
 
 - Source: https://help.zscaler.com/logs-fair-use/zscaler-agentic-secops-logs
 - Product: Logs & Fair Use
-- Path: Logs & Fair Use > Logs & Data > Zscaler Agentic SecOps Logs
-- Last modified: 2026-06-26T09:43Z
-- Summary: Information about Zscaler Agentic SecOps Logs.
+- Path: Logs & Fair Use > Logs & Data > Zscaler Agentic Security Operations Platform Logs
+- Last modified: 2026-10-02T10:45Z
+- Summary: Information about Zscaler Agentic Security Operations Platform Logs.
 
-In order to provide the Zscaler Agentic SecOps service, Zscaler has the right to process, use, reproduce, store, modify, and display the information from logs as defined in this article.
+In order to provide the Zscaler Agentic Security Operations Platform and the Agentic SOC service, Zscaler has the right to process, use, reproduce, store, modify, and display the information from logs as defined in this article.
 
-- **Definition:** For Agentic SecOps, *logs* are defined as the configuration and transaction data collected for actions performed by users authorized by you who are using the Agentic SecOps SaaS product. This includes duplicates of applicable Zscaler SaaS product logs, such as Zscaler Internet Access (ZIA) or Zscaler Private Access (ZPA), that Zscaler uses to identify suspicious and potentially malicious threat patterns for you.
-- **Retention:** Depending on your subscription, Zscaler retains Agentic SecOps logs for a rolling period of up to six months during your subscription term. When the subscription term ends or expires, the logs are deleted by Zscaler according to applicable retention cycles.
-- **Storage Location:** During the deployment process, you can choose to have the logs stored in either the United States or the European Union.
+- **Definition:** For the Agentic Security Operations Platform and its component products, including Agentic SOC, *logs* are defined as the configuration and transaction data collected for actions performed by users authorized by you who are using an Agentic Security Operations Platform product. For the Agentic SOC service, this includes duplicates of applicable Zscaler SaaS product logs, such as Zscaler Internet Access (ZIA) or Zscaler Private Access (ZPA), that Zscaler uses to identify suspicious and potentially malicious threat patterns for you. Some Agentic Security Operations Platform products define *logs*differently. These differences will be listed below.
+- **Retention:** Depending on your subscription, Zscaler retains Agentic Security Operations Platform and Agentic SOC logs for a rolling period of up to six months during your subscription term. When the subscription term ends or expires, the logs are deleted by Zscaler according to applicable retention cycles. Retention for individual products may differ and are listed below.
+- **Storage Location:** During the deployment process, you can choose to have the logs stored in either the United States or the European Union. Storage locations for individual products may differ and are listed below.
 
-###### Feature-specific information
+## Platform-Specific Information
 
-- **Incident:** For incidents identified by Agentic SecOps, the information related to such incidents is stored by Zscaler for one year.
-- **Comments:** For the Comments feature, your comments are stored by Zscaler for up to one year, as long as the related incident remains on the platform.
 - **Mapping Copilot:** For the Mapping Copilot feature, prompts and responses are stored by Zscaler for 90 days as part of the session history. Mapping Copilot is not trained using any customer data.
-- **ASOC Assist:** ASOC Assist is the AI-powered assistant in Agentic SecOps. For the ASOC Assist feature, prompts and responses are stored by Zscaler for 90 days as part of the session history. ASOC Assist is not trained using any customer data.
+- **Configuration Audit Logs:** Configuration Audit Logs are available in the Agentic SecOps Platform Admin Portal and by subscribing to export to S3/GCP on an hourly basis. Audit logs are retained on the platform for 180 days with the preceding 90 days available in the Admin Portal.
+
+## Feature-Specific information
+
+###### Agentic SOC:
+
+- **Incident:** For incidents identified by Agentic SOC, the information related to such incidents is stored by Zscaler for one year.
+- **Comments:** For the Comments feature, your comments are stored by Zscaler for up to one year, as long as the related incident remains on the platform.
+- **Alerts:** Information related to alerts identified by Agentic SOC is stored for one year.
+- **Assets:** Information regarding assets, users, and devices is retained for a rolling period of up to one year.
+- **Agentic SOC Assist:** Agentic SOC Assist is the AI-powered assistant in Agentic SOC. Prompts and responses are stored by Zscaler for 30 days as part of the session history. Agentic SOC Assist is not trained using any customer data.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -13118,6 +13185,42 @@ During the deployment process, you can choose to have your logs stored in the Un
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-endpoint-ai-licensing-and-fair-use","lastmod":"2026-09-22T11:08Z","nid":"1546007"} -->
+## Zscaler Endpoint AI Security Licensing and Fair Use
+
+- Source: https://help.zscaler.com/logs-fair-use/zscaler-endpoint-ai-licensing-and-fair-use
+- Product: Logs & Fair Use
+- Path: Logs & Fair Use > Licensing & Fair Use > Zscaler Endpoint AI Security Licensing and Fair Use
+- Last modified: 2026-09-22T11:08Z
+- Summary: Information about Zscaler Endpoint AI Security Licensing and Fair Use.
+
+Zscaler Endpoint AI Security is a Software as a Service (SaaS) product that is licensed according to the number of protected endpoints purchased for the subscription term in an order. A *protected endpoint* is a host machine on which the Endpoint AI Security module is installed and running, whether deployed through Zscaler Client Connector or as a standalone installation.
+
+Ensure that you order the correct number of protected endpoints for your environment. If you require additional protected endpoints, contact Zscaler Sales or your Channel Partner. Zscaler periodically reviews the number of protected endpoints in your environment to ensure license compliance.
+
+The usage of Endpoint AI Security is expected to be in accordance with the [Acceptable Use Policy](https://help.zscaler.com/legal/acceptable-use-policy).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-endpoint-ai-logs","lastmod":"2026-09-22T11:10Z","nid":"1546006"} -->
+## Zscaler Endpoint AI Security Logs
+
+- Source: https://help.zscaler.com/logs-fair-use/zscaler-endpoint-ai-logs
+- Product: Logs & Fair Use
+- Path: Logs & Fair Use > Logs & Data > Zscaler Endpoint AI Security Logs
+- Last modified: 2026-09-22T11:10Z
+- Summary: Information about Zscaler Endpoint AI Security Logs.
+
+In order to provide the Zscaler Endpoint AI Security service, you grant Zscaler the right to process, use, reproduce, store, modify and display information from logs as defined in this article.
+
+- **Definition:** For Endpoint AI Security, *logs* are defined as metadata and telemetry generated by AI-driven activity on managed endpoints, policy decisions, asset inventory (applications, packages, AI agent assets) and content such as user prompts and tool inputs/outputs. You may opt out of prompt and tool input/output capture. If you opt out, Zscaler will still log which tools were called, but not the prompts sent to each tool or the responses returned. Opting out of prompt and response capture may reduce the effectiveness of threat detection and security investigations.
+- **Retention:** Zscaler retains the logs on a rolling period of at least 90 days during your subscription term. When your subscription term ends or expires, the logs are deleted by Zscaler according to applicable retention cycles. You may submit a request to Zscaler Support for manual deletion.
+- **Storage Location:** During the deployment process, you can choose to have the logs stored in the United States, the European Union, or Singapore.
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-experience-center-logs","lastmod":"2026-07-30T13:11Z","nid":"1541815"} -->
 ## Zscaler Experience Center Logs
 
@@ -13260,13 +13363,13 @@ The usage of Risk360 is expected to be in accordance with the [Acceptable Use Po
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-risk360-logs","lastmod":"2026-09-02T11:49Z","nid":"1443216"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-risk360-logs","lastmod":"2026-09-25T09:04Z","nid":"1443216"} -->
 ## Zscaler Risk360 Logs
 
 - Source: https://help.zscaler.com/logs-fair-use/zscaler-risk360-logs
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Logs & Data > Zscaler Risk360 Logs
-- Last modified: 2026-09-02T11:49Z
+- Last modified: 2026-09-25T09:04Z
 - Summary: Information about Zscaler Risk360 logs.
 
 In order to provide the Risk360 service, Zscaler has the right to process, use, reproduce, store, modify, and display the information from logs as defined in this article.
@@ -13275,25 +13378,32 @@ In order to provide the Risk360 service, Zscaler has the right to process, use, 
 - **Retention:** Zscaler retains the logs on a rolling period of up to a year during your subscription term, depending on your subscription. When the subscription term ends or expires, the logs are deleted by Zscaler according to applicable retention cycles.
 - **Storage:** During the deployment process, you can choose to have the logs stored in either the United States or the European Union.
 
-###### Feature-specific information
+## Feature-Specific Information
 
-- ZAgent: The Risk360 Agent operates through the ZAgent service. To learn more, see [ZAgent Logs](https://help.zscaler.com/logs-fair-use/zagent-logs).
+- **ZAgent:**Certain Risk360 features operate through the ZAgent service, which may use one or more sub-agents. For information about supported services and logs, see [ZAgent Logs](https://help.zscaler.com/logs-fair-use/zagent-logs).
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-saas-security-posture-management-sspm-licensing-and-fair-use","lastmod":"2026-07-30T11:49Z","nid":"1541621"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-saas-security-posture-management-sspm-licensing-and-fair-use","lastmod":"2026-09-18T13:53Z","nid":"1541621"} -->
 ## Zscaler SaaS Security Posture Management (SSPM) Licensing and Fair Use
 
 - Source: https://help.zscaler.com/logs-fair-use/zscaler-saas-security-posture-management-sspm-licensing-and-fair-use
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Licensing & Fair Use > Zscaler SaaS Security Posture Management (SSPM) Licensing and Fair Use
-- Last modified: 2026-07-30T11:49Z
+- Last modified: 2026-09-18T13:53Z
 - Summary: Information about Zscaler SaaS Security Posture Management (SSPM) Licensing and Fair Use.
 
-Zscaler SaaS Security Posture Management (SSPM) is a Software as a Service (SaaS) product that is licensed according to the number of seats purchased for the subscription term in an order. A *seat* is a subscription to the SSPM SaaS for an individual authorized user. The number of seats required is determined by counting the total number of unique users accessing and/or using the SaaS over the previous rolling 90-day period.
+Zscaler SaaS Security Posture Management (SSPM) is a Software as a Service (SaaS) product that can be licensed in various ways. This article includes information on licensing types, license renewal process, and Zscaler's Fair Use Policy.
 
-Ensure that you order the correct number of seats. If you require additional seats, contact Zscaler Sales or your Channel Partner. Zscaler periodically reviews the number of seats to ensure license compliance.
+## License Types
+
+Zscaler offers the following types of licenses:
+
+- Seat: A subscription license to the SSPM SaaS for an individual authorized user. The number of seats required is determined by counting the total number of unique users accessing or using the SaaS over the previous rolling 90-day period.
+- Application: A subscription license to the SSPM SaaS for a supported SaaS application. If you purchased the "2 Apps" subscription, you may onboard and monitor up to two supported SaaS applications, with one tenant per application.
+
+The seat-based licensing requirement continues to apply in conjunction with any application-based licenses. Ensure that you order the correct number of seats and applications. If you require additional seats or applications, contact Zscaler Sales or your Channel Partner. Zscaler periodically reviews the number of seats and applications to ensure license compliance.
 
 ## Fair Use Policy
 
@@ -13529,13 +13639,13 @@ During the deployment process, you can choose to have the logs stored in either 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-zero-trust-browser-logs","lastmod":"2026-08-12T12:53Z","nid":"1539031"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-zero-trust-browser-logs","lastmod":"2026-09-18T13:31Z","nid":"1539031"} -->
 ## Zscaler Zero Trust Browser Logs
 
 - Source: https://help.zscaler.com/logs-fair-use/zscaler-zero-trust-browser-logs
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Logs & Data > Zscaler Zero Trust Browser Logs
-- Last modified: 2026-08-12T12:53Z
+- Last modified: 2026-09-18T13:31Z
 - Summary: Information about Zscaler Zero Trust Browser Logs.
 
 In order to provide the Zscaler Zero Trust Browser service, Zscaler has the right to process, use, reproduce, store, modify, and display the information from logs as defined in this article.
@@ -13552,7 +13662,7 @@ To enhance support and improve system performance analysis, logs may also contai
 
 The Agent Logs and Workspaces Logs are stored on your users’ local machines and are only accessible by your users and administrators. These logs are not stored in Zscaler clouds. In case of any specific failure that you want to report to Zscaler, Zscaler will process, store, and use these logs for debugging purposes.
 
-Zero Trust Extension Tenant Dashboard Logs are retained by Zscaler for a rolling period of six months during the term of subscription. When the subscription term ends or expires, the logs are deleted by Zscaler according to applicable retention cycles.
+Zero Trust Extension Tenant Dashboard Logs are retained by Zscaler for a rolling period of six months during the term of subscription. You can request a shorter retention period. When the subscription term ends or expires, the logs are deleted by Zscaler according to applicable retention cycles.
 
 During the deployment process, you can choose to have the Zero Trust Extension Tenant Dashboard Logs stored in the United States, the European Union, Singapore, or India.
 <!-- /ZS-ARTICLE -->
@@ -14778,13 +14888,13 @@ Zscaler partners are given insights into all of their customer and tenant accoun
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/about-adaptive-access-profiles","lastmod":"2026-02-11T06:46Z","nid":"1508391"} -->
+<!-- ZS-ARTICLE {"url":"/unified/about-adaptive-access-profiles","lastmod":"2026-09-07T05:01Z","nid":"1544665"} -->
 ## About Adaptive Access Profiles
 
 - Source: https://help.zscaler.com/unified/about-adaptive-access-profiles
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Policies > Adaptive Access Engine > About Adaptive Access Profiles
-- Last modified: 2026-02-11T06:46Z
+- Last modified: 2026-09-07T05:01Z
 - Summary: Information about Adaptive Access profiles defined in the Experience Center.
 
 An [Adaptive Access profile](https://help.zscaler.com/unified/understanding-adaptive-access-engine) identifies user and device subjects with a set of conditions that combine context signals published by Zscaler and third-party sources using logical operators. These criteria include user and device context. The Adaptive Access profiles are made available to Internet & SaaS (Zscaler Internet Access (ZIA)) and Private Applications (Zscaler Private Access (ZPA)) that enforce policies to control user and device access to applications via Zscaler.
@@ -14815,13 +14925,13 @@ On the Profiles page (Policies > Common Configuration > Adaptive Access > Profil
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/about-alerts-risk360","lastmod":"2026-02-11T06:26Z","nid":"1533797"} -->
+<!-- ZS-ARTICLE {"url":"/unified/about-alerts-risk360","lastmod":"2026-09-29T08:05Z","nid":"1545139"} -->
 ## About Alerts in Risk360
 
 - Source: https://help.zscaler.com/unified/about-alerts-risk360
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Risk360 > Alerts > About Alerts in Risk360
-- Last modified: 2026-02-11T06:26Z
+- Last modified: 2026-09-29T08:05Z
 - Summary: Information on Alerting for Risk360.
 
 Alerting helps you meet your security compliance requirements and reduce potential financial losses by getting timely notifications when the configured criteria in the alert rule are met. This also helps take swift action towards events impacting your organization's risk exposure.
@@ -14950,13 +15060,50 @@ The drawer shows the following information about the alert:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/about-custom-dashboards","lastmod":"2026-02-26T08:28Z","nid":"1535218"} -->
+<!-- ZS-ARTICLE {"url":"/unified/about-automation-rules","lastmod":"2026-09-16T17:31Z","nid":"1545374"} -->
+## About Automation Rules
+
+- Source: https://help.zscaler.com/unified/about-automation-rules
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Administration > Automations > Automation Rules > About Automation Rules
+- Last modified: 2026-09-16T17:31Z
+- Summary: Information on the Automation Rules page in the Security Operations Platform.
+
+An automation rule automatically triggers one or more playbooks when specific conditions are met on a selected entity, such as an [alert](https://help.zscaler.com/agentic-soc/about-alerts), or an [incident](https://help.zscaler.com/agentic-soc/about-incidents).
+
+Automation rules provide the following benefits and enable you to:
+
+- Automate response, remediation, and orchestration workflows based on defined rules and conditions.
+- Apply consistent rules and conditions for automatically triggering playbooks.
+- Combine multiple playbooks to create multi-step automated responses.
+
+## About the Automation Rules Page
+
+On the Automation Rules page (Agentic SOC > Automations > Automation Rules), you can do the following:
+
+1. [Create a new automation rule](https://help.zscaler.com/unified/creating-automation-rules).
+2. Search for an automation rule.
+3. [Filter](https://help.zscaler.com/unified/using-filters) automation rules by entity, status, or trigger.
+4. Show or hide the playbooks associated with automation rules.
+5. View all automation rules, including their related playbooks when displayed. For each automation rule, you can view:
+  - **Name**: The name of the automation rule.
+  - **Description**: The description of the automation rule.
+  - **Last Modified**: The date when the automation rule was last modified.
+  - **Active** or **Inactive**: The status of the automation rule.
+6. Unlink a playbook from an automation rule.
+
+[Image: Automation Rules page]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/about-custom-dashboards","lastmod":"2026-09-07T04:59Z","nid":"1545173"} -->
 ## About Custom Dashboards
 
 - Source: https://help.zscaler.com/unified/about-custom-dashboards
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Custom Dashboards > About Custom Dashboards
-- Last modified: 2026-02-26T08:28Z
+- Last modified: 2026-09-07T04:59Z
 - Summary: Information on viewing, filtering, and creating custom dashboards in Zscaler Admin Console.
 
 In addition to a robust set of preconfigured dashboards that allow you to monitor your organization's security profile at a glance using a variety of graphs and charts, you can also create customized dashboards so you can focus on the metrics most important to you.
@@ -15000,16 +15147,16 @@ On the Custom Dashboards page (Analytics> Custom Dashboards), you can do the fol
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/about-dashboards","lastmod":"2026-08-19T09:51Z","nid":"1541896"} -->
+<!-- ZS-ARTICLE {"url":"/unified/about-dashboards","lastmod":"2026-09-07T04:59Z","nid":"1545219"} -->
 ## About Dashboards
 
 - Source: https://help.zscaler.com/unified/about-dashboards
 - Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Analytics > Dashboards > About Dashboards
-- Last modified: 2026-08-19T09:51Z
-- Summary: Information about the My Dashboards page in the Security Operations Platform.
+- Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Analytics > Dashboards > About Dashboards
+- Last modified: 2026-09-07T04:59Z
+- Summary: Information about the My Dashboards page in the Agentic Security Operations Platform.
 
-You can create, manage, and monitor custom dashboards in the Security Operations Platform. These dashboards provide visibility into identity findings, risks, and MITRE ATT&CK techniques across tenants.
+You can create, manage, and monitor custom dashboards in the Agentic Security Operations Platform. These dashboards provide visibility into identity findings, risks, and MITRE ATT&CK techniques across tenants.
 
 Dashboards provide the following benefits and enable you to:
 
@@ -15056,13 +15203,13 @@ On My Dashboards page (Explore > Dashboards), you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/about-data-model-management","lastmod":"2026-08-31T08:39Z","nid":"1542618"} -->
+<!-- ZS-ARTICLE {"url":"/unified/about-data-model-management","lastmod":"2026-09-07T05:01Z","nid":"1545268"} -->
 ## About Data Model Management
 
 - Source: https://help.zscaler.com/unified/about-data-model-management
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > About Data Model Management
-- Last modified: 2026-08-31T08:39Z
+- Last modified: 2026-09-07T05:01Z
 - Summary: Information about the Data Model Management page in the Security Operations Platform.
 
 You can view and manage entity and field schemas from the Data Model Management page in the Security Operations Platform (SecOps Platform).
@@ -15105,13 +15252,13 @@ On the Data Model Management page (Configure > Data Model), you can do the follo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/about-experience-center-audit-logs","lastmod":"2026-09-04T09:28Z","nid":"1500641"} -->
+<!-- ZS-ARTICLE {"url":"/unified/about-experience-center-audit-logs","lastmod":"2026-09-07T05:01Z","nid":"1544561"} -->
 ## About Experience Center Audit Logs
 
 - Source: https://help.zscaler.com/unified/about-experience-center-audit-logs
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Administration > Audit Logs > About Experience Center Audit Logs
-- Last modified: 2026-09-04T09:28Z
+- Last modified: 2026-09-07T05:01Z
 - Summary: Information regarding Experience Center audit logs, including policy and configuration change logs, within the Zscaler Admin Console (i.e., the unified user interface).
 
 Zscaler records the session information for each admin that signs in to the Zscaler Admin Console. The audit log displays information related to sign-in or sign-out attempts (e.g., timestamps, actions, IP addresses, etc.) and any configuration changes that were completed during their session such as updates or deletes.
@@ -15176,13 +15323,13 @@ There are two types of changes you can view:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/about-incident-analytics-dashboard","lastmod":"2026-03-23T10:02Z","nid":"1539024"} -->
+<!-- ZS-ARTICLE {"url":"/unified/about-incident-analytics-dashboard","lastmod":"2026-09-24T21:06Z","nid":"1545184"} -->
 ## About the Incident Analytics Dashboard
 
 - Source: https://help.zscaler.com/unified/about-incident-analytics-dashboard
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Data Security > About the Incident Analytics Dashboard
-- Last modified: 2026-03-23T10:02Z
+- Last modified: 2026-09-24T21:06Z
 - Summary: Information about the DLP Incident Analytics dashboard.
 
 The Incident Analytics dashboard gives high-level visibility and insight into your organization's [Data Loss Prevention (DLP) incidents](https://help.zscaler.com/zia/about-incidents). It allows you to monitor and analyze incident data from a single location at an organizational level. This dashboard provides a variety of information about the incidents over a specified timeframe, such as the time taken to triage and resolve incidents, previous and current incident counts, and the cumulative number of new and resolved incidents, etc.
@@ -15198,7 +15345,7 @@ The Incident Analytics dashboard provides the following benefits and enables you
 
 ## About the Incident Analytics Dashboard
 
-On the Incident Analytics dashboard (Analytics > Data Security > Incidents Dashboard), you can do the following:
+On the Incident Analytics dashboard (Analytics > Data Security > Incidents), you can do the following:
 
 1. Export the incident analytics to a PDF file. You can export all incident analytics available on the page, or use the filter criteria to modify the incident analytics displayed on the page and then export that information.
 2. Select a time range for what to display on the Incident Analytics dashboard. By default, this page displays incident analytics for the current calendar week (Sunday through Saturday). The time range filter applies to all widgets. Time ranges are:
@@ -15285,7 +15432,7 @@ See image.
 
 This table is only available to admins with full workflow access permission.
 
-Displays a table listing the 10 DLP admins with the most incidents assigned to them. For each admin, you can view the following information:
+Displays a table listing the 10 DLP admins with the most incidents assigned to them. For each admin, you can view:
 
 - **Assigned Admin**: The login ID for the admin.
 - **New Incidents**: The number of incidents with new status assigned to the admin.
@@ -15302,7 +15449,7 @@ Displays a list of the 10 most violated DLP dictionaries with the DLP dictionary
 
 See image.
 
-Displays a table listing the 10 DLP end users with the most incidents associated with them. For each end user, you can view the following information:
+Displays a table listing the 10 DLP end users with the most incidents associated with them. For each end user, you can view:
 
 - **User Email**: The email ID of the end user. When you click the user email link, you are redirected to the Incidents page, which displays only the incidents created by that end user. The user filter is automatically applied in the Filters section. If you applied other filters before clicking the user email link, those filters remain applied, as well.
 - **Total Incidents**: The total number of incidents associated with the end user.
@@ -15321,30 +15468,30 @@ See image.
 
 [Image: Viewing the calendar and time columns after a date and time have been selected for the end date. The end date (January 15) is highlighted on the calendar, the time (6:30 AM) is highlighted in the time options, and the end date field (2026-01-15 06:30:00) is highlighted to show the date and time selected.]
 
-[Image: Viewing the Time to Triage/Resolve Widget on the Incident Analytics dashboard]
+[Image: Viewing the Time to Triage/Resolve widget on the Incident Analytics dashboard]
 
-[Image: Viewing the Incident by Status Widget on the Incident Analytics dashboard]
+[Image: Viewing the Incident by Status widget on the Incident Analytics dashboard]
 
-[Image: Viewing the Top 10 False Positive Incidents By Rule Chart on the Incident Analytics dashboard]
+[Image: Viewing the Top 10 False Positive Incidents by Rule chart on the Incident Analytics dashboard]
 
-[Image: Viewing the Top 10 False Positive Incidents By Dictionary Chart on the Incident Analytics dashboard]
+[Image: Viewing the Top 10 False Positive Incidents by Dictionary chart on the Incident Analytics dashboard]
 
-[Image: Viewing the Top 10 Incidents By Rule Chart on the Incident Analytics dashboard]
+[Image: Viewing the Top 10 Incidents by Rule chart on the Incident Analytics dashboard]
 
-[Image: Viewing the Top 10 Incidents By Dictionary Chart on the Incident Analytics dashboard]
+[Image: Viewing the Top 10 Incidents by Dictionary chart on the Incident Analytics dashboard]
 
-[Image: Viewing the New and Resolved Incidents Over Time Widget on the Incident Analytics dashboard]
+[Image: Viewing the New and Resolved Incidents Over Time widget on the Incident Analytics dashboard]
 
-[Image: Viewing the Top DLP Admins Table on the Incident Analytics dashboard]
+[Image: Viewing the Top DLP Admins table on the Incident Analytics dashboard]
 
-[Image: Viewing the Top 10 Users Table on the Incident Analytics dashboard]
+[Image: Viewing the Top 10 Users table on the Incident Analytics dashboard]
 
 [Image: Viewing information on the Incident Analytics dashboard]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/about-linked-services","lastmod":"2026-06-10T23:39Z","nid":"1500626"} -->
+<!-- ZS-ARTICLE {"url":"/unified/about-linked-services","lastmod":"2026-06-10T23:39Z","nid":"1544560"} -->
 ## About Linked Services
 
 - Source: https://help.zscaler.com/unified/about-linked-services
@@ -15378,13 +15525,196 @@ On the Linked Services page (Administration > Account Management > Linked Servic
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/about-signal-history","lastmod":"2026-06-28T21:44Z","nid":"1508481"} -->
+<!-- ZS-ARTICLE {"url":"/unified/about-playbooks","lastmod":"2026-09-15T17:28Z","nid":"1545359"} -->
+## About Playbooks
+
+- Source: https://help.zscaler.com/unified/about-playbooks
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Administration > Automations > Playbooks > About Playbooks
+- Last modified: 2026-09-15T17:28Z
+- Summary: Information on the Playbooks feature in the Security Operations Platform
+
+Security Orchestration, Automation, and Response (SOAR) is a solution that enables automated responses to threats and security events. This helps security teams to quickly analyze and respond to security events and prevent future incidents, thereby improving the organization's overall security posture.
+
+Playbooks are a core component of SOAR. A playbook is a predefined set of actions that automate security investigation and response tasks. Actions are tasks that a playbook performs, such as sending notifications, blocking an IP address, isolating a host, resetting a password, or suspending a user in Okta or Microsoft Entra ID, etc. You can run playbooks manually or trigger them using automation rules.
+
+Playbooks provide the following benefits and enable you to:
+
+- Automate repetitive response actions for security threats and events.
+- Streamline and standardize incident response workflows across security teams.
+- Reduce manual effort and response time.
+
+## About the Playbooks Page
+
+On the Playbooks page (Agentic SOC> Automations > Playbooks), you can do the following:
+
+1. [Duplicate a playbook.](https://help.zscaler.com/unified/managing-playbooks)
+2. [Edit a playbook.](https://help.zscaler.com/unified/managing-playbooks)
+3. [Delete a playbook.](https://help.zscaler.com/unified/managing-playbooks)
+4. [Create a new playbook.](https://help.zscaler.com/unified/creating-playbooks)
+5. View the list of playbooks. For each playbook, you can see:
+  - **Name**: The name of the playbook.
+  - **Description**: The description of the playbook.
+  - **Entity Type**: The type of entity that triggers the playbook (**Alert** or **Incident**).
+  - **Owner**: The user who created the playbook.
+  - **Last Update**: The date when the playbook was last updated.
+  - **Number of Runs**: The number of times the playbook has been run.
+  - **Success/Failed**: The number of successful and failed playbook runs.
+  - **Status**: Whether the playbook is active or inactive.
+6. View the run history for each playbook, including status and triggering details.
+7. [Export a playbook.](https://help.zscaler.com/unified/managing-playbooks)
+8. Go to the [Template Gallery](https://help.zscaler.com/unified/creating-playbooks) page to view preconfigured playbook templates.
+
+[Image: Playbooks page]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/about-reports","lastmod":"2026-09-15T22:14Z","nid":"1545510"} -->
+## About Reports
+
+- Source: https://help.zscaler.com/unified/about-reports
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Analytics > Reports > About Reports
+- Last modified: 2026-09-15T22:14Z
+- Summary: Information on the Reports page in the Security Operations Platform.
+
+Reports provide information about security data for key entities such as users, tenants, identity findings, tickets, and assets. You can customize reports with dimensions and measurements to analyze the data and identify trends. Reports can be created manually or scheduled for automatic delivery, helping you track progress, support audits, and keep stakeholders informed.
+
+Reports provide the following benefits and enable you to:
+
+- Create custom reports by selecting an entity, dimensions, and measurements.
+- View current data for a selected entity or track historical trends over a selected date range.
+- Control report access by setting viewer and editor permissions.
+- Schedule automated delivery and export data in CSV, JSONL, or Excel format.
+
+## About the Reports Page
+
+On the Reports page (Explore > Reports), you can do the following:
+
+1. [Activate a selected report](https://help.zscaler.com/unified/managing-reports).
+2. [Deactivate a selected report](https://help.zscaler.com/unified/managing-reports).
+3. [Rerun a selected report](https://help.zscaler.com/unified/managing-reports).
+4. [Duplicate a selected report](https://help.zscaler.com/unified/managing-reports).
+5. [Edit a selected report](https://help.zscaler.com/unified/managing-reports).
+6. [Edit tags for a selected report](https://help.zscaler.com/unified/managing-reports).
+7. [Delete a selected report](https://help.zscaler.com/unified/managing-reports).
+8. [Create a new report](https://help.zscaler.com/unified/creating-reports).
+9. View the available reports. For each report, you can see:
+  - **ID:** The unique identifier of the report.
+  - **Name:** The name of the report.
+  - **Tags:** The tags associated with the report.
+  - **App:** The application the report belongs to.
+  - **Created By:** The user who created the report.
+  - **Sharing Settings:** The sharing status of the reports (e.g., **Private**, **Public**, or shared with specific users).
+  - **Last Run Time (UTC):**The date and time the report was last run, displayed in UTC.
+  - **Last Update Time:** The date and time the report was last updated.
+  - **Updated By:** The user who last updated the report.
+  - **Scheduled Export:** Whether a scheduled export is configured for the report.
+  - **Schedule Export Details:** The schedule details for exporting the report, including the frequency, format, and delivery destination.
+
+[Image: Report page showing the list of available reports and options to create and manage reports.]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/about-role-management","lastmod":"2026-09-29T10:43Z","nid":"1545458"} -->
+## About Role Management
+
+- Source: https://help.zscaler.com/unified/about-role-management
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Administration > Role Management > About Role Management
+- Last modified: 2026-09-29T10:43Z
+- Summary: Information on the Role Management page in the Zscaler Admin Console.
+
+Unified Role-Based Access Control (RBAC) is a feature in limited availability. To access this feature, contact your Zscaler Account team.
+
+You can create admin roles that manage access to pages and features in the Zscaler Admin Console. Administrator roles are created with granular permissions, allowing for precise control over what admins can see and change. You can also select an optional scope for each role that specifies to what, when, or where the role applies. There are two predefined roles that are available by default:
+
+- SuperAdmin: A role with full access to all permissions.
+- ReadOnly: A role with view-only access to all permissions.
+
+You can obfuscate information for roles with compatible Internet & SaaS (ZIA) and Digital Experience permissions. To learn more, see [Configuring Obfuscation for Administrator Roles](https://help.zscaler.com/unified/configuring-obfuscation-administrator-roles).
+
+The Role Management page provides the following benefits and enables users to:
+
+- Create roles that give admins varying levels of access to the Zscaler Admin Console with granular control over permissions.
+- Assign admins to multiple or specific roles with varying levels of access.
+- Assign functional scopes to roles that control the domain in which their permissions apply.
+- Obfuscate user and device information for a role.
+
+On the Role Management page (Administration > Role Management > Role Management), you can do the following:
+
+1. [Create a role.](https://help.zscaler.com/unified/configuring-administrator-roles)
+2. Search for a role in the table.
+3. Filter roles visible in the table by the permissions they manage.
+4. Hide roles with no assignments from the table.
+5. View the roles configured by your organization. For each role you can see the following:
+  - **Name**: The name of the role. You can click the name of the role to view or edit detailed lists of the roles permissions, scopes, and assignments.
+  - **Description**: The description of the role.
+  - **Type**: Displays **Custom** if the role was created by your organization. Displays **Predefined** if the role was created automatically by the Zscaler service.
+  - **Permissions**: Displays the number of permissions the role manages. You can click the number to view or edit a detailed list of the role's permissions.
+  - **Scopes**: Displays the number of scopes assigned to the role. You can click the number to view or edit a detailed list of the role's scopes. Not all permissions can be assigned a scope.
+  - **Assignments**: Displays the number of admins the role is assigned to. You can click the number to add, view, or edit assignments for the role. To learn more, see [Configuring Role Assignments](https://help.zscaler.com/unified/configuring-role-assignments).
+6. View or edit a detailed list of the role's permissions, scopes, assignments, and obfuscations by clicking on the name, number of permissions, number of scopes, or number of assignments.
+7. [Edit the permissions and scope chosen for the role.](https://help.zscaler.com/unified/configuring-administrator-roles#edit-role)
+8. [Delete a role](https://help.zscaler.com/unified/configuring-administrator-roles#delete-role). You can only delete roles with no assignments.
+9. [Duplicate a role](https://help.zscaler.com/unified/configuring-administrator-roles#duplicate-role). Duplicate roles are created with no assignments. Any existing assignments are not copied to duplicate roles.
+
+[Image: The Role Management page with annotations highlighting the information and functions available on the page]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/about-role-management-audit-logs","lastmod":"2026-09-29T10:50Z","nid":"1545466"} -->
+## About Role Management Audit Logs
+
+- Source: https://help.zscaler.com/unified/about-role-management-audit-logs
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Administration > Audit Logs > About Role Management Audit Logs
+- Last modified: 2026-09-29T10:50Z
+- Summary: Information on the Audit Logs page for Role Management in the Zscaler Admin Console.
+
+The Zscaler service records the activity of each admin that uses the [Role Management page](https://help.zscaler.com/unified/about-role-management). The audit log displays information related to creating, updating, and deleting admin roles.
+
+Audit logs provide the following benefits and enable you to:
+
+- Analyze role management sessions by reviewing in-depth information such as actions, users, source IPs, or configuration changes (creating, updating, and deleting admin roles).
+- Detect and investigate suspicious activity and track unauthorized access to the Role Management page, demonstrating compliance with security policies.
+- Review configuration changes for comparison of the before-and-after of role management sessions.
+
+## About the Role Management Audit Logs Page
+
+On the Audit Logs page for role management (Data Explorer > Audit Logs > Role Management), you can do the following:
+
+1. Filter the audit logs by timestamp, action, and result.
+2. View the list of actions that have occurred. For each action, you can see:
+  - **Timestamp**: The date and local time the action occurred.
+  - **Action**:The action performed by the admin in the Zscaler Admin Console or the action performed by an API. The following are the possible actions:
+    - **Create Role**
+    - **Update Role**
+    - **Delete Role**
+  - **User**: The admin's login ID or the internal API user (`oauth-<rolename>$@<orgid>.<cloud-domain>`) if an APIs action was authenticated by an external OAuth 2.0 authentication server.
+  - **Target Role Name**: The name of the administrator role that was created, updated, or deleted.
+  - **Client IP**: The source IP address for the admin or the client application's IP address that executed the API.
+  - **Result**: The outcome of an action:
+    - **Success**
+    - **Failure**
+3. Filter the audit logs by column.
+4. View the changes made to a role if it was updated.
+
+[Image: Audit Logs page for Role Management]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/about-signal-history","lastmod":"2026-09-07T04:59Z","nid":"1544667"} -->
 ## About Signal History
 
 - Source: https://help.zscaler.com/unified/about-signal-history
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Policies > Adaptive Access Engine > About Signal History
-- Last modified: 2026-06-28T21:44Z
+- Last modified: 2026-09-07T04:59Z
 - Summary: Information on viewing the context signals received from different third-party tools that are integrated with the Adaptive Access Engine.
 
 You can view the history of context signals over time and investigate security incidents that happened in the past. You can view and analyze the context signals for each [Adaptive Access profile](https://help.zscaler.com/unified/about-adaptive-access-profiles).
@@ -15416,14 +15746,14 @@ On the Signal History page (Policies > Common Configuration > Adaptive Access > 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/about-users-security-operations-platform","lastmod":"2026-09-03T23:44Z","nid":"1542873"} -->
-## About Users in the Security Operations Platform
+<!-- ZS-ARTICLE {"url":"/unified/about-users-security-operations-platform","lastmod":"2026-09-30T13:01Z","nid":"1545320"} -->
+## About Users in the Agentic Security Operations Platform
 
 - Source: https://help.zscaler.com/unified/about-users-security-operations-platform
 - Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Administration > Account Management > User Management > About Users in the Security Operations Platform
-- Last modified: 2026-09-03T23:44Z
-- Summary: Information on the Users page about the applications in the Security Operations Platform.
+- Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Analytics > Users > About Users in the Agentic Security Operations Platform
+- Last modified: 2026-09-30T13:01Z
+- Summary: Information on the Users page in the Agentic Security Operations Platform.
 
 You can view a consolidated list of user accounts and their identity types, and review the identity findings and total number of critical or high-severity findings to take the necessary action. Only users in an active state are displayed on the Users page.
 
@@ -15435,7 +15765,7 @@ Managing users provides the following benefits and enables you to:
 
 ## About the Users Page
 
-On the Users page (Agentic SOC > Users, Identities > Users, or AEM > Users), you can do the following actions:
+On the Users page (Agentic SOC > Users, Identities > Users, or AEM > Users), you can do the following:
 
 1. Select from system-saved views or [views you previously saved](https://help.zscaler.com/unified/creating-managing-saved-views).
 2. Search for a user by entering keywords in the search bar.
@@ -15463,43 +15793,52 @@ On the Users page (Agentic SOC > Users, Identities > Users, or AEM > Users), you
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/about-zagent","lastmod":"2026-09-02T17:13Z","nid":"1503881"} -->
+<!-- ZS-ARTICLE {"url":"/unified/about-zagent","lastmod":"2026-09-30T13:39Z","nid":"1544587"} -->
 ## About ZAgent
 
 - Source: https://help.zscaler.com/unified/about-zagent
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > ZAgent > About ZAgent
-- Last modified: 2026-09-02T17:13Z
+- Last modified: 2026-09-30T13:39Z
 - Summary: Overview of ZAgent framework where you can ask questions or run predefined agents to analyze and automate systems for a comprehensive view of your organization's security and guardrails.
 
-This feature is in Limited Availability. To enable this feature, contact Zscaler Support.
+ZAgent is Zscaler's AI framework for operating and managing Zscaler's Zero Trust Secure Access Service Edge (SASE) platform. You can understand, monitor, troubleshoot, configure, and optimize your Zscaler environment by using ZAgent as a unified, conversational experience.
 
-The ZAgent framework is Zscaler's architectural foundation and the first step for agentic AI operations across the Zero Trust Secure Access Service Edge (SASE) platform, a system where administrators can configure, monitor, troubleshoot, and optimize without logging in to a traditional interface. You can have an interactive conversational assistant, or you can select predefined agents to automate systems to analyze your organization's comprehensive security and guardrails. Admins can shift from an administrative workflow to an agentic AI workflow that allows them to focus on the details where they can monitor, configure, troubleshoot, or optimize tasks. ZAgent is complimentary with specified Zscaler subscriptions.
+As the admin, you can interact with ZAgent however needed to best fit the task. You ask questions of ZAgent and allow it to determine the appropriate agent needed for the requested task. ZAgent determines the appropriate agent based on the request and can choose a skill to focus on based on its capability.
 
-ZAgent provide the following benefits and enable you to:
+ZAgent provides the following benefits and enables you to:
 
-- Rapidly onboard autonomous systems for complex tasks to improve operational efficiency.
-- Centralize management for a unified interface where you can monitor, manage, and view ZAgent performances.
-- Deliver relevant insight and graphical representations for troubleshooting.
-- Discover a comprehensive knowledge base of Zscaler for intelligent summarization.
+- Ask questions or prompts to perform supported operational tasks through a central conversational interface.
+- Automatically route requests to the appropriate agent, or you can select an agent as needed.
+- Troubleshoot issues with relevant insights, analysis, and visualizations.
+- Discover comprehensive information about Zscaler products based on Zscaler's published knowledge sources.
+- Improve operational efficiency by bringing specialized agents, skills, and knowledge together into a unified conversational experience.
 
-There are many different [use cases](https://help.zscaler.com/unified/understanding-zagent-use-cases) for ZAgent as it can interact with Zscaler features.
+There are many different [use cases](https://help.zscaler.com/unified/understanding-zagent-use-cases) for ZAgent to interact with Zscaler features. An agent's availability depends on your [subscriptions](https://help.zscaler.com/unified/viewing-subscriptions).
+
+| Agent | Subscription |
+| --- | --- |
+| Digital Experience Agent | Complimentary with Digital Experience's Advanced Plus. If you do not have Advanced Plus, then you only have access to the Digital Experience Agent's Knowledge Skill. |
+| Risk360 Agent | Complimentary with Risk360. |
+| Data Protection Agent | Complimentary with Data Protection. |
 
 ZAgent retains prompts and responses for a rolling period of 14 days as part of the session history. To learn more, see [ZAgent Logs](https://help.zscaler.com/logs-fair-use/zagent-logs).
 
 ## About ZAgent
 
-To access ZAgent, click the Wand icon in your Zscaler Admin Console to open the ZAgent drawer.
+To access ZAgent, click the **Wand** icon ([Image: ZAgent Wand Icon]) in your Zscaler Admin Console to open the ZAgent drawer.
 
 See image.
+
+You can expand the drawer to a window to see more details on a wider screen.
 
 In ZAgent (showing expanded window), you can:
 
 1. Create a new chat session.
 2. Minimize the ZAgent window to a drawer.
-3. Exit ZAgent when you are no longer using it.
-4. Review chat session history. No data is shown if there were no chat sessions in the past 14 days.
-5. Prompt or ask a question by entering text. Depending on what you prompted and what the ZAgent responds with, you might have additional actions available (e.g., run a diagnostics session, view device details).
+3. Close ZAgent when you are no longer using it.
+4. Review the chat session history. No data is shown if there were no chat sessions in the past 14 days.
+5. Prompt or ask a question by entering text. Depending on your prompt and what ZAgent responds with, you might have additional actions available (e.g., run a diagnostics session, view device details).
 6. Select an agent and then select a skill to focus the prompt on. Optionally, you can enter `@` to select an agent and then enter `/` to select an agent's skill. See image.
 
 [Image: Overview of ZAgent]
@@ -15511,13 +15850,13 @@ In ZAgent (showing expanded window), you can:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/accessing-and-using-executive-insights-app","lastmod":"2026-06-09T04:25Z","nid":"1520566"} -->
+<!-- ZS-ARTICLE {"url":"/unified/accessing-and-using-executive-insights-app","lastmod":"2026-09-30T11:33Z","nid":"1544882"} -->
 ## Accessing and Using the Executive Insights App
 
 - Source: https://help.zscaler.com/unified/accessing-and-using-executive-insights-app
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Executive Insights App > Accessing and Using the Executive Insights App
-- Last modified: 2026-06-09T04:25Z
+- Last modified: 2026-09-30T11:33Z
 - Summary: Information on the Zscaler Executive Insights App.
 
 The Executive Insights App is designed to provide an executive summary of the key data points and valuable insights into your enterprise security environment on a mobile device. It provides you with a dynamic view of your operational performance and security posture.
@@ -15567,13 +15906,13 @@ To install the Executive Insights App on your iOS device:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/adding-adaptive-access-profile","lastmod":"2026-06-29T00:36Z","nid":"1508396"} -->
+<!-- ZS-ARTICLE {"url":"/unified/adding-adaptive-access-profile","lastmod":"2026-09-07T05:01Z","nid":"1544666"} -->
 ## Adding an Adaptive Access Profile
 
 - Source: https://help.zscaler.com/unified/adding-adaptive-access-profile
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Policies > Adaptive Access Engine > Adding an Adaptive Access Profile
-- Last modified: 2026-06-29T00:36Z
+- Last modified: 2026-09-07T05:01Z
 - Summary: How to add Adaptive Access profiles in the Experience Center and manage the entities' access control to sensitive applications.
 
 The Adaptive Access profile is a measure to calculate the risks associated with users and devices accessing applications via Zscaler. The Adaptive Access profile allows you to define how Zscaler detects any suspicious behavior or malicious activity and remediate the risk by enforcing adaptive policies.
@@ -15613,735 +15952,4 @@ The newly created profile is displayed on the **Profiles**page. The Adaptive Acc
 [Image: Select the profile criteria]
 
 [Image: Click the Plus icon]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/unified/adding-and-managing-entities-and-fields","lastmod":"2026-08-31T08:38Z","nid":"1542664"} -->
-## Adding and Managing Entities and Fields
-
-- Source: https://help.zscaler.com/unified/adding-and-managing-entities-and-fields
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Adding and Managing Entities and Fields
-- Last modified: 2026-08-31T08:38Z
-- Summary: Information about how to add and manage fields and entities in the Security Operations Platform data model.
-
-The Security Operations Platform (SecOps Platform) data model comes with many default entity types that define and describe the data created and needed by the applications in the SecOps Platform. You can manage those entities, their attributes (fields), and their relationships to ensure that business objectives are met. To learn more, see [Understanding Entity Types](https://help.zscaler.com/unified/understanding-entity-types) and [Understanding the Data Model in the Security Operations Platform](https://help.zscaler.com/unified/understanding-data-model-security-operations-platform).
-
-Consult your Zscaler Account team when making changes to the data model. Uninformed or well-meaning changes to the data model can affect data integrity and cause fragmented or duplicated data, which can result in operational inefficiencies or noncompliance.
-
-## Adding and Managing Entities
-
-For access to the data model, your assigned role must include the Read, Create, Edit, and Delete permissions under the Platform - Model Management resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/unified/creating-managing-role-permissions) and [Assigning Roles to Users](https://help.zscaler.com/unified/assigning-roles-users).
-See image.
-
-[Image: Model Management resource highlighted]
-
-You can add new entities when you need to track distinct objects, resources, or concepts in the SecOps Platform data model that are not otherwise covered by the default entities.
-
-Add an Entity
-
-To add an entity:
-
-1. In the SecOps Platform Admin Portal, go to **Configure**>**Data Model**.
-2. Click **Add Entity**. See image. This action is irreversible. You cannot delete entities from the SecOps Platform data model. To delete an existing entity, contact Zscaler Support.
-3. Enter a name for the entity, and click **Add**. An entity is created with the following default fields: `First Seen`, `Last Seen`, `Tags`, `Sources`, `ID`, `Locked`, `State`, `Created`, `Last Update`, `Last State Transition`, `Key`, `Name`, `Type`.
-4. Configure the entity's relationships, fields, unification rules, and usage within the SecOps Platform. Consult your Zscaler Account team for assistance.
-
-[Image: Add Entity button highlighted on Data Model Management page.]
-
-When managing entities, you can perform the following actions:
-
-Add a Field to an Entity
-
-To add a field to an entity:
-
-1. Go to **Configure** >**Data Model**.
-2. For the entity you want to add a new field to, click the **Add field** icon. See image. [Image: Add field icon highlighted on Data Model Management page] This action is irreversible. You cannot delete fields from the SecOps Platform data model. To delete an existing field from an entity, contact Zscaler Support.
-3. In the new field window that appears:
-  1. **Field Name**: Enter a name for the field.
-  2. **Field Type**: Select a field type from the drop-down menu. Available fields include **Text**, **Number**, **Boolean**, **Date**, **Date & Time**, **Repeated Text**, **Repeated Number**, **Repeated Boolean**, **Repeated Date**, and **Repeated Date & Tim**e.
-
-Investigate an Entity
-
-To view the Entity Explorer page for an entity:
-
-1. Go to **Configure**>**Data Model**.
-2. Hover over the entity you want to investigate, and click the**Investigate Entity**icon. See image. [Image: Investigate Entity icon highlighted on Alert entity in Data Model Management page] The **Entity Explorer** page appears. To learn more, see [Using the Entity Explorer](https://help.zscaler.com/unified/using-entity-explorer).
-
-Process Entities
-
-To run unification rules and other data manipulation functions:
-
-1. Go to **Configure**>**Data Model**.
-2. Choose one of the following options: See image. [Image: Process All and Process by entity button]
-  1. **Process All**: Click to process all entities.
-  2. **Process by entity**: Click the drop-down menu to select the entities you want to process, and click **Apply**. Select **Run selected and dependent projects**or **Run selected projections only**, and click **Process**.
-3. (Optional) If processing fails, click **Show Logs**to open the **Entity Management Runs** page and review the logs. See image [Image: Show Logs button highlighted on processing notification for failed run]
-
-View Entity Management Runs
-
-To view entity management runs:
-
-1. Go to **Configure**> **Data Model**.
-2. Click the **See Logs**icon. See image. [Image: See Logs icon highlighted on the Data Model Management page] The **Entity Management Runs** page appears.
-3. On the **Entity Management Runs** page, you can perform the following actions:
-  - View details of the entity management runs. You can sort each column. For each run, you can see:
-    - **Status**: The status column displays the outcome of each run:
-      - **Completed**: The run successfully completed without data manipulation issues.
-      - **Canceled**: The run was intentionally stopped by the user.
-      - **Failed**: The run encountered an error during data manipulation that prevented it from completing successfully.
-      - **Partially Completed**: The run encountered some errors during data manipulation. You should manually process this run again to ensure that all data manipulation is completed.
-    - **ID**: A unique identifier for the run that can be used for reference when troubleshooting run failures.
-    - **Category**: The run's category displays the processing type, indicating the level of processing applied to the ingested data. All Entity Management runs are categorized as**Aggregate**runs, where the SecOps Platform applies data unification rules and other data manipulation processes. To learn more about other run categories, see [Tracking Data Source Runs](https://help.zscaler.com/unified/tracking-data-source-runs).
-    - **Triggered by**: Displays who initiated the run:
-      - **System**: The run was triggered by its [configured schedule](https://help.zscaler.com/unified/creating-data-sources#scheduling-section).
-      - **User**: The run was triggered by a user clicking**Process** or **Process All**.
-    - **Run type**: Indicates how the run was performed: For a complete list of all run types, contact Zscaler Support.
-      - **Agg process:** A run manually initiated by a user by clicking **Process** or **Process All** on the [Data Unification - Entities page](https://help.zscaler.com/unified/managing-entity-unification), [Data Unification - Fields page](https://help.zscaler.com/unified/managing-field-unification), or Data Model Management page.
-      - **Batched**: A run initiated by its [configured schedule](https://help.zscaler.com/unified/creating-data-sources).
-      - **Auto-batched*****:***A run initiated as part of a [platform-managed batch process](https://help.zscaler.com/unified/managing-data-sources).
-      - **Post manual operation**: A run initiated by a user overriding a field value.
-    - **Duration**: The total amount of time the run took to complete.
-    - **Start Time**and**End Time:**The timestamps when the run started and ended. This information can reveal potential issues with data unification and assist during troubleshooting.
-  - Click to expand a run, and drill down into detailed logs about the completion status, duration, and start and end times for each entity processed. See image.
-  - (Optional) For in-progress runs, hover over the run, and click the **Cancel**icon to cancel the run. Confirm your choice to cancel the run instantly. See image.
-
-[Image: Entity management run expanded to show run activities.]
-
-[Image: Cancel icon highlighted on in-progress entity management run]
-
-View Entity Relationships
-
-Relationships between entities and their fields are defined on the Configure > Relationspage. Establishing proper relations prevents orphan records and preserves the integrity of your data. It also allows you to apply referential business logic.
-
-To learn more about establishing relations among entities and their fields, contact your Zscaler Account team.
-
-See image.
-
-[Image: Relations page]
-
-## Managing Fields
-
-When managing fields, you can perform the following actions:
-
-Change Field Visibility
-
-Field visibility determines whether a field is viewable within Unified Vulnerability Management (UVM), Asset Exposure Management (AEM), and other SecOps applications. The SecOps Platform still processes, aggregates, and runs unification rules for hidden fields.
-
-To change field visibility:
-
-1. Go to **Configure**>**Data Model**.
-2. Change a field's visibility by performing one of the following actions:
-  - Modify multiple fields:
-    1. Click **Set Visibility**. See image.
-    2. Select the fields you want to change visibility for. See image.
-    3. Click **Show** to enable visibility, or click **Hide** to disable visibility. See image.
-  - Modify a single field:
-    1. Click the field you want to change visibility for. The field details drawer opens.
-    2. Enable or disable **Visibility**. See image.
-
-[Image: Visibility toggle highlighted in field drawer]
-
-[Image: Multiple fields selected in the Data Model Management page]
-
-[Image: Show and Hide buttons highlighted in Data Model Management]
-
-[Image: Set Visibility button highlighted in Data Model Management]
-
-Manage Value Calculations
-
-Every field in the data model has a default formula that determines what values the field will contain when data is aggregated. You can see default formulas and calculations (i.e., Python script) for each field in the field drawer. You can also review the [default attribute reconciliation logic](https://help.zscaler.com/unified/attribute-reconciliation-default-functions) to understand how values for certain field types are calculated.
-
-To ensure the field uses value calculations that reflect your current security landscape, Zscaler recommends using [field unification rules](https://help.zscaler.com/unified/configuring-field-unification). This provides an easy, intuitive way to modify field formulas and calculations. However, if you find that the field unification rules are limited and cannot fully define the field's value, you can modify the formulas and Python script directly within the Data Model Management page. To learn more, see [Configuring Field Unification](https://help.zscaler.com/unified/configuring-field-unification) and [Understanding Field Unification, Data Model, and Application Settings](https://help.zscaler.com/unified/understanding-field-unification-data-model-and-application-settings).
-
-To modify the field's default data model logic:
-
-1. Go to **Configure > Data Model**.
-2. Click the field for which you want to manage its calculations. The field drawer opens. Field unification rules are the recommended way to specify field value logic, and they automatically override the default data model logic. If you have already configured field unification rules for this field, click **Unlink & Override**. This removes the field from [field unification rules](https://help.zscaler.com/unified/configuring-field-unification). See image.
-3. On the **Calculation** tab:
-  1. (Optional) Click **Add formula**and select a formula from the list, or click **Create new** to add your own. See image. The formula is added to the `eval_first_seen` function in the Editor. See image.
-  2. (Optional) Enable **CEL** to use [Python's Common Expression Language (CEL)](https://python-common-expression-language.readthedocs.io/en/latest/).
-  3. In the **Editor** field, insert a Python script.
-  4. In the **Default values for exception & none cases**section:
-    1. Click the **If Null** drop-down menu and select how null values are handled:
-      - **Set Null**: Set empty or null values as `Null`. This option is default.
-      - **Set Value**: Enter what value should be given to the empty or null value.
-      - **Fail & Set Error**: Set empty or null values to error with the included error message. You can also enter a new message.
-    2. Click the **If Error** drop-down menu and select how errors during value calculations are handled:
-      - **Set Null**: Set values as `Null`. This option is default.
-      - **Set Value**: Enter the value text.
-      - **Fail & Set Error**: Set empty or null values to error with the included error message. You can also enter a new message.
-
-[Image: Add formula button highlighted in the Calculation tab.  The  individual formula and the Create New button are highlighted in the Add formula drop-down.]
-
-[Image: Formula added to the editor]
-
-Preview a Field or Entity Data Model
-
-Review a limited subset of rows to verify how data loads within your field, or inspect your data types and field properties for a given entity.
-
-To preview an entity or field data model:
-
-1. Go to **Configure**>**Data Model**.
-2. Click the field for which you want to view its data model or its associated entity's data model. The field drawer opens.
-3. Click **Preview**. See image. The **Model Preview** page appears.
-4. Use the filters to adjust the data model preview as needed.
-5. (Optional) Click the **Entity** button to view the associated entity's data model. You can [resize or sort the table columns and add filters](https://help.zscaler.com/unified/using-tables). See image.
-
-[Image: Field is configured through unification rules and displays a warning and an Unlink & Override button.]
-
-Allow Manual Updates
-
-Allow users to make manual changes to a field value after aggregation and unification rules have run. Manual updates might be required for flexible business use cases, and you can restrict updates to roles or resources, require rationale, or apply content verification.
-
-To allow manual updates:
-
-1. Go to **Configure**>**Data Model**.
-2. Click the field for which you want to view its data model or its associated entity's data model. The field drawer opens.
-3. Click the **Manual Updates**tab.
-4. Enable **Allow Manual Updates**. See image. Some fields and entities do not allow you to enable manual updates.
-5. Enable the following settings as necessary:
-  1. **Allowed Permissions**: Enable to determine whether manual updates are restricted to specific roles or certain resource permissions, then select an option:
-    - **Restrict to Roles**: Select which roles are allowed to manually update the field.
-    - **Restrict to Resources**: Select which resources are allowed to manually update the field.
-  2. **Require Reason on update**: Enableto require rationale when a manual update occurs, then select an option:
-    - **Always**: A reason is always required when a manual update occurs. This option is selected by default.
-    - **Specific**:Select conditions under which a reason is required.
-  3. **Content Validation**: Enable to apply validation logic when a manual update occurs, then select an option:
-    - **Manual**: Select and enter specific keywords to be checked against the manually added value.
-    - **Query**: Select and click the **Field** drop-down menu to select a field.
-
-[Image: Allow Manual Updates toggle highlighted in Manual Updates tab of a field drawer]
-
-View Field Usage
-
-To view field usage:
-
-1. Go to **Configure**>**Data Model**.
-2. Click the field for which you want to view its data model or its associated entity's data model. The field details drawer opens.
-3. Click the **Usage**tab.
-4. Click an item under each usage section to open its associated page: Sections are only displayed if the field is currently in use.
-  - **Reports**: All reports that include the field.
-  - **View**: All saved views that include the field.
-  - **Dashboards**: All dashboards that include the field.
-  - **Data Model Fields**: All data model fields that the field is included in.
-  - **Data Source Mapping**: All data sources that include mapping to the field.
-  - **UI Configuration**: All UI configurations that include the field.
-  - **Measurement**: All calculated measurements that include the field.
-
-[Image: Entity and field toggle highlighted on Model Preview page]
-
-[Image: Preview button highlighted on field details drawer in the Data Model Management page]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/unified/adding-your-company-logo","lastmod":"2026-08-12T12:20Z","nid":"1488046"} -->
-## Adding Your Company Logo
-
-- Source: https://help.zscaler.com/unified/adding-your-company-logo
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Setting Up Policies > Adding Your Company Logo
-- Last modified: 2026-08-12T12:20Z
-- Summary: How to add your company logo to banners, user notifications, and emails sent from Zscaler.
-
-You can customize the Zscaler Admin Console to include your logo in application banners, notifications, and emails sent to your users regarding security issues.
-
-To add a logo during set up:
-
-1. On the **Miscellaneous** page, under **Company Logo**, click **Upload File**.
-
-See image.
-
-1. Upload the logo from your local directory. Zscaler supports logos with the following specifications:
-  - Dimensions of 300 x 220 pixels or less
-  - Size of 10 KB or less
-  - PNG, JPG, or GIF file types
-2. Click **Save**.
-3. Click **Next**to [review and activate policies](https://help.zscaler.com/unified/review-and-activate-policies) and complete your Zscaler Admin Console setup.
-
-If you need to edit the logo later, you can go to **Administration** > **Account Management** > **Branding**. To learn more, see [Customizing Branding](https://help.zscaler.com/unified/customizing-branding).
-
-[Image: Adding a company logo during onboarding]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/unified/aging-assets","lastmod":"2026-07-30T09:52Z","nid":"1541770"} -->
-## Aging Assets
-
-- Source: https://help.zscaler.com/unified/aging-assets
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Data Retention Management > Aging Assets
-- Last modified: 2026-07-30T09:52Z
-- Summary: How to configure asset aging rules by time or by value.
-
-Asset aging in the Security Operations Platform (SecOps Platform) enables organizations to automatically transition outdated or irrelevant assets to an inactive state. This enhances asset inventory accuracy and significantly reduces noise for security teams, ultimately improving operational efficiency and risk prioritization. You can also age associated entities (e.g., an asset's findings) when the linked asset becomes inactive to ensure data consistency and minimize manual cleanup.
-
-Asset aging rules can be automated and configured using two primary criteria:
-
-- Aging by time: Age assets based on the number of days since they were last detected by integrated tools or systems (using the Asset Last Seen field).
-- Aging by value: Age assets based on updates from the source system indicating status changes or other relevant field data.
-
-Inactive assets remain available for historical reporting but can be excluded from primary dashboard views. This ensures cleaner, more relevant inventory data without deleting the asset from the platform.
-
-## Configuring Asset Aging Rules
-
-Asset aging includes a fallback rule that specifies a default value with no conditional logic. This ensures that there is always default aging logic in place, preventing potential data conflicts or loss. The fallback rule can be edited, but can't be removed or deleted.
-
-For access to asset aging, your assigned role must include the Read, Create, and Edit permissions under the Platform - Model Management resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/unified/creating-custom-roles) and [Managing User Roles](https://help.zscaler.com/unified/assigning-roles-users).
-
-To configure an asset aging rule:
-
-1. In the SecOps Platform Admin Portal, go to **Configure** > **Asset Aging**. See image. [Image: Asset Aging page]
-2. Click **New Rule**. The **Create Aging Rule** drawer opens.
-3. In the **Create Aging Rule** drawer: See image. [Image: Create Aging Rule drawer]
-  1. **Name**: Enter a name for the rule.
-  2. **Category**: Select a rule category. Automatically age an asset when it has not been detected by the selected sources for a defined number of days. **Asset Population**: Define which assets the rule applies to.; **Aging Scenario**: Specify conditions, such as sources and duration. Use reliable sources to ensure assets are aged based on trustworthy detection data, and to avoid incorrectly aging active assets. When multiple sources are selected, they all must report the asset as unseen for the specified duration for the asset to age. Automatically age an asset when a specific value change is reported by a source system, such as status updates indicating inactivity. **Asset Population**: Define which assets the rule applies to.; **Aging Scenario**: Specify the condition based on changes in a relevant source field. Choose a reliable source to ensure assets are aged based on accurate status signals, and to avoid incorrectly aging active assets. While each individual condition can reference only one source, you can add multiple conditions within the same rule.
-    - Aging by time
-    - Aging by value
-  3. Click **Add**. Repeat the process to add as many rules as necessary.
-4. (Optional) From the **Affected Entities**drop-down menu, select related entities that should be automatically aged when their associated asset becomes inactive. For example, findings linked to an asset are automatically aged (i.e., set to Undetected) when the asset they are in becomes inactive. See image. [Image: Select entities that should be affected by asset aging] The SecOps Platform currently supports the aging of findings through asset aging rules. This process applies alongside the aging logic of findings defined in the [remediation detection settings](https://help.zscaler.com/unified/creating-data-sources#remediation-detection-settings) of a source's configuration. The aging of findings through asset aging and the aging of findings through remediation detection settings are evaluated independently, and satisfying either of the configured aging settings is sufficient to age the findings. If an asset is resurfaced, its previously aged findings are also resurfaced.
-5. Click **Save**.
-
-## Rule Order in Asset Aging
-
-The rules' order of appearance doesn't affect the order of their application. Each data point is evaluated against all rules, even if one rule has already been satisfied.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/unified/assessing-compliance","lastmod":"2026-05-17T07:06Z","nid":"1533795"} -->
-## Assessing Compliance
-
-- Source: https://help.zscaler.com/unified/assessing-compliance
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Risk360 > Assessing Compliance
-- Last modified: 2026-05-17T07:06Z
-- Summary: Information about risk frameworks and how Risk360 helps you identify and analyze your security stance in accordance with these frameworks.
-
-The integration of various risk frameworks with Risk360 helps you identify, assess, mitigate, and monitor risk, ensuring informed decision-making and abiding by regulatory compliance mandated or recommended based on your organization's geography and industry.
-
-The Risk360 service supports the following risk frameworks:
-
-- ISO27001
-- MITRE ATT&CK
-- NIST CSF
-- NIST SP 800-53
-- DORA
-- NIS2
-- HIPAA
-- PCI DSS
-- CIS
-- CAF
-- HITRUST
-- HECVAT
-
-## Analyzing the Framework
-
-The framework page (Analytics > Risk360> Frameworks > select a framework) shows all the control IDs and maps these IDs to your current Zscaler protections and provides you with a holistic, as well as in-depth analysis for each technique. The page also shows any policy misconfigurations that are refraining you from securing techniques that can be reconfigured to strengthen your security stance.
-
-Each tile shows the name of the technique and the ID. When you click on a tile, it opens all the sub-techniques under it. The tiles highlighted in blue indicate that they are covered by Zscaler protection, and the green or red color at the right side of these tiles indicates whether the protection is configured correctly or not.
-
-You can search for a technique by its name or the factor mapped to it.
-
-### Overview
-
-The Legend section provides the following overview:
-
-- The donut chart shows the split between the number of techniques covered by Zscaler and those that are not. The center of the donut chart shows the total percentage of technique coverage.
-- **Configurations**: This section shows the number of configurations or policies that are misconfigured and configured correctly for your organization.
-- You can show or hide this section by using the arrow at the top right of this section.
-
-See image.
-
-### Drawer View
-
-Click on a technique or sub-technique to view the following information in a drawer view to the right side of the page:
-
-- Techniques
-- Sub-Techniques
-
-The ISO 27001 is a set of standards for establishing, implementing, maintaining, and continually improving an information security management system (ISMS) for any organization. This helps your organization become more resilient to cyber attacks, maintain data integrity, confidentiality, and availability, while also achieving significant cost savings.
-
-MITRE ATT&CK is a cybersecurity framework funded by the US government that is used to detect, identify, and classify various tactics, techniques, and procedures (TTPs) used for cyber attacks by attackers. It helps you assess your organization's security posture and calculate the risk of a cyber attack.
-The MITRE ATT&CK framework assumes the attacker's point of view to navigate through your organization's network. This helps in highlighting the attacker's journey from the point of access to a potential data exfiltration, among other harmful acts.
-
-To learn more, refer to the [MITRE ATT&CK website](https://attack.mitre.org/).
-
-The National Institute of Standards and Technology (NIST) cybersecurity framework (CSF) is a set of recommendations and processes that you can implement and follow to strengthen your organization's security posture against malicious attackers that also provides guidance on how to respond and recover from a security breach event.
-The NIST CSF is considered a very high-standard risk management tool across the industry as it provides great value at any stage of your cybersecurity journey. The Risk360 service supports both versions of NIST CSF (1.1 and 2.0) in the Zscaler Admin Console. You can use both versions of the framework to manage your organization's risk.
-
-The National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 is a set of structured security and privacy controls applicable specifically to federal information systems and organizations. It provides guidance on how to implement, assess, and strengthen an organization's security posture against malicious attackers while also making them breach ready with respond and recovery catalogs. The NIST SP 800-53 helps federal agencies and organizations comply with the mandatory Federal Information Security Management Act (FISMA) and other applicable laws and regulations for security.
-While NIST CSF provides a comprehensive set of best practices for organizations to follow, the NIST SP 800-53 provides specific security controls that must be implemented by federal agencies and organizations.
-
-The Network and Information Security Directive 2 (NIS2) is a European Union (EU) law that aims to improve cybersecurity across member states. A set of firm requirements for organizations in essential sectors, including risk management, incident reporting, and supply chain security, to create a common, high level of network and information security throughout the EU.
-
-To learn more, refer to the [NIS2 Directive Document](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32022L2555).
-
-The Digital Operational Resilience Act (DORA), a European Union (EU) regulation for the financial sector that mandates strong cybersecurity resilience and risk management for financial entities and critical Information and Communication Technology (ICT) third-party providers.
-
-To learn more, refer to the [DORA Directive Document](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32022R2554&from=EN).
-
-The Health Insurance Portability and Accountability Act (HIPAA) is a mandatory compliance framework for the healthcare industry or entities that interact with the United States' patient health information (PHI).
-
-To learn more, refer to the [Health and Human Services Website](https://www.hhs.gov/hipaa/index.html).
-
-The Payment Card Industry Data Security Standard (PCI DSS) is a mandatory security framework for all entities that store, process, or transmit cardholder's payment data.
-
-To learn more, refer to the [PCI Security Standards Website](https://www.pcisecuritystandards.org/).
-
-The Center for Internet Security (CIS) Critical Security Controls are a prescriptive, tactical, prioritized, and simplified set of best practices designed to strengthen your cybersecurity posture.
-
-To learn more, refer to the [CIS Website](https://www.cisecurity.org/controls).
-
-The Cyber Assessment Framework (CAF) is a standardized, outcome-focused compliance developed by the UK's National Cyber Security Centre (NCSC) in 2018 to help organizations evaluate and improve their cyber resilience.
-
-To learn more, refer to the [National Cyber Security Centre Website](https://www.ncsc.gov.uk/collection/cyber-assessment-framework).
-
-The HITRUST compliance is a comprehensive and certifiable security framework that integrates with multiple standards to help organizations with risk compliance and cyber resilience.
-
-To learn more, refer to the [HITRUST Website](https://hitrustalliance.net/).
-
-The Higher Education Community Vendor Assessment Toolkit (HECVAT) is developed by EDUCAUSE as a questionnaire framework intended for colleges and universities to evaluate compliance of their vendors.
-
-To learn more, refer to the [EDUCAUSE Website](https://www.educause.edu/higher-education-community-vendor-assessment-toolkit).
-
-- The name of the technique, its ID, and the state of the sub-techniques (i.e., whether they are Zscaler-protected or not).
-- **Details**: A link that opens the PDF file where the technique is explained in detail.
-- **Description**: A description of the technique. This field name differs depending on the framework you're viewing (e.g., NIST Description and ISO 27001 Description)
-- **Zscaler Comment**: A note on how Zscaler can help mitigate the risk from this attack technique by using one of Zscaler's progressive protection portfolios. This field shows no information if the mitigation strategy isn't available.
-- **TTP to Zscaler Product Mapping**: Maps the attack technique to the Zscaler feature responsible for protecting against these attack techniques, whether the features that are responsible for protecting against these tactics, techniques, and procedures (TTPs) are licensed by your organization or not, and the Risk360 category that the TTP falls under.
-- **TTP to Risk360 Factor Mapping**: Maps all the attack sub-techniques to the [Risk360 Factors](https://help.zscaler.com/unified/viewing-risk-factors) and shows the status of each sub-technique.
-- **Notes**: Any notes that you added for the technique.
-
-See image.
-
-- The name of the technique, its ID, and the state of the sub-technique, whether they are covered by Zscaler protection or not.
-- **Details**: A link that opens the PDF file where the technique is explained in detail.
-- **Description**: A description of the technique. This field name differs depending on the framework you're viewing (e.g., NIST Description and ISO 27001 Description)
-- **Zscaler Comment**: A note on how Zscaler can help mitigate the risk from this attack technique by using one of Zscaler's progressive protection portfolios. This field shows no information if the mitigation strategy isn't available.
-- **TTP to 3rd Party Tools Mapping**: Shows whether the sub-technique is securely configured, misconfigured, or not covered by the any third-party security control policies.
-
-See image.
-
-### Hover-Over View
-
-Hover over a technique or sub-technique tile to view the following information:
-
-- Whether the protections against these attack techniques are misconfigured or configured correctly and if Zscaler protects your organization against this attack technique.
-- **Zscaler Control**: The Zscaler feature that is responsible for helping protect against these attack techniques.
-- **Related Risk360 Factors**: The [Risk360 Factors](https://help.zscaler.com/unified/viewing-risk-factors) that are related to the attack.
-- **Licensed?**: Whether or not you are subscribed to the Zscaler feature that protects against these attacks.
-- **Notes**: Any notes that you added for the technique.
-
-See image.
-
-[Image: Sub-technique Drawer in NIST SP 800-53 framework]
-
-[Image: TTP Drawer in NIST SP 800-53 framework]
-
-[Image: Hover dialog in NIST SP 800-53 framework]
-
-[Image: Legend Section in NIST SP 800-53 framework]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/unified/assigning-content-permissions","lastmod":"2026-08-06T23:54Z","nid":"1541833"} -->
-## Assigning Content Permissions
-
-- Source: https://help.zscaler.com/unified/assigning-content-permissions
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Administration > Account Management > User Management > Assigning Content Permissions
-- Last modified: 2026-08-06T23:54Z
-- Summary: How to assign content permissions to users in the Security Operations Platform.
-
-Content permissions control access to data within the Security Operations Platform (SecOps Platform). To create content permission sets, see [Creating & Managing Content Permissions](https://help.zscaler.com/unified/creating-managing-content-permissions). After [creating users](https://help.zscaler.com/unified/creating-managing-users) in your account, you can assign content permissions to define the data they can access.
-
-Content permissions can only be assigned after a user is created and saved.
-
-## Assigning Content Permissions to Users
-
-To assign content permission sets to a single user:
-
-1. In the SecOps Platform Admin Portal, click the **Profile** menu in the top navigation bar.
-2. Click**Account Settings.** See image.
-3. In the left-side navigation, go to **User Management**. See image.
-4. Hover over the user and click the **Edit** icon, or select the checkbox next to the user and click **Edit**at the top of the page. See image.
-5. In the **Content Permissions** section, select the role permission sets you want to assign from the drop-down menu. To learn more, see [Creating & Managing Content Permissions](https://help.zscaler.com/unified/creating-managing-content-permissions). See image.
-6. Click **Save**. Assigned permission sets are applied on the user's next browser refresh.
-
-To assign content permissions to multiple users:
-
-1. Select the checkboxes next to the users you want to assign content permission to.
-2. Click the **Edit Permission Sets** drop-down menu, and select **Add Permission Set/s**. See image.
-3. In the **Add Permission Set/s**window, select the permission sets you want to assign to the selected users. See image.
-4. Click **Apply**. Assigned permission sets are applied on the user's next browser refresh.
-
-## Removing Content Permission Sets
-
-Removing content permission sets from users removes their access limit from the defined data. This means they'll no longer be limited to viewing only the data configured in the permission set.
-
-To remove a single user's content permissions:
-
-1. In the SecOps Platform Admin Portal, click the **Profile** menu in the top navigation bar.
-2. Click**Account Settings.** See image.
-3. In the left-side navigation, go to **User Management**. See image.
-4. Hover over the user and click the **Edit** icon, or select the checkbox next to the user and click**Edit**at the top of the page. The **Edit User** page appears.
-5. In the **Content Permissions** section, from the **Applied Permission Sets** drop-down menu, select the permission sets you want to remove.
-6. Click **Save**. Selected permission sets are removed on the user's next browser refresh.
-
-To remove multiple users' content permissions:
-
-1. Select the checkboxes next to the users you want to remove content permission from.
-2. Click the **Edit Permission Sets** drop-down menu, and select **Remove Permission Set/s**. See image.
-3. In the **Remove Permission Set/s**window, select the permission sets you want to remove from the selected users. See image.
-4. Click**Apply**. Assigned permission sets are applied on the user's next browser refresh.
-
-[Image: The Profile menu in the SecOps Platform Admin Portal]
-
-[Image: The Profile menu in the SecOps Platform Admin Portal]
-
-[Image: The User Management page]
-
-[Image: The User Management page]
-
-[Image: Editing a user from the User Management page]
-
-[Image: Adding permission sets to multiple users from the User Management page]
-
-[Image: The Add Permission Set/s window]
-
-[Image: The Remove Permission Set/s window]
-
-[Image: Select Permission Set/s to Remove]
-
-[Image: Select the role permission sets]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/unified/attribute-reconciliation-default-functions","lastmod":"2026-07-30T09:49Z","nid":"1541729"} -->
-## Attribute Reconciliation Default Functions
-
-- Source: https://help.zscaler.com/unified/attribute-reconciliation-default-functions
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Data Unification > Attribute Reconciliation Default Functions
-- Last modified: 2026-07-30T09:49Z
-- Summary: Information about the attribute reconciliation default functions for reconciling conflicting values during data unification.
-
-Attribute reconciliation is the process of resolving conflicts that arise when merging duplicate entities during entity unification. This process ensures that the most accurate and up-to-date data is retained across your system, eliminating inconsistencies and inaccuracies. To learn more, see [What Is Data Unification?](https://help.zscaler.com/unified/what-data-unification) and [Configuring Entity Unification](https://help.zscaler.com/unified/configuring-entity-unification).
-
-For example, when merging multiple Asset records into a single asset, the Asset Operating System field might contain multiple values. In such cases, the system automatically selects the value that appears most frequently among the merged records.
-
-By default, every field has system-defined reconciliation logic based on industry best practices. These defaults can be adjusted upon request or manually replaced with Priority By Source reconciliation logic in field unification. To learn more, see [Configuring Field Unification](https://help.zscaler.com/unified/configuring-field-unification).
-
-## Default Functions by Field Type
-
-The following table outlines the system's default functions for determining field values during entity deduplication conflict resolution, categorized by field type.
-
-| Icon | Field Type | Default Function | Populated Value | Examples |
-| --- | --- | --- | --- | --- |
-| [Image: Text icon in Data Model] | Text | MAJORITY | The most frequent value from the set of values | Asset Owner ID Ticket Assignee |
-| [Image: Repeated message icon][Image: Repeated text icon] | Repeated (all types) | COLLECT_DISTINCT_FLAT | A list of distinct values | Ticket Sources |
-| [Image: Number icon] | Number | MAX | The maximum value for number type fields. MAX is the highest value. | Ticket Severity Score |
-| [Image: Boolean icon] | Boolean | MAX | The maximum value for Boolean fields is TRUE if at least one value is TRUE | Asset Is Behind Firewall Asset Is Critical Asset |
-| [Image: Date icon] | Date | MAX | The most recent date | Ticket SLA |
-| [Image: IP icon] | IP | COLLECT_DISTINCT_FLAT | A list of distinct IP addresses | External IP Addresses |
-| [Image: Fix icon] | Fix | COLLECT_DISTINCT_FLAT | A list of distinct fixes | Optimal Fix |
-
-## Commonly Used Fields
-
-The following table shows the default functions for commonly used fields:
-
-| Icon | Field | Default Function | Populated Value | Examples |
-| --- | --- | --- | --- | --- |
-| [Image: Date icon] | First Seen (for all entity types) | MIN | The earliest date value | Finding First Seen |
-| [Image: Date icon] | Last Seen (for all entity types) | MAX | Themost recent date value | Asset Last Seen |
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/unified/building-queries-and-searching-logs","lastmod":"2026-08-04T13:13Z","nid":"1541845"} -->
-## Building Queries and Searching Logs
-
-- Source: https://help.zscaler.com/unified/building-queries-and-searching-logs
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Analytics > Data Exploration > Building Queries and Searching Logs
-- Last modified: 2026-08-04T13:13Z
-- Summary: How to build queries and search for logs in the Security Operations Platform.
-
-You can search logs to view data collected by the Security Operations Platform (SecOps Platform) before it's processed and analyzed. This helps you to understand the raw data that's pulled from connected sources and subsequently pushed into the data model. You can search logs by building and using queries.
-
-## Building a Query
-
-To create a query using the basic query builder:
-
-1. In the SecOps Platform Admin Portal, go to **Explore**>**Logs**. [Image: Build a basic query to search the logs] If you have not previously created a query, you can select from a list of prebuilt queries to get started. You can also select a saved query from the Queries Library. See image.
-2. Click the **+** icon to add a new query. A new query tab appears.
-3. Click the **Search Logs** box to open the query builder. [Image: Build a query]
-4. Select a field or enter a field name manually.
-5. Select an operator (e.g., **Equals**, **Contains**, **Starts With**, etc.).
-6. Enter or select the value you want to filter by.
-7. (Optional) Use **AND** or **OR** operators to add conditions to the query.
-8. (Optional) Click **Save**to save your query.
-9. Click **Search**. Log data appears.
-10. Use the time filter to filter results to a specific time frame. To learn more, see [Using Filters](https://help.zscaler.com/unified/using-filters). The selected time frame is not saved as part of the query, and must be configured for every result.
-
-Click **Export as CSV** at the top right of the logs table to export the data as a CSV file.
-See image.
-
-[Image: Select a prebuilt query to search for the logs]
-
-[Image: Export logs as CSV]
-
-To create an advanced query, you can use QL syntax in the advanced query editor. Click **Advanced**and enter values as necessary.
-
-[Image: Build an advanced query]
-
-The basic query builder and the advanced query editor are completely independent, even when they are within the same query. If you make changes to one, the other remains unchanged.
-
-### Adding a Query to the Queries Library
-
-You can save queries and add them to the Queries Library for quick access.
-
-To add a query to the Queries Library:
-
-1. Click **Save**at the top right of the page. [Image: Save the created query] The **Edit Detail** page appears.
-2. Enter a name for the query.
-3. Click **Save**. The query is saved to the library. [Image: View all the saved queries]
-
-Use the **Save As New** option to save a modified version of the current query to your library.
-[Image: Save a modified version of the query to the library]
-
-Click **Library** to access your saved queries.
-[Image: Click Library to access saved queries]
-
-## Searching Logs
-
-After you configure and run your query, a Logs table appears. Click a log in the table to open its drawer. You can search within the log using the search field, and copy the log using the Copy icon in the top-right corner of the drawer.
-[Image: Search for the logs]
-
-Hover over a field in the drawer to display the following icons:
-
-- **Breakdown By Field**: Use the selected field as the breakdown by field in the pie chart pane.
-- **Exclude**: Add a Not Equal filter to the query builder to return all logs for which the field's value is different from the value of the current log.
-- **Add to Search**: Add a filter to the basic query builder to return all logs for which the field's value is equal to the value in the current log.
-- **Add/Remove Column**: Add or remove a column in the log table.
-- **Copy Value**: Copy the value of the field.
-
-## Analyzing the Data
-
-You can filter and analyze the retrieved log data using the Time Series chart or a pie chart.
-
-### Time Series Chart
-
-The Time Series chart shows the number of logs (on the y-axis) that match the query conditions, retrieved from your sources within the time frame selected in the time filter.
-
-[Image: Number of logs that match the query conditions on the Time Series chart]
-
-You can click and drag the time filter to select a portion of the chart to define your desired time frame. This updates the table view as shown in the following image.
-
-[Image: Click and drag the time filter to view an updated view based on the desired time frame]
-
-The selected time filter is not saved as part of the query, and must be configured each time.
-
-### Pie Chart
-
-The pie chart displays all logs filtered by your query. Use the**Breakdown by** drop-down menu to select the field you want the logs to be grouped in, and the number of top values you want to be presented in the legend.
-
-[Image: Logs filtered by the query displayed on the Pie Chart]
-
-Select any number of slices to filter by their value. This also adds your selection as a filter in the table of logs.
-
-[Image: Filter the pie chart by the selected value]
-
-To remove a value from the filter created by the pie chart, deselect the slice on the chart itself or click the remove slicericon under the chart.
-
-[Image: Deselect a slice using the Remove Slicer icon in the Pie Chart]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/unified/configuring-alert-rule-risk360","lastmod":"2026-02-11T06:27Z","nid":"1533798"} -->
-## Configuring an Alert Rule for Risk360
-
-- Source: https://help.zscaler.com/unified/configuring-alert-rule-risk360
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Risk360 > Alerts > Configuring an Alert Rule for Risk360
-- Last modified: 2026-02-11T06:27Z
-- Summary: How to configure alert rules in Risk360.
-
-You can configure alert rules for various criteria (i.e., financial loss or risk score changes at organization, category, factor group, or factor levels) that trigger an email or webhook notification to the recipients.
-
-To configure an alert rule:
-
-1. Go to **Analytics** > **Risk360** > **Alerts** > **Rules**.
-2. Click **Add Alert Rule**.
-3. Choose an existing rule template or start configuring from the beginning by clicking **Create New**. See image. The **Add Alert Rule** wizard appears.
-4. In the **Add Alert Rule** wizard, complete the following steps: The alert rule is successfully created.
-  - a. Define Criteria & Throttling
-  - b. Configure Delivery Method
-
-If you've selected a rule template, the service skips to the Configure Delivery Method section. However, you can click **Back**to edit the predefined values in the **Define Criteria &** **Throttling** section. In this section:
-
-- **Criteria**: Set the criteria for the alert rule to be triggered:
-  1. Select **All** or **Any** from the drop-down menu.
-  2. Select the item for which you want to trigger the alert from **Org**, **Category**, **Factor Group**, or**Factor**.
-  3. Based on your selection, the next drop-down menus are auto-populated. Select the required options.
-  4. Select the operator for the criteria, i.e., equal to (**=**), greater than (**>**), less than (**<**), greater than or equal to (**≥**), less than or equal to (**≤**), **increases by**, or **decreases by**.
-  5. Enter the value for the operator.
-  6. Click **Add** to add another criterion to the rule. For example, see the following GIF to understand how to set the criteria for an alert to be triggered when the risk score for the Data Loss category exceeds 55. See image.
-- **Expression Preview**: You can view a logical preview for the criteria set in the preceding fields. This field is uneditable.
-- **Minimum Alert Throttling Criteria**: Enter the number of days the criteria must persist before triggering the alert notification.
-- Click **Next**.
-
-See image.
-
-In the **Configure Delivery Method**section:
-
-- **Rule Name**: Enter a name to identify the rule.
-- **Severity**: Select the severity of the rule from **Critical**, **High**, **Medium**, or **Low**.
-- **Status**: Select **Enabled** or **Disabled** for the rule.
-- **Delivery Method**: Select the alert delivery methods from **Email**and**Webhook.**
-- **Webhooks**: Select from the existing configured webhooks or configure a new webhook by clicking **Configure Webhooks** to receive alerts via webhooks. To learn more, see [Configuring Alert Webhooks](https://help.zscaler.com/unified/configuring-alert-webhooks-risk360).
-- **Email Recipient**: Enter the email address to which you want the alerts to be sent. To learn more about the information sent, see [Understanding the Alert Email](https://help.zscaler.com/unified/understanding-alert-email-risk360).
-- **Custom Message**: Enter a custom message that is displayed within the alert notification when this alert is triggered. This message is applicable for both email and webhooks.
-- Click **Add**.
-
-See image.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/unified/configuring-alert-webhooks-risk360","lastmod":"2026-02-11T06:27Z","nid":"1533799"} -->
-## Configuring Alert Webhooks for Risk360
-
-- Source: https://help.zscaler.com/unified/configuring-alert-webhooks-risk360
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Risk360 > Alerts > Configuring Alert Webhooks for Risk360
-- Last modified: 2026-02-11T06:27Z
-- Summary: Information on configuring webhooks to deliver alerts in Risk360.
-
-You can configure and use webhooks in an alert rule and assign multiple alert rules to the same webhook from your third-party provider for alert delivery.
-
-To configure a webhook:
-
-1. Go to **Analytics** > **Risk360** > **Alerts**> **Webhooks** > **Add Webhook**. The **Add New Webhook** drawer appears.
-2. In the **Add New Webhook** drawer:
-  - **Name**: Enter the name of the webhook.
-  - **Status**: Select **Enabled** or **Disabled**for the webhook.
-  - **URL**: Enter the URL of the webhook provider. Ensure the URL does not include any spaces.
-  - **Authentication Type**: Select the authentication type for the webhook from **Basic**or **Token**. The webhook provider determines the authentication type used. Refer to your provider for details. See image.
-    - Basic
-    - Token
-3. Click **Save** to save the webhook configuration. If the webhook is configured successfully, the [Alert Status](https://help.zscaler.com/unified/about-alerts-risk360) field on the Webhooks page displays **Active**. If not, the field displays **Error**. To resolve the error, check for issues in the **URL** or the **Authentication Type** fields.
-
-Enter a **Username**and**Password**. Password information is hidden by default. You can view it by clicking the **View** icon.
-
-Enter the bearer token. A bearer token is a unique alphanumeric string used for authentication. You can obtain the bearer token from your webhook provider.
-
-[Image: Add Webhook Drawer]
 <!-- /ZS-ARTICLE -->

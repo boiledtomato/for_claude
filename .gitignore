@@ -1,5 +1,6 @@
 __pycache__/
 _site/
+output/
 
 # Android (android-launcher/)
 .gradle/
@@ -9,8 +10,8 @@ local.properties
 .idea/
 captures/
 .cxx/
-android-launcher/tools/work/
 .kotlin/
+android-launcher/tools/work/
 # 中間生成物。実体は app/src/main/assets/flora/ に置く
 android-launcher/tools/flora/assets/
 android-launcher/tools/flora/plate_full.png

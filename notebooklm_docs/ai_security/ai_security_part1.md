@@ -1,18 +1,18 @@
 # Zscaler Help — AI Security (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-07 03:10 UTC
-Articles in this file: 80
+Generated: 2026-10-05 09:38 UTC
+Articles in this file: 88
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/about-ai-guard-dashboard","lastmod":"2026-08-03T13:50Z","nid":"1541822"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/about-ai-guard-dashboard","lastmod":"2026-09-08T12:30Z","nid":"1541822"} -->
 ## About AI Guard Dashboard
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/about-ai-guard-dashboard
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Monitoring > About AI Guard Dashboard
-- Last modified: 2026-08-03T13:50Z
+- Last modified: 2026-09-08T12:30Z
 - Summary: Learn how to view information on the AI Guard dashboard.
 
 The AI Guard dashboard provides a high-level overview of all AI applications AI Guard manages. This includes information such as the number of apps, number of policy detections, and number of AI bot transactions.
@@ -38,9 +38,10 @@ On the AI Guard **Dashboard** page (AI Guard > Dashboard), you can do the follow
   2. **Number of LLMs**: The total number of LLMs.
   3. **Number of Detections**: The total number of policy detections.
   4. **Number of Transactions**: The total number of transactions.
-8. View dashboard entries as individual prompt transactions, or view multi-prompt AI interactions as a single, connected conversation thread. This functionality is exclusive to DAS/API mode and will not appear if using Proxy mode.
+8. View dashboard entries as individual prompt transactions, or view multi-prompt AI interactions as a single, connected conversation thread. Conversation grouping respects existing session boundary logic.
   - With **Conversations** selected, you will see a message icon next to a transaction's date, indicating the number of transactions in that conversation thread. Expand the entry to view details of the individual transactions. See image.
-9. View a list of all transactions. For each transaction, you can see the following:
+  - Clicking a conversation opens the **Transaction Details** page. View prompt details by clicking **Reveal Prompt**, which shows a full back-and-forth, chat-style layout. See image.
+9. View a list of all transactions. On the **Transaction Details** page, you can see the following:
   - **Date and Time**: The date and time of the transaction.
   - **App**: The name of the app.
   - **Policy Name**: The name of the policy associated with this transaction.
@@ -53,6 +54,8 @@ On the AI Guard **Dashboard** page (AI Guard > Dashboard), you can do the follow
   - **Details**: Clicking the **Details** icon opens a window showing detailed information in the following sections: **Overview**, **Detection Summary**, **Performance & Network Stats**, **Custom Request Headers**, and **Prompt Details**. See image.
 
 [Image: AI Guard Dashboard Details window showing Overview, Detection Summary, Performance & Network Stats, Custom Request Headers, and Prompt Details.]
+
+[Image: Conversation Details showing chat-style prompt and response logs]
 
 [Image: AI Guard Dashboard page with annotations highlighting each section]
 
@@ -883,30 +886,61 @@ To obtain the required fields, refer to the [Salesforce documentation](https://d
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/ai-guard-audit-log","lastmod":"2026-07-23T12:08Z","nid":"1541875"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/ai-guard-api","lastmod":"2026-09-14T08:01Z","nid":"1545443"} -->
+## AI Guard API
+
+- Source: https://help.zscaler.com/secure-ai-apps-infra/ai-guard-api
+- Product: Secure AI Apps & Infrastructure
+- Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Getting Started > AI Guard API
+- Last modified: 2026-09-14T08:01Z
+- Summary: Learn where to access the API Reference Guide for AI Guard.
+
+For detailed information on all available AI Guard API policies, references, and summaries, see the [Zscaler Automation Hub API Reference Guide](https://automate.zscaler.com/docs/docs/api-reference-and-guides/api-reference/aiguard).
+
+The AI Guard API Reference Guide contains API resources for the following categories:
+
+- Detection Policies
+- Detection Policy Match Rules
+- LLM Application Credentials
+- LLM Applications
+- LLM Provider Credentials
+- LLM Providers
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/ai-guard-audit-log","lastmod":"2026-10-02T12:33Z","nid":"1541875"} -->
 ## AI Guard Audit Log
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/ai-guard-audit-log
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Monitoring > AI Guard Audit Log
-- Last modified: 2026-07-23T12:08Z
-- Summary: Learn how to view the AI Guard Audit Log.
+- Last modified: 2026-10-02T12:33Z
+- Summary: Learn how to view the AI Guard Audit Log. View, Export, and Revert changes made by users in AI Guard.
 
-The Audit Log page tracks any changes users made inside AI Guard. This can range from anything from updating a policy control to signing in.
+The Audit Log page tracks any changes users make inside AI Guard. This can range from anything from updating a policy control to signing in.
 
 To view the AI Guard Audit Log page:
 
 1. Go to **AI Security Admin Portal** > **AI Guard** > **Audit Log**. See image.
 2. The Audit Log page allows you to view the following information:
-  1. **Timestamp**: The date and time that an action was logged.
-  2. **Initiator**: The email address of the user that triggered the action.
-  3. **Action**: The action performed, such as: Update, View, or Create.
-  4. **Entity Type**: More granular detail about the action. For example, an Action of Update may have an Entity Type of Policy Control, meaning that the user made an update to a policy control.
+  1. **Date Range**: Select the date range you want to see the logs for.
+  2. **Refresh**: Update the audit log.
+  3. **Export CSV**: Download a CSV file of the filtered audit log.
+  4. **Timestamp**: The date and time that an action was logged.
+  5. **Initiator**: The email address of the user that triggered the action.
+    1. Click the **Search** button in the header to search for a specific initiator.
+  6. **Action**: The action performed, such as: Update, View, or Create.
+    1. Click the **Filter** button in the header to select which actions you want to see.
+  7. **Entity Type**: More granular detail about the action. For example, an Action of Update may have an Entity Type of Policy Control, meaning that the user made an update to a policy control.
+    1. Click the **Filter** button in the header to select which entity types you want to see.
 3. For more information about the logged event, in the **Details** column, click the **View Request Details** button. See image.
 4. The **Actions Details** window shows the following information:
   1. **Initiator**, **Action**, and **Entity Type**: The same information from the main Audit Log page.
   2. **Entity ID**: The ID number associated with the action.
-  3. **Payload**: The code payload of the action.
+  3. **Changes**: A field-by-field table that shows any changes from a specific log. Nested fields are a single level deep, anything further is shown as an object or array placeholder. Only relevant changes are shown, noise (such as `id` or `lastUpdatedAt` fields) that are empty of changes are hidden.
+  4. **Advanced**: View the full JSON code changes.
+  5. **Revert**: This undoes Create, Update, or Delete on all supported detectors. It will ask for confirmation before reverting the changes.
 
 [Image: AI Guard Audit Log page]
 
@@ -1268,6 +1302,158 @@ The following is a visual representation and a step-by-step explanation of an ex
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/best-practices-runbook-aws-s3-integration","lastmod":"2026-09-22T13:26Z","nid":"1546073"} -->
+## Best Practices Runbook: AWS S3 Integration
+
+- Source: https://help.zscaler.com/secure-ai-apps-infra/best-practices-runbook-aws-s3-integration
+- Product: Secure AI Apps & Infrastructure
+- Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Configuration > Best Practices > Best Practices Runbook: AWS S3 Integration
+- Last modified: 2026-09-22T13:26Z
+- Summary: Learn how to configure AWS S3, IAM, and the Zscaler AI Guard integration so that AI Guard can export data into your AWS account using a cross-account IAM role.
+
+AI Guard allows you to manage and configure third-party integrations to export incident data using cross-account IAM roles.
+
+The following article provides instructions to configure and integrate AWS S3, IAM, and AI Guard so that it can export data into your AWS account.
+
+## Prerequisites
+
+Before you can begin configuring AWS and AI Guard, ensure that you have:
+
+- An AI Guard subscription.
+- AWS S3 Metadata and Content buckets in the same region.
+- A cross-account IAM role.
+- The required permissions and trust relationship.
+
+You will also need all the following information:
+
+| Item | Examples |
+| --- | --- |
+| AWS account ID | `012345678901` |
+| AWS region | `us-east-1` |
+| Metadata bucket name | `AI Guard Metadata Bucket` |
+| Content bucket name | `AI Guard Content Bucket` |
+| IAM role name | `AI_Guard` |
+| IAM role ARN | `arn:aws:iam::``<aws-account-id>``:role/``<role-name>` In the AWS Console, click your username in the top right corner. Copy the **Account ID**. |
+| Zscaler AI Guard AWS account ID | `012345678901` In the AI Security Admin Portal, go to **AI Guard** > **Log Exports** > **S3 Event Export** > **Add Instance**. Copy the Zscaler AWS ID. |
+
+## Configuration for S3 and AI Guard Integration
+
+To configure AWS and AI Guard, complete the following steps:
+
+- Create IAM Role and Attach Permissions Policy
+- Configure the IAM Trust Relationship
+- (Optional) Add S3 Bucket Policies
+- Integrate with AI Guard
+- Troubleshooting
+
+Begin with the creation of an IAM role for AI Guard and attaching the necessary permissions policy:
+
+1. Go to the **AWS Console** > **IAM Dashboard** > **IAM users** > **Create user**.
+2. Under **User nam**e, enter `AI Guard Admin`, and click **Next**. See image.
+3. Under **Permissions options**, select **Attach polices directly**.
+4. In the **Permissions policies** section, select **Create policy**. The AWS **Specify permissions** page opens.
+5. Next to **Policy editor**, select **JSON**.
+6. Paste in the following under **Policy editor**: `{ "Version": "2012-10-17", "Statement": [ { "Sid": "ListContentBucket", "Effect": "Allow", "Action": ["s3:ListBucket", "s3:GetBucketLocation"], "Resource": "arn:aws:s3:::<content-bucket>" }, { "Sid": "ReadWriteDeleteContentObjects", "Effect": "Allow", "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"], "Resource": "arn:aws:s3:::<content-bucket>/*" }, { "Sid": "ListMetadataBucket", "Effect": "Allow", "Action": ["s3:ListBucket", "s3:GetBucketLocation"], "Resource": "arn:aws:s3:::<metadata-bucket>" }, { "Sid": "ReadWriteDeleteMetadataObjects", "Effect": "Allow", "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"], "Resource": "arn:aws:s3:::<metadata-bucket>/*" } ] }`See image.
+7. Click **Next**. The **Review and create** page appears.
+8. Under **Policy name** enter: `AI_Guard_IAM_Policy`. Click**Create policy**.
+9. Return to the AWS **Set permissions** page.
+10. In the **Permissions policies** section, click the **Refresh** button, and then search for and select `AI_Guard_IAM_Policy`. See image.
+11. Click **Next**.
+12. Review the information you entered is correct and click **Create user**.
+
+To configure the IAM trust relationship between AI Guard and AWS, do the following:
+
+1. Go to the **AWS Console** > **IAM Dashboard** > **Roles**.
+2. Select **Create role**.
+3. Select **Custom trust policy** and enter the following: `{ "Version": "2012-10-17", "Statement": [ { "Effect": "Allow", "Principal": { "AWS": "arn:aws:iam::<zscaler-ai-guard-account-id>:root" }, "Action": "sts:AssumeRole" } ] }`See image.
+4. Click **Next**. The **Add permissions** page appears.
+5. Under **Permission** policies, select `AI_Guard_IAM_Policy`. See image.
+6. Click **Next**. The **Name, review and create** page opens.
+7. Name the role `AI_Guard_Trust_Role`, review the trust policy and permissions, and click **Create role**.
+
+In many cases, the IAM role policy is sufficient, especially when the role and buckets are in the same AWS account. However, it can be useful to add explicit bucket policies following the role policy.
+
+1. Go to the **AWS Console** > **Buckets**page.
+2. Select your `AI Guard Metadata Bucket`. Go to the **Permissions** tab and next to **Bucket policy** click **Edit**. See image.
+3. Under **Policy**, enter the following: `{ "Version": "2012-10-17", "Statement": [ { "Sid": "AllowRoleListBucket", "Effect": "Allow", "Principal": {"AWS": "<role-arn>"}, "Action": ["s3:ListBucket", "s3:GetBucketLocation"], "Resource": "arn:aws:s3:::<metadata-bucket>" }, { "Sid": "AllowRoleObjectReadWrite", "Effect": "Allow", "Principal": {"AWS": "<role-arn>"}, "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"], "Resource": "arn:aws:s3:::<metadata-bucket>/*" } ] }`See image.
+4. Click **Save changes**.
+5. Back on the **Buckets** page, select your `AI Guard Content Bucket`. Go to the **Permissions** tab and next to **Bucket policy** click **Edit**.
+6. Under **Policy**, enter the following: `{ "Version": "2012-10-17", "Statement": [ { "Sid": "AllowRoleListBucket", "Effect": "Allow", "Principal": {"AWS": "<role-arn>"}, "Action": ["s3:ListBucket", "s3:GetBucketLocation"], "Resource": "arn:aws:s3:::<content-bucket>" }, { "Sid": "AllowRoleObjectReadWrite", "Effect": "Allow", "Principal": {"AWS": "<role-arn>"}, "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"], "Resource": "arn:aws:s3:::`<content-bucket>`/*" } ] }`
+7. Click **Save changes**.
+
+Finish integrating AI Guard with S3 by completing the following:
+
+1. Go to the **AI Security Admin Portal** > **AI Guard** > **Log Exports**.
+2. In the **S3 Event Export** section, click **Add Instance**. See image.
+3. In the **Add Integration** window, enter the following: See image.
+  1. **Name**: `S3 AI Guard Integration`
+  2. **Enabled**: Leave enabled.
+  3. **AWS S3 Metadata Bucket**: `AI Guard Metadata Bucket`
+  4. **AWS S3 Content Bucket**: `AI Guard Content Bucket`
+  5. **Bucket Key Prefix**: Optional.
+  6. **Tags**: Optional.
+  7. **Region of Buckets**: Your AWS region (for example: `us-east-1`).
+  8. **IAM Cross-Account Role ARN**: `arn:aws:iam::``<aws-account-id>``:role/``<role-name>`
+  9. **IAM Cross-Account Role External ID**: Leave the default value unchanged.
+  10. **Export Allowed/Detected Prompts**: Configure per policy.
+  11. **Export Blocked Prompts**: Configure per policy.
+  12. **Export Tool Field**: Configure per policy.
+4. Click **Validate Connection** to test that the information you entered is correct.
+5. Click **Save Integration** after a successful validation.
+
+When validating the AI Guard and AWS S3 connection, a failure will cause a pop-up error message to appear within AI Guard to provide you with additional information. The following are issues that can happen, and their most common solutions:
+
+### AssumeRole Fails
+
+This occurs when an AWS Security Token Service (STS) AssumeRole request is rejected.
+
+- Check that the trust policy includes the correct Zscaler AI Guard AWS account from the **Add Integration** window.
+- Check that the role ARN entered in the UI is correct.
+- Confirm that no AWS Organizations Service Control Policy (SCP) or permission boundary blocks `sts:AssumeRole`. For more information, refer to [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html).
+- Confirm that you didn't add an incorrect `sts:ExternalId` condition.
+
+### Connection Test Fails with S3 Access Errors
+
+This happens when AI Guard is not able to connect to AWS S3.
+
+- Check that the IAM role policy includes both the bucket-level and object-level permissions.
+- Make sure the bucket names are entered correctly.
+- Confirm that the bucket policies, if used, reference the correct Role ARN.
+- Check that there isn't an explicit Deny in the bucket policy or organization policy.
+
+### Listing Works, but Write Fails
+
+This usually means `s3:ListBucket` is present but `s3:PutObject` is missing or incorrectly configured. Verify the object resource paths use `arn:aws:s3:::``bucket-name``/*` or the correct prefix-specific equivalent.
+
+### Access to Encrypted Objects Fails
+
+This can happen when an IAM User or Role has correct permissions to access a bucket, but it is blocked.
+
+- Check that server-side encryption with AWS KMS keys (SSE-KMS) is enabled in the buckets. For more information, refer to [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/specifying-kms-encryption.html).
+- Check whether the role has KMS permissions.
+- Check whether the KMS key policy allows the role.
+
+[Image: AWS Role permissions page with AI_Guard_IAM_Policy selected]
+
+[Image: AI Guard Log Exports Add Integration window]
+
+[Image: AI Guard Log Exports page showing the S3 Event Export section]
+
+[Image: Amazon Edit Bucket Policy page with policy pasted in]
+
+[Image: Amazon Bucket permissions showing the Bucket policy section and edit button]
+
+[Image: Amazon Custom trust policy]
+
+[Image: Amazon Set permissions page showing the newly created AI_Guard_IAM_Policy]
+
+[Image: AWS Specify permissions page]
+
+[Image: Amazon Specify user details page with AI Guard Admin entered for User name]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/best-practices-runbook-competitor-detector","lastmod":"2026-07-24T11:50Z","nid":"1541785"} -->
 ## Best Practices Runbook: Competition Detector
 
@@ -1387,6 +1573,216 @@ If the Competition detector isn't triggering correctly, run through the followin
 [Image: Basic policy information fields which includes Policy Name and Description]
 
 [Image: Review tab for adding a policy showing the information entered previously in the process]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/best-practices-runbook-ip-detector","lastmod":"2026-09-22T13:20Z","nid":"1546072"} -->
+## Best Practices Runbook: IP Detector
+
+- Source: https://help.zscaler.com/secure-ai-apps-infra/best-practices-runbook-ip-detector
+- Product: Secure AI Apps & Infrastructure
+- Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Configuration > Best Practices > Best Practices Runbook: IP Detector
+- Last modified: 2026-09-22T13:20Z
+- Summary: Learn the best practices for configuring the Intellectual Property (IP) prompt/response detector for AI Guard as well as explanations on how it works, threshold information, and troubleshooting.
+
+AI Guard works by enforcing enterprise policies on prompts and responses between users and public AI apps, such as ChatGPT, Perplexity, Claude, etc., and between private AI apps and foundational Large Language Models (LLMs), such as OpenAI, Anthropic, etc. You set a policy by enabling one or more included detectors on prompts and responses. These detectors are activated on prompts and responses based on the policies you define in the portal.
+
+The Intellectual Property (IP) Detector flags when a user’s prompt reproduces or leaks specific sensitive content from a confidential context (numerical data, named entities, source code, proprietary text, etc.), even when rephrased, abbreviated, or written in another language.
+
+This best practices runbook contains the following information on the IP detector:
+
+- How the IP detector works.
+- How to configure the detector.
+- Choosing the correct threshold.
+- Troubleshooting and FAQ.
+
+The IP detector watches every prompt a user sends to an LLM and flags it when the user appears to be reproducing or extracting specific confidential content from the context document the customer has loaded. Unlike a topic detector (which catches what subject is being discussed), the IP detector catches whether actual private data is being reproduced.
+
+The IP detector catches the following:
+
+- **Near-verbatim reproduction**: "`Revenue grew 23% YoY to $412M`" matches context containing those exact figures.
+- **Paraphrase and synonym substitution**: "`Q3 net profit came in at 4.78 million, margin around 23 percent`" matches the context "`Q3 net profit was $4,783,210 with a margin of 23.4%.`"
+- **Abbreviated and reformatted numbers**: "`3rd ph needs 14.2 mil`" matches "`The required capital investment for Phase 3 is exactly $14.2 million.`"
+- **Named-entity carry-over**: "`Dr. Evelyn Reed filed the algorithm patent`" matches context that names the same person and event.
+- **Source code reproduction**: Partial or reformatted code copied from a confidential context is captured at the token level.
+- **Legal and contractual clause reproduction**: Paraphrasing specific clause text is detected via semantic overlap.
+- **Multilingual reproduction**: Reproducing confidential English content in French, German, or any of 28 supported languages is detected.
+
+The IP detector does not trigger on the following:
+
+- **Generic topic questions**: "`What is a typical breakup fee in M&A?`" does not trigger even if the context contains a specific breakup fee figure.
+- **Vague summarization requests**: "`Give me a TL;DR` or `Can you summarize this?`" without quoting or reproducing content.
+- **Codename mentions alone**: "`What is Project Falcon?`" is not a leak; asking about a name is not the same as revealing its contents.
+- **Educational and best-practice queries**: "`How do I manage encryption keys?`" does not trigger even when asked against a context containing key material.
+- **Incidental number overlap**: Common numbers (years, percentages used in general context) that appear in the context do not trigger on their own.
+
+To configure the IP detector in an AI Guard policy:
+
+1. In the AI Security Admin Portal left-side navigation, go to: **AI Guard** > **Policy >** **Configurations**.
+2. Click **Add More** to open the **Add New Configuration** page. To edit an existing policy, in the **Action** column, click **Edit Configuration** for a policy.
+3. Under **Basic Information**, enter: See image.
+  1. **Policy Name**
+  2. (Optional) **Description**
+4. Click **Continue to Detectors**. The **Prompt Detectors** tab opens.
+5. On the **Prompt Detectors** tab, click on the **Intellectual Property** tile. The **Configure** window appears.
+6. The following configuration options are the initial recommendations for the IP detector: See image.
+  - **Enabled**: Enables the prompt detector and is on by default. Leave **Enabled**.
+  - **Severity**: Corresponds to the severity icons in the **Prompt Detectors** column on the **Policies** page. The recommended setting is LOW for initial deployments. Raise to MEDIUM/HIGH only after a user confirms the false-positive rate is acceptable.
+  - **Threshold**: The lower the threshold setting, the more strict AI Guard is with activating the policy (i.e., allowing, blocking, or detecting the prompt). Keep the default (**0.7**) for production. For more information, refer to the next section.
+  - **Action**: What happens by default when the detector triggers: **Detect** (log only), **Allow** (pass through), or **Block** (stop the prompt).
+  - **Sensitive Context**: Enter the intellectual property information that you want to filter. For example:
+    - Sensitive Context: "Project Chimera's launch date is slated for Q4 2026, contingent on hardware finalization."
+    - Prompt that triggers that context: "Draft an update stating that the release for Chimera is planned for the end of 2026, as long as the hardware is ready in time."
+7. After configuring the prompt detectors, click **Save Changes** to close the window and click **Next** on the **Prompt Detectors** tab. The **Response Detectors** tab opens.
+8. Configuring response detectors follows the same steps as configuring prompt detectors, so refer back to the earlier steps for more information.
+9. After configuring your response detectors, click **Next**. The **Review** tab opens.
+10. The **Review** tab shows you a summary of the policy configuration you created. Click **Submit Policy** if everything looks correct.
+11. In the AI Security Admin Portal left-side navigation, go to: **AI Guard** > **Policy Testing**.
+12. Validate in **Policy Testing** with five to ten sample prompts to confirm your setup is working as expected. To learn more about policy testing, see [AI Guard Policy Testing](https://help.zscaler.com/secure-ai-users/ai-guard-policy-testing).
+
+After creating a policy and confirming it works as expected, the next step is to create a policy match. For more information on policy matching, see [Managing AI Guard Policy Control](https://help.zscaler.com/secure-ai-users/managing-ai-guard-policy-control).
+
+The **threshold** is a number between 0.0 and 1.0 that controls how confident the model must be before it calls a prompt a match. Think of it as a volume knob: turn it up and only very obvious mentions trigger. Turn it down and more borderline cases trigger too.
+
+The default for IP is **0.7**. This was chosen based on Zscaler's internal validation set, a benchmark spanning 28 languages and roughly 9,000 labeled prompts covering IP mentions. At 0.7 the detector hits the sweet spot between catching real mentions and avoiding false alarms.
+
+Zscaler strongly recommends that you leave the threshold at **0.7**. We built and validated the detector around this default.
+
+Refer to the following table when considering changing the threshold:
+
+| Range | What it means | When to use it |
+| --- | --- | --- |
+| 0.85 to 1.00 | Only near-verbatim or unmistakable reproductions trigger. | If you want to avoid false positives. Suitable for initial Block-mode roll-outs on high-value IP. |
+| 0.7 to 0.84 | Default sweet spot. Catches real reproductions including paraphrases, number reformatting, and other languages. Rejects generic summaries and topic questions. | Production deployments. Start here unless you explicitly need tighter behavior. |
+| 0.5 to 0.69 | Triggers on borderline cases, prompts that hint at or indirectly reference the confidential content. | Investigation or audit mode. NOT recommended for Block mode. |
+| Below 0.5 | Very permissive. Loose topical overlap triggers. | Not recommended for production. Useful only for internal debugging. |
+
+### FAQs
+
+- **Does it work on non-English prompts?** Yes, 28 languages are supported. The bi-encoder is multilingual.
+- **Will it trigger on a summarization request like ‘Summarize this document’?** No, not unless the input also reproduces specific content. A bare summarization request (`Give me a TL;DR`) contains no context tokens and will not trigger. A request that paraphrases specific confidential data while asking for a summary (`Repeat the Q3 revenue of $412M in a slide format`) will trigger because of the reproduced figure.
+- **How does it handle codename mentions?** Codename mentions alone are not flagged. `What is Project Falcon?` will not trigger even if the context contains detailed Project Falcon content, because the input is not reproducing any of that content.
+- **Can I export detection logs for analysis?** Yes. Go to Log Exports in the AI Security Admin Portal left navigation menu.
+- **How often is the model updated?** Retrained periodically as new false-positive patterns surface. Updates are rolled out transparently, no customer action needed. Check release notes for version updates.
+
+[Image: Competitor detector configuration page]
+
+[Image: Basic policy information fields which includes Policy Name and Description]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/best-practices-runbook-pii-detector","lastmod":"2026-09-22T13:17Z","nid":"1546071"} -->
+## Best Practices Runbook: PII Detector
+
+- Source: https://help.zscaler.com/secure-ai-apps-infra/best-practices-runbook-pii-detector
+- Product: Secure AI Apps & Infrastructure
+- Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Configuration > Best Practices > Best Practices Runbook: PII Detector
+- Last modified: 2026-09-22T13:17Z
+- Summary: Learn the best practices for configuring the Personally Identifiable Information (PII) prompt/response detector for AI Guard as well as explanations on how it works, example customer scenarios, and troubleshooting.
+
+AI Guard works by enforcing enterprise policies on prompts and responses between users and public AI apps, such as ChatGPT, Perplexity, Claude, etc., and between private AI apps and foundational Large Language Models (LLMs), such as OpenAI, Anthropic, etc. You set a policy by enabling one or more included detectors on prompts and responses. These detectors are activated on prompts and responses based on the policies you define in the portal.
+
+The Personally Identifiable Information (PII) Detector flags user prompts that contain real personal information (such as: credit card numbers, SSNs, emails, phone numbers, government IDs, bank identifiers) and ignores look-alike content that doesn't carry real identifying data (i.e.: test card numbers or fake SSNs).
+
+This best practices runbook contains the following information on the PII detector:
+
+- How the PII detector works.
+- How to configure the detector.
+- Choosing the correct threshold.
+- Troubleshooting and FAQ.
+
+The PII detector catches the following categories:
+
+| Category | Trigger Examples |
+| --- | --- |
+| Credit Card | `4532-1234-5678-9010` |
+| Email | `pat.doe@example.com` |
+| Phone | `555-019-9999` |
+| IP Address | `192.168.1.1` |
+| IBAN | `GB29 NWBK 6016 1331 9268 19` |
+| SWIFT Code | `CHASUS33` |
+| Date of Birth | `DOB: March 15, 1985` |
+| US SSN | `234-56-7891` |
+| US ITIN | `912-79-1234` |
+| US Passport | `T12345678` |
+| US Bank Number | `123456789012` |
+
+The PII Detector catches all of the following:
+
+- Valid PII across formats: Plain prose, JSON, XML, SQL, log lines, code. The container format doesn't matter.
+- PII with or without surrounding context.
+- Multiple PII in a single prompt, each is detected independently.
+- Near-misses with strong context. Even when the value isn't a perfect format match (typo, missing digit, slight formatting issue), the model-based signal can still trigger if the surrounding context clearly identifies it as PII. For example: `My card is 4532-1234-5678-901` (one digit short of a credit card number) in a payment-form context is still flagged.
+- Masked card references: `****-****-****-1234` or `card ending in 5904`.
+- Document-level catches when the model is highly confident but can't pinpoint a position (response shows `start: null`, `end: null`).
+
+To configure the PII detector in an AI Guard policy:
+
+1. In the AI Security Admin Portal left-side navigation, go to: **AI Guard** > **Policy >** **Configurations**.
+2. Click **Add More** to open the **Add New Configuration** page. To edit an existing policy, in the **Action** column, click **Edit Configuration** for a policy.
+3. Under **Basic Information**, enter: See image.
+  1. **Policy Name**
+  2. (Optional) **Description**
+4. Click **Continue to Detectors**. The **Prompt Detectors** tab opens.
+5. On the **Prompt Detectors** tab, click on the **PII** tile. The **Configure** window appears.
+6. The following configuration options are the initial recommendations for the PII detector: See image.
+  - **Enabled**: Enables the prompt detector and is on by default. Leave **Enabled**.
+  - **Severity**: Corresponds to the severity icons in the **Prompt Detectors** column on the **Policies** page. The recommended setting is LOW for initial deployments. Raise to MEDIUM/HIGH only after a user confirms the false-positive rate is acceptable.
+  - **Allow Masking**: When enabled, this will mask the PII information when shown in the dashboard.
+  - **Threshold**: The lower the threshold setting, the more strict AI Guard is with activating the policy (i.e., allowing, blocking, or detecting the prompt). Keep the default (**0.5**) for production. For more information, refer to the next section.
+  - **Default State**: What happens by default when the detector triggers: **Detect** (log only), **Allow** (pass through), or **Block** (stop the prompt).
+  - **Entities**: The list of PII labels to watch for. Each entry has its own **Action** override (**Detect** / **Allow** / **Block** / **Disabled**). Start with three to five high-value PII labels. The more you select, the more noise and errors may appear.
+7. After configuring the prompt detectors, click **Save Changes** to close the window and click **Next** on the **Prompt Detectors** tab. The **Response Detectors** tab opens.
+8. Configuring response detectors follows the same steps as configuring prompt detectors, so refer back to the earlier steps for more information.
+9. After configuring your response detectors, click **Next**. The **Review** tab opens.
+10. The **Review** tab shows you a summary of the policy configuration you created. Click **Submit Policy** if everything looks correct.
+11. In the AI Security Admin Portal left-side navigation, go to: **AI Guard** > **Policy Testing**.
+12. Validate in **Policy Testing** with five to ten sample prompts to confirm your setup is working as expected. To learn more about policy testing, see [AI Guard Policy Testing](https://help.zscaler.com/secure-ai-users/ai-guard-policy-testing).
+
+After creating a policy and confirming it works as expected, the next step is to create a policy match. For more information on policy matching, see [Managing AI Guard Policy Control](https://help.zscaler.com/secure-ai-users/managing-ai-guard-policy-control).
+
+The **threshold** is a number between 0.0 and 1.0 that controls how confident the model must be before it calls a prompt a match. Think of it as a volume knob: turn it up and only very obvious mentions trigger. Turn it down and more borderline cases trigger too.
+
+The default for PII is **0.5**. This was chosen based on Zscaler's internal validation set, a benchmark spanning 28 languages and roughly 9,000 labeled prompts covering PII mentions. At 0.5 the detector hits the sweet spot between catching real mentions and avoiding false alarms.
+
+Zscaler strongly recommends that you leave the threshold at **0.5**. We built and validated the detector around this default.
+
+Refer to the following table when considering changing the threshold:
+
+| Range | What it means | When to use it |
+| --- | --- | --- |
+| 0.7 to 1.00 | Stricter. Only high-confidence matches trigger. | If you are sensitive to noise from extended categories (PERSON, LOCATION, DATE/TIME). |
+| 0.5 to 0.69 | Default sweet spot. Catches supported PII. | Production deployments. Start here unless you need tighter or looser behavior. |
+| 0.3 to 0.49 | More permissive. | Within the focused PII categories, false positives are currently very low. Best used when extended categories are restricted via entity. |
+
+### FAQs
+
+- **Why isn't the detector triggering when it should?**
+  - The PII may be invalid. Invalid SSNs (area 000, area 900+) and similar government-ID values are rejected on purpose, even with strong context.
+  - Too many individual PII categories have been disabled in the policy.
+  - The PII is heavily obfuscated (base64, hex, reversed digits, zero-width characters).
+  - PII information is split across labels (Area: ..., Group: ..., Serial: ...).
+  - The separators may be unusual (pipe, comma, slash, parenthesis).
+- **Why is it triggering when it shouldn't?**
+  - Check Dashboard > Transaction Details > Detection Summary for which specific PII categories were detected and update your policy accordingly.
+- **Why doesn't**`**000-00-0000**`**trigger as a SSN?**
+  - Area `000` is invalid per Social Security Administration (SSA) rules.
+- **Why does**`**card ending in 5904**`**trigger?**
+  - Masked references are intentionally flagged.
+- **Why is my SSN with**`**|**`**separators not caught?**
+  - Separator handling beyond `-` and `space` is in active development.
+- **I sent valid PII inside JSON / XML / SQL, will AI Guard catch it?**
+  - Yes, wrapping doesn't matter, only validity does.
+- **Will it catch a typo'd PII number if the context is strong?**
+  - Yes, the model side can flag near-misses even when the span detector misses, as long as the surrounding context clearly identifies it as PII.
+- **What does**`**start: null**`**,**`**end: null**`**in an error message mean?**
+  - This can appear when using AI to analyze a document. If an error message contains `start: null`, `end: null`, the PII detector has found PII, but its position within the document couldn't be determined.
+
+[Image: Competitor detector configuration page]
+
+[Image: Basic policy information fields which includes Policy Name and Description]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2134,13 +2530,13 @@ This chat type enables communication with a specific Glean Agent within your org
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/managing-ai-guard-log-exports","lastmod":"2026-08-11T10:04Z","nid":"1541825"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/managing-ai-guard-log-exports","lastmod":"2026-09-08T09:24Z","nid":"1541825"} -->
 ## Managing AI Guard Log Exports
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/managing-ai-guard-log-exports
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Configuration > General > Managing AI Guard Log Exports
-- Last modified: 2026-08-11T10:04Z
+- Last modified: 2026-09-08T09:24Z
 - Summary: Learn to manage and configure third-party integrations to export incident data from AI Guard.
 
 The AI Guard **Log Exports** page allows you to manage and configure third-party integrations to export incident data. You can do this through either Amazon Web Services (AWS), CrowdStrike (CRWD), AWS S3, or Splunk event exporting.
@@ -2161,13 +2557,33 @@ To add an ADX event export instance:
 3. Click **Validate Connection** to check whether the information you entered is accurate and working.
 4. Click **Save Integration**. The **Azure ADX Event Export Integrations** page opens. Your integration appears on this page.
 
-## CRWD Event Export
+## CRWD SIEM Direct Export
+
+Use the CRWD integration to direct export event metadata to CrowdStrike HTTP Event Collector (HEC).
+
+To add a CRWD event export instance:
+
+1. Under **CRWD SIEM Direct Export**, click **Add Instance**. The **Add Integration** window appears. See image.
+2. In the **Add Integration** window:
+  - **Name**: Enter a name for your event export instance.
+  - **Enabled**: Select this option to activate the event report functionality.
+  - **CrowdStrike Metadata HEC Bearer Token**: The bearer token used to authenticate to the CrowdStrike HEC for the tenant's events.
+  - **CrowdStrike Metadata HEC URL**: The URL of the CrowdStrike HEC (raw endpoint) where tenant's events will be posted.
+  - **CrowdStrike HEC Bearer Token**: (Optional) Enter the bearer token to authenticate the CrowdStrike HEC.
+  - **CrowdStrike HEC URL**: (Optional) Enter the URL of the CrowdStrike HEC (raw endpoint) where tenant's events (metadata) will be posted.
+  - **Export Allowed/Detected Prompts**: Select to export allowed and detected prompts.
+  - **Export Blocked Prompts**: Select to export blocked prompts.
+  - **Export Tools Field**: Enabled by default. Disable if you want to remove the **Tools** field from your event log metadata export.
+3. Click **Validate Connection** to check whether the information you entered is accurate and working.
+4. Click **Save Integration**. The **CRWD Event Export Integrations** page opens. Your integration appears on this page.
+
+## CRWD SIEM Export (via S3)
 
 Use the CRWD integration to export event metadata to CrowdStrike HTTP Event Collector (HEC) and event contents to AWS S3.
 
 To add a CRWD event export instance:
 
-1. Under **CRWD Event Export**, click **Add Instance**. The **Add Integration** window appears. See image.
+1. Under **CRWD SIEM Export (via S3)**, click **Add Instance**. The **Add Integration** window appears. See image.
 2. In the **Add Integration** window:
   - **Name**: Enter a name for your event export instance.
   - **Enabled**: Select this option to activate the event report functionality.
@@ -2175,8 +2591,6 @@ To add a CRWD event export instance:
   - **Bucket Key Prefix**: (Optional) Enter the key prefix for objects created in the S3 bucket.
   - **Tags**: (Optional) Click **Add Tag** to enter the tag key and value to apply to the object put in the S3 bucket. To use this feature, the IAM role requires permissions for the "s3:PutObjectTagging" action.
   - **Region of Bucket**: Enter the region of the bucket.
-  - **IAM Cross-Account Role ARN**: Enter the Amazon Resource Name (ARN) of the IAM cross-account role created in the tenant's AWS account.
-  - **IAM Cross-Account Role External ID**: The external ID of the IAM cross-account role which is created in the tenant's AWS account. It should be filled in automatically.
   - **CrowdStrike HEC Bearer Token**: Enter the bearer token to authenticate the CrowdStrike HEC.
   - **CrowdStrike HEC URL**: Enter the URL of the CrowdStrike HEC (raw endpoint) where tenant's events (metadata) will be posted.
   - **Export Allowed/Detected Prompts**: Select to export allowed and detected prompts.
@@ -2225,6 +2639,8 @@ To add an S3 event export instance:
 4. Click **Save Integration**. The **Splunk Export Integrations** page opens. Your integration appears on this page.
 
 [Image: AI Guard Add Integration window for CRWD]
+
+[Image: Crowdstrike Direct]
 
 [Image: AI Guard Add Integration window for S3]
 
@@ -3240,13 +3656,13 @@ To register a Red Teaming broker, do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/release-upgrade-summary-2026","lastmod":"2026-09-04T15:29Z","nid":"1539124"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/release-upgrade-summary-2026","lastmod":"2026-10-02T16:53Z","nid":"1539124"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/release-upgrade-summary-2026
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-04T15:29Z
+- Last modified: 2026-10-02T16:53Z
 - Summary: Secure AI Apps & Infrastructure Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Secure AI Apps & Infrastructure.
@@ -3983,13 +4399,13 @@ accept: application/json
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/troubleshooting-ai-red-teaming-broker-issues","lastmod":"2026-08-10T19:19Z","nid":"1541957"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/troubleshooting-ai-red-teaming-broker-issues","lastmod":"2026-10-01T07:06Z","nid":"1541957"} -->
 ## Troubleshooting AI Red Teaming Broker Issues
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/troubleshooting-ai-red-teaming-broker-issues
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > AI Red Teaming > Brokers > Troubleshooting AI Red Teaming Broker Issues
-- Last modified: 2026-08-10T19:19Z
+- Last modified: 2026-10-01T07:06Z
 - Summary: This Zscaler runbook outlines troubleshooting steps for AI Red Teaming Brokers.
 
 The AI Security Red Teaming Broker is a lightweight agent that you deploy inside your network to enable Red Teaming to reach private AI applications without opening inbound firewall ports. Use this article to diagnose and resolve common broker connectivity, authentication, and routing issues.
@@ -4706,33 +5122,61 @@ To delete a policy configuration:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/ai-guard-audit-log","lastmod":"2026-07-21T13:16Z","nid":"1541874"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/ai-guard-api","lastmod":"2026-09-14T08:01Z","nid":"1545430"} -->
+## AI Guard API
+
+- Source: https://help.zscaler.com/secure-ai-users/ai-guard-api
+- Product: Secure Access to AI Apps
+- Path: Secure Access to AI Apps Help > AI Guard for Users > Getting Started > AI Guard API
+- Last modified: 2026-09-14T08:01Z
+- Summary: Learn where to access the API Reference Guide for AI Guard.
+
+For detailed information on all available AI Guard API policies, references, and summaries, see the [Zscaler Automation Hub API Reference Guide](https://automate.zscaler.com/docs/docs/api-reference-and-guides/api-reference/aiguard).
+
+The AI Guard API Reference Guide contains API resources for the following categories:
+
+- Detection Policies
+- Detection Policy Match Rules
+- LLM Application Credentials
+- LLM Applications
+- LLM Provider Credentials
+- LLM Providers
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/ai-guard-audit-log","lastmod":"2026-10-02T12:32Z","nid":"1541874"} -->
 ## AI Guard Audit Log
 
 - Source: https://help.zscaler.com/secure-ai-users/ai-guard-audit-log
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > AI Guard for Users > Monitoring > AI Guard Audit Log
-- Last modified: 2026-07-21T13:16Z
+- Last modified: 2026-10-02T12:32Z
 - Summary: Learn how to view the AI Guard Audit Log.
 
-The Audit Log page tracks any changes users made inside AI Guard. This can range from anything from updating a policy control to signing in.
+The Audit Log page tracks any changes users make inside AI Guard. This can range from anything from updating a policy control to signing in.
 
 To view the AI Guard Audit Log page:
 
 1. Go to **AI Security Admin Portal** > **AI Guard** > **Audit Log**. See image.
 2. The Audit Log page allows you to view the following information:
-  1. **Timestamp**: The date and time that an action was logged.
-  2. **Initiator**: The email address of the user that triggered the action.
+  1. **Date Range**: Select the date range you want to see the logs for.
+  2. **Refresh**: Update the audit log.
+  3. **Export CSV**: Download a CSV file of the filtered audit log.
+  4. **Timestamp**: The date and time that an action was logged.
+  5. **Initiator**: The email address of the user that triggered the action.
     1. Click the **Search** button in the header to search for a specific initiator.
-  3. **Action**: The action performed, such as: Update, View, or Create.
+  6. **Action**: The action performed, such as: Update, View, or Create.
     1. Click the **Filter** button in the header to select which actions you want to see.
-  4. **Entity Type**: More granular detail about the action. For example, an Action of Update may have an Entity Type of Policy Control, meaning that the user made an update to a policy control.
+  7. **Entity Type**: More granular detail about the action. For example, an Action of Update may have an Entity Type of Policy Control, meaning that the user made an update to a policy control.
     1. Click the **Filter** button in the header to select which entity types you want to see.
 3. For more information about the logged event, in the **Details** column, click the **View Request Details** button. See image.
 4. The **Actions Details** window shows the following information:
   1. **Initiator**, **Action**, and **Entity Type**: The same information from the main Audit Log page.
   2. **Entity ID**: The ID number associated with the action.
-  3. **Payload**: The code payload of the action.
+  3. **Changes**: A field-by-field table that shows any changes from a specific log. Nested fields are a single level deep, anything further is shown as an object or array placeholder. Only relevant changes are shown, noise (such as `id` or `lastUpdatedAt` fields) that are empty of changes are hidden.
+  4. **Advanced**: View the full JSON code changes.
+  5. **Revert**: This undoes Create, Update, or Delete on all supported detectors. It will ask for confirmation before reverting the changes.
 
 [Image: AI Guard Audit Log page]
 
@@ -4823,6 +5267,158 @@ To test an AI Guard policy:
 [Image: AI Guard Policy Testing page with an example prompt entered.]
 
 [Image: AI Guard Policy Testing page showing the results of an example prompt]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/best-practices-runbook-aws-s3-integration","lastmod":"2026-09-22T13:26Z","nid":"1543034"} -->
+## Best Practices Runbook: AWS S3 Integration
+
+- Source: https://help.zscaler.com/secure-ai-users/best-practices-runbook-aws-s3-integration
+- Product: Secure Access to AI Apps
+- Path: Secure Access to AI Apps Help > AI Guard for Users > Configuration > Best Practices > Best Practices Runbook: AWS S3 Integration
+- Last modified: 2026-09-22T13:26Z
+- Summary: Learn how to configure AWS S3, IAM, and the Zscaler AI Guard integration so that AI Guard can export data into your AWS account using a cross-account IAM role.
+
+AI Guard allows you to manage and configure third-party integrations to export incident data using cross-account IAM roles.
+
+The following article provides instructions to configure and integrate AWS S3, IAM, and AI Guard so that it can export data into your AWS account.
+
+## Prerequisites
+
+Before you can begin configuring AWS and AI Guard, ensure that you have:
+
+- An AI Guard subscription.
+- AWS S3 Metadata and Content buckets in the same region.
+- A cross-account IAM role.
+- The required permissions and trust relationship.
+
+You will also need all the following information:
+
+| Item | Examples |
+| --- | --- |
+| AWS account ID | `012345678901` |
+| AWS region | `us-east-1` |
+| Metadata bucket name | `AI Guard Metadata Bucket` |
+| Content bucket name | `AI Guard Content Bucket` |
+| IAM role name | `AI_Guard` |
+| IAM role ARN | `arn:aws:iam::``<aws-account-id>``:role/``<role-name>` In the AWS Console, click your username in the top right corner. Copy the **Account ID**. |
+| Zscaler AI Guard AWS account ID | `012345678901` In the AI Security Admin Portal, go to **AI Guard** > **Log Exports** > **S3 Event Export** > **Add Instance**. Copy the Zscaler AWS ID. |
+
+## Configuration for S3 and AI Guard Integration
+
+To configure AWS and AI Guard, complete the following steps:
+
+- Create IAM Role and Attach Permissions Policy
+- Configure the IAM Trust Relationship
+- (Optional) Add S3 Bucket Policies
+- Integrate with AI Guard
+- Troubleshooting
+
+Begin with the creation of an IAM role for AI Guard and attaching the necessary permissions policy:
+
+1. Go to the **AWS Console** > **IAM Dashboard** > **IAM users** > **Create user**.
+2. Under **User nam**e, enter `AI Guard Admin`, and click **Next**. See image.
+3. Under **Permissions options**, select **Attach polices directly**.
+4. In the **Permissions policies** section, select **Create policy**. The AWS **Specify permissions** page opens.
+5. Next to **Policy editor**, select **JSON**.
+6. Paste in the following under **Policy editor**: `{ "Version": "2012-10-17", "Statement": [ { "Sid": "ListContentBucket", "Effect": "Allow", "Action": ["s3:ListBucket", "s3:GetBucketLocation"], "Resource": "arn:aws:s3:::<content-bucket>" }, { "Sid": "ReadWriteDeleteContentObjects", "Effect": "Allow", "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"], "Resource": "arn:aws:s3:::<content-bucket>/*" }, { "Sid": "ListMetadataBucket", "Effect": "Allow", "Action": ["s3:ListBucket", "s3:GetBucketLocation"], "Resource": "arn:aws:s3:::<metadata-bucket>" }, { "Sid": "ReadWriteDeleteMetadataObjects", "Effect": "Allow", "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"], "Resource": "arn:aws:s3:::<metadata-bucket>/*" } ] }`See image.
+7. Click **Next**. The **Review and create** page appears.
+8. Under **Policy name** enter: `AI_Guard_IAM_Policy`. Click**Create policy**.
+9. Return to the AWS **Set permissions** page.
+10. In the **Permissions policies** section, click the **Refresh** button, and then search for and select `AI_Guard_IAM_Policy`. See image.
+11. Click **Next**.
+12. Review the information you entered is correct and click **Create user**.
+
+To configure the IAM trust relationship between AI Guard and AWS, do the following:
+
+1. Go to the **AWS Console** > **IAM Dashboard** > **Roles**.
+2. Select **Create role**.
+3. Select **Custom trust policy** and enter the following: `{ "Version": "2012-10-17", "Statement": [ { "Effect": "Allow", "Principal": { "AWS": "arn:aws:iam::<zscaler-ai-guard-account-id>:root" }, "Action": "sts:AssumeRole" } ] }`See image.
+4. Click **Next**. The **Add permissions** page appears.
+5. Under **Permission** policies, select `AI_Guard_IAM_Policy`. See image.
+6. Click **Next**. The **Name, review and create** page opens.
+7. Name the role `AI_Guard_Trust_Role`, review the trust policy and permissions, and click **Create role**.
+
+In many cases, the IAM role policy is sufficient, especially when the role and buckets are in the same AWS account. However, it can be useful to add explicit bucket policies following the role policy.
+
+1. Go to the **AWS Console** > **Buckets**page.
+2. Select your `AI Guard Metadata Bucket`. Go to the **Permissions** tab and next to **Bucket policy** click **Edit**. See image.
+3. Under **Policy**, enter the following: `{ "Version": "2012-10-17", "Statement": [ { "Sid": "AllowRoleListBucket", "Effect": "Allow", "Principal": {"AWS": "<role-arn>"}, "Action": ["s3:ListBucket", "s3:GetBucketLocation"], "Resource": "arn:aws:s3:::<metadata-bucket>" }, { "Sid": "AllowRoleObjectReadWrite", "Effect": "Allow", "Principal": {"AWS": "<role-arn>"}, "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"], "Resource": "arn:aws:s3:::<metadata-bucket>/*" } ] }`See image.
+4. Click **Save changes**.
+5. Back on the **Buckets** page, select your `AI Guard Content Bucket`. Go to the **Permissions** tab and next to **Bucket policy** click **Edit**.
+6. Under **Policy**, enter the following: `{ "Version": "2012-10-17", "Statement": [ { "Sid": "AllowRoleListBucket", "Effect": "Allow", "Principal": {"AWS": "<role-arn>"}, "Action": ["s3:ListBucket", "s3:GetBucketLocation"], "Resource": "arn:aws:s3:::<content-bucket>" }, { "Sid": "AllowRoleObjectReadWrite", "Effect": "Allow", "Principal": {"AWS": "<role-arn>"}, "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"], "Resource": "arn:aws:s3:::`<content-bucket>`/*" } ] }`
+7. Click **Save changes**.
+
+Finish integrating AI Guard with S3 by completing the following:
+
+1. Go to the **AI Security Admin Portal** > **AI Guard** > **Log Exports**.
+2. In the **S3 Event Export** section, click **Add Instance**. See image.
+3. In the **Add Integration** window, enter the following: See image.
+  1. **Name**: `S3 AI Guard Integration`
+  2. **Enabled**: Leave enabled.
+  3. **AWS S3 Metadata Bucket**: `AI Guard Metadata Bucket`
+  4. **AWS S3 Content Bucket**: `AI Guard Content Bucket`
+  5. **Bucket Key Prefix**: Optional.
+  6. **Tags**: Optional.
+  7. **Region of Buckets**: Your AWS region (for example: `us-east-1`).
+  8. **IAM Cross-Account Role ARN**: `arn:aws:iam::``<aws-account-id>``:role/``<role-name>`
+  9. **IAM Cross-Account Role External ID**: Leave the default value unchanged.
+  10. **Export Allowed/Detected Prompts**: Configure per policy.
+  11. **Export Blocked Prompts**: Configure per policy.
+  12. **Export Tool Field**: Configure per policy.
+4. Click **Validate Connection** to test that the information you entered is correct.
+5. Click **Save Integration** after a successful validation.
+
+When validating the AI Guard and AWS S3 connection, a failure will cause a pop-up error message to appear within AI Guard to provide you with additional information. The following are issues that can happen, and their most common solutions:
+
+### AssumeRole Fails
+
+This occurs when an AWS Security Token Service (STS) AssumeRole request is rejected.
+
+- Check that the trust policy includes the correct Zscaler AI Guard AWS account from the **Add Integration** window.
+- Check that the role ARN entered in the UI is correct.
+- Confirm that no AWS Organizations Service Control Policy (SCP) or permission boundary blocks `sts:AssumeRole`. For more information, refer to [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html).
+- Confirm that you didn't add an incorrect `sts:ExternalId` condition.
+
+### Connection Test Fails with S3 Access Errors
+
+This happens when AI Guard is not able to connect to AWS S3.
+
+- Check that the IAM role policy includes both the bucket-level and object-level permissions.
+- Make sure the bucket names are entered correctly.
+- Confirm that the bucket policies, if used, reference the correct Role ARN.
+- Check that there isn't an explicit Deny in the bucket policy or organization policy.
+
+### Listing Works, but Write Fails
+
+This usually means `s3:ListBucket` is present but `s3:PutObject` is missing or incorrectly configured. Verify the object resource paths use `arn:aws:s3:::``bucket-name``/*` or the correct prefix-specific equivalent.
+
+### Access to Encrypted Objects Fails
+
+This can happen when an IAM User or Role has correct permissions to access a bucket, but it is blocked.
+
+- Check that server-side encryption with AWS KMS keys (SSE-KMS) is enabled in the buckets. For more information, refer to [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/specifying-kms-encryption.html).
+- Check whether the role has KMS permissions.
+- Check whether the KMS key policy allows the role.
+
+[Image: AWS Role permissions page with AI_Guard_IAM_Policy selected]
+
+[Image: AI Guard Log Exports Add Integration window]
+
+[Image: AI Guard Log Exports page showing the S3 Event Export section]
+
+[Image: Amazon Edit Bucket Policy page with policy pasted in]
+
+[Image: Amazon Bucket permissions showing the Bucket policy section and edit button]
+
+[Image: Amazon Custom trust policy]
+
+[Image: Amazon Set permissions page showing the newly created AI_Guard_IAM_Policy]
+
+[Image: AWS Specify permissions page]
+
+[Image: Amazon Specify user details page with AI Guard Admin entered for User name]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4946,6 +5542,216 @@ If the Competition detector isn't triggering correctly, run through the followin
 [Image: Basic policy information fields which includes Policy Name and Description]
 
 [Image: Review tab for adding a policy showing the information entered previously in the process]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/best-practices-runbook-ip-detector","lastmod":"2026-09-15T13:09Z","nid":"1542965"} -->
+## Best Practices Runbook: IP Detector
+
+- Source: https://help.zscaler.com/secure-ai-users/best-practices-runbook-ip-detector
+- Product: Secure Access to AI Apps
+- Path: Secure Access to AI Apps Help > AI Guard for Users > Configuration > Best Practices > Best Practices Runbook: IP Detector
+- Last modified: 2026-09-15T13:09Z
+- Summary: Learn the best practices for configuring the Intellectual Property (IP) prompt/response detector for AI Guard as well as explanations on how it works, threshold information, and troubleshooting.
+
+AI Guard works by enforcing enterprise policies on prompts and responses between users and public AI apps, such as ChatGPT, Perplexity, Claude, etc., and between private AI apps and foundational Large Language Models (LLMs), such as OpenAI, Anthropic, etc. You set a policy by enabling one or more included detectors on prompts and responses. These detectors are activated on prompts and responses based on the policies you define in the portal.
+
+The Intellectual Property (IP) Detector flags when a user’s prompt reproduces or leaks specific sensitive content from a confidential context (numerical data, named entities, source code, proprietary text, etc.), even when rephrased, abbreviated, or written in another language.
+
+This best practices runbook contains the following information on the IP detector:
+
+- How the IP detector works.
+- How to configure the detector.
+- Choosing the correct threshold.
+- Troubleshooting and FAQ.
+
+The IP detector watches every prompt a user sends to an LLM and flags it when the user appears to be reproducing or extracting specific confidential content from the context document the customer has loaded. Unlike a topic detector (which catches what subject is being discussed), the IP detector catches whether actual private data is being reproduced.
+
+The IP detector catches the following:
+
+- **Near-verbatim reproduction**: "`Revenue grew 23% YoY to $412M`" matches context containing those exact figures.
+- **Paraphrase and synonym substitution**: "`Q3 net profit came in at 4.78 million, margin around 23 percent`" matches the context "`Q3 net profit was $4,783,210 with a margin of 23.4%.`"
+- **Abbreviated and reformatted numbers**: "`3rd ph needs 14.2 mil`" matches "`The required capital investment for Phase 3 is exactly $14.2 million.`"
+- **Named-entity carry-over**: "`Dr. Evelyn Reed filed the algorithm patent`" matches context that names the same person and event.
+- **Source code reproduction**: Partial or reformatted code copied from a confidential context is captured at the token level.
+- **Legal and contractual clause reproduction**: Paraphrasing specific clause text is detected via semantic overlap.
+- **Multilingual reproduction**: Reproducing confidential English content in French, German, or any of 28 supported languages is detected.
+
+The IP detector does not trigger on the following:
+
+- **Generic topic questions**: "`What is a typical breakup fee in M&A?`" does not trigger even if the context contains a specific breakup fee figure.
+- **Vague summarization requests**: "`Give me a TL;DR` or `Can you summarize this?`" without quoting or reproducing content.
+- **Codename mentions alone**: "`What is Project Falcon?`" is not a leak; asking about a name is not the same as revealing its contents.
+- **Educational and best-practice queries**: "`How do I manage encryption keys?`" does not trigger even when asked against a context containing key material.
+- **Incidental number overlap**: Common numbers (years, percentages used in general context) that appear in the context do not trigger on their own.
+
+To configure the IP detector in an AI Guard policy:
+
+1. In the AI Security Admin Portal left-side navigation, go to: **AI Guard** > **Policy >** **Configurations**.
+2. Click **Add More** to open the **Add New Configuration** page. To edit an existing policy, in the **Action** column, click **Edit Configuration** for a policy.
+3. Under **Basic Information**, enter: See image.
+  1. **Policy Name**
+  2. (Optional) **Description**
+4. Click **Continue to Detectors**. The **Prompt Detectors** tab opens.
+5. On the **Prompt Detectors** tab, click on the **Intellectual Property** tile. The **Configure** window appears.
+6. The following configuration options are the initial recommendations for the IP detector: See image.
+  - **Enabled**: Enables the prompt detector and is on by default. Leave **Enabled**.
+  - **Severity**: Corresponds to the severity icons in the **Prompt Detectors** column on the **Policies** page. The recommended setting is LOW for initial deployments. Raise to MEDIUM/HIGH only after a user confirms the false-positive rate is acceptable.
+  - **Threshold**: The lower the threshold setting, the more strict AI Guard is with activating the policy (i.e., allowing, blocking, or detecting the prompt). Keep the default (**0.7**) for production. For more information, refer to the next section.
+  - **Action**: What happens by default when the detector triggers: **Detect** (log only), **Allow** (pass through), or **Block** (stop the prompt).
+  - **Sensitive Context**: Enter the intellectual property information that you want to filter. For example:
+    - Sensitive Context: "Project Chimera's launch date is slated for Q4 2026, contingent on hardware finalization."
+    - Prompt that triggers that context: "Draft an update stating that the release for Chimera is planned for the end of 2026, as long as the hardware is ready in time."
+7. After configuring the prompt detectors, click **Save Changes** to close the window and click **Next** on the **Prompt Detectors** tab. The **Response Detectors** tab opens.
+8. Configuring response detectors follows the same steps as configuring prompt detectors, so refer back to the earlier steps for more information.
+9. After configuring your response detectors, click **Next**. The **Review** tab opens.
+10. The **Review** tab shows you a summary of the policy configuration you created. Click **Submit Policy** if everything looks correct.
+11. In the AI Security Admin Portal left-side navigation, go to: **AI Guard** > **Policy Testing**.
+12. Validate in **Policy Testing** with five to ten sample prompts to confirm your setup is working as expected. To learn more about policy testing, see [AI Guard Policy Testing](https://help.zscaler.com/secure-ai-users/ai-guard-policy-testing).
+
+After creating a policy and confirming it works as expected, the next step is to create a policy match. For more information on policy matching, see [Managing AI Guard Policy Control](https://help.zscaler.com/secure-ai-users/managing-ai-guard-policy-control).
+
+The **threshold** is a number between 0.0 and 1.0 that controls how confident the model must be before it calls a prompt a match. Think of it as a volume knob: turn it up and only very obvious mentions trigger. Turn it down and more borderline cases trigger too.
+
+The default for IP is **0.7**. This was chosen based on Zscaler's internal validation set, a benchmark spanning 28 languages and roughly 9,000 labeled prompts covering IP mentions. At 0.7 the detector hits the sweet spot between catching real mentions and avoiding false alarms.
+
+Zscaler strongly recommends that you leave the threshold at **0.7**. We built and validated the detector around this default.
+
+Refer to the following table when considering changing the threshold:
+
+| Range | What it means | When to use it |
+| --- | --- | --- |
+| 0.85 to 1.00 | Only near-verbatim or unmistakable reproductions trigger. | If you want to avoid false positives. Suitable for initial Block-mode roll-outs on high-value IP. |
+| 0.7 to 0.84 | Default sweet spot. Catches real reproductions including paraphrases, number reformatting, and other languages. Rejects generic summaries and topic questions. | Production deployments. Start here unless you explicitly need tighter behavior. |
+| 0.5 to 0.69 | Triggers on borderline cases, prompts that hint at or indirectly reference the confidential content. | Investigation or audit mode. NOT recommended for Block mode. |
+| Below 0.5 | Very permissive. Loose topical overlap triggers. | Not recommended for production. Useful only for internal debugging. |
+
+### FAQs
+
+- **Does it work on non-English prompts?** Yes, 28 languages are supported. The bi-encoder is multilingual.
+- **Will it trigger on a summarization request like ‘Summarize this document’?** No, not unless the input also reproduces specific content. A bare summarization request (`Give me a TL;DR`) contains no context tokens and will not trigger. A request that paraphrases specific confidential data while asking for a summary (`Repeat the Q3 revenue of $412M in a slide format`) will trigger because of the reproduced figure.
+- **How does it handle codename mentions?** Codename mentions alone are not flagged. `What is Project Falcon?` will not trigger even if the context contains detailed Project Falcon content, because the input is not reproducing any of that content.
+- **Can I export detection logs for analysis?** Yes. Go to Log Exports in the AI Security Admin Portal left navigation menu.
+- **How often is the model updated?** Retrained periodically as new false-positive patterns surface. Updates are rolled out transparently, no customer action needed. Check release notes for version updates.
+
+[Image: Competitor detector configuration page]
+
+[Image: Basic policy information fields which includes Policy Name and Description]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/best-practices-runbook-pii-detector","lastmod":"2026-09-22T13:14Z","nid":"1542906"} -->
+## Best Practices Runbook: PII Detector
+
+- Source: https://help.zscaler.com/secure-ai-users/best-practices-runbook-pii-detector
+- Product: Secure Access to AI Apps
+- Path: Secure Access to AI Apps Help > AI Guard for Users > Configuration > Best Practices > Best Practices Runbook: PII Detector
+- Last modified: 2026-09-22T13:14Z
+- Summary: Learn the best practices for configuring the Personally Identifiable Information (PII) prompt/response detector for AI Guard as well as explanations on how it works, example customer scenarios, and troubleshooting.
+
+AI Guard works by enforcing enterprise policies on prompts and responses between users and public AI apps, such as ChatGPT, Perplexity, Claude, etc., and between private AI apps and foundational Large Language Models (LLMs), such as OpenAI, Anthropic, etc. You set a policy by enabling one or more included detectors on prompts and responses. These detectors are activated on prompts and responses based on the policies you define in the portal.
+
+The Personally Identifiable Information (PII) Detector flags user prompts that contain real personal information (such as: credit card numbers, SSNs, emails, phone numbers, government IDs, bank identifiers) and ignores look-alike content that doesn't carry real identifying data (i.e.: test card numbers or fake SSNs).
+
+This best practices runbook contains the following information on the PII detector:
+
+- How the PII detector works.
+- How to configure the detector.
+- Choosing the correct threshold.
+- Troubleshooting and FAQ.
+
+The PII detector catches the following categories:
+
+| Category | Trigger Examples |
+| --- | --- |
+| Credit Card | `4532-1234-5678-9010` |
+| Email | `pat.doe@example.com` |
+| Phone | `555-019-9999` |
+| IP Address | `192.168.1.1` |
+| IBAN | `GB29 NWBK 6016 1331 9268 19` |
+| SWIFT Code | `CHASUS33` |
+| Date of Birth | `DOB: March 15, 1985` |
+| US SSN | `234-56-7891` |
+| US ITIN | `912-79-1234` |
+| US Passport | `T12345678` |
+| US Bank Number | `123456789012` |
+
+The PII Detector catches all of the following:
+
+- Valid PII across formats: Plain prose, JSON, XML, SQL, log lines, code. The container format doesn't matter.
+- PII with or without surrounding context.
+- Multiple PII in a single prompt, each is detected independently.
+- Near-misses with strong context. Even when the value isn't a perfect format match (typo, missing digit, slight formatting issue), the model-based signal can still trigger if the surrounding context clearly identifies it as PII. For example: `My card is 4532-1234-5678-901` (one digit short of a credit card number) in a payment-form context is still flagged.
+- Masked card references: `****-****-****-1234` or `card ending in 5904`.
+- Document-level catches when the model is highly confident but can't pinpoint a position (response shows `start: null`, `end: null`).
+
+To configure the PII detector in an AI Guard policy:
+
+1. In the AI Security Admin Portal left-side navigation, go to: **AI Guard** > **Policy >** **Configurations**.
+2. Click **Add More** to open the **Add New Configuration** page. To edit an existing policy, in the **Action** column, click **Edit Configuration** for a policy.
+3. Under **Basic Information**, enter: See image.
+  1. **Policy Name**
+  2. (Optional) **Description**
+4. Click **Continue to Detectors**. The **Prompt Detectors** tab opens.
+5. On the **Prompt Detectors** tab, click on the **PII** tile. The **Configure** window appears.
+6. The following configuration options are the initial recommendations for the PII detector: See image.
+  - **Enabled**: Enables the prompt detector and is on by default. Leave **Enabled**.
+  - **Severity**: Corresponds to the severity icons in the **Prompt Detectors** column on the **Policies** page. The recommended setting is LOW for initial deployments. Raise to MEDIUM/HIGH only after a user confirms the false-positive rate is acceptable.
+  - **Allow Masking**: When enabled, this will mask the PII information when shown in the dashboard.
+  - **Threshold**: The lower the threshold setting, the more strict AI Guard is with activating the policy (i.e., allowing, blocking, or detecting the prompt). Keep the default (**0.5**) for production. For more information, refer to the next section.
+  - **Default State**: What happens by default when the detector triggers: **Detect** (log only), **Allow** (pass through), or **Block** (stop the prompt).
+  - **Entities**: The list of PII labels to watch for. Each entry has its own **Action** override (**Detect** / **Allow** / **Block** / **Disabled**). Start with three to five high-value PII labels. The more you select, the more noise and errors may appear.
+7. After configuring the prompt detectors, click **Save Changes** to close the window and click **Next** on the **Prompt Detectors** tab. The **Response Detectors** tab opens.
+8. Configuring response detectors follows the same steps as configuring prompt detectors, so refer back to the earlier steps for more information.
+9. After configuring your response detectors, click **Next**. The **Review** tab opens.
+10. The **Review** tab shows you a summary of the policy configuration you created. Click **Submit Policy** if everything looks correct.
+11. In the AI Security Admin Portal left-side navigation, go to: **AI Guard** > **Policy Testing**.
+12. Validate in **Policy Testing** with five to ten sample prompts to confirm your setup is working as expected. To learn more about policy testing, see [AI Guard Policy Testing](https://help.zscaler.com/secure-ai-users/ai-guard-policy-testing).
+
+After creating a policy and confirming it works as expected, the next step is to create a policy match. For more information on policy matching, see [Managing AI Guard Policy Control](https://help.zscaler.com/secure-ai-users/managing-ai-guard-policy-control).
+
+The **threshold** is a number between 0.0 and 1.0 that controls how confident the model must be before it calls a prompt a match. Think of it as a volume knob: turn it up and only very obvious mentions trigger. Turn it down and more borderline cases trigger too.
+
+The default for PII is **0.5**. This was chosen based on Zscaler's internal validation set, a benchmark spanning 28 languages and roughly 9,000 labeled prompts covering PII mentions. At 0.5 the detector hits the sweet spot between catching real mentions and avoiding false alarms.
+
+Zscaler strongly recommends that you leave the threshold at **0.5**. We built and validated the detector around this default.
+
+Refer to the following table when considering changing the threshold:
+
+| Range | What it means | When to use it |
+| --- | --- | --- |
+| 0.7 to 1.00 | Stricter. Only high-confidence matches trigger. | If you are sensitive to noise from extended categories (PERSON, LOCATION, DATE/TIME). |
+| 0.5 to 0.69 | Default sweet spot. Catches supported PII. | Production deployments. Start here unless you need tighter or looser behavior. |
+| 0.3 to 0.49 | More permissive. | Within the focused PII categories, false positives are currently very low. Best used when extended categories are restricted via entity. |
+
+### FAQs
+
+- **Why isn't the detector triggering when it should?**
+  - The PII may be invalid. Invalid SSNs (area 000, area 900+) and similar government-ID values are rejected on purpose, even with strong context.
+  - Too many individual PII categories have been disabled in the policy.
+  - The PII is heavily obfuscated (base64, hex, reversed digits, zero-width characters).
+  - PII information is split across labels (Area: ..., Group: ..., Serial: ...).
+  - The separators may be unusual (pipe, comma, slash, parenthesis).
+- **Why is it triggering when it shouldn't?**
+  - Check Dashboard > Transaction Details > Detection Summary for which specific PII categories were detected and update your policy accordingly.
+- **Why doesn't**`**000-00-0000**`**trigger as a SSN?**
+  - Area `000` is invalid per Social Security Administration (SSA) rules.
+- **Why does**`**card ending in 5904**`**trigger?**
+  - Masked references are intentionally flagged.
+- **Why is my SSN with**`**|**`**separators not caught?**
+  - Separator handling beyond `-` and `space` is in active development.
+- **I sent valid PII inside JSON / XML / SQL, will AI Guard catch it?**
+  - Yes, wrapping doesn't matter, only validity does.
+- **Will it catch a typo'd PII number if the context is strong?**
+  - Yes, the model side can flag near-misses even when the span detector misses, as long as the surrounding context clearly identifies it as PII.
+- **What does**`**start: null**`**,**`**end: null**`**in an error message mean?**
+  - This can appear when using AI to analyze a document. If an error message contains `start: null`, `end: null`, the PII detector has found PII, but its position within the document couldn't be determined.
+
+[Image: Competitor detector configuration page]
+
+[Image: Basic policy information fields which includes Policy Name and Description]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -5219,13 +6025,13 @@ To create a custom block message:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/integrating-zia-ai-guard","lastmod":"2026-09-02T09:35Z","nid":"1540870"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/integrating-zia-ai-guard","lastmod":"2026-10-02T08:15Z","nid":"1540870"} -->
 ## Integrating ZIA with AI Guard
 
 - Source: https://help.zscaler.com/secure-ai-users/integrating-zia-ai-guard
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > AI Guard for Users > Getting Started > Integrating ZIA with AI Guard
-- Last modified: 2026-09-02T09:35Z
+- Last modified: 2026-10-02T08:15Z
 - Summary: Learn how to forward traffic from ZIA to AI Guard for processing AI traffic for AI users.
 
 Thanks to the integration of AI Guard with Internet & SaaS (ZIA), you can configure ZIA to invoke AI Guard for processing user's AI traffic.
@@ -5250,7 +6056,7 @@ Before you can integrate ZIA with AI Guard, ensure that you:
   | Gamma | Web Browsers | `*.api.gamma.app` `*.ai.api.gamma.app` |
   | ElevenLabs | Web Browsers: Text-to-speech supported | `api.us.elevenlabs.io` |
   | GitHub Copilot | Web Browsers | `api.individual.githubcopilot.com` |
-  | GitHub Copilot Enterprise | Web Browsers | `api.business.githubcopilot.com` `api.enterprise.githubcopilot.com` `api.individual.githubcopilot.com` |
+  | GitHub Copilot Enterprise | Web Browsers; GitHub in Visual Studio (VS) Code | `api.business.githubcopilot.com` `api.enterprise.githubcopilot.com` `api.individual.githubcopilot.com` |
   | Glean | Web Browser Chat | `*.glean.com` |
   | Google Gemini | Web Browsers | `*.gemini.google.com` |
   | Google Gemini Code | Web Browsers | `*.gemini.google.com` `cloudcode-pa.googleapis.com` |
@@ -5259,7 +6065,7 @@ Before you can integrate ZIA with AI Guard, ensure that you:
   | Grok (xAI) | Web Browsers | `*.grok.com` |
   | Lovable | Web Browsers | `api.lovable.dev` |
   | MaxAI | Web Browsers | `*.api.maxai.me` |
-  | Microsoft 365 Copilot | M365 Web Experience (Web Browser); M365 Desktop App (Windows and Mac); Copilot.com (Web Browser); Copilot in Word (Desktop App and Web Browser); Copilot in Excel; Copilot in Outlook (Web Browser) | `substrate.office.com` `substrate.svc.cloud.microsoft` `copilot.microsoft.com` `api.business.githubcopilot.com` `api.enterprise.githubcopilot.com` `api.individual.githubcopilot.com` `augloop.office.com` www.`copilot.com` |
+  | Microsoft 365 Copilot | M365 Web Experience (Web Browser); M365 Desktop App (Windows and Mac); Copilot.com (Web Browser); Copilot in Word (Desktop App and Web Browser); Copilot in Excel (Web Browser); Copilot in Outlook (Web Browser) | `substrate.office.com` `substrate.svc.cloud.microsoft` `copilot.microsoft.com` `api.business.githubcopilot.com` `api.enterprise.githubcopilot.com` `api.individual.githubcopilot.com` `augloop.office.com` `www.copilot.com` |
   | Mistral AI | Mistral Vibe (formerly Le Chat) backend | `*.mistral.ai` |
   | Napkin AI | Web Browsers | `*.app.napkin.ai` |
   | NotebookLM | Web Browsers | `*.notebooklm.google.com` |
@@ -5300,7 +6106,7 @@ To configure your ZIA proxy:
 2. In the **Proxies** tab, click **Add Proxy**. The **Add Proxy** window appears. See image.
 3. In the **Add Proxy** window:
   - **Proxy Name**: Enter a user-friendly name for the third-party proxy that you are defining.
-  - **IP Address/FQDN**: `forward.zseclipse.net`.
+  - **IP Address/FQDN**: `forward.zsaiguard.net`.
   - **Port**: `9443`.
   - **Proxy's Root Certificate**: Select the root certificate you previously created.
   - **Insert X-Authenticated-User**: Enable this setting.
@@ -5371,13 +6177,13 @@ For traffic forwarding to work, users must have signed in to ZIA through mechani
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/managing-ai-guard-log-exports","lastmod":"2026-08-11T10:02Z","nid":"1540889"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/managing-ai-guard-log-exports","lastmod":"2026-09-08T09:22Z","nid":"1540889"} -->
 ## Managing AI Guard Log Exports
 
 - Source: https://help.zscaler.com/secure-ai-users/managing-ai-guard-log-exports
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > AI Guard for Users > Configuration > Managing AI Guard Log Exports
-- Last modified: 2026-08-11T10:02Z
+- Last modified: 2026-09-08T09:22Z
 - Summary: Learn to manage and configure third-party integrations to export incident data from AI Guard.
 
 The AI Guard **Log Exports** page allows you to manage and configure third-party integrations to export incident data. You can do this through either Amazon Web Services (AWS), CrowdStrike (CRWD), Splunk, or AWS S3 event exporting.
@@ -5398,7 +6204,27 @@ To add an ADX event export instance:
 3. Click **Validate Connection** to check whether the information you entered is accurate and working.
 4. Click **Save Integration**. The **Azure ADX Event Export Integrations** page opens. Your integration appears on this page.
 
-## CRWD Event Export
+## CRWD SIEM Direct Export
+
+Use the CRWD integration to direct export event metadata to CrowdStrike HTTP Event Collector (HEC).
+
+To add a CRWD event export instance:
+
+1. Under **CRWD SIEM Direct Export**, click **Add Instance**. The **Add Integration** window appears. See image.
+2. In the **Add Integration** window:
+  1. **Name**: Enter a name for your event export instance.
+  2. **Enabled**: Select this option to activate the event report functionality.
+  3. **CrowdStrike Metadata HEC Bearer Token**: The bearer token used to authenticate to the CrowdStrike HEC for the tenant's events.
+  4. **CrowdStrike Metadata HEC URL**: The URL of the CrowdStrike HEC (raw endpoint) where tenant's events will be posted.
+  5. **CrowdStrike HEC Bearer Token**: (Optional) Enter the bearer token to authenticate the CrowdStrike HEC.
+  6. **CrowdStrike HEC URL**: (Optional) Enter the URL of the CrowdStrike HEC (raw endpoint) where tenant's events (metadata) will be posted.
+  7. **Export Allowed/Detected Prompts**: Select to export allowed and detected prompts.
+  8. **Export Blocked Prompts**: Select to export blocked prompts.
+  9. **Export Tools Field**: Enabled by default. Disable if you want to remove the **Tools** field from your event log metadata export.
+3. Click **Validate Connection** to check whether the information you entered is accurate and working.
+4. Click **Save Integration**. The **CRWD Event Export Integrations** page opens. Your integration appears on this page.
+
+## CRWD SIEM Export (via S3)
 
 Use the CRWD integration to export event metadata to CrowdStrike HTTP Event Collector (HEC) and event contents to AWS S3.
 
@@ -5412,8 +6238,6 @@ To add a CRWD event export instance:
   - **Bucket Key Prefix**: (Optional) Enter the key prefix for objects created in the S3 bucket.
   - **Tags**: (Optional) Click **Add Tag** to enter the tag key and value to apply to the object put in the S3 bucket. To use this feature, the IAM role requires permissions for the "s3:PutObjectTagging" action.
   - **Region of Bucket**: Enter the region of the bucket.
-  - **IAM Cross-Account Role ARN**: Enter the Amazon Resource Name (ARN) of the IAM cross-account role created in the tenant's AWS account.
-  - **IAM Cross-Account Role External ID**: The external ID of the IAM cross-account role which is created in the tenant's AWS account. It should be filled in automatically.
   - **CrowdStrike HEC Bearer Token**: Enter the bearer token to authenticate the CrowdStrike HEC.
   - **CrowdStrike HEC URL**: Enter the URL of the CrowdStrike HEC (raw endpoint) where tenant's events (metadata) will be posted.
   - **Export Allowed/Detected Prompts**: Select to export allowed and detected prompts.
@@ -5464,6 +6288,8 @@ To add a Splunk event export instance:
 4. Click **Save Integration**. The **Splunk Export Integrations** page opens. Your integration appears on this page.
 
 [Image: AI Guard Add Integration window for CRWD]
+
+[Image: CRWD Direct image.]
 
 [Image: AI Guard Add Integration window for S3]
 
@@ -5835,13 +6661,13 @@ With the webhook integrated, create a policy to detect webhook traffic and creat
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/quick-start-guide-chatgpt","lastmod":"2026-07-22T09:41Z","nid":"1541877"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/quick-start-guide-chatgpt","lastmod":"2026-10-02T08:23Z","nid":"1541877"} -->
 ## Quick Start Guide for ChatGPT
 
 - Source: https://help.zscaler.com/secure-ai-users/quick-start-guide-chatgpt
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > AI Guard for Users > Getting Started > Quick Start Guide for ChatGPT
-- Last modified: 2026-07-22T09:41Z
+- Last modified: 2026-10-02T08:23Z
 - Summary: This guide takes you through the configuration steps you need to set up AI Guard, integrate with ZIA, and set up the policies necessary to provide run-time protection for your ChatGPT applications.
 
 This guide takes you through the configuration steps you need to set up AI Guard, integrate with Zscaler Internet Access (ZIA), and set up the policies necessary to provide run-time protection for your ChatGPT applications.
@@ -5894,7 +6720,7 @@ To configure your ZIA proxy:
 2. In the **Proxies** tab, click **Add Proxy**. The **Add Proxy** window appears. See image.
 3. In the **Add Proxy** window:
   - **Proxy Name**: Enter a user-friendly name for the third-party proxy that you are defining.
-  - **IP Address/FQDN**: Enter `forward.zseclipse.net`.
+  - **IP Address/FQDN**: Enter `forward.zsaiguard.net`.
   - **Port**: Enter `9443`.
   - **Proxy's Root Certificate**: Select the root certificate you previously created.
   - **Insert X-Authenticated-User**: Enable this setting.
@@ -6015,13 +6841,13 @@ To create a ChatGPT application policy control:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/quick-start-guide-microsoft-365-copilot","lastmod":"2026-07-22T09:44Z","nid":"1541876"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/quick-start-guide-microsoft-365-copilot","lastmod":"2026-10-02T08:22Z","nid":"1541876"} -->
 ## Quick Start Guide for Microsoft 365 Copilot
 
 - Source: https://help.zscaler.com/secure-ai-users/quick-start-guide-microsoft-365-copilot
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > AI Guard for Users > Getting Started > Quick Start Guide for Microsoft 365 Copilot
-- Last modified: 2026-07-22T09:44Z
+- Last modified: 2026-10-02T08:22Z
 - Summary: This guide takes you through the configuration steps you need to set up AI Guard, integrate with ZIA, and set up the policies necessary to provide run-time protection for your Microsoft 365 Copilot applications.
 
 This guide takes you through the configuration steps you need to set up AI Guard, integrate with Zscaler Internet Access (ZIA), and set up the policies necessary to provide run-time protection for your Microsoft 365 Copilot applications.
@@ -6074,7 +6900,7 @@ To configure your ZIA proxy:
 2. In the **Proxies** tab, click **Add Proxy**. The **Add Proxy** window appears. See image.
 3. In the **Add Proxy** window:
   - **Proxy Name**: Enter a user-friendly name for the third-party proxy that you are defining.
-  - **IP Address/FQDN**: Enter `forward.zseclipse.net`.
+  - **IP Address/FQDN**: Enter `forward.zsaiguard.net`.
   - **Port**: Enter `9443`.
   - **Proxy's Root Certificate**: Select the root certificate you previously created.
   - **Insert X-Authenticated-User**: Enable this setting.
@@ -6199,13 +7025,13 @@ To create a Microsoft 365 Copilot application policy control:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/release-upgrade-summary-2026","lastmod":"2026-09-04T15:28Z","nid":"1539123"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/release-upgrade-summary-2026","lastmod":"2026-09-28T13:14Z","nid":"1539123"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/secure-ai-users/release-upgrade-summary-2026
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-04T15:28Z
+- Last modified: 2026-09-28T13:14Z
 - Summary: Secure Access to AI Apps Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Secure Access to AI Apps.

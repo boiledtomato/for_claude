@@ -1,18 +1,18 @@
 # Zscaler Help — Data Security — DSPM (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-07 03:10 UTC
-Articles in this file: 181
+Generated: 2026-10-05 09:38 UTC
+Articles in this file: 177
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-access-roles","lastmod":"2026-06-09T01:27Z","nid":"1474981"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-access-roles","lastmod":"2026-09-29T06:27Z","nid":"1474981"} -->
 ## About Access Roles
 
 - Source: https://help.zscaler.com/dspm/about-access-roles
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Role Management > About Access Roles
-- Last modified: 2026-06-09T01:27Z
+- Last modified: 2026-09-29T06:27Z
 - Summary: Information about access roles in the Zscaler Admin Console.
 
 A role determines the set of tasks that [users](https://help.zscaler.com/authentication-service/about-users)can perform based on the permissions. You can provision users and assign roles to them. Each role has specific permissions that allow users to access and manage various [modules](https://help.zscaler.com/dspm/dspm-modules-and-global-modules)in the Zscaler Admin Console.
@@ -37,7 +37,7 @@ DSPM provides the following [predefined roles and permissions](https://help.zsca
 
 ## **About the Access Roles Page**
 
-On the Access Roles page (Administration > Admin Management > Role Based Access Control > User Access Management), you can do the following:
+On the Access Roles page (Data Security > DSPM>Access Roles), you can do the following:
 
 1. View the list of predefined and custom roles. For each role, you can see:
   - **Role Name**: The name of the role. Click to view the modules assigned to the role. See image.
@@ -58,13 +58,13 @@ On the Access Roles page (Administration > Admin Management > Role Based Access 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-action-rules","lastmod":"2026-04-21T21:06Z","nid":"1535175"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-action-rules","lastmod":"2026-09-25T11:37Z","nid":"1535175"} -->
 ## About Action Rules
 
 - Source: https://help.zscaler.com/dspm/about-action-rules
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Action Rules > About Action Rules
-- Last modified: 2026-04-21T21:06Z
+- Last modified: 2026-09-25T11:37Z
 - Summary: Information on action rules applied to sensitive data in the Zscaler Admin Console.
 
 Action rules allow you to define the criteria for identifying specific data types and to automatically apply Microsoft Purview Information Protection (formerly Microsoft Information Protection) sensitivity labels to files. For example, you can create an action rule to apply a Confidential label to a file that contains personally identifiable information (PII).
@@ -79,7 +79,7 @@ Action rules provide the following benefits and enable you to:
 
 ## About the Action Rules Page
 
-On the Action Rules page (Policies > Data Protection > Policy > Action Rules), you can do the following:
+On the Action Rules page (Data Security > DSPM > Action Rules), you can do the following:
 
 1. [Add an action rule](https://help.zscaler.com/dspm/adding-action-rule). DSPM scans and discovers the sensitivity labels every 12 hours. After you create an action rule, DSPM applies the labels every 4 hours.
 2. View the list of action rules. For each action rule, you can see:
@@ -103,13 +103,13 @@ On the Action Rules page (Policies > Data Protection > Policy > Action Rules), y
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-alert-notifications","lastmod":"2026-04-15T00:37Z","nid":"1487196"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-alert-notifications","lastmod":"2026-09-29T02:29Z","nid":"1487196"} -->
 ## About Alert Notifications
 
 - Source: https://help.zscaler.com/dspm/about-alert-notifications
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Alerts > Alert Notification Rules > About Alert Notifications
-- Last modified: 2026-04-15T00:37Z
+- Last modified: 2026-09-29T02:29Z
 - Summary: Information on the DSPM alert notification rule in the Zscaler Admin Console.
 
 Alert rules define the criteria for generating alert notifications. The criteria could be the occurrence of specific misconfigurations or [data posture policy](https://help.zscaler.com/dspm/about-data-posture-policies) violations in the [cloud accounts](https://help.zscaler.com/dspm/about-cloud-accounts).
@@ -126,7 +126,7 @@ The alert rules provide the following benefits and enable you to:
 
 ## About the Alert Notifications Page
 
-On the Alert Notifications page (Administration > Alerts > Alert Notifications), you can do the following:
+On the Alert Notifications page (Data Security > DSPM > Alert Notifications), you can do the following:
 
 1. [Add an alert rule.](https://help.zscaler.com/dspm/adding-alert-notification-rule)
 2. Search for a specific alert rule.
@@ -139,7 +139,7 @@ On the Alert Notifications page (Administration > Alerts > Alert Notifications),
   - **Created By**: The user who created the alert rule.
   - **Created Date**: The date and time the alert rule was created.
   - **State**: The state (**Enabled**, **Disabled**) of the alert rule. An alert rule is disabled with an exclamation mark indicating that it is invalid in the following scenarios: The third-party tools are not configured while adding the alert rule.; The selected filters in the filter scope are deleted (e.g., policies are deleted, accounts are offboarded, or the business unit is deleted).See image. Click the alert rule to see the reason why the alert rule is disabled. See image. You can enable the alert rule only after at least one filter scope is available and at least one third-party tool is configured.
-4. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
+4. Modify the table row or columns.
 5. [Enable or disable the alert rule.](https://help.zscaler.com/dspm/managing-alert-rules) By default, the alert rule is enabled.
 6. [Edit or delete an alert rule.](https://help.zscaler.com/dspm/managing-alert-rules)
 
@@ -154,13 +154,13 @@ On the Alert Notifications page (Administration > Alerts > Alert Notifications),
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-alerts","lastmod":"2026-08-12T21:54Z","nid":"1477776"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-alerts","lastmod":"2026-09-22T23:51Z","nid":"1477776"} -->
 ## About Alerts
 
 - Source: https://help.zscaler.com/dspm/about-alerts
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Alerts > About Alerts
-- Last modified: 2026-08-12T21:54Z
+- Last modified: 2026-09-22T23:51Z
 - Summary: Information about DSPM alerts.
 
 DSPM continuously scans your cloud resources against the [policies](https://help.zscaler.com/dspm/about-data-posture-policies) enabled in your cloud accounts to identify vulnerabilities and generate alerts. When a policy violation is detected, DSPM generates alerts and sends notifications to recipients to take action and prevent any potential breaches.
@@ -177,7 +177,7 @@ Alerts provide the following benefits and enable you to:
 
 ## About the Alerts Page
 
-On the Alerts page (Administration > Alerts > Alerts), you can see the following tabs:
+On the Alerts page (Data Security > DSPM > Alerts), you can see the following tabs:
 
 - Grouped By Policy
 - Grouped By Resource
@@ -227,13 +227,13 @@ On the All Alerts tab, you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-business-units","lastmod":"2026-06-09T01:14Z","nid":"1474931"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-business-units","lastmod":"2026-09-29T06:28Z","nid":"1474931"} -->
 ## About Business Units
 
 - Source: https://help.zscaler.com/dspm/about-business-units
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Role Management > About Business Units
-- Last modified: 2026-06-09T01:14Z
+- Last modified: 2026-09-29T06:28Z
 - Summary: Information about business units in the Zscaler Admin Console.
 
 Business units are logical containers for cloud accounts in the Zscaler Admin Console. Business units govern DSPM from a role-based access control (RBAC) perspective. Organizations can control and manage user access to data in their cloud accounts. This controlled access helps alleviate security risks and thereby maintain the security posture of your cloud resources.
@@ -249,7 +249,7 @@ The Business Unit Management page provides the following benefits and enables yo
 
 ## About the Business Unit Management Page
 
-On the Business Unit Management page (Policies > Common Configuration > DSPM > Business Unit Management), you can do the following:
+On the Business Unit Management page (Data Security > DSPM> Business Unit Management), you can do the following:
 
 1. View the list of business units. For each business unit, you can see:
   - **Business Unit Name**: The name of the business unit. Click to view the cloud accounts that are assigned to this business unit. Click **Manage**to add or delete a cloud account from the [Cloud Accounts](https://help.zscaler.com/dspm/about-cloud-accounts) page. See image.
@@ -273,13 +273,13 @@ On the Business Unit Management page (Policies > Common Configuration > DSPM > B
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-cloud-accounts","lastmod":"2026-04-24T22:56Z","nid":"1474891"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-cloud-accounts","lastmod":"2026-09-29T05:54Z","nid":"1474891"} -->
 ## About Cloud Accounts
 
 - Source: https://help.zscaler.com/dspm/about-cloud-accounts
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > About Cloud Accounts
-- Last modified: 2026-04-24T22:56Z
+- Last modified: 2026-09-29T05:54Z
 - Summary: Information about onboarding cloud accounts in the Zscaler Admin Console.
 
 Data security is an important aspect of security practices. Organizations need to ensure that data in their cloud accounts is stored, shared, and transferred securely to the right people and services for the right purpose. It is also crucial to know where the data is located, what type of sensitive data (e.g., credit card numbers, login credentials) exists in your cloud accounts, who has access to it, and how secure the data is to prevent any potential data breach.
@@ -294,7 +294,7 @@ Onboarding cloud accounts to DSPM provides the following benefits and enables yo
 
 ## About the Cloud Accounts Page
 
-On the Cloud Accounts page (Policies > Common Configuration > DSPM > Cloud Accounts), you can do the following:
+On the Cloud Accounts page (Data Security > DSPM> Cloud Accounts), you can do the following:
 
 1. View the total number of cloud accounts monitored by DSPM across AWS, Azure, and GCP.
 2. Manage the cloud accounts:
@@ -328,13 +328,13 @@ On the Cloud Accounts page (Policies > Common Configuration > DSPM > Cloud Accou
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-compliance","lastmod":"2026-04-09T22:09Z","nid":"1514301"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-compliance","lastmod":"2026-09-23T21:25Z","nid":"1514301"} -->
 ## About Compliance
 
 - Source: https://help.zscaler.com/dspm/about-compliance
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Compliance > About Compliance
-- Last modified: 2026-04-09T22:09Z
+- Last modified: 2026-09-23T21:25Z
 - Summary: Information about the Compliance dashboard displayed in the Zscaler Admin Console.
 
 Compliance refers to the security measures and guidelines that are implemented to comply with the industry-specific security frameworks and regulations such as GDPR, HIPAA, PCI, etc. DSPM detects policies and DLP engines that fail to comply with the frameworks. This information helps you to resolve the issues and ensure your data is compliant with regulatory standards.
@@ -351,7 +351,7 @@ The Compliance dashboard provides the following benefits and enables you to:
 
 ## About the Compliance Dashboard
 
-On the Compliance dashboard (Analytics > Data Security > DSPM > Compliance), you can do the following:
+On the Compliance dashboard (Data Security > DSPM > Compliance), you can do the following:
 
 1. [Add a custom compliance framework.](https://help.zscaler.com/dspm/adding-custom-compliance-framework)
 2. Show disabled frameworks. When you enable this toggle, the disabled frameworks are displayed at the end and are grayed out.
@@ -362,11 +362,11 @@ On the Compliance dashboard (Analytics > Data Security > DSPM > Compliance), you
   - [Enable or disable](https://help.zscaler.com/dspm/managing-compliance-frameworks) a predefined or custom framework.
   - [Edit or delete](https://help.zscaler.com/dspm/managing-compliance-frameworks) a custom framework. You cannot edit or delete a predefined framework.
 
-[Image: The Compliance dashboard displaying the compliance frameworks and the actions available.]
+[Image: The Compliance dashboard displaying the compliance frameworks and the actions available]
 
 The compliance frameworks, the number of failed policies against the total number of policies, the type of framework (Predefined or Custom) are displayed as tiles. Click any tile to [view the compliance details](https://help.zscaler.com/dspm/viewing-compliance-details).
 
-[Image: The Compliance dashboard displaying the compliance frameworks in grid view.]
+[Image: The Compliance dashboard displaying the compliance frameworks in grid view]
 
 The compliance frameworks are displayed in a table. For each framework, you can see:
 
@@ -377,18 +377,18 @@ The compliance frameworks are displayed in a table. For each framework, you can 
 - **Enabled**: If the framework is enabled or disabled.
 - **Type**: The type (**Predefined**or **Custom**) of framework.
 
-[Image: The Compliance dashboard displaying list of compliance frameworks in a table.]
+[Image: The Compliance dashboard displaying list of compliance frameworks in a table]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-data-center","lastmod":"2026-05-24T07:06Z","nid":"1526556"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-data-center","lastmod":"2026-09-17T21:14Z","nid":"1526556"} -->
 ## About On-Premises Data Centers
 
 - Source: https://help.zscaler.com/dspm/about-data-center
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > On-Premises Data Centers and Scanners > On-Premises Data Centers > About On-Premises Data Centers
-- Last modified: 2026-05-24T07:06Z
+- Last modified: 2026-09-17T21:14Z
 - Summary: Information about on-premises data centers in the Zscaler Admin Console.
 
 An on-premises data center refers to a facility that hosts various IT infrastructure components, including databases, servers, and networking applications, which are managed independently by the organization rather than a cloud service provider. These data centers are typically located within the premises of the organization. On-premises data centers provide organizations with complete control over their data, security, and infrastructure, making them an essential component of many hybrid and on-premises IT environments.
@@ -398,7 +398,7 @@ DSPM scans the databases in these on-premises data centers, providing visibility
 Onboarding on-premises data centers to DSPM provides the following benefits and enables you to:
 
 - Gain comprehensive visibility into data stored across all on-premises databases and systems.
-- Improve your security posture of the databases.
+- Improve database security posture.
 - Have a unified view of data assets across hybrid environments (cloud and on-premise).
 - Centralize risk assessment and management of on-premises databases.
 
@@ -406,7 +406,7 @@ Organizations can maintain consistent security policies and data protection meas
 
 ## About the On-Premises Data Centers Page
 
-On the On-Premises Data Centers page (Policies > Common Configuration > DSPM > On-Premises Data Centers), you can do the following:
+On the On-Premises Data Centers page (Data Security > DSPM > On-Premises Data Centers), you can do the following:
 
 1. Apply [filters](https://help.zscaler.com/unified/using-tables#filter) to view specific data.
 2. [Add an on-premises data center to DSPM](https://help.zscaler.com/dspm/managing-premises-data-center).
@@ -435,18 +435,18 @@ For each data center, you can:
 
 [Image: The On-Premises Data Center details page showing the configuration details and annotations on different sections]
 
-[Image: The On-Premises Data Centers page with a list of data centers and annotations on different parts of the page.]
+[Image: The On-Premises Data Centers page with a list of data centers and annotations on different parts of the page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-data-classification-settings","lastmod":"2026-07-08T22:00Z","nid":"1478861"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-data-classification-settings","lastmod":"2026-09-25T11:12Z","nid":"1478861"} -->
 ## About Data Classification Settings
 
 - Source: https://help.zscaler.com/dspm/about-data-classification-settings
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Data Classification Settings > About Data Classification Settings
-- Last modified: 2026-07-08T22:00Z
+- Last modified: 2026-09-25T11:12Z
 - Summary: Information about the data sensitivity settings in the Zscaler Admin Console and how the DLP engines are used for data classification.
 
 Sensitive data is confidential information such as personally identifiable information (PII), social security numbers, credit card information, financial data, login credentials, etc., that must be protected with strong security controls to prevent data breaches.
@@ -466,9 +466,9 @@ Data classification includes the following benefits and enables you to:
 
 ## About the Data Classification Settings Page
 
-On the Data Classification Settings page (Policies > Data Protection > Policy > Data Classification Settings), you can do the following:
+On the Data Classification Settings page (Data Security > DSPM > Data Classification Settings), you can do the following:
 
-1. Modify DLP engines. This option is visible to users with permissions to view or edit the DLP Dictionaries & Engines page (Policies > Data Protection > Common Resources > DLP Dictionaries & Engines).
+1. Modify DLP engines. This option is visible to users with permissions to view or edit the DLP Dictionaries & Engines page (Data Security > DSPM > Data Classification Settings).
 2. View the list of DLP engines that are synced from Internet & SaaS. For each DLP engine, you can view:
   1. **DLP Engine Name**: The name of the DLP engine.
   2. **Description**: The description of the DLP engine.
@@ -486,13 +486,13 @@ On the Data Classification Settings page (Policies > Data Protection > Policy > 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-data-duplications","lastmod":"2026-08-12T21:14Z","nid":"1529294"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-data-duplications","lastmod":"2026-09-29T17:10Z","nid":"1529294"} -->
 ## About Data Duplications
 
 - Source: https://help.zscaler.com/dspm/about-data-duplications
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Data & Identity Inventory > About Data Duplications
-- Last modified: 2026-08-12T21:14Z
+- Last modified: 2026-09-29T17:10Z
 - Summary: Information about the Data Duplication page, which shows scan results for detected duplicate files in data stores in the Zscaler Admin Console.
 
 Data duplication refers to the presence of one or more identical copies of data, either intentionally or unintentionally, in different locations in an organization’s infrastructure. You can remove duplicate copies to reduce your attack surface, and track the source from where the sensitive data originated and its presence in different files.
@@ -509,7 +509,7 @@ The Data Duplications page has the following benefits and enables you to:
 
 ## About the Data Duplications Page
 
-On the Data Duplications page (Analytics > Data Security > DSPM > Data Duplications), you can do the following:
+On the Data Duplications page (Data Security > DSPM > Data Duplications), you can do the following:
 
 1. Apply [filters](https://help.zscaler.com/unified/using-tables) to view specific information.
 2. Add additional filters.
@@ -546,13 +546,13 @@ On the Data Duplications page (Analytics > Data Security > DSPM > Data Duplicati
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-data-posture-policies","lastmod":"2026-04-21T21:06Z","nid":"1477751"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-data-posture-policies","lastmod":"2026-10-01T07:48Z","nid":"1477751"} -->
 ## About Data Posture Policies
 
 - Source: https://help.zscaler.com/dspm/about-data-posture-policies
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Data Posture Policies > About Data Posture Policies
-- Last modified: 2026-04-21T21:06Z
+- Last modified: 2026-10-01T07:48Z
 - Summary: Information about the data posture policies that are defined and implemented in DSPM.
 
 [Watch a video about Data Posture Policies](https://fast.wistia.net/embed/iframe/pwx62y9unc) (shows legacy UI).
@@ -572,13 +572,14 @@ Data Posture policies provide the following benefits and enable you to:
 
 ## About the Policies Page
 
-On the Policy page (Policies > Data Protection > Policy > Data Posture Policies), you can do the following:
+On the Policy page (Data Security > DSPM > Data Posture Policies), you can do the following:
 
 1. [Apply filters to view specific data](https://help.zscaler.com/unified/using-tables).
 2. [Add additional filters](https://help.zscaler.com/unified/using-tables).
 3. Search for a specific policy.
-4. [Add a custom policy](https://help.zscaler.com/dspm/creating-custom-policies).
-5. View the policy details. For each policy, you can view:
+4. Export the policy data.
+5. [Add a custom policy](https://help.zscaler.com/dspm/creating-custom-policies).
+6. View the policy details. For each policy, you can view:
   - **Policy Name**: The policy title.
   - **Severity**: The severity level (Critical, High, Medium, or Low) of the policy.
   - **Policy Source**: Whether the policy is a predefined or a custom policy.
@@ -590,19 +591,19 @@ On the Policy page (Policies > Data Protection > Policy > Data Posture Policies)
   - **Created**: The date and time the policy was created.
   - **Policy Category**: The category (Public Exposure, Data Loss, etc.) to which this policy belongs.
   - **Policy Status**: The status (Enabled or Disabled) of the policy.
-6. Select multiple policies to either enable or disable them. See image.
-7. Click the policy name to view additional details. To learn more, see [Viewing Policy Details](https://help.zscaler.com/dspm/viewing-policy-details).
-8. Sort the column data.
-9. View the list of policy categories associated with the policy.
-10. [Enable or disable the policy](https://help.zscaler.com/dspm/managing-policies).
-11. Select any of the following actions:
+7. Select multiple policies to either enable or disable them. See image.
+8. Click the policy name to view additional details. To learn more, see [Viewing Policy Details](https://help.zscaler.com/dspm/viewing-policy-details).
+9. Sort the column data.
+10. View the list of policy categories associated with the policy.
+11. [Enable or disable the policy](https://help.zscaler.com/dspm/managing-policies).
+12. Select any of the following actions:
   - **Enable**: [Enable a policy](https://help.zscaler.com/dspm/managing-policies). This option is available only when the policy is disabled.
   - **Disable**: [Disable a policy](https://help.zscaler.com/dspm/managing-policies). This option is available only when the policy is enabled.
   - **Clone**: [Clone a policy](https://help.zscaler.com/dspm/managing-policies).
   - **Change Severity**: Change the severity level of the policy.
   - **Edit**: [Edit a custom policy](https://help.zscaler.com/dspm/managing-policies).
   - **Delete**: [Delete a custom policy](https://help.zscaler.com/dspm/managing-policies). You cannot edit, delete, or change the severity level for predefined policies.
-12. [Show or hide the columns](https://help.zscaler.com/unified/using-tables).
+13. [Show or hide the columns](https://help.zscaler.com/unified/using-tables).
 
 [Image: The list of policies and various actions that can be performed on them.]
 
@@ -619,13 +620,13 @@ On the Policy page (Policies > Data Protection > Policy > Data Posture Policies)
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-dspm-integrations","lastmod":"2026-09-04T02:47Z","nid":"1474786"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-dspm-integrations","lastmod":"2026-09-17T02:11Z","nid":"1474786"} -->
 ## About DSPM Integrations
 
 - Source: https://help.zscaler.com/dspm/about-dspm-integrations
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > DSPM Integrations > About DSPM Integrations
-- Last modified: 2026-09-04T02:47Z
+- Last modified: 2026-09-17T02:11Z
 - Summary: Information about integrating DSPM with cloud storage services, ITSM, and ChatOps tools.
 
 Integrations allow DSPM to share findings (alerts) with other tools in your organization's ecosystem. Common integrations include cloud storage services used for external backup, audit storage, or intermediate storage for SIEM/SOAR tools. ITSM tools where DSPM findings are maintained as issues, incidents, or tickets for internal workflows, and ChatOps tools that enable faster communication of these issues across stakeholder teams.
@@ -644,7 +645,7 @@ Integrating with other tools provides the following benefits and enables you to:
 
 ## About the Integrations Page
 
-On the Integrations page (Data Security > DSPM > Configuration > DSPM Integrations), you can view the following integrations:
+On the Integrations page (Data Security > DSPM > DSPM Integrations), you can view the following integrations:
 
 - Cloud Storage
 - ITSM
@@ -698,13 +699,13 @@ On the Integrations page (Data Security > DSPM > Configuration > DSPM Integratio
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-evidence-settings","lastmod":"2026-07-02T07:06Z","nid":"1540684"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-evidence-settings","lastmod":"2026-09-17T21:14Z","nid":"1540684"} -->
 ## About Evidence Settings
 
 - Source: https://help.zscaler.com/dspm/about-evidence-settings
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > On-Premises Data Centers and Scanners > Evidence > About Evidence Settings
-- Last modified: 2026-07-02T07:06Z
+- Last modified: 2026-09-17T21:14Z
 - Summary: Information about evidence configuration for on-premises scanning in the Zscaler Admin Console.
 
 Evidence is the data captured when sensitive information is discovered during an on-premises scan. Evidence collection is a feature in DSPM to capture and store evidence of sensitive information found during [on-premises scanning](https://help.zscaler.com/dspm/about-premises-scanner-integrations). The data snippets are stored directly in your organization's cloud storage (e.g., AWS S3 bucket) and are not stored in the Zscaler infrastructure, maintaining compliance with data privacy and security.
@@ -726,7 +727,7 @@ Configuring evidence settings provides the following benefits and enables you to
 
 ## About the Evidence Settings Page
 
-On the Evidence Settings page (Policies > Common Configuration > DSPM > Evidence Settings), you can do the following:
+On the Evidence Settings page (Data Security > DSPM > Evidence Settings), you can do the following:
 
 1. Search for specific rules using the rule name.
 2. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables#hide).
@@ -745,7 +746,7 @@ On the Evidence Settings page (Policies > Common Configuration > DSPM > Evidence
 5. [Sort the column data](https://help.zscaler.com/unified/using-tables#sort).
 6. Use the **Actions** icon to [edit](https://help.zscaler.com/dspm/managing-evidence-rules#edit-evidence-rule), [validate](https://help.zscaler.com/dspm/managing-evidence-rules#validate-evidence-rule), or [delete](https://help.zscaler.com/dspm/managing-evidence-rules#delete-evidence-rule) the rule configuration.
 
-[Image: The evidence settings page with a list of evidence rules configured and annotations on different parts of the page.]
+[Image: The evidence settings page with a list of evidence rules configured and annotations on different parts of the page]
 
 For each evidence rule, you can view the following details:
 
@@ -768,13 +769,13 @@ For each evidence rule, you can view the following details:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-identity-inventory","lastmod":"2026-08-29T07:06Z","nid":"1529532"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-identity-inventory","lastmod":"2026-09-29T17:03Z","nid":"1529532"} -->
 ## About Identity Inventory
 
 - Source: https://help.zscaler.com/dspm/about-identity-inventory
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Data & Identity Inventory > About Identity Inventory
-- Last modified: 2026-08-29T07:06Z
+- Last modified: 2026-09-29T17:03Z
 - Summary: Information about the Identity Inventory, which lists all identities within the cloud environment, along with details about the type and number of data stores that a user has access to.
 
 An identity represents a user, device, application, or service that can access data stores containing sensitive data in the cloud environment. While securing sensitive data, it is crucial to control and manage the permissions assigned to identities, as excessive permissions and insecure configurations could lead to security breaches. DSPM detects identities in all the onboarded cloud accounts (AWS, Azure, and GCP), including [managed and unmanaged databases, and Snowflake.](https://help.zscaler.com/dspm/viewing-graph-databases)
@@ -788,7 +789,7 @@ Identity Inventory has the following benefits and enables you to:
 
 ## About the Identity Inventory Page
 
-On the Identity Inventory page (Analytics > Data Security > DSPM > Identity Inventory), you can do the following:
+On the Identity Inventory page (Data Security > DSPM > Identity Inventory), you can do the following:
 
 1. Apply [filters](https://help.zscaler.com/unified/using-tables) to view specific data.
 2. Apply additional filters.
@@ -798,9 +799,8 @@ On the Identity Inventory page (Analytics > Data Security > DSPM > Identity Inve
   - **Entity ID**: The unique identifier of the identity.
   - **Entity Type**: The type of the identity (AWS Account, IAM Unmanaged User, etc.).
   - **Entity Source**: The identity repository (e.g., Entra ID) where the identity is stored.
-  - **Entity Category**: The identity category (e.g., services, users, external, services, applications, managed identities, roles, federated, admin principals).
-  - **Target Environment**: The cloud service providers (e.g., GCP, Azure) to which the identity has access.
-  - **Cloud**: The cloud service provider in which the identity is present.
+  - **Entity Category**: The identity type (i.e. AI Agent Identity, Domain, External, Federated, Internal Application, Microsoft Application, Role, Service, Service Account, System-Assigned Managed Identity, Third-Party Application, Unknown, User-Assigned Managed Identity).
+  - **Target Environments**: The cloud service providers (e.g., GCP, Azure) to which the identity has access.
   - **Posture**: The security posture assigned to the identity (Dormant Identity, MFA Disabled, etc.). Hover over the label to see the description of each posture.
   - **Data Stores**: The number of data stores that the identity has access to.
   - **Sensitive Data Stores**: The number of data stores containing sensitive data.
@@ -871,13 +871,13 @@ On the Ignore Alert Filter page (Administration > Alerts > Ignore Alert Filter),
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-investigation","lastmod":"2026-04-24T21:06Z","nid":"1477766"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-investigation","lastmod":"2026-09-30T21:15Z","nid":"1477766"} -->
 ## About Investigation
 
 - Source: https://help.zscaler.com/dspm/about-investigation
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Investigation > About Investigation
-- Last modified: 2026-04-24T21:06Z
+- Last modified: 2026-09-30T21:15Z
 - Summary: Information about the investigation feature in DSPM.
 
 [Watch a video on Investigation with DSPM](https://fast.wistia.net/embed/iframe/my630v87t6) (shows legacy UI).
@@ -893,7 +893,7 @@ The Investigation feature provides the following benefits and enables you to:
 
 ## About the Investigation Page
 
-On the Investigation page (Logs > Insights > Investigation), you can do the following:
+On the Investigation page (Data Security > DSPM > Investigation), you can do the following:
 
 1. Apply [filters](https://help.zscaler.com/unified/using-tables) to view specific information.
 2. [Add a new investigation](https://help.zscaler.com/dspm/creating-new-investigation).
@@ -901,10 +901,10 @@ On the Investigation page (Logs > Insights > Investigation), you can do the foll
   - **Cloud**: The name of the cloud service provider (AWS, Azure, or GCP).
   - **Query**: The query string.
   - **Resource Type**: The type of resource on which the query is run.
-4. View the list of saved investigation queries.
-5. Search for a query in the searchable columns.
-6. [Show or hide columns](https://help.zscaler.com/unified/using-tables).
-7. Click the **Actions** icon to run, save, or [edit](https://help.zscaler.com/dspm/editing-or-deleting-investigation) a query. When you run a query, the investigation results are displayed. See image. Click the resource name to view the [resource details](https://help.zscaler.com/dspm/viewing-resource-details).
+4. Search for a query in the searchable columns.
+5. [Show or hide columns](https://help.zscaler.com/unified/using-tables).
+6. Click the **Actions** icon to run, save, or [edit](https://help.zscaler.com/dspm/editing-or-deleting-investigation) a query. When you run a query, the investigation results are displayed. See image. Click the resource name to view the [resource details](https://help.zscaler.com/dspm/viewing-resource-details).
+7. View the list of saved investigation queries.
 
 [Image: Create a new investigation and view the previously created queries]
 
@@ -913,16 +913,16 @@ On the Investigation page (Logs > Insights > Investigation), you can do the foll
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-premises-scanner-integrations","lastmod":"2026-05-17T07:06Z","nid":"1532039"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-premises-scanner-integrations","lastmod":"2026-09-17T01:54Z","nid":"1532039"} -->
 ## About On-Premises Scanner Integrations
 
 - Source: https://help.zscaler.com/dspm/about-premises-scanner-integrations
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > On-Premises Data Centers and Scanners > On-Premises Scanners > About On-Premises Scanner Integrations
-- Last modified: 2026-05-17T07:06Z
+- Last modified: 2026-09-17T01:54Z
 - Summary: Information about on-premises scanner integrations in the Zscaler Admin Console.
 
-DSPM provides support to integrate the on-premises scanners deployed in your organization's network and use them to scan the data stored in on-premises systems such as file servers and unmanaged resources. On-premesis scanners provide direct access to internal data sources, enabling granular visibility into sensitive data and maintain the data security posture across hybrid environments by extending scanning capabilities to internal systems.
+DSPM provides support to integrate the on-premises scanners deployed in your organization's network and use them to scan the data stored in on-premises systems such as file servers and unmanaged resources. On-premises scanners provide direct access to internal data sources, enabling granular visibility into sensitive data and maintaining the data security posture across hybrid environments by extending scanning capabilities to internal systems.
 
 Integrating on-premises scanners with DSPM provides the following benefits and enables you to:
 
@@ -962,6 +962,12 @@ The DSPM scanner for on-premises file servers requires specific network configur
 | Port 88 (Kerberos) | To Kerberos | For Kerberos authentication. |
 | Port 111 (NFS) | To NFS File Servers | For NFS Portmapper. |
 
+The following diagram illustrates the required outbound port connections between the DSPM scanner VM and its target destinations.
+
+[Image: Diagram showing outbound traffic and ports from the DSPM scanner VM to internal servers and cloud infrastructure]
+
+Ensure that these outbound ports are open on your local firewalls to allow the scanner VM to connect to internal file shares and authenticate successfully.
+
 The on‑premises file‑server scanning solution supports the following protocol versions for scanning file servers:
 
 | Protocol | Versions | Details |
@@ -971,7 +977,7 @@ The on‑premises file‑server scanning solution supports the following protoco
 
 ## About the On-Premises Scanner Integrations Page
 
-On the On-Premises Scanner Integrations page (Policies > Common Configuration > DSPM > On-Premises Scanners), you can do the following:
+On the On-Premises Scanner Integrations page (Data Security > DSPM > On-Premises Scanners), you can do the following:
 
 1. [Add an on-premises scanner to DSPM](https://help.zscaler.com/dspm/adding-premises-scanner-integration).
 2. View the list of on-premises scanner integrations. For each scanner integration, you can view:
@@ -1007,20 +1013,20 @@ On the On-Premises Scanner Integrations page (Policies > Common Configuration > 
 4. **Data Center Association**: Download and install the scanner image to scan and monitor data stored within the on-premises data center. To learn more, see [Adding On-Premises Scanner Integration](https://help.zscaler.com/dspm/adding-premises-scanner-integration).
 5. [Delete the scanner integration](https://help.zscaler.com/dspm/adding-premises-scanner-integration#delete).
 
-[Image: Scanner integration details showing, status operational, and API key information.]
+[Image: Scanner integration details showing status Operational, and API key information.]
 
-[Image: The On-Premises Scanner Integration page with a list of scanners and annotations on different parts of the page.]
+[Image: The On-Premises Scanner Integration page with a list of scanners and annotations on different parts of the page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-resource-inventory","lastmod":"2026-08-29T07:06Z","nid":"1478076"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-resource-inventory","lastmod":"2026-09-29T19:50Z","nid":"1478076"} -->
 ## About Resource Inventory
 
 - Source: https://help.zscaler.com/dspm/about-resource-inventory
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Resource Inventory > About Resource Inventory
-- Last modified: 2026-08-29T07:06Z
+- Last modified: 2026-09-29T19:50Z
 - Summary: Information about the Resource Inventory page in the Zscaler Admin Console
 
 Sensitive data such as personally identifiable information (PII), protected health information (PHI), financial records, social security number, etc., are confidential and valuable information that must be protected and kept secure at all times. Not knowing where the sensitive data is stored or not protecting this data is a huge risk, which could lead to data breaches such as hackers accessing valuable data and exploiting the vulnerabilities in the system. In addition, it could also lead to financial and compliance issues. Therefore, it is crucial to know where your sensitive data is stored within your cloud environment, so you can implement strong security controls to keep the data secure.
@@ -1044,7 +1050,7 @@ The Resource Inventory has the following benefits and enables you to:
 
 ## About the Resource Inventory Page
 
-On the Resource Inventory page (Analytics > Data Security > DSPM > Resource Inventory), you can do the following:
+On the Resource Inventory page (Data Security > DSPM > Resource Inventory), you can do the following:
 
 1. Apply [filters](https://help.zscaler.com/unified/using-tables) to view specific data.
 2. Use additional filters.
@@ -1054,7 +1060,7 @@ On the Resource Inventory page (Analytics > Data Security > DSPM > Resource Inve
   - **Resource ID**: The unique identifier of the cloud resource.
   - **Cloud Account**: The unique identifier for the cloud account that contains this resource.
   - **Account ID**: The unique identifier of the cloud account.
-  - **Business Unit**: The [business unit](https://help.zscaler.com/dspm/about-business-units) to which the account belongs.
+  - **Business Units**: The [business unit](https://help.zscaler.com/dspm/about-business-units) to which the account belongs.
   - **Risk Level**: The severity of the risk (Critical, High, Medium, or Low) associated with the resource.
   - **Posture**: The security posture (publicly exposed, no logging, etc.) of the resource. Hover over the label to see the description for each posture. To learn more, see [Understanding the Security Posture State](https://help.zscaler.com/dspm/understanding-security-posture-state). See image.
   - **Malware**: Malware detected in the resources.
@@ -1065,6 +1071,7 @@ On the Resource Inventory page (Analytics > Data Security > DSPM > Resource Inve
   - **Open Alerts**: The number of [alerts](https://help.zscaler.com/dspm/viewing-alert-details) in Open state.
   - **Region**: The region where the resource is located.
   - **First Discovered**: The date and time the resource was first detected.
+  - **Total Scanned**: The total number of files or tables scanned for the resource.
   - **Data Scanned**: The size of the scanned data.
   - **Last Completed Scan**: The date and time the resource was last scanned.
   - **Latest Scan Status**: The latest scan status indicates the state of the scanning process. To learn more, see [Understanding Scan Status](https://help.zscaler.com/dspm/understanding-scan-status). For failed or unsupported scans, hover over the **Failed**or **Unsupported**labels to see the error message. The error message contains the timestamp to indicate when the error occurred, resource ID, and error reason. Click the **Copy** icon to copy the resource ID. See image.
@@ -1111,13 +1118,13 @@ You can save multiple page views and delete a view as required.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-saas-applications","lastmod":"2026-08-12T22:37Z","nid":"1538456"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-saas-applications","lastmod":"2026-09-24T20:43Z","nid":"1538456"} -->
 ## About SaaS Applications
 
 - Source: https://help.zscaler.com/dspm/about-saas-applications
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > SaaS Applications > About SaaS Applications
-- Last modified: 2026-08-12T22:37Z
+- Last modified: 2026-09-24T20:43Z
 - Summary: Information about SaaS applications in the Zscaler Admin Console.
 
 DSPM provides visibility and security for SaaS applications used in your organizations. You can integrate application tenants with DSPM to monitor and scan the data stores within the SaaS applications, apply the Microsoft Information Protection (MIP) labels to on-premises Azure file shares, or integrate with Microsoft Copilot.
@@ -1132,7 +1139,7 @@ Support for scanning SaaS applications provides the following key benefits and a
 
 ## About the SaaS Applications Page
 
-On the SaaS Applications page (Policies > Common Configuration > DSPM>SaaS Applications), you can do the following:
+On the SaaS Applications page (Data Security > DSPM>SaaS Applications), you can do the following:
 
 1. [Add an M365 tenant.](https://help.zscaler.com/dspm/onboarding-microsoft-365-tenant)
 2. View the list of all configured SaaS tenants. For each tenant, you can see:
@@ -1154,13 +1161,13 @@ On the SaaS Applications page (Policies > Common Configuration > DSPM>SaaS Appli
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-scan-settings","lastmod":"2026-06-26T03:08Z","nid":"1474741"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-scan-settings","lastmod":"2026-09-30T21:37Z","nid":"1474741"} -->
 ## About Scan Settings
 
 - Source: https://help.zscaler.com/dspm/about-scan-settings
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > About Scan Settings
-- Last modified: 2026-06-26T03:08Z
+- Last modified: 2026-09-30T21:37Z
 - Summary: Information about the configuring the scan settings in the Zscaler Admin Console.
 
 [Watch a video about scan settings in DSPM](https://fast.wistia.net/embed/iframe/0g146e59ha) (shows legacy UI).
@@ -1205,7 +1212,7 @@ DSPM supports the scanning of the following data stores. The scan type varies fo
 
 ## About the Scan Settings Page
 
-On the Scan Settings page (Policies > Common Configuration > DSPM > Scan Settings), you can see the following tabs:
+On the Scan Settings page (Data Security > DSPM > Scan Settings), you can see the following tabs:
 
 - Scan Rules
 - Scan Scopes
@@ -1223,7 +1230,7 @@ On the Scan Scopes tab, you can do the following:
 3. [Show or hide the columns on the table.](https://help.zscaler.com/unified/using-tables)
 4. Click the **Action** icon to [edit](https://help.zscaler.com/dspm/editing-or-deleting-scan-scopes) or [delete](https://help.zscaler.com/dspm/editing-or-deleting-scan-scopes) the scan scope.
 
-[Image: The Scan Scope page details all scan scopes.]
+[Image: The Scan Scope page details all scan scopes]
 
 For each scan scope configuration, you can view:
 
@@ -1251,9 +1258,11 @@ On the Scan Rule tab, you can do the following:
   - **Description**: Optional summary that explains the purpose of the scan rule.
   - **Cloud**: The name of the cloud service (AWS, Azure, GCP, or On-Premises Data Centers).
   - **Resource Type**: The type of resource or data store (cloud storage, database, or virtual machine).
-  - **Scan Scope**: Information on whether the scan rule is linked to any specific scan scope.
+  - **Scan Type**: The method used to scan the resource.
   - **Scan Status**: The scan status indicates the state of the scanning process. To learn more, see [Understanding Scan Status](https://help.zscaler.com/dspm/understanding-scan-status).
   - **Scan Enable/Disable**: The enabled or disabled state of the scan setting. By default, the scan setting is disabled. After configuring the scan setting, you must [enable the scan setting](https://help.zscaler.com/dspm/enabling-or-disabling-scan-rule) to initiate the scan.
+  - **Scan Scope**: Information on whether the scan rule is linked to any specific scan scope.
+  - **Next Scan On**: Date and time when this scan rule’s next scheduled run will start, based on the configured frequency.
   - **Added By**: Name of the user who created the scan scope.
   - **Added On**: Date and time the scan scope was created.
 3. Sort the column data.
@@ -1263,42 +1272,54 @@ On the Scan Rule tab, you can do the following:
   - [Stop the scan](https://help.zscaler.com/dspm/starting-stopping-scan).
   - [Run an on-demand scan](https://help.zscaler.com/dspm/running-demand-scan). You can perform an on-demand scan only on databases and virtual machines.
 
-[Image: The Scan Rules page details all scan rules.]
+[Image: The Scan Rules page details all scan rules]
 
 For each scan rule configuration, you can view:
 
-- **Name**: Name of the scan rule.
-- **Description**: Optional summary that explains the purpose of the scan rule.
-- **Status**: The scan status indicates whether the scan is enabled or disabled.
-- **Cloud**: The name of the cloud service (AWS, Azure, GCP, or On-Premises Data Centers).
-- **Resource Type**: The type of resource or data store (cloud storage, database, or virtual machine).
-- **Scan Scope**: Information on whether the scan rule is linked to any specific scan scope.
-- **Scan Type**: The method used to scan the resource.
-- **Resources Scanned**: The number of resources discovered and scanned by this scan rule.
-- **Added On**: Date and time the scan scope was created.
-- **Added By**: Name of the user who created the scan scope.
+- **General Information**:
+  - **Name**: Name of the scan rule.
+  - **Description**: Optional summary that explains the purpose of the scan rule.
+  - **Status**: The scan status indicates whether the scan is enabled or disabled.
+  - **Cloud**: The name of the cloud service (AWS, Azure, GCP, or On-Premises Data Centers).
+  - **Resource Type**: The type of resource or data store (cloud storage, database, or virtual machine).
+  - **Scan Scope**: Information on whether the scan rule is linked to any specific scan scope.
+  - **Scan Type**: The method used to scan the resource.
+  - **Resources Scanned**: The number of resources discovered and scanned by this scan rule.
+  - **Added On**: Date and time the scan scope was created.
+  - **Added By**: Name of the user who created the scan scope.
+- **Resource Scope**:
+  - **Resources Scope**: Indicates whether the rule applies to `All Resources` or `Scan Specific Resources`.
+  - **Resources**: The total number of resources targeted by the scan rule.
+- **Exclusions**:
+  - **Resources**: S Any specific resources or paths are excluded from the scan rule. Displays `None` if no exclusions are configured.
+- **Scan Schedule**:
+  - **Scan Schedule**: The frequency at which the scan runs. Displays `None` indicates the rule executes only on an on-demand basis.
 
 See image.
 
-[Image: The Scan Settings page details all the scan scopes and rules.]
+[Image: The Scan Settings page details all the scan scopes and rules]
 
 [Image: View the scan setting details]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-service-registration","lastmod":"2026-07-02T07:06Z","nid":"1517561"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-service-registration","lastmod":"2026-09-17T01:55Z","nid":"1517561"} -->
 ## About Service Registration
 
 - Source: https://help.zscaler.com/dspm/about-service-registration
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Service Registration > About Service Registration
-- Last modified: 2026-07-02T07:06Z
+- Last modified: 2026-09-17T01:55Z
 - Summary: Information about service registration in the Zscaler Admin Console.
 
 [Watch a video about Service Registration in DSPM](https://fast.wistia.net/embed/iframe/2bz2pm1yh4) (shows legacy UI).
 
 Service registration is the process of onboarding, configuring, and managing database services within DSPM. DSPM provides support for configuring managed and unmanaged databases, Snowflake, on-premises file servers, Databricks workspaces, and Lightweight Directory Access Protocol (LDAP) servers. You can add unmanaged database servers individually or in bulk using templates. DSPM scans these services or databases for sensitive data and vulnerabilities:
+
+The following taxonomy diagram illustrates the division of registered services between on-premises infrastructure and cloud or SaaS platforms supported by DSPM.
+
+See image.
 
 - **Unmanaged Database**: The database is managed by organizations and is hosted on servers or virtual machines (VMs). Organizations use unmanaged databases for increased control over their infrastructure and lower costs, but this also requires more expertise and resources to maintain and secure it.
 - **Managed Database**: A cloud-based DB service where the cloud service provider manages the entire infrastructure, maintenance, and administration of the database. e.g., Azure SQL, MySQL, PostgreSQL are some of the managed database services.
@@ -1308,7 +1329,9 @@ Service registration is the process of onboarding, configuring, and managing dat
 - **On-Premises File Servers**: A physical server hosted within an organization’s infrastructure.
 - **LDAP Servers:** An Active Directory or LDAP servers store and manage user identities, credentials, and network resources.
 
-After registering a service, you can verify the connection between DSPM and the registered database server from the **Service Registration** page. For on-premises unmanaged databases, DSPM runs the test automatically after registration. For unmanaged databases, such as Snowflake and Databricks, you must run the test manually. To learn more, see [Testing Connection for Registered Services](https://help.zscaler.com/dspm/test-connection-registered-services).
+After registering a service, you can verify the connection between DSPM and the registered database server from the **Service Registration** page.
+
+For on-premises unmanaged databases, DSPM runs the test automatically after registration. For unmanaged databases, such as Snowflake and Databricks, you must run the test manually. To learn more, see [Testing Connection for Registered Services](https://help.zscaler.com/dspm/test-connection-registered-services).
 
 Service registration provides the following benefits and enables you to:
 
@@ -1319,7 +1342,7 @@ Service registration provides the following benefits and enables you to:
 
 ## About the Service Registration Page
 
-On the Service Registration page (Policies > Common Configuration > DSPM > Service Registration), use the following tabs to register various on-premises and cloud data sources:
+On the Service Registration page (Data Security > DSPM > Service Registration), use the following tabs to register various on-premises and cloud data sources:
 
 - On-Premises File Servers
 - LDAP Servers
@@ -1329,6 +1352,8 @@ On the Service Registration page (Policies > Common Configuration > DSPM > Servi
 - Databricks
 
 [Image: Service Registration page showing Unmanaged Databases tab with a list of registered servers and search option.]
+
+[Image: Service registration taxonomy tree dividing supported services into On-premises and Cloud or SaaS]
 
 On the On-Premises File Servers tab, you can do the following:
 
@@ -1617,13 +1642,13 @@ For each database server, you can view:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-the-data-inventory","lastmod":"2026-08-10T02:19Z","nid":"1542173"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-the-data-inventory","lastmod":"2026-09-29T17:00Z","nid":"1542173"} -->
 ## About the Data Inventory
 
 - Source: https://help.zscaler.com/dspm/about-the-data-inventory
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Data & Identity Inventory > About the Data Inventory
-- Last modified: 2026-08-10T02:19Z
+- Last modified: 2026-09-29T17:00Z
 - Summary: Information about Data Inventory in DSPM.
 
 Data inventory in DSPM is a comprehensive report that provides in-depth details of the data assets across your cloud, on-premises, and Software-as-a-Service (SaaS) environments. Data Inventory provides visibility into the data stored in the data stores, the type of data and its location, whether the data is sensitive or not, entities that can access this data, whether this data is publicly exposed, and more. You can review the information, investigate anomalous activities, protect sensitive data, mitigate risks, and ensure your organization's data is secure and compliant.
@@ -1640,13 +1665,42 @@ Data Inventory includes the following key features and benefits:
 
 ## About the Data Inventory Page
 
-On the Data Inventory page (Analytics > Data Security > DSPM > Data Inventory), you can:
+On the Data Inventory page (Data Security > DSPM > Data Inventory), you can:
 
 1. Apply filters to view specific data.
 2. Add additional filters.
 3. [Customize the page settings](https://help.zscaler.com/dspm/customizing-page-settings).
 4. Search for specific information.
-5. View the list of files and tables.
+5. View the list of files and tables. For each file and table, you can see the following details:
+  - **File / Table Name**: The name of the file or table.
+  - **File ID**: The unique identifier of the file.
+  - **Path**: The location of the file or table in the source repository.
+  - **Resource Category**: The category of the resource.
+  - **Account**: The account associated with the resource.
+  - **Resource Type**: The type of resource where the file or table is stored.
+  - **Resource Name**: The name of the resource that contains the file or table.
+  - **Severity of Last Incident**: The severity level of the most recent incident associated with the file or table.
+  - **Owner**: The user who owns the file or table.
+  - **Document Types**: The types of documents detected in the file or table.
+  - **Document Categories**: The categories assigned to the file or table based on detected content.
+  - **DLP Engines**: The DLP engines that matched content in the file or table.
+  - **DLP Dictionaries**: The DLP dictionaries that matched content in the file or table.
+  - **Label**: The classification or sensitivity label applied to the file or table.
+  - **Columns**: The columns detected in the table.
+  - **Last Scan Time**: The date and time when the file or table was last scanned.
+  - **Last Modified Time**: The date and time when the file or table was last modified.
+  - **File MD5**: The MD5 hash value of the file.
+  - **Collaboration Scope**: The sharing scope of the file.
+  - **Public URL**: The publicly accessible URL for the file.
+  - **Hash**: The hash value associated with the file.
+  - **Number of Internal Collaborators**: The number of users within your organization who have access to the file.
+  - **Number of External Collaborators**: The number of users outside your organization who have access to the file.
+  - **Size**: The size of the file.
+  - **File Type**: The type or format of the file.
+  - **External Collaborators**: The users outside your organization who have access to the file.
+  - **Internal Collaborators**: The users within your organization who have access to the file.
+  - **Last Shared Users**: The users with whom the file was most recently shared.
+  - **Last Shared On**: The date and time when the file was most recently shared.
 6. [View additional details](https://help.zscaler.com/dspm/viewing-data-inventory-details) in a drawer.
 7. Apply the Microsoft Information Purview (MIP) label for individual files. This icon is enabled only for on-premises files and for users that are assigned with [Apply Label permission](https://help.zscaler.com/dspm/predefined-roles-and-permissions).
 8. Export the data and [download the report](https://help.zscaler.com/dspm/downloading-reports) as an Excel file.
@@ -1894,13 +1948,13 @@ Click **CloudTrail**to download the template as a ZIP file and extract it to you
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/adding-action-rule","lastmod":"2026-05-23T07:06Z","nid":"1534334"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/adding-action-rule","lastmod":"2026-09-25T11:43Z","nid":"1534334"} -->
 ## Adding an Action Rule
 
 - Source: https://help.zscaler.com/dspm/adding-action-rule
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Action Rules > Adding an Action Rule
-- Last modified: 2026-05-23T07:06Z
+- Last modified: 2026-09-25T11:43Z
 - Summary: How to add an action rule to apply sensitivity labels from Microsoft Purview Information Protection (formerly Microsoft Information Protection).
 
 You can add [action rules](https://help.zscaler.com/dspm/about-action-rules) to apply sensitivity labels from Microsoft Purview Information Protection (formerly Microsoft Information Protection) to files within Azure file shares and on-premises SMB and NFS file shares.
@@ -1914,13 +1968,13 @@ Before adding an action rule, you must enable the following:
 - Azure File Share Service
 - On-Premises File Share
 
-1. Go to **Policies > Common Configuration**> **Cloud Accounts**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Cloud Accounts**.
 2. Click **Manage**, and select **Manage Services**.
 3. On the **Manage services to monitor** page, select the **Leverage MIP Label** checkbox. See image.
 
 To learn more, see [Managing Services](https://help.zscaler.com/dspm/managing-services).
 
-1. Go to **Policies**>**Common Configuration**>**SaaS Applications.**
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM**>**SaaS Applications.**
 2. Click **Add SaaS Tenant**. The **Add SaaS Tenant**drawer appears.
 3. In the **Add SaaS Tenant** drawer: See image.
   - **Tenant Information**:
@@ -1941,7 +1995,7 @@ DSPM scans and discovers the Microsoft Purview sensitivity labels every 12 hours
 
 To add an action rule:
 
-1. Go to **Policies**>**Data Protection**>**Policy**>**Action Rules**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM**>**Action Rules**.
 2. Click **Add Action Rule**. See image. The**Create Action Rule** page appears.
 3. On the **Create Action Rule** page, in the **General Information** section: See image.
   - **Select the Cloud Type**: Select a cloud type.
@@ -2016,13 +2070,13 @@ To add an action rule:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/adding-alert-rule","lastmod":"2026-04-15T00:39Z","nid":"1487201"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/adding-alert-rule","lastmod":"2026-09-29T01:53Z","nid":"1487201"} -->
 ## Adding an Alert Rule
 
 - Source: https://help.zscaler.com/dspm/adding-alert-rule
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Alerts > Alert Notification Rules > Adding an Alert Rule
-- Last modified: 2026-04-15T00:39Z
+- Last modified: 2026-09-29T01:53Z
 - Summary: How to add a DSPM alert rule in the Zscaler Admin Console.
 
 You can add [alert rules](https://help.zscaler.com/dspm/about-alert-notifications) to export alert notifications to [third-party tools](https://help.zscaler.com/dspm/about-third-party-integrations) for further investigation.
@@ -2035,24 +2089,24 @@ You need to integrate DSPM with the third-party tools before configuring alert r
 
 To add an alert rule:
 
-1. Go to **Administration**>**Alerts** >**Alert Notifications**.
-2. Click **Add Notification Rule**. See image.
-3. On the **General Information** page: See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM**>**Alert Notifications**.
+2. Click **Add Notification Rule**. See image. The **Add Alert Rule** page appears.
+3. On the **Add Alert Rule** page, in the **General Information** section: See image.
   - **Alert Rule Name**: Enter a unique name for the alert rule.
   - (Optional)**Alert Rule Description**: Enter a description for the alert rule.
 4. Click **Next**.
-5. In the **Notification Scope** page, select at least one of the following filters: See image.
+5. In the **Notification Scope** section, select at least one of the following filters: See image.
   - Policies
   - Cloud Accounts
   - Tags
   - Resources
   - DLP Engines
-6. (Optional) In the **Notifications** page, select the third-party tools to which the alert notifications must be sent: See image. If you do not select the third-party tools and proceed to the next step, the alert rule is disabled, and an exclamation mark is displayed indicating the rule is invalid. See image. You can add third-party tools later by [editing the alert notification](https://help.zscaler.com/dspm/editing-or-deleting-alert-notification).
+6. (Optional) In the **Notifications** section, select the third-party tools to which the alert notifications must be sent: See image. If you do not select the third-party tools and proceed to the next step, the alert rule is disabled, and an exclamation mark is displayed indicating the rule is invalid. See image. You can add third-party tools later by [editing the alert notification](https://help.zscaler.com/dspm/editing-or-deleting-alert-notification).
   - ITSM/Ticketing
   - Cloud Storage
   - ChatOps
 7. Click **Next**.
-8. Review the alert rule configuration and edit the details if required, then click **Finish**. See image. The alert rule is displayed on the [Alert Notifications page](https://help.zscaler.com/dspm/about-alert-notifications) and is enabled by default.
+8. Review the alert rule configuration and edit the details if required, then click **Finish**. See image. The alert rule is displayed on the [Alert Notifications](https://help.zscaler.com/dspm/about-alert-notifications) page and is enabled by default.
 
 Select the policy, category, or severity. Depending on your selection, one of the following additional fields is displayed:
 
@@ -2113,13 +2167,13 @@ See image.
 
 By default, the **All DLP Engines** option is selected.
 
-[Image: The Alert Notifications page with annotation around the Add Notification Rule button.]
+[Image: The Alert Notifications page with annotation around the Add Notification Rule button]
 
-[Image: The General Information page with options to add rule name and description.]
+[Image: The General Information section with options to add rule name and description]
 
-[Image: The Notification Scope page with the list of filters available to define the scope of the rule.]
+[Image: The Notification Scope section with the list of filters available to define the scope of the rule]
 
-[Image: The Select Existing Policies page with the list of policies and available filters.]
+[Image: The Select Existing Policies page with the list of policies and available filters]
 
 [Image: Select the policy scope]
 
@@ -2129,11 +2183,11 @@ By default, the **All DLP Engines** option is selected.
 
 [Image: Select resources scope]
 
-[Image: The Alert Notifications page with annotation around the invalid alert rule.]
+[Image: The Alert Notifications page with annotation around the invalid alert rule]
 
-[Image: The Summary page displaying the list of fields configured.]
+[Image: The Summary section displaying the list of fields configured]
 
-[Image: The Notifications page to configure the ITSM fields.]
+[Image: The Notifications section to configure the ITSM fields]
 
 [Image: Configure the cloud storage fields]
 
@@ -2146,13 +2200,13 @@ By default, the **All DLP Engines** option is selected.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/adding-and-managing-custom-roles","lastmod":"2026-07-03T05:00Z","nid":"1474991"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/adding-and-managing-custom-roles","lastmod":"2026-09-29T06:27Z","nid":"1474991"} -->
 ## Adding and Managing Custom Roles
 
 - Source: https://help.zscaler.com/dspm/adding-and-managing-custom-roles
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Role Management > Adding and Managing Custom Roles
-- Last modified: 2026-07-03T05:00Z
+- Last modified: 2026-09-29T06:27Z
 - Summary: Information about how to add a custom role in the Zscaler Admin Console.
 
 You can add or edit custom roles and assign them to users to manage tasks in specific [modules or global modules](https://help.zscaler.com/dspm/dspm-modules).
@@ -2161,7 +2215,7 @@ You can add or edit custom roles and assign them to users to manage tasks in spe
 
 To add a custom role:
 
-1. Go to **Administration**>**Admin Management**> **Role Based Access Control**> **User Access Management**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM**>**Access Roles**.
 2. On the **Access Roles** page, click **Add Role**. See image. The **Add Role** window appears.
 3. In the **Add Role** window: See image.
   - **Role Name**: Enter a unique name for the custom role. The role name can include letters, numbers, or special characters (hyphen (-) or underscore (_)).
@@ -2179,8 +2233,8 @@ You cannot edit or delete [predefined roles](https://help.zscaler.com/dspm/prede
 
 To edit a role:
 
-1. Go to **Administration**>**Admin Management**> **Role Based Access Control**> **User Access Management**.
-2. On the **Access Roles** page, click the **Edit** icon for the custom role that you want to edit. See image.
+1. Go to **Data Security** > **DSPM**>**Access Roles**.
+2. On the **Access Roles** page, click the **Edit** icon for the custom role that you want to edit. See image. The **Edit Role** window appears.
 3. In the **Edit Role** window, change the **Role Name** or **Permissions**, as required. See image.
 4. Click **Update**. A message appears indicating that the role is updated successfully.
 
@@ -2188,8 +2242,8 @@ To edit a role:
 
 To delete a custom role:
 
-1. Go to **Administration**>**Admin Management**> **Role Based Access Control**> **User Access Management**.
-2. On the **Access Roles** page, click the **Delete**icon for the custom role that you want to delete. See image.
+1. Go to **Data Security** > **DSPM**>**Access Roles**.
+2. On the **Access Roles** page, click the **Delete**icon for the custom role that you want to delete. See image. The **Delete Role** window appears.
 3. In the **Delete Role** window, click **Delete**. See image. The role is deleted from the Zscaler Admin Console.
 
 [Image: The Edit Role window with the Role Name field and list of permissions to be added.]
@@ -2202,7 +2256,7 @@ To delete a custom role:
 
 [Image: The Add Role window with Role Name field and permissions list]
 
-[Image: The Access Roles page with the list of predefined and custom roles and annotation around Add Role.]
+[Image: The Access Roles page with annotation around Add Role]
 
 [Image: The Permissions section with the list of global modules.]
 <!-- /ZS-ARTICLE -->
@@ -2247,21 +2301,21 @@ To add Azure target subscriptions:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/adding-custom-compliance-framework","lastmod":"2026-04-09T22:11Z","nid":"1529783"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/adding-custom-compliance-framework","lastmod":"2026-09-28T05:37Z","nid":"1529783"} -->
 ## Adding a Custom Compliance Framework
 
 - Source: https://help.zscaler.com/dspm/adding-custom-compliance-framework
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Compliance > Adding a Custom Compliance Framework
-- Last modified: 2026-04-09T22:11Z
+- Last modified: 2026-09-28T05:37Z
 - Summary: How to create a custom compliance framework in the Zscaler Admin Console.
 
 You can add custom compliance frameworks either by cloning the predefined ones or by creating new ones from scratch. When you clone an existing framework, only the policies from that framework are added to the new one.
 
 To add a custom framework:
 
-1. Go to **Analytics**>**Data Security**>**DSPM** >**Compliance**.
-2. Click **Add Framework**. See image. The **Create Custom Framework** page appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** >**Compliance**.
+2. On the **Compliance**page, click **Add Framework**. See image. The **Create Custom Framework** page appears.
 3. On the **Create Custom Framework** page, do one of the following: See image.
   - Click **Create New Template** to create a new one.
   - Click **Use This Template**to choose an existing compliance framework.
@@ -2298,13 +2352,13 @@ To add a custom framework:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/adding-databricks-workspace-or-account","lastmod":"2026-08-12T22:29Z","nid":"1532035"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/adding-databricks-workspace-or-account","lastmod":"2026-09-28T00:43Z","nid":"1532035"} -->
 ## Adding a Databricks Workspace or Account
 
 - Source: https://help.zscaler.com/dspm/adding-databricks-workspace-or-account
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Service Registration > Databricks > Adding a Databricks Workspace or Account
-- Last modified: 2026-08-12T22:29Z
+- Last modified: 2026-09-28T00:43Z
 - Summary: Information on how to add a Databricks workspace or account in the Zscaler Admin Console.
 
 You can add a [Databricks workspace or account](https://help.zscaler.com/dspm/about-service-registration) to DSPM. DSPM scans the data assets for sensitive data, vulnerabilities, misconfigurations, and reports the findings on the [Resource Inventory](https://help.zscaler.com/dspm/about-resource-inventory) page. After a Databricks account is onboarded, DSPM automatically discovers the associated workspaces and creates the necessary SQL warehouses and access permissions to perform scans.
@@ -2438,7 +2492,7 @@ Repeat these steps for both the orchestrator- and scanner-managed identities.
 
 To add a Databricks workspace:
 
-1. Go to **Policies** > **Common Configuratio**n > **DSPM** > **Service Registration**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Service Registration**.
 2. On the **Service Registration** page, select the **Databricks**tab, and click **Add Databricks**. See image. The **Add Databricks**drawer appears.
 3. In the **Add Databricks**drawer:
   1. **Cloud**: Select the cloud service provider that hosts the Databricks.
@@ -2493,7 +2547,7 @@ The **Account** registration type is available only for **AWS**.
 
 To add a Databricks account:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Service Registration**.
+1. Go to **Data Security** > **DSPM** > **Service Registration**.
 2. On the **Service Registration** page, select the **Databricks**tab, and click **Add Databricks**. See image. The **Add Databricks**drawer appears.
 3. In the **Add Databricks**drawer:
   1. **Cloud**: Select the cloud service provider that hosts the Databricks.
@@ -2555,13 +2609,13 @@ After this process is complete, you can [configure the scan rules for the Databr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/adding-evidence-rule","lastmod":"2026-07-02T07:06Z","nid":"1540848"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/adding-evidence-rule","lastmod":"2026-09-17T21:14Z","nid":"1540848"} -->
 ## Adding an Evidence Rule
 
 - Source: https://help.zscaler.com/dspm/adding-evidence-rule
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > On-Premises Data Centers and Scanners > Evidence > Adding an Evidence Rule
-- Last modified: 2026-07-02T07:06Z
+- Last modified: 2026-09-17T21:14Z
 - Summary: Information on how to add an evidence rule to define the samples of sensitive data storage discovered during on-premises scans.
 
 An evidence rule defines where DSPM stores samples of sensitive data discovered during on-premises scans. You can configure DSPM to upload evidence data directly to your own cloud storage bucket, or allow DSPM to create and manage a storage bucket in your account. To learn more, see [About Evidence Settings](https://help.zscaler.com/dspm/about-evidence-settings).
@@ -2585,23 +2639,23 @@ To add an evidence rule:
 
 The evidence rule is created, [enabled](https://help.zscaler.com/dspm/managing-evidence-rules#enablingdisabling-rule) by default, and appears on the [Evidence Settings](https://help.zscaler.com/dspm/about-evidence-settings) page. After creating the rule, [validate](https://help.zscaler.com/dspm/managing-evidence-rules#validate-evidence-rule) the rule to verify that the template deployment is successful. After it is validated, and the evidence rule is set to enabled, DSPM uses this rule to upload evidence data from the associated on-premises data centers to the configured cloud storage bucket. To learn more, see [Managing Evidence Rules](https://help.zscaler.com/dspm/managing-evidence-rules).
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Evidence Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Evidence Settings**.
 2. On the **Evidence Settings** page, click **Add Evidence Rule**. See image. The **Add Evidence Rule** page appears.
-3. On the **Add Evidence Rule** page, on the **General Information** page, enter the following details: See image.
+3. On the **General Information** tab, enter the following details: See image.
   - **Rule Name**: Enter a name for the evidence rule.
   - **Description (Optional)**: Enter a brief description for the evidence rule.
 4. Click **Next**.
 
 [Image: The evidence rule settings page with the existing evidence rules and annotation for Add Evidence Rule button]
 
-[Image: The General Information page for providing a rule name and its description.]
+[Image: The General Information page for providing a rule name and its description]
 
-1. On the **Cloud Type** page, select the cloud provider for the evidence bucket. See image.
+1. On the **Cloud Type** tab, select the cloud provider for the evidence bucket. See image.
 2. Click **Next**.
 
-[Image: The Cloud Type page to choose the CSP for the evidence bucket.]
+[Image: The Cloud Type page to choose the CSP for the evidence bucket]
 
-1. On the **Storage Type** page, for the **Storage Information** section, select a storage option and provide the required details:
+1. On the **Storage Type** tab, for the **Storage Information** section, select a storage option and provide the required details:
   - **Custom Bucket**: Use an existing bucket in your cloud environment.
     - **S3 Bucket Name**: Enter the name of an existing S3 bucket.
     - **S3 Bucket Account ID**: Enter the AWS account ID associated with the S3 bucket.
@@ -2612,26 +2666,64 @@ The evidence rule is created, [enabled](https://help.zscaler.com/dspm/managing-e
   - **IAM Role Name**: Enter a name for the IAM role to be created in your AWS account. A default name is prefilled. If needed, rename it to align with your organization's naming conventions. This role grants DSPM the necessary permissions to access the evidence bucket.
 3. Click **Next**.
 
-[Image: The Storage Type page to specify the storage bucket details for storing evidence details.]
+[Image: The Storage Type page to specify the storage bucket details for storing evidence details]
 
-On the **Data Center Association** page:
+On the **Data Center Association** tab:
 
 1. **Data Center**: Select the on-premises data centers to associate with this evidence rule. See image.
 2. Click **Next**.
 
-[Image: The Data Center Association page to choose data centers to be associated with the evidence rule.]
+[Image: The Data Center Association page to choose data centers to be associated with the evidence rule]
 
-On the **Apply Changes** page:
+On the **Apply Changes** tab:
 
 1. **Template Type**: Select the template format to use:
   - CloudFormation
   - Terraform
-2. **Download Template**: See image.
-  - Click **Evidence** to download the template.
+2. **Download Template**: Click **Evidence** to download the template. See image.
 3. [Run the downloaded template](https://help.zscaler.com/dspm/deploying-orchestrator-and-monitoring-scope-templates#deploy-evidence-template) in your AWS account to grant DSPM the necessary permissions to access the evidence bucket.
 4. Click **Done**.
 
-[Image: The Apply Changes page shows options to choose the template type, and download template button.]
+[Image: The Apply Changes page shows options to choose the template type, and download template button]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/dspm/adding-gcp-target-projects","lastmod":"2026-09-14T22:07Z","nid":"1543193"} -->
+## Adding GCP Target Projects
+
+- Source: https://help.zscaler.com/dspm/adding-gcp-target-projects
+- Product: Data Security Posture Management (DSPM)
+- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > GCP Cloud Accounts > GCP Project > Adding GCP Target Projects
+- Last modified: 2026-09-14T22:07Z
+- Summary: Information on how to add GCP target projects.
+
+The target projects in DSPM refer to the GCP projects that DSPM must monitor. You can add new target projects to the existing onboarded GCP account. DSPM monitors and scans the data stores within the onboarded projects to identify sensitive data, misconfigurations, and vulnerabilities.
+
+## Prerequisites
+
+You must be assigned either an [Administrator role](https://help.zscaler.com/dspm/predefined-roles-and-permissions) or a custom role with the Configure Monitoring Scope permission in the Zscaler Admin Console.
+
+## Adding Target Projects
+
+To add GCP target projects:
+
+1. From the navigation menu, go to **Data Security**> **DSPM** > **Configuration** > **Cloud Accounts**. The **Cloud Accounts**page with the **Overview**tab appears.
+2. On the **Overview**tab, select the onboarded account for which you want to add new projects.
+3. Click **Manage**and select **Add Target Projects**from the drop-down menu. See image. The **Add Target Projects**window appears.
+4. In the **Add Target Projects**window, enter the following information: See image.
+  - **Project ID**: Enter the subscription ID.
+  - **Project Name (Optional)**: Enter the subscription name.
+  - **Business Unit**: Select a business unit for the subscription.
+  - Click **+ Add Project**to add more subscriptions.
+5. Click **Save**.
+6. On the **Roles and Templates** tab, click **GCP Onboarding** to download and [deploy the template](https://help.zscaler.com/dspm/onboarding-gcp-project#downloadgcptemplate). See image.
+
+[Image: The Manage actions drop-down menu with annotation around Add Target Projects]
+
+[Image: The Add Target Projects window with the list of target projects]
+
+[Image: The Roles and Templates tab with annotation around GCP Onboarding template]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2727,20 +2819,20 @@ By default, the **All DLP Engines** option is selected.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/adding-ldap-server","lastmod":"2026-07-02T07:06Z","nid":"1540321"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/adding-ldap-server","lastmod":"2026-09-28T00:40Z","nid":"1540321"} -->
 ## Adding an LDAP Server
 
 - Source: https://help.zscaler.com/dspm/adding-ldap-server
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Service Registration > LDAP Servers > Adding an LDAP Server
-- Last modified: 2026-07-02T07:06Z
+- Last modified: 2026-09-28T00:40Z
 - Summary: Information on how to add an LDAP servers in the Zscaler Admin Console.
 
 A [Lightweight Directory Access Protocol (LDAP) server](https://help.zscaler.com/dspm/about-service-registration) enables DSPM to scan and discover identities (users, groups, and computer accounts) that have permissions to access sensitive data. Adding an LDAP server allows DSPM to discover identity and entitlement data stored in the LDAP server, which is required for scanning and analyzing permissions on file shares to map user access and identify potential security risks accurately.
 
 To add an LDAP server:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Service Registration**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Service Registration**.
 2. On the **Service Registration** page, select the **LDAP Servers** tab, and click **Add Server**. See image. The **Add LDAP Server** drawer appears.
 3. In the **Add LDAP Server** drawer: See image.
   1. **Server Information**:
@@ -2750,7 +2842,7 @@ To add an LDAP server:
     1. **Hostname**: Enter the IP address or FQDN of the server.
     2. **Domain Name**: Enter the domain name associated with the server.
   3. **Authentication**:
-    1. **Secret Provider Type**: This field is autopopulated with the provider used to manage authentication secrets, typically set to **Zscaler DSPM**.
+    1. **Secret Provider Type**: This field is automatically populated with the provider used to manage authentication secrets, typically set to **Zscaler DSPM**.
     2. **Username**: Enter the username.
     3. **Password**: Enter the password.
   4. **Root CA Cert (Optional)**: If your LDAP server uses a certificate, upload the PEM file to verify the LDAP server's SSL certificate for secure connection.
@@ -2760,30 +2852,31 @@ To add an LDAP server:
 
 The LDAP server is displayed on the **LDAP Servers** tab on the [Service Registration](https://help.zscaler.com/dspm/about-service-registration#ldap-server) page. You can select this server when [adding an on-premises file server](https://help.zscaler.com/dspm/adding-premises-file-servers) to analyze entitlements assigned to identities in SMB file shares.
 
-[Image: The LDAP Servers page with a list of LDAP servers and annotation around the Add server button.]
+[Image: The LDAP Servers page with a list of LDAP servers and annotation around the Add server button]
 
-[Image: Add LDAP Server drawer with the necessary details filled.]
+[Image: Add LDAP Server drawer with the necessary details filled]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/adding-microsoft-entra-tenant-or-management-group","lastmod":"2026-08-12T21:40Z","nid":"1517356"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/adding-microsoft-entra-tenant-or-management-group","lastmod":"2026-10-01T04:53Z","nid":"1517356"} -->
 ## Adding Microsoft Entra Tenant or Management Group
 
 - Source: https://help.zscaler.com/dspm/adding-microsoft-entra-tenant-or-management-group
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > Microsoft Azure Cloud Accounts > Microsoft Entra Tenant > Adding Microsoft Entra Tenant or Management Group
-- Last modified: 2026-08-12T21:40Z
+- Last modified: 2026-10-01T04:53Z
 - Summary: Information about adding Microsoft Entra tenant or management group details in the Zscaler Admin Console.
 
 The first step in the [onboarding process](https://help.zscaler.com/dspm/onboarding-microsoft-azure-tenant) is to provide the Microsoft Entra tenant details. DSPM uses the tenant or management group details to generate a template to connect to the Microsoft Entra tenant.
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Cloud Accounts**.
-2. Click **Add New**.
-3. Under **Select Cloud Provider**, click the**Azure** tile.
-4. Select **Tenant** or **Management Group**. See image.
-5. Click **Next**.
-6. In the **Tenant Details** section: The role name and service principal name must contain only alphabetic characters, numbers, hyphens ("-"), and underscores ("_"). See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM**> **Cloud Accounts**. The **Cloud Accounts** page appears.
+2. On the **Cloud Accounts** page, click **Add New**.
+3. In the **Select Cloud Provider**window: See image.
+  - Under **Select Cloud Type**, click the**Azure** tile.
+  - Under **Select Onboarding Type**, click the **Tenant** or **Management Group**.
+4. Click **Next**.
+5. In the **Tenant Details** section: The role name and service principal name must contain only alphabetic characters, numbers, hyphens ("-"), and underscores ("_"). See image.
   - **DSPM Alias:**Enter a user-friendly name for the tenant or management group.
   - **Tenant Name**: Enter the name of the tenant that you want to onboard.
   - **Role Name**: Enter a unique role name. This role name is added as a prefix to all the [custom roles](https://help.zscaler.com/dspm/iam-roles-and-permissions-microsoft-azure) that are created during the onboarding process.
@@ -2794,24 +2887,24 @@ The first step in the [onboarding process](https://help.zscaler.com/dspm/onboard
   - **Service Principal**: Enter a unique name for the service principal (application). DSPM creates a service principal with this name in the Microsoft Entra tenant after deploying the [tree discovery template](https://help.zscaler.com/dspm/deploying-azure-tree-discovery-template). The service principal is used to define the access policy and permissions for DSPM to access specific resources within the tenant. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/app-objects-and-service-principals?tabs=browser).
   - **Management Group ID**: Enter the management group ID. You can include multiple management group IDs to onboard the management groups. This field is visible only if you select the Management Group for onboarding.
   - **Notification Emails** (Optional): Enter the email addresses of the recipients who must be notified of any configuration or permissions issues encountered with the onboarded tenant. You can add up to 30 email addresses to receive notifications about the issues. You can also add email addresses after completing the onboarding process.
-7. Click **Apply**to continue. Click **Reset** if you want to change the details. If all the details are accurate, you are directed to the [Connect to the Tenant](https://help.zscaler.com/dspm/deploy-azure-tree-discovery-template) section to deploy the tree discovery template.
+6. Click **Apply**to continue. Click **Reset** if you want to change the details. If all the details are accurate, you are directed to the [Connect to the Tenant](https://help.zscaler.com/dspm/deploy-azure-tree-discovery-template) section to deploy the tree discovery template.
 
-[Image: Select Cloud Provider page with different cloud types in tiles and annotation around the Azure tile.]
+[Image: Select Cloud Provider page with different cloud types in tiles and annotation around the Azure tile]
 
-[Image: Directories + subscriptions page with a list of directories and annotation around a blurred directory ID.]
+[Image: Directories + subscriptions page with a list of directories and annotation around a blurred directory ID]
 
-[Image: The tenant details section with all the required fields for onboarding.]
+[Image: The tenant details section with all the required fields for onboarding]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/adding-or-deleting-scanner-integration","lastmod":"2026-04-16T05:16Z","nid":"1532040"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/adding-or-deleting-scanner-integration","lastmod":"2026-09-17T21:14Z","nid":"1532040"} -->
 ## Adding or Deleting a Scanner Integration
 
 - Source: https://help.zscaler.com/dspm/adding-or-deleting-scanner-integration
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > On-Premises Data Centers and Scanners > On-Premises Scanners > Adding or Deleting a Scanner Integration
-- Last modified: 2026-04-16T05:16Z
+- Last modified: 2026-09-17T21:14Z
 - Summary: Information about how to add or delete an on-premises scanner integration in the Zscaler Admin Console.
 
 You can add or delete a scanner integration when required.
@@ -2827,7 +2920,7 @@ To learn more, see [About On-Premises Scanner Integrations](https://help.zscaler
 
 To add a scanner integration:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **On-Premises Scanners**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **On-Premises Scanners**.
 2. On the **On-Premises Scanner Integrations** page, click **Add Scanner Integration**. See image. The **Add On-Premises Scanner Integration** drawer appears.
 3. In the **Add On-Premises Scanner Integration** drawer: See image.
   1. **Integration Name**: Enter a name for the scanner integration. The integration name cannot be modified after it is saved.
@@ -2840,20 +2933,20 @@ To add a scanner integration:
 
 Use the downloaded scanner image to [configure and initialize the scanner VM](https://help.zscaler.com/dspm/initializing-premises-scanner-vm) with DSPM.
 
-[Image: On-Premises Scanner Integrations page with Add Scanner Integration button.]
+[Image: On-Premises Scanner Integrations page with Add Scanner Integration button]
 
-[Image: On-Premises Scanner Integration drawer showing scanner name field with Save button annotated.]
+[Image: Add On-Premises Scanner Integration drawer showing scanner name field with Save button annotated]
 
-[Image: On-Premises Scanner Integration drawer with an annotation for Generate Key button.]
+[Image: Add On-Premises Scanner Integration drawer with an annotation for Generate Key button]
 
-[Image: On-Premises Scanner Integration drawer with the details filled.]
+[Image: On-Premises Scanner Integration drawer with the details filled]
 
 ## Deleting an On-Premises Scanner Integration
 
 To delete a scanner integration:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **On-Premises Scanners**.
-2. The **On-Premises Scanner Integrations** page, do one of the following:
+1. Go to **Data Security** > **DSPM** > **On-Premises Scanners**.
+2. The **On-Premises Scanner Integrations** page, do one of the following: The **Delete On-Premises Scanner** window appears.
   - Click the **Delete**icon ()for the required scanner integration. See image.
   - Click the name of the scanner integration to view the [scanner integration](https://help.zscaler.com/dspm/about-premises-scanner-integrations) details, and click the **Delete** icon (). See image.
 3. In the **Delete On-Premises Scanner** window, read the message, and then enter `CONFIRM` in the text box. See image.
@@ -2861,33 +2954,33 @@ To delete a scanner integration:
 
 The scanner integration is deleted from the Zscaler Admin Console.
 
-[Image: On-Premises Scanner Integration page with an annotation highlighting the Delete option.]
+[Image: On-Premises Scanner Integration page with an annotation highlighting the delete option]
 
-[Image: Scanner integration details page with an annotation for Delete option]
+[Image: On-Premises Scanner integration details page with an annotation for delete option]
 
-[Image: Confirmation window for deleting a scanner integration, with an input field to confirm to proceed.]
+[Image: Confirmation window for deleting a scanner integration, with an input field to confirm to proceed]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/adding-orchestrator-details-and-configuring-regions","lastmod":"2026-05-28T07:06Z","nid":"1520276"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/adding-orchestrator-details-and-configuring-regions","lastmod":"2026-09-30T05:21Z","nid":"1520276"} -->
 ## Adding Orchestrator Details and Configuring Regions
 
 - Source: https://help.zscaler.com/dspm/adding-orchestrator-details-and-configuring-regions
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > AWS Cloud Accounts > AWS Account > Adding Orchestrator Details and Configuring Regions
-- Last modified: 2026-05-28T07:06Z
+- Last modified: 2026-09-30T05:21Z
 - Summary: Information about adding the orchestrator account details and configuring regions for a standalone AWS account in the Zscaler Admin Console.
 
 The first step in [onboarding a standalone AWS account](https://help.zscaler.com/dspm/onboarding-aws-account) is to provide the orchestrator details and configure regions. DSPM uses the account details to generate a template to connect to the AWS account.
 
 To add the orchestrator details and configure regions:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Cloud Accounts**.
-2. Click **Add New**.
-3. In the **Select Cloud Provider**window: See image.
-  1. Under **Select Cloud Type**, click the**AWS**tile.
-  2. Under **Select Onboarding Type**, click the **Standalone Account** tile.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Cloud Accounts**. The **Cloud Accounts** page appears.
+2. On the **Cloud Accounts** page, click **Add New**.
+3. In the **Select Cloud Provider** window: See image.
+  1. For **Select Cloud Type**, select **Amazon Web Services**.
+  2. For **Select Onboarding Type**, select the **Standalone Account** tile.
 4. Click **Next**.
 5. In the **Orchestrator Configuration** section: See image.
   - **DSPM Alias**: Enter a user-friendly name for the account.
@@ -2895,20 +2988,12 @@ To add the orchestrator details and configure regions:
   - **Orchestrator Account ID**: Enter the account ID of the account where you want to deploy the orchestrator template.
   - **Select the Orchestrator Region**: Select the region to deploy the template.
   - **Notification Emails** (Optional): Enter the email addresses of the recipients who must be notified of any configuration or permissions issues encountered with the onboarded organization. You can add up to 30 email addresses. You can also add email addresses after completing the onboarding process.
-  - **Subnet ARN**: The private subnet ARN.
-  - **Security Group ID**: The security group ID.
-  - Click **Configure Services**to select the services and regions that DSPM must monitor.
-    - On the **Manage services to monitor** page, select the AWS services and click **Next**. By default, all the services are selected. DSPM permissions are restricted to monitor and scan the data only in the selected services. See image.
-    - On the **Configure regions for monitoring and scanner configuration** page, select the regions and enter the following for each selected region. DSPM creates and deploys resources required for scanning only in the selected regions. See image.
-      - **Subnet ARN**: The subnet where the scanner instances must be launched.
-      - **Security Group ID**: The security group ID that controls network traffic to and from the scanner instances.
-      - **DB Subnet Group ARN**: (Optional) The database subnet group ARN. This is required for DSPM to scan the RDS databases.
-    - Click **Done**.
+  - **Network Configuration**: Select one of the following options:
+    - Custom
+    - Zscaler
 6. Click **Apply**to continue. Click **Reset**if you want to change the details. If all the details are accurate, you are directed to the Additional Configuration section.
 
 In the **Additional Configuration** section, you can configure [custom tags](https://help.zscaler.com/dspm/managing-custom-tags) and [evidence storage](https://help.zscaler.com/dspm/managing-evidence-configuration). Click **Skip This Step**to configure the additional details after completing the onboarding process and go to [Deploy Orchestrator](https://help.zscaler.com/dspm/deploying-orchestrator-template) section.
-
-See image.
 
 - Custom Tags
 - Evidence Storage
@@ -2916,6 +3001,23 @@ See image.
 See image.
 
 After configuring, you are directed to the [Deploy Orchestrator](https://help.zscaler.com/dspm/deploying-orchestrator-template) section to deploy the orchestrator template.
+
+1. Enter the following information for the orchestrator instance:
+  - **Subnet ARN**: The private subnet ARN.
+  - **Security Group ID**: The security group ID.
+2. Click **Configure Services**to select the services and regions that DSPM must monitor.
+  - On the **Manage Services** page, select the AWS services and click **Next**. By default, all the services are selected. DSPM permissions are restricted to monitor and scan the data only in the selected services. See image.
+  - On the **Configure regions for monitoring and scanner configuration** page, select the regions and enter the following for each selected region. DSPM creates and deploys resources required for scanning only in the selected regions. See image.
+    - **Subnet ARN**: The subnet where the scanner instances must be launched.
+    - **Security Group ID**: The security group ID that controls network traffic to and from the scanner instances.
+    - **DB Subnet Group ARN**: (Optional) The database subnet group ARN. This is required for DSPM to scan the RDS databases.
+3. Click **Done**.
+
+Click **Configure Services** to select the services and regions that DSPM must monitor.
+
+1. On the **Manage services to monitor** page, select the AWS services and click Next. By default, all the services are selected. DSPM permissions are restricted to monitor and scan the data only in the selected services. The **Unmanaged Database** service is disabled for Zscaler network configuration.
+2. On the **Configure regions for monitoring and scanner's configuration** page, select the regions. DSPM creates and deploys resources required for scanning only in the selected regions.
+3. Click Done.
 
 DSPM discovers files and tables containing sensitive data and generates snippets of evidence data to investigate and validate the findings. You can choose an existing S3 bucket or configure a new one to store these evidence snippets.
 
@@ -2943,40 +3045,38 @@ To add custom tags:
 3. Click **Add More**, and enter key-value pairs to add more tags. See image.
 4. Click **Done**.
 
-[Image: The select cloud provider window with annotations around aws and standalone account tiles.]
+[Image: The select cloud provider window with annotations around aws and standalone account tiles]
 
-[Image: The configure regions page for custom network with the list of regions supported by DSPM/]
+[Image: The configure regions page for custom network with the list of regions supported by DSPM]
 
-[Image: The Manage services to monitor page with list of available AWS services.]
+[Image: The Manage services to monitor page with list of available AWS services]
 
-[Image: The Orchestrator configuration section with the required fields and options to configure services, custom tags, and evidence.]
+[Image: The Orchestrator configuration section with the required fields and options to configure services, custom tags, and evidence]
 
-[Image: The Evidence configuration page for Custom S3 bucket.]
+[Image: The Evidence configuration page for Custom S3 bucket]
 
-[Image: The Add Custom Tags page to add key and value pairs that must be attached to the DSPM resources.]
+[Image: The Add Custom Tags page to add key and value pairs that must be attached to the DSPM resources]
 
-[Image: The Additional Configuration section with annotation around Skip this step option.]
-
-[Image: The Additional Configuration section with the list of actions available.]
+[Image: The Additional Configuration section with the list of actions available]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/adding-organization-details","lastmod":"2026-08-29T07:06Z","nid":"1525716"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/adding-organization-details","lastmod":"2026-09-30T02:17Z","nid":"1525716"} -->
 ## Adding Organization Details
 
 - Source: https://help.zscaler.com/dspm/adding-organization-details
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > AWS Cloud Accounts > AWS Organization > Adding Organization Details
-- Last modified: 2026-08-29T07:06Z
+- Last modified: 2026-09-30T02:17Z
 - Summary: Information about adding AWS organization details in the Zscaler Admin Console.
 
 The first step in the [onboarding process](https://help.zscaler.com/dspm/onboarding-aws-organization) is to provide the AWS organization details in the Zscaler Admin Console. DSPM uses these details to generate a template to connect to the AWS organization.
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Cloud Accounts**.
-2. Click **Add New**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Cloud Accounts**. The **Cloud Accounts** page appears.
+2. On the **Cloud Accounts** page, click **Add New**.
 3. In the **Select Cloud Provider** window: See image.
-  - For **Select Cloud Type**, select **AWS**.
+  - For **Select Cloud Type**, select **Amazon Web Services**.
   - For **Select Onboarding Type**, select **Organization**.
 4. Click **Next**.
 5. In the **Add New Organization Configuration** section: See image.
@@ -3017,13 +3117,13 @@ If all the details are accurate, you are directed to the [Connect to the Organiz
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/adding-premises-file-servers","lastmod":"2026-07-02T07:06Z","nid":"1532037"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/adding-premises-file-servers","lastmod":"2026-09-28T00:41Z","nid":"1532037"} -->
 ## Adding an On-Premises File Server
 
 - Source: https://help.zscaler.com/dspm/adding-premises-file-servers
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Service Registration > On-Premises File Servers > Adding an On-Premises File Server
-- Last modified: 2026-07-02T07:06Z
+- Last modified: 2026-09-28T00:41Z
 - Summary: Information on how to add an on-premises file servers in the Zscaler Admin Console.
 
 You can add an [on-premises file servers](https://help.zscaler.com/dspm/about-service-registration) to DSPM. DSPM scans the data assets for sensitive data and identifies any potential security posture risks.
@@ -3041,7 +3141,7 @@ Before adding an on-premises file server to DSPM, ensure the following prerequis
 
 To add an on-premises file server:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Service Registration**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Service Registration**.
 2. On the **Service Registration** page, select the **On-Premises File Servers** tab, and click **Add File Server**. See image. The **Add On-Premises File Server** drawer appears.
 3. In the **Add On-Premises File Server** drawer: See image.
   1. **File Server Information**:
@@ -3087,22 +3187,22 @@ The on-premises file server is added and appears in the list on the **On-Premise
 
 To configure the scan settings, see [Configuring Scan Rule for](https://help.zscaler.com/dspm/configuring-scan-rule-premises-file-servers)[On-P](https://help.zscaler.com/dspm/configuring-scan-rule-premises-file-servers)[r](https://help.zscaler.com/dspm/configuring-scan-rule-premises-file-servers)[em](https://help.zscaler.com/dspm/configuring-scan-rule-premises-file-servers)[is](https://help.zscaler.com/dspm/configuring-scan-rule-premises-file-servers)[es](https://help.zscaler.com/dspm/configuring-scan-rule-premises-file-servers)[File Se](https://help.zscaler.com/dspm/configuring-scan-rule-premises-file-servers)[r](https://help.zscaler.com/dspm/configuring-scan-rule-premises-file-servers)[v](https://help.zscaler.com/dspm/configuring-scan-rule-premises-file-servers)[e](https://help.zscaler.com/dspm/configuring-scan-rule-premises-file-servers)[rs](https://help.zscaler.com/dspm/configuring-scan-rule-premises-file-servers).
 
-[Image: Confirmation window for adding on-premises file server showing fields that can't be edited.]
+[Image: Confirmation window for adding on-premises file server showing fields that can't be edited]
 
-[Image: The On-Premises File Servers page with a list of file servers and annotation around the Add On-Premises File Servers button.]
+[Image: The On-Premises File Servers page with a list of file servers and annotation around the Add On-Premises File Servers button]
 
-[Image: Add On-Premises File Servers drawer with the necessary details filled.]
+[Image: Add On-Premises File Servers drawer with the necessary details filled]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/adding-snowflake-database-account","lastmod":"2026-06-22T02:36Z","nid":"1529987"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/adding-snowflake-database-account","lastmod":"2026-09-17T01:55Z","nid":"1529987"} -->
 ## Adding a Snowflake Database Account
 
 - Source: https://help.zscaler.com/dspm/adding-snowflake-database-account
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Service Registration > Snowflake > Adding a Snowflake Database Account
-- Last modified: 2026-06-22T02:36Z
+- Last modified: 2026-09-17T01:55Z
 - Summary: Information on how to add a Snowflake account in the Zscaler Admin Console.
 
 You can add a [Snowflake account](https://help.zscaler.com/dspm/about-service-registration) to DSPM. DSPM scans the Snowflake databases for sensitive data and identifies any potential security posture risks.
@@ -3111,12 +3211,18 @@ You can add a [Snowflake account](https://help.zscaler.com/dspm/about-service-re
 
 Before adding a Snowflake account to DSPM, ensure the following prerequisites are met:
 
+See image.
+
+Refer to the detailed, step-by-step instructions below to execute these configurations within your Snowflake console and command line interfaces.
+
 - 1. Create a warehouse for DSPM.
 - 2. Create a role with required permissions.
 - 3. Create a user for DSPM.
 - 4. Configure network policy for the DSPM user.
 - 5. Provide SQL connection strings and authentication credentials to allow DSPM to access the Snowflake account.
 - 6. Set up the secrets in the same environment as the DSPM orchestrator.
+
+[Image: Prerequisites chart for adding a Snowflake database account]
 
 - **AWS**: Create and store the password or key‑pair in AWS Secrets Manager in the AWS account where the orchestrator account is present, and have the ARNs ready for use.
   1. Open the **AWS Secrets Manager** in the [AWS Management Console](https://aws.amazon.com/console/).
@@ -3234,7 +3340,6 @@ CALL z_dspm_grant_db_read();
 Optional: In case you want this DSPM role to automatically discover and scan the newly added databases, run the following command once. This creates a Snowflake task that runs the `grant` procedure at regular intervals to get access to any newly added databases:
 
 ```
-CALL z_dspm_grant_db_read();
 CREATE OR REPLACE TASK z_dspm_role_grant_task
    schedule = 'USING CRON 0 2 * * * UTC'   -- runs every day at 2am UTC; edit as needed
 AS
@@ -3254,7 +3359,7 @@ CREATE OR ALTER WAREHOUSE dspmwarehouse;
 
 To add a Snowflake account:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Service Registration**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Service Registration**.
 2. On the **Service Registration** page, select the **Snowflake** tab, and click **Add Account**. See image. The **Add Snowflake Account** drawer appears.
 3. In the **Add Snowflake Account** drawer, update the required fields:
   1. In the **Account Information** section: See image.
@@ -3280,7 +3385,7 @@ For the **Authentication Type**, select any of the following:
 
 - Key-Pair See image.
   - **Username**: Enter the DSPM username.
-  - **Private Key AWS Secret ARN**: Enter the ARN of the HashiCorp Vault instance where the database credentials are stored.
+  - **Private Key AWS Secret ARN**: Enter the ARN of the AWS Secrets Manager secret where the private key is stored.
   - **Passphrase AWS Secret ARN** (Optional): Enter the ARN of the HashiCorp Vault instance where the database credentials are passphrased.
 - Username/Password See image.
   - **Username**: Enter the DSPM username.
@@ -3325,13 +3430,13 @@ For the **Authentication Type**, select any of the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/adding-unmanaged-database","lastmod":"2026-05-24T07:06Z","nid":"1517566"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/adding-unmanaged-database","lastmod":"2026-09-28T00:40Z","nid":"1517566"} -->
 ## Adding Unmanaged Databases
 
 - Source: https://help.zscaler.com/dspm/adding-unmanaged-database
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Service Registration > Unmanaged Databases > Adding Unmanaged Databases
-- Last modified: 2026-05-24T07:06Z
+- Last modified: 2026-09-28T00:40Z
 - Summary: Information about how to add an unmanaged database server in the Zscaler Admin Console.
 
 You can add an [unmanaged database server](https://help.zscaler.com/dspm/about-unmanaged-database) to DSPM. DSPM scans the unmanaged databases for sensitive data and identifies any potential security posture risks.
@@ -3370,15 +3475,15 @@ Before adding unmanaged databases to DSPM, ensure the following prerequisites ar
 
 [Image: Review secret details window to verify the secret details]
 
-[Image: Configure secret window to configure the name of the secret.]
+[Image: Configure secret window to configure the name of the secret]
 
-[Image: AWS Secret Manager window showing options to store new secrets.]
+[Image: AWS Secret Manager window showing options to store new secrets]
 
 ## Adding an Unmanaged Database Server
 
 To add an unmanaged database server:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Service Registration**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Service Registration**.
 2. On the **Service Registration** page, select the **Unmanaged Database** tab. To add database servers, do one of the following:
   - Add a database server
   - Download the template
@@ -3393,7 +3498,7 @@ To configure the scan settings, see [Configuring Scan Settings for Azure Unmanag
   - `cloud_unmanageddb.xlsx` for cloud databases
   - `onprem_unmanageddb.xlsx` for on‑premises databases
 
-[Image: The Unmanaged Databases page with a list of databases and annotation around the Download Template option.]
+[Image: The Unmanaged Databases page with a list of databases and annotation around the Download Template option]
 
 1. Add the database server details to the template file you downloaded in the previous step.
   - On-premises
@@ -3405,9 +3510,9 @@ To configure the scan settings, see [Configuring Scan Settings for Azure Unmanag
 
 The unmanaged database servers are added and displayed on the [Unmanaged Databases](https://help.zscaler.com/dspm/about-unmanaged-database) page.
 
-[Image: The Unmanaged Databases page with a list of databases and annotation around Upload Database Servers button..]
+[Image: The Unmanaged Databases page with a list of databases and annotation around Upload Database Servers button]
 
-[Image: The Upload Database Servers window displays the uploaded template file, with an annotation around the Upload button.]
+[Image: The Upload Database Servers window displays the uploaded template file, with an annotation around the Upload button]
 
 - **Data Center**: The name of the data center where the database server is located.
 - **Database Server Name**: A unique name for the database server.
@@ -3458,7 +3563,7 @@ The unmanaged database server is added and displayed on the [Unmanaged Databases
 
 See image.
 
-[Image: Adding Unmanaged Database Server - Authentication section with the details filled.]
+[Image: Adding Unmanaged Database Server - Authentication section with the details filled]
 
 1. **Endpoint**: Enter the URL of the HashiCorp Vault.
 2. **Username**: Enter the login username of the HashiCorp Vault.
@@ -3497,7 +3602,7 @@ In the **Data Center Information** section:
 
 See image.
 
-[Image: Adding Unmanaged Database Server - Authentication section with the details filled.]
+[Image: Adding Unmanaged Database Server - Authentication section with the details filled]
 
 1. **Username**: Enter the username for SQL authentication.
 2. **Key Vault URI**: Enter the Uniform Resource Indicator (URI), a unique identifier of the Key Vault instance. In order for DSPM to read the password and connect to the database, ensure you do the following:
@@ -3522,17 +3627,17 @@ A user-managed identity in Azure that is created and managed by the user.
 
 See image.
 
-[Image: The authentication configuration details for SQL authentication, with username, Vault secret path, and Vault secret key.]
+[Image: The authentication configuration details for SQL authentication, with username, Vault secret path, and Vault secret key]
 
-[Image: Authentication details for HashiCorp Vault, endpoint, username, and key vault URI.]
+[Image: Authentication details for HashiCorp Vault, endpoint, username, and key vault URI]
 
 [Image: Configure on-premises scanner to add data center and cloud details]
 
-[Image: Add Unmanaged Database Server drawer to choose the data center and respective location.]
+[Image: Add Unmanaged Database Server drawer to choose the data center and respective location]
 
-[Image: Add Unmanaged Database Server drawer to select Cloud or On-Premises database server type.]
+[Image: Add Unmanaged Database Server drawer to select Cloud or On-Premises database server type]
 
-[Image: The Unmanaged Databases page with a list of databases and annotation around the Add Database Server button.]
+[Image: The Unmanaged Databases page with a list of databases and annotation around the Add Database Server button]
 
 [Image: Add Cloud Details for Unmanaged Database]
 
@@ -3570,13 +3675,13 @@ DSPM alerts can have the following status:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/changing-aws-cloudtrail-details","lastmod":"2026-04-24T22:52Z","nid":"1478051"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/changing-aws-cloudtrail-details","lastmod":"2026-10-01T03:41Z","nid":"1478051"} -->
 ## Changing AWS CloudTrail Details
 
 - Source: https://help.zscaler.com/dspm/changing-aws-cloudtrail-details
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > AWS Cloud Accounts > CloudTrail > Changing AWS CloudTrail Details
-- Last modified: 2026-04-24T22:52Z
+- Last modified: 2026-10-01T03:41Z
 - Summary: Information about how to change CloudTrail details in the Zscaler Admin Console.
 
 You can change the [CloudTrail](https://help.zscaler.com/dspm/understanding-aws-cloudtrail) for an organization or a single account within the organization as required.
@@ -3595,21 +3700,21 @@ The organization CloudTrail shares the CloudTrail events of the management and m
 
 To change AWS CloudTrail for an organization:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Cloud Accounts**.
-2. Select the organization account for which you want to change the CloudTrail details. See image.
-3. Click **Manage**, and then select **Manage CloudTrail** from the drop-down menu. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM**> **Cloud Accounts**. The **Cloud Accounts** page appears.
+2. On the **Cloud Accounts** page, click the required cloud account.
+3. Click **Manage**, and then select **Manage CloudTrail** from the drop-down menu.
 4. In the **Organization CloudTrail** window:
   1. Click **Reset** to edit the existing CloudTrail details and add new details. See image.
   2. **CloudTrail Type**: If it is an [organization CloudTrail](https://help.zscaler.com/dspm/understanding-aws-cloudtrail), select the **OrgCloudTrail** checkbox.
   3. **CloudTrail Bucket Name**: Enter the S3 bucket name that is associated with the CloudTrail.
-  4. **Prefix (Optional)**: Enter the prefix specified in the CloudTrail S3 bucket path, if any. See image.
+  4. **Prefix (Optional)**: Enter the prefix specified in the CloudTrail S3 bucket path, if any.
   5. **Bucket Account ID**: Enter the AWS account ID where the CloudTrail S3 bucket is present.
   6. Click **Apply**. See image. A message appears indicating that the CloudTrail details is saved successfully.
   7. Under **Download and Deploy Template,**select one of the following template types:
     - CloudFormation
     - Terraform
   8. Click **Done**.
-5. In the **Overview** tab, under the **CloudTrail** section, click **Validate**. See image. After the CloudTrail is validated successfully, the CloudTrail status shows as **Enabled**. See image. If there is any issue found while validating the template, the status of the CloudTrail shows **Failed**. Download the template and run it again, and then validate the CloudTrail. See image.
+5. In the **Overview** tab, under the **CloudTrail** section, click **Validate**. After the CloudTrail is validated successfully, the CloudTrail status shows as **Enabled**. See image. If there is any issue found while validating the template, the status of the CloudTrail shows **Failed**. Download the template and run it again, and then validate the CloudTrail.
 
 ## Changing AWS CloudTrail for Single or Multiple Accounts
 
@@ -3617,13 +3722,13 @@ When you update the account CloudTrail, the existing CloudTrail is disabled only
 
 To change AWS CloudTrail for single or multiple accounts:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Cloud Accounts**.
-2. Select the AWS account and then select the **Accounts** tab. See image.
+1. Go to **Data Security** > **DSPM**> **Cloud Accounts**. The **Cloud Accounts** page appears.
+2. On the **Cloud Accounts** page, click the required cloud account and then select the **Accounts** tab.
 3. Choose one of the following options:
   - To change CloudTrail for a single account: Click the **Actions** icon for the account you want to change the CloudTrail details, then select **Update CloudTrail**. See image.
   - To change CloudTrail for multiple accounts:
     1. Select the checkboxes for the required accounts.
-    2. From the **Actions**drop-down menu, select **Update CloudTrail**. See image.
+    2. From the **Actions**drop-down menu, select **Update CloudTrail**.
 4. In the **Update Account CloudTrail** window: DSPM validates the template deployment by checking the new CloudTrail details provided. If there is any error while validating the template, download and rerun the template. You can see the CloudTrail details of the account in the corresponding account drawer. See image.
   1. Click **Reset** to edit the existing CloudTrail details and add new details. See image.
   2. **CloudTrail Bucket Name**: Enter the S3 bucket name that is associated with CloudTrail.
@@ -3641,6 +3746,8 @@ To update the CloudTrail details using the CloudFormation template:
 - ii. Update the stack.
 
 In the **Organization CloudTrail** window, click **Organization CloudTrail** to download the template as a YAML file to your local system.
+
+See image.
 
 1. Sign in to the [AWS Management Console](https://aws.amazon.com/console/) using the root account credentials and go to **CloudFormation**.
 2. In the left-side navigation, select **Stacks**.
@@ -3761,89 +3868,75 @@ To copy the access keys:
 4. In the **Policy editor**, add the S3 bucket account ID where the KMS key is present. See image. `{ "Version": "2012-10-17", "Statement": [ { "Action": [ "kms:Decrypt", ], "Resource": [ "arn:aws:kms:*:<CloudTrail account ID>:key*", "arn:aws:kms:*:<S3 bucket account ID>:key*", "Effect": "Allow", "Sid": "DSPMCLOUDTRAILKMSPOLICY" } ] }`You can also add a specific KMS key: Go to **KMS**> **Customer-managed keys** >**Key ID**.; Copy the **Key ID** and paste it in the Policy editor. `"arn:aws:kms:*:<S3 bucket account ID>:key <kms key ID>",`
 5. Click **Save**.
 
-[Image: The Manage action drop-down with annotation around Manage CloudTrail.]
-
 [Image: Click Reset to edit the CloudTrail details]
 
-[Image: The Organization CloudTrail window with annotation around CloudTrail details.]
+[Image: The Organization CloudTrail window with annotation around CloudTrail details]
 
-[Image: The Overview tab displaying the details of the onboarded account, Orchestrator, and Cloudtrail.]
+[Image: The CloudFormation page with the details of the stack created]
 
-[Image: The CloudFormation page with the details of the stack created.]
+[Image: The CloudFormation stack page with annotation around the Update button]
 
-[Image: The CloudFormation stack page with annotation around the Update button.]
+[Image: The Update stack page with annotation around fields that need to be updated]
 
-[Image: The Update stack page with annotation around fields that need to be updated.]
+[Image: The Review page displaying all the provided details to review and acknowledge]
 
-[Image: The Review page displaying all the provided details to review and acknowledge.]
+[Image: The Events tab to view the status of stack update]
 
-[Image: The Events tab to view the status of stack update.]
+[Image: The AWS access portal listing the AWS accounts and annotation around access keys]
 
-[Image: The Overview page with orchestrator and CloudTrail details and annotation around the status.]
+[Image: The IAM credentials page for the selected account and annotation around Copy button]
 
-[Image: The Overview page listing the accounts onboarded to DSPM.]
-
-[Image: The CloudTrail log location with annotation around prefix.]
-
-[Image: The AWS access portal listing the AWS accounts and annotation around access keys.]
-
-[Image: The IAM credentials page for the selected account and annotation around Copy button.]
-
-[Image: The command prompt section with the output of terraform init command.]
+[Image: The command prompt section with the output of terraform init command]
 
 [Image: The command prompt section with the initial configuration of terraform apply command]
 
-[Image: The command prompt section with the output of the terraform apply command.]
+[Image: The command prompt section with the output of the terraform apply command]
 
-[Image: The Overview page with the status of the updated CloudTrail.]
+[Image: The Overview page with the status of the updated CloudTrail]
 
-[Image: The Accounts tab displaying the list of accounts onboarded.]
-
-[Image: The Action dropdown with annotation around Update CloudTrail option.]
-
-[Image: The Update Account CloudTrail window with annotation around Reset button.]
-
-[Image: The Update Account CloudTrail window with the details of the new CloudTrail.]
+[Image: The Update Account CloudTrail window with annotation around Reset button]
 
 [Image: View the CloudTrail information in the Account Drawer]
 
-[Image: The Update Account CloudTrail window with annotation around CloudTrail template.]
+[Image: The Update Account CloudTrail window with annotation around CloudTrail template]
 
-[Image: The CloudFormation page with annotation around Create stack button.]
+[Image: The CloudFormation page with annotation around Create stack button]
 
-[Image: The Specify Stack details page with the details of the new stack.]
+[Image: The Specify Stack details page with the details of the new stack]
 
-[Image: The Review and create page with the details of all the entered fields to review and acknowledge.]
+[Image: The Review and create page with the details of all the entered fields to review and acknowledge]
 
-[Image: The AWS access portal with list of available account and annotation around Access keys.]
+[Image: The AWS access portal with list of available account and annotation around Access keys]
 
 [Image: Copy the access keys]
 
-[Image: The command prompt section with the output of terraform init command.]
+[Image: The command prompt section with the output of terraform init command]
 
-[Image: The command prompt section with the configuration of terraform apply command.]
+[Image: The command prompt section with the configuration of terraform apply command]
 
-[Image: The command prompt section with the output of Terraform apply command.]
+[Image: The command prompt section with the output of Terraform apply command]
 
-[Image: The Update Account CloudTrail window with CloudTrail details in the Zscaler Admin Console.]
+[Image: The Update Account CloudTrail window with CloudTrail details in the Zscaler Admin Console]
 
-[Image: The general details of the CloudTrail with Trail log location blurred.]
+[Image: The general details of the CloudTrail with Trail log location blurred]
 
 [Image: The S3 bucket page with list of available tabs and annotation around Permissions tab]
 
-[Image: The Edit bucket policy section with the permissions added.]
+[Image: The Edit bucket policy section with the permissions added]
 
-[Image: The Choose trail attributes page with details of all required fields.]
+[Image: The Choose trail attributes page with details of all required fields]
 
-[Image: The KMS key policy page with the permissions added.]
+[Image: The KMS key policy page with the permissions added]
 
-[Image: The Choose log events page displaying all the required fields.]
+[Image: The Choose log events page displaying all the required fields]
 
-[Image: The Key policy section with the permissions added.]
+[Image: The Key policy section with the permissions added]
 
-[Image: The Actions drop-down menu listing the actions available for the selected accounts.]
+[Image: The policy editor to edit the permissions for CloudTrail KMS policy]
 
-[Image: The policy editor to edit the permissions for CloudTrail KMS policy.]
+[Image: The Download and Deploy Template section to download the Organization CloudTrail template]
+
+[Image: The Actions icon with the list of actions available for the account and annotation around Update CloudTrail]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -3906,13 +3999,13 @@ You can view the orchestrator details on the [Overview](https://help.zscaler.com
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/changing-business-unit","lastmod":"2026-04-29T21:31Z","nid":"1474926"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/changing-business-unit","lastmod":"2026-09-30T00:18Z","nid":"1474926"} -->
 ## Changing a Business Unit
 
 - Source: https://help.zscaler.com/dspm/changing-business-unit
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > Cloud Account Management > Changing a Business Unit
-- Last modified: 2026-04-29T21:31Z
+- Last modified: 2026-09-30T00:18Z
 - Summary: Information about how to change the business units for the cloud accounts in the Zscaler Admin Console.
 
 You can change the business units for each [organization unit](https://help.zscaler.com/dspm/onboarding-aws-organization) (OU), [management group](https://help.zscaler.com/dspm/onboarding-microsoft-azure-tenant), single account, or multiple accounts.
@@ -3929,9 +4022,9 @@ You must be assigned either an [Administrator role](https://help.zscaler.com/dsp
 
 To change a business unit for an OU or management group:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Cloud Accounts**.
-2. Select the cloud account (AWS organization, Microsoft Entra tenant or GCP organization).
-3. Click **Manage**, and then select **Business Units Mapping** from the drop-down menu. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM**> **Cloud Accounts**. The **Cloud Accounts** page appears.
+2. On the **Cloud Accounts** page, click the required cloud account (AWS, Azure, or GCP).
+3. Click **Manage**, and then select **Business Units Mapping** from the drop-down menu. See image. The **Business Units Mapping** page appears.
 4. On the **Business Units Mapping** page, assign a business unit to the OU. All the accounts in the OU are mapped to the selected business unit. See image.
 5. Click **Done**. A message appears indicating that the business unit was changed successfully.
 
@@ -3939,58 +4032,22 @@ To change a business unit for an OU or management group:
 
 To change a business unit for single or multiple accounts:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Cloud Accounts**.
-2. Select the cloud account:
-  - AWS
-  - Azure
-  - GCP
-3. In the **Change Business Unit for Selected** window, select the business unit from the drop-down menu. See image.
-4. Click **Apply**. A message appears indicating that the business unit was changed successfully.
+In this article, changing business unit for an AWS account is shown as an example.
 
-1. Select the organization and then select the **Accounts** tab. See image.
-2. Choose any of the following options:
+1. Go to **Data Security** > **DSPM**> **Cloud Accounts**. The **Cloud Accounts** page appears.
+2. On the **Cloud Accounts** page, click the required cloud account.
+3. Select the organization and then select the **Accounts** tab. See image.
+4. Choose any of the following options: The **Change Business Unit** window appears.
   - To change a business unit for a single account: Click the **Actions** icon for the account you want to change the business unit, then select **Change Business Unit**. See image.
-  - To change a business unit for multiple accounts:
-    1. Select the checkboxes for the required accounts. The **Actions** menu appears on the page. See image.
-    2. From the **Actions** drop-down menu, select **Change Business Unit**. See image.
-
-1. Select the tenant and then select the **Subscriptions** tab. See image.
-2. Choose any of the following options:
-  - To change a business unit for a single subscription: Click the **Actions** icon for the subscription you want to change the business unit, then select **Change Business Unit**. See image.
-  - To change a business unit for multiple subscriptions:
-    1. Select the checkboxes for the required subscriptions. The **Actions** menu appears on the page. See image.
-    2. From the **Actions** drop-down menu, select **Change Business Unit**. See image.
-
-1. Select the organization and then select the **Projects** tab. See image.
-2. Choose any of the following options:
-  - To change a business unit for a single project: Click the **Actions** icon for the project you want to change the business unit, then select **Change Business Unit**. See image.
-  - To change a business unit for multiple projects:
-    1. Select the checkboxes for the required projects. The **Actions** menu appears on the page. See image.
-    2. From the **Actions** drop-down menu, select **Change Business Unit**. See image.
-
-[Image: Select the Projects tab]
+  - To change a business unit for multiple accounts: Select the checkboxes for the required accounts and then select **Change Business Unit**. See image.
+5. In the **Change Business Unit** window, select the business unit from the drop-down menu. See image.
+6. Click **Apply**. A message appears indicating that the business unit was changed successfully.
 
 [Image: Select the Accounts tab]
 
-[Image: Select the Subscriptions tab]
-
-[Image: Change business unit for a single project]
-
 [Image: Change business unit for a single account]
 
-[Image: Change business unit for a single subscription]
-
-[Image: Change business unit for bulk accounts]
-
 [Image: Actions menu]
-
-[Image: Actions menu]
-
-[Image: Actions menu]
-
-[Image: Change Business Unit for multiple subscriptions]
-
-[Image: Change Business Unit for multiple projects]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4055,13 +4112,13 @@ To add a new client secret:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/changing-gcp-orchestrator-account","lastmod":"2026-04-24T22:34Z","nid":"1498126"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/changing-gcp-orchestrator-account","lastmod":"2026-09-14T22:10Z","nid":"1498126"} -->
 ## Changing a GCP Orchestrator Account
 
 - Source: https://help.zscaler.com/dspm/changing-gcp-orchestrator-account
 - Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > GCP Cloud Accounts > Changing a GCP Orchestrator Account
-- Last modified: 2026-04-24T22:34Z
+- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > GCP Cloud Accounts > GCP Organization > Changing a GCP Orchestrator Account
+- Last modified: 2026-09-14T22:10Z
 - Summary: Information on how to change an orchestrator account to a different one for GCP in the Zscaler Admin Console.
 
 DSPM regularly scans the data stores of the target projects by leveraging the [orchestrator template](https://help.zscaler.com/dspm/understanding-orchestrator) deployed in the GCP orchestrator project while onboarding.
@@ -5517,20 +5574,26 @@ The VPC and subnet for the control plane are created.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/configuring-nfs-client","lastmod":"2026-07-02T07:06Z","nid":"1533792"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/configuring-nfs-client","lastmod":"2026-09-17T01:55Z","nid":"1533792"} -->
 ## Configuring the NFS Client
 
 - Source: https://help.zscaler.com/dspm/configuring-nfs-client
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Service Registration > On-Premises File Servers > Configuring the NFS Client
-- Last modified: 2026-07-02T07:06Z
+- Last modified: 2026-09-17T01:55Z
 - Summary: How to configure NFS shares for file shares on a Linux KDC server or a Windows Active Directory server as the KDC.
 
-DSPM supports Network File System (NFS) shares hosted on Linux and Windows server to discover and classify sensitive data. NFS uses Kerberos for authentication, and you must configure the Key Distribution Center (KDC) that allows the DSPM scanner to scan files for sensitive data.
+DSPM supports Network File System (NFS) shares hosted on Linux and Windows servers to discover and classify sensitive data. NFS uses Kerberos for authentication, and you must configure the Key Distribution Center (KDC) that allows the DSPM scanner to scan files for sensitive data.
 
 ## Prerequisites
 
 Select the Network Security Group (NSG) with default rules, or enable the following ports to allow communication between the KDC or AD server, NFS server, and DSPM scanner.
+
+The following network topology diagram illustrates the directional traffic flows and port requirements between your administrator IP, and the target NFS server.
+
+[Image: Network architecture diagram showing  traffic from the administrator IP to the NFS server.]
+
+Ensure your firewalls and network security groups are configured to allow communication across these channels as defined in the ports table below.
 
 | Ports | Protocol | Source | Destination | Purpose |
 | --- | --- | --- | --- | --- |
@@ -5543,14 +5606,14 @@ Select the Network Security Group (NSG) with default rules, or enable the follow
 
 ## Configuring the NFS Client
 
-To configure a Linux KDC or a Windows Active Directory (AD) server acting as the KDC to allow access the target NFS shared:
+To configure a Linux KDC or a Windows Active Directory (AD) server acting as the KDC to allow access to the target NFS shares:
 
 - Linux KDC Server Using Kerberos
 - Windows Server Using Kerberos
 
 The DSPM scanner is now configured to scan the Kerberos-protected NFS shares.
 
-Open the `kadmin.local` session and run the prompts in the Kerbros Admin Shell:
+Open the `kadmin.local` session and run the prompts in the Kerberos Admin Shell:
 
 1. Create a Kerberos principal to allow the DSPM scanner to authenticate with your KDC to mount the NFS shares: `kadmin.local: addprinc -randkey nfs/zscaler_scanner_hostname`
 2. Create a read-only principal for the DSPM scanner to scan the contents of the mounted NFS shares. `kadmin.local: addprinc zscalerreadonlyuser`Note the read-only username and password, and provide these details while [registering the file server](https://help.zscaler.com/dspm/adding-premises-file-servers).
@@ -5580,13 +5643,13 @@ Open the `kadmin.local` session and run the prompts in the Kerbros Admin Shell:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-aws-cloud-storage","lastmod":"2026-04-13T21:06Z","nid":"1478131"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-aws-cloud-storage","lastmod":"2026-09-30T21:36Z","nid":"1478131"} -->
 ## Configuring Scan Rule for AWS Cloud Storage
 
 - Source: https://help.zscaler.com/dspm/configuring-scan-rule-aws-cloud-storage
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > Scan Rules for AWS > Configuring Scan Rule for AWS Cloud Storage
-- Last modified: 2026-04-13T21:06Z
+- Last modified: 2026-09-30T21:36Z
 - Summary: How to configure the scan rule for AWS cloud storage resources in the Zscaler Admin Console.
 
 You can configure the scan rule to scan Amazon Web Services (AWS) cloud storage resources such as S3 buckets. DSPM scans the S3 buckets for any sensitive data. The scan results are displayed on the [Resource Inventory page](https://help.zscaler.com/dspm/about-resource-inventory).
@@ -5595,7 +5658,7 @@ You can configure the scan rule to scan Amazon Web Services (AWS) cloud storage 
 - DSPM automatically excludes the active [CloudTrail](https://help.zscaler.com/dspm/understanding-aws-cloudtrail)and VPC flow log buckets from sensitive data scans even if they match the scan criteria.
 - DSPM also excludes AWS workloads that were created using the AWS Marketplace from scanning.
 
-To configure a scan rule for AWS cloud storages, complete the following steps in the Zscaler Admin Console:
+To configure a scan rule for AWS cloud storage, complete the following steps in the Zscaler Admin Console:
 
 - 1. Provide the general information.
 - 2. Select the cloud and resource type.
@@ -5605,12 +5668,12 @@ To configure a scan rule for AWS cloud storages, complete the following steps in
 - 6. Select the scan scope.
 - 7. Review and complete the configuration.
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Rules**tab. If you are configuring the scan rule for the first time, the following page appears: See image.
 3. Click **Add Scan Rule**. See image. The **General Information** page appears.
 4. On the **General Information**page: See image.
   1. **Scan Rule Name**: Enter a unique and descriptive name for the scan rule.
-  2. **Scan Rule Description (Optional)**: Enter a description for the scan rule (maximum is 500 characters).
+  2. **Scan Rule Description (Optional)**: Enter a description of the scan rule (maximum is 500 characters).
 5. Click **Next**.
 
 1. On the **Select Cloud and Resource Type** page: See image.
@@ -5624,7 +5687,7 @@ To configure a scan rule for AWS cloud storages, complete the following steps in
     1. **Select Specific Accounts and Regions**: Select the checkbox for specific accounts and regions that must be scanned. See image.
     2. **Scan S3 Buckets**: Specify the S3 buckets that must be scanned. You can either select the names from the list or specify the tags.
       - **Select from the List**: Select the checkbox for the S3 buckets that must be scanned. If you choose **Manual**, then you need to enter the names.
-      - **Select by Tag**: Specify the tags in key-value pairs. All the S3 buckets that match the tag are scanned. Click **Add More** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM scans all buckets that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and a bucket is included if it matches any of the key-value pairs.
+      - **Select by Tag**: Specify the tags in key-value pairs. All the S3 buckets that match the tag are scanned. Click **Add Tag** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM scans all buckets that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and a bucket is included if it matches any of the key-value pairs.
 2. **Enable Malware Scanning**: Enable this option if the resources must be scanned for malware. This option is disabled by default. See image.
 3. Click **Next**.
 
@@ -5633,7 +5696,7 @@ On the **Exclude S3 Buckets and Prefixes (Optional)** page, you can specify the 
 If a full scan is already initiated or completed, the bucket or folder is excluded in the next incremental scan.
 
 1. Enter the name of the bucket, or include the folder name followed by a forward slash (/). For example, to exclude a folder named `reports` within a bucket named `my-bucket`, enter `my-bucket/reports/`. Additionally, you can use wildcards with the S3 bucket names instead of relying on tags. Based on the wildcard, DSPM excludes all the matching S3 buckets from scanning. This is applicable to both existing S3 buckets and the ones that might be added in the future.
-2. **Exclude S3 Buckets By Tags**: Select the checkbox and enter the key-value pairs of the S3 buckets that must be excluded from scanning. This option is disabled by default. Click **Add More** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM excludes any bucket that matches at least one of the specified key-value pairs. This means the rule uses `OR` logic, and a bucket is excluded if it matches any of the key-value pairs.
+2. **Exclude S3 Buckets By Tags**: Select the checkbox and enter the key-value pairs of the S3 buckets that must be excluded from scanning. This option is disabled by default. Click **Add Tag** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM excludes any bucket that matches at least one of the specified key-value pairs. This means the rule uses `OR` logic, and a bucket is excluded if it matches any of the key-value pairs.
 3. **Exclude S3 Bucket Names Using Wildcards**: Select the checkbox and enter the wildcard expressions to exclude buckets by name using wildcards. For example, `*logs*` — excludes any bucket name that contains the word `logs`. See image.
 4. Click **Next**.
 
@@ -5653,43 +5716,43 @@ If a full scan is already initiated or completed, the bucket or folder is exclud
 1. On the**Scan Scope**page, choose a scan scope from the drop-down menu to set up your scan rule. To learn more about configuring and creating a scan scope, see [Configuring Scan Scope](https://help.zscaler.com/dspm/configuring-scan-scope). See image.
 2. Click **Next**.
 
-[Image: The Scan Scope page with dropdown menu for selecting scan scope.]
+[Image: The Scan Scope page with dropdown menu for selecting scan scope]
 
 1. Review the scan rule. Click the **Edit** icon to change any values, if required. See image.
 2. Click **Finish**.
 
-[Image: The Scan Settings page with an annotation around the Add New button.]
+[Image: The Scan Settings page with an annotation around the Add New button]
 
-[Image: General Information page to set the scan rule name and an optional description field.]
+[Image: General Information page to set the scan rule name and an optional description field]
 
-[Image: The initial scan settings configuration page with no scan settings configured and + Configure Scan Settings button.]
+[Image: The initial scan settings configuration page with no scan settings configured and + Configure Scan Settings button]
 
 [Image: Select Cloud and Resource Type page with AWS and Cloud Storage tiles selected]
 
-[Image: Select Resources to Scan page with Scan All Accounts option is selected.]
+[Image: Select Resources to Scan page with Scan All Resources option is selected]
 
-[Image: Select Resources to Scan page with Scan Specific Accounts option selected and selected few accounts to scan.]
+[Image: Select Resources to Scan page with Scan Specific Resources option selected and selected few accounts to scan]
 
-[Image: Select Resources to Scan page with Scan S3 Buckets option selected.]
+[Image: Select Resources to Scan page with Scan S3 Buckets option selected]
 
-[Image: Enable malware scanning option is enabled with the toggle button.]
+[Image: Enable malware scanning option is enabled with the toggle button]
 
 [Image: Exclude specific buckets from the scan]
 
-[Image: The scan type selection page with the available options.]
+[Image: The Scan Type selection page with the available options]
 
-[Image: The scan settings review page displays the configured scan settings before completing the scan configuration.]
+[Image: The scan settings review page displays the configured scan settings before completing the scan configuration]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-aws-databricks-workspace","lastmod":"2026-07-02T07:06Z","nid":"1532749"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-aws-databricks-workspace","lastmod":"2026-09-30T21:49Z","nid":"1532749"} -->
 ## Configuring Scan Rule for AWS Databricks
 
 - Source: https://help.zscaler.com/dspm/configuring-scan-rule-aws-databricks-workspace
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > Scan Rules for AWS > Configuring Scan Rule for AWS Databricks
-- Last modified: 2026-07-02T07:06Z
+- Last modified: 2026-09-30T21:49Z
 - Summary: How to configure the scan rule for AWS Databricks workspaces in the Zscaler Admin Console.
 
 You can configure the scan rule to scan AWS Databricks workspace or accounts. DSPM scans these resources for any sensitive data and vulnerabilities and displays the scan results on the [Resource Inventory page](https://help.zscaler.com/dspm/about-resource-inventory).
@@ -5712,7 +5775,7 @@ To configure a scan rule for Databricks workspace or accounts, complete the foll
 
 Enable the scan rule on the [Scan Settings](https://help.zscaler.com/dspm/about-scan-settings) page to initiate scheduled or on-demand scans.
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Rules**tab. If you are configuring the scan rule for the first time, the following page appears: See image.
 3. Click **Add Scan Rule**. See image. The **General Information** page appears.
 4. On the **General Information**page: See image.
@@ -5741,120 +5804,37 @@ Enable the scan rule on the [Scan Settings](https://help.zscaler.com/dspm/about-
 1. On the **Scan Scope** page, choose a scan scope from the drop-down menu. To learn more about configuring and creating a scan scope, see [Configuring Scan Scope](https://help.zscaler.com/dspm/configuring-scan-scope). See image.
 2. Click **Next**.
 
-[Image: The scan type selection page with Data Sampling option selected.]
+[Image: The scan type selection page with Data Sampling option selected]
 
-[Image: The Scan Scope page with dropdown menu for selecting scan scope.]
+[Image: The Scan Scope page with dropdown menu for selecting scan scope]
 
 1. Review the scan settings. Click the **Edit** icon to change any values, if needed. See image.
 2. Click **Finish**.
 
-[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button.]
+[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button]
 
-[Image: The Scan Settings page with an annotation around the Add New button.]
+[Image: The Scan Settings page with an annotation around the Add New button]
 
 [Image: Select Cloud and Resource Type page with AWS, Database, and Databricks tiles selected]
 
-[Image: The Select Resources to Scan page with selected Databricks workspaces.]
+[Image: The Select Resources to Scan page with selected Databricks workspaces]
 
-[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings.]
+[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings]
 
-[Image: The scan settings review page displays the configured scan settings before completing the scan configuration.]
+[Image: The scan settings review page displays the configured scan settings before completing the scan configuration]
 
-[Image: General Information page to set the scan rule name and an optional description field.]
+[Image: General Information page to set the scan rule name and an optional description field]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-aws-ecr-repositories","lastmod":"2026-06-23T22:23Z","nid":"1535179"} -->
-## Configuring Scan Rule for AWS ECR Repositories
-
-- Source: https://help.zscaler.com/dspm/configuring-scan-rule-aws-ecr-repositories
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Scan Rules > Scan Rules for AWS > Configuring Scan Rule for AWS ECR Repositories
-- Last modified: 2026-06-23T22:23Z
-- Summary: How to configure the scan rule for AWS ECR container image repositories in the Zscaler Admin Console.
-
-You can configure the scan rule to discover vulnerabilities and software packages within your container images stored in AWS Elastic Container Registry (ECR). DSPM scans the ECR for any sensitive data. The scan results are displayed on the [Resource Inventory page](https://help.zscaler.com/dspm/about-resource-inventory).
-
-Before you configure a scan rule, ensure you have updated your AWS onboarding templates to include the necessary IAM permissions for ECR scanning. To learn more, see [IAM Roles and Permissions for AWS](https://help.zscaler.com/dspm/iam-roles-and-permissions-aws).
-
-To configure a scan rule for AWS ECR container image repositories, complete the following steps in the Zscaler Admin Console:
-
-- 1. Provide the general information.
-- 2. Select the cloud and resource type.
-- 3. Select the accounts that must be scanned.
-- 4. Exclude ECR repositories (Optional).
-- 5. Set up the scan schedule.
-- 6. Review and complete the configuration.
-
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
-2. Select the **Scan Rules**tab. If you are configuring the scan rule for the first time, the following page appears: See image.
-3. Click **Add Scan Rule**. See image. The **General Information** page appears.
-4. On the **General Information**page: See image.
-  1. **Scan Rule Name**: Enter a unique and descriptive name for the scan rule.
-  2. **Scan Rule Description (Optional)**: Enter a description for the scan rule (maximum is 500 characters).
-5. Click **Next**.
-
-1. On the **Select Cloud and Resource Type** page: See image.
-  - For **Cloud Type**, select **AWS**.
-  - For **Resource Type**, select **Container Image Repositories**.
-2. Click **Next**.
-
-[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button.]
-
-[Image: The Scan Settings page with an annotation around the Add New button.]
-
-[Image: General Information page to set the scan rule name and an optional description field.]
-
-[Image: Select Cloud and Resource Type page with AWS, and Container Image Repositories tiles selected]
-
-1. On the **Select the Resources to Scan** page, choose one of the following options: If you chose **Scan All Resources**, or**Scan Specific Resources**, you can optionally exclude specific ECR repositories from the scan.
-  - **Scan All Resources**: Scans all discovered ECR repositories across all onboarded accounts. See image.
-  - **Scan Specific Resources**: Scan only specific resources. When you select this option, select the checkbox for the repositories that must be scanned. See image.
-    1. **Select Specific Accounts and Regions**: Select the checkbox for specific accounts and regions that must be scanned.
-    2. **Scan Specific Repositories**: Specify the ECR repositories that must be scanned. You can either select the names from the list or specify the tags.
-      - **Select from the Lis**t: Select the checkbox for the ECR repositories that must be scanned. If you choose **Manual**, then you need to enter the names.
-      - **Select by Tags**: Specify the tags in key-value pairs. All the ECR repositories that match the tag are scanned. Click **Add More** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM scans all repositories that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and a repository is included if it matches any of the key-value pairs.
-2. In the **Scan by Last Pulled** option, select a timeframe to only scan images that have been pulled within that period.
-3. Click **Next**.
-
-On the **Exclude ECR Repositories (Optional)** page, you can specify the ECR repositories that must be excluded from the scan.
-
-If a full scan is already initiated or completed, the ECR repositories are excluded in the next incremental scan.
-
-1. Enter the ECR repositories names separated by commas. See image.
-2. Click **Next**.
-
-[Image: The Select Resources to Scan page with Scan All Accounts option is selected.]
-
-[Image: The scan specific repositories to scan page to choose tables from list or by tags.]
-
-[Image: The Exclude ECR repositories page to exclude resources from scanning.]
-
-1. On the**Scan Schedule** page, select the scan frequency: See image.
-  - **On Demand**(Default): Scan the data manually when needed.
-  - **Daily**: Scan the data daily.
-  - **Weekly**: Scan the data once a week. Select the day from the drop-down menu.
-  - **Monthly**: Scan the data once a month.
-2. Click **Next**.
-
-[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings.]
-
-1. Review the scan rule. Click the **Edit** icon to change any values, if required. See image.
-2. Click **Finish**.
-
-[Image: The scan settings review page displays the configured scan settings before completing the scan configuration.]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-aws-managed-databases","lastmod":"2026-06-23T02:47Z","nid":"1478556"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-aws-managed-databases","lastmod":"2026-09-30T21:49Z","nid":"1478556"} -->
 ## Configuring Scan Rule for AWS-Managed Databases
 
 - Source: https://help.zscaler.com/dspm/configuring-scan-rule-aws-managed-databases
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > Scan Rules for AWS > Configuring Scan Rule for AWS-Managed Databases
-- Last modified: 2026-06-23T02:47Z
+- Last modified: 2026-09-30T21:49Z
 - Summary: How to configure the scan rule for AWS databases in the Zscaler Admin Console.
 
 You can configure the scan rule to scan Amazon Web Services (AWS) databases such as MySQL, Aurora MySQL, and Aurora PostgreSQL. DSPM scans the database instances for any sensitive data. The scan results are displayed on the [Resource Inventory page](https://help.zscaler.com/dspm/about-resource-inventory).
@@ -5872,7 +5852,7 @@ To configure a scan rule for AWS-managed databases, complete the following steps
 - 7. Select the scan scope.
 - 8. Review and complete the configuration.
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Rules**tab. If you are configuring the scan rule for the first time, the following page appears: See image.
 3. Click **Add Scan Rule**. See image. The **General Information** page appears.
 4. On the **General Information**page: See image.
@@ -5880,7 +5860,7 @@ To configure a scan rule for AWS-managed databases, complete the following steps
   2. **Scan Rule Description (Optional)**: Enter a description for the scan rule (maximum is 500 characters).
 5. Click **Next**.
 
-[Image: General Information page to set the scan rule name and an optional description field.]
+[Image: General Information page to set the scan rule name and an optional description field]
 
 1. On the **Select Cloud and Resource Type** page:
   - For **Cloud Type**, select **AWS**.
@@ -5895,7 +5875,7 @@ To configure a scan rule for AWS-managed databases, complete the following steps
     1. **Select Specific Accounts and Regions**: Select the checkbox for specific accounts and regions that must be scanned. See image.
     2. **Scan Specific Database Instances or Clusters**: Specify the databases that must be scanned. When you select this option, select the checkbox for the account that must be included in the scan. See image.
       - **Select from the List**: Select the checkbox for the instances or clusters that must be scanned from the list. If you choose **Manual**, enter the database names separated by commas.
-      - **Select by Tags**: Enter the key-value pairs for the database. All the databases that match the tag are scanned. Click **Add More** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM scans all databases that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and a database is included if it matches any of the key-value pairs.
+      - **Select by Tags**: Enter the key-value pairs for the database. All the databases that match the tag are scanned. Click **Add Tag** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM scans all databases that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and a database is included if it matches any of the key-value pairs.
 2. Click **Next**.
 
 On the **Exclude Databases (Optional)** page, you can specify the databases that must be excluded from the scan.
@@ -5903,7 +5883,7 @@ On the **Exclude Databases (Optional)** page, you can specify the databases that
 If a full scan is already initiated or completed, the databases are excluded in the next incremental scan.
 
 1. Enter the database names separated by commas.
-2. **Exclude Databases By Tags**: Enable this option and enter the key-value pairs of the databases that must be excluded from scanning. This option is disabled by default. Click **Add More** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM excludes any database that matches at least one of the specified key-value pairs. This means the rule uses `OR` logic, and a database is excluded if it matches any of the key-value pairs. See image.
+2. **Exclude Databases By Tags**: Enable this option and enter the key-value pairs of the databases that must be excluded from scanning. This option is disabled by default. Click **Add Tag** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM excludes any database that matches at least one of the specified key-value pairs. This means the rule uses `OR` logic, and a database is excluded if it matches any of the key-value pairs. See image.
 3. Click **Next**.
 
 1. On the **Scan Type** page, you can choose to perform one of the following scans: DSPM cannot detect files that are deleted in the AWS console. See image.
@@ -5921,41 +5901,41 @@ If a full scan is already initiated or completed, the databases are excluded in 
 1. On the **Scan Scope** page, choose a scan scope from the drop-down menu to set up your scan rule. To learn more about configuring and creating a scan scope, see [Configuring Scan Scope](https://help.zscaler.com/dspm/configuring-scan-scope). See image.
 2. Click **Next**.
 
-[Image: The scan type selection page with data sampling scan, and full scan options.]
+[Image: The scan type selection page with data sampling scan, and full scan options]
 
-[Image: The Scan Scope page with dropdown menu for selecting scan scope.]
+[Image: The Scan Scope page with dropdown menu for selecting scan scope]
 
 1. Review the scan rule. Click the **Edit** icon to change any values, if required. See image.
 2. Click **Finish**.
 
-[Image: The Scan Settings page with an annotation around the Add New button.]
+[Image: The Scan Settings page with an annotation around the Add New button]
 
 [Image: Select Cloud and Resource Type page with AWS, Database, and Managed Database tiles selected]
 
-[Image: Select resources to scan page with Scan All Accounts option is selected.]
+[Image: Select resources to scan page with Scan All Accounts option is selected]
 
-[Image: The scan specific accounts page displaying a list of accounts with few checkboxes selected for accounts to scan.]
+[Image: The scan specific accounts page displaying a list of accounts with few checkboxes selected for accounts to scan]
 
-[Image: The scan specific database instances or clusters page, to specify instances or clusters with key-value pair.]
+[Image: The scan specific database instances or clusters page, to specify instances or clusters with key-value pair]
 
-[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings.]
+[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings]
 
-[Image: The scan settings review page displays the configured scan settings before completing the scan configuration.]
+[Image: The scan settings review page displays the configured scan settings before completing the scan configuration]
 
-[Image: The Exclude Databases screen to exclude resources from scanning.]
+[Image: The Exclude Databases screen to exclude resources from scanning]
 
-[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button.]
+[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-aws-nosql-data-stores","lastmod":"2026-06-23T02:55Z","nid":"1509666"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-aws-nosql-data-stores","lastmod":"2026-09-30T21:49Z","nid":"1509666"} -->
 ## Configuring Scan Rule for AWS NoSQL Data Stores
 
 - Source: https://help.zscaler.com/dspm/configuring-scan-rule-aws-nosql-data-stores
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > Scan Rules for AWS > Configuring Scan Rule for AWS NoSQL Data Stores
-- Last modified: 2026-06-23T02:55Z
+- Last modified: 2026-09-30T21:49Z
 - Summary: How to configure the scan rule for AWS NoSQL data stores or DynamoDB tables in the Zscaler Admin Console.
 
 You can configure the scan rule to scan Amazon Web Services (AWS) NoSQL data stores and DynamoDB. DSPM scans the data stores instances for any sensitive data. The scan results are displayed on the [Resource Inventory page](https://help.zscaler.com/dspm/about-resource-inventory).
@@ -5973,7 +5953,7 @@ To configure a scan rule for AWS data stores, complete the following steps in th
 - 7. Select the scan scope.
 - 8. Review and complete the configuration.
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Rules**tab. If you are configuring the scan rule for the first time, the following page appears: See image.
 3. Click **Add Scan Rule**. See image. The **General Information** page appears.
 4. On the **General Information**page: See image.
@@ -5986,11 +5966,11 @@ To configure a scan rule for AWS data stores, complete the following steps in th
   - For **Resource Type**, select **NoSQL Data Stores**.
 2. Click **Next**.
 
-[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button.]
+[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button]
 
-[Image: The Scan Settings page with an annotation around the Add New button.]
+[Image: The Scan Settings page with an annotation around the Add New button]
 
-[Image: General Information page to set the scan rule name and an optional description field.]
+[Image: General Information page to set the scan rule name and an optional description field]
 
 [Image: Select Cloud and Resource Type page with AWS, and NoSQL Data Stores tiles selected]
 
@@ -6000,7 +5980,7 @@ To configure a scan rule for AWS data stores, complete the following steps in th
     1. **Select Specific Accounts and Regions**: Select the checkbox for specific accounts and regions that must be scanned.
     2. **Scan DynamoDB Tables**: Specify the DynamoDB tables that must be scanned. You can either select the names from the list or specify the tags.
       - **Select from the Lis**t: Select the checkbox for the DynamoDB tables that must be scanned. If you choose **Manual**, then you need to enter the names.
-      - **Select by Tags**: Specify the tags in key-value pairs. All the DynamoDB tables that match the tag are scanned. Click **Add More** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM scans all tables that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and a table is included if it matches any of the key-value pairs.
+      - **Select by Tags**: Specify the tags in key-value pairs. All the DynamoDB tables that match the tag are scanned. Click **Add Tag** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM scans all tables that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and a table is included if it matches any of the key-value pairs.
 2. Click **Next**.
 
 On the **Exclude DynamoDB Tables (Optional)** page, you can specify the DynamoDB tables that must be excluded from the scan.
@@ -6008,21 +5988,21 @@ On the **Exclude DynamoDB Tables (Optional)** page, you can specify the DynamoDB
 If a full scan is already initiated or completed, the DynamoDB tables are excluded in the next incremental scan.
 
 1. Enter the DynamoDB table ARNs separated by commas.
-2. **Exclude DynamoDB Tables By Tags**: Enable this option and enter the key-value pairs of the DynamoDB tables that must be excluded from scanning. This option is disabled by default. Click **Add More** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM excludes any table that matches at least one of the specified key-value pairs. This means the rule uses `OR` logic, and a table is excluded if it matches any of the key-value pairs. See image.
+2. **Exclude DynamoDB Tables By Tags**: Enable this option and enter the key-value pairs of the DynamoDB tables that must be excluded from scanning. This option is disabled by default. Click **Add Tag** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM excludes any table that matches at least one of the specified key-value pairs. This means the rule uses `OR` logic, and a table is excluded if it matches any of the key-value pairs. See image.
 3. Click **Next**.
 
-[Image: The Select Resources to Scan page with Scan All Accounts option is selected.]
+[Image: The Select Resources to Scan page with Scan All Accounts option is selected]
 
-[Image: The Scan Dynamo DB tables page to choose tables from list or by tags.]
+[Image: The Scan Dynamo DB tables page to choose tables from list or by tags]
 
-[Image: The Exclude DynamoDB Tables page to exclude resources from scanning.]
+[Image: The Exclude DynamoDB Tables page to exclude resources from scanning]
 
 1. On the **Scan Type** page, you can choose to perform one of the following scans: DSPM cannot detect files that are deleted from the resource. See image.
   - **Data Sampling Scan**: Scan a sample of recent data in the database.
   - **Full Scan**: A complete scan of all DynamoDB tables across all onboarded accounts.
 2. Click **Next**.
 
-[Image: The scan type selection page with data sampling scan, and full scan options.]
+[Image: The scan type selection page with data sampling scan, and full scan options]
 
 1. On the**Scan Schedule** page, select the scan frequency: See image.
   - **On Demand**(Default): Scan the data manually when needed.
@@ -6031,28 +6011,28 @@ If a full scan is already initiated or completed, the DynamoDB tables are exclud
   - **Monthly**: Scan the data once a month.
 2. Click **Next**.
 
-[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings.]
+[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings]
 
 1. On the**Scan Scope**page, choose a scan scope from the drop-down menu to set up your scan rule. To learn more about configuring and creating a scan scope, see [Configuring Scan Scope](https://help.zscaler.com/dspm/configuring-scan-scope). See image.
 2. Click **Next**.
 
-[Image: The Scan Scope page with dropdown menu for selecting scan scope.]
+[Image: The Scan Scope page with dropdown menu for selecting scan scope]
 
 1. Review the scan rule. Click the **Edit** icon to change any values, if required. See image.
 2. Click **Finish**.
 
-[Image: The scan settings review page displays the configured scan settings before completing the scan configuration.]
+[Image: The scan settings review page displays the configured scan settings before completing the scan configuration]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-aws-unmanaged-databases","lastmod":"2026-04-10T21:06Z","nid":"1520161"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-aws-unmanaged-databases","lastmod":"2026-09-30T21:49Z","nid":"1520161"} -->
 ## Configuring Scan Rule for AWS Unmanaged Databases
 
 - Source: https://help.zscaler.com/dspm/configuring-scan-rule-aws-unmanaged-databases
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > Scan Rules for AWS > Configuring Scan Rule for AWS Unmanaged Databases
-- Last modified: 2026-04-10T21:06Z
+- Last modified: 2026-09-30T21:49Z
 - Summary: How to configure the scan rule for AWS unmanaged databases in the Zscaler Admin Console.
 
 You can configure the scan rule to scan AWS unmanaged database servers. DSPM scans the databases for any sensitive data and vulnerabilities. The scan results are displayed on the [Resource Inventory page](https://help.zscaler.com/dspm/about-resource-inventory).
@@ -6069,7 +6049,7 @@ To configure a scan rule for AWS unmanaged databases, complete the following ste
 - 6. Select the scan scope.
 - 7. Review and complete the configuration.
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Rules**tab. If you are configuring the scan rule for the first time, the following page appears: See image.
 3. Click **Add Scan Rule**. See image. The **General Information** page appears.
 4. On the **General Information**page: See image.
@@ -6103,39 +6083,39 @@ To configure a scan rule for AWS unmanaged databases, complete the following ste
 1. On the**Scan Scope**page, choose a scan scope from the drop-down menu to set up your scan rule. To learn more about configuring and creating a scan scope, see [Configuring Scan Scope](https://help.zscaler.com/dspm/configuring-scan-scope). See image.
 2. Click **Next**.
 
-[Image: The Scan Type page with the Data Sampling Scan selected.]
+[Image: The Scan Type page with the Data Sampling Scan selected]
 
 [Image: Select Scan Scope]
 
 1. Review the scan rule. Click the **Edit** icon to change any values, if needed. See image.
 2. Click **Finish**.
 
-[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button.]
+[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button]
 
-[Image: The Scan Settings page with an annotation around the Add New button.]
+[Image: The Scan Settings page with an annotation around the Add New button]
 
 [Image: Select Cloud and Resource Type page with AWS, Database, and Unmanaged Database tiles selected]
 
-[Image: The Select Resources to Scan page with selected unmanaged database servers.]
+[Image: The Select Resources to Scan page with selected unmanaged database servers]
 
-[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings.]
+[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings]
 
-[Image: The scan settings review page displays the configured scan settings before completing the scan configuration.]
+[Image: The scan settings review page displays the configured scan settings before completing the scan configuration]
 
-[Image: General Information page to set the scan rule name and an optional description field.]
+[Image: General Information page to set the scan rule name and an optional description field]
 
-[Image: Select Resources to Scan page with Scan All Accounts option is selected.]
+[Image: Select Resources to Scan page with Scan All Accounts option is selected]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-aws-virtual-machines","lastmod":"2026-07-02T07:06Z","nid":"1478561"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-aws-virtual-machines","lastmod":"2026-09-30T02:23Z","nid":"1478561"} -->
 ## Configuring Scan Rule for AWS Virtual Machines
 
 - Source: https://help.zscaler.com/dspm/configuring-scan-rule-aws-virtual-machines
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > Scan Rules for AWS > Configuring Scan Rule for AWS Virtual Machines
-- Last modified: 2026-07-02T07:06Z
+- Last modified: 2026-09-30T02:23Z
 - Summary: How to configure the scan rule for AWS virtual machines in the Zscaler Admin Console.
 
 You can configure the scan rule to scan Amazon Web Services (AWS) virtual machines. DSPM scans the EC2 instances for any sensitive data. The scan results are displayed on the [Resource Inventory page](https://help.zscaler.com/dspm/about-resource-inventory).
@@ -6152,7 +6132,7 @@ To configure a scan rule for AWS virtual machines, complete the following steps 
 - 6. Select the scan scope.
 - 7. Review and complete the configuration.
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Rules**tab. If you are configuring the scan rule for the first time, the following page appears: See image.
 3. Click **Add Scan Rule**. See image. The **General Information** page appears.
 4. On the **General Information**page: See image.
@@ -6160,9 +6140,9 @@ To configure a scan rule for AWS virtual machines, complete the following steps 
   2. **Scan Rule Description (Optional)**: Enter a description for the scan rule (maximum is 500 characters).
 5. Click **Next**.
 
-[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button.]
+[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button]
 
-[Image: General Information page to set the scan rule name and an optional description field.]
+[Image: General Information page to set the scan rule name and an optional description field]
 
 1. On the **Select Cloud and Resource Type** page:
   - For **Cloud Type**, select **AWS**.
@@ -6176,20 +6156,20 @@ To configure a scan rule for AWS virtual machines, complete the following steps 
     1. **Select Specific Accounts and Regions**: Select the checkbox for specific accounts and regions that must be scanned.
     2. **Scan Specific Instances**: Specify the virtual machines that must be scanned.
       - **Select from the List**: Select the checkbox for the instances that must be scanned from the list. If you choose **Manual**, enter the instance ARNs separated by commas.
-      - **Select by Tags**: Enter the key-value pairs for the instances. All the instances that match the tag are scanned. Click **Add More** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM scans all instances that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and an instance is included if it matches any of the key-value pairs.
+      - **Select by Tags**: Enter the key-value pairs for the instances. All the instances that match the tag are scanned. Click **Add Tag** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM scans all instances that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and an instance is included if it matches any of the key-value pairs.
 2. **Enable Malware Scanning**: Enable this option if the resources must be scanned for malware. This option is disabled by default. See image.
 3. Click **Next**.
 
 1. On the **Exclusions**page, specify the VMs, folders, or directories that must be excluded from the scan:
   - **Exclude Virtual Machines (Optional)**: Enter the EC2 VM names separated by commas.
-  - **Exclude Virtual Machines By Tags**: Enable this option and enter the key-value pairs of the VMs that must be excluded from scanning. This option is disabled by default. Click **Add More** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM excludes any VMs that matches at least one of the specified key-value pairs. This means the rule uses `OR` logic, and a VM is excluded if it matches any of the key-value pairs.
-  - **Exclude Folders / Directories (Optional)**: Enter the folder or directory paths to exclude from scanning. You can specify paths in the following formats:
-    - Exact path — Excludes only the specified directory (e.g., `/var/log/`).
-    - Wildcard — Excludes all files and subdirectories within the specified directory (e.g., `/var/log/*`).
-  - **Exclude Operating System Directories Files from Scanning**: Disable this option if you want to scan the OS directories. This option is enabled by default. The following directories are excluded from the scan: See image.
+  - **Exclude Virtual Machines By Tags**: Enable this option and enter the key-value pairs of the VMs that must be excluded from scanning. This option is disabled by default. Click **Add Tag** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM excludes any VMs that matches at least one of the specified key-value pairs. This means the rule uses `OR` logic, and a VM is excluded if it matches any of the key-value pairs.
+  - **Exclude Operating System Directories Files from Scanning**: Disable this option if you want to scan the OS directories. This option is enabled by default. The following directories are excluded from the scan:
     - Linux
     - Windows
     - Packages
+  - **Exclude Folders / Directories (Optional)**: Enter the folder or directory paths to exclude from scanning. You can specify paths in the following formats: See image.
+    - Exact path — Excludes only the specified directory (e.g., `/var/log/`).
+    - Wildcard — Excludes all files and subdirectories within the specified directory (e.g., `/var/log/*`).
 2. Click **Next**.
 
 1. On the**Scan Schedule** page, select the scan frequency: See image.
@@ -6202,7 +6182,7 @@ To configure a scan rule for AWS virtual machines, complete the following steps 
 1. On the**Scan Scope**page, choose a scan scope from the drop-down menu to set up your scan rule. To learn more about configuring and creating a scan scope, see [Configuring Scan Scope](https://help.zscaler.com/dspm/configuring-scan-scope). See image.
 2. Click **Next**.
 
-[Image: The Scan Scope page with dropdown menu for selecting scan scope.]
+[Image: The Scan Scope page with dropdown menu for selecting scan scope]
 
 1. Review the scan rule. Click the **Edit** icon to change any values, if required. See image.
 2. Click **Finish**.
@@ -6231,32 +6211,32 @@ To configure a scan rule for AWS virtual machines, complete the following steps 
 - `/smca/`
 - `/opt/elasticbeanstalk/`
 
-[Image: The Scan Settings page with an annotation around the Add New button.]
+[Image: The Scan Settings page with an annotation around the Add New button]
 
 [Image: Select Cloud and Resource Type page with AWS, and Virtual Machine tiles selected]
 
-[Image: The Select Resources to Scan page with Scan All Accounts option is selected.]
+[Image: The Select Resources to Scan page with Scan All Accounts option is selected]
 
-[Image: Enable malware scanning option is enabled with the toggle button.]
+[Image: Enable malware scanning option is enabled with the toggle button]
 
-[Image: Select Resources to Scan page with Scan Specific Accounts option selected and selected few accounts to scan.]
+[Image: Select Resources to Scan page with Scan Specific Accounts option selected and selected few accounts to scan]
 
-[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings.]
+[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings]
 
-[Image: The scan settings review page displays the configured scan settings before completing the scan configuration.]
+[Image: The scan settings review page displays the configured scan settings before completing the scan configuration]
 
-[Image: The Exclude virtual machines, folders, directories screen to exclude resources from scanning.]
+[Image: The Exclude virtual machines, folders, directories screen to exclude resources from scanning]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-azure-blob-storage","lastmod":"2026-06-23T23:45Z","nid":"1483196"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-azure-blob-storage","lastmod":"2026-09-30T21:56Z","nid":"1483196"} -->
 ## Configuring Scan Rule for Azure Blob Storage
 
 - Source: https://help.zscaler.com/dspm/configuring-scan-rule-azure-blob-storage
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > Scan Rules for Azure > Configuring Scan Rule for Azure Blob Storage
-- Last modified: 2026-06-23T23:45Z
+- Last modified: 2026-09-30T21:56Z
 - Summary: How to configure the scan rule for Azure Blob Containers in the Zscaler Admin Console.
 
 You can configure the scan rule to scan Azure blob storage resources. DSPM scans the blob containers for any sensitive data. The scan results are displayed on the [Resource Inventory page](https://help.zscaler.com/dspm/about-resource-inventory).
@@ -6275,7 +6255,7 @@ To configure a scan rule for Azure blob storage, complete the following steps in
 
 Enable the scan rule on the [Scan Settings](https://help.zscaler.com/dspm/about-scan-settings) page to initiate scheduled or on-demand scans.
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Rules**tab. If you are configuring the scan rule for the first time, the following page appears: See image.
 3. Click **Add Scan Rule**. See image. The **General Information** page appears.
 4. On the **General Information**page: See image.
@@ -6283,9 +6263,9 @@ Enable the scan rule on the [Scan Settings](https://help.zscaler.com/dspm/about-
   2. **Scan Rule Description (Optional)**: Enter a description for the scan rule (maximum is 500 characters).
 5. Click **Next**.
 
-[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button.]
+[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button]
 
-[Image: General Information page to set the scan rule name and an optional description field.]
+[Image: General Information page to set the scan rule name and an optional description field]
 
 1. On the **Select Cloud and Resource Type** page: See image.
   - For **Cloud Type**, select **Azure**.
@@ -6299,7 +6279,7 @@ Enable the scan rule on the [Scan Settings](https://help.zscaler.com/dspm/about-
     1. **Select Specific Subscriptions and Regions**: Select the checkbox for specific subscriptions and regions that must be scanned.
     2. **Scan Specific Storage Account**: Specify the storage accounts that must be scanned.
       - **Select from the List**: Select the checkbox for the accounts or subscriptions that must be scanned from the list.
-      - **Select by Tags**: Enter the key-value pairs for the accounts or subscriptions. Click **Add More** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM scans all accounts or subscriptions that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and an account or subscription is included if it matches any of the key-value pairs.
+      - **Select by Tags**: Enter the key-value pairs for the accounts or subscriptions. Click **Add Tag** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM scans all accounts or subscriptions that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and an account or subscription is included if it matches any of the key-value pairs.
     3. **Scan Blob Containers**: Select the checkbox for the blob containers that must be scanned from the list. If you choose **Manual**, enter the blob container names and prefixes separated by commas.
 2. **Enable Malware Scanning**: Enable this option if the resources must be scanned for malware. This option is disabled by default. See image.
 3. Click **Next**.
@@ -6309,7 +6289,7 @@ On the **Exclude Storage Account Containers and Prefixes (Optional)** page, you 
 If a full scan is already initiated or completed, the bucket or folder is excluded in the next incremental scan.
 
 1. Enter the name of the blob containers, or include the folder name followed by a forward slash (/). For example, to exclude a folder named `myblobcontainer` within the storage account `https://storagename.blob.core.windows.net/`, enter `https://storagename.blob.core.windows.net/myblobcontainer`. Additionally, you can use wildcards with the storage account names instead of relying on tags. Based on the wildcard, DSPM excludes all the matching storage account containers from scanning. This is applicable to both existing storage accounts and the ones that might be added in the future.
-2. **Exclude Subscriptions & Storage Accounts By Tags**: Enable this option and enter the key-value pairs of the subscriptions or storage accounts that must be excluded from scanning. This option is disabled by default. Click **Add More** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM excludes any accounts or subscriptions that matches at least one of the specified key-value pairs. This means the rule uses `OR` logic, and an account or subscription is excluded, if it matches any of the key-value pairs.
+2. **Exclude Subscriptions & Storage Accounts By Tags**: Enable this option and enter the key-value pairs of the subscriptions or storage accounts that must be excluded from scanning. This option is disabled by default. Click **Add Tag** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM excludes any accounts or subscriptions that matches at least one of the specified key-value pairs. This means the rule uses `OR` logic, and an account or subscription is excluded, if it matches any of the key-value pairs.
 3. **Exclude Azure Blob Containers with Wildcards**: Select the checkbox and enter the wildcard expressions to exclude blob containers by name using wildcards. For example, `*logs*` excludes any blob name that contains the word `logs`. See image.
 4. Click **Next**.
 
@@ -6329,37 +6309,37 @@ If a full scan is already initiated or completed, the bucket or folder is exclud
 1. On the **Scan Scope** page, choose a scan scope from the drop-down menu to set up your scan rule. To learn more about configuring and creating a scan scope, see [Configuring Scan Scope](https://help.zscaler.com/dspm/configuring-scan-scope). See image.
 2. Click **Next**.
 
-[Image: The Scan Scope page with drop-down menu for selecting scan scope.]
+[Image: The Scan Scope page with drop-down menu for selecting scan scope]
 
 1. Review the scan rule. Click the **Edit** icon to change any values, if required. See image.
 2. Click **Finish**.
 
-[Image: The Scan Settings page with an annotation around the Add New button.]
+[Image: The Scan Settings page with an annotation around the Add New button]
 
-[Image: The Select Resources to Scan page with Scan All Subscriptions & Storage Accounts option is selected.]
+[Image: The Select Resources to Scan page with Scan All Subscriptions & Storage Accounts option is selected]
 
-[Image: The Select Resources to Scan page with Scan Specific Subscription & Storage option selected.]
+[Image: The Select Resources to Scan page with Scan Specific Subscription & Storage option selected]
 
 [Image: Exclude storage account containers from scanning]
 
-[Image: Enable malware scanning option is enabled with the toggle button.]
+[Image: Enable malware scanning option is enabled with the toggle button]
 
-[Image: The scan type selection page with the available options.]
+[Image: The scan type selection page with the available options]
 
-[Image: The scan settings review page displays the configured scan settings before completing the scan configuration.]
+[Image: The scan settings review page displays the configured scan settings before completing the scan configuration]
 
 [Image: Select Cloud and Resource Type page with Azure, Cloud Storage, and Blob Containers tiles selected]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-azure-databricks-workspace","lastmod":"2026-07-02T07:06Z","nid":"1531217"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-azure-databricks-workspace","lastmod":"2026-09-30T21:56Z","nid":"1531217"} -->
 ## Configuring Scan Rule for Azure Databricks
 
 - Source: https://help.zscaler.com/dspm/configuring-scan-rule-azure-databricks-workspace
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > Scan Rules for Azure > Configuring Scan Rule for Azure Databricks
-- Last modified: 2026-07-02T07:06Z
+- Last modified: 2026-09-30T21:56Z
 - Summary: How to configure the scan rule for Azure Databricks workspaces in the Zscaler Admin Console.
 
 You can configure the scan rule to scan Azure Databricks workspaces. DSPM scans these resources for any sensitive data and vulnerabilities and displays the scan results on the [Resource Inventory page](https://help.zscaler.com/dspm/about-resource-inventory).
@@ -6380,7 +6360,7 @@ To configure a scan rule for Databricks workspaces, complete the following steps
 - 6. Select the scan scope.
 - 7. Review and complete the configuration.
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Rules**tab. If you are configuring the scan rule for the first time, the following page appears: See image.
 3. Click **Add Scan Rule**. See image. The **General Information** page appears.
 4. On the **General Information**page: See image.
@@ -6412,37 +6392,37 @@ To configure a scan rule for Databricks workspaces, complete the following steps
 1. On the **Scan Scope** page, choose a scan scope from the drop-down menu. To learn more about configuring and creating a scan scope, see [Configuring Scan Scope](https://help.zscaler.com/dspm/configuring-scan-scope). See image.
 2. Click **Next**.
 
-[Image: The scan type selection page with Data Sampling option selected.]
+[Image: The scan type selection page with Data Sampling option selected]
 
-[Image: The Scan Scope page with dropdown menu for selecting scan scope.]
+[Image: The Scan Scope page with dropdown menu for selecting scan scope]
 
 1. Review the scan settings. Click the **Edit** icon to change any values, if needed. See image.
 2. Click **Finish**.
 
-[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button.]
+[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button]
 
-[Image: The Scan Settings page with an annotation around the Add New button.]
+[Image: The Scan Settings page with an annotation around the Add New button]
 
 [Image: Select Cloud and Resource Type page with Azure, Database, and Databricks tiles selected]
 
-[Image: The Select Resources to Scan page with selected Databricks workspaces.]
+[Image: The Select Resources to Scan page with selected Databricks workspaces]
 
-[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings.]
+[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings]
 
-[Image: The scan settings review page displays the configured scan settings before completing the scan configuration.]
+[Image: The scan settings review page displays the configured scan settings before completing the scan configuration]
 
-[Image: General Information page to set the scan rule name and an optional description field.]
+[Image: General Information page to set the scan rule name and an optional description field]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-azure-file-shares","lastmod":"2026-06-24T00:02Z","nid":"1532760"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-azure-file-shares","lastmod":"2026-09-30T21:56Z","nid":"1532760"} -->
 ## Configuring Scan Rule for Azure File Shares
 
 - Source: https://help.zscaler.com/dspm/configuring-scan-rule-azure-file-shares
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > Scan Rules for Azure > Configuring Scan Rule for Azure File Shares
-- Last modified: 2026-06-24T00:02Z
+- Last modified: 2026-09-30T21:56Z
 - Summary: How to configure the scan rule for Azure File Shares in the Zscaler Admin Console.
 
 You can configure the scan rule to scan Azure file shares. DSPM scans the Azure file shares over SMB and NFS for any sensitive data. The scan results are displayed on the [Resource Inventory page](https://help.zscaler.com/dspm/about-resource-inventory).
@@ -6461,7 +6441,7 @@ To configure a scan rule for Azure file shares, complete the following steps in 
 
 Enable the scan rule on the [Scan Settings](https://help.zscaler.com/dspm/about-scan-settings) page to initiate scheduled or on-demand scans.
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Rules**tab. If you are configuring the scan rule for the first time, the following page appears: See image.
 3. Click **Add Scan Rule**. See image. The **General Information** page appears.
 4. On the **General Information**page: See image.
@@ -6469,9 +6449,9 @@ Enable the scan rule on the [Scan Settings](https://help.zscaler.com/dspm/about-
   2. **Scan Rule Description (Optional)**: Enter a description for the scan rule (maximum is 500 characters).
 5. Click **Next**.
 
-[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button.]
+[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button]
 
-[Image: General Information page to set the scan rule name and an optional description field.]
+[Image: General Information page to set the scan rule name and an optional description field]
 
 1. On the **Select Cloud and Resource Type** page: See image.
   - For **Cloud Type**, select **Azure**.
@@ -6485,7 +6465,7 @@ Enable the scan rule on the [Scan Settings](https://help.zscaler.com/dspm/about-
     1. **Select Specific Subscriptions and Regions**: Select the checkbox for specific subscriptions and regions that must be scanned.
     2. **Scan Specific Storage Accounts**: Specify the storage accounts that must be scanned.
       - **Select from the List**: Select the checkbox for the accounts or subscriptions that must be scanned from the list.
-      - **Select by Tags**: Enter the key-value pairs for the accounts or subscriptions. Click **Add More** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM scans all accounts or subscriptions that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and an account or subscription is included, if it matches any of the key-value pairs.
+      - **Select by Tags**: Enter the key-value pairs for the accounts or subscriptions. Click **Add Tag** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM scans all accounts or subscriptions that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and an account or subscription is included, if it matches any of the key-value pairs.
     3. **Select Azure File Shares**: Select the checkbox for the file shares that must be scanned from the list. If you choose **Manual**, enter the file share names and prefixes separated by commas.
 2. **Enable Malware Scanning**: Enable this option if the resources must be scanned for malware. This option is disabled by default. See image.
 3. Click **Next**.
@@ -6495,7 +6475,7 @@ On the **Exclude Storage Accounts, File Shares, and Directories (Optional)** pag
 If a full scan is already initiated or completed, the storage account, file shares, and directories are excluded in the next incremental scan.
 
 1. Enter the name of the storage account, file shares, and directories, or include the folder name followed by a forward slash (/). For example, to exclude a folder named `myfileshare` within the storage account `https://storagename.file.core.windows.net/`, enter `https://storagename.file.core.windows.net/myfileshare`. Additionally, you can use wildcards with the storage account names instead of relying on tags. Based on the wildcard, DSPM excludes all the matching storage containers from scanning. This is applicable to both existing storage accounts and the ones that might be added in the future.
-2. **Exclude Subscriptions & Storage Accounts By Tags**: Enable this option and enter the key-value pairs of the subscriptions or storage accounts that must be excluded from scanning. This option is disabled by default. Click **Add More** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM excludes any accounts or subscriptions that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and an account or subscription is excluded, if it matches any of the key-value pairs.
+2. **Exclude Subscriptions & Storage Accounts By Tags**: Enable this option and enter the key-value pairs of the subscriptions or storage accounts that must be excluded from scanning. This option is disabled by default. Click **Add Tag** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM excludes any accounts or subscriptions that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and an account or subscription is excluded, if it matches any of the key-value pairs.
 3. **Exclude Azure File Shares with Wildcards**: Select the checkbox and enter the wildcard expressions to exclude file shares by name using wildcards. For example, `*logs*` excludes any file name that contains the word `logs`. See image.
 4. Click **Next**.
 
@@ -6515,37 +6495,37 @@ If a full scan is already initiated or completed, the storage account, file shar
 1. On the **Scan Scope** page, choose a scan scope from the drop-down menu to set up your scan rule. To learn more about configuring and creating a scan scope, see [Configuring Scan Scope](https://help.zscaler.com/dspm/configuring-scan-scope). See image.
 2. Click **Next**.
 
-[Image: The Scan Scope page with drop-down menu for selecting scan scope.]
+[Image: The Scan Scope page with drop-down menu for selecting scan scope]
 
 1. Review the scan rule. Click the **Edit** icon to change any values, if required. See image.
 2. Click **Finish**.
 
-[Image: The Scan Settings page with an annotation around the Add New button.]
+[Image: The Scan Settings page with an annotation around the Add New button]
 
-[Image: The Select Resources to Scan page with Scan All Subscriptions & Storage Accounts option is selected.]
+[Image: The Select Resources to Scan page with Scan All Subscriptions & Storage Accounts option is selected]
 
-[Image: The Select Resources to Scan page with Scan Specific Subscription & Storage option selected.]
+[Image: The Select Resources to Scan page with Scan Specific Subscription & Storage option selected]
 
-[Image: Exclude storage accounts, file shares, and directories from scanning.]
+[Image: Exclude storage accounts, file shares, and directories from scanning]
 
-[Image: Enable malware scanning option is enabled with the toggle button.]
+[Image: Enable malware scanning option is enabled with the toggle button]
 
-[Image: The scan type selection page with the available options.]
+[Image: The scan type selection page with the available options]
 
-[Image: The scan settings review page displays the configured scan settings before completing the scan configuration.]
+[Image: The scan settings review page displays the configured scan settings before completing the scan configuration]
 
 [Image: Select Cloud and Resource Type page with Azure, Cloud Storage, and File Shares tiles selected]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-azure-managed-databases","lastmod":"2026-06-25T02:37Z","nid":"1495196"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-azure-managed-databases","lastmod":"2026-09-30T21:56Z","nid":"1495196"} -->
 ## Configuring Scan Rule for Azure-Managed Databases
 
 - Source: https://help.zscaler.com/dspm/configuring-scan-rule-azure-managed-databases
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > Scan Rules for Azure > Configuring Scan Rule for Azure-Managed Databases
-- Last modified: 2026-06-25T02:37Z
+- Last modified: 2026-09-30T21:56Z
 - Summary: How to configure the scan rule for Azure databases in the Zscaler Admin Console.
 
 You can configure the scan rule to scan Azure SQL databases and Azure-Managed PostgreSQL Flexible servers. DSPM scans the databases for any sensitive data and vulnerabilities. The scan results are displayed on the [Resource Inventory page](https://help.zscaler.com/dspm/about-resource-inventory).
@@ -6568,7 +6548,7 @@ To configure a scan rule for Azure-managed databases, complete the following ste
 
 After completing the scan, DSPM deletes the restored servers, databases, and File System (FS) Analyzer to reduce the cost for customers.
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Rules**tab. If you are configuring the scan rule for the first time, the following page appears: See image.
 3. Click **Add Scan Rule**. See image. The **General Information** page appears.
 4. On the **General Information**page: See image.
@@ -6576,9 +6556,9 @@ After completing the scan, DSPM deletes the restored servers, databases, and Fil
   2. **Scan Rule Description (Optional)**: Enter a description for the scan rule (maximum is 500 characters).
 5. Click **Next**.
 
-[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button.]
+[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button]
 
-[Image: General Information page to set the scan rule name and an optional description field.]
+[Image: General Information page to set the scan rule name and an optional description field]
 
 1. On the **Select Cloud and Resource Type** page: See image.
   - For **Cloud Type**, select **Azure**.
@@ -6592,7 +6572,7 @@ After completing the scan, DSPM deletes the restored servers, databases, and Fil
     1. **Select Specific Subscriptions and Regions**: Select the checkbox for specific subscriptions and regions that must be scanned.
     2. **Scan Specific Database Servers**: Specify the database servers that must be scanned. See image.
       - **Select from the List**: Select the checkbox for the instances that must be scanned from the list. If you choose **Manual**, enter the database names separated by commas.
-      - **Select by Tags**: Enter the key-value pairs for the database servers. All the database servers that match the tag are scanned. Click **Add More** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM scans all databases that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and a database is included if it matches any of the key-value pairs.
+      - **Select by Tags**: Enter the key-value pairs for the database servers. All the database servers that match the tag are scanned. Click **Add Tag** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM scans all databases that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and a database is included if it matches any of the key-value pairs.
 2. Click **Next**.
 
 On the **Exclude Database Servers (Optional)** page, you can specify the database servers that must be excluded from the scan.
@@ -6600,7 +6580,7 @@ On the **Exclude Database Servers (Optional)** page, you can specify the databas
 If a full scan is already initiated or completed, the databases are excluded in the next incremental scan.
 
 1. Enter the database server names separated by commas.
-2. **Exclude Database Servers By Tags**: Enable this option and enter the key-value pairs of the database servers that must be excluded from scanning. This option is disabled by default. Click **Add More** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM excludes any database that matches at least one of the specified key-value pairs. This means the rule uses `OR` logic, and a database is excluded if it matches any of the key-value pairs. See image.
+2. **Exclude Database Servers By Tags**: Enable this option and enter the key-value pairs of the database servers that must be excluded from scanning. This option is disabled by default. Click **Add Tag** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM excludes any database that matches at least one of the specified key-value pairs. This means the rule uses `OR` logic, and a database is excluded if it matches any of the key-value pairs. See image.
 3. Click **Next**.
 
 1. On the **Scan Type** page, you can choose to perform one of the following scans: DSPM cannot detect files that are deleted in the Azure console. See image.
@@ -6618,37 +6598,37 @@ If a full scan is already initiated or completed, the databases are excluded in 
 1. On the **Scan Scope** page, choose a scan scope from the drop-down menu to set up your scan rule. To learn more about configuring and creating a scan scope, see [Configuring Scan Scope](https://help.zscaler.com/dspm/configuring-scan-scope). See image.
 2. Click **Next**.
 
-[Image: The scan type selection page with data sampling scan, and full scan options.]
+[Image: The scan type selection page with data sampling scan, and full scan options]
 
-[Image: The Scan Scope page with dropdown menu for selecting scan scope.]
+[Image: The Scan Scope page with dropdown menu for selecting scan scope]
 
 1. Review the scan rule. Click the **Edit** icon to change any values, if needed. See image.
 2. Click **Finish**.
 
-[Image: The Scan Settings page with an annotation around the Add New button.]
+[Image: The Scan Settings page with an annotation around the Add New button]
 
 [Image: Select Cloud and Resource Type page with Azure, Database, and Managed Database tiles selected]
 
-[Image: The Select Resources to Scan page with Scan All Subscriptions option is selected.]
+[Image: The Select Resources to Scan page with Scan All Subscriptions option is selected]
 
-[Image: The Select Resources to Scan page with Scan specific instances option selected, showing the fields to enter key-value pair.]
+[Image: The Select Resources to Scan page with Scan specific instances option selected, showing the fields to enter key-value pair]
 
-[Image: The Database Servers screen to exclude resources from scanning.]
+[Image: The Database Servers screen to exclude resources from scanning]
 
-[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings.]
+[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings]
 
-[Image: The scan settings review page displays the configured scan settings before completing the scan configuration.]
+[Image: The scan settings review page displays the configured scan settings before completing the scan configuration]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-azure-nosql-data-stores","lastmod":"2026-06-25T02:51Z","nid":"1534358"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-azure-nosql-data-stores","lastmod":"2026-09-30T21:56Z","nid":"1534358"} -->
 ## Configuring Scan Rule for Azure NoSQL Data Stores
 
 - Source: https://help.zscaler.com/dspm/configuring-scan-rule-azure-nosql-data-stores
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > Scan Rules for Azure > Configuring Scan Rule for Azure NoSQL Data Stores
-- Last modified: 2026-06-25T02:51Z
+- Last modified: 2026-09-30T21:56Z
 - Summary: How to configure the scan rule for Azure NoSQL data stores (CosmosDB) in the Zscaler Admin Console.
 
 You can configure the scan rule to scan Azure Cosmos DB accounts. DSPM scans the data stores for any sensitive data and the scan results are displayed on the [Resource Inventory page](https://help.zscaler.com/dspm/about-resource-inventory).
@@ -6668,7 +6648,7 @@ To configure a scan rule for Azure NoSQL data stores, complete the following ste
 - 7. Select the scan scope.
 - 8. Review and complete the configuration.
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Rules**tab. If you are configuring the scan rule for the first time, the following page appears: See image.
 3. Click **Add Scan Rule**. See image. The **General Information** page appears.
 4. On the **General Information**page: See image.
@@ -6681,11 +6661,11 @@ To configure a scan rule for Azure NoSQL data stores, complete the following ste
   - For **Resource Type**, select **NoSQL Data Stores**.
 2. Click **Next**.
 
-[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button.]
+[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button]
 
-[Image: The Scan Settings page with an annotation around the Add New button.]
+[Image: The Scan Settings page with an annotation around the Add New button]
 
-[Image: General Information page to set the scan rule name and an optional description field.]
+[Image: General Information page to set the scan rule name and an optional description field]
 
 [Image: Select Cloud and Resource Type page with Azure and NoSQL Data Stores tiles selected]
 
@@ -6695,7 +6675,7 @@ To configure a scan rule for Azure NoSQL data stores, complete the following ste
     1. **Select Specific Accounts and Regions**: Select the checkbox for specific accounts and regions that must be scanned.
     2. **Scan CosmosDB Accounts**: Specify the Cosmos DB accounts that must be scanned. You can either select the names from the list or specify the tags.
       - **Select from the Lis**t: Select the checkbox for the Cosmos DB accounts that must be scanned. If you choose **Manual**, then you need to enter the names.
-      - **Select by Tags**: Specify the tags in key-value pairs. All the Cosmos DB accounts that match the tag are scanned. Click **Add More** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM scans all Cosmos DB accounts that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and an account is included if it matches any of the key-value pairs.
+      - **Select by Tags**: Specify the tags in key-value pairs. All the Cosmos DB accounts that match the tag are scanned. Click **Add Tag** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM scans all Cosmos DB accounts that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and an account is included if it matches any of the key-value pairs.
 2. Click **Next**.
 
 On the **Exclude CosmosDB Accounts (Optional)** page, you can specify the Cosmos DB accounts that must be excluded from the scan.
@@ -6703,19 +6683,19 @@ On the **Exclude CosmosDB Accounts (Optional)** page, you can specify the Cosmos
 If a full scan is already initiated or completed, the Cosmos DB accounts are excluded in the next incremental scan.
 
 1. Enter the Cosmos DB account names separated by commas.
-2. **Exclude Cosmos DB account By Tags**: Enable this option and enter the key-value pairs of the Cosmos DB account that must be excluded from scanning. This option is disabled by default. Click **Add More** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM excludes any account that matches at least one of the specified key-value pairs. This means the rule uses `OR` logic, and an account is excluded if it matches any of the key-value pairs. See image.
+2. **Exclude Cosmos DB account By Tags**: Enable this option and enter the key-value pairs of the Cosmos DB account that must be excluded from scanning. This option is disabled by default. Click **Add Tag** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM excludes any account that matches at least one of the specified key-value pairs. This means the rule uses `OR` logic, and an account is excluded if it matches any of the key-value pairs. See image.
 3. Click **Next**.
 
-[Image: The Select Resources to Scan page with Scan All Accounts option is selected.]
+[Image: The Select Resources to Scan page with Scan All Accounts option is selected]
 
-[Image: The Scan CosmosDB accounts page to choose tables from list or by tags.]
+[Image: The Scan CosmosDB accounts page to choose tables from list or by tags]
 
-[Image: The Exclude CosmosDB accounts page to exclude resources from scanning.]
+[Image: The Exclude CosmosDB accounts page to exclude resources from scanning]
 
 1. On the **Scan Type** page, select **Data Sampling Scan** to scan a sample of recent data in the database. DSPM cannot detect files that are deleted from the resource. See image.
 2. Click **Next**.
 
-[Image: he scan type selection page with the Data Sampling Scan option.]
+[Image: he scan type selection page with the Data Sampling Scan option]
 
 1. On the**Scan Schedule** page, select the scan frequency: See image.
   - **On Demand**(Default): Scan the data manually when needed.
@@ -6724,28 +6704,28 @@ If a full scan is already initiated or completed, the Cosmos DB accounts are exc
   - **Monthly**: Scan the data once a month.
 2. Click **Next**.
 
-[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings.]
+[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings]
 
 1. On the**Scan Scope**page, select a [scan scope](https://help.zscaler.com/dspm/configuring-scan-scope) from the drop-down menu to set up the scan rule. See image.
 2. Click **Next**.
 
-[Image: The Scan Scope page with dropdown menu for selecting scan scope.]
+[Image: The Scan Scope page with dropdown menu for selecting scan scope]
 
 1. Review the scan rule. Click the **Edit** icon to change any values, if required. See image.
 2. Click **Finish**.
 
-[Image: The scan settings review page displays the configured scan settings before completing the scan configuration.]
+[Image: The scan settings review page displays the configured scan settings before completing the scan configuration]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-azure-openai","lastmod":"2026-06-25T04:01Z","nid":"1535172"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-azure-openai","lastmod":"2026-09-30T21:56Z","nid":"1535172"} -->
 ## Configuring Scan Rule for Azure OpenAI
 
 - Source: https://help.zscaler.com/dspm/configuring-scan-rule-azure-openai
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > Scan Rules for Azure > Configuring Scan Rule for Azure OpenAI
-- Last modified: 2026-06-25T04:01Z
+- Last modified: 2026-09-30T21:56Z
 - Summary: How to configure the scan rule for Azure OpenAI in the Zscaler Admin Console.
 
 You can configure the scan rule to scan OpenAI services. DSPM scans the OpenAI services for any sensitive data. The scan results are displayed on the [Resource Inventory](https://help.zscaler.com/dspm/about-resource-inventory) page.
@@ -6764,7 +6744,7 @@ To configure a scan rule for OpenAI services, complete the following steps in th
 
 Enable the scan rule on the [Scan Settings](https://help.zscaler.com/dspm/about-scan-settings) page to initiate scheduled or on-demand scans.
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Rules**tab. If you are configuring the scan rule for the first time, the following page appears: See image.
 3. Click **Add Scan Rule**. See image. The **General Information** page appears.
 4. On the **General Information**page: See image.
@@ -6772,9 +6752,9 @@ Enable the scan rule on the [Scan Settings](https://help.zscaler.com/dspm/about-
   2. **Scan Rule Description (Optional)**: Enter a description for the scan rule (maximum is 500 characters).
 5. Click **Next**.
 
-[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button.]
+[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button]
 
-[Image: General Information page to set the scan rule name and an optional description field.]
+[Image: General Information page to set the scan rule name and an optional description field]
 
 1. On the **Select Cloud and Resource Type** page: See image.
   - For **Cloud Type**, select **Azure**.
@@ -6788,7 +6768,7 @@ Enable the scan rule on the [Scan Settings](https://help.zscaler.com/dspm/about-
     - **Select Specific Subscriptions and Regions**: Select the checkbox for specific subscriptions and regions that must be scanned.
     - **Scan Specific Resources**: Specify the OpenAI services that must be scanned.
       - **Select from the List**: Select the checkbox for the accounts or subscriptions that must be scanned from the list.
-      - **Select by Tags**: Enter the key-value pairs for the accounts or subscriptions. Click **Add More** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM scans all accounts or subscriptions that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and an account or subscription is included, if it matches any of the key-value pairs.
+      - **Select by Tags**: Enter the key-value pairs for the accounts or subscriptions. Click **Add Tag** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM scans all accounts or subscriptions that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and an account or subscription is included, if it matches any of the key-value pairs.
 2. Click **Next**.
 
 On the **Exclude OpenAI Services (Optional)** page, specify the OpenAI services that must be excluded from the scan and click **Next**.
@@ -6796,7 +6776,7 @@ On the **Exclude OpenAI Services (Optional)** page, specify the OpenAI services 
 If a full scan is already initiated or completed, the OpenAI service is excluded in the next incremental scan.
 
 - Enter the list of the OpenAI services separated by commas.
-- **Exclude OpenAI Services By Tags**: Enable this option and enter the key-value pairs of the OpenAI services that must be excluded from scanning. Click **Add More** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM excludes OpenAI services that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and an OpenAI service is excluded if it matches any of the key-value pairs.
+- **Exclude OpenAI Services By Tags**: Enable this option and enter the key-value pairs of the OpenAI services that must be excluded from scanning. Click **Add Tag** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM excludes OpenAI services that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and an OpenAI service is excluded if it matches any of the key-value pairs.
 
 See image.
 
@@ -6810,35 +6790,35 @@ See image.
 1. On the **Scan Scope** page, select a [scan scope](https://help.zscaler.com/dspm/configuring-scan-scope) from the drop-down menu to set up your scan rule. See image.
 2. Click **Next**.
 
-[Image: The Scan Scope page with drop-down menu for selecting scan scope.]
+[Image: The Scan Scope page with drop-down menu for selecting scan scope]
 
 1. Review the scan rule. Click the **Edit** icon to change any values, if required. See image.
 2. Click **Finish**.
 
-[Image: The Scan Settings page with an annotation around the Add New button.]
+[Image: The Scan Settings page with an annotation around the Add New button]
 
-[Image: he Select Resources to Scan page with Scan All Resources option selected.]
+[Image: he Select Resources to Scan page with Scan All Resources option selected]
 
-[Image: The Select Resources to Scan page with Scan Specific Resources option selected.]
+[Image: The Select Resources to Scan page with Scan Specific Resources option selected]
 
-[Image: The scan settings review page displays the configured scan settings before completing the scan configuration.]
+[Image: The scan settings review page displays the configured scan settings before completing the scan configuration]
 
 [Image: Select Cloud and Resource Type page with Azure, AI & Machine Learning, and Azure OpenAI tiles selected]
 
-[Image: The Exclude OpenAI Services page to add OpenAI services that must be excluded from scanning.]
+[Image: The Exclude OpenAI Services page to add OpenAI services that must be excluded from scanning]
 
-[Image: The Scan Schedule page to select the scan frequency.]
+[Image: The Scan Schedule page to select the scan frequency]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-azure-unmanaged-databases","lastmod":"2026-04-10T21:06Z","nid":"1517366"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-azure-unmanaged-databases","lastmod":"2026-09-30T21:56Z","nid":"1517366"} -->
 ## Configuring Scan Rule for Azure Unmanaged Databases
 
 - Source: https://help.zscaler.com/dspm/configuring-scan-rule-azure-unmanaged-databases
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > Scan Rules for Azure > Configuring Scan Rule for Azure Unmanaged Databases
-- Last modified: 2026-04-10T21:06Z
+- Last modified: 2026-09-30T21:56Z
 - Summary: How to configure the scan rule for Azure unmanaged databases in the Zscaler Admin Console.
 
 You can configure the scan rule to scan Azure unmanaged database servers. DSPM scans the databases for any sensitive data and vulnerabilities. The scan results are displayed on the [Resource Inventory page](https://help.zscaler.com/dspm/about-resource-inventory).
@@ -6855,7 +6835,7 @@ To configure a scan rule for Azure unmanaged databases, complete the following s
 - 6. Select the scan scope.
 - 7. Review and complete the configuration.
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Rules**tab. If you are configuring the scan rule for the first time, the following page appears: See image.
 3. Click **Add Scan Rule**. See image. The **General Information** page appears.
 4. On the **General Information**page: See image.
@@ -6863,9 +6843,9 @@ To configure a scan rule for Azure unmanaged databases, complete the following s
   2. **Scan Rule Description (Optional)**: Enter a description for the scan rule (maximum is 500 characters).
 5. Click **Next**.
 
-[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button.]
+[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button]
 
-[Image: General Information page to set the scan rule name and an optional description field.]
+[Image: General Information page to set the scan rule name and an optional description field]
 
 1. On the **Select Cloud and Resource Type** page: See image.
   - For **Cloud Type**, select **Azure**.
@@ -6878,7 +6858,7 @@ To configure a scan rule for Azure unmanaged databases, complete the following s
   - **Scan Specific Resources**: Select the checkbox for the specific resources that must be scanned. See image.
 2. Click **Next**.
 
-[Image: Select Resources to Scan page with Scan All Accounts option is selected.]
+[Image: Select Resources to Scan page with Scan All Accounts option is selected]
 
 1. On the **Scan Type** page: DSPM cannot detect files that are deleted from the unmanaged database server. See image.
   - **Data Sampling Scan**: Scan a sample of recent data in the database.
@@ -6894,33 +6874,33 @@ To configure a scan rule for Azure unmanaged databases, complete the following s
 1. On the **Scan Scope** page, choose a scan scope from the drop-down menu to set up your scan rule. To learn more about configuring and creating a scan scope, see [Configuring Scan Scope](https://help.zscaler.com/dspm/configuring-scan-scope). See image.
 2. Click **Next**.
 
-[Image: The scan type selection page with Data Sampling option selected.]
+[Image: The scan type selection page with Data Sampling option selected]
 
-[Image: The Scan Scope page with dropdown menu for selecting scan scope.]
+[Image: The Scan Scope page with dropdown menu for selecting scan scope]
 
 1. Review the scan rule. Click the **Edit** icon to change any values, if needed. See image.
 2. Click **Finish**.
 
-[Image: The Scan Settings page with an annotation around the Add New button.]
+[Image: The Scan Settings page with an annotation around the Add New button]
 
 [Image: Select Cloud and Resource Type page with Azure, Database, and Unmanaged Database tiles selected]
 
-[Image: The Select Resources to Scan page with selected unmanaged database servers.]
+[Image: The Select Resources to Scan page with selected unmanaged database servers]
 
-[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings.]
+[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings]
 
-[Image: The scan settings review page displays the configured scan settings before completing the scan configuration.]
+[Image: The scan settings review page displays the configured scan settings before completing the scan configuration]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-azure-virtual-machines","lastmod":"2026-07-02T07:06Z","nid":"1483241"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-azure-virtual-machines","lastmod":"2026-09-30T21:56Z","nid":"1483241"} -->
 ## Configuring Scan Rule for Azure Virtual Machines
 
 - Source: https://help.zscaler.com/dspm/configuring-scan-rule-azure-virtual-machines
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > Scan Rules for Azure > Configuring Scan Rule for Azure Virtual Machines
-- Last modified: 2026-07-02T07:06Z
+- Last modified: 2026-09-30T21:56Z
 - Summary: How to configure the scan rule for Azure virtual machines in the Zscaler Admin Console.
 
 You can configure the scan rule to scan virtual machines (VMs) in your Azure cloud accounts. DSPM scans the databases for any sensitive data and vulnerabilities. The scan results are displayed on the [Resource Inventory page](https://help.zscaler.com/dspm/about-resource-inventory).
@@ -6945,7 +6925,7 @@ To configure a scan rule for Azure virtual machines, complete the following step
 - 6. Select the scan scope.
 - 7. Review and complete the configuration.
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Rules**tab. If you are configuring the scan rule for the first time, the following page appears: See image.
 3. Click **Add Scan Rule**. See image. The **General Information** page appears.
 4. On the **General Information**page: See image.
@@ -6953,9 +6933,9 @@ To configure a scan rule for Azure virtual machines, complete the following step
   2. **Scan Rule Description (Optional)**: Enter a description for the scan rule (maximum is 500 characters).
 5. Click **Next**.
 
-[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button.]
+[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button]
 
-[Image: General Information page to set the scan rule name and an optional description field.]
+[Image: General Information page to set the scan rule name and an optional description field]
 
 1. On the **Select Cloud and Resource Type** page: See image.
   - For **Cloud Type**: Select **Azure**.
@@ -6968,20 +6948,20 @@ To configure a scan rule for Azure virtual machines, complete the following step
     1. **Select Specific Subscriptions and Regions**: Select the checkbox for the specific subscriptions and regions that must be scanned.
     2. **Scan Specific Instances**: Specify the virtual machines that must be scanned.
       - **Select from the List**: Select the checkbox for the virtual machines that must be scanned from the list. If you choose **Manual**, enter the instance IDs separated by commas.
-      - **Select by Tags**: Enter the key-value pairs for the instances. All the instances that match the tag are scanned. Click **Add More** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM scans all instances that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and an instance is included if it matches any of the key-value pairs.
+      - **Select by Tags**: Enter the key-value pairs for the instances. All the instances that match the tag are scanned. Click **Add Tag** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM scans all instances that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and an instance is included if it matches any of the key-value pairs.
 2. **Enable Malware Scanning**: Enable this option if the resources must be scanned for malware. This option is disabled by default. See image.
 3. Click **Next**.
 
 1. On the **Exclusions**page, specify the VMs, folders, or directories that must be excluded from the scan:
   - **Exclude Virtual Machines (Optional)**: Enter the instance IDs separated by commas.
-  - **Exclude Virtual Machines By Tags**: Enable this option and enter the key-value pairs of the VMs that must be excluded from scanning. This option is disabled by default. Click **Add More** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM excludes any VMs that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and a VM is excluded if it matches any of the key-value pairs.
-  - **Exclude Folders / Directories (Optional)**: Enter the folder or directory paths to exclude from scanning. You can specify paths in the following formats:
-    - Exact path — Excludes only the specified directory (e.g., `/var/log/`).
-    - Wildcard — Excludes all files and subdirectories within the specified directory (e.g., `/var/log/*`).
-  - **Exclude Operating System Directories Files from Scanning**: Disable this option if you want to scan the OS directories. This option is enabled by default. The following directories are excluded from the scan: See image.
+  - **Exclude Virtual Machines By Tags**: Enable this option and enter the key-value pairs of the VMs that must be excluded from scanning. This option is disabled by default. Click **Add Tag** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM excludes any VMs that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and a VM is excluded if it matches any of the key-value pairs.
+  - **Exclude Operating System Directories Files from Scanning**: Disable this option if you want to scan the OS directories. This option is enabled by default. The following directories are excluded from the scan:
     - Linux
     - Windows
     - Packages
+  - **Exclude Folders / Directories (Optional)**: Enter the folder or directory paths to exclude from scanning. You can specify paths in the following formats: See image.
+    - Exact path — Excludes only the specified directory (e.g., `/var/log/`).
+    - Wildcard — Excludes all files and subdirectories within the specified directory (e.g., `/var/log/*`).
 2. Click **Next**.
 
 1. On the **Scan Schedule** page, select the scan frequency: See image.
@@ -6994,7 +6974,7 @@ To configure a scan rule for Azure virtual machines, complete the following step
 1. On the **Scan Scope** page, choose a scan scope from the drop-down menu to set up your scan rule. To learn more about configuring and creating a scan scope, see [Configuring Scan Scope](https://help.zscaler.com/dspm/configuring-scan-scope). See image.
 2. Click **Next**.
 
-[Image: The Scan Scope page with dropdown menu for selecting scan scope.]
+[Image: The Scan Scope page with dropdown menu for selecting scan scope]
 
 1. Review the scan rule. Click the **Edit** icon to change any values, if required. See image.
 2. Click **Finish**.
@@ -7023,32 +7003,32 @@ To configure a scan rule for Azure virtual machines, complete the following step
 - `/smca/`
 - `/opt/elasticbeanstalk/`
 
-[Image: The Scan Settings page with an annotation around the Add New button.]
+[Image: The Scan Settings page with an annotation around the Add New button]
 
 [Image: Select Cloud and Resource Type page with Azure, and Virtual Machine tiles selected]
 
-[Image: The Select Resources to Scan page with Scan All Accounts option is selected.]
+[Image: The Select Resources to Scan page with Scan All Accounts option is selected]
 
-[Image: Select Resources to Scan page with Scan Specific Subscription option selected and selected few subscriptions to scan.]
+[Image: Select Resources to Scan page with Scan Specific Subscription option selected and selected few subscriptions to scan]
 
-[Image: Enable malware scanning option is enabled with the toggle button.]
+[Image: Enable malware scanning option is enabled with the toggle button]
 
-[Image: The Exclude virtual machines, folders, directories screen to exclude resources from scanning.]
+[Image: The Exclude virtual machines, folders, directories screen to exclude resources from scanning]
 
-[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings.]
+[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings]
 
-[Image: The scan settings review page displays the configured scan settings before completing the scan configuration.]
+[Image: The scan settings review page displays the configured scan settings before completing the scan configuration]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-gcp-bigquery","lastmod":"2026-06-23T23:29Z","nid":"1533944"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-gcp-bigquery","lastmod":"2026-09-30T21:49Z","nid":"1533944"} -->
 ## Configuring Scan Rule for GCP BigQuery
 
 - Source: https://help.zscaler.com/dspm/configuring-scan-rule-gcp-bigquery
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > Scan Rules for GCP > Configuring Scan Rule for GCP BigQuery
-- Last modified: 2026-06-23T23:29Z
+- Last modified: 2026-09-30T21:49Z
 - Summary: How to configure the scan rule for GCP BigQuery databases in the Zscaler Admin Console.
 
 You can configure the scan rule to scan Google Cloud Platform (GCP) BigQuery databases. DSPM scans the database instances for any sensitive data. The scan results are displayed on the [Resource Inventory page](https://help.zscaler.com/dspm/about-resource-inventory).
@@ -7068,7 +7048,7 @@ To configure a scan rule for GCP BigQuery databases, complete the following step
 
 After completing the preceding steps, enable the scan rule on the [Scan Settings](https://help.zscaler.com/dspm/about-scan-settings) page to initiate scheduled or on-demand scans.
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Rules**tab. If you are configuring the scan rule for the first time, the following page appears: See image.
 3. Click **Add Scan Rule**. See image. The **General Information** page appears.
 4. On the **General Information**page: See image.
@@ -7076,9 +7056,9 @@ After completing the preceding steps, enable the scan rule on the [Scan Settings
   2. **Scan Rule Description (Optional)**: Enter a description for the scan rule (maximum is 500 characters).
 5. Click **Next**.
 
-[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button.]
+[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button]
 
-[Image: General Information page to set the scan rule name and an optional description field.]
+[Image: General Information page to set the scan rule name and an optional description field]
 
 1. On the **Select Cloud and Resource Type** page: See image.
   - For **Cloud Type**, select **Google Cloud**.
@@ -7116,37 +7096,37 @@ If a full scan is already initiated or completed, the datasets and tables are ex
 1. On the **Scan Scope** page, select a [scan scope](https://help.zscaler.com/dspm/configuring-scan-scope) from the drop-down menu for the scan rule. See image.
 2. Click **Next**.
 
-[Image: The scan type selection page with data sampling scan.]
+[Image: The scan type selection page with data sampling scan]
 
-[Image: The Scan Scope page with dropdown menu for selecting scan scope.]
+[Image: The Scan Scope page with dropdown menu for selecting scan scope]
 
 1. Review the scan rule. Click the **Edit** icon to change any values, if required. See image.
 2. Click **Finish**.
 
-[Image: The Scan Settings page with an annotation around the Add New button.]
+[Image: The Scan Settings page with an annotation around the Add New button]
 
 [Image: Select Cloud and Resource Type page with Google Cloud, Database, and BigQuery tiles selected]
 
-[Image: Select resources to scan page with Scan All Resources option is selected.]
+[Image: Select resources to scan page with Scan All Resources option is selected]
 
-[Image: The scan specific Resources page, to specify datasets with key-value pair.]
+[Image: The scan specific Resources page, to specify datasets with key-value pair]
 
-[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings.]
+[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings]
 
-[Image: The scan settings review page displays the configured scan settings before completing the scan configuration.]
+[Image: The scan settings review page displays the configured scan settings before completing the scan configuration]
 
-[Image: The Exclude Datasets screen to exclude resources from scanning.]
+[Image: The Exclude Datasets screen to exclude resources from scanning]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-gcp-managed-databases","lastmod":"2026-06-23T23:21Z","nid":"1520166"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-gcp-managed-databases","lastmod":"2026-09-30T21:49Z","nid":"1520166"} -->
 ## Configuring Scan Rule for GCP-Managed Databases
 
 - Source: https://help.zscaler.com/dspm/configuring-scan-rule-gcp-managed-databases
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > Scan Rules for GCP > Configuring Scan Rule for GCP-Managed Databases
-- Last modified: 2026-06-23T23:21Z
+- Last modified: 2026-09-30T21:49Z
 - Summary: How to configure the scan rule for GCP databases in the Zscaler Admin Console.
 
 You can configure the scan rule to scan Google Cloud Platform (GCP) databases such as SQL, MySQL and PostgreSQL. DSPM scans the database instances for any sensitive data. The scan results are displayed on the [Resource Inventory page](https://help.zscaler.com/dspm/about-resource-inventory).
@@ -7164,7 +7144,7 @@ To configure a scan rule for GCP databases, complete the following steps in the 
 - 7. Select the scan scope.
 - 8. Review and complete the configuration.
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Rules**tab. If you are configuring the scan rule for the first time, the following page appears: See image.
 3. Click **Add Scan Rule**. See image. The **General Information** page appears.
 4. On the **General Information**page: See image.
@@ -7172,9 +7152,9 @@ To configure a scan rule for GCP databases, complete the following steps in the 
   2. **Scan Rule Description (Optional)**: Enter a description for the scan rule (maximum is 500 characters).
 5. Click **Next**.
 
-[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button.]
+[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button]
 
-[Image: General Information page to set the scan rule name and an optional description field.]
+[Image: General Information page to set the scan rule name and an optional description field]
 
 1. On the **Select Cloud and Resource Type** page: See image.
   - For **Cloud Type**, select **Google Cloud**.
@@ -7214,37 +7194,37 @@ If a full scan is already initiated or completed, the databases are excluded in 
 1. On the **Scan Scope** page, choose a scan scope from the drop-down menu to set up your scan rule. To learn more about configuring and creating a scan scope, see [Configuring Scan Scope](https://help.zscaler.com/dspm/configuring-scan-scope). See image.
 2. Click **Next**.
 
-[Image: The scan type selection page with data sampling scan, and full scan options.]
+[Image: The scan type selection page with data sampling scan, and full scan options]
 
-[Image: The Scan Scope page with dropdown menu for selecting scan scope.]
+[Image: The Scan Scope page with dropdown menu for selecting scan scope]
 
 1. Review the scan rule. Click the **Edit** icon to change any values, if required. See image.
 2. Click **Finish**.
 
-[Image: The Scan Settings page with an annotation around the Add New button.]
+[Image: The Scan Settings page with an annotation around the Add New button]
 
 [Image: Select Cloud and Resource Type page with Google Cloud, Database, and Managed Database tiles selected]
 
-[Image: Select resources to scan page with Scan All Projects option is selected.]
+[Image: Select resources to scan page with Scan All Projects option is selected]
 
-[Image: The scan specific database instances or clusters page, to specify instances or clusters with key-value pair.]
+[Image: The scan specific database instances or clusters page, to specify instances or clusters with key-value pair]
 
-[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings.]
+[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings]
 
-[Image: The scan settings review page displays the configured scan settings before completing the scan configuration.]
+[Image: The scan settings review page displays the configured scan settings before completing the scan configuration]
 
-[Image: The Exclude Databases screen to exclude resources from scanning.]
+[Image: The Exclude Databases screen to exclude resources from scanning]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-gcp-virtual-machines","lastmod":"2026-07-02T07:06Z","nid":"1520171"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-gcp-virtual-machines","lastmod":"2026-09-30T21:49Z","nid":"1520171"} -->
 ## Configuring Scan Rule for GCP Virtual Machines
 
 - Source: https://help.zscaler.com/dspm/configuring-scan-rule-gcp-virtual-machines
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > Scan Rules for GCP > Configuring Scan Rule for GCP Virtual Machines
-- Last modified: 2026-07-02T07:06Z
+- Last modified: 2026-09-30T21:49Z
 - Summary: How to configure the scan rules for GCP virtual machines in the Zscaler Admin Console.
 
 You can configure the scan rule to scan virtual machines (VMs) in your GCP organizations for any sensitive data and vulnerabilities. The scan results are displayed on the [Resource Inventory page](https://help.zscaler.com/dspm/about-resource-inventory).
@@ -7263,7 +7243,7 @@ To configure a scan rule for GCP virtual machines, complete the following steps 
 - 6. Select the scan scope.
 - 7. Review and complete the configuration.
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Rules**tab. If you are configuring the scan rule for the first time, the following page appears: See image.
 3. Click **Add Scan Rule**. See image. The **General Information** page appears.
 4. On the **General Information**page: See image.
@@ -7271,9 +7251,9 @@ To configure a scan rule for GCP virtual machines, complete the following steps 
   2. **Scan Rule Description (Optional)**: Enter a description for the scan rule (maximum is 500 characters).
 5. Click **Next**.
 
-[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button.]
+[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button]
 
-[Image: General Information page to set the scan rule name and an optional description field.]
+[Image: General Information page to set the scan rule name and an optional description field]
 
 1. On the **Select Cloud and Resource Type** page: See image.
   - **Cloud Type**: Select **Google Cloud**.
@@ -7292,14 +7272,14 @@ To configure a scan rule for GCP virtual machines, complete the following steps 
 
 1. On the **Exclusions**page, specify the VMs, folders, or directories that must be excluded from the scan:
   - **Exclude Virtual Machines (Optional)**: Enter the instance IDs separated by commas.
-  - **Exclude Virtual Machines By Labels**: Enable this option and enter the key-value pairs of the VMs that must be excluded from scanning. This option is disabled by default. Click **Add More** to include additional labels.
-  - **Exclude Folders / Directories (Optional)**: Enter the folder or directory paths to be excluded from scanning. You can specify paths in the following formats:
-    - Exact path — Excludes only the specified directory (e.g., `/var/log/`).
-    - Wildcard — Excludes all files and subdirectories within the specified directory (e.g., `/var/log/*`).
-  - **Exclude Operating System Directories Files from Scanning**: Disable this option if you want to scan the OS directories. This option is enabled by default. The following directories are excluded from the scan: See image.
+  - **Exclude Virtual Machines By Labels**: Enable this option and enter the key-value pairs of the VMs that must be excluded from scanning. This option is disabled by default. Click **Add Tag** to include additional labels.
+  - **Exclude Operating System Directories Files from Scanning**: Disable this option if you want to scan the OS directories. This option is enabled by default. The following directories are excluded from the scan:
     - Linux
     - Windows
     - Packages
+  - **Exclude Folders / Directories (Optional)**: Enter the folder or directory paths to be excluded from scanning. You can specify paths in the following formats: See image.
+    - Exact path — Excludes only the specified directory (e.g., `/var/log/`).
+    - Wildcard — Excludes all files and subdirectories within the specified directory (e.g., `/var/log/*`).
 2. Click **Next**.
 
 - `/usr/local/`
@@ -7336,37 +7316,37 @@ To configure a scan rule for GCP virtual machines, complete the following steps 
 1. On the **Scan Scope** page, choose a scan scope from the drop-down menu to set up your scan rule. To learn more about configuring and creating a scan scope, see [Configuring Scan Scope](https://help.zscaler.com/dspm/configuring-scan-scope). See image.
 2. Click **Next**.
 
-[Image: The Scan Scope page with dropdown menu for selecting scan scope.]
+[Image: The Scan Scope page with dropdown menu for selecting scan scope]
 
 1. Review the scan rule. Click the **Edit** icon to change any values, if required. See image.
 2. Click **Finish**.
 
-[Image: The Scan Settings page with an annotation around the Add New button.]
+[Image: The Scan Settings page with an annotation around the Add New button]
 
 [Image: Select Cloud and Resource Type page with Google Cloud, and Virtual Machine tiles selected]
 
-[Image: The Select Resources to Scan page with Scan All Accounts option is selected.]
+[Image: The Select Resources to Scan page with Scan All Accounts option is selected]
 
-[Image: Select Resources to Scan page with Scan Specific Projects option selected and selected few projects to scan.]
+[Image: Select Resources to Scan page with Scan Specific Projects option selected and selected few projects to scan]
 
-[Image: Enable malware scanning option is enabled with the toggle button.]
+[Image: Enable malware scanning option is enabled with the toggle button]
 
-[Image: The Exclude virtual machines, folders, directories screen to exclude resources from scanning.]
+[Image: The Exclude virtual machines, folders, directories screen to exclude resources from scanning]
 
-[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings.]
+[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings]
 
-[Image: The scan settings review page displays the configured scan settings before completing the scan configuration.]
+[Image: The scan settings review page displays the configured scan settings before completing the scan configuration]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-google-cloud-storage","lastmod":"2026-06-23T22:41Z","nid":"1504436"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-google-cloud-storage","lastmod":"2026-09-30T21:49Z","nid":"1504436"} -->
 ## Configuring Scan Rule for Google Cloud Storage
 
 - Source: https://help.zscaler.com/dspm/configuring-scan-rule-google-cloud-storage
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > Scan Rules for GCP > Configuring Scan Rule for Google Cloud Storage
-- Last modified: 2026-06-23T22:41Z
+- Last modified: 2026-09-30T21:49Z
 - Summary: How to configure the scan rule for Google Cloud Storage in the Zscaler Admin Console.
 
 You can configure the scan rule to scan Google Cloud Storage buckets and folders. DSPM scans the resources for any sensitive data. The scan results are displayed on the [Resource Inventory page](https://help.zscaler.com/dspm/about-resource-inventory).
@@ -7383,7 +7363,7 @@ To configure a scan rule for Google Cloud Storage, complete the following steps 
 - 6. Select the scan scope.
 - 7. Review and complete the configuration.
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Rules**tab. If you are configuring the scan rule for the first time, the following page appears: See image.
 3. Click **Add Scan Rule**. See image. The **General Information** page appears.
 4. On the **General Information**page: See image.
@@ -7396,11 +7376,11 @@ To configure a scan rule for Google Cloud Storage, complete the following steps 
   - For **Resource Type**, select **Cloud Storage**.
 2. Click **Next**.
 
-[Image: General Information page to set the scan rule name and an optional description field.]
+[Image: General Information page to set the scan rule name and an optional description field]
 
-[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button.]
+[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button]
 
-[Image: The Scan Settings page with an annotation around the Add New button.]
+[Image: The Scan Settings page with an annotation around the Add New button]
 
 [Image: Select Cloud and Resource Type page with Google Cloud, and Cloud Storage tiles selected]
 
@@ -7414,11 +7394,11 @@ To configure a scan rule for Google Cloud Storage, complete the following steps 
 2. **Enable Malware Scanning**: Enable this option if the resources must be scanned for malware. This option is disabled by default. See image.
 3. Click **Next**.
 
-[Image: The Select Resources to Scan page with Scan All Accounts option is selected.]
+[Image: The Select Resources to Scan page with Scan All Accounts option is selected]
 
-[Image: Select the Resources to Scan page with Scan Specific Projects option selected and selected few projects to scan.]
+[Image: Select the Resources to Scan page with Scan Specific Projects option selected and selected few projects to scan]
 
-[Image: Enable malware scanning option is enabled with the toggle button.]
+[Image: Enable malware scanning option is enabled with the toggle button]
 
 On the **Exclude Cloud Storage Buckets & Prefixes (Optional)** page, you can specify the buckets and prefixes that must be excluded from the scan.
 
@@ -7429,7 +7409,7 @@ If a full scan is already initiated or completed, the bucket or folder is exclud
 3. **Exclude Buckets with Wildcards**: Select the checkbox and enter the wildcard expressions to exclude buckets by name using wildcards. For example, `*logs*` — excludes any bucket name that contains the word `logs`. See image.
 4. Click **Next**.
 
-[Image: The exclusion page for buckets and prefixes page with Exclude buckets and prefixes from the scan option.]
+[Image: The exclusion page for buckets and prefixes page with Exclude buckets and prefixes from the scan option]
 
 1. On the **Scan Type** page, choose one of the following options: DSPM cannot detect files that are deleted in Cloud Storage. See image.
   - **Full Scan**: Scans all objects in the storage buckets and folders.
@@ -7444,28 +7424,28 @@ If a full scan is already initiated or completed, the bucket or folder is exclud
     - **Duration**: Specify the number of days for incremental scanning.
 2. Click **Next**.
 
-[Image: The scan type selection page with the available options.]
+[Image: The scan type selection page with the available options]
 
 1. On the **Scan Scope** page, choose a scan scope from the drop-down menu to set up your scan rule. To learn more about configuring and creating a scan scope, see [Configuring Scan Scope](https://help.zscaler.com/dspm/configuring-scan-scope). See image.
 2. Click **Next**.
 
-[Image: The Scan Scope page with dropdown menu for selecting scan scope.]
+[Image: The Scan Scope page with dropdown menu for selecting scan scope]
 
 1. Review the scan rule. Click the **Edit** icon to change any values, if required. See image.
 2. Click **Finish**.
 
-[Image: The scan settings review page displays the configured scan settings before completing the scan configuration.]
+[Image: The scan settings review page displays the configured scan settings before completing the scan configuration]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-microsoft-foundry","lastmod":"2026-06-25T03:57Z","nid":"1535162"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-microsoft-foundry","lastmod":"2026-09-30T21:56Z","nid":"1535162"} -->
 ## Configuring Scan Rule for Microsoft Foundry
 
 - Source: https://help.zscaler.com/dspm/configuring-scan-rule-microsoft-foundry
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > Scan Rules for Azure > Configuring Scan Rule for Microsoft Foundry
-- Last modified: 2026-06-25T03:57Z
+- Last modified: 2026-09-30T21:56Z
 - Summary: How to configure the scan rule for Microsoft Foundry in the Zscaler Admin Console.
 
 You can configure the scan rule to scan Microsoft Foundry projects. DSPM scans the Microsoft Foundry projects for any sensitive data. The scan results are displayed on the [Resource Inventory](https://help.zscaler.com/dspm/about-resource-inventory) page.
@@ -7484,7 +7464,7 @@ To configure a scan rule for Microsoft Foundry projects, complete the following 
 
 Enable the scan rule on the [Scan Settings](https://help.zscaler.com/dspm/about-scan-settings) page to initiate scheduled or on-demand scans.
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Rules**tab. If you are configuring the scan rule for the first time, the following page appears: See image.
 3. Click **Add Scan Rule**. See image. The **General Information** page appears.
 4. On the **General Information**page: See image.
@@ -7492,9 +7472,9 @@ Enable the scan rule on the [Scan Settings](https://help.zscaler.com/dspm/about-
   2. **Scan Rule Description (Optional)**: Enter a description for the scan rule (maximum is 500 characters).
 5. Click **Next**.
 
-[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button.]
+[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button]
 
-[Image: General Information page to set the scan rule name and an optional description field.]
+[Image: General Information page to set the scan rule name and an optional description field]
 
 1. On the **Select Cloud and Resource Type** page: See image.
   - For **Cloud Type**, select **Azure**.
@@ -7508,7 +7488,7 @@ Enable the scan rule on the [Scan Settings](https://help.zscaler.com/dspm/about-
     - **Select Specific Subscriptions and Regions**: Select the checkbox for specific subscriptions and regions that must be scanned.
     - **Scan Specific Resources**: Specify the Microsoft Foundry projects that must be scanned.
       - **Select from the List**: Select the checkbox for the accounts or subscriptions that must be scanned from the list.
-      - **Select by Tags**: Enter the key-value pairs for the Microsoft Foundry projects that must be scanned. Click **Add More** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM scans all accounts or subscriptions that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and an account or subscription is included, if it matches any of the key-value pairs.
+      - **Select by Tags**: Enter the key-value pairs for the Microsoft Foundry projects that must be scanned. Click **Add Tag** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM scans all accounts or subscriptions that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and an account or subscription is included, if it matches any of the key-value pairs.
 2. Click **Next**.
 
 On the **Exclude Microsoft Foundry projects (Optional)** page, specify the Microsoft Foundry projects that must be excluded from the scan and click **Next**.
@@ -7516,7 +7496,7 @@ On the **Exclude Microsoft Foundry projects (Optional)** page, specify the Micro
 If a full scan is already initiated or completed, the Microsoft Foundry project is excluded in the next incremental scan.
 
 - Enter the list of the Microsoft Foundry projects separated by commas.
-- **Exclude AI Foundry projects By Tags**: Enable this option and enter the key-value pairs of the Microsoft Foundry projects that must be excluded from scanning. Click **Add More** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM excludes Microsoft Foundry projects that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and a Microsoft Foundry project is excluded if it matches any of the key-value pairs.
+- **Exclude AI Foundry projects By Tags**: Enable this option and enter the key-value pairs of the Microsoft Foundry projects that must be excluded from scanning. Click **Add Tag** to add multiple key-value pairs. If multiple key-value pairs are added, DSPM excludes Microsoft Foundry projects that match at least one of the specified key-value pairs. This means the rule uses `OR` logic, and a Microsoft Foundry project is excluded if it matches any of the key-value pairs.
 
 See image.
 
@@ -7530,35 +7510,35 @@ See image.
 1. On the **Scan Scope** page, select a [scan scope](https://help.zscaler.com/dspm/configuring-scan-scope) from the drop-down menu to set up your scan rule. See image.
 2. Click **Next**.
 
-[Image: The Scan Scope page with drop-down menu for selecting scan scope.]
+[Image: The Scan Scope page with drop-down menu for selecting scan scope]
 
 1. Review the scan rule. Click the **Edit** icon to change any values, if required. See image.
 2. Click **Finish**.
 
-[Image: The Scan Settings page with an annotation around the Add New button.]
+[Image: The Scan Settings page with an annotation around the Add New button]
 
-[Image: The Select Resources to Scan page with Scan All Resources option selected.]
+[Image: The Select Resources to Scan page with Scan All Resources option selected]
 
-[Image: The Select Resources to Scan page with Scan Specific Resources option selected.]
+[Image: The Select Resources to Scan page with Scan Specific Resources option selected]
 
-[Image: The scan settings review page displays the configured scan settings before completing the scan configuration.]
+[Image: The scan settings review page displays the configured scan settings before completing the scan configuration]
 
 [Image: Select Cloud and Resource Type page with Azure, AI & Machine Learning, and Microsoft Foundry tiles selected]
 
-[Image: The Exclude Microsoft Foundry Projects page to add Foundry projects that must be excluded from scanning.]
+[Image: The Exclude Microsoft Foundry Projects page to add Foundry projects that must be excluded from scanning]
 
-[Image: The Scan Schedule page to select the scan frequency.]
+[Image: The Scan Schedule page to select the scan frequency]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-premises-file-servers","lastmod":"2026-06-23T00:26Z","nid":"1532033"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-premises-file-servers","lastmod":"2026-09-30T21:36Z","nid":"1532033"} -->
 ## Configuring Scan Rule for On-Premises File Servers
 
 - Source: https://help.zscaler.com/dspm/configuring-scan-rule-premises-file-servers
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > Configuring Scan Rule for On-Premises File Servers
-- Last modified: 2026-06-23T00:26Z
+- Last modified: 2026-09-30T21:36Z
 - Summary: How to configure the scan rule for on-premises file servers in the Zscaler Admin Console.
 
 You can configure the scan rule to scan on-premises file servers. DSPM scans these resources for any sensitive data and vulnerabilities and displays the scan results on the [Resource Inventory page](https://help.zscaler.com/dspm/about-resource-inventory).
@@ -7578,7 +7558,7 @@ To configure a scan rule for on-premises file servers, complete the following st
 - 5. Select the scan scope.
 - 6. Review and complete the configuration.
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Rules**tab. If you are configuring the scan rule for the first time, the following page appears: See image.
 3. Click **Add Scan Rule**. See image. The **General Information** page appears.
 4. On the **General Information**page: See image.
@@ -7613,35 +7593,35 @@ To configure a scan rule for on-premises file servers, complete the following st
 1. On the **Scan Scope** page, choose a scan scope from the drop-down menu. To learn more about configuring and creating a scan scope, see [Configuring Scan Scope](https://help.zscaler.com/dspm/configuring-scan-scope). See image.
 2. Click **Next**.
 
-[Image: The scan type selection page with the available options.]
+[Image: The scan type selection page with the available options]
 
-[Image: The Scan Scope page with dropdown menu for selecting scan scope.]
+[Image: The Scan Scope page with dropdown menu for selecting scan scope]
 
 1. Review the scan settings. Click the **Edit** icon to change any values, if needed. See image.
 2. Click **Finish**.
 
-[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button.]
+[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button]
 
-[Image: The Scan Settings page with an annotation around the Add New button.]
+[Image: The Scan Settings page with an annotation around the Add New button]
 
 [Image: Select Cloud and Resource Type page with On-Premises, File Servers, and File Shares tiles selected]
 
-[Image: The Select Resources to Scan page with selected file server shares.]
+[Image: The Select Resources to Scan page with selected file server shares]
 
-[Image: The scan settings review page displays the configured scan settings before completing the scan configuration.]
+[Image: The scan settings review page displays the configured scan settings before completing the scan configuration]
 
-[Image: General Information page to set the scan rule name and an optional description field.]
+[Image: General Information page to set the scan rule name and an optional description field]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-premises-unmanaged-databases","lastmod":"2026-04-10T21:06Z","nid":"1525996"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-premises-unmanaged-databases","lastmod":"2026-09-30T21:36Z","nid":"1525996"} -->
 ## Configuring Scan Rule for On-Premises Unmanaged Databases
 
 - Source: https://help.zscaler.com/dspm/configuring-scan-rule-premises-unmanaged-databases
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > Configuring Scan Rule for On-Premises Unmanaged Databases
-- Last modified: 2026-04-10T21:06Z
+- Last modified: 2026-09-30T21:36Z
 - Summary: How to configure the scan rule for on-premises unmanaged databases in the Zscaler Admin Console.
 
 You can configure the scan rule to scan on-premises unmanaged databases. DSPM scans the databases for any sensitive data and vulnerabilities and displays the scan results on the [Resource Inventory page](https://help.zscaler.com/dspm/about-resource-inventory).
@@ -7662,7 +7642,7 @@ To configure a scan rule for on-premises unmanaged databases, complete the follo
 - 6. Select the scan scope.
 - 7. Review and complete the configuration.
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Rules**tab. If you are configuring the scan rule for the first time, the following page appears: See image.
 3. Click **Add Scan Rule**. See image. The **General Information** page appears.
 4. On the **General Information** page: See image.
@@ -7670,7 +7650,7 @@ To configure a scan rule for on-premises unmanaged databases, complete the follo
   2. **Scan Rule Description (Optional)**: Enter a description of the scan rule (maximum 500 characters).
 5. Click **Next**.
 
-[Image: General Information page to set the scan rule name and an optional description field.]
+[Image: General Information page to set the scan rule name and an optional description field]
 
 1. On the **Select Cloud and Resource Type** page: See image.
   - **Cloud Type**: Select **On-Premises**.
@@ -7697,35 +7677,35 @@ To configure a scan rule for on-premises unmanaged databases, complete the follo
 1. On the **Scan Scope** page, choose a scan scope from the drop-down menu to set up your scan settings. To learn more about configuring and creating a scan scope, see [Configuring Scan Scope](https://help.zscaler.com/dspm/configuring-scan-scope). See image.
 2. Click **Next**.
 
-[Image: The scan type selection page with Data Sampling option selected.]
+[Image: The scan type selection page with Data Sampling option selected]
 
-[Image: The Scan Scope page with dropdown menu for selecting scan scope.]
+[Image: The Scan Scope page with dropdown menu for selecting scan scope]
 
 1. Review the scan settings. Click the **Edit** icon to change any values, if needed. See image.
 2. Click **Finish**.
 
-[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button.]
+[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button]
 
-[Image: The Scan Settings page with an annotation around the Add New button.]
+[Image: The Scan Settings page with an annotation around the Add New button]
 
 [Image: Select Cloud and Resource Type page with On-Premises, Database, and Unmanaged Database tiles selected]
 
-[Image: The Select Resources to Scan page with selected unmanaged database servers.]
+[Image: The Select Resources to Scan page with selected unmanaged database servers]
 
-[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings.]
+[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings]
 
-[Image: The scan settings review page displays the configured scan settings before completing the scan configuration.]
+[Image: The scan settings review page displays the configured scan settings before completing the scan configuration]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-snowflake-databases","lastmod":"2026-04-13T21:06Z","nid":"1529992"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-rule-snowflake-databases","lastmod":"2026-09-30T21:36Z","nid":"1529992"} -->
 ## Configuring Scan Rule for Snowflake Databases
 
 - Source: https://help.zscaler.com/dspm/configuring-scan-rule-snowflake-databases
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > Configuring Scan Rule for Snowflake Databases
-- Last modified: 2026-04-13T21:06Z
+- Last modified: 2026-09-30T21:36Z
 - Summary: How to configure the scan rule for Snowflake databases in the Zscaler Admin Console.
 
 You can configure the scan rule to scan Snowflake databases. DSPM scans the databases for any sensitive data and vulnerabilities and displays the scan results on the [Resource Inventory page](https://help.zscaler.com/dspm/about-resource-inventory).
@@ -7746,7 +7726,7 @@ To configure a scan rule for Snowflake databases, complete the following steps i
 - 6. Select the scan scope.
 - 7. Review and complete the configuration.
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Rules**tab. If you are configuring the scan rule for the first time, the following page appears: See image.
 3. Click **Add Scan Rule**. See image. The **General Information** page appears.
 4. On the **General Information**page: See image.
@@ -7777,48 +7757,48 @@ To configure a scan rule for Snowflake databases, complete the following steps i
 1. On the **Scan Scope** page, choose a scan scope from the drop-down menu. To learn more about configuring and creating a scan scope, see [Configuring Scan Scope](https://help.zscaler.com/dspm/configuring-scan-scope). See image.
 2. Click **Next**.
 
-[Image: The scan type selection page with Data Sampling Scan option selected.]
+[Image: The scan type selection page with Data Sampling Scan option selected]
 
-[Image: The Scan Scope page with dropdown menu for selecting scan scope.]
+[Image: The Scan Scope page with dropdown menu for selecting scan scope]
 
 1. Review the scan rule. Click the **Edit** icon to change any values, if needed. See image.
 2. Click **Finish**.
 
-[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button.]
+[Image: The initial scan rule configuration page with no scan rule configured and + Add Scan Rule button]
 
-[Image: The Scan Settings page with an annotation around the Add New button.]
+[Image: The Scan Settings page with an annotation around the Add New button]
 
 [Image: Select Cloud and Resource Type page with Snowflake and Database tiles selected]
 
-[Image: The Select Resources to Scan page with few specific resources are selected to scan.]
+[Image: The Select Resources to Scan page with few specific resources are selected to scan]
 
-[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings.]
+[Image: The scan schedule page with options for daily, weekly, and monthly scan frequency settings]
 
-[Image: The scan settings review page displays the configured scan settings before completing the scan configuration.]
+[Image: The scan settings review page displays the configured scan settings before completing the scan configuration]
 
-[Image: General Information page to set the scan rule name and an optional description field.]
+[Image: General Information page to set the scan rule name and an optional description field]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-scope","lastmod":"2026-06-26T08:07Z","nid":"1509661"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/configuring-scan-scope","lastmod":"2026-09-30T22:43Z","nid":"1509661"} -->
 ## Configuring Scan Scope
 
 - Source: https://help.zscaler.com/dspm/configuring-scan-scope
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > Managing Scan Scope > Configuring Scan Scope
-- Last modified: 2026-06-26T08:07Z
-- Summary: Information on how to configure the scan scope for NoSQL Datastores in Zscaler Admin Console.
+- Last modified: 2026-09-30T22:43Z
+- Summary: Information on how to configure the scan scope for NoSQL Datastores in the Zscaler Admin Console.
 
 Scan scope allows you to select specific DLP engines that must be used to detect and classify sensitive data in specific file types. Optical Character Recognition (OCR) is used to scan and identify sensitive data in image files and also images embedded within files. DSPM uses only the specified DLP engines to scan the resources for sensitive data.
 
 ## Creating Scan Scope
 
-To create a new scan scope, complete the following steps in the Zscaler Admin Console:
+To create a new scan scope:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Scope** tab.
-3. On the [Scan Scope](https://help.zscaler.com/dspm/about-scan-settings#scan_scope) page, click **Create Scan Scope**. See image.
+3. On the [Scan Scope](https://help.zscaler.com/dspm/about-scan-settings#scan_scope) page, click **Add Scan Scope**. See image.
 4. On the **General Information** page: See image.
   - **Engine Scope Name**: Enter a descriptive name for your scan scope.
   - **Engine Scope Description**: Provide a detailed explanation of what the scan scope covers.
@@ -7834,7 +7814,7 @@ To create a new scan scope, complete the following steps in the Zscaler Admin Co
 
 After creating a scan scope, you can apply the scan scope while configuring a scan rule. To learn more, see [About Scan Settings](https://help.zscaler.com/dspm/about-scan-settings).
 
-[Image: Create Scan Scope]
+[Image: Add Scan Scope]
 
 [Image: Scan Scope General Information]
 
@@ -7845,13 +7825,13 @@ After creating a scan scope, you can apply the scan scope while configuring a sc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/configuring-sql-authentication-unmanaged-databases","lastmod":"2026-06-22T02:10Z","nid":"1519401"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/configuring-sql-authentication-unmanaged-databases","lastmod":"2026-09-24T01:36Z","nid":"1519401"} -->
 ## Configuring Server Role for Unmanaged Databases
 
 - Source: https://help.zscaler.com/dspm/configuring-sql-authentication-unmanaged-databases
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Service Registration > Unmanaged Databases > Configuring Server Role for Unmanaged Databases
-- Last modified: 2026-06-22T02:10Z
+- Last modified: 2026-09-24T01:36Z
 - Summary: The process of creating a custom server reader role and granting access to users to read data from the unmanaged databases.
 
 To add an [unmanaged database](https://help.zscaler.com/dspm/about-unmanaged-database) to DSPM using any authentication type, you need to create a custom server role with the necessary permissions to access the database.
@@ -7879,7 +7859,53 @@ To configure a server role for an unmanaged PostgreSQL database:
 2. Open pgAdmin and connect to your server. To learn more, refer to the [pgAdmin documentation](https://www.pgadmin.org/docs/pgadmin4/9.1/connecting.html).
 3. Run the following query in the [pgAdmin query tool](https://www.pgadmin.org/docs/pgadmin4/9.1/query_tool.html) to grant the `select` permission: `GRANT SELECT ON ALL TABLES IN SCHEMA public TO <USERNAME>;`Replace `<USERNAME>` with the PostgreSQL username.
 
-After running this query, the custom role has read-only access to all databases, allowing DSPM to scan the unmanaged PostgreSQL databases.
+After running this query, the assigned role or user account has read-only access to all tables in the `public` schema, allowing DSPM to scan the unmanaged PostgreSQL database.
+
+## Configuring Server Role for Unmanaged MongoDB Database
+
+To configure a read-only user for an unmanaged MongoDB database so that DSPM can scan your instances for sensitive data and configuration risks, you must create a dedicated database user with the following built-in roles:
+
+- **readAnyDatabase**: Grants the scanner read-only access to all databases, excluding the `local` and `config` databases. This role is necessary for the DLP engine to inspect data for sensitive information.
+- **clusterMonitor**: Provides read-only access to monitoring and cluster-level metadata, which allows DSPM to identify the database version, cluster state, and security configurations.
+
+These roles must be assigned within the `admin` database to ensure cross-database visibility.
+
+To create a read-only user:
+
+1. Connect to your MongoDB deployment using `mongosh` (MongoDB Shell) or MongoDB Compass as an administrative user with the `userAdmin` or `userAdminAnyDatabase` role.
+2. Switch to the administrative `admin` database: `use admin`
+3. Run the following command to create a dedicated user assigned the built-in `readAnyDatabase` and `clusterMonitor` roles: `db.createUser({ user: "<USERNAME>", pwd: "<PASSWORD>", roles: [ { role: "readAnyDatabase", db: "admin" }, { role: "clusterMonitor", db: "admin" } ] })`Replace `<USERNAME>` and `<PASSWORD>` with your preferred credentials.
+
+After creating the user, the new user has read-only permissions to inspect collections, documents, and indexes across all non-system databases. It also provides the necessary access to monitor system status and cluster configurations, allowing DSPM to scan the unmanaged MongoDB databases.
+
+## Configuring Server Role for Unmanaged Oracle Database
+
+To configure a read-only role for an unmanaged Oracle database (on-premises, AWS EC2, or Azure VM):
+
+- 1. Meet the prerequisites and network configuration.
+- 2. Configure the user permissions in Oracle.
+
+After executing these commands, the `C##READ_USER` account has read-only access to all containers in the Oracle CDB instance, allowing DSPM to scan the unmanaged Oracle database.
+
+After configuring the server role for your unmanaged database, go to the [Service Registration](https://help.zscaler.com/dspm/about-service-registration) page to register the service and configure its scanning.
+
+1. Ensure that Oracle Database is installed and running on the target virtual machine.
+2. Ensure that an inbound firewall rule is configured on your cloud security group or local firewall of your virtual machine to open the necessary port. The default port is `1521`, though your Oracle instance might be configured to use a different, custom port.
+3. Verify that the Oracle listener is running and bound to accept remote connections:
+  - **Linux**: Run `lsnrctl start` as the `oracle` user.
+  - **Windows**: Update the `listener.ora` file (located in `%ORACLE_HOME%\network\admin`) to ensure the host is bound to `0.0.0.0` or your VM hostname to allow remote connections.
+
+1. Connect to your Oracle database instance as an administrative user with `sysdba` privileges using `sqlplus`: Replace `<PASSWORD>` with your system password, `<DATABASE_NAME>` with your Oracle database instance name, and `<PORT>` with the listener port configured for your Oracle instance (default: `1521`).
+  - Azure (Linux): `sqlplus sys/<PASSWORD>@localhost/<DATABASE_NAME> as sysdba`
+  - AWS (Windows): `sqlplus sys/<PASSWORD>@localhost:<PORT>/<DATABASE_NAME> as sysdba`
+2. Run the following SQL queries to create the DSPM scanning user and grant the required read-only permissions: The `C##` prefix and `CONTAINER=ALL` clause are required for common users in an Oracle Container Database (CDB).
+  1. Create a common read-only user for DSPM: `CREATE USER C##READ_USER IDENTIFIED BY <PASSWORD> CONTAINER=ALL;`Replace `<PASSWORD>` with a secure password for the new user.
+  2. Grant session and connection privileges: `GRANT CONNECT TO C##READ_USER CONTAINER=ALL; GRANT CREATE SESSION TO C##READ_USER CONTAINER=ALL;`
+  3. Grant catalog and object-level read permissions: `GRANT SELECT_CATALOG_ROLE TO C##READ_USER CONTAINER=ALL; GRANT SELECT ANY TABLE TO C##READ_USER CONTAINER=ALL; GRANT SELECT ANY SEQUENCE TO C##READ_USER CONTAINER=ALL; GRANT SELECT ANY DICTIONARY TO C##READ_USER CONTAINER=ALL;`
+3. Set container data scope to access all PDBs: `ALTER USER C##READ_USER SET CONTAINER_DATA=ALL CONTAINER=CURRENT;`
+4. Verify the connection by logging in as the newly created user: Replace `<PASSWORD>` with the password set in the previous step, `<DATABASE_NAME>` with the name of the Oracle database or service, and `<PORT>` with the listener port configured for your Oracle instance (default: `1521`).
+  - Azure (Linux): `sqlplus C##READ_USER/<PASSWORD>@localhost/<DATABASE_NAME> as sysdba`
+  - AWS (Windows): `sqlplus C##READ_USER/<PASSWORD>@localhost:<PORT>/<DATABASE_NAME> as sysdba`
 
 Creates a server role named `ReadOnlyServerRole` in the master database.
 
@@ -8004,13 +8030,13 @@ GO
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/configuring-workspace","lastmod":"2026-08-12T22:33Z","nid":"1542761"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/configuring-workspace","lastmod":"2026-09-20T21:29Z","nid":"1542761"} -->
 ## Configuring the Workspace
 
 - Source: https://help.zscaler.com/dspm/configuring-workspace
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Service Registration > Databricks > Configuring the Workspace
-- Last modified: 2026-08-12T22:33Z
+- Last modified: 2026-09-20T21:29Z
 - Summary: Information on how to configure the Databricks workspace in the Zscaler Admin Console.
 
 After [adding the Databricks workspace](https://help.zscaler.com/dspm/adding-databricks-workspace-or-account) in the Zscaler Admin Console, and obtaining the permission script, run the script to complete the integration:
@@ -8136,13 +8162,13 @@ A new job appears in the workspace jobs list.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/creating-custom-policies","lastmod":"2026-04-22T21:06Z","nid":"1477756"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/creating-custom-policies","lastmod":"2026-10-01T10:15Z","nid":"1477756"} -->
 ## Creating Custom Policies
 
 - Source: https://help.zscaler.com/dspm/creating-custom-policies
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Data Posture Policies > Creating Custom Policies
-- Last modified: 2026-04-22T21:06Z
+- Last modified: 2026-10-01T10:15Z
 - Summary: How to create a custom policy in the Zscaler Admin Console.
 
 [Watch a video about Data Posture Policies](https://fast.wistia.net/embed/iframe/pwx62y9unc) (shows legacy UI).
@@ -8156,7 +8182,7 @@ You can do the following:
 
 To create a custom security policy:
 
-1. Go to **Policies**>**Data Protection**>**Policy**> **Data Posture Policies**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**>**DSPM**> **Data Posture Policies**.
 2. On the **Policy** page, click **Add Policy**. See image. The **Create Policy** page appears.
 3. On the **Create Policy**page, for **Select Cloud Provider**,select the cloud type.
 4. For **Primary Resource Type**, select the required resource (EC2 instance, RDS instance, etc.).
@@ -8225,10 +8251,10 @@ Use the relationship predicates to identify the secondary resources that are ass
 | Has Access to | The secondary resources that can access the primary resource. You can select multiple resource types. |  |  |
 | Associated with | The relationship between this resource and another associated resource. You can select multiple resource types. |  |  |
 | Has Password | Whether the resource is password protected or not. |  |  |
-| Can be accessed by | IAM entities can be a service, user, or a role that can access the primary resource. | You can use the following additional predicates and operators, allowing you to build the query with more granularity: Entity ID: Enter the entity ID.; Account: Select the account that is associated with the entity.; Region: Select the region where the account is located.; Tags: Select the tags associated with the entity.; Action over Parent Resource: Define the actions that the accessing resource can apply to the parent resource.; Access Level over Parent Resource: Define the access level (Full Access, Edit, Read) that the accessing resource can apply to the parent resource.; Has Access To: Relationship to another resource that can be accessed by the current resource.; Via Role: The entity accesses the primary resource via a role that is assigned to another entity.The following additional predicates are available only for GCP resources: Has Service Account Keys: The service account keys associated with the resource. The following sub-predicates are available:Expiry: The date when the service account key expires.; Created On: The date when the service account key was created.; Type: Classification of key types, whether they are user-managed or system-managed.This predicate is not available for the unmanaged Azure Microsoft SQL server and unmanaged Azure PostgreSQL server. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In |
-| Has Entitlement | Relationship to all entitlements granted to the resource. | When you select this predicate, the following additional conditions are available: Access Level: Check the access level (Full Access, Read, Edit) of the entity.; Allowed Action: Define the action that the entitlement permits.; Over Resource: The primary resource has entitlement over another resource. | This predicate is shown only for the following resource types: **AWS** EC2 Instance; Lambda Function; IAM User; IAM External User; IAM Unmanaged User; Organizations Account; External Account; IAM Role; IAM External Role; IAM Federated User**Azure** Virtual Machine; Azure App Service; User; Service Principals; Applications (App Registrations); Managed Identities (User Assigned or System Assigned); IAM Roles**GCP** Virtual Machine; App Engine; Users; Service Accounts; IAM Roles |
+| Can be accessed by | IAM entities can be a service, user, or a role that can access the primary resource. | You can use the following additional predicates and operators to build the query with more granularity: Entity ID: Enter the entity ID.; Account: Select the account that is associated with the entity.; Region: Select the region where the account is located.; Tags: Select the tags associated with the entity.; Action over Parent Resource: Define the actions that the accessing resource can apply to the parent resource.; Access Level over Parent Resource: Define the access level (Full Access, Edit, Read) that the accessing resource can apply to the parent resource.; Has Access To: Relationship to another resource that can be accessed by the current resource.; Via Role: The entity accesses the primary resource via a role that is assigned to another entity.For GCP resources: Has Service Account Keys: The service account keys associated with the resource. Subpredicates: Expiry: The date when the service account key expires.; Created On: The date when the service account key was created.; Type: Classification of key types, whether they are user-managed or system-managed.This predicate is not available for the unmanaged Azure Microsoft SQL server and unmanaged Azure PostgreSQL server. For Azure resources: Resource Type: The type of resource that can access the primary resource (e.g., Azure Virtual Machine); Service Principal Type:Internal Application; Third-Party Application; Microsoft Application; System-Assigned Managed Identity; User-Assigned Managed Identity; AI Agent Identity | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In |
+| Has Entitlement | Relationship to all entitlements granted to the resource. | Access Level: Check the access level (Full Access, Read, Edit) of the entity.; Allowed Action: Define the action that the entitlement permits.; Over Resource: The primary resource has entitlement over another resource. | This predicate is shown only for the following resource types: **AWS** EC2 Instance; Lambda Function; IAM User; IAM External User; IAM Unmanaged User; Organizations Account; External Account; IAM Role; IAM External Role; IAM Federated User**Azure** Virtual Machine; Azure App Service; User; Service Principals; Applications (App Registrations); Managed Identities (User Assigned or System Assigned); IAM Roles**GCP** Virtual Machine; App Engine; Users; Service Accounts; IAM Roles |
 | Has Access Keys | Whether the resource has access keys and whether it is rotated or not. |  |  |
-| Has Malware | Whether the resource contains malware. Malware is detected in AWS S3 buckets, Azure virtual machines and storage accounts, and GCP storage buckets. | When you select this predicate, the following predicates are available: Is Malware: Check if the resource contains malware.; Malware Category: Check if the resource contains malware of a [specific category](https://threatlibrary.zscaler.com/).; Malware Name: Check if the resource contains malware with a specific name.; Detection Accuracy Level: Check the accuracy level to determine if this is malware. | = : Is; ⊆ : Included In; (%) : Like |
+| Has Malware | Whether the resource contains malware. Malware is detected in AWS S3 buckets, Azure virtual machines and storage accounts, and GCP storage buckets. | Is Malware: Check if the resource contains malware.; Malware Category: Check if the resource contains malware of a [specific category](https://threatlibrary.zscaler.com/).; Malware Name: Check if the resource contains malware with a specific name.; Detection Accuracy Level: Check the accuracy level to determine if this is malware. | = : Is; ⊆ : Included In; (%) : Like |
 | Has Models | Whether the AI deployment instance or resource contains the AI model or not. This predicate is available only for AI-related resource types, such as AWS Bedrock, Azure AI Foundry, and vertex AI resources. | Model Name: Search for specific models either in AI deployment instances or resources.; LLM Safety Risk: Check the severity of the risk (i.e., CRITICAL, HIGH, MEDIUM, LOW) assigned to the AI model.; LLM Risk Score: Check the risk score calculated for the AI model.; Model Origin: Search for the organization that developed the AI model.; Model Country: Search for the country where the organization that developed the AI model is located.; Model Status: Check the approval state of the AI model. The following sub-predicates are available:Sanctioned: The AI model is approved for use.; Unsanctioned: The AI model is not approved for use.; Pending: The AI model is under review awaiting approval.; LLM Risk Assessment Results: Check the risks associated with the LLM deployment. | = : Is; ≠ : Is not; ⊆ : Included In; ⊈ : Not Included In; (%) : Like; !(%) : Not Like |
 | Has AI Package | Whether the resource contains AI/ML package or not. | Package Name: Search for the name of the AI package.; Package Publisher URL: Search for link to the package homepage where the package is published.; Package Type: Search for the type of AI package.; Package Language: Search for the language of the AI package.; Package Version: Search for the version of the AI package.; Package Has Vulnerability: Check for vulnerability in the AI package.; Package Status: Check for the approval status of the AI package. The following sub-predicates are available:Sanctioned: The AI package is approved for use.; Unsanctioned: The AI package is not approved for use.; Pending: The AI package is under review awaiting approval.; Package Last Updated: Check the date and time the AI package was last modified.; Package License Type: Check the software license terms (e.g., MIT, Apache-2.0) governing the AI package.; Package Access Type: Check the access level (e.g., public) of the AI package.; Package Supply Chain Risk Level: Check the severity of the risk (i.e., CRITICAL, HIGH, MEDIUM, LOW) assigned to the AI package.; Package Risk Score: Check the risk score calculated for the AI package.; Package Risk Assessment Results: Check the risks associated with deploying the AI package. | < Less than; > More than; = : Is; (%) : Like; i% : iLike |
 | Has AI Model | Whether the resource contains the AI model or not. | Model Name: Search for the name of the AI model.; Model Publisher URL: Search for a link to the homepage where the AI model is published.; Model Platform: Search for the AI model platform (e.g., Ollama, Hugging Face); Model Path: Search for the file system path where the AI model is detected.; Multi-Modal: Returns true if the AI model is multi-modal and returns false if not.; Model Country: Search for the country where the organization that developed the AI model is located.; Model Vendor: Search for the AI model vendor (e.g., Google, Meta).; Number of Downloads: Check the number of times the model was downloaded.; Model Status: Check the approval status of the AI model. The following sub-predicates are available:Sanctioned: The AI model is approved for use.; Unsanctioned: The AI model is not approved for use.; Pending: The AI model is under review awaiting approval.; Model Last Updated: Check the date and time the AI model was last modified.; Open Source ML Risk Score: Check the risk score calculated for the AI model.; Open Source ML Risk Severity: Check the severity of the risk (i.e., CRITICAL, HIGH, MEDIUM, LOW) assigned to the AI model.; Risk Factors Properties: Check the risks associated with deploying the AI model. | = : Is; ≠ : Is not; ⊆ : Included In; ⊈ : Not Included In; (%) : Like; !(%) : Not Like |
@@ -8306,13 +8332,13 @@ The Has Data predicate can be used to check if the resource contains sensitive d
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/creating-new-investigation","lastmod":"2026-04-24T21:06Z","nid":"1477771"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/creating-new-investigation","lastmod":"2026-10-01T16:38Z","nid":"1477771"} -->
 ## Creating a New Investigation
 
 - Source: https://help.zscaler.com/dspm/creating-new-investigation
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Investigation > Creating a New Investigation
-- Last modified: 2026-04-24T21:06Z
+- Last modified: 2026-10-01T16:38Z
 - Summary: How to create a new investigation in the Zscaler Admin Console.
 
 [Watch a video on Investigation with DSPM](https://fast.wistia.net/embed/iframe/my630v87t6) (shows legacy UI).
@@ -8321,16 +8347,16 @@ You can choose to investigate a resource when required. For example, you might w
 
 To create a new investigation:
 
-1. Go to **Logs**>**Insights**>**Investigation**.
-2. On the **Investigation** page, click **New Investigation**. See image.
-3. On the**New Investigation** page, select the cloud type (AWS, Azure, or GCP).
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**>**DSPM**>**Investigation**.
+2. On the **Investigation** page, click **Add Investigation**. See image. The **New Investigation** page appears.
+3. On the**New Investigation** page, select the cloud type (e.g., AWS).
 4. Build the investigation query by adding the required predicates.
   - View the list of predicates and operators
 5. Click **Run Query** to see the results. See image.
   - Click the **Resource Name** to view additional details in the drawer. See image.
   - Click **Save as Policy** if you want to convert this query into a custom policy. You are directed to the **Create Policy** page. Add additional predicates, as required, and save the policy. To learn more, see [Creating Custom Policies](https://help.zscaler.com/dspm/creating-custom-policies). See image.
   - Click **Export** to export the data and [download the report](https://help.zscaler.com/dspm/about-reports) as an Excel file. See image.
-6. Click **Save Investigation**.
+6. Click **Save Investigation**. The **Save Investigation** window appears.
 7. In the **Save Investigation** window, enter a name for the investigation. See image.
 8. Click **Save**. The investigation is displayed on the **Saved** tab. See image.
 
@@ -8381,10 +8407,10 @@ Use the relationship predicates to identify the secondary resources that are ass
 | Has Access to | The secondary resources that can access the primary resource. You can select multiple resource types. |  |  |
 | Associated with | The relationship between this resource and another associated resource. You can select multiple resource types. |  |  |
 | Has Password | Whether the resource is password protected or not. |  |  |
-| Can be accessed by | IAM entities can be a service, user, or a role that can access the primary resource. | You can use the following additional predicates and operators, allowing you to build the query with more granularity: Entity ID: Enter the entity ID.; Account: Select the account that is associated with the entity.; Region: Select the region where the account is located.; Tags: Select the tags associated with the entity.; Action over Parent Resource: Define the actions that the accessing resource can apply to the parent resource.; Access Level over Parent Resource: Define the access level (Full Access, Edit, Read) that the accessing resource can apply to the parent resource.; Has Access To: Relationship to another resource that can be accessed by the current resource.; Via Role: The entity accesses the primary resource via a role that is assigned to another entity.The following additional predicates are available only for GCP resources: Has Service Account Keys: The service account keys associated with the resource. The following sub-predicates are available:Expiry: The date when the service account key expires.; Created On: The date when the service account key was created.; Type: Classification of key types, whether they are user-managed or system-managed.This predicate is not available for the unmanaged Azure Microsoft SQL server and unmanaged Azure PostgreSQL server. | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In |
-| Has Entitlement | Relationship to all entitlements granted to the resource. | When you select this predicate, the following additional conditions are available: Access Level: Check the access level (Full Access, Read, Edit) of the entity.; Allowed Action: Define the action that the entitlement permits.; Over Resource: The primary resource has entitlement over another resource. | This predicate is shown only for the following resource types: **AWS** EC2 Instance; Lambda Function; IAM User; IAM External User; IAM Unmanaged User; Organizations Account; External Account; IAM Role; IAM External Role; IAM Federated User**Azure** Virtual Machine; Azure App Service; User; Service Principals; Applications (App Registrations); Managed Identities (User Assigned or System Assigned); IAM Roles**GCP** Virtual Machine; App Engine; Users; Service Accounts; IAM Roles |
+| Can be accessed by | IAM entities can be a service, user, or a role that can access the primary resource. | You can use the following additional predicates and operators to build the query with more granularity: Entity ID: Enter the entity ID.; Account: Select the account that is associated with the entity.; Region: Select the region where the account is located.; Tags: Select the tags associated with the entity.; Action over Parent Resource: Define the actions that the accessing resource can apply to the parent resource.; Access Level over Parent Resource: Define the access level (Full Access, Edit, Read) that the accessing resource can apply to the parent resource.; Has Access To: Relationship to another resource that can be accessed by the current resource.; Via Role: The entity accesses the primary resource via a role that is assigned to another entity.For GCP resources: Has Service Account Keys: The service account keys associated with the resource. Subpredicates: Expiry: The date when the service account key expires.; Created On: The date when the service account key was created.; Type: Classification of key types, whether they are user-managed or system-managed.This predicate is not available for the unmanaged Azure Microsoft SQL server and unmanaged Azure PostgreSQL server. For Azure resources: Resource Type: The type of resource that can access the primary resource (e.g., Azure Virtual Machine); Service Principal Type:Internal Application; Third-Party Application; Microsoft Application; System-Assigned Managed Identity; User-Assigned Managed Identity; AI Agent Identity | **=** : Is; **≠** : Is not; **⊆** : Included In; **⊈** : Not Included In |
+| Has Entitlement | Relationship to all entitlements granted to the resource. | Access Level: Check the access level (Full Access, Read, Edit) of the entity.; Allowed Action: Define the action that the entitlement permits.; Over Resource: The primary resource has entitlement over another resource. | This predicate is shown only for the following resource types: **AWS** EC2 Instance; Lambda Function; IAM User; IAM External User; IAM Unmanaged User; Organizations Account; External Account; IAM Role; IAM External Role; IAM Federated User**Azure** Virtual Machine; Azure App Service; User; Service Principals; Applications (App Registrations); Managed Identities (User Assigned or System Assigned); IAM Roles**GCP** Virtual Machine; App Engine; Users; Service Accounts; IAM Roles |
 | Has Access Keys | Whether the resource has access keys and whether it is rotated or not. |  |  |
-| Has Malware | Whether the resource contains malware. Malware is detected in AWS S3 buckets, Azure virtual machines and storage accounts, and GCP storage buckets. | When you select this predicate, the following predicates are available: Is Malware: Check if the resource contains malware.; Malware Category: Check if the resource contains malware of a [specific category](https://threatlibrary.zscaler.com/).; Malware Name: Check if the resource contains malware with a specific name.; Detection Accuracy Level: Check the accuracy level to determine if this is malware. | = : Is; ⊆ : Included In; (%) : Like |
+| Has Malware | Whether the resource contains malware. Malware is detected in AWS S3 buckets, Azure virtual machines and storage accounts, and GCP storage buckets. | Is Malware: Check if the resource contains malware.; Malware Category: Check if the resource contains malware of a [specific category](https://threatlibrary.zscaler.com/).; Malware Name: Check if the resource contains malware with a specific name.; Detection Accuracy Level: Check the accuracy level to determine if this is malware. | = : Is; ⊆ : Included In; (%) : Like |
 | Has Models | Whether the AI deployment instance or resource contains the AI model or not. This predicate is available only for AI-related resource types, such as AWS Bedrock, Azure AI Foundry, and vertex AI resources. | Model Name: Search for specific models either in AI deployment instances or resources.; LLM Safety Risk: Check the severity of the risk (i.e., CRITICAL, HIGH, MEDIUM, LOW) assigned to the AI model.; LLM Risk Score: Check the risk score calculated for the AI model.; Model Origin: Search for the organization that developed the AI model.; Model Country: Search for the country where the organization that developed the AI model is located.; Model Status: Check the approval state of the AI model. The following sub-predicates are available:Sanctioned: The AI model is approved for use.; Unsanctioned: The AI model is not approved for use.; Pending: The AI model is under review awaiting approval.; LLM Risk Assessment Results: Check the risks associated with the LLM deployment. | = : Is; ≠ : Is not; ⊆ : Included In; ⊈ : Not Included In; (%) : Like; !(%) : Not Like |
 | Has AI Package | Whether the resource contains AI/ML package or not. | Package Name: Search for the name of the AI package.; Package Publisher URL: Search for link to the package homepage where the package is published.; Package Type: Search for the type of AI package.; Package Language: Search for the language of the AI package.; Package Version: Search for the version of the AI package.; Package Has Vulnerability: Check for vulnerability in the AI package.; Package Status: Check for the approval status of the AI package. The following sub-predicates are available:Sanctioned: The AI package is approved for use.; Unsanctioned: The AI package is not approved for use.; Pending: The AI package is under review awaiting approval.; Package Last Updated: Check the date and time the AI package was last modified.; Package License Type: Check the software license terms (e.g., MIT, Apache-2.0) governing the AI package.; Package Access Type: Check the access level (e.g., public) of the AI package.; Package Supply Chain Risk Level: Check the severity of the risk (i.e., CRITICAL, HIGH, MEDIUM, LOW) assigned to the AI package.; Package Risk Score: Check the risk score calculated for the AI package.; Package Risk Assessment Results: Check the risks associated with deploying the AI package. | < Less than; > More than; = : Is; (%) : Like; i% : iLike |
 | Has AI Model | Whether the resource contains the AI model or not. | Model Name: Search for the name of the AI model.; Model Publisher URL: Search for a link to the homepage where the AI model is published.; Model Platform: Search for the AI model platform (e.g., Ollama, Hugging Face); Model Path: Search for the file system path where the AI model is detected.; Multi-Modal: Returns true if the AI model is multi-modal and returns false if not.; Model Country: Search for the country where the organization that developed the AI model is located.; Model Vendor: Search for the AI model vendor (e.g., Google, Meta).; Number of Downloads: Check the number of times the model was downloaded.; Model Status: Check the approval status of the AI model. The following sub-predicates are available:Sanctioned: The AI model is approved for use.; Unsanctioned: The AI model is not approved for use.; Pending: The AI model is under review awaiting approval.; Model Last Updated: Check the date and time the AI model was last modified.; Open Source ML Risk Score: Check the risk score calculated for the AI model.; Open Source ML Risk Severity: Check the severity of the risk (i.e., CRITICAL, HIGH, MEDIUM, LOW) assigned to the AI model.; Risk Factors Properties: Check the risks associated with deploying the AI model. | = : Is; ≠ : Is not; ⊆ : Included In; ⊈ : Not Included In; (%) : Like; !(%) : Not Like |
@@ -8466,13 +8492,13 @@ The Has Data predicate can be used to check if the resource contains sensitive d
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/customizing-page-settings","lastmod":"2026-08-09T23:28Z","nid":"1542085"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/customizing-page-settings","lastmod":"2026-09-29T17:13Z","nid":"1542085"} -->
 ## Customizing Page Settings
 
 - Source: https://help.zscaler.com/dspm/customizing-page-settings
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Data & Identity Inventory > Customizing Page Settings
-- Last modified: 2026-08-09T23:28Z
+- Last modified: 2026-09-29T17:13Z
 - Summary: How to customize the page views in DSPM.
 
 You can customize page settings on the Resource Inventory, Data Inventory, Data Duplications, and Alerts pages to focus on the specific information you want to see. You can apply filters, show or hide the required columns and save this page setting for future use. This allows you to return to the same customized page view without having to reapply the settings each time you visit the page.
@@ -8483,9 +8509,9 @@ You can save multiple page views with unique names. You can also update an exist
 
 To customize and save a page setting:
 
-1. Go to **Analytics** > **Data Security** > **DSPM** > **Data Inventory**. The Data Inventory page is used in this procedure. You can also customize the page settings on the Resource Inventory, Data Duplications, and Alerts pages.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Data Inventory**. The Data Inventory page is used in this procedure. You can also customize the page settings on the Resource Inventory, Data Duplications, and Alerts pages.
 2. Apply the filters, show or hide the columns, and sort the data on the page as required.
-3. Click **Default View** in the top-right corner and select **Save as New View**. See image.
+3. Click **Default View** in the top-right corner and select **Save as New View**. See image. The **Save View** window appears.
 4. In the **Save View** window, enter a name for the customized page setting.
 5. To save this page setting as the default view every time you visit the page, select the **Set as Default View** checkbox. See image.
 6. Click **Save**.
@@ -8508,13 +8534,13 @@ To delete the saved page setting:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/deleting-onboarded-account","lastmod":"2026-04-24T22:27Z","nid":"1478036"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/deleting-onboarded-account","lastmod":"2026-09-29T10:20Z","nid":"1478036"} -->
 ## Deleting an Onboarded Account
 
 - Source: https://help.zscaler.com/dspm/deleting-onboarded-account
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > Cloud Account Management > Deleting an Onboarded Account
-- Last modified: 2026-04-24T22:27Z
+- Last modified: 2026-09-29T10:20Z
 - Summary: How to delete an organization or account that is onboarded in the Zscaler Admin Console.
 
 You can choose to delete or offboard AWS, Microsoft Entra, and Google Cloud Platform (GCP) accounts when the resources are removed from the accounts or when you no longer want DSPM to scan the resources in these accounts.
@@ -8543,8 +8569,8 @@ You must be assigned either an [Administrator role](https://help.zscaler.com/dsp
 
 To delete an organization or tenant:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Cloud Accounts**.
-2. Select the cloud account you want to delete. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM**> **Cloud Accounts**. The **Cloud Accounts** page appears.
+2. On the **Cloud Accounts** page, click the required cloud account (AWS, Azure, or GCP).
 3. From the **Manage** drop-down menu, select **Delete Organization** or **Delete Tenant** depending on the cloud type. See image.
 4. Read the message in the confirmation window, type `DELETE`, and then click **DELETE**. See image. The organization or tenant and all associated accounts are deleted from the DSPM Admin Portal.
 
@@ -8552,31 +8578,27 @@ To delete an organization or tenant:
 
 When you delete either a single account or multiple accounts, it is only deleted from the DSPM Admin Portal and there is no impact on these accounts on the cloud service provider.
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Cloud Accounts**.
-2. Select the cloud account.
-3. In the parent cloud account, select **Accounts** for AWS, **Subscriptions** for Microsoft Entra, and **Projects** for GCP. See image.
+1. Go to **Data Security** > **DSPM**> **Cloud Accounts**. The **Cloud Accounts** page appears.
+2. On the **Cloud Accounts** page, click the required cloud account (AWS, Azure, or GCP).
+3. In the parent cloud account, select **Accounts** for AWS, **Subscriptions** for Microsoft Entra, and **Projects** for GCP.
 4. Choose any of these options:
   - For a single account, subscription, or project
   - For multiple accounts, subscriptions, or projects
 5. Read the message in the confirmation window, type `DELETE`, and then click **DELETE**. See image.
 
-The account is deleted from the DSPM Admin Portal.
+The account is deleted from the Zscaler Admin Console.
 
 1. Click the **Actions** icon for the account, subscription, or project you want to delete.
 2. Select **Delete Account**, **Delete Subscription**, or **Delete Project**. See image.
 
 1. Select the checkboxes for the required accounts, subscriptions, or projects.
-2. From the **Actions** drop-down menu that appears, select **Delete Accounts**, **Delete Subscriptions**, or **Delete Projects**. See image.
+2. From the highlighted options, select **Delete Accounts**, **Delete Subscriptions**, or **Delete Projects**. See image.
 
 [Image: Delete confirmation window with a warning about deleting the projects and Delete button.]
 
 [Image: In the Projects tab, for a project, the action icon clicked with an annotation around the  Delete Project option.]
 
 [Image: In the Projects tab, for a project, the action icon clicked with an annotation around the Delete Project option.]
-
-[Image: Cloud Accounts page with an account selected, and the Project tab displays the projects for the account.]
-
-[Image: Cloud accounts page, showing the onboarded accounts with an annotation around a cloud account to select.]
 
 [Image: Manage action button is clicked to see the available options and an annotation around the Delete option.]
 
@@ -8585,13 +8607,13 @@ The account is deleted from the DSPM Admin Portal.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/deploying-aws-tree-discovery-template","lastmod":"2026-08-29T07:06Z","nid":"1525746"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/deploying-aws-tree-discovery-template","lastmod":"2026-09-30T02:35Z","nid":"1525746"} -->
 ## Deploying the AWS Tree Discovery Template
 
 - Source: https://help.zscaler.com/dspm/deploying-aws-tree-discovery-template
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > AWS Cloud Accounts > AWS Organization > Deploying the AWS Tree Discovery Template
-- Last modified: 2026-08-29T07:06Z
+- Last modified: 2026-09-30T02:35Z
 - Summary: Information on how to deploy the tree discovery template in the AWS organization.
 
 After adding the [organization details](https://help.zscaler.com/dspm/adding-organization-details) for the [onboarding process](https://help.zscaler.com/dspm/onboarding-aws-organization), deploy the tree discovery template. This template includes the policies and permissions required to create IAM roles in the AWS root account, along with the Cloudtrail details required to perform incremental [data scans](https://help.zscaler.com/dspm/about-scan-settings). The IAM roles provide DSPM with read-only access to discover the resources in the AWS organization.
@@ -8606,7 +8628,7 @@ If the CloudTrail configuration is enabled while onboarding, the logs are collec
 To deploy the templates:
 
 1. Under the **Connect to the Organization** section, for **Template Type**, select **CloudFormation** or **Terraform**.
-2. Click **CloudTrail**to download the template to your local system. See image.
+2. Click **CloudTrail**to download the template to your local system.
   - Deploy the CloudFormation template in AWS.
   - Deploy the Terraform template in AWS.
 3. Click **Tree Discovery** to download the template to your local system. See image. DSPM validates the template deployment every hour by checking the IAM roles and permissions.
@@ -8671,9 +8693,7 @@ If the validation is successful, you are directed to the [Orchestrator & Monitor
   2. To verify the changes in the Terraform configuration: `terraform plan`
   3. To run the Terraform script: `terraform apply`See image. For **Do you want to perform these actions?**, enter `yes`and press `Enter`. See image.
 
-[Image: Connect to the Organization section with an annotation for the CloudTrail template download button.]
-
-[Image: Connect to the Organization section with an annotation for the Tree Discovery template download button.]
+[Image: Connect to the Organization section with an annotation for the Tree Discovery template download button]
 
 [Image: Validate the template execution]
 
@@ -9132,13 +9152,13 @@ If the templates are successfully deployed, you are directed to the [Overview](h
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/deploying-orchestrator-template","lastmod":"2026-04-24T22:52Z","nid":"1520281"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/deploying-orchestrator-template","lastmod":"2026-09-30T04:55Z","nid":"1520281"} -->
 ## Deploying the Orchestrator Template
 
 - Source: https://help.zscaler.com/dspm/deploying-orchestrator-template
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > AWS Cloud Accounts > AWS Account > Deploying the Orchestrator Template
-- Last modified: 2026-04-24T22:52Z
+- Last modified: 2026-09-30T04:55Z
 - Summary: Information about how to deploy the orchestrator template for a standalone AWS account.
 
 After [adding the orchestrator details](https://help.zscaler.com/dspm/adding-orchestrator-details-and-configuring-regions), when [onboarding a standalone AWS account](https://help.zscaler.com/dspm/onboarding-standalone-aws-account), deploy the orchestrator template that includes policies and permissions to create IAM roles that provide DSPM with read-only access to the account.
@@ -9152,7 +9172,7 @@ To download and deploy the template:
 3. Deploy the Evidence template: This template is available only if you have configured an S3 bucket to store evidence data. The template includes policies and permissions to upload evidence data snippets to the selected S3 bucket.
   - To deploy the CloudFormation template
   - To deploy the Terraform template
-4. Click **Validate**. See image. If the template is successfully deployed, you are directed to the [Overview](https://help.zscaler.com/dspm/viewing-onboarding-status) page to add the [target accounts](https://help.zscaler.com/dspm/adding-account-details-and-deploying-templates) that must be monitored.
+4. Click **Validate**. If the template is successfully deployed, you are directed to the [Overview](https://help.zscaler.com/dspm/viewing-onboarding-status) page to add the [target accounts](https://help.zscaler.com/dspm/adding-account-details-and-deploying-templates) that must be monitored.
 
 - a. Download the orchestrator template.
 - b. Create StackSets in the orchestrator account.
@@ -9195,8 +9215,6 @@ Click **Orchestrator** to download the template as a ZIP file and extract it to 
 - Multiple Terraform files.
 - A README file with instructions for running the template.
 
-See image.
-
 1. Update the `backend.tf` file with the name of the storage services where you want to store the Terraform state files in the orchestrator account. For example: See image.
   - **bucket**: Enter the S3 bucket name.
   - **region**: Enter the primary region.
@@ -9217,8 +9235,6 @@ See image.
 
 Click **Evidence**to download the template as a ZIP file and extract it to your local system.
 
-See image.
-
 Create a stack in the account where the S3 bucket is available.
 
 1. Sign in to the AWS Management console and go to **CloudFormation**. If you selected **Zscaler Managed S3 Bucket**, sign in to the orchestrator account and if you selected **Custom S3 Bucket**, sign in to the account where the custom S3 bucket is available.
@@ -9238,8 +9254,6 @@ Click **Evidence**to download the template as a ZIP file and extract it to your 
 
 - Multiple Terraform files.
 - A README file with instructions for running the template.
-
-See image.
 
 1. Update the `backend.tf` file with the name of the storage services where you want to store the Terraform state files. For example: See image.
   - **bucket**: Enter the S3 bucket name.
@@ -9268,17 +9282,11 @@ See image.
 
 [Image: The deploy orchestrator section with the template type, orchestrator section with annotation around orchestrator template.]
 
-[Image: The deploy orchestrator section with the template type, orchestrator section with annotation around orchestrator template.]
-
 [Image: The backend.tf file with s3 bucket details, primary region, and dynamoDB table details.]
 
 [Image: The command prompt section showing the output of terraform init command.]
 
 [Image: The output of terraform apply command to confirm the deployment of the template.]
-
-[Image: The deploy orchestrator section with annotation around validate button.]
-
-[Image: The Evidence section with annotation around Evidence button.]
 
 [Image: The CloudFormation page with annotation around Create stack.]
 
@@ -9289,19 +9297,17 @@ See image.
 [Image: The backend.tf file updated with backend configuration.]
 
 [Image: The command prompt section running the terraform init command]
-
-[Image: The evidence section with annotation around the Evidence button.]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/deploying-tree-discovery-template","lastmod":"2026-08-12T21:41Z","nid":"1517346"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/deploying-tree-discovery-template","lastmod":"2026-10-01T05:00Z","nid":"1517346"} -->
 ## Deploying the Tree Discovery Template
 
 - Source: https://help.zscaler.com/dspm/deploying-tree-discovery-template
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > Microsoft Azure Cloud Accounts > Microsoft Entra Tenant > Deploying the Tree Discovery Template
-- Last modified: 2026-08-12T21:41Z
+- Last modified: 2026-10-01T05:00Z
 - Summary: Information on how to deploy the tree discovery template from the Zscaler Admin Console.
 
 After adding the [tenant details](https://help.zscaler.com/dspm/adding-tenant-details) when [onboarding a Microsoft Entra tenant](https://help.zscaler.com/dspm/onboarding-microsoft-azure-tenant), deploy the tree discovery template.
@@ -9350,7 +9356,7 @@ If AI service data collection is enabled, assign the [Custom Role (AI Agent)](ht
 1. In the Zscaler Admin Console, under **Connect to the Tenant**:
   - **Application ID**: Enter the client ID.
   - **Client Secret**: Enter the client secret.
-2. Click **Validate**. See image. DSPM validates the template deployment by verifying the application ID, client secret, and the custom roles created. If the validation is successful, you are directed to the [Orchestrator & MonitoringScope](https://help.zscaler.com/dspm/selecting-orchestrator-and-monitoring-scope) section. If there is any issue while deploying the template, an error is displayed. Rerun the template. To learn more, see [Resolving Configuration Issues for Microsoft Azure](https://help.zscaler.com/dspm/resolving-configuration-issues-microsoft-azure).
+2. Click **Validate**. DSPM validates the template deployment by verifying the application ID, client secret, and the custom roles created. If the validation is successful, you are directed to the [Orchestrator & MonitoringScope](https://help.zscaler.com/dspm/selecting-orchestrator-and-monitoring-scope) section. If there is any issue while deploying the template, an error is displayed. Rerun the template. To learn more, see [Resolving Configuration Issues for Microsoft Azure](https://help.zscaler.com/dspm/resolving-configuration-issues-microsoft-azure).
 
 1. Sign in to the Azure portal, and click **Cloud Shell**.
 2. In the **Welcome to Azure Cloud Shell** window, select **Bash**or **PowerShell**, as required. See image.
@@ -9403,54 +9409,52 @@ Run the following commands:
 4. To verify the changes in the Terraform configuration: `terraform plan`
 5. To run the Terraform script: `terraform apply`Under **Do you want to perform these actions?**, enter `yes` and press `Enter`. The command output returns the client ID and client secret that DSPM requires to connect to the Microsoft Entra tenant. See image.
 
-[Image: The backend.tf file opened in visual studio code with annotation around resource group name, storage account name, and container name.]
+[Image: The backend.tf file opened in visual studio code with annotation around resource group name, storage account name, and container name]
 
-[Image: Command to login to the tenant with annotation around it.]
+[Image: Command to login to the tenant with annotation around it]
 
-[Image: Microsoft Azure authorization page listing the accounts.]
+[Image: Microsoft Azure authorization page listing the accounts]
 
-[Image: Azure portal left-side navigation with annotation around app registrations.]
+[Image: Azure portal left-side navigation with annotation around app registrations]
 
-[Image: App registration page displaying All applications, Owned applications, Deleted applications tab and annotation around Owned applications.]
+[Image: App registration page displaying All applications, Owned applications, Deleted applications tab and annotation around Owned applications]
 
-[Image: Application left-side navigation with annotation around API permissions.]
+[Image: Application left-side navigation with annotation around API permissions]
 
-[Image: The API permissions page with annotation around Grant admin consent for the selected application.]
+[Image: The API permissions page with annotation around Grant admin consent for the selected application]
 
-[Image: Grant admin consent confirmation window with annotation around Yes.]
+[Image: Grant admin consent confirmation window with annotation around Yes]
 
-[Image: Connect to the Tenant section with annotation around Tree Discovery button.]
+[Image: Connect to the Tenant section with annotation around Tree Discovery button]
 
-[Image: The Connect to the Tenant section displaying the Tree Discovery template, Application ID, Client Secret, and annotation around Validate button.]
+[Image: Welcome to Azure Cloud Shell window with Bash and PowerShell options]
 
-[Image: Welcome to Azure Cloud Shell window with Bash and PowerShell options.]
+[Image: The command prompt section with the output of terraform init command]
 
-[Image: The command prompt section with the output of terraform init command.]
+[Image: The Getting started window in the Azure portal to select a subscription and storage account]
 
-[Image: The Getting started window in the Azure portal to select a subscription and storage account.]
+[Image: Select storage account window to select the subscription, resource group, storage account name, and create a file share]
 
-[Image: Select storage account window to select the subscription, resource group, storage account name, and create a file share.]
+[Image: The Mount storage account window with Select existing storage account option selected]
 
-[Image: The Mount storage account window with Select existing storage account option selected.]
+[Image: The PowerShell prompt with commands to created directories for logs, tree_discovery, and azure_onboarding]
 
-[Image: The PowerShell prompt with commands to created directories for logs, tree_discovery, and azure_onboarding.]
+[Image: The PowerShell prompt displaying the list of directories created and success message for uploading a file]
 
-[Image: The PowerShell prompt displaying the list of directories created and success message for uploading a file.]
+[Image: The PowerShell prompt with the list of directories created]
 
-[Image: The PowerShell prompt with the list of directories created.]
-
-[Image: The output of tree discovery template deployment with client ID and client secret.]
+[Image: The output of tree discovery template deployment with client ID and client secret]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/disabling-sensitivity-setting-dlp-engines","lastmod":"2026-08-29T07:06Z","nid":"1479346"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/disabling-sensitivity-setting-dlp-engines","lastmod":"2026-09-25T11:23Z","nid":"1479346"} -->
 ## Disabling the Sensitivity Settings for DLP Engines
 
 - Source: https://help.zscaler.com/dspm/disabling-sensitivity-setting-dlp-engines
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Data Classification Settings > Disabling the Sensitivity Settings for DLP Engines
-- Last modified: 2026-08-29T07:06Z
+- Last modified: 2026-09-25T11:23Z
 - Summary: How to disable the data sensitivity setting for DLP engines specific to DSPM.
 
 Data sensitivity determines how susceptible the data is along with the level of risk associated with it, which could lead to data breaches. For example, the sensitivity level is high for personally identifiable information (PII) or credit card numbers, moderate for email addresses, and low for data that does not have any sensitive or confidential information.
@@ -9461,11 +9465,9 @@ By default, the sensitivity setting is enabled for all DLP engines. You can disa
 
 To disable the sensitivity setting for DLP engines:
 
-1. Go to **Policies**> **Data Protection**> **Policy**> **Data Classification Settings**. The **Data Classification Settings** page appears. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Data Classification Settings**.
 2. In the **Sensitive** column, disable the toggle for the required DLP engine. See image.
 3. Read the confirmation message that appears, then click **Disable**. See image.
-
-[Image: View the list of DLP engines]
 
 [Image: Read the message before disabling the sensitivity setting]
 
@@ -9474,20 +9476,20 @@ To disable the sensitivity setting for DLP engines:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/downloading-reports","lastmod":"2026-04-24T21:06Z","nid":"1474771"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/downloading-reports","lastmod":"2026-09-29T17:14Z","nid":"1474771"} -->
 ## Downloading Reports
 
 - Source: https://help.zscaler.com/dspm/downloading-reports
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Data & Identity Inventory > Downloading Reports
-- Last modified: 2026-04-24T21:06Z
+- Last modified: 2026-09-29T17:14Z
 - Summary: Information on viewing and downloading reports in the Zscaler Admin Console.
 
 You can download reports related to [alerts](https://help.zscaler.com/dspm/about-alerts), [data inventory](https://help.zscaler.com/dspm/about-data-inventory), and [policies](https://help.zscaler.com/dspm/about-data-posture-policies) to review and assess DSPM's performance in proactively monitoring and detecting sensitive data in your cloud resources.
 
 To download the reports:
 
-1. Go to **Analytics** > **Data Security** > **DSPM**> **Report Management**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**>**DSPM**> **Report Management**.
 2. You can view the following details:
   - **Downloads**: The name of the report.
   - **Report Type**: The file format. Reports are available as Excel files only.
@@ -9559,13 +9561,13 @@ See image
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/editing-or-deleting-databricks-workspace","lastmod":"2026-05-24T07:06Z","nid":"1532036"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/editing-or-deleting-databricks-workspace","lastmod":"2026-09-28T00:43Z","nid":"1532036"} -->
 ## Editing or Deleting a Databricks Workspace or Account
 
 - Source: https://help.zscaler.com/dspm/editing-or-deleting-databricks-workspace
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Service Registration > Databricks > Editing or Deleting a Databricks Workspace or Account
-- Last modified: 2026-05-24T07:06Z
+- Last modified: 2026-09-28T00:43Z
 - Summary: Information on how to edit or delete a Databricks workspace or account in the Zscaler Admin Console.
 
 You can modify or delete a configured [Databricks workspace or account](https://help.zscaler.com/dspm/about-service-registration) as required.
@@ -9578,13 +9580,13 @@ Any changes to the Databricks configuration take effect at the next scheduled sc
 
 To edit a Databricks workspace or account:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Service Registration**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Service Registration**.
 2. On the **Service Registration** page, select the **Databricks**tab. The Databricks tab provides two views: **Workspace**and **Account**.
 3. Select the **Workspace** or **Account** button to choose which entry you want to edit.
 4. Do one of the following: The **Edit Databricks Workspace** or **Edit Databricks Account** confirmation window appears based on your selection.
   - Click the **Actions** icon (), and select **Edit** for the required workspace or account. See image.
   - Click the name of the Databricks workspace or account to view the specific [Databricks workspace or account](https://help.zscaler.com/dspm/about-service-registration#databricks-details) details drawer, then click **Actions**, and select **Edit**. See image.
-5. In the confirmation window, read the message and click **Proceed** to continue.
+5. In the confirmation window, read the message and click **Proceed** to continue. The **Edit Databricks Workspace** or **Edit Databricks Account** drawer appears.
   - Edit Databricks Workspace
   - Edit Databricks Account
 6. Click **Save**.
@@ -9621,7 +9623,7 @@ In the **Edit Databricks Account** drawer, update the editable fields:
 
 To delete a Databricks workspace or account:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Service Registration**.
+1. Go to **Data Security** > **DSPM** > **Service Registration**.
 2. On the **Service Registration** page, select the **Databricks**tab. The Databricks tab provides two views: **Workspace**and **Account**.
 3. Select the **Workspace** or **Account** button to choose which entry you want to delete.
 4. Do one of the following: The **Delete Databricks Workspace** or **Delete Databricks Account**confirmation window appears.
@@ -9641,13 +9643,13 @@ The Databricks workspace or account is deleted from the Zscaler Admin Console.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/editing-or-deleting-dspm-integrations","lastmod":"2026-09-04T04:01Z","nid":"1487821"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/editing-or-deleting-dspm-integrations","lastmod":"2026-09-17T02:11Z","nid":"1487821"} -->
 ## Editing or Deleting DSPM Integrations
 
 - Source: https://help.zscaler.com/dspm/editing-or-deleting-dspm-integrations
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > DSPM Integrations > Editing or Deleting DSPM Integrations
-- Last modified: 2026-09-04T04:01Z
+- Last modified: 2026-09-17T02:11Z
 - Summary: How to edit or delete DSPM integrations in the Zscaler Admin Console.
 
 You can edit or delete any cloud storage, ITSM, or ChatOps integration as required.
@@ -9656,8 +9658,8 @@ You can edit or delete any cloud storage, ITSM, or ChatOps integration as requir
 
 To edit an integration:
 
-1. From the navigation menu, go to **Data Security**>**DSPM**>**Configuration**>**DSPM Integrations**.
-2. On the **Integrations** page, click the **Actions**icon for the integration that you want to edit, and select **Edit**. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **DSPM** **Integrations**.
+2. Click the **Actions**icon for the integration that you want to edit, and select **Edit**. See image. The **Edit Integration** window appears.
 3. In the **Edit Integration** window, change the values as required. If you change the values, you must test the connection again. See image.
 4. Click **Save**.
 
@@ -9665,8 +9667,8 @@ To edit an integration:
 
 To delete an integration:
 
-1. From the navigation menu, go to **Data Security**>**DSPM**>**Configuration**>**DSPM Integrations**.
-2. On the **Integrations** page, click the **Actions**icon for the integration that you want to delete, and select **Delete**. See image.
+1. Go to **Data Security** > **DSPM** > **DSPM** **Integrations**.
+2. Click the **Actions**icon for the integration that you want to delete, and select **Delete**. See image. The **Delete Integration** window appears.
 3. In the **Delete Integration** window, read the message related to alert rules. You cannot delete an integration if it is associated with alert rules. You must first move the alert rules to another integration. Until then, the **Delete** button is disabled. See image.
 4. After you've moved the alert rules, click **Delete**.
 
@@ -9681,13 +9683,13 @@ To delete an integration:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/editing-or-deleting-investigation","lastmod":"2026-05-04T21:06Z","nid":"1480631"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/editing-or-deleting-investigation","lastmod":"2026-10-01T04:59Z","nid":"1480631"} -->
 ## Editing or Deleting an Investigation
 
 - Source: https://help.zscaler.com/dspm/editing-or-deleting-investigation
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Investigation > Editing or Deleting an Investigation
-- Last modified: 2026-05-04T21:06Z
+- Last modified: 2026-10-01T04:59Z
 - Summary: How to edit or delete and investigation in the Zscaler Admin Console.
 
 You can edit an existing or a saved query. But you can delete only saved investigation queries.
@@ -9696,7 +9698,7 @@ You can edit an existing or a saved query. But you can delete only saved investi
 
 To edit an investigation query:
 
-1. Go to **Logs**>**Insights**> **Investigation**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM**> **Investigation**.
 2. You can edit the investigation by using any of these options:
   - On the **History** tab:
     - Click the **Query** to view the drawer, then click the **Edit** icon at the top-right corner. See image.
@@ -9715,7 +9717,7 @@ You can delete only those investigations that you've saved.
 
 To delete an investigation:
 
-1. Go to **Logs**>**Insights**> **Investigation**.
+1. Go to **Data Security** > **DSPM**> **Investigation**.
 2. On the **Investigation** page, select the**Saved** tab. See image.
 3. You can do the following:
   - Click the **Actions**icon () and select **Delete**. See image.
@@ -9741,13 +9743,13 @@ To delete an investigation:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/editing-or-deleting-ldap-servers","lastmod":"2026-07-02T07:06Z","nid":"1540322"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/editing-or-deleting-ldap-servers","lastmod":"2026-09-28T00:40Z","nid":"1540322"} -->
 ## Editing or Deleting LDAP Servers
 
 - Source: https://help.zscaler.com/dspm/editing-or-deleting-ldap-servers
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Service Registration > LDAP Servers > Editing or Deleting LDAP Servers
-- Last modified: 2026-07-02T07:06Z
+- Last modified: 2026-09-28T00:40Z
 - Summary: Information on how to edit or delete LDAP Servers in the Zscaler Admin Console.
 
 You can modify or delete an LDAP server as required.
@@ -9756,11 +9758,11 @@ You can modify or delete an LDAP server as required.
 
 To edit an LDAP server:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Service Registration**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Service Registration**.
 2. On the **Service Registration** page, select the **LDAP Servers** tab.
-3. Do one of the following:
+3. Do one of the following: The **Edit LDAP Server** drawer appears.
   - Click the **Actions** icon (), and select **Edit** for the required LDAP server. See image.
-  - Click the name of the LDAP server to go to the [LDAP Server details](https://help.zscaler.com/dspm/about-service-registration) drawer, then click **Actions**, and select **Edit**. See image.
+  - Click the name of the LDAP server to open the [LDAP Server details](https://help.zscaler.com/dspm/about-service-registration) drawer, then click **Actions**, and select **Edit**. See image.
 4. In the **Edit LDAP Server** drawer, update the following sections as required: See image.
   1. **Server Information**: **Server Logical Name**: Update the name to identify the server in DSPM.
   2. **Connection Attributes**:
@@ -9777,42 +9779,42 @@ To edit an LDAP server:
 
 The LDAP server is updated.
 
-[Image: The LDAP server drawer with the editable fields are enabled.]
+[Image: The LDAP server drawer with the editable fields are enabled]
 
-[Image: LDAP server page with the Actions menu open, and showing the Edit option annotated.]
+[Image: LDAP server page with the Actions menu open, and showing the Edit option annotated]
 
-[Image: LDAP server details drawer with a highlighted edit option.]
+[Image: LDAP server details drawer with a highlighted edit option]
 
 ## Deleting an LDAP Server
 
 To delete an LDAP server:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Service Registration**.
+1. Go to **Data Security** > **DSPM** > **Service Registration**.
 2. On the **Service Registration** page, select the **LDAP Servers** tab.
 3. Do one of the following: The **Delete LDAP Server** confirmation window appears.
-  - Click the **Actions** icon (), and select **Delete**for the required file server. See image.
-  - Click the name of the LDAP server to go to the [LDAP Server details](https://help.zscaler.com/dspm/about-service-registration) drawer, then click **Actions**, and select **Delete**. See image.
+  - Click the **Actions** icon (), and select **Delete**for the required LDAP server. See image.
+  - Click the name of the LDAP server to open the [LDAP Server details](https://help.zscaler.com/dspm/about-service-registration) drawer, then click **Actions**, and select **Delete**. See image.
 4. In the **Delete LDAP Server** confirmation window, read the message, and then enter `CONFIRM` in the text box. See image.
 5. Click **Delete**.
 
 The LDAP server is deleted from the Zscaler Admin Console.
 
-[Image: LDAP server page with the Actions menu open, and showing the Delete option annotated.]
+[Image: LDAP server page with the Actions menu open, and showing the Delete option annotated]
 
-[Image: LDAP server details drawer with a highlighted delete option.]
+[Image: LDAP server details drawer with a highlighted delete option]
 
 [Image: Confirming deletion of an LDAP server]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/editing-or-deleting-premises-file-servers","lastmod":"2026-07-02T07:06Z","nid":"1532038"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/editing-or-deleting-premises-file-servers","lastmod":"2026-09-28T00:40Z","nid":"1532038"} -->
 ## Editing or Deleting an On-Premises File Server
 
 - Source: https://help.zscaler.com/dspm/editing-or-deleting-premises-file-servers
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Service Registration > On-Premises File Servers > Editing or Deleting an On-Premises File Server
-- Last modified: 2026-07-02T07:06Z
+- Last modified: 2026-09-28T00:40Z
 - Summary: Information on how to edit or delete an On-Premises File Servers in the Zscaler Admin Console.
 
 You can modify or delete an on-premises file server as required.
@@ -9821,11 +9823,11 @@ You can modify or delete an on-premises file server as required.
 
 To edit an on-premises file server:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Service Registration**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Service Registration**.
 2. On the **Service Registration** page, select the **On-Premises File Servers** tab.
 3. Do one of the following: The **Edit On-Premises File Server** confirmation window appears.
   - Click the **Actions** icon (), and select **Edit** for the required file server. See image.
-  - Click the name of the file server to go to the [On-Premises File Server details](https://help.zscaler.com/dspm/about-unmanaged-database#on-prem-tab) drawer, then click **Actions**, and select **Edit**. See image.
+  - Click the name of the file server to open the [On-Premises File Server details](https://help.zscaler.com/dspm/about-unmanaged-database#on-prem-tab) drawer, then click **Actions**, and select **Edit**. See image.
 4. In the **Edit On-Premises File Server** confirmation window, click **Proceed** to continue. See image.
 5. In the **Edit On-Premises File Server** drawer, update the following sections as required: See image.
   1. **File Server Information**:
@@ -9837,7 +9839,7 @@ To edit an on-premises file server:
       - **Default Port**: SMB uses `445` and NFS uses `2049`.
       - **Custom Port**: Enter a valid port number based on your configuration requirements.
   3. **Authentication**: The authentication fields available depend on the **Protocol** and **File Server Type** selected. The following table lists the availability of each field based on the selected protocol and file server type:
-    1. **Secret Provider Type**: This field is autopopulated with the provider used to manage authentication secrets, typically set to Zscaler DSPM.
+    1. **Secret Provider Type**: This field is automatically populated with the provider used to manage authentication secrets, typically set to Zscaler DSPM.
     2. **Authentication Type**: Select the authentication method used to access file shares:
       1. **Kerberos**: Uses Kerberos-based authentication to access file shares.
       2. **AUTH_SYS**: Uses system-level User Identifier (UID) or Group Identifier (GID) credentials for authentication.
@@ -9854,7 +9856,7 @@ To edit an on-premises file server:
     | Username | Available for Windows or Linux file server types, or when Kerberos or NTLMv2 is selected for NetApp. |
     | Password | Available for Windows or Linux file server types, or when Kerberos or NTLMv2 is selected for NetApp. |
     | Group IDs | Available only when AUTH_SYS is selected as the Authentication Type. |
-  4. **LDAP Server**: (available only when **SMB**is selected as the protocol)
+  4. **LDAP Server**: (available only when **SMB** is selected as the protocol)
     - **Server (Optional)**: Select the registered Lightweight Directory Access Protocol (LDAP) server for the on-premises file server.
 6. Click **Save**.
 
@@ -9862,69 +9864,69 @@ The on-premises file server is updated.
 
 Changes made to the on-premises file server configuration take effect only at the next scheduled scan.
 
-[Image: The On-Premises File Server drawer with the editable fields are enabled.]
+[Image: The On-Premises File Server drawer with the editable fields are enabled]
 
 [Image: Confirm editing On-Premises File Server window]
 
-[Image: On-Premises File Server page with the Actions menu open, and showing the Edit option annotated.]
+[Image: On-Premises File Server page with the Actions menu open, and showing the Edit option annotated]
 
-[Image: On-Premises File Server details drawer with a highlighted edit option.]
+[Image: On-Premises File Server details drawer with a highlighted edit option]
 
 ## Deleting an On-Premises File Server
 
 To delete an on-premises file server:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Service Registration**.
+1. Go to **Data Security** > **DSPM** > **Service Registration**.
 2. On the **Service Registration** page, select the **On-Premises File Servers** tab.
 3. Do one of the following: The **Delete On-Premises File Server** confirmation window appears.
   - Click the **Actions** icon (), and select **Delete**for the required file server. See image.
-  - Click the name of the file server to go to the [On-Premises File Server details](https://help.zscaler.com/dspm/about-unmanaged-database#on-prem-tab) drawer, then click **Actions**, and select **Delete**. See image.
+  - Click the name of the file server to open the [On-Premises File Server details](https://help.zscaler.com/dspm/about-unmanaged-database#on-prem-tab) drawer, then click **Actions**, and select **Delete**. See image.
 4. In the **Delete On-Premises File Server** confirmation window, read the message, and then enter `CONFIRM` in the text box. See image.
 5. Click **Delete Server**.
 
 The on-premises file server is deleted from the Zscaler Admin Console.
 
-[Image: On-Premises File Server page with the Actions menu open, and showing the Delete option annotated.]
+[Image: On-Premises File Server page with the Actions menu open, and showing the Delete option annotated]
 
-[Image: On-Premises File Server details drawer with a highlighted delete option.]
+[Image: On-Premises File Server details drawer with a highlighted delete option]
 
 [Image: Confirming deletion of an On-Premises File Server]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/editing-or-deleting-scan-rule","lastmod":"2026-04-08T21:06Z","nid":"1483291"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/editing-or-deleting-scan-rule","lastmod":"2026-09-30T22:42Z","nid":"1483291"} -->
 ## Editing or Deleting a Scan Rule
 
 - Source: https://help.zscaler.com/dspm/editing-or-deleting-scan-rule
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > Managing Scan Rules > Editing or Deleting a Scan Rule
-- Last modified: 2026-04-08T21:06Z
+- Last modified: 2026-09-30T22:42Z
 - Summary: How to edit or delete a scan rule in the Zscaler Admin Console.
 
 You can edit or delete the scan rule as required.
 
 ## Editing a Scan Rule
 
-To edit the scan rule, complete the following steps in the Zscaler Admin Console:
+To edit the scan rule:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Rules**tab.
 3. Do one of the following: The **Edit Scan Rules** page appears.
   - Click **Actions** (), and select **Edit** for the required scan rule. See image.
-  - Click the name of the scan rule to go to the [scan rule details](https://help.zscaler.com/dspm/about-scan-settings#scan_settings) page, then click the **Edit** icon. See image.
+  - Click the name of the scan rule to open the [scan rule details](https://help.zscaler.com/dspm/about-scan-settings#scan_settings) drawer, then click **Actions**, and select **Edit**. See image.
 4. On the **Edit Scan Rules** page, modify the configuration as required. To learn more about scan rules, see [About Scan Settings](https://help.zscaler.com/dspm/about-scan-settings#scan_settings).
 5. Review the changes, then click **Finish**. A message appears indicating that the scan setting is updated.
 
 ## Deleting a Scan Rule
 
-To delete the scan rule, complete the following steps in the Zscaler Admin Console:
+To delete the scan rule:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. Go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Rules**tab.
 3. Do one of the following: The **Delete Scan Rule** confirmation appears.
   - Click **Actions** (), and select **Delete**for the required scan rule. See image.
-  - Click the name of the scan rule to go to the [scan rule details](https://help.zscaler.com/dspm/about-scan-settings#scan_settings) page, then click the **Delete**icon. See image.
+  - Click the name of the scan rule to open the [scan rule details](https://help.zscaler.com/dspm/about-scan-settings#scan_settings) drawer, then click **Actions**, and select **Delete**. See image.
 4. In the **Delete Scan Rule** confirmation window, click **Confirm**. See image.
 
 The scan rule is deleted from the Zscaler Admin Console.
@@ -9933,7 +9935,7 @@ The scan rule is deleted from the Zscaler Admin Console.
 
 [Image: Select the Edit option in the scan rule details page]
 
-[Image: Delete Scan Rule window to confirm the scan rule deletion.]
+[Image: Delete Scan Rule window to confirm the scan rule deletion]
 
 [Image: Select the Delete option in the scan rule page]
 
@@ -9942,22 +9944,22 @@ The scan rule is deleted from the Zscaler Admin Console.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/editing-or-deleting-scan-scopes","lastmod":"2026-04-08T21:06Z","nid":"1510006"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/editing-or-deleting-scan-scopes","lastmod":"2026-09-30T22:43Z","nid":"1510006"} -->
 ## Editing or Deleting Scan Scopes
 
 - Source: https://help.zscaler.com/dspm/editing-or-deleting-scan-scopes
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > Managing Scan Scope > Editing or Deleting Scan Scopes
-- Last modified: 2026-04-08T21:06Z
-- Summary: Information on how to edit or delete the scan scope in Zscaler Admin Console.
+- Last modified: 2026-09-30T22:43Z
+- Summary: Information on how to edit or delete the scan scope in the Zscaler Admin Console.
 
 You can modify or delete the existing scan scope as required. To learn more about scan scopes, see [Configuring Scan Scope](https://help.zscaler.com/dspm/configuring-scan-scope).
 
 ## Editing the Scan Scope
 
-To edit an existing scan scope, complete the following steps in the Zscaler Admin Console:
+To edit an existing scan scope:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Scope** tab.
 3. On the [Scan Scope](https://help.zscaler.com/dspm/about-scan-settings#scan_scope) page or [Scan Scope Details](https://help.zscaler.com/dspm/about-scan-settings#Viewing_the_Scan_Scope) page, click **Actions** of the desired scope.
 4. Choose **Edit** from the drop-down menu. See image.
@@ -9978,13 +9980,13 @@ To edit an existing scan scope, complete the following steps in the Zscaler Admi
 
 ## Deleting the Scan Scope
 
-To delete an existing scan scope, complete the following steps in the Zscaler Admin Console:
+To delete an existing scan scope:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. Go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Scope** tab.
-3. On the [Scan Scope](https://help.zscaler.com/dspm/about-scan-settings#scan_scope) page or [Scan Scope Details](https://help.zscaler.com/dspm/about-scan-settings#Viewing_the_Scan_Scope) page, click **Actions** of the desired scope.
+3. On the [Scan Scope](https://help.zscaler.com/dspm/about-scan-settings#scan_scope) page or [Scan Scope Details](https://help.zscaler.com/dspm/about-scan-settings#Viewing_the_Scan_Scope) page, click **Actions** for the desired scope.
 4. Choose **Delete**from the drop-down menu. See image.
-5. In the **Delete Scan Scope**confirmation window, click **Confirm**. See image.
+5. In the **Delete Scan Scope**confirmation window, click **Delete**. See image.
 
 [Image: Delete Scope]
 
@@ -9993,13 +9995,13 @@ To delete an existing scan scope, complete the following steps in the Zscaler Ad
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/editing-or-deleting-snowflake-account-details","lastmod":"2026-06-22T02:47Z","nid":"1530677"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/editing-or-deleting-snowflake-account-details","lastmod":"2026-09-28T00:43Z","nid":"1530677"} -->
 ## Editing or Deleting a Snowflake Database Account
 
 - Source: https://help.zscaler.com/dspm/editing-or-deleting-snowflake-account-details
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Service Registration > Snowflake > Editing or Deleting a Snowflake Database Account
-- Last modified: 2026-06-22T02:47Z
+- Last modified: 2026-09-28T00:43Z
 - Summary: Information on how to edit or delete a Snowflake database account in the Zscaler Admin Console.
 
 You can modify or delete a Snowflake database account as required.
@@ -10008,12 +10010,12 @@ You can modify or delete a Snowflake database account as required.
 
 To edit a Snowflake database account:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Service Registration**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Service Registration**.
 2. On the **Service Registration** page, select the **Snowflake**tab.
-3. Do one of the following: The **Edit Snowflake Account** window appears.
+3. Do one of the following: The **Edit Snowflake Account** confirmation window appears.
   - Click the **Actions** icon (), and select **Edit** for the required database account. See image.
-  - Click the name of the database server to go to the [Snowflake account details](https://help.zscaler.com/dspm/about-service-registration#details-snowflake) drawer, then Click **Actions**, and select **Edit**. See image.
-4. In the **Edit Snowflake Account** window, click **Proceed** to continue. See image.
+  - Click the name of the database server to go to the [Snowflake account details](https://help.zscaler.com/dspm/about-service-registration#details-snowflake) drawer, then click **Actions**, and select **Edit**. See image.
+4. In the **Edit Snowflake Account** confirmation window, click **Proceed** to continue. See image. In the **Edit Snowflake Account** drawer, click **Proceed** to continue.
 5. In the **Edit Snowflake Account** drawer, update the required fields: See image.
   - In the **Account Information** section:
     - **Account Edition**: Update the edition of the Snowflake account.
@@ -10063,56 +10065,56 @@ For the **Authentication Type**, select any of the following:
   - **Username**: Update the DSPM username.
   - **GCP Secret ID**: Update the Secret ID path of the secret storing the password.
 
-[Image: The Edit Snowflake Account drawer with information relating to the account and authentication.]
+[Image: The Edit Snowflake Account drawer with information relating to the account and authentication]
 
 [Image: Confirm editing snowflake account window]
 
-[Image: Service Registration page with the Actions menu open, and showing the Edit option annotated.]
+[Image: Service Registration page with the Actions menu open, and showing the Edit option annotated]
 
-[Image: Unmanaged Databases details drawer with a highlighted edit icon.]
+[Image: Unmanaged Databases details drawer with a highlighted edit icon]
 
 ## Deleting a Snowflake Account
 
 To delete a Snowflake account:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Service Registration**.
+1. Go to **Data Security** > **DSPM** > **Service Registration**.
 2. On the **Service Registration** page, select the **Snowflake**tab.
-3. Do one of the following: The **Delete Snowflake Account** window appears.
+3. Do one of the following: The **Delete Snowflake Account** confirmation window appears.
   - Click the **Actions** icon (), and select **Delete**for the required database server. See image.
   - Click the name of the database server to go to the [Snowflake account details](https://help.zscaler.com/dspm/about-service-registration#details-snowflake)drawer, then click **Actions**, and select **Delete**.. See image.
-4. In the **Delete Snowflake Account** window, read the message, and then enter `CONFIRM` in the text box. See image.
+4. In the **Delete Snowflake Account** confirmation window, read the message, and then enter `CONFIRM` in the text box. See image.
 5. Click **Delete Account**.
 
 The Snowflake account is deleted from the Zscaler Admin Console.
 
-[Image: Snowflake page with the Actions menu open, and showing the Delete option annotated.]
+[Image: Snowflake page with the Actions menu open, and showing the Delete option annotated]
 
-[Image: Snowflake account details drawer with a highlighted delete option.]
+[Image: Snowflake account details drawer with a highlighted delete option]
 
 [Image: Confirming deletion of a snowflake account]
 
-[Image: AWS authentication with Username, and AWS Secret ARN.]
+[Image: AWS authentication with Username, and AWS Secret ARN]
 
-[Image: AWS authentication with Key-Pair.]
+[Image: AWS authentication with Key-Pair]
 
-[Image: Azure authentication with Username, and Azure Key Vault URI.]
+[Image: Azure authentication with Username, and Azure Key Vault URI]
 
-[Image: Azure authentication with Key-Pair.]
+[Image: Azure authentication with Key-Pair]
 
-[Image: GCP authentication with Username, and GCP Secret ID.]
+[Image: GCP authentication with Username, and GCP Secret ID]
 
-[Image: GCP authentication with Key-Pair.]
+[Image: GCP authentication with Key-Pair]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/editing-or-deleting-unmanaged-database","lastmod":"2026-06-22T01:56Z","nid":"1517571"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/editing-or-deleting-unmanaged-database","lastmod":"2026-09-28T00:40Z","nid":"1517571"} -->
 ## Editing or Deleting Unmanaged Databases
 
 - Source: https://help.zscaler.com/dspm/editing-or-deleting-unmanaged-database
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Service Registration > Unmanaged Databases > Editing or Deleting Unmanaged Databases
-- Last modified: 2026-06-22T01:56Z
+- Last modified: 2026-09-28T00:40Z
 - Summary: Information about how to edit or delete an unmanaged database server in the Zscaler Admin Console.
 
 You can modify or delete an unmanaged database server as required.
@@ -10121,13 +10123,13 @@ You can modify or delete an unmanaged database server as required.
 
 To edit an unmanaged database server:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Service Registration**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Service Registration**.
 2. On the **Service Registration** page, select the **Unmanaged Database** tab.
-3. Do one of the following: The **Edit Unmanaged Database Server** window appears.
+3. Do one of the following: The **Edit Unmanaged Database Server** confirmation window appears.
   - Click the **Actions** icon (), and select **Edit** for the required database server. See image.
-  - Click the name of the database server to go to the [Unmanaged Database details](https://help.zscaler.com/dspm/about-unmanaged-database#db-details) drawer, then Click **Actions**, and select **Edit**. See image.
-4. In the **Edit Unmanaged Database Server** window, click **Proceed** to continue. See image.
-5. On the **Edit Unmanaged Database Server** drawer, based on the selected database server type, update the following sections as required: See image.
+  - Click the name of the database server to go to the [Unmanaged Database details](https://help.zscaler.com/dspm/about-unmanaged-database#db-details) drawer, then click **Actions**, and select **Edit**. See image.
+4. In the **Edit Unmanaged Database Server** confirmation window, click **Proceed** to continue. See image. The **Edit Unmanaged Database Server** drawer appears.
+5. In the **Edit Unmanaged Database Server** drawer, based on the selected database server type, update the following sections as required: See image.
   - **Cloud**(for Cloud Database only): Update the cloud settings.
   - **Database Server**: Update the database server configuration.
   - **Authentication**: Update the authentication details.
@@ -10144,49 +10146,47 @@ Changes made to the database server configuration take effect only at the next s
 
 [Image: Confirm editing unamanged database server window]
 
-[Image: Unmanaged Databases drawer with the Actions menu open, and showing the Edit option annotated.]
+[Image: Unmanaged Databases drawer with the Actions menu open, and showing the Edit option annotated]
 
-[Image: Unmanaged Databases details page with a highlighted edit icon.]
+[Image: Unmanaged Databases details page with a highlighted edit icon]
 
 ## Deleting an Unmanaged Database
 
 To delete an unmanaged database server:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Service Registration**.
+1. Go to **Data Security** > **DSPM** > **Service Registration**.
 2. On the **Service Registration** page, select the **Unmanaged Database** tab.
 3. Do one of the following: The **Delete Unmanaged Database Server** window appears.
   - Click the **Actions** icon (), and select **Delete**for the required database server. See image.
-  - Click the name of the database server to go to the [Unmanaged Database details](https://help.zscaler.com/dspm/about-unmanaged-database#db-details) drawer, then Click **Actions**, and select **Delete**. See image.
+  - Click the name of the database server to go to the [Unmanaged Database details](https://help.zscaler.com/dspm/about-unmanaged-database#db-details) drawer, then click **Actions**, and select **Delete**. See image.
 4. In the **Delete Unmanaged Database Server** window, read the message, and then enter `CONFIRM` in the text box. See image.
 5. Click **Delete Server**.
 
 The unmanaged database server is deleted from the Zscaler Admin Console.
 
-[Image: Unmanaged Databases drawer with the Actions menu open, and showing the Delete option annotated.]
+[Image: Unmanaged Databases drawer with the Actions menu open, and showing the Delete option annotated]
 
-[Image: Unmanaged Databases details drawer with a highlighted delete icon.]
+[Image: Unmanaged Databases details drawer with a highlighted delete icon]
 
 [Image: Confirming deletion of an unmanaged database server]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/enabling-or-disabling-scan-rule","lastmod":"2026-06-25T04:57Z","nid":"1474761"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/enabling-or-disabling-scan-rule","lastmod":"2026-09-30T22:43Z","nid":"1474761"} -->
 ## Enabling or Disabling a Scan Rule
 
 - Source: https://help.zscaler.com/dspm/enabling-or-disabling-scan-rule
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > Managing Scan Rules > Enabling or Disabling a Scan Rule
-- Last modified: 2026-06-25T04:57Z
+- Last modified: 2026-09-30T22:43Z
 - Summary: How to enable or disable the data scan in the Zscaler Admin Console.
 
 After you [configure the scan rule](https://help.zscaler.com/dspm/about-scan-settings) for a resource, you must enable the scan rule to initiate the according to the configured schedule, or disable it to pause scanning without deleting the rule.
 
-## Enabling or Disabling a Scan Rule
+To enable or disable a scan rule:
 
-To enable or disable a scan rule, complete the following steps in the Zscaler Admin Console:
-
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Rules** tab.
 3. For the scan rule you want to change the status, click the **Scan Enable/Disable** toggle in that rule’s row. See image.
   - **Enabled**: The scan rule is active and runs according to its configured schedule.
@@ -10198,20 +10198,20 @@ The scan rule is enabled or disabled per its status.
 - When you disable a scan rule, any full scans that are currently in progress are completed, but subsequent incremental scans are disabled.
 - To stop the full scan immediately, you need to first [stop the scan](https://help.zscaler.com/dspm/starting-stopping-scan) from the **Actions** menu on the [Scan Settings page](https://help.zscaler.com/dspm/about-scan-settings).
 
-[Image: Scan rule details window with an annotation around the scan status.]
+[Image: Scan rule details window with an annotation around the scan status]
 
 [Image: Confirmation window to enable the scan rule]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/iam-roles-and-permissions-aws","lastmod":"2026-08-12T22:05Z","nid":"1486391"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/iam-roles-and-permissions-aws","lastmod":"2026-09-14T22:35Z","nid":"1486391"} -->
 ## IAM Roles and Permissions for AWS
 
 - Source: https://help.zscaler.com/dspm/iam-roles-and-permissions-aws
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > AWS Cloud Accounts > AWS Organization > IAM Roles and Permissions for AWS
-- Last modified: 2026-08-12T22:05Z
+- Last modified: 2026-09-14T22:35Z
 - Summary: Information about the roles created and permissions while onboarding AWS accounts.
 
 As part of the [onboarding](https://help.zscaler.com/dspm/onboarding-aws-organization) process, you need to deploy the DSPM templates that create roles and permissions in the AWS organization. These templates create multiple IAM roles with the required permissions to establish a trust relationship between DSPM, the [orchestrator account](https://help.zscaler.com/dspm/understanding-orchestrator), and target accounts. Each role has permissions for various services and actions such as resource discovery, CloudTrail log collection, etc.
@@ -10221,7 +10221,6 @@ As part of the [onboarding](https://help.zscaler.com/dspm/onboarding-aws-organiz
 DSPM creates the following IAM roles to access the AWS accounts:
 
 - Resource Discovery Role
-- Zscaler Access Role
 - Orchestrator Instance Profile Role
 - Scanner Instance Profile Role
 - Target Role
@@ -10258,26 +10257,18 @@ The resource discovery role is required for DSPM to discover resources within th
 | `redshift-serverless:ListWorkgroups` | Allow | Monitored Accounts | To list all the workgroups in an Amazon Redshift Serverless account |
 | `elasticache:DescribeReplicationGroups` | Allow | Monitored Accounts | To describe the replication groups associated with an Amazon ElastiCache cluster |
 | `wafv2:ListResourcesForWebACL` | Allow | Monitored Accounts | To list all the resources that are associated with a specific AWS WAFv2 web ACL |
-| `s3:GetObject` | Deny | Monitored Accounts |  |
-| `dynamodb:BatchGetItem` | Deny | Monitored Accounts |  |
-| `dynamodb:GetItem` | Deny | Monitored Accounts |  |
-| `dynamodb:Query` | Deny | Monitored Accounts |  |
-| `dynamodb:Scan` | Deny | Monitored Accounts |  |
-
-The DSPM access role is required for DSPM to perform operations in Simple Queue Service (SQS) that is created as part of the template deployment. The role has the following permissions:
-
-| Permission | Effect | Scope | Purpose |
-| --- | --- | --- | --- |
-| `sts:AssumeRole` | Allow | Orchestrator Account | To assume a role in AWS |
-| `autoscaling:Describe*` | Allow | Orchestrator Account | To retrieve information about Auto Scaling resources |
-| `ec2:Describe*` | Allow | Orchestrator Account | To retrieve information about Amazon EC2 resources |
 | `ec2:CreateLaunchTemplateVersion` | Allow | Orchestrator Account | To create a new version of a launch template |
 | `autoscaling:UpdateAutoScalingGroup` | Allow | Only resources created by DSPM (based on tags) | To update Zscaler DSPM’s Auto Scaling group |
 | `ec2:TerminateInstances` | Allow | Only resources created by DSPM (based on tags) | To terminate one or more Zscaler DSPM’s Amazon EC2 instances |
 | `kms:GenerateDataKey` | Allow | Only resources created by DSPM (based on tags) | To generate a data key for Zscaler DSPM’s key that can be used to encrypt data |
 | `kms:Decrypt` | Allow | Only resources created by DSPM (based on tags) | To decrypt ciphertext that was encrypted using Zscaler DSPM’s key in the AWS Key Management Service (KMS) |
 | `sqs:PurgeQueue` | Allow | Only resources created by DSPM (based on tags) | To purge the messages from DSPM-created queues |
-| `sqs:Get*` | Allow | Only resources created by DSPM (based on tags) | To get the SQS queue details |
+| `sts:AssumeRole` | Allow | Orchestrator Account | To assume a role in AWS |
+| `s3:GetObject` | Deny | Monitored Accounts |  |
+| `dynamodb:BatchGetItem` | Deny | Monitored Accounts |  |
+| `dynamodb:GetItem` | Deny | Monitored Accounts |  |
+| `dynamodb:Query` | Deny | Monitored Accounts |  |
+| `dynamodb:Scan` | Deny | Monitored Accounts |  |
 
 The orchestrator instance profile role is used by the orchestrator instance present in the primary region to organize data scanning. The role has the following permissions:
 
@@ -10464,13 +10455,13 @@ The Get Evidence role is required for DSPM to retrieve evidence data snippets fr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/iam-roles-and-permissions-gcp","lastmod":"2026-02-17T06:06Z","nid":"1498651"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/iam-roles-and-permissions-gcp","lastmod":"2026-09-14T22:12Z","nid":"1498651"} -->
 ## IAM Roles and Permissions for GCP
 
 - Source: https://help.zscaler.com/dspm/iam-roles-and-permissions-gcp
 - Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > GCP Cloud Accounts > IAM Roles and Permissions for GCP
-- Last modified: 2026-02-17T06:06Z
+- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > GCP Cloud Accounts > GCP Organization > IAM Roles and Permissions for GCP
+- Last modified: 2026-09-14T22:12Z
 - Summary: Information about the roles created and permissions assigned while onboarding GCP organizations.
 
 As part of the onboarding process, you need to deploy DSPM templates in the Google Cloud Platform (GCP) project. These templates create service accounts and access management (IAM) roles that DSPM requires to connect to the GCP project, discover the resources, and scan data. Each role has permissions for various services and actions, such as resource discovery, data scanning, etc.
@@ -10791,13 +10782,13 @@ The custom role is required to collect data from AI services. Assign this role t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/initializing-premises-scanner-vm","lastmod":"2026-04-16T05:16Z","nid":"1533968"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/initializing-premises-scanner-vm","lastmod":"2026-09-17T01:55Z","nid":"1533968"} -->
 ## Initializing the On-Premises Scanner VM
 
 - Source: https://help.zscaler.com/dspm/initializing-premises-scanner-vm
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > On-Premises Data Centers and Scanners > On-Premises Scanners > Initializing the On-Premises Scanner VM
-- Last modified: 2026-04-16T05:16Z
+- Last modified: 2026-09-17T01:55Z
 - Summary: Information about how to initialize the on-premises scanner virtual machine.
 
 After [deploying the OVA (VMware) or VHD (Hyper‑V)](https://help.zscaler.com/dspm/adding-or-deleting-scanner-integration) file and powering on the virtual machine (VM), configure the scanner from the VM console and register it with DSPM.
@@ -10811,6 +10802,10 @@ Before configuring the scanner VM, make sure the following prerequisites are met
 
 ## Configuring the Scanner VM
 
+The following flowchart illustrates the step-by-step workflow for configuring and initializing the DSPM on-premises scanner VM, including the conditional proxy server configuration and automatic restart path.
+
+See image.
+
 To configure the scanner VM:
 
 1. Log in to the scanner VM with the default credentials: Upon your first login, the system prompts to set a new password for the `zdspmuser` account. Follow the instructions to change the password.
@@ -10823,11 +10818,13 @@ To configure the scanner VM:
   4. **Enter Secondary DNS Server (Optional)**: Enter the IP address for the secondary DNS server, or press Enter to skip.
   5. **Configure HTTPS Proxy Server.(Requires VM Restart)**: Enter `y` to configure a proxy or `n` to skip. If you enter `y`:
     - **Enter HTTPS Proxy Server**: Enter the full URL of the proxy (e.g., `https://test.server`).
-3. Verify that the IP address is assigned correctly: `ip addr`See imgae.
+3. Verify that the IP address is assigned correctly: `ip addr`See image.
 4. Run the following command to initialize the on-premises scanner VM. Replace `<API_KEY>` with the API key you generated in the Zscaler Admin Console. `sudo zds init <API_KEY>`See image.
 5. (Optional) After the initialization is complete, run a health check to verify that all services are running correctly: `sudo zds healthcheck`See image. Ensure the scanner VM has outbound connectivity to DSPM services. To learn more about the required IPs, see [Understanding Orchestrator](https://help.zscaler.com/dspm/understanding-orchestrator).
 
 After the initialization completes, the scanner VM registers with the DSPM tenant, and the status changes to **Operational** in the Zscaler Admin Console. To learn more, see [About On-Premises Scanner Integrations](https://help.zscaler.com/dspm/about-premises-scanner-integrations).
+
+[Image: Step-by-step flowchart showing the initialization of the DSPM scanner VM]
 
 [Image: The zds preconfigure command showing prompts for IP, gateway, DNS, and proxy settings.]
 
@@ -10840,13 +10837,13 @@ After the initialization completes, the scanner VM registers with the DSPM tenan
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/integrating-amazon-s3","lastmod":"2026-09-04T04:17Z","nid":"1487531"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/integrating-amazon-s3","lastmod":"2026-09-17T02:11Z","nid":"1487531"} -->
 ## Integrating with Amazon S3
 
 - Source: https://help.zscaler.com/dspm/integrating-amazon-s3
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > DSPM Integrations > Cloud Storage Services > Integrating with Amazon S3
-- Last modified: 2026-09-04T04:17Z
+- Last modified: 2026-09-17T02:11Z
 - Summary: How to integrate DSPM with Amazon S3 to send alert details to the cloud storage service.
 
 You can integrate DSPM with Amazon Simple Storage Service (Amazon S3). This integration enables DSPM to send the alert data logs of your cloud resources to the Amazon S3 buckets for storage.
@@ -10857,20 +10854,20 @@ Only [users with the administrator role](https://help.zscaler.com/dspm/predefine
 
 To integrate DSPM with Amazon S3:
 
-1. From the navigation menu, go to **Data Security** > **DSPM** > **Configuration** > **DSPM** **Integrations**.
-2. Click **Add** for cloud storage integration. See image.
-3. On the **Add Cloud Storage Integration** page, for **Integrations Details**: See image.
-  1. For **Integration Name**, enter a unique name for the integration.
-  2. For **Cloud Storage**, select **Amazon S3 Bucket**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **DSPM** **Integrations**.
+2. Click **Add** next to the **Cloud Storage** integration. See image. The **Add Cloud Storage Integration** page appears.
+3. On the **Add Cloud Storage Integration** page, under **Integrations Details**: See image.
+  1. **Integration Name**: Enter a unique name for the integration.
+  2. **Cloud Storage**: Select **Amazon S3 Bucket**.
 4. Click **Next**.
-5. Under **Cloud Storage**, complete the following steps to set up the permissions required by DSPM to access the Amazon S3 bucket. See image.
-  1. For **Amazon S3 Bucket Name**, enter the bucket name where the data must be stored.
-  2. Click the **Copy** icon to copy the **S3 Bucket policy**. The policy authorizes DSPM to access the S3 bucket. You need to paste this policy in the AWS console.
-6. Sign in to the [AWS Management Console](https://console.aws.amazon.com/s3).
+5. Under **Cloud Storage**, complete the following steps to set up the permissions required by DSPM to access the Amazon S3 bucket: See image.
+  1. **Amazon S3 Bucket Name**: Enter the bucket name where the data must be stored.
+  2. **Copy the S3 Bucket policy**: Click the icon to copy the **S3 Bucket policy**. The policy authorizes DSPM to access the S3 bucket. You need to paste this policy in the AWS Management Console.
+6. Sign in to the [AWS Management Console](https://console.aws.amazon.com/s3) and complete the following steps:
   1. Access the required bucket where you want to apply the bucket policy.
   2. Select **Permissions**.
   3. Under**Bucket policy**, click **Edit**.
-  4. On the **Edit bucket policy** page, paste the **S3 bucket policy** you copied earlier, then click **Save changes**. See image.
+  4. On the **Edit bucket policy** page, paste the S3 Bucket policy you copied earlier, then click **Save changes**. See image.
 7. In the Zscaler Admin Console, under **Cloud Storage**, enter the **Folder Location**of the bucket.
 8. Before testing the connection, check the encryption type that is applied to the S3 bucket.
   1. On the [AWS Management Console](https://console.aws.amazon.com/s3), select the **Properties** tab, then scroll down to **Default encryption**.
@@ -10897,13 +10894,13 @@ You can see the integration details on the **Integrations** page. The initial st
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/integrating-amazon-security-lake","lastmod":"2026-08-18T21:06Z","nid":"1487541"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/integrating-amazon-security-lake","lastmod":"2026-09-17T02:11Z","nid":"1487541"} -->
 ## Integrating with Amazon Security Lake
 
 - Source: https://help.zscaler.com/dspm/integrating-amazon-security-lake
 - Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Third-Party Integrations > Cloud Storage Services > Integrating with Amazon Security Lake
-- Last modified: 2026-08-18T21:06Z
+- Path: Data Security Posture Management (DSPM) Help > DSPM Integrations > Cloud Storage Services > Integrating with Amazon Security Lake
+- Last modified: 2026-09-17T02:11Z
 - Summary: How to integrate DSPM with Amazon Security Lake and send alert details.
 
 You can integrate DSPM with the Amazon Security Lake service to export and store the alert data in a dedicated Amazon Simple Storage Service (S3) bucket that is pre-configured as part of the Amazon Security Lake setup.
@@ -10922,25 +10919,25 @@ Complete the following steps before exporting the alert data to Amazon Security 
 
 To configure the Amazon Security Lake integration:
 
-1. Go to **Policies**> **Common Configuration** > **DSPM** >**Integrations**.
-2. Click **Add** for cloud storage integration.
-3. On the **Add Cloud Storage Integration** page: See image.
-  - For **Integration Name**, enter a unique name for the integration.
-  - For **Cloud Storage**, select **Amazon Security Lake**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **DSPM** **Integrations**.
+2. Click **Add** next to the **Cloud Storage** integration. See image. The **Add Cloud Storage Integration** page appears.
+3. On the **Add Cloud Storage Integration** page, under **Integrations Details**: See image.
+  - **Integration Name**: Enter a unique name for the integration.
+  - **Cloud Storage**: Select **Amazon Security Lake**.
 4. Click **Next**.
-5. On the **Cloud Storage** page: See image.
+5. On the **Cloud Storage** page, complete the following steps to provide DSPM with write permissions on Amazon Security Lake: See image.
   - **DSPM AWS Account**: Copy the DSPM AWS Account ID and paste it in the **Account ID** field while creating the custom source on the Amazon Security Lake console.
   - **External ID**: Copy the External ID and paste it in the **External ID** field while creating the custom source on the Amazon Security Lake console.
   - **IAM Role**: Enter the AWS Identity and Access Management (IAM) ARN role that you copied after creating the custom source. This role allows the DSPM AWS account to write data to Security Lake.
   - **Amazon S3 Bucket Name**: Provide the Amazon S3 bucket name.
   - **Bucket Region**: Select the bucket region from the drop-down menu. You should have these details from the Prerequisites step.
   - **Folder Location**: Provide the folder path for the S3 bucket set for Amazon Security Lake. You should have these details from the Prerequisites step.
-6. Click **Test Connection** to verify the connection between DSPM and the AWS service. The test connection validates that the S3 bucket exists. A message is displayed that the connection is successful.
-7. Click **Next**.
-8. Review the integration summary. Click the **Edit** icon if you want to make any changes. See image.
-9. Click **Finish**.
+  - **Test Connection**: Click to verify the connection between DSPM and the AWS service. The test connection validates that the S3 bucket exists. A message is displayed indicating the connection is verified.
+6. Click **Next**.
+7. Review the integration summary. Click the **Edit** icon if you want to make any changes. See image.
+8. Click **Finish**.
 
-You can see the integration details on the Integrations page. The initial status shows as Pending because data is not yet sent to the Amazon Security Lake. After you configure and associate the alert rules with this integration, and when DSPM starts sending the alert data to Amazon Security Lake, the status changes to Success.
+You can see the integration details on the **Integrations** page. The initial status shows as Pending because data has not yet been sent to the Amazon Security Lake. You must configure and associate the [alert notification rules](https://help.zscaler.com/dspm/about-alert-notifications) with this integration for DSPM to be able to send the data logs. When DSPM sends the data logs to the Amazon Security Lake, then the status changes to Success.
 
 ## Partitioning
 
@@ -10988,6 +10985,8 @@ Make sure you have the following information for setting up the DSPM integration
 - The Amazon Security Lake S3 region.
 - The S3 bucket name (e.g., aws-security-data-lake-us-east-2-o-4g8wg3sx9z).
 - The folder prefix for the custom source path on the S3 bucket (e.g., /ext/dspm-security-alerts).
+
+[Image: Add an Azure Blob integration]
 
 [Image: Select Amazon Security Lake in the Integration Details section.]
 
@@ -11061,13 +11060,13 @@ Make sure you have the following information for setting up the DSPM integration
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/integrating-azure-blob-storage","lastmod":"2026-08-18T21:06Z","nid":"1487536"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/integrating-azure-blob-storage","lastmod":"2026-09-17T02:11Z","nid":"1487536"} -->
 ## Integrating with Azure Blob Storage
 
 - Source: https://help.zscaler.com/dspm/integrating-azure-blob-storage
 - Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Third-Party Integrations > Cloud Storage Services > Integrating with Azure Blob Storage
-- Last modified: 2026-08-18T21:06Z
+- Path: Data Security Posture Management (DSPM) Help > DSPM Integrations > Cloud Storage Services > Integrating with Azure Blob Storage
+- Last modified: 2026-09-17T02:11Z
 - Summary: How to integrate DSPM with Azure Blob Storage and send alert details.
 
 You can integrate DSPM with your Azure Blob Storage. This integration enables DSPM to send the alert data logs of your cloud resources to the Azure Blob Storage containers for storage and data analysis by third-party SIEM or ITSM tools.
@@ -11078,22 +11077,22 @@ Only users with the [administrator role](https://help.zscaler.com/dspm/predefine
 
 To configure the Azure Blob Storage integration:
 
-1. Go to **Policies**> **Common Configuration** > **DSPM** >**Integrations**.
-2. On the **Integrations** page, click **Add**. See image.
-3. On the **Add Integration** page: See image.
-  1. For **Integration Name**, enter a unique name.
-  2. For **Cloud Storage**, select **Azure Blob Storage**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **DSPM** **Integrations**.
+2. Click **Add** next to the **Cloud Storage** integration. See image. The **Add Cloud Storage Integration** page appears.
+3. On the **Add Integration** page, under **Integrations Details**: See image.
+  1. **Integration Name**: Enter a unique name.
+  2. **Cloud Storage**: Select **Azure Blob Storage**.
 4. Click **Next**.
-5. Under **Cloud Storage**, complete the following steps to provide DSPM with write permissions on Azure Blob Storage. See image.
+5. Under **Cloud Storage**, complete the following steps to provide DSPM with write permissions on Azure Blob Storage: See image.
   1. Copy the connection string from the Azure portal.
-  2. For **Azure Storage Account Connection String**, paste the connection string you copied from the Azure portal.
+  2. **Azure Storage Account Connection String**: Paste the connection string you copied from the Azure portal.
   3. (Optional) **Container Location**: Enter the location of the storage container. It is mandatory to first create a folder in your Azure Blob Storage and then add the name.
-  4. Click **Test Connection** to verify the connection between DSPM and the Azure Blob Storage. A message is displayed indicating the connection is verified.
+  4. **Test Connection**: Click to verify the connection between DSPM and the Azure Blob Storage. A message is displayed indicating the connection is verified.
 6. Click **Next**.
 7. Review the integration summary. Click the **Edit** icon if you want to make any changes. See image.
 8. Click **Finish**.
 
-You can see the integration details on the **Integrations** page. The initial status is shown as Pending because data is not yet sent to the Azure Blob Storage. You must configure and associate the [alert rules](https://help.zscaler.com/dspm/about-alert-notifications) with this integration for DSPM to be able to send the data logs. When DSPM sends the data logs to the Blob Storage, then the status changes to Success.
+You can see the integration details on the **Integrations** page. The initial status is shown as Pending because data is not yet sent to the Azure Blob Storage. You must configure and associate the [alert notification rules](https://help.zscaler.com/dspm/about-alert-notifications) with this integration for DSPM to be able to send the data logs. When DSPM sends the data logs to the Blob Storage, then the status changes to Success.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Go to your storage account.
@@ -11136,18 +11135,22 @@ You can integrate DSPM with the following cloud storage services:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/integrating-dspm-itsm-tools","lastmod":"2026-08-18T21:06Z","nid":"1487571"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/integrating-dspm-itsm-tools","lastmod":"2026-09-17T02:15Z","nid":"1487571"} -->
 ## Integrating DSPM with ITSM Tools
 
 - Source: https://help.zscaler.com/dspm/integrating-dspm-itsm-tools
 - Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Third-Party Integrations > ITSM Tools > Integrating DSPM with ITSM Tools
-- Last modified: 2026-08-18T21:06Z
+- Path: Data Security Posture Management (DSPM) Help > DSPM Integrations > ITSM Tools > Integrating DSPM with ITSM Tools
+- Last modified: 2026-09-17T02:15Z
 - Summary: Information on integrating DSPM with various ITSM tools.
 
-Security information and event management (SIEM) is a software solution that collects security data like alert details from security systems, aggregates, and applies analytics to that data to discover trends, detect threats, and enable organizations to investigate and take the necessary action.
+You can integrate DSPM with third-party ITSM tools like Jira and ServiceNow to send alert details to these systems. This integration allows you to streamline your remediation workflows by automatically generating work items to analyze and resolve security risks.
 
-You can integrate DSPM with third-party ITSM tools like Jira and ServiceNow to send alert details to these tools. You can create work items in the ITSM tools to analyze the alerts and take the necessary action. DSPM APIs automatically create tickets when a misconfiguration is detected.
+Depending on your configuration, DSPM APIs dynamically manage the life cycle of these tickets:
+
+- **Automatic Creation**: DSPM automatically creates a ticket when a cloud resource misconfiguration or vulnerability is first detected.
+- **Real-Time Updates**: Tickets are updated with the latest context and status changes as DSPM continuously scans your environment.
+- **Automatic Closure**: When a posture change or manual remediation resolves the underlying security issue, DSPM automatically closes the associated ticket in your ITSM tool, reducing manual overhead and tracking effort.
 
 DSPM supports connection with the following ITSM tools:
 
@@ -11157,13 +11160,13 @@ DSPM supports connection with the following ITSM tools:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/integrating-jira","lastmod":"2026-08-18T21:06Z","nid":"1487566"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/integrating-jira","lastmod":"2026-09-17T02:11Z","nid":"1487566"} -->
 ## Integrating with Jira
 
 - Source: https://help.zscaler.com/dspm/integrating-jira
 - Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Third-Party Integrations > ITSM Tools > Integrating with Jira
-- Last modified: 2026-08-18T21:06Z
+- Path: Data Security Posture Management (DSPM) Help > DSPM Integrations > ITSM Tools > Integrating with Jira
+- Last modified: 2026-09-17T02:11Z
 - Summary: How to integrate DSPM with Jira and send alert notifications.
 
 DSPM leverages Jira APIs to automatically create tickets when sensitive data or any misconfigurations are detected in your cloud resources. You can integrate DSPM with Jira to leverage the alert data logs from the cloud storage services and create incidents for further evaluation.
@@ -11182,23 +11185,23 @@ You must first complete the OAuth configuration before integrating DSPM with Jir
 
 To integrate DSPM with Jira:
 
-1. Go to **Policies**> **Common Configuration** > **DSPM** >**Integrations**.
-2. On the **ITSM integrations**page, click **Add**. See image.
-3. Under **Integration Details**: See image.
-  - For **Integration Name**, enter a unique name for the integration.
-  - For **IT Service**, select **Jira**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **DSPM** **Integrations**.
+2. Click **Add** next to the **ITSM** integration. See image. The **Add ITSM Integration** page appears.
+3. On the **Add ITSM Integration** page, under **Integration Details**: See image.
+  - **Integration Name**: Enter a unique name for the integration.
+  - **IT Service**: Select **Jira**.
 4. Click **Next**.
-5. Under **ITSM Details**: See image. You are redirected back to the Atlassian login page. If you're not able to log in, then you see the *Authorization in Process* message in the Zscaler Admin Console, and the following message on the Atlassian Developer console: See image. Check and use the correct **Client ID** and **Client Secret** values for the authorization to be successful.
+5. Under **ITSM Details**, complete the following steps to authorize DSPM to create tickets in Jira: See image. You are redirected back to the Atlassian login page. If you're not able to log in, then you see the *Authorization in Process* message in the Zscaler Admin Console, and the following message on the Atlassian Developer console: See image. Check and use the correct **Client ID** and **Client Secret** values for the authorization to be successful.
   - **Client ID**: Paste the Client ID that you copied while configuring the OAuth app.
   - **Client Secret**: Paste the Client Secret that you copied while configuring the OAuth app.
-  - Click **Authorize**to validate the Jira connection.
+  - **Authorize**: Click to validate the connection between DSPM and the Jira account.
 6. On the Atlassian Developer console, click **Accept** to grant the required permissions to the OAuth client app to perform API operations in Jira. See image. You are again redirected back to the Zscaler Admin Console and a message is displayed indicating the authorization is successful.
 7. Select the required Jira project from the drop-down menu.
 8. Click **Next**.
 9. Review the integration details. Click the **Edit** icon if you want to make any changes. See image.
 10. Click **Finish**.
 
-The integration is added, and the details are displayed on the **Integrations** page.
+The integration is added, and the details are displayed on the **Integrations** page. To complete the integration process and enable data transmission, you must configure and associate the [alert notification rules](https://help.zscaler.com/dspm/about-alert-notifications) with this integration for DSPM to be able to send the data logs.
 
 1. Sign in to the [Atlassian Developer console](https://id.atlassian.com/login?continue=https%3A%2F%2Fdeveloper.atlassian.com%2Fconsole%2Fmyapps%2F).
 2. Click **Create** and select **OAuth 2.0 integration**. See image.
@@ -11248,13 +11251,13 @@ The integration is added, and the details are displayed on the **Integrations** 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/integrating-servicenow","lastmod":"2026-08-18T21:06Z","nid":"1487556"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/integrating-servicenow","lastmod":"2026-09-17T02:11Z","nid":"1487556"} -->
 ## Integrating with ServiceNow
 
 - Source: https://help.zscaler.com/dspm/integrating-servicenow
 - Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Third-Party Integrations > ITSM Tools > Integrating with ServiceNow
-- Last modified: 2026-08-18T21:06Z
+- Path: Data Security Posture Management (DSPM) Help > DSPM Integrations > ITSM Tools > Integrating with ServiceNow
+- Last modified: 2026-09-17T02:11Z
 - Summary: How to integrate DSPM with ServiceNow and send alert notifications.
 
 DSPM leverages ServiceNow APIs to automatically create tickets when sensitive data or a misconfiguration is detected in the cloud resources. You can integrate DSPM with ServiceNow to create incidents on ServiceNow whenever a security policy violation occurs on the selected cloud resources.
@@ -11265,22 +11268,22 @@ Ensure that your ServiceNow instance is online.
 
 To integrate DSPM with ServiceNow:
 
-1. Go to **Policies**> **Common Configuration** > **DSPM** >**Integrations**.
-2. Under **ITSM Integrations**, click **Add**. See image.
-3. Under **Integration Details**: See image.
-  - For **Integration Name**, enter a unique name for the integration.
-  - For **IT Service**, select **ServiceNow**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **DSPM** **Integrations**.
+2. Click **Add** next to the **ITSM** integration. See image. The **Add ITSM Integration** page appears.
+3. On the **Add ITSM Integration** page, under **Integration Details**: See image.
+  - **Integration Name**: Enter a unique name for the integration.
+  - **IT Service**: Select **ServiceNow**.
 4. Click **Next**.
-5. Under **ITSM Details**: See image.
-  - For **ServiceNow Hostname**, enter the ServiceNow hostname.
-  - For **ServiceNow Username**, enter the username for ServiceNow.
-  - For **ServiceNow Password**, enter the password for ServiceNow.
-6. Click **Test Connection** to validate the ServiceNow connection. A confirmation message appears if the connection is successful. If not, then check the previous steps and try again. To learn more, refer to the [ServiceNow Guide](https://support.servicenow.com/kb?id=kb_article_view&sysparm_article=KB0516495).
-7. If you need to reset the validation, click **Reset Validation**, if not, click **Next**.
-8. Review the integration details on the **Summary** page. Click the **Edit** icon if you want to make any changes. See image.
-9. Click **Finish**.
+5. Under **ITSM Details**, complete the following steps to authorize DSPM to create incidents in ServiceNow: See image.
+  - **ServiceNow Hostname**: Enter the ServiceNow hostname.
+  - **ServiceNow Username**: Enter the username for ServiceNow.
+  - **ServiceNow Password**: Enter the password for ServiceNow.
+  - **Test Connection**: Click to verify the connection between DSPM and ServiceNow. A message is displayed indicating the connection is verified. If not, then check the previous steps and try again. To learn more, refer to the [ServiceNow Guide](https://support.servicenow.com/kb?id=kb_article_view&sysparm_article=KB0516495).
+6. If you need to reset the validation, click **Reset Validation**, if not, click **Next**.
+7. Review the integration details on the **Summary** page. Click the **Edit** icon if you want to make any changes. See image.
+8. Click **Finish**.
 
-The integration details are displayed on the **Integrations** page.
+The integration details are displayed on the **Integrations** page. To complete the integration process and enable data transmission, you must configure and associate the [alert notification rules](https://help.zscaler.com/dspm/about-alert-notifications) with this integration for DSPM to be able to send the data logs.
 
 [Image: Add a ServiceNow integration]
 
@@ -11293,13 +11296,13 @@ The integration details are displayed on the **Integrations** page.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/integrating-slack","lastmod":"2026-08-18T21:06Z","nid":"1487526"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/integrating-slack","lastmod":"2026-09-17T02:11Z","nid":"1487526"} -->
 ## Integrating with Slack
 
 - Source: https://help.zscaler.com/dspm/integrating-slack
 - Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Third-Party Integrations > ChatOps Tools > Integrating with Slack
-- Last modified: 2026-08-18T21:06Z
+- Path: Data Security Posture Management (DSPM) Help > DSPM Integrations > ChatOps Tools > Integrating with Slack
+- Last modified: 2026-09-17T02:11Z
 - Summary: How to integrate DSPM with Slack.
 
 You can integrate DSPM with Slack, a tool for centralized communication and collaboration. DSPM detects sensitive data or misconfigurations in the cloud resources and generates alerts. These alert notifications are sent to the configured Slack channels so you can investigate and address the issues on a common platform and streamline the mitigation directly into your developer tool.
@@ -11325,18 +11328,18 @@ Before integrating DSPM with Slack, you must set up the webhook on Slack. Incomi
 
 To integrate DSPM with Slack:
 
-1. Go to **Policies**> **Common Configuration** > **DSPM** >**Integrations**.
-2. In the **ChatOps (Slack)** section, click **Add**. See image.
-3. On the **Integration Details** page: See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **DSPM** **Integrations**.
+2. Click **Add** next to the **ChatOps** integration. See image. The **Add ChatOps Integration** page appears.
+3. On the **Add ChatOps Integration** page, under **Integration Details**: See image.
   - **Integration Name**: Enter a unique name for the integration.
   - **Channel Name**: Enter the name of the Slack channel where you want to receive alert notifications.
   - **Webhook URL**: Enter the webhook URL that you copied from the Slack portal. The URL allows DSPM to connect and communicate with the Slack channel.
   - **Add More**: Click to include additional channels where you want to receive alert notifications. DSPM allows you to add 10 channels per integration. You can configure another integration to add more channels.
-4. Click **Test Connection** to validate the Slack connection. A confirmation message appears that the Slack connection is verified. If not, then check the previous steps and try again.
-5. Review the integration details on the **Summary** page. See image.
-6. Click **Finish**.
+  - **Test Connection**: Click to verify the connection between DSPM and the Slack services. A message is displayed indicating the connection is verified. If not, then check the previous steps and try again.
+4. Review the integration details on the **Summary** page. See image.
+5. Click **Finish**.
 
-The Slack integration details are displayed on the **Integrations** page.
+The Slack integration details are displayed on the **Integrations** page. To complete the integration process and enable data transmission, you must configure and associate the [alert notification rules](https://help.zscaler.com/dspm/about-alert-notifications) with this integration for DSPM to be able to send the data logs.
 
 [Image: Add a Slack integration]
 
@@ -11359,13 +11362,13 @@ The Slack integration details are displayed on the **Integrations** page.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/managing-action-rules","lastmod":"2026-04-16T21:06Z","nid":"1535177"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/managing-action-rules","lastmod":"2026-09-25T11:54Z","nid":"1535177"} -->
 ## Managing Action Rules
 
 - Source: https://help.zscaler.com/dspm/managing-action-rules
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Action Rules > Managing Action Rules
-- Last modified: 2026-04-16T21:06Z
+- Last modified: 2026-09-25T11:54Z
 - Summary: How to enable, disable, edit, delete, or update the rule priority of an action rule in the Zscaler Admin Console.
 
 You can enable, disable, edit, delete, or update the rule priority of an action rule as required.
@@ -11375,7 +11378,7 @@ You can enable, disable, edit, delete, or update the rule priority of an action 
 - Deleting an Action Rule
 - Updating the Priority of an Action Rule
 
-1. Go to **Policies**> **Data Protection**>**Policy**>**Action Rules**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM**>**Action Rules**.
 2. On the **Action Rules** page, click the toggle under the **Status**column to enable or disable the action rule. See image. A message appears indicating that the action rule has been updated successfully. See image.
 
 An action rule is disabled in the following scenarios:
@@ -11387,7 +11390,7 @@ See image.
 
 Invalid rules retain their assigned priority. Deleting an invalid rule is necessary to make its specific priority level available for a new valid action rule.
 
-1. Go to **Policies**> **Data Protection**>**Policy**>**Action Rules**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM**>**Action Rules**.
 2. On the **Action Rules** page, click the **Actions**icon () and select **Edit**for the required action rule. See image. The **Edit Action Rule** page appears.
 3. On the **Edit Action Rule** page, in the **General Information** section, change the **Rule Name, Rule Priority,** or **Rule Description** as required, then click **Next**. See image.
 4. In the **Configuration**section, update the filters as required. See image.
@@ -11395,11 +11398,11 @@ Invalid rules retain their assigned priority. Deleting an invalid rule is necess
 
 [Image: Edit the General Information section]
 
-1. Go to **Policies**> **Data Protection**>**Policy**>**Action Rules**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM**>**Action Rules**.
 2. On the **Action Rules** page, click the **Actions**icon () and select **Delete**for the required action rule. See image.
 3. A confirmation message appears. Enter `CONFIRM`in the field and click **Delete**. See image. A message appears indicating that the action rule is updated successfully.
 
-1. Go to **Policies**> **Data Protection**>**Policy**>**Action Rules**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM**>**Action Rules**.
 2. On the **Action Rules** page, click the **Actions**icon () and select **Update Rule Priority**for the required action rule. See image. The **Update Rule Priority** window appears.
 3. Change the **Rule Priority** as required. See image.
 4. Click **Update Priority**. A message appears indicating that the priority is updated successfully.
@@ -11423,13 +11426,13 @@ Invalid rules retain their assigned priority. Deleting an invalid rule is necess
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/managing-alert-rules","lastmod":"2026-04-15T00:39Z","nid":"1477806"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/managing-alert-rules","lastmod":"2026-09-28T20:29Z","nid":"1477806"} -->
 ## Managing Alert Rules
 
 - Source: https://help.zscaler.com/dspm/managing-alert-rules
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Alerts > Alert Notification Rules > Managing Alert Rules
-- Last modified: 2026-04-15T00:39Z
+- Last modified: 2026-09-28T20:29Z
 - Summary: Information on how to manage DSPM alert rules in the Zscaler Admin Console.
 
 You can edit, delete, enable, or disable the alert rule that you've [added](https://help.zscaler.com/dspm/adding-alert-notification).
@@ -11438,18 +11441,18 @@ You can edit, delete, enable, or disable the alert rule that you've [added](http
 
 To edit an alert rule:
 
-1. Go to **Administration**>**Alerts** >**Alert Notifications**.
-2. In the table, locate the alert rule you want to edit, click the **Actions** icon (), and select **Edit**. See image.
-3. On the **General Information** page, change the **Alert Rule** **Name**or **Alert Rule Description**as required, then click **Next**.
-4. On the **Notification Scope** page, update the filters as required, then click **Next**.
-5. On the **Notifications** page, update the notification channels as required, then click **Next**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM**>**Alert Notifications**.
+2. In the table, locate the alert rule you want to edit, click the **Actions** icon (), and select **Edit**. See image. The **Edit Alert Rule** page appears.
+3. On the **Edit Alert Rule** page, in the **General Information** section, change the **Alert Rule** **Name**or **Alert Rule Description**as required, then click **Next**.
+4. In the **Notification Scope** section, update the filters as required, then click **Next**.
+5. In the **Notifications** section, update the notification channels as required, then click **Next**.
 6. Review the changes and click **Finish**. See image. A message appears indicating that the alert rule is updated successfully.
 
 ## Deleting an Alert Rule
 
 To delete an alert rule:
 
-1. Go to **Administration**>**Alerts** >**Alert Notifications**.
+1. Go to **Data Security** > **DSPM**>**Alert Notifications**.
 2. In the table, locate the alert rule you want to edit, click the **Actions** icon (), and select **Delete**. See image.
 3. A confirmation message appears. Read the message and click **Delete**. See image.
 
@@ -11468,34 +11471,34 @@ You can enable the alert rule only after at least one filter scope is available 
 
 To enable or disable the alert rule:
 
-1. Go to **Administration**>**Alerts** >**Alert Notifications**.
+1. Go to **Data Security** > **DSPM**>**Alert Notifications**.
 2. Click the toggle under the **State** column to enable or disable the alert rule. See image.
 3. A confirmation message appears indicating that the alert rule is going to be enabled or disabled. Click **Enable** or **Disable** depending on the action. See image.
 
-[Image: The Alert Notifications page with the list of rules configured and annotation around the State column.]
+[Image: The Alert Notifications page with the list of rules configured and annotation around the State column]
 
-[Image: The Disable Alert Rule window with annotation around Disable button.]
+[Image: The Disable Alert Rule window with annotation around Disable button]
 
-[Image: The Alert Notifications page displaying the invalid alert rule.]
+[Image: The Alert Notifications page displaying the invalid alert rule]
 
-[Image: The actions icon with list of actions available and annotation around Edit option.]
+[Image: The actions icon with list of actions available and annotation around Edit option]
 
-[Image: The Summary page with the list of options configured.]
+[Image: The Summary section with the list of options configured]
 
-[Image: The Delete Alert Rule window with annotation around the Delete button.]
+[Image: The Delete Alert Rule window with annotation around the Delete button]
 
-[Image: The actions icon with list of actions available and annotation around Delete option.]
+[Image: The actions icon with list of actions available and annotation around Delete option]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/managing-alerts","lastmod":"2026-04-15T00:31Z","nid":"1478181"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/managing-alerts","lastmod":"2026-09-23T02:26Z","nid":"1478181"} -->
 ## Managing Alerts
 
 - Source: https://help.zscaler.com/dspm/managing-alerts
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Alerts > Managing Alerts
-- Last modified: 2026-04-15T00:31Z
+- Last modified: 2026-09-23T02:26Z
 - Summary: Information on how to manage DSPM alerts in the Zscaler Admin Console.
 
 You can resolve, snooze, unsnooze, or reset the alerts as required.
@@ -11509,7 +11512,7 @@ DSPM generates [alerts](https://help.zscaler.com/dspm/about-alerts) for any [pol
 
 To resolve a single alert or multiple alerts:
 
-1. Go to **Administration**> **Alerts**> **Alerts**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM**> **Alerts**.
 2. Select the **All Alerts** tab, and resolve the alert on the Alerts page or an individual alert's details page: You can also access the Alerts page and an individual alert's page on the [Grouped by Policy](https://help.zscaler.com/dspm/viewing-alerts-grouped-policy) tab, [Grouped by Resource](https://help.zscaler.com/dspm/viewing-alerts-grouped-resource) tab, [Dashboard](https://help.zscaler.com/dspm/about-dashboard), and the [Resource Inventory](https://help.zscaler.com/dspm/about-resource-inventory) page.
   - Alerts Page
   - Individual Alert Page
@@ -11525,7 +11528,7 @@ When you do not want to take any action for an alert at the moment, or you do no
 
 To snooze a single alert or multiple alerts:
 
-1. Go to **Administration**> **Alerts**> **Alerts**.
+1. Go to **Data Security** > **DSPM**> **Alerts**.
 2. Select the **All Alerts** tab, and snooze the alert on the Alerts page or an individual alert's page: You can also access the Alerts page and an individual alert's page on the [Grouped by Policy](https://help.zscaler.com/dspm/viewing-alerts-grouped-policy) tab, [Grouped by Resource](https://help.zscaler.com/dspm/viewing-alerts-grouped-resource) tab, [Dashboard](https://help.zscaler.com/dspm/about-dashboard), and the [Resource Inventory](https://help.zscaler.com/dspm/about-data-inventory) page.
   - Alerts Page
   - Individual Alert Page
@@ -11540,7 +11543,7 @@ If you've accidentally snoozed an alert, or you want to start receiving notifica
 
 To unsnooze a single alert or multiple alerts:
 
-1. Go to **Administration**> **Alerts**> **Alerts**.
+1. Go to **Data Security** > **DSPM**> **Alerts**.
 2. Select the **All Alerts** tab, and unsnooze the alert on the Alerts page or the individual alert's page:
   - Alerts Page
   - Individual Alert Page
@@ -11552,7 +11555,7 @@ If you've accidentally resolved an alert, you can reset the alert. When you rese
 
 To reset a single alert or multiple alerts:
 
-1. Go to **Administration**> **Alerts**> **Alerts**.
+1. Go to **Data Security** > **DSPM**> **Alerts**.
 2. Select the **All Alerts** tab, and reset the alert on the Alerts page or an individual alert's page:
   - Alerts Page
   - Individual Alert Page
@@ -11788,13 +11791,13 @@ Run the template in the Microsoft Entra tenant using the CLI app:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/managing-compliance-frameworks","lastmod":"2026-04-09T22:11Z","nid":"1529784"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/managing-compliance-frameworks","lastmod":"2026-09-23T21:36Z","nid":"1529784"} -->
 ## Managing Compliance Frameworks
 
 - Source: https://help.zscaler.com/dspm/managing-compliance-frameworks
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Compliance > Managing Compliance Frameworks
-- Last modified: 2026-04-09T22:11Z
+- Last modified: 2026-09-23T21:36Z
 - Summary: How to edit, delete, enable, or disable frameworks in the Zscaler Admin Console.
 
 You can enable or disable a predefined framework and edit, delete, enable, or disable a custom framework.
@@ -11807,7 +11810,7 @@ When you click a disabled framework, you are directed to the Configuration tab a
 
 To enable or disable a compliance framework:
 
-1. Go to **Analytics**>**Data Security**>**DSPM** >**Compliance**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** >**Compliance**.
 2. On the **Compliance**page, click the **Actions**()icon for the required compliance framework.
 3. Select **Enable**or **Disable**. See image. The disabled frameworks are displayed at the end and grayed out.
 
@@ -11815,7 +11818,7 @@ To enable or disable a compliance framework:
 
 To edit a custom compliance framework:
 
-1. Go to **Analytics**>**Data Security**>**DSPM** >**Compliance**.
+1. Go to**Data Security**>**DSPM** >**Compliance**.
 2. On the **Compliance**page, click the **Actions**()icon for the required compliance framework and select **Edit**. See image. You are directed to the **Summary**page.
 3. On the **Summary**page, change the **Framework Name** or **Framework Description** as required.
 4. Click the **Edit**icon for **Categories**, **Policies**,or **DLP Engines,**and update the fields as required. See image.
@@ -11825,9 +11828,9 @@ To edit a custom compliance framework:
 
 To delete a custom compliance framework:
 
-1. Go to **Analytics**>**Data Security**>**DSPM** >**Compliance**.
+1. Go to **Data Security**>**DSPM** >**Compliance**.
 2. On the **Compliance**page, click the **Actions**() icon for the required compliance framework and select **Delete**. See image.
-3. On the **Delete Framework** window, enter `CONFIRM`, and then click **Delete**. The custom framework is deleted from the Zscaler Admin Console.
+3. On the **Delete Framework** window, enter `CONFIRM`, and then click **Confirm**. The custom framework is deleted from the Zscaler Admin Console.
 
 [Image: The Compliance dashboard with the list of frameworks and annotation around Actions icon and Disable option.]
 
@@ -11840,13 +11843,13 @@ To delete a custom compliance framework:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/managing-custom-tags","lastmod":"2026-07-02T07:06Z","nid":"1504756"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/managing-custom-tags","lastmod":"2026-09-30T00:26Z","nid":"1504756"} -->
 ## Managing Custom Tags
 
 - Source: https://help.zscaler.com/dspm/managing-custom-tags
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > Cloud Account Management > Managing Custom Tags
-- Last modified: 2026-07-02T07:06Z
+- Last modified: 2026-09-30T00:26Z
 - Summary: Information about how to manage custom tags in the Zscaler Admin Console.
 
 Custom tags are key-value pairs that allow you to organize, identify, and distinguish the resources created and deployed by DSPM in your cloud environment. Custom tags are created and applied to the DSPM resources while deploying the templates.
@@ -11896,9 +11899,9 @@ Do not use the following predefined tags that are automatically assigned to the 
 
 To add custom tags:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Cloud Accounts**.
-2. Select the cloud account.
-3. Click **Manage**, and then select **Manage Custom Tags** from the drop-down menu. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM**> **Cloud Accounts**. The **Cloud Accounts** page appears.
+2. On the **Cloud Accounts** page, click the required cloud account (AWS, Azure, or GCP).
+3. Click **Manage**, and then select **Manage Custom Tags** from the drop-down menu. See image. The **Manage Custom Tags** page appears.
 4. On the **Manage Custom Tags** page, enter the key and value for the tag. See image.
 5. Click **Add More**, and enter key-value pairs to add more tags.
 6. Click **Next**.
@@ -11911,10 +11914,10 @@ When you modify a custom tag and deploy the templates, the new custom tag overri
 
 To edit custom tags:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Cloud Accounts**.
-2. Select the cloud account.
-3. Click **Manage**, and then select **Manage Custom Tags** from the drop-down menu. See image.
-4. On the **Manage Custom Tags** page, modify the key and value for the required tag. See image.
+1. Go to **Data Security** > **DSPM**> **Cloud Accounts**. The **Cloud Accounts** page appears.
+2. On the **Cloud Accounts** page, click the required cloud account (AWS, Azure, or GCP).
+3. Click **Manage**, and then select **Manage Custom Tags** from the drop-down menu. See image. The **Manage Custom Tags** page appears.
+4. On the **Manage Custom Tags** page, modify the key and value for the required tag.
 5. Click **Next**.
 6. On the **Apply Changes** page, download and deploy the templates.
 7. Click **Done**.
@@ -11925,25 +11928,25 @@ When you delete custom tags, the tags are removed from the resources after you d
 
 To delete custom tags:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Cloud Accounts**.
-2. Select the cloud account.
-3. Click **Manage**, and then select **Manage Custom Tags** from the drop-down menu.
-4. On the **Manage Custom Tags** page, click the **Delete** icon for the custom tag that you want to delete. See image.
+1. Go to **Data Security** > **DSPM**> **Cloud Accounts**. The **Cloud Accounts** page appears.
+2. On the **Cloud Accounts** page, click the required cloud account (AWS, Azure, or GCP).
+3. Click **Manage**, and then select **Manage Custom Tags** from the drop-down menu. See image. The **Manage Custom Tags** page appears.
+4. On the **Manage Custom Tags** page, click the **Close**icon for the custom tag that you want to delete. See image.
 5. Click **Next**.
 6. On the **Apply Changes** page, download and deploy the templates.
 7. Click **Done**.
 
 [Image: Manage Custom Tags]
 
-[Image: Manage Custom Tags page]
+[Image: Manage Custom Tags page to add key and value pair]
 
-[Image: Modify custom tags]
+[Image: The Manage Custom Tags option from the Manage drop-down menu]
 
-[Image: Manage Custom Tags]
+[Image: The Manage Custom Tags option from the Manage drop-down menu]
 
-[Image: Delete custom tags]
+[Image: The Manage Custom Tags page with annotation around the close icon]
 
-[Image: The Apply Changes page with the template that must be deployed.]
+[Image: The Apply Changes page with the template that must be deployed]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -12046,24 +12049,28 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/managing-evidence-configuration","lastmod":"2026-05-26T07:06Z","nid":"1529299"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/managing-evidence-configuration","lastmod":"2026-09-30T00:28Z","nid":"1529299"} -->
 ## Managing Evidence Configuration
 
 - Source: https://help.zscaler.com/dspm/managing-evidence-configuration
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > Cloud Account Management > Managing Evidence Configuration
-- Last modified: 2026-05-26T07:06Z
+- Last modified: 2026-09-30T00:28Z
 - Summary: How to manage the evidence files after onboarding cloud accounts in the Zscaler Admin Console.
 
-DSPM identifies files and tables containing [sensitive data](https://help.zscaler.com/dspm/viewing-sensitive-data-details) and generates evidence data for review. You can configure an AWS S3 bucket or Azure storage account container, to store these classified evidence data snippets. You can also use an existing storage account or S3 bucket present in one of the [regions selected](https://help.zscaler.com/dspm/onboarding-aws-organization#step3) while onboarding or allow DSPM to create a new one in the orchestrator account.
+DSPM identifies files and tables containing [sensitive data](https://help.zscaler.com/dspm/viewing-sensitive-data-details) and generates evidence data for review. You can configure an AWS S3 bucket or Azure storage account container to store these classified evidence data snippets. You can also use an existing storage account or S3 bucket present in one of the [regions selected](https://help.zscaler.com/dspm/onboarding-aws-organization#step3) while onboarding or allow DSPM to create a new one in the orchestrator account.
 
 The S3 bucket or storage account container cannot be changed after it is added. You can only enable or disable the evidence configuration.
 
+The following flowchart details decision-making and configuration steps for evidence storage across AWS, Azure, and GCP, including both custom-managed and Zscaler-managed options.
+
+See image.
+
 To manage evidence configuration:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Cloud Accounts**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Cloud Accounts**.
 2. Select the onboarded account.
-3. Click **Manage**, and then select **Manage Evidence**. See image.
+3. Click **Manage**, and then select **Manage Evidence**. See image. The **Evidence Configuration** page appears.
 4. On the **Evidence Configuration** page, click the toggle to enable or disable the evidence configuration. When disabled, DSPM stops sending evidence data to the specified storage account.
   - AWS
   - Azure
@@ -12074,30 +12081,26 @@ To manage evidence configuration:
 
 See image.
 
+[Image: Decision flow diagram for evidence configuration with setup and template requirements]
+
 To configure evidence storage for Azure, Zscaler recommends you to use the latest [onboarding templates](https://help.zscaler.com/dspm/viewing-roles-and-templates).
 
 - Enable
 - Disable
 
-See image.
-
 - Enable
 - Disable
 
-See image.
-
-1. Select the required storage type: See image.
+1. Select the required storage type:
   - Custom Container
   - Zscaler Managed Container
-2. On the **Apply Changes** page, download the **Evidence**template and run it on the account where the storage account container is present. See image. For **Zscaler Managed Container** storage type, if you select [Deploy private endpoint for secure communication](https://help.zscaler.com/dspm/selecting-orchestrator-and-monitoring-scope) while onboarding, you must add your system's IP address to the [Azure key vault](https://help.zscaler.com/dspm/deploying-azure-onboarding-template) created in the orchestrator account before running the evidence template. This is required when multiple users need to apply Terraform from different IP addresses. To add your IP address: Sign in to the Azure portal and go to **Key vaults**.; On the **Key vaults** page, search and select the key vault created in the orchestrator account. See image.; In the left-side navigation, go to **Settings**> **Networking**.; On the **Firewalls and virtual networks** tab: Select **Allow public access from specific virtual networks and IP addresses**.; In the **Firewall**section, click **Add your client IP address** and enter your system's IP address.See image.; Click **Apply**.
+2. On the **Apply Changes** page, download the **Evidence**template and run it on the account where the storage account container is present. For **Zscaler Managed Container** storage type, if you select [Deploy private endpoint for secure communication](https://help.zscaler.com/dspm/selecting-orchestrator-and-monitoring-scope) while onboarding, you must add your system's IP address to the [Azure key vault](https://help.zscaler.com/dspm/deploying-azure-onboarding-template) created in the orchestrator account before running the evidence template. This is required when multiple users need to apply Terraform from different IP addresses. To add your IP address: Sign in to the Azure portal and go to **Key vaults**.; On the **Key vaults** page, search and select the key vault created in the orchestrator account. See image.; In the left-side navigation, go to **Settings**> **Networking**.; On the **Firewalls and virtual networks** tab: Select **Allow public access from specific virtual networks and IP addresses**.; In the **Firewall**section, click **Add your client IP address** and enter your system's IP address.See image.; Click **Apply**.
 
 Enter the existing storage account details:
 
 - **Storage Account Resource ID**: The resource ID of the storage account.
 - **Container Name**: The name of the container.
 - **Key Vault Resource ID**: The resource ID of the key vault. This key vault is used to encrypt the evidence data in the container.
-
-See image.
 
 DSPM creates a storage container in the orchestrator account to upload the snippet of evidence data.
 
@@ -12107,7 +12110,7 @@ DSPM creates a storage container in the orchestrator account to upload the snipp
 1. Select the required storage type:
   - Custom S3 Bucket
   - Zscaler Managed S3 Bucket
-2. On the **Apply Changes** page:
+2. On the **Apply Changes** page: See image.
   1. Select the **CloudFormation**or **Terraform**template.
   2. Download the template and run it on the account where the specified S3 bucket is present.
 3. Click **Done**.
@@ -12117,8 +12120,6 @@ Enter the existing S3 bucket details:
 - **S3 Bucket Name**: The name of the S3 bucket.
 - **S3 Bucket Account ID**: The 12-digit account ID of the S3 bucket.
 - **KMS Key ARN**: The KMS key or CMK key ARN. This key is used to encrypt the evidence data in the S3 bucket.
-
-See image.
 
 DSPM creates an S3 bucket in the orchestrator account to upload the evidence data.
 
@@ -12136,46 +12137,28 @@ DSPM creates an S3 bucket in the orchestrator account to upload the evidence dat
 
 Enter the name of the bucket where you want to store the evidence data.
 
-See image.
-
 DSPM creates a bucket in the orchestrator project to upload the evidence data.
-
-See image.
 
 [Image: The GCP Evidence Configuration page to enable or disable the evidence configuration.]
 
 [Image: The Manage actions drop-down menu with list of actions available for the selected cloud account.]
 
-[Image: The Evidence Configuration page with toggle option to enable or disable the S3 bucket.]
-
-[Image: The Evidence Configuration page with Zscaler Managed S3 bucket option selected.]
-
-[Image: The Evidence Configuration page with Custom S3 bucket option selected.]
-
 [Image: The Apply Changes page displaying the Template type and Evidence template.]
-
-[Image: The Azure Evidence Configuration page with customer managed container selected.]
-
-[Image: The Azure Evidence Configuration page with Zscaler managed container selected.]
-
-[Image: The Azure Evidence Configuration page with annotation around enable evidence toggle.]
 
 [Image: The Key vaults page displaying the list of key vaults in the Azure portal.]
 
 [Image: The Networking page to add the IP address to the selected key vault.]
-
-[Image: The Evidence Configuration page with the storage type and bucket name.]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/managing-evidence-rules","lastmod":"2026-07-02T07:06Z","nid":"1540803"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/managing-evidence-rules","lastmod":"2026-09-17T21:14Z","nid":"1540803"} -->
 ## Managing Evidence Rules
 
 - Source: https://help.zscaler.com/dspm/managing-evidence-rules
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > On-Premises Data Centers and Scanners > Evidence > Managing Evidence Rules
-- Last modified: 2026-07-02T07:06Z
+- Last modified: 2026-09-17T21:14Z
 - Summary: Information on how to edit, delete, enable, disable, or validate evidence rules.
 
 You can enable, disable, edit, delete, or validate an evidence rule as required.
@@ -12191,17 +12174,17 @@ Evidence data is cached for 60 minutes. If you disable a rule, evidence data con
 
 To enable or disable an evidence rule:
 
-1. Go to **Policies**> **Common Configuration** > **DSPM** > **Evidence Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Evidence Settings**.
 2. Select the toggle under the **Enable/Disable** column to enable or disable the evidence rule. See image.
 3. Read the confirmation message that appears, then click **Enable Evidence Setting** or **Disable Evidence Setting** to apply the changes.
 
-1. Go to **Policies**> **Common Configuration** > **DSPM** > **Evidence Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Evidence Settings**.
 2. Click the **Actions**icon and select **Edit**. See image.
 3. On the **Edit Evidence Rule** page, modify the configuration as required.
 4. Download and deploy the template on your account to grant access to the evidence bucket.
 5. Click **Done**.
 
-1. Go to **Policies**> **Common Configuration** > **DSPM** > **Evidence Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Evidence Settings**.
 2. Click the **Actions**icon and select **Delete**. See image.
 3. In the **Delete Evidence Rule** window, enter `CONFIRM` and click **Delete**.
 
@@ -12215,16 +12198,16 @@ The Connection Status can be one of the following:
 
 To validate an evidence rule:
 
-1. Go to **Policies**> **Common Configuration** > **DSPM** > **Evidence Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Evidence Settings**.
 2. Click the **Actions**icon and select **Validate**. See image. A pop-up message appears confirming that the validation is initiated. Based on the validation, the Connection Status is updated.
 
-[Image: The Actions menu with the list of actions available for the evidence rule and annotation around the Validate option.]
+[Image: The Actions menu with the list of actions available for the evidence rule and annotation around the Validate option]
 
-[Image: The Actions menu with the list of actions available for the evidence rule and annotation around the Edit option.]
+[Image: The Actions menu with the list of actions available for the evidence rule and annotation around the Edit option]
 
-[Image: The Actions menu with the list of actions available for the evidence rule and annotation around the Delete option.]
+[Image: The Actions menu with the list of actions available for the evidence rule and annotation around the Delete option]
 
-[Image: The Enable/Disable column in the Evidence Settings page with annotation around the Disabled option.]
+[Image: The enable or disable column in the evidence settings page with annotation around the Disabled option]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -12287,13 +12270,13 @@ To enable or disable the ignore alert filter:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/managing-monitoring-scope-aws","lastmod":"2026-04-24T22:56Z","nid":"1478016"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/managing-monitoring-scope-aws","lastmod":"2026-09-30T07:25Z","nid":"1478016"} -->
 ## Managing Monitoring Scope for AWS
 
 - Source: https://help.zscaler.com/dspm/managing-monitoring-scope-aws
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > AWS Cloud Accounts > AWS Organization > Managing Monitoring Scope for AWS
-- Last modified: 2026-04-24T22:56Z
+- Last modified: 2026-09-30T07:25Z
 - Summary: Information on how to manage the monitoring scope for AWS in the Zscaler Admin Console.
 
 The monitoring scope refers to the AWS target accounts that are [onboarded](https://help.zscaler.com/dspm/onboarding-aws-organization). When new accounts are added to your organization, you can onboard them to DSPM for monitoring data stores. You can add new accounts to the monitoring scope, but you cannot remove the existing target accounts.
@@ -12308,9 +12291,9 @@ You must be assigned either an [Administrator role](https://help.zscaler.com/dsp
 
 To add new accounts to the monitoring scope:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Cloud Accounts**.
-2. Select the organization for which you want to add new target accounts. See image.
-3. Click **Manage**, and then select **Monitoring & Autodetection** from the drop-down menu. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM**> **Cloud Accounts**. The **Cloud Accounts** page appears.
+2. On the **Cloud Accounts** page, select the organization for which you want to add new target accounts.
+3. Click **Manage**, and then select **Monitoring & Autodetection** from the drop-down menu.
   1. On the **Add to Monitoring Scope** page, select the accounts that you want to be monitored. See image. Enable **Autodetection** at the organization or OU level so DSPM can automatically detect and onboard any new accounts that are added in the future. Click **Next**. You must activate automatic deployment in AWS to automatically deploy stack instances for newly added account in the future.
   2. On the **Assign Business Units** page, change the [business unit](https://help.zscaler.com/dspm/about-business-units) for the OU if required, then click **Next**. See image.
   3. On the **Apply Changes** page, download the monitoring scope template and run it in the [AWS Management Console](https://aws.amazon.com/console/). See image.
@@ -12385,9 +12368,11 @@ The access keys provide DSPM with administrator access to the target account fro
 
 Review the list of OUs that you selected for autodetection.
 
-[Image: Select the Organization to add the monitoring scope]
+[Image: The Add to Monitoring Scope page with the list of accounts onboarded]
 
 [Image: Assign Business Units to Organizational Unit]
+
+[Image: The Apply Changes page to download the Monitoring Scope template]
 
 [Image: Select StackSets in the Left-side navigation]
 
@@ -12403,7 +12388,7 @@ Review the list of OUs that you selected for autodetection.
 
 [Image: View the Operations tab]
 
-[Image: AWS access portal]
+[Image: The AWS access portal listing the AWS accounts]
 
 [Image: Access keys in the AWS access portal]
 
@@ -12420,13 +12405,13 @@ Review the list of OUs that you selected for autodetection.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/managing-monitoring-scope-gcp","lastmod":"2026-04-24T22:34Z","nid":"1498106"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/managing-monitoring-scope-gcp","lastmod":"2026-09-14T22:10Z","nid":"1498106"} -->
 ## Managing Monitoring Scope for GCP
 
 - Source: https://help.zscaler.com/dspm/managing-monitoring-scope-gcp
 - Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > GCP Cloud Accounts > Managing Monitoring Scope for GCP
-- Last modified: 2026-04-24T22:34Z
+- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > GCP Cloud Accounts > GCP Organization > Managing Monitoring Scope for GCP
+- Last modified: 2026-09-14T22:10Z
 - Summary: Information on how to manage the monitoring scope for GCP in the Zscaler Admin Console.
 
 The monitoring scope refers to the GCP projects that are [onboarded](https://help.zscaler.com/dspm/onboarding-gcp-organization). When new projects are created in your GCP organization, you can onboard and add new projects to the monitoring scope.
@@ -12643,13 +12628,13 @@ After the templates are deployed, the regions are updated in the DSPM Admin Port
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/managing-policies","lastmod":"2026-04-21T21:06Z","nid":"1477761"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/managing-policies","lastmod":"2026-10-01T16:48Z","nid":"1477761"} -->
 ## Managing Policies
 
 - Source: https://help.zscaler.com/dspm/managing-policies
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Data Posture Policies > Managing Policies
-- Last modified: 2026-04-21T21:06Z
+- Last modified: 2026-10-01T16:48Z
 - Summary: Information on how to enable, disable, edit, delete, or clone policies in the Zscaler Admin Console.
 
 You can enable, disable, edit, delete, change policy severity, or clone a policy as required.
@@ -12667,7 +12652,7 @@ New alerts are not generated for disabled policies. However, the status of the e
 
 To enable or disable a single policy:
 
-1. Go to **Policies**>**Data Protection**>**Policy**> **Data Posture Policies**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**>**DSPM**> **Data Posture Policies**.
 2. On the **Policy** page, do any of the following:
   - Click the **Actions** icon for the required policy, then select **Enable** or **Disable**. See image.
   - Select the checkbox for the required policy. Select **Enable** or **Disable** from the **Actions** drop-down menu that appears on the page. See image.
@@ -12676,7 +12661,7 @@ To enable or disable a single policy:
 
 To enable or disable bulk security policies:
 
-1. Go to **Policies**>**Data Protection**>**Policy**> **Data Posture Policies**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**>**DSPM**> **Data Posture Policies**.
 2. On the **Policy** page, select the checkboxes for the required policies. The **Actions** drop-down appears on the page. See image.
 3. From the **Actions** drop-down menu, select **Enable** or **Disable**.
 4. In the **Enable Policy** or **Disable Policy** window, select the checkbox to confirm that you want to proceed. See image.
@@ -12696,7 +12681,7 @@ You can edit or delete only the custom policies. Predefined policies cannot be e
 
 To edit a custom data posture policy:
 
-1. Go to **Policies**>**Data Protection**>**Policy**> **Data Posture Policies**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**>**DSPM**> **Data Posture Policies**.
 2. On the **Policy** page, click the **Actions** icon for the required custom policy.
 3. Click **Edit**. You are directed to the **Query Builder** page.
 4. On the **Query Builder** page, [edit the query](https://help.zscaler.com/dspm/creating-custom-policies)as required.
@@ -12712,8 +12697,8 @@ When you delete a custom policy, all alerts previously generated by the policy a
 
 To delete a custom data posture policy:
 
-1. Go to **Policies**>**Data Protection**>**Policy**> **Data Posture Policies**.
-2. On the **Policy** page, click the **Actions** icon for the required custom policy. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**>**DSPM**> **Data Posture Policies**.
+2. On the **Policy** page, click the **Actions** icon for the required custom policy, then select **Delete**. See image.
 3. Read the confirmation message, then click **Delete**. See image.
 
 [Image: The query result]
@@ -12728,7 +12713,7 @@ You can clone a predefined or an existing custom policy by reusing its query str
 
 To clone a policy:
 
-1. Go to **Policies**>**Data Protection**>**Policy**> **Data Posture Policies**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**>**DSPM**> **Data Posture Policies**.
 2. On the **Policy** page, click the **Actions** icon () and select the **Clone** option for the required policy. See image. You cannot clone policies that are temporarily hidden.
 3. In the **Duplicate Policy** window, select the checkbox to confirm that you want to proceed, then click **Clone**. See image. You are directed to the **Query Builder** page.
 4. On the **Query Builder** page, add additional predicates to the query if required. See image.
@@ -12746,7 +12731,7 @@ You cannot edit, delete, or change the severity level for predefined policies.
 
 To change the policy severity:
 
-1. Go to **Policies**>**Data Protection**>**Policy**> **Data Posture Policies**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**>**DSPM**> **Data Posture Policies**.
 2. On the **Policy** page, select the checkbox of the required policy. See image.
 3. Click the **Actions** drop-down menu and select **Change Severity**. See image.
 4. In the **Change Policy Severity** window, select one of the following options from the **Policy Severity** drop-down menu: See image.
@@ -12766,13 +12751,13 @@ To change the policy severity:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/managing-premises-data-center","lastmod":"2026-05-24T07:06Z","nid":"1526566"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/managing-premises-data-center","lastmod":"2026-09-17T21:14Z","nid":"1526566"} -->
 ## Managing an On-Premises Data Center
 
 - Source: https://help.zscaler.com/dspm/managing-premises-data-center
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > On-Premises Data Centers and Scanners > On-Premises Data Centers > Managing an On-Premises Data Center
-- Last modified: 2026-05-24T07:06Z
+- Last modified: 2026-09-17T21:14Z
 - Summary: Information about how to manage an on-premises data center in the Zscaler Admin Console
 
 You can add, modify, or delete [on-premises data centers](https://help.zscaler.com/dspm/about-data-center) on DSPM as required.
@@ -12790,8 +12775,8 @@ Make sure the following prerequisites are met:
 
 To add an on-premises data center to scan for sensitive data and posture risks:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **On-Premises Data Centers**.
-2. On the **On-Premises Data Centers** page, click **Add Data Center**. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **On-Premises Data Centers**.
+2. On the **On-Premises Data Centers** page, click **Add Data Center**. See image. The **Add New On-Premises Data Center** drawer appears.
 3. In the **Add New On-Premises Data Center** drawer: See image.
   - Data Center
   - Connect Scanners to the Data Center
@@ -12808,22 +12793,22 @@ To configure scan settings to scan the sensitive data in the on-premises data ce
 
 **Select On-Premises Scanner Integration**: Select an existing [on-premises scanner integration](https://help.zscaler.com/dspm/about-premises-scanner-integrations) to connect with the data center.
 
-[Image: Add Data Center confirmation window for data centers with an annotation around Confirm and Save button.]
+[Image: Add Data Center confirmation window for data centers with an annotation around Confirm and Save button]
 
-[Image: Add New On-Premises Data Center with required fields to add a data center.]
+[Image: Adding a new on-premises data center with required fields to add a data center]
 
-[Image: On-Premises Data Centers page with an annotation around the Add Data Center button.]
+[Image: On-Premises Data Centers page with an annotation around the Add Data Center button]
 
 ## Editing an On-Premises Data Center
 
 To edit an on-premises data center:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **On-Premises Data Centers**.
+1. Go to **Data Security** > **DSPM** > **On-Premises Data Centers**.
 2. Do one of the following: The **Edit Data Center** window appears.
   - Click **Actions** (), and select **Edit** for the required data center. See image.
   - Click the name of the data center to go to the [On-Premises Data Center details](https://help.zscaler.com/dspm/about-data-center) page, then click **Actions** and select **Edit**. See image.
-3. In the **Edit Data Center** window, click **Proceed** to continue. See image.
-4. On the **Edit On-Premises Data Center** drawer, update the following: See image.
+3. In the **Edit Data Center** window, click **Proceed** to continue. See image. The **Edit On-Premises Data Center** drawer appears.
+4. In the **Edit On-Premises Data Center** drawer, update the following: See image.
   - **Business Unit**: Update the [business unit](https://help.zscaler.com/dspm/about-business-units) for the data center.
   - **Connect Scanners to the Data Center**: Update the scanner integrations that must be linked to the data center.
     - **Select On-Premises Scanner Integration**: Update an existing [on-premises scanner integration](https://help.zscaler.com/dspm/about-premises-scanner-integrations) to connect with the data center.
@@ -12833,13 +12818,13 @@ The on-premises data center is updated.
 
 Changes made to the on-premises data center configuration only take effect at the next scheduled scan.
 
-[Image: The on-premises data center page with information relating to the data center and cloud network association..]
+[Image: The on-premises data center page with information relating to the data center and cloud network association]
 
 [Image: Confirm editing on-premises data center window]
 
-[Image: On-Premises Data Centers page with the Actions menu open, and showing the Edit option annotated.]
+[Image: On-Premises Data Centers page with the Actions menu open, and showing the Edit option annotated]
 
-[Image: On-Premises Data Center details page with a highlighted edit icon.]
+[Image: On-Premises Data Center details page with a highlighted edit icon]
 
 ## Deleting an On-Premises Data Center
 
@@ -12847,7 +12832,7 @@ To delete an on-premises data center:
 
 Deleting an on-premises data center is restricted if it is associated with any [unmanaged databases](https://help.zscaler.com/dspm/about-unmanaged-database). The **Delete** option is grayed out in such cases.
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **On-Premises Data Centers**.
+1. Go to **Data Security** > **DSPM** > **On-Premises Data Centers**.
 2. Do one of the following: The **Delete Data Center** window appears.
   - Click **Actions** (), and select **Delete**for the required data center. See image.
   - Click the name of the data center to go to the [On-Premises Data Center details](https://help.zscaler.com/dspm/about-data-center) page, then click **Actions** and select **Delete**. See image.
@@ -12856,22 +12841,22 @@ Deleting an on-premises data center is restricted if it is associated with any [
 
 The on-premises data center is deleted from the Zscaler Admin Console.
 
-[Image: Unmanaged Databases page with the Actions menu open, and showing the Delete option annotated.]
+[Image: On-Premises Data Centers page with the Actions menu open, and showing the Delete option annotated]
 
-[Image: Unmanaged Databases details page with a highlighted delete icon.]
+[Image: Data center details page with a highlighted delete icon]
 
-[Image: Confirming deletion of an unmanaged database server]
+[Image: Confirming deletion of a data center]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/managing-regions","lastmod":"2026-04-24T22:25Z","nid":"1507481"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/managing-regions","lastmod":"2026-09-30T00:27Z","nid":"1507481"} -->
 ## Managing Regions
 
 - Source: https://help.zscaler.com/dspm/managing-regions
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > Cloud Account Management > Managing Regions
-- Last modified: 2026-04-24T22:25Z
+- Last modified: 2026-09-30T00:27Z
 - Summary: Information about how to manage regions in the Zscaler Admin Console.
 
 You can choose to deploy scanner instances in specific regions to control resource allocation and costs. This allows you to limit the deployment of scanner instances in selected regions and scan for sensitive data.
@@ -12880,9 +12865,9 @@ You must be assigned either an [Administrator role](https://help.zscaler.com/dsp
 
 To select the regions:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Cloud Accounts**.
-2. Select the cloud account.
-3. Click **Manage**, and then select **Manage Regions**. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM**> **Cloud Accounts**. The **Cloud Accounts** page appears.
+2. On the **Cloud Accounts** page, click the required cloud account (AWS, Azure, or GCP).
+3. Click **Manage**, and then select **Manage Regions**. See image. The **Manage Regions** page appears.
 4. On the **Manage Regions** page:
   - If you select the Zscaler network configuration while onboarding the cloud account
   - If you select the custom network configuration while onboarding the cloud account
@@ -12944,17 +12929,9 @@ See image.
 - Add the **Postgres Delegated Subnet ID** (if required).
 - Enter the **Storage Account Resource ID** (This field is displayed only if you have enabled the option to create storage accounts in each region while onboarding the Azure accounts using a [custom configuration](https://help.zscaler.com/dspm/onboarding-microsoft-azure-tenant#custom_configuration).)
 
-See image.
-
 Select the checkbox for the regions where you want to deploy the resources. This allows DSPM to monitor the resources only in the selected regions.
 
-See image.
-
-[Image: List of regions with some selected regions.]
-
 [Image: List of managing actions with annotation around Manage Regions option.]
-
-[Image: Selected regions with sensitive information in each field for each region.]
 
 [Image: Selected regions with sensitive information in each field for each region.]
 
@@ -12971,13 +12948,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/managing-saas-tenants","lastmod":"2026-05-31T07:06Z","nid":"1538459"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/managing-saas-tenants","lastmod":"2026-09-24T20:43Z","nid":"1538459"} -->
 ## Managing SaaS Tenants
 
 - Source: https://help.zscaler.com/dspm/managing-saas-tenants
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > SaaS Applications > Managing SaaS Tenants
-- Last modified: 2026-05-31T07:06Z
+- Last modified: 2026-09-24T20:43Z
 - Summary: Information on how to manage SaaS tenants in the Zscaler Admin Console.
 
 You can edit or delete a configured SaaS tenant that you've added.
@@ -12986,8 +12963,8 @@ You can edit or delete a configured SaaS tenant that you've added.
 
 To edit a SaaS tenant:
 
-1. Go to **Policies** >**Common Configuration**>**DSPM**>**SaaS Applications**.
-2. Locate the SaaS tenant you want to edit, click the **Actions**icon (), and select **Edit**. The edit tenant drawer appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM**>**SaaS Applications**.
+2. On the **SaaS Applications** page, locate the SaaS tenant you want to edit, click the **Actions**icon (), and select **Edit**. The edit tenant drawer appears.
 3. In the drawer, update the **Configuration Details** as required. See image.
 4. Click **Save**.
 
@@ -12995,9 +12972,9 @@ To edit a SaaS tenant:
 
 To delete a SaaS tenant:
 
-1. Go to **Policies** >**Common Configuration**>**DSPM**>**SaaS Applications**.
-2. Locate the SaaS tenant you want to delete, click the **Actions**icon (), and select **Delete**. The **Delete SaaS Tenant** window appears.
-3. Read the message in the confirmation window, enter `CONFIRM`, and then click **Delete SaaS Tenant**. See image.
+1. Go to **Data Security** > **DSPM**>**SaaS Applications**.
+2. On the **SaaS Applications** page, locate the SaaS tenant you want to delete, click the **Actions**icon (), and select **Delete**. The **Delete SaaS Tenant** window appears.
+3. Read the message in the **Delete SaaS Tenant** window, enter `CONFIRM`, and then click **Delete SaaS Tenant**. See image.
 
 [Image: The edit tenant drawer to edit the tenant details as required.]
 
@@ -13006,34 +12983,34 @@ To delete a SaaS tenant:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/managing-services","lastmod":"2026-04-24T22:22Z","nid":"1517576"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/managing-services","lastmod":"2026-09-30T00:20Z","nid":"1517576"} -->
 ## Managing Services
 
 - Source: https://help.zscaler.com/dspm/managing-services
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > Cloud Account Management > Managing Services
-- Last modified: 2026-04-24T22:22Z
+- Last modified: 2026-09-30T00:20Z
 - Summary: Information about how to manage AWS, Azure, or GCP services that must be monitored and scanned in the Zscaler Admin Console.
 
 After [onboarding a cloud account](https://help.zscaler.com/dspm/about-cloud-accounts), you can select the services that must be scanned by DSPM. DSPM permissions are restricted to monitor and scan the data only in the selected services.
 
 To select the services:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Cloud Accounts**.
-2. Select the cloud account.
-3. Click **Manage**, and then select **Manage Services**. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM**> **Cloud Accounts**. The **Cloud Accounts** page appears.
+2. On the **Cloud Accounts** page, click the required cloud account (AWS, Azure, or GCP).
+3. Click **Manage**, and then select **Manage Services**. See image. The **Manage services to monitor** page appears.
 4. On the **Manage services to monitor** page, select the services that must be monitored and scanned. See image. The **Unmanaged Database** option is enabled only if the organization or tenant was onboarded via [custom configuration](https://help.zscaler.com/dspm/onboarding-microsoft-azure-tenant).
 5. Click **Next**.
 6. On the **Configure regions for monitoring and scanner configuration**page, select the region where the orchestrator template must be deployed and provide the corresponding region details based on the network configuration selected. See image.
 7. On the **Apply Changes** page, download and deploy the template. See image.
 
-[Image: Manage menu listing all the actions available for a tenant and annotation around Manage Services option.]
+[Image: Manage menu listing all the actions available for the selected account and annotation around Manage Services option]
 
-[Image: Manage Services to Monitor page with a list of Azure services.]
+[Image: Manage Services to Monitor page with a list of Azure services]
 
-[Image: The Configure regions page listing the DSPM supported regions that must be monitored.]
+[Image: The Configure regions page listing the DSPM supported regions that must be monitored]
 
-[Image: The Apply changes page showing the Azure Onboarding template that must be downloaded and deployed.]
+[Image: The Apply changes page showing the Azure Onboarding template that must be downloaded and deployed]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -13249,13 +13226,13 @@ To create the AWSCloudFormationStackSetExecutionRole role:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/onboarding-azure-subscription","lastmod":"2026-08-12T21:38Z","nid":"1541173"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/onboarding-azure-subscription","lastmod":"2026-09-14T22:40Z","nid":"1541173"} -->
 ## Onboarding an Azure Subscription
 
 - Source: https://help.zscaler.com/dspm/onboarding-azure-subscription
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > Microsoft Azure Cloud Accounts > Microsoft Azure Subscription > Onboarding an Azure Subscription
-- Last modified: 2026-08-12T21:38Z
+- Last modified: 2026-09-14T22:40Z
 - Summary: Information on how to onboard a single Azure subscription.
 
 You can onboard a single Azure subscription for DSPM to monitor and scan the data stores to identify sensitive data, misconfigurations, and vulnerabilities.
@@ -13264,24 +13241,24 @@ You can onboard a single Azure subscription for DSPM to monitor and scan the dat
 
 Before onboarding an Azure subscription, ensure you have completed the following:
 
-- Install the latest versions of Terraform and Azure CLIs to run the templates. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli).
-- Identify an Azure subscription as the orchestrator account. The DSPM template is deployed in this account to scan the data in the target accounts.
 - Create the following in the Microsoft Entra ID:
   1. Azure application or service principal: To provide DSPM access to the resources within the target subscriptions. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/app-objects-and-service-principals?tabs=browser). See instructions.
   2. Client secret: A confidential string that is used as a password for the application created. See instructions.
   3. API permissions: Add API permissions and grant admin consent to the application to access resources within the subscription. See instructions.
-  4. Storage containers: Identify the storage containers where Terraform state files must be stored. The state files are required to manage resources created by the DSPM Terraform templates and to [upgrade to new templates](https://help.zscaler.com/dspm/viewing-roles-and-templates). You can also create the following new storage containers to store the state files:
-    - Resource Group
-    - Storage Account
-    - Storage Account Container
-  5. User Access Administrator: Assign the role to the created application or service principal on the orchestrator and target subscriptions. This is required for the application to manage user permissions and role assignments for Azure resources. See instructions.
-- You must have the following roles:
+- Identify an Azure subscription as the orchestrator account. The DSPM template is deployed in this account to scan the data in the target accounts.
+- Assign the User Access Administrator role to the created application or service principal on the orchestrator and target subscriptions. This is required for the application to manage user permissions and role assignments for Azure resources. See instructions.
+- You must have the following roles to deploy the DSPM templates:
   | Scope | Role |
   | --- | --- |
   | Orchestrator subscription | User Access Administrator; Contributor; Key Vault Administrator |
   | Target subscriptions | User Access Administrator |
-  | Storage account | Storage Account Contributor |
-  | Microsoft Entra ID | Application Administrator |
+  | Backend storage account | Storage Account Contributor |
+  | Microsoft Entra ID | Application Administrator (Required if MIP service is selected) |
+- Install the latest versions of Terraform and Azure CLIs to run the templates. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli).
+- Identify the storage containers where Terraform state files must be stored. The state files are required to manage resources created by the DSPM Terraform templates and to [upgrade to new templates](https://help.zscaler.com/dspm/viewing-roles-and-templates). You can also create the following new storage containers to store the state files:
+  - Resource Group
+  - Storage Account
+  - Storage Account Container
 
 ## Onboarding a Single Azure Subscription
 
@@ -13306,7 +13283,6 @@ After completing the onboarding process, you can configure the scan settings. To
 4. On the **Register an application** page, provide the following details and click **Register**.
   - **Name**: Enter a unique name for the application.
   - **Supported account types**: Select the subscription.
-  - **Redirect URl (optional)**: Enter the location where the Entra authorization server redirects and delivers tokens after you've successfully signed in or signed out.
 
 The application is created in the Entra ID. Copy the **Application (client) ID** and save them on your system as this is required while onboarding.
 
@@ -13343,18 +13319,20 @@ Repeat this for all the subscriptions that you want DSPM to monitor.
 3. On the **App registrations** page, search for and select the applicationyou created.
 4. In the left-side navigation, go to **Manage**> **API permissions**.
 5. Click **+ Add a permissions**. The **Request API permissions** drawer appears.
-6. On the **Request API permissions** drawer, select **Microsoft Graph** and add the following permissions: See image.
-  - Application.Read.All
-  - User.Read The following permissions are optional and if not added, it might impact MIP labels and entitlements:
-  - AuditLog.Read.All
-  - Directory.Read.All
-  - InformationProtectionPolicy.Read.All
-  - Organization.Read.All
-  - Reports.Read.All
-  - RoleManagement.Read.Directory
-  - RoleManagementPolicy.Read.Directory
-  - UserAuthenticationMethod.Read.All
-7. On the **API permissions** page, click **Grant admin consent for <application name>**.
+6. In the **Request API permissions** drawer, select **Microsoft Graph** and add the following permissions: See image. Entitlements are affected if the optional API permissions are not configured. See image.
+  | API or Permissions Name | State | Type | Description |
+  | --- | --- | --- | --- |
+  | Application.Read.All | Mandatory | Application | Read all applications |
+  | User.Read | Mandatory | Delegated | Sign in and read user profile |
+  | AuditLog.Read.All | Optional | Application | Read all audit log data |
+  | Directory.Read.All | Optional | Application | Read directory data |
+  | InformationProtectionPolicy.Read.All | Optional | Application | Read all published labels and label policies for an organization |
+  | Organization.Read.All | Optional | Application | Read organization information |
+  | Reports.Read.All | Optional | Application | Read all usage reports |
+  | RoleManagement.Read.Directory | Optional | Application | Read all directory RBAC settings |
+  | RoleManagementPolicy.Read.Directory | Optional | Application | Read all policies for privileged role assignments of your company's directory |
+  | UserAuthenticationMethod.Read.All | Optional | Application | Read all users' authentication methods |
+7. On the **API permissions** page, click **Grant admin consent for <application name>**. You must have the Privileged Role Administrator role in the Microsoft Entra ID to grant API permissions.
 8. In the **Grand admin consent confirmation** window, click **Yes**.
 
 Resource groups are logical containers that comprises a group of Azure resources. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal).
@@ -13403,7 +13381,7 @@ To create a storage account container:
 | Windows - Command line | v1.7.5 | 2.67.0 | NA |
 | Windows - PowerShell | v1.9.8 | 2.67.0 | 7.4.6 |
 
-1. In the Zscaler Admin Console, go to **Policies** > **Common Configuration** > **DSPM** > **Cloud Accounts**.
+1. From the navigation menu, go to **Data Security**> **DSPM** > **Configuration** > **Cloud Accounts**.
 2. Click **Add New**.
 3. In the **Select Cloud Provider** window: See image.
   1. For **Select Cloud Type**, click the**Azure** tile.
@@ -13448,9 +13426,10 @@ Select the regions that DSPM must monitor and enter the following details for ea
 
 See image.
 
-Diagnostic logs are used to identify new, modified, or deleted files from monitored storage accounts. If not configured, only [full scans](https://help.zscaler.com/dspm/about-scan-settings) are supported.
+Diagnostic logs are used to identify new, modified, or deleted files from monitored storage accounts. Select one of the following and click **Apply**:
 
-Enter an existing storage account name or account resource ID in each region of the target subscription to store the scanning logs and click **Apply**.
+- **Custom**: Enter an existing storage account resource ID in each region of the target subscription to store the scanning logs.
+- **Zscaler**: DSPM creates a storage account in the orchestrator subscription after the template is deployed.
 
 See image.
 
@@ -13639,17 +13618,19 @@ If the templates are successfully deployed, you are directed to the [Overview](h
 [Image: The Add role assignment page with Conditions tab selected]
 
 [Image: The Add role assignment page with the Role tab selected]
+
+[Image: The Configured permissions page with the list of mandatory APIs]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/onboarding-gcp-organization","lastmod":"2026-08-12T22:09Z","nid":"1498091"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/onboarding-gcp-organization","lastmod":"2026-09-14T22:09Z","nid":"1498091"} -->
 ## Onboarding a GCP Organization
 
 - Source: https://help.zscaler.com/dspm/onboarding-gcp-organization
 - Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > GCP Cloud Accounts > Onboarding a GCP Organization
-- Last modified: 2026-08-12T22:09Z
+- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > GCP Cloud Accounts > GCP Organization > Onboarding a GCP Organization
+- Last modified: 2026-09-14T22:09Z
 - Summary: Information about how to onboard a GCP organization in the Zscaler Admin Console.
 
 You can onboard a Google Cloud Platform (GCP) account and its associated projects to DSPM. DSPM monitors and scans the Cloud Storage buckets in the onboarded projects to identify sensitive data, misconfigurations, vulnerabilities, and more.
@@ -14096,13 +14077,280 @@ Run the following commands to initialize the template. This is required to manag
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/onboarding-microsoft-365-tenant","lastmod":"2026-05-24T07:06Z","nid":"1538457"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/onboarding-gcp-project","lastmod":"2026-09-14T22:06Z","nid":"1543017"} -->
+## Onboarding a GCP Project
+
+- Source: https://help.zscaler.com/dspm/onboarding-gcp-project
+- Product: Data Security Posture Management (DSPM)
+- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > GCP Cloud Accounts > GCP Project > Onboarding a GCP Project
+- Last modified: 2026-09-14T22:06Z
+- Summary: Information on how to onboard a GCP project.
+
+You can onboard a single Google Cloud Platform (GCP) project for DSPM to monitor and scan the data stores to identify sensitive data, misconfigurations, and vulnerabilities.
+
+## Prerequisites
+
+Before onboarding the GCP project, ensure you have completed the following:
+
+- You must have the following roles:
+  | Role Name | Role ID | Scope | State | Description |
+  | --- | --- | --- | --- | --- |
+  | GCP Owner | roles/owner | Orchestrator project | Mandatory | To create, modify, and delete any resource or service within the assigned scope. |
+  | Project IAM Admin | roles/resourcemanager.projectIamAdmin | Target project | Mandatory | To access and administer project IAM policies. |
+  | Role Administrator | roles/iam.roleAdmin | Target project | Mandatory | To provide DSPM access to create, update, delete, and manage custom IAM roles at the project level. |
+  | Logs Configuration Writer | roles/logging.configWriter | Target project | Mandatory | To provide permissions to create and modify Cloud Logging configurations. |
+  | Service Usage Consumer | roles/serviceusage.serviceUsageConsumer | All projects (Target and state file) | Mandatory | To inspect service states and operations for quota and billing of a project. |
+  | Storage Object Admin | roles/storage.objectAdmin | Terraform state file GCP bucket project | Mandatory | To store the Terraform state files. |
+  | Organization Policy Administrator | roles/orgpolicy.policyAdmin | Orchestrator project | Optional | To override the service account key creation policy. |
+  | Super Admin | - | Admin portal | Optional | To create a custom role in the Google Admin Console to assign permissions to user, group, and domain resources. This is required for DSPM to gain read-only access to resource data. |
+- Override the service account key creation policy. See instructions.
+- Create a custom role in the Google Admin Console. See instructions.
+- Enable the required GCP APIs in the selected GCP project. Click to view the list of required APIs.
+- Identify a GCP project that has the required roles and which is linked to a billing account to deploy the orchestrator template.
+- Install the following tools:
+  - gcloud CLI to connect to the Google Cloud project and deploy the template using gcloud CLI. To learn more, refer to the [Google Cloud documentation](https://cloud.google.com/sdk/docs/install).
+  - Terraform CLI v1.7.5 or later to run Terraform on a Windows system. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/developer/terraform/quickstart-configure).
+- Enable debug logging (optional but recommended for troubleshooting). See instructions.
+
+## Onboarding a Single GCP Project
+
+To onboard a GCP project:
+
+- 1. Select GCP project.
+- 2. Provide GCP project details.
+- 3. Add orchestrator details and select the network configuration.
+- 4. Select services to monitor.
+- 5. Select regions to monitor.
+- 6. Select the target projects to monitor.
+- 7. Configure evidence.
+- 8. Configure custom tags.
+- 9. Deploy orchestrator.
+
+1. From the navigation menu, go to **Data Security**> **DSPM** > **Configuration** > **Cloud Accounts**.
+2. Click **Add New**.
+3. In the **Select Cloud Provider** window: See image.
+  1. For **Select Cloud Type**, click the**GCP**tile.
+  2. For **Select Onboarding Type**, click the **Project**tile.
+4. Click **Next**.
+
+Provide the following details and click **Apply**.
+
+- **DSPM Alias**: Enter a user-friendly name for the project.
+- **Custom Role Name Prefix**: Enter a unique role name. This role name is added as a prefix to all the custom roles that are created during the onboarding process.
+- **Service Account Prefix:**Enter a unique name for the service account. This is added as a prefix to the service account created during the onboarding process.
+- **Notification Emails (Optional)**: Enter the email addresses of the recipients who must be notified of any configuration or permissions issues encountered with the onboarded project. You can add up to 30 email addresses to receive notifications about the issues. You can also add email addresses after completing the onboarding process.
+
+See image.
+
+In the **Orchestrator Configuration** section, provide the following GCP project details to deploy the DSPM orchestrator scanner and click **Apply**:
+
+- **Orchestrator Project ID**: Enter the project ID.
+- **Select the Orchestrator Region**: Select the region.
+- **Network Configuration**: Select one of the following:
+  - **Custom**: Select to use your organization's resources to deploy the orchestrator.
+    - **VPC Selflink**: Enter the selflink of the VPC network where you want to deploy the orchestrator. The VPC selflink is the unique identifier for your VPC network in the selected region. To find the VPC and subnet selflink, run the following command on Google Cloud Shell: `gcloud compute networks describe <vpc-network-name>`See image.
+    - **Subnet Selflink**: Enter the selflink of the subnet within the selected VPC where you want to deploy the orchestrator. The subnet selflink identifies the specific subnet network that is used for deployment.
+  - **Zscaler**: Select to use Zscaler resources to deploy the orchestrator. DSPM automatically provisions network resources in the orchestrator project after the template is deployed.
+
+See image.
+
+In the **Configure Services** section, select the services that DSPM must monitor and click **Apply**. DSPM permissions are restricted to monitor and scan the data only in the selected services.
+
+See image.
+
+In the **Configure Regions**section, select the regions that DSPM must monitor. If you selected the custom network configuration, enter the **VPC Selflink** and **Subnet Selflink** for each selected region. DSPM creates and deploys resources required for scanning only in the selected regions.
+
+See image.
+
+DSPM discovers files and tables containing sensitive data and generates snippets of evidence data to investigate and validate the findings. You can choose an existing storage account or add a new one to store these evidence snippets. In the **Evidence**section, select one of the following and click **Apply**:
+
+- **Custom**: Enter the name of the storage account present in the orchestrator project.
+- **Zscaler**: DSPM creates a storage container in the orchestrator project to upload the snippet of evidence data.
+
+See image.
+
+In the **Add Target Projects**section, add the target projects that you want DSPM to monitor:
+
+1. Click **Add Target Projects**.
+2. In the **Add Target Projects**window, enter the following information:
+  - **Project ID**: Enter the project ID.
+  - **Project Name** **(Optional)**: Enter the project name.
+  - **Business Unit**: Select a business unit for the project.
+3. Click **+ Add Project**to add more projects to monitor. See image.
+4. Click **Save**.
+
+In the **Resource Tags** section, configure custom tags to identify the resources created by DSPM.
+
+1. Click **Add Custom Tags**. The **Add Custom Tags** window appears.
+2. In the **Add Custom Tags** window, enter a key and value pair for the tag.
+3. Click **Add Tag**, and enter key-value pairs to add more tags. See image.
+4. Click **Done**.
+
+Download and deploy the GCP onboarding template:
+
+- a. Download and modify the GCP onboarding template.
+- b. Deploy the GCP onboarding template.
+- c. Initialize the GCP onboarding template.
+
+See image.
+
+1. In the **Deploy Orchestrator** section, click **GCP Onboarding** to download the template as a ZIP file and extract it to a folder on your system.
+2. Locate the `backend.tf` file and open it in a text editor.
+3. Add the name of the storage bucket and a preferred prefix where you want to store the Terraform state files, then save and close the `backend.tf` file. See image.
+
+Use any of the following methods:
+
+- Google Cloud Shell (Recommended)
+- gcloud CLI
+
+By default, the `disable service account key` creation policy prevents you from creating a service account key. Override the `disable service account key`creation policy for the project where you want to create the service account:
+
+1. Sign in to the Google Cloud Console and go to [Organization policies](https://console.cloud.google.com/iam-admin/orgpolicies).
+2. Select the organization from the project picker. See image.
+3. Search for `Disable service account key creation` and click **Disable service account key creation**. See image.
+4. On the **Policy for Disable service account key creation** page, click **MANAGE POLICY**. See image.
+5. Under the **Policy source** section, select **Override parent's policy**.
+6. Under the **Rules** section, click **ADD A RULE**. See image.
+7. In the **New rule** window, under the **Enforcement** section, select **Off**.
+8. Click **Done**. See image.
+9. Click **SET POLICY** to apply the changes. See image.
+
+Ensure the status of `Disable service account key creation` policy is set to **Not enforced**.
+
+See image.
+
+Run the following commands to enable the debug logs:
+
+- PowerShell `$env:TF_LOG="TRACE" $env:TF_LOG_PATH="<filepath>filename.log"`
+- Bash `export TF_LOG="TRACE" $ export TF_LOG_PATH="<filepath>filename.log"`
+
+| API | Description | Project to Enable On |
+| --- | --- | --- |
+| admin.googleapis.com | Discover Google Workspace account resources | Orchestrator, Target |
+| cloudresourcemanager.googleapis.com | Discover Google Cloud Platform resource containers | Orchestrator, Target |
+| cloudasset.googleapis.com | Discover the history and inventory of Google Cloud resources | Orchestrator, Target |
+| monitoring.googleapis.com | Discover cloud monitoring data and configurations | Orchestrator, Target |
+| orgpolicy.googleapis.com | Discover governance rules on GCP resources | Orchestrator, Target |
+| apikeys.googleapis.com | Manage and use API keys for Google Cloud services and APIs | Orchestrator, Target |
+| bigquery.googleapis.com | Discover and classify sensitive data in BigQuery tables | Orchestrator, Target |
+| serviceusage.googleapis.com | Consume quota for a project | Orchestrator, Target |
+| iam.googleapis.com | Discover identity and access control for Google Cloud resources | Orchestrator, Target |
+| networkmanagement.googleapis.com | Check connections between the virtual private cloud (VPC) network and DSPM. It is required for BYON. | Orchestrator |
+| logging.googleapis.com | Discover logs resources and perform logging operations | Orchestrator |
+| secretmanager.googleapis.com | Discover secret manager resources and perform operations | Orchestrator |
+| servicenetworking.googleapis.com | Enable private connections between the virtual private cloud (VPC) network and DSPM | Orchestrator |
+| cloudkms.googleapis.com | Discover Key Management Service (KMS) resources and perform KMS-related operations | Orchestrator, Target |
+| storage.googleapis.com | Discover storage resources and read data from storage | Orchestrator, Target |
+| sqladmin.googleapis.com | Manage Cloud SQL instances | Orchestrator, Target |
+| compute.googleapis.com | Discover compute resources and perform compute-related operations This is required to enable notebooks.googleapis.com and compute resources on the target project. | Orchestrator, Target To enable this API, the project must be linked to billing. |
+| aiplatform.googleapis.com | Interact with Google's unified artificial intelligence and machine learning platform for DSPM to scan the AI models for vulnerabilities | Target |
+| notebooks.googleapis.com | Manage Vertex AI resources | Target compute.googleapis.com must be enabled on the target project to enable notebooks.googleapis.com. |
+
+Run the following commands in the gcloud CLI:
+
+- To set your project ID: `gcloud config set project <PROJECT_ID>`Replace <PROJECT_ID> with your project ID, which is required to authenticate your API requests and associate them with the correct project.
+- To enable the required API: `gcloud services enable <API_SERVICE_NAME>`Replace <API_SERVICE_NAME> with the API you want to enable. For example, if your project ID is `812345678902`, you can enable the `admin.googleapis.com` API by running: `gcloud config set project 812345678902``gcloud services enable admin.googleapis.com`
+
+1. Run the following command on Google Cloud Shell or gcloud CLI: `gcloud organizations describe <ORG_ID>`Replace `<ORG_ID>` with your organization ID, which is required to get the `directoryCustomerId`.
+2. Copy the `directoryCustomerId` value from the output. See image.
+3. Go to the [Google Admin SDK Directory](https://developers.google.com/admin-sdk/directory/reference/rest/v1/roles/insert).
+4. Click the **API** tag in the right panel and paste the copied `directoryCustomerId` into the **customer** string.
+5. Copy the following request provided and paste it into the **Request body** field. `{ "roleName": "role_name", "rolePrivileges": [ { "privilegeName": "DOMAIN_MANAGEMENT", "serviceId": "00haapch16h1ysv" }, { "privilegeName": "GROUPS_RETRIEVE", "serviceId": "00haapch16h1ysv" }, { "privilegeName": "USERS_RETRIEVE", "serviceId": "00haapch16h1ysv" } ] }`Replace `role_name` with a desired name for the new role.
+6. Click **Execute**. You are prompted to log in again. You can see the JSON output that includes the newly created role. `{ "kind": "admin#directory#role", "etag": "\"0A0Bc2deFgHi\"", "roleId": "4123456782", "roleName": "role_name", "roleDescription": "", "rolePrivileges": [ { "privilegeName": "DOMAIN_MANAGEMENT", "serviceId": "00abcdef16g1hij" } , { "privilegeName": "GROUPS_RETRIEVE", "serviceId": "00abcdef16g1hij" } , { "privilegeName": "USERS_RETRIEVE", "serviceId": "00abcdef16g1hij" } ], "isSystemRole": false, "isSuperAdminRole": false }`See image.
+7. Sign in to the [Google Admin Console](https://admin.google.com/ac/roles), search for the newly created role, then click **View privileges** to see the assigned permissions. See image. The following roles are created and permissions are assigned:
+  | Role | Permission | Description |
+  | --- | --- | --- |
+  | User | Read | To collect the user data |
+  | Group | Read | To collect the group and member data |
+  | Domain Management | Read | To collect domain resources |
+
+1. Sign in to the [Google Cloud Console](http://console.cloud.google.com/).
+2. On the **Project Selector**, select the Google Cloud project where you want to apply the Terraform configuration. See image.
+3. Click **Activate Cloud Shell** at the top. This launches a session in the bottom pane. It can take a few seconds for the session to initialize. See image.
+4. From the **More** menu, click **Upload**, then select the **Folder** option. Click **Choose Folder** to select the folder containing the modified Terraform file from your system, and click the **Upload** button. See image.
+5. Run the commands to initialize the template.
+
+1. Open the Command Prompt or any other CLI app on your local system.
+2. Change the current working directory to the folder containing the modified Terraform file from your system.
+3. Run the commands to initialize the template.
+
+Run the following commands to initialize the template. This is required to manage your infrastructure resources.
+
+1. To initialize the Terraform configuration: `terraform init`See image.
+2. To verify the changes in the Terraform configuration: `terraform plan`When you run the `terraform plan` or `terraform apply` command, Terraform verifies that all the required APIs are enabled. If any necessary API is missing, an error message is displayed to enable it to continue. To avoid this, ensure that the required APIs are enabled in your project. To enable the necessary APIs, see Enable APIs.
+3. For **Enter a value**, enter the regions where you want DSPM to monitor and scan data in the following format: `["region name1", "region name2", "region name3", and so on.]`DSPM creates resources required for data scanning only in these specified regions. See image.
+4. To run the Terraform script and deploy resources with network analysis enabled: `terraform apply -var=‘enable_test_connectivity=true’`To deploy resources with network analysis disabled: `terraform apply -var=‘enable_test_connectivity=false’`
+5. For **Enter a value**, enter the regions where you want to deploy the template in the following format: `["region name1", "region name2", "region name3", and so on.]`See image.
+6. For **Do you want to perform these actions?**, enter `yes` and then press `Enter`. See image.
+
+After the onboarding template is successfully deployed, copy the generated JSON file in the **Generated JSON** section and click **Validate**. The required resources are created in the GCP orchestrator project.
+
+[Image: The Select Cloud Provider window with Google Cloud and Project selected for onboarding]
+
+[Image: The GCP Project Registration section with project details]
+
+[Image: The Orchestrator Configuration section with orchestrator project details and network configuration]
+
+[Image: The Configure Services section with the GCP services selected for monitoring]
+
+[Image: The Configure Regions section with the regions selected for monitoring]
+
+[Image: The Evidence section with the available storage configuration]
+
+[Image: The Add Target Projects window with the list of GCP target projects added]
+
+[Image: The Add Custom Tags window with the list of key value pairs added]
+
+[Image: The Deploy Orchestrator section with the GCP Onboarding template]
+
+[Image: Modify the backend.tf file]
+
+[Image: The Select a resource window with annotation around the required resource]
+
+[Image: Activate the cloud shell in the GCP console]
+
+[Image: Upload the terraform template folder to the GCP Cloud Shell]
+
+[Image: The command prompt with the output of terraform apply command]
+
+[Image: The command prompt window with the output of terraform plan command]
+
+[Image: The command prompt window with the output of terraform init command]
+
+[Image: The command prompt window with the output of terraform apply command]
+
+[Image: The Google Admin Console page with annotation around Admin API privileges]
+
+[Image: Google Admin SDK Directory API]
+
+[Image: The Google Cloud Shell Terminal with the welcome message]
+
+[Image: The Policy for Disable service account key creation window with annotation around Status]
+
+[Image: The Disable service account key creation window with annotation around set policy]
+
+[Image: New rule window to turn off the policy]
+
+[Image: The disable service account key creation window with annotation around override parent's policy]
+
+[Image: The Policy for disable service account key creation window with annotation around manage policy]
+
+[Image: The Organization policies page with annotation around disable service account key creation policy]
+
+[Image: The output of running selflink command in the Google Cloud Shell]
+
+[Image: The Organization policies page with annotation around the selected organization and policies applicable]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/dspm/onboarding-microsoft-365-tenant","lastmod":"2026-09-24T20:42Z","nid":"1538457"} -->
 ## Onboarding a Microsoft 365 Tenant
 
 - Source: https://help.zscaler.com/dspm/onboarding-microsoft-365-tenant
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > SaaS Applications > Onboarding a Microsoft 365 Tenant
-- Last modified: 2026-05-24T07:06Z
+- Last modified: 2026-09-24T20:42Z
 - Summary: Information on how to onboard a Microsoft 365 tenant in the Zscaler Admin Console.
 
 You can onboard Microsoft 365 (M365) tenants to DSPM to access Microsoft Information Protection (MIP) labels for Azure or on-premises Azure file shares.
@@ -14118,8 +14366,8 @@ Before onboarding an M365 tenant, make sure the following prerequisites are met:
 
 To add an M365 tenant:
 
-1. Go to **Policies** >**Common Configuration**>**DSPM**>**SaaS Applications**.
-2. Click **Add SaaS Tenant**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM**>**SaaS Applications**.
+2. On the **SaaS Applications** page, click **Add SaaS Tenant**. The **Add SaaS Tenant** drawer appears.
 3. In the **Add SaaS Tenant** drawer: See image.
   - **Tenant Type**: Select **Microsoft 365**.
   - **Tenant Alias**: Enter a unique name for the tenant.
@@ -14692,13 +14940,13 @@ Users with a View-Only Administrator role cannot perform any create, update, and
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/registering-cosmos-db-accounts","lastmod":"2026-06-22T02:14Z","nid":"1534359"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/registering-cosmos-db-accounts","lastmod":"2026-09-17T01:55Z","nid":"1534359"} -->
 ## Registering Cosmos DB Accounts
 
 - Source: https://help.zscaler.com/dspm/registering-cosmos-db-accounts
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Service Registration > Azure Cosmos DB > Registering Cosmos DB Accounts
-- Last modified: 2026-06-22T02:14Z
+- Last modified: 2026-09-17T01:55Z
 - Summary: Information on how to add an Azure Cosmos DB account in the Zscaler Admin Console.
 
 DSPM scans Azure Cosmos DB accounts for sensitive data and misconfigurations.
@@ -14716,9 +14964,13 @@ Before registering an Azure Cosmos DB account for scanning, ensure the following
 
 ## Adding an Azure Cosmos DB Account
 
+The following flowchart illustrates the available paths for registering Azure Cosmos DB accounts based on whether you are configuring single or multiple database instances.
+
+See image.
+
 To add an Azure Cosmos DB account:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Service Registration**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Service Registration**.
 2. On the [Service Registration](https://help.zscaler.com/dspm/about-service-registration) page, select the **Azure Cosmos DB** tab. A table displays all Azure Cosmos DB accounts discovered within your onboarded subscriptions. See image.
 3. Choose one of the following methods to register the accounts:
   - Register Accounts Using Terraform
@@ -14726,9 +14978,11 @@ To add an Azure Cosmos DB account:
 
 If permissions are not granted using one of the preceding methods, the scans fail and an error message is displayed in the scan logs indicating a permissions issue.
 
+[Image: Azure Cosmos DB registration flowchart showing two registration paths for Azure Cosmos DB accounts]
+
 [Image: The Azure Cosmos DB tab on the Service Registration page, showing a list of discovered Cosmos DB accounts.]
 
-Use a reusable Terraform template for the DSPM integration and to apply permissions across multiple accounts at the same time.
+Use a Terraform template for the DSPM integration and to apply permissions across multiple accounts at the same time.
 
 1. On the **Azure Cosmos DB** tab, click **+ Get Registration Template**. The **Get Cosmos DB Registration Template** drawer appears.
 2. In the **Get Cosmos DB Registration Template** drawer, select the appropriate **Azure Integration** from the drop-down menu. The **Scanner Role Managed Identity ID** is displayed for the selected integration.
@@ -14786,13 +15040,13 @@ This article provides a summary of all new features and enhancements for DSPM. T
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/release-upgrade-summary-2026","lastmod":"2026-09-02T21:57Z","nid":"1534312"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/release-upgrade-summary-2026","lastmod":"2026-09-30T12:58Z","nid":"1534312"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/dspm/release-upgrade-summary-2026
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-02T21:57Z
+- Last modified: 2026-09-30T12:58Z
 - Summary: DSPM Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for DSPM. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com/).
@@ -14825,13 +15079,13 @@ To reset the configured subscriptions:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/resolving-configuration-issues-gcp","lastmod":"2026-04-24T22:43Z","nid":"1525276"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/resolving-configuration-issues-gcp","lastmod":"2026-09-14T22:09Z","nid":"1525276"} -->
 ## Resolving Configuration Issues for GCP
 
 - Source: https://help.zscaler.com/dspm/resolving-configuration-issues-gcp
 - Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > GCP Cloud Accounts > Resolving Configuration Issues for GCP
-- Last modified: 2026-04-24T22:43Z
+- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > GCP Cloud Accounts > GCP Organization > Resolving Configuration Issues for GCP
+- Last modified: 2026-09-14T22:09Z
 - Summary: Information on the issues encountered while onboarding and troubleshooting for GCP.
 
 The following error messages are displayed in the CLI app if there are issues while onboarding accounts:
@@ -14856,13 +15110,13 @@ The following error messages are displayed in the CLI app if there are issues wh
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/resolving-configuration-issues-microsoft-azure","lastmod":"2026-08-20T22:45Z","nid":"1504231"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/resolving-configuration-issues-microsoft-azure","lastmod":"2026-09-14T22:30Z","nid":"1504231"} -->
 ## Resolving Configuration Issues for Microsoft Azure
 
 - Source: https://help.zscaler.com/dspm/resolving-configuration-issues-microsoft-azure
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > Microsoft Azure Cloud Accounts > Microsoft Entra Tenant > Resolving Configuration Issues for Microsoft Azure
-- Last modified: 2026-08-20T22:45Z
+- Last modified: 2026-09-14T22:30Z
 - Summary: Information on the issues encountered while onboarding and troubleshooting for Microsoft Azure.
 
 You might encounter any of the following error messages while onboarding:
@@ -14915,20 +15169,20 @@ You might encounter any of the following error messages while onboarding:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/running-demand-scan","lastmod":"2026-06-25T05:02Z","nid":"1478706"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/running-demand-scan","lastmod":"2026-09-30T22:43Z","nid":"1478706"} -->
 ## Running an On-Demand Scan
 
 - Source: https://help.zscaler.com/dspm/running-demand-scan
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > Managing Scan Rules > Running an On-Demand Scan
-- Last modified: 2026-06-25T05:02Z
+- Last modified: 2026-09-30T22:43Z
 - Summary: How to perform an on-demand scan of virtual machines or databases in the Zscaler Admin Console.
 
 You can use the On-Demand scan option to run a scan instantly on any configured scan rule, regardless of resource type. Running an On-Demand scan does not affect the configured scan schedule. The next scheduled scan runs as planned after the On-Demand scan completes. To learn more, see [About Scan Settings](https://help.zscaler.com/dspm/about-scan-settings).
 
-To run an On-Demand scan, complete the following steps in the Zscaler Admin Console:
+To run an On-Demand scan:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Rules** tab.
 3. Click the **Actions** icon () for the scan rule you want to run. See image.
 4. Select the **On-Demand Scan** option. The **On-Demand Scan** confirmation window appears.
@@ -14936,9 +15190,9 @@ To run an On-Demand scan, complete the following steps in the Zscaler Admin Cons
 
 The scan is initiated, and the results are displayed on the [Resource Inventory](https://help.zscaler.com/dspm/about-data-inventory) page.
 
-[Image: Scan rule page with an annotation for On-Demand Scan action.]
+[Image: Scan rule page with an annotation for On-Demand Scan action]
 
-[Image: Confirmation window to confirm the on-demand scan.]
+[Image: Confirmation window to confirm the on-demand scan]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -15220,13 +15474,13 @@ For Managed Identity, only predefined tags are added.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/starting-stopping-scan","lastmod":"2026-06-25T23:32Z","nid":"1474756"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/starting-stopping-scan","lastmod":"2026-09-30T22:43Z","nid":"1474756"} -->
 ## Starting or Stopping a Scan
 
 - Source: https://help.zscaler.com/dspm/starting-stopping-scan
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > Managing Scan Rules > Starting or Stopping a Scan
-- Last modified: 2026-06-25T23:32Z
+- Last modified: 2026-09-30T22:43Z
 - Summary: How to start or stop the data scan in the Zscaler Admin Console.
 
 You can stop an in-progress data scan in some of the following scenarios:
@@ -15242,9 +15496,9 @@ You can stop an in-progress data scan in some of the following scenarios:
 
 ## Starting a Scan
 
-To start a data scan, complete the following steps in the Zscaler Admin Console:
+To start a data scan:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Rules** tab.
 3. Click the **Actions** icon () for the resource you want to start scanning.
 4. Select the **On-Demand Scan** option. See image. The **On-Demand Scan** confirmation window appears.
@@ -15252,9 +15506,9 @@ To start a data scan, complete the following steps in the Zscaler Admin Console:
 
 The configured scan rule is queued for scanning.
 
-[Image: Confirmation window to start the scan.]
+[Image: Confirmation window to start the scan]
 
-[Image: Scan rule page with an annotation for the On-Demand Scan option.]
+[Image: Scan rule page with an annotation for the On-Demand Scan option]
 
 ## Stopping a Scan
 
@@ -15263,17 +15517,17 @@ You can stop a scan that is currently in progress.
 - The**Stop Scan** option is only visible when a scan is in**In-Progress** status.
 - Stopping a scan only stops the scan currently in progress. Upcoming scans continue as scheduled.
 
-To stop the scan, complete the following steps in the Zscaler Admin Console:
+To stop the scan:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Scan Settings**.
+1. Go to **Data Security** > **DSPM** > **Scan Settings**.
 2. Select the **Scan Rules** tab.
 3. Click the **Actions** icon () for the resource you want to stop scanning.
 4. Select the **Stop Scan** option. See image. The **Stop Scan** confirmation window appears.
 5. Read the message that appears, then click **Confirm**. See image. The data scan is stopped.
 
-[Image: Scan rule page with an annotation for Stop Scan option.]
+[Image: Scan rule page with an annotation for Stop Scan option]
 
-[Image: Confirmation window to stop the current in progress scan.]
+[Image: Confirmation window to stop the current in progress scan]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -15448,13 +15702,13 @@ The following features are not supported:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/supported-data-stores-file-types-and-regions","lastmod":"2026-08-12T21:52Z","nid":"1498686"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/supported-data-stores-file-types-and-regions","lastmod":"2026-09-08T22:02Z","nid":"1498686"} -->
 ## Supported Data Stores, File Types, and Regions
 
 - Source: https://help.zscaler.com/dspm/supported-data-stores-file-types-and-regions
 - Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Supported Data Stores, File Types, and Regions
-- Last modified: 2026-08-12T21:52Z
+- Path: Data Security Posture Management (DSPM) Help > Scan Rules > Supported Data Stores, File Types, and Regions
+- Last modified: 2026-09-08T22:02Z
 - Summary: Information about the different data stores, file types, and regions that DSPM provides support for data scanning.
 
 DSPM supports the scanning of AWS, Azure, GCP data stores (storage services, virtual machines, and their associated disks and databases), and on-premises databases for sensitive data, vulnerabilities, and misconfigurations. This article outlines the support level for both managed and unmanaged data stores, specific capabilities regarding posture management, data classification (DLP), scan methods, and authentication mechanisms. To learn more, see [About Scan Settings](https://help.zscaler.com/dspm/about-scan-settings).
@@ -16024,22 +16278,22 @@ Vulnerability scanning is supported for file types and file extensions in the fo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/testing-connection-registered-services","lastmod":"2026-05-24T07:06Z","nid":"1539899"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/testing-connection-registered-services","lastmod":"2026-09-28T00:40Z","nid":"1539899"} -->
 ## Testing Connection for Registered Services
 
 - Source: https://help.zscaler.com/dspm/testing-connection-registered-services
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Service Registration > Testing Connection for Registered Services
-- Last modified: 2026-05-24T07:06Z
+- Last modified: 2026-09-28T00:40Z
 - Summary: Information on how to use the test connection feature to validate network connectivity, credentials, and DSPM access for registered services (Unmanaged Databases, Snowflake, Databricks) before scanning.
 
-After completing the service registration, you can verify the network connectivity and credentials for registered services before performing data scans. Testing the connection confirms that DSPM can access the service and credentials are valid, reducing scan failures.
+After completing service registration, verify the network connectivity and credentials for registered services before performing data scans. Testing the connection confirms that DSPM can access the service and credentials are valid, reducing scan failures.
 
-For on-premises unmanaged databases, the connection is tested automatically after registration. For cloud unmanaged databases, Snowflake, and Databricks, you must manually initiate the connection test.
+For on-premises unmanaged databases, the connection is tested automatically after registration. For cloud unmanaged databases, Snowflake, and Databricks, manually initiate the connection test.
 
 To test a registered service connection:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Service Registration**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Service Registration**.
 2. On the **Service Registration** page, select the relevant tab (**Unmanaged Databases**, **Snowflake**, or **Databricks**).
 3. Do one of the following: A confirmation message appears indicating that the test connection was initiated successfully.
   1. To test the connection for a single database service:
@@ -16054,9 +16308,9 @@ The test results are displayed on the respective tab on the [Service Registratio
 - **Status**: The test status.
 - **Status Message**: A description of the test result (e.g., dial tcp **.**.***.***:****: connect: connection timed out).
 
-[Image: The Service Registration page displays database options in an action menu, and annotation for Test Connection option.]
+[Image: The Service Registration page displays database options in an action menu, and annotation for Test Connection option]
 
-[Image: Service Registration page displays selected databases with an annotation for Test Connection button.]
+[Image: Service Registration page displays selected databases with an annotation for Test Connection button]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -16245,13 +16499,13 @@ The supported orchestrator instance types and configurations are as follows:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/understanding-predefined-dlp-engines-and-dictionaries","lastmod":"2026-08-12T23:24Z","nid":"1539995"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/understanding-predefined-dlp-engines-and-dictionaries","lastmod":"2026-09-13T07:06Z","nid":"1539995"} -->
 ## Understanding Predefined DLP Engines and Dictionaries
 
 - Source: https://help.zscaler.com/dspm/understanding-predefined-dlp-engines-and-dictionaries
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Resource Inventory > Understanding Predefined DLP Engines and Dictionaries
-- Last modified: 2026-08-12T23:24Z
+- Last modified: 2026-09-13T07:06Z
 - Summary: Understanding predefined DLP engines and dictionaries.
 
 Zscaler provides the following predefined Data Loss Prevention (DLP) engines for higher accuracy in data classification and to reduce false positives.
@@ -16563,18 +16817,18 @@ DSPM defines the following threat categories:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/updating-gcp-service-account","lastmod":"2026-04-24T22:34Z","nid":"1498116"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/updating-gcp-service-account","lastmod":"2026-09-14T22:17Z","nid":"1498116"} -->
 ## Updating the GCP Service Account
 
 - Source: https://help.zscaler.com/dspm/updating-gcp-service-account
 - Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > GCP Cloud Accounts > Updating the GCP Service Account
-- Last modified: 2026-04-24T22:34Z
+- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > GCP Cloud Accounts > GCP Organization > Updating the GCP Service Account
+- Last modified: 2026-09-14T22:17Z
 - Summary: Information on updating the GCP project service accounts in the Zscaler Admin Console.
 
-While onboarding a GCP organization, a service account is created within the GCP organization. The service account defines the policies and permissions required for DSPM to access specific resources within the onboarded GCP organization.
+While onboarding a GCP organization or a project, a service account is created within the GCP account. The service account defines the policies and permissions required for DSPM to access specific resources within the onboarded GCP account.
 
-If the service account is accidentally deleted, DSPM's access to the onboarded organization is impacted, and all the onboarded projects within the organization move to the [Needs Attention](https://help.zscaler.com/dspm/viewing-onboarding-status) state. To restore access, you must update the service account details.
+If the service account is accidentally deleted, DSPM's access to the onboarded account is impacted, and all the onboarded projects move to the [Needs Attention](https://help.zscaler.com/dspm/viewing-onboarding-status) state. To restore access, you must update the service account details.
 
 ## Prerequisites
 
@@ -16584,18 +16838,26 @@ You must be assigned either an [Administrator role](https://help.zscaler.com/dsp
 
 To update the service account:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Cloud Accounts**.
+1. From the navigation menu, go to **Data Security**> **DSPM** > **Configuration** > **Cloud Accounts**.
 2. Select the GCP cloud account for which you want to update the service account.
 3. Click **Manage**, and then select **Update Service Account** from the drop-down menu. See image.
-4. Download and run the **Tree Discovery** template:
-  - a. In the Zscaler Admin Console
-  - b. On the Local System
-  - c. In the Zscaler Admin Console
-5. On the **Roles and Templates** tab, download and run the **GCP Onboarding** template:
-  - a. In the Zscaler Admin Console
-  - b. On the Local System
+4. Based on your GCP account, do one of the following:
+  - For GCP Organization
+  - For GCP Project
 
-After the template is successfully deployed, DSPM's access to the GCP organization is restored, and the onboarded projects move to the Successfully Configured state.
+After the template is successfully deployed, DSPM's access to the GCP account is restored, and the onboarded projects move to the Successfully Configured state.
+
+1. In the **Update Service Account** window, download and run the **Tree Discovery** template:
+  - i. In the Zscaler Admin Console
+  - ii. On the Local System
+  - iii In the Zscaler Admin Console
+2. On the **Roles and Templates** tab, download and run the **GCP Onboarding** template:
+  - i. In the Zscaler Admin Console
+  - ii. On the Local System
+
+In the **Update Service Account** window, download and run the GCP Onboarding template.
+
+See image.
 
 In the **Roles and Templates** tab, click **GCP Onboarding** to download the template as a ZIP file.
 
@@ -16673,13 +16935,13 @@ Update and run the template in the gcloud using the CLI app:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/updating-private-key-gcp","lastmod":"2026-04-24T22:34Z","nid":"1498121"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/updating-private-key-gcp","lastmod":"2026-09-14T22:11Z","nid":"1498121"} -->
 ## Updating the Private Key for GCP
 
 - Source: https://help.zscaler.com/dspm/updating-private-key-gcp
 - Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > GCP Cloud Accounts > Updating the Private Key for GCP
-- Last modified: 2026-04-24T22:34Z
+- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > GCP Cloud Accounts > GCP Organization > Updating the Private Key for GCP
+- Last modified: 2026-09-14T22:11Z
 - Summary: Information on how to update the private key for GCP in the Zscaler Admin Console.
 
 The private key is a confidential string associated with a GCP service account, which is necessary to access the service account from outside the Google Cloud environment, such as on other platforms or on-premises infrastructure. During the GCP account onboarding process, a private key is generated in JSON format when you apply the tree discovery template, which is then provided to DSPM as part of the account onboarding process.
@@ -16714,13 +16976,13 @@ The private key is updated for the selected service account.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/validating-cloud-accounts","lastmod":"2026-04-29T21:31Z","nid":"1520296"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/validating-cloud-accounts","lastmod":"2026-09-30T00:14Z","nid":"1520296"} -->
 ## Validating Cloud Accounts
 
 - Source: https://help.zscaler.com/dspm/validating-cloud-accounts
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > Cloud Account Management > Validating Cloud Accounts
-- Last modified: 2026-04-29T21:31Z
+- Last modified: 2026-09-30T00:14Z
 - Summary: Information on how to validate target accounts in the Zscaler Admin Console.
 
 DSPM validates the cloud accounts every hour to check if the onboarding templates are deployed successfully and roles and permissions are configured for each account. You can also run an on-demand validation without waiting for DSPM's hourly validations.
@@ -16729,46 +16991,44 @@ DSPM validates the cloud accounts every hour to check if the onboarding template
 
 To validate a single account:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Cloud Accounts**.
-2. Select the cloud account.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM**> **Cloud Accounts**. The **Cloud Accounts** page appears.
+2. On the **Cloud Accounts** page, click the required cloud account (AWS, Azure, or GCP).
 3. Select the **Accounts**tab for AWS, **Subscriptions**tab for Azure, or **Projects**tab for GCP. The tab name varies depending on the selected cloud account.
-4. Click the **Actions**icon for the account you want to validate, and click **On Demand Validation**. See image.
+4. Click the **Actions**icon for the account you want to validate, and click **On Demand Validation**. See image. The **On Demand Validation** window appears.
 5. In the **On Demand Validation** window, click **Confirm**. See image.
 
 ## Validating all Accounts in the Organization
 
 To validate all accounts in the organization:
 
-1. Go to **Policies** > **Common Configuration** > **DSPM** > **Cloud Accounts**.
-2. Select the cloud account.
-3. Click **Manage**, and then select **On Demand Validation** from the drop-down menu. See image.
-4. In the **On Demand Validation** window, click **Confirm**. See image.
+1. Go to **Data Security** > **DSPM**> **Cloud Accounts**. The **Cloud Accounts** page appears.
+2. On the **Cloud Accounts** page, click the required cloud account (AWS, Azure, or GCP).
+3. Click **Manage**, and then select **On Demand Validation** from the drop-down menu. See image. The **On Demand Validation** window appears.
+4. In the **On Demand Validation** window, click **Confirm**.
 
 [Image: The Accounts tab with the list of accounts onboarded and the actions available with annotation around On-Demand Validation.]
 
 [Image: The Manage actions drop-down menu with annotation around On Demand Validation.]
 
 [Image: The On Demand Validation window with options to confirm or cancel.]
-
-[Image: The On Demand Validation window with options to proceed or cancel.]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-access-levels","lastmod":"2026-06-30T04:24Z","nid":"1478251"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-access-levels","lastmod":"2026-09-30T02:11Z","nid":"1478251"} -->
 ## Viewing the Access Levels
 
 - Source: https://help.zscaler.com/dspm/viewing-access-levels
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Resource Inventory > Resource Details > Viewing the Access Levels
-- Last modified: 2026-06-30T04:24Z
+- Last modified: 2026-09-30T02:11Z
 - Summary: Information on the entities that can access the cloud resources that are scanned by DSPM.
 
 Access level refers to the identity and access management (IAM) permissions granted to the entities (user, application, service, etc.) that are associated with the cloud resources. While scanning the cloud resources for sensitive data and vulnerabilities, DSPM also detects the entities and the permissions they have to access the cloud resources.
 
 To view the access level of the entities that are associated with the primary resource:
 
-1. Go to **Analytics**> **Data Security**> **DSPM**> **Resource Inventory**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Resource Inventory.**
 2. Click any **Resource Name** to view the resource's details page. See image.
 3. In the resource's details page, select the **Access**tab. The following information is displayed:
   - AWS resource
@@ -16776,6 +17036,8 @@ To view the access level of the entities that are associated with the primary re
   - GCP resource
   - Unmanaged Database
   - Snowflake
+
+[Image: Select a resource name to view additional details]
 
 ## Supported Entity Types
 
@@ -16810,17 +17072,21 @@ DSPM discovers the following entity types during data scanning:
 - **IAM User**: An individual entity that can access resources through an IAM user from the same AWS account. These users have credentials and permissions defined in IAM policies and can access resources based on assigned roles.
 - **Lambda Function**: A serverless compute service that can access resources based on the permissions of the IAM role assigned to the AWS Lambda function.
 
+- **AI Agent Identity:**An artificial intelligence agent identity that can access resources.
 - **App Services**: A web-based service that can access resources using system-managed or user-defined identities.
-- **Applications**: An entity that can access resources using service principals.
 - **Azure AI Service**: An artificial intelligence service that can access resources using managed identities or service principals.
 - **Azure Machine Learning Workspaces**: A central resource that can access resources such as data storage, compute resources, and other services required for machine learning tasks using managed identities or service principals.
 - **Azure SQL Server**: A service that can access other resources, including a key vault using managed identities or service principals.
 - **Azure Storage Account**: A service that can access resources using managed identities or service principals.
 - **Azure Virtual Machine**: A compute resource that can access resources using managed identities or service principals.
-- **Managed Identity Service Principals**: A service that can access resources using managed identity service principals.
+- **Internal Application**: An internal application registered within the Azure tenant that can access resources.
+- **Microsoft Application**: A Microsoft application that can access resources.
 - **PostgreSQL Flexible Server**: A service that can access resources using managed identities or service principals.
 - **SQL Database**: A service that can access resources using managed identities or service principals.
+- **System-Assigned Managed Identity**: A system-assigned managed identity that can access resources.
+- **Third-Party Application**: A third-party application that can access resources.
 - **User**: An individual user that can access resources via Azure Active Directory (AAD) identities.
+- **User-Assigned Managed Identity**: A user-assigned managed identity that can access resources.
 - **Virtual Machine Scale Sets**: A compute resource that can access resources using managed identities or service principals.
 
 - **Domain**: A networking entity that can access resources through all identities (users, service accounts, etc.) using IAM roles.
@@ -16905,7 +17171,7 @@ DSPM discovers the following entity types during data scanning:
 - **Target Entity**: The target database that is being accessed.
 - **Access Level**: The permissions (Read, Edit, or Full Access) assigned to the entity.
 
-[Image: Shows the access tab details for snowflake database]
+[Image: Shows the access tab details for Snowflake database]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -16947,27 +17213,26 @@ The following tabs include additional details:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-alert-details","lastmod":"2026-04-15T00:33Z","nid":"1477791"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-alert-details","lastmod":"2026-09-28T02:15Z","nid":"1477791"} -->
 ## Viewing Alert Details
 
 - Source: https://help.zscaler.com/dspm/viewing-alert-details
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Alerts > Alert Details > Viewing Alert Details
-- Last modified: 2026-04-15T00:33Z
+- Last modified: 2026-09-28T02:15Z
 - Summary: Information about viewing DSPM alert details.
 
 You can view additional details of alerts such as alerts summary, description, why the alert is in a specific status, etc. This information allows you to investigate the alerts in detail and remediate the issue.
 
 To view the alert details:
 
-1. Go to **Administration**> **Alerts**> **Alerts**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM**> **Alerts**.
 2. Select the **All Alerts** tab.
-3. Click the **Alert ID**. The individual alert's page appears with the following tabs: You can also access the alert drawer from the [Grouped by Policy](https://help.zscaler.com/dspm/viewing-alerts-grouped-policy) tab, [Grouped by Resource](https://help.zscaler.com/dspm/viewing-alerts-grouped-resource) tab, [Dashboard](https://help.zscaler.com/dspm/about-dashboard), and the [Resource Inventory](https://help.zscaler.com/dspm/about-resource-inventory) page. See image.
+3. Click the **Alert ID**. The individual alert's page appears with the following tabs: You can also access the alert drawer from the [Grouped by Policy](https://help.zscaler.com/dspm/viewing-alerts-grouped-policy) tab, [Grouped by Resource](https://help.zscaler.com/dspm/viewing-alerts-grouped-resource) tab, [Dashboard](https://help.zscaler.com/dspm/about-dashboard), and the [Resource Inventory](https://help.zscaler.com/dspm/about-resource-inventory) page.
   - Alert Details
   - Sensitive Data
   - Malware
   - Remediation
-4. Click the **Actions** menu to [snooze, resolve, or reset](https://help.zscaler.com/dspm/managing-alerts) the alert. See image.
 
 On the **Alert Details** tab, you can view:
 
@@ -16987,7 +17252,7 @@ On the **Alert Details** tab, you can view:
 
 [Image: The Alert Details tab shows a summary, description, and other general information about an alert.]
 
-On the **Sensitive Data** tab, you can view the details of the [sensitive data](https://help.zscaler.com/dspm/viewing-sensitive-data-details) such as the list of files containing sensitive data, the DLP engines used to classify data, etc.
+On the **Sensitive Data** tab, you can view the details of the [sensitive data](https://help.zscaler.com/dspm/viewing-sensitive-data-details) such as the list of files or tables containing sensitive data, the DLP engines used to classify data, etc.
 
 [Image: The Sensitive Data tab shows all the details of the sensitive data associated with the alert.]
 
@@ -17003,22 +17268,18 @@ On the **Malware** tab, you can view the [malware details](https://help.zscaler.
 
 This tab is visible only when alerts are generated for policies that detect malware in data stores.
 
-[Image: An individual alert's page with the Alert Details, Sensitive Data, and Remediation tabs.]
-
-[Image: The Actions menu listing resolve and snooze actions.]
-
 [Image: List of MITRE techniques with technique ID displayed after clicking on the numbers.]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-alert-graph","lastmod":"2026-04-15T00:34Z","nid":"1492596"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-alert-graph","lastmod":"2026-09-29T02:34Z","nid":"1492596"} -->
 ## Viewing the Alert Graph
 
 - Source: https://help.zscaler.com/dspm/viewing-alert-graph
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Alerts > Alert Details > Viewing the Alert Graph
-- Last modified: 2026-04-15T00:34Z
+- Last modified: 2026-09-29T02:34Z
 - Summary: Information about the alert graph in the Zscaler Admin Console.
 
 DSPM displays the [alert details](https://help.zscaler.com/dspm/viewing-alert-details) in the form of an interactive graph for better understanding. The alert graph visually represents an alert resulting from a [policy](https://help.zscaler.com/dspm/about-data-posture-policies) evaluation performed on a specific data store. It consists of interactive nodes that provide contextual information (i.e., type of sensitive data present in the data store, if the data store is publicly exposed, the vulnerabilities associated with the data store, [malware](https://help.zscaler.com/dspm/viewing-malware-details) present in the data store about each entity associated with the primary resource).
@@ -17027,10 +17288,10 @@ The alert graph is interactive only for [open and snoozed](https://help.zscaler.
 
 To view the alert graph:
 
-1. Go to **Administration > Alerts > Alerts**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM**> **Alerts**.
 2. Select the **All Alerts** tab.
-3. Click any **Alert ID** to view the drawer.
-4. On the **Alert Details** tab, you can see a graph with several nodes and attack paths. See image.
+3. Click any **Alert ID**. The **Alert Details** page appears.
+4. On the **Alert Details** page, you can see a graph with several nodes and attack paths. See image.
 
 The alert graph is a subset of the [Resource Inventory graph](https://help.zscaler.com/dspm/viewing-resource-inventory-graph) with the following differences:
 
@@ -17053,20 +17314,20 @@ The alert graph is a subset of the [Resource Inventory graph](https://help.zscal
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-alerts-grouped-policy","lastmod":"2026-08-12T21:55Z","nid":"1478171"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-alerts-grouped-policy","lastmod":"2026-09-22T23:59Z","nid":"1478171"} -->
 ## Viewing Alerts Grouped by Policy
 
 - Source: https://help.zscaler.com/dspm/viewing-alerts-grouped-policy
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Alerts > Alert Details > Viewing Alerts Grouped by Policy
-- Last modified: 2026-08-12T21:55Z
+- Last modified: 2026-09-22T23:59Z
 - Summary: Information on DSPM alerts grouped by policy.
 
 DSPM scans the cloud resources against the [policies](https://help.zscaler.com/dspm/about-data-posture-policies) enabled in the AWS accounts, Azure subscriptions, or GCP projects to identify vulnerabilities and generate alerts.
 
 You can view all the predefined and custom policies for which alerts are generated. Additionally, you can view the severity level of the policy to prioritize the issue, number of open alerts, and the cloud type in which the resource is located.
 
-On the Grouped by Policy tab (Administration > Alerts > Alerts > Grouped by Policy), you can do the following:
+On the Grouped by Policy tab (Data Security > DSPM > Alerts > Grouped by Policy), you can do the following:
 
 1. [Apply filters to view specific data.](https://help.zscaler.com/unified/using-tables) By default, policies with an open alert status are displayed.
 2. [Customize page settings](https://help.zscaler.com/dspm/customizing-page-settings).
@@ -17097,20 +17358,20 @@ On the Grouped by Policy tab (Administration > Alerts > Alerts > Grouped by Poli
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-alerts-grouped-resource","lastmod":"2026-08-12T21:56Z","nid":"1478176"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-alerts-grouped-resource","lastmod":"2026-09-28T02:37Z","nid":"1478176"} -->
 ## Viewing Alerts Grouped by Resource
 
 - Source: https://help.zscaler.com/dspm/viewing-alerts-grouped-resource
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Alerts > Alert Details > Viewing Alerts Grouped by Resource
-- Last modified: 2026-08-12T21:56Z
+- Last modified: 2026-09-28T02:37Z
 - Summary: Information about DSPM alerts grouped by resource.
 
 DSPM scans the cloud resources against the [policies](https://help.zscaler.com/dspm/about-data-posture-policies) enabled in your cloud infrastructure to identify vulnerabilities and generate alerts.
 
 You can view all the resources in the cloud accounts for which alerts are generated. Additionally, you can view the risk level of the resources to prioritize the issue, the type of data store, number of open alerts, and the cloud type in which the resource is located.
 
-On the Grouped by Resource tab (Administration > Alerts > Alerts > Grouped by Resource), you can do the following:
+On the Grouped by Resource tab (Data Security > DSPM > Alerts > Grouped by Resource), you can do the following:
 
 1. [Apply filters to view specific data.](https://help.zscaler.com/unified/using-tables) By default, resources with an open alert status are displayed.
 2. [Customize page settings](https://help.zscaler.com/dspm/customizing-page-settings).
@@ -17124,6 +17385,7 @@ On the Grouped by Resource tab (Administration > Alerts > Alerts > Grouped by Re
     - **Sensitive Data**: View the [sensitive data details](https://help.zscaler.com/dspm/viewing-sensitive-data-details).
     - **Access**: View the [access level permissions](https://help.zscaler.com/dspm/viewing-resource-access-levels) assigned to user entities to perform actions on the resources.
     - **Vulnerabilities**: View the [vulnerabilities detected](https://help.zscaler.com/dspm/viewing-vulnerability-details) in the resources. Vulnerabilities are displayed only for EC2 instances.
+    - **Timeline**: View a [consolidated list of events](https://help.zscaler.com/dspm/viewing-timeline-details-resources) related to configuration changes made to a resource for a given period of time.
   - **Resource ID**: The unique identifier for the resource.
   - **Resource Type**: The type of data store (**AWS EC2 instance**, **AWS S3 bucket**, etc.).
   - **Risk Level**: The risk level (**Critical**, **High**, **Medium**, and **Low**) of the resource. The resource risk level depends on the highest risk level of the alerts generated for that resource. For example, if the resource has 10 alerts generated, and the risk levels of these alerts are High, Medium, and Low, then the resource risk level is High.
@@ -17137,20 +17399,20 @@ On the Grouped by Resource tab (Administration > Alerts > Alerts > Grouped by Re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-and-managing-data-inventory-details","lastmod":"2026-08-13T03:06Z","nid":"1529820"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-and-managing-data-inventory-details","lastmod":"2026-09-29T17:02Z","nid":"1529820"} -->
 ## Viewing and Managing Data Inventory Details
 
 - Source: https://help.zscaler.com/dspm/viewing-and-managing-data-inventory-details
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Data & Identity Inventory > Viewing and Managing Data Inventory Details
-- Last modified: 2026-08-13T03:06Z
+- Last modified: 2026-09-29T17:02Z
 - Summary: Information on how to view DSPM data inventory details in the Zscaler Admin Console.
 
 DSPM scans various data stores to discover and classify sensitive data. After the scan completes, the discovered findings are aggregated and displayed in the Data Inventory. The Data Inventory page provides a unified view of files and database tables that contain sensitive data across cloud, SaaS, and on-premises environments. You can gain visibility into sensitive data stored in different locations, entities that have access to sensitive data, and how to investigate it further to reduce security risks and prioritize remediation.
 
 To view the file or table details:
 
-1. Go to **Analytics**> **Data Security**> **DSPM**>**Data Inventory**. The **Data Inventory** page appears. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**>**DSPM**>**Data Inventory**.
 2. Click the **File** or **Table Name** to view the following tabs and actions: Some columns contain service-specific data and might be empty when there is no relevant data. Some columns are shown for both files and tables and some are specific to files or tables:
   - Details
   - Data Duplications
@@ -17248,7 +17510,7 @@ See image.
 
 To apply an MIP label to a single file:
 
-1. Click the file that you want to label on the **Data Inventory** page. The file details page appears.
+1. Click the file that you want to label on the **Data Inventory** page or on the **Sensitive Data** tab of the **Resource Inventory** page. The file details page appears.
 2. On the **Details** tab, click the **Actions**drop-down menu. See image. Alternatively, click the **Actions** icon () for the required file in the **Actions** column. See image.
 3. Select **Apply MIP Labels**. The **Apply Label** window appears.
 4. In the **Apply Label** window: See image. A message appears indicating that the action is submitted successfully, and the label is applied within a few minutes.
@@ -17258,7 +17520,7 @@ To apply an MIP label to a single file:
 
 To apply an MIP label to multiple files:
 
-1. Select the files you want to label on the **Data Inventory** page.
+1. Select the files you want to label on the **Data Inventory** page or on the **Sensitive Data** tab of the **Resource Inventory** page.
 2. Click the **Actions**drop-down menu. See image.
 3. Select **Apply MIP Labels**. The **Apply Label (bulk action)** window appears.
 4. In the **Apply Label (bulk action)** window: See image. A message appears indicating that the action is submitted successfully, and the label is applied within a few minutes.
@@ -17273,8 +17535,6 @@ To apply an MIP label to multiple files:
 [Image: Data tab for a table]
 
 [Image: Entitlements tab with a list of users and accounts]
-
-[Image: View the data scan results]
 
 [Image: Shows the property details of the selected file.]
 
@@ -17293,521 +17553,4 @@ To apply an MIP label to multiple files:
 [Image: The Details page for a selected file displays the Actions drop-down menu in the upper-right corner]
 
 [Image: The Data Inventory page lists files and includes an Actions column]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-compliance-details","lastmod":"2026-04-09T22:10Z","nid":"1514771"} -->
-## Viewing Compliance Details
-
-- Source: https://help.zscaler.com/dspm/viewing-compliance-details
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Compliance > Viewing Compliance Details
-- Last modified: 2026-04-09T22:10Z
-- Summary: Viewing additional compliance details of compliance breaches in the Zscaler Admin Console.
-
-You can view additional details of the compliance breaches, such as the list of [policies](https://help.zscaler.com/dspm/about-data-posture-policies)that failed to comply with each benchmark, failed [resources](https://help.zscaler.com/dspm/viewing-resource-details), and DSPM policies mapped to compliance frameworks. The granular breach information allows you to quickly investigate and take the necessary action.
-
-To view the compliance details:
-
-1. Go to **Analytics**>**Data Security**>**DSPM** >**Compliance**.
-2. Click any tile to view the compliance insights. See image.
-3. On the Compliance page, you can see the following tabs:
-  - Summary
-  - Policies
-  - Resources
-  - Configuration
-
-The Summary tab displays the total number of policies that failed to meet the compliance criteria, highlighting failed policies by severity and control category and providing actionable items for remediation. You can:
-
-1. Apply [filters](https://help.zscaler.com/unified/using-tables) to view specific data.
-2. View the following details of the compliance framework:
-  - **Description**: The name of the compliance framework.
-  - **DLP Engines**: The DLP engines mapped to the compliance benchmarks.
-  - **Data Stores**: The total number of noncompliant data stores.
-3. View the number of failed policies by severity (**Critical**, **High**, **Medium**, and **Low**). Hover over the donut chart to see the number of failed policies for each severity. Click to view the list of policies with the severity filter applied.
-4. View the number of failed policies for each control category. Click to view the list of policies with the control category filter applied.
-5. View the compliance trend in a bar chart to assess the improvements or degradations. Hover over the chart to view the number of failed policies and resources for the control category. You can view the data for the last 7, 15, 30, 60, or 90 days.
-
-[Image: The summary tab with the list of policies and alerts for compliance issues]
-
-[Image: The Compliance dashboard with annotation around one of the compliance tiles.]
-
-The Configuration tab displays the mapping of DSPM policies to compliance frameworks. You can:
-
-1. View the name of the compliance framework and the DLP engines mapped to the benchmark.
-2. Apply [filters](https://help.zscaler.com/unified/using-tables) to view specific data.
-3. Search for a specific policy.
-4. Export the data and [download the report](https://help.zscaler.com/dspm/about-reports) as an Excel file.
-5. View the list of failed policies. For each policy, you can see:
-  - **Policy Name**: The name of the policy mapped to the compliance framework.
-  - **Cloud**: The name of the cloud service provider.
-  - **Control Number**: A unique identifier assigned to a specific policy within a compliance framework.
-  - **Control Category**: The control category of the compliance framework that groups security controls addressing similar risks or compliance requirements.
-  - **Severity**: The severity (**Critical**, **High**, **Medium**, or **Low**) of policy failure.
-
-[Image: The configuration tab displaying the mapping of DSPM policies to compliance frameworks.]
-
-The Resources tab displays the list of [resources](https://help.zscaler.com/dspm/about-data-inventory) that are noncompliant. You can:
-
-1. Apply [filters](https://help.zscaler.com/unified/using-tables) to view specific data.
-2. Search for a specific resource.
-3. Export the data and [download the report](https://help.zscaler.com/dspm/downloading-reports) as an Excel file.
-4. View the list of failed resources. For each resource, you can see:
-  - **Resource Name**: The name of the resource.
-  - **Cloud Account**: The account ID of the cloud account where the resource is stored.
-  - **Region**: The region where the resource is located.
-  - **DLP Engines**: The DLP engines that match the data in the resource.
-  - **Resource ID**: The unique identifier for the resource.
-
-[Image: The resources tab displaying the list of failed resources.]
-
-The Policies tab displays the list of policies that failed to comply with the benchmark. You can:
-
-1. Apply [filters](https://help.zscaler.com/unified/using-tables) to view specific data.
-2. Search for a specific policy.
-3. Export the data and [download the report](https://help.zscaler.com/dspm/about-reports) as an Excel file.
-4. View the list of failed policies. For each policy, you can see:
-  - **Policy Name**: The name of the failed policy. Click to view the [policy details](https://help.zscaler.com/dspm/viewing-policy-details).
-  - **Severity**: The severity (**Critical**, **High**, **Medium**, or **Low**) of policy failure.
-  - **Control Number**: A unique identifier assigned to a specific policy within a compliance framework.
-  - **Control Category**: The control category of the compliance framework that groups security controls addressing similar risks or compliance requirements.
-  - **Cloud**: The name of the cloud service provider.
-  - **Data Stores**: The number of data stores for which the policy failed.
-
-[Image: The policies tab displaying the list of failed policies.]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-data-discovery-dashboard","lastmod":"2026-07-28T04:27Z","nid":"1477746"} -->
-## Viewing the Data Discovery Dashboard
-
-- Source: https://help.zscaler.com/dspm/viewing-data-discovery-dashboard
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Dashboards > Viewing the Data Discovery Dashboard
-- Last modified: 2026-07-28T04:27Z
-- Summary: Information about the aggregated scan results displayed on the DSPM Data Discovery dashboard in the Zscaler Admin Console.
-
-[Watch a video about the DSPM data discovery dashboard](https://fast.wistia.net/embed/iframe/0s27bvrf53) (shows legacy UI).
-
-The DSPM Data Discovery dashboard provides a high-level overview of your cloud accounts' data security posture. The dashboard includes interactive widgets that visually depict the number of data stores scanned, sensitive data discovered, top accounts and data stores that contain the maximum amount of sensitive data, number of DLP engines and dictionaries used to classify the sensitive data, geographic location of your cloud accounts along with the resources containing sensitive data, and data types. All of this information helps you prioritize and take the necessary action. Some of the data displayed on this dashboard are clickable, and you can go to other pages (Alerts, Policies, Resource Inventory, etc.) to gather more context and information for further analysis.
-
-To view the Data Discovery dashboard:
-
-1. Go to **Analytics** > **Data Security** >**DSPM** > **Data Discovery**.
-2. On the **Data Discovery Dashboard** page, you can view the following widgets:
-  - Data Stores Discovered and Scanned
-  - Top Accounts by Sensitive Data
-  - Top Data Stores by Sensitive Data
-  - Data Insights
-  - Data Regions
-
-The total number of data stores that are discovered and scanned. Click the number to view additional details on the [Resource Inventory](https://help.zscaler.com/dspm/about-resource-inventory) page.
-
-See image.
-
-The following tabs include additional details:
-
-- **Gen AI Classification**: The chart displays the files classified using generative AI. Click each circle to view a specific file type discovered in different data stores. Click the number to view additional details on the [Resource Inventory](https://help.zscaler.com/dspm/about-resource-inventory) page. See image.
-- **DLP Engines**: The chart displays the number of DLP engines used for data classification. Click each circle to view the total number of files classified in different data stores and triggers in various regions. Click the number to view additional details on the [Resource Inventory](https://help.zscaler.com/dspm/about-resource-inventory) page. See image.
-
-[Image: Total data stores that are discovered and scanned]
-
-The top accounts with the maximum amount of sensitive data. The accounts are displayed in descending order based on the amount of sensitive data and alerts triggered for each account. Click the **Cloud Account** name to view additional details on the [Resource Inventory](https://help.zscaler.com/dspm/about-resource-inventory) page.
-
-See image.
-
-The top data stores with the maximum amount of sensitive data. The data stores are displayed in descending order based on the amount of sensitive data and alerts triggered for each account. Click the **Data Store** name to view the graph on the [Resource Inventory](https://help.zscaler.com/dspm/about-resource-inventory) page.
-
-See image.
-
-The different data types discovered in the data stores.
-
-See image.
-
-A world map shows the geographic regions where all of your cloud accounts and data stores are located.
-
-See image.
-
-- Select the **Show sensitive data only** checkbox to view only those regions with data stores containing sensitive data.
-- Click the numbers on the map to view the cloud accounts, data stores, and data types in that region. See image.
-
-The size of the circles is relative to each other. A bigger circle indicates that the region has more number of sensitive records when compared to the region represented by a smaller circle. The number in the circle indicates that there are multiple regions in the same geographical location.
-
-[Image: Accounts with the maximum amount of sensitive data]
-
-[Image: Data stores with the maximum amount of sensitive data]
-
-[Image: Types of files and documents discovered]
-
-[Image: Cloud accounts discovered in various locations]
-
-[Image: World map shows regions where cloud accounts are located]
-
-[Image: Data discovered by Gen AI]
-
-[Image: DLP engines used for data classification]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-graph-ai-services","lastmod":"2026-04-24T21:06Z","nid":"1524201"} -->
-## Viewing the Graph for AI Services
-
-- Source: https://help.zscaler.com/dspm/viewing-graph-ai-services
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the Graph for AI Services
-- Last modified: 2026-04-24T21:06Z
-- Summary: Information on the Resource Inventory graph for AI services that have access to sensitive data.
-
-The graph for an AI service is a visual representation of the data scan result for the service. It depicts the access path for the AI service (Azure AI Foundry Hub or AWS Bedrock Knowledge Base) where it has access to the storage account containing sensitive data. DSPM also detects if the AI service is publicly exposed to the internet, including the public exposure path, and the list of entities that can access the AI service. These details are helpful to quickly evaluate and remediate the issues, protect the sensitive data, and maintain a strong security posture.
-
-You can view graphs for the following AI services:
-
-- AWS Bedrock Custom Model
-- AWS Bedrock Imported Model
-- AWS Bedrock Knowledge Base
-- AWS Bedrock Agent
-- Azure AI Foundry Hub
-- Azure AI Foundry
-- Azure OpenAI
-
-To view the graph for an AI service:
-
-1. Go to **Analytics**>**Data Security**> **DSPM**>**Resource Inventory.**
-2. Click any AI service name to view the AI service's details page.
-3. In the AI service's details page, select the **Risk Explorer** tab. You can see the graph for the selected service:
-
-- Azure AI Foundry Hub
-- AWS Bedrock Knowledge Base
-
-The following image is a sample of an Azure AI Foundry Hub graph:
-
-[Image: Azure AI Foundry Hub has access to sensitive records.]
-
-Click the nodes to view additional details of each entity:
-
-- 1. Public Internet
-- 2. Primary Resource
-- 3. Storage Account
-- 4. Resource with Sensitive Data
-- 5. Sensitive Records
-- 6. Services
-- 7. Managed Identity
-- 8. Users
-- 9. External
-- 10. Applications
-
-The following image is a sample of an AWS Bedrock Knowledge Base graph:
-
-[Image: AWS Bedrock Knowledge Base has access to sensitive data records.]
-
-Click the nodes to view additional details of each entity:
-
-- 1. Primary Resource
-- 2. Resource
-- 3. Resource with Sensitive Data
-- 4. Sensitive Data Records
-- 5. Roles
-- 6. Federated
-- 7. Users
-- 8. Services
-- 9. External
-
-View details of AWS Bedrock Knowledge Base.
-
-- **Resource Category**: The type of data store.
-- **Resource Type**: The type of primary resource.
-- **Account ID**: The unique identifier of the account to which the primary resource belongs.
-- **Account Name**: The name of the account in which the resource is located.
-- **Organization ID**: The unique identifier of the organization to which the project belongs.
-- **Region**: The region where the resource is located.
-- **Latest Scan Status**: The status of the last scan.
-- **Last Completed Scan**: The status of the last scan.
-- **Triggers**: Number of alerts raised for the resource.
-- **Matched Files**: The number of files that matched the DLP engines.
-- **DLP Engines**: The [DLP engines](https://help.zscaler.com/dspm/understanding-dlp-engines-and-dictionaries) that match sensitive records.
-- **DLP Dictionaries**: The dictionaries associated with the DLP engines.
-- **Document Categories**: The category of document detected in the resource.
-- **Document Types**: The number of documents detected in the resource.
-- **ARN**: Copy the Amazon Resource Name (ARN) to identify this resource in the AWS account.
-- **Tags**: The tags associated with the resource.
-- **Posture**: The [security posture](https://help.zscaler.com/dspm/understanding-security-posture-state)of the resource.
-
-[Image: Details of the primary source with blurred out sensitive information.]
-
-View details of the Amazon Bedrock resource types.
-
-[Image: A list of resource types available in the AWS Bedrock Knowledge Base.]
-
-View the list of users who can access the resource.
-
-[Image: A list of users and their access level to a resource, and blurred out sensitive information.]
-
-View the identity and access management (IAM) roles that has permissions to access the resource.
-
-[Image: A list of IAM roles that have permission to access the resource, and blurred out sensitive information.]
-
-View the services that can access the resource.
-
-[Image: A list of services that can access the resource, and blurred out sensitive information.]
-
-View the external entities that can access the resource. These entities are part of a different cloud account that is not onboarded into the Zscaler Admin Console.
-
-[Image: A list of external entities that can access the resource, and blurred out sensitive information.]
-
-View the federated identities that can access the resource.
-
-[Image: A list of federated identities that can access the resource, and blurred out sensitive information.]
-
-View details of the resources that contain sensitive data.
-
-[Image: Lists the resources that contain sensitive data records.]
-
-View details of the sensitive record.
-
-[Image: The sensitive data records for an AWS Bedrock Knowledge Base with blurred out sensitive information.]
-
-The storage account that contains the sensitive records.
-
-[Image: The scan result for the storage account.]
-
-View the details of the storage account.
-
-[Image: View Azure storage account details]
-
-The details of the sensitive record, including the DLP engines and dictionaries that match the record, the security posture of the record, ID and tags, and the timestamp of the last completed scan.
-
-[Image: The details of the file containing credit card numbers.]
-
-The reason why the AI service is publicly exposed to the internet.
-
-[Image: Details of how the Azure AI Foundry instance is exposed to the internet.]
-
-The users who can access the AI service.
-
-[Image: Viewing the list of users and their access levels to access the AI service]
-
-The external entities that can access the AI service. These entities are part of a different cloud account that is not onboarded to the DSPM Admin Portal.
-
-[Image: Viewing the external entities that can access the AI service.]
-
-The applications that can access the AI service.
-
-[Image: Applications that can access the AI service.]
-
-The services that can access the AI service.
-
-[Image: The services that can access the AI service.]
-
-The managed identities (service principals) that can access the AI service.
-
-[Image: The managed identities that can access the AI service.]
-
-View details of the primary resource.
-
-[Image: View the primary resource details]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-graph-aws-data-stores","lastmod":"2026-04-24T21:06Z","nid":"1519996"} -->
-## Viewing the Graph for AWS Data Stores
-
-- Source: https://help.zscaler.com/dspm/viewing-graph-aws-data-stores
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the Graph for AWS Data Stores
-- Last modified: 2026-04-24T21:06Z
-- Summary: Information on the Resource Inventory graph that depict the AWS data stores containing sensitive data.
-
-The Resource Inventory graph for AWS data stores is a visual representation of the scan result. The graph provides in-depth details of the [AWS resource](https://help.zscaler.com/dspm/supported-data-stores) that contains sensitive data, the DLP engines and dictionaries that match the sensitive data, whether it is publicly exposed to the internet, including the public exposure path, the list of entities that can access the resource, and the vulnerabilities and malware detected in the resource. These details are helpful to quickly evaluate and remediate the issues, protect the data, and maintain the security posture.
-
-You can view graphs for the following AWS data stores:
-
-- Simple Storage Service (S3)
-- AWS EC2 instances
-- RDS instance and clusters (MySQL, PostgreSQL, Aurora MySQL, Aurora PostgreSQL)
-- AWS Dynamo DB tables
-- NoSQL data stores (DynamoDB tables)
-- Unmanaged PostgreSQL, MySQL server, MS SQL servers and databases, Oracle Instance, and Oracle PDB
-- AWS Bedrock Knowledge Base
-- AWS Databricks
-
-The following graph depicts the scan results for an AWS EC2 instance.
-
-[Image: Graph that shows all the resources associated with an EC2 instance.]
-
-The graph includes the following nodes:
-
-- 1. Public Exposure Path
-- 2. Primary Resource
-- 3. Volumes
-- 4. CVE
-- 5. Impacted Volume
-- 6. Sensitive Records
-- 7. Roles
-- 8. External
-- 9. Users
-- 10. Services
-- 11. Federated
-
-View the details of the primary resource:
-
-- **Resource Category**: The type of data store.
-- **Resource Type**: The primary resource.
-- **Account ID**: The unique identifier of the account in which the resource is located.
-- **Account Name**: The name of the account in which the resource is located.
-- **Organization ID**: The unique identifier of the organization to which the account belongs.
-- **Region**: The region where the organization is located.
-- **Latest Scan Status**: The status of the last scan.
-- **Last Completed Scan**: The date and time when the last scan was completed.
-- **Triggers**: The number of alerts raised for this resource.
-- **Matched Files**: The number of files that matched the DLP engines.
-- **DLP Engines**: The [DLP engines](https://help.zscaler.com/dspm/understanding-dlp-engines-and-dictionaries) that match the sensitive records.
-- **DLP Dictionaries**: The dictionaries associated with the DLP engines.
-- **Document Types**: The number of documents detected in the resource.
-- **ARN**: Copy the Amazon Resource Name (ARN) to identify this resource in the AWS account.
-- **Tags**: The tags associated with the resource.
-- **Posture**: The [security posture](https://help.zscaler.com/dspm/understanding-security-posture-state) of the resource.
-- **Metadata**: Click to view the metadata for the resource.
-
-[Image: AWS resource properties along with the scan details.]
-
-View the details of the EBS volume that contains sensitive data.
-
-[[Image: Details of the volume associated with the primary resource.]](https://help.zscaler.com/dspm/understanding-security-posture-state)
-
-View all the volumes, including those that do not contain any sensitive data and the ones that are not scanned.
-
-[Image: The list of EBS volumes associated with the primary resource]
-
-View the services that can access the resource.
-
-[Image: The service that is associated with the primary resource]
-
-View the list of users who can access the resource.
-
-[Image: Users who can access the primary resource]
-
-View the identity and access management (IAM) roles that has permissions to access the resource.
-
-[Image: Roles that have access to the primary resource]
-
-View the publicly exposed resources. Click **Show Public Exposure Path** to view another graph that depicts how the resource is publicly exposed. To learn more, see [Viewing the Public Exposure Path](https://help.zscaler.com/dspm/viewing-public-exposure-path). See image.
-
-[Image: The entity that has publicly exposed the primary resource]
-
-View the common vulnerabilities and exposure (CVE) details. Click **View All CVEs** to see the [vulnerability details](https://help.zscaler.com/dspm/viewing-vulnerability-details).
-
-[Image: View the vulnerabilities classified by severity]
-
-View the details of a sensitive record.
-
-[Image: The file that contains sensitive data.]
-
-[Image: The public exposure graph with the entities that are misconfigured.]
-
-View the federated identities that can access the resource.
-
-[Image: The federated entities that can access the primary resource]
-
-View the external entities that can access the resource. These entities are part of a different cloud account that is not onboarded to the DSPM Admin Portal.
-
-[Image: External users that can access the primary resource]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-graph-azure-data-stores","lastmod":"2026-04-28T21:06Z","nid":"1519951"} -->
-## Viewing the Graph for Azure Data Stores
-
-- Source: https://help.zscaler.com/dspm/viewing-graph-azure-data-stores
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the Graph for Azure Data Stores
-- Last modified: 2026-04-28T21:06Z
-- Summary: Information on the Resource Inventory graph that depicts AWS data stores containing sensitive data.
-
-The Resource Inventory graph for Azure data stores is a visual representation of the scan result. The graph provides in-depth details of the [Azure resource](https://help.zscaler.com/dspm/supported-data-stores) that contains sensitive data, the DLP engines and dictionaries that match the sensitive data, whether it is publicly exposed to the internet, including the public exposure path, the list of entities that can access the resource, and the vulnerabilities and malware detected in the resource. These details are helpful to quickly evaluate and remediate the issues, protect the data, and maintain the security posture.
-
-You can view graphs for the following Azure data stores:
-
-| **Managed Data Stores** | **Unmanaged Data Stores** |
-| --- | --- |
-| Storage accounts and associated containers (Blobs); Azure Virtual Machines; SQL Databases and Servers; PostgreSQL Flexible Server; Azure Databricks; Azure File Share; Azure Table Storage; Azure OpenAI; Azure Cosmos DB | Unmanaged MS SQL Server Databases; Unmanaged PostgreSQL Databases; Unmanaged Oracle Databases; Unmanaged MySQL Databases; Microsoft Foundry |
-
-The following graph depicts the scan results for an Azure virtual machine.
-
-[Image: Graph for an Azure virtual machine and all the associated resources.]
-
-The graph includes the following nodes:
-
-- 1. Public Exposure Path
-- 2. Primary Resource
-- 3. Resources
-- 4. Resource with Sensitive Data
-- 5. Sensitive Records
-- 6. External
-- 7. Applications
-- 8. Services
-- 9. Managed Identities
-- 10. Users
-
-- **Resource Category**: The type of data store.
-- **Resource Type**: The primary resource.
-- **Subscription ID**: The unique identifier of the subscription in which the resource is stored.
-- **Subscription Name**: The name of the subscription in which the resource is stored.
-- **Tenant ID**: The unique identifier of the tenant to which the subscription belongs.
-- **Region**: The region where the resource is located.
-- **Latest Scan Status**: The status of the last scan.
-- **Last Completed Scan**: The date and time when the last scan was completed.
-- **Triggers**: The number of sensitive records in the resource.
-- **Matched Files**: The number of files that matched the DLP engines.
-- **DLP Engines**: The [DLP engines](https://help.zscaler.com/dspm/understanding-dlp-engines-and-dictionaries) that match the sensitive records.
-- **DLP Dictionaries**: The dictionaries associated with the DLP engines.
-- **Document Types**: The number of documents detected in the resource.
-- **Document Categories**: The document categories to which the detected document belongs.
-- **ID**: Copy the tenant ID to identify this resource in the Azure tenant.
-- **Tags**: The tags associated with the resource.
-- **Posture**: The [security posture](https://help.zscaler.com/dspm/understanding-security-posture-state) of the resource.
-- **Metadata**: Click to view the metadata for the resource.
-
-[Image: Details of the Azure virtual machine]
-
-View the publicly exposed resources. Click **Show Public Exposure Path** to view another graph that shows how the resource is publicly exposed due to misconfigurations or vulnerabilities in the associated resources. To learn more, see [Viewing the Public Exposure Path](https://help.zscaler.com/dspm/viewing-public-exposure-path).
-See image.
-
-[Image: The details of the network interface that is misconfigured]
-
-View the details of the database that contains sensitive data.
-
-[Image: Details of the database that contains sensitive data]
-
-View the details of the sensitive record.
-
-View all the associated resources (servers, managed and unmanaged databases), including those that do not contain any sensitive data and the ones that are not scanned.
-
-[Image: All the resources that are associated with the primary resource.]
-
-View the list of applications that can access the resource.
-
-[Image: The applications that can access the primary resource.]
-
-View the external entities that can access the resource. These entities are part of a different cloud account that is not onboarded to the DSPM Admin Portal.
-
-[Image: The list of external users who can access the primary resource.]
-
-View the managed entities that can access the primary resource.
-
-[Image: The managed identities that can access the primary resource]
-
-View the list of users who can access the resource.
-
-[Image: The list of users who can access the primary resource.]
-
-View the Azure services that can access the resource.
-
-[Image: The list of Azure services that can access the primary resource.]
-
-[Image: Public exposure graph shows the misconfigured entity that caused the resource to be publicly exposed.]
 <!-- /ZS-ARTICLE -->
