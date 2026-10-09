@@ -31,7 +31,7 @@ internal fun fnv(vararg vals: Int): Int {
     return h
 }
 
-internal fun rand01(seed: Int, i: Int): Float =
+fun rand01(seed: Int, i: Int): Float =
     ((fnv(seed, i) ushr 8) and 0xFFFF) / 65535f
 
 private fun pressure(t: Float, head: Float, tail: Float): Float {

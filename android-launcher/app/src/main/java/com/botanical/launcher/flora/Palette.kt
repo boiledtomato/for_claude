@@ -3,28 +3,36 @@ package com.botanical.launcher.flora
 import androidx.compose.ui.graphics.Color
 
 /**
- * 色は使わない。版面は黒鉛一色で、紙と墨の濃淡だけで作る。
- * ここに残しているのはアプリ一覧など UI 側で使う色。
+ * 図版の色。参照した Anne Pratt の多色石版（Pl.134）から実測した値で、
+ * tools/flora/palette.py と同じものを持つ。手で選ぶと必ず彩度が上がりすぎる。
+ *
+ * 実物の青はくすんだスレートブルー、緑は黄みの強いサップグリーン、
+ * 輪郭線は黒ではなく暗い茶緑。色数の少ない石版の渋さがここにある。
  */
 object Palette {
-    val Paper = Color(0xFFF6F3EC)
-    val PaperDeep = Color(0xFFEDE8DD)
-    val PaperShade = Color(0xFFDCD5C6)
-    val Ink = Color(0xFF423F44)
-    val InkSoft = Color(0xFF6E6857)
+    val Paper = Color(0xFFF0EBE2)
+    val PaperDeep = Color(0xFFE8E2D6)
+    val PaperShade = Color(0xFFD8D0C0)
+    val Cream = Color(0xFFF6F1E8)
 
-    val GreenDeep = Color(0xFF3C5330)
-    val Green1 = Color(0xFF5E5B56)
-    val Green2 = Color(0xFF6E8A4E)
-    val Green3 = Color(0xFF8AA260)
-    val Stem = Color(0xFF5A6B3A)
+    val Ink = Color(0xFF231D1A)
+    val InkSoft = Color(0xFF364531)
 
-    val Violet = Color(0xFF6B5E9B)
-    val VioletDeep = Color(0xFF4C4278)
-    val Crimson = Color(0xFFA33B2E)
-    val Rose = Color(0xFFC4767F)
-    val Saffron = Color(0xFFD2A03A)
-    val Cream = Color(0xFFF1EEE6)
-    val BerryDark = Color(0xFF3E3A46)
-    val BerryRed = Color(0xFF9B2F28)
+    val Blue = Color(0xFF95B1B6)
+    val BlueHi = Color(0xFFC6D8DC)
+    val BlueDeep = Color(0xFF597B88)
+    val BlueInk = Color(0xFF3A5666)
+
+    val Crimson = Color(0xFF7D1327)
+    val CrimsonHi = Color(0xFFB26062)
+
+    val Yellow = Color(0xFFCAB533)
+    val YellowDeep = Color(0xFFB1921B)
+
+    val GreenHi = Color(0xFFA6C278)
+    val Green = Color(0xFF688D3A)
+    val GreenDeep = Color(0xFF304B1A)
+    val GreenShade = Color(0xFF213610)
+    val Stem = Color(0xFF6D8948)
+    val StemDeep = Color(0xFF3A5522)
 }

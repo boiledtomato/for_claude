@@ -50,6 +50,15 @@ import kotlin.math.hypot
 private const val SWAY_PERIOD_MS = 22_000
 
 /** 描き直しの速さ。手描きアニメと同じで、滑らかにしすぎると CG に見える。 */
+/** 蔦が伸びきるまで。葉が 1 枚ずつ開く間があるので、短いと見えない。 */
+private const val REACH_GROW_MS = 720
+
+/** 伸びきってから咲きはじめるまでの間。先端の蕾を見せる一拍。 */
+private const val REACH_HOLD_MS = 220L
+
+/** 蕾がほどけて咲くまで。18 コマを送る。 */
+private const val REACH_BLOOM_MS = 620
+
 private const val BOIL_FPS = 11
 
 @Composable
@@ -146,16 +155,21 @@ fun HomeScreen() {
             originId = target.id,
             origin = target.at,
             heading = heading,
-            length = flora.width * 0.34f,
+            length = flora.width * 0.42f,
             seed = target.id.hashCode(),
             appKeys = keys,
         )
         scope.launch {
             reachGrow.snapTo(0f)
             reachBloom.snapTo(0f)
-            reachGrow.animateTo(1f, tween(460, easing = FastOutSlowInEasing))
-            reachBloom.animateTo(1f, tween(380, easing = FastOutSlowInEasing))
+            // 蔦が這い、葉を開きながら伸びる。急がせると「線が飛んだ」だけに見える。
+            reachGrow.animateTo(1f, tween(REACH_GROW_MS, easing = FastOutSlowInEasing))
+            // 伸びきったところで一拍おく。ここで先端の蕾が見える。
+            // 間を置かずに咲かせると、蕾があったことに気づけない。
+            delay(REACH_HOLD_MS)
+            reachBloom.animateTo(1f, tween(REACH_BLOOM_MS, easing = FastOutSlowInEasing))
             if (launchWhenOpen) {
+                delay(180)
                 keys.firstOrNull()?.let { k -> appsByKey[k]?.let { AppRepository.launch(context, it) } }
                 delay(240)
                 clearReach()

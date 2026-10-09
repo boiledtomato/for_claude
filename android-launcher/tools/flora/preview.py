@@ -37,7 +37,7 @@ def paper(size, seed=5):
     rng = np.random.default_rng(seed)
     n = rng.normal(0, 1, (size[1], size[0])).astype(np.float32) * 3.0
     arr = np.zeros((size[1], size[0], 3), dtype=np.float32)
-    for i, c in enumerate((246, 243, 236)):
+    for i, c in enumerate((240, 235, 226)):
         arr[..., i] = c + n
     return Image.fromarray(arr.clip(0, 255).astype(np.uint8), "RGB")
 

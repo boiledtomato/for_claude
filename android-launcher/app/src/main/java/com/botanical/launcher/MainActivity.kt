@@ -18,7 +18,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MaterialTheme(
                 colorScheme = lightColorScheme(
-                    primary = Palette.Green1,
+                    primary = Palette.InkSoft,
                     onPrimary = Palette.Cream,
                     surface = Palette.Paper,
                     onSurface = Palette.Ink,

@@ -136,3 +136,40 @@ def crease(img, curve, color=(70, 68, 74), alpha=70, width=7.0):
     col = Image.new("RGBA", img.size, tuple(color) + (255,))
     col.putalpha(layer.point(lambda v: v * alpha // 255))
     img.alpha_composite(col)
+
+
+_MOTTLE = {}
+
+
+def _mottle_field(size, seed, scale):
+    """低い周波数のむら。石版の刷りむらと、手彩色の筆むらの代わり。"""
+    key = (size, seed, scale)
+    if key in _MOTTLE:
+        return _MOTTLE[key]
+    w, h = size
+    rng = np.random.default_rng(seed)
+    sw, sh = max(2, int(w / scale)), max(2, int(h / scale))
+    n = rng.normal(0, 1, (sh, sw)).astype(np.float32)
+    n = (n - n.min()) / max(float(n.max() - n.min()), 1e-6)
+    f = np.asarray(Image.fromarray((n * 255).astype(np.uint8)).resize((w, h), Image.BICUBIC),
+                   dtype=np.float32) / 255.0
+    _MOTTLE[key] = f
+    return f
+
+
+def mottle(img, polygon, color, alpha=40, seed=7, scale=46.0, feather=1.2):
+    """面にむらを置く。均一な塗りは印刷物ではなくベクタ画像に見える。
+
+    参照した石版は、同じ花弁のなかでも濃いところと薄いところがある。
+    紙の目が透けるのも含めて、その不均一さが「刷ったもの」の手触りになる。
+    """
+    mask = Image.new("L", img.size, 0)
+    ImageDraw.Draw(mask).polygon([tuple(p) for p in polygon], fill=255)
+    if feather:
+        mask = mask.filter(ImageFilter.GaussianBlur(feather))
+    a = np.asarray(mask).astype(np.float32) / 255.0
+    f = _mottle_field(img.size, seed, scale)
+    a = a * np.clip(f * 1.5 - 0.25, 0.0, 1.0)
+    layer = Image.new("RGBA", img.size, tuple(color) + (255,))
+    layer.putalpha(Image.fromarray((a * alpha).clip(0, 255).astype(np.uint8), "L"))
+    img.alpha_composite(layer)

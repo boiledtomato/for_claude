@@ -25,14 +25,15 @@ from PIL import Image, ImageDraw, ImageFilter
 import shapes as S
 import leaves as L
 import layout as Y
+import palette as C
 import render as R
 from pencil import Pencil
 from paperlib import clipped, fill_shape
 
 OUT = "assets"
 PAD = 16
-BLOOM_FRAMES = 12
-PAPER = (246, 243, 236)
+BLOOM_FRAMES = 18
+PAPER = C.PAPER
 
 
 def canvas_for(geo, extra=(), pad=PAD):
@@ -79,50 +80,63 @@ def bake(organ, rng):
     return mask_to(img, [g["outline"]], [ped], line_w=7), off
 
 
-def bloom_parts(centre, axis, size, openness, petals=6):
-    """蕾から花への連続変化。0 で閉じた蕾、1 で満開。
-
-    花弁は常に同じ枚数を描き、開き具合で角度と大きさを変えるだけ。閉じている
-    ときは深く重なるので、外側の 1 枚の輪郭だけが見えて蕾の形になる。
-    各花弁は紙地で塗ってから描くので、重なった内側の線は隠れる。
-    """
-    o = openness * openness * (3 - 2 * openness)
-    parts = []
-    # 萼。閉じているときは軸に沿って包み、開くにつれて反り返る。
-    # 最初から横へ張らせると、蕾ではなく棘の冠に見える。
-    for i in range(3):
-        a = axis + (i - 1) * S.lerp(17.0, 54.0, o)
-        parts.append(L._blade(centre, a, size * S.lerp(0.50, 0.26, o),
-                              size * S.lerp(0.15, 0.20, o),
-                              (a - axis) / 90, 0, 0.40))
-    hub = size * 0.30 * o
-    for i in range(petals):
-        # 閉じているときは細長い花弁を束ねるのではなく、幅のあるものを
-        # 深く重ねる。輪郭の和がふっくらした紡錘形になり、蕾として読める。
-        spread = S.lerp(7.0, 360.0 / petals, o)
-        ang = axis + (i - (petals - 1) / 2) * spread
-        root = S.polar(centre, ang, hub)
-        parts.append(L._blade(root, ang, size * S.lerp(0.78, 1.30, o),
-                              size * S.lerp(0.30, 0.46, o), 0.0, 0, 0.44))
-    return parts
-
-
-def bake_bloom(parts, k, rng, reach):
-    img, off = canvas_for([p["outline"] for p in parts])
-    ps = [R.shift(p, -off[0], -off[1]) for p in parts]
-    R.leaf(img, {"parts": ps}, k, rng, reach)
-    return mask_to(img, [p["outline"] for p in ps]), off
-
-
 def bake_roots(rng):
     """根を 1 枚に焼く。土の中なので風では動かない。"""
-    xs = [r[1] for r in Y.ROOTS]
-    x0, y0 = min(xs) - 240, min(r[2] for r in Y.ROOTS) - 20
-    x1, y1 = max(xs) + 240, max(r[2] for r in Y.ROOTS) + 230
+    xs = [Y.sc(r[1]) for r in Y.ROOTS]
+    ys = [Y.sc(r[2]) for r in Y.ROOTS]
+    x0, y0 = min(xs) - Y.sc(240), min(ys) - Y.sc(20)
+    x1, y1 = max(xs) + Y.sc(240), max(ys) + Y.sc(230)
     img = Image.new("RGBA", (int(x1 - x0), int(y1 - y0)), (0, 0, 0, 0))
     d = ImageDraw.Draw(img, "RGBA")
     R.roots(d, rng, (-x0, -y0))
     return img, (x0, y0)
+
+
+def bake_vine(rng):
+    """蔦の素材。アプリを開くときに伸びる蔓は押した場所から任意の向きへ
+    伸びるので形は実行時に決まるが、そこにつく葉と先の花は焼いておける。
+
+    参照図版の下半分にある「ツタバギキョウ（Campanula hederacea）」が
+    そのまま手本になる。細い蔓が這い、蔦形の葉が互い違いにつき、先に
+    釣鐘がさがっている。線だけを伸ばしても蔦には見えない。葉が要る。
+    """
+    out = {"leaves": [], "bloom": []}
+
+    # 蔦の葉。大きさ違いを 3 枚焼いて、蔓の上で使い分ける。
+    for i, ln in enumerate((Y.sc(108.0), Y.sc(86.0), Y.sc(66.0))):
+        lf = L.lobed((0.0, 0.0), -90.0, ln, ln * 0.42, bend=0.0, lobes=5)
+        img, off = canvas_for(lf, pad=10)
+        g = R.shift(lf, -off[0], -off[1])
+        R.leaf(img, g, 0.96, random.Random(rng.randrange(1 << 30)), ln)
+        polys = [p["outline"] for p in g["parts"]]
+        img = mask_to(img, polys, [g["stalk"]], line_w=5)
+        name = f"vine/leaf{i}.webp"
+        img.save(f"{OUT}/{name}", "WEBP", quality=92, method=6)
+        out["leaves"].append({
+            "image": name,
+            "off": [round(off[0], 1), round(off[1], 1)],
+            "reach": round(ln, 1),
+        })
+
+    # 蕾がほどけて咲くまで。中心を軸に置いたまま形だけ変える。
+    size = Y.sc(92.0)
+    for f in range(Y.VINE_BLOOM_FRAMES):
+        o = f / (Y.VINE_BLOOM_FRAMES - 1)
+        g = Y.vine_bloom((0.0, 0.0), -90.0, size, o)
+        polys = [p["outline"] for p in g["petals"] + g["sepals"]]
+        img, off = canvas_for(polys, pad=12)
+        g2 = R.shift(g, -off[0], -off[1])
+        R.vine_bloom(img, g2, random.Random(4000 + f), icon_hole=1.0)
+        img = mask_to(img, [p["outline"] for p in g2["petals"] + g2["sepals"]],
+                      feather=0.8)
+        name = f"vine/bloom{f:02d}.webp"
+        img.save(f"{OUT}/{name}", "WEBP", quality=92, method=6)
+        out["bloom"].append({
+            "image": name,
+            "off": [round(off[0], 1), round(off[1], 1)],
+        })
+    out["size"] = size
+    return out
 
 
 def main():
@@ -131,11 +145,12 @@ def main():
         shutil.rmtree(OUT)
     os.makedirs(f"{OUT}/organs", exist_ok=True)
     os.makedirs(f"{OUT}/bloom", exist_ok=True)
+    os.makedirs(f"{OUT}/vine", exist_ok=True)
 
     manifest = {
-        "plate": {"width": Y.W, "height": Y.H, "paper": "#F6F3EC",
+        "plate": {"width": Y.W, "height": Y.H, "paper": "#F0EBE2",
                   "caption": Y.CAPTION, "plateNo": Y.PLATE_NO},
-        "stems": [], "organs": [], "gemma": None, "roots": None,
+        "stems": [], "organs": [], "gemma": None, "roots": None, "vine": None,
     }
     z = 0
 
@@ -172,12 +187,18 @@ def main():
     hp = [tuple(v) for v in host["p"]]
     at = S.cubic_at(*hp, 1.0)
     ax = S.cubic_angle(*hp, 1.0)
-    size = 132.0
+    # 蔦の先の蕾と同じ作り方で焼く。アプリ一覧を開く蕾も、咲き方は同じ。
+    size = Y.sc(146.0)
     frames = []
     for f in range(BLOOM_FRAMES):
         o = f / (BLOOM_FRAMES - 1)
-        img, off = bake_bloom(bloom_parts(at, ax, size, o), 0.98,
-                              random.Random(991 + f), size * 1.6)
+        g = Y.vine_bloom(at, ax, size, o)
+        polys = [p["outline"] for p in g["petals"] + g["sepals"]]
+        img, off = canvas_for(polys, pad=14)
+        g2 = R.shift(g, -off[0], -off[1])
+        R.vine_bloom(img, g2, random.Random(991 + f))
+        img = mask_to(img, [p["outline"] for p in g2["petals"] + g2["sepals"]],
+                      feather=0.8)
         fn = f"bloom/{f:02d}.webp"
         img.save(f"{OUT}/{fn}", "WEBP", quality=92, method=6)
         frames.append({"image": fn, "off": [round(off[0], 1), round(off[1], 1)]})
@@ -191,6 +212,8 @@ def main():
                 "r": round(size * 0.95, 1)},
         "sway": {"amp": 9.0, "speed": 6, "phase": 0.7},
     }
+
+    manifest["vine"] = bake_vine(random.Random(5150))
 
     # 根はほとんど動かないので 1 枚に焼く。標本画は根まで描くのが約束。
     img, off = bake_roots(random.Random(4242))
@@ -218,6 +241,8 @@ def main():
     print(f"organs={len(manifest['organs'])} (tappable {n_hit}+1, "
           f"半径 {min(rs):.0f}〜{max(rs):.0f}px)  "
           f"stems={len(manifest['stems'])}  bloom={BLOOM_FRAMES}  "
+          f"vine={len(manifest['vine']['leaves'])}葉/"
+          f"{len(manifest['vine']['bloom'])}コマ  "
           f"total={total//1024} KB")
 
 

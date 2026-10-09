@@ -23,6 +23,7 @@ data class Flora(
     val organs: List<Organ>,
     val gemma: Gemma?,
     val roots: Roots?,
+    val vine: Vine?,
     val caption: String,
     val plateNo: String,
 ) {
@@ -41,8 +42,8 @@ data class Flora(
     fun target(id: String): TapTarget? = tapTargets.firstOrNull { it.id == id }
 
     companion object {
-        val Empty = Flora(1100f, 1800f, Color(0xFFF6F3EC), emptyList(), emptyList(),
-            null, null, "", "")
+        val Empty = Flora(1100f, 1800f, Palette.Paper, emptyList(), emptyList(),
+            null, null, null, "", "")
     }
 }
 
@@ -90,6 +91,20 @@ data class BloomFrame(val imagePath: String, val off: Offset) {
 data class Roots(val imagePath: String, val off: Offset) {
     var bitmap: Bitmap? = null
 }
+
+/** 蔦の素材。蔓の形は実行時に決まるが、葉と先の花は焼いておける。 */
+data class VineSprite(val imagePath: String, val off: Offset, val reach: Float = 0f) {
+    var bitmap: Bitmap? = null
+}
+
+data class Vine(
+    /** 蔓につく蔦形の葉。大きい順 */
+    val leaves: List<VineSprite>,
+    /** 蕾がほどけて咲くまでの連続コマ */
+    val bloom: List<VineSprite>,
+    /** 焼いたときの花の大きさ。実行時の拡大率を決めるのに使う */
+    val size: Float,
+)
 
 data class Gemma(
     val id: String,
@@ -179,6 +194,17 @@ fun parseFlora(json: String): Flora {
         Roots(it.getString("image"), it.getJSONArray("off").offset())
     }
 
+    val vine = root.optJSONObject("vine")?.let { v ->
+        fun sprites(key: String) = v.getJSONArray(key).let { arr ->
+            (0 until arr.length()).map { i ->
+                val o = arr.getJSONObject(i)
+                VineSprite(o.getString("image"), o.getJSONArray("off").offset(),
+                    o.optDouble("reach", 0.0).toFloat())
+            }
+        }
+        Vine(sprites("leaves"), sprites("bloom"), v.optDouble("size", 92.0).toFloat())
+    }
+
     val paperHex = plate.optString("paper", "#F6F3EC").removePrefix("#")
     return Flora(
         width = plate.getDouble("width").toFloat(),
@@ -188,6 +214,7 @@ fun parseFlora(json: String): Flora {
         organs = organs,
         gemma = gemma,
         roots = roots,
+        vine = vine,
         caption = plate.optString("caption", ""),
         plateNo = plate.optString("plateNo", ""),
     )

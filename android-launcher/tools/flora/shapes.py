@@ -96,10 +96,11 @@ def _spline(ts, vs, t):
 
 
 # 釣鐘の半幅プロファイル（幅に対する割合）。
-# 萼から細く出て → ふくらんで → わずかにすぼまって → 口で開く。
-# 根元から一気に開くと釣鐘ではなく傘（パラソル）に見える。そこが分かれ目。
-BELL_TS = [0.0, 0.10, 0.26, 0.46, 0.66, 0.86, 1.0]
-BELL_RS = [0.06, 0.20, 0.35, 0.44, 0.49, 0.46, 0.52]
+# 萼から細く出て → 肩で丸くふくらみ → そこからほぼ平行に下り → 口で少し開く。
+# 根元から口へ一直線に広げると円錐（ラッパ）になり、途中で最大にすると卵になる。
+# 釣鐘に見える条件は「肩が丸く、胴が平行」であること。手鈴の形と同じ。
+BELL_TS = [0.0, 0.08, 0.20, 0.38, 0.60, 0.82, 1.0]
+BELL_RS = [0.05, 0.17, 0.33, 0.42, 0.455, 0.465, 0.52]
 
 
 def bell(base, d, length, width, lobes=5, lip=0.34, tooth=0.42, throat=False,
@@ -125,8 +126,13 @@ def bell(base, d, length, width, lobes=5, lip=0.34, tooth=0.42, throat=False,
     for i, q in enumerate(curve):
         t = i / m
         # 横から見ると裂片は 3 枚ほどしか見えない。5 枚刻むと鋸の歯になる。
-        f = ((t - 0.5 / visible_lobes) * visible_lobes) % 1.0
+        #
+        # 山が両端（t=0,1）に来てはいけない。両端は輪郭と口が出会う一点で、
+        # ここが張り出すと口の奥が端まで同じ幅で残り、花が黒い帯に浸かって
+        # 見える。谷を端に合わせ、さらに包絡で端をゼロに落とす。
+        f = (t * visible_lobes) % 1.0
         tri = (1.0 - abs(f * 2 - 1.0)) ** 0.75
+        tri *= math.sin(math.pi * t) ** 0.45
         near.append(polar(q, d + (t - 0.5) * splay, rw * tooth * tri))
 
     outline = left + near[1:] + right[::-1][1:]
@@ -171,7 +177,10 @@ def bell(base, d, length, width, lobes=5, lip=0.34, tooth=0.42, throat=False,
         # 弓の深さだけが浅い。逆向きに張ると口が縦に広がって帯に見える。
         far = quad(ml, polar(mouth, d, rw * lip * 0.62), mr, m)
         out["far"] = far
-        out["throat"] = far + near[::-1][1:]
+        # 口の奥は、向こう側の縁と「歯をつける前の」手前の縁にはさまれた帯。
+        # 歯の先まで奥に含めると、裂片の外側まで暗くなって、花が黒い泥に
+        # 浸かったように見える。裂片の先はこちらを向いた表面で、明るい。
+        out["throat"] = far + curve[::-1][1:]
         out["throat_flow"] = [quad(far[i], polar(mouth, d, rw * lip * 0.2),
                                    near[i], 7)
                               for i in range(1, m, 2)]
@@ -248,3 +257,38 @@ def offset(pts, rel_deg, dist):
         dd = dist(i / max(n - 1, 1)) if callable(dist) else dist
         out.append(polar(p, ang + rel_deg, dd))
     return out
+
+
+def face(centre, d, radius, lobes=5, cut=0.46, sharp=1.5):
+    """正面を向いた釣鐘花。
+
+    参照図版でいちばん目を引くのはこの姿で、星形に 5 裂した裂片・そこへ
+    放射する脈・中央の黄色い葯がそろって初めてそう見える。星形の多角形を
+    置いただけでは紙を切り抜いた飾りにしかならない。裂片を 1 枚ずつ、
+    付け根がくびれて先が尖る形に作り、谷で隣とつなぐ。
+    """
+    step = 360.0 / lobes
+    outline, sinus, veins = [], [], []
+    for i in range(lobes):
+        a = d + step * i
+        # 谷（裂片のあいだ）。花冠は筒の途中まで裂けている
+        va = a - step / 2
+        vb = a + step / 2
+        pv = polar(centre, va, radius * cut)
+        pw = polar(centre, vb, radius * cut)
+        tip = polar(centre, a, radius)
+        # 裂片の縁。谷から先へふくらみながら尖る
+        c1 = polar(polar(centre, a - step * 0.30, radius * 0.86), a, radius * 0.04)
+        c2 = polar(polar(centre, a + step * 0.30, radius * 0.86), a, radius * 0.04)
+        outline += quad(pv, c1, tip, 12)[:-1] + quad(tip, c2, pw, 12)[:-1]
+        sinus.append(quad(pv, polar(centre, va, radius * cut * 0.5), centre, 7))
+        # 脈。裂片の中心へ 1 本、両脇へ 2 本ずつ
+        for f, ln in ((0.0, 0.90), (-0.26, 0.74), (0.26, 0.74),
+                      (-0.44, 0.56), (0.44, 0.56)):
+            veins.append(quad(polar(centre, a + f * step * 0.5, radius * 0.10),
+                              polar(centre, a + f * step * 0.62, radius * ln * 0.55),
+                              polar(centre, a + f * step * 0.80, radius * ln), 10))
+    throat = [polar(centre, d + i * 6, radius * cut * 0.80) for i in range(60)]
+    return {"outline": outline, "sinus": sinus, "veins": veins, "throat": throat,
+            "centre": centre, "axis": d, "radius": radius, "mouth": centre,
+            "base": centre, "length": radius, "width": radius}

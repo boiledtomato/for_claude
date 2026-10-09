@@ -88,41 +88,6 @@ fun along(pts: List<Offset>, t: Float): Pair<Offset, Float> {
     return p to atan2(pts[j].y - pts[k].y, pts[j].x - pts[k].x) / DEG
 }
 
-/** 葉・花弁の輪郭。二次ベジエ 2 本で囲む。 */
-fun bladeOutline(
-    attach: Offset,
-    dirDeg: Float,
-    length: Float,
-    width: Float,
-    bend: Float = 0f,
-    steps: Int = 14,
-): List<Offset> {
-    val tip = polar(attach, dirDeg + bend * 16f, length)
-    val waist = polar(attach, dirDeg + bend * 8f, length * 0.36f)
-    val left = polar(waist, dirDeg - 90f, width)
-    val right = polar(waist, dirDeg + 90f, width)
-    return quadPoints(attach, left, tip, steps) + quadPoints(tip, right, attach, steps).drop(1)
-}
-
-/** 蕾から花への連続変化。閉じているときは深く重なって蕾の形になる。 */
-fun bloomPetals(
-    centre: Offset,
-    axisDeg: Float,
-    petals: Int,
-    openness: Float,
-    size: Float,
-): List<List<Offset>> {
-    val o = smooth(openness)
-    val hub = size * 0.30f * o
-    return (0 until petals).map { i ->
-        val spread = lerp(6.5f, 360f / petals, o)
-        val a = axisDeg + (i - (petals - 1) / 2f) * spread
-        val ln = size * lerp(1.02f, 1.30f, o)
-        val wd = size * lerp(0.17f, 0.46f, o)
-        bladeOutline(polar(centre, a, hub), a, ln, wd)
-    }
-}
-
 /**
  * 折れ線を、進行方向に対して [relDeg] の向きへずらす。
  *

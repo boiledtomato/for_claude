@@ -30,6 +30,11 @@ object FloraLoader {
         }
         flora.gemma?.frames?.forEach { it.bitmap = decode(context, "$DIR/${it.imagePath}", sample) }
         flora.roots?.let { it.bitmap = decode(context, "$DIR/${it.imagePath}", sample) }
+        flora.vine?.let { v ->
+            (v.leaves + v.bloom).forEach {
+                it.bitmap = decode(context, "$DIR/${it.imagePath}", sample)
+            }
+        }
         flora
     }
 

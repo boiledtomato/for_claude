@@ -63,7 +63,7 @@ fun SettingsDialog(
                         onCheckedChange = onToggleLabels,
                         colors = SwitchDefaults.colors(
                             checkedThumbColor = Palette.Cream,
-                            checkedTrackColor = Palette.Green1,
+                            checkedTrackColor = Palette.InkSoft,
                             uncheckedThumbColor = Palette.Cream,
                             uncheckedTrackColor = Palette.InkSoft,
                         ),
@@ -79,7 +79,7 @@ fun SettingsDialog(
                         onCheckedChange = onToggleHitAreas,
                         colors = SwitchDefaults.colors(
                             checkedThumbColor = Palette.Cream,
-                            checkedTrackColor = Palette.Green1,
+                            checkedTrackColor = Palette.InkSoft,
                             uncheckedThumbColor = Palette.Cream,
                             uncheckedTrackColor = Palette.InkSoft,
                         ),
@@ -97,7 +97,7 @@ fun SettingsDialog(
                 )
                 Spacer(Modifier.height(14.dp))
                 TextButton(onClick = onOpenHomeSettings) {
-                    Text("端末のホームアプリ設定を開く", style = serif.copy(color = Palette.Green1))
+                    Text("端末のホームアプリ設定を開く", style = serif.copy(color = Palette.InkSoft))
                 }
                 TextButton(onClick = onClearAll) {
                     Text("この図版の割り当てを解除", style = serif.copy(color = Palette.Crimson))

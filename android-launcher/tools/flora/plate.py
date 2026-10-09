@@ -16,10 +16,9 @@ from PIL import ImageDraw
 import shapes as S
 import layout as Y
 import render as R
-from pencil import Pencil
 from paperlib import paper
 
-W, H, LIGHT, GRAPHITE = Y.W, Y.H, Y.LIGHT, Y.GRAPHITE
+W, H, LIGHT = Y.W, Y.H, Y.LIGHT
 stem_curve = Y.stem_curve
 STEMS, ROOTS, CAPTION = Y.STEMS, Y.ROOTS, Y.CAPTION
 
@@ -49,7 +48,7 @@ def draw(img, seed=17):
 if __name__ == "__main__":
     import time
     t0 = time.time()
-    img = paper((W, H), base=(246, 243, 236), tooth=6.0)
+    img = paper((W, H), base=(240, 235, 226), tooth=6.0)
     hits = draw(img)
     out = img.convert("RGB")
     out.save("plate_full.png")

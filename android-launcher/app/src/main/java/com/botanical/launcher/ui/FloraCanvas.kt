@@ -21,17 +21,17 @@ import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.unit.sp
 import com.botanical.launcher.data.AppEntry
 import com.botanical.launcher.flora.Flora
-import com.botanical.launcher.pencil.bloomPetals
+import com.botanical.launcher.flora.Palette
+import com.botanical.launcher.pencil.along
 import com.botanical.launcher.pencil.cubicAngle
 import com.botanical.launcher.pencil.cubicAt
-import com.botanical.launcher.pencil.pencilOutline
 import com.botanical.launcher.pencil.pencilStroke
 import com.botanical.launcher.pencil.offsetPoly
 import com.botanical.launcher.pencil.polar
 import com.botanical.launcher.pencil.smooth
 import kotlin.math.roundToInt
 
-private val GRAPHITE = Color(0xFF423F44)
+private val GRAPHITE = Palette.Ink
 
 /**
  * 版面の描画。
@@ -130,7 +130,10 @@ fun FloraCanvas(
             }
         }
 
-        reach()?.let { drawReach(it, transform, bl, reachGrow(), reachBloom(), appsByKey) }
+        reach()?.let {
+            drawReach(it, transform, bl, reachGrow(), reachBloom(), flora, appsByKey,
+                matrix, paint)
+        }
 
         drawCaption(measurer, transform, flora)
         if (showLabels) drawLabels(measurer, transform, flora, bindings, appsByKey)
@@ -148,106 +151,146 @@ fun FloraCanvas(
 }
 
 /**
- * 茎。輪郭 2 本のあいだに縦の調子を入れた筒として描く。
+ * 茎と蔓。輪郭 2 本のあいだを緑で埋めた筒として描く。
  *
  * 太い 1 本の線で引くと黒い棒になり、それだけで植物画に見えなくなる。
- * 左上からの光なので、影になる側の輪郭だけを太く濃くすると丸みが出る。
+ * 左上からの光なので、影になる側だけ濃く落とすと丸みが出る。
  */
 private fun DrawScope.drawStem(
     pts: List<Offset>, w0: Float, w1: Float, tone: Float,
     sid: Int, boil: Int, paper: Color, scale: Float,
 ) {
+    if (pts.size < 2) return
     val half = { t: Float -> (w0 - (w0 - w1) * t) * 0.5f }
     val left = offsetPoly(pts, 90f, half)
     val right = offsetPoly(pts, -90f, half)
 
-    // 筒の中を紙色で伏せる。透けると後ろの葉と線が絡んで網になる。
     val path = Path()
     path.moveTo(left[0].x, left[0].y)
     for (i in 1 until left.size) path.lineTo(left[i].x, left[i].y)
     for (i in right.indices.reversed()) path.lineTo(right[i].x, right[i].y)
     path.close()
-    drawPath(path, paper)
+    drawPath(path, Palette.GreenHi)
+    drawPath(
+        path,
+        brush = Brush.linearGradient(
+            colors = listOf(Palette.Stem.copy(alpha = 0.35f), Palette.StemDeep),
+            start = Offset(0f, 0f),
+            end = Offset(size.width, size.height),
+        ),
+        alpha = 0.72f,
+    )
 
-    // 内側の縦の調子。
-    val inner = listOf(0.62f to 0.30f, 0.18f to 0.18f, -0.34f to 0.10f)
-    for ((i, fv) in inner.withIndex()) {
-        val (f, tn) = fv
-        pencilStroke(
-            pts = offsetPoly(pts, -90f) { half(it) * f },
-            sid = sid + 17 * (i + 1), boil = boil, color = GRAPHITE,
-            widthAt = { 0.9f * scale }, tone = tn * tone, jitter = 0.8f, passes = 1,
-            taperHead = 0.1f, taperTail = 0.3f, grain = 0.3f,
-        )
-    }
     pencilStroke(
-        pts = right, sid = sid, boil = boil, color = GRAPHITE,
-        widthAt = { 1.7f * scale }, tone = 1.02f * tone, jitter = 0.7f, passes = 1,
-        taperHead = 0.03f, taperTail = 0.12f, grain = 0.22f,
+        pts = right, sid = sid, boil = boil, color = Palette.GreenShade,
+        widthAt = { 1.5f * scale }, tone = 1.02f * tone, jitter = 0.6f, passes = 1,
+        taperHead = 0.03f, taperTail = 0.12f, grain = 0.18f,
     )
     pencilStroke(
-        pts = left, sid = sid + 1, boil = boil, color = GRAPHITE,
-        widthAt = { 1.2f * scale }, tone = 0.56f * tone, jitter = 0.7f, passes = 1,
-        taperHead = 0.03f, taperTail = 0.12f, grain = 0.22f,
+        pts = left, sid = sid + 1, boil = boil, color = Palette.GreenDeep,
+        widthAt = { 1.1f * scale }, tone = 0.6f * tone, jitter = 0.6f, passes = 1,
+        taperHead = 0.03f, taperTail = 0.12f, grain = 0.18f,
     )
 }
 
-/** 伸びる蔓と、その先で開く花。中にアプリが現れる。 */
+/**
+ * 伸びる蔦と、その先でほどける蕾。中にアプリが現れる。
+ *
+ * 蔓そのものは形が毎フレーム変わるので線を引く。葉と蕾は焼いた素材を、
+ * 蔓の上の位置と接線に合わせて置く。葉は蔓が通り過ぎてから少し遅れて
+ * 開く。蔓と同時に開くと、生えたのではなく貼りついたように見える。
+ */
 private fun DrawScope.drawReach(
     reach: Reach,
     t: SceneTransform,
     boil: Int,
     grow: Float,
     bloom: Float,
+    flora: Flora,
     appsByKey: Map<String, AppEntry>,
+    matrix: Matrix,
+    paint: Paint,
 ) {
-    val w = 3.6f * t.scale
-    pencilStroke(
-        pts = reach.main.map { t.toScreen(it) },
-        sid = reach.seed, boil = boil, color = GRAPHITE,
-        widthAt = { s -> w * (1f - 0.45f * s) },
-        tone = 0.95f, jitter = 1.0f, passes = 2,
-        taperHead = 0.04f, taperTail = 0.2f, grain = 0.25f,
-        progress = reach.mainGrow(grow),
-    )
+    // 蔓の太さは版面の幅に対して決める。固定値にすると、版面の解像度を
+    // 上げたときだけ蔓が細くなる。
+    val w = flora.width * 0.0064f * t.scale
+    val mg = reach.mainGrow(grow)
     val bg = reach.branchGrow(grow)
-    for ((i, br) in reach.branches.withIndex()) {
-        if (bg <= 0f) break
-        pencilStroke(
-            pts = br.map { t.toScreen(it) },
-            sid = reach.seed + 31 * (i + 1), boil = boil, color = GRAPHITE,
-            widthAt = { s -> w * 0.72f * (1f - 0.4f * s) },
-            tone = 0.9f, jitter = 0.9f, passes = 2,
-            taperHead = 0.04f, taperTail = 0.2f, grain = 0.25f,
-            progress = bg,
-        )
+
+    fun vinePath(pts: List<Offset>, progress: Float): List<Offset> {
+        if (progress >= 0.999f) return pts.map { t.toScreen(it) }
+        val n = ((pts.size - 1) * progress).toInt().coerceAtLeast(1)
+        return pts.take(n + 1).map { t.toScreen(it) }
     }
 
-    if (bloom <= 0.01f) return
-    val size = 108f
+    // 主軸
+    if (mg > 0.01f) {
+        drawStem(vinePath(reach.main, mg), w, w * 0.5f, 0.95f,
+            reach.seed, boil, flora.paper, t.scale)
+    }
+    for ((i, br) in reach.branches.withIndex()) {
+        if (bg <= 0.01f) break
+        drawStem(vinePath(br, bg), w * 0.78f, w * 0.42f, 0.9f,
+            reach.seed + 31 * (i + 1), boil, flora.paper, t.scale)
+    }
+
+    val vine = flora.vine ?: return
+
+    // 葉。蔓の先端が自分を追い越してから開きはじめる。
+    for (lv in reach.leaves) {
+        val path = if (lv.vine < 0) reach.main else reach.branches.getOrNull(lv.vine) ?: continue
+        val prog = if (lv.vine < 0) mg else bg
+        val open = ((prog - lv.t) / 0.26f).coerceIn(0f, 1f)
+        if (open <= 0.01f) continue
+        val sp = vine.leaves.getOrNull(lv.sprite) ?: continue
+        val bmp = sp.bitmap ?: continue
+        val (at, ang) = along(path, lv.t)
+        // 焼いた葉は -90 度（上）を向いている。蔓の接線から左右へ開く。
+        val rot = ang + 90f + lv.side * 62f
+        val s = t.scale * flora.sample * lv.scale * smooth(open)
+        matrix.setTranslate(sp.off.x / flora.sample, sp.off.y / flora.sample)
+        matrix.postScale(s, s)
+        matrix.postRotate(rot)
+        matrix.postTranslate(t.toScreen(at).x, t.toScreen(at).y)
+        drawContext.canvas.nativeCanvas.drawBitmap(bmp, matrix, paint)
+    }
+
+    // 先の蕾。蔓が伸びきる前から見えていて、そのあとほどける。
     for (i in reach.tips.indices) {
-        val (_, ang) = reach.tips[i]
-        val centre = reach.flowerCentre(i, size)
-        for ((j, petal) in bloomPetals(centre, ang, 5, bloom, size).withIndex()) {
-            pencilOutline(
-                poly = petal.map { t.toScreen(it) },
-                sid = reach.seed + 101 * (i + 1) + j, boil = boil,
-                color = GRAPHITE, width = 1.8f * t.scale, tone = 0.9f,
-            )
-        }
-        // 花芯にアプリ
+        val prog = reach.growOf(if (reach.branches.isEmpty()) -1 else i, grow)
+        if (prog < 0.55f) continue
+        val (tip, ang) = reach.tips[i]
+        // 蔓が伸びきるまでは蕾のまま。swell で少しふくらませる。
+        val swell = ((prog - 0.55f) / 0.45f).coerceIn(0f, 1f)
+        val idx = (bloom * (vine.bloom.size - 1)).roundToInt()
+            .coerceIn(0, vine.bloom.size - 1)
+        val fr = vine.bloom[idx]
+        val bmp = fr.bitmap ?: continue
+        val size = vine.size * 1.22f
+        val centre = polar(tip, ang, size * 0.40f * (0.55f + 0.45f * swell))
+        val s = t.scale * flora.sample * (size / vine.size) *
+            (0.62f + 0.38f * smooth(swell))
+        matrix.setTranslate(fr.off.x / flora.sample, fr.off.y / flora.sample)
+        matrix.postScale(s, s)
+        matrix.postRotate(ang + 90f)
+        matrix.postTranslate(t.toScreen(centre).x, t.toScreen(centre).y)
+        drawContext.canvas.nativeCanvas.drawBitmap(bmp, matrix, paint)
+
+        // 花芯にアプリ。咲ききる手前から現れる。
         val key = reach.appKeys.getOrNull(i)
         val app = key?.let { appsByKey[it] }
-        val fade = smooth(((bloom - 0.45f) / 0.4f).coerceIn(0f, 1f))
+        val fade = smooth(((bloom - 0.62f) / 0.38f).coerceIn(0f, 1f))
         if (app != null && fade > 0.02f) {
-            val r = size * 0.34f * t.scale * fade
+            val r = size * 0.27f * t.scale * fade
             val c = t.toScreen(centre)
             drawImage(
                 image = app.icon,
                 dstOffset = androidx.compose.ui.unit.IntOffset(
                     (c.x - r).roundToInt(), (c.y - r).roundToInt()
                 ),
-                dstSize = androidx.compose.ui.unit.IntSize((r * 2).roundToInt(), (r * 2).roundToInt()),
+                dstSize = androidx.compose.ui.unit.IntSize(
+                    (r * 2).roundToInt(), (r * 2).roundToInt()
+                ),
                 alpha = fade,
             )
         }
