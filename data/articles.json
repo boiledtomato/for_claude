@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-10-08T03:57:29Z",
-  "total": 2,
+  "last_updated": "2026-10-09T04:02:41Z",
+  "total": 1,
   "articles": [
     {
       "id": "acf3df0908a9f80b",
@@ -8,16 +8,6 @@
       "url": "https://www.darkreading.com/cloud-security/how-to-build-sase-framework",
       "summary": "Securing edge computing requires organizations to fundamentally rethink security governance. This step-by-step guide to building a SASE framework provides the path forward. (Third in a three-part series.)",
       "date": "2026-09-24T14:02:43Z",
-      "source": "Dark Reading",
-      "category": "industry_news",
-      "tags": []
-    },
-    {
-      "id": "a165484b908fa36a",
-      "title": "SASE Converges Network &amp; Security Into One Cloud Solution",
-      "url": "https://www.darkreading.com/cloud-security/sase-converges-network-security-one-cloud",
-      "summary": "Enterprise computing is moving to the edge. Keeping it secure requires tactics far beyond putting up firewalls. (Second in a three-part series.)",
-      "date": "2026-09-23T22:29:10Z",
       "source": "Dark Reading",
       "category": "industry_news",
       "tags": []
