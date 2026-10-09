@@ -65,10 +65,12 @@ def fill_shape(img, polygon, color=(249, 246, 239), alpha=244, feather=0.7):
     img.alpha_composite(layer)
 
 
-def wash(img, polygon, color, alpha=42, gradient_deg=None, feather=1.4):
-    """淡い彩色。鉛筆の上に薄く置くと、図版の手彩色に近づく。
+def wash(img, polygon, color, alpha=42, gradient_deg=None, feather=1.4, floor=0.25):
+    """淡い彩色。面に色を置く。
 
-    べた塗りにすると鉛筆が沈むので、光の向きへ薄くなる階調をつける。
+    [floor] は、光の当たる側にも残る量。ここが 0 でないと、重ねるたびに
+    明るい側まで一律に沈んで、明暗の幅が中間色に潰れる。地の色を残したい
+    ときは 0 にする。
     """
     mask = Image.new("L", img.size, 0)
     ImageDraw.Draw(mask).polygon([tuple(p) for p in polygon], fill=255)
@@ -82,12 +84,18 @@ def wash(img, polygon, color, alpha=42, gradient_deg=None, feather=1.4):
         if len(xs) == 0:
             return
         cx, cy = xs.mean(), ys.mean()
-        reach = max(1.0, float(np.hypot(xs - cx, ys - cy).max()))
         gx, gy = np.cos(np.radians(gradient_deg)), np.sin(np.radians(gradient_deg))
+        # 伸びは「光の向きに測った差し渡し」で正規化する。
+        #
+        # 最大半径で割ると、細長い葉のように向きの偏った形では、光の向きの
+        # 差し渡しがそれよりずっと短いので、階調が真ん中の半分しか使われない。
+        # どこもかしこも中間色になり、明暗の幅が半分に潰れる。
+        reach = max(1.0, float(np.abs((xs - cx) * gx + (ys - cy) * gy).max()))
         gxg, gyg = np.meshgrid(np.arange(w, dtype=np.float32),
                                np.arange(h, dtype=np.float32))
         t = ((gxg - cx) * gx + (gyg - cy) * gy) / reach
-        arr = arr * np.clip(t * 0.5 + 0.5, 0.0, 1.0) ** 0.8 * 0.75 + arr * 0.25
+        arr = (arr * np.clip(t * 0.5 + 0.5, 0.0, 1.0) ** 0.8 * (1.0 - floor)
+               + arr * floor)
 
     layer = Image.new("RGBA", img.size, tuple(color) + (255,))
     layer.putalpha(Image.fromarray((arr * alpha).clip(0, 255).astype(np.uint8), "L"))
@@ -114,8 +122,8 @@ def edge_shade(img, polygon, color=(70, 68, 74), alpha=90, band=9.0,
         if len(xs) == 0:
             return
         cx, cy = xs.mean(), ys.mean()
-        reach = max(1.0, float(np.hypot(xs - cx, ys - cy).max()))
         gx, gy = np.cos(np.radians(gradient_deg)), np.sin(np.radians(gradient_deg))
+        reach = max(1.0, float(np.abs((xs - cx) * gx + (ys - cy) * gy).max()))
         h, w = arr.shape
         gxg, gyg = np.meshgrid(np.arange(w, dtype=np.float32),
                                np.arange(h, dtype=np.float32))
@@ -157,11 +165,16 @@ def _mottle_field(size, seed, scale):
     return f
 
 
-def mottle(img, polygon, color, alpha=40, seed=7, scale=46.0, feather=1.2):
+def mottle(img, polygon, color, alpha=40, seed=7, scale=46.0, feather=1.2,
+           gradient_deg=None, floor=0.35):
     """面にむらを置く。均一な塗りは印刷物ではなくベクタ画像に見える。
 
     参照した石版は、同じ花弁のなかでも濃いところと薄いところがある。
     紙の目が透けるのも含めて、その不均一さが「刷ったもの」の手触りになる。
+
+    [gradient_deg] を渡すと、その向きにだけむらを効かせる。暗い色のむらを
+    面の全体に乗せると、せっかく残した明るい側まで一律に沈んで、明暗の幅が
+    中間色に潰れる。濃いむらは影の側、淡いむらは光の側に置く。
     """
     mask = Image.new("L", img.size, 0)
     ImageDraw.Draw(mask).polygon([tuple(p) for p in polygon], fill=255)
@@ -170,6 +183,18 @@ def mottle(img, polygon, color, alpha=40, seed=7, scale=46.0, feather=1.2):
     a = np.asarray(mask).astype(np.float32) / 255.0
     f = _mottle_field(img.size, seed, scale)
     a = a * np.clip(f * 1.5 - 0.25, 0.0, 1.0)
+    if gradient_deg is not None:
+        ys, xs = np.nonzero(a > 0.02)
+        if len(xs) == 0:
+            return
+        cx, cy = xs.mean(), ys.mean()
+        gx, gy = np.cos(np.radians(gradient_deg)), np.sin(np.radians(gradient_deg))
+        reach = max(1.0, float(np.abs((xs - cx) * gx + (ys - cy) * gy).max()))
+        h, w = a.shape
+        gxg, gyg = np.meshgrid(np.arange(w, dtype=np.float32),
+                               np.arange(h, dtype=np.float32))
+        t = ((gxg - cx) * gx + (gyg - cy) * gy) / reach
+        a = a * (floor + (1.0 - floor) * np.clip(t * 0.5 + 0.5, 0.0, 1.0))
     layer = Image.new("RGBA", img.size, tuple(color) + (255,))
     layer.putalpha(Image.fromarray((a * alpha).clip(0, 255).astype(np.uint8), "L"))
     img.alpha_composite(layer)

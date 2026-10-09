@@ -148,7 +148,8 @@ class Pencil:
                             jitter=jitter, passes=1, taper=(0.2, 0.2), grain=0.46)
 
     def hatch_curves(self, curves, tone=0.45, width=1.25, jitter=0.7,
-                     gradient=None, span=(0.05, 1.0), cross_at=0.58, weights=None):
+                     gradient=None, span=(0.05, 1.0), cross_at=0.58, weights=None,
+                     grain=0.4, taper=(0.25, 0.3)):
         """曲線の束に沿って引くハッチング。
 
         平行線だと曲面が平らに見える。面の流れ（釣鐘なら稜、葉なら側脈）に
@@ -181,11 +182,12 @@ class Pencil:
             if f <= 0.04:
                 continue
             self.stroke(seg, width=width, tone=tone * f * self.rng.uniform(0.72, 1.1),
-                        jitter=jitter, passes=1, taper=(0.25, 0.3), grain=0.4)
+                        jitter=jitter, passes=1, taper=taper, grain=grain)
             if f >= cross_at:
                 self.stroke(seg, width=width * 0.85,
                             tone=tone * f * 0.5 * self.rng.uniform(0.7, 1.05),
-                            jitter=jitter * 2.4, passes=1, taper=(0.3, 0.3), grain=0.5)
+                            jitter=jitter * 2.4, passes=1, taper=(0.3, 0.3),
+                            grain=min(grain + 0.1, 1.0))
 
     def weighted_contour(self, pts, light_deg, tone_lo=0.45, tone_hi=0.95, width=2.1):
         """輪郭の線の強さを、光の向きで変える。均一な線は「塗り絵」に見える。"""

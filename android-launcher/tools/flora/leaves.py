@@ -82,8 +82,9 @@ def _blade(attach, d, length, width, bend=0.0, teeth=0, waist=0.36, tip_sharp=1.
         u = kk / 16
         cross.append([(lerp(a[0], b[0], u), lerp(a[1], b[1], u)) for a, b in zip(le, ri)])
 
+    # 左右の縁を別々にも返す。主脈で分けた「片側だけ」を塗るのに要る。
     return {"outline": outline, "midrib": midrib, "veins": veins,
-            "flow": flow, "cross": cross}
+            "flow": flow, "cross": cross, "left": e1, "right": e2[::-1]}
 
 
 def lance(attach, d, length, width, bend=0.0, teeth=1):

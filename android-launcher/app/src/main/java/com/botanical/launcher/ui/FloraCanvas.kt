@@ -170,7 +170,7 @@ private fun DrawScope.drawStem(
     for (i in 1 until left.size) path.lineTo(left[i].x, left[i].y)
     for (i in right.indices.reversed()) path.lineTo(right[i].x, right[i].y)
     path.close()
-    drawPath(path, Palette.GreenHi)
+    drawPath(path, Palette.GreenLight)
     drawPath(
         path,
         brush = Brush.linearGradient(

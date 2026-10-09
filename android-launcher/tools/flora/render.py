@@ -61,29 +61,41 @@ def lay(img, poly, hi, mid, deep, light=LIGHT, strength=1.0, seed=7,
     方向つきで重ねて面に向きを与え、さらにむらで刷りの不均一さを出す。
     地をわずかに透かすのは、紙の目を殺さないため。
     """
-    # 重ねすぎない。実測した「中」の色より暗くなったら塗りすぎで、
-    # 図版の明るさが消える。濃い側は面の 3 割ほどに効けば足りる。
+    # 明暗の幅を潰さない。
+    #
+    # 参照図版の葉は 暗 #2E4819 / 中 #618537 / 明 #ABC291 と、ひとつの葉の
+    # 中で大きく振れている。濃い側を面の全体に少しずつ乗せると、中間色に
+    # 寄って平板になる。光の当たる側には地の色をそのまま残し、濃い側だけを
+    # 深く落とす（floor=0）。
     fill_shape(img, poly, color=hi, alpha=246, feather=0.6)
-    wash(img, poly, mid, alpha=int(150 * strength), gradient_deg=light + 180)
-    wash(img, poly, deep, alpha=int(84 * strength), gradient_deg=light + 180)
+    wash(img, poly, mid, alpha=int(178 * strength), gradient_deg=light + 180,
+         floor=0.10)
+    wash(img, poly, deep, alpha=int(168 * strength), gradient_deg=light + 180,
+         floor=0.0)
     # 縁のきわだけ落とす。半分を塗ると板になる。
     # 尖った形では、縁の帯が先端をまるごと覆ってしまう。花弁のように
     # 先が尖るものは [edge] を下げる。下げないと先端に黒い楔が残る。
     if edge > 0.02:
-        edge_shade(img, poly, C.shade(deep, 0.30), alpha=int(84 * strength * edge),
-                   band=_band(poly), gradient_deg=light + 180)
+        # bias は光の側に残す分。既定の 0.35 だと明るい側の縁まで一律に
+        # 暗くなり、せっかく残した地の明るさが縁から削られる。
+        edge_shade(img, poly, C.shade(deep, 0.30), alpha=int(92 * strength * edge),
+                   band=_band(poly), gradient_deg=light + 180, bias=0.10)
     mottle(img, poly, C.shade(deep, 0.20), alpha=int(70 * strength),
-           seed=seed, scale=_band(poly, 0.40) + 8)
-    mottle(img, poly, C.tint(hi, 0.70), alpha=int(62 * strength),
-           seed=seed + 101, scale=_band(poly, 0.62) + 12)
+           seed=seed, scale=_band(poly, 0.40) + 8,
+           gradient_deg=light + 180, floor=0.12)
+    mottle(img, poly, C.tint(hi, 0.70), alpha=int(72 * strength),
+           seed=seed + 101, scale=_band(poly, 0.62) + 12,
+           gradient_deg=light, floor=0.20)
     # 面の流れに沿った色の筆致。均一な塗りはベクタ画像に見える。手彩色は
     # 必ず形の流れ（花なら稜、葉なら側脈）に沿って刷毛目が残る。
     if flow:
         r2 = rng or random.Random(seed)
         clipped(img, poly, lambda dd: Pencil(dd, random.Random(r2.randrange(1 << 30)),
                                              C.shade(deep, 0.18))
-                .hatch_curves(flow, tone=0.30 * strength, width=max(1.6, _band(poly, 0.12)),
-                              jitter=0.8, span=(0.05, 0.98),
+                .hatch_curves(flow, tone=0.42 * strength,
+                              width=max(1.6, _band(poly, 0.12)),
+                              jitter=0.8, span=(0.05, 0.98), grain=0.14,
+                              taper=(0.15, 0.45),
                               gradient=(light + 180, 0.0, 1.0), cross_at=9.0))
 
 
@@ -129,6 +141,12 @@ def stem(img, curve, w0, w1, k, rng):
 # ------------------------------------------------------------------------ 葉
 
 def leaf(img, lf, k, rng, reach):
+    """葉。
+
+    手彩色は面をほぼ平らに塗る。立体は、方向つきの滑らかな階調ではなく
+    「縁の濃い帯」と「主脈に沿った陰と照り」という局所の仕掛けで出す。
+    面の全体に階調をかけると、石版ではなく 3D のレンダリングに見える。
+    """
     d = ImageDraw.Draw(img, "RGBA")
     if "stalk" in lf:
         ink(d, rng, lf["stalk"], width=1.8, tone=0.7, color=C.STEM_DEEP)
@@ -137,14 +155,75 @@ def leaf(img, lf, k, rng, reach):
 
     for part in lf["parts"]:
         o = part["outline"]
+        mid = part["midrib"]
+        band = _band(o, 0.16)
         smudge(img, o, tone=0.10, blur=11, shift=(7, 10), color=C.GREEN_SHADE)
-        lay(img, o, C.tint(C.GREEN_HI, 0.30), C.GREEN, C.GREEN_DEEP,
-            strength=k, seed=int(o[0][0]) & 255, flow=part["flow"][::3], rng=rng)
-        # 主脈の両脇をわずかに明るく。葉の折れが出る。
-        crease(img, part["midrib"], C.tint(C.GREEN_HI, 0.55),
-               alpha=int(96 * k), width=max(3.0, reach * 0.030))
-        vein(d, rng, part["veins"], C.GREEN_DEEP, width=0.95, tone=0.46 * k)
-        ink(d, rng, part["midrib"], width=1.5, tone=0.62 * k, color=C.GREEN_SHADE)
+
+        # 地。階調をかけずに平らに置く。紙の白は混ぜない（彩度が落ちる）。
+        fill_shape(img, o, color=C.GREEN_LIGHT, alpha=248, feather=0.6)
+        wash(img, o, C.GREEN_HI, alpha=int(150 * k))
+
+        # 主脈で分けた片側を、濃い緑でもう一度塗る。
+        #
+        # 半透明の重ねだけでは、面の全体を覆わない限り暗い側まで届かない。
+        # 参照図版の葉は、濃い緑が「境目の見える 2 度目の塗り」として片側に
+        # 置かれている。中が明るいまま、片側だけが深く沈むのはこれのため。
+        lit = S.polar((0.0, 0.0), LIGHT, 1.0)
+        mr = part["midrib"]
+        axis = S.polar((0.0, 0.0),
+                       math.degrees(math.atan2(mr[-1][1] - mr[0][1],
+                                               mr[-1][0] - mr[0][0])) + 90, 1.0)
+        # lit は光が来る向き。法線がそれと逆を向いている側が陰になる。
+        away = (axis[0] * lit[0] + axis[1] * lit[1]) < 0
+        shadow = part["right"] if away else part["left"]
+        sdeg = 90 if away else -90
+        fill_shape(img, list(mr) + list(shadow), color=C.GREEN_DEEP,
+                   alpha=int(224 * k), feather=max(1.6, band * 0.22))
+        # 影の側のさらに外寄り、縁に近いところがいちばん深い。参照図版の
+        # 葉はここが #2A4817 まで落ちていて、そこまで行かないと「厚みの
+        # ある一枚の葉」ではなく、色を塗った切り紙に見える。
+        fill_shape(img, S.offset(mr, sdeg, band * 0.85) + list(shadow),
+                   color=C.GREEN_SHADE, alpha=int(205 * k),
+                   feather=max(2.0, band * 0.40))
+
+        # 濃い緑を側脈に沿って筋で入れる。
+        #
+        # これが調子の主役。滑らかな階調で付けると 3D のレンダリングに
+        # 見える。参照図版の葉は、濃い緑が脈に沿った不揃いな筋として
+        # 置かれていて、筋の間に明るい地が残っている。
+        clipped(img, o, lambda dd: Pencil(dd, random.Random(rng.randrange(1 << 30)),
+                                          C.GREEN_DEEP)
+                .hatch_curves(part["flow"][::4], tone=0.80 * k,
+                              width=max(4.0, band * 1.05), jitter=1.6,
+                              span=(0.02, 1.0), grain=0.06, taper=(0.08, 0.30),
+                              gradient=(LIGHT + 180, 0.22, 1.0), cross_at=9.0))
+        clipped(img, o, lambda dd: Pencil(dd, random.Random(rng.randrange(1 << 30)),
+                                          C.GREEN_SHADE)
+                .hatch_curves(part["flow"][5::9], tone=0.78 * k,
+                              width=max(3.0, band * 0.70), jitter=1.8,
+                              span=(0.08, 0.96), grain=0.08, taper=(0.10, 0.40),
+                              gradient=(LIGHT + 180, 0.0, 1.0), cross_at=9.0))
+        mottle(img, o, C.GREEN_DEEP, alpha=int(60 * k),
+               seed=int(o[0][0]) & 255, scale=band * 2.2 + 8,
+               gradient_deg=LIGHT + 180, floor=0.25)
+        mottle(img, o, C.GREEN_LIGHT, alpha=int(96 * k),
+               seed=(int(o[0][0]) & 255) + 101, scale=band * 3.4 + 12,
+               gradient_deg=LIGHT, floor=0.22)
+
+        # 縁の帯。細く全周に。広く取ると「帯」ではなく全体の暗転になる。
+        edge_shade(img, o, C.GREEN_SHADE, alpha=int(168 * k), band=band * 0.55,
+                   gradient_deg=LIGHT + 180, bias=0.34)
+
+        # 主脈。片側に陰、反対側に照り。葉が一枚の板ではなく、
+        # 中央で折れた面に見えるのはこの 2 本が効いている。
+        w = max(2.5, reach * 0.028)
+        crease(img, S.offset(mid, -90, w * 0.85), C.GREEN_DEEP,
+               alpha=int(104 * k), width=w)
+        crease(img, S.offset(mid, 90, w * 0.75), C.GREEN_LIGHT,
+               alpha=int(140 * k), width=w * 0.9)
+
+        vein(d, rng, part["veins"], C.GREEN_DEEP, width=1.0, tone=0.52 * k)
+        ink(d, rng, mid, width=1.5, tone=0.62 * k, color=C.GREEN_SHADE)
         ink(d, rng, o, width=1.35, tone=0.9 * k, closed=True)
 
 

@@ -29,10 +29,13 @@ object Palette {
     val Yellow = Color(0xFFCAB533)
     val YellowDeep = Color(0xFFB1921B)
 
-    val GreenHi = Color(0xFFA6C278)
-    val Green = Color(0xFF688D3A)
-    val GreenDeep = Color(0xFF304B1A)
-    val GreenShade = Color(0xFF213610)
-    val Stem = Color(0xFF6D8948)
-    val StemDeep = Color(0xFF3A5522)
+    // 明るい緑に紙の白を混ぜると彩度が落ちて灰緑になる。参照図版の葉は
+    // いちばん明るいところ以外、どこも彩度 0.63〜0.71 を保っている。
+    val GreenLight = Color(0xFFA3BC66)
+    val GreenHi = Color(0xFF7AA23C)
+    val Green = Color(0xFF659130)
+    val GreenDeep = Color(0xFF466B22)
+    val GreenShade = Color(0xFF2B4C16)
+    val Stem = Color(0xFF709838)
+    val StemDeep = Color(0xFF3E611E)
 }
