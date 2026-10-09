@@ -29,8 +29,13 @@ on:
 permissions:
   contents: write
 
+# 連続 push のときだけ古いビルドを捨てる。
+#
+# group にイベント種別を入れないと、push の直後に release_tag つきで手動実行
+# したときに、同じコミットの push 側のビルドが打ち切られる。PR のチェックは
+# cancelled のまま残り、同じコミットが成功していても unstable 扱いになる。
 concurrency:
-  group: android-launcher-${{ github.ref }}
+  group: android-launcher-${{ github.event_name }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
