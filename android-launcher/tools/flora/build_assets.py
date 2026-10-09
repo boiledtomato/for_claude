@@ -32,6 +32,14 @@ from paperlib import clipped, fill_shape
 
 OUT = "assets"
 PAD = 16
+
+# スーパーサンプリング倍率。
+#
+# Pillow の描画にはアンチエイリアスが無く、線も輪郭もすべて 1px の階段に
+# なる。SS 倍に拡大して描き、縮小して焼くと、縮小時の平均化がそのまま
+# アンチエイリアスになる。2 で 4 サンプル、3 で 9 サンプル。焼き時間は
+# ほぼ SS^2 に比例する。
+SS = 2
 BLOOM_FRAMES = 18
 PAPER = C.PAPER
 
@@ -62,22 +70,37 @@ def mask_to(img, polys, lines=(), feather=0.7, line_w=5):
     return img
 
 
+def downsample(img, off):
+    """SS 倍で描いたものを実寸へ。ここで線の階段がならされる。"""
+    if SS == 1:
+        return img, off
+    w, h = img.size
+    img = img.resize((max(1, w // SS), max(1, h // SS)), Image.LANCZOS)
+    return img, (off[0] / SS, off[1] / SS)
+
+
 def bake(organ, rng):
     """器官 1 つをスプライトに焼く。版面と同じ render.* を通す。"""
-    geo, k = organ["geo"], organ["k"]
-    extra = [organ["pedicel"]] if organ["kind"] == "flower" else []
-    img, off = canvas_for(geo, extra)
+    geo = R.scale(organ["geo"], SS)
+    k = organ["k"]
+    extra = [R.scale(organ["pedicel"], SS)] if organ["kind"] == "flower" else []
+    img, off = canvas_for(geo, extra, pad=PAD * SS)
     g = R.shift(geo, -off[0], -off[1])
 
-    if organ["kind"] == "leaf":
-        R.leaf(img, g, k, rng, organ["reach"])
-        polys = [part["outline"] for part in g["parts"]]
-        lines = [g[key] for key in ("stalk", "rachis") if key in g]
-        return mask_to(img, polys, lines, line_w=6), off
-
-    ped = R.shift(organ["pedicel"], -off[0], -off[1])
-    R.flower(img, g, k, rng, organ["size"], ped)
-    return mask_to(img, [g["outline"]], [ped], line_w=7), off
+    R.PX = SS
+    try:
+        if organ["kind"] == "leaf":
+            R.leaf(img, g, k, rng, organ["reach"] * SS)
+            polys = [part["outline"] for part in g["parts"]]
+            lines = [g[key] for key in ("stalk", "rachis") if key in g]
+            img = mask_to(img, polys, lines, feather=0.7 * SS, line_w=6 * SS)
+        else:
+            ped = R.shift(R.scale(organ["pedicel"], SS), -off[0], -off[1])
+            R.flower(img, g, k, rng, organ["size"] * SS, ped)
+            img = mask_to(img, [g["outline"]], [ped], feather=0.7 * SS, line_w=7 * SS)
+    finally:
+        R.PX = 1.0
+    return downsample(img, off)
 
 
 def bake_roots(rng):
@@ -104,12 +127,17 @@ def bake_vine(rng):
 
     # 蔦の葉。大きさ違いを 3 枚焼いて、蔓の上で使い分ける。
     for i, ln in enumerate((Y.sc(108.0), Y.sc(86.0), Y.sc(66.0))):
-        lf = L.lobed((0.0, 0.0), -90.0, ln, ln * 0.42, bend=0.0, lobes=5)
-        img, off = canvas_for(lf, pad=10)
+        lf = R.scale(L.lobed((0.0, 0.0), -90.0, ln, ln * 0.42, bend=0.0, lobes=5), SS)
+        img, off = canvas_for(lf, pad=10 * SS)
         g = R.shift(lf, -off[0], -off[1])
-        R.leaf(img, g, 0.96, random.Random(rng.randrange(1 << 30)), ln)
-        polys = [p["outline"] for p in g["parts"]]
-        img = mask_to(img, polys, [g["stalk"]], line_w=5)
+        R.PX = SS
+        try:
+            R.leaf(img, g, 0.96, random.Random(rng.randrange(1 << 30)), ln * SS)
+            polys = [p["outline"] for p in g["parts"]]
+            img = mask_to(img, polys, [g["stalk"]], feather=0.7 * SS, line_w=5 * SS)
+        finally:
+            R.PX = 1.0
+        img, off = downsample(img, off)
         name = f"vine/leaf{i}.webp"
         img.save(f"{OUT}/{name}", "WEBP", quality=92, method=6)
         out["leaves"].append({
@@ -122,13 +150,18 @@ def bake_vine(rng):
     size = Y.sc(92.0)
     for f in range(Y.VINE_BLOOM_FRAMES):
         o = f / (Y.VINE_BLOOM_FRAMES - 1)
-        g = Y.vine_bloom((0.0, 0.0), -90.0, size, o)
+        g = R.scale(Y.vine_bloom((0.0, 0.0), -90.0, size, o), SS)
         polys = [p["outline"] for p in g["petals"] + g["sepals"]]
-        img, off = canvas_for(polys, pad=12)
+        img, off = canvas_for(polys, pad=12 * SS)
         g2 = R.shift(g, -off[0], -off[1])
-        R.vine_bloom(img, g2, random.Random(4000 + f), icon_hole=1.0)
-        img = mask_to(img, [p["outline"] for p in g2["petals"] + g2["sepals"]],
-                      feather=0.8)
+        R.PX = SS
+        try:
+            R.vine_bloom(img, g2, random.Random(4000 + f), icon_hole=1.0)
+            img = mask_to(img, [p["outline"] for p in g2["petals"] + g2["sepals"]],
+                          feather=0.8 * SS)
+        finally:
+            R.PX = 1.0
+        img, off = downsample(img, off)
         name = f"vine/bloom{f:02d}.webp"
         img.save(f"{OUT}/{name}", "WEBP", quality=92, method=6)
         out["bloom"].append({
@@ -192,13 +225,18 @@ def main():
     frames = []
     for f in range(BLOOM_FRAMES):
         o = f / (BLOOM_FRAMES - 1)
-        g = Y.vine_bloom(at, ax, size, o)
+        g = R.scale(Y.vine_bloom(at, ax, size, o), SS)
         polys = [p["outline"] for p in g["petals"] + g["sepals"]]
-        img, off = canvas_for(polys, pad=14)
+        img, off = canvas_for(polys, pad=14 * SS)
         g2 = R.shift(g, -off[0], -off[1])
-        R.vine_bloom(img, g2, random.Random(991 + f))
-        img = mask_to(img, [p["outline"] for p in g2["petals"] + g2["sepals"]],
-                      feather=0.8)
+        R.PX = SS
+        try:
+            R.vine_bloom(img, g2, random.Random(991 + f))
+            img = mask_to(img, [p["outline"] for p in g2["petals"] + g2["sepals"]],
+                          feather=0.8 * SS)
+        finally:
+            R.PX = 1.0
+        img, off = downsample(img, off)
         fn = f"bloom/{f:02d}.webp"
         img.save(f"{OUT}/{fn}", "WEBP", quality=92, method=6)
         frames.append({"image": fn, "off": [round(off[0], 1), round(off[1], 1)]})

@@ -25,6 +25,31 @@ import layout as Y
 from layout import LIGHT
 
 
+# 線幅・ぼかし半径の倍率。
+#
+# Pillow の描画にはアンチエイリアスが無く、線はすべて 1px の階段になる。
+# 拡大して描いてから縮小すると、縮小のときの平均化がアンチエイリアスの
+# 役目を果たす（スーパーサンプリング）。幾何はそのまま掛け算で拡大できる
+# が、px で直書きしている線幅とぼかしは一緒に拡大されないので、ここで
+# まとめて掛ける。PX=1 なら従来どおり。
+PX = 1.0
+
+
+def P(v):
+    return v * PX
+
+
+def scale(o, k):
+    """点・折れ線・辞書をまとめて原点中心に拡大する。"""
+    if isinstance(o, dict):
+        return {key: scale(v, k) for key, v in o.items()}
+    if isinstance(o, (list, tuple)):
+        if len(o) == 2 and all(isinstance(v, (int, float)) for v in o):
+            return (o[0] * k, o[1] * k)
+        return [scale(v, k) for v in o]
+    return o
+
+
 def shift(o, dx, dy):
     """点・折れ線・辞書をまとめて平行移動する。"""
     if isinstance(o, dict):
@@ -81,10 +106,10 @@ def lay(img, poly, hi, mid, deep, light=LIGHT, strength=1.0, seed=7,
         edge_shade(img, poly, C.shade(deep, 0.30), alpha=int(92 * strength * edge),
                    band=_band(poly), gradient_deg=light + 180, bias=0.10)
     mottle(img, poly, C.shade(deep, 0.20), alpha=int(70 * strength),
-           seed=seed, scale=_band(poly, 0.40) + 8,
+           seed=seed, scale=_band(poly, 0.40) + P(8),
            gradient_deg=light + 180, floor=0.12)
     mottle(img, poly, C.tint(hi, 0.70), alpha=int(72 * strength),
-           seed=seed + 101, scale=_band(poly, 0.62) + 12,
+           seed=seed + 101, scale=_band(poly, 0.62) + P(12),
            gradient_deg=light, floor=0.20)
     # 面の流れに沿った色の筆致。均一な塗りはベクタ画像に見える。手彩色は
     # 必ず形の流れ（花なら稜、葉なら側脈）に沿って刷毛目が残る。
@@ -93,7 +118,7 @@ def lay(img, poly, hi, mid, deep, light=LIGHT, strength=1.0, seed=7,
         clipped(img, poly, lambda dd: Pencil(dd, random.Random(r2.randrange(1 << 30)),
                                              C.shade(deep, 0.18))
                 .hatch_curves(flow, tone=0.42 * strength,
-                              width=max(1.6, _band(poly, 0.12)),
+                              width=max(P(1.6), _band(poly, 0.12)),
                               jitter=0.8, span=(0.05, 0.98), grain=0.14,
                               taper=(0.15, 0.45),
                               gradient=(light + 180, 0.0, 1.0), cross_at=9.0))
@@ -102,7 +127,7 @@ def lay(img, poly, hi, mid, deep, light=LIGHT, strength=1.0, seed=7,
 def _band(poly, frac=0.13):
     xs = [p[0] for p in poly]
     ys = [p[1] for p in poly]
-    return max(3.0, min(max(xs) - min(xs), max(ys) - min(ys)) * frac)
+    return max(P(3.0), min(max(xs) - min(xs), max(ys) - min(ys)) * frac)
 
 
 def ink(d, rng, pts, width=1.3, tone=0.92, jitter=0.5, color=C.INK, closed=False,
@@ -110,15 +135,15 @@ def ink(d, rng, pts, width=1.3, tone=0.92, jitter=0.5, color=C.INK, closed=False
     """輪郭線。石版の線は細く、迷いがなく、太さが少しだけ揺れる。"""
     p = Pencil(d, rng, color)
     seq = list(pts) + [pts[0]] if closed else pts
-    p.stroke(seq, width=width, tone=tone, jitter=jitter, passes=1,
+    p.stroke(seq, width=P(width), tone=tone, jitter=jitter * PX, passes=1,
              taper=taper, grain=0.14)
 
 
 def vein(d, rng, curves, color, width=0.9, tone=0.5):
     p = Pencil(d, rng, color)
     for c in curves:
-        p.stroke(c, width=width, tone=tone, jitter=0.45, passes=1, taper=(0.1, 0.5),
-                 grain=0.2)
+        p.stroke(c, width=P(width), tone=tone, jitter=0.45 * PX, passes=1,
+                 taper=(0.1, 0.5), grain=0.2)
 
 
 # ------------------------------------------------------------------------ 茎
@@ -157,7 +182,7 @@ def leaf(img, lf, k, rng, reach):
         o = part["outline"]
         mid = part["midrib"]
         band = _band(o, 0.16)
-        smudge(img, o, tone=0.10, blur=11, shift=(7, 10), color=C.GREEN_SHADE)
+        smudge(img, o, tone=0.10, blur=P(11), shift=(P(7), P(10)), color=C.GREEN_SHADE)
 
         # 地。階調をかけずに平らに置く。紙の白は混ぜない（彩度が落ちる）。
         fill_shape(img, o, color=C.GREEN_LIGHT, alpha=248, feather=0.6)
@@ -178,13 +203,13 @@ def leaf(img, lf, k, rng, reach):
         shadow = part["right"] if away else part["left"]
         sdeg = 90 if away else -90
         fill_shape(img, list(mr) + list(shadow), color=C.GREEN_DEEP,
-                   alpha=int(224 * k), feather=max(1.6, band * 0.22))
+                   alpha=int(224 * k), feather=max(P(1.6), band * 0.22))
         # 影の側のさらに外寄り、縁に近いところがいちばん深い。参照図版の
         # 葉はここが #2A4817 まで落ちていて、そこまで行かないと「厚みの
         # ある一枚の葉」ではなく、色を塗った切り紙に見える。
         fill_shape(img, S.offset(mr, sdeg, band * 0.85) + list(shadow),
                    color=C.GREEN_SHADE, alpha=int(205 * k),
-                   feather=max(2.0, band * 0.40))
+                   feather=max(P(2.0), band * 0.40))
 
         # 濃い緑を側脈に沿って筋で入れる。
         #
@@ -194,20 +219,20 @@ def leaf(img, lf, k, rng, reach):
         clipped(img, o, lambda dd: Pencil(dd, random.Random(rng.randrange(1 << 30)),
                                           C.GREEN_DEEP)
                 .hatch_curves(part["flow"][::4], tone=0.80 * k,
-                              width=max(4.0, band * 1.05), jitter=1.6,
+                              width=max(P(4.0), band * 1.05), jitter=1.6,
                               span=(0.02, 1.0), grain=0.06, taper=(0.08, 0.30),
                               gradient=(LIGHT + 180, 0.22, 1.0), cross_at=9.0))
         clipped(img, o, lambda dd: Pencil(dd, random.Random(rng.randrange(1 << 30)),
                                           C.GREEN_SHADE)
                 .hatch_curves(part["flow"][5::9], tone=0.78 * k,
-                              width=max(3.0, band * 0.70), jitter=1.8,
+                              width=max(P(3.0), band * 0.70), jitter=1.8,
                               span=(0.08, 0.96), grain=0.08, taper=(0.10, 0.40),
                               gradient=(LIGHT + 180, 0.0, 1.0), cross_at=9.0))
         mottle(img, o, C.GREEN_DEEP, alpha=int(60 * k),
-               seed=int(o[0][0]) & 255, scale=band * 2.2 + 8,
+               seed=int(o[0][0]) & 255, scale=band * 2.2 + P(8),
                gradient_deg=LIGHT + 180, floor=0.25)
         mottle(img, o, C.GREEN_LIGHT, alpha=int(96 * k),
-               seed=(int(o[0][0]) & 255) + 101, scale=band * 3.4 + 12,
+               seed=(int(o[0][0]) & 255) + 101, scale=band * 3.4 + P(12),
                gradient_deg=LIGHT, floor=0.22)
 
         # 縁の帯。細く全周に。広く取ると「帯」ではなく全体の暗転になる。
@@ -216,7 +241,7 @@ def leaf(img, lf, k, rng, reach):
 
         # 主脈。片側に陰、反対側に照り。葉が一枚の板ではなく、
         # 中央で折れた面に見えるのはこの 2 本が効いている。
-        w = max(2.5, reach * 0.028)
+        w = max(P(2.5), reach * 0.028)
         crease(img, S.offset(mid, -90, w * 0.85), C.GREEN_DEEP,
                alpha=int(104 * k), width=w)
         crease(img, S.offset(mid, 90, w * 0.75), C.GREEN_LIGHT,
@@ -234,7 +259,7 @@ def flower(img, g, k, rng, size, pedicel=None):
     col = C.FLOWER_SETS[g.get("hue", "blue")]
 
     if pedicel is not None:
-        pw = max(2.0, size * 0.035)
+        pw = max(P(2.0), size * 0.035)
         body = (S.offset(pedicel, 90, pw * 0.5) +
                 S.offset(pedicel, -90, pw * 0.5)[::-1])
         lay(img, body, C.tint(C.STEM, 0.3), C.STEM, C.STEM_DEEP, strength=0.8)
@@ -259,7 +284,7 @@ def _bell(img, d, g, k, rng, size, col):
     """
     shape = g["outline"]
     seed = int(shape[0][0]) & 255
-    smudge(img, shape, tone=0.11, blur=11, shift=(6, 9), color=C.shade(col["deep"]))
+    smudge(img, shape, tone=0.11, blur=P(11), shift=(P(6), P(9)), color=C.shade(col["deep"]))
     # 花は葉より淡く置く。花まで濃く塗ると図版の明るさが消え、
     # 口の奥との差もなくなって、下半分が黒い塊になる。
     lay(img, shape, C.tint(col["hi"], 0.44), col["mid"],
@@ -272,7 +297,7 @@ def _bell(img, d, g, k, rng, size, col):
                            S.polar(g["base"], axis, g["length"] * 0.7),
                            g["mouth"], 18), -90, g["width"] * 0.16)
     crease(img, lit, C.tint(col["hi"], 0.72), alpha=int(118 * k),
-           width=max(3.0, g["width"] * 0.17))
+           width=max(P(3.0), g["width"] * 0.17))
 
     # 口の奥
     throat = g.get("throat")
@@ -308,7 +333,7 @@ def _face(img, d, g, k, rng, size, col):
     """正面を向いた花。参照図版でいちばん目を引くのはこの姿で、
     5 裂した裂片・放射する脈・中央の黄色い葯がそろって初めてそう見える。"""
     shape = g["outline"]
-    smudge(img, shape, tone=0.09, blur=11, shift=(6, 9), color=C.shade(col["deep"]))
+    smudge(img, shape, tone=0.09, blur=P(11), shift=(P(6), P(9)), color=C.shade(col["deep"]))
     lay(img, shape, C.tint(col["hi"], 0.50), C.mix(col["hi"], col["mid"], 0.80),
         col["deep"], strength=0.86 * k, seed=int(shape[0][0]) & 255,
         flow=g["veins"][::2], rng=rng)
@@ -328,7 +353,7 @@ def _bud(img, d, g, k, rng, size):
     ただの楕円に線を入れただけでは「種」にしか見えない。"""
     shape = g["outline"]
     hi, mid, deep = C.mix(C.GREEN_HI, C.BLUE_HI, 0.45), C.mix(C.GREEN, C.BLUE, 0.4), C.GREEN_DEEP
-    smudge(img, shape, tone=0.09, blur=9, shift=(5, 8), color=C.GREEN_SHADE)
+    smudge(img, shape, tone=0.09, blur=P(9), shift=(P(5), P(8)), color=C.GREEN_SHADE)
     lay(img, shape, C.tint(hi, 0.35), mid, deep, strength=0.9 * k,
         seed=int(shape[0][0]) & 255, flow=g["ridges"], rng=rng)
     vein(d, rng, g["ridges"], C.STEM_DEEP, width=1.0, tone=0.48 * k)
@@ -453,7 +478,7 @@ def vine_bloom(img, g, rng, icon_hole=0.0):
 
     for i, pt in enumerate(g["petals"]):
         poly = pt["outline"]
-        smudge(img, poly, tone=0.13, blur=max(2.5, g["size"] * 0.05),
+        smudge(img, poly, tone=0.13, blur=max(P(2.5), g["size"] * 0.05),
                color=C.shade(deep, 0.3))
         lay(img, poly, hi, mid, deep, strength=0.80, seed=71 + i * 13,
             flow=pt["flow"][::6], rng=rng, edge=0.40)
