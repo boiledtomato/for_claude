@@ -1,16 +1,5 @@
 {
-  "last_updated": "2026-10-09T11:28:08Z",
-  "total": 1,
-  "articles": [
-    {
-      "id": "acf3df0908a9f80b",
-      "title": "How to Build a SASE Framework for Modern Cybersecurity",
-      "url": "https://www.darkreading.com/cloud-security/how-to-build-sase-framework",
-      "summary": "Securing edge computing requires organizations to fundamentally rethink security governance. This step-by-step guide to building a SASE framework provides the path forward. (Third in a three-part series.)",
-      "date": "2026-09-24T14:02:43Z",
-      "source": "Dark Reading",
-      "category": "industry_news",
-      "tags": []
-    }
-  ]
+  "last_updated": "2026-10-09T14:36:11Z",
+  "total": 0,
+  "articles": []
 }
