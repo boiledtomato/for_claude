@@ -395,7 +395,8 @@ Same shape as `notebooklm-weekly.yml`, with the doc-set-specific values.
 
 ### `scripts/weekly_release_digest.py` / `.github/workflows/weekly-release-digest.yml`
 
-Every Friday (`cron: "45 8 * * 5"` = 17:45 JST) collects the release notes of
+Every Friday morning (`cron: "0 22 * * 4"` = Thursday 22:00 UTC = Friday 07:00 JST;
+the cron day is Thursday because of the UTC offset) collects the release notes of
 **every** Zscaler service deployed in the week Saturday–Friday (JST) and mails a
 digest to `ciderred1239@gmail.com` (override with the `NOTIFY_EMAIL_TO` secret).
 
@@ -426,7 +427,8 @@ digest to `ciderred1239@gmail.com` (override with the `NOTIFY_EMAIL_TO` secret).
   The `.md` files are always the untranslated original.
 - **Late-posted entries:** `data/release_digest_seen.json` records every entry id seen.
   An unseen entry whose deployment dates are all before the window is included as
-  「遅れて掲載」 — Friday deployments are often posted after the run. A missing state
+  「遅れて掲載」 — that Friday's own deployments are usually not posted yet at 07:00 JST,
+  so they normally arrive in the following week's mail this way. A missing state
   file disables this for one run. The state is saved only after the mail is sent.
 - **A mail is sent every week, even with zero updates**, and lists any page that
   failed to fetch — silence must never be mistaken for "nothing changed".
