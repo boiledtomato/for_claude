@@ -49,8 +49,8 @@ fun FloraCanvas(
     reach: () -> Reach?,
     reachGrow: () -> Float,
     reachBloom: () -> Float,
-    /** 指でなぞっている最中の軌跡（版面座標）。空なら描かない。 */
-    trace: () -> List<Offset>,
+    /** 咲いた花の並びをいくつずらして見せるか。 */
+    fanOffset: () -> Int,
     bindings: Map<String, List<String>>,
     appsByKey: Map<String, AppEntry>,
     showLabels: Boolean,
@@ -133,10 +133,9 @@ fun FloraCanvas(
         }
 
         reach()?.let {
-            drawReach(it, transform, bl, reachGrow(), reachBloom(), flora, appsByKey,
-                matrix, paint)
+            drawReach(it, measurer, transform, bl, reachGrow(), reachBloom(),
+                fanOffset(), flora, appsByKey, matrix, paint)
         }
-        drawTrace(trace(), transform, bl, flora, matrix, paint)
 
         drawCaption(measurer, transform, flora)
         if (showLabels) drawLabels(measurer, transform, flora, bindings, appsByKey)
@@ -151,58 +150,6 @@ fun FloraCanvas(
             }
         }
     }
-}
-
-/**
- * 指でなぞっている最中の蔦。
- *
- * なぞった先へその場で草を伸ばす。葉は指が通り過ぎてから少し遅れて開く
- * ので、追いかけるように生えていく。先端には蕾をひとつ置いて、離せば
- * そこが咲く、と分かるようにする。
- */
-private fun DrawScope.drawTrace(
-    pts: List<Offset>,
-    t: SceneTransform,
-    boil: Int,
-    flora: Flora,
-    matrix: Matrix,
-    paint: Paint,
-) {
-    if (pts.size < 2) return
-    val w = flora.width * 0.0058f * t.scale
-    drawStem(pts.map { t.toScreen(it) }, w, w * 0.55f, 0.92f,
-        pts.size * 31, boil, flora.paper, t.scale)
-
-    val vine = flora.vine ?: return
-    // 葉。なぞった長さに応じて増える。指先の手前までで止める。
-    val n = (pts.size / 7).coerceAtMost(9)
-    for (i in 0 until n) {
-        val f = (i + 1f) / (n + 1.4f)
-        val sp = vine.leaves.getOrNull((i + 1).mod(3)) ?: continue
-        val bmp = sp.bitmap ?: continue
-        val (at, ang) = along(pts, f)
-        val side = if (i % 2 == 0) -1f else 1f
-        val open = (((pts.size / 7f) - i) / 1.6f).coerceIn(0f, 1f)
-        val s = t.scale * flora.sample * (0.64f - 0.12f * f) * smooth(open)
-        matrix.setTranslate(sp.off.x / flora.sample, sp.off.y / flora.sample)
-        matrix.postScale(s, s)
-        matrix.postRotate(ang + 90f + side * 62f)
-        matrix.postTranslate(t.toScreen(at).x, t.toScreen(at).y)
-        drawContext.canvas.nativeCanvas.drawBitmap(bmp, matrix, paint)
-    }
-
-    // 先端の蕾。離すとここが咲く。
-    val fr = vine.bloom.firstOrNull() ?: return
-    val bmp = fr.bitmap ?: return
-    val (tip, ang) = along(pts, 0.999f)
-    val size = vine.size * 1.22f
-    val s = t.scale * flora.sample * (size / vine.size) * 0.62f
-    matrix.setTranslate(fr.off.x / flora.sample, fr.off.y / flora.sample)
-    matrix.postScale(s, s)
-    matrix.postRotate(ang + 90f)
-    val c = t.toScreen(polar(tip, ang, size * 0.22f))
-    matrix.postTranslate(c.x, c.y)
-    drawContext.canvas.nativeCanvas.drawBitmap(bmp, matrix, paint)
 }
 
 /**
@@ -257,10 +204,12 @@ private fun DrawScope.drawStem(
  */
 private fun DrawScope.drawReach(
     reach: Reach,
+    measurer: TextMeasurer,
     t: SceneTransform,
     boil: Int,
     grow: Float,
     bloom: Float,
+    offset: Int,
     flora: Flora,
     appsByKey: Map<String, AppEntry>,
     matrix: Matrix,
@@ -290,6 +239,21 @@ private fun DrawScope.drawReach(
     }
 
     val vine = flora.vine ?: return
+
+    // 一度に咲かせられる数を超えているときは、何件中どこを見ているかを出す。
+    // 指で回せることが分からないと、残りのアプリに辿りつけない。
+    if (reach.rotatable && bloom > 0.5f) {
+        val n = reach.appKeys.size
+        val from = offset.mod(n) + 1
+        val layout = measurer.measure(
+            AnnotatedString("$from–${(offset + reach.forks - 1).mod(n) + 1} / $n  ⟲"),
+            fanStyle, maxLines = 1,
+        )
+        val (fork, _) = along(reach.main, 0.999f)
+        val c = t.toScreen(fork)
+        drawText(layout, topLeft = Offset(c.x - layout.size.width / 2f,
+            c.y + 10f * t.scale))
+    }
 
     // 葉。蔓の先端が自分を追い越してから開きはじめる。
     for (lv in reach.leaves) {
@@ -332,7 +296,7 @@ private fun DrawScope.drawReach(
         drawContext.canvas.nativeCanvas.drawBitmap(bmp, matrix, paint)
 
         // 花芯にアプリ。咲ききる手前から現れる。
-        val key = reach.appKeys.getOrNull(i)
+        val key = reach.appAt(i, offset)
         val app = key?.let { appsByKey[it] }
         val fade = smooth(((bloom - 0.62f) / 0.38f).coerceIn(0f, 1f))
         if (app != null && fade > 0.02f) {
@@ -362,6 +326,14 @@ private fun DrawScope.drawPaper(flora: Flora) {
         ),
     )
 }
+
+/** 「何件中どこを見ているか」の表示。 */
+private val fanStyle = TextStyle(
+    fontFamily = FontFamily.Serif,
+    fontSize = 11.sp,
+    letterSpacing = 1.sp,
+    color = Color(0xB0231D1A),
+)
 
 private val captionStyle = TextStyle(
     fontFamily = FontFamily.Serif,

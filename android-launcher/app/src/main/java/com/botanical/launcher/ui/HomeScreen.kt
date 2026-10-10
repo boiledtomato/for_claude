@@ -9,7 +9,7 @@ import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.gestures.detectDragGestures
+import androidx.compose.foundation.gestures.detectHorizontalDragGestures
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -64,6 +64,9 @@ private const val REACH_BLOOM_MS = 620
 
 private const val BOIL_FPS = 11
 
+/** 咲いた花を 1 つ送るのに要る横移動（px）。 */
+private const val ROTATE_STEP_PX = 90f
+
 @Composable
 fun HomeScreen() {
     val context = LocalContext.current
@@ -73,6 +76,9 @@ fun HomeScreen() {
     val screenWidthPx = with(LocalDensity.current) {
         LocalConfiguration.current.screenWidthDp.dp.roundToPx()
     }
+
+    // 折りたたみ端末では、閉じた表画面と開いた内側画面で割り当てを分ける。
+    val displayScope = BindingStore.Scope.of(LocalConfiguration.current.screenWidthDp)
 
     var flora by remember { mutableStateOf(Flora.Empty) }
     var apps by remember { mutableStateOf<List<AppEntry>>(emptyList()) }
@@ -89,13 +95,15 @@ fun HomeScreen() {
     var showLabels by remember { mutableStateOf(store.captionsVisible) }
     var showHitAreas by remember { mutableStateOf(false) }
 
-    LaunchedEffect(Unit) {
-        bindings.putAll(store.load())
+    // 画面の区分が変わったら（折りたたみを開閉したら）割り当てを読み直す。
+    LaunchedEffect(displayScope) {
+        bindings.clear()
+        bindings.putAll(store.load(displayScope))
         flora = FloraLoader.load(context, screenWidthPx)
         val slots = flora.bindable
         if (apps.isNotEmpty() && slots.isNotEmpty()) {
             bindings.clear()
-            bindings.putAll(store.seedIfNeeded("flora", apps, slots))
+            bindings.putAll(store.seedIfNeeded(displayScope, "flora", apps, slots))
         }
     }
 
@@ -106,7 +114,7 @@ fun HomeScreen() {
             val slots = flora.bindable
             if (slots.isNotEmpty()) {
                 bindings.clear()
-                bindings.putAll(store.seedIfNeeded("flora", loaded, slots))
+                bindings.putAll(store.seedIfNeeded(displayScope, "flora", loaded, slots))
             }
         }
     }
@@ -139,17 +147,17 @@ fun HomeScreen() {
         )
     }
 
-    // 指でなぞっている最中の軌跡（版面座標）。離すとここが蔦になる。
-    var traceFrom by remember { mutableStateOf<TapTarget?>(null) }
-    val tracePts = remember { mutableStateListOf<Offset>() }
-
     // アプリを開くときに伸びる蔓
     var reach by remember { mutableStateOf<Reach?>(null) }
+    // 咲いた花の並びをいくつずらして見せるか。登録数が咲かせられる数を
+    // 超えたとき、指で回して隠れているアプリを出すのに使う。
+    var fanOffset by remember { mutableIntStateOf(0) }
     val reachGrow = remember { Animatable(0f) }
     val reachBloom = remember { Animatable(0f) }
 
     fun clearReach() {
         reach = null
+        fanOffset = 0
         scope.launch {
             reachGrow.snapTo(0f)
             reachBloom.snapTo(0f)
@@ -173,6 +181,7 @@ fun HomeScreen() {
             bounds = Rect(tl.x, tl.y, br.x, br.y),
         )
         scope.launch {
+            fanOffset = 0
             reachGrow.snapTo(0f)
             reachBloom.snapTo(0f)
             // 蔦が這い、葉を開きながら伸びる。急がせると「線が飛んだ」だけに見える。
@@ -185,43 +194,6 @@ fun HomeScreen() {
                 delay(180)
                 keys.firstOrNull()?.let { k -> appsByKey[k]?.let { AppRepository.launch(context, it) } }
                 delay(240)
-                clearReach()
-            }
-        }
-    }
-
-    /**
-     * なぞった軌跡をそのまま蔦にする。
-     *
-     * 自動で伸ばす蔓と同じ仕組みに載せ、道筋だけ指の軌跡に差し替える。
-     * もう伸びきっているので grow は 1 から始め、一拍おいて咲かせる。
-     */
-    fun releaseTrace(target: TapTarget, raw: List<Offset>) {
-        val path = smoothTrace(raw)
-        if (path.size < 4) return
-        val keys = bindings[target.id].orEmpty().filter { appsByKey.containsKey(it) }
-        reach = Reach(
-            originId = target.id,
-            origin = path.first(),
-            heading = 0f,
-            length = flora.width * 0.42f,
-            seed = target.id.hashCode(),
-            appKeys = keys,
-            traced = path,
-        )
-        scope.launch {
-            reachGrow.snapTo(1f)
-            reachBloom.snapTo(0f)
-            delay(REACH_HOLD_MS)
-            reachBloom.animateTo(1f, tween(REACH_BLOOM_MS, easing = FastOutSlowInEasing))
-            if (keys.size == 1) {
-                delay(180)
-                appsByKey[keys[0]]?.let { AppRepository.launch(context, it) }
-                delay(240)
-                clearReach()
-            } else if (keys.isEmpty()) {
-                // 何も留めていない部位からでも伸ばせる。しばらく咲かせて戻す。
-                delay(1400)
                 clearReach()
             }
         }
@@ -266,7 +238,7 @@ fun HomeScreen() {
             reach = { reach },
             reachGrow = { reachGrow.value },
             reachBloom = { reachBloom.value },
-            trace = { tracePts.toList() },
+            fanOffset = { fanOffset },
             bindings = bindings,
             appsByKey = appsByKey,
             showLabels = showLabels,
@@ -275,37 +247,25 @@ fun HomeScreen() {
                 .fillMaxSize()
                 .systemBarsPadding()
                 .onSizeChanged { canvasSize = Size(it.width.toFloat(), it.height.toFloat()) }
-                // なぞって伸ばす。タップとは別の pointerInput に置く。
-                // detectDragGestures はタッチスロープを超えてから主張するので、
-                // 軽く触れただけならタップとして処理される。
-                .pointerInput(transform, flora) {
-                    detectDragGestures(
-                        onDragStart = { p ->
-                            val hit = hitTest(flora, transform, p)
-                            if (hit != null) {
-                                clearReach()
-                                traceFrom = hit
-                                tracePts.clear()
-                                tracePts.add(hit.at)
-                                tracePts.add(transform.toScene(p))
+                // 咲いた花を回して、隠れているアプリを出す。
+                //
+                // 登録数が一度に咲かせられる数（5）を超えると、残りは
+                // どこにも出てこない。横に滑らせて並びをずらす。
+                .pointerInput(reach) {
+                    val open = reach
+                    if (open == null || !open.rotatable) return@pointerInput
+                    var acc = 0f
+                    detectHorizontalDragGestures(
+                        onDragStart = { acc = 0f },
+                        onHorizontalDrag = { change, dx ->
+                            acc += dx
+                            while (acc >= ROTATE_STEP_PX) {
+                                fanOffset -= 1; acc -= ROTATE_STEP_PX
                             }
-                        },
-                        onDrag = { change, _ ->
-                            if (traceFrom != null) {
-                                tracePts.add(transform.toScene(change.position))
-                                change.consume()
+                            while (acc <= -ROTATE_STEP_PX) {
+                                fanOffset += 1; acc += ROTATE_STEP_PX
                             }
-                        },
-                        onDragEnd = {
-                            val from = traceFrom
-                            val pts = tracePts.toList()
-                            traceFrom = null
-                            tracePts.clear()
-                            if (from != null) releaseTrace(from, pts)
-                        },
-                        onDragCancel = {
-                            traceFrom = null
-                            tracePts.clear()
+                            change.consume()
                         },
                     )
                 }
@@ -317,7 +277,8 @@ fun HomeScreen() {
                             if (open != null && open.appKeys.size > 1) {
                                 val picked = pickFlower(open, transform, p, bloomSizeOf(flora))
                                 if (picked != null) {
-                                    appsByKey[open.appKeys[picked]]
+                                    open.appAt(picked, fanOffset)
+                                        ?.let { appsByKey[it] }
                                         ?.let { AppRepository.launch(context, it) }
                                     clearReach()
                                     return@detectTapGestures
@@ -372,7 +333,7 @@ fun HomeScreen() {
                     },
                     onConfirmAssign = { keys ->
                         (mode as? DrawerMode.Assign)?.let { m ->
-                            store.put(m.organId, keys)
+                            store.put(displayScope, m.organId, keys)
                             if (keys.isEmpty()) bindings.remove(m.organId)
                             else bindings[m.organId] = keys
                         }
@@ -395,7 +356,7 @@ fun HomeScreen() {
                 onToggleHitAreas = { showHitAreas = it },
                 onClearAll = {
                     flora.bindable.forEach { id ->
-                        store.remove(id)
+                        store.remove(displayScope, id)
                         bindings.remove(id)
                     }
                     showSettings = false

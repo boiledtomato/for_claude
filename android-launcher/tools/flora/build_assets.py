@@ -221,7 +221,8 @@ def main():
     at = S.cubic_at(*hp, 1.0)
     ax = S.cubic_angle(*hp, 1.0)
     # 蔦の先の蕾と同じ作り方で焼く。アプリ一覧を開く蕾も、咲き方は同じ。
-    size = Y.sc(146.0)
+    # アプリ一覧を開く蕾。小さく。
+    size = Y.sc(104.0)
     frames = []
     for f in range(BLOOM_FRAMES):
         o = f / (BLOOM_FRAMES - 1)

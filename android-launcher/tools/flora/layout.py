@@ -29,9 +29,9 @@ GRAPHITE = (66, 63, 68)
 #
 # id, 根元x, 根元y, 角度, 茎長, 反り, 奥行, 花数, 葉数, 葉長, 葉の型
 STEMS = [
-    ("main", 548, 1520, -89, 1150, -0.16, 1.00, 4, 6, 350, "ovate"),
-    ("side", 398, 1536, -99,  742, -0.40, 0.58, 3, 5, 286, "ovate"),
-    ("base", 716, 1528, -80,  520,  0.46, 0.34, 2, 4, 248, "lance"),
+    ("main", 548, 1520, -89, 1150, -0.16, 1.00, 4, 7, 176, "lobed"),
+    ("side", 398, 1536, -99,  742, -0.40, 0.58, 3, 6, 148, "lobed"),
+    ("base", 716, 1528, -80,  520,  0.46, 0.34, 2, 5, 128, "lobed"),
 ]
 
 # 根。標本画は根まで描く。（株id, 根元x, 根元y, 本数）
@@ -40,10 +40,16 @@ ROOTS = [("main", 548, 1520, 9), ("side", 398, 1536, 6), ("base", 716, 1528, 5)]
 CAPTION = "Campanula latifolia"
 PLATE_NO = "PL. I"
 
-# 花は下から順に「正面向きの満開 → 横向きの釣鐘 → 半開 → 蕾」と熟す。
-# 一本の茎にこの四態が同居しているのが総状花序の見どころで、参照図版も
-# 必ず咲いたもの・向こうを向いたもの・蕾を一緒に描いている。
-FORMS = ["face", "bell", "half", "bud"]
+# 版面の花はすべて蕾。
+#
+# 咲ききった花を押すと、そこから蔦が伸びて「もう一度咲く」ことになり、
+# 筋が通らない。かといって咲いた花を飾りとして残すと、見えているのに
+# 押しても何も起きない場所になる。どちらも説明がつかないので、版面には
+# 咲いた花を置かない。押せるのは蕾だけ、押したら咲く、で統一する。
+#
+# 色は蕾そのものに持たせる。咲きかけの蕾は萼のあいだから花弁の色が覗く
+# ので、緑一色にはならない（render._bud の hue）。
+TAPPABLE_FORM = "bud"
 
 
 def lerp(a, b, t):
@@ -96,7 +102,8 @@ def build(seed=17):
                 "geo": lf, "k": k * rng.uniform(0.74, 1.16), "reach": ll,
                 "pivot": at, "restAngle": ax,
                 # 最下の葉 1 枚だけをタップ対象にする。数を絞って一つを大きく。
-                "hit": ({"at": lf["anchor"], "r": ll * 0.38} if i == 0 else None),
+                "hit": ({"at": lf["anchor"], "r": max(ll * 0.46, W * 0.068)}
+                        if i == 0 else None),
                 "sway": {"amp": round(5.0 + 6.0 * rng.random(), 2),
                          "speed": rng.choice([8, 9, 11, 13]),
                          "phase": round(rng.uniform(0, 6.28), 3)},
@@ -109,9 +116,11 @@ def build(seed=17):
             at = S.cubic_at(p0, c1, c2, tip, t)
             ax = S.cubic_angle(p0, c1, c2, tip, t)
             side = -1 if j % 2 == 0 else 1
-            form = FORMS[min(int(u * len(FORMS) * 0.999), len(FORMS) - 1)]
+            form = TAPPABLE_FORM
             hue = "crimson" if sid == "base" else "blue"
-            size = leaflen * 0.46 * (1.0 - 0.30 * u) * rng.uniform(0.95, 1.05)
+            # 蕾は小さく描く。大きさで押しやすさを稼ぐのではなく、
+            # 当たり判定に下限を置いて担保する（下の hit を見よ）。
+            size = leaflen * 0.56 * (1.0 - 0.34 * u) * rng.uniform(0.88, 1.12)
             # 花柄は長めに。花どうしが離れて、指で押し分けられる。
             ped = size * (0.62 + 0.22 * rng.random())
             hang = S.polar(at, ax + side * 56, ped)
@@ -124,7 +133,10 @@ def build(seed=17):
                 "geo": flower_geo(form, hang, face, size, hue),
                 "pedicel": pedicel, "hang": hang, "face": face,
                 "pivot": at, "restAngle": ax,
-                "hit": {"at": S.polar(hang, face, size * 0.62), "r": size * 0.92},
+                # 判定円には下限を置く。絵を小さくしたぶん判定まで小さく
+                # すると、指で押し分けられなくなる。
+                "hit": {"at": S.polar(hang, face, size * 0.50),
+                        "r": max(size * 1.05, W * 0.074)},
                 "sway": {"amp": round(7.0 + 7.0 * rng.random(), 2),
                          "speed": rng.choice([5, 6, 7]),
                          "phase": round(rng.uniform(0, 6.28), 3)},

@@ -350,12 +350,32 @@ def _face(img, d, g, k, rng, size, col):
 
 def _bud(img, d, g, k, rng, size):
     """まだ開かない蕾。稜が 5 本あって、先がねじれている。
-    ただの楕円に線を入れただけでは「種」にしか見えない。"""
+    ただの楕円に線を入れただけでは「種」にしか見えない。
+
+    萼のあいだから花弁の色が覗く。緑一色の蕾ばかり並べると、版面から
+    色が消えてしまう。実物も、咲く直前の蕾はもう色づいている。
+    """
     shape = g["outline"]
-    hi, mid, deep = C.mix(C.GREEN_HI, C.BLUE_HI, 0.45), C.mix(C.GREEN, C.BLUE, 0.4), C.GREEN_DEEP
+    col = C.FLOWER_SETS[g.get("hue", "blue")]
+    hi = C.mix(C.GREEN_HI, col["hi"], 0.30)
+    mid = C.mix(C.GREEN, col["mid"], 0.26)
+    deep = C.mix(C.GREEN_DEEP, col["deep"], 0.20)
     smudge(img, shape, tone=0.09, blur=P(9), shift=(P(5), P(8)), color=C.GREEN_SHADE)
     lay(img, shape, C.tint(hi, 0.35), mid, deep, strength=0.9 * k,
         seed=int(shape[0][0]) & 255, flow=g["ridges"], rng=rng)
+
+    # 先端から花弁の色が覗く。
+    #
+    # 蕾は咲く直前にはもう色づいていて、萼の合わせ目の先に花弁が見える。
+    # 緑一色の蕾だけを並べると版面から色が消え、ただの草になる。
+    #
+    # 面を切って塗り分けると境目が horizontal に硬く出るので、軸の向きの
+    # 階調で乗せる。先端ほど濃く、付け根では消える。
+    wash(img, shape, col["mid"], alpha=int(215 * k),
+         gradient_deg=g["axis"], floor=0.0)
+    wash(img, shape, C.tint(col["hi"], 0.25), alpha=int(120 * k),
+         gradient_deg=g["axis"], floor=0.0)
+
     vein(d, rng, g["ridges"], C.STEM_DEEP, width=0.7, tone=0.42 * k)
     ink(d, rng, shape, width=0.95, tone=0.76 * k, closed=True)
     _calyx(img, d, rng, g["base"], g["axis"], size, k, hug=True)

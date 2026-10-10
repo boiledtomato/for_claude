@@ -20,6 +20,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BotanicalLauncher">
 
+        <!--
+            configChanges に screenSize / smallestScreenSize / screenLayout を
+            並べてあるのは折りたたみ端末のため。宣言していないと開閉のたびに
+            Activity ごと作り直しになり、素材 1.4MB を読み直すあいだホーム画面
+            が消える。開閉のたびにそれでは使えない。
+
+            版面は縦長の図版なので画面の向きは縦に固定する。折りたたみ端末の
+            内側画面も自然な向きは縦なので、これで困らない。
+        -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -27,7 +36,7 @@
             android:stateNotNeeded="true"
             android:excludeFromRecents="true"
             android:screenOrientation="portrait"
-            android:configChanges="keyboardHidden|navigation"
+            android:configChanges="keyboardHidden|navigation|orientation|screenSize|smallestScreenSize|screenLayout|density|uiMode"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/Theme.BotanicalLauncher">
 
