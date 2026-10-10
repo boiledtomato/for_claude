@@ -7,6 +7,7 @@ import com.botanical.launcher.pencil.polar
 import com.botanical.launcher.pencil.rand01
 import com.botanical.launcher.pencil.tendril
 import kotlin.math.PI
+import kotlin.math.hypot
 import kotlin.math.sin
 
 /**
@@ -37,12 +38,18 @@ class Reach(
     val seed: Int,
     val appKeys: List<String>,
     val curl: Float = 1.1f,
+    /**
+     * 指でなぞった軌跡（版面座標）。渡されたらこれをそのまま蔓の道筋にする。
+     * 自動で伸ばす蔓と同じ仕組みに載せたいので、形だけ差し替える。
+     */
+    traced: List<Offset>? = null,
 ) {
     private val forks = appKeys.size.coerceAtLeast(1)
-    private val mainFraction = if (forks > 1) 0.55f else 1f
+    private val tracedPath = traced?.takeIf { it.size >= 4 }
+    private val mainFraction = if (tracedPath == null && forks > 1) 0.55f else 1f
 
-    val main: List<Offset> =
-        waver(tendril(origin, heading, length * mainFraction, curl, seed), seed, length)
+    val main: List<Offset> = tracedPath
+        ?: waver(tendril(origin, heading, length * mainFraction, curl, seed), seed, length)
 
     val branches: List<List<Offset>> = if (forks <= 1) {
         emptyList()
@@ -200,4 +207,50 @@ fun fittingReach(
         }
     }
     return best!!
+}
+
+/**
+ * なぞった生の座標を、蔓として引ける折れ線に均す。
+ *
+ * 指の軌跡はそのままだと点が不均等に詰まり、小刻みに震えている。蔓として
+ * 引くと地震計の記録になるので、等間隔に取り直してから移動平均で均す。
+ * 植物の蔓は曲がっても滑らかで、折れない。
+ *
+ * [step] は版面座標での点の間隔。
+ */
+fun smoothTrace(raw: List<Offset>, step: Float = 14f): List<Offset> {
+    if (raw.size < 2) return raw
+    // 等間隔に取り直す
+    val even = ArrayList<Offset>(raw.size)
+    even.add(raw[0])
+    var carry = 0f
+    for (i in 1 until raw.size) {
+        val a = even.last()
+        val b = raw[i]
+        var d = hypot(b.x - a.x, b.y - a.y) + carry
+        if (d < step) { carry = d; continue }
+        carry = 0f
+        var from = a
+        while (d >= step) {
+            val len = hypot(b.x - from.x, b.y - from.y)
+            if (len < 1e-3f) break
+            val t = step / len
+            from = Offset(from.x + (b.x - from.x) * t, from.y + (b.y - from.y) * t)
+            even.add(from)
+            d -= step
+        }
+    }
+    if (even.size < 3) return even
+
+    // 移動平均。両端は動かさない（付け根が浮くと生えていないように見える）
+    val out = ArrayList<Offset>(even.size)
+    out.add(even.first())
+    for (i in 1 until even.size - 1) {
+        val p = even[i - 1]
+        val q = even[i]
+        val r = even[i + 1]
+        out.add(Offset((p.x + 2f * q.x + r.x) / 4f, (p.y + 2f * q.y + r.y) / 4f))
+    }
+    out.add(even.last())
+    return out
 }

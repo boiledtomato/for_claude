@@ -159,8 +159,8 @@ def stem(img, curve, w0, w1, k, rng):
     right = S.offset(curve, -90, half)
     body = left + right[::-1]
     lay(img, body, C.tint(C.STEM, 0.30), C.STEM, C.STEM_DEEP, strength=0.9)
-    ink(d, rng, right, width=1.25, tone=0.86 * k, jitter=0.45)
-    ink(d, rng, left, width=1.0, tone=0.62 * k, jitter=0.45)
+    ink(d, rng, right, width=0.95, tone=0.78 * k, jitter=0.45)
+    ink(d, rng, left, width=0.8, tone=0.54 * k, jitter=0.45)
 
 
 # ------------------------------------------------------------------------ 葉
@@ -174,9 +174,9 @@ def leaf(img, lf, k, rng, reach):
     """
     d = ImageDraw.Draw(img, "RGBA")
     if "stalk" in lf:
-        ink(d, rng, lf["stalk"], width=1.8, tone=0.7, color=C.STEM_DEEP)
+        ink(d, rng, lf["stalk"], width=1.2, tone=0.7, color=C.STEM_DEEP)
     if "rachis" in lf:
-        ink(d, rng, lf["rachis"], width=1.8, tone=0.7, color=C.STEM_DEEP)
+        ink(d, rng, lf["rachis"], width=1.2, tone=0.7, color=C.STEM_DEEP)
 
     for part in lf["parts"]:
         o = part["outline"]
@@ -247,9 +247,9 @@ def leaf(img, lf, k, rng, reach):
         crease(img, S.offset(mid, 90, w * 0.75), C.GREEN_LIGHT,
                alpha=int(140 * k), width=w * 0.9)
 
-        vein(d, rng, part["veins"], C.GREEN_DEEP, width=1.0, tone=0.52 * k)
-        ink(d, rng, mid, width=1.5, tone=0.62 * k, color=C.GREEN_SHADE)
-        ink(d, rng, o, width=1.35, tone=0.9 * k, closed=True)
+        vein(d, rng, part["veins"], C.GREEN_DEEP, width=0.7, tone=0.44 * k)
+        ink(d, rng, mid, width=1.0, tone=0.52 * k, color=C.GREEN_SHADE)
+        ink(d, rng, o, width=0.95, tone=0.76 * k, closed=True)
 
 
 # ------------------------------------------------------------------------ 花
@@ -263,7 +263,7 @@ def flower(img, g, k, rng, size, pedicel=None):
         body = (S.offset(pedicel, 90, pw * 0.5) +
                 S.offset(pedicel, -90, pw * 0.5)[::-1])
         lay(img, body, C.tint(C.STEM, 0.3), C.STEM, C.STEM_DEEP, strength=0.8)
-        ink(d, rng, pedicel, width=1.1, tone=0.6, color=C.STEM_DEEP)
+        ink(d, rng, pedicel, width=0.85, tone=0.52, color=C.STEM_DEEP)
 
     if g["form"] == "bud":
         _bud(img, d, g, k, rng, size)
@@ -308,7 +308,7 @@ def _bell(img, d, g, k, rng, size, col):
         wash(img, throat, C.shade(col["deep"], 0.70), alpha=185,
              gradient_deg=axis + 180)
         n = len(g["far"])
-        ink(d, rng, g["far"][int(n * 0.26):int(n * 0.74)], width=1.0, tone=0.46,
+        ink(d, rng, g["far"][int(n * 0.26):int(n * 0.74)], width=0.75, tone=0.42,
             color=col["ink"], taper=(0.5, 0.5))
 
     # 稜。本数を惜しむと樽になる。間を空けて濃さを振ると手で引いた線に見える。
@@ -318,12 +318,12 @@ def _bell(img, d, g, k, rng, size, col):
     # 全部の線が口の奥で重なって、そこだけ真っ黒な帯になる。奥は面として
     # 暗いのであって、線で埋めて暗くするところではない。
     vein(d, rng, [c[6:-7] for c in g["flow"][5::4]], col["ink"],
-         width=0.95, tone=0.34 * k)
-    vein(d, rng, [c[:-4] for c in g["ribs"]], col["ink"], width=1.25, tone=0.52 * k)
+         width=0.65, tone=0.30 * k)
+    vein(d, rng, [c[:-4] for c in g["ribs"]], col["ink"], width=0.85, tone=0.44 * k)
     for sn in g.get("sinus", []):
-        ink(d, rng, sn, width=1.1, tone=0.55, color=col["ink"], taper=(0.05, 0.7))
+        ink(d, rng, sn, width=0.8, tone=0.48, color=col["ink"], taper=(0.05, 0.7))
 
-    ink(d, rng, shape, width=1.35, tone=0.9 * k, closed=True)
+    ink(d, rng, shape, width=0.95, tone=0.78 * k, closed=True)
     _calyx(img, d, rng, g["base"], g["axis"], size, k)
     if g.get("open", 0) > 0.8:
         _style(img, d, rng, g["mouth"], g["axis"], size * 0.85)
@@ -341,10 +341,10 @@ def _face(img, d, g, k, rng, size, col):
     # 喉もとは明るく抜く。中心が暗いと花が「穴」に見える。
     fill_shape(img, g["throat"], color=C.tint(col["hi"], 0.55), alpha=210, feather=2.2)
 
-    vein(d, rng, g["veins"], col["ink"], width=0.85, tone=0.44 * k)
+    vein(d, rng, g["veins"], col["ink"], width=0.6, tone=0.38 * k)
     for sn in g["sinus"]:
-        ink(d, rng, sn, width=1.0, tone=0.5, color=col["ink"], taper=(0.05, 0.8))
-    ink(d, rng, shape, width=1.35, tone=0.9 * k, closed=True)
+        ink(d, rng, sn, width=0.75, tone=0.44, color=col["ink"], taper=(0.05, 0.8))
+    ink(d, rng, shape, width=0.95, tone=0.78 * k, closed=True)
     _anthers(img, d, rng, g["centre"], g["axis"], size * 0.52)
 
 
@@ -356,8 +356,8 @@ def _bud(img, d, g, k, rng, size):
     smudge(img, shape, tone=0.09, blur=P(9), shift=(P(5), P(8)), color=C.GREEN_SHADE)
     lay(img, shape, C.tint(hi, 0.35), mid, deep, strength=0.9 * k,
         seed=int(shape[0][0]) & 255, flow=g["ridges"], rng=rng)
-    vein(d, rng, g["ridges"], C.STEM_DEEP, width=1.0, tone=0.48 * k)
-    ink(d, rng, shape, width=1.3, tone=0.88 * k, closed=True)
+    vein(d, rng, g["ridges"], C.STEM_DEEP, width=0.7, tone=0.42 * k)
+    ink(d, rng, shape, width=0.95, tone=0.76 * k, closed=True)
     _calyx(img, d, rng, g["base"], g["axis"], size, k, hug=True)
 
 
@@ -374,7 +374,7 @@ def _calyx(img, d, rng, base, face, size, k, hug=False):
         body = (S.offset(blade, 90, lambda t: ln * 0.085 * (1 - t) + 0.6) +
                 S.offset(blade, -90, lambda t: ln * 0.085 * (1 - t) + 0.6)[::-1])
         lay(img, body, C.GREEN_HI, C.GREEN, C.GREEN_DEEP, strength=0.85 * k)
-        ink(d, rng, body, width=1.0, tone=0.76 * k, closed=True, color=C.INK_SOFT)
+        ink(d, rng, body, width=0.8, tone=0.66 * k, closed=True, color=C.INK_SOFT)
 
 
 def _style(img, d, rng, mouth, face, size):
@@ -469,7 +469,7 @@ def vine_bloom(img, g, rng, icon_hole=0.0):
         poly = sp["outline"]
         lay(img, poly, C.tint(C.GREEN_HI, 0.25), C.GREEN, C.GREEN_DEEP,
             strength=0.85, seed=31 + i * 7)
-        ink(d, rng, poly, width=1.1, tone=0.78, closed=True, color=C.INK_SOFT)
+        ink(d, rng, poly, width=0.85, tone=0.68, closed=True, color=C.INK_SOFT)
 
     # 蕾のうちは緑を帯び、開くにつれて青が差す。実物の蕾は緑い。
     hi = C.mix(C.mix(C.GREEN_HI, C.BLUE_HI, 0.35), C.tint(col["hi"], 0.45), o)
@@ -485,8 +485,8 @@ def vine_bloom(img, g, rng, icon_hole=0.0):
         # 花弁の筋は付け根から先へ走る。葉のような羽状の脈を入れると、
         # 何枚並べても「小さい葉が 5 枚ついている」ようにしか見えない。
         vein(d, rng, pt["cross"][3:-3], col["ink"] if o > 0.5 else C.GREEN_DEEP,
-             width=0.85, tone=0.30 * min(1.0, o * 1.6 + 0.2))
-        ink(d, rng, poly, width=1.25, tone=0.88, closed=True)
+             width=0.6, tone=0.26 * min(1.0, o * 1.6 + 0.2))
+        ink(d, rng, poly, width=0.9, tone=0.76, closed=True)
 
     # 葯。開ききる手前から現れる。黄が差した瞬間に「咲いた」と読める。
     if o > 0.55:

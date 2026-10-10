@@ -4,31 +4,34 @@
 描画側は部分の数を気にせず同じ手順で扱える。複葉は部分が小葉の数だけ増える。
 """
 import math
-from shapes import polar, quad, lerp
-
-
-def _noise(seed, i):
-    """位置だけで決まる擬似乱数。乱数生成器を持ち回ると版面と実機で
-    値がずれるので、座標から決める。0..1 を返す。"""
-    h = (int(seed * 7919) ^ (i * 2654435761)) & 0xFFFFFFFF
-    h = (h ^ (h >> 15)) * 2246822519 & 0xFFFFFFFF
-    h = (h ^ (h >> 13)) * 3266489917 & 0xFFFFFFFF
-    return ((h ^ (h >> 16)) & 0xFFFF) / 65535.0
+from shapes import polar, quad, lerp, noise as _noise, jig
 
 
 def _blade(attach, d, length, width, bend=0.0, teeth=0, waist=0.36, tip_sharp=1.0):
-    """1 枚の葉身。waist を上げると卵形、下げると披針形。"""
-    tip = polar(attach, d + bend * 16, length)
-    mid = polar(attach, d + bend * 8, length * waist)
-    left = polar(mid, d - 90, width)
-    right = polar(mid, d + 90, width)
+    """1 枚の葉身。waist を上げると卵形、下げると披針形。
+
+    左右を同じ式で作ると完全な鏡像になる。葉は本来そうではない。主脈は
+    真ん中を通らず、片側の方が広く、いちばん広いところの高さも左右で違う。
+    先端も主脈の延長からわずかに外れる。この崩しが無いと、何枚並べても
+    型で抜いた飾りに見える。
+    """
+    seed = attach[0] * 0.37 + attach[1] * 0.11 + d * 0.017
+    nl, nr = _noise(seed, 901), _noise(seed, 902)
+    wl = width * (0.82 + 0.34 * nl)
+    wr = width * (0.82 + 0.34 * nr)
+    # 最大幅の位置も左右で変える
+    ml = polar(attach, d + bend * 8, length * (waist + 0.12 * (nl - 0.5)))
+    mr = polar(attach, d + bend * 8, length * (waist + 0.12 * (nr - 0.5)))
+    # 先端は主脈の延長から少し外れる
+    tip = polar(attach, d + bend * 16 + jig(seed, 903, 4.5), length)
+    left = polar(ml, d - 90, wl)
+    right = polar(mr, d + 90, wr)
     e1 = quad(attach, left, tip, 20)
     e2 = quad(tip, right, attach, 20)
 
     if teeth:
         # 鋸歯。等間隔・等高さにすると型で抜いた飾り縁になる。実物は
         # 大小が混じり、ところどころ歯が飛ぶ。そこを崩すだけで手描きに寄る。
-        seed = attach[0] * 0.37 + attach[1] * 0.11 + d * 0.017
 
         def serrate(edge, outdeg, off):
             out = []
@@ -45,7 +48,11 @@ def _blade(attach, d, length, width, bend=0.0, teeth=0, waist=0.36, tip_sharp=1.
         e2 = serrate(e2, d + 90, 3.5)
 
     outline = e1 + e2[1:]
-    midrib = quad(attach, polar(attach, d + bend * 8, length * 0.5), tip, 14)
+    # 主脈は広い側へわずかに寄る
+    lean = (wr - wl) / max(width, 1e-6) * 2.2
+    midrib = quad(attach,
+                  polar(polar(attach, d + bend * 8, length * 0.5), d + 90, width * lean),
+                  tip, 14)
     veins, flow = [], []
     vseed = attach[0] * 0.23 + attach[1] * 0.41 + d * 0.013
     for i in range(1, 5):

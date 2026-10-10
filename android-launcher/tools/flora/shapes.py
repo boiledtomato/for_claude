@@ -1,6 +1,23 @@
 """植物の形。鉛筆で「引く線」として持つので、塗りではなく折れ線で返す。"""
 import math
 
+def noise(seed, i):
+    """位置だけで決まる擬似乱数。0..1。
+
+    乱数生成器を持ち回ると版面と実機で値がずれるので、形を決める揺らぎは
+    すべて座標から決める。同じ株は何度描いても同じ形になる。
+    """
+    h = (int(seed * 7919) ^ (i * 2654435761)) & 0xFFFFFFFF
+    h = (h ^ (h >> 15)) * 2246822519 & 0xFFFFFFFF
+    h = (h ^ (h >> 13)) * 3266489917 & 0xFFFFFFFF
+    return ((h ^ (h >> 16)) & 0xFFFF) / 65535.0
+
+
+def jig(seed, i, amount):
+    """-amount..+amount の揺らぎ。"""
+    return (noise(seed, i) - 0.5) * 2.0 * amount
+
+
 def polar(o, deg, d):
     r = math.radians(deg)
     return (o[0] + math.cos(r) * d, o[1] + math.sin(r) * d)
@@ -107,13 +124,20 @@ def bell(base, d, length, width, lobes=5, lip=0.34, tooth=0.42, throat=False,
          visible_lobes=3.0, splay=64.0):
     """ホタルブクロ型の釣鐘花。[base] に花柄がつき、[d] の向きに口が開く。"""
     n = 26
+    sd = base[0] * 0.29 + base[1] * 0.19 + d * 0.013
+    # 左右で輪郭をずらす。同じプロファイルを両側に使うと完全な鏡像になり、
+    # 旋盤で挽いた器に見える。花冠はどこかが張り、どこかが凹んでいる。
+    pl, pr = noise(sd, 11) * 6.28, noise(sd, 12) * 6.28
+    al, ar = 0.07 + 0.07 * noise(sd, 13), 0.07 + 0.07 * noise(sd, 14)
+    # 軸そのものも少し曲がる
+    lean = jig(sd, 15, 5.0)
     left, right = [], []
     for i in range(n + 1):
         t = i / n
         r = width * _spline(BELL_TS, BELL_RS, t)
-        on = polar(base, d, length * t)
-        left.append(polar(on, d - 90, r))
-        right.append(polar(on, d + 90, r))
+        on = polar(base, d + lean * t, length * t)
+        left.append(polar(on, d - 90, r * (1.0 + al * math.sin(t * 3.1 + pl))))
+        right.append(polar(on, d + 90, r * (1.0 + ar * math.sin(t * 2.6 + pr))))
 
     mouth = polar(base, d, length)
     ml, mr = left[-1], right[-1]
@@ -133,6 +157,8 @@ def bell(base, d, length, width, lobes=5, lip=0.34, tooth=0.42, throat=False,
         f = (t * visible_lobes) % 1.0
         tri = (1.0 - abs(f * 2 - 1.0)) ** 0.75
         tri *= math.sin(math.pi * t) ** 0.45
+        # 裂片ごとに張り出しを変える。そろえると歯車の歯になる。
+        tri *= 0.72 + 0.56 * noise(sd, 200 + int(t * visible_lobes))
         near.append(polar(q, d + (t - 0.5) * splay, rw * tooth * tri))
 
     outline = left + near[1:] + right[::-1][1:]
@@ -219,10 +245,13 @@ def star(center, d, radius, lobes=5):
 
 def bud(base, d, length, width, ridges=4):
     """まだ閉じた蕾。稜線を何本か入れると萼のねじれが出る。"""
-    apex = polar(base, d, length)
-    waist = polar(base, d, length * 0.44)
-    left = polar(waist, d - 90, width)
-    right = polar(waist, d + 90, width)
+    sd = base[0] * 0.23 + base[1] * 0.37 + d * 0.019
+    # 蕾も左右対称ではない。花弁が巻きついているぶん、片側が膨らむ。
+    apex = polar(base, d + jig(sd, 1, 5.0), length)
+    wl = polar(base, d, length * (0.44 + jig(sd, 2, 0.08)))
+    wr = polar(base, d, length * (0.44 + jig(sd, 3, 0.08)))
+    left = polar(wl, d - 90, width * (0.84 + 0.32 * noise(sd, 4)))
+    right = polar(wr, d + 90, width * (0.84 + 0.32 * noise(sd, 5)))
     outline = quad(base, left, apex, 20) + quad(apex, right, base, 20)[1:]
     lines = []
     for i in range(ridges):
@@ -268,27 +297,47 @@ def face(centre, d, radius, lobes=5, cut=0.46, sharp=1.5):
     付け根がくびれて先が尖る形に作り、谷で隣とつなぐ。
     """
     step = 360.0 / lobes
+    sd = centre[0] * 0.31 + centre[1] * 0.17 + d * 0.011
     outline, sinus, veins = [], [], []
+
+    # 裂片ごとの揺らぎを先に決める。谷は隣り合う裂片で共有するので、
+    # ここで一度だけ作らないと輪郭が裂片の境目で割れる。
+    # 崩しは控えめに。植物の非対称は「どこか少し違う」程度で、派手に
+    # 振ると虫に食われた花になる。半径で ±6%、角度で裂片の 4% ほど。
+    lobe_a = [d + step * i + jig(sd, i, step * 0.045) for i in range(lobes)]
+    lobe_r = [radius * (0.94 + 0.12 * noise(sd, 40 + i)) for i in range(lobes)]
+    # 最後の谷は一周ぶん（360度）を足して戻す。step を足すと位置がずれて、
+    # 裂片の輪郭が閉じずに割れる。
+    sinus_a = [(lobe_a[i] + lobe_a[(i + 1) % lobes] +
+                (360.0 if i == lobes - 1 else 0.0)) / 2 for i in range(lobes)]
+    sinus_r = [radius * cut * (0.93 + 0.14 * noise(sd, 70 + i)) for i in range(lobes)]
+
     for i in range(lobes):
-        a = d + step * i
+        a, rr = lobe_a[i], lobe_r[i]
         # 谷（裂片のあいだ）。花冠は筒の途中まで裂けている
-        va = a - step / 2
-        vb = a + step / 2
-        pv = polar(centre, va, radius * cut)
-        pw = polar(centre, vb, radius * cut)
-        tip = polar(centre, a, radius)
-        # 裂片の縁。谷から先へふくらみながら尖る
-        c1 = polar(polar(centre, a - step * 0.30, radius * 0.86), a, radius * 0.04)
-        c2 = polar(polar(centre, a + step * 0.30, radius * 0.86), a, radius * 0.04)
+        j = (i - 1) % lobes
+        pv = polar(centre, sinus_a[j], sinus_r[j])
+        pw = polar(centre, sinus_a[i], sinus_r[i])
+        tip = polar(centre, a + jig(sd, 100 + i, step * 0.03), rr)
+        # 裂片の縁。左右のふくらみ方を変える。同じにすると鏡像になり、
+        # 5 枚そろうと工業製品の星形に見える。
+        f1 = 0.27 + 0.07 * noise(sd, 130 + i)
+        f2 = 0.27 + 0.07 * noise(sd, 160 + i)
+        c1 = polar(polar(centre, a - step * f1, rr * (0.84 + 0.06 * noise(sd, 190 + i))),
+                   a, rr * 0.04)
+        c2 = polar(polar(centre, a + step * f2, rr * (0.84 + 0.06 * noise(sd, 220 + i))),
+                   a, rr * 0.04)
         outline += quad(pv, c1, tip, 12)[:-1] + quad(tip, c2, pw, 12)[:-1]
-        sinus.append(quad(pv, polar(centre, va, radius * cut * 0.5), centre, 7))
+        sinus.append(quad(pw, polar(centre, sinus_a[i], sinus_r[i] * 0.5), centre, 7))
         # 脈。裂片の中心へ 1 本、両脇へ 2 本ずつ
         for f, ln in ((0.0, 0.90), (-0.26, 0.74), (0.26, 0.74),
                       (-0.44, 0.56), (0.44, 0.56)):
             veins.append(quad(polar(centre, a + f * step * 0.5, radius * 0.10),
                               polar(centre, a + f * step * 0.62, radius * ln * 0.55),
                               polar(centre, a + f * step * 0.80, radius * ln), 10))
-    throat = [polar(centre, d + i * 6, radius * cut * 0.80) for i in range(60)]
+    throat = [polar(centre, d + i * 6,
+                    radius * cut * 0.80 * (0.94 + 0.10 * noise(sd, 250 + i // 6)))
+              for i in range(60)]
     return {"outline": outline, "sinus": sinus, "veins": veins, "throat": throat,
             "centre": centre, "axis": d, "radius": radius, "mouth": centre,
             "base": centre, "length": radius, "width": radius}

@@ -9,6 +9,7 @@ import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -17,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -137,6 +139,10 @@ fun HomeScreen() {
         )
     }
 
+    // 指でなぞっている最中の軌跡（版面座標）。離すとここが蔦になる。
+    var traceFrom by remember { mutableStateOf<TapTarget?>(null) }
+    val tracePts = remember { mutableStateListOf<Offset>() }
+
     // アプリを開くときに伸びる蔓
     var reach by remember { mutableStateOf<Reach?>(null) }
     val reachGrow = remember { Animatable(0f) }
@@ -184,6 +190,43 @@ fun HomeScreen() {
         }
     }
 
+    /**
+     * なぞった軌跡をそのまま蔦にする。
+     *
+     * 自動で伸ばす蔓と同じ仕組みに載せ、道筋だけ指の軌跡に差し替える。
+     * もう伸びきっているので grow は 1 から始め、一拍おいて咲かせる。
+     */
+    fun releaseTrace(target: TapTarget, raw: List<Offset>) {
+        val path = smoothTrace(raw)
+        if (path.size < 4) return
+        val keys = bindings[target.id].orEmpty().filter { appsByKey.containsKey(it) }
+        reach = Reach(
+            originId = target.id,
+            origin = path.first(),
+            heading = 0f,
+            length = flora.width * 0.42f,
+            seed = target.id.hashCode(),
+            appKeys = keys,
+            traced = path,
+        )
+        scope.launch {
+            reachGrow.snapTo(1f)
+            reachBloom.snapTo(0f)
+            delay(REACH_HOLD_MS)
+            reachBloom.animateTo(1f, tween(REACH_BLOOM_MS, easing = FastOutSlowInEasing))
+            if (keys.size == 1) {
+                delay(180)
+                appsByKey[keys[0]]?.let { AppRepository.launch(context, it) }
+                delay(240)
+                clearReach()
+            } else if (keys.isEmpty()) {
+                // 何も留めていない部位からでも伸ばせる。しばらく咲かせて戻す。
+                delay(1400)
+                clearReach()
+            }
+        }
+    }
+
     fun assign(target: TapTarget) {
         // 部位そのものの絵を渡す。「どこに登録しているか」は名前より絵が早い。
         val sprite = flora.organs.firstOrNull { it.id == target.id }?.bitmap
@@ -223,6 +266,7 @@ fun HomeScreen() {
             reach = { reach },
             reachGrow = { reachGrow.value },
             reachBloom = { reachBloom.value },
+            trace = { tracePts.toList() },
             bindings = bindings,
             appsByKey = appsByKey,
             showLabels = showLabels,
@@ -231,6 +275,40 @@ fun HomeScreen() {
                 .fillMaxSize()
                 .systemBarsPadding()
                 .onSizeChanged { canvasSize = Size(it.width.toFloat(), it.height.toFloat()) }
+                // なぞって伸ばす。タップとは別の pointerInput に置く。
+                // detectDragGestures はタッチスロープを超えてから主張するので、
+                // 軽く触れただけならタップとして処理される。
+                .pointerInput(transform, flora) {
+                    detectDragGestures(
+                        onDragStart = { p ->
+                            val hit = hitTest(flora, transform, p)
+                            if (hit != null) {
+                                clearReach()
+                                traceFrom = hit
+                                tracePts.clear()
+                                tracePts.add(hit.at)
+                                tracePts.add(transform.toScene(p))
+                            }
+                        },
+                        onDrag = { change, _ ->
+                            if (traceFrom != null) {
+                                tracePts.add(transform.toScene(change.position))
+                                change.consume()
+                            }
+                        },
+                        onDragEnd = {
+                            val from = traceFrom
+                            val pts = tracePts.toList()
+                            traceFrom = null
+                            tracePts.clear()
+                            if (from != null) releaseTrace(from, pts)
+                        },
+                        onDragCancel = {
+                            traceFrom = null
+                            tracePts.clear()
+                        },
+                    )
+                }
                 .pointerInput(transform, flora, reach) {
                     detectTapGestures(
                         onTap = { p ->
