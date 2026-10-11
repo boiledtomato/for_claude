@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — Data Security / DSPM / Posture (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-01 20:41 UTC
-Posts in this file: 10
+Generated: 2026-10-05 10:48 UTC
+Posts in this file: 11
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -1164,4 +1164,101 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Workflow Automation
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000013isFh0AI/workflow-automation-using-zir-deployed-as-onpremvm","lastmod":"2026-10-02T10:55:59.000Z","id":"0D5PJ000013isFh0AI"} -->
+## Workflow Automation using ZIR Deployed as OnpremVM
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000013isFh0AI/workflow-automation-using-zir-deployed-as-onpremvm
+- Type: Q&A
+- Last activity: 2026-10-02T10:55:59.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Incident Workflow Management
+
+masadinaim
+
+(Partner) asked a question
+
+October 2, 2026 at 10:55 AM
+
+Workflow Automation using ZIR Deployed as OnpremVM
+
+Greeting,
+
+Does anyone already have experience to deploy ZIR as onprem VM and works fully functional with Workflow Automation? We have a customer that they want to use Workflow Automation for DLP so if user sending sensitive data they need to have approval first from manager but the customer didn't have any AWS or Azure tenant only GCP, so we think to use ZIR deployed in their DC or GCP and integrated with Workflow Automation.
+
+Any concern or suggestion on this? Thanks!
+
+Incident Workflow Management
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+No posts to show.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Workflow Automation using ZIR Deployed as OnpremVM
 <!-- /ZS-POST -->

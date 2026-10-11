@@ -1,18 +1,1620 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 7)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-09-14 03:38 UTC
-Articles in this file: 77
+Generated: 2026-10-05 09:38 UTC
+Articles in this file: 95
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-outbound-email-policy-enforcement","lastmod":"2026-08-21T08:34Z","nid":"1492686"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-end-user-reports","lastmod":"2026-05-27T03:00Z","nid":"1533607"} -->
+## Understanding End User Reports
+
+- Source: https://help.zscaler.com/zia/understanding-end-user-reports
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Understanding End User Reports
+- Last modified: 2026-05-27T03:00Z
+- Summary: This article provides information about where the End User Report configuration and how to view the generated report after the endpoint data scan is run.
+
+The Endpoint Data Scan feature is designed to help users identify sensitive files stored locally and to highlight instances of improperly stored sensitive data on their local devices. To encourage secure data storage practices, reduce security risks, and promote a culture of compliance throughout the organization, end users can receive daily reports and actionable guidance regarding any sensitive files found. Admins can configure the message to guide the user and provide best practices for storing sensitive files on their endpoints. This allows end users to clean up or secure sensitive information and take an active role in protecting organizational data.
+
+## Configuring End User Reports
+
+While configuring End User Reports, admins can do the following:
+
+- Exclude scanning based on entities, files, or folders. This allows admins to avoid scanning user profiles based on user groups, departments, or individual endpoints, as well as excluding system directories, temporary folders, or specific files that do not contain business data.
+- Enable an End User Report to show users which files on their devices were stored and classified as sensitive. A file is considered sensitive if it contains at least one of the DLP Engines or AI & ML Categories. They can customize the message, set a schedule, and include guidelines or best practices on how end users should handle or relocate sensitive files.
+
+End User Reports are hidden by default. Admins can configure End User Reports from Analytics > Endpoint Data Scan > Configurations. End User Reports can be enabled and configured to appear only if a specified file count threshold (ranging from 1 to 100,000, with a default of 10) is met. Admins can define specific days (default Monday to Friday) and hours (default 09:00 to 17:00) for report display. They can choose whether to expose sensitive data categories like Dictionaries, DLP Engines, and AI & ML Categories, all of which are disabled by default. A customizable message can also be displayed to end users, with a default option provided. To learn more, see [Configuring Endpoint Data Scan, Endpoint Settings, and Channels](https://help.zscaler.com/zia/configuring-endpoint-data-scan-endpoint-settings).
+
+See image.
+
+## Viewing End User Reports
+
+After the Endpoint Data Scan is completed, the end user receives a notification with the number of sensitive files found locally. End users can click View Filesto see a full list of locally stored sensitive files and open them directly from the report to easily locate, move, or delete them according to best practices.
+
+See image.
+
+End users can also access the latest report using the Context menu by right-clicking the desktop > Zscaler > Open Data Scan Report. End users can filter the report based on date, file type, or file content.
+
+End users can view the following information in the report:
+
+- **Number of sensitive files found**: Displays the list of detected sensitive files along with a graphical representation showing last week's progress.
+- **Customized message:**The customized message is available in the Attention Required section of the report.
+- **File Name**
+- **File Path**
+- **File Size**
+- **DLP Engines**: Displays the DLP engine details, if configured by the admin.
+- **AI & ML Categories:** Displays the AI & ML categories, if configured by admin.
+- **Access Time**
+- **SHA 256**
+
+See image.
+
+[Image: End User Reports shows the number of sensitive files detected, DLP engines, AI & ML categories etc.]
+
+[Image: Notification Message showing the customized message and the View Files button, which users can click to view the sensitive files identified on their device.]
+
+[Image: The Configuration Page allows the admin to configure the End User Report.]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-endpoint-policy-enforcement","lastmod":"2026-07-09T12:30Z","nid":"1463201"} -->
+## Understanding Endpoint Policy Enforcement
+
+- Source: https://help.zscaler.com/zia/understanding-endpoint-policy-enforcement
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Understanding Endpoint Policy Enforcement
+- Last modified: 2026-07-09T12:30Z
+- Summary: Information on how the Zscaler Endpoint Data Loss Prevention (DLP) uses rules to inspect and enforce policies on the activities that end users take with sensitive data on endpoints.
+
+Zscaler Endpoint Data Loss Prevention (DLP) uses DLP engines consisting of rules and exception rules to inspect and enforce policies that monitor activities that users take on endpoints. Your Endpoint DLP policy can monitor activities across multiple channels (i.e., printing, saving to removable storage, uploading to personal cloud accounts, or saving to network shares) that involve sensitive data on endpoints.
+
+At a high level, Endpoint DLP monitors activity and enforces policy in the following ways:
+
+- At startup, Endpoint DLP runs inventory and classification scans on an endpoint to identify and categorize data. Classification scans always run after inventory scans. Each time the Endpoint DLP policy changes, an inventory and classification scan runs on the endpoint.
+- When a user performs a monitored activity that involves sensitive data, the rule engine evaluates all rules. If multiple rules match, the rule engine selects the rule with the most restrictive action and the highest rule order.
+- Before executing the matching rule, however, the rule engine looks for exception rules, which inherit rule order from parent rules. The engine evaluates exception rules according to rule order and selects the first matching exception rule, which then takes the place of the parent rule.
+
+To learn more, see [Step-by-Step Configuration Guide for Zscaler Endpoint DLP](https://help.zscaler.com/zia/step-by-step-endpoint-dlp).
+
+## Endpoint Policy Enforcement Examples
+
+Knowing how the Zscaler service applies your policies in different scenarios helps you understand why certain policies do or do not trigger based on end-user activity. It also ensures that your organization's data is secured as expected. Consider the following policy enforcement examples:
+
+### Example 1 (Rules)
+
+Consider an Endpoint DLP policy that consists of the following rules:
+
+| **Rule ID** | **Rule Order** | Channel | Description | User/Group | Action | Severity | **Email Notification** |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| R1 | 1 | Removable Storage | Request user confirmation when copying files that contain Payment Card Industry (PCI) data | Any | Confirm | Low | Yes |
+| R2 | 2 | Removable Storage | Block copying of source code | Engineering | Block | Medium | No |
+| R3 | 3 | Removable Storage | Block copying of HIPAA information | Any | Block | High | No |
+
+#### Rules Scenario 1
+
+An end user in the Engineering department copies a ZIP file that includes files with PCI data, source code, and HIPAA information. Endpoint DLP determines the following:
+
+- All three rules match, but R2 and R3 have the most restrictive action.
+- R2 has a higher rule order, so the service executes that rule, with a severity of Medium and no email notification.
+- R1 and R3 are logged as having matched.
+
+#### Rules Scenario 2
+
+An end user in the HR department copies a ZIP file that includes files with PCI data, source code, and HIPAA information. Endpoint DLP determines the following:
+
+- R1 and R3 match, but R3 has the most restrictive action.
+- The service executes R3, with a severity of High and no email notification.
+- R1 is logged as having matched.
+
+### Example 2 (Exception Rules)
+
+Now, consider the following exception rules associated with the same Endpoint DLP rules:
+
+| **Rule ID** | **Rule Order** | Channel | Description | User/Group | Action | Severity | **Email Notification** |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| R1 | 1 | Removable Storage | Request user confirmation when copying files that contain Payment Card Industry (PCI) data | Any | Confirm | Low | Yes |
+| *R1.1* | 1.1 | Removable Storage | Block if contains data marked *Confidential* | Any | Block | High | Yes |
+| *R1.2* | 1.2 | Removable Storage | Exclude VP of Finance and CFO | VP Finance, CFO | Allow | Info | No |
+| R2 | 2 | Removable Storage | Block copying of source code | Engineering | Block | Medium | No |
+| *R2.1* | 2.1 | Removable Storage | Request user confirmation if Director or VP | Director or VP | Confirm | Medium | No |
+| R3 | 3 | Removable Storage | Block copying of HIPAA information | Any | Block | High | No |
+
+#### Exception Rules Scenario 1
+
+The Director of Engineering copies a ZIP file that includes files with PCI data, source code, and HIPAA information. Endpoint DLP determines the following:
+
+- All three rules match, but R1 and R2 have exception rules.
+- R1.1 does not match (ZIP does not contain files marked *Confidential*).
+- R1.2 does not match (user is not a VP or CEO).
+- R2.1 matches (user is Director of Engineering), so R2.1 replaces R2.
+- The matched rules are R1, R2.1, and R3; however, R3 has the most restrictive action, so the engine executes R3. The incident has a severity of High and does not trigger an email notification.
+- Rules R1 and R2.1 are logged as having matched.
+
+#### Exception Rules Scenario 2
+
+The Chief Financial Officer (CFO) copies a ZIP file that includes files with PCI data, source code, and HIPAA information. Endpoint DLP determines the following:
+
+- R1 and R3 match.
+- R1 has exception rules.
+- R1.1 does not match (ZIP does not contain files marked *Confidential*).
+- R1.2 matches (user is CFO), so R1.2 replaces R1.
+- The matched rules are R1.2 and R3; however, R3 has the most restrictive action, so the engine executes R3. The incident has a severity of High and does not trigger an email notification.
+- Rule R1.2 is logged as having matched.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-extranet-application-support","lastmod":"2026-08-07T13:41Z","nid":"1508696"} -->
+## Understanding Extranet Application Support
+
+- Source: https://help.zscaler.com/zia/understanding-extranet-application-support
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Extranet > Understanding Extranet Application Support
+- Last modified: 2026-08-07T13:41Z
+- Summary: Information on Extranet Application Support and how it is implemented for the Zscaler service.
+
+Zscaler Extranet Application Support leverages both Internet & SaaS (ZIA) and Private Access (ZPA) to provide organizations with a secure way to access resources that are not secured with the Zscaler service. It also allows your business partners to access applications secured with the Zscaler service on your organization's network. This is typically accomplished by building site-to-site VPN tunnels that present several challenges including:
+
+- Preventing lateral threat movement.
+- Limiting access to authorized apps.
+- Multiple solutions are needed for on-premises and remote employees.
+- Organizations looking to access resources from multiple partners face additional organizational and financial difficulty.
+
+Zscaler Extranet Application Support enables bidirectional resource access between your organization and a partner through secure [IPSec tunnels](https://help.zscaler.com/zia/understanding-ipsec-vpns) without requiring partners to install any additional hardware or software.
+
+Extranets are created on the [Extranet page](https://help.zscaler.com/zia/about-extranet) in the Zscaler Admin Console and then assigned to [locations](https://help.zscaler.com/zia/about-locations). Each extranet has traffic selectors and DNS servers specified for it. A traffic selector is an IPSec traffic-steering rule for forwarding traffic between tunnels. Each traffic selector can contain multiple IP address ranges and uses the industry standard IKEv2 protocol. You can select specific traffic selectors and DNS servers when assigning an extranet to a location or use defaults that are designated during configuration.
+
+Extranet Application Support does not support NULL encryption for IPSec IKE Phase 2 configuration. Zscaler recommends using the AES-GCM-based encryption algorithm instead.
+
+The Zscaler service facilitates the creation and management of extranets, and Private Access manages user access to extranet resources. Extranet resources can be designated in Private Access when configuring [server groups](https://help.zscaler.com/zpa/configuring-server-groups) and [application segments](https://help.zscaler.com/zpa/configuring-application-segments). You can [configure access policies](https://help.zscaler.com/zpa/configuring-access-policies) to manage extranet applications.
+
+## Traffic Flow for Extranet Application Support
+
+This is the typical traffic flow for users accessing extranet resources:
+
+1. A user with Zscaler Client Connector initiates their connection to an extranet application. User eligibility is checked by a Public Service Edge for Private Access.
+2. After the user is authorized, the Public Service Edge for Private Access sends a request to a Public Service Edge for Internet & SaaS which forwards the request through an IPSec tunnel to the extranet partner's IPSec gateway.
+3. The request is forwarded to the designated DNS server and then sent through the right tunnel to the partner data center based on the designated traffic selector.
+4. After DNS resolution, the application payload is sent by the Public Service Edge for Internet & SaaS back to the Public Service Edge for Private Access.
+5. Private Access forwards the application payload to the Zscaler Client Connector user.
+
+[Image: Flow diagram for organization to partner resource access]
+
+This is the typical traffic flow for partners accessing resources on your organization's network:
+
+1. The partner user initiates a DNS resolution request over the IPSec tunnel.
+2. If the DNS request is valid, the Public Service Edge for Internet & SaaS sends an ephemeral DNS response back to the partner user.
+3. The partner user's traffic is forwarded to the Zero Trust Exchange (ZTE) through the IPSec tunnel.
+4. The partner user's traffic is inspected by Internet & SaaS policies and validated by the Private Access access policy.
+5. The application is delivered to the partner from your organization's data center through the App Connector, ZTE, and IPSec tunnel.
+
+[Image: Flow diagram for partner to organization resource access]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-firewall-capabilities","lastmod":"2026-08-31T21:53Z","nid":"1402371"} -->
+## Understanding Firewall Capabilities
+
+- Source: https://help.zscaler.com/zia/understanding-firewall-capabilities
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Understanding Firewall Capabilities
+- Last modified: 2026-08-31T21:53Z
+- Summary: Information on Zscaler's Firewall capabilities and policies.
+
+The Zscaler cloud provides integrated cloud-based next-generation firewall capabilities that allow granular control over your organization's outbound TCP, UDP, and ICMP traffic.
+
+Zscaler works with multiple firewall partners, and [provides a separate deployment guide for each partner](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-firewall-technology-partner-deployment-guides).
+
+You can configure the following Firewall policies:
+
+- [Firewall Filtering Policy](https://help.zscaler.com/zia/about-firewall-control): Add rules to allow or block specified types of traffic from your network to the internet. You can also specify how the sessions are logged.
+- [NAT Control Policy](https://help.zscaler.com/zia/about-nat-control): Add rules to perform destination NAT. You can redirect traffic to specific IP addresses or ports.
+- [DNS Control Policy](https://help.zscaler.com/zia/about-dns-control): Add rules to allow or block DNS requests, redirect requests to a different DNS server, or redirect DNS responses by substituting the IP address in a DNS response with a preconfigured IP address.
+- [IPS Control Policy](https://help.zscaler.com/zia/about-ips-control): Add rules to control and protect your traffic from intrusion over all ports and protocols using signature-based detection.
+
+[Configuring Firewall policies](https://help.zscaler.com/zia/configuring-firewall-policies) requires configuring the 4 policies in the preceding list as applicable and [enabling the firewall](https://help.zscaler.com/zia/enabling-firewall-locations) for your locations. You might also need to enable [IPv6 configuration](https://help.zscaler.com/zia/understanding-ipv6-support), create [source](https://help.zscaler.com/zia/how-do-i-configure-source-ip-groups) and [destination IP](https://help.zscaler.com/zia/how-do-i-configure-destination-ip-groups) groups, modify [network services](https://help.zscaler.com/zia/about-network-services), create [network application groups](https://help.zscaler.com/zia/about-network-application-groups), and configure [custom ports](https://help.zscaler.com/zia/configuring-custom-ports).
+
+Configuring a Firewall policy also requires the following:
+
+- An organization must forward its IP traffic from a known location.
+- If your organization wants to apply Firewall policies at the user level, user authentication and surrogate IP must be enabled. Otherwise, the Zscaler Firewall service applies organization and location policies.
+
+## Standard and Advanced Firewall
+
+The following table lists the features and functionalities offered by Standard and Advanced Firewall:
+
+| Features and Functionalities | Standard Firewall | Advanced Firewall |
+| --- | --- | --- |
+| Firewall policies based on the following criteria: [Network and Application Services](https://help.zscaler.com/zia/about-network-services): Manage your traffic based on network services and application services that are designated to use specific IP addresses, ports, and protocols (5-tuple firewall).; **FQDN Filtering**:Control your network traffic based on fully qualified domain names (FQDN) and wildcard FQDN*.; [Location Awareness](https://help.zscaler.com/zia/about-locations): Enforce policies on internet traffic from known locations (locations configured in the Zscaler Admin Console), sublocations, and remote users.; **User Awareness**: Define granular policies based on [users](https://help.zscaler.com/zia/about-users), [groups](https://help.zscaler.com/zia/about-groups), and [departments](https://help.zscaler.com/zia/about-departments).; [Application Awareness](https://help.zscaler.com/zia/about-network-applications): Identify and control traffic that belongs to network applications using deep packet inspection (DPI). | Supported with limitations: User Awareness and Application Awareness criteria are notsupported; Only 10 Firewall Filtering rules are allowed | Supported |
+| [Destination NAT](https://help.zscaler.com/zia/about-nat-control): Create rules to redirect your traffic to specific IP addresses and ports within a network using destination NAT. | Supported | Supported |
+| [FTP Traffic Control](https://help.zscaler.com/zia/understanding-ftp-control): Use configuration settings to manage native FTP traffic and FTP over HTTP traffic. Configure policies to allow access to specific FTP sites. | Supported | Supported |
+| [DNS Security and Control](https://help.zscaler.com/zia/about-dns-control): Define granular DNS filtering policies to control DNS attributes, requests, and responses. Optimize DNS resolution using Zscaler Trusted DNS Resolver hosted in Zscaler data centers. | Supported (only 64 rules are allowed) | Supported |
+| [DNS Tunnel and DNS Application Control](https://help.zscaler.com/zia/detecting-and-controlling-dns-tunnels): Secure your DNS traffic from DNS tunneling, malicious domains, malware, and phishing attacks. Control DNS applications including web pages, social networking sites, search engines, and network services at the DNS level. | N/A | Supported |
+| [IPS Control](https://help.zscaler.com/zia/about-ips-control): Use signature-based IPS to monitor your traffic in real time and protect your network against identified threats over all ports and protocols. In addition to the signatures managed by Zscaler, create and deploy custom IPS signature rules to identify unique threats that are specific to your organization's requirements and threat landscape. | N/A | Supported |
+| [Non-Standard Traffic Redirection](https://help.zscaler.com/zia/about-advanced-settings#auto-proxy-forwarding): Identify outbound HTTP, HTTPS, FTP, DNS, RTSP, and PPTP traffic that is destined for non-standard ports and redirect the traffic to the web proxy (secure web gateway) for full web visibility and security. | N/A | Supported |
+| **Firewall & IPS Dashboards, Insights, and Logs**:Analyze your traffic information using customizable dashboards, interactive charts, and real-time logs. | Supported. Limitations in logging in Standard Firewall include full logging for each blocked flow but aggregated logging every 15 minutes for allowed flows. | Supported |
+| **DNS Dashboards, Insights, and Logs**: Analyze your traffic information using customizable dashboards, interactive charts, and real-time logs. | Supported. Limitations in logging: DNS tunnel and DNS application information are not populated in DNS logs. | Supported |
+| **Miscellaneous**: Forwarding Control policy (including Source IP Anchoring) | Supported with limitations: Users, groups, departments, custom application service groups, or device groups criteria are not supported in the Forwarding Control policy. | Supported |
+
+*Wildcard FQDN support for non-web traffic requires an Internet & SaaS (ZIA) edition that includes parsing of DNS traffic via DNS Control/Security. This capability is available across all new Internet & SaaS editions (2023 editions) and earlier Internet & SaaS editions with Advanced Firewall. Wildcard FQDN match against web traffic (HTTP and TLS/SNI) can function without the need for parsing DNS packets.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-ftp-control","lastmod":"2026-08-12T10:24Z","nid":"1398756"} -->
+## Understanding FTP Control
+
+- Source: https://help.zscaler.com/zia/understanding-ftp-control
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > FTP Control > Understanding FTP Control
+- Last modified: 2026-08-12T10:24Z
+- Summary: Information about FTP Control supported by Internet & SaaS (ZIA) that provides additional control over your FTP traffic.
+
+[Watch a video about FTP Control Policy.](https://fast.wistia.net/embed/iframe/slkgryvr00)
+
+By default, the Zscaler service doesn't allow users from a location to upload or download files from FTP sites that use FTP over HTTP. Only native FTP traffic is allowed. With FTP Control, Zscaler provides access control for native FTP and FTP over HTTP traffic. This can be particularly useful if you are using a Zscaler Client Connector or PAC-based deployment, as they only support FTP over HTTP traffic. FTP Control also extracts files and runs a security scan.
+
+There are multiple levels of FTP Control:
+
+- You can configure the FTP Control policy to allow access to specific FTP sites.
+- If you have [Malware Protection](https://help.zscaler.com/zia/about-malware-protection), you can scan FTP over HTTP traffic and native FTP traffic in real time. To learn more, see [Configuring the FTP Control Policy](https://help.zscaler.com/zia/configuring-ftp-control-policy).
+- If you have [Data Loss Prevention (DLP)](https://help.zscaler.com/zia/configuring-policy-using-zscaler-dlp-engines#protocols), [Sandbox](https://help.zscaler.com/zia/how-do-i-add-rules-sandbox-policy#protocols), [File Type Control](https://help.zscaler.com/zia/configuring-file-type-control-policy), [URL Filtering](https://help.zscaler.com/zia/configuring-url-filtering-policy), and [Bandwidth Control](https://help.zscaler.com/zia/adding-rules-bandwidth-control-policy), you can configure those policies based on protocols (e.g., FTP over HTTP and native FTP).
+- Complete FTP logging in [Firewall Insights](https://help.zscaler.com/zia/about-insights).
+
+Using FTP Control, you can manage your organization's FTP traffic by monitoring users' access to FTP servers using FTP (only passive FTP), FTPS, and FTP over HTTPS protocol. You can inspect your users' FTP traffic, including passive FTP, FTPS, and FTP over HTTPS traffic, and protect the traffic against malicious software using the Malware Protection policy.
+
+The FTP Control policy applies to traffic from the known locations of an organization. However, if a remote user uses a dedicated port, then the service supports FTP over HTTP for them. When they use a dedicated port, if their browser connects to FTP sites and downloads files, the service is able to scan the content for viruses and spyware.
+
+URL Filtering policy rules take precedence over the FTP Control policy. For example, if you have a URL Filtering Policy rule that blocks access to gambling sites, the Zscaler service blocks users who try to transfer files from `ftp://ftp.site.com`. Also, user-, department-, or group-level URL filtering rules blocking access to specific sites are not enforced for FTP sites because FTP does not support cookies. Only rules applied to all users are enforced. For example, if you have a catch-all URL filtering rule that blocks access to gambling sites, users trying to FTP to `ftp://ftp.site.com` would be blocked. To learn how the FTP policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
+
+The service supports only passive FTP. If the destination server does not support passive FTP, the service generates an alert message to this effect in the end user's browser. The service also supports FTPS (FTP over TLS) in passive mode. You can either set up implicit or explicit FTPS. To use explicit FTPS, set a proxy in the FTP client.
+
+To learn how to configure FTP Control settings, see [Configuring the FTP Control Policy](https://help.zscaler.com/zia/configuring-ftp-control-policy).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-generic-routing-encapsulation-gre","lastmod":"2026-05-24T22:34Z","nid":"1399106"} -->
+## Understanding Generic Routing Encapsulation (GRE)
+
+- Source: https://help.zscaler.com/zia/understanding-generic-routing-encapsulation-gre
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > GRE > Understanding Generic Routing Encapsulation (GRE)
+- Last modified: 2026-05-24T22:34Z
+- Summary: Information on Generic Routing Encapsulation (GRE) tunnel and its benefits, traffic forwarding recommendations, and bandwidth supported by Zscaler for GRE tunnels.
+
+## GRE Tunnel Overview
+
+A Generic Routing Encapsulation (GRE) tunnel is ideal for forwarding internet-bound traffic from your corporate network to the Zscaler service. GRE is a tunneling protocol for encapsulating packets inside a transport protocol. A GRE-capable router encapsulates a payload packet inside a GRE packet. It further encapsulates the GRE packet in a transport protocol, such as IP, as shown in the following diagram.
+
+[Image: Diagram showing GRE tunneling]
+
+A GRE tunnel functions like a VPN but without encryption; it transports packets from one endpoint to another through the public network.
+
+GRE tunnels typically use keepalive packets to determine if a tunnel is up. The GRE tunnel source creates the keepalive request and response packets that are encapsulated and sent together to the tunnel destination. When the tunnel destination receives an encapsulated packet, it just decapsulates the original packet and sends the inner response packet back to the originating peer. To learn more, refer to [RFC 2784 Generic Routing Encapsulation (GRE)](https://tools.ietf.org/html/rfc2784).
+
+## Benefits of Using GRE Tunnel
+
+If your corporate router supports GRE and its egress port has a static IP address, Zscaler recommends that you configure a GRE tunnel to forward internet traffic from your corporate network to the Zscaler service. It provides the following benefits:
+
+- Supports internet traffic
+- Supports failover if the primary Public Service Edge for Internet & SaaS (ZIA) becomes unavailable
+- Requires minimal overhead
+- Requires no configuration on computers or laptops
+- Does not allow the users on your corporate network to bypass the service
+- Provides internal IP address information to Zscaler which can be used for enforcing policies and source IP logging
+
+## Best Practices for Traffic Forwarding Using GRE Tunnels
+
+Zscaler recommends the following traffic forwarding rules for organizations that use the Zscaler service:
+
+- Use a combination of GRE tunneling, [PAC files](https://help.zscaler.com/zia/understanding-pac-file), [Surrogate IP](https://help.zscaler.com/zia/about-surrogate-ip), and [Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/what-is-zscaler-client-connector)to forward traffic to the Zscaler service.
+- Configure two GRE tunnels from an internal router behind the firewall to provide visibility into internal IP addresses, which can be used for enforcing security policies and source-IP logging. To learn more, see [GRE Deployment Scenarios](https://help.zscaler.com/zia/gre-deployment-scenarios).
+- Deploy mechanisms such as IP SLA to monitor tunnel health and enable fast failover for your organization.
+- Install a PAC file for each user to ensure coverage outside the corporate network.
+
+To learn more about traffic forwarding and best practices, see [Best Practices for Traffic Forwarding.](https://help.zscaler.com/zia/best-practices-traffic-forwarding)
+
+## Supported Bandwidth for GRE Tunnels
+
+Zscaler supports a maximum bandwidth of 1 Gbps for each GRE tunnel if the internal tunnel endpoint IP addresses are not source network address translated (NATed). If the internal tunnel endpoint IP addresses are source NATed, then Zscaler can only support up to 250 Mbps of traffic for each tunnel. This is because the Zscaler service uses the internal IP addresses of the GRE tunnel to load-balance GRE traffic over multiple servers. If the internal source IP address is the same for all traffic across multiple GRE tunnels, then the load-balancer cannot be effective in balancing the traffic across different nodes, resulting in lesser throughput for each tunnel.
+
+If your organization wants to forward more than 1 Gbps of traffic, Zscaler recommends configuring more GRE tunnels with different public source IP addresses. For example, if your organization forwards 2 Gbps of traffic, you can configure two primary GRE tunnels and two backup GRE tunnels. If your organization forwards 3 Gbps of traffic, you can configure three primary GRE tunnels and three backup GRE tunnels. To learn more, see [Configuring GRE Tunnels](https://help.zscaler.com/zia/configuring-gre-tunnels).
+
+Zscaler set the bandwidth limit to 1 Gbps because a significant part of the internet infrastructure uses network links that are 1 Gbps. Multilink technologies such as Link Aggregation Control Protocol (LACP) still rely on aggregating multiple 1 Gbps interfaces, so having more than 1 Gbps of traffic from a single source IP address results in a bottleneck.
+
+GRE tunnels configured on Virtual Service Edges are dynamically established with no internal IP addresses, similar to unnumbered GRE tunnels. To learn more, see [About Virtual Service Edges for Internet & SaaS](https://help.zscaler.com/zia/about-virtual-service-edges-internet-saas)and [Forwarding Traffic to Virtual Service Edges for Internet & SaaS](https://help.zscaler.com/zia/forwarding-traffic-virtual-service-edges-internet-saas).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-geolocalization-ip","lastmod":"2026-06-25T10:50Z","nid":"1499521"} -->
+## Understanding Geolocalization IP
+
+- Source: https://help.zscaler.com/zia/understanding-geolocalization-ip
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Forwarding Control > Geolocalization IP > Understanding Geolocalization IP
+- Last modified: 2026-06-25T10:50Z
+- Summary: Information on using the Zscaler Geolocalization IP in the Forwarding Control policy.
+
+For users in a country not serviced by Zscaler Point-of-Presence (PoP), the Geolocalization IP (GeoIP) feature can be used to access local content or destinations that restrict access based on the source IP address. However, you must consult with your compliance or legal team to ensure the configuration complies with applicable local laws.
+
+Organizations that are located across the globe often access destinations (local government websites or other restricted entities) that allow access only if the source IP address of the traffic is local to the country from where the traffic originates. When the users access these destinations through Zscaler, the client's source IP address reaching the destination is replaced with a Zscaler IP address. This leads to traffic being blocked if the Zscaler IP address is not native to the country.
+
+When Zscaler does not host a data center in a country and a user from that country accesses a local destination with source IP address-based access restrictions, the traffic is routed to the geographically closest Zscaler data center outside the country. As the egress source IP address is not local to the country from where the traffic originates, the user is either denied access to the destination or the results displayed are not localized to the user's location.
+
+To avoid bypassing security checks when traffic is routed to Zscaler data centers outside the country, Zscaler offers a cloud-based service that allows organizations to forward their traffic via the egress source IP address (GeoIP address) mapped to the country from where the traffic originates for countries that Zscaler does not host a data center in. This ensures that the user is able to access specific destinations which have source IP address-based restrictions, and localized content is displayed if the destination renders content based on the country of the originating request.
+
+<p> <span style="background-color:#F79962;">Additionally, Zscaler also offers a service, dedicated geolocalized IP, that provides you with an egress source IP address that is both dedicated to your organization and mapped to countries of your choice. This enables users to access destinations with a dedicated geo-source IP address local to the country of the originating request. To learn more, see </span><a href="https://help.zscaler.com/zia/draft-understanding-dedicated-geolocalized-ip">Understanding Dedicated Geolocalized IP</a> </p>
+
+The following steps are the primary process of using a GeoIP address to forward traffic:
+
+1. If not already available on your Internet & SaaS (ZIA) tenant, [contact Zscaler Support](https://help.zscaler.com/contact-support) to enable GeoIP for your Internet & SaaS tenant.
+2. After the feature is enabled, Zscaler enables GeoIP as a traffic forwarding method in the Zscaler Admin Console.
+3. Configure GeoIP forwarding policies and specify all the criteria to be met before forwarding the traffic. The criteria include location, users, network service, applications, source IPs, destination, etc. If you choose no criteria, all the traffic egresses with GeoIP addresses based on the source country.
+4. The forwarding gateway configuration is not required. Zscaler automatically forwards the traffic with a source IP address mapped to the country from where the traffic originates.
+
+The GeoIP feature leverages forwarding policies to steer traffic processed by Internet & SaaS to the destination servers, ensuring that the traffic is secure and that the egress source IP address is mapped to the source country. The Zscaler service determines the country that the user is in based on the user's source IP. You can configure granular policies in the Zscaler Admin Console to forward traffic using the GeoIP addresses to destinations that require an IP address native to the country of traffic's origin for access. To learn more about forwarding traffic via GeoIP, see [Configuring Forwarding Control Policy](https://help.zscaler.com/zia/configuring-forwarding-control-policy).
+
+For example, a GeoIP forwarding rule is applied to the traffic of a user located in Czechia, so the traffic is forwarded towards the destination with a Czechian source IP address. If the user moves to Serbia, then the traffic is forwarded to the destination with a Serbian local source IP address. The Zscaler service recognizes that the user is in Czechia or Serbia based on their source IP address. If the user is in a country which hosts a Zscaler data center, the traffic is serviced by the local data center and egresses with a country-local source IP address, and the GeoIP rule does not apply.
+
+When the GeoIP forwarding rule is triggered, Zscaler egresses the traffic with a local source IP address. In some cases, destination websites might not honor the source IP for country mapping to determine the location of the user and provide access. In such scenarios, you could deploy [App Connectors](https://help.zscaler.com/zpa/about-connectors) in the region for [Source IP Anchoring](https://help.zscaler.com/zia/understanding-source-ip-anchoring) with local IP addresses or deploy the Virtual Service Edges for Internet & SaaS or Private Service Edges for Internet & SaaS in the region for local IP addresses.
+
+## Supported Countries
+
+The following table lists the currently supported countries for the GeoIP feature:
+
+This table includes pagination. Use the Search function in the table to find your desired country.
+
+| Country Name | Region |
+| --- | --- |
+| Albania | Europe |
+| Algeria | Africa |
+| American Samoa | Americas |
+| Armenia | Middle East |
+| Aruba | Africa |
+| Azerbaijan | Europe |
+| Bahamas | Americas |
+| Bahrain | Middle East |
+| Bangladesh | APJ |
+| Belarus | Europe |
+| Benin | Africa |
+| Bolivia | Americas |
+| Bosnia and Herzegovina | Europe |
+| Bulgaria | Europe |
+| Burkina Faso | Africa |
+| Cambodia | APJ |
+| Cameroon | Africa |
+| Costa Rica | Americas |
+| Croatia | Europe |
+| Cyprus | Europe |
+| Czechia | Europe |
+| Djibouti | Africa |
+| Dominican Republic | Americas |
+| Ecuador | Americas |
+| Egypt | Africa |
+| El Salvador | Americas |
+| Equatorial Guinea | Africa |
+| Estonia | Europe |
+| Ethiopia | Africa |
+| Fiji | APJ |
+| French Guiana | Americas |
+| French Polynesia | Oceania |
+| Gabon | Africa |
+| Georgia | Europe |
+| Ghana | Africa |
+| Greece | Europe |
+| Guadeloupe | Americas |
+| Guam | APJ |
+| Guatemala | Americas |
+| Guinea | Africa |
+| Honduras | Americas |
+| Hungary | Europe |
+| Indonesia | APJ |
+| Ireland | Europe |
+| Jamaica | Americas |
+| Jersey | Europe |
+| Jordan | Middle East |
+| Kazakhstan | APJ |
+| Kenya | Africa |
+| Kuwait | Middle East |
+| Kyrgyzstan | Middle East |
+| Laayoune | Africa |
+| Latvia | Europe |
+| Lebanon | Middle East |
+| Liberia | Africa |
+| Libya | Africa |
+| Lithuania | Europe |
+| Luxembourg | Europe |
+| Madagascar | Africa |
+| Malawi | Africa |
+| Maldives | Africa |
+| Mali | Africa |
+| Malta | Europe |
+| Mauritania | Africa |
+| Mauritius | APJ |
+| Moldova | Europe |
+| Monaco | Europe |
+| Mongolia | APJ |
+| Montenegro | Africa |
+| Morocco | Africa |
+| Mozambique | Africa |
+| Myanmar | APJ |
+| Namibia | Africa |
+| Nepal | APJ |
+| New Caledonia | APJ |
+| Nicaragua | Americas |
+| Niger | Africa |
+| Oman | Middle East |
+| Pakistan | APJ |
+| Panama | Americas |
+| Papua New Guinea | Africa |
+| Paraguay | Americas |
+| Peru | Americas |
+| Philippines | APJ |
+| Puerto Rico | Americas |
+| Qatar | Middle East |
+| Republic of Côte d'Ivoire | Africa |
+| Romania | Europe |
+| Russia | Europe |
+| Rwanda | Africa |
+| Saint Martin | Americas |
+| Samoa | APJ |
+| Senegal | Africa |
+| Serbia | Europe |
+| Sierra Leone | Africa |
+| Slovakia | Europe |
+| Slovenia | Europe |
+| Somalia | Africa |
+| South Sudan | Africa |
+| Sri Lanka | APJ |
+| Sudan | Africa |
+| Suriname | Africa |
+| Tajikistan | APJ |
+| Tanzania | Africa |
+| Thailand | APJ |
+| Togo | Africa |
+| Trinidad and Tobago | Americas |
+| Tunisia | Africa |
+| Turkey | Europe |
+| Turkmenistan | APJ |
+| Uganda | Africa |
+| Ukraine | Europe |
+| Uruguay | Americas |
+| Uzbekistan | Europe |
+| Venezuela | Americas |
+| Vietnam | APJ |
+| Yemen | Africa |
+| Zambia | Africa |
+| Zimbabwe | Africa |
+
+## Benefits of GeoIP Address
+
+The following are a few benefits of using a GeoIP address:
+
+- Eliminates the need for organizations to maintain PAC files to bypass the Zscaler service to access certain destinations.
+- Eliminates the need to deploy on-premises infrastructure to provide a local source IP address.
+- Applies uniform Zscaler security policies throughout the organization's traffic irrespective of the user's location.
+- Provides you with the ability to granularly control the egress source IP address based on specified forwarding policy criteria.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-global-public-service-edges-internet-saas","lastmod":"2026-09-27T23:23Z","nid":"1400866"} -->
+## Understanding Global Public Service Edges for Internet & SaaS
+
+- Source: https://help.zscaler.com/zia/understanding-global-public-service-edges-internet-saas
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Public Service Edge > Understanding Global Public Service Edges for Internet & SaaS
+- Last modified: 2026-09-27T23:23Z
+- Summary: Information on Global Public Service Edges for Internet & SaaS (ZIA).
+
+Zscaler has configured several Global, or Ghost, Public Service Edges for Internet & SaaS (ZIA) across its clouds. The addresses of these Public Service Edges do not listen for traffic but are dummy addresses that all Public Service Edges know about. They can be useful when working in no default route environments. To learn more, see [Implementing Zscaler in No Default Route Environments](https://help.zscaler.com/zia/implementing-zscaler-no-default-route-environments).
+
+You can use the following as Global Public Service Edge IP addresses:
+
+- 185.46.212.88
+- 185.46.212.89
+- 185.46.212.90
+- 185.46.212.91
+- 185.46.212.92
+- 185.46.212.93
+- 185.46.212.97
+- 185.46.212.98
+
+## No Default Route Example
+
+In order to send packets to a Global Public Service Edge (185.46.212.88), a user's traffic with PAC configured first resolves their PAC server address to http://pac.<Zscaler Cloud Name>.net/<your organization's domain>/No-Default-Route. Because the user is coming from a Public Service Edge IP via a tunnel, the PAC server returns the Zscaler Global IP.
+
+You can find the <Zscaler Cloud Name> in the [Account Settings](https://help.zscaler.com/unified/customizing-your-account-settings) menu. To learn more about Zscaler cloud names, see [Understanding Zscaler Cloud Names.](https://help.zscaler.com/unified/understanding-zscaler-cloud-names) ​​​​​​
+
+[Image: Diagram showing flow for using Service Edges for Internet & SaaS in no default route environments]
+
+Use PAC files to direct the corporate user traffic to the Global Public Service Edge IP address.
+
+Ensure that you route the traffic destined to the Global Public Service Edge IP address through a GRE or an IPSec tunnel.
+
+[Image: Diagram of using Global Service Edges for Internet & SaaS with no default route environments with DNAT]
+
+If the user is outside the corporate network and is coming from a non-Zscaler Public Service Edge IP and non-customer public IP, then the PAC file uses the "${GATEWAY_FX}" variable instead.
+
+[Image: Diagram showing how to use Global Service Edges for Internet & SaaS in no default route environments as a remote user]
+
+In the above solution, each of the customer location configurations remains the same, providing a simple method of deploying configuration without differences between locations. This minimizes configuration and deployment complexity. In addition, a single PAC can accommodate both internal and external scenarios.
+
+You can also detect whether the user is present on premises (by resolving an internal domain) and then return the Global Public Service Edge IP. A sample PAC file is given below:
+
+```
+var egressip = "${SRCIP}";
+/*Assuming HQ source IP is 172.16.1.1*/
+if (shExpMatch(egressip,"172.16.1.1")) {
+/* User is in the HQ*/
+return "PROXY 185.46.212.88:80;  PROXY ${COUNTRY_GATEWAY_FX}:80; PROXY ${COUNTRY_SECONDARY_GATEWAY_FX}:80   ";
+}
+return "PROXY ${COUNTRY_GATEWAY_FX}:80; PROXY ${COUNTRY_SECONDARY_GATEWAY_FX}:80";
+```
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-icap-communication-between-zscaler-and-dlp-servers","lastmod":"2026-09-24T13:41Z","nid":"1400106"} -->
+## Understanding ICAP Communication Between Zscaler and DLP Servers
+
+- Source: https://help.zscaler.com/zia/understanding-icap-communication-between-zscaler-and-dlp-servers
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Understanding ICAP Communication Between Zscaler and DLP Servers
+- Last modified: 2026-09-24T13:41Z
+- Summary: How to enable ICAP communication between Zscaler and an organization's Data Loss Prevention (DLP) server by configuring for enabling secure or unencrypted ICAP.
+
+When you configure Data Loss Prevention (DLP) policy rules in the Zscaler Admin Console, you can specify whether you want the Zscaler service to send information about policy violations via ICAP to your organization's on-premises or cloud-based DLP server. Your organization can then use the information sent to follow standard data loss prevention or remediation workflows.
+
+When the Zscaler service sends information to your DLP server, it does not do so from a Public Service Edge for Internet & SaaS (ZIA) on the cloud that initially inspects your users' transaction. If a Service Edge finds that a transaction violates a DLP policy rule and further, the rule specifies that the service sends violation information to the organization's DLP server, that Service Edge forwards the transaction information to another Service Edge. The second Service Edge is on a different cloud that the service uses for sending communications to your DLP servers.
+
+The second Service Edge actually sends the following information about the transaction to your organization's DLP server:
+
+- Client IP and username via ICAP X-headers.
+- A copy of the HTTP POST request that contains the file that violated the DLP policy, or if the content is from HTTP Forms data, a copy of the content that violated the DLP policy. The host URL to which the user was attempting to send content would also be included here.
+
+You must configure your organization's firewall to allow communications from the second Service Edge. Further, to protect your organization's data, Zscaler recommends that you have the Service Edge send the preceding information in encrypted form via secure ICAP. However, because most DLP servers can only read unencrypted information, Zscaler recommends installing an open-source application called the stunnel application on your DLP server. After installation, the stunnel application and the Service Edge can establish an SSL communication, and the Service Edge can send transaction information in encrypted form to the DLP server. The stunnel application then decrypts the transaction information for the DLP server.
+
+Zscaler recommends that you use secure ICAP, however, you can use unencrypted ICAP if your organization requires it. The same process would apply, with the following exceptions:
+
+- The second Service Edge does not encrypt the transaction information it sends to your DLP server.
+- You do not need to install the stunnel application. The DLP server can accept the information from the Service Edge as is.
+
+Configuration requirements differ depending on whether you're using secure ICAP or unencrypted ICAP. Select the appropriate configuration option for your organization.
+
+- [Enabling Secure ICAP](https://help.zscaler.com/zia/how-do-i-configure-secure-icap)
+- [Enabling Unencrypted ICAP](https://help.zscaler.com/zia/how-do-i-configure-unencrypted-icap)
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-identity-provider-criteria","lastmod":"2026-07-01T21:06Z","nid":"1534286"} -->
+## Understanding Identity Provider Criteria
+
+- Source: https://help.zscaler.com/zia/understanding-identity-provider-criteria
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > Understanding Identity Provider Criteria
+- Last modified: 2026-07-01T21:06Z
+- Summary: Information on identity provider (IdP) criteria and how the Zscaler service determines which IdP to use based on the connection method and which IdP to use if you've configured multiple IdPs.
+
+The Zscaler service redirects users to different [identity providers](https://help.zscaler.com/zia/about-identity-providers) (IdPs) based on the configured criteria. When [adding an IdP](https://help.zscaler.com/zia/adding-identity-providers), the only required criteria for the IdP configuration are the user authentication domains. You must assign at least one authentication domain to a non-default IdP; otherwise, you can't enable it. This restriction doesn't apply to the default IdP. The default IdP is automatically assigned to all domains that aren't associated with an IdP. If a new user attempts to authenticate, the Zscaler service checks the user's domain, and then redirects the user to the appropriate IdP for authentication.
+
+Optionally, you can assign known locations to an IdP. This allows you to map IdPs to specific office locations in your organization. For example, you can assign all locations in Europe to a European AD FS server, but then assign all US locations to a US AD FS server. When a location is assigned to an IdP, location-based policies are enforced even when users are not authenticated. Users are not required to enter a username and domain when they are redirected to a location-mapped or default IdP. Any locations that aren't assigned to a specific IdP are automatically mapped to the default IdP.
+
+The following diagram illustrates how the Zscaler service decides which IdP to use based on the user's connection method:
+
+[Image: Flow chart illustrating how the Zscaler service decides which IdP to use based on the unauthenticated user's connection method]
+
+## Understanding the Default IdP
+
+You can set only one IdP as your organization's default IdP. The default IdP serves as the catchall IdP if you haven't mapped a location or domain to an IdP. For example, you can assign a location or domain to any configured IdP. However, if a location or domain isn't assigned to a specific IdP, it's automatically assigned to the default one. This ensures that there is at least one IdP responsible for authenticating all users in your organization.
+
+The following diagram illustrates how the Zscaler service handles user authentication if you've configured multiple IdPs:
+
+[Image: Flow chart illustrating how the Zscaler service handles user authentication if there are multiple IdPs configured]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-ipsec-vpns","lastmod":"2026-07-16T05:42Z","nid":"1399021"} -->
+## Understanding IPSec VPNs
+
+- Source: https://help.zscaler.com/zia/understanding-ipsec-vpns
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPSec > Understanding IPSec VPNs
+- Last modified: 2026-07-16T05:42Z
+- Summary: Information on Internet Security Protocols (IPSec) for Virtual Private Networks (VPNs) and the Zscaler-supported IPSec VPN parameters.
+
+Internet Protocol Security (IPSec) is a suite of protocols that provides network-layer security to a Virtual Private Network (VPN). A VPN is a virtual network connection that provides a secure communication path between two peers on a public network. The peers can be two hosts, a remote host and a network gateway, or the gateways of two networks, such as the gateway of your corporate network and a Public Service Edge for Internet & SaaS (ZIA).
+
+IPSec provides the following types of protection:
+
+- Confidentiality: Ensures that data cannot be read by unauthorized parties.
+- Integrity: Verifies that data was not modified during transit.
+- Authentication: Verifies the identity of the peers.
+
+IPSec provides several options for applying each type of protection. The peers in the IPSec VPN use a negotiation process called Internet Key Exchange (IKE) to define the security mechanisms they use to protect their communications. There are two versions of IKE: Internet Key Exchange Version 1 (IKEv1) and Internet Key Exchange Version 2 (IKEv2).
+
+Zscaler recommends using IKEv2 because it is a newer standard and is widely deployed. It is faster than IKEv1 and provides better security and supports newer encryption algorithms.
+
+## Supported IPSec VPN Parameters
+
+The following IPSec VPN parameters for IKEv2 and IKEv1 are supported:
+
+- IKEv2 Supported Parameters
+- IKEv1 Supported Parameters
+
+## Zscaler Interoperability List
+
+Zscaler has verified the following vendors' products for establishing VPN tunnels using IKEv2:
+
+| Vendor | Series/OS |
+| --- | --- |
+| Cisco | ASA |
+| Cisco | ISR |
+| Juniper | SRX |
+| Juniper | SSG |
+| FortiGate | FortiOS |
+| Palo Alto Networks | PAN-OS |
+| SonicWall | TZ |
+
+## About the IPSec Security Components
+
+The following are the types of protection that IPSec provides and their corresponding algorithms:
+
+- Ensures Confidentiality
+- Verifies Packet Integrity
+- Authenticates Peers
+
+## About IPSec Components
+
+The following is general information about the different IPSec components:
+
+- IPSec Protocols
+- IKE
+- NAT-Traversal
+- Dead Peer Detection
+
+## Configuring an IPSec VPN Tunnel
+
+When configuring an IPSec VPN tunnel, the local ID of the peer device on the client side can be a private IP address if the [VPN credential](https://help.zscaler.com/zia/adding-vpn-credentials) configured in the Zscaler Admin Console is a fully qualified domain name (FQDN). Otherwise, the local ID should be a public IP address. The public IP address is provisioned as a [static IP address](https://help.zscaler.com/zia/about-static-ip), which is then used to add a VPN credential to the Zscaler Admin Console. If the local ID is a private IP address and a public IP address is configured in the Zscaler Admin Console, then the negotiation fails.
+
+To learn more about configuring an IPSec VPN tunnel with the Zscaler service and to see a list of configuration guides, see [Configuring an IPSec VPN Tunnel](https://help.zscaler.com/zia/configuring-ipsec-vpn-tunnel).
+
+Zscaler supports NAT-Traversal if the device initiating the IPSec VPN is behind another firewall or router performing NAT. Zscaler recommends disabling Perfect Forward Secrecy (PFS) for Phase 2. This option enables each Child or IPSec SA to generate a new shared secret in a Diffie-Hellman exchange. For better security, Zscaler recommends AES-GCM, which requires you to purchase a separate subscription. Zscaler also recommends using AES-GCM ciphers.
+
+- For Phase 1, if you use SHA-384 or SHA-512 data integrity, you must use Diffie-Hellman group 14. If you use 3DES encryption, you must use Diffie-Hellman group 2 and SHA-1 or SHA-256 for data integrity.
+- For Phase 2, Zscaler recommends using AES-GCM-based ciphers if you have purchased a separate subscription. If you do not have a separate subscription, Zscaler recommends using NULL encryption.
+
+The following table shows the supported IPSec VPN parameters for IKEv2. Zscaler recommends using the bolded parameters in blue.
+
+| IKEv2 Supported Parameters |  |  |
+| --- | --- | --- |
+| **Components** | **Phase 1** | **Phase 2** |
+| Confidentiality | **AES-256** AES-192 AES-128 3DES | **AES-256-GCM** **AES-192-GCM** **AES-128-GCM** NULL AES-256 AES-192 AES-128 |
+| Integrity | SHA-512 SHA-384 **SHA-256** **SHA-1** | MD5 SHA-512 SHA-384 **SHA-256** **SHA-1** |
+| Authentication | Pre-Shared Key (PSK) | N/A |
+| Protocol | N/A | AH ESP |
+| Encapsulation Mode | N/A | Tunnel Mode |
+| Key Exchange Method | Diffie-Hellman | Diffie-Hellman |
+| Diffie-Hellman Group | **2** 5 14 19 (ECP256) 20 (ECP384) 21 (ECP521) | 2 5 **14** 19 (ECP256) 20 (ECP384) 21 (ECP521) |
+| Total Child SAs Supported | N/A | 8 |
+| SA Lifetime | 24 Hours | 8 Hours |
+| SA Lifebytes | Unlimited | Unlimited |
+| NAT-Traversal | **Enabled** Disabled | N/A |
+| NAT Keepalive Interval | 20 Seconds | N/A |
+| Dead Peer Detection (DPD) | **Enabled** Disabled | N/A |
+| DPD Timeout Interval | 20 Seconds | N/A |
+| DPD Maximum Retries | 5 | N/A |
+| Perfect Forward Secrecy (PFS) | N/A | Enabled **Disabled** |
+| Maximum Transmission Unit (MTU) | N/A | [Your Optimal MTU](https://help.zscaler.com/zia/determining-the-optimal-mtu-for-gre-or-ipsec-tunnels) 1400 Bytes |
+| Maximum Segment Size (MSS) | N/A | 1360 Bytes |
+| VPN Type | N/A | Route-Based VPN Policy-Based VPN |
+
+New tenants cannot establish IKEv1 IPSec VPN tunnels from a [vendor product](https://help.zscaler.com/zia/understanding-ipsec-vpns#zscaler-interoperability-list) to forward traffic to Internet & SaaS. To enable IKEv1 support for new tenants, contact Zscaler Support.
+
+If you use a pre-shared key (PSK) for authentication and an FQDN for the peer, you must use Aggressive mode. If you use a PSK for authentication and a static IP address for the peer, you must use the Main mode. For better security, Zscaler recommends AES-GCM, which requires you to purchase a separate subscription. Zscaler also recommends using AES-GCM ciphers.
+
+The following table shows the supported IPSec VPN parameters for IKEv1. Zscaler recommends using the bolded parameters in blue.
+
+| IKEv1 Supported Parameters |  |  |
+| --- | --- | --- |
+| **Components** | **Phase 1** | **Phase 2** |
+| IKE Mode | Main Aggressive | Quick |
+| Confidentiality | AES-256 AES-192 **AES-128** 3DES | **AES-256-GCM** **AES-192-GCM** **AES-128-GCM** NULL AES-256 AES-192 AES-128 |
+| Integrity | SHA-1 | MD5 **SHA-1** |
+| Authentication | **Pre-Shared Key (PSK)** RSA Digital Signature External Authentication with PSK External Authentication with RSA | N/A |
+| Protocol | N/A | AH ESP |
+| Encapsulation Mode | N/A | Tunnel Mode |
+| Key Exchange Method | Diffie-Hellman | Diffie-Hellman |
+| Diffie-Hellman Group | 2 | 14 |
+| Total IPSec SAs Supported | N/A | 8 |
+| SA Lifetime | 24 Hours | 8 Hours |
+| SA Lifebytes | Unlimited | Unlimited |
+| NAT-Traversal | **Enabled** Disabled | N/A |
+| NAT Keepalive Interval | 20 Seconds | N/A |
+| Dead Peer Detection (DPD) | **Enabled** Disabled | N/A |
+| DPD Timeout Interval | 20 Seconds | N/A |
+| DPD Maximum Retries | 5 | N/A |
+| Perfect Forward Secrecy (PFS) | N/A | Enabled **Disabled** |
+| Maximum Transmission Unit (MTU) | N/A | [Your Optimal MTU](https://help.zscaler.com/zia/determining-the-optimal-mtu-for-gre-or-ipsec-tunnels) 1400 Bytes |
+| Maximum Segment Size (MSS) | N/A | 1360 Bytes |
+| VPN Type | N/A | Route-Based VPN Policy-Based VPN |
+
+IPSec uses algorithms such as the Advanced Encryption Standard (AES) to encrypt IP packets. These algorithms use symmetric key cryptography to provide encryption.
+
+In this type of cryptography, the peers use the same key to encrypt and decrypt packets. When peer A sends a packet to peer B, it first encrypts the data by dividing it into blocks and then uses the key and data blocks to perform multiple rounds of cryptographic operations. When peer B receives the packet, it uses the same key and performs the same operations in reverse order to decrypt the data.
+
+AES has a large block size and key length and uses a 128-bit block size and keys of 128, 192, and 256 bits.
+
+IPSec provides authentication and integrity protection through a hash message authentication code (HMAC) algorithm, such as Message Digest Algorithm-5 (MD5) or Secure Hash Algorithm (SHA). This type of algorithm generates a hash, or message digest, from the message and a key known to both peers. When peer A sends a message to peer B, it generates the hash and adds it to the packet it sends to peer B. When peer B receives the packet, it uses the shared key to generate the hash and verifies the authenticity and integrity of the packet when the two hashes match.
+
+SHA-1 and SHA-2 are generally considered more secure than MD5 because they generate a larger hash. MD5 generates a 128-bit hash, SHA-1 generates a 160-bit hash, and SHA-2 is a set of four algorithms whose names refer to the size of the hashes they produce, i.e., SHA-224, SHA-256, SHA-384, and SHA-512.
+
+IPSec peers can use the *Pre-Shared Keys (PSK)* method to authenticate each other. The Pre-Shared Key authentication uses a key that the peers agree on beforehand. The key, also known as a secret, is a text string similar to a password. Peer A uses the pre-shared key and additional data to generate a hash value. Peer B uses the same key and additional data to generate a hash value. Peer B authenticates peer A when the two hash values match. Zscaler supports PSKs for IKEv1 and IKEv2.
+
+Zscaler does not support Extended Sequence Number (ESN) based proposals during IPSec tunnel negotiations.
+
+IPSec has two main protocols: Authentication Header (AH) and Encapsulating Security Payload (ESP). The IPSec peers determine which protocol they use to encode the data packets in Phase 2 of the IKE negotiations. The selected protocol then uses the algorithms and authentication method defined in the IPSec SA to encode the data packets.
+
+AH provides authentication and integrity protection through a keyed hash algorithm as described in [Verifies Packet Integrity](https://help.zscaler.com/zia/about-ipsec-vpns#verifies-packet-integrity). ESP encrypts IP packets as described in [Ensures Confidentiality](https://help.zscaler.com/zia/about-ipsec-vpns#ensures-confidentiality)*.* The earlier version of ESP did not provide authentication and integrity protection, so most IPSec implementations used AH and ESP. But since the current version of ESP can also use a keyed hash algorithm to verify the authenticity and integrity of packets, most IPSec implementations use ESP, but not necessarily AH.
+
+ESP can operate in either of two modes: transport mode or tunnel mode.
+
+[Image: A diagram showing how packets are encoded in ESP Transport Mode and ESP Tunnel Mode.]
+
+As shown in the diagram, ESP adds a header, a trailer, and if authentication is used, an authentication section at the end. The ESP header contains a Security Parameter Index (SPI) value, which is a unique identifier, and a sequence number. The ESP trailer contains fields such as additional bytes for padding and the padding length.
+
+In transport mode, ESP encrypts the data payload and ESP trailer. It uses the original IP header with the original source and destination IP addresses. In implementations that involve communications from or to a gateway, the source and/or destination IP addresses need to be changed to the gateway IP addresses. Since the transport mode does not alter the IP header, this mode is used specifically for host-to-host communications.
+
+In tunnel mode, ESP encapsulates the entire packet, including the original IP header. It adds a new IP header that lists the IPSec peers as the source and destination of the packet. ESP tunnel mode is used in VPNs that include at least one gateway because the gateway address can be specified as the source and/or destination in the new IP header.
+
+IKE is an IPSec protocol that establishes and maintains Security Associations (SAs) to protect peer communication and performs mutual authentication. There are two versions of IKE:
+
+- IKEv2
+- IKEv1
+
+During the IKE negotiations, the peers agree on the Diffie-Hellman group number that they use to generate the shared key. Diffie-Hellman is a method for peers to generate a shared key securely without having to exchange shared secrets in the first place. Diffie-Hellman specifies group numbers that correspond to a key length and an encryption generator type. To learn more, refer to [RFC 2631 Diffie-Hellman Key Agreement Method](https://tools.ietf.org/html/rfc2631).
+
+Zscaler recommends using IKEv2 because it's faster and simpler than IKEv1 and fixes IKEv1 vulnerabilities.
+
+IKEv2 is a fast, less complicated control protocol for negotiating IPSec VPN tunnels. IKEv2 improves on IKEv1 and simplifies the SA negotiation process. IKEv2 has two initial exchanges and two later exchanges.
+
+#### The Initial Exchanges
+
+The two initial IKEv2 exchanges are IKE_SA_INIT and IKE_AUTH. The initial exchanges are equivalent to the IKEv1 Phase 1 exchange.
+
+- IKE_SA_INIT
+- IKE_AUTH
+
+#### The Later Exchanges
+
+The two later IKEv2 exchanges are CREATE_CHILD_SA and INFORMATIONAL.
+
+- CREATE_CHILD_SA
+- INFORMATIONAL
+
+To learn more about IKEv2, refer to [RFC 7296 Internet Key Exchange Protocol Version 2 (IKEv2)](https://tools.ietf.org/html/rfc7296).
+
+In the IKE_SA_INIT exchange, the peers negotiate cryptographic algorithms for the IKE SA, exchange nonces, and exchange Diffie-Hellman keys. They negotiate the following IKE SA parameters:
+
+- encryption algorithm
+- hash function
+- authentication method
+- Diffie-Hellman group
+- pseudo-random function
+
+The initiator sends a list of supported IKE SA proposals, its Diffie-Hellman value, and its nonce. The responder then chooses an IKE SA proposal, sends a Diffie-Hellman value to complete the Diffie-Hellman exchange, and sends its nonce. If the IKE_SA_INIT exchange is successful, the peers can independently generate the IKE SA key information. This key information is used in later exchanges to authenticate the peers, authenticate or encrypt IKE SA messages, and establish the first Child SA.
+
+Unlike IKEv1, the peers can choose their authentication method; IKE SA lifetime and IKE SA lifesize.
+
+This exchange has one request-response pair and isn't encrypted. After the peers establish a secure connection, all other exchanges are encrypted.
+
+[Image: The IKE_SA_INIT exchange]
+
+In the IKE_AUTH exchange, the peers authenticate the messages in the IKE_SA_INIT exchange, exchange their identities and certificates, and create the first Child SA.
+
+To activate the IKE SA, the initiator sends an IKE_AUTH request with its identity and the authentication information defined in the IKE_SA_INIT exchange. It also includes the SA proposals and traffic selectors for the first Child SA. The initiator doesn't send the Diffie-Hellman key information or nonce in the request. The peers use the key information and nonce defined in the IKE_SA_INIT exchange for the first Child SA. If a signature-based authentication method is used, they can exchange certificates. The responder then sends its identity information, authenticates the initiator, and activates the first Child SA. This exchange has one encrypted request-response pair.
+
+[Image: The IKE_AUTH exchange]
+
+The CREATE_CHILD_SA exchange is used to create new Child SAs or rekey IKE SAs and Child SAs. The peers negotiate the following SA parameters:
+
+- encryption algorithm
+- hash function
+- encapsulation mode
+- protocol
+- Diffie-Hellman group
+
+The initiator sends the SA proposals, traffic selectors, and nonce in the request. When creating new Child SAs, the initiator optionally can include a Diffie-Hellman value. The responder then activates the Child SA and completes the Diffie-Hellman exchange. Using the Diffie-Hellman exchange provides perfect forward secrecy (PFS) for the Child SA and ensures the Child SA and IKE SA are derived independently. The CREATE_CHILD_SA exchange has one encrypted request-response pair and is equivalent to the IKEv1 Phase 2 exchange (Quick mode). It repeats for every rekey or new SA.
+
+[Image: The CREATE_CHILD_SA exchange]
+
+In the INFORMATIONAL exchange, peers can share control messages regarding errors or notifications of specific events during the operation of an IKE SA. The messages in an INFORMATIONAL can include any of the following payloads:
+
+- **Notification Payload**: Carries error or status information regarding the SAs.
+- **Delete Payload**: Informs the peer that the initiator deleted one or more of its SAs. The responder must delete the SAs and send a response message with the deleted payloads.
+- **Configuration Payload**: Negotiates configuration data between peers.
+
+The INFORMATIONAL exchange message can include any combination of the preceding payloads. The responder must reply with a response, or the initiator assumes that the message was lost and retransmits it. The response can also be an empty message with no payload. This is a common method for a peer to check the other peer's liveliness. This exchange has one encrypted request-response pair.
+
+[Image: The INFORMATIONAL exchange]
+
+IKEv1 has two phases: Phase 1 and Phase 2. In Phase 1, the peers negotiate the security parameters used to communicate for Phase 2. This first set of parameters is referred to as the ISAKMP SA. The ISAKMP SA is bidirectional, so only one SA is established for both directions of traffic. In Phase 2, the peers negotiate the parameters used to protect the actual exchange of IP packets. The second set of parameters is referred to as the IPSec SA. The IPSec SA is uni-directional, so one SA is established for each connection. To learn more, see the following:
+
+- IKEv1 Phase 1
+- IKEv1 Phase 2
+
+IKEv1 Phase 1 can operate in either the main mode or the aggressive mode. In the main mode, there are three pairs of message exchanges (i.e., six messages total), and in the aggressive mode, there are three message exchanges.
+
+- Main Mode
+- Aggressive Mode
+
+1. In the first pair of messages, the peers negotiate the following:
+  - encryption algorithm
+  - hash algorithm
+  - authentication method
+  - The Diffie-Hellman group that the peers use to generate a shared key.
+  - The SA lifetime, that is the time period that an SA is valid. Peers must establish a new SA when it expires.
+2. In the second pair of messages, the peers exchange the Diffie-Hellman keys.
+3. In the third pair of messages, the two peers authenticate each other.
+
+[Image: A network diagram of main mode in IKE Phase 1.]
+
+Because the Main mode uses the IP address as part of the exchange for identification, it cannot be used in a configuration where the IP address of the peer may change.
+
+1. In the first message, peer A sends the security parameters, its Diffie-Hellman key, a pseudo-random number, and its IKE identity to peer B.
+2. In the second message, peer B confirms the security parameters, and sends its Diffie-Hellman key, a pseudo-random number, its IKE identity, and authentication parameters.
+3. In the third message, peer A sends its authentication parameters.
+
+[Image: A network diagram of aggressive mode in IKE Phase 1.]
+
+Aggressive Mode is useful when the IP address of the remote device is not known beforehand.
+
+For Phase 1, Zscaler supports AES-128 for the encryption algorithm and SHA-1 or MD5 for the authentication algorithm. Zscaler recommends using AES-128 with SHA-1.
+
+IKEv1 Phase 2 establishes an SA for each direction of traffic. It operates only in Quick mode, which uses three messages. The negotiations in Phase 2 are protected by IKE SA.
+
+The Phase 2 negotiations are similar to those in Phase 1, wherein the peers negotiate security parameters that include the encryption and keyed hashed algorithms, and authentication method. Additionally, in this phase, the peers negotiate the IPSec protocol to be applied to the IP packets. They determine whether to use AH, ESP and AH, or ESP. As stated earlier, most VPNs today use ESP.
+
+After IPSec SA is established, the peers then exchange the IP packets using the security parameters defined in IPSec SA.
+
+For Phase 2, Zscaler supports NULL or AES for the encryption algorithm and SHA-1 or MD5 for the authentication algorithm. Zscaler recommends using AES-GCM-based ciphers if you have purchased a separate subscription.
+
+Network Address Translation Traversal (NAT-Traversal) provides a method for passing IPSec traffic between two peers when one peer is behind a NAT device. When NAT-Traversal is enabled, the peers detect if there is a NAT device between them and verify that they both support NAT-Traversal during the IKE Phase 1 negotiations.
+
+After both peers determine that they support NAT-Traversal, and it is required, they encapsulate the IPSec packets. The new IP header retains the data from the original IPSec packet, except that the protocol changes to User Datagram Protocol (UDP). In the UDP header, the source port is set to 4500 and the destination port is that of the IPSec peer. Therefore, the NAT device processes the encapsulated packet as a UDP packet. The IPSec peer then removes the UDP header and processes the packets as an IPSec packet.
+
+[Image: A diagram showing how IPSec packets are encapsulated in NAT-T.]
+
+NAT-T is integrated into IKEv2 but is an optional extension to IKEv1. To learn more about NAT-T, refer to [RFC 3947 Negotiation of NAT-Traversal in the IKE](https://tools.ietf.org/html/rfc3947).
+
+Dead Peer Detection (DPD) is a more scalable method used to detect if an IKE peer is online. In this method, Zscaler expects the peers to do explicit periodic liveliness checks to confirm that the DPD flow is continuous, if it is supported on the devices. If the periodic liveliness check is not supported (i.e., only on-demand check is supported), you must ensure to allowlist the Zscaler IP address so that DPD initiated by Zscaler is not blocked, and a response is received. If there is no response, Zscaler cleans up the connection. DPD decreases the number of messages needed to determine whether a peer is alive. Each peer defines its own DPD interval, which is implementation-specific. Zscaler recommends a minimum of 10-second to a maximum of 20-second DPD intervals with at least 3 retries. To learn more, refer to [RFC 3706 A Traffic-Based Method of Detecting Dead Internet Key Exchange (IKE) Peers](https://tools.ietf.org/html/rfc3706).
+
+Zscaler does not consider the ongoing flow of traffic between two peers as proof of the liveliness of a peer.
+
+The DPD behavior is the same for the IKEv1 and the IKEv2 protocols. DPD is integrated into IKEv2 but is an optional extension to IKEv1.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-ipv6-support","lastmod":"2026-09-30T10:00Z","nid":"1404786"} -->
+## Understanding IPv6 Support
+
+- Source: https://help.zscaler.com/zia/understanding-ipv6-support
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPv6 > Understanding IPv6 Support
+- Last modified: 2026-09-30T10:00Z
+- Summary: Information on how to configure the Zscaler Admin Console to support security policies for IPv6 traffic.
+
+IPv6 support is in limited availability. To learn more, contact Zscaler Support.
+
+As Internet Protocol version 6 (IPv6) gradually replaces its predecessor Internet Protocol version 4 (IPv4), enterprises and service providers are migrating their internal networks to IPv6 to overcome IPv4 exhaustion and other IPv4 shortcomings, such as performance, scalability, security, and more. Mobile internet access has accelerated the depletion of IPv4 address space, leading service providers to deploy IPv6-only addresses to mobile devices.
+
+IPv6 support is extended by Zscaler based on the [traffic forwarding method](https://help.zscaler.com/zia/choosing-traffic-forwarding-methods) and also whether the client device is inside a [location](https://help.zscaler.com/zia/about-locations).
+
+- **For clients inside a location:** Forward IPv6 traffic inside an IPv4 tunnel to Service Edges for Internet & SaaS (ZIA) using a [GRE tunnel](https://help.zscaler.com/zia/about-generic-routing-encapsulation-gre) or [IPSec tunnel](https://help.zscaler.com/zia/about-ipsec-vpns). Both web and non-web traffic can be forwarded using these tunneling methods.
+- **For clients outside a location (web requests only):**
+  - Forward web traffic from IPv6 clients to Service Edges using [PAC files](https://help.zscaler.com/zia/about-pac-file) via a self-hosted or ISP-provided NAT64 gateway.
+  - Forward web traffic from IPv6 clients to Service Edges directly using [Zscaler Client Connector](https://help.zscaler.com/client-connector/what-is-zscaler-client-connector) Z-Tunnel 1.0.
+- **For clients outside a location (web and non-web requests)**: Forward all traffic from IPv6 clients to Service Edges directly using Zscaler Client Connector Z-Tunnel 2.0.
+
+To forward IPv6 traffic directly to the destination via Zscaler Client Connector Z-Tunnel 1.0 and Z-Tunnel 2.0, ensure that you have enabled the [Enable IPv6 Resolution for Zscaler Domains](https://help.zscaler.com/zscaler-client-connector/about-platform-settings) field in the Zscaler Admin Console. Otherwise, an ISP-provided NAT64 gateway is required for using Zscaler Client Connector. To learn more, see the prerequisites section of this article.
+
+Zscaler highly recommends using Zscaler Client Connector as your preferred forwarding method for IPv6 traffic whenever feasible.
+
+## Recommendations
+
+The following recommendations are best practices for forwarding IPv6 traffic:
+
+- When forwarding your organization's Z-Tunnel 1.0 and Z-Tunnel 2.0 IPv6 traffic to Zscaler's data centers without an intermediate NAT64 service, you must ensure that the traffic is forwarded only to IPv6-enabled data centers. If you use an intermediate NAT64 service to forward traffic to Zscaler, check if a Zscaler data center is IPv6-enabled. Go to the [Zscaler config page](https://config.zscaler.com/) and verify that the data center has an IPv6 virtual IP address associated with it.
+  - IPv6-enabled Zscaler data centers
+- When using Zscaler Client Connector without an intermediate NAT64 service, you must forward your users' IPv6 traffic only to data centers in the IPv6-enabled subcloud managed by Zscaler. To learn how to do this, see [Configuring IPv6 Settings](https://help.zscaler.com/zia/configuring-ipv6-settings#client-connector).
+- Zscaler's My IP Address service is [ipv6.zscaler.com](https://ipv6.zscaler.com/).
+
+The following list provides the IPv6-enabled Zscaler data centers:
+
+- Americas:
+  - Atlanta II and III
+  - Boston I
+  - Chicago I and II
+  - Dallas I and II
+  - Denver III
+  - Los Angeles I and II
+  - New York III and IV
+  - San Francisco IV
+  - Sao Paulo
+  - Seattle I
+  - Vancouver I
+  - Washington DC I
+  - Nuevo Laredo I
+- APAC:
+  - Auckland II
+  - Chennai II
+  - Hyderabad I
+  - Melbourne II
+  - New Delhi I
+  - Osaka I
+  - Sydney III
+  - Tokyo IV and V
+- EMEA:
+  - Amsterdam II
+  - Dusseldorf I
+  - Frankfurt IV
+  - London III and V
+  - Munich I
+
+## Prerequisites
+
+To configure IPv6, the following prerequisites must be met:
+
+- This feature requires Zscaler Client Connector version 4.8 or later for Windows and Zscaler Client Connector version 4.7 or later for macOS.
+- Allowlist the IPv6 addresses for the Zscaler infrastructure for your on-premises firewalls. For information specific to Zscaler's data centers, see [Cloud Enforcement Node Ranges](https://config.zscaler.com/zscaler.net/cenr).
+- Ensure **Enable IPv6 Resolution for Zscaler Domains** is enabled on the **Platform Settings** page of the Zscaler Admin Console. Then select **Packet Filter Based** for **Tunnel Driver Type** when configuring forward profiles. To learn more, see [Enabling IPv6 Resolution for Zscaler Domains](https://help.zscaler.com/zscaler-client-connector/enabling-ipv6-resolution-zscaler-domains), [About Platform Settings](https://help.zscaler.com/client-connector/about-platform-settings), and [Configuring Forwarding Profiles for Zscaler Client Connector](https://help.zscaler.com/client-connector/configuring-forwarding-profiles-zscaler-client-connector#windows-driver-selection).
+- Allow IPv6 traffic to pass through on-premises firewalls to the following domains: The <cloudname> is the name of your Zscaler cloud. To learn more, see[config.zscaler.com](https://config.zscaler.com/zscaler.net/cenr).
+  - gateway6.<cloudname>.net
+  - secondary.gateway6.<cloudname>.net
+  - pac6.<cloudname>.net
+  - login6.<cloudname>.net
+  - logout6.<cloudname>.net
+  - speedtest6.zscaler.com
+  - any6.broker.<cloudname>.net
+  - mobile6.<cloudname>.net
+- Configure your SAML identity provider (IdP) **Reply URL (Assertion Consumer Service URL)**field for the following IPv6 authentication hosts: To learn more, see [SAML & SCIM Configuration Guide for Microsoft Entra ID](https://help.zscaler.com/zia/saml-scim-configuration-guide-microsoft-entra-id).
+  - https://login6.<cloudname>.net/sfc_sso
+  - https://logout6.<cloudname>.net/sfc_sso (if applicable)
+- Disable **Drop IPv6 Packets**for the [forwarding profile](https://help.zscaler.com/client-connector/about-forwarding-profiles) to prevent Zscaler Client Connector from dropping IPv6 addresses.
+
+## Explaining IPv6 Traffic Configuration
+
+The following sections explain how IPv6 traffic is forwarded and processed by the Zscaler service, the configuration workflow, and logging:
+
+- Forwarding IPv6 Traffic from Clients Inside a Location
+- Forwarding IPv6 Traffic from Clients Outside a Location
+- Processing of IPv6 Traffic
+- IPv6 Configuration Workflow
+- Logging for IPv6 Traffic
+
+You can forward your organization's IPv6 traffic from a location to the Zscaler service and enforce security policies on IPv6 traffic. Although Zscaler's cloud infrastructure can handle IPv6 traffic, the outer packets arriving in a tunnel at the Service Edges must be IPv4 packets. Therefore, to apply policies on your organization’s IPv6 traffic, the Zscaler service requires you to forward the IPv6 traffic inside IPv4 tunnels to the Service Edges. You can establish an IPv4 tunnel between your organization’s network from a specific location and the Service Edges using one of the following traffic forwarding methods:
+
+- [Generic Routing Encapsulation (GRE) Tunnel](https://help.zscaler.com/zia/about-generic-routing-encapsulation-gre)
+- [IPSec Tunnel](https://help.zscaler.com/zia/about-ipsec-vpns)
+
+In addition to enforcing security policies on IPv6 traffic, the Zscaler service also provides customized DNS64/NAT64 mechanisms to establish connections between IPv6 clients and IPv4 destinations (IPv4-only or dual-stack destinations).
+
+With this IPv6 support for clients inside a location, the Zscaler service supports the following use cases:
+
+- IPv6 Client Accessing an IPv4-Only/Dual-Stack Destination
+- IPv6 Client Accessing an IPv6-Only Destination
+- IPv4 Client Accessing an IPv6-Only Destination
+
+The IPv6 traffic from a client inside a location with IPv4 internet access is forwarded to the Service Edge inside an IPv4 tunnel. The Zscaler service establishes an IPv4 connection with an IPv4-only/dual-stack destination using the DNS64/NAT64 mechanism.
+
+[Image: Flow of IPv6 traffic from organization's location to IPv4 destinations through GRE/IPSec Tunnel]
+
+The IPv6 traffic from a client inside a location with IPv4 internet access is forwarded to Service Edge inside an IPv4 tunnel. The Zscaler service establishes an IPv6 connection with the destination.
+
+[Image: Flow of IPv6 traffic from organization's location to IPv6 destinations through GRE/IPSec Tunnel]
+
+The Zscaler service establishes an IPv6 connection with the destination.
+
+Clients from unknown locations (remote users) can use Zscaler Client Connector or PAC files to forward their traffic to Service Edges. To forward IPv6 traffic from unknown locations:
+
+- PAC file users must use a self-hosted or ISP-provided NAT64 gateway to forward IPv6 traffic to Service Edges.
+- Zscaler Client Connector users must enable the [Enable IPv6 Resolution for Zscaler Domains](https://help.zscaler.com/zscaler-client-connector/enabling-ipv6-resolution-zscaler-domains)field in the Zscaler Admin Console. Otherwise, a NAT64/DNS64 service is needed.
+
+With this IPv6 support for clients outside a location, the Zscaler service supports the following use cases:
+
+- IPv6 Client Accessing an IPv4-Only/Dual-Stack Destination
+- IPv6 Client Accessing an IPv6-Only Destination
+
+The IPv6 traffic from a client outside a location is forwarded to the Service Edge using Zscaler Client Connector or PAC file to an IPv4-Only/Dual-Stack destination.
+
+- **PAC Files**: The Zscaler service establishes an IPv4 connection with the destination using the regular DNS resolution for PAC files web traffic. See image.
+- **Z-Tunnel 1.0**: The Zscaler service establishes an IPv4 connection with the destination using the regular DNS resolution for Z-Tunnel 1.0 web traffic. See image.
+- **Z-Tunnel 2.0**: The Zscaler service establishes an IPv4 connection with the destination using the DNS64/NAT64 mechanism for Z-Tunnel 2.0 web traffic. For non-web traffic, an IPv4 connection is established if the destination IPv6 contains a NAT64 prefix recognized by Zscaler. Otherwise, an IPv6 connection is established. See image.
+
+To forward IPv6 traffic via Z-Tunnel 1.0 and Z-Tunnel 2.0 to the Zscaler service, you must enable the **Enable IPv6 Resolution for Zscaler Domains** field in the Zscaler Admin Console. Otherwise, an ISP-provided NAT64 gateway is required.
+
+[Image: Flow of IPv6 traffic from remote location to IPv4 destinations through PAC files]
+
+[Image: Flow of IPv6 traffic from remote location to IPv4 destinations through Z-Tunnel 1.0]
+
+[Image: Flow of IPv6 traffic from remote location to IPv4 destinations through Z-Tunnel 2.0]
+
+The IPv6 traffic from a client outside a location is forwarded to the Service Edge using Zscaler Client Connector or PAC file to an IPv6-Only destination.
+
+- **PAC Files**: The Zscaler service establishes an IPv6 connection with the destination using the DNS64/NAT64 mechanism for PAC files web traffic. See image.
+- **Z-Tunnel 1.0**: The Zscaler service establishes an IPv6 connection with the destination directly for Z-Tunnel 1.0 web traffic. See image.
+- **Z-Tunnel 2.0**: The Zscaler service establishes an IPv6 connection with the destination directly for Z-Tunnel 2.0 web and non-web traffic. See image.
+
+To forward IPv6 traffic via Z-Tunnel 1.0 and Z-Tunnel 2.0 to the Zscaler service, you must enable the **Enable IPv6 Resolution for Zscaler Domains** field in the Zscaler Admin Console. Otherwise, an ISP-provided NAT64 gateway is required.
+
+[Image: Flow of IPv6 traffic from remote location to IPv6 destinations through PAC files]
+
+[Image: Flow of IPv6 traffic from remote location to IPv6 destinations through Z-Tunnel 1.0]
+
+[Image: Flow of IPv6 traffic from remote location to IPv6 destinations through Z-Tunnel 2.0]
+
+The Zscaler service prefers an IPv4 connection whenever possible, and an IPv6 connection is established for IPv6-only destinations. The preference for IPv4 connections (via NAT64) has the following advantages:
+
+- Better utilization of existing IPv4 infrastructure
+- Applying rich-security policies on IPv6 traffic
+- Accessing IPv4 services from the IPv6 network
+
+The following sections explain how the traffic forwarded from IPv6 clients using different proxy modes is handled by the Zscaler service:
+
+- Processing of Explicit Proxy-Traffic from IPv6 Clients
+- Processing of Transparent Proxy-Traffic from IPv6 Clients
+
+When web traffic from IPv6 clients arrives at a Service Edge in [explicit proxy mode](https://help.zscaler.com/zia/what-proxy-mode) via Zscaler Client Connector over Z-Tunnel 1.0 or using PAC files, the Zscaler service establishes an IPv4 or IPv6 connection to the destination based on how the server can be reached, as described in the following bullet points:
+
+- If the destination is reachable only via IPv4, then the Zscaler service establishes an IPv4 connection.
+- If the destination is reachable via IPv4 or IPv6, then the Zscaler service establishes an IPv4 connection.
+- If the destination is reachable only via IPv6, then the Zscaler service establishes an IPv6 connection.
+
+When traffic from IPv6 clients arrives at a Service Edge in [transparent proxy mode](https://help.zscaler.com/zia/what-proxy-mode) using an IPv4 tunnel (GRE or IPSec) or via Zscaler Client Connector (Z-Tunnel 2.0 only), the Zscaler service establishes an IPv4 or IPv6 connection to the destination based on how the server can be reached, as described in the following bullet points:
+
+- If the destination IPv6 address has a prefix match with [NAT64 prefixes](https://help.zscaler.com/zia/about-nat64-prefixes) supported by the organization, then the IPv4 address is extracted from the destination IPv6 address and an IPv4 connection is established.
+- If the destination IPv6 address is a regular IPv6 address, an IPv6 connection is established.
+
+For establishing an IPv4 connection with the destination, the Zscaler service employs the NAT64/DNS64 mechanism to translate IPv6 packets of the inbound traffic to IPv4 packets. This translation depends on the following parameters:
+
+- Type of traffic (DNS queries or non-DNS traffic)
+- The prefix used in the inbound IPv6 packets
+- DNS64/NAT64 prefix configurations in the Zscaler Admin Console
+
+For DNS queries, the Zscaler service tries to resolve the domain name for an A record. If an A record is not available, an AAAA record is synthesized using DNS64 and an IPv4 connection is established using NAT64. If an A record is not available, an AAAA record is used to establish an IPv6 connection.
+
+- DNS Responses for IPv4 and IPv6 Client Configurations
+
+The Zscaler service uses the well-known prefix and its default NAT64 and DNS64 prefixes for the DNS64/NAT64 mechanism and organizations do *not* require any additional configuration. However, organizations can configure their network-specific NAT64/DNS64 prefixes in the Zscaler Admin Console. To learn more, see [About NAT64 Prefixes](https://help.zscaler.com/zia/about-nat64-prefixes) and [About the DNS64 Prefix](https://help.zscaler.com/zia/about-dns64-prefix).
+
+This table shows the expected types of DNS responses with different client configurations:
+
+| **Client** | **Destination** | **DNS A Response** | **DNS AAAA Response** |
+| --- | --- | --- | --- |
+| IPv4 + IPv6 | IPv4 + IPv6 | Yes | Empty |
+| IPv4 + IPv6 | IPv4 | Yes | Empty |
+| IPv4 + IPv6 | IPv6 | Empty | Native IPv6 |
+| IPv6 | IPv4 + IPv6 | IPv4 | Native IPv6 |
+| IPv6 | IPv4 | IPv4 | DNS64 |
+| IPv6 | IPv6 | Empty | Native IPv6 |
+| IPv6 (CGNAT) | IPv4 + IPv6 | IPv4 | DNS64 |
+| IPv6 (CGNAT) | IPv4 | IPv4 | DNS64 |
+| IPv6 (CGNAT) | IPv6 | Empty | Native IPv6 |
+
+To enable IPv6 support for your organization and obtain access to IPv6 configurations and settings, contact Zscaler Support.
+
+To allow the Zscaler service to handle your organization’s IPv6 traffic, you need to enable IPv6 support for your organization under Infrastructure > Internet & SaaS > IPv6 Configuration. Enabling IPv6 support for your organization allows you to route your users’ IPv6 traffic to the Zscaler cloud using one of the supported forwarding methods.
+
+- **GRE/IPSec**: To allow and process IPv6 traffic that is tunneled using GRE or IPSec within an outer IPv4 tunnel, you need to enable IPv6 support for the locations from where the traffic originates. If IPv6 support is not enabled for a location, the IPv6 traffic arriving at the location is dropped. To learn more, see [Configuring Locations](https://help.zscaler.com/zia/configuring-locations).
+- **Zscaler Client Connector**: If you are using Zscaler Client Connector set up with Z-Tunnel 1.0 and Z-Tunnel 2.0 to forward your IPv6 traffic, you need to configure the Zscaler Client Connector application appropriately. To learn more, see the [Zscaler Client Connector documentation](https://help.zscaler.com/client-connector).
+
+After enabling IPv6 support, you can optionally configure your network-specific NAT64 and DNS64 prefixes under Infrastructure > Internet & SaaS > IPv6 Configuration. To learn more, see [Configuring IPv6 Settings](https://help.zscaler.com/zia/configuring-ipv6-settings).
+
+The Zscaler service allows you to configure and enforce limited policies on IPv6 server-bound connections. You can configure these policies in the following ways:
+
+- Using Locations or Location Groups
+- Using URL Categories
+- Using IP Address Groups
+
+You can configure policies based on [Locations](https://help.zscaler.com/zia/about-locations) or [Location Groups](https://help.zscaler.com/zia/about-location-groups) criteria to be enforced on all IPv6 traffic that originates from those locations. When a sublocation is added to a location with the IPv6 option enabled, the Zscaler service automatically creates a new **Other6** sublocation that identifies all the IPv6 addresses in that location. Using**Other6** as the location criteria, you can define policies for all the IPv6 traffic that originates from that location. To learn more, see [Understanding Sublocations](https://help.zscaler.com/zia/understanding-sublocations).
+
+The Locations and Location Groups criteria are supported in various web and firewall policies.
+
+You can configure policies based on URL Categories to be enforced on traffic bound to specific IPv6 sites or destinations. The Zscaler service allows you to add individual domains or IP addresses to URL categories, which can then be used in policies to control the traffic bound to those IPv6 destinations. To learn more, see [Configuring Custom URL Categories](https://help.zscaler.com/zia/adding-custom-url-categories).
+
+The URL Categories criterion is supported in various web and firewall policies.
+
+You can configure policies based on Source or Destination IP Address Groups to be enforced on traffic originating from or destined to any IPv6 device. The Zscaler service provides predefined source and destination IPv6 address groups, All IPv6, which encompasses all IPv6 source or destination addresses. Using All IPv6 as the source or destination group criteria, you can define policies for all traffic originating from or destined to an IPv6 device. To learn more, see About [Source](https://help.zscaler.com/zia/about-source-ip-groups) or [Destination IP Address Groups](https://help.zscaler.com/zia/about-destination-groups).
+
+The Source and Destination IPv6 Address Groups criteria are supported in various web and firewall policies.
+
+The Zscaler service records and displays logs for your IPv6 traffic on the respective Insights Logs page:
+
+- Web Insights Logs: [Filters](https://help.zscaler.com/zia/web-insights-logs-filters) and [Columns](https://help.zscaler.com/zia/web-insights-logs-columns)
+- Firewall Insights Logs: [Filters](https://help.zscaler.com/zia/firewall-insights-logs-filters) and [Columns](https://help.zscaler.com/zia/firewall-insights-logs-columns)
+- DNS Insights Logs: [Filters](https://help.zscaler.com/zia/dns-insights-logs-filters) and [Columns](https://help.zscaler.com/zia/dns-insights-logs-columns)
+
+In addition, the [Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/about-nanolog-streaming-service) allows you to stream your logs in real time from the [Zscaler Nanolog](https://help.zscaler.com/zia/about-zscaler-cloud-architecture) to your security information and event management (SIEM) system. To learn more, see [About NSS Feeds](https://help.zscaler.com/zia/about-nss-feeds).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-jwt-authentication","lastmod":"2026-06-02T05:29Z","nid":"1530875"} -->
+## Understanding JWT Authentication
+
+- Source: https://help.zscaler.com/zia/understanding-jwt-authentication
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > JWT Authentication > Understanding JWT Authentication
+- Last modified: 2026-06-02T05:29Z
+- Summary: Information on using JSON Web Token (JWT) authentication for Internet & SaaS.
+
+Zscaler supports JSON Web Token (JWT) authentication for cloud workloads. JWTs generated for cloud workloads are authenticated by token validators configured with the Authentication Service.
+
+JWT authentication can be enabled when [configuring locations](https://help.zscaler.com/zia/configuring-locations). You can also bypass JWT authentication on the [Advanced Settings page](https://help.zscaler.com/zia/configuring-advanced-settings). Token validators are configured with the Authentication Service.
+
+Sessions that include JWT authentication are logged in the [Insights Logs](https://help.zscaler.com/zia/about-insights-logs) with the user ID from the JWT.
+
+JWT authentication is not enabled by default. To access this feature, submit a provisioning ticket to [Zscaler Support](https://help.zscaler.com/submit-ticket-links).
+
+## How JWT Authentication Works with Zscaler
+
+The following diagram provides an overview of the JWT authentication flow with Zscaler:
+
+1. The workload requests a JWT from the token provider.
+2. After the workload receives the JWT, the workload sends a request along with the JWT through Zscaler Cloud & Branch Connector or GRE and IPSec tunnels.
+3. The Zscaler service checks the JWT against the token validators configured through the Authentication Service and authenticates it if the token is validated.
+4. The traffic proceeds to its destination and a 200 OK verification code is sent back to the client and Zscaler service.
+
+[Image: Traffic flow for JWT authentication]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-ldap-user-synchronization","lastmod":"2026-08-20T11:38Z","nid":"1399606"} -->
+## Understanding LDAP User Synchronization
+
+- Source: https://help.zscaler.com/zia/understanding-ldap-user-synchronization
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Active Directory & LDAP > Understanding LDAP User Synchronization
+- Last modified: 2026-08-20T11:38Z
+- Summary: Information on what happens when you use the Zscaler service to synchronize users from an Active Directory server.
+
+When you configure the Zscaler service to synchronize user information from the directory server to the Zscaler database, it uses Lightweight Directory Access Protocol (LDAP) to synchronize user, group, and department information. To learn more about LDAP, refer to [RFC 2251 Lightweight Directory Access Protocol (v3)](https://tools.ietf.org/html/rfc2251). The Zscaler service performs an LDAP search based on the configured customer's directory parameters and imports users who have a user or email attribute and who are part of the domain that is configured for the account.
+
+The Zscaler service synchronizes data as follows:
+
+- It adds users, groups and departments that are in the directory server, but not in the service. It can synchronize up to 128 groups per user.
+- It deletes users, groups and departments that are in the service, but not in the directory server.
+
+Zscaler does not delete but deactivates users. It invalidates the authentication cookies of the users that were deleted and they are no longer allowed to authenticate.
+
+- It modifies its data to match what's in the directory, if there's a discrepancy between the information that's in the service and in the directory server.
+
+If your organization cannot allow the Zscaler service to connect directly to your internal directory servers or if you want to bypass any firewall constraints on your network, your organization can install an on-site [Zscaler Authentication Bridge (ZAB)](https://help.zscaler.com/zia/about-zscaler-authentication-bridge). The ZAB, which is typically located in your DMZ, is an appliance that communicates with your internal directory servers. The Zscaler service communicates only with the ZAB, which then queries your organization's directory server. To learn more about obtaining a ZAB, contact your Zscaler representative.
+
+The Zscaler service by default performs an LDAP query to the directory server to authenticate users whose data was synchronized with a directory server (described in the next section.) You can configure the service to use another authentication method, as described in [Choosing Provisioning and Authentication Methods](https://help.zscaler.com/zia/choosing-provisioning-and-authentication-methods).
+
+## Authenticating Synchronized Users
+
+The Zscaler service by default performs an LDAP query to the directory server to authenticate users whose data was synchronized from a directory server. It performs an LDAP Bind to the directory server to validate a user’s password and authenticate a user. Therefore, passwords are always stored and maintained on your directory server. They are never synchronized.
+
+Zscaler highly recommends the option to use secure LDAP, to ensure the privacy of the LDAP communications between the service and your directory server, as shown in the diagram when a user logs in to the Zscaler service:
+
+1. A synchronized user logs in to the Zscaler service.
+2. The Zscaler Central Authority (CA) searches for the user in the Zscaler database by the login attribute and email address specified by the user.
+3. If the CA finds the user, it displays the password request form.
+4. When the user submits the password request form, the CA retrieves the Distinguished Name and tries to perform an LDAP Bind to the directory server using the Distinguished Name and password of the user.
+5. If the LDAP Bind succeeds, user authentication is successful.
+
+[Image: LDAP User Synchronization]
+
+To learn more, see [Synchronizing User Data with an Active Directory or OpenLDAP](https://help.zscaler.com/zia/synchronizing-user-data-active-directory-openldap).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-microsoft-365","lastmod":"2026-05-27T18:32Z","nid":"1399291"} -->
+## Understanding Microsoft 365
+
+- Source: https://help.zscaler.com/zia/understanding-microsoft-365
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Office 365 > Understanding Microsoft 365
+- Last modified: 2026-05-27T18:32Z
+- Summary: Information on Microsoft 365 and how Zscaler simplifies your network architecture to use your current network to proxy Office 365 traffic.
+
+Zscaler enables direct-to-cloud access for internet-based cloud applications, like Microsoft 365. This is achieved by enabling organizations to send traffic directly to application servers over the internet, instead of backhauling traffic over costly MPLS circuits. Zscaler simplifies your Microsoft 365 deployment by taking advantage of our global direct-to-cloud network, which will improve user experience and application performance for your organization. To learn more, see [Configuring Source IP Anchoring for Microsoft 365 Conditional Access](https://help.zscaler.com/zia/source-ip-anchoring-configuration-guide-microsoft-365-conditional-access).
+
+The Zscaler service complies with Microsoft 365 connectivity principles:
+
+- Differentiate Traffic: Identify and differentiate Microsoft 365 traffic using Microsoft-published endpoints data.
+- Egress Connections: Egress Microsoft 365 data connections as close to the user as practical with matching DNS resolution.
+- Optimize Route Length: Avoid network hairpins and optimize connectivity directly to the nearest entry point into Microsoft’s network.
+- Assess Network Security: Assess inspecting traffic with proxies and traffic inspection devices.
+
+In general, for cloud-based applications going direct-to-cloud, having local internet breakouts for your branch office locations is key. Because Microsoft Office 365 is a trusted enterprise cloud application, Zscaler can securely connect users to our cloud service. Zscaler's direct peering relationship with Microsoft allows us to extend our secure connectivity to Microsoft 365, using their principles and recommendations.
+
+## Understanding Microsoft Office 365 Applications
+
+Deploying Microsoft 365 using the traditional appliance model has certain challenges, but the Zscaler service has solutions to help alleviate these issues:
+
+| Apps | Appliance Model Challenges | Zscaler Service Solutions |
+| --- | --- | --- |
+| Exchange Online | Latency due to distance/operations; Outlook requires around 5 to 20 TCP connections per user; Designed for transient rather than persistent connections | Directing peering with Microsoft 365 backbone network; Unlimited persistent connections without worrying about scale |
+| Skype for Business; Microsoft Teams | Traditional proxies do not handle UDP traffic; Additional persistent connections by client; Media traffic can add high load | Identify and automate IP/FQDN ports and protocols related to Skype and Microsoft Teams; Bandwidth management controls |
+| SharePoint Online; OneDrive for Business | Additional persistent connections by client; Large amount of data movement; Same IP address used for all connections | TCP optimizations to support higher window sizes for faster file uploads and downloads |
+
+## Managing Microsoft 365 Authentication and Directory Services
+
+User authentication is required to implement group and user policies and to leverage the Microsoft 365 application usage and reporting capabilities of the Zscaler service. Zscaler supports authentication using:
+
+- Microsoft Active Directory Domain Services (AD)
+- Microsoft Azure Active Directory (Azure AD) for SAML-based Single Sign-On (SSO)
+- Microsoft Active Directory Federation Services (ADFS) for SAML-based SSO
+
+Zscaler supports authentication with an organization’s AD infrastructure using various methods, including AD synchronization, SAML-based SSO using ADFS, and Kerberos.
+
+With Microsoft 365, mail servers and other collaboration services are located in data centers managed by Microsoft. Deploying ADFS along with Directory Synchronization (DirSync) is necessary to enable login to Microsoft 365. This allows Microsoft 365 to read and understand user/groups/departments and other directory objects from your organization’s on-premises AD. Microsoft Office 365 uses Azure AD in the cloud, which is capable of syncing with an on-premises AD. Therefore, your organization does not need to replace its on-premises AD to use Microsoft 365. To learn more, refer to the [Microsoft Technical documentation](https://docs.microsoft.com/en-us/office365/enterprise/deploy-office-365-directory-synchronization-dirsync-in-microsoft-azure).
+
+## Managing Microsoft 365 Content Inspection and Security
+
+Microsoft 365 applications rely on tunnel protocols like MAPI/RPC over HTTPS (Outlook) and on non-web protocols like RTMP, SIP (Lync), and Autodiscover (for all Office apps) for data transfers. To be in compliance with Microsoft's connectivity principles and recommendations, you can enable the [Microsoft-Recommended One Click Office 365 Configuration](https://help.zscaler.com/zia/understanding-microsoft-one-click-options) for all Microsoft 365 application URLs.
+
+If your organization has a requirement to inspect Microsoft 365 web apps, such as SharePoint, Yammer, and Office online, which run within a web browser, then content inspection and [SSL Inspection](https://help.zscaler.com/zia/understanding-ssltls-inspection) can be enabled using the [Office 365 One Click Configuration](https://help.zscaler.com/zia/understanding-microsoft-one-click-options) option, where you can choose individual cloud applications. However, Zscaler strongly recommends using the [Microsoft-Recommended One Click Office 365 Configuration](https://help.zscaler.com/zia/understanding-microsoft-one-click-options) for better performance.
+
+In addition, you can also use Zscaler's [Advanced Threat Protection](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy) (ATP), [File Type Control](https://help.zscaler.com/zia/about-file-type-control), [Data Loss Prevention (DLP)](https://help.zscaler.com/zia/about-data-loss-prevention), and [Sandbox](https://help.zscaler.com/zia/about-sandbox) to report any suspicious files and detect potential malware in your traffic.
+
+### Managing Bandwidth Control
+
+Deploying a local internet breakout for Microsoft 365 takes the load off backhauled MPLS networks. It also makes sense to use the same internet breakout for general internet-bound traffic. However, you must ensure that the general browsing traffic doesn’t saturate the internet link and cause congestion for Microsoft 365 traffic. Zscaler provides granular bandwidth controls to define guaranteed bandwidth for applications and constrain recreational traffic (e.g., streaming media traffic, social media traffic) when internet links are saturated. To define a bandwidth management policy for Microsoft 365, Zscaler recommends that you add Office 365 to a bandwidth class and then define the appropriate bandwidth rule for that class. To learn more, see [Adding Rules to the Bandwidth Control Policy](https://help.zscaler.com/zia/adding-rules-bandwidth-control-policy) and [About Bandwidth Classes](https://help.zscaler.com/zia/about-bandwidth-classes). If you plan to deploy the OneDrive sync app and want to estimate the bandwidth users will need for syncing, refer to the [Microsoft Technical documentation](https://docs.microsoft.com/en-us/onedrive/network-utilization-planning#create-a-windows-qos-policy-for-the-onedrive-sync-client).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-microsoft-one-click-options","lastmod":"2026-09-28T07:23Z","nid":"1400881"} -->
+## Understanding Microsoft One Click Options
+
+- Source: https://help.zscaler.com/zia/understanding-microsoft-one-click-options
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Office 365 > Understanding Microsoft One Click Options
+- Last modified: 2026-09-28T07:23Z
+- Summary: Information on the Microsoft-Recommended Microsoft 365 One Click option and Microsoft 365 One Click available for Internet & SaaS (ZIA) in the Zscaler Admin Console.
+
+If your organization uses any of the Microsoft 365 applications, you can send all Microsoft 365 traffic from all your locations, including remote user traffic, through the Zscaler service to the Microsoft cloud. Currently, Zscaler has two configuration options to choose from for Microsoft 365 traffic:
+
+- Microsoft-Recommended One Click Microsoft 365 Configuration
+- Microsoft 365 One Click Configuration
+
+Microsoft recommends using their preferred configuration because it incorporates [their connectivity principles and recommendations](https://help.zscaler.com/zia/understanding-microsoft-365).
+
+## Microsoft-Recommended One Click Microsoft 365 Configuration
+
+Microsoft strongly recommends that any proxy should transparently forward end user Microsoft 365 traffic to their cloud. Zscaler does not identify all Microsoft 365 application traffic based on IP address and FQDN. It exempts a select list of FQDNs and IP address ranges listed by Microsoft from SSL/TLS Inspection. To learn more, refer to the [Microsoft Technical documentation](https://docs.microsoft.com/en-us/microsoft-365/enterprise/microsoft-365-network-connectivity-principles?view=o365-worldwide#new-office-365-endpoint-categories).
+
+The Microsoft-Recommended Microsoft 365 One Click Configuration option allows Zscaler to map several but not all Microsoft IP address ranges and domains for most Microsoft 365 apps listed in [Microsoft 365 URLs and IP Address Ranges](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US&fromAR=1). Zscaler leverages the REST-based web service published by Microsoft to keep this mapping up to date.
+
+Zscaler excludes specific Microsoft-listed FQDNs and IP address ranges from SSL/TLS Inspection, as outlined in the following Microsoft 365 endpoints:
+
+- [Microsoft 365 Worldwide (+GCC)](https://docs.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide)
+- [Microsoft 365 operated by 21 Vianet](https://docs.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges-21vianet?view=o365-worldwide)
+- [Microsoft 365 U.S. Government DoD](https://docs.microsoft.com/en-us/microsoft-365/enterprise/microsoft-365-u-s-government-dod-endpoints?view=o365-worldwide)
+- [Microsoft 365 U.S. Government GCC High](https://docs.microsoft.com/en-us/microsoft-365/enterprise/microsoft-365-u-s-government-gcc-high-endpoints?view=o365-worldwide)
+
+- Enabling the Microsoft-Recommended Microsoft 365 One Click Configuration
+- Effects of Enabling the Microsoft-Recommended Microsoft 365 One Click Configuration
+
+To learn about enabling Microsoft Tenant Restrictions, see [Adding Tenant Profiles](https://help.zscaler.com/zia/adding-tenant-profiles#microsoft-login-services).
+
+Zscaler does not publish the complete list of IP address ranges and FQDNs or wildcard domain names exempted from SSL/TLS Inspection. If further exemptions are required, you can define [SSL/TLS Inspection](https://help.zscaler.com/zia/configuring-ssltls-inspection-policy) rules.
+
+## Microsoft 365 One Click Configuration
+
+The following configuration was built prior to Microsoft's current [connectivity principles and recommendations](https://help.zscaler.com/zia/understanding-microsoft-365). Microsoft advises using the Microsoft-Recommended One Click Office 365 Configuration detailed in the previous section.
+
+With the Office 365 One Click Configuration feature, the Zscaler service automatically configures authentication exemption and decryption exemption rules required for the service to seamlessly support and secure your Microsoft 365 traffic. If this option is enabled, the Zscaler service exempts select Microsoft 365 applications from SSL/TLS Inspection. These exemptions are continuously evaluated based on Zscaler's assessment of risk exposure and to ensure that anything exempted is as specific as possible to the delivery of Microsoft 365 for corporate users and no wider.
+
+Zscaler does not publish the complete list of IP address ranges and FQDNs or wildcard domain names exempted from SSL/TLS Inspection. If further exemptions are required, you can define [SSL/TLS Inspection](https://help.zscaler.com/zia/configuring-ssltls-inspection-policy) rules.
+
+To enable Microsoft365 One Click Configuration:
+
+The **Enable Microsoft-Recommended Office 365 One Click Configuration** option should be disabled.
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to**Internet Access**>**Setting**> **Advanced Settings**.
+2. Click **Edit**.
+3. Select the **Enable Office 365 One Click Configuration**option.
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+The **Office 365 One Click Configuration**option should be disabled.
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to**Data Security**>**Inline CASB**> **Advanced Policy Settings**.
+2. Click **Edit**.
+3. Select **Enable Microsoft-Recommended One Click Office 365 Configuration**.
+4. Click **Save** then [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+If you get an error message after trying to enable this option, this relates to your admin rank. We compare your admin rank to that of two existing custom Firewall and DNS rules with top order. If your admin rank is less than those two ranks, you don't have permission to enable the option.
+
+- The **Office 365 One Click Configuration** option is grayed out.
+- The Zscaler service automatically configures authentication exemption for Microsoft domains.
+- A predefined **Office 365 One Click Rule** is enabled in the following policies: SSL/TLS Inspection Policy You can modify the Rule Order, Admin Rank, Rule Status, Rule Label, and Description, and choose Evaluate Other Policies (i.e., URL Filtering and Cloud App Control) or Bypass Other Policies under the Do Not Inspect action for this rule and cannot edit other attributes. To learn more, see [Configuring SSL/TLS Inspection Policy](https://help.zscaler.com/zia/configuring-ssltls-inspection-policy).; If Evaluate Other Policies is selected and a block (or similar) rule exists in the URL Filtering policy, Cloud App Control policy, or other policies, then the system allows these rules to match on SSL/TLS bypassed traffic. However, with the SSL/TLS bypass, the policy application is limited due to the lack of decryption. This would mean that subsequent policy action is likely limited to only the domain portion and not the full URL. For example, for the website sample.com/chatBotAI, only sample.com is seen. So, users can access sample.com, and it's classified under IT Services, and do not separate the fact that sample.com/chatBotAI is classified under General AI and ML Applications.
+  - Firewall Control Policy
+  - DNS Control Policy
+  - Cloud App Control Policy
+- When Microsoft 365 traffic is sent to the firewall, the service fingerprints the application. All the fingerprinted information is logged and is viewable on the [Microsoft 365 dashboard](https://help.zscaler.com/zia/about-dashboards#o365).
+- Zscaler overrides the destination IP address of Microsoft 365 traffic with the closest CDN destination for the Microsoft 365 application and leverages DNS servers at each of our data centers to provide a better user experience and improved application performance.
+  - DNS optimization is done automatically when the **Microsoft-Recommended Office 365 One Click Configuration**option is enabled.
+  - Microsoft's peering partnership with Zscaler allows for minimal hops into the Microsoft backbone for Microsoft 365 traffic, resulting in a better user experience.
+  - Zscaler exempts some IP addresses, FQDNs, or URLs from One Click if they are part of the Default category. Default category endpoints can be treated like regular destinations, which allows customers to apply the appropriate security controls. To learn more about Microsoft categories, refer to the [Microsoft Technical documentation](https://docs.microsoft.com/en-us/microsoft-365/enterprise/microsoft-365-network-connectivity-principles?view=o365-worldwide#new-office-365-endpoint-categories).
+
+The rule isn't configurable and can't be deleted. It's automatically created to handle Microsoft 365 traffic through our Firewall module without inspecting the traffic. The rule allows Microsoft 365 traffic whose destination IP address matches Microsoft 365 categories.
+
+- If your admin rank is greater than or equal to that of the Firewall rule with top order, then the rule appears at rule order one with your rank. Going forward, only an admin with an equal or higher rank than yours can edit the rule order.
+- If admin rank is disabled, then the rule appears at rule order one with rank 7.
+
+The rule allows DNS traffic destined to Microsoft 365. The rule isn't configurable and can't be deleted, but its rule order can be changed, if necessary.
+
+- If your admin rank is greater than or equal to that of the DNS rule with top order, then the rule appears at rule order one with your rank. Going forward, only an admin with an equal or higher rank than yours can edit the rule order.
+
+A predefined rule is created under each of the following cloud app categories on the [Cloud App Control Policy page](https://help.zscaler.com/zia/about-cloud-app-control):
+
+- **Collaboration & Online Meetings**: The predefined rule in this category allows the Cloud App Control traffic destined to the following Microsoft 365 cloud applications:
+  - Yammer
+  - SharePoint Online
+  - Microsoft Teams
+  - Microsoft Sway
+- **Productivity and CRM Tools**: The predefined rule in this category allows the Cloud App Control traffic destined to the following Microsoft 365 cloud applications:
+  - Common Microsoft 365 Applications
+  - Microsoft Dynamics 365
+  - Microsoft Delve
+  - Microsoft Power BI
+  - Microsoft Planner
+- **File Sharing**: The predefined rule in this category allows the Cloud App Control traffic destined to the OneDrive cloud application.
+- **Hosting Providers**: The predefined rule in this category allows the Cloud App Control traffic destined to the Microsoft Azure cloud application.
+- **IT Services**: The predefined rule in this category allows the Cloud App Control traffic destined to the following Microsoft 365 cloud applications:
+  - Microsoft Azure AD
+  - Microsoft Intune
+- **Webmail**: The predefined rule in this category allows the Cloud App Control traffic destined to the Outlook cloud application.
+
+Cascading to URL filtering does not apply to the preceding predefined Cloud App Control policy rules when you enable the Allow Cascading to URL Filtering option on the [Advanced Settings page](https://help.zscaler.com/zia/configuring-advanced-settings). To perform URL cascading for Office 365 One Click, create a new rule with a higher rank than the existing predefined rule and use the cascading feature in that new rule.
+
+The rules aren't configurable and can't be deleted, but their rule orders can be changed, if necessary.
+
+If your admin rank is greater than or equal to that of the Cloud App Control rule with top order, then the rules appear at rule order one with your rank. Going forward, only an admin with an equal or higher rank than yours can edit the rule order.
+
+The rule isn't configurable and can't be deleted. If this rule is enabled, any Microsoft 365 traffic is exempted from SSL/TLS Inspection and other web policies, such as URL Filtering and Cloud App Control. For example, if you created a URL policy to block OneDrive, Sharepoint, etc., it's not applied.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-mobile-malware-protection","lastmod":"2026-06-11T10:17Z","nid":"1398751"} -->
+## Understanding Mobile Malware Protection
+
+- Source: https://help.zscaler.com/zia/understanding-mobile-malware-protection
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Mobile Security > Mobile Malware Protection > Understanding Mobile Malware Protection
+- Last modified: 2026-06-11T10:17Z
+- Summary: Information on the Mobile Malware Protection policy, which protects users from inadvertently downloading malicious apps or apps with known vulnerabilities.
+
+The Mobile Malware Protection policy protects users from inadvertently downloading or using mobile applications that contain vulnerabilities, perform malicious activities, send or receive information from malicious websites, or leak personal, device-specific, or other sensitive information from their devices.
+
+Mobile Malware Protection includes two mobile app security actions:
+
+- **Malicious Activity**: Blocks apps that are known to be malicious, compromised, or perform activities unknown to, or hidden from, the user. Examples include:
+  - Known malware (e.g., signature, hash, or YARA rule)
+  - Communication with malicious websites or command and control (C2) infrastructure
+  - Performing device or personal information collection and harvesting (e.g., phone number, SMS messages, email address, or location coordinates)
+  - Performing suspicious actions or displaying suspicious behavioral indicators
+- **Known Vulnerabilities**: Blocks apps which contain vulnerabilities or are using insecure features, modules, or protocols. Examples include:
+  - Common vulnerabilities and exposures (CVEs)
+  - Use of insecure operations or features, such as vulnerable version of SSL/TLS
+
+Mobile Malware Protection includes 6 mobile app privacy actions:
+
+- **Unencrypted User Credentials**: Blocks an application from leaking a user's credentials in an unencrypted format (e.g., a username and password sent in clear text).
+- **Location Information**: Blocks an application from leaking device location details via communication in an unencrypted format or for an unknown purpose.
+- **Personally Identifiable Information**: Blocks an application from leaking a user's personally identifiable information (PII) via communication in an unencrypted format or for an unknown purpose.
+- **Device Identifiers**: Blocks an application from leaking device identifiers via communication in an unencrypted format or for an unknown purpose.
+- **Communication with Ad Servers**: Blocks an application from communicating with known ad servers.
+- **Communication with Unknown Servers**: Blocks an application from communicating with unknown servers (e.g., servers not normally or historically associated with the application).
+
+If a mobile app performs any blocked privacy action, Zscaler prevents that app from working at all. The apps can also be blocked on tablets, laptops, and desktop computers when the same indicators are present on the tablet, laptop, or desktop version of the apps.
+
+By default, the Mobile Malware Protection policy blocks all of these actions. You can customize the Mobile Malware Protection policy for your organization. To learn more, see [Configuring the Mobile Malware Protection Policy](https://help.zscaler.com/zia/configuring-mobile-malware-protection-policy).
+
+## How It Works
+
+Zscaler blocks suspicious apps using URL information, network traffic data, content signatures, and other app information. This information is gathered from Zscaler's proprietary threat intelligence and data gathered from [ThreatLabZ](https://www.zscaler.com/threatlabz/cloud-activity-dashboard) to identify exploits, threats, or malicious communication.
+
+If your organization has a Mobile Security subscription, you can also define policies to restrict mobile app downloads to specific app stores. To learn more, see [About Mobile App Store Control](https://help.zscaler.com/zia/about-mobile-app-store-control).
+
+To see how this policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-multi-cluster-load-sharing","lastmod":"2026-07-08T09:11Z","nid":"1402116"} -->
+## Understanding Multi-Cluster Load Sharing
+
+- Source: https://help.zscaler.com/zia/understanding-multi-cluster-load-sharing
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Understanding Multi-Cluster Load Sharing
+- Last modified: 2026-07-08T09:11Z
+- Summary: Information about the Multi-Cluster Load Sharing feature.
+
+The Multi-Cluster Load Sharing feature allows multiple Public Service Edge for Internet & SaaS (ZIA) clusters in different network address blocks to participate in a Virtual IP (VIP) address from any network address block in a data center. The ingress traffic will enter a given VIP address and access the end destination via any instance of the Service Edge clusters from any of the network address blocks listed for the data center (DC). To view the complete list of data center information, go to config.zscaler.com/<Zscaler Cloud Name>/cenr.
+
+You can find the name of your cloud in the URL your admins use to log in to the Zscaler service. For example, if an organization logs in to admin.zscalertwo.net, then that organization's cloud name is zscalertwo.net. In this case, you should go to config.zscaler.com/zscalertwo.net/cenr. To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
+
+All the traffic is distributed across every participating cluster load balancer (LB) instance, and they can forward traffic to any service node in any participating cluster.
+
+[Image: Schematic Diagram of Multi-Cluster Load Sharing]
+
+This feature allows Zscaler to scale its DCs without the need to migrate your clusters while using the same existing VIP addresses.
+
+For example, in the following table, ZSC Cluster 1 resides in the `165.225.80.0/23` network address block, and ZSC Cluster 3 in the `147.161.166.0/23` network address block. Both these clusters can serve the GRE VIP address `165.225.80.36`, allowing us to add more Service Edge capacity without impacting your GRE VIP address destination. So, you no longer need to move your GRE tunnels to a new VIP address when a new cluster is added to a DC.
+
+| Cluster | VIP Address | Cluster Type | Network Address Block |
+| --- | --- | --- | --- |
+| ZSC Cluster 1 | 165.225.80.36 | GRE | 165.225.80.0/23 |
+| 165.225.80.37 | VPN | 165.225.80.0/23 |  |
+| 165.225.81.247 | PAC | 165.225.80.0/23 |  |
+| ZSC Cluster 3 (Shared VIP addresses with Cluster 1) | 165.225.80.36 | GRE | 147.161.166.0/23 |
+| 165.225.80.37 | VPN | 147.161.166.0/23 |  |
+| 165.225.81.247 | PAC | 147.161.166.0/23 |  |
+
+This feature rollout follows the monthly infrastructure upgrade schedule as per the [Zscaler service Continuity Customer Notification Protocol](https://help.zscaler.com/zia/zscaler-service-continuity-customer-notification-protocol).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-nanolog-streaming-service","lastmod":"2026-09-30T12:36Z","nid":"1399061"} -->
+## Understanding Nanolog Streaming Service (NSS)
+
+- Source: https://help.zscaler.com/zia/understanding-nanolog-streaming-service
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > Understanding Nanolog Streaming Service (NSS)
+- Last modified: 2026-09-30T12:36Z
+- Summary: Information on Nanolog Streaming Service (NSS).
+
+[Watch a video about Nanolog Streaming Service (NSS)](https://fast.wistia.net/embed/iframe/p3of1u4s69) (shows legacy UI).
+
+Zscaler's Nanolog Streaming Service (NSS) is a family of products that enable Zscaler cloud communication with third-party security solution devices for exchanging event logs.
+
+## Log Streaming
+
+This provision allows streaming of all logs from the Zscaler [Nanolog](https://help.zscaler.com/zia/about-zscaler-cloud-architecture) to your security information and event management (SIEM) system with the following offerings:
+
+- **Virtual machine (VM)-based NSS**: Uses a VM set within your network to stream logs to your SIEM over a raw TCP connection or HTTP connection.
+- **Cloud NSS**: Uses an HTTPS API feed to push logs to an HTTPS API-based log collector on your SIEM.
+
+Through SIEM integration, you can leverage VM-based NSS or Cloud NSS to enable real-time alerting on security events of your choice, correlate Zscaler's logs with the logs from your other devices, and locally set up long-term log archival.
+
+To learn more, see:
+
+- About VM-based NSS
+- About Cloud NSS
+- Comparison between VM-based NSS and Cloud NSS
+
+## Log Collection
+
+This provision allows for near real-time log collection from third-party vendors' firewall and web proxy devices inside your network perimeter and streaming of the logs to the Zscaler cloud by using the [NSS Collector](https://help.zscaler.com/zia/about-nss-collector-servers). The log data collected from third-party security solutions is integrated with Zscaler Admin Console to provide a comprehensive [SaaS Security Report](https://help.zscaler.com/zia/about-saas-security-report) for a broad range of cloud application discovery and analysis.
+
+The NSS Collector functionality and the data collected using this functionality are exclusive to the SaaS Security Report. To enable this feature for your organization, contact Zscaler Support.
+
+To learn more, see:
+
+- About NSS Collector
+
+The NSS uses a [deployed virtual machine (VM)](https://help.zscaler.com/zia/deploying-nss-virtual-appliances) to stream logs to your SIEM system. Zscaler offers the following NSS subscriptions:
+
+- **NSS for Web**: Streams web and mobile traffic logs.
+- **NSS for Firewall**: Streams logs from the Zscaler Firewall.
+
+As shown in the following diagram, the web and Firewall logs are stored in the Nanolog in the Zscaler cloud. When you deploy one NSS for web and another for Firewall logs, each NSS opens a secure tunnel to the Nanolog in the Zscaler cloud. The Nanolog then streams copies of the logs to each NSS in a highly compressed format to reduce bandwidth footprint. The original logs are retained in the Nanolog.
+
+When an NSS receives the logs from the Nanolog, it decompresses and detokenizes them, applies the configured filters to exclude unwanted logs, and converts the filtered logs to the configured output format so that they can be consumed and parsed by your SIEM. There are two types of NSS feeds:
+
+- **TCP Feed**: Uses a TCP connection to stream the logs between NSS and your SIEM.
+- **HTTPS Feed**: Uses the TLS protocol to load-balance and encrypt syslog feeds between NSS and your SIEM.
+
+[Image: Diagram of the VM-based Nanolog Streaming Service, which streams web and Firewall logs from the Zscaler Nanolog to your SIEM system]
+
+As part of VM-based deployment, you add NSS servers and configure NSS feeds in the Zscaler Admin Console to specify the data that the NSS sends to your SIEM. To learn more, see [About NSS Servers](https://help.zscaler.com/zia/about-nss-servers) and [About NSS Feeds](https://help.zscaler.com/zia/about-nss-feeds).
+
+After deployment, the NSS requires minimal administration and automatically polls the Zscaler service for updates and installs them. For monitoring purposes, you can [configure a separate feed for NSS alerts](https://help.zscaler.com/zia/adding-nss-feeds-alerts). The service sends the alerts in an [RFC-compliant Syslog format](https://help.zscaler.com/zia/syslog-overview) to the specified IP address and port.
+
+The NSS has the following reliability mechanisms:
+
+1. **NSS to SIEM**: The NSS buffers the logs in the VM memory to increase its resiliency to transient network issues between the SIEM and NSS. If the connection drops, the NSS replays logs from the buffer, according to the Duplicate Logs setting.
+2. **Nanolog to SIEM**: If the connectivity between the Zscaler cloud and NSS is interrupted, the NSS misses logs that arrived at the Nanolog cluster during the interruption, and they are not delivered to the SIEM. When the connection is restored, the NSS one-hour recovery allows the Nanolog to replay logs up to one hour back. To enable the NSS one-hour recovery for your organization, contact Zscaler Support.
+
+Additionally, if you have [Advanced Sandbox](https://help.zscaler.com/zia/about-sandbox), you can open a [Sandbox Detail Report](https://help.zscaler.com/zia/viewing-sandbox-reports-data) based on the MD5 parameter that you retrieve from your logs in the SIEM.
+
+### About NSS Deployment Guides
+
+The following guides detail the requirements and steps to deploy NSS via the appropriate platform:
+
+- [NSS Deployment Guide for Amazon Web Services](https://help.zscaler.com/zia/nss-deployment-guide-aws)
+- [NSS Deployment Guide for Google Cloud Platform](https://help.zscaler.com/zia/nss-deployment-guide-google-cloud-platform)
+- [NSS Deployment Guide for Hyper-V](https://help.zscaler.com/zia/nss-deployment-guide-hyper-v)
+- [NSS Deployment Guide for Microsoft Azure](https://help.zscaler.com/zia/nss-deployment-guide-microsoft-azure)
+- [NSS Deployment Guide for Nutanix](https://help.zscaler.com/zia/nss-deployment-guide-nutanix)
+- [NSS Deployment Guide for VMware vSphere](https://help.zscaler.com/zia/nss-deployment-guide-vsphere)
+
+The architecture remains the same regardless of the deployment method selected.
+
+### About SIEM Integration for NSS
+
+You can integrate NSS with any SIEM system. For a list of SIEMs verified for compatibility, see [Integrating VM-Based NSS with SIEMs](https://help.zscaler.com/zia/integrating-vm-based-nss-siems).
+
+You can optionally subscribe to Cloud NSS, enabling direct cloud-to-cloud log streaming for all [Internet & SaaS (ZIA) log types](https://help.zscaler.com/zia/adding-cloud-nss-feeds) into a compatible cloud-based SIEM without any on-premises connectors. Zscaler offers Cloud NSS for Web and Cloud NSS for Firewall subscriptions.
+
+Instead of deploying, managing, and monitoring NSS VMs, you can configure an HTTPS API feed to push logs from the Zscaler cloud into an HTTPS API-based log collector on your SIEM. As a result, you can focus on meaningful log analysis activities (e.g., detection, hunting, investigation, alerting), rather than the administration of logging infrastructure.
+
+[Image: Diagram of Cloud NSS, which enables direct cloud-to-cloud log streaming without any on-premises connectors]
+
+Cloud NSS supports a customizable HTTPS outbound connector, allowing interoperability with most private and public cloud-based SIEMs that support a stateless log ingestion API. Zscaler can `POST` batches of logs if the SIEM exposes a publicly routable HTTPS log collection API (e.g., Splunk HTTP Event Collector). HTTPS is the more reliable and preferred approach for log delivery over the internet.
+
+If the connection between the Nanolog cluster and the SIEM is interrupted, logs are not delivered to the SIEM. When the connection is restored, the Cloud NSS one-hour recovery, provided by a separate Zscaler capability, allows the Nanolog to replay logs up to one hour back.
+
+You can create one Cloud NSS feed per Internet & SaaS log type per Cloud NSS instance. When configuring a Cloud NSS feed, you can customize the feed format; Zscaler recommends using JSON. To learn more, see [About Cloud NSS Feeds](https://help.zscaler.com/zia/about-cloud-nss-feeds).
+
+After deployment, you have access to continuous monitoring and alerting with Zscaler CloudOps.
+
+To learn more about the geo-availability and qualifications for Cloud NSS, contact Zscaler Support.
+
+### About SIEM Integration for Cloud NSS
+
+You can integrate Cloud NSS with any SIEM system that exposes a publicly routable HTTPS log collection API. To see a list of SIEMs verified for compatibility, see [Integrating Cloud NSS with Cloud-Based SIEMs](https://help.zscaler.com/zia/integrating-cloud-nss-cloud-based-siems).
+
+The following table summarizes the benefits, limitations, and requirements of the offerings:
+
+|  | **Benefits** | **Limitations** | **Requirements** |
+| --- | --- | --- | --- |
+| VM-based NSS | Operates with minimal administration after deployment.; Automatically polls the Zscaler service for updates and installs them.; Supports a customizable feed format.; Supports a separate alert feed for monitoring purposes.; Buffers logs in the VM memory for increased resiliency.; Supports TCP and HTTP(S) connection, allowing interoperability with most SIEMs. | Supports up to 16 [NSS feeds](https://help.zscaler.com/zia/adding-tcp-nss-feeds) per NSS server. To ensure optimal performance, [Web](https://help.zscaler.com/zia/adding-nss-feeds-web-logs) and [Firewall](https://help.zscaler.com/zia/adding-nss-feeds-firewall-logs) log types are each limited to 8 feeds per server and the HTTP logs are restricted to 2 feeds within the total. | Requires a virtual appliance for deployment. To learn more, see [Deploying NSS Virtual Appliances](https://help.zscaler.com/zia/deploying-nss-virtual-appliances). |
+| Cloud NSS | Operates without an additional VM within your network.; Supports a customizable HTTPS outbound connector, allowing interoperability with most SIEMs.; Supports a customizable feed format (JSON recommended).; Includes CloudOps 24/7 monitoring and alerting. | Supports one Cloud NSS feed per [Internet & SaaS log type](https://help.zscaler.com/zia/adding-cloud-nss-feeds) per Cloud NSS instance. | Requires a separate concurrent subscription. To learn more, contact Zscaler Support. |
+
+The NSS Collector collects traffic logs from third-party syslog feeds, processes the log data, and securely pushes the logs to the Zscaler cloud over HTTPS. The NSS Collector requires a subscription to the NSS VM or Cloud NSS. The NSS Collector must be deployed on VMware within your organization’s network perimeter. The deployment involves installing the NSS Collector server using the [packaged software](https://help.zscaler.com/zia/adding-nss-collector-servers) (VM image) obtained from the Zscaler Admin Console and configuring the client certificate issued by Zscaler for the NSS Collector server.
+
+The following diagram shows the NSS Collector’s deployment and workflow used in the third-party log integration with Zscaler:
+
+[Image: A diagram of log collection from third-party security devices using NSS Collector]
+
+When the NSS Collector service is started, it listens on a fixed port configured on your firewall to forward the logs. The firewall must also be configured to use a syslog feed format for forwarding logs to the NSS Collector’s IP address and predesignated port. The NSS Collector can collect the syslog feeds from one or many firewall devices in the CEF format over a TCP connection. Upon receiving the logs, the NSS Collector performs the following actions to process the log data:
+
+- Resolves user information based on integration with IdP. Unmanaged Zscaler users are categorized as Unidentified Users.
+- Resolves the URL information to facilitate cloud application discovery and analysis by Zscaler.
+- Securely transmits processed log data to the Zscaler cloud over HTTPS.
+
+The third-party device logs are processed by Zscaler and retained for 6 months. This data is integrated with Zscaler and is made available for cloud application discovery and analytics through the SaaS Security Report.
+
+The NSS Collector maintains a one-hour buffer to ensure no data loss due to communication issues with the Zscaler cloud or during maintenance procedures. If the connection between the NSS Collector and the Zscaler cloud is disrupted, the NSS Collector buffers the third-party firewall or web proxy logs and sends them when the connection is re-established. To learn about the amount of memory required to buffer the logs, see the [prerequisites in NSS Collector Deployment Guide for VMware vSphere](https://help.zscaler.com/zia/nss-collector-deployment-guide-vmware-vsphere#step1-prerequisites). The buffer size increases proportionally to the amount of RAM allocated to the NSS Collector.
+
+- An organization can have up to 4 NSS Collector servers.
+- The NSS Collector does not support historical load from the source. Records older than one hour are dropped from the stream.
+
+The NSS Collector restricts the log events streaming to the Zscaler cloud to 10K events per second. Events that exceed the rate limit are dropped.
+
+### About NSS Collector Deployment Guides
+
+To learn more about the requirements and steps to deploy the NSS Collector via the VMware vSphere platform, see [NSS Collector Deployment Guide for VMware vSphere](https://help.zscaler.com/zia/nss-collector-deployment-guide-vmware-vsphere).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-outbound-email-policy-enforcement","lastmod":"2026-09-22T07:06Z","nid":"1492686"} -->
 ## Understanding Outbound Email Policy Enforcement
 
 - Source: https://help.zscaler.com/zia/understanding-outbound-email-policy-enforcement
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Understanding Outbound Email Policy Enforcement
-- Last modified: 2026-08-21T08:34Z
+- Last modified: 2026-09-22T07:06Z
 - Summary: Information on how the Zscaler service uses rules to inspect and enforce policies on sensitive data contained in outbound email traffic.
 
 Zscaler Outbound Email Data Loss Prevention (DLP) lets you monitor and act on sensitive data in outbound email sent to external domains. You can use Zscaler custom and predefined DLP engines to detect sensitive data and to specify DLP actions (i.e., Allow, Block, and Custom Header Insertion) when an email triggers an outbound email policy rule. If you don't use Zscaler DLP engines, the service functions instead as a filter, only flagging content based on specific criteria.
@@ -222,13 +1824,13 @@ To learn more about the Zscaler and Votiro integration, see the [Zscaler and Vot
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-policy-enforcement","lastmod":"2026-09-02T19:36Z","nid":"1399856"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-policy-enforcement","lastmod":"2026-09-16T21:06Z","nid":"1399856"} -->
 ## Understanding Policy Enforcement
 
 - Source: https://help.zscaler.com/zia/understanding-policy-enforcement
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Understanding Policy Enforcement
-- Last modified: 2026-09-02T19:36Z
+- Last modified: 2026-09-16T21:06Z
 - Summary: Information on how the Zscaler service uses Public Service Edges to inspect and enforce policies on inbound and outbound traffic.
 
 Zscaler uses full-featured inline proxies called [Public Service Edges](https://help.zscaler.com/zia/about-public-service-edges-internet-saas) for Internet & SaaS (ZIA), which feature Single Scan Multi-Action (SSMA) technology, to inspect and enforce policies on traffic leaving and coming into your organization. SSMA technology handles the traffic inspection. The policy enforcement takes place in the Public Service Edge's web and Firewall modules.
@@ -493,16 +2095,16 @@ To learn more about how to view and analyze the Post-Quantum Visibility Report, 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-predefined-dlp-dictionaries","lastmod":"2026-09-13T07:06Z","nid":"1447026"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-predefined-dlp-dictionaries","lastmod":"2026-10-04T07:06Z","nid":"1447026"} -->
 ## Understanding Predefined DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/understanding-predefined-dlp-dictionaries
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Understanding Predefined DLP Dictionaries
-- Last modified: 2026-09-13T07:06Z
-- Summary: Information about the predefined DLP dictionaries in the Zscaler Admin Console.
+- Last modified: 2026-10-04T07:06Z
+- Summary: Information about the predefined Data Loss Prevention (DLP) dictionaries in the Zscaler Admin Console.
 
-Zscaler provides the following Data Loss Prevention (DLP) dictionaries. Dictionaries marked with an asterisk (*) are *not*supported for Endpoint DLP. To learn more, see [About Endpoint DLP](https://help.zscaler.com/zia/about-endpoint-dlp). To learn more about configuring predefined DLP dictionaries, see [Editing Predefined DLP Dictionaries](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries).
+Zscaler provides the following Data Loss Prevention (DLP) dictionaries. Dictionaries marked with an asterisk (*) are *not*supported for Endpoint Data Loss Prevention (DLP). To learn more, see [About Endpoint DLP](https://help.zscaler.com/zia/about-endpoint-dlp). To learn more about configuring predefined DLP dictionaries, see [Editing Predefined DLP Dictionaries](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries).
 
 - Aadhaar Card Number (India)
 - ABA Bank Routing Numbers
@@ -1189,7 +2791,7 @@ The following table lists the Confidence Score Threshold criteria for this dicti
 
 | Confidence Score | Threshold Criteria | Examples of Data |
 | --- | --- | --- |
-| **Low** | The dictionary counts an instance as a violation if the HKID number matches a valid range. HKID is a regex-based dictionary, and is strict in formatting, even in low confidence. No special characters are allowed other than parentheses. If the parentheses are not balanced, it does not trigger the dictionary. There can be only a single pair of parentheses. Nested parentheses do not trigger the dictionary. | The number formats that can trigger the dictionary are: P553722(7); P553722(A)The number formats that do not trigger the dictionary are: P5537227; P553722-7-; P553722(7; P5537227); P553722((7)) |
+| **Low** | The dictionary counts an instance as a violation if the HKID number matches a valid range. HKID is a regex-based dictionary, and is strict in formatting, even in low confidence. No special characters are allowed other than parentheses. If the parentheses are not balanced, it does not trigger the dictionary. There can be only a single pair of parentheses. Nested parentheses do not trigger the dictionary. | The number formats that can trigger the dictionary are: P5537227; P553722(7); P553722(A)The number formats that do not trigger the dictionary are: P553722-7-; P553722(7; P5537227); P553722((7)) |
 | **Medium** | The dictionary counts an instance as a violation if: The requirements of Low Confidence are met.; The HKID number is in a popular format. | The number format that can trigger the dictionary is P553722(7). The number format that does not trigger the dictionary is P5537227. |
 | **High** | The dictionary counts an instance as a violation if: The requirements of Medium Confidence are met.; The HKID number is accompanied by any of the dictionary’s default or custom High Confidence phrases. For example, *Hong Kong Identity Card, HKIC, HKID, Identity Card, or Hong Kong Permanent Resident ID Card.* | The number formats that can trigger the dictionary if accompanied by any of the dictionary’s default or custom High Confidence phrases are: P553722(7); P553722(A) |
 
@@ -2455,22 +4057,23 @@ To enable Microsoft365 One Click Configuration:
 
 The **Enable Microsoft-Recommended Office 365 One Click Configuration** option should be disabled.
 
-1. Go to**Policies**>**Common Configuration**> **Advanced**> **Advanced Settings**.
-2. Scroll down and select **Enable Office 365 One Click Configuration**.
-3. Click **Save**, and then [activate the changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+1. Go to**Internet Access**>**Setting**> **Advanced Settings**.
+2. Click **Edit**.
+3. Select the **Enable Office 365 One Click Configuration**option.
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 The **Office 365 One Click Configuration**option should be disabled.
 
-1. Go to **Policies** > **Access Control** > **Internet & SaaS** >**Advanced Settings**.
-2. Select **Enable Microsoft-Recommended One Click Office 365 Configuration**.
-3. Click **Save**, and then [activate the changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+1. Go to**Internet Access**>**Setting**> **Advanced Settings**.
+2. Click **Edit**.
+3. Select **Enable Microsoft-Recommended One Click Office 365 Configuration**.
+4. Click **Save** then [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 If you get an error message after trying to enable this option, this relates to your admin rank. We compare your admin rank to that of two existing custom Firewall and DNS rules with top order. If your admin rank is less than those two ranks, you don't have permission to enable the option.
 
 - The **Office 365 One Click Configuration** option is grayed out.
 - The Zscaler service automatically configures authentication exemption for Microsoft domains.
-- A predefined **Office 365 One Click Rule** is enabled in the following policies: You can modify the Rule Order, Admin Rank, Rule Status, Rule Label, and Description, and choose Evaluate Other Policies (i.e., URL Filtering and Cloud App Control) or Bypass Other Policies under the Do Not Inspect action for this rule and cannot edit other attributes. To learn more, see [Configuring SSL/TLS Inspection Policy](https://help.zscaler.com/zia/configuring-ssltls-inspection-policy).; If Evaluate Other Policies is selected and a block (or similar) rule exists in the URL Filtering policy, Cloud App Control policy, or other policies, then the system allows these rules to match on SSL/TLS bypassed traffic. However, with the SSL/TLS bypass, the policy application is limited due to the lack of decryption. This would mean that subsequent policy action is likely limited to only the domain portion and not the full URL. For example, for the website sample.com/chatBotAI, only sample.com is seen. So, users can access sample.com, and it's classified under IT Services, and do not separate the fact that sample.com/chatBotAI is classified under General AI and ML Applications.
-  - SSL/TLS Inspection Policy
+- A predefined **Office 365 One Click Rule** is enabled in the following policies: SSL/TLS Inspection Policy You can modify the Rule Order, Admin Rank, Rule Status, Rule Label, and Description, and choose Evaluate Other Policies (i.e., URL Filtering and Cloud App Control) or Bypass Other Policies under the Do Not Inspect action for this rule and cannot edit other attributes. To learn more, see [Configuring SSL/TLS Inspection Policy](https://help.zscaler.com/zia/configuring-ssltls-inspection-policy).; If Evaluate Other Policies is selected and a block (or similar) rule exists in the URL Filtering policy, Cloud App Control policy, or other policies, then the system allows these rules to match on SSL/TLS bypassed traffic. However, with the SSL/TLS bypass, the policy application is limited due to the lack of decryption. This would mean that subsequent policy action is likely limited to only the domain portion and not the full URL. For example, for the website sample.com/chatBotAI, only sample.com is seen. So, users can access sample.com, and it's classified under IT Services, and do not separate the fact that sample.com/chatBotAI is classified under General AI and ML Applications.
   - Firewall Control Policy
   - DNS Control Policy
   - Cloud App Control Policy
@@ -2489,7 +4092,7 @@ The rule allows DNS traffic destined to Microsoft 365. The rule isn't configurab
 
 - If your admin rank is greater than or equal to that of the DNS rule with top order, then the rule appears at rule order one with your rank. Going forward, only an admin with an equal or higher rank than yours can edit the rule order.
 
-A predefined rule is created, under each of the following cloud app categories, on the Cloud App Control Policy page (Policies > Access Control > Internet & SaaS > Policies):
+A predefined rule is created under each of the following cloud app categories on the [Cloud App Control Policy page](https://help.zscaler.com/zia/about-cloud-app-control):
 
 - **Collaboration & Online Meetings**: The predefined rule in this category allows the Cloud App Control traffic destined to the following Microsoft 365 cloud applications:
   - Yammer
@@ -2509,7 +4112,7 @@ A predefined rule is created, under each of the following cloud app categories, 
   - Microsoft Intune
 - **Webmail**: The predefined rule in this category allows the Cloud App Control traffic destined to the Outlook cloud application.
 
-Cascading to URL filtering does not apply to the preceding predefined Cloud App Control policy rules when you enable the Allow Cascading to URL Filtering option (Policies > Common Configuration > Advanced > Advanced Settings). To perform URL cascading for Office 365 One Click, create a new rule with a higher rank than the existing predefined rule and use the cascading feature in that new rule.
+Cascading to URL filtering does not apply to the preceding predefined Cloud App Control policy rules when you enable the Allow Cascading to URL Filtering option on the [Advanced Settings page](https://help.zscaler.com/zia/configuring-advanced-settings). To perform URL cascading for Office 365 One Click, create a new rule with a higher rank than the existing predefined rule and use the cascading feature in that new rule.
 
 The rules aren't configurable and can't be deleted, but their rule orders can be changed, if necessary.
 
@@ -2564,30 +4167,30 @@ To learn more about the attributes of Firewall Filtering rules, see [Configuring
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-private-service-edge-internet-saas","lastmod":"2026-08-18T16:20Z","nid":"1401236"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-private-service-edge-internet-saas","lastmod":"2026-09-30T21:06Z","nid":"1401236"} -->
 ## Understanding Private Service Edge for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/understanding-private-service-edge-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Private Service Edge > Understanding Private Service Edge for Internet & SaaS
-- Last modified: 2026-08-18T16:20Z
+- Last modified: 2026-09-30T21:06Z
 - Summary: Information on the prerequisites and deployment methods for properly configuring and installing Private Service Edge for Internet & SaaS (ZIA) on the Zscaler cloud.
 
 [Watch a video about Private Service Edges](https://fast.wistia.net/embed/iframe/xa3h5zhhg8) (shows legacy UI).
 
 Zscaler can extend its patented cloud architecture to an organization's premises by providing Private Service Edge for Internet & SaaS (ZIA). Private Service Edge is part of the Zscaler cloud and performs the same service as the [Public Service Edge for Internet & SaaS](https://help.zscaler.com/zia/about-public-service-edges-internet-saas). It includes support for features such as Firewall, Sandbox, and Data Loss Prevention (DLP). It communicates with other nodes in the cloud, such as the Zscaler Central Authority (CA) for user authentication and policy updates, and the cloud routers and Nanolog clusters for logging and reporting.
 
-Zscaler also offers Advanced DLP Private Service Edges as a complementary dedicated hardware role within the Zscaler cloud that can be deployed to provide on-premises support for Private Service Edge customers who also require Advanced DLP product features, such as [Exact Data Match (EDM)](https://help.zscaler.com/zia/about-exact-data-match) and [Indexed Data Match (IDM)](https://help.zscaler.com/zia/about-indexed-document-match). To learn more, see [Understanding Advanced DLP Private Service Edge for Internet & SaaS](https://help.zscaler.com/zia/understanding-advanced-dlp-private-service-edge) and [Installing Advanced DLP Private Service Edge for Internet & SaaS](https://help.zscaler.com/zia/installing-advanced-dlp-private-service-edge).
+Zscaler also offers Advanced DLP Private Service Edges as a complementary dedicated hardware role within the Zscaler cloud that you can deploy to provide on-premises support for Private Service Edge customers who also require Advanced DLP product features, such as [Exact Data Match (EDM)](https://help.zscaler.com/zia/about-exact-data-match) and [Indexed Data Match (IDM)](https://help.zscaler.com/zia/about-indexed-document-match). To learn more, see [Understanding Advanced DLP Private Service Edge for Internet & SaaS](https://help.zscaler.com/zia/understanding-advanced-dlp-private-service-edge) and [Installing Advanced DLP Private Service Edge for Internet & SaaS](https://help.zscaler.com/zia/installing-advanced-dlp-private-service-edge).
 
 Private Service Edges are installed in an organization’s data center and are dedicated to the organization’s traffic, but they are managed and maintained by Zscaler Cloud Operations. Zscaler monitors and maintains the Private Service Edges with a near-zero touch from your organization.
 
-You can monitor the health of your Private Service Edges on the ZIA PSE Health Dashboard page if you have a Zscaler Digital Experience (ZDX) subscription. To learn more, see [Monitoring the ZIA Private Service Edge Dashboard](https://help.zscaler.com/zdx/monitoring-zia-private-service-edge-dashboard).
+You can monitor the health of your Private Service Edges on the ZIA PSE Health Dashboard page if you have a Digital Experience (ZDX) subscription. To learn more, see [Monitoring the ZIA Private Service Edge Dashboard](https://help.zscaler.com/zdx/monitoring-zia-private-service-edge-dashboard).
 
 Zscaler treats Private Service Edge as an extension of the Internet & SaaS service. Even when you install and maintain it on your data center, Private Service Edge is subject to maintenance or alterations, updates, enhancements, additions, or improvements at any time. To learn more, see [Hardware Usage Terms](https://help.zscaler.com/product-usage-terms/hardware-usage-terms-policy).
 
 Private Service Edges typically benefit organizations that have certain geopolitical requirements or those that use applications that require an organization's IP address as the source IP address.
 
-If your organization needs dual-stack IPv6 traffic support, you must provide IPv6 addresses. To learn more about the IPv6 traffic forwarding mechanisms supported by Internet & SaaS, see [Understanding IPv6 Support](https://help.zscaler.com/zia/understanding-ipv6-support). You must also ensure that the upstream path of your organization's network supports IPv6.
+If your organization needs dual-stack IPv6 traffic support, you must provide IPv6 addresses. To learn more about the IPv6 traffic-forwarding mechanisms supported by Internet & SaaS, see [Understanding IPv6 Support](https://help.zscaler.com/zia/understanding-ipv6-support). You must also ensure that the upstream path of your organization's network supports IPv6.
 
 [Image: Diagram showing a Private Service Edge deployment]
 
@@ -2616,7 +4219,7 @@ All Private Service Edge cluster designs are built with high availability, resil
 
 All traffic destined for the Private Service Edge cluster must be sent to the cluster VIP addresses. The active LB instance listening on behalf of the VIP address then forwards the packet to one of the Service Edge instances in the cluster pool for processing. The Service Edge instance requests the web server, which then responds to the Service Edge instance that processed the original request, which forwards the response directly to the user.
 
-Zscaler uses the Direct Server Return (DSR) method of load balancing, so the response doesn't traverse through the LB on the return path.
+The Zscaler service uses the Direct Server Return (DSR) method of load balancing, so the response doesn't traverse through the LB on the return path.
 
 The following are examples of Private Service Edge cluster designs and their packet flow:
 
@@ -2624,17 +4227,17 @@ The following are examples of Private Service Edge cluster designs and their pac
 - Private Service Edge 5 with Integrated LB
 - Private Service Edge 5 with Dedicated LB
 
-The following diagram illustrates a cluster of 2 Private Service Edge 3 servers with a total of 2 Zscaler LB instances and 6 Service Edge instances that are all connected to the same L2 switching fabric. All traffic sent to the cluster VIP address is forwarded to the active LB instance. For example, a user sends a request to access a web server on the internet. The VIP address sends the request to the active LB instance (LB (A)), which then forwards the request to one of the Service Edge instances (Service Edge 3) on one of the Private Service Edge 3 servers (Private Service Edge 3 (B)) of the cluster. The Service Edge instance makes the request to the web server. The web server then responds to the Service Edge instance that made the request, which forwards the response directly to the user. Zscaler uses the DSR method of load balancing, so the response doesn't traverse through the LB.
+The following diagram illustrates a cluster of two Private Service Edge 3 servers with a total of two Zscaler LB instances and 6 Service Edge instances that are all connected to the same L2 switching fabric. All traffic sent to the cluster VIP address is forwarded to the active LB instance. For example, a user sends a request to access a web server on the internet. The VIP address sends the request to the active LB instance (LB (A)), which then forwards the request to one of the Service Edge instances (Service Edge 3) on one of the Private Service Edge 3 servers (Private Service Edge 3 (B)) of the cluster. The Service Edge instance makes the request to the web server. The web server then responds to the Service Edge instance that made the request, which forwards the response directly to the user. The Zscaler service uses the DSR method of load balancing, so the response doesn't traverse through the LB.
 
-[Image: Diagram illustrating the request and response traffic flow for Private Service Edge 3.]
+[Image: Diagram illustrating the request and response traffic flow for Private Service Edge 3]
 
-The following diagram illustrates a cluster of 2 Private Service Edge 5 servers with a total of 2 Zscaler LB instances and 10 Service Edge instances that are all connected to the same L2 switching fabric. All traffic sent to the VIP address is forwarded to the active LB instance. For example, a user sends a request to access a web server on the internet. The VIP sends the request to the active LB instance (LB (A)), which then forwards the request to one of the Service Edge instances (Service Edge 1) on one of the Private Service Edge 5 servers (Private Service Edge 5 (B)) of the cluster. The Service Edge instance makes the request to the web server. The web server then responds to the Service Edge instance that made the request, which forwards the response directly to the user. Zscaler uses the DSR method of load balancing, so the response doesn't traverse through the LB.
+The following diagram illustrates a cluster of two Private Service Edge 5 servers with a total of two Zscaler LB instances and 10 Service Edge instances that are all connected to the same L2 switching fabric. All traffic sent to the VIP address is forwarded to the active LB instance. For example, a user sends a request to access a web server on the internet. The VIP sends the request to the active LB instance (LB (A)), which then forwards the request to one of the Service Edge instances (Service Edge 1) on one of the Private Service Edge 5 servers (Private Service Edge 5 (B)) of the cluster. The Service Edge instance makes the request to the web server. The web server then responds to the Service Edge instance that made the request, which forwards the response directly to the user. The Zscaler service uses the DSR method of load balancing, so the response doesn't traverse through the LB.
 
-[Image: Diagram illustrating the request and response traffic flow for Private Service Edge 5.]
+[Image: Diagram illustrating the request and response traffic flow for Private Service Edge 5]
 
-The following diagram illustrates a cluster of 4 Private Service Edge 5 servers and 2 Zscaler Dedicated LBs with a total of 4 LB instances and 24 Service Edge instances that are all connected to the same L2 switching fabric. All traffic sent to the VIP address is forwarded to an active LB instance, in one of the Dedicated LBs. For example, a user sends a request to access a web server on the internet. The VIP address sends the request to the active LB instance (LB 1), in one of the Dedicated LBs (Dedicated LB (Y)), which then forwards the request to one of the Service Edge instances (Service Edge 1) on one of the Private Service Edge 5 servers (Private Service Edge 5 (A)). The Service Edge instance makes the request to the web server. The web server then responds to the Service Edge instance that made the request, which forwards the response directly to the user. Zscaler uses the DSR method of load balancing, so the response doesn't traverse through the LB.
+The following diagram illustrates a cluster of 4 Private Service Edge 5 servers and two Zscaler Dedicated LBs with a total of 4 LB instances and 24 Service Edge instances that are all connected to the same L2 switching fabric. All traffic sent to the VIP address is forwarded to an active LB instance, in one of the Dedicated LBs. For example, a user sends a request to access a web server on the internet. The VIP address sends the request to the active LB instance (LB 1), in one of the Dedicated LBs (Dedicated LB (Y)), which then forwards the request to one of the Service Edge instances (Service Edge 1) on one of the Private Service Edge 5 servers (Private Service Edge 5 (A)). The Service Edge instance makes the request to the web server. The web server then responds to the Service Edge instance that made the request, which forwards the response directly to the user. The Zscaler service uses the DSR method of load balancing, so the response doesn't traverse through the LB.
 
-[Image: Diagram illustrating the request and response traffic flow for Private Service Edge 5 with Dedicated LB.]
+[Image: Diagram illustrating the request and response traffic flow for Private Service Edge 5 with Dedicated LB]
 
 Zscaler does not support standalone Private Service Edge deployments. Each Private Service Edge cluster must have a minimum of two Private Service Edges to ensure redundancy. If dedicated LBs are included in the design, they also must be deployed in a minimum of two.
 
@@ -2700,25 +4303,25 @@ The following table shows the specifications for the available Private Service E
 
 For more than 1 Gbps of download throughput, Zscaler recommends deploying Private Service Edges. Any deployment requiring more than 5 Gbps of total throughput must include the Dedicated LB hardware. Contact your Zscaler Sales representative for further details.
 
-Private Service Edge sizing is done based on throughput. You must consider both upload and download throughput when sizing a Private Service Edge deployment. If the upload throughput is unknown, 30% of the expected download throughput is considered as upload throughput based on the industry average.
+Private Service Edge sizing is based on throughput. You must consider both upload and download throughput when sizing a Private Service Edge deployment. If the upload throughput is unknown, 30% of the expected download throughput is considered as upload throughput based on the industry average.
 
 The following is an example of Private Service Edge 3 deployment based on an organization's throughput:
 
-An organization has a data center with a 1GE switch port and requires a network with 800 Mbps of download throughput. In this scenario, the upload throughput required is 240 Mbps, which is 30% of the 800 Mbps download throughput. The total throughput that the Private Service Edge cluster must support is 1.04 Gbps (800 Mbps + 240 Mbps = 1.04 Gbps). Also, the deployment must be on Private Service Edge hardware supporting 1GE network interfaces. To meet these sizing requirements, Zscaler recommends deploying 2 nodes of Private Service Edge 3 because:
+An organization has a data center with a 1GE switch port and requires a network with 800 Mbps of download throughput. In this scenario, the upload throughput required is 240 Mbps, which is 30% of the 800 Mbps download throughput. The total throughput that the Private Service Edge cluster must support is 1.04 Gbps (800 Mbps + 240 Mbps = 1.04 Gbps). Also, the deployment must be on Private Service Edge hardware supporting 1GE network interfaces. To meet these sizing requirements, Zscaler recommends deploying two nodes of Private Service Edge 3 because:
 
-- Private Service Edge 3 is always quoted with N+1 redundancy to meet the Zscaler SLA requirements and ensure service continuity. The 2 instances of Private Service Edge 3 provide additional support for traffic bursts and redundancy in case of a hardware failure.
+- Private Service Edge 3 is always quoted with N+1 redundancy to meet the Zscaler SLA requirements and ensure service continuity. The two instances of Private Service Edge 3 provide additional support for traffic bursts and redundancy in case of a hardware failure.
 - Private Service Edge 3 cluster handles up to 1.2 Gbps of download throughput and 2 Gbps of total throughput.
 - Private Service Edge 3 hardware supports 1GE network interfaces.
 
 The following is an example of Private Service Edge 5 deployment based on an organization's throughput:
 
-An organization has a data center with a 10GE switch port and requires a network with 1.8 Gbps of download throughput. In this scenario, the upload throughput required is 540 Mbps, which is 30% of the 1.8 Gbps download throughput. The total throughput that the Private Service Edge cluster must support is 2.34 Gbps (1.8 Gbps + 540 Mbps = 2.34 Gbps). Also, the deployment must be on Private Service Edge hardware supporting 10GE network interfaces. To meet these sizing requirements, Zscaler recommends deploying 2 nodes of Private Service Edge 5 because:
+An organization has a data center with a 10GE switch port and requires a network with 1.8 Gbps of download throughput. In this scenario, the upload throughput required is 540 Mbps, which is 30% of the 1.8 Gbps download throughput. The total throughput that the Private Service Edge cluster must support is 2.34 Gbps (1.8 Gbps + 540 Mbps = 2.34 Gbps). Also, the deployment must be on Private Service Edge hardware supporting 10GE network interfaces. To meet these sizing requirements, Zscaler recommends deploying two nodes of Private Service Edge 5 because:
 
-- Private Service Edge 5 is always quoted with N+1 redundancy to meet the Zscaler SLA requirements and ensure service continuity. The 2 instances of Private Service Edge 5 provide additional support for traffic bursts and redundancy in case of a hardware failure.
+- Private Service Edge 5 is always quoted with N+1 redundancy to meet the Zscaler SLA requirements and ensure service continuity. The two instances of Private Service Edge 5 provide additional support for traffic bursts and redundancy in case of a hardware failure.
 - Private Service Edge 5 cluster services up to a maximum of 3.9 Gbps of download throughput and 5 Gbps of total throughput.
 - Private Service Edge 5 hardware supports 10GE network interfaces.
 
-SFPs are not shipped along with the server. To learn more about the SFP requirements, refer to the [Intel product support](https://www.intel.com/content/www/us/en/support/articles/000007045/ethernet-products/700-series-network-adapters-up-to-40gbe.html) page.
+SFPs are not shipped with the server. To learn more about the SFP requirements, refer to the [Intel product support](https://www.intel.com/content/www/us/en/support/articles/000007045/ethernet-products/700-series-network-adapters-up-to-40gbe.html) page.
 
 The following table shows the Private Service Edge deployment options for other sizing requirements:
 
@@ -2856,13 +4459,13 @@ The Service Edge identifies the destination host in one of the following ways:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-public-service-edges-internet-saas","lastmod":"2026-09-11T09:47Z","nid":"1401041"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-public-service-edges-internet-saas","lastmod":"2026-09-25T21:06Z","nid":"1401041"} -->
 ## Understanding Public Service Edges for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/understanding-public-service-edges-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Public Service Edge > Understanding Public Service Edges for Internet & SaaS
-- Last modified: 2026-09-11T09:47Z
+- Last modified: 2026-09-25T21:06Z
 - Summary: Information on Public Service Edges for Internet & SaaS, an integral part of the Zscaler cloud.
 
 A key component of the Zscaler cloud, Public Service Edges for Internet & SaaS (ZIA) are full-featured secure internet gateways that provide integrated internet security. They inspect all web traffic bidirectionally for malware and enforce security, compliance, and firewall policies. Each Public Service Edge has two main modules for inspecting traffic and applying policies: a web module and a firewall module. To learn more about how Public Service Edges apply policy, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
@@ -2894,13 +4497,13 @@ While running in Safe mode, full security inspection is enforced. When a request
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-saas-security-posture-management-policy","lastmod":"2026-06-05T06:07Z","nid":"1486721"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-saas-security-posture-management-policy","lastmod":"2026-09-17T07:38Z","nid":"1486721"} -->
 ## Understanding the SaaS Security Posture Management Policy
 
 - Source: https://help.zscaler.com/zia/understanding-saas-security-posture-management-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Posture Management > Posture Management - Essentials > Understanding the SaaS Security Posture Management Policy
-- Last modified: 2026-06-05T06:07Z
+- Last modified: 2026-09-17T07:38Z
 - Summary: Information on SaaS Security Posture Management (SSPM) and how to view the SSPM policies.
 
 SaaS Security Posture Management (SSPM) refers to the practice of systematically assessing, monitoring, and improving the security posture of SaaS applications within an organization. It is a collection of recommended security policies that are enabled for your business requirements.
@@ -2930,7 +4533,7 @@ You can configure SSPM while onboarding tenants for the following SaaS applicati
 - Salesforce
 - ServiceNow
 
-[Image: SSPM Page displaying policies]
+[Image: SSPM page displaying policies]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -3013,13 +4616,13 @@ For example, you create and start a scan for a file sharing tenant on May 1, 202
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-saas-security-supported-capabilities","lastmod":"2026-08-14T03:45Z","nid":"1529918"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-saas-security-supported-capabilities","lastmod":"2026-09-25T03:05Z","nid":"1529918"} -->
 ## Understanding SaaS Security Supported Capabilities
 
 - Source: https://help.zscaler.com/zia/understanding-saas-security-supported-capabilities
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > Understanding SaaS Security Supported Capabilities
-- Last modified: 2026-08-14T03:45Z
+- Last modified: 2026-09-25T03:05Z
 - Summary: Information on the supported administrative capabilities and actions for all SaaS Security apps.
 
 This article lists the supported administrative capabilities and actions for all SaaS Security applications:
@@ -3115,7 +4718,7 @@ The following is a list of supported activities for SaaS Security applications:
 
 | Application | Scan Content | Automatic Remediation Actions | Manual Remediation Actions | Malware Actions | Watermarking |
 | --- | --- | --- | --- | --- | --- |
-| Zoom | Zoom Chat: Messages and Attachments; Zoom Meeting: Messages and Attachments; Transcripts | Remove Content; Report Incident | Remove (messages only) | Remove Malware; Report Malware | Supported |
+| Zoom | Zoom Chat: Messages and Attachments; Zoom Meeting: Messages and Attachments; Transcripts; AI transcripts; AI meeting summary | Remove Content; Report Incident | Remove (messages only) | Remove Malware; Report Malware | Supported |
 | MS Teams | Channels: Messages and Attachments | Notify Users; Report Incident | None | Quarantine Malware (Files); Remove Malware; Report Malware | Supported |
 | Slack | Channels: Messages and Attachments; 1:1 Chats | Notify Users; Report Incident; Quarantine | Restore Quarantine | Quarantine Malware; Remove Malware; Report Malware | Supported |
 | Cisco Webex | Messages; Files | Notify Users; Report Incident | Remove Quarantine | Quarantine Malware; Remove Malware; Report Malware | Supported |
@@ -3128,7 +4731,7 @@ The following is a list of supported activities for SaaS Security applications:
 | Box | Files and Folders | Admin Quarantine; Apply Box Classification Label; Change to Read Only; Change to Read Only for External Collaborators; Change to Read Only for Internal Collaborators; Quarantine to User Root Folder; Remove External Collaborators; Remove External Collaborators and Shareable Link; Remove Internal Collaborators and Shareable Link; Remove Public Shareable Link; Remove Sharing; Report Incident | Quarantine to User Root Folder; Remove External Collaborators; Remove External Collaborators and Shareable Link; Remove Public Shareable Link; Remove Sharing | Quarantine Malware; Remove Malware; Report Malware | Supported |
 | ShareFile | Files and Folders | Admin Quarantine; Quarantine to User Root Folder; Remove External Collaborators; Remove External Collaborators and Shareable Link; Remove Internal Collaborators and Shareable Link; Remove Public Shareable Link; Remove Sharing; Report Incident | Quarantine to User Root Folder; Remove External Collaborators; Remove External Collaborators and Shareable Link; Remove Public Shareable Link; Remove Sharing | Quarantine Malware; Remove Malware; Report Malware | Supported |
 | Smartsheet | Files and Folders | Remove; Remove External Collaborators; Remove Internal Collaborators and Shareable Link; Remove Sharing; Report Incident | Remove | Remove Malware; Report Malware | Supported |
-| Confluence | Files and Folders | Admin Quarantine; Apply Atlassian Classification Label; Quarantine to User Root Folder; Remove; Remove External Collaborators; Report Incident | Quarantine-Restored; Quarantine to User Root Folder; Remove; Remove External Collaborators; Remove Collaborators; Revoke Sharing/Make Private; Apply Atlassian Classification Label; Restore First Original Copy; Restore Recent Original Copy | Quarantine Malware; Remove Malware; Report Malware | Supported |
+| Confluence | Files and Folders | Admin Quarantine; Apply Atlassian Classification Label; Apply Jira Classification Label; Quarantine to User Root Folder; Remove; Remove External Collaborators; Report Incident | Quarantine-Restored; Quarantine to User Root Folder; Remove; Remove External Collaborators; Remove Collaborators; Revoke Sharing/Make Private; Apply Atlassian Classification Label; Apply Jira Classification Label; Restore First Original Copy; Restore Recent Original Copy | Quarantine Malware; Remove Malware; Report Malware | Supported |
 | Dropbox | Files and Folders | Admin Quarantine; Apply Box Classification Label; Change to Read Only; Quarantine to User Root Folder; Remove External Collaborators; Remove External Collaborators and Shareable Link; Remove Internal Collaborators and Shareable Link; Remove Public Shareable Link; Remove Sharing; Report Incident | Quarantine to User Root Folder; Remove External Collaborators; Remove External Collaborators and Shareable Link; Remove Public Shareable Link; Remove Sharing | Quarantine Malware; Remove Malware; Report Malware | Supported |
 
 | Application | Scan Content | Automatic Remediation Actions | Manual Remediation Actions | Malware Actions | Watermarking |
@@ -3420,7 +5023,7 @@ You don't need a Private Access license to access the Source IP Anchoring featur
 Source IP Anchoring supports ICMP requests for ICMP-enabled Private Access application segments. The following limitations apply:
 
 - Only ICMP echo requests or responses are supported.
-- The ICMP protocol traceroute functionality is not supported. Therefore, you must use Zscaler Digital Experience (ZDX) to trace the path of your traffic flow.
+- The ICMP protocol traceroute functionality is not supported. Therefore, you must use Digital Experience (ZDX) to trace the path of your traffic flow.
 - The maximum payload size for the ICMP traffic is restricted to 990 bytes.
 
 To learn how to enable ICMP access for Private Access application segments, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-application-segments).
@@ -3692,13 +5295,13 @@ If you want your web traffic to be forwarded to certain Public Service Edges and
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-sublocations","lastmod":"2026-08-31T06:42Z","nid":"1399271"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-sublocations","lastmod":"2026-09-14T21:06Z","nid":"1399271"} -->
 ## Understanding Sublocations
 
 - Source: https://help.zscaler.com/zia/understanding-sublocations
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Understanding Sublocations
-- Last modified: 2026-08-31T06:42Z
+- Last modified: 2026-09-14T21:06Z
 - Summary: Information on sublocations and how they are used within the Zscaler service.
 
 Sublocations enable an organization to create new locations that reference IP addresses that are encapsulated within a [GRE](https://help.zscaler.com/zia/configuring-gre-tunnels) or [IPSec](https://help.zscaler.com/zia/configuring-ipsec-vpn-tunnel) tunnel, or that are passed to the Zscaler service through X-Forwarded-For (XFF) headers.
@@ -4076,13 +5679,13 @@ This feature helps significantly reduce the latency between the users and Zscale
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-zscaler-cloud-architecture","lastmod":"2026-08-28T15:25Z","nid":"1399756"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-zscaler-cloud-architecture","lastmod":"2026-09-29T17:31Z","nid":"1399756"} -->
 ## Understanding the Zscaler Cloud Architecture for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Understanding the Zscaler Cloud Architecture for Internet & SaaS
-- Last modified: 2026-08-28T15:25Z
+- Last modified: 2026-09-29T17:31Z
 - Summary: Information on the Zscaler Central Authority (CA), Public Service Edges for Internet & SaaS (ZIA) and Nanolog Clusters.
 
 Zscaler operates the world's largest security-as-a-service (SECaaS) cloud platform to provide the industry's only 100% cloud-delivered web and mobile security solution. The highly scalable, global, multi-cloud infrastructure features three key components: the Zscaler Central Authority (CA), Public Service Edges for Internet & SaaS (ZIA), and Nanolog clusters.
@@ -4098,6 +5701,8 @@ Public Service Edges for Internet & SaaS are full-featured, inline internet secu
 ## Nanolog Clusters
 
 Nanolog clusters store transaction logs and provide reports. Each cluster consists of one active server and two servers in passive standby mode. The active Nanolog immediately replicates data to the other two servers, so any of them can become active at any time, with no data loss. Each Nanolog server is hosted in a separate location to ensure fault tolerance. Every second, a Nanolog cluster receives logs from all over the world, correlates them to a specific customer organization, and writes them to disk for high-speed retrieval of reporting and analytics. A Nanolog cluster processes up to 1.2+ billion logs per day. Additionally, Zscaler offers a [Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/understanding-nanolog-streaming-service), which uses a virtual appliance to stream web and firewall traffic logs in real time from the Zscaler Nanolog to the customer’s security information and event management (SIEM) system.
+
+[Image: Zscaler Cloud Architecture Image]
 
 Additionally, each cloud has various support systems and servers, including:
 
@@ -4534,13 +6139,13 @@ With Zscaler Internet Access (ZIA), you can enable zero trust access to internet
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/user-risk-report","lastmod":"2026-06-18T06:18Z","nid":"1403126"} -->
+<!-- ZS-ARTICLE {"url":"/zia/user-risk-report","lastmod":"2026-09-18T00:04Z","nid":"1403126"} -->
 ## About the User Risk Report
 
 - Source: https://help.zscaler.com/zia/user-risk-report
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > About the User Risk Report
-- Last modified: 2026-06-18T06:18Z
+- Last modified: 2026-09-18T00:04Z
 - Summary: Information about the User Risk Report, which allows organizations to monitor and assess their user-level risk exposure.
 
 The User Risk Report allows you to monitor your organization's risk exposure from a user's perspective. The risk score is generated based on DLP violations, risky user behavior, unsanctioned cloud application usage, and other suspicious factors. If you want to view the report for a different user or date, use the appropriate drop-downs from the top of the page.
@@ -4555,7 +6160,7 @@ The User Risk Report provides the following benefits and enables you to:
 
 ## About the User Risk Report Page
 
-On the Company User Risk Score Report page (click Analytics, enable the toggle Switch to Existing Reports, and then go to Internet & SaaS > Analytics > Company Risk Score > Top Risky Users), you can view the following sections:
+On the Company User Risk Score Report page (Analytics > Reports > Company Risk Score > Top Risky Users), you can view the following sections:
 
 1. **Overview**: The section shows the following information about the user:
   - **Email Address**: The email address of the user.
@@ -4569,9 +6174,9 @@ On the Company User Risk Score Report page (click Analytics, enable the toggle S
     - Medium (26-50)
     - High (51-75)
     - Critical (76-100)
-2. **Risk Score Trend**: The graph shows the risk score trend for the user, company, and cloud. You can filter the graph for the last 7, 15, or 30 days. Click on a specific date in the graph to view the risk category for that date. You can also view the events that have contributed to the score by clicking **View** **Events Contributing To The Score**.
+2. **Risk Score Trend**: The graph shows the risk score trend for the user, company, and cloud. You can filter the graph for the last 7, 15, or 30 days. Click a specific date in the graph to view the risk category for that date. You can also view the events that have contributed to the score by clicking **View** **Events Contributing To The Score**.
 
-Click **View All Events** to view all the events that have contributed to the risk score. Click on an event, and you are redirected to the [Web Insights logs](https://help.zscaler.com/zia/about-insights-logs) page, where you can view the logs for that event.
+Click **View All Events** to view all the events that have contributed to the risk score. Click an event, and you are redirected to the [Web Insights logs](https://help.zscaler.com/zia/about-insights-logs) page, where you can view the logs for that event.
 
 1. **DLP Violations by DLP Engine**: The donut chart indicates the percentage of DLP violations based on the DLP engines. The total number of DLP violations are displayed at the center of the donut. You can filter the data for the last 7, 15, or 30 days.
 2. **Top Unsanctioned Cloud Applications**: The chart shows all the unsanctioned cloud applications accessed by the user. The information can be viewed for the number of transactions or the total bytes used for each of the unsanctioned cloud applications. You can filter the data for the last 7, 15, or 30 days.
@@ -4765,13 +6370,13 @@ After adding the custom PAC file to the Zscaler Admin Console, you must:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/using-dedicated-ip","lastmod":"2026-06-18T11:20Z","nid":"1468216"} -->
+<!-- ZS-ARTICLE {"url":"/zia/using-dedicated-ip","lastmod":"2026-09-15T05:22Z","nid":"1468216"} -->
 ## Using Dedicated IP
 
 - Source: https://help.zscaler.com/zia/using-dedicated-ip
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Forwarding Control > Dedicated IP > Using Dedicated IP
-- Last modified: 2026-06-18T11:20Z
+- Last modified: 2026-09-15T05:22Z
 - Summary: Information on Zscaler's offerings for organizations to use unique, dedicated source IP addresses for applications, including customer-managed and Zscaler-managed Dedicated IP services.
 
 When organizations forward their network traffic to the Zscaler cloud, the IP address of the client devices is automatically translated (via Network Address Translation) into a Zscaler-managed IP address from a common pool due to Zscaler's proxy architecture, before the traffic is forwarded to the destination. Although masking client devices' IP addresses behind Zscaler's IP addresses serves as one of the core tenets of Zero Trust Network Access (ZTNA), organizations in the enterprise landscape sometimes need to use their own IP addresses to authenticate and access certain resources.
@@ -4796,13 +6401,13 @@ Zscaler offers the following solutions for organizations to use dedicated source
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/using-default-pac-files-forward-traffic-internet-saas","lastmod":"2026-08-27T05:20Z","nid":"1399461"} -->
+<!-- ZS-ARTICLE {"url":"/zia/using-default-pac-files-forward-traffic-internet-saas","lastmod":"2026-09-29T04:09Z","nid":"1399461"} -->
 ## Using Default PAC Files to Forward Traffic to Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/using-default-pac-files-forward-traffic-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > PAC Files > Using PAC Files > Using Default PAC Files to Forward Traffic to Internet & SaaS
-- Last modified: 2026-08-27T05:20Z
+- Last modified: 2026-09-29T04:09Z
 - Summary: How to use default PAC files to forward traffic to Internet & SaaS (ZIA).
 
 The Zscaler service hosts 4 non-editable default PAC files, recommended.pac, proxy.pac, mobile_proxy.pac, and kerberos.pac, which are all configured to automatically forward all browser traffic to the nearest Public Service Edge for Internet & SaaS (ZIA).
@@ -4813,7 +6418,7 @@ The service recommends that you deploy the **recommended.pac** file to your orga
 
 To use the default PAC file that is hosted by the Zscaler service:
 
-1. Go to **Infrastructure**>**Internet & SaaS**> **Traffic Forwarding**> **Hosted PAC Files**.
+1. Go to **Infrastructure**>**Internet & SaaS**> **Hosted PAC Files**.
 2. Copy the **Hosted URL** of the default PAC file. See image.
 3. [Distribute the PAC file URL to your users.](https://help.zscaler.com/zia/distributing-pac-file-url-my-users)
 
@@ -4925,19 +6530,19 @@ Updates for Virtual Service Edges in standalone mode using an external LB should
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/using-pac-files-private-service-edge-internet-saas-deployments","lastmod":"2026-09-11T04:40Z","nid":"1400576"} -->
+<!-- ZS-ARTICLE {"url":"/zia/using-pac-files-private-service-edge-internet-saas-deployments","lastmod":"2026-09-23T03:33Z","nid":"1400576"} -->
 ## Using PAC Files: Private Service Edge for Internet & SaaS Deployments
 
 - Source: https://help.zscaler.com/zia/using-pac-files-private-service-edge-internet-saas-deployments
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Using PAC Files: Private Service Edge for Internet & SaaS Deployments
-- Last modified: 2026-09-11T04:40Z
+- Last modified: 2026-09-23T03:33Z
 - Summary: Information on how to use PAC files to forward traffic to Private Service Edge for Internet & SaaS (ZIA).
 
 Following are some additional requirements if your organization uses PAC files to forward traffic to Private Service Edge for Internet & SaaS (ZIA):
 
 - Enable a policy on the corporate firewall to allow devices to retrieve PAC files from the Zscaler PAC servers. To learn more, see [Firewall Configuration Requirements: Private Service Edge for Internet & SaaS Deployments](https://help.zscaler.com/zia/firewall-configuration-requirements-private-service-edge-internet-saas-deployments). If the PAC files are used only when users are remote or telecommuting, this step is not required.
-- When an organization uses Private Service Edges, Zscaler service creates a subcloud that maps the domain names `GATEWAY.``<Subcloud Name>``.``<Cloud Name>` and `SECONDARY.GATEWAY.``<Subcloud Name>``.``<Cloud Name>` to the IP addresses of the Private Service Edges and any Public Service Edges for Internet & SaaS that you want to use. This ensures that your web traffic is sent to the specified Public Service Edges only.
+- When an organization uses Private Service Edges, the Zscaler service creates a subcloud that maps the domain names `GATEWAY.``<Subcloud Name>``.``<Cloud Name>` and `SECONDARY.GATEWAY.``<Subcloud Name>``.``<Cloud Name>` to the IP addresses of the Private Service Edges and any Public Service Edges for Internet & SaaS that you want to use. This ensures that your web traffic is sent to the specified Public Service Edges only.
 
 Because of this, ensure that the PROXY statement in your PAC file specifies the following:
 
@@ -5097,7 +6702,7 @@ If you don't see the **MD5** column, click the **Menu** icon at the top right-ha
 
 The Zscaler Cloud Performance Test is a browser-based tool for collecting performance troubleshooting information for end users when connecting to the internet through Internet & SaaS (ZIA). This tool runs several performance tests, such as download or upload bandwidth, between the browser and the [Public Service Edge for Internet & SaaS (ZIA)](https://help.zscaler.com/zia/about-public-service-edges-internet-saas) or [Private Service Edge for Internet & SaaS (ZIA)](https://help.zscaler.com/zia/understanding-private-service-edge-internet-saas) to which the traffic is forwarded.
 
-Zscaler recommends you use our proprietary Cloud Performance Test tool powered by [Zscaler Digital Experience (ZDX)](https://help.zscaler.com/zdx/what-is-zscaler-digital-experience)over third-party speed test tools, such as Speedtest.net, because these tools introduce additional latency and variables that make it difficult to troubleshoot issues.
+Zscaler recommends you use our proprietary Cloud Performance Test tool powered by [Digital Experience (ZDX)](https://help.zscaler.com/zdx/what-is-zscaler-digital-experience)over third-party speed test tools, such as Speedtest.net, because these tools introduce additional latency and variables that make it difficult to troubleshoot issues.
 
 ## Accessing and Running the Zscaler Cloud Performance Test Tool
 
@@ -5216,13 +6821,13 @@ On the My IP Address page, you can view the following information:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/viewing-and-managing-supported-sspm-policies","lastmod":"2026-06-05T06:48Z","nid":"1486726"} -->
+<!-- ZS-ARTICLE {"url":"/zia/viewing-and-managing-supported-sspm-policies","lastmod":"2026-09-23T07:24Z","nid":"1486726"} -->
 ## Viewing and Managing the Supported SSPM Policies
 
 - Source: https://help.zscaler.com/zia/viewing-and-managing-supported-sspm-policies
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Posture Management > Posture Management - Essentials > Viewing and Managing the Supported SSPM Policies
-- Last modified: 2026-06-05T06:48Z
+- Last modified: 2026-09-23T07:24Z
 - Summary: Information on viewing, enabling, or disabling a SaaS Security Posture Management (SSPM) policy.
 
 The SaaS Security Posture Management (SSPM) page allows you to view or manage the supported policies for each application.
@@ -5231,40 +6836,39 @@ If you have Advanced Posture Management enabled via a license, the Posture Manag
 
 To view the list of supported SSPM policies for each tenant and to manage the status of the policies:
 
-1. Go to **Analytics** > enable the **Switch to Existing Reports** toggle >**Internet & SaaS**>**Analytics** > **SaaS Security Report** > **Posture Management**.
+1. Go to **Data Security** > **SaaS Security >** **Posture Management**.
 2. From the **Application**drop-down menu, choose the SaaS application you want to view the recommended security policies for. See image.
-3. From the **Tenant**drop-down menu, choose the application tenant you want to view the recommended security policies for.
+3. From the **Tenant**drop-down menu, choose the application tenant you want to view the recommended security policies for. See image.
 4. Click the **Add**icon (**+**) to further filter the policies by **Compliance Check**, **Risk Level**, and **Status**. Click **Reset**to reset the filters back to the application and tenant. See image.
 5. The policy table displays the list of policies based on the set filters. The following columns appear for each policy in the policy table: See image.
-  - **Policy**: The name of the policy. You can sort this column. Click a policy name to view the **Policy Details** drawer. The **Policy Details** drawer displays general information about the selected policy including the resource type, the risk level, the description, the potential threat if the policy is not implemented, and the applicable compliance. See image.
+  - **Policy**: The name of the policy. You can sort this column. Click a policy name to view the **Policy Details** drawer. The **Policy Details** drawer displays general information about the selected policy including the policy name, resource type, the risk level, the description, the potential threat if the policy is not implemented, policy status, and the applicable compliance. Disable or re-enable the policy based on your organization's required security posture using the toggle button. Click **Save** after disabling or re-enabling the policy status and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console). See image.
   - **Resource Type**: The resource type of the policy. You can sort this column.
   - **Compliance**: The applicable compliance type of the policy. The SSPM policies support FFIEC, GDPR, HIPAA, PCI DSS v3.2, ISO 27001:2013, SOC2 AICPA TSC 2017, NIST 800-53 Rev.5, CIS Microsoft 365 v1.4, CIS Microsoft 365 v3.0, and CIS Google Workspace V1.0.0 compliance types based on the selected tenant.
   - **Risk Level**: The risk level (High, Medium, Low) of the policy. You can sort this column.
-  - **Policy Status**: The status of the policy. By default, all the policies are enabled. Disable or re-enable any policy based on your organization's required security posture using the toggle button. See image. To learn more about policy statuses, see [About Posture Management Report](https://help.zscaler.com/zia/about-posture-management-report).
+  - **Policy Status**: The status of the policy. By default, all the policies are enabled. To learn more about policy statuses, see [About Posture Management Report](https://help.zscaler.com/zia/about-posture-management-report).
     - If enabled, the Zscaler SSPM evaluates the policy for the selected SaaS application and the tenant, and displays the policy’s current status (Pass, Fail, Partial) on the [SaaS Security Reports](https://help.zscaler.com/zia/about-saas-security-posture-report) page.
     - If disabled, the Zscaler SSPM does not evaluate the policy for the selected SaaS application and the tenant, and displays the Disabled status for the policy on the [SaaS Security Reports](https://help.zscaler.com/zia/about-saas-security-posture-report) page.
-6. Click **Save** after disabling or re-enabling the policy status and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-[Image: The SaaS Security Posture Report]
+[Image: Posture Management Page showing list of supported policies]
 
-[Image: The SSPM Policy details page displays the details of the selected policy.]
-
-[Image: Posture Management Page showing policy status]
+[Image: The SSPM Policy details page displays the details of the selected policy]
 
 [Image: SSPM Application Filter for Policies]
 
 [Image: SSPM Policy Table Filters]
+
+[Image: SSPM Tenant Filter for Policies]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/viewing-crowdstrike-endpoint-hits-report","lastmod":"2026-08-23T07:06Z","nid":"1401301"} -->
+<!-- ZS-ARTICLE {"url":"/zia/viewing-crowdstrike-endpoint-hits-report","lastmod":"2026-09-24T07:06Z","nid":"1401301"} -->
 ## Viewing the CrowdStrike Endpoint Hits Report
 
 - Source: https://help.zscaler.com/zia/viewing-crowdstrike-endpoint-hits-report
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Partner Integrations > Viewing the CrowdStrike Endpoint Hits Report
-- Last modified: 2026-08-23T07:06Z
+- Last modified: 2026-09-24T07:06Z
 - Summary: How to view the CrowdStrike Endpoints Hits report in the Zscaler Admin Console.
 
 If you [integrated with CrowdStrike](https://help.zscaler.com/zia/configuring-crowdstrike-integration), you can view information on endpoints that have been exposed to a potentially malicious file. After the Sandbox analyzes a file, you can click the **MD5** hash and choose **View CrowdStrike Endpoint Hits**. The CrowdStrike Endpoint Hits report provides visibility into all the endpoints installed and detected with CrowdStrike Falcon. The CrowdStrike integration leverages the CrowdStrike Falcon endpoint detection and response (EDR) capabilities and allows you to quarantine endpoints detected with the indicator of compromise (IOC). This IOC enrichment is important for:
@@ -5336,22 +6940,21 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/viewing-data-discovery-details","lastmod":"2026-06-21T20:23Z","nid":"1443091"} -->
+<!-- ZS-ARTICLE {"url":"/zia/viewing-data-discovery-details","lastmod":"2026-09-22T08:15Z","nid":"1443091"} -->
 ## Viewing Data Discovery Details
 
 - Source: https://help.zscaler.com/zia/viewing-data-discovery-details
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > Viewing Data Discovery Details
-- Last modified: 2026-06-21T20:23Z
+- Last modified: 2026-09-22T08:15Z
 - Summary: Information on viewing drill-down data from the Data Discovery Report.
 
 The Data Discovery Details page allows you to drill down to further analyze your organization's Data Loss Prevention (DLP) data. You can access the Data Discovery Details page from the [Data Discovery Report.](https://help.zscaler.com/zia/about-data-discovery-dashboard)
 
 To open the Data Discovery Details page:
 
-1. Go to **Analytics**, and at the bottom of the left-side navigation, enable the toggle**Switch to Existing Reports**.
-2. In the left-side navigation, go to **Internet & SaaS** > **Analytics**> **Data Discovery Report**.
-3. Click an item on an interactive chart, or click **Analyze** **More**on a widget. The **Data Discovery Details**page opens.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Inline DLP**> **Data Discovery Report**.
+2. Click an item on an interactive chart, or click **Analyze** **More**on a widget. The **Data Discovery Details**page opens.
 
 On the Data Discovery Details page, you can view the following information about your organization's DLP data:
 
@@ -5484,23 +7087,20 @@ Ensure that you configure firewall policies to prevent traffic from bypassing th
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/viewing-industry-peer-comparison-report","lastmod":"2026-06-09T07:00Z","nid":"1400376"} -->
+<!-- ZS-ARTICLE {"url":"/zia/viewing-industry-peer-comparison-report","lastmod":"2026-09-18T00:01Z","nid":"1400376"} -->
 ## Viewing the Industry Peer Comparison Report
 
 - Source: https://help.zscaler.com/zia/viewing-industry-peer-comparison-report
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > Viewing the Industry Peer Comparison Report
-- Last modified: 2026-06-09T07:00Z
+- Last modified: 2026-09-18T00:01Z
 - Summary: Information about the Industry Peer Comparison Report. It compares your organization's performance and effectiveness for the preceding month to that of both peer organizations and all companies using Zscaler.
 
 [Watch a video about Industry Peer Comparison](https://fast.wistia.net/embed/iframe/1drkydfajm) (shows legacy UI).
 
 The Industry Peer Comparison Report compares your organization's performance and effectiveness for the preceding month to that of both peer organizations and all companies using the cloud service. By accessing Industry Peer Comparison features, you provide Zscaler the right to compare your organization's performance and effectiveness of using Zscaler products for the preceding month to other peer organizations and all companies using our cloud service. Peers are chosen based on business vertical, geographic region, and business size.
 
-To view the Peer Comparison Report:
-
-1. Go to **Analytics**, and at the bottom of the left-side navigation, enable the toggle **Switch to Existing Reports**.
-2. In the left-side navigation, go to **Internet & SaaS** > **Analytics**> **Industry Peer Comparison**.
+To view the Peer Comparison Report, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics**> **Reports** > **Industry Peer Comparison**.
 
 See image.
 
@@ -5593,19 +7193,16 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/viewing-post-quantum-cryptography-visibility-report","lastmod":"2026-06-11T22:33Z","nid":"1532188"} -->
+<!-- ZS-ARTICLE {"url":"/zia/viewing-post-quantum-cryptography-visibility-report","lastmod":"2026-09-16T04:26Z","nid":"1532188"} -->
 ## Viewing the Post-Quantum Cryptography Visibility Report
 
 - Source: https://help.zscaler.com/zia/viewing-post-quantum-cryptography-visibility-report
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > Viewing the Post-Quantum Cryptography Visibility Report
-- Last modified: 2026-06-11T22:33Z
+- Last modified: 2026-09-16T04:26Z
 - Summary: Information on the Post-Quantum Cryptography Visibility report on the Interactive Reports page in the Zscaler Admin Console.
 
-To view the Post-Quantum Cryptography Visibility Report:
-
-1. Go to **Analytics**, and at the bottom of the left-side navigation, enable the toggle **Switch to Existing Reports**.
-2. In the left-side navigation, go to **Internet & SaaS** > **Analytics**> **Interactive Reports**> **Standard Reports**> **Web** **Activity**> **Post-Quantum Cryptography Visibility**.
+To view the Post-Quantum Cryptography Visibility Report, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics**>**Reports**> **Interactive Reports**> **Standard Reports**> **Web** **Activity**> **Post-Quantum Cryptography Visibility**.
 
 You can hover over the chart’s data in the report and click on it to gain more insights. To view information either in the form of logs or charts:
 
@@ -5642,18 +7239,18 @@ PQC support requires TLS 1.3 and cannot be negotiated in TLS 1.2 and earlier ver
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/viewing-quarterly-business-review-reports","lastmod":"2026-06-19T07:02Z","nid":"1400536"} -->
+<!-- ZS-ARTICLE {"url":"/zia/viewing-quarterly-business-review-reports","lastmod":"2026-09-18T03:54Z","nid":"1400536"} -->
 ## Viewing Quarterly Business Review Reports
 
 - Source: https://help.zscaler.com/zia/viewing-quarterly-business-review-reports
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > Viewing Quarterly Business Review Reports
-- Last modified: 2026-06-19T07:02Z
+- Last modified: 2026-09-18T03:54Z
 - Summary: Information on the features of the Zscaler Quarterly Business Review Report (QBR).
 
 The Quarterly Business Review (QBR) Report provides customers with extensive insight into how Zscaler is helping protect their network quarter to quarter. It helps customers observe emerging traffic trends and the types of threats that Zscaler is blocking.
 
-A new QBR is generated on the first weekend of every month. However, if the first weekend falls on the first or second day of the month, then the QBR is generated on the following weekend. The QBRs are securely stored as a PowerPoint file in the Zscaler cloud. Up to 15 reports are stored. Admins can download their reports in the Zscaler Admin Console (click **Analytics**, enable the toggle **Switch to Existing Reports**, and then go to **Internet & SaaS** > **Analytics** > **QBR Reports**). If you don't see the QBR, contact your support team or open a Zscaler Support ticket to have it enabled.
+A new QBR is generated on the first weekend of every month. However, if the first weekend falls on the first or second day of the month, then the QBR is generated on the following weekend. The QBRs are securely stored as a PowerPoint file in the Zscaler cloud. Up to 15 reports are stored. Admins can download their reports in the Zscaler Admin Console (**Analytics** > **Reports** > **QBR Reports**). If you don't see the QBR, contact your support team or open a Zscaler Support ticket to have it enabled.
 
 If you want to include or exclude remote user traffic, contact your Zscaler Account team.
 
@@ -5718,24 +7315,23 @@ An overview of the Zscaler service you are subscribed to.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/viewing-resource-discovery-report","lastmod":"2026-06-11T08:23Z","nid":"1509001"} -->
+<!-- ZS-ARTICLE {"url":"/zia/viewing-resource-discovery-report","lastmod":"2026-09-15T09:04Z","nid":"1509001"} -->
 ## Viewing the Resource Discovery Report
 
 - Source: https://help.zscaler.com/zia/viewing-resource-discovery-report
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > Viewing the Resource Discovery Report
-- Last modified: 2026-06-11T08:23Z
+- Last modified: 2026-09-15T09:04Z
 - Summary: Information about the Resource Discovery report, which enables organizations to monitor and review resource instances accessed by users at the resource hierarchical levels.
 
 The Resource Discovery Report provides an overview into the instances discovered and the mapping between the instances based on the SaaS application selected. The SaaS applications are categorized based on the level of discovery that is allowed. To learn more, see [Instance Discovery Report](https://help.zscaler.com/zia/about-instance-discovery-report).
 
 To view insights on the Resource Discovery Report page:
 
-1. Go to **Analytics**, and at the bottom of the left-side navigation, enable the toggle **Switch to Existing Reports**.
-2. In the left-side navigation, go to **Internet & SaaS**> **Analytics**>**Instance Discovery Report**.
-3. Choose a time frame from the menu. The options available are last 1 day, last 7 days, last 15 days, last month, and last quarter.
-4. Select the application you want to view the Instance Discovery Report for from the drop-down menu. The Instance Discovery Report with insights is displayed. To learn more, see [Instance Discovery Report](https://help.zscaler.com/zia/about-instance-discovery-report).
-5. Click **Analyze More**. The Resource Discovery Report page opens with data populated for the time frame and the SaaS application you selected in the previous steps. The SaaS applications are categorized based on the level of discovery that is allowed:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics**> **Reports** >**Instance Discovery Report**.
+2. Choose a time frame from the menu. The options available are last 1 day, last 7 days, last 15 days, last month, and last quarter.
+3. Select the application you want to view the Instance Discovery Report for from the drop-down menu. The Instance Discovery Report with insights is displayed. To learn more, see [Instance Discovery Report](https://help.zscaler.com/zia/about-instance-discovery-report).
+4. Click **Analyze More**. The Resource Discovery Report page opens with data populated for the time frame and the SaaS application you selected in the previous steps. The SaaS applications are categorized based on the level of discovery that is allowed:
   - Applications Supporting One Level of Discovery
   - Applications Supporting Two Levels of Discovery
   - Applications Supporting Three Levels of Discovery
@@ -5798,58 +7394,62 @@ For the applications that support two levels of instance discovery, select the c
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/viewing-restoring-policies-configurations-from-restore-point","lastmod":"2026-05-20T07:06Z","nid":"1398996"} -->
+<!-- ZS-ARTICLE {"url":"/zia/viewing-restoring-policies-configurations-from-restore-point","lastmod":"2026-09-30T07:59Z","nid":"1398996"} -->
 ## Viewing or Restoring Policies and Configurations from a Restore Point
 
 - Source: https://help.zscaler.com/zia/viewing-restoring-policies-configurations-from-restore-point
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Backup & Restore > Viewing or Restoring Policies and Configurations from a Restore Point
-- Last modified: 2026-05-20T07:06Z
-- Summary: How to view or restore policies and configurations from a restore point for the Zscaler service.
+- Last modified: 2026-09-30T07:59Z
+- Summary: How to view or restore policies and configurations from a restore point in the Zscaler Admin Console.
 
-[Watch a video about Backup and Restore](https://fast.wistia.net/embed/iframe/vohznch7uo) (shows legacy UI).
+[Watch a video about Backup & Restore.](https://fast.wistia.net/embed/iframe/t0q87g3oly)
 
 When you restore policies and configuration settings from a [restore point](https://help.zscaler.com/zia/about-backup-and-restore), it overwrites all your current policies and configuration settings, including all the rules and their components, such as URL categories and time intervals. If your current configuration has a component that is not in the restore point, such as a URL category, that component is removed when the restore point is restored. Therefore, you might want to review the policies in the restore point before restoring them.
 
 This article covers the following topics:
 
-- Viewing stored policies and configurations
-- Verifying and restoring policies and configuration from a restore point
+- Viewing Stored Policies and configurations
+- Verifying and Restoring Policies and Configuration from a Restore Point
 
-To view policies and configurations in a restore point:
+To view policies in a restore point:
 
-1. Go to**Administration**>**Backup & Restore**>**Internet & SaaS Applications**.
+1. Go to**Administration**>**Backup & Restore**>**Internet & SaaS**.
 2. Locate the **Restore Point Name** within the table and click the **Edit**icon.
 
 The **Edit Restore Point**window appears.
 
-1. In the **Edit Restore Point**window, click the **View Stored Policy**and Configuration button to see the stored policies and configurations. On the **Stored Policies**tab:
+1. In the **Edit Restore Point**window, click the **View Stored Policy**button to see the stored policies. See image.
+2. On the **Stored Policies**tab:
 
-- Select any of the stored policies listed by type (e.g., Sandbox, Firewall Control, DLP, etc.) to see their rules.
+- Select any of the stored policies listed by type (e.g., Sandbox, Firewall Control, DLP) to see their rules.
 - Click **Expand All**toexpand all policies and see the rules under the respective policy. You can also click the **View**icon to see the rule's configuration.
 - Click **Collapse All**to collapse all the expanded policies.
-- Click **Back**to go back to the **Backup & Restore** page.
+- Click **Back**to go back to the **Backup & Restore** page. See image.
 
-<li> <a href="#stored-configuration" target="_blank">Stored Configurations</a> </li>
-
-All the stored policies and configurations that appear here are read-only.
+All the stored policies that appear here are read-only.
 
 If the restore point was created before some of the additional features were introduced, then that legacy restore point can only be used to restore the policies and configurations that have been persisted in it. Applying a legacy restore point does not override policies and configurations that were not supported in the platform version at the time of the restore point creation.
 
 To verify and restore policies and configurations from a restore point:
 
-1. Go to**Administration**>**Backup & Restore**>**Internet & SaaS Applications**.
+1. Go to**Administration**>**Backup & Restore**>**Internet & SaaS**.
 2. Locate the **Restore Point Name** within the table and click the **Edit**icon.
 
 The **Edit Restore Point**window appears.
 
-1. In the **Edit Restore Point**window, click the **Verify and Restore**button torestore the policies and configurations from the restore point.
+1. In the **Edit Restore Point**window, click the **Verify and Restore**button torestore the policies and configurations from the restore point. See image.
+2. In the **Verify & Restore** window, verify the restore point to check for any error message or warning and click **Confirm**. See image.
 
-This action verifies certain conditions (e.g., ensuring that all provisioned static IP addresses in the restore point are still associated with the current tenant, ensuring that the expiration timestamp for all certificates persisted in the restore point, etc.) before applying the restore point.
+This action verifies certain conditions (e.g., ensuring that all provisioned static IP addresses in the restore point are still associated with the current tenant, ensuring that the expiration timestamp for all certificates persisted in the restore point) before applying the restore point.
 
-<div class="subc"> <p> <a id="stored-configuration" name="stored-configuration"></a>On the <strong>Stored Configurations </strong>tab, you can do the following: </p> <ul style="list-style-type:disc"> <li> Select any of the following configuration settings from the drop-down to see their configuration details: <ul class="triangle"> <li> <a href="#administrator-management" target="_blank">Administrator Management</a> </li> <li> <a href="#auth-settings" target="_blank">Authentication Settings</a> </li> <li> <a href="#hosted-pac-files" target="_blank">Hosted PAC Files</a> </li> <li> <a href="#location-management" target="_blank">Location Management</a> </li> <li> <a href="#nss" target="_blank">Nanolog Streaming Service</a> </li> <li> <a href="#partner-integrations" target="_blank">Partner Integrations</a> </li> <li> <a href="#url-categories" target="_blank">URL Categories</a> </li> <li> <a href="#vpn-credentials" target="_blank">VPN Credentials</a> </li> </ul> </li> <li> Click <strong>Back </strong>to go back to the <strong>Backup &amp; Restore</strong> page. </li> </ul> <p class="note"> If any of these settings aren't configured, then the corresponding configuration settings table appears empty. </p> </div> <div class="subc"> <p> <a id="administrator-management" name="administrator-management"></a>Displays the details of the Administrator Management configuration. To learn more, see <a href="/zia/about-administrators" target="_blank">About Administrators</a>. </p> </div> <div class="subc"> <p> <a id="auth-settings" name="auth-settings"></a>Displays the details of the Authentication Settings configuration. To learn more, see <a href="/zia/about-authentication-profile" target="_blank">About Authentication Profile</a>. </p> </div> <div class="subc"> <p> <a id="hosted-pac-files" name="hosted-pac-files"></a>Displays the details of the Hosted PAC Files configuration. To learn more, see <a href="/zia/about-hosted-pac-files" target="_blank">About Hosted PAC Files</a>. </p> </div> <div class="subc"> <p> <a id="location-management" name="location-management"></a>Displays the details of the Location Management configuration. To learn more, see <a href="/zia/about-locations" target="_blank">About Locations</a>. </p> </div> <div class="subc"> <p> <a id="nss" name="nss"></a>Displays the details of the Nanolog Streaming Service configuration. To learn more, see <a href="/zia/about-nanolog-streaming-service" target="_blank">About Nanolog Streaming Service (NSS)</a>. </p> </div> <div class="subc"> <p> <a id="partner-integrations" name="partner-integrations"></a>Displays the details of the Partner Integrations configuration. To learn more, see <a href="/zia/about-partner-integration-management" target="_blank">About Partner Integrations</a>. </p> </div> <div class="subc"> <p> <a id="url-categories" name="url-categories"></a>Displays the details of the URL Categories configuration. To learn more, see <a href="/zia/about-url-categories" target="_blank">About URL Categories</a>. </p> </div> <div class="subc"> <p> <a id="vpn-credentials" name="vpn-credentials"></a>Displays the details of the VPN Credentials configuration. To learn more, see <a href="/zia/about-vpn-credentials" target="_blank">About VPN Credentials</a>. </p> </div>
+[Image: View Stored Policy button on the Edit Restore Point window]
 
-<div class="subc"> <p> <a id="store-policies" name="store-policies"></a>On the <strong>Stored Policies </strong>tab, you can do the following: </p> <ul style="list-style-type:disc"> <li> Select any of the stored policies listed by type (e.g., Sandbox, Firewall Control, DLP, etc.) to see their rules. </li> <li> Click <strong>Expand All </strong>to<strong> </strong>expand all policies and see the rules under the respective policy. You can also click the <strong>View </strong>icon to see the rule's configuration. </li> <li> Click <strong>Collapse All </strong>to collapse all of the expanded policies. </li> <li> Click <strong>Back </strong>to go back to the <strong>Backup &amp; Restore</strong> page. </li> </ul> </div>
+[Image: Stored Polices tab where you can check the list of stored policies]
+
+[Image: Verify and Restore button on the Edit Restore Point window]
+
+[Image: Verify the restore point for any errors or messages from the Verify and Restore window]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -5954,13 +7554,13 @@ When configuring the Sandbox policy, you also can enable AI Quarantine to analyz
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/viewing-secure-browsing-reports","lastmod":"2026-06-05T08:17Z","nid":"1399841"} -->
+<!-- ZS-ARTICLE {"url":"/zia/viewing-secure-browsing-reports","lastmod":"2026-09-25T04:59Z","nid":"1399841"} -->
 ## Viewing Secure Browsing Reports
 
 - Source: https://help.zscaler.com/zia/viewing-secure-browsing-reports
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Browser Control > Viewing Secure Browsing Reports
-- Last modified: 2026-06-05T08:17Z
+- Last modified: 2026-09-25T04:59Z
 - Summary: How to view Secure Browsing reports that track the use of vulnerable browsers, plugins, and applications.
 
 The Zscaler service has Secure Browsing reports, which you can run to track the use of vulnerable browsers, plugins, and applications, and then modify your [Browser Control policy](https://help.zscaler.com/zia/configuring-browser-control-policy) if needed.
@@ -5969,7 +7569,7 @@ The Zscaler service has Secure Browsing reports, which you can run to track the 
 
 To view Secure Browsing reports:
 
-1. Go to **Analytics**> **Internet & SaaS** > **Analytics**>**Interactive Reports**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics**> **Reports**>**Interactive Reports**.
 2. On the **Standard Reports** tab, go to the **Secure Browsing** section to see the available browsing reports. See image.
 
 To learn more about Interactive Reports, see [About Interactive Reports](https://help.zscaler.com/zia/about-interactive-reports).
@@ -5980,7 +7580,7 @@ Additionally, on the Web Insights page, you can view a list of the top users wit
 
 To view top users with vulnerable browsers, plugins, and applications:
 
-1. Go to **Logs** > **Insights** >**Web Insights**> **Insights**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** > **Internet & SaaS** >**Web Insights**> **Insights**.
 2. At the top, choose**User**as the **Data Type**.
 3. In the left pane, choose a time frame and chart type.
 4. Select the **Secure Browsing Status** filter, and then select **Vulnerable**.
@@ -5996,13 +7596,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/viewing-sublocations","lastmod":"2026-08-31T06:55Z","nid":"1531209"} -->
+<!-- ZS-ARTICLE {"url":"/zia/viewing-sublocations","lastmod":"2026-09-28T04:01Z","nid":"1531209"} -->
 ## Viewing Sublocations
 
 - Source: https://help.zscaler.com/zia/viewing-sublocations
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Viewing Sublocations
-- Last modified: 2026-08-31T06:55Z
+- Last modified: 2026-09-28T04:01Z
 - Summary: Information on viewing the Sublocations table on the Locations page in the Zscaler Admin Console
 
 You can add sublocations to an existing parent location using your organization's internal IP address range. Organizations can leverage sublocations to implement various policies based on IP addresses, enforce authentication for selective networks, and enforce bandwidth control to ensure unused bandwidth is available for the parent location. To learn more, see [Understanding Sublocations](https://help.zscaler.com/zia/understanding-sublocations).
@@ -6011,7 +7611,7 @@ You can [add sublocations](https://help.zscaler.com/zia/configuring-sublocations
 
 To view the sublocations created for the location:
 
-1. Go to **Infrastructure > Locations > Legacy Locations**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure > Location Management > Legacy Locations**.
 2. On the**Locations** page, click the sublocation number in the **Sublocations**column within the locations table. The **View Sublocation** page appears, displaying all the sublocations created for the location.
 3. On the **View Sublocation** page, you can view the following for each sublocation:
   - **Name**: The name of the sublocation.
@@ -6036,13 +7636,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/viewing-user-reports-web-insights","lastmod":"2026-05-07T04:01Z","nid":"1401081"} -->
+<!-- ZS-ARTICLE {"url":"/zia/viewing-user-reports-web-insights","lastmod":"2026-09-30T08:46Z","nid":"1401081"} -->
 ## Viewing User Reports in Web Insights
 
 - Source: https://help.zscaler.com/zia/viewing-user-reports-web-insights
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Viewing User Reports in Web Insights
-- Last modified: 2026-05-07T04:01Z
+- Last modified: 2026-09-30T08:46Z
 - Summary: Information on how to view top user reports in Web Insights in the Zscaler Admin Console.
 
 To get the most out of viewing user traffic in Web Insights, you can view the top users and can also see how much time users spend on the internet.
@@ -6051,7 +7651,7 @@ To get the most out of viewing user traffic in Web Insights, you can view the to
 
 To view and export a list of top users:
 
-1. Go to **Logs**>**Insights > Web Insights**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer**>**Internet & SaaS > Web Insights**.
 2. Select **User** as the data type to list the top users. You can also click **Export All Active Users** to export the list of active users to a CSV file.
 
 See image.
@@ -6066,7 +7666,7 @@ This report provides data for the last seven days only.
 
 To create a time-based report:
 
-1. Go to **Logs**>**Insights > Web Insights**.
+1. Go to **Data Explorer**>**Internet & SaaS > Web Insights.**
 2. Select **User** as the data type.
 3. Expand **Add Filter** and choose **Received Bytes**.
 
@@ -6576,13 +8176,13 @@ To restart the Virtual Service Edge:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/web-data-types-and-filters","lastmod":"2026-04-22T01:39Z","nid":"1399471"} -->
+<!-- ZS-ARTICLE {"url":"/zia/web-data-types-and-filters","lastmod":"2026-09-25T03:38Z","nid":"1399471"} -->
 ## Web Data Types and Filters
 
 - Source: https://help.zscaler.com/zia/web-data-types-and-filters
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Web Data Types and Filters
-- Last modified: 2026-04-22T01:39Z
+- Last modified: 2026-09-25T03:38Z
 - Summary: Information on web data types and filters to define web traffic information in a dashboard, report widget, or when analyzing charts in Web Insights.
 
 There are two ways you work with web data types and filters to define the web traffic information that you want to view: in a dashboard or report [widget](https://help.zscaler.com/zia/about-widgets), or when analyzing charts on an Insights page. To learn more about how to analyze your Insights traffic, see [Analyzing Traffic Using Insights](https://help.zscaler.com/zia/analyzing-traffic-using-insights).
@@ -6715,6 +8315,7 @@ Displays data about advanced threats that the service detected in your organizat
   - Inbound
   - Outbound
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to limit the data to advanced threats detected in web traffic that was either allowed or blocked by the service. The default option for this filter is **All**. You can search for specific actions. The following actions appear under this filter:
   - All
   - Allow
@@ -6750,6 +8351,7 @@ Displays data about a data center's bandwidth. You can apply the following filte
   - Inbound
   - Outbound
 - **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 
 Displays data about a department's bandwidth. You can apply the following filters:
 
@@ -6763,6 +8365,7 @@ Displays data about a department's bandwidth. You can apply the following filter
   - Inbound
   - Outbound
 - **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 
 Displays data about a location's bandwidth usage. You can apply the following filters:
 
@@ -6776,6 +8379,7 @@ Displays data about a location's bandwidth usage. You can apply the following fi
   - Inbound
   - Outbound
 - **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 
 Displays data about a location group's bandwidth usage. You can apply the following filters:
 
@@ -6798,6 +8402,7 @@ Displays data about a location group's bandwidth usage. You can apply the follow
   - Inbound
   - Outbound
 - **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 
 Displays bandwidth data for each rule in the Bandwidth Control policy. You can apply the following filters:
 
@@ -6813,6 +8418,7 @@ Displays bandwidth data for each rule in the Bandwidth Control policy. You can a
   - Inbound
   - Outbound
 - **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 
 Displays bandwidth usage in bits-per-second (bps) for each bandwidth class. You can apply the following filters:
 
@@ -6834,6 +8440,7 @@ Displays bandwidth usage in bits-per-second (bps) for each bandwidth class. You 
   - Inbound
   - Outbound
 - **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 
 Displays information on the internet gateway location IP addresses. You can view this information by number of transactions, bytes, or time.
 
@@ -6864,6 +8471,7 @@ Displays a 7-day view of your organization's bandwidth usage in a trend chart. Y
   - Inbound
   - Outbound
 - **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 
 Displays cipher suites used on the client side (client to Public Service Edge for Internet & SaaS) of the SSL connection.
 
@@ -6958,6 +8566,7 @@ The Miscellaneous <Cloud Application Category> Apps (e.g., Miscellaneous Finance
   - Listen
   - Upload
 - **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions. This is the default option.
   - **Allow**: View allowed transactions.
@@ -7007,6 +8616,7 @@ Displays web traffic data grouped by application class.
   - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
   - **Tunnel SSL**: Undecodable protocol within an SSL connection.
 - **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions. This is the default option.
   - **Allow**: View allowed transactions.
@@ -7034,6 +8644,7 @@ Displays data about transactions in which data leakage was detected. The data ar
   - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
   - **Tunnel SSL**: Undecodable protocol within an SSL connection.
 - **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions. This is the default option.
   - **Allow**: View allowed transactions.
@@ -7061,6 +8672,7 @@ Displays data about transactions in which data leakage was detected. The data is
   - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
   - **Tunnel SSL**: Undecodable protocol within an SSL connection.
 - **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions. This is the default option.
   - **Allow**: View allowed transactions.
@@ -7076,6 +8688,7 @@ Displays the unique name of the Data Loss Prevention (DLP) rule that matched or 
   - Allow
   - Block
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 
 Displays data about the web traffic of each department in your organization.
 
@@ -7111,6 +8724,7 @@ Displays web traffic data grouped by the downloaded file type.
   - Inbound
   - Outbound
 - **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions. This is the default option.
   - **Allow**: View allowed transactions.
@@ -7142,6 +8756,7 @@ Displays data associated with file sharing activities. You can apply the followi
   - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
   - **Tunnel SSL**: Undecodable protocol within an SSL connection.
 - **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Traffic Direction**: Use this filter to limit the data to either inbound or outbound traffic. The default option for this filter is **All**. This data type uses only the unit **Bytes**. You can search for specific directions. The following directions appear under this filter:
   - All
   - Inbound
@@ -7175,6 +8790,7 @@ Displays web traffic data grouped by the Response HTTP version. You can apply th
   - Inbound
   - Outbound
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 
 Displays data about the web traffic of instant messaging applications. The trend chart does not support this data type. You can apply the following filters:
 
@@ -7204,6 +8820,7 @@ Displays data about the web traffic of instant messaging applications. The trend
   - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
   - **Tunnel SSL**: Undecodable protocol within an SSL connection.
 - **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions.
   - **Allow**: View allowed transactions.
@@ -7375,6 +8992,7 @@ Displays data about the web traffic of your organization’s location group. You
   - Violence
   - Weapons/Bombs
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions.
   - **Allow**: View allowed transactions
@@ -7556,6 +9174,7 @@ Displays data about the web traffic of your organization's location type. You ca
   - Violence
   - Weapons/Bombs
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Webmail Activity**: Use this filter to limit the data to the web traffic associated with webmail applications. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **Web Mail**. From the **Webmail Activity** filter, the default option is **All**. You can search for specific activities. The following activities appear under the **Webmail Activity**filter:
   - All
   - Send
@@ -7810,6 +9429,7 @@ Displays data about the overall web traffic for the selected time period. You ca
   - Violence
   - Weapons/Bombs
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to limit the data to advanced threats detected in web traffic that was either allowed or blocked by the service. The default option for this filter is **All**. You can search for specific actions. The following actions appear under this filter:
   - All
   - Allow
@@ -7971,6 +9591,7 @@ Displays data about the Windows executable files, DLLs (dynamic link libraries) 
   - Malicious
   - Non malicious
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 
 Displays data grouped according to transactions that were allowed or blocked due to the Sandbox policy.
 
@@ -7989,6 +9610,7 @@ Displays data grouped according to transactions that were allowed or blocked due
   - Quarantined
   - Sent for Analysis
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 
 Displays web traffic data by Secure Browsing class. It only uses samples as its data unit.
 
@@ -8011,6 +9633,7 @@ Displays web traffic data by Secure Browsing class. It only uses samples as its 
   - Installed
   - Vulnerable
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 
 Displays data about web traffic from all installed browsers, plug-ins and applications, and from installed browsers, plug-ins and applications that the service considers vulnerable. It only uses samples as its data unit.
 
@@ -8103,6 +9726,7 @@ Displays data about web traffic from all installed browsers, plug-ins and applic
   - User Agent Switcher
   - Windows Media Player
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 
 Displays data about web traffic associated with specific browsers, plug-ins and applications. It only uses samples as its data unit. This data type cannot be used with a trend chart.
 
@@ -8195,6 +9819,7 @@ Displays data about web traffic associated with specific browsers, plug-ins and 
   - User Agent Switcher
   - Windows Media Player
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 
 Displays information associated with a destination server. You can view this information by number of transactions, bytes, or time.
 
@@ -8263,6 +9888,7 @@ Displays data about web traffic associated with the access and usage of social n
   - Publish
   - View
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **Any**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions.
   - **Allow**: View allowed transactions
@@ -8294,6 +9920,7 @@ Displays data about the web traffic associated with the access and usage of stre
   - Listen
   - Upload
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions.
   - **Allow**: View allowed transactions
@@ -8361,6 +9988,7 @@ Displays data about detected viruses or spyware. The trend chart does not suppor
   - Inbound
   - Outbound
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**:Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions.
   - **Allow**: View allowed transactions.
@@ -8396,6 +10024,7 @@ Displays data about the threats that the service detected in the web traffic of 
   - Inbound
   - Outbound
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **Any**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions.
   - **Allow**: View allowed transactions.
@@ -8436,6 +10065,7 @@ Displays data about the detected viruses and spyware for each virus and spyware 
   - Inbound
   - Outbound
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions.
   - **Allow**: View allowed transactions.
@@ -8534,6 +10164,7 @@ Displays data about the web traffic of each HTTP request method. It displays dat
   - Inbound
   - Outbound
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to limit the data to advanced threats detected in web traffic that was either allowed or blocked by the service. The default option for this filter is **All**. You can search for specific actions. The following actions appear under this filter:
   - All
   - Allow
@@ -8561,6 +10192,7 @@ Displays web traffic data grouped by the uploaded file type.
   - **Tunnel SSL**: Undecodable protocol within an SSL connection.
 - **Upload File Type**: Use this filter to view data for a specific uploaded file type. The default option is **Any**.
 - **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions. This is the default option.
   - **Allow**: View allowed transactions.
@@ -8629,6 +10261,7 @@ Displays web traffic data grouped by URL category. The trend chart does not supp
   - Violence
   - Weapons/Bombs
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**:Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions.
   - **Allow**: View allowed transactions.
@@ -8664,6 +10297,7 @@ Displays web traffic data grouped by [URL class](https://help.zscaler.com/zia/ab
   - Privacy Risk
   - Productivity Loss
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions.
   - **Allow**: View allowed transactions.
@@ -8735,6 +10369,7 @@ Displays web traffic data grouped by URL super category. You can apply the follo
   - Violence
   - Weapons/Bombs
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions.
   - **Allow**: View allowed transactions.
@@ -8907,6 +10542,7 @@ Displays web traffic data grouped according to transactions that were allowed or
   - Violence
   - Weapons/Bombs
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions.
   - **Allow**: View allowed transactions
@@ -8939,6 +10575,7 @@ Displays data about webmail traffic. The trend chart does not support this data 
   - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
   - **Tunnel SSL**: Undecodable protocol within an SSL connection.
 - **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
+- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
 - **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
   - **All**: View all transactions.
   - **Allow**: View allowed transactions.
@@ -9197,13 +10834,13 @@ When you use Source IP Anchoring for the URL or domain, Zscaler doesn't log the 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/web-insights-logs-filters","lastmod":"2026-08-29T07:06Z","nid":"1401016"} -->
+<!-- ZS-ARTICLE {"url":"/zia/web-insights-logs-filters","lastmod":"2026-09-25T02:51Z","nid":"1401016"} -->
 ## Web Insights Logs: Filters
 
 - Source: https://help.zscaler.com/zia/web-insights-logs-filters
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > Web Insights Logs: Filters
-- Last modified: 2026-08-29T07:06Z
+- Last modified: 2026-09-25T02:51Z
 - Summary: Information on the different filters in the Web Insights Logs page in the Zscaler Admin Console.
 
 Filters define the traffic information that you view in your Web Insights Logs. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
@@ -9352,10 +10989,13 @@ Following are the web log filters you can select:
 - URL Search
 - URL Super Category
 - User
+- User Group
 - User Agent
 - Policy Action
 - Webmail Activity
 - Zscaler Client Connector Tunnel Version
+
+Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **None**. You can search for specific user groups.
 
 Use this filter to view transactions associated with an Adaptive Access profile. The default filter for this is **Any**. You can also choose to include or exclude the selected values.
 
@@ -10242,13 +11882,13 @@ This distinction applies only when the **Best Effort Policies** option is used f
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/what-3rd-party-app-governance","lastmod":"2026-04-24T09:17Z","nid":"1540013"} -->
+<!-- ZS-ARTICLE {"url":"/zia/what-3rd-party-app-governance","lastmod":"2026-09-30T03:24Z","nid":"1540013"} -->
 ## What Is 3rd-Party App Governance?
 
 - Source: https://help.zscaler.com/zia/what-3rd-party-app-governance
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > What Is 3rd-Party App Governance?
-- Last modified: 2026-04-24T09:17Z
+- Last modified: 2026-09-30T03:24Z
 - Summary: Information on third-party app security using Zscaler 3rd-Party App Governance.
 
 Zscaler 3rd-Party App Governance allows you to discover, manage, reduce, and control the attack surface introduced by third-party apps, extensions, and add-ons to corporate SaaS applications.
@@ -10259,9 +11899,9 @@ You can effectively govern your environment by classifying apps as sanctioned or
 
 You can manually or automatically streamline remediation actions such as banning or revoking an app token, and involve end users in the review process. 3rd-Party App Governance lets you reduce your vetting or pre-vetting procedures from hours to minutes with a centralized console and extensive app catalog that unifies key attributes and automates the majority of the process.
 
-To learn more about navigating the 3rd-Party App Governance Admin Portal, see[Accessing and Navigating the 3rd-Party App Governance Admin Portal](https://help.zscaler.com/legacy-zia/accessing-and-navigating-3rd-party-app-governance-admin-portal).
+To learn more about navigating the 3rd-Party App Governance Admin Portal, see[Accessing and Navigating the 3rd-Party App Governance Admin Portal](https://help.zscaler.com/zia/accessing-and-navigating-3rd-party-app-governance-admin-portal).
 
-To learn more about configuring 3rd-Party App Governance, see the [Step-by-Step Guide for 3rd-Party App Governance](https://help.zscaler.com/legacy-zia/step-step-configuration-guide-3rd-party-app-governance).
+To learn more about configuring 3rd-Party App Governance, see the [Step-by-Step Configuration Guide for 3rd-Party App Governance](https://help.zscaler.com/zia/step-step-configuration-guide-3rd-party-app-governance).
 
 ## Key Benefits
 
@@ -10274,20 +11914,20 @@ To learn more about configuring 3rd-Party App Governance, see the [Step-by-Step 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/what-advanced-posture-management","lastmod":"2026-08-12T22:29Z","nid":"1508606"} -->
+<!-- ZS-ARTICLE {"url":"/zia/what-advanced-posture-management","lastmod":"2026-09-23T07:58Z","nid":"1508606"} -->
 ## What Is Advanced Posture Management?
 
 - Source: https://help.zscaler.com/zia/what-advanced-posture-management
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Posture Management > Posture Management - Advanced > What Is Advanced Posture Management?
-- Last modified: 2026-08-12T22:29Z
+- Last modified: 2026-09-23T07:58Z
 - Summary: Information on SaaS security using Zscaler Advanced SSPM.
 
 Zscaler Advanced SaaS Security Posture Management (SSPM) is a comprehensive and unified solution that delivers complete security across Software as a Service (SaaS) apps and platforms, from data visibility to posture and governance. It helps you to quickly identify and mitigate risky misconfigurations, control SaaS sprawl and reduce third-party access, and identify users at risk.
 
 With Advanced SSPM, you can continuously monitor and correct SaaS security posture to ensure regulatory compliance is maintained across the organization. Advanced SSPM lets you reduce your attack surface by vetting third-party integrations and revoking risky connections. You can also ensure least-privileged SaaS access and revoke over privileged identities and permissions.
 
-If you subscribe to the Advanced SSPM service, you can access Advanced SSPM from the Zscaler Admin Console using single sign-on (SSO). To access Advanced SSPM, go to **Analytics** > enable the **Switch to Existing Reports**toggle > **Internet & SaaS** > **Analytics**> **SaaS Security Report** >**Posture Management.**
+If you subscribe to the Advanced SSPM service, you can access Advanced SSPM from the Zscaler Admin Console using single sign-on (SSO). To access Advanced SSPM, go to **Analytics**> **Reports** > **SaaS Security Report** >**Posture Management.**
 
 See image.
 
@@ -10442,13 +12082,13 @@ Organizations can easily connect their traffic to Internet & SaaS using several 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/what-zscaler-outbound-email-dlp","lastmod":"2026-08-21T07:20Z","nid":"1492656"} -->
+<!-- ZS-ARTICLE {"url":"/zia/what-zscaler-outbound-email-dlp","lastmod":"2026-09-22T07:06Z","nid":"1492656"} -->
 ## What Is Zscaler Outbound Email DLP?
 
 - Source: https://help.zscaler.com/zia/what-zscaler-outbound-email-dlp
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > What Is Zscaler Outbound Email DLP?
-- Last modified: 2026-08-21T07:20Z
+- Last modified: 2026-09-22T07:06Z
 - Summary: A high-level overview of what Zscaler Outbound Email Data Loss Prevention (DLP) is and how it uses outbound email policy to prevent the exfiltration of sensitive data in email content.
 
 Zscaler Outbound Email Data Loss Prevention (DLP) stops the exfiltration of sensitive data by enforcing policy rules on outbound email content sent to external domains, including content in subject lines, body text, and attachments. Using connectors and rules, your email server sends email to, and receives email from, the Zscaler smart host. The Zscaler smart host receives the email and sends it to the Zscaler DLP service for inspection. The Zscaler DLP service then inspects the email content for sensitive data, adding headers that define DLP actions to emails that trigger outbound email policy. When your email server receives inspected email from the Zscaler smart host, it uses those headers to determine enforcement actions.
@@ -11187,105 +12827,4 @@ Zscaler DNS Security and Control services offer mechanisms to take control of yo
 - Summary: Zscaler Endpoint DLP release summary for updates deployed, per OS and version, in 2026.
 
 This article provides a summary of all new features and enhancements released per operating system (OS) for Zscaler Endpoint DLP.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/zscaler-traffic-bypasses","lastmod":"2026-06-02T23:36Z","nid":"1440656"} -->
-## Zscaler Traffic Bypasses
-
-- Source: https://help.zscaler.com/zia/zscaler-traffic-bypasses
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Zscaler Traffic Bypasses
-- Last modified: 2026-06-02T23:36Z
-- Summary: Information on traffic bypasses that are available in the Zscaler cloud.
-
-This article provides detailed information about the types of traffic bypasses available in the Zscaler cloud. The following sections illustrate how you can bypass certain application traffic or web traffic in the Zscaler cloud.
-
-- Zscaler Client Connector
-- SSL/TLS Inspection
-- Firewall Control Policy
-
-Zscaler Client Connector has an Application Bypass feature that allows you to automatically bypass specific applications from being tunneled through Zscaler Tunnel (Z-Tunnel) 2.0. You need to add the applications that you want to bypass in the **Application Bypass** field while configuring the app profiles in the Zscaler Admin Console. To learn more, see [Configuring Zscaler Client Connector App Profiles](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles).
-
-This application bypass is only applicable for [Windows](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles?referer=mobileadmin.zscalerbeta.net#windows) and [macOS](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles?referer=mobileadmin.zscalerbeta.net#macOS) app profiles and if you use Z-Tunnel 2.0 as your forwarding profile in Zscaler Client Connector. You can also view the details of the bypassed applications on the [Application Bypass](https://help.zscaler.com/zscaler-client-connector/viewing-information-bypassed-applications-z-tunnel-2.0-configuration) page.
-
-Full visibility of the traffic bypassed by Zscaler Client Connector, such as bypassed session, bypassed session event time, and flow type is logged and displayed in the [Web](https://help.zscaler.com/zia/web-insights-logs-columns) and [Firewall](https://help.zscaler.com/zia/firewall-insights-logs-columns) Insights Logs in the Zscaler Admin Console.
-
-See sample Web Logs.
-
-See sample Firewall Logs.
-
-## Application-Based Bypass in Android
-
-Zscaler recommends bypassing Android application traffic. While configuring the [Android app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles?referer=mobileadmin.zscalerbeta.net#android), you can automatically bypass standard messaging applications on Android using the following steps:
-
-1. Enable the **Bypass Traffic for MMS Applications** field to ensure that Android does not interfere with MMS, which also uses mobile data.
-2. Add the app's identifier to the **Bypass Traffic for Specific Applications** field to bypass specific Android application traffic. You can find the app's identifier after the ID parameter in the URL of the app's Play Store details. For custom applications (i.e., applications not available in the Play Store), add the package name instead of the app’s identifier in the field.
-
-If you are not aware of the package name of the application, use PAC file-based exclusion to bypass specific hostnames and IP addresses. To do that, configure a [custom PAC file](https://help.zscaler.com/zia/using-custom-pac-file-forward-traffic-internet-saas) in the Zscaler Admin Console to bypass the Google FQDNs, and add that PAC URL to the **Custom PAC URL** field while adding an Android app profile.
-
-The Zscaler exception list for SSL/TLS inspection includes a few dozen known domains or destinations, such as Zscaler service IP addresses for Zscaler best practices, `contactservice.zoom.us` for UCaaS bypass, and `self.events.data.microsoft.com` for Microsoft 365 bypass events, which cannot be SSL/TLS inspected for various reasons. These domains are not exposed as they are subject to change.
-
-The predefined **Zscaler Recommended Exemptions** rule under **Policies** >**Common Configuration**>**SSL/TLS Inspection**>**SSL/TLS Inspection Policy**automatically exempts known destinations that cannot be SSL/TLS inspected when it is enabled. If you want to SSL/TLS inspect certain domains from the exempted list, create an inspection rule with a higher rule order. Disable the predefined rule for SSL/TLS inspecting all domains. To learn more, see [About SSL/TLS Inspection Policy](https://help.zscaler.com/zia/about-ssltls-inspection-policy).
-
-You can find transactions that are not SSL/TLS inspected or blocked after an inspection under the **SSL/TLS Policy Reason** filter in [Web Insights Logs](https://help.zscaler.com/zia/web-insights-logs-columns). The percentage of traffic automatically SSL/TLS bypassed is relatively small (less than 1%).
-
-See sample Web Logs.
-
-SSL/TLS inspection also does not work on applications that use [certificate pinning](https://help.zscaler.com/zia/certificate-pinning-and-ssltls-inspection) because the client application is hardcoded to accept only one specific client certificate. They should be included in the list of URL categories for which SSL/TLS transactions are not decrypted. To learn how to manage certificate pinning exempted applications, see [Certificate Pinning and SSL/TLS Inspection](https://help.zscaler.com/zia/certificate-pinning-and-ssltls-inspection).
-
-The following are some of the Firewall Control policy rules applied to traffic that is bypassing the Zscaler cloud:
-
-- Zscaler Bypass Traffic
-- Blocked by Web Proxy Policy
-- Other Implicit Rules for Traffic Bypasses
-
-The Firewall Control policy has a predefined implicit **Zscaler Bypass Traffic**rulewhich applies to traffic that matches the following conditions. Transactions that match this rule are logged and displayed along with the rule name in [Firewall Insights Logs](https://help.zscaler.com/zia/firewall-insights-logs-columns) and [DNS Insights Logs](https://help.zscaler.com/zia/dns-insights-logs-columns).
-
-- Firewall Logs
-- DNS Logs
-
-Zscaler recommends keeping the predefined **Zscaler Proxy Traffic** rule enabled. When the recommended predefined rule is disabled, the **Zscaler Bypass Traffic** rule is triggered.
-
-The **Zscaler Bypass Traffic** rule matches with traffic that meets the following criteria and populates in the Firewall Logs:
-
-- The web module does not accept control for the traffic evaluation from the firewall module because the handshake abruptly terminates during flow establishment.
-- The traffic is forwarded from a firewall-enabled sublocation but not enabled to the parent location or another sublocation under the same parent location. This happens due to the latency in identifying these location differences, such as in the X-Forwarded-For (XFF) configuration.
-- Traffic is destined to a Zscaler-owned IP address. For HTTP CONNECT requests destined to a virtual IP (VIP) address, this rule triggers the first policy match unless the inner traffic is destined elsewhere.
-- Traffic forwarded using GRE tunnels matches this rule.
-- Zscaler web proxy instructs the firewall that a connection should not pass through firewall policy enforcement.
-- A sublocation has firewall disabled while other sublocations within the same parent location have it enabled, and there are policies applied to the sublocation (e.g., [Source IP Anchoring](https://help.zscaler.com/zia/configuring-source-ip-anchoring) or [Forwarding rules](https://help.zscaler.com/zia/configuring-forwarding-control-policy)). In this scenario, the Public Service Edge for Internet & SaaS (ZIA) holds the session temporarily to evaluate all the sublocation's policies and apply the most suitable rule, logging the traffic with the Zscaler Bypass Traffic rule until evaluation is complete.
-
-See sample Firewall Logs.
-
-The Zscaler Bypass Traffic rule populates in the DNS logs when:
-
-- The domain name in the DNS request query matches a Zscaler cloud domain.
-- The DNS request query matches a Microsoft 365 endpoint listed in the [Microsoft 365 One Click predefined Firewall Filtering rules](https://help.zscaler.com/zia/about-predefined-firewall-filtering-rules#office-one-click) if enabled.
-- The DNS response does not contain a resolved IP address or CNAME.
-- The DNS response is not completely analyzed because of its resource record type. DNS Control performs a detailed analysis of responses for A, AAAA, CNAME, and PTR record types.
-
-See sample DNS Logs.
-
-This implicit rule is applied when a web policy blocks traffic while it is being evaluated by deep packet inspection to identify the network application to which the traffic belongs. You can view the transactions that match this rule in the [Firewall Insights Logs](https://help.zscaler.com/zia/firewall-insights-logs-columns).
-
-The traffic flow from users might bypass firewall or DNS modules when the following scenarios occur:
-
-- When the Service Edge fails to establish a connection with the Zscaler Central Authority (CA), it results in the traffic flow passing through the firewall or DNS without a policy application. This might occur when traffic flow from a specific user or location arrives at the Service Edge for the first time and a connection to the CA is required to apply policies. Firewall logs this transaction, and you can view this in [Firewall Insights Logs](https://help.zscaler.com/zia/firewall-insights-logs-filters) by applying the **Bypassed due to missing config**filter. See sample Firewall Insights Logs.
-- If the Service Edge has established a connection with the CA, but the requested configuration does not arrive from the CA within the expected time period (typically 5 seconds), it results in the traffic flow passing through the firewall without a policy application. This might occur when traffic flow from a specific user or location arrives at the Service Edge for the first time and a connection to the CA is established, but there is no response from the CA within the expected timeframe. Firewall logs this transaction, and you can view this in [Firewall Insights Logs](https://help.zscaler.com/zia/firewall-insights-logs-filters) by applying the **Timed out while waiting for a config** filter. <p> <a class="image-icon" href="#timed-out-while-waiting-for-config-filter-logs">See sample Firewall Logs.</a> </p>
-
-[Image: Web Logs traffic bypass columns]
-
-[Image: Firewall Logs traffic bypass columns]
-
-[Image: Web Logs page for SSL bypassed traffic]
-
-[Image: Zscaler Bypass Traffic in the DNS Logs]
-
-[Image: Firewall Logs page for Zscaler Bypass Traffic rule]
-
-[Image: Bypassed due to missing config filter in Firewall Logs]
-
-<div class="subc"> <p> <a class="ck-anchor" id="timed-out-while-waiting-for-config-filter-logs"></a><img src="/downloads/zia/traffic-forwarding/zscaler-traffic-bypasses/firewall-logs-timed-out-while-waiting-for-config.png" data-entity-uuid="0" data-entity-type="image" alt=" Timed out while waiting for config filter in Firewall Logs" title="Firewall logs filtered to show transactions matching Timed out while waiting for config action " width="1425" height="234"> </p> </div>
 <!-- /ZS-ARTICLE -->

@@ -1,10 +1,141 @@
 # Zscaler Zenith Community — Platform / 認証 / 管理 / ログ (part 2)
 
 Source: https://community.zscaler.com
-Generated: 2026-09-21 02:03 UTC
-Posts in this file: 114
+Generated: 2026-10-05 10:48 UTC
+Posts in this file: 116
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AWUXlDCQX/zscalar-certification","lastmod":"2024-07-01T14:04:37.000Z","id":"0D54u0000AWUXlDCQX"} -->
+## Zscalar certification
+
+- Source: https://community.zscaler.com/s/question/0D54u0000AWUXlDCQX/zscalar-certification
+- Type: Q&A
+- Last activity: 2024-07-01T14:04:37.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Certification
+
+dheees
+
+(Customer) asked a question.
+
+July 1, 2024 at 11:05 AM
+
+Zscalar certification
+
+Hi All,
+
+I have been learning ZTCA, finished all the e-learnings but , in the last i was asked to register with $300. or purchasewith 1 credit .
+
+can anyone explain about the credits and how can i earn them.
+
+can i use them to register for the exams if i earned one.
+
+Certification
+
+1 answer
+
+523 views
+
+Ramesh Mani
+
+(Partner)
+
+2 years ago
+
+You can reach out your Sales contact who can help with certifcation credits.
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+1/12/2024
+
+at
+
+04:57 AM
+
+ZIA administrator certification
+
+Certification
+
+User16739629112679781823
+
+1,216
+
+1216 Views
+
+0 Likes
+
+2 Comments
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Zscalar certification
+<!-- /ZS-POST -->
 
 ---
 
@@ -20515,12 +20646,12 @@ Inquiry About Discounts for ZDTE certification
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000012e8V50AI/unable-to-login-zenith2026-due-to-unregistered-user-error","lastmod":"2026-09-15T13:02:35.000Z","id":"0D5PJ000012e8V50AI"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000012e8V50AI/unable-to-login-zenith2026-due-to-unregistered-user-error","lastmod":"2026-09-21T08:32:03.000Z","id":"0D5PJ000012e8V50AI"} -->
 ## Unable to login Zenith2026 Due to Unregistered User error
 
 - Source: https://community.zscaler.com/s/question/0D5PJ000012e8V50AI/unable-to-login-zenith2026-due-to-unregistered-user-error
 - Type: Q&A
-- Last activity: 2026-09-15T13:02:35.000Z
+- Last activity: 2026-09-21T08:32:03.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 Zenith Live 26
@@ -20620,4 +20751,215 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Unable to login Zenith2026 Due to Unregistered User error
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000012yoEn0AI/windows-update-for-an-unattended-device-without-zscaler-user-authentication","lastmod":"2026-09-21T12:53:07.000Z","id":"0D5PJ000012yoEn0AI"} -->
+## Windows Update for an unattended device without Zscaler user authentication
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000012yoEn0AI/windows-update-for-an-unattended-device-without-zscaler-user-authentication
+- Type: Q&A
+- Last activity: 2026-09-21T12:53:07.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - Authentication
+
+shaik.nazeem
+
+(Customer) asked a question.
+
+Edited yesterday at 9:15 AM
+
+Windows Update for an unattended device without Zscaler user authentication
+
+Hi all,
+
+We have an unattended Windows 11 device running Zscaler Client Connector. The device needs to communicate with Microsoft Intune and Windows Update when no user is logged in.
+
+Currently, internet access is blocked by Client Connector until a user authenticates. This prevents the device from reliably communicating with Microsoft Intune/Windows Update for unattended management and patching.
+
+We need to allow this
+
+single device
+
+to access only the required Windows Update services without requiring a user to authenticate to Zscaler.
+
+We would like to allow only the required Microsoft Intune/Windows Update connectivity for this specific device while it is unauthenticated, rather than allowing general unauthenticated internet access.
+
+What is the recommended Zscaler configuration for this scenario?
+
+Is there a recommended method for allowing the required Intune and Windows Update destinations?
+
+The aim is to keep the exception restricted to this one managed device and the required Microsoft services, rather than allowing general unauthenticated internet access.
+
+Do I need a custom ZIA policy for an unattended Windows device to access Intune/Windows Update services without user authentication?
+
+Any guidance or examples of a similar unattended-device configuration would be appreciated
+
+ZIA - Authentication
+
+12 views
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/15/2022
+
+at
+
+12:39 PM
+
+Onprem Active directory integrate with Zscaler cloud ZIA
+
+ZIA - Authentication
+
+aravindhan.m
+
+3 Views
+
+0 Likes
+
+3 Comments
+
+7/11/2022
+
+at
+
+07:26 AM
+
+Zscaler IDP authentication issue
+
+ZIA - Authentication
+
+aravindhan.m
+
+4 Views
+
+0 Likes
+
+2 Comments
+
+5/27/2022
+
+at
+
+01:49 PM
+
+Zscaler ZIA O365 Apps not authenticating
+
+ZIA - Authentication
+
+abmaclean
+
+4 Views
+
+0 Likes
+
+6 Comments
+
+10/4/2021
+
+at
+
+10:43 PM
+
+Automatic de-provisioning using SCIM with Azure AD
+
+ZIA - Authentication
+
+Paul_Wineberg
+
+4 Views
+
+0 Likes
+
+4 Comments
+
+6/27/2020
+
+at
+
+03:01 PM
+
+Zscaler public preview
+
+ZIA - Authentication
+
+Muhammad
+
+390
+
+390 Views
+
+0 Likes
+
+2 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Windows Update for an unattended device without Zscaler user authentication
 <!-- /ZS-POST -->

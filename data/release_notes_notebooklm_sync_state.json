@@ -1,0 +1,177 @@
+{
+ "notebook": {
+  "id": "952e994e-01be-44a4-89e0-c0fa0b7b760a",
+  "title": "Zscaler_updates"
+ },
+ "sources": {
+  "Zscaler_release_20260401-20260403.md": {
+   "added_at": "2026-10-04T15:51:55Z",
+   "rel": "2026-04-03/Zscaler_release_20260401-20260403.md",
+   "sha256": "6f5e6dfc3160acbc2b477ec7ccb106bdfb9eadae399632ae94a0c9529348d7d9",
+   "source_id": "c9e1140a-f5cc-4463-920d-89331750e017"
+  },
+  "Zscaler_release_20260404-20260410.md": {
+   "added_at": "2026-10-04T15:52:04Z",
+   "rel": "2026-04-10/Zscaler_release_20260404-20260410.md",
+   "sha256": "fc3d2d5699999005d77c29f69db715bd174d894a83379fd203c8ebd55b6362f6",
+   "source_id": "dc681e18-af2c-4be7-8a11-1cb9d08ac9e6"
+  },
+  "Zscaler_release_20260411-20260417.md": {
+   "added_at": "2026-10-04T15:52:12Z",
+   "rel": "2026-04-17/Zscaler_release_20260411-20260417.md",
+   "sha256": "20b81c7ff0f064c4f98f9e69a4c619a52f5716c1a187234e7db776110182de4d",
+   "source_id": "2eaf4600-c0f7-4a68-9107-3b3765e80976"
+  },
+  "Zscaler_release_20260418-20260424.md": {
+   "added_at": "2026-10-04T15:52:18Z",
+   "rel": "2026-04-24/Zscaler_release_20260418-20260424.md",
+   "sha256": "da48fbe1e2e46ee576532fa5003c68d475f6a9ecb3d996eb38466bd82d2c992a",
+   "source_id": "5b21c88d-bc88-4434-b241-9c9eed546827"
+  },
+  "Zscaler_release_20260425-20260501.md": {
+   "added_at": "2026-10-04T15:52:26Z",
+   "rel": "2026-05-01/Zscaler_release_20260425-20260501.md",
+   "sha256": "4de93ee12d8fe1444f753dc34b038c3829d78259eafb23f4a938712f5f89b11f",
+   "source_id": "f21d92b3-5986-4da0-b90a-e61a4b2a954d"
+  },
+  "Zscaler_release_20260502-20260508.md": {
+   "added_at": "2026-10-04T15:52:32Z",
+   "rel": "2026-05-08/Zscaler_release_20260502-20260508.md",
+   "sha256": "64ba693e71f596ceab45c7ab00cf09a917ca402e9ca757204ba0ae404acd744b",
+   "source_id": "1076b006-3685-498c-a5b4-935f06e38d92"
+  },
+  "Zscaler_release_20260509-20260515.md": {
+   "added_at": "2026-10-04T15:52:38Z",
+   "rel": "2026-05-15/Zscaler_release_20260509-20260515.md",
+   "sha256": "dd26a6d59ed6c1420649ac40a5ed2ed4874ebc018e9866535ab56e40feeb7156",
+   "source_id": "571f935f-6252-49de-bef7-4757e33e9457"
+  },
+  "Zscaler_release_20260516-20260522.md": {
+   "added_at": "2026-10-04T15:52:44Z",
+   "rel": "2026-05-22/Zscaler_release_20260516-20260522.md",
+   "sha256": "458533362a57b11c6ad2678ca725c3365711497e0691157e40e59d972ab83056",
+   "source_id": "77001c1f-1d81-49b9-b24c-55160c86e598"
+  },
+  "Zscaler_release_20260523-20260529.md": {
+   "added_at": "2026-10-04T15:52:51Z",
+   "rel": "2026-05-29/Zscaler_release_20260523-20260529.md",
+   "sha256": "f12ca9efc08cfc423bddba3f1c2640ae54ea46e7b575f85532cbbf1faec78c7a",
+   "source_id": "3f83d751-10c1-4fcd-840b-85d807bb1ba2"
+  },
+  "Zscaler_release_20260530-20260605.md": {
+   "added_at": "2026-10-04T15:52:59Z",
+   "rel": "2026-06-05/Zscaler_release_20260530-20260605.md",
+   "sha256": "c3e89e6aa7a96c1f2873580d341a5d7c435f3fdc8bc34f93c2415a679f777914",
+   "source_id": "6f46b9c9-9452-4ccc-9756-39789a880fda"
+  },
+  "Zscaler_release_20260606-20260612.md": {
+   "added_at": "2026-10-04T15:53:06Z",
+   "rel": "2026-06-12/Zscaler_release_20260606-20260612.md",
+   "sha256": "3c6276d9b237f01b26d5710d9d709335527c90250947168f4b9ee01fb50aff66",
+   "source_id": "e19e8304-d5f4-40fa-b8b8-d5bc91b1c0ac"
+  },
+  "Zscaler_release_20260613-20260619.md": {
+   "added_at": "2026-10-04T15:53:12Z",
+   "rel": "2026-06-19/Zscaler_release_20260613-20260619.md",
+   "sha256": "7f7a5698a5c370e97c0ba768eafa5371246ba285e7018b15b3862bf511f7430f",
+   "source_id": "6a481d84-87d2-412c-b461-c4269b79ee88"
+  },
+  "Zscaler_release_20260620-20260626.md": {
+   "added_at": "2026-10-04T15:53:18Z",
+   "rel": "2026-06-26/Zscaler_release_20260620-20260626.md",
+   "sha256": "4e7c09cad8d7ff7eb3246014f621a2243b795cc3038370a767f1b9b377456d55",
+   "source_id": "ca99d45d-6257-4296-ae0b-c81a4dd04d47"
+  },
+  "Zscaler_release_20260627-20260703.md": {
+   "added_at": "2026-10-04T15:53:27Z",
+   "rel": "2026-07-03/Zscaler_release_20260627-20260703.md",
+   "sha256": "dd2fdd0b9f5d5f27f2e8ef02bdadb328c29772b464a790adf35b1ff5adc6eec4",
+   "source_id": "4a958f08-3f93-4b00-8c41-5455ae067025"
+  },
+  "Zscaler_release_20260704-20260710.md": {
+   "added_at": "2026-10-04T15:53:35Z",
+   "rel": "2026-07-10/Zscaler_release_20260704-20260710.md",
+   "sha256": "f20968ccd4634e8ffd2f4d19c92909d67f9d46bb209ebcb3035c15e3e21aecb5",
+   "source_id": "01cc1c7b-b223-4811-add4-b2a727ea159d"
+  },
+  "Zscaler_release_20260711-20260717.md": {
+   "added_at": "2026-10-04T15:53:41Z",
+   "rel": "2026-07-17/Zscaler_release_20260711-20260717.md",
+   "sha256": "6a750e3f7747eb31fb5f50628f242260c10d7a5e4385eb27eb60ce9bdf1cb6df",
+   "source_id": "7ae8f6df-dbc0-4e17-9228-5b73ebd97958"
+  },
+  "Zscaler_release_20260718-20260724.md": {
+   "added_at": "2026-10-04T15:53:50Z",
+   "rel": "2026-07-24/Zscaler_release_20260718-20260724.md",
+   "sha256": "c5fc51bbfd52270b5204efacea6f61376bf44747fb833c4374171bfb19981ba7",
+   "source_id": "9576dff0-9d54-4960-bd52-eb32249e496d"
+  },
+  "Zscaler_release_20260725-20260731.md": {
+   "added_at": "2026-10-04T15:53:56Z",
+   "rel": "2026-07-31/Zscaler_release_20260725-20260731.md",
+   "sha256": "4ef24b82c532ddf62e3492f0f8026fca8741b13c054601458594f13fcc0a1656",
+   "source_id": "f9507883-a2b4-455b-8c9d-d77cba64e57f"
+  },
+  "Zscaler_release_20260801-20260807.md": {
+   "added_at": "2026-10-04T15:54:03Z",
+   "rel": "2026-08-07/Zscaler_release_20260801-20260807.md",
+   "sha256": "b8dd0e8a351b7d76bc4acffc4801c73307de2ac016b59c224ce6472dbd6b8e86",
+   "source_id": "931228d4-46cf-44b3-b5a4-47cb6b3be009"
+  },
+  "Zscaler_release_20260808-20260814.md": {
+   "added_at": "2026-10-04T15:54:09Z",
+   "rel": "2026-08-14/Zscaler_release_20260808-20260814.md",
+   "sha256": "94d2ecb657d263d7680a5c0b9d5e6c8b6d49687d5a13fe1c9361378792713722",
+   "source_id": "6dc55af1-b7ad-48bd-8d22-d1b4b3c2cf77"
+  },
+  "Zscaler_release_20260815-20260821.md": {
+   "added_at": "2026-10-04T15:54:16Z",
+   "rel": "2026-08-21/Zscaler_release_20260815-20260821.md",
+   "sha256": "86cd158368ff4429542f5c14e328cf9160a2af9fde7d98f928f54dadcbc60a44",
+   "source_id": "0c4be5a7-d4f0-421e-8841-8524ff56840d"
+  },
+  "Zscaler_release_20260822-20260828.md": {
+   "added_at": "2026-10-04T15:54:24Z",
+   "rel": "2026-08-28/Zscaler_release_20260822-20260828.md",
+   "sha256": "927a962bc300c391de181e32c1038c814348318466ea13ae0bad90aa8d1d2f38",
+   "source_id": "34a56694-b035-4e41-bee2-8a44555613c7"
+  },
+  "Zscaler_release_20260829-20260904.md": {
+   "added_at": "2026-10-04T15:54:33Z",
+   "rel": "2026-09-04/Zscaler_release_20260829-20260904.md",
+   "sha256": "ddc1a1676421a3c15e3bea8d716d303687cd25d480d3fa070f4c16ca0b6341db",
+   "source_id": "2360d01c-38b6-4047-8d36-ca0ccb81f56c"
+  },
+  "Zscaler_release_20260905-20260911.md": {
+   "added_at": "2026-10-04T15:54:40Z",
+   "rel": "2026-09-11/Zscaler_release_20260905-20260911.md",
+   "sha256": "a479945a061cb775aa05f512c1648dd4f31f569e87f65319a6fa23ed1d9ff180",
+   "source_id": "408c555b-6300-44a1-a228-adce2443c4be"
+  },
+  "Zscaler_release_20260912-20260918.md": {
+   "added_at": "2026-10-04T15:54:49Z",
+   "rel": "2026-09-18/Zscaler_release_20260912-20260918.md",
+   "sha256": "51022dc385339557bf8840a11c60ab32adf72c693ec41b4c5341a75cf86eb529",
+   "source_id": "4c3a16da-75ff-48b8-86b3-bbd41511133d"
+  },
+  "Zscaler_release_20260919-20260925.md": {
+   "added_at": "2026-10-04T15:54:55Z",
+   "rel": "2026-09-25/Zscaler_release_20260919-20260925.md",
+   "sha256": "caa264539a8932bfaa276af565fdd20dbfd025c2bd0ee026d64fc52fd1489311",
+   "source_id": "1b027282-d0f0-4d79-85fe-bbfb7c1e5f3b"
+  },
+  "Zscaler_release_20260926-20261002.md": {
+   "added_at": "2026-10-03T14:54:28Z",
+   "rel": "Zscaler_release_20260926-20261002.md",
+   "sha256": "0c74305daadaf49cec9bf3ed2197693dc298b51351f92641cbff50ab5199ebda",
+   "source_id": "825ec65a-cf02-48f6-8025-01a934f269e2"
+  },
+  "Zscaler_release_20261003-20261009.md": {
+   "added_at": "2026-10-09T11:29:42Z",
+   "rel": "2026-10-09/Zscaler_release_20261003-20261009.md",
+   "sha256": "ac950f47bef74c6deeffd5de82acaa4ba6c8065c8eeb8d0456f6778d465bc8b8",
+   "source_id": "e83a48b6-8d3b-42fc-9184-5c0fd9e91c39"
+  }
+ },
+ "synced_at": "2026-10-09T11:29:42Z"
+}

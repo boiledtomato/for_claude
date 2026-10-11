@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — Branch / Cloud Connector / SD-WAN (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-09-21 02:03 UTC
-Posts in this file: 76
+Generated: 2026-10-05 10:48 UTC
+Posts in this file: 79
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -1785,6 +1785,657 @@ Article Details
 
 ---
 
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Articles/aSmPJ00000GexTB0AZ/zsos24-cloud-connector-validation-migration-guide","lastmod":"2026-09-29T15:45:47.000Z","id":"aSmPJ00000GexTB0AZ"} -->
+## ZSOS24 - Cloud Connector Validation & Migration Guide
+
+- Source: https://community.zscaler.com/s/Articles/aSmPJ00000GexTB0AZ/zsos24-cloud-connector-validation-migration-guide
+- Type: Article
+- Last activity: 2026-09-29T15:45:47.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Article Details
+
+Cloud Connector
+
+nullmann
+
+(Employee) posted an Article
+
+Edited 5h ago
+
+ZSOS24 - Cloud Connector Validation & Migration Guide
+
+Why this matters / urgency:
+
+ZSOS24 is deprecated and reaches
+
+End of Life (Dec 31, 2026)
+
+. After EOL, devices on ZSOS24/FreeBSD 11 no longer receive OS or security updates. OS upgrades do
+
+not
+
+happen through the normal weekly auto-upgrade — they require a
+
+redeployment
+
+onto the new image. Plan the migration ahead of the deadline.
+
+Part 1 - Validation: Are you affected?
+
+Console (SSH or Serial)
+
+Log in to the Cloud Connector CLI through SSH or Console
+
+Usernname:
+
+zsroot
+
+Password:
+
+<use your PEM key>
+
+Run: uname -a
+
+In AWS or GCP, the output should include ZscalerOS 42-RELEASE version
+
+In Microsoft Azure the output should include FreeBSD 13.2-RELEASE.
+
+Interpretation:
+
+Output shows
+
+ZscalerOS 42-RELEASE
+
+up to date
+
+, no action required.
+
+Output shows
+
+FreeBSD 13.2-RELEASE
+
+up to date
+
+, no action required.
+
+Output shows
+
+Zscaler-OS 24-RELEASE
+
+or
+
+ZSOS24
+
+or
+
+FreeBSD 11.4
+
+deprecated
+
+, the device is running an older version that must be
+
+redeployed
+
+(see Part 2).
+
+Cloud Service Provider UI (no CLI access)
+
+Use the console instead of/in addition to SSH to confirm the image the instance was built from. For Reference:
+
+Identifying the Zscaler Cloud Connector Version
+
+AWS:
+
+EC2
+
+Instances
+
+<CC instance>
+
+Details
+
+tab → check
+
+AMI ID
+
+and
+
+AMI name
+
+(e.g.
+
+zs-cc-ga-03092026-...
+
+).
+
+GCP:
+
+Compute Engine
+
+VM Instances
+
+<CC Instance>
+
+Basic information
+
+Boot disk source image
+
+(e.g.
+
+zs-cc-ga-03092026-...
+
+Azure:
+
+Virtual machines
+
+<CC instance>
+
+Source image details
+
+Source image plan
+
+and
+
+Source image publisher
+
+(e.g.
+
+zscaler1579058425289
+
+or
+
+zs_ser_gen1_cc_01
+
+Part 2 - Migration / Redeployment
+
+Important - service impact:
+
+Redeploying a Cloud Connector interrupts the data path for traffic flowing through that CC.
+
+Never redeploy all CCs at once.
+
+For multi-CC / HA / GWLB and ASG deployments, migrate
+
+one CC (or one small batch) at a time
+
+and confirm health before moving to the next. For a
+
+single-CC deployment
+
+base_1cc
+
+), expect a
+
+traffic outage
+
+for the duration of the replacement — schedule a maintenance window.
+
+2.0 Before you start (pre-requisites & backout)
+
+Back up your Terraform state
+
+(and
+
+terraform.tfvars
+
+) before applying anything.
+
+Confirm your
+
+provisioning URL
+
+API key
+
+CC (or Branch) group
+
+are still valid - these are reused by the redeployed instances.
+
+Have a
+
+backout plan
+
+: keep the previous launch template version / old
+
+ami_id
+
+value noted so you can pin back if the new image misbehaves.
+
+Know your topology: single CC vs. HA pair vs. GWLB vs. ASG - the rollout mechanism differs.
+
+2.1 Redeploymnet by original deployment method
+
+Manually through the Azure Marketplace
+
+If you deployed manually via the Azure Marketplace Cloud Connector Application, redeploy manually through the marketplace wizard following
+
+these instructions
+
+Automated through Terraform or CloudFormation
+
+Ensure your IaC references the latest product code / image (see Part 3).
+
+Confirm the new image will actually be picked up (see 2.2 - the state-pinning trap).
+
+Roll out by deployment type:
+
+Auto Scaling Group (AWS) / VM Scale Set (Azure):
+
+apply
+
+creates a
+
+new launch template version
+
+; then trigger an
+
+Instance Refresh
+
+on the ASG (or let scale events roll instances) to move CCs to the new image in a controlled manner.
+
+See 2.3
+
+Static / HA:
+
+terraform apply
+
+will
+
+replace
+
+instances.
+
+Drain/replace one CC at a time
+
+; do not replace all simultaneously, to preserve traffic.
+
+See 2.4
+
+Note:
+
+If your IaC for Cloud Connectors is not on the latest modules, refresh with latest modules from Zscaler's GitHub:
+
+https://github.com/zscaler/
+
+2.2 Confirm the plan will actually change the image (the state-pinning trap)
+
+Even after clearing/updating the image variable, existing deployments can keep the
+
+old image pinned in Terraform state
+
+(in the launch template or the instance). If nothing forces a change,
+
+terraform plan
+
+may report "
+
+No changes
+
+" and the CC will stay on the old OS.
+
+Do this:
+
+Clear any pin in terraform.tfvars:
+
+AWS:
+
+ensure
+
+ami_id
+
+is empty/commented (
+
+ami_id = [""]
+
+) so the latest Marketplace AMI is resolved - or set it explicitly to the new AMI. (See Part 3 for the
+
+data "aws_ami"
+
+lookup).
+
+Azure:
+
+set ccvm_source_image_id = "zs_ser_gen1_cc_01:latest"
+
+GCP:
+
+set
+
+marketplace_image = "zs-cc-ga-03092026"
+
+(or newer) - or your
+
+custom_image_name
+
+Run
+
+terraform plan
+
+and
+
+verify the diff shows the image/AMI changing
+
+(new
+
+image_id
+
+on the launch template, or
+
+ami/ami-...
+
+change on the instance, or new
+
+source_image
+
+).
+
+If plan shows
+
+no image change
+
+, the value is pinned in state. Options: correct the variable, or force replacement of the relevant resource (e.g. new launch template version for ASG, or a targeted instance replacement for static) —
+
+do this one CC at a time
+
+Only then
+
+apply
+
+2.3 ASG / ScaleSet - Instance Refresh (controlled rollout)
+
+After
+
+apply
+
+publishes the new launch template version, start an
+
+Instance Refresh
+
+Use a conservative
+
+min_healthy_percentage
+
+(e.g. 50–90% depending on capacity) and an appropriate
+
+instance warm-up
+
+so only a portion of CCs cycle at once.
+
+Monitor
+
+health checks / target group health throughout; new instances must pass health checks before the next batch is replaced.
+
+Rollback
+
+: if new instances fail to become healthy, cancel the refresh and/or roll back to the previous launch template version.
+
+2.4 Static / HA - rolling replacement
+
+Replace
+
+one CC at a time
+
+. For GWLB/route-table or active/standby HA setups, ensure traffic fails over to the healthy CC before replacing its peer.
+
+Wait for the replaced CC to come up healthy and pass traffic before proceeding to the next.
+
+For
+
+single-CC
+
+deployments there is no peer — schedule a maintenance window and expect downtime.
+
+2.5 Post-redeployment verification (always do this)
+
+Re-run the
+
+Part 1 validation
+
+uname -a
+
+) on each new instance and confirm it reports
+
+ZscalerOS 42-RELEASE
+
+Confirm the CC shows
+
+healthy / connected
+
+in the Zscaler Admin Console (and in the load balancer target group, if applicable).
+
+Confirm traffic is flowing through the new CC.
+
+Clean up any
+
+orphaned/old appliance entries
+
+in the portal if the redeploy created new identities rather than reusing the old ones.
+
+Part 3 - Latest images & product codes (reference)
+
+3.1 Amazon Web Services
+
+CloudFormation
+
+Latest templates:
+
+https://github.com/zscaler/cloud-native-aws-cloud-connector-deploy
+
+Confirm your
+
+.yaml
+
+references the latest product code, e.g.:
+
+Mappings:
+
+Product2Code:
+
+CloudConnector:
+
+Code: 2l8tfysndbav4tv2nfjwak3cu
+
+Product codes:
+
+Global:
+
+2l8tfysndbav4tv2nfjwak3cu
+
+China:
+
+axnpwhsb4facossmbm1h9yad6
+
+Terraform
+
+Latest templates:
+
+https://github.com/zscaler/terraform-aws-cloud-connector-modules
+
+You typically override the AMI ID in each example's
+
+terraform.tfvars
+
+ami_id = ["ami-123456789"]
+
+Leave it empty (
+
+ami_id = [""]
+
+) to auto-resolve the latest Marketplace AMI. The lookup lives in
+
+main.tf
+
+data "aws_ami" "cloudconnector" {
+
+most_recent = true
+
+filter {
+
+name   = "product-code"
+
+values = var.aws_region == "cn-north-1" || var.aws_region == "cn-northwest-1"
+
+? ["axnpwhsb4facossmbm1h9yad6"]   # China
+
+: ["2l8tfysndbav4tv2nfjwak3cu"]   # Global
+
+owners = ["aws-marketplace"]
+
+3.2 Google Cloud Platform
+
+Terraform
+
+Latest templates:
+
+https://github.com/zscaler/terraform-gcp-cloud-connector-modules/tree/main
+
+Override the image in each example's
+
+terraform.tfvars
+
+marketplace_image = "zs-cc-ga-03092026"
+
+or
+
+custom_image_name = "private-image-name"
+
+Lookup in
+
+main.tf
+
+data "google_compute_image" "zs_cc_img" {
+
+count   = var.custom_image_name != "" ? 0 : 1
+
+project = "mpi-zscalercloudconnector-publ"
+
+name    = var.marketplace_image
+
+3.3 Microsoft Azure
+
+Terraform
+
+Latest templates:
+
+https://github.com/zscaler/terraform-azurerm-cloud-connector-modules
+
+Override the source image in each example's
+
+terraform.tfvars
+
+ccvm_source_image_id = "zs_ser_gen1_cc_01:latest"
+
+Appendix — Migration checklist (per deployment)
+
+Validate current OS via
+
+uname -a
+
+(and/or CSP UI) — record whether ZSOS24/FreeBSD 11.
+
+Confirm topology: single / HA / GWLB / ASG.
+
+Back up Terraform state and
+
+terraform.tfvars
+
+Confirm provisioning URL / API key / CC group still valid.
+
+Update image variable / product code to latest (Part 3).
+
+terraform plan
+
+shows the image/AMI
+
+actually changing
+
+(Part 2.2).
+
+Roll out one CC/batch at a time (Instance Refresh for ASG, rolling replace for static).
+
+Post-redeploy:
+
+uname -a
+
+shows
+
+ZscalerOS 42-RELEASE
+
+on new instances.
+
+CC healthy/connected in Admin Console and LB target group; traffic flowing.
+
+Old appliance entries cleaned up; backout plan retained until stable.
+
+Associated Tags
+
+aws
+
+azure
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Article Details
+<!-- /ZS-POST -->
+
+---
+
 <!-- ZS-POST {"url":"https://community.zscaler.com/s/Blogs/aSnPJ00000003Qv0AI/july-2025-zscaler-cellular-news","lastmod":"2025-06-24T21:33:04.000Z","id":"aSnPJ00000003Qv0AI"} -->
 ## July 2025 - Zscaler Cellular News
 
@@ -2021,6 +2672,189 @@ How about remote access? All the sims are integrated into the customers ZPA tena
 This can be taken a step further, with my customer, they needed a way to provide third party access to these devices. This can be enabled with ZPA Browser Based Access. Using identity and a web browser, this same level of access can be extended. And not just for browser based apps, in this case, SSH is also supported through Privileged Remote Access:
 
 In summary, we helped this customer overcome their challenges, enable access more simply and help them become more secure. #zscalercellular
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Blog Details
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Blogs/aSnPJ0000000h090AA/from-aha-moments-to-real-impact-meet-certified-champion-laura-thaqi","lastmod":"2026-09-30T20:43:22.000Z","id":"aSnPJ0000000h090AA"} -->
+## From "Aha!" Moments to Real Impact: Meet Certified Champion Laura Thaqi
+
+- Source: https://community.zscaler.com/s/Blogs/aSnPJ0000000h090AA/from-aha-moments-to-real-impact-meet-certified-champion-laura-thaqi
+- Type: Blog
+- Last activity: 2026-09-30T20:43:22.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Blog Details
+
+Certification
+
+Alejandro Knudsen
+
+(Employee) posted a Blog
+
+4m ago
+
+From "Aha!" Moments to Real Impact: Meet Certified Champion Laura Thaqi
+
+Welcome to the latest edition of the
+
+Certification Community Spotlight
+
+, our monthly series celebrating the dedicated professionals, practitioners, and leaders across our global Zscaler community who are validating their expertise and inspiring others along the way.
+
+In this edition, meet
+
+Laura Thaqi
+
+, a passionate Security Engineer whose enthusiasm for cloud security and Zero Trust is genuinely contagious.
+
+Take one look at her workspace and laptop, adorned with earned credentials and Zscaler stickers from Earn Your Stripes to Zero Trust Ambassador, and you immediately sense someone who doesn't just work in cybersecurity; she truly loves the craft.
+
+For Laura, pursuing Zscaler certifications started with a simple, forward-looking mindset: staying ahead of the curve in a fast-evolving industry. Starting with foundational learning in
+
+Introduction to Zscaler Zero Trust Exchange (EDU-100) Workshop
+
+and
+
+Mastering the Fundamentals of Zero Trust (EDU-104)
+
+, she quickly progressed through
+
+Zero Trust SD-WAN (EDU-242)
+
+, earned her
+
+Zscaler Digital Transformation Administrator (ZDTA)
+
+, and conquered the advanced
+
+Zscaler Digital Transformation Engineer (ZDTE)
+
+certification.
+
+Bridging Architecture Design with Practical Reality
+
+In her day-to-day work, Laura is on the frontlines designing and integrating Zero Trust architectures into complex enterprise environments. She credits her certification journey with bridging critical design gaps:
+
+"The certifications filled in the gaps in my architecture designs and taught me how to piece together a full picture of Zero Trust through Zscaler. They boosted my confidence and equipped me with the skills to tackle real Zero Trust challenges and seamlessly integrate Zscaler with existing client infrastructures."
+
+By understanding how the platform operates under the hood, Laura transitioned from managing isolated security controls to engineering holistic, end-to-end Zero Trust solutions.
+
+Conquering ZDTE: Unlocking the "Aha!" Moment
+
+When asked which exam pushed her the most, Laura points directly to ZDTE. Like many engineers, she found that moving from foundational administration to advanced deployment demanded deep critical thinking:
+
+"ZDTE was definitely the toughest nut to crack, but it also delivered that incredible 'Aha!' moment. It helped me understand not just what configurations to make, but exactly why things operate the way they do."
+
+That shift in perspective, understanding the core architectural rationale behind traffic flows and policy evaluation, is what transforms study time into lasting engineering intuition.
+
+Her Proudest Milestone: Inspiring Others
+
+While earning high-level technical credentials is a major personal achievement, Laura’s proudest moment wasn't receiving an exam score. It was the ripple effect she created within her own team:
+
+"Inspiring two of my team members to join the certification journey was the absolute highlight for me. Knowing my actions spurred their professional growth was incredibly rewarding."
+
+For Laura, being a Zscaler Cyber Academy Certification Champion is rooted in that exact sense of shared empowerment: "It's about being part of a passionate community where we can grow professionally and tackle exciting challenges together."
+
+Finding Answers and Inspiration in the Zenith Community
+
+Even experienced security engineers hit unexpected snags, and that’s where Laura turns to the Zenith Community. She views it as an indispensable collaborative hub:
+
+"It’s a treasure trove of fresh insights! I love diving into troubleshooting topics, because there’s always someone who has been there before and can offer valuable advice. Whenever I'm troubleshooting and face an issue where I struggle to find a solution, the engineers in the community are quick to jump in with ideas. Beyond that, just being in a circle of great engineering minds is genuinely inspiring."
+
+Fun Lightning Round ⚡
+
+Coffee or Tea? Coffee ☕
+
+Early morning study session or late-night cramming? Early morning study session 🌅
+
+Favorite cybersecurity buzzword? "Hacktastic" (Hack + Fantastic!) ✨
+
+Favorite Zscaler feature? Minimized attack surface through outbound-only application connections to the Zero Trust Exchange. "This design change is ingenious!"
+
+One word that describes your certification journey? Hacktastic!
+
+What’s next on your roadmap? Zscaler for Users - Delivery Consultant (EDU-302) 🎯
+
+Final Words of Encouragement
+
+If Laura could inspire one person to start their cybersecurity learning journey today, her message is simple and energized:
+
+"Jump in now, it’s an exciting world where you can make a real impact!"
+
+Words of Wisdom from Laura Thaqi:
+
+Connect the Full Architecture: Use core certifications (ZDTA and ZDTE) to see the bigger picture of how Zero Trust replaces legacy models.
+
+Embrace the Tough Exams: Don't shy away from challenging certifications like ZDTE; the breakthrough "Aha!" moments are where real technical mastery happens.
+
+Lean on the Community: When troubleshooting tricky scenarios, tap into the Zenith Community. Chances are a fellow engineer has already solved it.
+
+Bring Others Along: Certification isn’t a solo race. Share what you learn and inspire your colleagues to build their skills alongside you.
 
 Associated Tags
 
@@ -2984,6 +3818,101 @@ The reprovisioning can take 5-10 minutes to show as completed in the Connector P
 Associated Tags
 
 No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Guide Details
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ0000006ij70AA/zscaler-cellular-apn","lastmod":"2026-09-28T15:01:15.000Z","id":"aSoPJ0000006ij70AA"} -->
+## Zscaler Cellular APN
+
+- Source: https://community.zscaler.com/s/Guides/aSoPJ0000006ij70AA/zscaler-cellular-apn
+- Type: Guide
+- Last activity: 2026-09-28T15:01:15.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Guide Details
+
+Zscaler Cellular
+
+Nelson
+
+(Employee) posted a Guide
+
+Edited 4h ago
+
+Zscaler Cellular APN
+
+As of September 2026, the best APN to use when setting up Zscaler Cellular is the APN: WBDATA
+
+APN stands for Access Point Network and provides the cellular modem with some details on how to attach to the mobile network and get a data session up. Many modern mobile phone devices have some built-in databases which provides some instructions on which APN to use. Most modems and mobile routers need to be given explicit instructions on which APN to use, otherwise you will not get a data session.
+
+Since Zscaler Cellular SIMs are global roaming, you may also need to enable Roaming.
+
+So make certain that you set the APN and enable roaming on the device you are using.
+
+Associated Tags
+
+best-practice
 
 Do you like what
 

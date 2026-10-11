@@ -1,7 +1,7 @@
 # Zscaler Zenith Community — ZPA — Private Access (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-09-21 02:03 UTC
+Generated: 2026-09-28 10:07 UTC
 Posts in this file: 316
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
@@ -8111,12 +8111,12 @@ Guide Details
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ0000006h8j0AA/app-behavior-when-same-domain-is-in-vpn-gateway-bypass-and-zpa-app-segment","lastmod":"2026-09-10T11:41:48.000Z","id":"aSoPJ0000006h8j0AA"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ0000006h8j0AA/app-behavior-when-same-domain-is-in-vpn-gateway-bypass-and-zpa-app-segment","lastmod":"2026-09-22T11:38:36.000Z","id":"aSoPJ0000006h8j0AA"} -->
 ## App Behavior When Same Domain Is in VPN Gateway Bypass and ZPA App Segment
 
 - Source: https://community.zscaler.com/s/Guides/aSoPJ0000006h8j0AA/app-behavior-when-same-domain-is-in-vpn-gateway-bypass-and-zpa-app-segment
 - Type: Guide
-- Last activity: 2026-09-10T11:41:48.000Z
+- Last activity: 2026-09-22T11:38:36.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 Guide Details
@@ -8127,13 +8127,15 @@ Sejal Kumari
 
 (Employee) posted a Guide
 
-Edited 8h ago
+Edited September 22, 2026 at 11:38 AM
 
 App Behavior When Same Domain Is in VPN Gateway Bypass and ZPA App Segment
 
 Note:
 
-If you require help with the implementation of your specific configuration, please contact our Zscaler Deployment Services team for assistance.
+If you require help with the implementation of your specific configuration, please contact our
+
+Zscaler Deployment Services team for assistance.
 
 ____________________________________________________________________________________________
 
@@ -40575,12 +40577,12 @@ Connecting to Azure SQL via ZPA - an error occurred during the pre-login handsha
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AZExkKCQT/howto-import-zpa-app-connector-vmware-ova-into-proxmox","lastmod":"2026-09-18T20:44:44.000Z","id":"0D54u0000AZExkKCQT"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AZExkKCQT/howto-import-zpa-app-connector-vmware-ova-into-proxmox","lastmod":"2026-09-21T12:53:41.000Z","id":"0D54u0000AZExkKCQT"} -->
 ## Howto import ZPA App Connector VMware OVA into Proxmox
 
 - Source: https://community.zscaler.com/s/question/0D54u0000AZExkKCQT/howto-import-zpa-app-connector-vmware-ova-into-proxmox
 - Type: Q&A
-- Last activity: 2026-09-18T20:44:44.000Z
+- Last activity: 2026-09-21T12:53:41.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 ZPA - Admin Portal
