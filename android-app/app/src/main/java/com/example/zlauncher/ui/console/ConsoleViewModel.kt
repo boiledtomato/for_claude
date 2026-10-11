@@ -26,6 +26,7 @@ import com.example.zlauncher.data.notebook.NotebookCache
 import com.example.zlauncher.data.notebook.NotebookConfig
 import com.example.zlauncher.data.notebook.NotebookRefreshWorker
 import com.example.zlauncher.data.notebook.NotebookRepository
+import com.example.zlauncher.data.notebook.NotebookSettingsRequests
 import com.example.zlauncher.data.device.DeviceMetricsRepository
 import com.example.zlauncher.data.prefs.LauncherPreferencesRepository
 import com.example.zlauncher.data.widgets.WidgetRepository
@@ -66,6 +67,7 @@ class ConsoleViewModel @Inject constructor(
     private val catalogUpdater: CatalogUpdater,
     private val widgetRepository: WidgetRepository,
     private val notebookRepository: NotebookRepository,
+    private val notebookSettingsRequests: NotebookSettingsRequests,
     installedApps: InstalledAppRepository,
     metricsRepository: DeviceMetricsRepository,
 ) : ViewModel() {
@@ -343,6 +345,23 @@ class ConsoleViewModel @Inject constructor(
         viewModelScope.launch {
             preferences.state.collect { themedIcons = it.themedIcons }
         }
+        // ウィジェットから設定を開かせる合図。**Overview へ移してから**立てる ―
+        // ダイアログは Overview の面が持っているので、別の面を見たままでは出せない
+        viewModelScope.launch {
+            notebookSettingsRequests.requests.collect {
+                select(ConsolePane.Overview)
+                notebookSettingsRequested = true
+            }
+        }
+    }
+
+    /** ウィジェットから設定を開かせたいか。Overview の面が拾って開く */
+    var notebookSettingsRequested by mutableStateOf(false)
+        private set
+
+    fun consumeNotebookSettingsRequest() {
+        notebookSettingsRequested = false
+        notebookSettingsRequests.consume()
     }
 
     fun setThemedIcons(enabled: Boolean) = viewModelScope.launch {

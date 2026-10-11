@@ -12,12 +12,14 @@ import com.example.zlauncher.core.designsystem.resolveDark
 import androidx.lifecycle.lifecycleScope
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.example.zlauncher.data.notebook.NotebookSettingsRequests
 import com.example.zlauncher.data.prefs.LauncherPreferencesRepository
 import com.example.zlauncher.data.widgets.WidgetHostController
 import com.example.zlauncher.data.widgets.WidgetRepository
 import com.example.zlauncher.domain.model.ColorAdjust
 import com.example.zlauncher.domain.model.ThemeMode
 import com.example.zlauncher.ui.navigation.ZLauncherNavHost
+import com.example.zlauncher.ui.notebookwidget.NotebookWidget
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.map
@@ -36,12 +38,16 @@ class MainActivity : ComponentActivity() {
     @Inject
     lateinit var preferences: LauncherPreferencesRepository
 
+    @Inject
+    lateinit var notebookSettingsRequests: NotebookSettingsRequests
+
     private val homeKeyPresses = MutableSharedFlow<Unit>(extraBufferCapacity = 1)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
+        routeNotebookSettings(intent)
         // Flow の組み立ては composition の外で 1 回だけ。中で map すると再構成のたびに
         // 新しい Flow ができ、collect がやり直しになる
         val themeModeFlow = preferences.state.map { it.themeMode }
@@ -94,6 +100,22 @@ class MainActivity : ComponentActivity() {
      */
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
+        // ウィジェットから来たのか HOME キーなのかで意味が違う。
+        // 設定を開きに来たのに Overview へ戻すだけ、では押した意味が無い
+        if (routeNotebookSettings(intent)) return
         homeKeyPresses.tryEmit(Unit)
+    }
+
+    /**
+     * ノートブックのウィジェットから「設定を開け」と言われたか。
+     *
+     * ランチャーは `singleTask` なので、生きていれば [onNewIntent]、死んでいれば
+     * [onCreate] に届く。**両方で見る**こと ― 片方だけだと、アプリが落ちている
+     * ときにウィジェットを押しても設定が開かない。
+     */
+    private fun routeNotebookSettings(intent: Intent?): Boolean {
+        if (intent?.action != NotebookWidget.ACTION_OPEN_NOTEBOOK_SETTINGS) return false
+        notebookSettingsRequests.request()
+        return true
     }
 }

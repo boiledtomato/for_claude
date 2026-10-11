@@ -79,6 +79,14 @@ fun OverviewPane(
     val consentLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.StartIntentSenderForResult()
     ) { viewModel.refreshNotebooks(context) }
+    // ウィジェットの「設定してください」をタップして来た場合。
+    // 面が Overview に切り替わってからここに届く
+    LaunchedEffect(viewModel.notebookSettingsRequested) {
+        if (viewModel.notebookSettingsRequested) {
+            showNotebookSettings = true
+            viewModel.consumeNotebookSettingsRequest()
+        }
+    }
     LaunchedEffect(viewModel.notebookConsent) {
         viewModel.notebookConsent?.let { pending ->
             runCatching {
