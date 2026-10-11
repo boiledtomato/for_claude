@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  両方のウィジェットが使う枠。**違いは行の作り（compact か詳しいか）と見出しだけ**なので、
+  枠を 2 つ持たない。中身は RemoteViewsService が差し込む。
+
+  `empty_view` は ListView 側に登録する。登録しないと、理由の一行を出す場所が無くなって
+  「中身の無い箱」になる ― この機能は設定が揃うまで空なので、そこが一番見られる状態。
+
+  文字はすべて Kotlin 側から入れる（`setTextViewText`）。このプロジェクトには
+  strings.xml が無く、表示文は画面のコードと同じ場所に置く約束になっている。
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/widget_background"
+    android:padding="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="4dp"
+        android:paddingEnd="2dp"
+        android:paddingBottom="8dp">
+
+        <TextView
+            android:id="@+id/widget_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textSize="12sp"
+            android:letterSpacing="0.08"
+            android:textColor="@color/widget_text_secondary"
+            android:textAllCaps="true" />
+
+        <!-- 更新ボタン。ウィジェットは自分で定期更新もするが、今すぐ見たいときの口 -->
+        <TextView
+            android:id="@+id/widget_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:background="@drawable/widget_row_background"
+            android:textSize="12sp"
+            android:textColor="@color/widget_accent"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- 理由の一行。設定が足りないときはここだけが出る -->
+    <TextView
+        android:id="@+id/widget_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
+        android:paddingBottom="6dp"
+        android:textSize="12sp"
+        android:lineSpacingExtra="2dp"
+        android:textColor="@color/widget_text_dim"
+        android:visibility="gone" />
+
+    <ListView
+        android:id="@+id/widget_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:scrollbars="none" />
+
+    <TextView
+        android:id="@+id/widget_empty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="6dp"
+        android:textSize="12sp"
+        android:textColor="@color/widget_text_dim" />
+</LinearLayout>

@@ -834,6 +834,102 @@ AOSP の Launcher3 も同じ挙動。回避策として「インストール日�
 今までどおり固定される。大画面で無視されるのは受け入れる — 横に開ける端末をこちらから
 縦に縛り返すのは、このアプリの目的から外れる。承知のうえなので `tools:ignore` で伏せてある。
 
+## ノートブックのウィジェット（NotebookLM / Gemini Notebook）
+
+**このアプリが自分のウィジェットを出す唯一の場所。** ほかは全部「他アプリのウィジェットを
+置く側」で、ここだけ提供する側になる。自分のピッカーに自分の 2 つが並ぶ。
+
+| ウィジェット | すること |
+|---|---|
+| `Notebooks (open)` | 行を押すとそのノートブックを開く（＝すぐ聞ける状態にする） |
+| `Notebook info` | 題・絵文字・権限・共有の有無・最後に見た日時を出す |
+
+### できることの境界（ここが一番大事）
+
+- **個人アカウントの NotebookLM は読めない。** コンシューマ版に公開 API は無い
+  （2026 年時点）。読めるのは **Gemini Notebook Enterprise**（旧 NotebookLM Enterprise）
+  だけで、Google Cloud プロジェクトと Gemini Enterprise のライセンスが要る
+- **`scripts/sync_notebooklm.py` が作る 2 つのノートブックはここに出ない。** あちらは
+  Playwright のセッション Cookie でコンシューマ版を操作している。Enterprise API が見るのは
+  GCP プロジェクトの中のノートブックで、別物
+- **ノートブック内のメモやチャット履歴は取れない。** 届くのは非公開の内部 API だけで、
+  それには生きた Google セッション Cookie が要る（`sync_notebooklm.py` の
+  `storage_state.json` と同じ、実質アカウント全権のもの）。**ランチャーには置かない**
+- **質問を投げることもできない。** 投稿する API も、プロンプトを URL に載せる方法も
+  公開されていない。だから「チャットの作成」は*狙ったノートブックを開く*ところまで
+- **ソース件数は出せない。** ソースを数える API が公開されていない（id 指定で 1 件取る
+  ものと、追加・削除しかない）。0 件固定で出すと「消えた」と読めるので、持たない
+
+### 読める項目
+
+`notebooks:listRecentlyViewed` が返すのは `name` / `title` / `notebookId` / `emoji` と
+`metadata` の `userRole` / `isShared` / `isShareable` / `lastViewed` / `createTime` まで。
+**素の list は無く「最近見た順」だけ**（既定で最大 500 件返るので 25 件に絞っている）。
+
+### 組み立て
+
+```
+NotebookRefreshWorker ──> NotebookRepository ──> NotebookAuth（アクセストークン）
+  （WorkManager, 1h）           │                 NotebookEnterpriseApi（REST）
+                               ▼
+                       NotebookCacheStore（DataStore）
+                               │
+        ┌──────────────────────┴───────────────────────┐
+  NotebookOpenWidget                           NotebookInfoWidget
+        └────── NotebookRemoteViewsService（行を供給）──┘
+```
+
+- **ウィジェットの更新では通信しない。** `onUpdate` と `onDataSetChanged` に与えられる時間は
+  短く、そこで HTTP を待つと固まったウィジェットになる。取得は Worker、保存は DataStore、
+  ウィジェットは**並べるだけ**
+- **出す文まで保存する。** `RemoteViews` を組むときに計算や注入をしたくないので、
+  取得のたびに `NotebookStatus` で決めた一行をそのまま置いておく
+- **取れなかったときに前回の一覧を消さない。** 突然空になるのは「壊れた」と読める一番
+  よくない見え方。中身は残して理由の一行だけ差し替える。消すのは成功したときだけ
+- **理由は 1 つにまとめない**（`NotebookFetch`）。動かない原因はほぼ設定の不足で、
+  しかも直し方が違う ― 401 は許可、403/404 は API 有効化かライセンスかプロジェクト番号、
+  429 はプレビュー API の絞り込み。「読み込めません」とだけ出ると直せない
+- 定期更新はウィジェットが置かれている間だけ（`onEnabled` / `onDisabled`）。
+  `updatePeriodMillis="0"` にしてあるのは、枠組みの定期更新が最短 30 分で、しかも
+  回線の条件を選べないため
+
+### 踏んだ落とし穴
+
+- **`BIND_REMOTEVIEWS` をサービスに宣言しないと一覧が永久に空になる。** 署名権限なので
+  宣言してもこのアプリには付かず、「システムだけが繋げる」意味になる。付けないと
+  ランチャー（別プロセス）から繋げず、エラーも出ないまま空のまま
+- **`setRemoteAdapter` に渡す Intent は `data` で区別される。** extras は見られないので、
+  ウィジェットごとに違う `data` を入れないと、2 つ置いたとき後から置いたほうが
+  前のものの行を使い回す（`zlauncher://notebooks/<id>/<layout>`）
+- **行の押下は Activity を 1 枚挟む。** 一覧の雛形 `PendingIntent` では行ごとに宛先アプリを
+  変えられないので、`NotebookWidgetClickActivity` が受けてから開く先を決める
+- **アプリが受けるかはランタイムで調べる**（`NotebookOpen`）。NotebookLM のアプリが
+  `notebooklm.google.com` を App Link として受けているかは版と端末の設定次第で、
+  決め打ちで `setPackage` すると受けていない端末では**何も起きないボタン**になる。
+  「どんな http でも開く」もの＝ブラウザを引いて、残った専用アプリがあればそれを使う
+- **文字は全部 Kotlin 側から入れる**（`setTextViewText`）。このプロジェクトには
+  `strings.xml` が無く（`app_name` も `resValue`）、表示文は画面のコードと同じ場所に置く
+- **ウィジェットの色は Compose のトークンと別に持つ**（`res/values/colors.xml` と
+  `values-night/`）。`ZColors.X` は CompositionLocal から読むので `RemoteViews` からは
+  呼べない。**配色を変えたら両方直すこと** ― 自動では追従しない。Appearance の
+  彩度・明度の調整もウィジェットには効かない（composition の中で配る仕組みのため）
+
+### 利用者側に要る用意
+
+設定は Overview の設定カード →「Notebook widgets」。ここで入れるのは**どこを読むか**だけで、
+資格情報は入れさせない（アクセストークンは使うたびに取り直す、寿命 1 時間。
+サービスアカウントの鍵を端末に置く形にはしない）。
+
+1. Google Cloud プロジェクトで **Discovery Engine API** を有効化
+2. アカウントに **Gemini Enterprise**（または Education Premium）のライセンス
+3. そのプロジェクトに、このアプリのパッケージ名と署名 SHA-1 の
+   **Android 型 OAuth クライアント**（debug ビルドは `keystore/debug.keystore` の SHA-1）
+4. 設定画面で**プロジェクト番号**（ID ではなく数字）と宛先（`us` / `eu` / `global`）を入れ、
+   `Allow access` で同意
+
+プロジェクト ID を番号の欄に貼るのが一番ありがちな間違いなので、入力中に弾いている
+（通すと 403 になって原因が見えない）。
+
 ## マルチウィンドウ（分割画面・フリーフォーム・DeX）
 
 **使えるままにしてある。** 向きの固定とは両立する — マルチウィンドウ中は OS が

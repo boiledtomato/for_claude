@@ -5,6 +5,7 @@ import com.example.zlauncher.domain.model.AppSortOrder
 import com.example.zlauncher.domain.model.CatalogDiff
 import com.example.zlauncher.domain.model.CardLayout
 import com.example.zlauncher.domain.model.ColorAdjust
+import com.example.zlauncher.data.notebook.NotebookConfig
 import com.example.zlauncher.domain.model.ThemeMode
 import com.example.zlauncher.domain.model.DEFAULT_CARD_LAYOUT
 import com.example.zlauncher.domain.model.WidgetPlacement
@@ -65,6 +66,8 @@ data class LauncherState(
      * 黙って差し替えず、ユーザーが確認するまでここに置いておく。
      */
     val pendingCatalogDiff: CatalogDiff? = null,
+    /** Gemini Notebook Enterprise の宛先。資格情報は持たない（NotebookConfig 参照） */
+    val notebook: NotebookConfig = NotebookConfig(),
 ) {
     companion object {
         const val CURRENT_VERSION = 1

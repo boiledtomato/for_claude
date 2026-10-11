@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  情報を見る側。2 行ぶん使うので既定を少し高くしてある。
+
+  `updatePeriodMillis="0"` は両方そろえてある ― 枠組みの定期更新に任せると最短 30 分で、
+  しかも通信できる状態かを選べない。更新は WorkManager 側（NotebookRefreshWorker）で
+  回線の条件付きで回す。
+-->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="250dp"
+    android:minHeight="180dp"
+    android:targetCellWidth="4"
+    android:targetCellHeight="3"
+    android:resizeMode="horizontal|vertical"
+    android:widgetCategory="home_screen"
+    android:initialLayout="@layout/widget_notebooks"
+    android:previewLayout="@layout/widget_notebooks"
+    android:updatePeriodMillis="0" />

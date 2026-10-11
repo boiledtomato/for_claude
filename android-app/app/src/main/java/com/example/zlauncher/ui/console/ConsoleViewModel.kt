@@ -21,6 +21,11 @@ import com.example.zlauncher.data.catalog.CatalogUpdateResult
 import com.example.zlauncher.data.catalog.CatalogUpdater
 import com.example.zlauncher.data.catalog.UrlCategoryRepository
 import com.example.zlauncher.data.dashboard.DashboardLayoutRepository
+import com.example.zlauncher.data.notebook.NotebookAuth
+import com.example.zlauncher.data.notebook.NotebookCache
+import com.example.zlauncher.data.notebook.NotebookConfig
+import com.example.zlauncher.data.notebook.NotebookRefreshWorker
+import com.example.zlauncher.data.notebook.NotebookRepository
 import com.example.zlauncher.data.device.DeviceMetricsRepository
 import com.example.zlauncher.data.prefs.LauncherPreferencesRepository
 import com.example.zlauncher.data.widgets.WidgetRepository
@@ -60,6 +65,7 @@ class ConsoleViewModel @Inject constructor(
     private val classifier: AppClassifier,
     private val catalogUpdater: CatalogUpdater,
     private val widgetRepository: WidgetRepository,
+    private val notebookRepository: NotebookRepository,
     installedApps: InstalledAppRepository,
     metricsRepository: DeviceMetricsRepository,
 ) : ViewModel() {
@@ -484,6 +490,67 @@ class ConsoleViewModel @Inject constructor(
 
     fun clearSettingsMessage() {
         settingsMessage = null
+    }
+
+    // ---- NotebookLM / Gemini Notebook のウィジェット --------------------------
+
+    val notebookConfig: StateFlow<NotebookConfig> = notebookRepository.config
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), NotebookConfig())
+
+    val notebookCache: StateFlow<NotebookCache> = notebookRepository.cache
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), NotebookCache())
+
+    /** 同意画面を開く必要が出たらここに入る。設定ダイアログが拾って開く */
+    var notebookConsent by mutableStateOf<android.app.PendingIntent?>(null)
+        private set
+
+    var notebookMessage by mutableStateOf<String?>(null)
+        private set
+
+    fun setNotebookConfig(
+        projectNumber: String = notebookConfig.value.projectNumber,
+        endpointLocation: String = notebookConfig.value.endpointLocation,
+        location: String = notebookConfig.value.location,
+    ) = viewModelScope.launch {
+        notebookRepository.setConfig {
+            it.copy(
+                projectNumber = projectNumber.trim(),
+                endpointLocation = endpointLocation,
+                location = location.trim(),
+            )
+        }
+    }
+
+    /**
+     * アクセスの許可を取る。**同意が要るかどうかはここで初めて分かる**ので、
+     * 要るときだけ画面側に PendingIntent を渡す。
+     */
+    fun authorizeNotebooks() = viewModelScope.launch {
+        when (val result = notebookRepository.authorize()) {
+            is NotebookAuth.Authorization.Granted -> {
+                notebookMessage = "Access granted"
+                refreshNotebooks()
+            }
+            is NotebookAuth.Authorization.NeedsConsent -> notebookConsent = result.pendingIntent
+            is NotebookAuth.Authorization.Failed ->
+                // OAuth クライアント未登録もここに来る。何を直すのかまで書く
+                notebookMessage = "Could not authorize: ${result.reason}. " +
+                    "Check that an Android OAuth client for this app exists in that project."
+        }
+    }
+
+    fun consumeNotebookConsent() {
+        notebookConsent = null
+    }
+
+    fun refreshNotebooks(context: Context? = null) {
+        // 取得そのものは Worker に任せる。ウィジェットと同じ道を通したいので
+        context?.let { NotebookRefreshWorker.runNow(it) }
+        viewModelScope.launch { notebookRepository.refresh() }
+    }
+
+    fun clearNotebookMessage() {
+        notebookMessage = null
     }
 
     // ---- 共通 ---------------------------------------------------------------

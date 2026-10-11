@@ -22,9 +22,15 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.animation.core.animateFloatAsState
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.IntentSenderRequest
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -64,6 +70,24 @@ fun OverviewPane(
     val isEditing = viewModel.isEditing
     val context = LocalContext.current
 
+    // ノートブックのウィジェットの設定。ダイアログは Lazy の item の中に置けない
+    // （画面外に出た瞬間に捨てられる）ので、ここで持つ
+    var showNotebookSettings by remember { mutableStateOf(false) }
+    val notebookConfig by viewModel.notebookConfig.collectAsStateWithLifecycle()
+    val notebookCache by viewModel.notebookCache.collectAsStateWithLifecycle()
+    // Google の同意画面は PendingIntent で返ってくるので、結果はこちらで受ける
+    val consentLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.StartIntentSenderForResult()
+    ) { viewModel.refreshNotebooks(context) }
+    LaunchedEffect(viewModel.notebookConsent) {
+        viewModel.notebookConsent?.let { pending ->
+            runCatching {
+                consentLauncher.launch(IntentSenderRequest.Builder(pending.intentSender).build())
+            }
+            viewModel.consumeNotebookConsent()
+        }
+    }
+
     val gridState = rememberLazyGridState()
     val reorderState = rememberGridReorderState(
         gridState = gridState,
@@ -97,6 +121,7 @@ fun OverviewPane(
                     sortOrder = sortOrder,
                     themedIcons = themedIcons,
                     catchAllEnabled = catchAllEnabled,
+                    onOpenNotebookSettings = { showNotebookSettings = true },
                     viewModel = viewModel,
                 )
             }
@@ -111,9 +136,26 @@ fun OverviewPane(
                 sortOrder = sortOrder,
                 themedIcons = themedIcons,
                 catchAllEnabled = catchAllEnabled,
+                onOpenNotebookSettings = { showNotebookSettings = true },
                 viewModel = viewModel,
             )
         }
+    }
+
+    if (showNotebookSettings) {
+        NotebookSettingsDialog(
+            config = notebookConfig,
+            cache = notebookCache,
+            message = viewModel.notebookMessage,
+            onSave = { number, endpoint, location ->
+                viewModel.setNotebookConfig(number, endpoint, location)
+                viewModel.refreshNotebooks(context)
+            },
+            onAuthorize = viewModel::authorizeNotebooks,
+            onRefresh = { viewModel.refreshNotebooks(context) },
+            onClearMessage = viewModel::clearNotebookMessage,
+            onDismiss = { showNotebookSettings = false },
+        )
     }
 }
 
@@ -128,6 +170,7 @@ private fun CardGrid(
     sortOrder: AppSortOrder,
     themedIcons: Boolean,
     catchAllEnabled: Boolean,
+    onOpenNotebookSettings: () -> Unit,
     viewModel: ConsoleViewModel,
 ) {
     val context = LocalContext.current
@@ -242,6 +285,8 @@ private fun CardGrid(
                     enabled = catchAllEnabled,
                     onSelect = viewModel::setCatchAllEnabled,
                 )
+                Spacer(Modifier.height(8.dp))
+                SettingsRow(label = "Notebook widgets", onClick = onOpenNotebookSettings)
                 Spacer(Modifier.height(8.dp))
                 SettingsRow(
                     label = if (DefaultLauncher.isDefault(context)) {

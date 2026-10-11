@@ -446,6 +446,46 @@ Work profile apps appear in the drawer grid with badged icons.
 - **App icons carry their own colour adjustment**, separate from the interface one: the same two sliders under **App icons** in the Appearance dialog, stored as `iconAdjust`. Icons are art the apps ship, not tokens this project designed, so they do not move with the surfaces. They are not rewritten — a 4x5 colour matrix (`core/color/IconColorMatrix.kt`, pure Kotlin, pinned by `IconColorMatrixTest`) is applied at draw time, so the icon cache is untouched; alpha is deliberately left alone (touching it muddies rounded edges and adaptive-icon padding), and a neutral setting attaches no filter at all. Every icon goes through `AppIconTile`, which reads `LocalIconAdjust`, so that is the only call site; the dialog previews real installed icons with the local overridden to the pending value, because the effect depends entirely on each icon's own colours
 - **No OTP feature remains, by the user's decision.** Reading another app's codes or embedding its screen in a widget is impossible on Android (no API for either, and the seeds live in that app's sandbox); the launcher's own TOTP implementation and the "open Microsoft Authenticator" shortcut widget were both removed — the first because the user keeps using Microsoft Authenticator, the second because a widget that only launches an app is no better than its icon. Do not rebuild either. If Microsoft ships its own widget it simply appears in the picker
 - **The home screen does not rotate**: `MainActivity` declares `screenOrientation="nosensor"`, and since that one activity draws every screen (console, drawer, widget picker), locking it there covers all of them. `nosensor` rather than `portrait` — the point is to stop rotation, not to force portrait, so a device whose natural orientation is landscape keeps it. The `orientation|screenSize` entries in `configChanges` stay: split-screen and foldables still raise configuration changes, and that flag is about not recreating the activity, not about rotation. It does **not** hold on large screens: at targetSdk 36 Android 16 ignores an app's orientation request on displays 600dp wide or more, which is what lint's `DiscouragedApi` reports — phones still honour it, the large-screen case is accepted rather than worked around, and the warning is suppressed with `tools:ignore` at the activity
+- **The launcher publishes two widgets of its own, for NotebookLM / Gemini Notebook** —
+  `Notebooks (open)` (a row opens that notebook) and `Notebook info` (title, emoji, role,
+  shared, last viewed). This is the only place this app is the widget *provider* rather than
+  the host, so its own two appear in its own picker. **The boundaries are the point here:**
+  consumer NotebookLM has no public API, so only **Gemini Notebook Enterprise** (a Google
+  Cloud project plus a Gemini Enterprise licence) can be read — which means **the two
+  notebooks `sync_notebooklm.py` maintains do not appear**, since those live on a consumer
+  account driven by Playwright session cookies. Notes and chat history inside a notebook are
+  not reachable at all (only the undocumented internal API gets there, and it needs live
+  Google session cookies — effectively full account access, which is not going into a home
+  launcher), and no API posts a question, so "create a chat" is *open the notebook you want
+  to ask in*. Source counts are impossible too: nothing lists a notebook's sources, so
+  showing `0` would be a lie. `notebooks:listRecentlyViewed` is the only listing (no plain
+  list) and returns at most 500, capped at 25 here. Fetching is a `NotebookRefreshWorker`
+  job, never the widget update — `onUpdate` and `onDataSetChanged` get too little time, and
+  HTTP there is a frozen widget; the worker writes `NotebookCacheStore` (its own DataStore,
+  so a refresh does not rewrite the whole launcher-state blob) **including the line to
+  display**, and the widget only arranges what it finds. A failed fetch never clears the
+  cached list — a widget that suddenly empties reads as broken — only the one-line reason
+  changes, and `NotebookFetch` keeps those reasons apart (401 authorization, 403/404 API
+  enablement *or* licence *or* project number, 429 preview throttling) because "could not
+  load" names nothing the user can fix. Traps, all of which fail silently: the service
+  **must** declare `BIND_REMOTEVIEWS` or the list stays permanently empty with no error; the
+  `setRemoteAdapter` intent is distinguished by its `data`, not its extras, so without a
+  per-widget URI the second widget placed reuses the first one's rows; row taps go through
+  `NotebookWidgetClickActivity` because a collection's template `PendingIntent` cannot vary
+  its component; and whether the NotebookLM app claims `notebooklm.google.com` as an App
+  Link is decided at runtime in `NotebookOpen` (hardcoding `setPackage` makes a button that
+  does nothing on a device that does not claim it) by subtracting the packages that answer
+  any https URL — the browsers — from those that answer this one. There is no `strings.xml`
+  in this project (`app_name` comes from `resValue`), so widget text is set from Kotlin, and
+  widget colours are a hand-copied duplicate of the design tokens in `res/values/colors.xml`
+  and `values-night/` because `ZColors.X` reads a CompositionLocal that `RemoteViews` cannot:
+  **change the palette and both must be edited**, and the Appearance saturation/brightness
+  sliders do not reach widgets at all. The endpoint, the preview JSON shape (tolerant: one
+  bad row never drops the good ones, a row with no id is dropped rather than shown blank),
+  the status wording and the relative-time text are all pure and pinned by
+  `NotebookEndpointTest`, `NotebookJsonTest`, `NotebookFetchStatusTest`, `NotebookStatusTest`
+  and `NotebookWidgetTextTest`, because none of the live path can be exercised without an
+  enterprise account.
 - **Multi-window stays available, and the orientation lock does not fight it** — in
   multi-window mode the OS ignores `screenOrientation` outright, since the window's
   dimensions decide the orientation. Three manifest declarations hold it up, all of which

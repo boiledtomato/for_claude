@@ -97,6 +97,60 @@
         </activity>
 
         <!--
+          NotebookLM / Gemini Notebook のウィジェット 2 種。**自分のランチャーに自分の
+          ウィジェットを出す**形になるので、ピッカーにもこの 2 つが並ぶ。
+
+          `android:label` がピッカーに出る名前。strings.xml を持たない約束なので直書き。
+          `exported="false"` にはできない ― ウィジェットの更新はシステムから送られる。
+        -->
+        <receiver
+            android:name=".ui.notebookwidget.NotebookOpenWidget"
+            android:label="Notebooks (open)"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.zlauncher.notebook.REFRESH" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/notebook_open_widget_info" />
+        </receiver>
+
+        <receiver
+            android:name=".ui.notebookwidget.NotebookInfoWidget"
+            android:label="Notebook info"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.zlauncher.notebook.REFRESH" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/notebook_info_widget_info" />
+        </receiver>
+
+        <!--
+          一覧に行を供給する。**BIND_REMOTEVIEWS を要求するのが必須** ― 付けないと
+          ランチャー（＝別プロセス）から繋げず、一覧が永久に空のままになる。
+          署名権限なので宣言してもこのアプリには付かず、「システムだけが繋げる」意味になる。
+        -->
+        <service
+            android:name=".ui.notebookwidget.NotebookRemoteViewsService"
+            android:permission="android.permission.BIND_REMOTEVIEWS"
+            android:exported="false" />
+
+        <!--
+          ウィジェットの行を押したときの受け。画面は出さずに開く先を決めて渡すだけ。
+          一覧の雛形 PendingIntent では行ごとに宛先アプリを変えられないので間に挟む。
+        -->
+        <activity
+            android:name=".ui.notebookwidget.NotebookWidgetClickActivity"
+            android:theme="@android:style/Theme.NoDisplay"
+            android:excludeFromRecents="true"
+            android:taskAffinity=""
+            android:exported="false" />
+
+        <!--
           WorkManager の自動初期化を止める。Hilt のファクトリを Application 側から渡すため。
           残したままだと Worker への注入ができず、生成時に落ちる。
         -->

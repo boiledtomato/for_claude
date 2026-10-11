@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 暗い面。値は ZColorScheme の ZDarkColors と同じ（values/colors.xml の注記を参照） -->
+<resources>
+    <color name="widget_background">#FF121826</color>
+    <color name="widget_surface">#FF182031</color>
+    <color name="widget_outline">#FF24314A</color>
+    <color name="widget_text_primary">#FFE6EDF7</color>
+    <color name="widget_text_secondary">#FF8A97AB</color>
+    <color name="widget_text_dim">#FF4E6B9E</color>
+    <color name="widget_accent">#FF2E7DF6</color>
+</resources>

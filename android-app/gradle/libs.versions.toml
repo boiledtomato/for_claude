@@ -15,6 +15,7 @@ work = "2.10.1"
 hiltWork = "1.2.0"
 junit = "4.13.2"
 robolectric = "4.14.1"
+playServicesAuth = "21.3.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -47,6 +48,10 @@ androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version
 
 
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serialization" }
+
+# Gemini Notebook Enterprise の REST を叩くための OAuth アクセストークン取得に使う。
+# 使うのは AuthorizationClient だけ（サインイン UI は持たない）
+play-services-auth = { group = "com.google.android.gms", name = "play-services-auth", version.ref = "playServicesAuth" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
