@@ -75,7 +75,8 @@ jobs:
           mkdir -p _site
           tar -c --exclude=./.git --exclude=./_site \
                  --exclude=./notebooklm_docs --exclude=./community_docs \
-                 --exclude=./mslearn_docs . \
+                 --exclude=./mslearn_docs \
+                 --exclude=./android-app --exclude=./ios-app . \
             | tar -x -C _site
           echo "--- staged (top level) ---"
           ls -a _site

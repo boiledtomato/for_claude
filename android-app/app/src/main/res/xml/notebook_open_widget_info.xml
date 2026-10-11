@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  押すとノートブックを開く側。
+
+  `minWidth`/`minHeight` は「70dp × セル数 − 30dp」の決まりで書く（README のウィジェット
+  の節を参照）。ここは横 3 セル・縦 2 セル相当。
+  `resizeMode` は縦横とも許す ― 一覧なので高さが増えるほど素直に役に立つ。
+-->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="180dp"
+    android:minHeight="110dp"
+    android:targetCellWidth="3"
+    android:targetCellHeight="2"
+    android:resizeMode="horizontal|vertical"
+    android:widgetCategory="home_screen"
+    android:initialLayout="@layout/widget_notebooks"
+    android:previewLayout="@layout/widget_notebooks"
+    android:updatePeriodMillis="0" />

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ウィジェット用の色。**Compose のトークンとは別に置く必要がある。**
+
+  `ZColors.X` は CompositionLocal から読む仕組みなので、`RemoteViews` からは呼べない
+  （ウィジェットはこちらのプロセスで描かれず、ランチャー側で組み立てられる）。
+  値は `ZColorScheme` の明るい面（ZLightColors）と同じものを手で写してある。
+  暗い面は values-night 側。**配色を変えたら両方直すこと** ― 自動では追従しない。
+
+  Appearance の彩度・明度の調整もウィジェットには効かない。あちらは composition の中で
+  計算して配る仕組みで、RemoteViews には届かない。
+-->
+<resources>
+    <color name="widget_background">#FFF4F7FB</color>
+    <color name="widget_surface">#FFE8EEF6</color>
+    <color name="widget_outline">#FFC8D3E0</color>
+    <color name="widget_text_primary">#FF0E1A2B</color>
+    <color name="widget_text_secondary">#FF4A5A73</color>
+    <color name="widget_text_dim">#FF76849B</color>
+    <color name="widget_accent">#FF1D56CE</color>
+</resources>
