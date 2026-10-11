@@ -18,4 +18,16 @@
     <color name="widget_text_secondary">#FF4A5A73</color>
     <color name="widget_text_dim">#FF76849B</color>
     <color name="widget_accent">#FF1D56CE</color>
+    <!-- 行の罫線と、選べる文字色。暗い面は values-night 側に同じ名前で置く -->
+    <color name="widget_divider">#FFC8D3E0</color>
+    <color name="widget_text_accent">#FF1D56CE</color>
+    <color name="widget_text_warm">#FF8A4B16</color>
+    <color name="widget_text_cool">#FF0E7490</color>
+
+    <!-- ノートブックの種類ごとの色。字形だけでなく色でも見分けがつくように -->
+    <color name="widget_icon_learn">#FF1D56CE</color>
+    <color name="widget_icon_shield">#FF0E7490</color>
+    <color name="widget_icon_community">#FF7A3EA1</color>
+    <color name="widget_icon_updates">#FF8A4B16</color>
+    <color name="widget_icon_generic">#FF4A5A73</color>
 </resources>

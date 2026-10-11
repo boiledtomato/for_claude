@@ -8,4 +8,14 @@
     <color name="widget_text_secondary">#FF8A97AB</color>
     <color name="widget_text_dim">#FF4E6B9E</color>
     <color name="widget_accent">#FF2E7DF6</color>
+    <color name="widget_divider">#FF24314A</color>
+    <color name="widget_text_accent">#FF7FB2FF</color>
+    <color name="widget_text_warm">#FFE0A879</color>
+    <color name="widget_text_cool">#FF5AD4E6</color>
+
+    <color name="widget_icon_learn">#FF7FB2FF</color>
+    <color name="widget_icon_shield">#FF22D3EE</color>
+    <color name="widget_icon_community">#FFC79BF0</color>
+    <color name="widget_icon_updates">#FFE0A879</color>
+    <color name="widget_icon_generic">#FF8A97AB</color>
 </resources>

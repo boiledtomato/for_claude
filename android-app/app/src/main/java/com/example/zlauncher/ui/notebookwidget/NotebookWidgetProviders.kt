@@ -12,10 +12,12 @@ import com.example.zlauncher.MainActivity
 import com.example.zlauncher.R
 import com.example.zlauncher.data.notebook.NotebookCacheStore
 import com.example.zlauncher.data.notebook.NotebookRefreshWorker
+import com.example.zlauncher.data.prefs.LauncherPreferencesRepository
 import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.android.EntryPointAccessors
 import dagger.hilt.components.SingletonComponent
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 
 /**
@@ -37,6 +39,7 @@ abstract class NotebookWidget : AppWidgetProvider() {
     @InstallIn(SingletonComponent::class)
     interface Dependencies {
         fun notebookCacheStore(): NotebookCacheStore
+        fun launcherPreferences(): LauncherPreferencesRepository
     }
 
     override fun onUpdate(
@@ -44,11 +47,11 @@ abstract class NotebookWidget : AppWidgetProvider() {
         appWidgetManager: AppWidgetManager,
         appWidgetIds: IntArray,
     ) {
-        val store = EntryPointAccessors
+        val dependencies = EntryPointAccessors
             .fromApplication(context.applicationContext, Dependencies::class.java)
-            .notebookCacheStore()
         // DataStore からの 1 回読み。ウィジェット更新は既に別スレッドで呼ばれている
-        val cache = runBlocking { store.read() }
+        val cache = runBlocking { dependencies.notebookCacheStore().read() }
+        val style = runBlocking { dependencies.launcherPreferences().state.first() }.notebook.style
         val now = System.currentTimeMillis()
 
         appWidgetIds.forEach { id ->
@@ -56,7 +59,12 @@ abstract class NotebookWidget : AppWidgetProvider() {
                 val refreshed = NotebookWidgetText.refreshedAt(cache.fetchedAtMillis, now)
                 setTextViewText(
                     R.id.widget_title,
-                    if (refreshed.isBlank()) headerTitle else "$headerTitle · $refreshed",
+                    NotebookRowStyle.styled(
+                        context = context,
+                        text = if (refreshed.isBlank()) headerTitle else "$headerTitle · $refreshed",
+                        style = style,
+                        dim = true,
+                    ),
                 )
                 setTextViewText(R.id.widget_refresh, "↻")
                 setContentDescription(R.id.widget_refresh, "Refresh notebooks")
@@ -65,7 +73,10 @@ abstract class NotebookWidget : AppWidgetProvider() {
                     setViewVisibility(R.id.widget_status, android.view.View.GONE)
                 } else {
                     setViewVisibility(R.id.widget_status, android.view.View.VISIBLE)
-                    setTextViewText(R.id.widget_status, cache.status)
+                    setTextViewText(
+                        R.id.widget_status,
+                        NotebookRowStyle.styled(context, cache.status, style, dim = true),
+                    )
                 }
 
                 // 理由を出している（＝設定が足りない）ときは行を出さない。

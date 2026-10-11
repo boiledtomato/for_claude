@@ -25,8 +25,10 @@ import com.example.zlauncher.data.notebook.NotebookAuth
 import com.example.zlauncher.data.notebook.NotebookCache
 import com.example.zlauncher.data.notebook.NotebookConfig
 import com.example.zlauncher.data.notebook.NotebookRefreshWorker
+import com.example.zlauncher.core.notebook.NotebookWidgetStyle
 import com.example.zlauncher.data.notebook.NotebookRepository
 import com.example.zlauncher.data.notebook.NotebookSettingsRequests
+import com.example.zlauncher.ui.notebookwidget.NotebookWidget
 import com.example.zlauncher.data.device.DeviceMetricsRepository
 import com.example.zlauncher.data.prefs.LauncherPreferencesRepository
 import com.example.zlauncher.data.widgets.WidgetRepository
@@ -528,6 +530,15 @@ class ConsoleViewModel @Inject constructor(
 
     fun setNotebookConfig(config: NotebookConfig) = viewModelScope.launch {
         notebookRepository.setConfig { config }
+    }
+
+    /**
+     * 見た目だけの変更。**取り直さずに描き直させる** ― 文字色や罫線を変えるのに
+     * 通信を待たせる理由が無い（中身は保存済みのものをそのまま使う）。
+     */
+    fun setNotebookStyle(context: Context, style: NotebookWidgetStyle) = viewModelScope.launch {
+        notebookRepository.setConfig { it.copy(style = style) }
+        NotebookWidget.refreshAll(context)
     }
 
     /**

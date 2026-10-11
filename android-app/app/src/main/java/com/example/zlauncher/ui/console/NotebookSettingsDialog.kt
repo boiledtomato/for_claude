@@ -3,6 +3,7 @@ package com.example.zlauncher.ui.console
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -31,9 +32,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import com.example.zlauncher.core.designsystem.ZColors
 import com.example.zlauncher.core.designsystem.ZType
+import com.example.zlauncher.core.notebook.NotebookDivider
 import com.example.zlauncher.core.notebook.NotebookEndpoint
+import com.example.zlauncher.core.notebook.NotebookFont
 import com.example.zlauncher.core.notebook.NotebookPipeline
 import com.example.zlauncher.core.notebook.NotebookSource
+import com.example.zlauncher.core.notebook.NotebookTextColor
+import com.example.zlauncher.core.notebook.NotebookWidgetStyle
 import com.example.zlauncher.core.ui.springyClick
 import com.example.zlauncher.data.notebook.NotebookCache
 import com.example.zlauncher.data.notebook.NotebookConfig
@@ -54,6 +59,8 @@ fun NotebookSettingsDialog(
     cache: NotebookCache,
     message: String?,
     onSave: (NotebookConfig) -> Unit,
+    /** 見た目だけの変更。保存を待たずその場で効かせる（通信は要らない） */
+    onStyle: (NotebookWidgetStyle) -> Unit,
     onAuthorize: () -> Unit,
     onRefresh: () -> Unit,
     onClearMessage: () -> Unit,
@@ -187,6 +194,73 @@ fun NotebookSettingsDialog(
             }
             }
 
+            Spacer(Modifier.height(16.dp))
+            Text("Appearance", style = ZType.Eyebrow, color = ZColors.TextSecondary)
+            Spacer(Modifier.height(4.dp))
+            // 押したその場で効かせる。保存を待たせる理由が無い（中身は取り直さない）
+            Text(
+                "Applies to the placed widgets straight away.",
+                style = ZType.Sub,
+                color = ZColors.TextDim,
+            )
+
+            Spacer(Modifier.height(10.dp))
+            FieldLabel("Text colour")
+            Spacer(Modifier.height(6.dp))
+            ChipRow(
+                options = NotebookTextColor.entries,
+                selected = config.style.textColor,
+                label = { it.name.lowercase().replaceFirstChar(Char::uppercase) },
+                onSelect = { onStyle(config.style.copy(textColor = it)) },
+            )
+
+            Spacer(Modifier.height(12.dp))
+            FieldLabel("Font")
+            Spacer(Modifier.height(6.dp))
+            ChipRow(
+                options = NotebookFont.entries,
+                selected = config.style.font,
+                label = { it.name.lowercase().replaceFirstChar(Char::uppercase) },
+                onSelect = { onStyle(config.style.copy(font = it)) },
+            )
+            Spacer(Modifier.height(4.dp))
+            // 端末に必ずある総称名だけ。同梱フォントは RemoteViews へ確実に渡せない
+            Text(
+                "Generic families only — a bundled font cannot be handed to a widget reliably.",
+                style = ZType.Sub,
+                color = ZColors.TextDim,
+            )
+
+            Spacer(Modifier.height(12.dp))
+            FieldLabel("Line under each row")
+            Spacer(Modifier.height(6.dp))
+            ChipRow(
+                options = NotebookDivider.entries,
+                selected = config.style.divider,
+                label = { it.name.lowercase().replaceFirstChar(Char::uppercase) },
+                onSelect = { onStyle(config.style.copy(divider = it)) },
+            )
+
+            Spacer(Modifier.height(12.dp))
+            FieldLabel("Icons")
+            Spacer(Modifier.height(6.dp))
+            Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                Chip("On", config.style.showIcons) {
+                    onStyle(config.style.copy(showIcons = true))
+                }
+                Chip("Off", !config.style.showIcons) {
+                    onStyle(config.style.copy(showIcons = false))
+                }
+            }
+            Spacer(Modifier.height(4.dp))
+            Text(
+                "Vector marks, matched from each notebook's name — a book for Microsoft Learn, " +
+                    "a shield for the Zscaler docs, a speech bubble for the community, a tag " +
+                    "for release updates. Off falls back to the emoji.",
+                style = ZType.Sub,
+                color = ZColors.TextDim,
+            )
+
             if (cache.status.isNotBlank()) {
                 Spacer(Modifier.height(12.dp))
                 Text(cache.status, style = ZType.Sub, color = ZColors.TextSecondary)
@@ -233,6 +307,22 @@ fun NotebookSettingsDialog(
                     onDismiss()
                 }
             }
+        }
+    }
+}
+
+/** 同じ形の選択行が 4 つ続くので、1 つにまとめる */
+@Composable
+private fun <T> ChipRow(
+    options: List<T>,
+    selected: T,
+    label: (T) -> String,
+    onSelect: (T) -> Unit,
+) {
+    // 選択肢が 4-5 個あって 1 行に収まらないことがある。折り返す
+    FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+        options.forEach { option ->
+            Chip(label(option), option == selected) { onSelect(option) }
         }
     }
 }

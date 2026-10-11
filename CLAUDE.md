@@ -605,7 +605,27 @@ Work profile apps appear in the drawer grid with badged icons.
   the status wording and the relative-time text are all pure and pinned by
   `NotebookEndpointTest`, `NotebookJsonTest`, `NotebookFetchStatusTest`, `NotebookStatusTest`
   and `NotebookWidgetTextTest`, because none of the live path can be exercised without an
-  enterprise account.
+  enterprise account. **The look is selectable** (Appearance in the dialog: text colour,
+  font, the rule under each row, icons on/off) and applies the moment it is tapped, since
+  nothing is refetched. Colour and font ride in as spans — `ForegroundColorSpan` and
+  `TypefaceSpan` are `ParcelableSpan`, so they survive the trip to the launcher process the
+  way notification styling does, and one layout covers every combination; `RemoteViews` has
+  no dependable way to set a typeface otherwise, and a layout per font multiplies the XML.
+  Only generic families are offered because a bundled font cannot be handed across
+  processes. **The dashed and dotted rules do not use `stroke`'s `dashWidth`**: a
+  `PathEffect` can be ignored under hardware rendering and a widget cannot drop to a
+  software layer, so `divider_dashed.xml`/`divider_dotted.xml` lay the dashes out as
+  explicit vector rects — no effect involved, still crisp at any size — stretched `fitXY`
+  from a 100-unit viewport, and the last row gets none so the list does not end on a
+  stranded line. Icons are matched from the notebook title by `NotebookIcons.kindFor`
+  (pure, `NotebookIconsTest`), where **order is load-bearing**: `Zscaler_community` matches
+  both "zscaler" and "community", so the narrower test runs first or the forum notebook
+  wears the docs shield. **No vendor logo is bundled** — this repo is public and ships an
+  APK, so a third-party trademark in it would be distribution; the marks are drawn here and
+  swapping in official brand assets is a matter of replacing `ic_notebook_*.xml`.
+  `NotebookWidgetStyle` stores *which choice*, never a hex colour, because a colour picked
+  for the dark surface is unreadable on the light one; `NotebookRowStyle` maps the enum to a
+  resource id so night mode still resolves it.
 - **Multi-window stays available, and the orientation lock does not fight it** — in
   multi-window mode the OS ignores `screenOrientation` outright, since the window's
   dimensions decide the orientation. Three manifest declarations hold it up, all of which

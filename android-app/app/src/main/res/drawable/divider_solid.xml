@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  行の下の罫線。**破線を PathEffect（stroke の dashWidth）で描かない。**
+
+  shape の dashWidth はハードウェア描画で無視されて実線になることがあり、ウィジェットでは
+  layerType を software に落とす手段が無い。ここでは破片そのものをベクターの矩形として
+  並べてあるので、その問題自体が起きない ― 拡大してもベクターのまま滲まない。
+
+  viewport の幅 100 を行幅いっぱいに伸ばす（scaleType="fitXY"）。破片の間隔は行幅に
+  比例するが、ウィジェットの幅はそう大きく変わらないので見た目は安定する。
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="1dp"
+    android:viewportWidth="100"
+    android:viewportHeight="1"
+    android:tint="@color/widget_divider">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M0,0h100v1h-100z" />
+</vector>

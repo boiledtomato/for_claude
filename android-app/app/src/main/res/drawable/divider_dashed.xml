@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  行の下の罫線。**破線を PathEffect（stroke の dashWidth）で描かない。**
+
+  shape の dashWidth はハードウェア描画で無視されて実線になることがあり、ウィジェットでは
+  layerType を software に落とす手段が無い。ここでは破片そのものをベクターの矩形として
+  並べてあるので、その問題自体が起きない ― 拡大してもベクターのまま滲まない。
+
+  viewport の幅 100 を行幅いっぱいに伸ばす（scaleType="fitXY"）。破片の間隔は行幅に
+  比例するが、ウィジェットの幅はそう大きく変わらないので見た目は安定する。
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="1dp"
+    android:viewportWidth="100"
+    android:viewportHeight="1"
+    android:tint="@color/widget_divider">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M0,0h3v1h-3z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M5,0h3v1h-3z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M10,0h3v1h-3z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M15,0h3v1h-3z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M20,0h3v1h-3z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M25,0h3v1h-3z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M30,0h3v1h-3z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M35,0h3v1h-3z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M40,0h3v1h-3z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M45,0h3v1h-3z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M50,0h3v1h-3z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M55,0h3v1h-3z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M60,0h3v1h-3z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M65,0h3v1h-3z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M70,0h3v1h-3z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M75,0h3v1h-3z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M80,0h3v1h-3z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M85,0h3v1h-3z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M90,0h3v1h-3z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M95,0h3v1h-3z" />
+</vector>

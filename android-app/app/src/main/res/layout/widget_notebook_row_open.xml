@@ -4,13 +4,26 @@
     android:id="@+id/row_root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:gravity="center_vertical"
-    android:background="@drawable/widget_row_background"
-    android:paddingStart="6dp"
-    android:paddingEnd="6dp"
-    android:paddingTop="9dp"
-    android:paddingBottom="9dp">
+    android:orientation="vertical"
+    android:background="@drawable/widget_row_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="6dp"
+        android:paddingEnd="6dp"
+        android:paddingTop="9dp"
+        android:paddingBottom="9dp">
+
+    <ImageView
+        android:id="@+id/row_icon"
+        android:layout_width="26dp"
+        android:layout_height="20dp"
+        android:scaleType="fitCenter"
+        android:contentDescription="@null"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/row_emoji"
@@ -30,4 +43,20 @@
         android:paddingEnd="0dp"
         android:textSize="14sp"
         android:textColor="@color/widget_text_primary" />
+    </LinearLayout>
+
+    <!--
+      行の下の罫線。実線 / 破線 / 点線はどれもベクターで、実行時に
+      setImageViewResource で差し替える（NONE のときは visibility=gone）。
+      高さは 1dp 固定、幅いっぱいに伸ばす。
+    -->
+    <ImageView
+        android:id="@+id/row_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:scaleType="fitXY"
+        android:contentDescription="@null"
+        android:visibility="gone" />
 </LinearLayout>

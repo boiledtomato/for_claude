@@ -3,6 +3,7 @@ package com.example.zlauncher.data.notebook
 import com.example.zlauncher.core.notebook.NotebookEndpoint
 import com.example.zlauncher.core.notebook.NotebookPipeline
 import com.example.zlauncher.core.notebook.NotebookSource
+import com.example.zlauncher.core.notebook.NotebookWidgetStyle
 import kotlinx.serialization.Serializable
 
 /**
@@ -32,6 +33,8 @@ data class NotebookConfig(
     val location: String = "global",
     /** 利用者が選んだ Google アカウント。表示用で、認証そのものには使わない */
     val account: String = "",
+    /** ウィジェットの見た目（文字色・字体・罫線・アイコン） */
+    val style: NotebookWidgetStyle = NotebookWidgetStyle(),
 ) {
     /**
      * 読みに行けるだけの設定があるか。

@@ -159,6 +159,7 @@ fun OverviewPane(
                 viewModel.setNotebookConfig(updated)
                 viewModel.refreshNotebooks(context)
             },
+            onStyle = { style -> viewModel.setNotebookStyle(context, style) },
             onAuthorize = viewModel::authorizeNotebooks,
             onRefresh = { viewModel.refreshNotebooks(context) },
             onClearMessage = viewModel::clearNotebookMessage,

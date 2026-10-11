@@ -874,6 +874,50 @@ AOSP の Launcher3 も同じ挙動。回避策として「インストール日�
 あの形を決めているのは Python 側（`sync_notebooklm.py`）なので、作り物の JSON だけで
 固めると、あちらが項目名を変えたときに実機でしか気付けない。
 
+### 見た目の選択（文字色・字体・罫線・アイコン）
+
+設定ダイアログの **Appearance**。**押したその場で効く** ― 中身は取り直さないので、
+通信を待たせる理由が無い（`setNotebookStyle` が保存して `refreshAll` を呼ぶだけ）。
+
+| 項目 | 選択肢 | 実現方法 |
+|---|---|---|
+| 文字色 | Default / Accent / Warm / Cool / Dim | `ForegroundColorSpan` |
+| 字体 | Sans / Condensed / Serif / Mono | `TypefaceSpan` |
+| 行の下の線 | None / Solid / Dashed / Dotted | ベクターを資源 id で差し替え |
+| アイコン | On / Off | ベクターを資源 id で差し替え |
+
+**色と字体は span で渡す。** `RemoteViews` にはレイアウトを差し替える以外に書体を変える
+確実な手段が無く（`TextView.setFontFamily` が遠隔から呼べる保証が無い）、指定ごとに
+レイアウトを増やすと XML が掛け算で増える。`ForegroundColorSpan` と `TypefaceSpan` は
+どちらも `ParcelableSpan` なので、別プロセスのランチャーまでそのまま届く ―
+通知の装飾と同じ仕組みで、レイアウトは 1 つで足りる。
+
+**字体は端末に必ずある総称名だけ。** 同梱フォントを `RemoteViews` へ渡す確実な方法が無い
+（`TypefaceSpan(Typeface)` は別プロセスへ運べない）。
+
+**破線を `stroke` の `dashWidth` で描かない。** ハードウェア描画で無視されて実線になる
+ことがあり、ウィジェットでは `layerType` を software に落とす手段が無い。
+`divider_dashed.xml` / `divider_dotted.xml` は**破片そのものをベクターの矩形として
+並べて**あるので、その問題が起きないまま拡大にも耐える。viewport 幅 100 を行幅へ
+`fitXY` で伸ばすので、破片の間隔は行幅に比例する（ウィジェット幅はそう動かないので
+見た目は安定する）。**一覧の最後の行には引かない** ― 末尾に取り残された線になる。
+
+**アイコンは題から決める**（`NotebookIcons.kindFor`、純粋・`NotebookIconsTest` が固定）。
+Microsoft Learn には本、Zscaler の公式ドキュメントには盾、フォーラムには吹き出し、
+リリースノートにはタグ。**順番が意味を持つ** ― `Zscaler_community` は「zscaler」にも
+「community」にも当たるので、狭いほうを先に見る。広いほうを先にすると、フォーラムの
+ノートブックに公式ドキュメントの盾が付く（間違いだが、エラーにはならない）。
+
+**ベンダーのロゴそのものは置いていない。** このリポジトリは公開されていて APK も配って
+いるので、他社の商標を同梱すると配布にあたる。意味が通じて 20dp でも潰れない字形を
+こちらで描いてある。公式のブランド資産を使いたい場合は、同じ名前のベクターを
+`res/drawable/ic_notebook_*.xml` に置き換えれば差し替わる（各社の利用条件を確認のうえ）。
+
+**色は資源として引く。** `NotebookWidgetStyle` が持つのは「どれを選んだか」だけで、
+`#RRGGBB` は保存しない ― 暗い面に合わせた色をそのまま明るい面で使うと読めなくなる。
+実際の値は `values/colors.xml` と `values-night/` の両方にあり、
+`NotebookRowStyle` が enum から資源 id に写す。
+
 ### できることの境界（ここが一番大事）
 
 - **個人アカウントの NotebookLM を API では読めない。** コンシューマ版に公開 API は無い
