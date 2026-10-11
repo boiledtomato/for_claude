@@ -1,6 +1,7 @@
 package com.example.zlauncher.data.notebook
 
 import com.example.zlauncher.core.notebook.NotebookFetch
+import com.example.zlauncher.core.notebook.NotebookSource
 import com.example.zlauncher.core.notebook.NotebookStatus
 import com.example.zlauncher.data.prefs.LauncherPreferencesRepository
 import kotlinx.coroutines.flow.Flow
@@ -21,6 +22,7 @@ class NotebookRepository @Inject constructor(
     private val preferences: LauncherPreferencesRepository,
     private val auth: NotebookAuth,
     private val api: NotebookEnterpriseApi,
+    private val pipelineApi: NotebookPipelineApi,
     private val store: NotebookCacheStore,
 ) {
 
@@ -42,21 +44,36 @@ class NotebookRepository @Inject constructor(
      */
     suspend fun refresh(): NotebookFetch {
         val config = preferences.state.first().notebook
-        if (!config.isConfigured) return record(NotebookFetch.NotConfigured, needsConsent = false)
+        if (!config.isConfigured) {
+            return record(NotebookFetch.NotConfigured, needsConsent = false, source = config.source)
+        }
+
+        // パイプラインは認証が要らないので、トークンを取りに行かずそのまま読む
+        if (config.source == NotebookSource.PIPELINE) {
+            return record(pipelineApi.listNotebooks(config), needsConsent = false, source = config.source)
+        }
 
         val authorization = auth.authorize()
         val token = when (authorization) {
             is NotebookAuth.Authorization.Granted -> authorization.accessToken
             is NotebookAuth.Authorization.NeedsConsent ->
-                return record(NotebookFetch.NeedsSignIn, needsConsent = true)
+                return record(NotebookFetch.NeedsSignIn, needsConsent = true, source = config.source)
             is NotebookAuth.Authorization.Failed ->
-                return record(NotebookFetch.Failed(authorization.reason), needsConsent = false)
+                return record(
+                    NotebookFetch.Failed(authorization.reason),
+                    needsConsent = false,
+                    source = config.source,
+                )
         }
 
-        return record(api.listNotebooks(config, token), needsConsent = false)
+        return record(api.listNotebooks(config, token), needsConsent = false, source = config.source)
     }
 
-    private suspend fun record(state: NotebookFetch, needsConsent: Boolean): NotebookFetch {
+    private suspend fun record(
+        state: NotebookFetch,
+        needsConsent: Boolean,
+        source: NotebookSource,
+    ): NotebookFetch {
         store.write { current ->
             val notebooks = (state as? NotebookFetch.Ok)?.notebooks ?: current.notebooks
             val hasCached = notebooks.isNotEmpty()
@@ -68,7 +85,7 @@ class NotebookRepository @Inject constructor(
                 } else {
                     current.fetchedAtMillis
                 },
-                status = NotebookStatus.message(state, hasCached),
+                status = NotebookStatus.message(state, hasCached, source),
                 showsList = NotebookStatus.showsList(state, hasCached),
                 needsConsent = needsConsent,
             )

@@ -35,8 +35,8 @@ class NotebookWidgetTextTest {
 
     @Test
     fun `only the known parts appear`() {
-        assertEquals("Reader", NotebookWidgetText.meta("READER", false, "", now))
-        assertEquals("Shared", NotebookWidgetText.meta("", true, "", now))
+        assertEquals("Reader", NotebookWidgetText.meta(userRole = "READER", nowMillis = now))
+        assertEquals("Shared", NotebookWidgetText.meta(isShared = true, nowMillis = now))
     }
 
     @Test

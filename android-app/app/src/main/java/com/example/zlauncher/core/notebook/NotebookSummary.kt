@@ -24,6 +24,15 @@ data class NotebookSummary(
     /** RFC3339 の文字列のまま持つ。整形は表示側でやる */
     val lastViewed: String = "",
     val createTime: String = "",
+    /**
+     * パイプラインが入れたソースの数。**-1 は「分からない」**で、0 件とは違う。
+     *
+     * Enterprise API からは取れない（数える API が公開されていない）ので、そちらでは
+     * -1 のまま。0 と区別しないと「ソースが消えた」と読めてしまう。
+     */
+    val sourceCount: Int = -1,
+    /** パイプラインが最後に同期した時刻（RFC3339）。Enterprise 側では空 */
+    val syncedAt: String = "",
 ) {
     /** 題が空のノートブックもあるので、一覧で空行にならないようにする */
     val displayTitle: String get() = title.ifBlank { "Untitled notebook" }

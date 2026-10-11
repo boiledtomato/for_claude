@@ -83,6 +83,8 @@ private class NotebookRowFactory(
                         userRole = entry.userRole,
                         isShared = entry.isShared,
                         lastViewed = entry.lastViewed,
+                        sourceCount = entry.sourceCount,
+                        syncedAt = entry.syncedAt,
                         nowMillis = System.currentTimeMillis(),
                     ),
                 )

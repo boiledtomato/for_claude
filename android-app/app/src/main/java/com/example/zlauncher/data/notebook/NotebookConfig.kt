@@ -1,6 +1,8 @@
 package com.example.zlauncher.data.notebook
 
 import com.example.zlauncher.core.notebook.NotebookEndpoint
+import com.example.zlauncher.core.notebook.NotebookPipeline
+import com.example.zlauncher.core.notebook.NotebookSource
 import kotlinx.serialization.Serializable
 
 /**
@@ -13,6 +15,15 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 data class NotebookConfig(
+    /**
+     * どこから読むか。**既定はパイプライン** ― 設定ゼロで動くほうを初期値にしておく。
+     * Enterprise を既定にすると、置いた直後は必ず「設定してください」で止まる。
+     */
+    val source: NotebookSource = NotebookSource.PIPELINE,
+    /** パイプラインの公開先（GitHub Pages） */
+    val pipelineBaseUrl: String = NotebookPipeline.DEFAULT_BASE_URL,
+    /** ノートブックが増えたときに拾うための列挙元（owner/repo） */
+    val pipelineRepo: String = NotebookPipeline.DEFAULT_REPO,
     /** **プロジェクト番号**（`my-project` のような ID ではなく 123456789012） */
     val projectNumber: String = "",
     /** `us` / `eu` / `global`。REST の宛先ホストを決める */
@@ -22,8 +33,18 @@ data class NotebookConfig(
     /** 利用者が選んだ Google アカウント。表示用で、認証そのものには使わない */
     val account: String = "",
 ) {
+    /**
+     * 読みに行けるだけの設定があるか。
+     *
+     * パイプラインは URL さえあれば足りる（既定値で埋まっている）。Enterprise は
+     * プロジェクト番号と宛先が要る。
+     */
     val isConfigured: Boolean
-        get() = NotebookEndpoint.isValidProjectNumber(projectNumber) &&
-            NotebookEndpoint.isValidEndpointLocation(endpointLocation) &&
-            location.isNotBlank()
+        get() = when (source) {
+            NotebookSource.PIPELINE -> pipelineBaseUrl.isNotBlank()
+            NotebookSource.ENTERPRISE ->
+                NotebookEndpoint.isValidProjectNumber(projectNumber) &&
+                    NotebookEndpoint.isValidEndpointLocation(endpointLocation) &&
+                    location.isNotBlank()
+        }
 }

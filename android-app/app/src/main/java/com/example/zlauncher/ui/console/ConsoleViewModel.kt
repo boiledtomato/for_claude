@@ -526,18 +526,8 @@ class ConsoleViewModel @Inject constructor(
     var notebookMessage by mutableStateOf<String?>(null)
         private set
 
-    fun setNotebookConfig(
-        projectNumber: String = notebookConfig.value.projectNumber,
-        endpointLocation: String = notebookConfig.value.endpointLocation,
-        location: String = notebookConfig.value.location,
-    ) = viewModelScope.launch {
-        notebookRepository.setConfig {
-            it.copy(
-                projectNumber = projectNumber.trim(),
-                endpointLocation = endpointLocation,
-                location = location.trim(),
-            )
-        }
+    fun setNotebookConfig(config: NotebookConfig) = viewModelScope.launch {
+        notebookRepository.setConfig { config }
     }
 
     /**

@@ -155,8 +155,8 @@ fun OverviewPane(
             config = notebookConfig,
             cache = notebookCache,
             message = viewModel.notebookMessage,
-            onSave = { number, endpoint, location ->
-                viewModel.setNotebookConfig(number, endpoint, location)
+            onSave = { updated ->
+                viewModel.setNotebookConfig(updated)
                 viewModel.refreshNotebooks(context)
             },
             onAuthorize = viewModel::authorizeNotebooks,

@@ -32,6 +32,8 @@ import androidx.compose.ui.window.Dialog
 import com.example.zlauncher.core.designsystem.ZColors
 import com.example.zlauncher.core.designsystem.ZType
 import com.example.zlauncher.core.notebook.NotebookEndpoint
+import com.example.zlauncher.core.notebook.NotebookPipeline
+import com.example.zlauncher.core.notebook.NotebookSource
 import com.example.zlauncher.core.ui.springyClick
 import com.example.zlauncher.data.notebook.NotebookCache
 import com.example.zlauncher.data.notebook.NotebookConfig
@@ -51,17 +53,20 @@ fun NotebookSettingsDialog(
     config: NotebookConfig,
     cache: NotebookCache,
     message: String?,
-    onSave: (projectNumber: String, endpointLocation: String, location: String) -> Unit,
+    onSave: (NotebookConfig) -> Unit,
     onAuthorize: () -> Unit,
     onRefresh: () -> Unit,
     onClearMessage: () -> Unit,
     onDismiss: () -> Unit,
 ) {
+    var source by remember(config.source) { mutableStateOf(config.source) }
+    var baseUrl by remember(config.pipelineBaseUrl) { mutableStateOf(config.pipelineBaseUrl) }
     var projectNumber by remember(config.projectNumber) { mutableStateOf(config.projectNumber) }
     var endpointLocation by remember(config.endpointLocation) { mutableStateOf(config.endpointLocation) }
     var location by remember(config.location) { mutableStateOf(config.location) }
 
-    val numberLooksWrong = projectNumber.isNotBlank() &&
+    val numberLooksWrong = source == NotebookSource.ENTERPRISE &&
+        projectNumber.isNotBlank() &&
         !NotebookEndpoint.isValidProjectNumber(projectNumber)
 
     Dialog(onDismissRequest = onDismiss) {
@@ -75,15 +80,49 @@ fun NotebookSettingsDialog(
                 .padding(18.dp),
         ) {
             Text("Notebook widgets", style = ZType.Title, color = ZColors.TextPrimary)
-            Spacer(Modifier.height(8.dp))
+
+            Spacer(Modifier.height(14.dp))
+            FieldLabel("Read from")
+            Spacer(Modifier.height(6.dp))
+            Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                Chip("Pipeline", source == NotebookSource.PIPELINE) {
+                    source = NotebookSource.PIPELINE
+                }
+                Chip("Enterprise", source == NotebookSource.ENTERPRISE) {
+                    source = NotebookSource.ENTERPRISE
+                }
+            }
+            Spacer(Modifier.height(6.dp))
             Text(
-                "Reads your notebooks from Gemini Notebook Enterprise (formerly NotebookLM " +
-                    "Enterprise). The consumer NotebookLM has no public API, so personal " +
-                    "notebooks cannot be listed here.",
+                text = when (source) {
+                    NotebookSource.PIPELINE ->
+                        "The notebooks this repository's pipeline keeps up to date, read from " +
+                            "its published sync state. No sign-in, nothing to set up. Shows how " +
+                            "many sources each notebook holds and when it was last synced; " +
+                            "tapping a row opens that notebook."
+                    NotebookSource.ENTERPRISE ->
+                        "Gemini Notebook Enterprise (formerly NotebookLM Enterprise). Needs a " +
+                            "Google Cloud project and a licence — see below. It lists the " +
+                            "notebooks in that project, which are not the same ones the " +
+                            "pipeline maintains."
+                },
                 style = ZType.Sub,
                 color = ZColors.TextDim,
             )
 
+            if (source == NotebookSource.PIPELINE) {
+                Spacer(Modifier.height(12.dp))
+                FieldLabel("Published URL")
+                Spacer(Modifier.height(6.dp))
+                TextInput(
+                    value = baseUrl,
+                    placeholder = NotebookPipeline.DEFAULT_BASE_URL,
+                    numeric = false,
+                    onValueChange = { baseUrl = it },
+                )
+            }
+
+            if (source == NotebookSource.ENTERPRISE) {
             Spacer(Modifier.height(14.dp))
             FieldLabel("Project number")
             Spacer(Modifier.height(6.dp))
@@ -146,6 +185,7 @@ fun NotebookSettingsDialog(
                     )
                 }
             }
+            }
 
             if (cache.status.isNotBlank()) {
                 Spacer(Modifier.height(12.dp))
@@ -170,15 +210,26 @@ fun NotebookSettingsDialog(
 
             Spacer(Modifier.height(16.dp))
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                DialogButton("Allow access", accent = false, onClick = onAuthorize)
+                // サインインが要るのは Enterprise だけ。パイプラインには押す意味が無い
+                if (source == NotebookSource.ENTERPRISE) {
+                    DialogButton("Allow access", accent = false, onClick = onAuthorize)
+                }
                 Spacer(Modifier.weight(1f))
                 DialogButton("Refresh", accent = false, onClick = onRefresh)
                 DialogButton(
                     label = "Save",
                     accent = true,
-                    enabled = !numberLooksWrong,
+                    enabled = source == NotebookSource.PIPELINE || !numberLooksWrong,
                 ) {
-                    onSave(projectNumber, endpointLocation, location)
+                    onSave(
+                        config.copy(
+                            source = source,
+                            pipelineBaseUrl = baseUrl.trim().ifBlank { NotebookPipeline.DEFAULT_BASE_URL },
+                            projectNumber = projectNumber.trim(),
+                            endpointLocation = endpointLocation,
+                            location = location.trim(),
+                        )
+                    )
                     onDismiss()
                 }
             }

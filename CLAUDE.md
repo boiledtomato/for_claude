@@ -563,10 +563,17 @@ Work profile apps appear in the drawer grid with badged icons.
   `Notebooks (open)` (a row opens that notebook) and `Notebook info` (title, emoji, role,
   shared, last viewed). This is the only place this app is the widget *provider* rather than
   the host, so its own two appear in its own picker. **The boundaries are the point here:**
-  consumer NotebookLM has no public API, so only **Gemini Notebook Enterprise** (a Google
-  Cloud project plus a Gemini Enterprise licence) can be read — which means **the two
-  notebooks `sync_notebooklm.py` maintains do not appear**, since those live on a consumer
-  account driven by Playwright session cookies. Notes and chat history inside a notebook are
+  consumer NotebookLM has no public API, so the **Enterprise** source (a Google Cloud
+  project plus a Gemini Enterprise licence) sees only that project's notebooks, never the
+  ones `sync_notebooklm.py` maintains on a consumer account. The **Pipeline** source — the
+  default, because it needs no setup at all — goes around that wall: the notebook id, title,
+  source count and last sync are all written into `data/<name>_sync_state.json`, which is
+  served on GitHub Pages, so the real notebooks (`Zscaler_help_docs`, `Zscaler_community`,
+  `Zscaler_updates`, `MSLearn_entra`) list with no auth and the id makes each row open.
+  The file list comes from the GitHub contents API rather than a constant, or a fifth
+  notebook would be silently dropped; `FALLBACK_STATE_FILES` only covers the API being
+  rate-limited. `NotebookPipelineTest` parses **the real published files**, since their
+  shape is decided in Python and a renamed key would otherwise surface only on a device. Notes and chat history inside a notebook are
   not reachable at all (only the undocumented internal API gets there, and it needs live
   Google session cookies — effectively full account access, which is not going into a home
   launcher), and no API posts a question, so "create a chat" is *open the notebook you want

@@ -842,16 +842,45 @@ AOSP の Launcher3 も同じ挙動。回避策として「インストール日�
 | ウィジェット | すること |
 |---|---|
 | `Notebooks (open)` | 行を押すとそのノートブックを開く（＝すぐ聞ける状態にする） |
-| `Notebook info` | 題・絵文字・権限・共有の有無・最後に見た日時を出す |
+| `Notebook info` | ソース数・最終同期（または権限・共有・最後に見た日時）を出す |
+
+### 読み元は 2 つ。**既定はパイプライン**
+
+設定ゼロで動くほうを初期値にしてある ― Enterprise を既定にすると、置いた直後は必ず
+「設定してください」で止まる。切り替えは設定ダイアログの `Read from`。
+
+| | `Pipeline`（既定） | `Enterprise` |
+|---|---|---|
+| 読む先 | このリポジトリが公開する同期状態（GitHub Pages の JSON） | Gemini Notebook Enterprise の REST |
+| 認証 | **不要** | Google アカウントの同意（cloud-platform） |
+| 用意するもの | 無し | GCP プロジェクト＋ライセンス＋OAuth クライアント |
+| 見えるもの | `Zscaler_help_docs` など**実際に運用している**ノートブック | その GCP プロジェクトの中のノートブック（別物） |
+| 1 行の中身 | ソース数・最終同期 | 権限・共有・最後に見た日時 |
+
+パイプライン側で出るのは実際にはこうなる（4 つとも本物、タップでそれぞれが開く）:
+
+```
+📓 MSLearn_entra       83 sources · Synced 4d ago
+📓 Zscaler_community   17 sources · Synced 6d ago
+📓 Zscaler_help_docs   34 sources · Synced 6d ago
+📓 Zscaler_updates     28 sources · Synced 2d ago
+```
+
+**ノートブックが増えても拾える。** 一覧は GitHub の contents API で `data/` を列挙して
+`*_sync_state.json` を拾う（公開リポジトリなので認証不要、未認証 60 回/時で足りる）。
+`FALLBACK_STATE_FILES` は列挙できなかったときの保険であって本筋ではない ―
+既知の 4 つに決め打ちすると、パイプラインに 5 つ目が増えたとき黙って取りこぼす。
+`NotebookPipelineTest` が**本物の `data/<name>_sync_state.json` を読んで**固定する。
+あの形を決めているのは Python 側（`sync_notebooklm.py`）なので、作り物の JSON だけで
+固めると、あちらが項目名を変えたときに実機でしか気付けない。
 
 ### できることの境界（ここが一番大事）
 
-- **個人アカウントの NotebookLM は読めない。** コンシューマ版に公開 API は無い
-  （2026 年時点）。読めるのは **Gemini Notebook Enterprise**（旧 NotebookLM Enterprise）
-  だけで、Google Cloud プロジェクトと Gemini Enterprise のライセンスが要る
-- **`scripts/sync_notebooklm.py` が作る 2 つのノートブックはここに出ない。** あちらは
-  Playwright のセッション Cookie でコンシューマ版を操作している。Enterprise API が見るのは
-  GCP プロジェクトの中のノートブックで、別物
+- **個人アカウントの NotebookLM を API では読めない。** コンシューマ版に公開 API は無い
+  （2026 年時点）。Enterprise API が見るのは GCP プロジェクトの中のノートブックで、
+  `sync_notebooklm.py` が作るものとは別物。
+  **パイプライン側はその壁を迂回している** ― ノートブックの id と題と中身の数は
+  同期状態の JSON に書かれているので、API を介さずに読め、id があるので開ける
 - **ノートブック内のメモやチャット履歴は取れない。** 届くのは非公開の内部 API だけで、
   それには生きた Google セッション Cookie が要る（`sync_notebooklm.py` の
   `storage_state.json` と同じ、実質アカウント全権のもの）。**ランチャーには置かない**

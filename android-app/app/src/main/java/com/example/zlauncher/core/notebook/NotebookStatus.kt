@@ -17,15 +17,29 @@ object NotebookStatus {
      * @param hasCached 前回の一覧が残っているか
      * @return 出す文。空文字なら何も出さない（一覧だけ見せる）
      */
-    fun message(state: NotebookFetch?, hasCached: Boolean): String = when (state) {
+    fun message(
+        state: NotebookFetch?,
+        hasCached: Boolean,
+        source: NotebookSource = NotebookSource.ENTERPRISE,
+    ): String = when (state) {
         null -> if (hasCached) "" else "Not refreshed yet"
-        is NotebookFetch.Ok ->
-            if (state.notebooks.isEmpty()) "No notebooks in this project" else ""
-        NotebookFetch.NotConfigured -> "Set your project number in Console settings"
+        is NotebookFetch.Ok -> when {
+            state.notebooks.isNotEmpty() -> ""
+            source == NotebookSource.PIPELINE -> "No notebook state published yet"
+            else -> "No notebooks in this project"
+        }
+        // 直し方が読み元で違う。パイプラインに「ライセンスを確認」と出しても意味が無い
+        NotebookFetch.NotConfigured -> when (source) {
+            NotebookSource.PIPELINE -> "Set the published URL in Console settings"
+            NotebookSource.ENTERPRISE -> "Set your project number in Console settings"
+        }
         NotebookFetch.NeedsSignIn -> "Tap to allow access to your Google account"
-        NotebookFetch.NoAccess ->
-            "No access — check the Discovery Engine API, your Gemini Enterprise licence, " +
-                "and the project number"
+        NotebookFetch.NoAccess -> when (source) {
+            NotebookSource.PIPELINE -> "Could not read the published state — check the URL"
+            NotebookSource.ENTERPRISE ->
+                "No access — check the Discovery Engine API, your Gemini Enterprise licence, " +
+                    "and the project number"
+        }
         NotebookFetch.RateLimited -> stale(hasCached, "Rate limited by the preview API")
         is NotebookFetch.Failed -> stale(hasCached, "Could not reach the API")
     }

@@ -11,9 +11,24 @@ import java.util.concurrent.TimeUnit
  */
 object NotebookWidgetText {
 
-    /** 一覧の 2 行目。権限・共有・最後に見た日時のうち、分かっているものだけ並べる */
-    fun meta(userRole: String, isShared: Boolean, lastViewed: String, nowMillis: Long): String {
+    /**
+     * 一覧の 2 行目。**分かっているものだけ並べる。**
+     *
+     * 読み元で出せる項目が違う ― パイプラインからはソース数と最終同期、Enterprise からは
+     * 権限・共有・最後に見た日時。どちらか片方しか埋まらないので、無いものは出さない。
+     */
+    fun meta(
+        userRole: String = "",
+        isShared: Boolean = false,
+        lastViewed: String = "",
+        sourceCount: Int = -1,
+        syncedAt: String = "",
+        nowMillis: Long,
+    ): String {
         val parts = buildList {
+            // -1 は「分からない」。0 件と混ぜない
+            if (sourceCount >= 0) add(if (sourceCount == 1) "1 source" else "$sourceCount sources")
+            relative(syncedAt, nowMillis)?.let { add("Synced $it") }
             if (userRole.isNotBlank()) add(role(userRole))
             if (isShared) add("Shared")
             relative(lastViewed, nowMillis)?.let { add("Opened $it") }
