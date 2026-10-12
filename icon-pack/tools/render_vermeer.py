@@ -99,9 +99,12 @@ def nail(base, x, y):
     return mix(base, hexrgb("#2a2622"), nm)
 
 
+MAP_BOX = (250, 930, 110, 560)
+
+
 def wall_map(base, rng):
     """壁の地図（『絵画芸術』のネーデルラント十七州図）。上下に黒い軸。"""
-    x0, x1, y0, y1 = 250, 930, 110, 560
+    x0, x1, y0, y1 = MAP_BOX
     m_ = ((X > x0) & (X < x1) & (Y > y0) & (Y < y1)).astype(float)
     paper = ramp(["#b9a274", "#d9c79c", "#e8dbb6"], 0.6 + (fbm(rng, (64, 32)) - 0.5) * 0.6 - (X - x0) / 2000)
     coast = np.clip((fbm(rng, (90, 45, 22)) - 0.5) * 8, 0, 1)
@@ -262,7 +265,7 @@ def view_of_delft(rng):
     tw.rectangle([694, hz - 200, 744, hz], fill=255)
     tw.rectangle([702, hz - 250, 736, hz - 198], fill=255)
     tw.rectangle([708, hz - 286, 730, hz - 248], fill=255)
-    tw.polygon([(706, hz - 284), (719, hz - 340), (732, hz - 284)], fill=255)
+    tw.polygon([(708, hz - 284), (719, hz - 318), (730, hz - 284)], fill=255)
     wm, rm, tm = M(walls, 0.8), M(roofs, 0.8), M(tower, 0.8)
     wall_c = mix(ramp(["#3e3a38", "#5a4e46"], noise(rng, 7)), ramp(["#a8805a", "#c89c6a"], noise(rng, 7)), sunlit)
     roof_c = mix(ramp(["#2e3a48", "#46566a"], noise(rng, 9)), ramp(["#b0583a", "#d07a4a"], noise(rng, 9)), sunlit)
@@ -270,7 +273,9 @@ def view_of_delft(rng):
     wall_c = wall_c * (1 - windows * 0.35)[..., None]
     base = mix(base, wall_c, wm)
     base = mix(base, roof_c, rm * (1 - wm * 0.0))
-    base = mix(base, ramp(["#c8a060", "#f6e2a0", "#d8b878"], (X - 694) / 50), tm)
+    tower_c = ramp(["#e8cc88", "#c8a060", "#7a6a58"], (X - 694) / 50)
+    tower_c = tower_c * (1 - (((Y % 22) < 3) | ((np.abs(X - 719) < 4) & ((Y % 22) > 8))) * 0.25)[..., None]
+    base = mix(base, tower_c, tm)
     # 川面: 町の映り込みを縦にぼかし、暗く、さざ波でずらす
     wy = hz + 30
     yi = np.clip(2 * wy - Y.astype(int), 0, S - 1)
