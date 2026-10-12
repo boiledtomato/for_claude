@@ -25,6 +25,7 @@ JP_FONT = "/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc"
 SERIF_B = "/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf"
 
 Y, X = np.mgrid[0:S, 0:S].astype(float)
+ROUNDEL = True  # False: 円光の外に描画を切らない（render_northern.py が使う）
 
 
 # ── 基本ユーティリティ ───────────────────────────────────────────
@@ -812,7 +813,7 @@ def calendar_paschal(rng):
     base = gold_ground(rng, "#0e1428")
     # 闇の中の灯りの暈
     glow = np.exp(-(((X - C) ** 2 + (Y - 205) ** 2) / (2 * 120 ** 2)))
-    disk = np.hypot(X - C, Y - C) < 372
+    disk = (np.hypot(X - C, Y - C) < 372) if ROUNDEL else np.ones((S, S), bool)
     base = mix(base, hexrgb("#f6c860"), glow * 0.55 * disk)
     x0, x1, top, bot = 428, 596, 268, 790
     candle, cd = canvas()
@@ -930,7 +931,7 @@ def clock_hourglass(rng):
 
 def weather_rainbow(rng):
     base = gold_ground(rng, "#3a4a5e")
-    disk = np.hypot(X - C, Y - C) < 372
+    disk = (np.hypot(X - C, Y - C) < 372) if ROUNDEL else np.ones((S, S), bool)
     after = np.exp(-(((X - C) ** 2 + (Y - 760) ** 2) / (2 * 300 ** 2)))
     base = mix(base, hexrgb("#c8d8e0"), after * 0.45 * disk)
     cx, cy = C, 740
