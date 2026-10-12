@@ -1,7 +1,7 @@
 # Zscaler Zenith Community — ZIA — Internet & SaaS (part 3)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-05 10:48 UTC
+Generated: 2026-10-12 11:16 UTC
 Posts in this file: 309
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
@@ -60261,19 +60261,19 @@ How to Forward tunel to different country data Center
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AM6064CQB/how-to-tunnelless-dns-resolution-using-dns-controlztr-guest-wifi-users","lastmod":"2025-10-01T18:06:51.000Z","id":"0D54u0000AM6064CQB"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AM6064CQB/how-to-tunnelless-dns-resolution-using-dns-controlztr-guest-wifi-users","lastmod":"2026-10-07T16:20:31.000Z","id":"0D54u0000AM6064CQB"} -->
 ## How To: Tunnel-less DNS Resolution using DNS Control/ZTR (Guest WiFi Users)
 
 - Source: https://community.zscaler.com/s/question/0D54u0000AM6064CQB/how-to-tunnelless-dns-resolution-using-dns-controlztr-guest-wifi-users
 - Type: Q&A
-- Last activity: 2025-10-01T18:06:51.000Z
+- Last activity: 2026-10-07T16:20:31.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 ZIA - Cloud Firewall
 
 siddhartha.aggarwal
 
-(Employee) asked a question.
+(Employee) asked a question
 
 Edited October 1, 2025 at 6:06 PM
 
@@ -60383,18 +60383,6 @@ https://community.zscaler.com/zenith/s/question/0D54u0000AM61y5CQB/how-to-config
 
 ZIA - Cloud Firewall
 
-3.85K views
-
-adelgado
-
-and
-
-Stefan Sebastian
-
-like this.
-
-Log In to Answer
-
 Associated Tags
 
 dns
@@ -60423,9 +60411,9 @@ ZIA - Cloud Firewall
 
 ram75
 
-1,194
+1,253
 
-1194 Views
+1253 Views
 
 0 Likes
 
@@ -60443,9 +60431,9 @@ ZIA - Cloud Firewall
 
 Sec_def_Def_sec
 
-1,842
+1,917
 
-1842 Views
+1917 Views
 
 1 Like
 
@@ -60562,23 +60550,25 @@ How To: Tunnel-less DNS Resolution using DNS Control/ZTR (Guest WiFi Users)
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AM61y5CQB/how-to-configure-dns-control-policies-for-tunnelless-dns-setup-guest-wifi-users","lastmod":"2026-03-17T19:16:31.000Z","id":"0D54u0000AM61y5CQB"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AM61y5CQB/how-to-configure-dns-control-policies-for-tunnelless-dns-setup-guest-wifi-users","lastmod":"2026-10-07T16:20:27.000Z","id":"0D54u0000AM61y5CQB"} -->
 ## How To: Configure DNS Control policies for tunnel-less DNS setup (Guest WiFi users)
 
 - Source: https://community.zscaler.com/s/question/0D54u0000AM61y5CQB/how-to-configure-dns-control-policies-for-tunnelless-dns-setup-guest-wifi-users
 - Type: Q&A
-- Last activity: 2026-03-17T19:16:31.000Z
+- Last activity: 2026-10-07T16:20:27.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 ZIA - Cloud Firewall
 
 siddhartha.aggarwal
 
-(Employee) asked a question.
+(Employee) asked a question
 
-Edited February 24, 2026 at 3:17 PM
+Edited 4h ago
 
 How To: Configure DNS Control policies for tunnel-less DNS setup (Guest WiFi users)
+
+10/6/2026: Updated for the new UI.
 
 In an earlier article, we configured DNS resolution using Zscaler Trusted Resolver (ZTR) using a tunnel-less DNS setup:
 
@@ -60590,8 +60580,6 @@ Zscaler Shift (now EOL)
 
 or a 3rd party resolver, or when using a GRE/IPsec tunnel from a customer site is not an option. However, it is important to note that the recommended practice is to use Zscaler Client Connector with Z-Tunnel 2.0 (ZCC/ZT2.0) or a GRE/IPsec tunnel to route DNS traffic to ZIA whenever possible.
 
-This article builds upon the configuration in the previous article, so make sure to complete those steps before proceeding further.
-
 Note:
 
 This tunnel-less DNS approach has the following limitations:
@@ -60602,39 +60590,65 @@ It is not applicable for IPv6 DNS traffic.
 
 In this article, we will build upon that setup and add a DNS filtering rule to block gambling sites.
 
-First, confirm that DNS resolution for a gambling site, such as 888.com is currently working on your client machine.
+First, confirm that DNS resolution for a gambling site, such as
 
-As one can see, DNS resolution is working and the DNS server is the one we had configured.
+888.com
+
+is currently working on your client machine.
+
+As one can see, DNS resolution is working and the DNS server is the GRE VIP address we had configured in the previous article (104.129.192.34)
 
 Configure DNS Control policy
 
-Now, in your ZIA tenant, go to
+Search for DNS Control in the top search bar (or navigate to Internet Access > Policy > DNS Control).
 
-Policy > Firewall > DNS Control
+Click on Add Rule and add a new rule to block Gambling category sites. For example:
 
-Then, click on
+Rule Name: Block Gambling
 
-Add DNS Filtering Rule
+Rule Order: 1 (Should be before any DNS rule that could allow this traffic).
 
-and add a new rule as shown below:
+Rule Status: Enabled
 
-Make sure to set the rule order number to be higher than the default one that allows all DNS traffic.
+Action: Block
+
+Criteria:
+
+Request Categories: Gambling
+
+Response Categories: Gambling
+
+Locations: Optionally specify the location from where you will be sending DNS traffic if you want the DNS Filtering rule to only apply to DNS traffic from a specific location. e.g. Location1.
+
+Save the rule and activate the changes.
 
 Note:
 
-Zscaler supports different types of End User Notifications (EUNs) for the DNS Control policy. These EUNs are displayed to end users when their activities trigger DNS Control rules with specific actions, such as blocking traffic or redirecting responses. See the following help articles:
+Zscaler also supports different types of End User Notifications (EUNs) for the DNS Control policy. These EUNs are displayed to end users when their activities trigger DNS Control rules with specific actions, such as blocking traffic or redirecting responses. See the following help articles:
 
 https://help.zscaler.com/zia/dns-end-user-notifications
 
 https://help.zscaler.com/zia/configuring-dns-control-policy
 
-Save the rule and click on
+Now, go back to the client machine and try doing a DNS lookup for
 
-Activation > Activate
+888.com
 
-to activate the changes.
+- it will be blocked and the query will time out.
 
-Now, go back to the client machine and try doing a DNS lookup for 888.com - it should be blocked:
+Note:
+
+If you enabled the Web EUN option in the DNS Control filtering rule, you will see the IP address of the DNS Web EUN page as the answer for the query.
+
+Checks DNS Insights logs
+
+Search for DNS Insights in the top search bar (or navigate to Data Explorer > Internet & SaaS > DNS Insights.
+
+Go to the tab Logs.
+
+Choose the timeframe, add filters as necessary (e.g. filter based on Location), and then click on Run Query.
+
+You should see DNS Insights logs for the matching DNS traffic (may take a couple of minutes for the logs to be populated).
 
 Recommended next steps
 
@@ -60666,20 +60680,6 @@ https://www.zscaler.com/resources/reference-architectures/zscaler-dns-security-a
 
 ZIA - Cloud Firewall
 
-2.17K views
-
-GordonWright
-
-Ramesh M
-
-, and
-
-2 others
-
-like this.
-
-This question is closed.
-
 Associated Tags
 
 dns
@@ -60708,9 +60708,9 @@ ZIA - Cloud Firewall
 
 ram75
 
-1,194
+1,261
 
-1194 Views
+1261 Views
 
 0 Likes
 
@@ -60728,9 +60728,9 @@ ZIA - Cloud Firewall
 
 Sec_def_Def_sec
 
-1,842
+1,924
 
-1842 Views
+1924 Views
 
 1 Like
 

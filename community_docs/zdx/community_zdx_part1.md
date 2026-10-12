@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — ZDX — Digital Experience Monitoring (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-01 20:41 UTC
-Posts in this file: 37
+Generated: 2026-10-12 11:16 UTC
+Posts in this file: 38
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -1104,6 +1104,147 @@ Hi Neeraj, can you please share your details with
 certification@zscaler.com
 
 - The team will be happy to help you on the next steps to get your ZDTA cert.
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Blog Details
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Blogs/aSnPJ0000000hHt0AI/10k-strong-celebrating-a-major-zscaler-certification-milestone","lastmod":"2026-10-06T17:13:05.000Z","id":"aSnPJ0000000hHt0AI"} -->
+## 10K+ Strong: Celebrating a Major Zscaler Certification Milestone
+
+- Source: https://community.zscaler.com/s/Blogs/aSnPJ0000000hHt0AI/10k-strong-celebrating-a-major-zscaler-certification-milestone
+- Type: Blog
+- Last activity: 2026-10-06T17:13:05.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Blog Details
+
+Certification
+
+Alejandro Knudsen
+
+(Employee) posted a Blog
+
+12h ago
+
+10K+ Strong: Celebrating a Major Zscaler Certification Milestone
+
+How a global community of Zero Trust leaders is transforming cloud security.
+
+We are thrilled to announce a major milestone for the
+
+: over 10K cybersecurity professionals have officially earned their Zscaler certifications worldwide!
+
+This achievement spans our core tracks, including Zscaler Digital Transformation Administrator (ZDTA), Zscaler Digital Transformation Engineer (ZDTE), and Zscaler Digital Experience Administrator (ZDXA), representing 10K+ verified practitioners proving their practical mastery of the Zscaler Zero Trust Exchange™.
+
+Three Tracks to Mastery
+
+Certification
+
+Specialization & Focus Area
+
+Target Audience
+
+Zscaler Digital Transformation Administrator (ZDTA)
+
+Foundational Zero Trust platform administration, traffic management, policy configuration, and core operational security.
+
+Security administrators, IT operations specialists, and systems engineers.
+
+Zscaler Digital Transformation Engineer (ZDTE)
+
+Advanced architecture, ZIA and ZPA deployment, complex policy design, traffic forwarding, and hands-on configuration.
+
+Senior deployment engineers, cloud architects, and technical consultants.
+
+Zscaler Digital Experience Administrator (ZDXA)
+
+Device-to-cloud performance optimization, digital experience monitoring, latency analysis, and active troubleshooting using ZDX.
+
+Network operations specialists, digital experience managers, and support engineers.
+
+Key Drivers Behind the Growth
+
+Our certified community continues to expand rapidly due to several high impact program enhancements:
+
+(ISC)² CISSP Alignment: ZDTA, ZDTE, and ZDXA credentials qualify as official experience waivers toward
+
+CISSP® certification
+
+Virtual CertJamZ Prep
+
+: Interactive 4 hour sessions led by instructors help candidates review exam objectives and test with confidence.
+
+Global Exam Accessibility: Flexible exam options via Pearson VUE test centers and OnVUE online proctoring make certifying seamless worldwide.
+
+Join the Next 10K Zero Trust Leaders
+
+Thank you to every earner, SME, instructor, and community partner who made this landmark possible.
+
+Ready to advance your cloud security career? Explore our study guides, attend a CertJamZ session, and schedule your exam today at the
 
 Associated Tags
 

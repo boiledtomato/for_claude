@@ -1,6 +1,6 @@
 {
  "fetch_mode": "prerender",
- "generated_at": "2026-10-05T10:48:04Z",
+ "generated_at": "2026-10-12T11:16:12Z",
  "posts": {
   "https://community.zscaler.com/s/Articles/aSmPJ000009yj3V0AQ/exciting-news-new-content-types-now-available-on-zenith-community": {
    "category": "platform",
@@ -5378,6 +5378,34 @@
    "title": "From \"Aha!\" Moments to Real Impact: Meet Certified Champion Laura Thaqi",
    "type": "zenith_blog__c"
   },
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000hHt0AI/10k-strong-celebrating-a-major-zscaler-certification-milestone": {
+   "category": "zdx",
+   "hash": "1aab26e212ebdc59",
+   "lastmod": "2026-10-06T17:13:05.000Z",
+   "title": "10K+ Strong: Celebrating a Major Zscaler Certification Milestone",
+   "type": "zenith_blog__c"
+  },
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000hJV0AY/beyond-the-badge-what-zscaler-certification-validates": {
+   "category": "platform",
+   "hash": "23ab46089f7e5827",
+   "lastmod": "2026-10-07T19:42:29.000Z",
+   "title": "Beyond the Badge: What Zscaler Certification Validates",
+   "type": "zenith_blog__c"
+  },
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000hL70AI/from-the-conversation-what-happens-when-ai-cant-tell-whats-real": {
+   "category": "deception",
+   "hash": "41d7d12b42799aab",
+   "lastmod": "2026-10-08T18:10:33.000Z",
+   "title": "From the Conversation: What Happens When AI Can't Tell What's Real?",
+   "type": "zenith_blog__c"
+  },
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000hOL0AY/pearson-vue-promotion-how-to-get-a-free-retake-on-your-next-zscaler-exam": {
+   "category": "platform",
+   "hash": "c18cf141ec5fbb91",
+   "lastmod": "2026-10-09T15:55:58.000Z",
+   "title": "Pearson VUE Promotion: How to Get a Free Retake on Your Next Zscaler Exam",
+   "type": "zenith_blog__c"
+  },
   "https://community.zscaler.com/s/Guides/aSoPJ0000000E6D0AU/welcome-to-zscaler-cellular": {
    "category": "branch",
    "hash": "9996a74faa971bcb",
@@ -8204,13 +8232,6 @@
    "hash": "94647425466554aa",
    "lastmod": "2026-10-01T06:09:52.000Z",
    "title": "How to Block 7-Zip File Archiving and Extraction Using Endpoint DLP",
-   "type": "zenith_guide__c"
-  },
-  "https://community.zscaler.com/s/Guides/aSoPJ0000006ij70AA/zscaler-cellular-apn": {
-   "category": "branch",
-   "hash": "9515cb1a91735226",
-   "lastmod": "2026-09-28T15:01:15.000Z",
-   "title": "Zscaler Cellular APN",
    "type": "zenith_guide__c"
   },
   "https://community.zscaler.com/s/question/0D54u00009eviNaCAI/unusual-ip-connections-from-zscalertunnel-process": {
@@ -21991,15 +22012,15 @@
   },
   "https://community.zscaler.com/s/question/0D54u0000AM6064CQB/how-to-tunnelless-dns-resolution-using-dns-controlztr-guest-wifi-users": {
    "category": "zia",
-   "hash": "b643ebc6204c355e",
-   "lastmod": "2025-10-01T18:06:51.000Z",
+   "hash": "87f10064ab75d817",
+   "lastmod": "2026-10-07T16:20:31.000Z",
    "title": "How To: Tunnel-less DNS Resolution using DNS Control/ZTR (Guest WiFi Users)",
    "type": "question"
   },
   "https://community.zscaler.com/s/question/0D54u0000AM61y5CQB/how-to-configure-dns-control-policies-for-tunnelless-dns-setup-guest-wifi-users": {
    "category": "zia",
-   "hash": "0bd55ebcb5bfbf38",
-   "lastmod": "2026-03-17T19:16:31.000Z",
+   "hash": "5c08a1dce2d7d794",
+   "lastmod": "2026-10-07T16:20:27.000Z",
    "title": "How To: Configure DNS Control policies for tunnel-less DNS setup (Guest WiFi users)",
    "type": "question"
   },
@@ -23762,8 +23783,8 @@
   },
   "https://community.zscaler.com/s/question/0D54u0000AeIEG8CQO/solved-questions": {
    "category": "platform",
-   "hash": "5f0cc43e676cfbf8",
-   "lastmod": "2026-05-29T11:07:22.000Z",
+   "hash": "dbe44289a7f4d3ea",
+   "lastmod": "2026-10-10T20:02:20.000Z",
    "title": "Solved Questions",
    "type": "question"
   },
@@ -24777,8 +24798,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000WWbH30AL/are-there-any-visio-stencils-for-the-zscaler-services-and-components": {
    "category": "platform",
-   "hash": "ddc9617ea6f1d9a4",
-   "lastmod": "2025-08-22T07:28:09.000Z",
+   "hash": "83ddd9bb05d8a535",
+   "lastmod": "2026-10-11T08:30:28.000Z",
    "title": "Are there any Visio stencils for the zscaler services and components?",
    "type": "question"
   },
@@ -26940,8 +26961,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ000012mlKm0AI/zia-activation": {
    "category": "zia",
-   "hash": "02c1c9618d934b06",
-   "lastmod": "2026-09-17T05:28:23.000Z",
+   "hash": "3d06d36dff6589e6",
+   "lastmod": "2026-10-06T21:00:28.000Z",
    "title": "ZIA Activation",
    "type": "question"
   },
@@ -26954,8 +26975,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ0000136P250AE/traffic-going-to-port-9480-is-now-ssl-inspected-why": {
    "category": "zia",
-   "hash": "f441bebcddea55c0",
-   "lastmod": "2026-09-22T17:11:47.000Z",
+   "hash": "04e4e5af47eef2e1",
+   "lastmod": "2026-10-06T07:08:23.000Z",
    "title": "Traffic going to Port 9480 is now SSL inspected - why?",
    "type": "question"
   },
@@ -26968,23 +26989,44 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ000013ReKW0A0/planning-ahead-managing-ubuntu-laptops-ansible-push-behind-zscaler": {
    "category": "api",
-   "hash": "15f0930130034820",
-   "lastmod": "2026-09-28T15:00:55.000Z",
+   "hash": "ae2de289328bd7c6",
+   "lastmod": "2026-10-07T16:20:08.000Z",
    "title": "Planning Ahead: Managing Ubuntu Laptops & Ansible Push Behind Zscaler",
    "type": "question"
   },
   "https://community.zscaler.com/s/question/0D5PJ000013cp7M0AQ/what-are-you-using-to-prepare-for-zdta": {
    "category": "other",
-   "hash": "d098d737147748cb",
-   "lastmod": "2026-10-03T15:29:46.000Z",
+   "hash": "4d2a3ec9b3de408c",
+   "lastmod": "2026-10-05T16:08:52.000Z",
    "title": "Zscaler, Inc. - Sign In",
    "type": "question"
   },
   "https://community.zscaler.com/s/question/0D5PJ000013isFh0AI/workflow-automation-using-zir-deployed-as-onpremvm": {
    "category": "data_security",
-   "hash": "2e09c09fbabd08dd",
-   "lastmod": "2026-10-02T10:55:59.000Z",
+   "hash": "f5e7dbad48da13ec",
+   "lastmod": "2026-10-08T09:13:02.000Z",
    "title": "Workflow Automation using ZIR Deployed as OnpremVM",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000013nuQO0AY/how-to-sign-up-for-the-upcoming-zscaler-for-users-administrator-lab-on-10826": {
+   "category": "other",
+   "hash": "22ad18f7aa095252",
+   "lastmod": "2026-10-05T20:05:05.000Z",
+   "title": "How to sign up for the upcoming Zscaler for Users Administrator Lab on 10/8/26?",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ0000143Rk90AE/ipsec-tunnel-mob6-issue": {
+   "category": "zia",
+   "hash": "01e98e438f2d85b1",
+   "lastmod": "2026-10-10T01:57:47.000Z",
+   "title": "Ipsec Tunnel MOB6 Issue",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ0000143lUL0AY/disable-authenticate-early-option-in-zcc": {
+   "category": "zcc",
+   "hash": "145e226530d1346a",
+   "lastmod": "2026-10-10T01:49:58.000Z",
+   "title": "Disable \"Authenticate Early\" option in ZCC",
    "type": "question"
   }
  },

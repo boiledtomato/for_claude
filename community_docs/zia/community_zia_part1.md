@@ -1,7 +1,7 @@
 # Zscaler Zenith Community — ZIA — Internet & SaaS (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-05 10:48 UTC
+Generated: 2026-10-12 11:16 UTC
 Posts in this file: 356
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。

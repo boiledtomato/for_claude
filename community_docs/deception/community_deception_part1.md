@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — Deception / Threat (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-08-01 20:41 UTC
-Posts in this file: 39
+Generated: 2026-10-12 11:16 UTC
+Posts in this file: 40
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -2852,6 +2852,125 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Error
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Blogs/aSnPJ0000000hL70AI/from-the-conversation-what-happens-when-ai-cant-tell-whats-real","lastmod":"2026-10-08T18:10:33.000Z","id":"aSnPJ0000000hL70AI"} -->
+## From the Conversation: What Happens When AI Can't Tell What's Real?
+
+- Source: https://community.zscaler.com/s/Blogs/aSnPJ0000000hL70AI/from-the-conversation-what-happens-when-ai-cant-tell-whats-real
+- Type: Blog
+- Last activity: 2026-10-08T18:10:33.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Blog Details
+
+Community Highlights
+
+Ben_Garrison
+
+(Employee) posted a Blog
+
+Edited 2h ago
+
+From the Conversation: What Happens When AI Can't Tell What's Real?
+
+I've been thinking a lot lately about how AI changes the advantage between attackers and defenders. Most of the conversation I've heard focuses on what AI gives the attacker: more speed, more automation, and the ability to process a ridiculous amount of information in a very short period of time. But there's one part I keep coming back to. If an AI agent is making decisions based on what it finds in an environment, what happens when it can't trust what it's finding? That's where deception gets really interesting to me.
+
+I'll admit, when I used to think about deception in cybersecurity, my mind immediately went to the Hollywood version of a honeypot. You put something fake out there, the hacker takes the bait, alarms go off, and somewhere a guy in a hoodie realizes he's been caught. Obviously, there's a little more to it than that. But once I started thinking about deception in the context of AI agents, the concept clicked for me in a completely different way. An attacker, human or AI, has to make decisions based on the information available to them. So what happens when we deliberately make some of those decisions harder?
+
+Speed is useful when you know where you're going
+
+One of the things that makes AI potentially valuable to an attacker is speed. Think about everything an attacker has to figure out once they gain some kind of foothold. What's around me? What can I access? Which credentials are useful? Where does this system connect? What's valuable? Where should I go next? A human has to work through those questions. An AI agent could potentially work through some of them much faster. But faster decision-making is only an advantage if the information you're using to make those decisions is reliable.
+
+That's what I find interesting about deception. What happens if the credential the attacker discovers isn't real? What if the resource that looks valuable isn't valuable at all? What if the system that appears to be the obvious next step exists specifically because you want an attacker to interact with it? Now the attacker has another problem. It has to figure out what's real.
+
+Sometimes buying time is enough
+
+I think there's a tendency to view security controls as successful only when they completely stop something. Attack blocked. Problem solved. But I'm not sure that's always the right way to think about it. Sometimes making an attacker hesitate is valuable. Every additional decision takes time. Every decoy an attacker investigates is somewhere they aren't supposed to be. And interacting with something that no legitimate user or system should ever interact with can tell defenders something too.
+
+That becomes particularly interesting to me when we're talking about autonomous or semi-autonomous AI agents. An agent isn't magic. It still has to observe something, interpret that information and decide what to do next. If everything it discovers is legitimate, it can keep making those decisions. Introduce uncertainty and suddenly the decision gets harder. Is this a real credential? Is this actually an important server? Why does this resource exist? Should I interact with it? Maybe the goal isn't always to build a wall the attacker can't get through. Maybe sometimes you want them confidently walking through the wrong door.
+
+AI could make deception more valuable, not less
+
+My first instinct was actually the opposite. If AI becomes smarter, wouldn't it just get better at identifying what's fake? Probably. I think we should assume offensive AI will get better at recognizing deception just like it will get better at everything else. But that creates an interesting back-and-forth. If attackers use AI to understand environments, defenders can use AI to make those environments harder to understand. Decoys don't necessarily have to remain static. Deception could become more dynamic. What an attacker sees could potentially change based on behavior, identity, location, communication patterns or what they're attempting to access. That's where this starts getting really interesting to me. Instead of security being entirely about blocking the next action, part of the defensive strategy could be influencing the next action. Those are two very different ideas.
+
+There's another advantage to being somewhere nobody should be
+
+There's also a simpler side to deception that I think is easy to overlook. If I put a fake resource somewhere that no legitimate user should ever access, anyone interacting with it immediately becomes interesting. Normal environments are noisy. People mistype things. Applications behave strangely. Systems generate huge amounts of traffic. Security teams have to separate something genuinely malicious from everything else happening across the business. But if nobody should ever touch a particular resource, there's not much ambiguity when somebody does. That seems especially valuable as AI increases the amount of automated activity defenders may eventually have to deal with. More automation could mean more noise. Deception gives you places where the signal is potentially much clearer.
+
+I keep coming back to the decision
+
+The more I think about AI and cybersecurity, the less interested I am in the idea that this is simply a race to see who gets the smarter AI. Attackers will use AI. Defenders will use AI. Both will get better. What I find more interesting is what happens when those systems start interacting with each other. An offensive agent discovers something and has to decide whether it's valuable. A defensive system recognizes the behavior and changes what the attacker can see. The attacker adapts. The defender adapts again. At that point, we're not just talking about detecting attacks faster. We're talking about shaping the environment in which those attacks are making decisions. And that leaves me with a question I hadn't really considered before I started digging into deception: We've spent decades asking how we keep attackers from finding what they're looking for. With AI, maybe we should also be asking: What do we want them to find instead?
+
+The thoughts in this blog came from ideas I found myself thinking about while recording a recent episode of the Zscaler Pulse podcast. If you’d like to hear the full conversation that inspired them, you can listen to the episode here:
+
+[Listen to the Zscaler Pulse episode →]
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Blog Details
 <!-- /ZS-POST -->
 
 ---

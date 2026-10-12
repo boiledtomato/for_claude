@@ -1,7 +1,7 @@
 # Zscaler Zenith Community — Data Security / DSPM / Posture (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-05 10:48 UTC
+Generated: 2026-10-12 11:16 UTC
 Posts in this file: 11
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
@@ -1168,12 +1168,12 @@ Workflow Automation
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000013isFh0AI/workflow-automation-using-zir-deployed-as-onpremvm","lastmod":"2026-10-02T10:55:59.000Z","id":"0D5PJ000013isFh0AI"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000013isFh0AI/workflow-automation-using-zir-deployed-as-onpremvm","lastmod":"2026-10-08T09:13:02.000Z","id":"0D5PJ000013isFh0AI"} -->
 ## Workflow Automation using ZIR Deployed as OnpremVM
 
 - Source: https://community.zscaler.com/s/question/0D5PJ000013isFh0AI/workflow-automation-using-zir-deployed-as-onpremvm
 - Type: Q&A
-- Last activity: 2026-10-02T10:55:59.000Z
+- Last activity: 2026-10-08T09:13:02.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 Incident Workflow Management

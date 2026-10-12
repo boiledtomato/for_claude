@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — ZCC — Zscaler Client Connector (part 4)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-05 10:48 UTC
-Posts in this file: 57
+Generated: 2026-10-12 11:16 UTC
+Posts in this file: 58
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -14343,4 +14343,203 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 ZCC vs GRE performance for ZIA
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ0000143lUL0AY/disable-authenticate-early-option-in-zcc","lastmod":"2026-10-10T01:49:58.000Z","id":"0D5PJ0000143lUL0AY"} -->
+## Disable "Authenticate Early" option in ZCC
+
+- Source: https://community.zscaler.com/s/question/0D5PJ0000143lUL0AY/disable-authenticate-early-option-in-zcc
+- Type: Q&A
+- Last activity: 2026-10-10T01:49:58.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Client Connector
+
+to-ol-r
+
+(Prospect) asked a question
+
+Edited 11h ago
+
+Disable "Authenticate Early" option in ZCC
+
+Hi,
+
+Is there any way to disable the "Authenticate Early" option in ZCC?
+
+This would be a pretty useful feature if it's not available....
+
+Client Connector
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/7/2020
+
+at
+
+04:05 AM
+
+Z-App -8 Network Error when users log in on Windows 10
+
+Client Connector
+
+cburge97
+
+3,011
+
+3011 Views
+
+0 Likes
+
+11
+
+11 Comments
+
+7/3/2020
+
+at
+
+11:55 AM
+
+ZAPP intune deployment
+
+Client Connector
+
+Mk001
+
+1,464
+
+1464 Views
+
+0 Likes
+
+4 Comments
+
+1/28/2021
+
+at
+
+03:42 PM
+
+Compare ezAgent and ZCC - when to use which?
+
+Client Connector
+
+hukel
+
+767
+
+767 Views
+
+0 Likes
+
+2 Comments
+
+8/18/2020
+
+at
+
+12:15 PM
+
+MacOS Zscaler App Log Location
+
+Client Connector
+
+brad
+
+3,924
+
+3924 Views
+
+0 Likes
+
+2 Comments
+
+3/7/2022
+
+at
+
+03:41 PM
+
+Can a User with multiple devices use them simultaneously whilst logged in using that same single account
+
+Client Connector
+
+michael.makombe
+
+4 Views
+
+0 Likes
+
+12
+
+12 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Disable "Authenticate Early" option in ZCC
 <!-- /ZS-POST -->

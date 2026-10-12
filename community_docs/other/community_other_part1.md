@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — その他 (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-05 10:48 UTC
-Posts in this file: 733
+Generated: 2026-10-12 11:16 UTC
+Posts in this file: 734
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -66210,12 +66210,12 @@ ZDTE EDU-202 learning content
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000013cp7M0AQ/what-are-you-using-to-prepare-for-zdta","lastmod":"2026-10-03T15:29:46.000Z","id":"0D5PJ000013cp7M0AQ"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000013cp7M0AQ/what-are-you-using-to-prepare-for-zdta","lastmod":"2026-10-05T16:08:52.000Z","id":"0D5PJ000013cp7M0AQ"} -->
 ## Zscaler, Inc. - Sign In
 
 - Source: https://community.zscaler.com/s/question/0D5PJ000013cp7M0AQ/what-are-you-using-to-prepare-for-zdta
 - Type: Q&A
-- Last activity: 2026-10-03T15:29:46.000Z
+- Last activity: 2026-10-05T16:08:52.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 Connecting to
@@ -66243,4 +66243,123 @@ Privacy Policy
 The page has timed out
 
 If this page does not reload automatically, please refresh your browser.
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000013nuQO0AY/how-to-sign-up-for-the-upcoming-zscaler-for-users-administrator-lab-on-10826","lastmod":"2026-10-05T20:05:05.000Z","id":"0D5PJ000013nuQO0AY"} -->
+## How to sign up for the upcoming Zscaler for Users Administrator Lab on 10/8/26?
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000013nuQO0AY/how-to-sign-up-for-the-upcoming-zscaler-for-users-administrator-lab-on-10826
+- Type: Q&A
+- Last activity: 2026-10-05T20:05:05.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Training Portfolio
+
+hfoss
+
+(Customer) asked a question
+
+Edited 14h ago
+
+How to sign up for the upcoming Zscaler for Users Administrator Lab on 10/8/26?
+
+Cannot seem to find Cyber Academy page. Is it broken or wonky due to recent migration to experience center?
+
+Thanks,
+
+HF
+
+Training Portfolio
+
+mmckinley4810
+
+(Employee)
+
+14h ago
+
+Hi HF!
+
+You can follow this link:
+
+https://www.zscaler.com/zscaler-cyber-academy/registration
+
+. If you do not yet have an account, you can create one and login. Once you are logged in, you will be able to see the schedule of courses. I will keep an eye on this post in case you have any issues. Also,
+
+training@zscaler.com
+
+is a good resource if you need any assistance with your account.
+
+In the meantime, be well and thanks!!
+
+-Matt
+
+Associated Tags
+
+best-practice
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+No posts to show.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+How to sign up for the upcoming Zscaler for Users Administrator Lab on 10/8/26?
 <!-- /ZS-POST -->

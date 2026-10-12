@@ -1,7 +1,7 @@
 # Zscaler Zenith Community — API / 自動化 (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-05 10:48 UTC
+Generated: 2026-10-12 11:16 UTC
 Posts in this file: 73
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
@@ -12192,12 +12192,12 @@ Microsoft Sentinel Playbooks - OneAPI Integration
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000013ReKW0A0/planning-ahead-managing-ubuntu-laptops-ansible-push-behind-zscaler","lastmod":"2026-09-28T15:00:55.000Z","id":"0D5PJ000013ReKW0A0"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000013ReKW0A0/planning-ahead-managing-ubuntu-laptops-ansible-push-behind-zscaler","lastmod":"2026-10-07T16:20:08.000Z","id":"0D5PJ000013ReKW0A0"} -->
 ## Planning Ahead: Managing Ubuntu Laptops & Ansible Push Behind Zscaler
 
 - Source: https://community.zscaler.com/s/question/0D5PJ000013ReKW0A0/planning-ahead-managing-ubuntu-laptops-ansible-push-behind-zscaler
 - Type: Q&A
-- Last activity: 2026-09-28T15:00:55.000Z
+- Last activity: 2026-10-07T16:20:08.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 ZPA - Forwarding

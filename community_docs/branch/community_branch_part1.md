@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — Branch / Cloud Connector / SD-WAN (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-05 10:48 UTC
-Posts in this file: 79
+Generated: 2026-10-12 11:16 UTC
+Posts in this file: 78
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -3818,101 +3818,6 @@ The reprovisioning can take 5-10 minutes to show as completed in the Connector P
 Associated Tags
 
 No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Guide Details
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ0000006ij70AA/zscaler-cellular-apn","lastmod":"2026-09-28T15:01:15.000Z","id":"aSoPJ0000006ij70AA"} -->
-## Zscaler Cellular APN
-
-- Source: https://community.zscaler.com/s/Guides/aSoPJ0000006ij70AA/zscaler-cellular-apn
-- Type: Guide
-- Last activity: 2026-09-28T15:01:15.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Guide Details
-
-Zscaler Cellular
-
-Nelson
-
-(Employee) posted a Guide
-
-Edited 4h ago
-
-Zscaler Cellular APN
-
-As of September 2026, the best APN to use when setting up Zscaler Cellular is the APN: WBDATA
-
-APN stands for Access Point Network and provides the cellular modem with some details on how to attach to the mobile network and get a data session up. Many modern mobile phone devices have some built-in databases which provides some instructions on which APN to use. Most modems and mobile routers need to be given explicit instructions on which APN to use, otherwise you will not get a data session.
-
-Since Zscaler Cellular SIMs are global roaming, you may also need to enable Roaming.
-
-So make certain that you set the APN and enable roaming on the device you are using.
-
-Associated Tags
-
-best-practice
 
 Do you like what
 

@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — ZIA — Internet & SaaS (part 4)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-05 10:48 UTC
-Posts in this file: 162
+Generated: 2026-10-12 11:16 UTC
+Posts in this file: 163
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -37727,19 +37727,19 @@ Tenant restriction for Chatgpt
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000012mlKm0AI/zia-activation","lastmod":"2026-09-17T05:28:23.000Z","id":"0D5PJ000012mlKm0AI"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000012mlKm0AI/zia-activation","lastmod":"2026-10-06T21:00:28.000Z","id":"0D5PJ000012mlKm0AI"} -->
 ## ZIA Activation
 
 - Source: https://community.zscaler.com/s/question/0D5PJ000012mlKm0AI/zia-activation
 - Type: Q&A
-- Last activity: 2026-09-17T05:28:23.000Z
+- Last activity: 2026-10-06T21:00:28.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 mitesh.nandu
 
-(Partner) asked a question.
+(Partner) asked a question
 
-6h ago
+September 17, 2026 at 5:28 AM
 
 ZIA Activation
 
@@ -37750,10 +37750,6 @@ Customer is already using ZPA past one year, now they have gone with ZIA & DLP s
 As per the zscaler architecture ZCC default authnetication happens via ZIA & its automatically authnetication happens on ZPA.
 
 If we enable ZIA services in the tenant what issues we will face & how to mitigate the downtime?
-
-13 views
-
-Log In to Answer
 
 Associated Tags
 
@@ -37779,9 +37775,9 @@ Misspelled  "Zscaler" Footer in Communication Emails
 
 ozanogur
 
-247
+269
 
-247 Views
+269 Views
 
 3 Likes
 
@@ -37797,9 +37793,9 @@ Direct certain countries to different SE for a URL
 
 danbro185
 
-531
+557
 
-531 Views
+557 Views
 
 1 Like
 
@@ -37860,21 +37856,21 @@ ZIA Activation
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ0000136P250AE/traffic-going-to-port-9480-is-now-ssl-inspected-why","lastmod":"2026-09-22T17:11:47.000Z","id":"0D5PJ0000136P250AE"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ0000136P250AE/traffic-going-to-port-9480-is-now-ssl-inspected-why","lastmod":"2026-10-06T07:08:23.000Z","id":"0D5PJ0000136P250AE"} -->
 ## Traffic going to Port 9480 is now SSL inspected - why?
 
 - Source: https://community.zscaler.com/s/question/0D5PJ0000136P250AE/traffic-going-to-port-9480-is-now-ssl-inspected-why
 - Type: Q&A
-- Last activity: 2026-09-22T17:11:47.000Z
+- Last activity: 2026-10-06T07:08:23.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 ZIA - SSL Inspection
 
 User15799282573041325541
 
-(Customer) asked a question.
+(Customer) asked a question
 
-22h ago
+Edited October 6, 2026 at 7:08 AM
 
 Traffic going to Port 9480 is now SSL inspected - why?
 
@@ -37882,11 +37878,11 @@ Dear forum,
 
 in the past we used to route traffic for some devices to the proxy "gateway.zscaler.net:9480" - mostly for server traffic.
 
-Not only was no user authentication needed for this traffic but also SSL inspection was disabled.
+Not only was no  user authentication needed  for this traffic but also SSL inspection was disabled.
 
 A short while ago we noticed, that SSL inspection was suddenly on for this traffic.
 
-Is it only me that sees this behavior?
+Is it only me  that sees this behavior?
 
 We recently started with ZPA - is this maybe the cause for the SSL inspection on Port 9480?
 
@@ -37896,9 +37892,41 @@ Volker
 
 ZIA - SSL Inspection
 
-20 views
+mmckinley4810
 
-Log In to Answer
+(Employee)
+
+4 days ago
+
+Volker,
+
+The address gateway.zscaler.net:9480 is a specific proxy port that can be used to direct traffic from Zscaler Internet Access (ZIA) to ZPA for inspection and policy enforcement. Before you enabled ZPA, this traffic was likely being handled by ZIA in a way that bypassed SSL inspection. However, with ZPA now active, the traffic is being redirected for deeper inspection within the ZPA service.
+
+In short, the traffic flow has changed:
+
+Before ZPA: Your server traffic went to gateway.zscaler.net:9480 and was likely subject to a ZIA policy that had SSL inspection disabled for that port. After ZPA: The traffic is now being funneled from ZIA to ZPA through that same port, and ZPA is applying its own, more stringent, security policies which include SSL inspection.
+
+To manage this, you will need to review your ZPA security policies and adjust them to handle this server traffic according to your organization's requirements. You may need to create a specific policy to exempt this traffic from SSL inspection.
+
+Our help website is very useful for finding information related to security exceptions. Long story short, you were correct. The implementation of ZPA was likely the culprit.
+
+Let us know if this helps. If not, we can dig deeper and retool the answer if necessary. I hope all's well, and thanks for using Community.
+
+-Matt
+
+User15799282573041325541
+
+(Customer)
+
+4 days ago
+
+Hi Matt,
+
+thank you very much for your explanation - now I do understand what happened,
+
+I think we will find a way now on our own, thanks again.
+
+Best regards, Volker
 
 Associated Tags
 
@@ -37962,9 +37990,9 @@ ZIA - SSL Inspection
 
 citrus3118
 
-325
+358
 
-325 Views
+358 Views
 
 0 Likes
 
@@ -37982,9 +38010,9 @@ ZIA - SSL Inspection
 
 User16182582818315999266
 
-600
+626
 
-600 Views
+626 Views
 
 0 Likes
 
@@ -38002,9 +38030,9 @@ ZIA - SSL Inspection
 
 JM
 
-447
+480
 
-447 Views
+480 Views
 
 0 Likes
 
@@ -38252,4 +38280,203 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Group on Entra id doesn't appear on Zscaler ZIA
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ0000143Rk90AE/ipsec-tunnel-mob6-issue","lastmod":"2026-10-10T01:57:47.000Z","id":"0D5PJ0000143Rk90AE"} -->
+## Ipsec Tunnel MOB6 Issue
+
+- Source: https://community.zscaler.com/s/question/0D5PJ0000143Rk90AE/ipsec-tunnel-mob6-issue
+- Type: Q&A
+- Last activity: 2026-10-10T01:57:47.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - Forwarding
+
+Naushad
+
+(Partner) asked a question
+
+October 8, 2026 at 8:24 AM
+
+Ipsec Tunnel MOB6 Issue
+
+Hi Team,
+
+We are observing intermittent IPsec tunnel drops due to Dead Peer Detection (DPD) timeouts for one of our customers.
+
+Upon initial troubleshooting:
+
+Zscaler Support
+
+states there are no issues or packet drops identified on their edge infrastructure.
+
+Palo Alto Support
+
+indicates that the firewall is sending DPD probes, but is not receiving DPD acknowledgments/responses back from the Zscaler phase-2 endpoint.
+
+A similar issue occurred approximately two years ago with another customer, making it unclear whether the root cause lies within Zscaler’s IPsec processing or Palo Alto’s DPD handling. Has anyone encountered a similar issue between Palo Alto and Zscaler, and how was it resolved?
+
+ZIA - Forwarding
+
+Associated Tags
+
+accesspolicy
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+2/15/2023
+
+at
+
+10:07 PM
+
+Initial login to Azure VDI gets struck for few minutes with ZCC (Tunnel 2.0)
+
+ZIA - Forwarding
+
+rajk5
+
+3 Views
+
+0 Likes
+
+6 Comments
+
+2/14/2023
+
+at
+
+04:13 PM
+
+Forwarding Port 8443 through GRE Tunnel
+
+ZIA - Forwarding
+
+Omar
+
+9 Views
+
+0 Likes
+
+2 Comments
+
+10/23/2022
+
+at
+
+02:29 PM
+
+PZEN localized content
+
+ZIA - Forwarding
+
+mohammad.rummaneh
+
+3 Views
+
+0 Likes
+
+2 Comments
+
+2/18/2022
+
+at
+
+08:24 AM
+
+Premium DC in China
+
+ZIA - Forwarding
+
+Ezzzzh
+
+6 Views
+
+0 Likes
+
+6 Comments
+
+2/15/2021
+
+at
+
+11:58 PM
+
+Disney Circle + Zscaler blocking internet access
+
+ZIA - Forwarding
+
+JamesK
+
+566
+
+566 Views
+
+0 Likes
+
+5 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Ipsec Tunnel MOB6 Issue
 <!-- /ZS-POST -->

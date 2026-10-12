@@ -1,10 +1,321 @@
 # Zscaler Zenith Community — Platform / 認証 / 管理 / ログ (part 2)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-05 10:48 UTC
-Posts in this file: 116
+Generated: 2026-10-12 11:16 UTC
+Posts in this file: 117
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AW1WKlCQN/randomly-getting-zscaler-root-certificate-not-installed-browser-errors-for-some-users","lastmod":"2025-06-16T14:48:44.000Z","id":"0D54u0000AW1WKlCQN"} -->
+## Randomly getting 'ZScaler root certificate not installed' browser errors for some users
+
+- Source: https://community.zscaler.com/s/question/0D54u0000AW1WKlCQN/randomly-getting-zscaler-root-certificate-not-installed-browser-errors-for-some-users
+- Type: Q&A
+- Last activity: 2025-06-16T14:48:44.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - Forwarding
+
+Cows_with_JetPacks
+
+(Customer) asked a question.
+
+June 21, 2024 at 3:53 PM
+
+Randomly getting 'ZScaler root certificate not installed' browser errors for some users
+
+Every now and then we will get a user that runs into this issue when trying to browse to a website (see screenshot below). The same issue would happen at my previous employer as well - completely different environment. This occurs with random users at random times - maybe 2 -3 users per month out of 1000.
+
+We have verified that the ZScaler root certificate is installed in the Trusted Root Certification Authorities store and up-to-date.
+
+Manually reinstalling the ZScaler root certificate and rebooting the machine resolves the issue.
+
+Has anyone else encountered this issue? If so, have you found a permanent fix?
+
+Thanks in advance.
+
+ZIA - Forwarding
+
+8 answers
+
+4.66K views
+
+G-Man8
+
+(Customer)
+
+2 years ago
+
+Hi
+
+Is ZCC running on the endpoint OR is this using Auth-cookie via GRE?
+
+If ZCC is running, which version and device OS please ?
+
+FYI, awesome handle 'Cows_with_Jetpacks' ! 😂
+
+Cows_with_JetPacks
+
+(Customer)
+
+2 years ago
+
+LOL thanks! 😋
+
+ZCC is running on the endpoint.  v4.4.0.300
+
+Windows 11 but I've seen it happen on Windows 10 as well.
+
+CKAIJA
+
+(Employee)
+
+2 years ago
+
+I would look to the Browser cache ---- and SSL state setting --- it is providing the old SSL interception certificate from the browser cache more then likely ---- for this site ---
+
+Go into incognito or InPrivate Browsing --- open
+
+cnn.com
+
+-------- look at the SSL cert for the site  ---- it should show two and they should be signed by the Zscaler intermediate   --- one the top one is certificate signing for your client browser -- the second it --- certificate emulating --- hence the (t)  at the end of the Cert --  check the validity dates for the Certs in play ===== if it is working right it should be valid for 14 days ---- Issued OnFriday, June 14, 2024 at 11:45:07 PM          Expires OnFriday, June 28, 2024 at 11:45:07 PM ------ if you want to test is clear the browser cache  ---- cookies and site data /  cached images and files /  and set the time frame all time -----
+
+1 like
+
+CKAIJA
+
+(Employee)
+
+2 years ago
+
+All modern browsers have management options to Delete this data in the browsers on a timer--- or on action say close browser -------
+
+There is no cache for you to worry about since the CACHE is on on Data Center Proxies and not your DC so why save this data on your browser
+
+1 like
+
+Ramesh Mani
+
+(Partner)
+
+2 years ago
+
+Hi team,
+
+I used to see this error message, but its started working after reboot the machine.
+
+Regards
+
+Ramesh M
+
+hyminameisderek
+
+(Customer)
+
+a year ago
+
+It's been a year but was there any ever resolution found for this? We experience this exact issue and it is very random. The user can open ZCC, do a restart service and update policy and the issue is resolved.
+
+It happens randomly so it is hard to repeat and identify root cause.
+
+hyminameisderek
+
+(Customer)
+
+a year ago
+
+for what it's worth. This happened to a user today and I was able to dig in a little bit before our Support Team resolved it.
+
+Error appeared in Chrome.
+
+Browsing was fine in Edge
+
+Validated ZScaler cert was in root store
+
+Validated issued certificate, intermediate cert (t), root cert - all valid in the Chrome session that was reporting the error
+
+cleared browser cache, tried incognito.
+
+Validated user had proper App Profile
+
+Error persists in Chrome until a Policy Update and Restart Service is issued in ZCC.
+
+We are working with our TAM on this as well but thought I'd share some insight based on what I was able to capture today.
+
+Cows_with_JetPacks
+
+(Customer)
+
+a year ago
+
+We were never able to determine the root cause of the issue, but we did find @Christopher Kaija​ 's suggestion regarding the SSL State helpful.
+
+We work around the issue by clearing the SSL State in Internet Options > Content > Clear SSL State. After that, the issue is resolved.
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+2/15/2023
+
+at
+
+10:07 PM
+
+Initial login to Azure VDI gets struck for few minutes with ZCC (Tunnel 2.0)
+
+ZIA - Forwarding
+
+rajk5
+
+3 Views
+
+0 Likes
+
+6 Comments
+
+2/14/2023
+
+at
+
+04:13 PM
+
+Forwarding Port 8443 through GRE Tunnel
+
+ZIA - Forwarding
+
+Omar
+
+9 Views
+
+0 Likes
+
+2 Comments
+
+10/23/2022
+
+at
+
+02:29 PM
+
+PZEN localized content
+
+ZIA - Forwarding
+
+mohammad.rummaneh
+
+3 Views
+
+0 Likes
+
+2 Comments
+
+2/18/2022
+
+at
+
+08:24 AM
+
+Premium DC in China
+
+ZIA - Forwarding
+
+Ezzzzh
+
+6 Views
+
+0 Likes
+
+6 Comments
+
+2/15/2021
+
+at
+
+11:58 PM
+
+Disney Circle + Zscaler blocking internet access
+
+ZIA - Forwarding
+
+JamesK
+
+492
+
+492 Views
+
+0 Likes
+
+5 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Randomly getting 'ZScaler root certificate not installed' browser errors for some users
+<!-- /ZS-POST -->
 
 ---
 
@@ -5953,19 +6264,19 @@ Come join the Zscaler Academic Partnership! Know more.
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AeIEG8CQO/solved-questions","lastmod":"2026-05-29T11:07:22.000Z","id":"0D54u0000AeIEG8CQO"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AeIEG8CQO/solved-questions","lastmod":"2026-10-10T20:02:20.000Z","id":"0D54u0000AeIEG8CQO"} -->
 ## Solved Questions
 
 - Source: https://community.zscaler.com/s/question/0D54u0000AeIEG8CQO/solved-questions
 - Type: Q&A
-- Last activity: 2026-05-29T11:07:22.000Z
+- Last activity: 2026-10-10T20:02:20.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 10 steps to get you started
 
 Ben_Garrison
 
-(Employee) asked a question.
+(Employee) asked a question
 
 Edited November 18, 2024 at 5:36 PM
 
@@ -5981,7 +6292,7 @@ Whenever you ask a question, if someone on the community answers and it helps yo
 
 The person that submitted a best answer will receive a badge as well as points on our leaderboard
 
-Questions marked as "solved" are more valuable to others that might be seeking the same help
+Questions marked as "solved"  are more valuable to others that might be seeking the same help
 
 Search engines love this stuff
 
@@ -5992,20 +6303,6 @@ Pay it forward by improving the knowledge on the community and mark answers to y
 Thank you very much for your ongoing participation in our amazing community.
 
 10 steps to get you started
-
-1.3K views
-
-prakashptp
-
-User_005PJ0000082dzxYAA
-
-, and
-
-11 others
-
-like this.
-
-Log In to Answer
 
 Associated Tags
 
@@ -11186,19 +11483,19 @@ Certifications
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000WWbH30AL/are-there-any-visio-stencils-for-the-zscaler-services-and-components","lastmod":"2025-08-22T07:28:09.000Z","id":"0D5PJ00000WWbH30AL"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000WWbH30AL/are-there-any-visio-stencils-for-the-zscaler-services-and-components","lastmod":"2026-10-11T08:30:28.000Z","id":"0D5PJ00000WWbH30AL"} -->
 ## Are there any Visio stencils for the zscaler services and components?
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000WWbH30AL/are-there-any-visio-stencils-for-the-zscaler-services-and-components
 - Type: Q&A
-- Last activity: 2025-08-22T07:28:09.000Z
+- Last activity: 2026-10-11T08:30:28.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 al.alexiev
 
-(Customer) asked a question.
+(Prospect) asked a question
 
-April 23, 2025 at 8:39 PM
+Edited April 29, 2025 at 8:48 AM
 
 Are there any Visio stencils for the zscaler services and components?
 
@@ -11210,33 +11507,19 @@ Anybody to know if there are anything like icons or stencils for documenting a z
 
 Thank you!
 
-6 answers
-
-1.56K views
-
-CarlBaker
-
-and
-
-Danielo
-
-like this.
-
 Ramesh Mani
 
 (Partner)
 
-a year ago
+1y ago
 
 Great if anyone can share in this forum.
-
-1 like
 
 Danielo
 
 (Partner)
 
-a year ago
+1y ago
 
 Agree!
 
@@ -11244,19 +11527,17 @@ Osho_Dwivedi
 
 (Employee)
 
-a year ago
+1y ago
 
 Here's the best I could find from previous threads on community.
 
 https://www.mediafire.com/file/poelp7abnay63ts/Zscaler+Stencil.vsdx/file
 
-1 like
-
 Danielo
 
-(Partner)
+(Employee)
 
-a year ago
+1y ago
 
 got it. Thanks.
 
@@ -11264,7 +11545,7 @@ Raj90909
 
 (Customer)
 
-a year ago
+1y ago
 
 There is a KB article, but I haven't been successful in getting access.
 
@@ -11276,15 +11557,13 @@ Raj909
 
 (Customer)
 
-a year ago
+1y ago
 
 There is a KB article, but I haven't been successful in getting access.
 
 Where to access Zscaler Visio Stencils
 
 https://zscaler.my.site.com/customers/s/article/000005919
-
-Log In to Answer
 
 Associated Tags
 
@@ -11310,9 +11589,9 @@ Misspelled  "Zscaler" Footer in Communication Emails
 
 ozanogur
 
-235
+279
 
-235 Views
+279 Views
 
 3 Likes
 
@@ -11328,9 +11607,9 @@ Direct certain countries to different SE for a URL
 
 danbro185
 
-492
+564
 
-492 Views
+564 Views
 
 1 Like
 
