@@ -1,4 +1,4 @@
-"""聖なる持物パック v6 — フェルメール版を縦長の額装絵画にする。
+"""聖なる持物パック v7 — フェルメール版を縦長の額装の油彩画にする（『真珠の耳飾りの少女』の質感）。
 
 render_vermeer の室内を、持物を左へ寄せて描き直し、窓を含む左側を 3:4 前後の縦長に切り出す。
 それを黒檀の波形額に入れ、壁の釘から紐で吊るし、壁へ影を落とした透過 PNG にする。
@@ -61,121 +61,161 @@ def _raw_finish(base, rng, a=None):
     return base
 
 
-# ── 筆致: 画面を筆の線で塗り直し、絵具の盛り上がりに光を当てる ──────────────
+# ── 油彩の物質感（筆跡は見せない） ─────────────────────────────────
 
-def _orientation(src, rng):
-    lum = src.mean(-1)
-    b = ra.blur(lum, 3.0)
-    gy, gx = np.gradient(b)
-    mag = np.hypot(gx, gy)
-    along = np.arctan2(gx, -gy)                        # 輪郭に沿う向き
-    free = 1.15 + (fbm(rng, (160, 80)) - 0.5) * 1.6    # 平らな所は斜めに刷く
-    w = np.clip(mag / 3.0, 0, 1)
-    vx = np.cos(along) * w + np.cos(free) * (1 - w)
-    vy = np.sin(along) * w + np.sin(free) * (1 - w)
-    return np.arctan2(vy, vx), mag
-
-
-def painterly(src, rng, a=None):
-    """3 層の筆致（大・中・小）。各筆は毛先の筋を持ち、高さ図にも同じ形で盛る。"""
-    ang, mag = _orientation(src, rng)
-    src_soft = np.stack([ra.blur(src[..., c], 5) for c in range(3)], -1)
-    src_mid = np.stack([ra.blur(src[..., c], 1.6) for c in range(3)], -1)
-    color = Image.fromarray(np.clip(src_soft, 0, 255).astype(np.uint8))
-    height = Image.new("L", (S, S), 90)
-    cd, hd = ImageDraw.Draw(color), ImageDraw.Draw(height)
-    detail = np.clip(mag / 2.5, 0, 1)
-    layers = (
-        (src_soft, 4200, (34, 60), (12, 18), None),            # 下塗りの大きな筆
-        (src_mid, 12000, (18, 32), (7, 11), "lit"),            # 光の当たる面を起こす中筆
-        (src, 14000, (8, 14), (3, 5), "detail"),                # 輪郭と細部の小筆
-    )
-    for img, n, (l0, l1), (w0, w1), where in layers:
-        ys, xs = rng.integers(0, S, n), rng.integers(0, S, n)
-        if where == "detail":
-            keep = detail[ys, xs] * 1.5 + (a[ys, xs] * 0.8 if a is not None else 0) > rng.random(n)
-            ys, xs = ys[keep], xs[keep]
-        elif where == "lit":
-            lumv = img.mean(-1)[ys, xs] / 255
-            keep = rng.random(n) < (lumv * 1.4 + detail[ys, xs])
-            ys, xs = ys[keep], xs[keep]
-        elif where is not None:
-            keep = rng.random(n) < (where + detail[ys, xs])
-            ys, xs = ys[keep], xs[keep]
-        for y, x in zip(ys, xs):
-            t = ang[y, x] + rng.normal(0, 0.1)
-            L = rng.uniform(l0, l1) / 2
-            w = int(rng.uniform(w0, w1))
-            dx, dy = L * math.cos(t), L * math.sin(t)
-            p0, p1 = (x - dx, y - dy), (x + dx, y + dy)
-            c = img[y, x] + rng.normal(0, 5, 3)
-            col = tuple(int(v) for v in np.clip(c, 0, 255))
-            cd.line([p0, p1], fill=col, width=w)
-            hd.line([p0, p1], fill=150, width=w)
-            hd.line([p0, p1], fill=200, width=max(1, w // 2))
-            # 毛先の筋（明暗 2 本）
-            ox, oy = -math.sin(t) * w * 0.28, math.cos(t) * w * 0.28
-            for k, f in ((1, 1.07), (-1, 0.93)):
-                q0 = (p0[0] + ox * k, p0[1] + oy * k)
-                q1 = (p1[0] + ox * k, p1[1] + oy * k)
-                cd.line([q0, q1], fill=tuple(int(v) for v in np.clip(c * f, 0, 255)), width=max(1, w // 6))
-                hd.line([q0, q1], fill=120 if k > 0 else 230, width=max(1, w // 6))
-    out = np.asarray(color, float)
-    h = ra.blur(np.asarray(height, float) / 255, 1.1)
-    gy, gx = np.gradient(h * 9)
-    relief = np.clip((-gx * -0.6 - gy * -0.7) * 1.0, -1, 1)   # 左上からの光
-    lumf = np.clip(out.mean(-1) / 255 * 1.6, 0.15, 1)   # 筆跡の凹凸は明部ほど見える
-    out = out * (1 + relief * 0.2 * lumf)[..., None]
-    # 半分ほどを溶かした下層に戻し、フェルメールのなめらかさを出す
-    return out * 0.68 + src_mid * 0.32
+def _quadrant_means(img, r):
+    """Kuwahara 用: 各画素の四象限の平均色と輝度分散。"""
+    H, W = img.shape[:2]
+    lum = img.mean(-1)
+    def integ(a):
+        a = np.pad(a, ((r, r), (r, r)), mode="edge")
+        P = np.zeros((a.shape[0] + 1, a.shape[1] + 1) + a.shape[2:])
+        P[1:, 1:] = a.cumsum(0).cumsum(1)
+        return P
+    chans = [integ(img[..., c]) for c in range(3)] + [integ(lum), integ(lum ** 2)]
+    n = (r + 1) ** 2
+    res = []
+    for y0, x0 in ((-r, -r), (-r, 0), (0, -r), (0, 0)):
+        y1, x1 = y0 + r, x0 + r
+        def rect(P):
+            return (P[r + y1 + 1:r + y1 + 1 + H, r + x1 + 1:r + x1 + 1 + W]
+                    - P[r + y0:r + y0 + H, r + x1 + 1:r + x1 + 1 + W]
+                    - P[r + y1 + 1:r + y1 + 1 + H, r + x0:r + x0 + W]
+                    + P[r + y0:r + y0 + H, r + x0:r + x0 + W]) / n
+        m = np.stack([rect(chans[c]) for c in range(3)], -1)
+        var = rect(chans[4]) - rect(chans[3]) ** 2
+        res.append((m, var))
+    return res
 
 
-def impasto_dots(base, rng, a, n=120):
-    """明部に厚く盛った光の粒。粒の右下に小さな影。"""
+def paint_surface(img, r=6):
+    """輪郭を保ったまま色面をまとめる（Kuwahara）。油絵具で塗り込めた面になる。"""
+    res = _quadrant_means(img, r)
+    var = np.stack([v for _, v in res], 0)
+    idx = var.argmin(0)
+    out = np.zeros_like(img)
+    for k, (m, _) in enumerate(res):
+        out = np.where((idx == k)[..., None], m, out)
+    return np.stack([ra.blur(out[..., c], 0.9) for c in range(3)], -1)
+
+
+def lost_edges(base, a):
+    """輪郭線を消し、陰の側（右・下）で物を闇に溶かす。"""
+    if a is None:
+        return base
+    band = np.clip(1 - np.abs(ra.blur(a, 3) - 0.5) * 2.4, 0, 1)
+    shadow_side = np.clip((ra.X - 300) / 500, 0.25, 1)
+    soft = np.stack([ra.blur(base[..., c], 3.5) for c in range(3)], -1)
+    return ra.mix(base, soft, np.clip(band * (0.7 + 0.6 * shadow_side), 0, 1))
+
+
+def crack_network(rng, cell=30):
+    """『真珠の耳飾りの少女』に見える網目状の亀裂。ジッタ格子のボロノイ境界。"""
+    n = S // cell + 2
+    sx = (np.arange(n)[None, :] + rng.uniform(0.15, 0.85, (n, n))) * cell
+    sy = (np.arange(n)[:, None] + rng.uniform(0.15, 0.85, (n, n))) * cell
+    gy, gx = (ra.Y // cell).astype(int), (ra.X // cell).astype(int)
+    d = []
+    for oy in (-1, 0, 1):
+        for ox in (-1, 0, 1):
+            cy, cx = np.clip(gy + oy, 0, n - 1), np.clip(gx + ox, 0, n - 1)
+            d.append(np.hypot(ra.X - sx[cy, cx], ra.Y - sy[cy, cx]))
+    d = np.sort(np.stack(d, 0), 0)
+    crack = np.clip(1 - (d[1] - d[0]) / 1.4, 0, 1)
+    gaps = np.clip((fbm(rng, (64, 32)) - 0.38) * 4, 0, 1)   # ところどころ途切れる
+    return crack * gaps
+
+
+def canvas_weave(rng, period=7.0):
+    """亜麻布の平織り。経糸と緯糸が交互に浮く。"""
+    jx = (noise(rng, 24) - 0.5) * 1.6
+    jy = (noise(rng, 24) - 0.5) * 1.6
+    u = (ra.X + jx) / period
+    v = (ra.Y + jy) / period
+    warp = 0.5 + 0.5 * np.cos(2 * math.pi * u)
+    weft = 0.5 + 0.5 * np.cos(2 * math.pi * v)
+    checker = ((np.floor(u) + np.floor(v)) % 2).astype(float)
+    return warp * checker + weft * (1 - checker)
+
+
+def oil_finish(base, rng, a=None):
+    base = lost_edges(base, a)
+    base = paint_surface(base, 4)
+    lum = np.clip(base.mean(-1) / 255, 0, 1)
+    # 明部ほど鉛白が厚い: 低い盛り上がりに左上の光
+    h = ra.blur(lum, 4) * np.clip(lum * 1.8 - 0.3, 0, 1)
+    gy, gx = np.gradient(h * 30)
+    relief = np.clip(-gx * -0.6 - gy * -0.7, -1, 1)
+    base = base * (1 + relief * 0.18)[..., None]
+    # 布目（明部でよく見える）
+    weave = canvas_weave(rng)
+    base = base * (1 + (weave - 0.5) * (0.05 + 0.07 * lum))[..., None]
+    # 網目の亀裂: 暗い溝と、めくれた縁の小さな光
+    cr = crack_network(rng)
+    base = base * (1 - cr * (0.22 + 0.25 * lum))[..., None]
+    lip = np.roll(np.roll(cr, -1, 0), -1, 1) * (1 - cr)
+    base = ra.mix(base, hexrgb("#f4e6c0"), lip * lum * 0.18)
+    # 黄ばんだワニスのむらと、左上から斜めに走る艶
+    varn = 0.94 + 0.08 * fbm(rng, (128, 64))
+    base = base * varn[..., None] * np.array([1.04, 1.0, 0.86])
+    sheen = np.exp(-(((ra.X + ra.Y - 520) / 160) ** 2)) * np.clip(1 - ra.Y / 900, 0, 1)
+    return base + sheen[..., None] * 14
+
+
+def pearl_highlights(base, rng, a, n=6):
+    """真珠の耳飾りのように、ごく少数の澄んだ光の点だけを置く。"""
+    if a is None or not (a > 0.5).any():
+        return base
     lum = base.mean(-1)
-    sel_mask = (a > 0.5) if a is not None and (a > 0.5).any() else np.ones_like(lum, bool)
-    thr = np.quantile(lum[sel_mask], 0.97)
-    pts = np.argwhere((lum > thr) & sel_mask)
+    thr = np.quantile(lum[a > 0.5], 0.995)
+    pts = np.argwhere((lum >= thr) & (a > 0.5))
     if not len(pts):
         return base
     pts = pts[rng.choice(len(pts), min(n, len(pts)), replace=False)]
     dots = Image.new("L", (S, S), 0)
     d = ImageDraw.Draw(dots)
     for y, x in pts:
-        r = rng.uniform(2.5, 4.8)
-        d.ellipse([x - r, y - r, x + r, y + r], fill=255)
-    m = ra.blur(np.asarray(dots, float) / 255, 0.9)
-    sh = np.roll(np.roll(m, 3, 0), 3, 1) * (1 - m)
-    base = base * (1 - sh * 0.35)[..., None]
-    return ra.mix(base, hexrgb("#fff8e0"), m * 0.9)
+        r = rng.uniform(4, 7)
+        d.ellipse([x - r, y - r * 0.8, x + r, y + r * 0.8], fill=255)
+    m = ra.blur(np.asarray(dots, float) / 255, 1.6)
+    return ra.mix(base, hexrgb("#fffaf0"), m * 0.85)
 
 
 def grade(base):
-    """光は温かく影は青灰。にじみ（ぼかし）は掛けない — 筆跡を残す。"""
+    """明暗を深め（S 字の階調）、光は鉛白のクリーム、影は温かい褐色に寄せる。"""
+    lum0 = np.clip(base.mean(-1) / 255, 0, 1)
+    curve = lum0 + 0.18 * np.sin((lum0 - 0.5) * math.pi) * 0.5 - 0.0
+    base = base * (np.clip(curve, 0, 1) / np.maximum(lum0, 1e-3))[..., None] * 0.5 + base * 0.5
     lum = np.clip(base.mean(-1) / 255, 0, 1)[..., None]
-    out = base * (1 - (1 - lum) ** 2 * 0.1) + hexrgb("#44505a") * (1 - lum) ** 2 * 0.1
+    out = base * (1 - (1 - lum) ** 2 * 0.1) + hexrgb("#3a2a1c") * (1 - lum) ** 2 * 0.1
     out = out * (1 - lum ** 3 * 0.06) + hexrgb("#fff0cc") * lum ** 3 * 0.06
-    weave = 1 + 0.03 * (np.sin(np.arange(S)[:, None] * 2.1) * np.sin(np.arange(S)[None, :] * 2.1))
-    return out * weave[..., None] * np.array([1.03, 1.0, 0.93])
+    return out
 
 
 def dark_ground(rng):
     """『真珠の耳飾りの少女』の地: 緑の釉が暗く沈んだ黒。左上の光がわずかに地を起こす。"""
     X, Y = ra.X, ra.Y
     glow = np.exp(-(((X - 300) ** 2 + (Y - 330) ** 2) / (2 * 300 ** 2)))
-    base = ramp(["#0d0f0a", "#1a1c14", "#2a2a1e"], glow * 0.9 + (fbm(rng, (128, 64)) - 0.5) * 0.15)
+    base = ramp(["#0b0d09", "#181a12", "#2a2a1e", "#3a3424"], glow * 0.9 + (fbm(rng, (128, 64)) - 0.5) * 0.2)
+    # 透ける下塗り: 温かい褐色と冷たい緑の斑（暗い地にも絵具の層がある）
+    under = fbm(rng, (96, 48, 24))
+    base = ra.mix(base, base * 0.7 + hexrgb("#3a2414") * 0.3, np.clip((under - 0.5) * 3, 0, 1) * 0.6)
+    base = ra.mix(base, base * 0.8 + hexrgb("#1a2a1e") * 0.2, np.clip((0.5 - under) * 3, 0, 1) * 0.5)
     return base
 
 
 def dark_cloth(base, rng):
-    """卓に掛けた群青の布。光は左上から、右と奥は闇に沈む。"""
+    """卓に掛けた布。『真珠の耳飾りの少女』のターバンの群青と、右へ垂れる鉛錫黄の布。"""
     X, Y = ra.X, ra.Y
-    fold = np.sin(X / 40 + np.sin(X / 120) * 2.5 + fbm(rng, (128,)) * 5)
-    t = np.where(Y < rv.FRONT, 0.55 + 0.12 * fold, 0.36 + 0.3 * fold - (Y - rv.FRONT) / 500)
-    col = ramp(["#05081a", "#101e52", "#2a46a0", "#7890d0", "#d8e0f0"], t)
-    fall = np.clip(1.15 - X / 900, 0.25, 1)
+    fold = np.sin(X / 52 + np.sin(X / 150) * 2.2 + fbm(rng, (128,)) * 4)
+    t = np.where(Y < rv.FRONT, 0.6 + 0.1 * fold, 0.42 + 0.26 * fold - (Y - rv.FRONT) / 520)
+    blue = ramp(["#0a0e22", "#1c2a62", "#3c56a8", "#7e92cc", "#c4cce4"], t)
+    yellow = ramp(["#2a1e0a", "#6a5220", "#b89a48", "#e6d08c", "#f6ecc4"], t + 0.05)
+    tail = np.clip((X - 560 - 40 * np.sin(Y / 60)) / 30, 0, 1) * (Y > rv.FRONT - 10)
+    col = ra.mix(blue, yellow, tail)
+    fall = np.clip(1.15 - X / 950, 0.3, 1) * (1 - tail) + np.clip(1.25 - X / 1300, 0.5, 1) * tail
     col = col * fall[..., None]
-    return ra.mix(base, col, ra.blur((Y >= rv.TABLE).astype(float), 1.0))
+    return ra.mix(base, col, ra.blur((Y >= rv.TABLE).astype(float), 1.5))
 
 
 def chiaroscuro(base, a):
@@ -262,10 +302,9 @@ def render(fn, seed):
     prng = np.random.default_rng(seed + 9)
     if name != "weather_rainbow":
         scene = chiaroscuro(scene, a)
-    scene = painterly(scene, prng, a)
-    scene = impasto_dots(scene, prng, a, n=36 if a is not None else 12)
+    scene = pearl_highlights(scene, prng, a)
     scene = grade(scene)
-    scene = scene * (1 - rn.craquelure(prng) * 0.05)[..., None]
+    scene = oil_finish(scene, prng, a)
     x0 = CROP_X.get(name, 0)
     crop = scene[:, x0:x0 + CROP_W]
     framed = ebony_frame(crop)
