@@ -1,18 +1,18 @@
 # Zscaler Help — Unified Platform / Admin / Logs (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-05 09:38 UTC
-Articles in this file: 258
+Generated: 2026-10-12 09:45 UTC
+Articles in this file: 248
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-access-tokens","lastmod":"2026-09-28T08:19Z","nid":"1503966"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-access-tokens","lastmod":"2026-10-06T23:08Z","nid":"1503966"} -->
 ## About Access Tokens
 
 - Source: https://help.zscaler.com/authentication-service/about-access-tokens
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > OneAPI Authentication > About Access Tokens
-- Last modified: 2026-09-28T08:19Z
+- Last modified: 2026-10-06T23:08Z
 - Summary: Information on the access tokens that an API client can use to access the API resources.
 
 Access tokens are [JSON web tokens (JWT)](https://auth0.com/docs/secure/tokens/json-web-tokens) required by API clients for authorization. After the [API client](https://help.zscaler.com/zidentity/about-api-clients) completes the authentication with Authentication Service, an access token is generated in the Zscaler Admin Console and the API client must use this token for authorization. OneAPI verifies the access token and allows the API client to access the required Zscaler service's API resource. The access tokens have limited validity. This ensures the API client can access the API resources only for a specific duration, and they are protected from any security breaches.
@@ -29,40 +29,39 @@ Access tokens include the following benefits:
 
 On the Authentication Service Issued Tokens page (Administration > API > Tokens), you can do the following:
 
-1. View the list of client IDs and the assigned tokens. For each API client, you can see:
-  - **Client ID**: The unique identifier for the API client.
-  - **JTI**: The JSON identifier.
-  - **Issued At**: The date and time when the token was issued.
-  - **Expires At**: The date and time when the token expires.
-  - **JWT**: Click to view the JSON web token details. You can view the details only for active tokens.
-  - **Status**: View the status (Active, Revoked, Expired) of the token.
-2. Apply the filters to view specific data.
+1. Apply the filters to view specific data.
   - **Issued At**: View the tokens that were issued in the selected time frame.
-  - **Expired At**: View the tokens that have expired in the selected time frame.
+  - **Expires At**: View the tokens that have expired in the selected time frame.
   - **Status**: View the tokens with the following status:
     - **Active**: The token is active and can be used by the API client for authorization.
     - **Expired**: The token is invalid, and a new token must be generated for the API client to access the API resources.
-    - **Revoked**: The token is marked as invalid by Authentication Service. The revoked state is applicable in the following scenarios: If the token is revoked but the API client's status is enabled in the Zscaler Admin Console, you can generate a new token and access the API resources.
+    - **Revoked**: The token is marked as invalid by Authentication Service. The revoked state is applicable in the following scenarios: If the token is revoked but the API client's status is enabled in the Zscaler Admin Console, you can generate a new token and access the API resources. To learn more, see [Revoking Access Tokens](https://help.zscaler.com/authentication-service/revoking-access-tokens).
       - Token is revoked because the API client to which the token was assigned is deleted. You need to create a new API client and authenticate to get a new token.
       - Token is revoked because the status of the API client to which the token was assigned is disabled. You can change the status to Enabled and generate a new token for this API client.
       - An administrator manually revoked a token on the **Tokens** page.
-3. Reset the filters.
-4. Search for a specific API client.
-5. [Revoke the access token](https://help.zscaler.com/zidentity/revoking-access-tokens).
-6. View the JSON web token details.
+  - **Search By**: Select **Client ID** or **JTI**to search for a token. By default, the **Client ID** is selected.
+2. Search for a specific API client.
+3. View the list of client IDs and the assigned tokens. For each API client, you can see:
+  1. **Client ID**: The unique identifier for the API client.
+  2. **JTI**: The JSON identifier.
+  3. **Issued At**: The date and time when the token was issued.
+  4. **Expires At**: The date and time when the token expires.
+  5. **Status**: View the status (Active, Revoked, Expired) of the token.
+4. Reset the filters.
+5. Select the columns to display in the table and click **Apply**.
 
-[Image: List of issued tokens]
+[Image: Authentication Service Issued Tokens]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-administrative-entitlements","lastmod":"2026-09-22T05:51Z","nid":"1499221"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-administrative-entitlements","lastmod":"2026-10-06T21:06Z","nid":"1499221"} -->
 ## About Administrative Entitlements
 
 - Source: https://help.zscaler.com/authentication-service/about-administrative-entitlements
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Entitlements > About Administrative Entitlements
-- Last modified: 2026-09-22T05:51Z
+- Last modified: 2026-10-06T21:06Z
 - Summary: Information about the Administrative Entitlements page in the variable:zscaler-admin-console]].
 
 The Administrative Entitlements page shows the list of Zscaler services that your organization is subscribed to. You can assign Authentication Service users as service admins to these Zscaler services and with a role that is created in the Zscaler Admin Console. Admins can view only the assigned services in the Zscaler Admin Console. To learn more, see [Managing Entitlements](https://help.zscaler.com/zidentity/managing-entitlements).
@@ -91,13 +90,13 @@ On the Administrative Entitlements page (Administration > Role Management > Admi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-api-client-access-policy","lastmod":"2026-09-28T08:24Z","nid":"1499386"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-api-client-access-policy","lastmod":"2026-10-06T12:38Z","nid":"1499386"} -->
 ## About the API Client Access Policy
 
 - Source: https://help.zscaler.com/authentication-service/about-api-client-access-policy
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > OneAPI Authentication > About the API Client Access Policy
-- Last modified: 2026-09-28T08:24Z
+- Last modified: 2026-10-06T12:38Z
 - Summary: Information about the API client access policies in the Zscaler Admin Console.
 
 The API client access policies determine the API client's access to specific [API resources](https://help.zscaler.com/zidentity/viewing-api-resources) within set time frames. Administrators can define the policy rules and assign them to the required [API clients](https://help.zscaler.com/zidentity/about-api-clients) to prevent unauthorized activity and control access to API resources.
@@ -118,7 +117,7 @@ On the API Client Access Policy page (Administration > API > API Client Access P
   - **Rule Action**: The action (**Allow**or **Block**) that is defined for the policy rule.
   - **Rule Status**: The status (**Active** or **Expired**) of the policy rule.
 2. Search for an API client access policy rule by name.
-3. Add an API client access policy rule.
+3. [Add an API client access policy rule.](https://help.zscaler.com/authentication-service/adding-api-client-access-policy-rule)
 4. Edit an API client access policy rule. If you update the policy rule that is associated with the API client, then the [access token](https://help.zscaler.com/zidentity/about-access-tokens) is also updated. Ensure to use a valid access token.
 5. Delete an API client access policy rule. You cannot delete the policy rule if any API client is associated with it.
 6. View details of an API client access policy rule.
@@ -543,13 +542,13 @@ On the IP Locations page (Administration > Authentication > Trusted IP Locations
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-log-streaming","lastmod":"2026-09-24T01:38Z","nid":"1539480"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-log-streaming","lastmod":"2026-10-09T02:08Z","nid":"1539480"} -->
 ## About Log Streaming
 
 - Source: https://help.zscaler.com/authentication-service/about-log-streaming
 - Product: Authentication Service
 - Path: Authentication Service Help > Audit Logs > About Log Streaming
-- Last modified: 2026-09-24T01:38Z
+- Last modified: 2026-10-09T02:08Z
 - Summary: Information regarding the Log Streaming page within Authentication Service.
 
 The integration of Nanolog Streaming Service (NSS) and Cloud NSS with Authentication Service enables administrators to stream authentication, admin audit, and [System for Cross-domain Identity Management (SCIM)](https://help.zscaler.com/zidentity/understanding-scim) logs to external security information and event management (SIEM) systems that are linked with Zscaler services (e.g., Internet & SaaS (ZIA)) for centralized monitoring and analysis. By enabling log streaming, you can securely export Authentication Service logs in real time, which helps to investigate security incidents, such as unauthorized access attempts, brute force attacks, or unusual login patterns.
@@ -697,13 +696,13 @@ On the Token Validators page (Administration > Authentication > Token Validators
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-user-groups","lastmod":"2026-09-23T01:27Z","nid":"1499111"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-user-groups","lastmod":"2026-10-07T21:06Z","nid":"1499111"} -->
 ## About User Groups
 
 - Source: https://help.zscaler.com/authentication-service/about-user-groups
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > User Groups > About User Groups
-- Last modified: 2026-09-23T01:27Z
+- Last modified: 2026-10-07T21:06Z
 - Summary: Information on the User Groups page and its features in Authentication Service.
 
 Group is a logical entity that includes several users. Creating user groups helps in assigning multiple users to the Zscaler services quickly. You can create user groups to categorize users for various services and assign these user groups to administrative entitlements, service entitlements, admin roles, etc. You can create custom groups and use the predefined groups for a set of users.
@@ -750,13 +749,13 @@ On the User Groups page (Administration > Authentication > User Groups), you can
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-users","lastmod":"2026-09-23T01:26Z","nid":"1499096"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-users","lastmod":"2026-10-07T21:06Z","nid":"1499096"} -->
 ## About Users
 
 - Source: https://help.zscaler.com/authentication-service/about-users
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Users > About Users
-- Last modified: 2026-09-23T01:26Z
+- Last modified: 2026-10-07T21:06Z
 - Summary: Information on the Users page and its features in Authentication Service.
 
 You can add users to Authentication Service by creating them [locally within Authentication Service](https://help.zscaler.com/zidentity/adding-users) or via an [external identity provider (IdP) provider](https://help.zscaler.com/zidentity/about-external-identity-providers). In addition, you can assign them [admin entitlements](https://help.zscaler.com/zidentity/about-administrative-entitlements) to make them administrators for a Zscaler service (e.g., Internet & SaaS (ZIA), Private Access (ZPA)) or you can assign them [service entitlements](https://help.zscaler.com/zidentity/about-service-entitlements) so they are able to authenticate to a Zscaler service as an end user.
@@ -795,13 +794,13 @@ On the Users page (Administration > Authentication > Users), you can do the foll
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/adding-api-client","lastmod":"2026-09-28T08:21Z","nid":"1503771"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/adding-api-client","lastmod":"2026-10-06T11:44Z","nid":"1503771"} -->
 ## Adding an API Client
 
 - Source: https://help.zscaler.com/authentication-service/adding-api-client
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > OneAPI Authentication > Adding an API Client
-- Last modified: 2026-09-28T08:21Z
+- Last modified: 2026-10-06T11:44Z
 - Summary: How to add Zscaler OneAPI clients to Zscaler Admin Console.
 
 Any application or service that wants to access the [Zscaler API resources](https://automate.zscaler.com/docs/api-reference-and-guides/guides/UnderstandingOneAPI) must have an [API client](https://help.zscaler.com/zidentity/about-api-clients) created and provisioned in the Zscaler Admin Console. When an API client sends an authentication request, Authentication Service verifies the client secret or assertion depending on the authentication mechanism and issues an access token. The API client uses this access token to request access to the required API resources. Authentication Service supports the [OAuth 2.0 Client Credentials Grant type](https://oauth.net/2/grant-types/) to authorize the API clients.
@@ -810,8 +809,8 @@ Authentication Service administrators assigned with Full permission to access th
 
 To add an API client:
 
-1. Go to **Administration > API > API Clients**.
-2. Click **Add API Client**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration > API > API Clients**.
+2. Click **Add API Client**. The **Add API Client** drawer appears.
 3. In the **Add API Client** drawer, the **Client**tab is selected by default. Enter the following details:
   - **Client Information**:
     - **Name**: Enter a name to identify the API client.
@@ -825,10 +824,9 @@ To add an API client:
 4. Click the **Resources** tab. You can see the APIs for Zscaler services that are linked to your tenant along with the role (scope). Scope refers to the permission that limits the access to specific API resources. See image. Before creating an API client, you must add an API role in the respective Zscaler service (e.g. Internet & SaaS, Private Access). These API roles are synced to Authentication Service and are displayed on the **Add API Client**page. If you do not configure the API roles, an error message is displayed when you try to assign the resources to the API client. To learn more, see [Understanding OneAPI](https://automate.zscaler.com/docs/api-reference-and-guides/guides/UnderstandingOneAPI).
 5. Select the required API resources that the API client can access. You can select only one API resource for each Zscaler service and depending on the scope that is assigned.
 6. Click **Save**. When you save the API client details, Authentication Service auto-generates a client ID and it is displayed on the **API Clients** page.
-7. Copy the Client ID and save it, as you need to provide the Client ID along with the token or secret to make the API call.
-  - You can also copy the client ID from the **Edit API Client** drawer.
-    1. On the **API Clients** page, click the **Edit** icon for the newly configured API client.
-    2. In the **Edit API Client** drawer, copy the Client ID and save it in your local folder. See image.
+7. Copy the Client ID and save it, as you need to provide the Client ID along with the token or secret to make the API call. You can also copy the client ID from the **Edit API Client** drawer.
+  - On the **API Clients** page, click the **Edit** icon for the newly configured API client.
+  - In the **Edit API Client** drawer, copy the client ID and save it in your local folder. See image.
 
 [Image: Configure the API client]
 
@@ -845,13 +843,13 @@ To add an API client:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/adding-api-client-access-policy-rule","lastmod":"2026-09-28T08:25Z","nid":"1531919"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/adding-api-client-access-policy-rule","lastmod":"2026-10-06T12:48Z","nid":"1531919"} -->
 ## Adding API Client Access Policy Rule
 
 - Source: https://help.zscaler.com/authentication-service/adding-api-client-access-policy-rule
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > OneAPI Authentication > Adding API Client Access Policy Rule
-- Last modified: 2026-09-28T08:25Z
+- Last modified: 2026-10-06T12:48Z
 - Summary: How to add API client access policy rules in the Zscaler Admin Console.
 
 You can add an API client access policy rule by defining the API resources that API clients can access within a set time frame. An API client can be assigned to only one policy rule at a time.
@@ -861,8 +859,8 @@ Authentication Service administrators assigned with Full permission to access th
 To add an API client access policy rule:
 
 1. Go to **Administration** > **API** > **API Client Access Policy.**
-2. On the **API Client Access Policy** page, click **+Policy Rule.**
-3. On the **Add Policy Rule**page**,** use the query builder to define the policy rule: See image.
+2. On the **API Client Access Policy** page, click **+Policy Rule.** The **Add Policy Rule**page appears.
+3. On the **Add Policy Rule**page, in the**Define Criteria**section**,** use the query builder to define the policy rule: See image.
   - **Criteria (if)**: Define the criteria:
     - Select **Any**from the drop-down menu to apply either **Time**or **Resources**criteria or select **All**to apply both (**Time**and **Resources**) criteria. This option appears only if both the repeating behavior in the **Time**criteria and the resources scope in the **Resources**criteria are selected.
     - **Time**:
@@ -875,18 +873,18 @@ To add an API client access policy rule:
     - **Expression**: The expression appears as you build the query.
   - **Rule Action (then)**: Apply the required action (**Allow**or **Block**) to the policy rule you defined in the previous step.
 4. Click **Next**.
-5. On the **Assign API Clients** page, select the list of API clients to which this policy rule must be applied. See image.
+5. In the **Assign API Clients** section, select the list of API clients to which this policy rule must be applied. See image.
 6. Click **Next**.
-7. On the **Summary**tab: See image.
+7. In the **Summary**section: See image.
   - Review the information.
   - Enter the name of the rule.
 8. Click **Save**to create the API client access policy rule.
 
-[Image: Define criteria for the policy using the query builder.]
+[Image: Define criteria for the policy using the query builder]
 
-[Image: Select the API clients to assign to the policy rule on Assign API Clients page.]
+[Image: Select the API clients to assign to the policy rule in the Assign API Clients section]
 
-[Image: Review the API Client Access Policy rule information on the Summary page.]
+[Image: Review the API Client Access Policy rule information in the Summary section]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1560,13 +1558,13 @@ To add a new group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/adding-users","lastmod":"2026-09-30T07:46Z","nid":"1499101"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/adding-users","lastmod":"2026-10-07T08:57Z","nid":"1499101"} -->
 ## Adding Users
 
 - Source: https://help.zscaler.com/authentication-service/adding-users
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Users > Adding Users
-- Last modified: 2026-09-30T07:46Z
+- Last modified: 2026-10-07T08:57Z
 - Summary: How to add user accounts for Authentication Service.
 
 You can add individual user accounts in Authentication Service. A user account can belong to up to 1,024 groups. You can use a [CSV file to add multiple users](https://help.zscaler.com/zidentity/importing-user-details-csv-file) at once.
@@ -1578,7 +1576,7 @@ To add a user:
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Authentication**> **Users**.
 2. Click **Add User**. The **Add User** page appears.
 3. On the **Add User** page, in the **General Information**section: See image.
-  - **Login ID**:Enter a user ID.The user ID consists of a username and domain name in email format (e.g., `username@domain.com`). The username must be unique, and its domain must belong to the organization.
+  - **Login ID**:Enter a user ID.The user ID consists of a username and domain name in email format (e.g., `username@domain.com`). The username must be unique, and its domain must belong to the organization. If you add the login ID with a guest domain, authentication for that user is not managed by Zscaler, and the password option remains disabled on the **Security Settings** tab. To view the list of domains that belong to an organization, go to **Administration**> **Authentication**> **Domains**.
   - **Status**: Enable or disable the user.
   - **Primary Email**: Enter the primary email address of the user.
   - **Same As Login ID**: Enable to include the primary email address.
@@ -1590,7 +1588,15 @@ To add a user:
   - **Additional Attributes**: Select the user [attributes](https://help.zscaler.com/zidentity/adding-user-attributes) that are already created in Authentication Service by admins.
 4. Click **Next**.
 5. In the **Security Settings** section: See image.
-  - Enable to modify the password configurations. This option remains disabled until the user is added to Authentication Service. To learn more, see [Configuring Security Settings for Users](https://help.zscaler.com/zidentity/configuring-security-settings-users).
+  - **Password Option**:Select the required option for the user's initial login: To learn more, see [Configuring Security Settings for Users](https://help.zscaler.com/zidentity/configuring-security-settings-users).
+    - **Set By User**: Select this option if the user must set their own password to access the Zscaler Admin Console. The user receives a password reset email. The user can choose and configure the required [authentication method](https://help.zscaler.com/zidentity/configuring-authentication-methods).
+    - **Set by Administrator**: Select this option to set a password for the user:
+      - **Password**: Enter a password for the user.
+      - **Confirm Password**:Reenter the user's password.
+      - **Prompt for Password Change After the Initial Login**: This option is selected by default. The user needs to change the password by following the guidelines defined in the [password policy](https://help.zscaler.com/zidentity/configuring-password-policy).
+    - **Auto-generated**: Select this option to auto-generate a password for the user:
+      - **Password**: Use the **Copy** and **View**icons to copy or view the password.
+      - **Prompt for Password Change After the Initial Login**:This option is selected by default. The user needs to change the password by following the guidelines defined in the [password policy](https://help.zscaler.com/zidentity/configuring-password-policy).
   - **Skip Second Factor Authentication:** Select this option if you want the user to skip second-factor authentication. When you enable this option, the following field appears:
     - **Skip Until**: Select the date and time up to when the user can skip second-factor authentication. Post this duration, the user must configure second-factor authentication.
 6. Click **Next**.
@@ -1966,13 +1972,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-auth0-external-idp","lastmod":"2026-09-30T19:43Z","nid":"1499341"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-auth0-external-idp","lastmod":"2026-10-07T21:15Z","nid":"1499341"} -->
 ## Configuring Auth0 as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-auth0-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring Auth0 as an External IdP
-- Last modified: 2026-09-30T19:43Z
+- Last modified: 2026-10-07T21:15Z
 - Summary: This guide provides information on how to configure Auth0 as your OpenID Provider (OP) for Authentication Service.
 
 This guide provides information on how to configure Auth0 as the OpenID Provider (OP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management.
@@ -1987,22 +1993,7 @@ Ensure that you have:
 
 ## IdP-Initiated SSO for Authentication Service Tenants Enabled with Experience Center
 
-During the IdP-initiated SSO for Authentication Service, tenants using OIDC or SAML protocols are redirected as follows:
-
-- OIDC Protocol
-- SAML Protocol
-
-To change the default redirection, contact [Zscaler Support](https://help.zscaler.com/contact-support).
-
 All admins authenticating using the SAML protocol for Authentication Service and IdP integrations are redirected to Experience Center. However, if the `zidServiceId` attribute is configured in the IdP within the Authentication Service tenant, then the admins are redirected to the Authentication Service Admin Portal instead of Experience Center.
-
-Authentication Service tenants that are enabled with Experience Center at the time of tenant creation and admins using OIDC protocol for Authentication Service and IdP integrations are redirected to Experience Center.
-
-Authentication Service tenants that are not enabled with Experience Center at the time of tenant creation and admins using OIDC protocol for Authentication Service and IdP integrations are redirected to the Authentication Service Admin Portal. They can click the Experience Center link and go to the Experience Center from the Authentication Service Portal.
-
-See image.
-
-If you want to change this default behavior and have users redirected to Experience Center, raise a Support ticket with the ticket type set to **Provisioning**.
 
 ## Configuring Auth0 as OP for Authentication Service
 
@@ -2122,8 +2113,6 @@ You can configure the necessary policies in the following Zscaler services as re
 [Image: A sample ID token with blurred sensitive information.]
 
 [Image: Configuring JIT provisioning for an IdP in the Authentication Service Admin Portal]
-
-[Image: Authentication Service Portal with highlighted banner at the top]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2196,13 +2185,13 @@ To configure the authentication session:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-microsoft-ad-fs-external-idp","lastmod":"2026-09-30T19:44Z","nid":"1499366"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-microsoft-ad-fs-external-idp","lastmod":"2026-10-07T21:19Z","nid":"1499366"} -->
 ## Configuring Microsoft AD FS as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-microsoft-ad-fs-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring Microsoft AD FS as an External IdP
-- Last modified: 2026-09-30T19:44Z
+- Last modified: 2026-10-07T21:19Z
 - Summary: This guide provides information on how to configure Microsoft AD FS as your SAML Identity Provider (IdP) for Authentication Service.
 
 This guide provides information on how to configure Microsoft Active Directory Federated Services (AD FS) as the Identity Provider (IdP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management.
@@ -2530,22 +2519,7 @@ You can configure the necessary policies in the following Zscaler services as re
       3. Click **OK**.
   3. Click **OK**.
 
-During the IdP-initiated SSO for Authentication Service, tenants using OIDC or SAML protocols are redirected as follows:
-
-- OIDC Protocol
-- SAML Protocol
-
-To change the default redirection, contact [Zscaler Support](https://help.zscaler.com/contact-support).
-
 All admins authenticating using the SAML protocol for Authentication Service and IdP integrations are redirected to Experience Center. However, if the `zidServiceId` attribute is configured in the IdP within the Authentication Service tenant, then the admins are redirected to the Authentication Service Admin Portal instead of Experience Center.
-
-Authentication Service tenants that are enabled with Experience Center at the time of tenant creation and admins using OIDC protocol for Authentication Service and IdP integrations are redirected to Experience Center.
-
-Authentication Service tenants that are not enabled with Experience Center at the time of tenant creation and admins using OIDC protocol for Authentication Service and IdP integrations are redirected to the Authentication Service Admin Portal. They can click the Experience Center link and go to Experience Center from the [Authentication Service Portal](https://help.zscaler.com/zidentity/accessing-and-navigating-zidentity-landing-page).
-
-See image.
-
-If you want to change this default behavior and have users redirected to Experience Center, raise a Support ticket with the ticket type set to **Provisioning**.
 
 [Image: Server Manager with the Metadata URL information selected]
 
@@ -2576,19 +2550,17 @@ If you want to change this default behavior and have users redirected to Experie
 [Image: A SAML assertion sample with blurred sensitive information.]
 
 [Image: Mapping JIT attributes in Authentication Service]
-
-[Image: Authentication Service Portal with highlighted banner at the top.]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-microsoft-entra-id-external-idp","lastmod":"2026-09-30T19:44Z","nid":"1499421"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-microsoft-entra-id-external-idp","lastmod":"2026-10-07T21:20Z","nid":"1499421"} -->
 ## Configuring Microsoft Entra ID as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-microsoft-entra-id-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring Microsoft Entra ID as an External IdP
-- Last modified: 2026-09-30T19:44Z
+- Last modified: 2026-10-07T21:20Z
 - Summary: How to configure Microsoft Entra ID as an external IdP in the Zscaler Admin Console.
 
 This guide provides information on how to configure Microsoft Entra ID as an external identity provider (IdP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management. You can configure Entra ID as an external IdP to enable SSO to Authentication Service using OpenID Connect (OIDC) or Security Assertion Markup Language (SAML) authentication protocols.
@@ -2604,8 +2576,6 @@ If you want to leverage [step-up authentication](https://help.zscaler.com/authen
 - IdP-Initiated SSO for Authentication Service Tenants Enabled with Experience Center
 
 All admins authenticating using the SAML protocol for Authentication Service and IdP integrations are redirected to Experience Center. However, if the `zidServiceId` attribute is configured in the IdP within the Authentication Service tenant, then the admins are redirected to the Authentication Service Admin Portal instead of Experience Center.
-
-If you want to change this default behavior and have users redirected to Experience Center, raise a Support ticket with the ticket type set to **Provisioning**.
 
 To configure IdP-initiated SSO, the **Require verification certificates** option must be disabled while configuring the Verification Certifications for the Authentication Service application in Entra ID. If the **Require verification certificates** option is enabled, the SAML Request Signature Verification works only for SP-initiated authentication requests. The IdP-initiated authentication requests are not validated as the IdP would not possess the same private keys as the registered application. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/howto-enforce-signed-saml-authentication).
 
@@ -2700,12 +2670,15 @@ Entra ID only supports JIT provisioning for OIDC apps via the Microsoft Entra Ap
     1. In the **Select group types** **to include** **in Access, ID, and SAML tokens**section, select the **Groups assigned to the application** option.
     2. In the **Customize token properties by type** section, click **ID**to expand the **ID**subsection, and select the **Group ID**option. The Group ID must be selected as Entra ID does not support sending group names with OIDC protocol when groups are created in the Entra cloud. See image. If the group names are received via the Entra ID sync, select the **sAMAccountName** option instead of the **Group ID** option to pass on the group names. See image.
     3. Click **Add**. The group claims are added. See image.
-15. In the left-side navigation, click **Overview**and click the link in the **Managed application in local directory** field. See image.
-16. In the left-side navigation, click **Users and groups**. The **Users and groups**window appears.
-17. In the **Users and groups**window, select the users and groups that you want to have access to the application. See image. If you want to pass group memberships as claims, make sure that the groups are assigned instead of individual users in the **Users and groups** window.
-18. In the left-side navigation, click **Single sign-on**. The **Single sign-on** window appears.
-19. In the **Single sign-on** window, locate **Attributes & Claims**, and click the **Edit**icon. See image. The **Attributes & Claims**window appears.
-20. In the **Attributes & Claims**window:
+15. In the left-side navigation, go to **Manage**> **Manifest**. The **Manifest**window appears.
+16. In the **Manifest**window, update the required attributes in the graph manifest: These changes are required if you are adding any optional claims in a future step.
+  - Updating Microsoft Graph App Manifest
+17. In the left-side navigation, click **Overview**and click the link in the **Managed application in local directory** field. See image.
+18. In the left-side navigation, click **Users and groups**. The **Users and groups**window appears.
+19. In the **Users and groups**window, select the users and groups that you want to have access to the application. See image. If you want to pass group memberships as claims, make sure that the groups are assigned instead of individual users in the **Users and groups** window.
+20. In the left-side navigation, click **Single sign-on**. The **Single sign-on** window appears.
+21. In the **Single sign-on** window, locate **Attributes & Claims**, and click the **Edit**icon. See image. The **Attributes & Claims**window appears.
+22. In the **Attributes & Claims**window:
   1. In the **Attributes & Claims**window, click**Add new claim**. See image. The **Manage claim** window appears.
   2. In the **Manage claim**window: The Department claim is added. Repeat the preceding steps to add other claims if needed.
     1. **Name**: Enter `Department`.
@@ -2758,13 +2731,9 @@ This section explains how to provision Entra ID users in the Zscaler Admin Conso
 - Users created in Authentication Service via SCIM cannot be updated via JIT provisioning. These records must be updated via SCIM provisioning only.
 - JIT provisioning for primary IdPs does not support provisioning or updating system-defined groups (e.g., Zscaler Global Administrators).
 
-1. In the Entra Admin Center, go to**App registrations**, and locate the app created for Authentication Service.
-2. In the left-side navigation, go to **Manage**> **Manifest**. The **Manifest**window appears.
-3. In the **Manifest**window, update the required attributes in the graph manifest: These changes are required if you are adding any optional claims in a future step.
-  - Updating Microsoft Graph App Manifest
-4. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
-5. Locate the IdP entry created for Entra ID in the **Primary Identity Provider**(or **Secondary Identity Providers**) section and click the **Edit**icon.
-6. In the**Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
+2. Locate the IdP entry created for Entra ID in the **Primary Identity Provider**(or **Secondary Identity Providers**) section and click the **Edit**icon.
+3. In the**Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
   1. On the **Provisioning**tab, select **Enable Just-in-time (JIT) Provisioning**.
   2. Enter `groups` as the **Just-in-time User Group Attribute** and map the `Primary Email` User Attribute with the `email` JIT User Attribute. The mapping of the `Primary Email` attribute is mandatory as it is required for functionalities, such as password resetting and multi-factor authentication.
   3. Map the required Authentication Service user attributes with the appropriate Entra ID attributes as necessary. If the external IdP is configured to send different attributes for `First Name`, `Last Name`, or `Display Name`, then you must map those attributes. For example, if the ID token from the external IdP includes `Surname` instead of `family_name`, then you must map it with the `Last Name` user attribute in Authentication Service.; While mapping attributes, ensure that the attributes that you enter in the **Just-in-time Attribute** field match exactly with the attributes that are received in the ID Tokens. See image.; The `Addresses` attribute in Authentication Service is supported only with SCIM provisioning.
@@ -2786,7 +2755,7 @@ This section explains how to provision Entra ID users in the Zscaler Admin Conso
     | User Type | Needs a custom claim | The type of user in the organization (e.g., Regular) |
     | Formatted Name | Needs a custom claim | The name of the user in a specific format (e.g., Mr. John Doe) |
     | Manager | Needs a custom claim | The manager's login name (manager@company.com). This must be in the email address format. |
-7. Click **Update**.
+4. Click **Update**.
 
 1. Locate the `groups` entry in `optionalClaims,idToken`, and modify the `additionalProperties` array to include `cloud_displayname`. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-fed-group-claims#configure-the-azure-ad-application-registration-for-group-attributes). See image. `{ "additionalProperties": ["cloud_displayname"], "essential": false, "name": "groups", "source": null }`This configuration is required to send group names instead of group IDs. Authentication Service uses this to display group memberships, map users to roles, and evalute policies in JIT mode.
 2. Change the value of the `acceptMappedClaims` attribute to `true`. This is required to enable Entra ID to accept custom claims (e.g., department, title) for issuing tokens.
@@ -2799,25 +2768,21 @@ This section explains how to provision Entra ID users in the Zscaler Admin Conso
   1. Enter an application name for Authentication Service in the **What's the name of your app?** field. For example, enter `Authentication Service-OIDC-SCIM`.
   2. Select the **Integrate any other application you don't find in the gallery (Non-gallery)** option.
   3. Click **Create**. See image.
-5. In the Entra Admin Center, go to**App registrations**, and open the app created for SCIM provisioning.
-6. In the left-side navigation, go to **Manage**> **Manifest**. The **Manifest**window appears.
-7. In the **Manifest**window, update the required attributes in the graph manifest: These changes are required if you are adding any optional claims in a future step.
-  - Updating Microsoft Graph App Manifest
-8. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
-9. Locate the IdP entry created for Entra ID in the **Primary Identity Provider**(or **Secondary Identity Providers**) section and click the **Edit**icon. The **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**)drawer appears.
-10. In the**Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer:
+5. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
+6. Locate the IdP entry created for Entra ID in the **Primary Identity Provider**(or **Secondary Identity Providers**) section and click the **Edit**icon. The **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**)drawer appears.
+7. In the**Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer:
   1. On the **Provisioning**tab and in the **SCIM Configuration** section: See image.
     1. Select **Enable SCIM Provisioning**.
     2. Copy the **SCIM Endpoint URL**. This value is used in a subsequent step. The **SCIM Endpoint URL** field appears only if the configurations for the IdP in the **Basic** tab are completed and saved. See image.
     3. Click **Generate Token**and **Bearer Token**value. This value is used in a subsequent step. The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities). If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
     4. (Optional) Map the SCIM attributes (e.g., `addresses`) with the corresponding Authentication Service user attribute. This mapping is required only for attributes that need to be mapped to a custom [user attribute](https://help.zscaler.com/authentication-service/adding-user-attributes) in Authentication Service. To learn more about the SCIM attributes that require custom attribute mapping, see [Understanding SCIM](https://help.zscaler.com/authentication-service/understanding-scim). The mapping of the `Primary Email` attribute is mandatory as it is required for functionalities, such as password resetting and multi-factor authentication.
   2. Click **Update**.
-11. In the Entra Admin Center, go to **Identity > Applications > Enterprise applications**. See image.
-12. Locate and click the custom application that you created for SCIM provisioning. The application overview page appears.
-13. In the left-side navigation, click **Users and groups**. The **Users and groups**window appears.
-14. In the **Users and groups**window, select the users and groups that you want to have access to the application. See image. If you want to pass group memberships as claims, make sure that the groups are assigned instead of individual users in the **Users and groups** window.
-15. In the left-side navigation, click **Provisioning**. The **Provisioning**window appears.
-16. In the **Provisioning**window:
+8. In the Entra Admin Center, go to **Identity > Applications > Enterprise applications**. See image.
+9. Locate and click the custom application that you created for SCIM provisioning. The application overview page appears.
+10. In the left-side navigation, click **Users and groups**. The **Users and groups**window appears.
+11. In the **Users and groups**window, select the users and groups that you want to have access to the application. See image. If you want to pass group memberships as claims, make sure that the groups are assigned instead of individual users in the **Users and groups** window.
+12. In the left-side navigation, click **Provisioning**. The **Provisioning**window appears.
+13. In the **Provisioning**window:
   1. **Provisioning Mode**: Select **Automatic** from the **Provisioning Mode** drop-down menu.
   2. In the **Admin Credentials**section:
     1. **Tenant URL**: Enter the endpoint displayed in the **SCIM Endpoint URL** field while adding the primary or secondary IdP in the Zscaler Admin Console. The **SCIM Endpoint URL** field appears only if the configurations for the IdP in the **Basic** tab are completed and saved. See image.
@@ -2852,16 +2817,12 @@ This section explains how to provision Entra ID users in the Zscaler Admin Conso
         | urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department | department |  |
       3. Click **Save** to save the attribute mapping changes.
       4. Return to the **Provisioning** screen.
-17. In the **Settings** section: See image.
+14. In the **Settings** section: See image.
   1. **Send an email notification when a failure occurs**: (Optional) Select this and provide an email to receive a notification when there is a provisioning failure.
   2. **Prevent accidental deletion**: (Optional) Selecting this option allows you to set an accidental deletion threshold. When the option is enabled, deleting a number of groups and users over the threshold requires approval from an admin.
   3. **Scope**: (Optional) Choose **Sync only assigned users and groups**. Zscaler recommends using this setting.
-18. Set the **Provisioning Status** to **On**. See image.
-19. Click **Save** to start the Microsoft Entra ID provisioning service.
-
-1. Locate the `groups` entry in `optionalClaims,idToken`, and modify the `additionalProperties` array to include `cloud_displayname`. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-fed-group-claims#configure-the-azure-ad-application-registration-for-group-attributes). See image. `{ "additionalProperties": ["cloud_displayname"], "essential": false, "name": "groups", "source": null }`This configuration is required to send group names instead of group IDs. Authentication Service uses this to display group memberships, map users to roles, and evalute policies in JIT mode.
-2. Change the value of the `acceptMappedClaims` attribute to `true`. This is required to enable Entra ID to accept custom claims (e.g., department, title) for issuing tokens.
-3. Change the value of the `requestedAccessTokenVersion` attribute to `2`. See image.
+15. Set the **Provisioning Status** to **On**. See image.
+16. Click **Save** to start the Microsoft Entra ID provisioning service.
 
 You can configure step-up authentication to extend the existing authentication process by requiring multi-factor authentication (MFA) when needed, ensuring that access to high-risk or sensitive data is protected.
 
@@ -2950,10 +2911,6 @@ After configuring step-up authentication in Authentication Service and Entra ID,
 [Image: Selecting custom token properties in Entra Admin Center]
 
 [Image: Configuring optional claims with the groups claim highlighted]
-
-[Image: Configuring manifest using Microsoft Graph App with an API properties highlighted]
-
-[Image: Configuring manifest using Microsoft Graph App with an ID token property highlighted]
 
 [Image: Configuring manifest using Microsoft Graph App with an API properties highlighted]
 
@@ -4433,13 +4390,13 @@ Okta does not support SCIM provisioning for custom OIDC applications. However, i
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-onelogin-external-idp","lastmod":"2026-09-30T19:41Z","nid":"1499336"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-onelogin-external-idp","lastmod":"2026-10-07T21:15Z","nid":"1499336"} -->
 ## Configuring OneLogin as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-onelogin-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring OneLogin as an External IdP
-- Last modified: 2026-09-30T19:41Z
+- Last modified: 2026-10-07T21:15Z
 - Summary: This guide provides information on how to configure OneLogin as your OpenID Provider (OP) for Authentication Service.
 
 This guide provides information on how to configure OneLogin as the OpenID Provider (OP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management.
@@ -4454,30 +4411,7 @@ Ensure that you have:
 
 ## IdP-Initiated SSO for Authentication Service Tenants Enabled with Experience Center
 
-During the IdP-initiated SSO for Authentication Service, tenants using OIDC or SAML protocols are redirected as follows:
-
-- OIDC Protocol
-- SAML Protocol
-
-To change the default redirection, contact [Zscaler Support](https://help.zscaler.com/contact-support).
-
 All admins authenticating using the SAML protocol for Authentication Service and IdP integrations are redirected to Experience Center. However, if the `zidServiceId` attribute is configured in the IdP within the Authentication Service tenant, then the admins are redirected to the [[authentication-service]] Admin Portal instead of Experience Center.
-
-If you want to change this default behavior and have users redirected to Experience Center, raise a Support ticket with the ticket type set to **Provisioning**.
-
-Authentication Service tenants that are enabled with Experience Center at the time of tenant creation and admins using OIDC protocol for Authentication Service and IdP integrations are redirected to Experience Center.
-
-To configure Login URL:
-
-1. In the OneLogin Portal, go to **Applications**, and click the application created for Authentication Service.
-2. On the **Configuration**tab, enter the following for the Login URL field: `https://console.zscaler.com/?idp_id=<idp_id>&iss=<authentication-service-vanity-tenant-URL>`By default, `idp_id=default`. Replace the default value with the required IdP ID. Replace `<authentication-service-vanity-tenant-URL>` with your tenant's vanity URL. For example, `https://safemarch.zslogin.net`. When replacing `<authentication-service-vanity-tenant-URL>` with your tenant URL, ensure that the protocol string `https://` is included to prevent login failures.
-3. Click **Save**.
-
-Authentication Service tenants that are not enabled with Experience Center at the time of tenant creation and admins using OIDC protocol for Authentication Service and IdP integrations are redirected to the Authentication Service Admin Portal. They can click the Experience Center link and go to the Experience Center from the [Authentication Service Portal](https://help.zscaler.com/authentication-service/accessing-and-navigating-authentication-service-landing-page).
-
-See image.
-
-If you want to change this default behavior and have users redirected to Experience Center, raise a Support ticket with the ticket type set to **Provisioning**.
 
 ## Configuring OneLogin as OP for Authentication Service
 
@@ -4605,8 +4539,6 @@ You can configure the necessary policies in the following Zscaler services as re
 [Image: A sample ID token with blurred sensitive information.]
 
 [Image: Configuring JIT Provisioning for an IdP in Authentication Service Admin Portal]
-
-[Image: Authentication Service Portal with highlighted banner at the top.]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4647,13 +4579,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-pingfederate-external-idp","lastmod":"2026-09-30T19:40Z","nid":"1499471"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-pingfederate-external-idp","lastmod":"2026-10-07T21:15Z","nid":"1499471"} -->
 ## Configuring PingFederate as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-pingfederate-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring PingFederate as an External IdP
-- Last modified: 2026-09-30T19:40Z
+- Last modified: 2026-10-07T21:15Z
 - Summary: How to configure PingFederate as an external IdP for Authentication Service.
 
 This guide provides information on how to configure PingFederate as an external identity provider (IdP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management. You can configure PingFederate as an external IdP to enable SSO to Authentication Service using the Security Assertion Markup Language (SAML) authentication protocol. You can provision users to Authentication Service from PingFederate using System for Cross-domain Identity Management (SCIM) provisioning.
@@ -5288,19 +5220,17 @@ You can provision PingFederate users for Authentication Service using just-in-ti
 [Image: Reviewing the Activation & Summary tab in PingFederate]
 
 All admins authenticating using the SAML protocol for Authentication Service and IdP integrations are redirected to Experience Center. However, if the `zidServiceId` attribute is configured in the IdP within the Authentication Service tenant, then the admins are redirected to the Authentication Service Admin Portal instead of Experience Center.
-
-To change the default redirection, contact [Zscaler Support](https://help.zscaler.com/contact-support).
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-pingone-external-idp","lastmod":"2026-09-30T19:43Z","nid":"1499331"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-pingone-external-idp","lastmod":"2026-10-07T21:16Z","nid":"1499331"} -->
 ## Configuring PingOne as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-pingone-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring PingOne as an External IdP
-- Last modified: 2026-09-30T19:43Z
+- Last modified: 2026-10-07T21:16Z
 - Summary: This guide provides information on how to configure PingOne as your OpenID Provider (OP) for Authentication Service.
 
 This guide provides information on how to configure PingOne as the OpenID Provider (OP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management.
@@ -5316,8 +5246,6 @@ Ensure that you have:
 ## IdP-Initiated SSO for Authentication Service Tenants Enabled with Experience Center
 
 All admins authenticating using the SAML protocol for Authentication Service and IdP integrations are redirected to Experience Center. However, if the `zidServiceId` attribute is configured in the IdP within the Authentication Service tenant, then the admins are redirected to the Authentication Service Admin Portal instead of Experience Center.
-
-To change the default redirection, contact [Zscaler Support](https://help.zscaler.com/contact-support).
 
 ## Configuring PingOne as OP for Authentication Service
 
@@ -5607,13 +5535,13 @@ After configuring step-up authentication in Authentication Service and PingOne, 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-security-settings-users","lastmod":"2026-09-30T08:00Z","nid":"1503381"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-security-settings-users","lastmod":"2026-10-06T10:57Z","nid":"1503381"} -->
 ## Configuring Security Settings for Users
 
 - Source: https://help.zscaler.com/authentication-service/configuring-security-settings-users
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Users > Configuring Security Settings for Users
-- Last modified: 2026-09-30T08:00Z
+- Last modified: 2026-10-06T10:57Z
 - Summary: How to configure security settings for users in Authentication Service.
 
 This article describes how to configure Security Settings for users.
@@ -5622,7 +5550,7 @@ A user must be added before configuring the security settings. To learn more, se
 
 To configure the security settings:
 
-1. Go to **Administration**> **Authentication**> **Users**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Authentication**> **Users**.
 2. Click the **Edit**icon for the user you want to configure the security settings. The **Edit User** page appears.
 3. On the **Edit User** page, in the **Security Settings** section, configure the following fields:
   - **Change Password Settings**: Enable to modify the password configurations.
@@ -5703,13 +5631,13 @@ You can configure the necessary policies in the following Zscaler services as re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/editing-or-deleting-api-client","lastmod":"2026-09-28T08:21Z","nid":"1499446"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/editing-or-deleting-api-client","lastmod":"2026-10-06T11:55Z","nid":"1499446"} -->
 ## Editing or Deleting an API Client
 
 - Source: https://help.zscaler.com/authentication-service/editing-or-deleting-api-client
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > OneAPI Authentication > Editing or Deleting an API Client
-- Last modified: 2026-09-28T08:21Z
+- Last modified: 2026-10-06T11:55Z
 - Summary: How to edit or delete the OneAPI client in the Zscaler Admin Console.
 
 You can edit or delete the API client as necessary.
@@ -5718,9 +5646,9 @@ You can edit or delete the API client as necessary.
 
 To edit an API client:
 
-1. Go to **Administration > API > API Clients**.
-2. On the **API Clients** page, click the **Edit** icon for the required API client. See image.
-3. Edit the information in the **Client Information** and **Client Authentication** sections, or select the **Resources** tab to select a different role as necessary. After you assign a different role, the access token issued by Authentication Service is applicable to the new scope for that Zscaler service. If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service and some Zscaler services are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration > API > API Clients**.
+2. On the **API Clients** page, click the **Edit** icon for the required API client. See image. The **Edit API Client** drawer appears.
+3. In the **Edit API Client** drawer, edit the information in the **Client Information** and **Client Authentication** sections, or select the **Resources** tab to select a different role as necessary. After you assign a different role, the access token issued by Authentication Service is applicable to the new scope for that Zscaler service. If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service and some Zscaler services are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team. See image.
 4. After you've changed the values, click **Update**.
 
 A message is displayed indicating the API client is updated successfully.
@@ -5730,8 +5658,8 @@ A message is displayed indicating the API client is updated successfully.
 To delete an API client:
 
 1. Go to **Administration > API > API Clients**.
-2. Click the **Delete** icon for the required API client. See image.
-3. Read the confirmation message, enter `YES`, then click **Delete**. See image.
+2. Click the **Delete** icon for the required API client. See image. The **Delete API Client** window appears.
+3. In the **Delete API Client** window, read the confirmation message, enter `CONFIRM`, then click **Delete**. See image.
 
 [Image: Click the Edit icon to edit the API client details]
 
@@ -5739,7 +5667,7 @@ To delete an API client:
 
 [Image: Click the Delete icon to delete an API client]
 
-[Image: Type Yes to confirm the deletion]
+[Image: Delete API Client]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6422,13 +6350,13 @@ This article provides a summary of all new features and enhancements for Authent
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/revoking-access-tokens","lastmod":"2026-09-28T08:24Z","nid":"1506051"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/revoking-access-tokens","lastmod":"2026-10-06T12:37Z","nid":"1506051"} -->
 ## Revoking Access Tokens
 
 - Source: https://help.zscaler.com/authentication-service/revoking-access-tokens
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > OneAPI Authentication > Revoking Access Tokens
-- Last modified: 2026-09-28T08:24Z
+- Last modified: 2026-10-06T12:37Z
 - Summary: How to revoke the access tokens in the Zscaler Admin Console.
 
 You can revoke the [access tokens](https://help.zscaler.com/zidentity/about-access-tokens) assigned to the API clients, when required. The revoked access token can no longer be used to access the Zscaler API resources.
@@ -6437,7 +6365,7 @@ You can only revoke active tokens.
 
 To revoke an access token:
 
-1. Go to **Administration** > **API**> **Tokens**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal%20), go to **Administration** > **API**> **Tokens**.
 2. On the**Authentication Service Issued Tokens** page, search or use the **Status** filter to view the list of active tokens.
 3. Click **Revoke** for the specific active token. See image.
 4. In the **Revoke Token** window, enter `YES` to confirm the action, then click **Revoke**. See image. The token is revoked, and it can no longer be used to access the Zscaler API resources. You need to generate a new token when required.
@@ -7534,13 +7462,13 @@ To use Authentication Service as an IdP for your users, you must pass the device
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/viewing-api-resources","lastmod":"2026-09-28T08:19Z","nid":"1503371"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/viewing-api-resources","lastmod":"2026-10-06T12:03Z","nid":"1503371"} -->
 ## Viewing API Resources
 
 - Source: https://help.zscaler.com/authentication-service/viewing-api-resources
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > OneAPI Authentication > Viewing API Resources
-- Last modified: 2026-09-28T08:19Z
+- Last modified: 2026-10-06T12:03Z
 - Summary: Information about viewing the Zscaler API resources available in the Zscaler Admin Console.
 
 API resources refer to the Zscaler APIs available via the OneAPI gateway. The API resources are a collection of Zscaler API endpoints that represent various data entities, services, or functionalities that can be accessed by the [API clients](https://help.zscaler.com/zidentity/about-api-clients). To learn more, see [Understanding OneAPI](https://automate.zscaler.com/docs/api-reference-and-guides/guides/UnderstandingOneAPI) and [Adding API Roles](https://help.zscaler.com/zia/adding-api-roles).
@@ -7555,8 +7483,8 @@ While [configuring the API client](https://help.zscaler.com/zidentity/adding-api
 
 To view the API resources:
 
-1. Go to **Administration > API** >**API Resources**. The **API Resources** page appears. See image.
-2. Click the **View** icon () to see the API resources available for each Zscaler service. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal%20), go to **Administration > API** >**API Resources**. The **API Resources** page appears. See image.
+2. Click the **View** icon () to see the API resources available for each Zscaler service in the **View API Resource Details** drawer. See image.
 
 [Image: View the API resources]
 
@@ -7635,13 +7563,13 @@ Authentication Service has the following key features and benefits:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/about-administrators-business-insights","lastmod":"2024-12-09T06:06Z","nid":"1473171"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/about-administrators-business-insights","lastmod":"2026-10-07T21:50Z","nid":"1543304"} -->
 ## About Administrators in Business Insights
 
 - Source: https://help.zscaler.com/business-insights/about-administrators-business-insights
 - Product: Business Insights
-- Path: Business Insights Help > Authentication & Administration > Administrator and Role Management > About Administrators in Business Insights
-- Last modified: 2024-12-09T06:06Z
+- Path: About Administrators in Business Insights
+- Last modified: 2026-10-07T21:50Z
 - Summary: Information on configuring role-based administrators in the Business Insights Admin Portal.
 
 The Administration page helps you add and manage admins for the Business Insights Admin Portal. Admins can view the business insights for apps and workplaces, among other privileges.
@@ -7681,16 +7609,16 @@ On the Administrators page (Administration > Administration Management > Adminis
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/about-all-applications","lastmod":"2025-10-03T00:37Z","nid":"1473246"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/about-all-applications","lastmod":"2026-10-08T22:21Z","nid":"1543310"} -->
 ## About All Applications
 
 - Source: https://help.zscaler.com/business-insights/about-all-applications
 - Product: Business Insights
 - Path: Business Insights Help > Application Insights > About All Applications
-- Last modified: 2025-10-03T00:37Z
-- Summary: Information about the All Applications page in the Business Insights Admin Portal.
+- Last modified: 2026-10-08T22:21Z
+- Summary: Information about the All Applications page in Business Insights.
 
-The All Applications page shows the list of apps whose usage is discovered within your organization. The list includes discovery from all the data sources like identity providers (IdPs), Zscaler Internet Access (ZIA) traffic, connector integrations, and custom application signatures.
+The All Applications page shows the list of apps whose usage is discovered within your organization. The list includes discovery from all the data sources like identity providers (IdPs), Internet & SaaS traffic, connector integrations, and custom application signatures.
 
 The All Applications page provides the following benefits and enables you to:
 
@@ -7698,19 +7626,15 @@ The All Applications page provides the following benefits and enables you to:
 - Analyze application data for their engagement index, growth trends, and capability, among many other vital metrics.
 - [Onboard applications](https://help.zscaler.com/business-insights/onboarding-saas-apps-business-insights) to view richer business insights for them.
 
-## About the All Applications Page
-
-On the All Applications page (Applications > All Applications), you can do the following:
+On the All Applications page (Analytics > Business Insights > Applications > All Applications), you can do the following:
 
 1. Filter the data for specific parameters.
   - View available filters.
-2. Download the data on the page as a CSV file.
-3. Search the data for a specific application.
-4. View a list of discovered applications.
+2. Search the data for a specific application.
+3. Download the data on the page as a CSV file.
+4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+5. View a list of discovered applications.
   - View elements for each application.
-5. [Modify the table and its columns](https://help.zscaler.com/business-insights/using-tables-business-insights).
-6. [Edit the subscription information for the app](https://help.zscaler.com/business-insights/viewing-application-details#plan).
-7. [Onboard an app to Business Insights](https://help.zscaler.com/business-insights/onboarding-saas-apps-business-insights).
 
 Use the arrows at the bottom of the page to go to the next page. You can also select the number of entries you want to view on a page (15, 50, or 100 rows).
 
@@ -7723,78 +7647,37 @@ Use the arrows at the bottom of the page to go to the next page. You can also se
 - Growth Trend
 - ACV
 - Risk Index
-- Departments
+- Top Departments
 - Alternatives
 - Purchased Seats
 - Sanction Status
 - Contract Start Date
 - Contract End Date
-- Tags
 
 - **Application**: The name of the application. Click on the application to go to the [Viewing Applications Details](https://help.zscaler.com/business-insights/viewing-application-details) page, where you can view the application-specific metrics.
 - **Capability**: The various capabilities offered by the application. For example, Okta's capabilities include identity management, access control, two-factor authentication, etc.
-- **Data Source**: The source from where the application usage is discovered (i.e., identity provider (IdP), Zscaler Internet Access (ZIA), by connector integration, or custom application such as **IDP**, **ZIA**, **CONNECTOR**,**CUSTOM ZIA**).
+- **Data Source**: The source from where the application usage is discovered (i.e., identity provider (IdP), Zscaler Internet Access (ZIA), by connector integration, or custom application such as **IDP**, **ZIA**, **Connector**,**Custom ZIA**).
 - **Engagement Index**: The percentage of active users in the last 30 days over the last 90 days for an app. For example, if you have 50 active users in the last 30 days and 100 in the last 90 days for Box, the engagement index is calculated by dividing the number of active users in the last 30 days by the number of active users in the last 90 days, and multiplying it by 100 (i.e., [50÷100]×100 = 50%).
 - **Growth Trend**: The percentage increase or decrease in user activity for every 30 days. For example, if you have 50 active users in the last 30 days but 100 active users before the last 30 days, the growth trend is calculated by dividing the increase or decrease in the number of active users by the number of active users before the last 30 days, and multiplying it by 100 ([100−50]÷100×100 = decrease of 50%).
 - **Active Users**: The number of active users for the app.
-- **Tags**: The tags linked to the contract. Click the **Add**icon to link the contract to a manual tag, create a new tag category, or go to the [Application Tags](https://help.zscaler.com/business-insights/about-application-tags) page. See image.
 - **Purchased Seats**: The number of seats purchased in the app subscription.
 - **Assigned Seats**: The number of seats assigned to the users within your organization.
-- **Spend**: The total spent on the application by your organization.
-- **Contract Start Date**: The date when the application subscription commenced.
-- **Contract End Date**: The date when the application subscription ends.
-- **Risk Index**: The risk index assigned to the application. This setting for the app is configured in the ZIA Admin Portal. To learn more, see [About Cloud Applications](https://help.zscaler.com/zia/about-cloud-applications) and [About Shadow IT Report](https://help.zscaler.com/zia/about-shadow-it-report).
-- **Sanctioned**: Whether the application's use is sanctioned or not in your organization.
+- **ACV**: The annual contract value for the applications' subscription.
+- **Sanction Status**: Whether the application's use is sanctioned or not in your organization.
 - **Alternatives**: A list of alternative applications with similar capabilities.
 - **Top Departments**: The top departments by app usage. The departments are listed with the number of active users (in parentheses) in ascending order for the last 30 days of app usage.
-
-[Image: Tags Column in the All Applications Page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/about-application-configuration","lastmod":"2024-09-30T07:06Z","nid":"1479701"} -->
-## About Application Configuration
-
-- Source: https://help.zscaler.com/business-insights/about-application-configuration
-- Product: Business Insights
-- Path: Business Insights Help > Application Insights > Application Settings > About Application Configuration
-- Last modified: 2024-09-30T07:06Z
-- Summary: Information about the Configuration page in the Business Insights Admin Portal.
-
-Application configuration is a significant action that a Business Insights admin must perform to pull usage information for applications and view their insights. Zscaler recommends configuring a SaaS application connector (requires admin access to the app) for the supported apps, or creating custom application signatures to pull metrics from a specific URL of the application per your requirements.
-
-Application configuration provides the following benefits and enables you to:
-
-- Configure an application connector or customer application signature for which you want to view the insights.
-- View a list of custom application signatures configured to view application insights.
-
-## About the Configuration Page
-
-On the Configuration page (Application > Application Settings), you can do the following:
-
-1. [Configure a connector from the supported SaaS applications](https://help.zscaler.com/business-insights/onboarding-saas-apps-business-insights).
-2. [Create a custom application signature](https://help.zscaler.com/business-insights/creating-custom-application-signatures).
-3. View a list of custom application signatures. For each signature, you can view:
-  - **Application**: The name of the custom application signature.
-  - **Associated SaaS Application**: The name of the application for which the signature is created. This helps to display metadata if the application is known to the Business Insights service and impacts the experience in the [Discovered Apps](https://help.zscaler.com/business-insights/about-application-inventory#discovered-apps), [Overlapping Apps](https://help.zscaler.com/business-insights/about-application-inventory#overlapping-apps), and [Cost Savings](https://help.zscaler.com/business-insights/about-application-inventory#cost-savings) metrics.
-  - **Signature**: The signature details.
-  - **Description**: Shows any description added to the signature. For example, login events for Salesforce, creating a board in Miro, etc.
-4. [Modify the table columns](https://help.zscaler.com/business-insights/using-tables-business-insights).
-5. [Edit a custom application signature](https://help.zscaler.com/business-insights/editing-or-deleting-items-business-insights).
-6. [Delete a custom application signature](https://help.zscaler.com/business-insights/editing-or-deleting-items-business-insights).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/business-insights/about-application-insights","lastmod":"2025-08-06T23:32Z","nid":"1473191"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/about-application-insights","lastmod":"2026-10-08T22:19Z","nid":"1543307"} -->
 ## About Application Insights
 
 - Source: https://help.zscaler.com/business-insights/about-application-insights
 - Product: Business Insights
 - Path: Business Insights Help > Application Insights > About Application Insights
-- Last modified: 2025-08-06T23:32Z
-- Summary: Information about the Application Insights page in the Business Insights Admin Portal.
+- Last modified: 2026-10-08T22:19Z
+- Summary: Information about the Application Insights page in Business Insights.
 
 Application Insights provides a holistic overview of the applications that are currently being used across your organization. The page can be interactively used to switch between the data and metrics for discovered applications, overlapping applications, and cost savings for each application.
 
@@ -7804,158 +7687,114 @@ Application Insights provides the following benefits and enables you to:
 - View applications with similar capabilities and the number of overlapping users for them to help you streamline apps for your users.
 - Analyze the applications' efficiency matrix to help you save costs by removing unwanted licenses and applications.
 
-## About the Applications Insights Page
-
-The Applications Insights page (Applications > Applications Insights) is divided into three tabs:
+The Applications Insights page (Analytics > Business Insights > Applications > Applications Insights) is divided into three tabs:
 
 - Discovered Apps
 - Overlapping Apps
 - Cost Savings
 
-The Discovered Apps page (Applications > Applications Insights> Discovered Apps) shows data about applications whose usage is discovered within your organization. On this page, you can do the following:
+The Discovered Apps page (Analytics > Business Insights > Applications > Applications Insights > Discovered Apps) shows data about applications whose usage is discovered within your organization. On this page, you can do the following:
 
 1. View the **Discovered Applications Trend** graph that shows the trend for the number of high- and low-usage applications, along with the number of newly discovered applications for the last 12 months. Hover over the graph to view the data for each month. High-usage apps have over 80% active users for the month compared to the total number of active users. Low-usage apps have less than 30% active users for the month compared to the total number of active users.
-2. Click **View All**to go to the All Applications page, where you can view the complete list of applications currently being used within your organization.
-3. Click **Connect App**to onboard applications with Business Insights that have connector integration support. To learn more, see [Onboarding SaaS Apps for Insights](https://help.zscaler.com/business-insights/onboarding-saas-apps-business-insights).
-4. View a list of the top 10 discovered applications. For each application, you can view:
+2. Click **View All Applications**to go to the All Applications page, where you can view the complete list of applications currently being used within your organization.
+3. Click **Add Application**to onboard applications with Business Insights that have connector integration support. To learn more, see [Onboarding SaaS Apps for Insights](https://help.zscaler.com/business-insights/onboarding-saas-apps-business-insights).
+4. [Modify the table and its columns](https://help.zscaler.com/unified/1.0/using-tables).
+5. View a list of the top 10 discovered applications. For each application, you can view:
   - **Application**: The name of the application. Click on the application to go to the [Viewing Applications Details](https://help.zscaler.com/business-insights/viewing-application-details) page, where you can view the application-specific metrics.
   - **Capability**: The various capabilities offered by the application. For example, Okta's capabilities include identity management, access control, two-factor authentication, etc.
   - **Active Users (last 30 days)**: The number of active users in the last 30 days.
   - **Engagement Index**: The percentage of active users in the last 30 days over the last 90 days for an app. For example, if you have 50 active users in the last 30 days and 100 in the last 90 days for Box, the engagement index is calculated by dividing the number of active users in the last 30 days by the number of active users in the last 90 days, and multiplying it by 100 (i.e., [50÷100]×100 = 50%).
   - **Growth Trend**: The percentage increase or decrease in user activity for every 30 days. For example, if you have 50 active users in the last 30 days but 100 active users before the last 30 days, the growth trend is calculated by dividing the increase or decrease in the number of active users by the number of active users before the last 30 days, and multiplying it by 100 ([100−50]÷100×100 = decrease of 50%).
-  - **Data Source**: The source from where the application usage is discovered (i.e., identity provider (IdP), Zscaler Internet Access (ZIA), by connector integration, or custom application signature such as **IDP**, **ZIA**, **CONNECTOR**,**CUSTOM ZIA**). Business Insights discovers app usage via your IdP, ZIA traffic, custom apps, and direct connector configurations. Hence, you might see multiple entries for the same application tenant with different **Data Source** values.
+  - **Data Source**: The source from where the application usage is discovered (i.e., identity provider (IdP), Internet & SaaS (ZIA), or connector integration such as **IDP**, **ZIA**, or **Connector**). Business Insights discovers app usage via your IdP, Internet & SaaS traffic, custom apps, and direct connector configurations. Hence, you might see multiple entries for the same application tenant with different **Data Source** values.
   - **Spend**: The total spent on the application by your organization.
   - **Sanctioned**: Whether the application's use is sanctioned or not in your organization.
   - **Contract Start Date**: The date when the application subscription commenced.
   - **Action**: The actions available for the application.
-5. [Modify the table and its columns](https://help.zscaler.com/business-insights/using-tables-business-insights).
-6. [Edit the subscription details for an application](https://help.zscaler.com/business-insights/viewing-application-details#plan).
-7. [Onboard the application to Business Insights](https://help.zscaler.com/business-insights/onboarding-saas-apps-business-insights). If you select an application that has connector integration support, the configuration page shows two options: either configure an application connector, or skip the connector configuration to set up the application subscription details and use the insights provided by other data sources (IdP or ZIA).
 
-The Overlapping Apps page (Applications > Applications Insights > Overlapping Apps) shows overlapping application usage based on the application capabilities. For example, Zoom and Webex have similar capabilities. However, users in your organization might be using either or both. On this page, you can do the following:
+The Overlapping Apps page (Analytics > Business Insights > Applications > Applications Insights > Overlapping Apps) shows overlapping application usage based on the application capabilities. For example, Zoom and Webex have similar capabilities. However, users in your organization might be using either or both. On this page, you can do the following:
 
-1. Switch the data view between capability cards or tabular format. See image.
-2. Search for a specific app or capability.
-3. View a list of all the application capabilities. For each category, you can view:
+1. Search for a specific app or capability.
+2. Switch the data view between capability cards or tabular format.
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View a list of all the application capabilities. For each category, you can view:
   - **Capability**: The name of the capability.
   - **Overlapping Users**: The number of overlapping users who are using at least one of the applications listed for the capability.
   - **Applications**: The applications that are currently being used within your organization with similar capabilities.
-4. Click the arrow icon of a capability to go to the [Application Overlap Details](https://help.zscaler.com/business-insights/viewing-application-overlap-details) page, where you can view capability-specific metrics.
 
-[Image: Switching View in Overlapping Apps Page]
+The Cost Savings page (Analytics > Business Insights > Applications > Applications Insights > Cost Savings) shows the opportunity to save money from each app. By default, when you use the service initially, applications have an estimated cost populated for them until you enter or edit the costs for the apps. The Zscaler-estimated costs (**Spend**) are underlined. These estimates are conservative and take into account the premium solutions of the SaaS providers (i.e., enterprise) with over 50% discounts, and also take the deployment scale into consideration. The greater the deployment scale, the greater the discount. On this page, you can access the following insights:
 
-The Cost Savings page (Applications > Applications Insights > Cost Savings) shows the opportunity to save money from each app. By default, when you use the service initially, applications have an estimated cost populated for them until you enter or edit the costs for the apps. The Zscaler-estimated costs (**Spend**) are underlined. These estimates are conservative and take into account the premium solutions of the SaaS providers (i.e., enterprise) with over 50% discounts, and also take the deployment scale into consideration. The greater the deployment scale, the greater the discount. On this page, you can do the following:
+- Top 50 Cost Savings Applications
+- SaaS Efficiency Matrix
 
-1. View the **SaaS Efficiency Matrix**graph that shows the applications placement based on the license usage percentage and its expense to your organization, and indicates applications with greater savings opportunities in the bottom right of the graph. Hover over an application to view its cost and usage percentage.
-2. View a list **Top 50 Cost Savings Applications**. For each application, you can view:
-  - **Application**: The name of the application
-  - **Cost Savings**:The cost-saving opportunity for the application by removing inactive users from the application. Cost savings for Zscaler-estimated costs are indicated with an asterisk (*).
-  - **Spend**: The total amount spent on the application subscription in US dollars.
-  - **Data** **Source**: The source from where the application usage is discovered (i.e., IdP, ZIA traffic, or connector integration such as **IDP**, **ZIA**, or **CONNECTOR**).
-  - **Active Users**: The number of active users for the application.
-  - **Inactive Users**: The number of inactive users for the application.
-  - **Action**: The actions available for the application.
-3. [Edit the subscription details for an application](https://help.zscaler.com/business-insights/viewing-application-details#plan).
-4. [Onboard the application to Business Insights](https://help.zscaler.com/business-insights/onboarding-saas-apps-business-insights). If you select an application that has connector integration support, the configuration page shows two options: either configure an application connector, or skip the connector configuration to set up the application subscription details and use the insights provided by other data sources (IdP or ZIA).
-5. Click on an application to go to the [Applications Details](https://help.zscaler.com/business-insights/viewing-application-details) page.
+View a list of**Cost Savings Applications**. For each application, you can view:
+
+- **Application**: The name of the application
+- **Potential Savings**:The potential cost-saving opportunity for the application by removing inactive users from the application. Cost savings for Zscaler-estimated costs are indicated with an asterisk (*).
+- **Cost**: The total amount spent on the application subscription in US dollars.
+- **Data** **Source**: The source from where the application usage is discovered (i.e., IdP, Internet & SaaS traffic, or connector integration such as **IDP**, **ZIA**, or **Connector**).
+- **Active Users**: The number of active users for the application.
+- **Inactive Users**: The number of inactive users for the application.
+- **Action**: The actions available for the application.
+
+You can perform the following actions in the table:
+
+- [Edit the subscription details for an application](https://help.zscaler.com/business-insights/viewing-application-details#plan).
+- [Onboard the application to Business Insights](https://help.zscaler.com/business-insights/onboarding-saas-apps-business-insights). If you select an application that has connector integration support, the configuration page shows two options: either configure an application connector, or skip the connector configuration to set up the application subscription details and use the insights provided by other data sources (IdP or ZIA).
+- Click on an application to go to the [Applications Details](https://help.zscaler.com/business-insights/viewing-application-details) page.
 
 [Image: Cost Saving in the Inventory Page]
+
+View the **SaaS Efficiency Matrix**graph that shows the applications placement based on the license usage percentage and its expense to your organization, and indicates applications with greater savings opportunities in the bottom right of the graph. Hover over an application to view its cost and usage percentage.
+
+[Image: SaaS Efficientcy Matrix Tab]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/about-application-reports","lastmod":"2025-09-05T01:23Z","nid":"1497996"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/about-application-reports","lastmod":"2026-10-08T22:41Z","nid":"1543326"} -->
 ## About Application Reports
 
 - Source: https://help.zscaler.com/business-insights/about-application-reports
 - Product: Business Insights
 - Path: Business Insights Help > Analytics > About Application Reports
-- Last modified: 2025-09-05T01:23Z
-- Summary: Information on the Application Reports page in the Business Insights Admin Portal.
+- Last modified: 2026-10-08T22:41Z
+- Summary: Information on the Application Reports page in Business Insights.
 
 You can schedule an application's activity or inactivity reports for regular distribution to specified recipients. For example, you can schedule the Slack activity report for weekly distribution to your IT department and CIO.
 
-Application reports are emailed as links to recipients. You can also integrate the reports with [Workflow Automation](https://help.zscaler.com/workflow-automation/what-workflow-automation) to create a workflow to take action on inactive users, etc.
-
 Application reports provide the following benefits and enable you to:
 
-- Schedule reports for various criteria and distribute them to your choice of email recipients, integrate with Workflow Automation, or both.
+- Schedule reports for various criteria and distribute them to your choice of email recipients.
 - Frequently track application usage and take action for unused user licenses.
-- Integrate with Workflow Automation with a defined workflow to manage and automate actions required from various teams or departments involved in acting on the report's outcome, including the users.
 
 ## About the Application Reports Page
 
-On the Application Reports page (Analytics > Reports > Application Reports), you can do the following:
+On the Application Reports page (Analytics > Business Insights > Analytics > Reports > Application Reports), you can do the following:
 
-1. [View the exclusion list](https://help.zscaler.com/business-insights/about-exclusion-list).
-2. [Add a scheduled report](https://help.zscaler.com/business-insights/scheduling-reports).
-3. View a list of all configured scheduled reports.
-  - View elements for each scheduled report
-4. [Modify the table and its columns](https://help.zscaler.com/business-insights/using-tables-business-insights).
-5. [Enable or disable the scheduled report](https://help.zscaler.com/business-insights/enabling-or-disabling-scheduled-reports).
-6. [Edit a scheduled report](https://help.zscaler.com/business-insights/editing-or-deleting-items-business-insights).
-7. [Delete a scheduled report](https://help.zscaler.com/business-insights/editing-or-deleting-items-business-insights).
+1. Search for an application report.
+2. [View the exclusion list](https://help.zscaler.com/business-insights/about-exclusion-list).
+3. [Add a new scheduled report](https://help.zscaler.com/business-insights/scheduling-reports).
+4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+5. View a list of all configured scheduled reports. For each report, you can view:
+  - **Name:** The name of the scheduled report.
+  - **Summary:** A brief summary of the report. This is autogenerated based on the scheduled report.
+  - **Next Run**: The date when the next report is scheduled to be generated.
+6. [Enable or disable the scheduled report](https://help.zscaler.com/business-insights/enabling-or-disabling-scheduled-reports).
+7. Edit a scheduled report.
+8. Download a scheduled report
+9. Delete a scheduled report.
 
-- **Report Name:** The name of the scheduled report.
-- **Report Type**: The report type.
-- **Summary:** A brief summary of the report. This is autogenerated based on the scheduled report.
-- **App/Workplaces**: The application or workplace that the report pertains to.
-- **Users**: The users included in the report.
-- **Activity**: The type of activity for which the report is scheduled (activity, inactivity, etc.).
-- **Time Period**: The time frame for which the Business Insights service generates the report.
-- **Modified On**: The date when the scheduled report was last modified.
-- **Modified By**: The name of the user that modified the report settings.
-- **Next Run**: The date when the next report is scheduled to be generated.
-- **Delivery Method**: The configured report delivery method (Workflow Automation, Email, or both).
-- **Delivery Schedule**: The frequency of the report generation and delivery (Weekly, Monthly, or Quarterly).
+[Image: Application Scheduled Reports Page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/about-application-tags","lastmod":"2025-07-27T07:06Z","nid":"1526146"} -->
-## About Application Tags
-
-- Source: https://help.zscaler.com/business-insights/about-application-tags
-- Product: Business Insights
-- Path: Business Insights Help > Application Insights > Application Settings > About Application Tags
-- Last modified: 2025-07-27T07:06Z
-- Summary: Information on application tags and to use them in the Business Insights Admin Portal.
-
-The Application Tags feature can be used for linking applications to user-defined tags. These tags can be leveraged in filtering application insights. Admins can create tag categories as necessary and add multiple tags to them. You can add a maximum of 8 tag categories, and each category can consist of 8 tags. For example, you can create a tag category called Significant Apps and add tags that indicate the levels of significance for the applications, like High, Low, Medium, etc. This helps to filter applications with specific significance in the Business Insights Admin Portal.
-
-You can tag applications using dynamic or manual tagging. With dynamic tagging, you can configure criteria based on which applications are automatically linked to a tag, or use manual tagging to individually select applications that you want to link to a tag.
-
-Application Tags provide the following benefits and allow you to:
-
-- Link various tags to applications as per your organization's requirements.
-- Filter and view application insights based on user-defined tags.
-- Provide the flexibility to tag multiple applications based on the configured criteria with dynamic tagging.
-
-## About the Application Tags Page
-
-On the Application Tags page (Applications> Application Settings > Tag Management > Application Tags) you can do the following:
-
-1. [Add a new tag category](https://help.zscaler.com/business-insights/adding-application-tags).
-2. View a list of configured tag categories. For each category, you can view:
-  - **Tag Category**: The name of the category.
-  - **Tags**: The tags added to the category.
-  - **Application**: The number of applications linked to the tag category. Click the number to be redirected to the [All Applications](https://help.zscaler.com/business-insights/about-all-applications) page to view applications linked to the tag category.
-  - **Type**: The type of tagging (i.e., **Dynamic** or **Manual**).
-3. [Modify the table columns](https://help.zscaler.com/business-insights/using-tables-business-insights).
-4. [Edit a tag category](https://help.zscaler.com/business-insights/editing-or-deleting-items-business-insights).
-5. [Delete a tag category](https://help.zscaler.com/business-insights/editing-or-deleting-items-business-insights).
-
-[Image: The Tag Management Page showing Tag Categories and CreateTag Category Option]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/business-insights/about-audit-logs-business-insights","lastmod":"2024-11-13T05:33Z","nid":"1473131"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/about-audit-logs-business-insights","lastmod":"2024-11-13T05:33Z","nid":"1543296"} -->
 ## About Audit Logs in Business Insights
 
 - Source: https://help.zscaler.com/business-insights/about-audit-logs-business-insights
 - Product: Business Insights
-- Path: Business Insights Help > Authentication & Administration > Administrator and Role Management > About Audit Logs in Business Insights
+- Path: About Audit Logs in Business Insights
 - Last modified: 2024-11-13T05:33Z
 - Summary: Information regarding audit logs within the Business Insights service.
 
@@ -7992,117 +7831,14 @@ On the Audit Logs (Administration > Audit Logs) page, you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/about-contract-tags","lastmod":"2025-07-27T07:06Z","nid":"1526161"} -->
-## About Contract Tags
-
-- Source: https://help.zscaler.com/business-insights/about-contract-tags
-- Product: Business Insights
-- Path: Business Insights Help > Application Insights > Application Settings > About Contract Tags
-- Last modified: 2025-07-27T07:06Z
-- Summary: Information on contract tags and to use them in the Business Insights Admin Portal.
-
-The Contract Tags feature can be used for linking contracts to user-defined tags. These tags are then leveraged as a filtering option when viewing contracts. Admins can create tag categories as necessary and add multiple tags to them. You can add a maximum of 8 tag categories, and each category can consist of 8 tags. For example, you can create a tag category called Yearly Spend and add tags that indicate the money spent on application contracts, like Less than 1 Million, More than 1 Million, etc. This helps to filter contracts with specific yearly spend in the Business Insights Admin Portal.
-
-You can tag contracts using dynamic or manual tagging. With dynamic tagging, you can configure criteria based on which contracts are automatically linked to a tag, or use manual tagging to individually select contracts that you want to link to a tag.
-
-Contracts Tags provide the following benefits and allow you to:
-
-- Link various tags to contracts as per your organization's requirements.
-- Filter and view contract insights based on user-defined tags.
-- Provide the flexibility to tag multiple contracts based on the configured criteria with dynamic tagging.
-
-## About the Contract Tags Page
-
-On the Contract Tags page (Applications> Application Settings > Tag Management > Contract Tags), you can do the following:
-
-1. [Add a new tag category](https://help.zscaler.com/business-insights/adding-contract-tags).
-2. View a list of configured tag categories. For each category, you can view:
-  - **Tag Category**: The name of the category.
-  - **Tags**: The tags added to the category.
-  - **Contracts**: The number of contracts linked to the tag category. Click the number to be redirected to the [Contracts](https://help.zscaler.com/business-insights/about-contracts) page to view offices linked to the tag category.
-  - **Type**: The type of tagging (i.e., **Dynamic** or **Manual**).
-3. [Modify the table columns](https://help.zscaler.com/business-insights/using-tables-business-insights).
-4. [Edit a tag category](https://help.zscaler.com/business-insights/editing-or-deleting-items-business-insights).
-5. [Delete a tag category](https://help.zscaler.com/business-insights/editing-or-deleting-items-business-insights).
-
-[Image: The Contract Tags Page showing Tag Categories and CreateTag Category Option]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/business-insights/about-contracts","lastmod":"2026-09-08T09:00Z","nid":"1506071"} -->
-## About All Contracts
-
-- Source: https://help.zscaler.com/business-insights/about-contracts
-- Product: Business Insights
-- Path: Business Insights Help > Application Insights > About All Contracts
-- Last modified: 2026-09-08T09:00Z
-- Summary: Information about contracts in the Business Insights Admin Portal.
-
-When an organization establishes a contract with vendors to subscribe to SaaS applications, you can upload that contract to the Business Insights Admin Portal. This assists in analyzing the contract for metadata such as the licensing models (i.e., per user, per GB of data, feature based, or an amalgamation of the preceding models), contract end, renewal date, etc. You can visualize each application's annual contract value (ACV) and total contract value (TCV) along with the overall ACV and TCV values from your entire SaaS application subscriptions. The All Contracts page gathers the contract insights in graphs and tables to provide a better SaaS spending overview. This equips you with the necessary insights to take informed actions for maintaining efficient SaaS spending.
-
-To facilitate accurate contract insights, the Business Insights service recommends uploading all your SaaS application contracts. To learn more, see [Uploading Application Contracts](https://help.zscaler.com/business-insights/uploading-application-contracts). You can upload the latest contracts when they are renewed or modified.
-
-Contracts provide the following benefits and enable you to:
-
-- Search and view a list of application contracts set up by application vendors.
-- Track various upcoming deadlines for the contracts.
-- View different licensing models for contracts in one table.
-- View the ACV and TCV graph trends accumulated for the application contracts.
-
-## About the All Contracts Page
-
-On the All Contracts page (Workplace > Applications > All Contracts), you can do the following:
-
-1. [Upload and process contracts](https://help.zscaler.com/business-insights/uploading-application-contracts).
-2. Filter the insights on the page by each column field available in the table at the bottom. Click the **Add** icon to show or hide the filter options. Use the filter-based range icons for precise data filtration (i.e., greater than, less than, between, ends with, equal to, not equal to).
-3. View the **Contract Value** graph showing the ACV and TCV for your overall SaaS application spending. Select the **Annual Contract Value (ACV)** or **Total Contract Value (TCV)**checkbox at the bottom of the graph to view the graph for one or both values.
-4. Export the data to a CSV file.
-5. Search for an application in the table.
-6. View a list of SaaS application contracts for your organization.
-  - View elements for each contract.
-7. [Modify the column menu](https://help.zscaler.com/business-insights/using-tables-business-insights).
-8. [View or edit contract details](https://help.zscaler.com/business-insights/viewing-contract-details).
-
-[Image: Contracts Page showing the contracts and upload option]
-
-- **Contract Name**: The name of the contract. This is auto-generated by the Business Insights service.
-- **Seller Name**: The name of the software value added reseller (SVAR) who sells the SaaS application service. This field can be the same as the **Vendor** field if the vendor is directly selling the subscription.
-- **Vendor**: The name of the vendor that built or created the SaaS application.
-- **Applications**: The name of the applications. One contract can consist of multiple application subscriptions.
-- **ACV**: The annual contract value for the applications' subscription.
-- **TCV**: The total contract value for the applications' subscription.
-- **Upcoming Deadline**: The upcoming contract related deadlines (i.e., contract end date, auto-renewal date).
-- **Engagement Indexes**: The [engagement indexes](https://help.zscaler.com/business-insights/understanding-business-insights-terminology) calculated from various data sources. For multiple applications, the engagement index is shown as a comma-separated list.
-- **End Date**: The contract end date.
-- **Tags**: The tags linked to the contract. Click the **Add**icon to link the contract to a manual tag, create a new tag category, or go to the [Contract Tags](https://help.zscaler.com/business-insights/about-contract-tags) page. See image.
-- **Auto-Renewal**: Whether auto-renewal is enabled for the contract. If enabled, the auto-renewal date is also displayed.
-- **Cancel By**: The deadline for canceling the contract.
-- **Renewal**: The renewal date for the contract.
-- **File**: The uploaded contract file. Click the **Download**icon to save the file to your system. The availability of the contract file depends on the Contract File Deletion settings on the [Contract Settings](https://help.zscaler.com/business-insights/contract-settings) page.
-- **Opt-Out Date**: The date when you can opt out of the contract before auto-renewal takes effect.
-- **Licenses**: The number of licenses available for the applications' subscription.
-- **Purchase Order**: The number of items for which the organization pays the subscription fees.
-- **Buyer Name**: The name of the person establishing the contract from your organization.
-- **Buyer Email**: The email address of the buyer.
-- **Seller Email**: The email address of the seller.
-- **Date Added**: The date when the contract was established.
-- **Uploaded By**: The name and email of the person that uploaded the contract file.
-- **Status**: The status of the contract (i.e., **Active**, **Expired**, or **Pending**). Pending status indicates that the subscription has not yet started, but the contract is already established.
-
-[Image: Tags Column in the All Contracts Page]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/business-insights/about-data-explorer-reports","lastmod":"2025-10-25T07:06Z","nid":"1532022"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/about-data-explorer-reports","lastmod":"2026-10-08T22:40Z","nid":"1543364"} -->
 ## About Data Explorer Reports
 
 - Source: https://help.zscaler.com/business-insights/about-data-explorer-reports
 - Product: Business Insights
 - Path: Business Insights Help > Analytics > About Data Explorer Reports
-- Last modified: 2025-10-25T07:06Z
-- Summary: Information on Data Explorer reports in the Business Insights Admin Portal.
+- Last modified: 2026-10-08T22:40Z
+- Summary: Information on Data Explorer reports in Business Insights.
 
 You can schedule Data Explorer reports for your customized views on the Data Explorer page. To schedule a Data Explorer report, see [Scheduling Data Explorer Reports](https://help.zscaler.com/business-insights/scheduling-data-explorer-reports).
 
@@ -8113,65 +7849,33 @@ Data Explorer reports provide the following benefits and enable you to:
 
 ## About the Data Explorer Reports Page
 
-On the Data Explorer Reports page (Analytics > Reports > Data Explorer Reports), you can do the following:
+On the Data Explorer Reports page (Analytics > Business Insights > Analytics > Data Explorer), you can do the following:
 
 1. Search for a scheduled report by its name.
-2. View a list of all configured scheduled reports. For each report, you can view:
+2. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+3. View a list of all configured scheduled reports. For each report, you can view:
   - **Name:** The name of the scheduled report.
   - **Summary:** A brief summary of the report. This is autogenerated based on the scheduled report.
-  - **Scheduled**: Indicates whether the report is active or not.
   - **Next Run**: The date when the next report is scheduled to be generated.
+  - **Scheduled**: Indicates whether the report is active or not.
   - **Last Updated**: The date when the scheduled report was last modified.
   - **Last Updated By**: The email address of the user who last modified the scheduled report.
-3. [Modify the table and its columns](https://help.zscaler.com/business-insights/using-tables-business-insights).
-4. [Edit a scheduled report](https://help.zscaler.com/business-insights/editing-or-deleting-items-business-insights).
+4. Edit a scheduled report.
 5. Download a report.
-6. [Delete a scheduled report](https://help.zscaler.com/business-insights/editing-or-deleting-items-business-insights).
+6. Delete a scheduled report.
 
 [Image: The Data Explorer Reports page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/about-department-mapping","lastmod":"2024-12-09T06:06Z","nid":"1507966"} -->
-## About Department Mapping
-
-- Source: https://help.zscaler.com/business-insights/about-department-mapping
-- Product: Business Insights
-- Path: Business Insights Help > Workplace Insights > Workplace Settings > About Department Mapping
-- Last modified: 2024-12-09T06:06Z
-- Summary: Information about Department Mapping in the Business Insights Admin Portal.
-
-Department Mapping is used to categorize multiple organizational departments under a division to view metrics for the division. For example, if you have three departments in your organization that belong or relate to a division called Marketing, you can map these departments and view metrics specifically for the Marketing division in Workplace Insights.
-
-Department Mapping provides the following benefits and enables you to:
-
-- Map departments to a division based on your requirements.
-- View workplace metrics based on divisions.
-
-## About Department Mapping
-
-On the Department Mapping page (Workplace > Workplace Settings > Department Mapping), you can do the following:
-
-1. [Map a department](https://help.zscaler.com/business-insights/mapping-departments). If you've added at least one mapping, the **Add Departments** option changes to **Edit Mapping**. Click **Edit Mapping** to map more departments.
-2. View a list of mapped departments. For each mapping, you can view:
-  - **Division**: The name of the division.
-  - **Departments**: The departments that are mapped to the division.
-  - **Number of Departments**: The number of departments mapped to the division.
-  - **Employees**: The number of employees mapped to the division.
-
-[Image: Mapping Departments Page]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/business-insights/about-departments","lastmod":"2025-09-04T13:28Z","nid":"1508376"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/about-departments","lastmod":"2026-10-07T21:50Z","nid":"1543345"} -->
 ## About Departments
 
 - Source: https://help.zscaler.com/business-insights/about-departments
 - Product: Business Insights
-- Path: Business Insights Help > Authentication & Administration > About Departments
-- Last modified: 2025-09-04T13:28Z
+- Path: About Departments
+- Last modified: 2026-10-07T21:50Z
 - Summary: About the user's department in the Business Insights Admin Portal.
 
 The Departments page shows the users' department data synced from your Zscaler Internet Access (ZIA) tenant. Any department configuration or changes that you make on the [User Management](https://help.zscaler.com/zia/authentication-administration/provisioning-authenticating-users/user-management) pages in the ZIA Admin Portal are synced to this page.
@@ -8197,20 +7901,20 @@ On the Departments page (Administration > ZIA Users > Departments), you can do t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/about-discovered-locations","lastmod":"2025-04-01T22:17Z","nid":"1486496"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/about-discovered-locations","lastmod":"2026-10-08T22:27Z","nid":"1543318"} -->
 ## About Discovered Locations
 
 - Source: https://help.zscaler.com/business-insights/about-discovered-locations
 - Product: Business Insights
 - Path: Business Insights Help > Workplace Insights > About Discovered Locations
-- Last modified: 2025-04-01T22:17Z
-- Summary: Information about the Discovered Locations page in the Business Insights Admin Portal.
+- Last modified: 2026-10-08T22:27Z
+- Summary: Information about the Discovered Locations page for Business Insights.
 
-The Discovered Locations page provides data for ZIA locations and inferred IP addresses. [Zscaler Internet Access (ZIA) locations](https://help.zscaler.com/zia/about-locations) are configured in the ZIA Admin Portal (a ZIA location can also consist of sub-locations) and inferred IP addresses that the Business Insights service concludes as the organization's workplace based on the amount of traffic, the number of users behind the IP address, and more assuring metrics.
+The Discovered Locations page provides data for [Internet & SaaS (ZIA) locations](https://help.zscaler.com/zia/about-locations) locations and inferred IP addresses. Inferred IP addresses that the Business Insights service concludes as the organization's workplace based on the amount of traffic, the number of users behind the IP address, and more assuring metrics.
 
 The Discovered Locations page provides the following benefits and enables you to:
 
-- View metrics for all your ZIA locations and inferred IP addresses.
+- View metrics for all your Internet & SaaS locations and inferred IP addresses.
 - Manage your workplace more effectively by mapping the discovered locations to offices.
 - View the data from multiple perspectives, such as maps, charts, tables, etc. to effectively make business-critical decisions.
 
@@ -8220,19 +7924,16 @@ You can view the metrics on this page as a list, chart, or map. This article sho
 
 On the Discovered Locations page (Workplace > Offices and Locations > Discovered Locations), you can do the following:
 
-1. View the metrics on this page as a **List**, **Map**, or **Chart**.
-2. Download the data on the page as a CSV file.
-3. Filter the data of the entire page for the last 7 days, a week, a month, or 3 months, then choose the week, month, or 3 months from the right pane. The data aggregation for the custom week, month, or quarter might take some time to process.
-4. Filter the insights by **Type**and **Geolocation**, **Days**, **Departments**or **Division**, or **User Types**. A workplace with an undefined city, state, or country is categorized as an Unknown City, State, or Country, respectively. Click **Reset Filters**to remove any applied filters. Selecting **User Types** doesn't filter the data unless you have defined user types for your organization in Business Insights. To enable and use this feature, contact Zscaler Support.
-5. Search for a workplace.
-6. [Configure an office](https://help.zscaler.com/business-insights/configuring-office).
-7. Select multiple offices for bulk operation (e.g., mapping to office).
-8. View a list of discovered locations for your organization.
+1. [Configure an office](https://help.zscaler.com/business-insights/configuring-office).
+2. Filter the data of the entire page for the last 7 days, a week, a month, or 3 months, then choose the week, month, or 3 months from the right pane. The data aggregation for the custom week, month, or quarter might take some time to process.
+3. Filter the insights by **Geolocation**, **Days**, or **User Types**. A workplace with an undefined city, state, or country is categorized as an Unknown City, State, or Country, respectively. Click **Clear**to remove any applied filters. Selecting **User Types** doesn't filter the data unless you have defined user types for your organization in Business Insights. To enable and use this feature, contact Zscaler Support.
+4. View the metrics on this page as a **List**, **Map**, or **Chart**. To understand the data in a map or chart, see [Viewing Offices and Locations in a Map](https://help.zscaler.com/business-insights/viewing-offices-and-locations-map) and [Viewing Offices and Locations in a Chart](https://help.zscaler.com/business-insights/viewing-offices-and-locations-chart).
+5. [Modify the column menu](https://help.zscaler.com/unified/using-tables).
+6. View a list of discovered locations for your organization.
   - View elements for each discovered location.
-9. [Modify the column menu](https://help.zscaler.com/business-insights/using-tables-business-insights).
-10. [Configure a new office for this location](https://help.zscaler.com/business-insights/configuring-office).
-11. Ignore the location from analytics.
-12. Go to the [Offices](https://help.zscaler.com/business-insights/about-offices) page to view and manage configured offices.
+7. [Configure a new office for this location](https://help.zscaler.com/business-insights/configuring-office).
+8. Delete the location.
+9. Go to the [Offices](https://help.zscaler.com/business-insights/about-offices) page to view and manage configured offices.
 
 [Image: The Offices and Locations Page]
 
@@ -8240,7 +7941,7 @@ To understand the terms used in Business Insights, see [Understanding Business I
 
 - **Name**: The name of the workplace. Click on the workplace name to view workplace-specific metrics. To learn more, see [Analyzing a Workplace](https://help.zscaler.com/business-insights/analyzing-workplace). If you don't see data for the workplace, hover over the **Error** icon () next to the workplace name to see the reason (e.g., the office is not configured correctly, metadata is not added, the office was configured less than 24 hours ago, etc.) for troubleshooting purposes.
 - **IP Addresses**: The IP addresses associated with the workplace.
-- **City**: The city where the workplace is located. The city is mapped from the ZIA location configuration from the ZIA Admin Portal for ZIA location-based workplaces. If the value is not specified, Zscaler relies on the MaxMind lookup to locate the city's IP address. For configured offices, this is mapped from the city value specified when configuring offices.
+- **City**: The city where the workplace is located. The city is mapped from the Internet & SaaS location configuration fInternet & SaaS location-based workplaces. If the value is not specified, Zscaler relies on the MaxMind lookup to locate the city's IP address. For configured offices, this is mapped from the city value specified when configuring offices.
 - **State**: The state in which the workplace is located.
 - **Country**: The country in which the workplace is located.
 - **Attendance**: The attendance percentage for the workplace for the filtered timeframe. This is calculated by dividing the total number of visits to the workplace by the total number of possible assigned headcount for the workplace, then multiplying it by 100. This value is estimated for inferred locations.
@@ -8252,14 +7953,14 @@ To understand the terms used in Business Insights, see [Understanding Business I
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/about-exclusion-list","lastmod":"2025-09-05T01:24Z","nid":"1487631"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/about-exclusion-list","lastmod":"2026-10-08T22:40Z","nid":"1543321"} -->
 ## About the Exclusion List
 
 - Source: https://help.zscaler.com/business-insights/about-exclusion-list
 - Product: Business Insights
 - Path: Business Insights Help > Analytics > About the Exclusion List
-- Last modified: 2025-09-05T01:24Z
-- Summary: Information about the Exclusion List and how it's used in scheduling reports in the Business Insights Admin Portal
+- Last modified: 2026-10-08T22:40Z
+- Summary: Information about the Exclusion List and how it's used in scheduling reports in Business Insights.
 
 An exclusion is a set of criteria that can be used to exclude users and departments for applications' activity or inactivity data from a scheduled report. You can add multiple exclusions, however you can only enable up to 8 exclusions at any time. If you choose to apply the exclusion list when scheduling a report, the report excludes the users and departments using all the enabled exclusions. The enabled exclusions must also match the applications configured in the scheduled reports for the exclusion to be associated with the reports.
 
@@ -8272,7 +7973,7 @@ The Exclusion List provides the following benefits and enables you to:
 
 ## About the Exclusion List
 
-In the Exclusion List drawer (Analytics > Reports > Application Reports > Exclusion List), you can do the following:
+In the Exclusion List drawer (Analytics > Business Insights > Analytics > Reports > Application Reports > Exclusion List), you can do the following:
 
 1. [Add an exclusion](https://help.zscaler.com/business-insights/adding-exclusion).
 2. View the exclusion list. For each exclusion, you can view:
@@ -8280,21 +7981,20 @@ In the Exclusion List drawer (Analytics > Reports > Application Reports > Exclus
   - **Departments**: The departments selected for exclusion from reports.
   - **Applications**: The application selected for exclusion from reports. Enabled exclusions are associated with only those scheduled reports where the applications configured in both the scheduled report and the exclusion match.
   - **Reports**: The number of reports the exclusion is associated with.
-3. [Modify the table and its columns](https://help.zscaler.com/business-insights/using-tables-business-insights).
-4. [Enable or disable an exclusion](https://help.zscaler.com/business-insights/enabling-or-disabling-exclusions). This affects subsequent scheduled report generation where the exclusion list is applied.
-5. [Edit an exclusion](https://help.zscaler.com/business-insights/editing-or-deleting-items-business-insights).
-6. [Delete an exclusion](https://help.zscaler.com/business-insights/editing-or-deleting-items-business-insights).
+3. [Enable or disable an exclusion](https://help.zscaler.com/business-insights/enabling-or-disabling-exclusions). This affects subsequent scheduled report generation where the exclusion list is applied.
+4. Edit an exclusion.
+5. Delete an exclusion.
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/about-locations-business-insights","lastmod":"2024-12-09T06:06Z","nid":"1506226"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/about-locations-business-insights","lastmod":"2026-10-07T21:50Z","nid":"1543337"} -->
 ## About Locations
 
 - Source: https://help.zscaler.com/business-insights/about-locations-business-insights
 - Product: Business Insights
-- Path: Business Insights Help > Authentication & Administration > About Locations
-- Last modified: 2024-12-09T06:06Z
+- Path: About Locations
+- Last modified: 2026-10-07T21:50Z
 - Summary: Information about locations synced from the ZIA Admin Portal in the Business Insights Admin Portal.
 
 You can view the locations synced from the ZIA Admin Portal on the ZIA Locations page in the Business Insights Admin Portal.
@@ -8321,45 +8021,42 @@ On the Locations page (Administration > ZIA Locations), you can do the following
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/about-offices","lastmod":"2025-04-01T00:35Z","nid":"1479216"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/about-offices","lastmod":"2026-10-08T22:30Z","nid":"1543313"} -->
 ## About Offices
 
 - Source: https://help.zscaler.com/business-insights/about-offices
 - Product: Business Insights
 - Path: Business Insights Help > Workplace Insights > Workplace Settings > About Offices
-- Last modified: 2025-04-01T00:35Z
+- Last modified: 2026-10-08T22:30Z
 - Summary: Information about the configured offices for business insights computation.
 
 The Offices page shows the list of offices that you've configured for your organization.
 
 The Offices page provides the following benefits and enables you to:
 
-- Consolidate various [Zscaler Internet Access (ZIA) locations](https://help.zscaler.com/zia/about-locations), inferred office IP addresses, and new IP addresses under their corresponding office locations to view accurate office-specific metrics.
+- Consolidate various [Internet & SaaS (ZIA) locations](https://help.zscaler.com/zia/about-locations), inferred office IP addresses, and new IP addresses under their corresponding office locations to view accurate office-specific metrics.
 - View all your configured offices for your organization.
 - View various workplace metrics for each configured office.
 - Manage and update office metadata to always generate accurate metrics.
 
 You can view the metrics on this page as a List, Chart, or Map. This article shows the data displayed in the listed form. To understand the data in a map or chart, see [Viewing Offices and Locations in a Map](https://help.zscaler.com/business-insights/viewing-offices-and-locations-map) and [Viewing Offices and Locations in a Chart](https://help.zscaler.com/business-insights/viewing-offices-and-locations-chart).
 
-An admin account with read-only access to the Business Insights Admin Portal can only view the offices and use the **View** icon to view office configuration details.
+An admin account with read-only access to Business Insights can only view the offices and use the **View** icon to view office configuration details.
 
 ## About the Offices Page
 
 On the Offices page (Workplace > Offices and Locations > Offices), you can do the following:
 
-1. View the metrics on this page as a **List**, **Map**, or **Chart**.
-2. Download the data on the page as a CSV file.
-3. Filter the data of the entire page for the last 7 days, a week, a month, or 3 months, then choose the week, month, or 3 months from the right pane. The data aggregation for the custom week, month, or quarter might take some time to process.
-4. Filter the insights by **Geolocation**, **Days**, **Departments**or **Division**, **User Types**, or **Tags**. A workplace with an undefined city, state, and country is categorized as Unknown City, State, or Country, respectively. Click **Reset Filters**to remove any applied filters. Selecting **User Types** doesn't filter the data unless you have defined user types for your organization in Business Insights. To enable and use this feature, contact Zscaler Support.
-5. Search the data in the table by the office name, site ID, or location.
-6. [Configure an office](https://help.zscaler.com/business-insights/configuring-office).
-7. Select multiple offices for bulk operation (e.g., tagging).
-8. View a list of configured offices in your organization.
+1. [Configure an office](https://help.zscaler.com/business-insights/configuring-office).
+2. Filter the data of the entire page for the last 7 days, a week, a month, or 3 months, then choose the week, month, or 3 months from the right pane. The data aggregation for the custom week, month, or quarter might take some time to process.
+3. Filter the insights by **Geolocation**, **Days**, or **User Types**. A workplace with an undefined city, state, and country is categorized as Unknown City, State, or Country, respectively. Click **Clear**to remove any applied filters. Selecting **User Types** doesn't filter the data unless you have defined user types for your organization in Business Insights. To enable and use this feature, contact Zscaler Support.
+4. View the metrics on this page as a **List**, **Map**, or **Chart**.
+5. [Modify the column menu](https://help.zscaler.com/unified/using-tables).
+6. View a list of configured offices in your organization.
   - View elements for each configured office.
-9. [Modify the column menu](https://help.zscaler.com/business-insights/using-tables-business-insights).
-10. Edit a configured office.
-11. Link the office to a manual tag, create a new tag category, or go to the [Tag Management](https://help.zscaler.com/business-insights/about-tags) page. See image.
-12. Go to the [Discovered Locations](https://help.zscaler.com/business-insights/about-discovered-locations) page to view discovered office network locations.
+7. Edit a configured office.
+8. Delete a configured office
+9. Go to the [Discovered Locations](https://help.zscaler.com/business-insights/about-discovered-locations) page to view discovered office network locations.
 
 [Image: Configured Offices Page]
 
@@ -8369,11 +8066,9 @@ On the Offices page (Workplace > Offices and Locations > Offices), you can do th
 - **Country**: The country where the office is located.
 - **Attendance**: The attendance at the workplace for the filtered timeframe.
 - **Occupancy**: The occupancy of the workplace for the filtered timeframe.
-- **Visits Per Day**: The average number of unique visits each day at the workplace.
-- **Tags**: The tags linked to the office. To learn more, see [About Tag Management](https://help.zscaler.com/business-insights/about-tag-management).
+- **Visits per Day**: The average number of unique visits each day at the workplace.
 - **Building ID**: The unique building ID assigned to the office building.
 - **Site ID**: The ID assigned to the office.
-- **Location**: The number of ZIA locations and sublocations assigned to the office. Click the arrow to view all the locations.
 - **IP Addresses**: The number of IP addresses linked to the office. Click the arrow to view all the IP addresses.
 - **Capacity**: The number of employees the office can accommodate.
 - **Assigned Headcount**: The number of users assigned to the office.
@@ -8386,19 +8081,19 @@ On the Offices page (Workplace > Offices and Locations > Offices), you can do th
 - **Notes**: Any notes for the office.
 - **Occupancy Goal**: The occupancy goal in percentage for the office. For example, if the occupancy goal is set to 60, the office is expected to be occupied by at least 60% of its assigned users.
 - **Attendance Goal**: The attendance goal in percentage for the office (i.e., 20, 40, 60, 80, or 100 for 1, 2, 3, 4, or 5 days per week, respectively). For example, if the attendance goal is set to 40, the users assigned to the office are expected to come into the office at least 2 days per week.
-
-[Image: Tag Drop-Down Menu in Configured Offices Page]
+- **BSSIDs**: The BSSIDs associated with the office.
+- **Office Mappings**: The offices mapped to this office.
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/about-offices-0","lastmod":"2025-06-30T01:08Z","nid":"1530650"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/about-offices-0","lastmod":"2026-10-07T21:50Z","nid":"1543362"} -->
 ## About Offices
 
 - Source: https://help.zscaler.com/business-insights/about-offices-0
 - Product: Business Insights
 - Path: Tech Pubs Drafts > Business Insights Draft Articles > About Offices
-- Last modified: 2025-06-30T01:08Z
+- Last modified: 2026-10-07T21:50Z
 - Summary: Information about the configured offices for business insights computation.
 
 The Offices page shows the list of offices that you've configured for your organization.
@@ -8459,50 +8154,6 @@ On the Offices page (Workplace > Offices and Locations > Offices), you can do th
 - **Attendance Goal**: The attendance goal in percentage for the office (i.e., 20, 40, 60, 80, or 100 for 1, 2, 3, 4, or 5 days per week, respectively). For example, if the attendance goal is set to 40, the users assigned to the office are expected to come into the office at least 2 days per week.
 
 [Image: Tag Drop-Down Menu in Configured Offices Page]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/business-insights/about-processing-queue","lastmod":"2025-06-12T23:54Z","nid":"1506896"} -->
-## About the Processing Queue
-
-- Source: https://help.zscaler.com/business-insights/about-processing-queue
-- Product: Business Insights
-- Path: Business Insights Help > Application Insights > About the Processing Queue
-- Last modified: 2025-06-12T23:54Z
-- Summary: Information on the Processing Queue page in the Business Insights Admin Portal.
-
-The Processing Queue page provides status information for uploaded contract files that are processed for metadata. Successfully processed contracts are moved to the [All Contracts](https://help.zscaler.com/business-insights/about-contracts) page.
-
-The Processing Queue page provides the following benefits and enables you to:
-
-- Track the status of the uploaded contract files.
-- Stay informed about the action required to fix errors encountered during parsing the files.
-
-## About the Processing Queue Page
-
-On the Processing Queue page (Applications > All Contracts > Processing Queue), you can do the following:
-
-1. [Upload contracts](https://help.zscaler.com/business-insights/uploading-application-contracts).
-2. Filter contracts by **Status**, **Date Added**, **Uploaded By**, **Vendor**, or **Applications**. Click the **Add** icon to show or hide the filter options.
-3. Export the data to a CSV file.
-4. Search for a contract in the table.
-5. View a list of uploaded contracts.
-  - View elements for each uploaded file
-6. [Modify the column menu](https://help.zscaler.com/business-insights/using-tables-business-insights).
-7. [Edit a contract](https://help.zscaler.com/business-insights/managing-queued-contracts). Use this option to fix any errors or warnings encountered during the processing of a contract file.
-8. Download the contract file. Only AI processed contracts are available for download.
-9. Delete an uploaded contract file. [Image: The Processing Queue Page]
-
-- **File**: The name of the file.
-- **Date Added**: The date when the file was uploaded.
-- **Uploaded By**: The name and email address of the person that uploaded the contract file.
-- **Vendor**: The name of the contract vendor.
-- **Applications**: The name of the applications that are part of the contract.
-- **Processing Status**: The status of the uploaded contract file:
-  - **In** **Progress**: The data is currently being processed from the contract file.
-  - **Error**: The Business Insights service encountered an error while processing the data in the file. Click the **Edit** icon for the contract to view the error and fix it.
-  - **Warning**: The warning status indicates that the contract is not mapped to an application. Click the **Edit** icon for the contract to fix it.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -8545,13 +8196,13 @@ On the Role Management page (Administration > Role Management), you can do the f
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/about-saas-application-tenants","lastmod":"2024-11-13T05:33Z","nid":"1499936"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/about-saas-application-tenants","lastmod":"2026-10-07T21:50Z","nid":"1543330"} -->
 ## About SaaS Application Tenants
 
 - Source: https://help.zscaler.com/business-insights/about-saas-application-tenants
 - Product: Business Insights
-- Path: Business Insights Help > Authentication & Administration > Workflow Automation Integration > About SaaS Application Tenants
-- Last modified: 2024-11-13T05:33Z
+- Path: About SaaS Application Tenants
+- Last modified: 2026-10-07T21:50Z
 - Summary: Information on SaaS application tenants for Workflow Automation integration.
 
 The integration of SaaS applications with Workflow Automation for the Business Insights service helps to align your organization's workflows. For example, you can integrate a ServiceNow tenant to create, manage, and track tickets for inactive users observed via [scheduled reports](https://help.zscaler.com/business-insights/about-scheduled-reports).. <ul style="list-style-type: disc;"> <li> Set up a <a href="/zia/configuring-microsoft-azure-virtual-wan-integration" target="_blank">Microsoft Azure Virtual WAN integration</a> to forward traffic to the Zscaler service </li> </ul> <p class="rteindent1"> Azure Virtual WAN (VWAN) is a networking service that provides optimized and automated branch connectivity to, and through, Azure. Azure regions serve as hubs that you can connect your branches to. To learn more, see the <a class="url-external" href="https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-about" target="_blank">Microsoft Azure VWAN documentation</a>. </p> <p class="rteindent1"> Zscaler's integration leverages Microsoft's Azure VWAN APIs to discover and configure Azure hubs. The integration provides a one-click configuration to create outbound IPSec tunnels from Azure hubs to Zscaler data centers. This allows you to secure internet bound traffic from virtual networks (VNets) and branch offices without needing to set up any security appliances or use virtualized alternatives on Azure internet-as-a-service (IaaS) platforms. </p>
@@ -8596,14 +8247,14 @@ On the SaaS Application Tenants page (Administration > Workflow Integration), yo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/about-workplace-reports","lastmod":"2025-09-05T01:22Z","nid":"1517826"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/about-workplace-reports","lastmod":"2026-10-08T22:41Z","nid":"1543350"} -->
 ## About Workplace Reports
 
 - Source: https://help.zscaler.com/business-insights/about-workplace-reports
 - Product: Business Insights
 - Path: Business Insights Help > Analytics > About Workplace Reports
-- Last modified: 2025-09-05T01:22Z
-- Summary: Information on the Workplace Reports page in the Business Insights Admin Portal.
+- Last modified: 2026-10-08T22:41Z
+- Summary: Information on the Workplace Reports page in Business Insights.
 
 You can schedule attendance reports for your users or workplaces for regular distribution to specified recipients. For example, you can schedule the monthly attendance report of your IT department in San Jose. The scheduled reports are emailed as links to the recipients.
 
@@ -8614,69 +8265,32 @@ Workplace reports provide the following benefits and enable you to:
 
 ## About the Workplace Reports Page
 
-On the Workplace Reports page (Analytics > Reports > Workplace Reports), you can do the following:
+On the Workplace Reports page (Analytics > Business Insights > Analytics > Reports > Workplace Reports), you can do the following:
 
-1. [Add a scheduled report](https://help.zscaler.com/business-insights/scheduling-workplace-reports).
-2. View a list of all configured scheduled reports. For each report, you can view:
-  - **Report Name:** The name of the scheduled report.
+1. Search for a report.
+2. [Add a scheduled report](https://help.zscaler.com/unified/1.0/scheduling-workplace-reports).
+3. [Modify the table and its columns](https://help.zscaler.com/unified/1.0/using-tables).
+4. View a list of all configured scheduled reports. For each report, you can view:
+  - **Name:** The name of the scheduled report.
   - **Summary:** A brief summary of the report. This is autogenerated based on the scheduled report.
   - **Next Run**: The date when the next report is scheduled to be generated.
-3. [Modify the table and its columns](https://help.zscaler.com/business-insights/using-tables-business-insights).
-4. [Enable or disable the scheduled report](https://help.zscaler.com/business-insights/enabling-or-disabling-scheduled-reports).
-5. [Edit a scheduled report](https://help.zscaler.com/business-insights/editing-or-deleting-items-business-insights).
-6. Download the report.
-7. [Delete a scheduled report](https://help.zscaler.com/business-insights/editing-or-deleting-items-business-insights).
+5. [Enable or disable the scheduled report](https://help.zscaler.com/unified/1.0/enabling-or-disabling-scheduled-reports).
+6. Edit a scheduled report.
+7. Download the report.
+8. Delete a scheduled report.
 
 [Image: The Workplace Reports page showing the list of scheduled reports]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/about-workplace-tags","lastmod":"2025-06-12T23:41Z","nid":"1510601"} -->
-## About Workplace Tags
-
-- Source: https://help.zscaler.com/business-insights/about-workplace-tags
-- Product: Business Insights
-- Path: Business Insights Help > Workplace Insights > Workplace Settings > About Workplace Tags
-- Last modified: 2025-06-12T23:41Z
-- Summary: Information on workplace tags and how to use them in the Business Insights Admin Portal.
-
-The Workplace Tags feature can be used for linking workplaces to user-defined tags. These tags are then leveraged as a filtering option in viewing workplace insights. Admins can create tag categories as necessary and add multiple tags to them. You can add a maximum of 8 tag categories, and each category can consist of 8 tags. For example, you can create a tag category called Region and add tags that indicate the region of the workplace, like Europe, America, Asia, etc. This helps to filter workplace insights for specific regions when required in the Business Insights Admin Portal.
-
-You can choose to tag workplaces using dynamic or manual tagging. With dynamic tagging, you can configure criteria based on which workplaces are automatically linked to a tag, or use manual tagging to individually select the workplaces that you want to link to a tag.
-
-Tags provide the following benefits and allow you to:
-
-- Link various tags to workplaces as per your organization's requirements.
-- Filter and view workplace insights based on user-defined tags.
-- Provide the flexibility to tag multiple workplaces based on the configured criteria with dynamic tagging.
-
-## About the Workplace Tags Page
-
-On the Tag Management page (Workplace > Workplace Settings > Tag Management), you can do the following:
-
-1. [Add a new tag category](https://help.zscaler.com/business-insights/adding-tag-category).
-2. View a list of configured tag categories. For each category, you can view:
-  - **Tag Category**: The name of the category.
-  - **Tags**: The tags added to the category.
-  - **Offices**: The number of workplaces linked to the tag category. Click the number to be redirected to the [Offices](https://help.zscaler.com/business-insights/about-configured-offices) page listing offices linked to the tag category.
-  - **Type**: The type of tagging (i.e., **Dynamic** or **Manual**).
-3. [Modify the table columns](https://help.zscaler.com/business-insights/using-tables-business-insights).
-4. [Edit a tag category](https://help.zscaler.com/business-insights/editing-or-deleting-items-business-insights).
-5. [Delete a tag category](https://help.zscaler.com/business-insights/editing-or-deleting-items-business-insights).
-
-[Image: The Tag Management Page showing Tag Categories and CreateTag Category Option]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/business-insights/about-zia-users","lastmod":"2024-12-09T06:06Z","nid":"1508371"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/about-zia-users","lastmod":"2026-10-07T21:50Z","nid":"1543344"} -->
 ## About ZIA Users
 
 - Source: https://help.zscaler.com/business-insights/about-zia-users
 - Product: Business Insights
-- Path: Business Insights Help > Authentication & Administration > About ZIA Users
-- Last modified: 2024-12-09T06:06Z
+- Path: About ZIA Users
+- Last modified: 2026-10-07T21:50Z
 - Summary: About ZIA users in the Business Insights Admin Portal.
 
 The ZIA Users page show the user data synced from your Zscaler Internet Access (ZIA) tenant. Any user configuration or changes that you make on the [User Management](https://help.zscaler.com/zia/authentication-administration/provisioning-authenticating-users/user-management) pages in the ZIA Admin Portal are synced to this page.
@@ -8706,13 +8320,13 @@ On the ZIA Users page (Administration > ZIA Users > ZIA Users), you can do the f
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/accessing-and-navigating-business-insights-admin-portal","lastmod":"2025-02-07T06:36Z","nid":"1473091"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/accessing-and-navigating-business-insights-admin-portal","lastmod":"2026-10-07T21:50Z","nid":"1543288"} -->
 ## Accessing and Navigating the Business Insights Admin Portal
 
 - Source: https://help.zscaler.com/business-insights/accessing-and-navigating-business-insights-admin-portal
 - Product: Business Insights
-- Path: Business Insights Help > Getting Started > Admin Portal > Accessing and Navigating the Business Insights Admin Portal
-- Last modified: 2025-02-07T06:36Z
+- Path: Accessing and Navigating the Business Insights Admin Portal
+- Last modified: 2026-10-07T21:50Z
 - Summary: Information on the Business Insights Admin Portal, including how to sign in to and navigate the portal.
 
 This article covers the following topics:
@@ -8876,13 +8490,13 @@ If your account is configured with MFA, you can sign in using an email OTP:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/adding-admin-roles-business-insights","lastmod":"2025-02-13T22:58Z","nid":"1473166"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/adding-admin-roles-business-insights","lastmod":"2026-10-07T21:50Z","nid":"1543303"} -->
 ## Adding Admin Roles in Business Insights
 
 - Source: https://help.zscaler.com/business-insights/adding-admin-roles-business-insights
 - Product: Business Insights
-- Path: Business Insights Help > Authentication & Administration > Administrator and Role Management > Adding Admin Roles in Business Insights
-- Last modified: 2025-02-13T22:58Z
+- Path: Adding Admin Roles in Business Insights
+- Last modified: 2026-10-07T21:50Z
 - Summary: How to add administrator roles in the Business Insights Admin Portal.
 
 Roles dictate the level of access admins have to a feature or module in the Business Insights Admin Portal. Configuring the Business Insights admin role is one of the tasks you must complete when configuring role-based administration. To learn more, see [Configuring Role-Based Administration](https://help.zscaler.com/business-insights/configuring-role-based-administration-business-insights).
@@ -8941,13 +8555,13 @@ The **Data Visibility**permission allows you to view or obfuscate the usernames 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/adding-admins-business-insights","lastmod":"2025-01-10T05:17Z","nid":"1473176"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/adding-admins-business-insights","lastmod":"2026-10-07T21:50Z","nid":"1543305"} -->
 ## Adding Admins in Business Insights
 
 - Source: https://help.zscaler.com/business-insights/adding-admins-business-insights
 - Product: Business Insights
-- Path: Business Insights Help > Authentication & Administration > Administrator and Role Management > Adding Admins in Business Insights
-- Last modified: 2025-01-10T05:17Z
+- Path: Adding Admins in Business Insights
+- Last modified: 2026-10-07T21:50Z
 - Summary: Information on how to add administrators in the Business Insights Admin Portal.
 
 This article describes how to add admins for the Business Insights Admin Portal.
@@ -8983,118 +8597,20 @@ You can [edit or delete](https://help.zscaler.com/business-insights/editing-or-d
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/adding-application-tags","lastmod":"2025-07-27T07:06Z","nid":"1526436"} -->
-## Adding Application Tags
-
-- Source: https://help.zscaler.com/business-insights/adding-application-tags
-- Product: Business Insights
-- Path: Business Insights Help > Application Insights > Application Settings > Adding Application Tags
-- Last modified: 2025-07-27T07:06Z
-- Summary: How to add tag categories and tags in the Business Insights Admin Portal.
-
-To use tags for applications, you must add tag categories and tags for each category. You can add a maximum of 8 tag categories, and each category can consist of 8 tags.
-
-To add a tag category and tags:
-
-1. Go to **Applications**>**Application Settings**>**Tag Management**>**Application Tags**.
-2. Click **Create Tag Category**. The **Create New Tag Category** drawer appears.
-3. In the **Create New Tag Category**drawer:
-  - **Name**: Enter a name for the tag category.
-  - **Color**: Select a color to represent the tag category.
-  - **Type**: Select **Manual**or **Dynamic**. Manual tagging is individual linking of applications to a tag. Dynamic tagging allows you to configure criteria-based automatic tagging of applications.
-    - Manual
-    - Dynamic
-4. Click **Save**. The tag category is successfully added. You can view the tag category and its tags on the [Application Tags](https://help.zscaler.com/business-insights/about-application-tags) page.
-
-- **Name**: Enter the tag name.
-- **Applications**: Select the applications that you want to link to this tag.
-- Click **Add Tag**to add more tags to the category. Note that only one tag in a category can be linked to an application. See image.
-
-- **Criteria**: Select one of the following criteria based on which the applications are automatically linked to a tag:
-  - Engagement Index
-  - Active Users
-  - ACV
-  - Growth Trend
-  - Capability
-  - Sanction Status
-- **Name**: Enter the tag name.
-- **Operator**: Select an operator to set the threshold to satisfy the criteria as greater than (**>**), greater than or equal to (**>=**), less than (**<**), less than or equal to (**<=**), equal to (**=**), **Is**, **Is not**, **Contains**, or **Not Contains**.
-- **Value**: Enter the value for the selected criteria.
-
-For example, the following GIF shows how to configure a dynamic tag category (Active Users 500) for linking applications that have less than 500 active users to the Low Users tag, and more than or equal to 500 active users to the High Users tag.
-
-See image.
-
-[Image: Dynamic Tags GIF]
-
-[Image: Manual Tag fields in the Add NewTag Category drawer]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/business-insights/adding-contract-tags","lastmod":"2025-07-27T07:06Z","nid":"1526441"} -->
-## Adding Contract Tags
-
-- Source: https://help.zscaler.com/business-insights/adding-contract-tags
-- Product: Business Insights
-- Path: Business Insights Help > Application Insights > Application Settings > Adding Contract Tags
-- Last modified: 2025-07-27T07:06Z
-- Summary: How to add tag categories and tags in the Business Insights Admin Portal.
-
-To use tags for contracts, you must add tag categories and tags for each category. You can add a maximum of 8 tag categories, and each category can consist of 8 tags.
-
-To add a tag category and tags:
-
-1. Go to **Applications**> **Application Settings**>**Tag Management**>**Contract Tags**.
-2. Click **Create Tag Category**. The **Create New Tag Category** drawer appears.
-3. In the **Create New Tag Category**drawer:
-  - **Name**: Enter a name for the tag category.
-  - **Color**: Select a color to represent the tag category.
-  - **Type**: Select **Manual**or **Dynamic**. Manual tagging is individual linking of contracts to a tag. Dynamic tagging allows you to configure criteria-based automatic tagging of contracts.
-    - Manual
-    - Dynamic
-4. Click **Save**. The tag category is successfully added. You can view the tag category and its tags on the [Contract Tags](https://help.zscaler.com/business-insights/about-contract-tags) page.
-
-- **Name**: Enter the tag name.
-- **Contracts**: Select the contracts that you want to link to this tag.
-- Click **Add Tag**to add more tags to the category. Note that only one tag in a category can be linked to a contract. See image.
-
-- **Criteria**: Select one of the following criteria based on which the contracts are dynamically linked to a tag:
-  - TCV
-  - ACV
-  - Seller Name
-  - Application
-  - Vendor
-  - License
-- **Name**: Enter the tag name.
-- **Operator**: Select an operator to set the threshold to satisfy the criteria as greater than (**>**), greater than or equal to (**>=**), less than (**<**), less than or equal to (**<=**), equal to (**=**), **Is**, **Is not**, **Contains**, or **Not Contains**.
-- **Value**: Enter the value for the selected criteria.
-
-For example, the following GIF shows how to configure a dynamic tag for linking contracts that have an annual contract value (ACV) of $10K or less to the Low ACV tag, and more than $10K to the High ACV tag.
-
-See image.
-
-[Image: Create New Dynamic Tag Category for Contracts]
-
-[Image: Create New Tag Category Drawer for Contract Tags]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/business-insights/adding-exclusion","lastmod":"2025-09-05T01:25Z","nid":"1498276"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/adding-exclusion","lastmod":"2026-10-08T22:40Z","nid":"1543327"} -->
 ## Adding an Exclusion
 
 - Source: https://help.zscaler.com/business-insights/adding-exclusion
 - Product: Business Insights
 - Path: Business Insights Help > Analytics > Adding an Exclusion
-- Last modified: 2025-09-05T01:25Z
-- Summary: Information on how to add an exclusion in the Business Insights Admin Portal
+- Last modified: 2026-10-08T22:40Z
+- Summary: Information on how to add an exclusion in Business Insights.
 
 Add exclusions to set criteria for excluding users and departments from a scheduled report. You can add multiple exclusions, however you can only enable up to 8 exclusions at any time. If you choose to apply the exclusion list when scheduling a report, the report excludes the users and departments using only the enabled exclusions.
 
 To add an exclusion:
 
-1. Go to **Analytics** > **Reports** > **Application Reports** > **Exclusion List**.
+1. Go to **Analytics**> **Business Insights**> **Analytics**> **Reports**> **Application Reports** > **Exclusion List**.
 2. Click **Add Exclusion**. A new row is added at the bottom of the exclusion list.
 3. In the new columns: The exclusion is successfully added to the exclusion list.
   - **Users**: Select the users that you want to add to the exclusion.
@@ -9226,75 +8742,24 @@ To add ServiceNow as a SaaS application tenant:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/adding-workplace-tags","lastmod":"2025-06-12T23:36Z","nid":"1510611"} -->
-## Adding Workplace Tags
-
-- Source: https://help.zscaler.com/business-insights/adding-workplace-tags
-- Product: Business Insights
-- Path: Business Insights Help > Workplace Insights > Workplace Settings > Adding Workplace Tags
-- Last modified: 2025-06-12T23:36Z
-- Summary: How to add workplace tags in the Business Insights Admin Portal.
-
-You can add tag categories and tags in each category, which can be used to link to workplaces. You can add a maximum of 8 tag categories, and each category can consist of 8 tags.
-
-To add a tag category and tags:
-
-1. Go to **Workplace**> **Workplace Settings**> **Tag Management**.
-2. Click **Create Tag Category**. The **Create New Tag Category** drawer appears.
-3. In the **Create New Tag Category**drawer:
-  - **Name**: Enter a name for the tag category.
-  - **Color**: Select a color to represent the tag category.
-  - **Type**: Select **Manual**or **Dynamic**. Manual tagging is individual linking of workplaces to a tag. Dynamic tagging allows you to configure criteria-based automatic tagging of workplaces.
-    - Manual
-    - Dynamic
-4. Click **Save**. The tag category is successfully added. You can view the tag category and its tags on the [Tag Management](https://help.zscaler.com/business-insights/about-tags) page.
-
-- **Name**: Enter the tag name.
-- **Offices**: Select the offices that you want to link to this tag.
-- Click **Add Tag**to add more tags to the category. Note that only one tag in a category can be linked to an office. See image.
-
-- **Criteria**: Select one of the following criteria based on which the offices are automatically linked to a tag:
-  - Assigned Headcounts
-  - Capacity
-  - Hotel Desks
-  - Lease End Date
-  - Lease Status
-  - Permanent Desks
-- **Name**: Enter the tag name.
-- **Operator**: Select an operator to set the threshold to satisfy the criteria as greater than (**>**), greater than or equal to (**>=**), less than (**<**), less than or equal to (**<=**), equal to (**=**), **Contains**, or **Not Contains**.
-- **Value**: Enter the value for the selected criteria.
-
-For example, the following GIF shows how to configure a dynamic tag for linking offices that have a capacity of 500 or less to the High Cap tag and more than 500 to the Low Cap tag.
-
-See image.
-
-[Image: Dynamic Tags GIF]
-
-[Image: Manual Tag fields in the Add NewTag Category drawer]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/business-insights/analyzing-workplace","lastmod":"2025-06-18T09:07Z","nid":"1487641"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/analyzing-workplace","lastmod":"2026-10-08T22:28Z","nid":"1543322"} -->
 ## Analyzing a Workplace
 
 - Source: https://help.zscaler.com/business-insights/analyzing-workplace
 - Product: Business Insights
 - Path: Business Insights Help > Workplace Insights > Analyzing a Workplace
-- Last modified: 2025-06-18T09:07Z
-- Summary: Information about a workplace in the Business Insights Admin Portal.
+- Last modified: 2026-10-08T22:28Z
+- Summary: Information about a workplace in Business Insights.
 
-The Workplace Details page shows various metrics such as occupancy, attendance, and footfall details for a workplace. To view the insights for a workplace, go to the Offices and Locations page (Workplace > Offices and Locations) and click on a workplace name, or go to the Workplace Insights page (Workplace > Workplace Insights) and click **View Details** for the workplace you want to view.
+The Workplace Details page shows various metrics such as occupancy, attendance, and footfall details for a workplace. To view the insights for a workplace, go to the Offices and Locations page (Analytics > Business Insights > Workplace > Offices and Locations) and click on a workplace name, or go to the Workplace Insights page (Analytics > Business Insights > Workplace > Workplace Insights) and click **View Details** for the workplace you want to view.
 
 To analyze the Workplace Details page:
 
 - **Export as PDF**: Download the data on the page as a PDF file.
-- **Time Range**: View workplace details for the last 7 days, a week, a month, or 3 months, then choose the week, month, or 3 months from the right pane. The data aggregation for the custom week, month, or quarter might take some time to process. See image.
+- **Time Range**: View workplace details for the last 7 days, a week, a month, or 3 months, then choose the week, month, or 3 months from the right pane. The data aggregation for the custom week, month, or quarter might take some time to process.
 - Filter the insights by:
-  - **Departments**or**Divisions**: The department filter is available unless you have at least one department mapping to a division on the [Department Mapping](https://help.zscaler.com/business-insights/about-department-mapping) page.
-    - **Departments**: The departments within your organization. This data is mapped from the ZIA Admin Portal SCIM. If the values are inaccurate, contact a ZIA admin.
-    - **Divisions**: The division that maps related departments.
-  - **Days**: Specific days from the filtered time frame. Enable **Custom Dates**to select custom dates to include or exclude from the insights. By default, Saturdays and Sundays are excluded from the metrics. See image.
+  - **Departments**: The departments within your organization. If the values are inaccurate, contact a Internet & SaaS (ZIA) admin.
+  - **Days**: Specific days from the filtered time frame. Enable **Custom Dates**to select custom dates to include or exclude from the insights. By default, Saturdays and Sundays are excluded from the metrics.
   - **User Types**: The type of users or employees visiting your organization. Selecting **User Types** doesn't filter the data unless you have defined user types for your organization in Business Insights. To enable this filter, contact Zscaler Support.
 
 The page contains the following information:
@@ -9344,7 +8809,7 @@ This section shows the hourly footfall information for the workplace for the fil
 In this section, you can:
 
 - Click the **Export**button to download the footfall data as a CSV file. This option is available when the **Time Range** filter at the top of the page is selected as **Last 7 days** or **Week**. See image.
-- Click an hour bar to view the total user footfall for each department. See image.
+- Click an hour bar to view the total user footfall for each department.
 - Select to view the footfall data for any 1 of the 3 months in this section if the **Time Range** filter at the top of the page is selected for 3 months. See image.
 
 See image.
@@ -9387,34 +8852,28 @@ See image.
 
 [Image: Export option in Footfall by the Time of the Day section]
 
-[Image: User count for each department]
-
 [Image: Footfall Section Filter for 3 Months]
 
 [Image: Occupancy Tab for Workplace]
 
 [Image: Attendance tab showing attendance data for the workplace]
-
-[Image: The Days filter for analyzing a workplace]
-
-[Image: Time Range Filter]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/analyzing-workplace-insights","lastmod":"2025-06-13T00:24Z","nid":"1487706"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/analyzing-workplace-insights","lastmod":"2026-10-08T22:28Z","nid":"1543323"} -->
 ## Analyzing Workplace Insights
 
 - Source: https://help.zscaler.com/business-insights/analyzing-workplace-insights
 - Product: Business Insights
 - Path: Business Insights Help > Workplace Insights > Analyzing Workplace Insights
-- Last modified: 2025-06-13T00:24Z
-- Summary: Information about the Workplace Insights page in the Business Insights Admin Portal.
+- Last modified: 2026-10-08T22:28Z
+- Summary: Information about the Workplace Insights page in Business Insights.
 
-Workplace Insights provides metrics related to workplaces and their workforces across the globe for an organization. This information can be used to view actionable insights and efficiently manage your workplaces. There are two types of workplaces: inferred locations and configured offices.
+Workplace Insights provides metrics related to workplaces and their workforces across the globe for an organization. This information can be used to view actionable insights and efficiently manage your workplaces. There are two types of workplaces: Discovered Locations and Offices.
 
-- Inferred Locations are [Zscaler Internet Access (ZIA) locations](https://help.zscaler.com/zia/about-locations) configured in the ZIA Admin Portal (a ZIA location can also consist of sub-locations) and inferred IP addresses that the Business Insights service concludes as the organization's workplace based on the amount of traffic, the number of users behind the IP address, and more assuring metrics.
-- Configured Offices are the grouping of inferred locations into a configured office with metadata. To learn more, see [About Configured Offices](https://help.zscaler.com/business-insights/about-configured-offices).
+- Discovered Locations are [Internet & SaaS locations](https://help.zscaler.com/zia/about-locations) (a Internet & SaaS location can also consist of sub-locations) and inferred IP addresses that the Business Insights service concludes as the organization's workplace based on the amount of traffic, the number of users behind the IP address, and more assuring metrics.
+- Offices are the grouping of inferred locations into a configured office with metadata. To learn more, see [About Configured Offices](https://help.zscaler.com/business-insights/about-configured-offices).
 
 Workplace Insights provides the following benefits and enables you to:
 
@@ -9422,25 +8881,21 @@ Workplace Insights provides the following benefits and enables you to:
 - Manage your workplace more effectively.
 - Make business-critical decisions, like opening, shutting down, and optimizing offices.
 
-See image.
-
 Zscaler recommends configuring offices (providing metadata) for inferred location-based workplaces to get accurate insights. After you update office metadata, it is reflected in Workplace Insights after the daily service scan.
 
 ## Analyzing Workplace Insights
 
-To analyze the Workplace Insights page (Workplace > Workplace Insights), use the following operators to filter the data for your viewing requirements:
+To analyze the Workplace Insights page (Analytics > Business Insights > Workplace > Workplace Insights), use the following operators to filter the data for your viewing requirements:
 
 - **Export as PDF**: Download the data on the page as a PDF file.
-- **Time Range**: View workplace insights for the last 7 days, a week, a month, or 3 months, then choose the week, month, or 3 months from the right pane. The data aggregation for the custom week, month, or quarter might take some time to process. See image.
+- **Time Range**: View workplace insights for the last 7 days, a week, a month, or 3 months, then choose the week, month, or 3 months from the right pane. The data aggregation for the custom week, month, or quarter might take some time to process.
 - Filter insights by:
-  - **Type**: The type of workplace (**Offices** or **Inferred Locations**). For **Geolocation**, select the workplaces based on the type selected. Business Insights automatically assigns names for inferred location workplaces that are based on IP addresses and retains the name assigned in the ZIA Admin Portal for [ZIA location](https://help.zscaler.com/zia/about-locations)-based workplaces. You can only select to view data for either the configured offices or inferred locations at one time.
-  - **Days**: Specific days from the filtered time frame. Enable **Custom Dates** to select custom dates to include or exclude from the insights. By default, Saturdays and Sundays are excluded from the metrics. See image.
-  - **Departments**or**Divisions**: The department filter is available unless you have at least one department mapping to a division on the [Department Mapping](https://help.zscaler.com/business-insights/about-department-mapping) page.
-    - **Departments**: The departments within your organization. This data is mapped from the ZIA Admin Portal SCIM. If the values are inaccurate, contact a ZIA admin.
+  - **Type**: The type of workplace (**Offices** or **Discovered Locations**). For **Geolocation**, select the workplaces based on the type selected. Business Insights automatically assigns names for inferred location workplaces that are based on IP addresses and retains the name assigned in Internet & SaaS for [Internet & SaaS location](https://help.zscaler.com/zia/about-locations)-based workplaces. You can only select to view data for either the configured offices or inferred locations at one time.
+  - **Days**: Specific days from the filtered time frame. Enable **Custom Dates** to select custom dates to include or exclude from the insights. By default, Saturdays and Sundays are excluded from the metrics.
+  - **Departments**or**Divisions**: The department filter is available unless you have at least one department mapping to a division on the Department Mapping page.
+    - **Departments**: The departments within your organization. If the values are inaccurate, contact a Internet & SaaS admin.
     - **Divisions**: The division that maps related departments.
   - **User Types**: The type of users visiting your organization. Selecting user types doesn't filter the data unless you have defined these user types for your organization in Business Insights. To enable this filter, contact Zscaler Support.
-
-See image.
 
 The page contains the following sections:
 
@@ -9451,9 +8906,7 @@ This section contains the following widgets:
 - **Average Occupancy**: The average occupancy in percentage and numbers for the filtered offices within the specified time frame. This is calculated by dividing the total number of visits to the workplaces by overall workplace capacities for the time period specified, then multiplying it by 100. You can view the total number of visits vs. the total possible capacity. The total possible capacity is determined by multiplying the capacity for all selected offices by the number of official working days within the time frame selected. For example, if your capacity is 100 and there are 5 official working days, the possible capacity is 500. You can also view the percentage increase or decrease in occupancy vs. the previous period of the same time (e.g., Month over Month (MoM), Week over Week (WoW), or Quarter over Quarter (QoQ)).
 - **Peak / Low Occupancy**: The peak and low occupancy percentage on a particular day and the number of office visits for the filtered workplaces within the specified time frame.
 - **Average Attendance**: The average attendance for the workplaces within the specified time frame. This is calculated by dividing the total number of visits to the workplaces by the total number of assigned headcount for the workplaces, then multiplying it by 100. You can view the total number of visits vs. the total possible assigned headcount. The total possible assigned headcount is determined by multiplying the capacity for all selected offices by the number of official working days within the time frame selected. For example, if your capacity is 100 and there are 5 official working days, the possible assigned headcount is 500. You can also view the percentage increase or decrease in attendance vs. the previous period of the same time (e.g., Month over Month (MoM), Week over Week (WoW), or Quarter over Quarter (QoQ)).
-- **Average Visit Span**: The average time spent in the offices.
-
-You can only view data for either the configured offices or inferred locations at one time. The metrics are calculated considering a 5-day work week.
+- **Average Span of Visit**: The average time spent in the offices.
 
 See image.
 
@@ -9461,17 +8914,13 @@ If you've filtered the data for inferred offices, the data in this section are e
 
 See image.
 
-### Attendance by Days per Week
+### Employees Average Days per Week in Office
 
 This graph shows the attendance percentage (and the actual numbers) for each day of the week. This is calculated by dividing the number of visits to the workplace on that day by the total number of headcount assigned to the workplace.
-
-See image.
 
 ### Top Cities
 
 This section shows the top cities by the number of employees and the frequency of their office visits (remote, less than or equal to 2 days a week, more than 2 days a week). Hover over a bar to view the number of employees at each frequency indicated by a unique color. You can also download the data to a CSV file by clicking the **Export**() icon.
-
-See image.
 
 ### Top Offices
 
@@ -9486,16 +8935,12 @@ Switch between **Least Used** and **Most Used** to view the workplaces with leas
 
 Click **View All** to see all the workplaces on the [Offices and Locations](https://help.zscaler.com/business-insights/about-offices-and-locations) Page.
 
-See image.
-
-### Map View
+### Workplaces
 
 Switch between **Geography** and **Remote User Density** to view the following insights:
 
 - Geography
 - Remote User Density
-
-See image.
 
 To understand the terms used in Business Insights, see [Understanding Business Insights Terminology](https://help.zscaler.com/business-insights/understanding-business-insights-terminology).
 
@@ -9525,24 +8970,20 @@ View locations across the globe for remote users. Zoom in and out using your mou
   - **Average Attendance**: The average attendance for the workplace for the filtered time frame.
   - **Average Occupancy**: The average occupancy for the workplace for the filtered time frame.
 
+See image.
+
 [Image: Workplace Insights Page]
-
-[Image: Fitlering Options for the Workplace Insights]
-
-[Image: Days Filter]
-
-[Image: Time Range Filter]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/business-insights-admins","lastmod":"2025-06-16T23:28Z","nid":"1514366"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/business-insights-admins","lastmod":"2026-10-07T21:50Z","nid":"1543348"} -->
 ## Business Insights for Admins
 
 - Source: https://help.zscaler.com/business-insights/business-insights-admins
 - Product: Business Insights
-- Path: Business Insights Help > Getting Started > Admin Portal > Business Insights for Admins
-- Last modified: 2025-06-16T23:28Z
+- Path: Business Insights for Admins
+- Last modified: 2026-10-07T21:50Z
 - Summary: Information on how to make the best use of all available features in the Business Insights Admin Portal.
 
 This article explains how to leverage various features available in the Business Insights Admin Portal to view accurate and rich applications and workplace insights. Business Insights is divided into two categories—applications and workplace—and also includes reports and administration management to manage your admins. To learn more, see [What Is Zscaler Business Insights?](https://help.zscaler.com/business-insights/what-zscaler-business-insights) and [Understanding Business Insights Architecture.](https://help.zscaler.com/business-insights/understanding-business-insights-architecture)
@@ -9637,32 +9078,33 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/configuring-data-explorer-views","lastmod":"2025-10-25T07:06Z","nid":"1529732"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/configuring-data-explorer-views","lastmod":"2026-10-08T22:40Z","nid":"1543361"} -->
 ## Configuring Data Explorer Views
 
 - Source: https://help.zscaler.com/business-insights/configuring-data-explorer-views
 - Product: Business Insights
 - Path: Business Insights Help > Analytics > Configuring Data Explorer Views
-- Last modified: 2025-10-25T07:06Z
-- Summary: How to configure Data Explorer views in the Business Insights Admin Portal.
+- Last modified: 2026-10-08T22:40Z
+- Summary: How to configure Data Explorer views in the Business Insights.
 
 Data Explorer provides the flexibility to build and organize your own customized views of metrics to analyze data.
 
 To configure a view:
 
-1. Go to **Analytics**> **Data Explorer**. The **Data Explorer** page appears. See image. You can select from existing templates and modify them as necessary, or you can create your own view.
+1. Go to **Analytics**> **Business Insights** > **Analytics** > **Data Explorer**. The **Data Explorer** page appears. See image. You can select from existing templates and modify them as necessary, or you can create your own view.
 2. In the **Metrics** section, select the metrics for the view. You can select multiple metrics:
   - Bytes
   - Visits
+  - Transactions
   - Occupancy
   - Attendance
 3. In the **Operations** section, structure the view using the following operators:
   - a. Group By
   - b. Aggregation
   - c. Aggregation Type
-4. In the **Filters** section, click **Add** to narrow the results of your view for a specific **Division**, **Department**, and **Work Mode**.
+4. In the **Filters** section, click **Add** to narrow the results of your view for a specific **Geolocation** and **Work Mode**.
 5. In the **Chart Type** section, select a chart type icon to display data in a specific chart or tabular format.
-6. In the **Time Period** section, select an option to process the data for the **Last 7 days**, **Week**, **Month**, or **3 Months**.
+6. In the **Time Period** section, select an option to process the data for the **Last 7 days**, **Last Day**, **Last** **Week**, **Last Month**, **Week**, **Month**, or **3 Months**.
 7. Click **Run Query** to display your customized view in the right pane. See image. You can click **Reset** to configure another view.
 
 You can analyze the data using the following options:
@@ -9675,18 +9117,12 @@ You can analyze the data using the following options:
 
 Select an option to group data by:
 
-- Department
-- Division
 - Office
 - Work Mode
-- Geolocation
-- User
 
 Select the data aggregation:
 
 - Daily
-- Weekly
-- Monthly
 
 Select the data aggregation function:
 
@@ -9706,55 +9142,54 @@ This option is not available for daily aggregation.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/configuring-occupancy-attendance-goals-office","lastmod":"2024-10-14T07:06Z","nid":"1503821"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/configuring-occupancy-attendance-goals-office","lastmod":"2026-10-08T22:30Z","nid":"1543334"} -->
 ## Configuring Occupancy & Attendance Goals for an Office
 
 - Source: https://help.zscaler.com/business-insights/configuring-occupancy-attendance-goals-office
 - Product: Business Insights
 - Path: Business Insights Help > Workplace Insights > Workplace Settings > Configuring Occupancy & Attendance Goals for an Office
-- Last modified: 2024-10-14T07:06Z
-- Summary: Information on configuring occupancy and attendance goals for an office in the Business Insights Admin Portal.
+- Last modified: 2026-10-08T22:30Z
+- Summary: Information on configuring occupancy and attendance goals for an office for Business Insights.
 
 You can configure occupancy and attendance goals for an office to track metrics against the configured goals and take necessary actions to achieve them.
 
 To configure occupancy and attendance goals for an office:
 
-1. Go to **Workplace** > **Workplace Settings**.
+1. Go to **Analytics** > **Business Insights** > **Workplace** > **Offices and Locations** > **Offices**..
 2. Locate the office for which you want to configure goals, and click the **Edit** icon. The **Edit Office** drawer appears.
-3. In the **Edit** **Office** drawer: See image.
+3. In the **Edit** **Office** drawer:
   - **Occupancy Goal Percentage**: Enter the occupancy goal between 1 and 100. For example, if you set the occupancy to 30, the office is expected to be occupied by at least 30% of its assigned users.
   - **Attendance Goal Percentage**: Enter the attendance goal (i.e., 20, 40, 60, 80, or 100 for 1, 2, 3, 4, or 5 days per week, respectively). For example, if the attendance goal is set to 40, the users assigned to the office are expected to come into the office at least 2 days per week.
 4. Click **Save**.
-
-[Image: Edit Office drawer]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/configuring-office","lastmod":"2025-04-01T00:37Z","nid":"1490951"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/configuring-office","lastmod":"2026-10-08T22:30Z","nid":"1543325"} -->
 ## Configuring an Office
 
 - Source: https://help.zscaler.com/business-insights/configuring-office
 - Product: Business Insights
 - Path: Business Insights Help > Workplace Insights > Workplace Settings > Configuring an Office
-- Last modified: 2025-04-01T00:37Z
-- Summary: Information on how to configure an office in the Business Insights Admin Portal.
+- Last modified: 2026-10-08T22:30Z
+- Summary: Information on how to configure an office for Business Insights.
 
-Configuring offices for your organization helps you group various [Zscaler Internet Access (ZIA) locations](https://help.zscaler.com/zia/about-locations), inferred IP addresses, and new IP addresses to specific office locations. These configured offices are listed and managed on the [Offices](https://help.zscaler.com/business-insights/about-offices) page. This helps to generate more accurate workplace insights by consolidating office traffic to the respective offices.
+Configuring offices for your organization helps you group various [Internet & SaaS (ZIA) locations](https://help.zscaler.com/zia/about-locations), inferred IP addresses, and new IP addresses to specific office locations. These configured offices are listed and managed on the [Offices](https://help.zscaler.com/business-insights/about-offices) page. This helps to generate more accurate workplace insights by consolidating office traffic to the respective offices.
 
 To configure an office:
 
-1. Go to **Workplace** > **Offices and Locations**> **Discovered Locations** or **Offices**.
+1. Go to **Analytics** > **Business Insights** > **Workplace** > **Offices and Locations**> **Discovered Locations** or **Offices**.
 2. Click **Add Office**. The **Add Office** drawer appears.
 3. In the **Add Office** drawer:
   - **Office Name**: Enter a name for the office.
-  - **Add Locations or IP Addresses**: Select the ZIA locations and sublocations that you want to associate with this office. Any new location added to the ZIA Admin Portal is reflected in this field after one day. You can also enter the IP addresses associated with the office. You can enter multiple IP addresses using commas to separate each IP address.
+  - **Locations**: Select the Internet & SaaS locations and sublocations that you want to associate with this office. Any new location added for Internet & SaaS is reflected in this field after one day.
+  - **IP Addresses**: Enter the IP addresses associated with the office. You can enter multiple IP addresses using commas to separate each IP address.
   - **Building ID**: Enter a unique building ID for the office building.
   - **Address**: Enter the address of the office location. The address autopopulates in the drop-down menu.
   - **Capacity**: Enter the number of employees the office can accommodate. This value helps calculate the occupancy of the office.
   - **Assigned Headcount**: Enter the number of users that you want to assign to the office. This value helps calculate the attendance metrics for the office.
   - **Site ID**: Enter the site ID assigned to the office.
-  - **Size in Sq Ft**: Enter the size of the office in square feet.
+  - **Size**: Enter the size of the office in square feet.
   - **Permanent Desks**: Enter the number of permanent desks in the office.
   - **Hotel Desks**: Enter the number of hotel desks available in the office.
   - **Lease Status**: Specify the office building lease status (leased, owned, etc.).
@@ -9762,26 +9197,26 @@ To configure an office:
   - **Notes**: Add additional notes for the office.
   - **Occupancy Goal Percentage**: Enter the occupancy goal. For example, if you set the occupancy to 30, the office is expected to be occupied by at least 30% of its assigned users.
   - **Attendance Goal Percentage**: Enter the attendance goal (i.e., 20, 40, 60, 80, or 100 for 1, 2, 3, 4, or 5 days per week, respectively). For example, if the attendance goal is set to 40, the users assigned to the office are expected to come into the office at least 2 days per week.
-  - **Tags**: Select the tags that you want to link to this office. You can only manually link a maximum of 8 tags. To learn more, see [About Tag Management](https://help.zscaler.com/business-insights/about-tag-management). See image.
-4. Click **Save**to configure the office. You can also click **Save and Add Another** to configure another office. The office is successfully configured. The newly configured office is listed on the [Offices](https://help.zscaler.com/business-insights/about-offices) page. The Business Insights service starts aggregating data for the associated ZIA locations, sublocations, and IP addresses under this office. If you delete the office, the Business Insights service stops data aggregation for the office and initiates the display of metrics for each ZIA location, sublocation, and IP address individually in the Business Insights Admin Portal.
+  - **Tags**: Select the tags that you want to link to this office. You can only manually link a maximum of 8 tags.
+4. Click **Save**to configure the office. You can also click **Save and Add Another** to configure another office. The office is successfully configured. The newly configured office is listed on the [Offices](https://help.zscaler.com/business-insights/about-offices) page. The Business Insights service starts aggregating data for the associated Internet & SaaS locations, sublocations, and IP addresses under this office. If you delete the office, the Business Insights service stops data aggregation for the office and initiates the display of metrics for each Internet & SaaS location, sublocation, and IP address individually. See image.
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/configuring-organization-level-occupancy-attendance-goals","lastmod":"2024-09-17T03:12Z","nid":"1500671"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/configuring-organization-level-occupancy-attendance-goals","lastmod":"2026-10-08T22:30Z","nid":"1543333"} -->
 ## Configuring Organization-Level Occupancy & Attendance Goals
 
 - Source: https://help.zscaler.com/business-insights/configuring-organization-level-occupancy-attendance-goals
 - Product: Business Insights
 - Path: Business Insights Help > Workplace Insights > Workplace Settings > Configuring Organization-Level Occupancy & Attendance Goals
-- Last modified: 2024-09-17T03:12Z
-- Summary: Information about configuring organization-level occupancy and attendance goals in Business Insights Admin Portal.
+- Last modified: 2026-10-08T22:30Z
+- Summary: Information about configuring organization-level occupancy and attendance goals in Business Insights.
 
 You can set organization-level occupancy and attendance goals to track metrics against the configured goals and take necessary actions to achieve them. Individual office goals can be configured in the respective office's Edit Office drawers. To learn more, see [Configuring Occupancy & Attendance Goals for an Office](https://help.zscaler.com/business-insights/configuring-occupancy-attendance-goals-office).
 
 To configure organization-level goals:
 
-1. Go to **Workplace** > **Workplace Settings**.
+1. Go to **Analytics** > **Business Insights** > **Workplace** > **Workplace Settings**.
 2. Click the **Occupancy and Attendance Goals**tab.
 3. In the **Occupancy Goal Percentage**field, enter the occupancy goal between 1 and 100 (e.g., if the occupancy goal is set to 60, the offices are expected to be occupied by at least 60% of their assigned users).
 4. In the **Attendance** **Goal** **Percentage** field, enter the attendance goal (i.e., 20, 40, 60, 80, or 100 for 1, 2, 3, 4, or 5 days per week, respectively). For example, if the attendance goal is set to 40, the users are expected to come into the office at least 2 days per week. See image.
@@ -9792,13 +9227,13 @@ To configure organization-level goals:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/configuring-password-expiration-business-insights","lastmod":"2024-11-13T05:29Z","nid":"1473141"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/configuring-password-expiration-business-insights","lastmod":"2026-10-07T21:50Z","nid":"1543298"} -->
 ## Configuring Password Expiration in Business Insights
 
 - Source: https://help.zscaler.com/business-insights/configuring-password-expiration-business-insights
 - Product: Business Insights
-- Path: Business Insights Help > Authentication & Administration > Administrator and Role Management > Configuring Password Expiration in Business Insights
-- Last modified: 2024-11-13T05:29Z
+- Path: Configuring Password Expiration in Business Insights
+- Last modified: 2026-10-07T21:50Z
 - Summary: How to configure password expiration for admins logging in to the Business Insights Admin Portal.
 
 To provide additional security, you can enable password expiration for all admins logging in to the Business Insights Admin Portal.
@@ -9823,13 +9258,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/configuring-role-based-administration-business-insights","lastmod":"2024-12-09T06:06Z","nid":"1473156"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/configuring-role-based-administration-business-insights","lastmod":"2026-10-07T21:50Z","nid":"1543301"} -->
 ## Configuring Role-Based Administration in Business Insights
 
 - Source: https://help.zscaler.com/business-insights/configuring-role-based-administration-business-insights
 - Product: Business Insights
-- Path: Business Insights Help > Authentication & Administration > Administrator and Role Management > Configuring Role-Based Administration in Business Insights
-- Last modified: 2024-12-09T06:06Z
+- Path: Configuring Role-Based Administration in Business Insights
+- Last modified: 2026-10-07T21:50Z
 - Summary: How to configure role-based administration in the Business Insights Admin Portal.
 
 Role-based administration helps you delegate different types of admins to the Business Insights Admin Portal. You can set the scope and permission level for an admin to ensure that admins can only access their designated areas in the Business Insights Admin Portal with the appropriate permissions.
@@ -9842,13 +9277,13 @@ To configure role-based administration:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/configuring-saml-admins-business-insights","lastmod":"2025-03-25T21:59Z","nid":"1473146"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/configuring-saml-admins-business-insights","lastmod":"2026-10-07T21:50Z","nid":"1543299"} -->
 ## Configuring SAML for Admins in Business Insights
 
 - Source: https://help.zscaler.com/business-insights/configuring-saml-admins-business-insights
 - Product: Business Insights
-- Path: Business Insights Help > Authentication & Administration > SAML for Admins > Configuring SAML for Admins in Business Insights
-- Last modified: 2025-03-25T21:59Z
+- Path: Configuring SAML for Admins in Business Insights
+- Last modified: 2026-10-07T21:50Z
 - Summary: Information about how to configure SAML for admins in the Business Insights Admin Portal.
 
 The Zscaler service supports identity provider (IdP)-initiated SAML to authenticate admins. The admin can log in to the Business Insights Admin Portal directly from a single sign-on (SSO) provider's portal by clicking the Business Insights application icon. This feature also enables you to integrate admin authentication with your existing two-factor authentication solution.
@@ -9899,71 +9334,14 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/contract-settings","lastmod":"2025-03-29T07:06Z","nid":"1506971"} -->
-## Contract Settings
-
-- Source: https://help.zscaler.com/business-insights/contract-settings
-- Product: Business Insights
-- Path: Business Insights Help > Application Insights > Application Settings > Contract Settings
-- Last modified: 2025-03-29T07:06Z
-- Summary: How to use the Contract Settings page in the Business Insights Admin Portal.
-
-The Contract Settings page helps you manage contract-related settings.
-
-To manage contract settings:
-
-1. Go to **Applications** > **Application Settings** > **Contract Settings**.
-2. On the **Contract Settings** page:
-  - **Default Currency**: Use the **Currency** drop-down to select the default currency for calculating and displaying various contract-related prices, such as annual contract value (ACV), total contract value (TCV), etc.
-  - **Contract File Deletion**: Select the time frame after which the uploaded contracts must be deleted by the Business Insights service. See image.
-    - **Date**: Select **Upload Date** (the date when the contract is uploaded) or **Expiration Date**(the date when the contract expires). The selection is considered as a reference date from which the contract retention time is calculated.
-    - **Contract Retention**: Select the number of days from the upload or expiration date of contracts after which the Business Insights service permanently deletes the contract files (e.g., 7, 14, 30, 60, or 90 days).
-
-[Image: Contract Settings Page]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/business-insights/creating-custom-application-signatures","lastmod":"2024-09-30T07:06Z","nid":"1480666"} -->
-## Creating Custom Application Signatures
-
-- Source: https://help.zscaler.com/business-insights/creating-custom-application-signatures
-- Product: Business Insights
-- Path: Business Insights Help > Application Insights > Application Settings > Creating Custom Application Signatures
-- Last modified: 2024-09-30T07:06Z
-- Summary: Information on how to create custom application signatures in the Business Insights Admin Portal.
-
-You can create customer application signatures for specific URLs of a domain to pull various insights for your analysis. This helps display insights such as active and inactive users, download and upload bytes, the number of transactions, etc. for a custom-defined URL of an application. This article explains how to create a custom application signature. You can configure 32 custom application signatures.
-
-SSL inspection of the requisite traffic must be enabled for viewing the metrics for the custom application signature. For example, if you are not inspecting the traffic for the Miro application, metrics won't be visible for anything beyond the host, www.miro.com. Go to the SSL Inspection Policy page (Policy > SSL Inspection) in the ZIA Admin Portal to check if SSL inspection for the application is configured or not. To learn more, see [About SSL Inspection Policy](https://help.zscaler.com/zia/about-ssl-inspection-policy).
-
-To create a customer application signature:
-
-1. Go to **Application** > **Application Settings**.
-2. Click **Create Customer Application Signature**. The **Create Customer Application Signature**drawer appears**.**
-3. In the **Create Customer Application Signature** drawer:
-  - **Host**: Enter the host of the application. For example, xyz.com, abc.ai, etc. Prefixes such as https://, http://, ftp://, sftp://, etc. are automatically removed if added. Select **Contains** or **Exact Match**for the **Match Level**. You can only add one host for a custom application signature.
-  - **URL**: Enter the URL from where you want to view the traffic data. It must be specific to what you are trying to determine (e.g., the URL immediately after logging into the app to view the login data). Select **Contains** or **Exact Match**for the **Match Level**. Click **Add URL Criteria** to add more URLs to the signature. You can add up to 10 URLs.
-  - **Application Name**: Enter a name for the application. Zscaler recommends entering a unique name for this field to distinguish it from other custom application signatures for the same application.
-  - **Associated SaaS Application**: Enter the name of the application for which the signature is created. This helps to display metadata if the application is known to the Business Insights service. This also impacts the experience of the [Discovered Apps](https://help.zscaler.com/business-insights/about-application-inventory#discovered-apps), [Overlapping Apps](https://help.zscaler.com/business-insights/about-application-inventory#overlapping-apps), and [Cost Savings](https://help.zscaler.com/business-insights/about-application-inventory#cost-savings) metrics.
-  - **Description**: Enter a description for the signature. See image.
-4. Click **Create**. The custom application signature is successfully created.
-
-[Image: Create Custom Application SIgnature]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/business-insights/customizing-your-admin-account-settings","lastmod":"2024-02-16T06:28Z","nid":"1473111"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/customizing-your-admin-account-settings","lastmod":"2026-10-07T21:50Z","nid":"1543292"} -->
 ## Customizing Your Admin Account Settings
 
 - Source: https://help.zscaler.com/business-insights/customizing-your-admin-account-settings
 - Product: Business Insights
-- Path: Business Insights Help > Getting Started > Admin Portal > Customizing Your Admin Account Settings
-- Last modified: 2024-02-16T06:28Z
+- Path: Customizing Your Admin Account Settings
+- Last modified: 2026-10-07T21:50Z
 - Summary: How to customize your admin account settings in the Business Insights Admin Portal.
-
-html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"
 
 The Business Insights service automatically creates a profile for each admin account where you can change your password, portal color theme, etc.
 
@@ -10009,36 +9387,12 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/downloading-business-insights-reports","lastmod":"2025-09-05T01:22Z","nid":"1487971"} -->
-## Downloading Business Insights Reports
-
-- Source: https://help.zscaler.com/business-insights/downloading-business-insights-reports
-- Product: Business Insights
-- Path: Business Insights Help > Analytics > Downloading Business Insights Reports
-- Last modified: 2025-09-05T01:22Z
-- Summary: Information about how to download different reports from the Business Insights Admin Portal.
-
-You can download various Business Insights reports from the Reports page. The reports are generated on a monthly basis. The page contains the following reports:
-
-- **Applications Report**: Assessment of your application portfolio powered by AI, including but not limited to areas of cost savings, application overlap, and SaaS spending.
-- **Workplaces Report**: Assessment of your workplaces powered by AI, including but not limited to occupancy and attendance trends and least-used offices. See image.
-
-To download a system-generated report:
-
-1. Go to **Analytics**> **Reports**> **System Generated Reports**.
-2. Click the **Download** icon for the report you want to view. The report is downloaded to your system for viewing.
-
-[Image: Reports Page]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/business-insights/editing-or-deleting-items-business-insights","lastmod":"2025-11-12T06:21Z","nid":"1473121"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/editing-or-deleting-items-business-insights","lastmod":"2025-11-12T06:21Z","nid":"1543294"} -->
 ## Editing or Deleting Items in Business Insights
 
 - Source: https://help.zscaler.com/business-insights/editing-or-deleting-items-business-insights
 - Product: Business Insights
-- Path: Business Insights Help > Getting Started > Admin Portal > Editing or Deleting Items in Business Insights
+- Path: Editing or Deleting Items in Business Insights
 - Last modified: 2025-11-12T06:21Z
 - Summary: How to edit or delete items in the Business Insights Admin Portal.
 
@@ -10065,14 +9419,14 @@ To delete items:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/enabling-or-disabling-exclusions","lastmod":"2025-09-05T01:25Z","nid":"1498391"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/enabling-or-disabling-exclusions","lastmod":"2026-10-08T22:40Z","nid":"1543329"} -->
 ## Enabling or Disabling Exclusions
 
 - Source: https://help.zscaler.com/business-insights/enabling-or-disabling-exclusions
 - Product: Business Insights
 - Path: Business Insights Help > Analytics > Enabling or Disabling Exclusions
-- Last modified: 2025-09-05T01:25Z
-- Summary: Information on how to enable or disable exclusions in Business Insights Admin Portal.
+- Last modified: 2026-10-08T22:40Z
+- Summary: Information on how to enable or disable exclusions in Business Insights.
 
 You can enable or disable an exclusion based on your organization's requirements. Disabling an exclusion disassociates it from all the scheduled reports using the exclusion list. Only enabled exclusions are associated with scheduled reports at any time.
 
@@ -10080,32 +9434,28 @@ You can enable or disable an exclusion based on your organization's requirements
 
 To enable an exclusion:
 
-1. Go to **Analytics** > **Reports**> **Application Reports**>**Exclusion List**.
+1. Go to **Analytics**> **Business Insights**> **Analytics**> **Reports**> **Application Reports**> **Exclusion List**.
 2. Locate the exclusion you want to enable.
-3. Select the **Enabled** option for the exclusion. See image. The exclusion is successfully enabled and is associated with the scheduled reports using the exclusion list.
+3. Select the **Enabled** option for the exclusion. The exclusion is successfully enabled and is associated with the scheduled reports using the exclusion list.
 
 ## Disabling an Exclusion
 
 To disable an exclusion:
 
-1. Go to **Reports**> **Scheduled Reports**>**Exclusion List**.
+1. Go to **Analytics**> **Business Insights**> **Analytics**> **Reports**> **Application Reports**> **Exclusion List**.
 2. Locate the exclusion you want to disable.
-3. Deselect the **Enabled** option for the exclusion. See image. The exclusion is successfully disabled and is disassociated with the scheduled reports using the exclusion list.
-
-[Image: Enabling an Exclusion]
-
-[Image: Disabling an Exclusion]
+3. Deselect the **Enabled** option for the exclusion. The exclusion is successfully disabled and is disassociated with the scheduled reports using the exclusion list.
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/enabling-or-disabling-scheduled-reports","lastmod":"2025-09-05T01:28Z","nid":"1498386"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/enabling-or-disabling-scheduled-reports","lastmod":"2026-10-08T22:40Z","nid":"1543328"} -->
 ## Enabling or Disabling Scheduled Reports
 
 - Source: https://help.zscaler.com/business-insights/enabling-or-disabling-scheduled-reports
 - Product: Business Insights
 - Path: Business Insights Help > Analytics > Enabling or Disabling Scheduled Reports
-- Last modified: 2025-09-05T01:28Z
+- Last modified: 2026-10-08T22:40Z
 - Summary: Information on how to enable or disable scheduled reports in the Business Insights Admin Portal.
 
 You can enable or disable scheduled reports based on your organization's requirements. Disabling a scheduled report stops report generation and distribution to the recipients and vice versa when you enable a report.
@@ -10114,7 +9464,7 @@ You can enable or disable scheduled reports based on your organization's require
 
 To enable a scheduled report:
 
-1. Go to **Analytics** > **Reports**> **Application Reports**or**Workplace Reports**.
+1. Go to **Analytics** > **Business Insights** > **Analytics** > **Reports** > **Application Reports** or**Workplace Reports**.
 2. Locate the report you want to enable.
 3. Select the **Enabled** option for the report. See image. The scheduled report is successfully enabled and resumes report distribution per the configuration.
 
@@ -10122,7 +9472,7 @@ To enable a scheduled report:
 
 To disable a scheduled report:
 
-1. Go to **Analytics** > **Reports**> **Application Reports**or**Workplace Reports**.
+1. Go to **Analytics** > **Business Insights** > **Analytics** > **Reports** > **Application Reports** or**Workplace Reports**.
 2. Locate the report you want to disable.
 3. Deselect the **Enabled** option for the report. See image. The scheduled report is successfully disabled and halts report distribution until enabled.
 
@@ -10208,38 +9558,12 @@ To enable Workflow Automation for an application:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/managing-queued-contracts","lastmod":"2026-08-12T22:26Z","nid":"1506986"} -->
-## Managing Queued Contracts
-
-- Source: https://help.zscaler.com/business-insights/managing-queued-contracts
-- Product: Business Insights
-- Path: Business Insights Help > Application Insights > Managing Queued Contracts
-- Last modified: 2026-08-12T22:26Z
-- Summary: How to edit the queued contracts in the Business Insights Admin Portal.
-
-Whenever the uploaded contract file is not processed successfully, the status field displays **Error** on the [Processing Queue](https://help.zscaler.com/business-insights/processing-queue-contracts) page.
-
-To understand and resolve the error with the uploaded file:
-
-1. Go to **Applications** > **All Contracts** > **Processing Queue**.
-2. Locate the contract, and click the **Edit** icon. The **Edit Upload** drawer appears.
-3. Depending on the error encountered by the Business Insights service while processing the file, perform the following troubleshooting steps:
-  - If the error encountered is because the items in the contracts don't have the application linked to it, the **Application** column in the Contract Information table shows missing application linkage. Use the drop-down menu to link to the application. If the application is not listed in the drop-down menu, click **Create New Application Request** to submit a request to add the application to the list. The Business Insights team will contact you after adding the requested application. See image.
-  - If the error encountered is because the Business Insights service is unable to parse any relevant metadata from the file, the Contract Information table shows no data. To resolve the error, reupload the contract file in the supported format. To learn more, see [Uploading Application Contracts](https://help.zscaler.com/business-insights/uploading-application-contracts). See image.
-
-[Image: Edit Application Details]
-
-[Image: Contact Table]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/business-insights/managing-your-admin-account","lastmod":"2024-02-16T06:28Z","nid":"1473106"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/managing-your-admin-account","lastmod":"2024-02-16T06:28Z","nid":"1543291"} -->
 ## Managing Your Admin Account
 
 - Source: https://help.zscaler.com/business-insights/managing-your-admin-account
 - Product: Business Insights
-- Path: Business Insights Help > Getting Started > Admin Portal > Managing Your Admin Account
+- Path: Managing Your Admin Account
 - Last modified: 2024-02-16T06:28Z
 - Summary: Information on how to view your admin account details and change your password in the Business Insights Admin Portal.
 
@@ -10265,53 +9589,24 @@ After you change your password, the current Business Insights Admin Portal sessi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/mapping-departments","lastmod":"2024-12-09T06:06Z","nid":"1507971"} -->
-## Mapping Departments
-
-- Source: https://help.zscaler.com/business-insights/mapping-departments
-- Product: Business Insights
-- Path: Business Insights Help > Workplace Insights > Workplace Settings > Mapping Departments
-- Last modified: 2024-12-09T06:06Z
-- Summary: Information on how to map departments to a division in the Business Insights Admin Portal.
-
-You can map departments to various divisions based on your requirements. You can add up to 32 divisions.
-
-To map departments:
-
-1. Go to **Workplace**> **Workplace** **Settings**> **Department Mapping**.
-2. Click **Map Departments**. The **Map Departments** page appears.
-3. On the **Map Departments**page:
-  - Enter a name for the division in the first field.
-  - Select the departments that you want to map to the division in the next field. See image. Click **Add Division** to map more departments.
-4. Click **Save**. The departments are mapped to the division. You can start viewing workplace metrics based on the division.
-
-[Image: Map Departments Page]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/business-insights/onboarding-saas-apps-business-insights","lastmod":"2025-08-06T23:32Z","nid":"1473186"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/onboarding-saas-apps-business-insights","lastmod":"2026-10-08T22:23Z","nid":"1543306"} -->
 ## Onboarding SaaS Apps for Business Insights
 
 - Source: https://help.zscaler.com/business-insights/onboarding-saas-apps-business-insights
 - Product: Business Insights
 - Path: Business Insights Help > Application Insights > Application Settings > Onboarding SaaS Apps for Business Insights
-- Last modified: 2025-08-06T23:32Z
-- Summary: Information about how to onboard applications in the Business Insights Admin Portal.
+- Last modified: 2026-10-08T22:23Z
+- Summary: Information about how to onboard applications for Business Insights.
 
-Business Insights receives signals and data from 4 data sources: the Zscaler Internet Access (ZIA) service, identity providers (IdPs), direct SaaS application connector integrations, and custom application signatures. To pull usage information directly from the app and view accurate insights that overextend other data sources, Zscaler recommends configuring a direct SaaS application connector (requires admin access to the app) for the supported apps. However, you can view Business Insights metrics even when you're unable to configure a connector for a specific app with the help of ZIA and IdP-sourced data by simply specifying the plan information. This article explains how to configure discovered and connector-supported apps for Business Insights computation.
+Business Insights receives signals and data from 4 data sources: the Internet & SaaS (ZIA) service, identity providers (IdPs), direct SaaS application connector integrations, and custom application signatures. To pull usage information directly from the app and view accurate insights that overextend other data sources, Zscaler recommends configuring a direct SaaS application connector (requires admin access to the app) for the supported apps. However, you can view Business Insights metrics even when you're unable to configure a connector for a specific app with the help of Internet & SaaS and IdP-sourced data by simply specifying the plan information. This article explains how to configure discovered and connector-supported apps for Business Insights computation.
 
 To onboard a SaaS application:
 
-1. Add the application using one of the following options:
-  - Go to**Application**> **Application Insights**>**Add App**. See image. The **Configuration** page appears. The page shows the list of applications for which the Business Insights service supports connector integration. Hence, the Business Insights service assumes that you want to configure an application connector from one of the connector-supported apps and doesn't show the second choice in Step 3. If you want to skip the connector configuration for a connector-supported app and set up a ZIA or IdP gathered insights mechanism, click the **Add** icon for the application from the [All Applications](https://help.zscaler.com/business-insights/about-all-applications) page or the [Top 10 Discovered Applications](https://help.zscaler.com/business-insights/about-application-inventory#top-ten) table.
-  - Go to **Application**> **Application Insights**>**Discovered Apps**.Click the **Add** icon for an application from the [Top 10 Discovered Applications](https://help.zscaler.com/business-insights/about-application-inventory#top-ten) table. See image.
-  - Go to **Application**>**All Applications**.Click the **Add** icon for an application.
-  - Go to **Application**> **Application Insights**>**Cost Savings**.Click the **Add** icon for an application. See image. If you click the **Add** icon for an application that has connector integration support, the Business Insights service skips Step 2. If you click the **Add** icon for an application that doesn't have connector integration support, the Business Insights service skips the first choice in Step 3.
+1. Go to **Analytics** > **Business Insights** > **Application**> **Application Settings**.
 2. Under **Choose SaaS Application**, select the SaaS applications you want to configure. See image.
 3. Configure a connector for the app and then provide the licensing information. You can also skip the connector configuration and just provide the licensing information if you don't have admin access to the app, or don't want to configure the connector.
   - Create a new configuration (requires admin access)
-  - Skip Connector configuration (use IdP/ZIA usage stats only)
+  - Skip Connector configuration (use IdP/Internet & SaaS usage stats only)
 
 Follow the steps for the application that you selected to set up a connector configuration:
 
@@ -10324,7 +9619,7 @@ Follow the steps for the application that you selected to set up a connector con
 - ServiceNow
 - Slack
 
-Follow the steps if you want to skip the connector configuration for a supported app and set up a ZIA or IdP gathered insights mechanism, or if you don't have the admin access to set up the connector:
+Follow the steps if you want to skip the connector configuration for a supported app and set up a Internet & SaaS or IdP gathered insights mechanism, or if you don't have the admin access to set up the connector:
 
 1. Under**Tenant Name**, enter a name for the SaaS application tenant.
 2. Click **Next**.
@@ -10354,7 +9649,7 @@ To configure Box:
   3. Review the permissions requested by the Business Insights service to access Box, then click **Authorize**and **Okay**. See image.
 10. In the Box Admin console, go to **Account & Billing**. See image.
 11. Under **Account Information**, copy the **Enterprise ID**. See image.
-12. In the Business Insights Admin Portal, under**Box Enterprise ID**, enter the enterprise ID you copied from the Box portal in the previous step. This ID is used to identify the tenant. See image.
+12. In the Zscaler Admin Console, under**Box Enterprise ID**, enter the enterprise ID you copied from the Box portal in the previous step. This ID is used to identify the tenant. See image.
 13. Click **Next**. The Business Insights service begins to retrieve your subscription details and establish an API connection. This might take a few minutes or hours. After the connector is configured successfully for the application, you can enter the subscription details. You can navigate away from the page while the Business Insights service establishes the connection; you're notified after the connector is configured successfully.
 14. Complete the following subscription fields:
   - **Purchased Seats**: The number of seats purchased as part of the subscription.
@@ -10392,7 +9687,7 @@ To configure GitHub:
 2. Click **Next**,then **Provide Admin Credentials**. See image. The GitHub portal appears.
 3. Log in to GitHub with an admin account.
 4. A confirmation page appears with the permissions that the connector requires. Click **Allow**.
-5. In the Business Insights Admin Portal, under**GitHub Admin Email ID**, enter your GitHub admin email ID. See image.
+5. In the Zscaler Admin Console, under**GitHub Admin Email ID**, enter your GitHub admin email ID. See image.
 6. Click **Next**. The Business Insights service begins to retrieve your subscription details and establish an API connection. This might take a few minutes or hours. After the connector is configured successfully for the application, you can enter the subscription details. You can navigate away from the page while the Business Insights service establishes the connection; you're notified after the connector is configured successfully.
 7. Complete the following subscription fields:
   - **Purchased Seats**: The number of seats purchased as part of the subscription.
@@ -10423,7 +9718,7 @@ To configure Google Workspace:
   - **Overwrite existing client ID**: Deselect this checkbox.
   - **OAuth scopes (comma-delimited)**: Enter the Google Workspace scope you copied in Step c. This OAuth scope grants read-only access to the usage reporting API. See image.
 10. Click **Authorize**. The Zscaler Connector App is added as an API client.
-11. In the Business Insights Admin Portal, under **Google Admin Email ID**, enter your admin email ID used to log in to the Google Admin console. See image.
+11. In theZscaler Admin Console, under **Google Admin Email ID**, enter your admin email ID used to log in to the Google Admin console. See image.
 12. Click **Next**. The Business Insights service begins to retrieve your subscription details and establish an API connection. This might take a few minutes or hours. After the connector is configured successfully for the application, you can enter the subscription details. You can navigate away from the page while the Business Insights service establishes the connection; you're notified after the connector is configured successfully.
 13. Click **Next**.
 14. Complete the following subscription fields:
@@ -10476,7 +9771,7 @@ To configure Okta:
 - a. Create app integration for Business Insights in Okta.
 - b. Assign your Okta Admin account to the Business Insights app.
 - c. Copy the necessary information from Okta.
-- d. Configure the connector for Okta in the Business Insights Admin Portal.
+- d. Configure the connector for Okta in the Zscaler Admin Console.
 
 Register Business Insights with Okta by creating an app integration in the Okta Admin console.
 
@@ -10521,7 +9816,7 @@ Copy the following information from the **General** tab of the Business Insights
 
 See image.
 
-In the Business Insights Admin Portal:
+In the Zscaler Admin Console:
 
 1. Under**Tenant Name**, enter a name for the application tenant.
 2. Click **Next**.
@@ -10661,7 +9956,7 @@ To configure the application connector:
 10. In the **Permission Sets**section, click **Manage Permission Sets**. See image. The **Application Permission Set Assignment** window appears.
 11. In the **Application Permission Set Assignment** window, select the permission set you configured in Step b. In this example, it's Zscaler SaaS Connector User. See image.
 12. Click **Save**.
-13. In the Business Insights Admin Portal, under**Tenant Name**, enter a name for the application tenant.
+13. In the Zscaler Admin Console, under**Tenant Name**, enter a name for the application tenant.
 14. Click **Next**.
 15. Under **Tenant Type**, select the appropriate tenant type based on your deployment: You can add both tenant types separately, but you can't change from a sandbox tenant type to production, or vice versa.
   - **Sandbox Account**: This option allows you to access Salesforce from the [test.salesforce.com](http://test.salesforce.com) URL, where you can test your changes without affecting your customers until you move it to your production environment.
@@ -10761,7 +10056,7 @@ To configure an OAuth client application:
 
 To configure ServiceNow:
 
-1. In the Business Insights Admin Portal, under**Tenant Name**, enter a name for the SaaS application tenant.
+1. In the Zscaler Admin Console, under**Tenant Name**, enter a name for the SaaS application tenant.
 2. Click **Next**.
 3. Complete the following fields:
   - **Client ID**: Enter the client ID you copied in c. Configure an OAuth Client Application.
@@ -10788,7 +10083,7 @@ To configure Slack:
 3. Log in to Slack. You are redirected to a permissions page.
 4. From the top right drop-down menu, select the workspace of your organization. Ensure you are not selecting the workspace under the **Your organizations** section, and instead select from the **Other workspaces** section. See image.
 5. Review the required permissions for the Business Insights service to access Slack, then click **Allow**. See image.
-6. In the Business Insights Admin Portal, under **Slack Admin Email ID**, enter the admin email ID used to log in to the Slack portal. See image.
+6. In the Zscaler Admin Console, under **Slack Admin Email ID**, enter the admin email ID used to log in to the Slack portal. See image.
 7. Click **Next**. The Business Insights service begins to retrieve your subscription details and establish an API connection. This might take a few minutes or hours. After the connector is configured successfully for the application, you can enter the subscription details. You can navigate away from the page while the Business Insights service establishes the connection; you're notified after the connector is configured successfully.
 8. Complete the following subscription fields:
   - **Purchased Seats**: The number of seats purchased as part of the subscription.
@@ -10808,18 +10103,12 @@ The application is successfully onboarded.
 
 [Image: The Provide Admin Email ID field]
 
-[Image: Connect App Button]
-
-[Image: Add App Icon]
-
-[Image: Add app icon]
-
 [Image: Choose SaaS Application page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/release-upgrade-summary-2024","lastmod":"2025-01-02T16:42Z","nid":"1472986"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/release-upgrade-summary-2024","lastmod":"2025-01-02T16:42Z","nid":"1543284"} -->
 ## Release Upgrade Summary (2024)
 
 - Source: https://help.zscaler.com/business-insights/release-upgrade-summary-2024
@@ -10847,12 +10136,12 @@ This article provides a summary of all new features and enhancements for Busines
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/saml-configuration-guide-microsoft-entra-id","lastmod":"2025-06-12T22:44Z","nid":"1475156"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/saml-configuration-guide-microsoft-entra-id","lastmod":"2025-06-12T22:44Z","nid":"1543312"} -->
 ## SAML Configuration Guide for Microsoft Entra ID
 
 - Source: https://help.zscaler.com/business-insights/saml-configuration-guide-microsoft-entra-id
 - Product: Business Insights
-- Path: Business Insights Help > Authentication & Administration > SAML for Admins > SAML Configuration Guide for Microsoft Entra ID
+- Path: SAML Configuration Guide for Microsoft Entra ID
 - Last modified: 2025-06-12T22:44Z
 - Summary: How to configure SAML SSO for Business Insights with Microsoft Entra ID.
 
@@ -10957,12 +10246,12 @@ The certificate is downloaded to your system. Upload the certificate as part of 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/saml-configuration-guide-okta","lastmod":"2024-11-13T05:23Z","nid":"1475106"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/saml-configuration-guide-okta","lastmod":"2024-11-13T05:23Z","nid":"1543311"} -->
 ## SAML Configuration Guide for Okta
 
 - Source: https://help.zscaler.com/business-insights/saml-configuration-guide-okta
 - Product: Business Insights
-- Path: Business Insights Help > Authentication & Administration > SAML for Admins > SAML Configuration Guide for Okta
+- Path: SAML Configuration Guide for Okta
 - Last modified: 2024-11-13T05:23Z
 - Summary: How to configure SAML SSO for Business Insights with Okta.
 
@@ -11115,26 +10404,30 @@ The Zscaler service automatically activates an admin's saved changes if the admi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/scheduling-application-reports","lastmod":"2025-09-05T01:26Z","nid":"1483171"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/scheduling-application-reports","lastmod":"2026-10-08T22:41Z","nid":"1543317"} -->
 ## Scheduling Application Reports
 
 - Source: https://help.zscaler.com/business-insights/scheduling-application-reports
 - Product: Business Insights
 - Path: Business Insights Help > Analytics > Scheduling Application Reports
-- Last modified: 2025-09-05T01:26Z
-- Summary: How to schedule application reports in the Business Insights Admin Portal.
+- Last modified: 2026-10-08T22:41Z
+- Summary: How to schedule application reports in Business Insights.
 
 You can schedule activity reports for applications and distribution to various email recipients and Workflow Automation.
 
 To schedule a report:
 
-1. Go to **Analytics** > **Reports** > **Application Reports.**
-2. Click **New Scheduled Report**. See image. The **Add Scheduled Report** page appears.
-3. On the **Add Scheduled Report** page:
+1. Go to **Analytics** > **Business Insights** > **Analytics** > **Reports** > **Application Reports.**
+2. Click **New Scheduled Report**. See image. The **Create Application Report** page appears.
+3. On the **Create Application Report** page:
   - **Name**: Enter a name for the report (e.g., `Slack Inactivity Report`).
   - **Report Enabled**: Enable or disable the report.
-  - **Application**: Select the applications for which you want to schedule the report. The applications are listed with their data source inside the parentheses.
-  - **Who - Users Tracked**: Select the users you want included and excluded from the report.
+  - **What**: Select the report type you want to schedule:
+    - **Inactivity Period**: Select this option to generate the inactivity report for the application.
+    - **Activity** **Period**: Select this option to generate the activity report for the application.
+  - **Cadence**: Select the time frame for which you want to generate the report from **1 day**, **30 days**, **60 days**, or **90 days**.
+  - **Application**: Select the applications for which you want to schedule the report. The applications are listed with their data source inside the parentheses. Select **All Application** to include all applications in the report.
+  - **Who**: Select the users you want included and excluded from the report.
     - **Included Users**: Select the users for whom you want to view the activity or inactivity report.
       - **All**: Select this option to include all your organization's users in the report.
       - **Subset**: Select the users, departments, or both that you want included in the report. You can select up to 128 users and departments.
@@ -11143,17 +10436,10 @@ To schedule a report:
       - **Apply Exclusions**: Select one or both of the following options: Any modification to the exclusion list affects all the scheduled reports where **Exclusion List** is applied. To exclude report-specific users, Zscaler recommends enabling the **Custom** option and selecting users and departments.
         - **Exclusion List**: Select this option to exclude the users and departments configured in the [exclusion list](https://help.zscaler.com/business-insights/about-exclusion-list). Exclusions are associated with only those scheduled reports where the applications configured in both the scheduled report and the exclusion match.
         - **Custom**: Select this option to add custom users and departments to exclude from the report. Select the**Users** and **Departments** you want excluded from the report from the drop-down menus.
-  - **What - Action Cadence**: Select the report type you want to schedule:
-    - **Inactivity Period**: Select this option to generate the inactivity report for the application.
-    - **Activity** **Period**: Select this option to generate the activity report for the application.
-    - **Cadence**: Select the time frame for which you want to generate the report from **1 day**, **30 days**, **60 days**, or **90 days**.
   - **When - Delivery Schedule**: Select the report generation and delivery schedule from **Daily**, **Weekly**, **Monthly**, or **Quarterly**. You can view the date the next report is due to be generated for each schedule.
-  - **How - Delivery Method**: Select the delivery method of the report. You can select one or both of the following options: See image. The following GIF shows how to set the criteria to run scheduled reports every week on Adobe Creative Cloud's user inactivity for the last 90 days for all users in your organization. Apply the exclusion list with a custom exclusion of the Contractor department via email delivery. See image.
-    - **Workflow Automation**: Select this option to integrate the report with [Workflow Automation](https://help.zscaler.com/workflow-automation/what-workflow-automation). To test the Workflow Automation integration, enter the recipients' email addresses and click **Submit Test**. The recipients receive a test email confirming successful integration.
+  - **How - Delivery Method**: Select the delivery method of the report. See image.
     - **Email**: Select this option and enter the email addresses of the recipients that receive the report via email.
 4. Click **Save**. The report is successfully scheduled. You can view the scheduled report on the [Application Reports](https://help.zscaler.com/business-insights/about-application-reports) page.
-
-[Image: Scheduling a Report]
 
 [Image: Add Scheduled Report Page in Business Insights Admin Portal]
 
@@ -11162,22 +10448,23 @@ To schedule a report:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/scheduling-data-explorer-reports","lastmod":"2025-10-25T07:06Z","nid":"1532021"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/scheduling-data-explorer-reports","lastmod":"2026-10-08T22:40Z","nid":"1543363"} -->
 ## Scheduling Data Explorer Reports
 
 - Source: https://help.zscaler.com/business-insights/scheduling-data-explorer-reports
 - Product: Business Insights
 - Path: Business Insights Help > Analytics > Scheduling Data Explorer Reports
-- Last modified: 2025-10-25T07:06Z
+- Last modified: 2026-10-08T22:40Z
 - Summary: How to schedule Data Explorer reports in the Business Insights Admin Portal.
 
 You can schedule Data Explorer reports for your customized views.
 
 To schedule a report:
 
-1. Go to **Analytics**> **Data** **Explorer**.
-2. [Configure a Data Explorer view](https://help.zscaler.com/business-insights/configuring-data-explorer-views). You can schedule Data Explorer reports only when the time period selected is **Last Day**, **Last Week**, or **Last Month**. The **Save Report**window appears.
-3. In the **Save Report** window: See image.
+1. Go to **Analytics** > **Business Insights** > **Analytics**> **Data** **Explorer**.
+2. [Configure a Data Explorer view](https://help.zscaler.com/business-insights/configuring-data-explorer-views).
+3. Click **Save and Schedule**. The **Save Report**drawer appears.
+4. In the **Save Report** window: See image.
   1. **Report Name**: Enter a name for the scheduled report.
   2. **Schedule Report**: Enable to activate the report.
   3. **Deliver**: Select the report generation frequency (i.e., **Daily** or **Weekly**).
@@ -11191,35 +10478,34 @@ The report is successfully scheduled. You can view and manage the scheduled repo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/scheduling-workplace-reports","lastmod":"2025-09-26T08:27Z","nid":"1517836"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/scheduling-workplace-reports","lastmod":"2026-10-08T22:41Z","nid":"1543351"} -->
 ## Scheduling Workplace Reports
 
 - Source: https://help.zscaler.com/business-insights/scheduling-workplace-reports
 - Product: Business Insights
 - Path: Business Insights Help > Analytics > Scheduling Workplace Reports
-- Last modified: 2025-09-26T08:27Z
-- Summary: Information on how to schedule workplace reports in the Business Insights Admin Portal.
+- Last modified: 2026-10-08T22:41Z
+- Summary: Information on how to schedule workplace reports in Business Insights.
 
 You can schedule attendance reports for workplaces and distribute them to various email recipients.
 
 To schedule a report:
 
-1. Go to **Analytics** > **Reports** > **Workplace Reports**.
-2. Click **Workplace Report**. See image. The **New Workplace Report** drawer appears.
-3. In the **New Scheduled Report** drawer:
-  - **What - Name**: Enter a name for the report (e.g., `Weekly Report of IT Department in All Offices`).
-  - **Report Enabled**: Enable or disable the report.
-  - **When - Time Period**: Select **Daily**, **Weekly**, or **Monthly** as the time period for the workplace attendance report.
-  - **Who**: Select the users you want included in the report.
-    - **All Users**: Select this option to include all the users in your organization.
-    - **Users by Department**: Select this option and select the departments that you want to include in the report from the drop-down menu that appears.
-    - **Users by Division**: Select this option and select the divisions that you want to include in the report from the drop-down menu that appears.
-  - **Where**: Select the workplaces for which you want to generate the report.
+1. Go to **Analytics** > **Business Insights** > **Analytics** > **Reports** > **Workplace Reports**.
+2. Click **New** **Workplace Report**. See image. The **New Workplace Report** drawer appears.
+3. In the **New Workplace Report** drawer:
+  - **Name**: Enter a name for the report (e.g., `Weekly Report of IT Department in All Offices`).
+  - **Time Period**: Select **Daily**, **Weekly**, or **Monthly** as the time period for the workplace attendance report.
+  - **Office Selection**: Select the workplaces for which you want to generate the report.
     - **All Offices**: Select this option to include all the offices in the report except the remote users. Users with zero office visits are categorized under remote users.
     - **Select Offices**: Select this option to choose the offices for which you want to generate the report.
     - **All Offices and Remote Users**: Select this option to include all the offices and remote users in the report. Users with zero office visits are categorized under remote users.
     - **Remote Users**: Select this option to generate the report for all remote users.
-  - **How - Organize data by**: Select how you want to view the data in the report. You can select one of the following options:
+  - **User Selection**: Select the users you want included in the report.
+    - **All Users**: Select this option to include all the users in your organization.
+    - **Users by Department**: Select this option and select the departments that you want to include in the report from the drop-down menu that appears.
+    - **Users by Division**: Select this option and select the divisions that you want to include in the report from the drop-down menu that appears.
+  - **Organize By**: Select how you want to view the data in the report. You can select one of the following options:
     - **Office**: Select this option to organize the data in the report based on the office. The report displays information in the following format:
       - **Date**: The attendance date.
       - **Workplace**: The workplace name.
@@ -11229,10 +10515,8 @@ To schedule a report:
       - **Date**: The attendance date.
       - **Timespan**: The time spent in the office during the visit.
       - **Workplace**: The name of the workplace visited by the user.
-    - **Data Aggregated**: Select the data aggregation time period for the report from **Daily**, **Weekly**, or **Monthly**. You must select the time period less than or equal to the value selected in the **When - Time Period** field. For example, select the time period for a report as weekly, then set data aggregation to daily to view the attendance data for each day of the week, or set the data aggregation to weekly to view the data accumulated for the entire week in the report.
-  - **Delivery Method**: Choose how you want reports delivered.
-    - **Email Recipients**: Enter the email addresses of the recipients for receiving the report via email.
-    - **Schedule**: Select the day on which you want to schedule the report for email distribution from **Daily**, **Weekly on Mondays**, or **Monthly on First Monday**. See image.
+  - **Frequency**: Select the data aggregation time period for the report from **Daily**, **Weekly**, **Monthly**, or**Quarterly**. You must select the time period less than or equal to the value selected in the **Time Period** field. For example, select the time period for a report as weekly, then set data aggregation to daily to view the attendance data for each day of the week, or set the data aggregation to weekly to view the data accumulated for the entire week in the report.
+  - **Email Recipients**: Enter the email addresses of the recipients for receiving the report via email. See image.
 4. Click **Save**. The report is successfully scheduled. You can view the scheduled report on the [Workplace Reports](https://help.zscaler.com/business-insights/about-workplace-reports) Page.
 
 [Image: Add New Workplace Report Drawer]
@@ -11242,16 +10526,14 @@ To schedule a report:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/searching-business-insights-admin-portal","lastmod":"2024-02-16T06:28Z","nid":"1473101"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/searching-business-insights-admin-portal","lastmod":"2024-02-16T06:28Z","nid":"1543290"} -->
 ## Searching in the Business Insights Admin Portal
 
 - Source: https://help.zscaler.com/business-insights/searching-business-insights-admin-portal
 - Product: Business Insights
-- Path: Business Insights Help > Getting Started > Admin Portal > Searching in the Business Insights Admin Portal
+- Path: Searching in the Business Insights Admin Portal
 - Last modified: 2024-02-16T06:28Z
 - Summary: How to search in the Business Insights Admin Portal.
-
-html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"
 
 To help you navigate faster, you can search for menus in the Business Insights Admin Portal. Search results include menus in the left-hand navigation (except for items in the Help menu) and do not include:
 
@@ -11272,13 +10554,13 @@ The search provides auto-complete suggestions as you enter text.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/understanding-administrator-management-settings-business-insights","lastmod":"2024-11-13T05:28Z","nid":"1473136"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/understanding-administrator-management-settings-business-insights","lastmod":"2026-10-07T21:50Z","nid":"1543297"} -->
 ## Understanding Administrator Management Settings in Business Insights
 
 - Source: https://help.zscaler.com/business-insights/understanding-administrator-management-settings-business-insights
 - Product: Business Insights
-- Path: Business Insights Help > Authentication & Administration > Administrator and Role Management > Understanding Administrator Management Settings in Business Insights
-- Last modified: 2024-11-13T05:28Z
+- Path: Understanding Administrator Management Settings in Business Insights
+- Last modified: 2026-10-07T21:50Z
 - Summary: Information on password and SAML authentication settings for admins in the Business Insights Admin Portal.
 
 On the Administrator Management page (Administration > Administrator Management > Administrator Management), you can configure password expiration, SAML authentication, and other settings for admins.
@@ -11303,30 +10585,30 @@ You can choose the action to be taken on admins when their linked user accounts 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/understanding-business-insights-architecture","lastmod":"2024-08-29T23:44Z","nid":"1473081"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/understanding-business-insights-architecture","lastmod":"2026-10-08T22:18Z","nid":"1543286"} -->
 ## Understanding Business Insights Architecture
 
 - Source: https://help.zscaler.com/business-insights/understanding-business-insights-architecture
 - Product: Business Insights
-- Path: Business Insights Help > Getting Started > Understanding Business Insights Architecture
-- Last modified: 2024-08-29T23:44Z
+- Path: Business Insights Help > Understanding Business Insights Architecture
+- Last modified: 2026-10-08T22:18Z
 - Summary: Information about Business Insights architecture.
 
-Business Insights provides intuitive visualization and reporting metrics for your SaaS app usage and workplace-related data in a centralized [Business Insights Admin Portal](https://admin.zscaleranalytics.net/) that helps with:
+Business Insights provides intuitive visualization and reporting metrics for your SaaS app usage and workplace-related data that helps with:
 
 - Cost reduction and savings across SaaS apps by downsizing underutilized licenses and overlapping apps.
 - Driving return to office strategy and analyzing office utilization metrics and their pattern of usage, whether hybrid or remote, for efficient workplace management.
 
 To set up and view Business Insights for your organization, you must consider the following prerequisites:
 
-- To gain SaaS app insights, you must be subscribed to the Zscaler Internet Access (ZIA) service.
-- To gain workplace insights, in addition to the ZIA service, you must have Zscaler Client Connector deployed on all relevant endpoints you want to track for office utilization.
+- To gain SaaS app insights, you must be subscribed to the Internet & SaaS (ZIA) service.
+- To gain workplace insights, in addition to the Internet & SaaS service, you must have Zscaler Client Connector deployed on all relevant endpoints you want to track for office utilization.
 
 ## Business Insights Architecture
 
-Business Insights receives signals and data from 4 data sources: the Zscaler Internet Access (ZIA) service that acts as one of the input feeders, identity providers (IdPs) like Okta and Entra ID, SaaS application connector integrations (supported for apps such as Okta, M365, Salesforce, ServiceNow, Slack, Box, Google, and GitHub), and [custom application signatures](https://help.zscaler.com/business-insights/about-application-configuration). Zscaler's direct connector integration to view business insights overextends other data source functionalities. However, Business Insights provides metrics even when integration into a specific app is not available with the help of other data sources.
+Business Insights receives signals and data from 4 data sources: the Internet & SaaS service that acts as one of the input feeders, identity providers (IdPs) like Okta and Entra ID, and SaaS application connector integrations (supported for apps such as Okta, M365, Salesforce, ServiceNow, Slack, Box, Google, and GitHub).
 
-Business Insights can differentiate between your subscribed apps vs. used apps by populating metadata fields that show subscription details, such as cost, license plans, contract start dates, end dates, etc. All of these fields can be filtered to present a report of representative apps. At the same time, Business Insights also presents the app usage and workplace data by analyzing your ZIA traffic, identity provider (login data), or API integrations (direct app connectors) to help you save business costs.
+Business Insights can differentiate between your subscribed apps vs. used apps by populating metadata fields that show subscription details, such as cost, license plans, contract start dates, end dates, etc. All of these fields can be filtered to present a report of representative apps. At the same time, Business Insights also presents the app usage and workplace data by analyzing your Internet & SaaS traffic, identity provider (login data), or API integrations (direct app connectors) to help you save business costs.
 
 Zscaler can discover the usage of over 30K apps. By default, only a subset of these apps are shown in the portal, depending on your business relevance, to help streamline your experience and avoid unnecessary information. To learn more, see [What Is Zscaler Business Insights?](https://help.zscaler.com/business-insights/what-zscaler-business-insights)
 
@@ -11335,13 +10617,13 @@ Zscaler can discover the usage of over 30K apps. By default, only a subset of th
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/understanding-business-insights-terminology","lastmod":"2025-08-06T23:32Z","nid":"1473086"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/understanding-business-insights-terminology","lastmod":"2026-10-07T23:57Z","nid":"1543287"} -->
 ## Understanding Business Insights Terminology
 
 - Source: https://help.zscaler.com/business-insights/understanding-business-insights-terminology
 - Product: Business Insights
-- Path: Business Insights Help > Getting Started > Understanding Business Insights Terminology
-- Last modified: 2025-08-06T23:32Z
+- Path: Business Insights Help > Understanding Business Insights Terminology
+- Last modified: 2026-10-07T23:57Z
 - Summary: Information about the terms used in Business Insights.
 
 This article lists Business Insights terms and their definitions to help you understand and interpret the metrics with the intended context and perspective.
@@ -11352,10 +10634,10 @@ The following terms apply to Application Insights:
 
 - **Active Users**: The number of active users for an app in the last 30 days. Active users have accessed or used the app at least once in the last 30 days.
 - **Application Connector**: An application connector integrates with the SaaS provider to collect license and usage information for the app. Configuring a connector involves providing information to call the provider's APIs. To learn more, see [Onboarding SaaS Apps for Business Insights](https://help.zscaler.com/business-insights/onboarding-saas-apps-business-insights).
-- **Supported Apps**: Application connectors for supported apps can be configured in the Business Insights Admin Portal. With a connector configured, the insights for an app are more detailed. Currently, Business Insights supports connector integration for Okta, M365, Salesforce, ServiceNow, Slack, Box, Google, and GitHub.
+- **Supported Apps**: Application connectors for supported apps can be configured for Business Insights. With a connector configured, the insights for an app are more detailed. Currently, Business Insights supports connector integration for Okta, M365, Salesforce, ServiceNow, Slack, Box, Google, and GitHub.
 - **Purchased Seats**: The number of seats purchased within a subscription plan. One seat is assigned to one user.
 - **Assigned Seats**: The number of seats assigned to users from the purchased seats.
-- **Data Source**: The source from where the application usage is discovered. Business Insights receives signals and data from 4 data sources: the Zscaler Internet Access (ZIA) service that acts as one of the input feeders, identity providers (IdPs) like Okta and Entra ID, SaaS application connector integrations (supported for apps such as Okta, M365, Salesforce, ServiceNow, Slack, Box, Google, and GitHub), and [custom application signatures](https://help.zscaler.com/business-insights/about-application-configuration).
+- **Data Source**: The source from where the application usage is discovered. Business Insights receives signals and data from 4 data sources: the Internet & SaaS (ZIA) service that acts as one of the input feeders, identity providers (IdPs) like Okta and Entra ID, and SaaS application connector integrations (supported for apps such as Okta, M365, Salesforce, ServiceNow, Slack, Box, Google, and GitHub).
 - **Discovered Apps**: Apps whose usage is discovered within your organization's traffic. Zscaler can discover the usage of over 30K apps.
 - **Engagement Index**: This metric shows the application's engagement percentage. This calculation varies based on the following metadata availability:
   - Without [Plan Details](https://help.zscaler.com/business-insights/viewing-application-details#plan): The percentage of active users in the last 30 days over the last 90 days for an app. For example, suppose you have 50 active users in the last 30 days and 100 in the last 90 days for Box. In that case, the engagement index is calculated by dividing the number of active users in the last 30 days by the number of active users in the last 90 days, and multiplying it by 100 (i.e., [50÷100]×100 = 50%).
@@ -11371,35 +10653,12 @@ The following terms apply to Application Insights:
 The following terms apply to Workplace Insights:
 
 - **Workplaces**: An organization's traffic ingress and egress points. There are two types of workplaces:
-  - **Inferred Locations**: These are individual [ZIA locations](https://help.zscaler.com/zia/about-locations) configured in the ZIA Admin Portal (a ZIA location can also consist of sub-locations) and inferred IP addresses that the Business Insights service concludes as the organization's workplace based on the amount of traffic, the number of users behind the IP address, and more assuring metrics.
+  - **Inferred Locations**: These are individual [Internet & SaaS locations](https://help.zscaler.com/zia/about-locations) and inferred IP addresses that the Business Insights service concludes as the organization's workplace based on the amount of traffic, the number of users behind the IP address, and more assuring metrics.
   - **Configured Offices**: These are the grouping of inferred locations into a configured office with metadata. To learn more, see [About Configured Offices](https://help.zscaler.com/business-insights/about-configured-offices).
 - **Assigned Headcount**: The number of users assigned to an office.
 - **Capacity**: The number of employees the office can accommodate.
 - **Average Attendance**: The average attendance for an office site is calculated by dividing the total number of visits to the workplace by the total number of assigned headcount for the workplace, then multiplying it by 100.
 - **Average Occupancy**: The average occupancy for a workplace is calculated by dividing the total number of visits to the workplace by the site capacity, then multiplying it by 100.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/business-insights/uploading-application-contracts","lastmod":"2025-06-12T23:55Z","nid":"1505871"} -->
-## Uploading Application Contracts
-
-- Source: https://help.zscaler.com/business-insights/uploading-application-contracts
-- Product: Business Insights
-- Path: Business Insights Help > Application Insights > Uploading Application Contracts
-- Last modified: 2025-06-12T23:55Z
-- Summary: How to upload application contracts in the Business Insights Admin Portal.
-
-The article explains how to upload contracts in the Business Insights Admin Portal to view their insights.
-
-To upload a contract:
-
-1. Go to **Applications** > **All Contracts** > **Upload Contracts**. The **Upload Contracts** window appears.
-2. Click **Upload Files**. You can upload multiple files in one attempt. The Business Insights service supports PDF, DOC, and XLS files. See image.
-3. Locate the contract file in your system.
-4. Select the files and click **Open**. The file is uploaded successfully and moved to the [Processing Queue](https://help.zscaler.com/business-insights/about-processing-queue) page where the file is parsed for necessary metadata. You can go to the Processing Queue page to view its status. Depending on the size and number of files, the data is processed within minutes, hours, or days. After the file is successfully processed, the contract information is available in the All Contracts table on the [All Contracts](https://help.zscaler.com/business-insights/about-contracts) page.
-
-[Image: Upload Files]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -11538,50 +10797,44 @@ There are different font sizes for the Help Browser. You can click the **Font** 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/viewing-application-details","lastmod":"2025-06-12T23:30Z","nid":"1473196"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/viewing-application-details","lastmod":"2026-10-08T22:20Z","nid":"1543308"} -->
 ## Viewing Application Details
 
 - Source: https://help.zscaler.com/business-insights/viewing-application-details
 - Product: Business Insights
 - Path: Business Insights Help > Application Insights > Viewing Application Details
-- Last modified: 2025-06-12T23:30Z
-- Summary: Information about the application details page in the Business Insights Admin Portal.
+- Last modified: 2026-10-08T22:20Z
+- Summary: Information about the Application Details page in Business Insights.
 
-The Application Details page (Application > Inventory > click on the application) provides a complete analysis and metrics for the application that is currently being used within your organization. You can view the engagement index, active and inactive user data, application plan details, licensing insights, and risk and compliance data, among other metrics.
+The Application Details page (Analytics > Business Insights > Application > All Applications > click on the application) provides a complete analysis and metrics for the application that is currently being used within your organization. You can view the engagement index, active and inactive user data, application plan details, licensing insights, and risk and compliance data, among other metrics.
 
 See image.
 
 The page contains an overview section and the following tabs:
 
 - Overview Section
-- Engagement Index & Users Tab
-- Contracts Tab
-- Licensing Insights Tab
-- Risk & Compliance Tab
+- Engagement Index
+- Users
+- Licensing Insights
 
 In the **Overview**section, you can view:
 
 - **Summary**: A brief description of the application.
 - **Capability**: The various capabilities offered by the application. For example, Okta's capabilities include identity management, access control, two-factor authentication, etc.
-- **Alternatives**: A list of alternative applications with similar capabilities.
 - **Website**: The official website for the application.
+- **Data Source**: The source from where the application usage is discovered (i.e., identity provider (IdP), Internet Access, by connector integration, or custom application signature such as **IDP**, **ZIA**, **Connector**,or**Custom ZIA**).
+- **Vendor**: The name of the vendor.
+- **Alternatives**: A list of alternative applications with similar capabilities.
 - **Status**: The connection status between Business Insights and the application (i.e., whether the application is onboarded to Business Insights or not). For connector-integrated apps, the application connector's API connection is valid or expired.
-- **Data Source**: The source from where the application usage is discovered (i.e., identity provider (IdP), Zscaler Internet Access (ZIA), by connector integration, or custom application signature such as **IDP**, **ZIA**, **CONNECTOR**,or**CUSTOM ZIA**).
 - **Sanction Status**: Whether the application's use is sanctioned or not in your organization.
-- **Risk Index**: The risk index assigned to the application. This setting for the app is configured in the ZIA Admin Portal. To learn more, see [About Cloud Applications](https://help.zscaler.com/zia/about-cloud-applications) and [About Shadow IT Report](https://help.zscaler.com/zia/about-shadow-it-report).
-- **Tags**: The tags linked to the application. To learn more, see [About Application Tags](https://help.zscaler.com/business-insights/about-application-tags).
 
-The top-right of the page displays the **Delete**or **Connect**option based on whether the application is connected for Business Insights computation or not. To remove the app connection, click **Delete**. Click **Connect** to go to the [Add Applications](https://help.zscaler.com/business-insights/onboarding-saas-apps-business-insights) page, where you can configure a connector for the app. These options are available for connector-supported apps only.
+The top-right of the page displays the **Delete**or **Connect**option based on whether the application is connected for Business Insights computation or not. To remove the app connection, click **Delete**.
 
-See image.
+On the **Engagement Index**tab, you can view:
 
-On the **Engagement Index & Users**tab, you can view:
-
-## Active and Inactive Users Graph
+## Active vs. Inactive Users Graph
 
 This graph shows the active vs. inactive user trend for the number of purchased license seats. Hover over a date on the graph to view the engagement index, number of purchased seats, and the number of active and inactive users along with their percentage increase or decrease. You can filter this tab for information for the last 30 days or 12 months.
-
-See image.
 
 ## Users Table
 
@@ -11589,38 +10842,27 @@ The top of the **Users**table shows the number of purchased seats, assigned seat
 
 - Select the time frame for viewing the data from the last 30, 60, or 90 days (last month, 2 months, or 3 months for the ZIA table).
 - Switch to view data from the tabs between**Active Users** or **Inactive Users**. By default, **Active Users** is selected.
-- Search for a specific user in the table.
-- Click **Export** to download the data for the preceding filters into a CSV file.
+- Search for a specific user by their email address.
 
-The table shows the top 100 records by user activity.
+Depending on the application's data source—how the application usage is discovered within your organization (**IDP** or **ZIA**), if you have a connector configured with a [supported app](https://help.zscaler.com/business-insights/understanding-business-insights-terminology#supported-app) (**Connector**), or if you have a custom application signature configured (**Custom ZIA**) —one of the following Users tables appears:
 
-See image.
-
-Depending on the application's data source—how the application usage is discovered within your organization (**IDP** or **ZIA**), if you have a connector configured with a [supported app](https://help.zscaler.com/business-insights/understanding-business-insights-terminology#supported-app) (**CONNECTOR**), or if you have a custom application signature configured (**CUSTOM ZIA**) —one of the following Users tables appears:
-
-- For ZIA Discovered or CUSTOM ZIA Apps
+- For Internet Access Discovered or CUSTOM Internet Access Apps
 - For IDP Discovered Apps
 - For CONNECTOR Apps
 
-If you're viewing application details for Microsoft 365, the User field shows obfuscated data by default. To view usernames, enable the setting in the [Microsoft 365 admin center](https://admin.microsoft.com/). To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-US/microsoft-365/troubleshoot/miscellaneous/reports-show-anonymous-user-name).
+If you're viewing application details for Microsoft 365, the User field shows obfuscated data by default. To view usernames, enable the settings in the [Microsoft 365 admin center](https://admin.microsoft.com/). To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-US/microsoft-365/troubleshoot/miscellaneous/reports-show-anonymous-user-name).
 
 - **User**: The name of the user.
 - **Email**: The user's email ID.
 - **Department**: The department the user belongs to.
+- **Last Active**: The date when the user last used the application.
 - **Total Bytes**: The total upload and download bytes by the user for the app.
-- **Upload Bytes:** The total upload bytes by the user.
-- **Download Bytes**: The total download bytes by the user.
-- **No. of Transactions**: The number of transactions by the user for the application.
-- **Last Active**: The date when the user last used the application.
-
-See image.
+- **Transactions**: The number of transactions by the user for the application.
 
 - **User**: The name of the user.
 - **Email**: The user's email ID.
 - **Department**: The department the user belongs to.
 - **Last Active**: The date when the user last used the application.
-
-See image.
 
 - **User**: The name of the user.
 - **Email**: The user's email ID.
@@ -11628,171 +10870,36 @@ See image.
 - **License Type**: The license type of the application that is assigned to the user. For example, Microsoft 365 offers enterprise plans such as E1, E3, E5, etc. based on customer requirements.
 - **Last Active**: The date when the user last used the application.
 
-See image.
+The **Licensing Insights** tab shows the metrics for the license usage of the application. These metrics provide an understanding of the current license posture and help you manage them efficiently. You can view:
 
-## Contracts Table
+- **Unused Licenses**: The number of unused licenses.
+- **Potential Cost Savings**: The potential cost saving opportunity by managing your licensing posture.
+- **Assigned vs. Active Users**: The graph shows the comparison between assigned vs. active users.
+- A table shows the following information:
+  - **License Name**: The name of the license purchased.
+  - **Purchased Seats**: The number of purchased seats for the application. The graph is split between different SKUs that you purchased for the application. Hover over the bar to view the number of purchased seats for each SKU.
+  - **Assigned Seats**: The number of seats assigned to users from the purchased seats. Hover over the bar to view the number of assigned seats for each SKU. This information is only applicable for connector-based datasource.
+  - **Active Users**: The number of active users for the assigned seats. Hover over the bar to view the number of active users for each plan.
 
-The **Contracts**table shows the list of contracts your organization is subscribed to for the application. For each contract, you can view:
-
-- **Contract**: The name of the contract.
-- **Item Name**: The name of the service in the contract.
-- **End Date**: The end date of the application subscription.
-- **Licensing Model**: The licensing model for the subscription (e.g., Per User, Per GB).
-- **Quantity**: The number of users or GB of data opted in the subscription.
-- **List Price**: The total price of the license.
-- **Annual Price**: The annual price of the license.
-
-Use the filter option to filter the table data. Click the **Add** icon to show or hide the filter options. Use the filter-based range icons for precise data filtration (i.e., greater than, less than, between, ends with, equal to, not equal to). Click a contract to see more information about it in the [Contracts drawer](https://help.zscaler.com/business-insights/viewing-contract-details).
-
-See image.
-
-The **Licensing Insights** tab consists of a License Usage Funnel graph that shows the metrics for the license usage of the application. These metrics provide an understanding of the current license posture and help you manage them efficiently. You can view:
-
-- **Purchased Seats**: The number of purchased seats for the application. The graph is split between different SKUs that you purchased for the application. Hover over the bar to view the number of purchased seats for each SKU.
-- **Assigned Seats**: The number of seats assigned to users from the purchased seats. Hover over the bar to view the number of assigned seats for each SKU. This information is only applicable for connector-based datasource.
-- **Active Users (Last 90 days)**: The number of active users for the assigned seats. Hover over the bar to view the number of active users for each plan.
-
-You can filter this graph based on the data sources from the **Datasource** drop-down menu, or switch it between **Plans**and **Contract**views.
-
-You can also select or deselect the line items you want to compare in the chart.
-
-See image.
-
-The **Risk & Compliance** tab consists of the following sections:
-
-## **Basic**
-
-You can see the following information about the application:
-
-- **Headquarter**: The application company's headquarters location.
-- **Employees**: The number of people employed in the application vendor company.
-- **Year** **Incorporated**: The year when the application company was incorporated.
-- **Application Category**: The application category that the application is categorized under.
-- **Description**: A description of the application company.
-
-## **Hosting Information**
-
-You can see whether the application has (Yes) or does not have (No) the following characteristics. A green thumbs up next to that answer means that this is the desirable answer. A red thumbs down means that this is not the desirable answer.
-
-- Hosting Characteristics
-
-## **Security**
-
-You can see whether the application has (Yes) or does not have (No) the following characteristics. A green thumbs up next to that answer means that this is the desirable answer. A red thumbs down means that this is not the desirable answer.
-
-- Security Information
-
-See image.
-
-- Certifications
-  - Shows the applicable certifications for the application.
-- Poor Terms of Service
-  - Yes = thumbs down
-  - No = thumbs up
-- Data Breaches in the Last 3 Years
-  - Yes = thumbs down
-  - No = thumbs up
-- Source IP Restrictions
-  - Yes = thumbs up
-  - No = thumbs down
-- MFA Support
-  - Yes = thumbs up
-  - No = thumbs down
-- Admin Audit Logs
-  - Yes = thumbs up
-  - No = thumbs down
-- File Sharing
-  - Yes = thumbs down
-  - No = thumbs up
-- Password Strength
-  - Yes = thumbs up
-  - No = thumbs down
-
-- SSL Pinned
-  - Yes = thumbs down
-  - No = thumbs up
-- Data Encryption in Transit
-  - Yes = thumbs up
-  - No = thumbs down
-- Evasive
-  - Yes = thumbs down
-  - No = thumbs up
-- HTTP Security Header Support
-  - Yes = thumbs up
-  - No = thumbs down
-- DNS CAA Policy
-  - Yes = thumbs up
-  - No = thumbs down
-- Weak Cipher Support
-  - Yes = thumbs down
-  - No = thumbs up
-- Valid SSL Certificate
-  - Yes = thumbs up
-  - No = thumbs down
-- Published CVE Vulnerability
-  - Yes = thumbs down
-  - No = thumbs up
-- SSL Cert Key Size
-  - Less than 2048 bits = thumbs down
-  - More than 2048 bits = thumbs up
-- Vulnerable to Heartbleed
-  - Yes = thumbs down
-  - No = thumbs up
-- Vulnerable to Poodle
-  - Yes = thumbs down
-  - No = thumbs up
-- Vulnerable to Logjam
-  - Yes = thumbs down
-  - No = thumbs up
-- Support for WAF
-  - Yes = thumbs up
-  - No = thumbs down
-- Remote Access Screen Sharing
-  - Yes = thumbs down
-  - No = thumbs up
-- Vulnerability Disclosure Policy
-  - Yes = thumbs up
-  - No = thumbs down
-- Sender Policy Framework
-  - Yes = thumbs up
-  - No = thumbs down
-- DomainKeys Identified Mail
-  - Yes = thumbs up
-  - No = thumbs down
-- Domain-Based Message Authentication
-  - Yes = thumbs up
-  - No = thumbs down
-- Malware Scanning Content
-  - Yes = thumbs up
-  - No = thumbs down
-
-[Image: Engagement Index & Users Tab in the Application Details page]
-
-[Image: Licensing Insights Tab]
-
-[Image: Risk & Compliance Tab]
-
-[Image: Users Table Filter]
-
-[Image: Contracts Tab]
+You can filter the data for the last 30 days, month, or 2 months.
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/viewing-application-overlap-details","lastmod":"2025-09-29T23:17Z","nid":"1473231"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/viewing-application-overlap-details","lastmod":"2026-10-08T22:20Z","nid":"1543309"} -->
 ## Viewing Application Overlap Details
 
 - Source: https://help.zscaler.com/business-insights/viewing-application-overlap-details
 - Product: Business Insights
 - Path: Business Insights Help > Application Insights > Viewing Application Overlap Details
-- Last modified: 2025-09-29T23:17Z
-- Summary: Information on application comparison based on their capability in the Business Insights Admin Portal.
+- Last modified: 2026-10-08T22:20Z
+- Summary: Information on application comparison based on their capability.
 
-The Application Overlap Details page (Application > Overlapping Apps > click on the application) provides metrics for applications for a specific capability. You can view the user activity, overlap metrics, and app comparisons for a capability.
+The Application Overlap Details page (Analytics > Business Insights > Applications > Application Insights > Overlapping Apps > click on the applications) provides metrics for applications for a specific capability. You can view the user activity, overlap metrics, and app comparisons for a capability.
 
 See image.
 
-You can compare the overlap metrics for up to 4 apps at a time by using the drop-down menu in the upper-left of the page. After you select the apps for comparison, click **Apply**. The page is updated with the apps you selected.
+You can compare the overlap metrics for up to 4 apps at a time by using the drop-down menu in the upper-left of the page.
 
 The page contains the following sections:
 
@@ -11809,7 +10916,7 @@ This table compares the apps in terms of engagement index, growth trend, etc. Fo
 - **Application**: The name of the application along with its logo.
 - **Website**: The application's website.
 - **Description**: The description of the application.
-- **Data Source**: The source from where the application usage is discovered (i.e., identity provider (IdP), Zscaler Internet Access (ZIA), by connector integration, or custom application signature such as **IDP**, **ZIA**, **CONNECTOR**,or**CUSTOM ZIA**).
+- **Data Source**: The source from where the application usage is discovered (i.e., identity provider (IdP), Internet & SaaS, by connector integration, or custom application signature such as **IDP**, **ZIA**, **Connector**,or**Custom ZIA**).
 - **Active Users**: The number of active users for the app.
 - **Growth Trend**: The percentage increase or decrease in user activity for every 30 days. For example, if you have 50 active users in the last 30 days but 100 active users before the last 30 days, the growth trend is calculated by dividing the increase or decrease in the number of active users by the number of active users before the last 30 days, and multiplying it by 100 ([100−50]÷100×100 = decrease of 50%).
 - **Engagement Index**: The percentage of active users in the last 30 days over the last 90 days for an app. For example, if you have 50 active users in the last 30 days and 100 in the last 90 days for Box, the engagement index is calculated by dividing the number of active users in the last 30 days by the number of active users in the last 90 days, and multiplying it by 100 (i.e., [50÷100]×100 = 50%).
@@ -11828,74 +10935,16 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/viewing-contract-details","lastmod":"2025-07-07T22:19Z","nid":"1506921"} -->
-## Viewing Contract Details
-
-- Source: https://help.zscaler.com/business-insights/viewing-contract-details
-- Product: Business Insights
-- Path: Business Insights Help > Application Insights > Viewing Contract Details
-- Last modified: 2025-07-07T22:19Z
-- Summary: How to view application contract details in the Business Insights Admin Portal.
-
-The Contract Details drawer shows the licensing information, pricing, etc. for applications in the contracts. The top of the drawer shows the name of the contract, upcoming contract related deadlines, tags linked with the contract, and other important details (i.e., billing frequency, contacts, etc.).
-
-To access the contract drawer, go to either:
-
-- **Applications** > **All Contracts** > click on a contract
-- The [Application Details](https://help.zscaler.com/business-insights/viewing-application-details) page > **Contracts** > click on a contract
-
-## Overview
-
-The Overview section shows the following information:
-
-- **Start Date**: The contract start date.
-- **End Date**: The contract end date
-- **Annual Contract Value**: The annual contract value (ACV). The value is displayed as the default currency set on the [Contract Settings](https://help.zscaler.com/business-insights/contract-settings) page. Click the **Edit** icon to update the currency.
-- **Total Contract Value**: The total contract value (TCV). The value is displayed as the default currency set on the [Contract Settings](https://help.zscaler.com/business-insights/contract-settings) page.
-- **Payment Term**: The term of the payment agreed upon by both the parties (the vendor and your organization).
-- **Payment Frequency**: The payment frequency for the contract (e.g., annual, quarterly).
-- **Vendor**: The name of the vendor.
-- **Seller**: The name of the seller.
-- **Buyer**: The name of the contract buyer.
-- **File**: The contract file uploaded to the Business Insights service. Click the **Download** icon to save the contract to your system, if available.
-
-Click the **Column Menu**icon, then click the **Edit** icon to update any fields in the drawer and click **Save**. You can also click **Delete Contract** to remove the contract.
-
-## Application Table
-
-The application table shows the following information for each application in the contract:
-
-- **Application**: The name of the application.
-- **Item Name**: The name of the SKU subscribed to for the application.
-- **End Date**: The date when the application subscription ends.
-- **Licensing Model**: The licensing model for the application (i.e., **Per User**, **Per GB**, etc.).
-- **Quantity**: The number of users or the GB of data subscribed to in the license.
-- **List Price**: The price of the total licensing model.
-- **Annual Price**: The annual price for the application subscription.
-- **Start Date**: The subscription start date.
-- **Discount**: The discount provided on the subscription.
-- **Total**: The total price after discount.
-- **Status**: The status of the application subscription (i.e, **Active**, **Expired**, or **Pending**). A pending status indicates that the subscription has not yet started.
-
-Click the **Settings** icon to [modify the column data](https://help.zscaler.com/business-insights/using-tables-business-insights).
-
-[Image: Contract Details drawer]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/business-insights/viewing-offices-and-locations-chart","lastmod":"2025-08-06T23:32Z","nid":"1486606"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/viewing-offices-and-locations-chart","lastmod":"2026-10-08T22:28Z","nid":"1543320"} -->
 ## Viewing Offices and Locations in a Chart
 
 - Source: https://help.zscaler.com/business-insights/viewing-offices-and-locations-chart
 - Product: Business Insights
 - Path: Business Insights Help > Workplace Insights > Viewing Offices and Locations in a Chart
-- Last modified: 2025-08-06T23:32Z
-- Summary: Information on viewing the Offices and Locations page in a chart.
+- Last modified: 2026-10-08T22:28Z
+- Summary: Information on viewing the Offices and Locations page in a chart for Business Insights.
 
-This article explains the data displayed on the Offices and Locations page (Workplace > Offices and Locations > Charts) in the Chart view.
-
-See image.
+This article explains the data displayed on the Offices and Locations page (Analytics > Business Insights > Workplace > Offices and Locations > Charts) in the Chart view.
 
 To understand the data in a list or chart, see [About Offices and Locations](https://help.zscaler.com/business-insights/about-offices-and-locations) or [Viewing Offices and Locations on a Map](https://help.zscaler.com/business-insights/viewing-offices-and-locations-map).
 
@@ -11904,13 +10953,11 @@ To understand the data in a list or chart, see [About Offices and Locations](htt
 To analyze the data for a specific metric or time frame:
 
 - **Export as PDF**: Download the data on the page as a PDF file.
-- **Time Range**: View workplace insights for the last 7 days, a week, a month, or 3 months, then choose the week, month, or 3 months from the right pane. The data aggregation for the custom week, month, or quarter might take some time to process. See image.
+- **Time Range**: View workplace insights for the last 7 days, a week, a month, or 3 months, then choose the week, month, or 3 months from the right pane. The data aggregation for the custom week, month, or quarter might take some time to process.
 - Filter the insights by:
   - **Name**: The name of the workplace. You can only select to view data for either the configured offices or inferred locations at one time.
-  - **Departments**or**Divisions**: The department filter is available unless you have at least one department mapping to a division on the [Department Mapping](https://help.zscaler.com/business-insights/about-department-mapping) page.
-    - **Departments**: The departments within your organization. This data is mapped from the ZIA Admin Portal SCIM. If the values are inaccurate, contact a ZIA admin.
-    - **Divisions**: The division that maps related departments.
-  - **Days**: Specific days from the filtered time frame. Enable **Custom Dates**to select custom dates to include or exclude from the insights. By default, Saturdays and Sundays are excluded from the metrics. See image.
+  - **Departments**: The departments within your organization. If the values are inaccurate, contact a Internet & SaaS admin.
+  - **Days**: Specific days from the filtered time frame. Enable **Custom Dates**to select custom dates to include or exclude from the insights. By default, Saturdays and Sundays are excluded from the metrics.
   - **User Types**: The type of users or employees visiting your organization. Selecting this filter doesn't filter the data unless you have defined user types for your organization in Business Insights. To enable this filter, contact Zscaler Support.
 
 The page contains the following information:
@@ -11987,44 +11034,38 @@ The bar chart shows the percentage of users coming into the workplace from the t
 
 See image.
 
-[Image: The Chart View of the Offices and Locations Page]
-
 [Image: Estimated Averages]
-
-[Image: Time Range Filter]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/viewing-offices-and-locations-map","lastmod":"2024-12-12T23:53Z","nid":"1486506"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/viewing-offices-and-locations-map","lastmod":"2026-10-08T22:28Z","nid":"1543319"} -->
 ## Viewing Offices and Locations on a Map
 
 - Source: https://help.zscaler.com/business-insights/viewing-offices-and-locations-map
 - Product: Business Insights
 - Path: Business Insights Help > Workplace Insights > Viewing Offices and Locations on a Map
-- Last modified: 2024-12-12T23:53Z
-- Summary: Information on viewing the Offices and Locations page in a map view in the Business Insights Admin Portal.
+- Last modified: 2026-10-08T22:28Z
+- Summary: Information on viewing the Offices and Locations page in a map view for viewing Business Insights.
 
-This article explains the data displayed on the Offices and Locations page (Workplace > Offices and Locations > Map) in the Map view. Additionally, you can view the metrics on this page as a list or chart. To learn more, see [About Offices and Locations](https://help.zscaler.com/business-insights/about-offices-and-locations) or [Viewing Offices and Locations in a Chart](https://help.zscaler.com/business-insights/viewing-offices-and-locations-chart).
+This article explains the data displayed on the Offices and Locations page (Analytics > Business Insights > Workplace > Offices and Locations > Map) in the Map view. Additionally, you can view the metrics on this page as a list or chart. To learn more, see [About Offices and Locations](https://help.zscaler.com/business-insights/about-offices-and-locations) or [Viewing Offices and Locations in a Chart](https://help.zscaler.com/business-insights/viewing-offices-and-locations-chart).
 
 To analyze the data for a specific data type or time frame, use the following filters:
 
 - **Export as PDF**: Download the data on the page as a PDF file.
 - **Time Range**: View data for the last 7 days, a week, a month, or 3 months, then choose the week, month, or 3 months from the right pane. The data aggregation for the custom week, month, or quarter might take some time to process.
-- **Type**: The type of workplace (**Offices** or **Inferred Locations**). For **Geolocation**, select the workplaces based on the type selected. Business Insights automatically assigns names for inferred location workplaces that are based on IP addresses and retains the name assigned in the ZIA Admin Portal for [ZIA location](https://help.zscaler.com/zia/about-locations)-based workplaces. You can only select to view data for either the configured offices or inferred locations at one time.
-- **Days**: Specific days from the filtered time frame. Enable **Custom Dates**to select custom dates to include or exclude from the insights. By default, Saturdays and Sundays are excluded from the metrics. See image.
-- **Departments**or**Divisions**: The department filter is available unless you have at least one department mapping to a division on the [Department Mapping](https://help.zscaler.com/business-insights/about-department-mapping) page.
-  - **Departments**: The departments within your organization. This data is mapped from the ZIA Admin Portal SCIM. If the values are inaccurate, contact a ZIA admin.
-  - **Divisions**: The division that maps related departments.
+- **Type**: The type of workplace (**Offices** or **Inferred Locations**). For **Geolocation**, select the workplaces based on the type selected. Business Insights automatically assigns names for inferred location workplaces that are based on IP addresses and retains the name assigned for [Internet & SaaS (ZIA) location](https://help.zscaler.com/zia/about-locations)-based workplaces. You can only select to view data for either the configured offices or inferred locations at one time.
+- **Days**: Specific days from the filtered time frame. Enable **Custom Dates**to select custom dates to include or exclude from the insights. By default, Saturdays and Sundays are excluded from the metrics.
+- **Departments**: The departments within your organization. If the values are inaccurate, contact a Internet & SaaS admin.
 - **User Types**: The type of users visiting your organization. Selecting user types doesn't filter the data unless you have defined these user types for your organization in Business Insights. To enable this filter, contact Zscaler Support.
-- Enable the **Show ZIA Sub-locations** toggle to view ZIA sub-locations in the list. This option is available when you filter the data for inferred location-based workplaces.
+- Enable the **Show ZIA Sub-locations** toggle to view Internet & SaaS sub-locations in the list. This option is available when you filter the data for inferred location-based workplaces.
 
 ### Map View
 
-Switch between **Geography** and **Remote User Density** to view the following insights:
+Switch between **Offices**and **Discovered Locations** to view the following insights:
 
-- Geography
-- Remote User Density
+- Offices
+- Discovered Locations
 
 View the distribution of workplaces across the globe. You can zoom in and out using your mouse or the icons at the bottom-right corner. Click a workplace to view:
 
@@ -12033,20 +11074,17 @@ View the distribution of workplaces across the globe. You can zoom in and out us
 - The type of workplace, whether a configured office or inferred location.
 - **Average Attendance**: The average attendance for the workplace for the filtered time frame.
 - **Average Occupancy**: The average occupancy for the workplace for the filtered time frame.
-- **See Details**: Click to view additional details for the workplace. To learn more, see [Analyzing a Workplace](https://help.zscaler.com/business-insights/analyzing-workplace).
 
 If you don't see a configured office on the map, metadata for that office is missing. Make sure you specify the city, state or province, and country information when configuring offices to locate the configured office on the map.
 
-You can only select to view data for either the configured offices or inferred locations at one time.
-
 See image.
 
-View locations across the globe for remote users. Zoom in and out using your mouse or the icons at the bottom-right corner. You can view:
+View locations across the globe for a discovered location. Zoom in and out using your mouse or the icons at the bottom-right corner. You can view:
 
-- The total number of remote users across the globe.
-- **Potential Sites Opportunities**: A list of cities with the number and percentage of remote users where you can consider opening an office.
-- The total number of remote users working from the country by hovering over a country.
-- Countries with darker shade signify more remote users compared to lighter-shaded countries with fewer remote users.
+- The total number of users across the globe.
+- **Potential Sites Opportunities**: A list of cities with the number and percentage of users where you can consider opening an office.
+- The total number of users working from the country by hovering over a country.
+- Countries with darker shade signify more users compared to lighter-shaded countries with fewer users.
 - Workplaces that show the following information when you hover over them: Click on the workplace to view additional details. To learn more, see [Analyzing a Workplace](https://help.zscaler.com/business-insights/analyzing-workplace).
   - The name of the workplace.
   - The city, state or province, and country where the workplace is located.
@@ -12059,20 +11097,18 @@ See image.
 [Image: Geography Tab in Map View]
 
 [Image: Remote User DensityTab]
-
-[Image: Days Filter]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/what-zscaler-business-insights","lastmod":"2024-02-16T06:25Z","nid":"1473076"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/what-zscaler-business-insights","lastmod":"2026-10-08T22:17Z","nid":"1543285"} -->
 ## What Is Zscaler Business Insights?
 
 - Source: https://help.zscaler.com/business-insights/what-zscaler-business-insights
 - Product: Business Insights
-- Path: Business Insights Help > Getting Started > What Is Zscaler Business Insights?
-- Last modified: 2024-02-16T06:25Z
-- Summary: Information about Zscaler Business Insights.
+- Path: Business Insights Help > What Is Zscaler Business Insights?
+- Last modified: 2026-10-08T22:17Z
+- Summary: Information about Business Insights.
 
 Zscaler Business Insights provides 360-degree visibility into your organization's SaaS application usage and spending insights, along with workplace metrics to help you save money and manage your workplace efficiently.
 
@@ -12668,13 +11704,13 @@ When the subscription term ends or expires, the logs are deleted by Zscaler acco
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-agentic-secops-licensing-and-fair-use","lastmod":"2026-10-02T10:38Z","nid":"1541024"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-agentic-secops-licensing-and-fair-use","lastmod":"2026-10-06T14:33Z","nid":"1541024"} -->
 ## Zscaler Agentic Security Operations Platform Licensing and Fair Use
 
 - Source: https://help.zscaler.com/logs-fair-use/zscaler-agentic-secops-licensing-and-fair-use
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Licensing & Fair Use > Zscaler Agentic Security Operations Platform Licensing and Fair Use
-- Last modified: 2026-10-02T10:38Z
+- Last modified: 2026-10-06T14:33Z
 - Summary: Information about Zscaler Agentic Security Operations Platform Licensing and Fair Use.
 
 Zscaler Agentic SOC is a Software as a Service (SaaS) product that is licensed according to the number of entities purchased for the subscription term in an order. An *entity* is defined as a unique identity, endpoint, or cloud resource. The number of entities required is determined by counting the total number of entities processed and stored in Agentic SOC.
@@ -12683,7 +11719,7 @@ Ensure that you order the correct number of entities. If you require additional 
 
 ## Fair Use Policy
 
-The usage of Agentic Security Operations Platform is expected to be in accordance with the [Acceptable Use Policy](https://help.zscaler.com/product-usage-terms/acceptable-use-policy). The Fair Use Policy for Agentic SOC is:
+The usage of Agentic Security Operations Platform (Agentic SecOps Platform) is expected to be in accordance with the [Acceptable Use Policy](https://help.zscaler.com/product-usage-terms/acceptable-use-policy). The Fair Use Policy for Agentic SOC is:
 
 - The average data processing (uncompressed) is expected to be no more than 10MB per entity on a daily basis.
 - The average number of daily queries per account is expected to be no more than 8,000 queries per day.
@@ -12693,19 +11729,19 @@ If your usage exceeds the acceptable amount, contact Zscaler Sales or your Chann
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-agentic-secops-logs","lastmod":"2026-10-02T10:45Z","nid":"1541023"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-agentic-secops-logs","lastmod":"2026-10-06T14:32Z","nid":"1541023"} -->
 ## Zscaler Agentic Security Operations Platform Logs
 
 - Source: https://help.zscaler.com/logs-fair-use/zscaler-agentic-secops-logs
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Logs & Data > Zscaler Agentic Security Operations Platform Logs
-- Last modified: 2026-10-02T10:45Z
+- Last modified: 2026-10-06T14:32Z
 - Summary: Information about Zscaler Agentic Security Operations Platform Logs.
 
-In order to provide the Zscaler Agentic Security Operations Platform and the Agentic SOC service, Zscaler has the right to process, use, reproduce, store, modify, and display the information from logs as defined in this article.
+In order to provide the Zscaler Agentic Security Operations Platform (Agentic SecOps Platform) and the Agentic SOC service, Zscaler has the right to process, use, reproduce, store, modify, and display the information from logs as defined in this article.
 
-- **Definition:** For the Agentic Security Operations Platform and its component products, including Agentic SOC, *logs* are defined as the configuration and transaction data collected for actions performed by users authorized by you who are using an Agentic Security Operations Platform product. For the Agentic SOC service, this includes duplicates of applicable Zscaler SaaS product logs, such as Zscaler Internet Access (ZIA) or Zscaler Private Access (ZPA), that Zscaler uses to identify suspicious and potentially malicious threat patterns for you. Some Agentic Security Operations Platform products define *logs*differently. These differences will be listed below.
-- **Retention:** Depending on your subscription, Zscaler retains Agentic Security Operations Platform and Agentic SOC logs for a rolling period of up to six months during your subscription term. When the subscription term ends or expires, the logs are deleted by Zscaler according to applicable retention cycles. Retention for individual products may differ and are listed below.
+- **Definition:** For the Agentic SecOps Platform and its component products, including Agentic SOC, *logs* are defined as the configuration and transaction data collected for actions performed by users authorized by you who are using an Agentic SecOps Platform product. For the Agentic SOC service, this includes duplicates of applicable Zscaler SaaS product logs, such as Zscaler Internet Access (ZIA) or Zscaler Private Access (ZPA), that Zscaler uses to identify suspicious and potentially malicious threat patterns for you. Some Agentic SecOps Platform products define *logs*differently. These differences will be listed below.
+- **Retention:** Depending on your subscription, Zscaler retains Agentic SecOps Platform and Agentic SOC logs for a rolling period of up to six months during your subscription term. When the subscription term ends or expires, the logs are deleted by Zscaler according to applicable retention cycles. Retention for individual products may differ and are listed below.
 - **Storage Location:** During the deployment process, you can choose to have the logs stored in either the United States or the European Union. Storage locations for individual products may differ and are listed below.
 
 ## Platform-Specific Information
@@ -13295,7 +12331,7 @@ If your usage exceeds the acceptable amount, contact Zscaler Sales or your Chann
 
 In order to provide the Zscaler Identity Protection service, Zscaler has the right to process, use, reproduce, store, modify, and display the information from logs as defined in this article. For Identity Protection, *logs* are defined as the configuration and transaction data collected for actions performed by users authorized by you who are acting within the Identity Protection SaaS application.
 
-When Identity Protection is enabled, data is queried from your identity provider. The data and processed analytics are stored on the Security Operations Platform. This data is retained in the SecOps Platform for a rolling period of 12 months during the term of subscription. When the subscription term ends or expires, Zscaler deletes this data within 30 days.
+When Identity Protection is enabled, data is queried from your identity provider. The data and processed analytics are stored on the Agentic Security Operations Platform. This data is retained in the SecOps Platform for a rolling period of 12 months during the term of subscription. When the subscription term ends or expires, Zscaler deletes this data within 30 days.
 
 Zscaler retains the logs on a rolling period of up to 180 days during your subscription term. When the subscription term ends or expires, the logs are deleted by Zscaler according to applicable retention cycles.
 
@@ -13717,13 +12753,13 @@ During the deployment process, you can choose to have the logs stored in either 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-zero-trust-gateway-licensing-and-fair-use","lastmod":"2025-11-19T13:12Z","nid":"1529021"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-zero-trust-gateway-licensing-and-fair-use","lastmod":"2026-10-06T08:41Z","nid":"1529021"} -->
 ## Zscaler Zero Trust Gateway Licensing and Fair Use
 
 - Source: https://help.zscaler.com/logs-fair-use/zscaler-zero-trust-gateway-licensing-and-fair-use
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Licensing & Fair Use > Zscaler Zero Trust Gateway Licensing and Fair Use
-- Last modified: 2025-11-19T13:12Z
+- Last modified: 2026-10-06T08:41Z
 - Summary: Information about Zscaler Zero Trust Gateway Licensing and Fair Use.
 
 Zscaler Zero Trust Gateway is a Software as a Service (SaaS) product that is licensed in various ways. This article includes information on licensing types, the license renewal process, and Zscaler’s Fair Use Policy.
@@ -13742,13 +12778,13 @@ The usage of Zero Trust Gateway is expected to be in accordance with the [Accept
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-zero-trust-gateway-logs","lastmod":"2025-04-29T09:16Z","nid":"1529022"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-zero-trust-gateway-logs","lastmod":"2026-10-06T08:32Z","nid":"1529022"} -->
 ## Zscaler Zero Trust Gateway Logs
 
 - Source: https://help.zscaler.com/logs-fair-use/zscaler-zero-trust-gateway-logs
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Logs & Data > Zscaler Zero Trust Gateway Logs
-- Last modified: 2025-04-29T09:16Z
+- Last modified: 2026-10-06T08:32Z
 - Summary: Information about Zscaler Zero Trust Gateway Logs.
 
 Zscaler Zero Trust Gateway logs are defined as Session Logs, Tunnel Logs, DNS Logs, and Audit Logs. To learn more, see [About Insights Logs](https://help.zscaler.com/cloud-branch-connector/about-insights-logs).
@@ -14692,7 +13728,7 @@ To view each tenant's account and configuration details:
 - The name of the tenant account.
 - **Organization ID:** The tenant organization ID.
 - The status of the tenant account.
-- **View On**: Hover over to access the ZIA Admin Portal of the tenant account. You can also access other admin portals (i.e., Zscaler Digital Experience (ZDX), Zscaler Cloud Connector, etc.) if the tenant is provisioned on them.
+- **View On**: Hover over to access the ZIA Admin Portal of the tenant account. You can also access other admin portals (i.e., Digital Experience (ZDX), Zscaler Cloud Connector, etc.) if the tenant is provisioned on them.
 - **Primary Account Owner**: The owner of the tenant account.
 - **Geographical Region**: The geographical region of the tenant.
 - **Number of Employees**: The number of employees in the tenant organization.
@@ -14820,7 +13856,7 @@ The tenant account activation and password reset information:
 
 - **Send Activation Email**: Indicates whether sending the activation email is enabled or disabled.
 - **Send ZIA Password Reset Email**: Indicates whether sending the ZIA password reset email is enabled or disabled.
-- **Send ZDX Password Reset Email**: Indicates whether sending the Zscaler Digital Experience (ZDX) password reset email is enabled or disabled.
+- **Send ZDX Password Reset Email**: Indicates whether sending the Digital Experience (ZDX) password reset email is enabled or disabled.
 - **Send Zscaler Cloud Connector Password Reset Email**: Indicates whether sending the Zscaler Cloud Connector password reset email is enabled or disabled.
 - **Send ZCSPM Admin Password Reset Email**: Indicates whether sending the Zscaler Cloud Security Posture Management (ZCSPM) password reset email is enabled or disabled.
 - **Send BI Password Reset Email**: Indicates whether sending the password reset link email notification to the Zscaler Business Intelligence (BI) contact is enabled or disabled.
@@ -15065,9 +14101,9 @@ The drawer shows the following information about the alert:
 
 - Source: https://help.zscaler.com/unified/about-automation-rules
 - Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Administration > Automations > Automation Rules > About Automation Rules
+- Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Automations > Automation Rules > About Automation Rules
 - Last modified: 2026-09-16T17:31Z
-- Summary: Information on the Automation Rules page in the Security Operations Platform.
+- Summary: Information on the Automation Rules page in the Agentic Security Operations Platform.
 
 An automation rule automatically triggers one or more playbooks when specific conditions are met on a selected entity, such as an [alert](https://help.zscaler.com/agentic-soc/about-alerts), or an [incident](https://help.zscaler.com/agentic-soc/about-incidents).
 
@@ -15147,16 +14183,16 @@ On the Custom Dashboards page (Analytics> Custom Dashboards), you can do the fol
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/about-dashboards","lastmod":"2026-09-07T04:59Z","nid":"1545219"} -->
+<!-- ZS-ARTICLE {"url":"/unified/about-dashboards","lastmod":"2026-10-09T02:30Z","nid":"1545219"} -->
 ## About Dashboards
 
 - Source: https://help.zscaler.com/unified/about-dashboards
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Analytics > Dashboards > About Dashboards
-- Last modified: 2026-09-07T04:59Z
+- Last modified: 2026-10-09T02:30Z
 - Summary: Information about the My Dashboards page in the Agentic Security Operations Platform.
 
-You can create, manage, and monitor custom dashboards in the Agentic Security Operations Platform. These dashboards provide visibility into identity findings, risks, and MITRE ATT&CK techniques across tenants.
+You can create, manage, and monitor custom dashboards in the Agentic Security Operations Platform (Agentic SecOps Platform). These dashboards provide visibility into identity findings, risks, and MITRE ATT&CK techniques across tenants.
 
 Dashboards provide the following benefits and enable you to:
 
@@ -15570,14 +14606,14 @@ On the Playbooks page (Agentic SOC> Automations > Playbooks), you can do the fol
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/about-reports","lastmod":"2026-09-15T22:14Z","nid":"1545510"} -->
+<!-- ZS-ARTICLE {"url":"/unified/about-reports","lastmod":"2026-10-09T02:37Z","nid":"1545510"} -->
 ## About Reports
 
 - Source: https://help.zscaler.com/unified/about-reports
 - Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Security Operations Platform > Security Operations Platform Analytics > Reports > About Reports
-- Last modified: 2026-09-15T22:14Z
-- Summary: Information on the Reports page in the Security Operations Platform.
+- Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Analytics > Reports > About Reports
+- Last modified: 2026-10-09T02:37Z
+- Summary: Information on the Reports page in the Agentic Security Operations Platform.
 
 Reports provide information about security data for key entities such as users, tenants, identity findings, tickets, and assets. You can customize reports with dimensions and measurements to analyze the data and identify trends. Reports can be created manually or scheduled for automatic delivery, helping you track progress, support audits, and keep stakeholders informed.
 
@@ -15746,13 +14782,13 @@ On the Signal History page (Policies > Common Configuration > Adaptive Access > 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/about-users-security-operations-platform","lastmod":"2026-09-30T13:01Z","nid":"1545320"} -->
+<!-- ZS-ARTICLE {"url":"/unified/about-users-security-operations-platform","lastmod":"2026-10-08T23:51Z","nid":"1545320"} -->
 ## About Users in the Agentic Security Operations Platform
 
 - Source: https://help.zscaler.com/unified/about-users-security-operations-platform
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Analytics > Users > About Users in the Agentic Security Operations Platform
-- Last modified: 2026-09-30T13:01Z
+- Last modified: 2026-10-08T23:51Z
 - Summary: Information on the Users page in the Agentic Security Operations Platform.
 
 You can view a consolidated list of user accounts and their identity types, and review the identity findings and total number of critical or high-severity findings to take the necessary action. Only users in an active state are displayed on the Users page.
@@ -15793,13 +14829,13 @@ On the Users page (Agentic SOC > Users, Identities > Users, or AEM > Users), you
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/about-zagent","lastmod":"2026-09-30T13:39Z","nid":"1544587"} -->
+<!-- ZS-ARTICLE {"url":"/unified/about-zagent","lastmod":"2026-10-08T07:06Z","nid":"1544587"} -->
 ## About ZAgent
 
 - Source: https://help.zscaler.com/unified/about-zagent
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > ZAgent > About ZAgent
-- Last modified: 2026-09-30T13:39Z
+- Last modified: 2026-10-08T07:06Z
 - Summary: Overview of ZAgent framework where you can ask questions or run predefined agents to analyze and automate systems for a comprehensive view of your organization's security and guardrails.
 
 ZAgent is Zscaler's AI framework for operating and managing Zscaler's Zero Trust Secure Access Service Edge (SASE) platform. You can understand, monitor, troubleshoot, configure, and optimize your Zscaler environment by using ZAgent as a unified, conversational experience.
@@ -15952,4 +14988,671 @@ The newly created profile is displayed on the **Profiles**page. The Adaptive Acc
 [Image: Select the profile criteria]
 
 [Image: Click the Plus icon]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/adding-and-managing-entities-and-fields","lastmod":"2026-09-25T09:22Z","nid":"1545270"} -->
+## Adding and Managing Entities and Fields
+
+- Source: https://help.zscaler.com/unified/adding-and-managing-entities-and-fields
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Adding and Managing Entities and Fields
+- Last modified: 2026-09-25T09:22Z
+- Summary: Information about how to add and manage fields and entities in the Agentic Security Operations Platform data model.
+
+The Agentic Security Operations Platform (SecOps Platform) data model comes with many default entity types that define and describe the data created and needed by the applications in the SecOps Platform. You can manage those entities, their attributes (fields), and their relationships to ensure that business objectives are met. To learn more, see [Understanding Entity Types](https://help.zscaler.com/unified/understanding-entity-types) and [Understanding the Data Model in the Security Operations Platform](https://help.zscaler.com/unified/understanding-data-model-security-operations-platform).
+
+Consult your Zscaler Account team when making changes to the data model. Uninformed or well-meaning changes to the data model can affect data integrity and cause fragmented or duplicated data, which can result in operational inefficiencies or noncompliance.
+
+## Adding and Managing Entities
+
+For access to the data model, your assigned role must include the Read, Create, Edit, and Delete permissions under the Platform - Model Management resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/unified/creating-custom-roles) and [Managing User Roles](https://help.zscaler.com/unified/managing-user-roles#assign-role).
+
+You can add new entities when you need to track distinct objects, resources, or concepts in the SecOps Platform data model that are not otherwise covered by the default entities.
+
+Add an Entity
+
+To add an entity:
+
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Data Model**.
+3. Click **Add Entity**. See image. This action is irreversible. You cannot delete entities from the SecOps Platform data model. To delete an existing entity, contact Zscaler Support.
+4. Enter a name for the entity, and click **Add**. An entity is created with the following default fields: `First Seen`, `Last Seen`, `Tags`, `Sources`, `ID`, `Locked`, `State`, `Created`, `Last Update`, `Last State Transition`, `Key`, `Name`, `Type`.
+5. Configure the entity's relationships, fields, unification rules, and usage within the SecOps Platform. Consult your Zscaler Account team for assistance.
+
+[Image: Add Entity button highlighted on Data Model Management page.]
+
+When managing entities, you can perform the following actions:
+
+Add a Field to an Entity
+
+To add a field to an entity:
+
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Data Model**.
+3. For the entity you want to add a new field to, click the **Add field** icon. See image. [Image: Add field icon highlighted on Data Model Management page] This action is irreversible. You cannot delete fields from the SecOps Platform data model. To delete an existing field from an entity, contact Zscaler Support.
+4. In the new field window that appears:
+  1. **Field Name**: Enter a name for the field.
+  2. **Field Type**: Select a field type from the drop-down menu. Available fields include **Text**, **Number**, **Boolean**, **Date**, **Date & Time**, **Repeated Text**, **Repeated Number**, **Repeated Boolean**, **Repeated Date**, and **Repeated Date & Tim**e.
+
+Investigate an Entity
+
+To view the Entity Explorer page for an entity:
+
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Data Model**.
+3. Hover over the entity you want to investigate, and click the**Investigate Entity**icon. See image. [Image: Investigate Entity icon highlighted on Alert entity in Data Model Management page] The **Entity Explorer** page appears. To learn more, see [Using the Entity Explorer](https://help.zscaler.com/unified/using-entity-explorer).
+
+Process Entities
+
+To run unification rules and other data manipulation functions:
+
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Data Model**.
+3. Choose one of the following options: See image. [Image: Process All and Process by entity button]
+  1. **Process All**: Click to process all entities.
+  2. **Process by entity**: Click the drop-down menu to select the entities you want to process, and click **Apply**. Select **Run selected and dependent projects**or **Run selected projections only**, and click **Process**.
+4. (Optional) If processing fails, click **Show Logs**to open the **Entity Management Runs** page and review the logs. See image [Image: Show Logs button highlighted on processing notification for failed run]
+
+View Entity Management Runs
+
+To view entity management runs:
+
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Data Model**.
+3. Click the **See Logs**icon. See image. [Image: See Logs icon highlighted on the Data Model Management page] The **Entity Management Runs** page appears.
+4. On the **Entity Management Runs** page, you can perform the following actions:
+  - View details of the entity management runs. You can sort each column. For each run, you can see:
+    - **Status**: The status column displays the outcome of each run:
+      - **Completed**: The run successfully completed without data manipulation issues.
+      - **Canceled**: The run was intentionally stopped by the user.
+      - **Failed**: The run encountered an error during data manipulation that prevented it from completing successfully.
+      - **Partially Completed**: The run encountered some errors during data manipulation. You should manually process this run again to ensure that all data manipulation is completed.
+    - **ID**: A unique identifier for the run that can be used for reference when troubleshooting run failures.
+    - **Category**: The run's category displays the processing type, indicating the level of processing applied to the ingested data. All Entity Management runs are categorized as**Aggregate**runs, where the SecOps Platform applies data unification rules and other data manipulation processes. To learn more about other run categories, see [Tracking Data Source Runs](https://help.zscaler.com/unified/tracking-data-source-runs).
+    - **Triggered by**: Displays who initiated the run:
+      - **System**: The run was triggered by its [configured schedule](https://help.zscaler.com/unified/2.0/creating-data-sources#scheduling-section).
+      - **User**: The run was triggered by a user clicking**Process** or **Process All**.
+    - **Run type**: Indicates how the run was performed: For a complete list of all run types, contact Zscaler Support.
+      - **Agg process:** A run manually initiated by a user by clicking **Process** or **Process All** on the [Data Unification - Entities page](https://help.zscaler.com/unified/managing-entity-unification), [Data Unification - Fields page](https://help.zscaler.com/unified/managing-field-unification), or Data Model Management page.
+      - **Batched**: A run initiated by its [configured schedule](https://help.zscaler.com/unified/creating-data-sources).
+      - **Auto-batched*****:***A run initiated as part of a [platform-managed batch process](https://help.zscaler.com/unified/managing-data-sources).
+      - **Post manual operation**: A run initiated by a user overriding a field value.
+    - **Duration**: The total amount of time the run took to complete.
+    - **Start Time**and**End Time:**The timestamps when the run started and ended. This information can reveal potential issues with data unification and assist during troubleshooting.
+  - Click to expand a run, and drill down into detailed logs about the completion status, duration, and start and end times for each entity processed. See image.
+  - (Optional) For in-progress runs, hover over the run, and click the **Cancel**icon to cancel the run. Confirm your choice to cancel the run instantly. See image.
+
+[Image: Entity management run expanded to show run activities.]
+
+[Image: Cancel icon highlighted on in-progress entity management run]
+
+View Entity Relationships
+
+Relationships between entities and their fields are defined on the Configure > Relationspage. Establishing proper relations prevents orphan records and preserves the integrity of your data. It also allows you to apply referential business logic.
+
+To learn more about establishing relations among entities and their fields, contact your Zscaler Account team.
+
+See image.
+
+[Image: Relations page]
+
+## Managing Fields
+
+When managing fields, you can perform the following actions:
+
+Change Field Visibility
+
+Field visibility determines whether a field is viewable within Unified Vulnerability Management (UVM), Asset Exposure Management (AEM), and other SecOps applications. The SecOps Platform still processes, aggregates, and runs unification rules for hidden fields.
+
+To change field visibility:
+
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Data Model**.
+3. Change a field's visibility by performing one of the following actions:
+  - Modify multiple fields:
+    1. Click **Set Visibility**. See image.
+    2. Select the fields you want to change visibility for. See image.
+    3. Click **Show** to enable visibility, or click **Hide** to disable visibility. See image.
+  - Modify a single field:
+    1. Click the field you want to change visibility for. The field details drawer opens.
+    2. Enable or disable **Visibility**. See image.
+
+[Image: Visibility toggle highlighted in field drawer]
+
+[Image: Multiple fields selected in the Data Model Management page]
+
+[Image: Show and Hide buttons highlighted in Data Model Management]
+
+[Image: Set Visibility button highlighted in Data Model Management]
+
+Manage Value Calculations
+
+Every field in the data model has a default formula that determines what values the field will contain when data is aggregated. You can see default formulas and calculations (i.e., Python script) for each field in the field drawer. You can also review the [default attribute reconciliation logic](https://help.zscaler.com/unified/attribute-reconciliation-default-functions) to understand how values for certain field types are calculated.
+
+To ensure the field uses value calculations that reflect your current security landscape, Zscaler recommends using [field unification rules](https://help.zscaler.com/unified/configuring-field-unification). This provides an easy, intuitive way to modify field formulas and calculations. However, if you find that the field unification rules are limited and cannot fully define the field's value, you can modify the formulas and Python script directly within the Data Model Management page. To learn more, see [Configuring Field Unification](https://help.zscaler.com/unified/configuring-field-unification) and [Understanding Field Unification, Data Model, and Application Settings](https://help.zscaler.com/unified/understanding-field-unification-data-model-and-application-settings).
+
+To modify the field's default data model logic:
+
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Data Model**.
+3. Click the field for which you want to manage its calculations. The field drawer opens. Field unification rules are the recommended way to specify field value logic, and they automatically override the default data model logic. If you have already configured field unification rules for this field, click **Unlink & Override**. This removes the field from [field unification rules](https://help.zscaler.com/unified/configuring-field-unification). See image.
+4. On the **Calculation** tab:
+  1. (Optional) Click **Add formula**and select a formula from the list, or click **Create new** to add your own. See image. The formula is added to the `eval_first_seen` function in the Editor. See image.
+  2. (Optional) Enable **CEL** to use [Python's Common Expression Language (CEL)](https://python-common-expression-language.readthedocs.io/en/latest/).
+  3. In the **Editor** field, insert a Python script.
+  4. In the **Default values for exception & none cases**section:
+    1. Click the **If Null** drop-down menu and select how null values are handled:
+      - **Set Null**: Set empty or null values as `Null`. This option is default.
+      - **Set Value**: Enter what value should be given to the empty or null value.
+      - **Fail & Set Error**: Set empty or null values to error with the included error message. You can also enter a new message.
+    2. Click the **If Error** drop-down menu and select how errors during value calculations are handled:
+      - **Set Null**: Set values as `Null`. This option is default.
+      - **Set Value**: Enter the value text.
+      - **Fail & Set Error**: Set empty or null values to error with the included error message. You can also enter a new message.
+
+[Image: Add formula button highlighted in the Calculation tab.  The  individual formula and the Create New button are highlighted in the Add formula drop-down.]
+
+[Image: Formula added to the editor]
+
+Preview a Field or Entity Data Model
+
+Review a limited subset of rows to verify how data loads within your field, or inspect your data types and field properties for a given entity.
+
+To preview an entity or field data model:
+
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Data Model**.
+3. Click the field for which you want to view its data model or its associated entity's data model. The field drawer opens.
+4. Click **Preview**. See image. The **Model Preview** page appears.
+5. Use the filters to adjust the data model preview as needed.
+6. (Optional) Click the **Entity** button to view the associated entity's data model. You can [resize or sort the table columns and add filters](https://help.zscaler.com/unified/using-tables). See image.
+
+[Image: Field is configured through unification rules and displays a warning and an Unlink & Override button.]
+
+Allow Manual Updates
+
+Allow users to make manual changes to a field value after aggregation and unification rules have run. Manual updates might be required for flexible business use cases, and you can restrict updates to roles or resources, require rationale, or apply content verification.
+
+To allow manual updates:
+
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Data Model**.
+3. Click the field for which you want to view its data model or its associated entity's data model. The field drawer opens.
+4. Click the **Manual Updates**tab.
+5. Enable **Allow Manual Updates**. See image. Some fields and entities do not allow you to enable manual updates.
+6. Enable the following settings as necessary:
+  1. **Allowed Permissions**: Enable to determine whether manual updates are restricted to specific roles or certain resource permissions, then select an option:
+    - **Restrict to Roles**: Select which roles are allowed to manually update the field.
+    - **Restrict to Resources**: Select which resources are allowed to manually update the field.
+  2. **Require Reason on update**: Enableto require rationale when a manual update occurs, then select an option:
+    - **Always**: A reason is always required when a manual update occurs. This option is selected by default.
+    - **Specific**:Select conditions under which a reason is required.
+  3. **Content Validation**: Enable to apply validation logic when a manual update occurs, then select an option:
+    - **Manual**: Select and enter specific keywords to be checked against the manually added value.
+    - **Query**: Select and click the **Field** drop-down menu to select a field.
+
+[Image: Allow Manual Updates toggle highlighted in Manual Updates tab of a field drawer]
+
+View Field Usage
+
+To view field usage:
+
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Data Model**.
+3. Click the field for which you want to view its data model or its associated entity's data model. The field details drawer opens.
+4. Click the **Usage**tab.
+5. Click an item under each usage section to open its associated page: Sections are only displayed if the field is currently in use.
+  - **Reports**: All reports that include the field.
+  - **View**: All saved views that include the field.
+  - **Dashboards**: All dashboards that include the field.
+  - **Data Model Fields**: All data model fields that the field is included in.
+  - **Data Source Mapping**: All data sources that include mapping to the field.
+  - **UI Configuration**: All UI configurations that include the field.
+  - **Measurement**: All calculated measurements that include the field.
+
+[Image: Entity and field toggle highlighted on Model Preview page]
+
+[Image: Preview button highlighted on field details drawer in the Data Model Management page]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/adding-your-company-logo","lastmod":"2026-09-07T04:59Z","nid":"1543379"} -->
+## Adding Your Company Logo
+
+- Source: https://help.zscaler.com/unified/adding-your-company-logo
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Setting Up Policies > Adding Your Company Logo
+- Last modified: 2026-09-07T04:59Z
+- Summary: How to add your company logo to banners, user notifications, and emails sent from Zscaler.
+
+You can customize the Zscaler Admin Console to include your logo in application banners, notifications, and emails sent to your users regarding security issues.
+
+To add a logo during set up:
+
+1. On the **Miscellaneous** page, under **Company Logo**, click **Upload File**.
+
+See image.
+
+1. Upload the logo from your local directory. Zscaler supports logos with the following specifications:
+  - Dimensions of 300 x 220 pixels or less
+  - Size of 10 KB or less
+  - PNG, JPG, or GIF file types
+2. Click **Save**.
+3. Click **Next**to [review and activate policies](https://help.zscaler.com/unified/review-and-activate-policies) and complete your Zscaler Admin Console setup.
+
+If you need to edit the logo later, you can go to **Administration** > **Account Management** > **Branding**. To learn more, see [Customizing Branding](https://help.zscaler.com/unified/customizing-branding).
+
+[Image: Adding a company logo during onboarding]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/aging-assets","lastmod":"2026-09-16T10:56Z","nid":"1545208"} -->
+## Aging Assets
+
+- Source: https://help.zscaler.com/unified/aging-assets
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Data Retention Management > Aging Assets
+- Last modified: 2026-09-16T10:56Z
+- Summary: How to configure asset aging rules by time or by value.
+
+Asset aging in the Agentic Security Operations Platform (SecOps Platform) enables organizations to automatically transition outdated or irrelevant assets to an inactive state. This enhances asset inventory accuracy and significantly reduces noise for security teams, ultimately improving operational efficiency and risk prioritization. You can also age associated entities (e.g., an asset's findings) when the linked asset becomes inactive to ensure data consistency and minimize manual cleanup.
+
+Asset aging rules can be automated and configured using two primary criteria:
+
+- Aging by time: Age assets based on the number of days since they were last detected by integrated tools or systems (using the Asset Last Seen field).
+- Aging by value: Age assets based on updates from the source system indicating status changes or other relevant field data.
+
+Inactive assets remain available for historical reporting but can be excluded from primary dashboard views. This ensures cleaner, more relevant inventory data without deleting the asset from the platform.
+
+## Configuring Asset Aging Rules
+
+Asset aging includes a fallback rule that specifies a default value with no conditional logic. This ensures that there is always default aging logic in place, preventing potential data conflicts or loss. The fallback rule can be edited, but can't be removed or deleted.
+
+For access to asset aging, your assigned role must include the Read, Create, and Edit permissions under the Platform - Model Management resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/unified/creating-custom-roles) and [Managing User Roles](https://help.zscaler.com/unified/managing-user-roles#assign-role).
+
+To configure an asset aging rule:
+
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Asset Aging**. See image. [Image: Asset Aging page]
+3. Click **New Rule**. The **Create Aging Rule** drawer opens.
+4. In the **Create Aging Rule** drawer: See image. [Image: Create Aging Rule drawer]
+  1. **Name**: Enter a name for the rule.
+  2. **Category**: Select a rule category. Automatically age an asset when it has not been detected by the selected sources for a defined number of days. **Asset Population**: Define which assets the rule applies to.; **Aging Scenario**: Specify conditions, such as sources and duration. Use reliable sources to ensure assets are aged based on trustworthy detection data, and to avoid incorrectly aging active assets. When multiple sources are selected, they all must report the asset as unseen for the specified duration for the asset to age. Automatically age an asset when a specific value change is reported by a source system, such as status updates indicating inactivity. **Asset Population**: Define which assets the rule applies to.; **Aging Scenario**: Specify the condition based on changes in a relevant source field. Choose a reliable source to ensure assets are aged based on accurate status signals, and to avoid incorrectly aging active assets. While each individual condition can reference only one source, you can add multiple conditions within the same rule.
+    - Aging by time
+    - Aging by value
+  3. Click **Add**. Repeat the process to add as many rules as necessary.
+5. (Optional) From the **Affected Entities**drop-down menu, select related entities that should be automatically aged when their associated asset becomes inactive. For example, findings linked to an asset are automatically aged (i.e., set to Undetected) when the asset they are in becomes inactive. See image. [Image: Select entities that should be affected by asset aging] The SecOps Platform currently supports the aging of findings through asset aging rules. This process applies alongside the aging logic of findings defined in the [remediation detection settings](https://help.zscaler.com/unified/creating-data-sources#remediation-detection-settings) of a source's configuration. The aging of findings through asset aging and the aging of findings through remediation detection settings are evaluated independently, and satisfying either of the configured aging settings is sufficient to age the findings. If an asset is resurfaced, its previously aged findings are also resurfaced.
+6. Click **Save**.
+
+## Rule Order in Asset Aging
+
+The rules' order of appearance doesn't affect the order of their application. Each data point is evaluated against all rules, even if one rule has already been satisfied.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/assessing-compliance","lastmod":"2026-10-09T00:03Z","nid":"1545137"} -->
+## Assessing Compliance
+
+- Source: https://help.zscaler.com/unified/assessing-compliance
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Risk360 > Assessing Compliance
+- Last modified: 2026-10-09T00:03Z
+- Summary: Information about risk frameworks and how Risk360 helps you identify and analyze your security stance in accordance with these frameworks.
+
+The integration of various risk frameworks with Risk360 helps you identify, assess, mitigate, and monitor risk, ensuring informed decision-making and abiding by regulatory compliance mandated or recommended based on your organization's geography and industry.
+
+The Risk360 service supports the following risk frameworks (Analytics > Risk360 > [select a framework]):
+
+- ISO27001
+- MITRE ATT&CK
+- NIST CSF
+- NIST SP 800-53
+- DORA
+- NIS2
+- HIPAA
+- PCI DSS
+- CIS
+- CAF
+- HITRUST
+- HECVAT
+- SOC 2
+- GDPR
+
+## Analyzing the Framework
+
+The framework page shows all the control IDs and maps these IDs to your current Zscaler protections and provides you with a holistic, as well as in-depth analysis for each technique. The page also shows any policy misconfigurations that are refraining you from securing techniques that can be reconfigured to strengthen your security stance.
+
+Each tile shows the name of the technique and the ID. When you click a tile, it opens all the sub-techniques under it. The tiles highlighted in blue indicate that they are covered by Zscaler protection, and the green or red color at the right side of these tiles indicates whether the protection is configured correctly or not.
+
+You can search for a technique by its name or the factor mapped to it.
+
+### Overview
+
+The Legend section provides the following overview:
+
+- The donut chart shows the split between the number of techniques covered by Zscaler and those that are not. The center of the donut chart shows the total percentage of technique coverage.
+- **Configurations**: This section shows the number of configurations or policies that are misconfigured and configured correctly for your organization.
+- You can show or hide this section by using the arrow at the top right of this section.
+
+See image.
+
+### Drawer View
+
+Click a technique or sub-technique to view the following information in a drawer view to the right side of the page:
+
+- Techniques
+- Sub-Techniques
+
+The ISO 27001 is a set of standards for establishing, implementing, maintaining, and continually improving an information security management system (ISMS) for any organization. This helps your organization become more resilient to cyberattacks, maintain data integrity, confidentiality, and availability, while also achieving significant cost savings.
+
+MITRE ATT&CK is a cybersecurity framework funded by the US government that is used to detect, identify, and classify various tactics, techniques, and procedures (TTPs) used for cyberattacks by attackers. It helps you assess your organization's security posture and calculate the risk of a cyberattack.
+The MITRE ATT&CK framework assumes the attacker's point of view to navigate through your organization's network. This helps in highlighting the attacker's journey from the point of access to a potential data exfiltration, among other harmful acts.
+
+To learn more, refer to the [MITRE ATT&CK website](https://attack.mitre.org/).
+
+The National Institute of Standards and Technology (NIST) cybersecurity framework (CSF) is a set of recommendations and processes that you can implement and follow to strengthen your organization's security posture against malicious attackers that also provides guidance on how to respond and recover from a security breach event.
+The NIST CSF is considered a very high-standard risk management tool across the industry as it provides great value at any stage of your cybersecurity journey. The Risk360 service supports both versions of NIST CSF (1.1 and 2.0) in the Zscaler Admin Console. You can use both versions of the framework to manage your organization's risk.
+
+The National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 is a set of structured security and privacy controls applicable specifically to federal information systems and organizations. It provides guidance on how to implement, assess, and strengthen an organization's security posture against malicious attackers while also making them breach ready with respond and recovery catalogs. The NIST SP 800-53 helps federal agencies and organizations comply with the mandatory Federal Information Security Management Act (FISMA) and other applicable laws and regulations for security.
+While NIST CSF provides a comprehensive set of best practices for organizations to follow, the NIST SP 800-53 provides specific security controls that must be implemented by federal agencies and organizations.
+
+The Network and Information Security Directive 2 (NIS2) is a European Union (EU) law that aims to improve cybersecurity across member states. A set of firm requirements for organizations in essential sectors, including risk management, incident reporting, and supply chain security, to create a common, high level of network and information security throughout the EU.
+
+To learn more, refer to the [NIS2 Directive Document](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32022L2555).
+
+The Digital Operational Resilience Act (DORA), a European Union (EU) regulation for the financial sector that mandates strong cybersecurity resilience and risk management for financial entities and critical Information and Communication Technology (ICT) third-party providers.
+
+To learn more, refer to the [DORA Directive Document](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32022R2554&from=EN).
+
+The Health Insurance Portability and Accountability Act (HIPAA) is a mandatory compliance framework for the healthcare industry or entities that interact with the United States' patient health information (PHI).
+
+To learn more, refer to the [Health and Human Services Website](https://www.hhs.gov/hipaa/index.html).
+
+The Payment Card Industry Data Security Standard (PCI DSS) is a mandatory security framework for all entities that store, process, or transmit cardholder's payment data.
+
+To learn more, refer to the [PCI Security Standards Website](https://www.pcisecuritystandards.org/).
+
+The Center for Internet Security (CIS) Critical Security Controls are a prescriptive, tactical, prioritized, and simplified set of best practices designed to strengthen your cybersecurity posture.
+
+To learn more, refer to the [CIS Website](https://www.cisecurity.org/controls).
+
+The Cyber Assessment Framework (CAF) is a standardized, outcome-focused compliance developed by the UK's National Cyber Security Centre (NCSC) in 2018 to help organizations evaluate and improve their cyber resilience.
+
+To learn more, refer to the [National Cyber Security Centre Website](https://www.ncsc.gov.uk/collection/cyber-assessment-framework).
+
+The HITRUST compliance is a comprehensive and certifiable security framework that integrates with multiple standards to help organizations with risk compliance and cyber resilience.
+
+To learn more, refer to the [HITRUST Website](https://hitrustalliance.net/).
+
+The Higher Education Community Vendor Assessment Toolkit (HECVAT) is developed by EDUCAUSE as a questionnaire framework intended for colleges and universities to evaluate compliance of their vendors.
+
+To learn more, refer to the [EDUCAUSE Website](https://www.educause.edu/higher-education-community-vendor-assessment-toolkit).
+
+System and Organization Controls 2 is a compliance standard for organizations that handle customer data, such as cloud providers and Software as a Service vendors. Based on the American Institute of Certified Public Accountants (AICPA) Trust Services Criteria, it focuses on controls for security, availability, processing integrity, confidentiality, and privacy.
+
+To learn more, refer to the [AICPA Website](https://www.aicpa-cima.com/resources/landing/system-and-organization-controls-soc-suite-of-services).
+
+The General Data Protection Regulation (GDPR) is an EU regulation that protects the personal data and privacy of individuals in the EU. It applies to any organization that processes the personal data of EU residents, regardless of where the organization is located. Non-compliance can result in significant penalties.
+
+To learn more, refer to the [GDPR Website](https://gdpr.eu/what-is-gdpr/).
+
+- The name of the technique, its ID, and the state of the sub-techniques (i.e., whether it is Zscaler-protected or not).
+- **Details**: A link that opens the PDF file where the technique is explained in detail.
+- **Description**: A description of the technique. This field name differs depending on the framework you're viewing (e.g., NIST Description and ISO 27001 Description).
+- **Zscaler Comment**: A note on how Zscaler can help mitigate the risk from this attack technique by using one of Zscaler's progressive protection portfolios. This field shows no information if the mitigation strategy isn't available.
+- **TTP to Zscaler Product Mapping**: Maps the attack technique to the Zscaler feature responsible for protecting against these attack techniques, whether the features that are responsible for protecting against these tactics, techniques, and procedures (TTPs) are licensed by your organization or not, and the Risk360 category that the TTP falls under.
+- **TTP to Risk360 Factor Mapping**: Maps all the attack sub-techniques to the [Risk360 Factors](https://help.zscaler.com/unified/viewing-risk-factors) and shows the status of each sub-technique.
+- **Notes**: Any notes that you added for the technique.
+
+See image.
+
+- The name of the technique, its ID, and the state of the sub-technique, whether they are covered by Zscaler protection or not.
+- **Details**: A link that opens the PDF file where the technique is explained in detail.
+- **Description**: A description of the technique. This field name differs depending on the framework you're viewing (e.g., NIST Description and ISO 27001 Description)
+- **Zscaler Comment**: A note on how Zscaler can help mitigate the risk from this attack technique by using one of Zscaler's progressive protection portfolios. This field shows no information if the mitigation strategy isn't available.
+- **TTP to 3rd Party Tools Mapping**: Shows whether the sub-technique is securely configured, misconfigured, or not covered by the any third-party security control policies.
+
+See image.
+
+### Hover-Over View
+
+Hover over a technique or sub-technique tile to view the following information:
+
+- Whether the protections against these attack techniques are misconfigured or configured correctly and if Zscaler protects your organization against this attack technique.
+- **Zscaler Control**: The Zscaler feature that is responsible for helping protect against these attack techniques.
+- **Related Risk360 Factors**: The [Risk360 Factors](https://help.zscaler.com/unified/viewing-risk-factors) that are related to the attack.
+- **Licensed?**: Whether or not you are subscribed to the Zscaler feature that protects against these attacks.
+- **Notes**: Any notes that you added for the technique.
+
+See image.
+
+[Image: Sub-technique Drawer in NIST SP 800-53 framework]
+
+[Image: TTP Drawer in NIST SP 800-53 framework]
+
+[Image: Hover dialog in NIST SP 800-53 framework]
+
+[Image: Legend Section in NIST SP 800-53 framework]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/assigning-content-permissions","lastmod":"2026-10-09T07:06Z","nid":"1545213"} -->
+## Assigning Content Permissions
+
+- Source: https://help.zscaler.com/unified/assigning-content-permissions
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > User Management > Assigning Content Permissions
+- Last modified: 2026-10-09T07:06Z
+- Summary: How to assign content permissions to users in the Agentic Security Operations Platform.
+
+Content permissions control access to data within the Agentic Security Operations Platform (SecOps Platform). To create content permission sets, see [Creating & Managing Content Permissions](https://help.zscaler.com/unified/creating-managing-content-permissions). After [creating users](https://help.zscaler.com/unified/creating-managing-users) in your account, you can assign content permissions to define the data they can access.
+
+Content permissions can only be assigned after a user is created and saved.
+
+## Assigning Content Permissions to Users
+
+To assign content permission sets to a single user:
+
+1. In the Agentic SecOps Platform Admin Portal, click the **Profile** menu in the top navigation bar.
+2. Click**Account Settings.** See image.
+3. In the left-side navigation, go to **User Management**. See image.
+4. Hover over the user and click the **Edit** icon, or select the checkbox next to the user and click **Edit**at the top of the page. See image.
+5. In the **Content Permissions** section, select the role permission sets you want to assign from the drop-down menu. To learn more, see [Creating & Managing Content Permissions](https://help.zscaler.com/unified/creating-managing-content-permissions). See image.
+6. Click **Save**. Assigned permission sets are applied on the user's next browser refresh.
+
+To assign content permissions to multiple users:
+
+1. Select the checkboxes next to the users you want to assign content permission to.
+2. Click the **Edit Permission Sets** drop-down menu, and select **Add Permission Set/s**. See image.
+3. In the **Add Permission Set/s**window, select the permission sets you want to assign to the selected users. See image.
+4. Click **Apply**. Assigned permission sets are applied on the user's next browser refresh.
+
+## Removing Content Permission Sets
+
+Removing content permission sets from users removes their access limit from the defined data. This means they'll no longer be limited to viewing only the data configured in the permission set.
+
+To remove a single user's content permissions:
+
+1. In the Agentic SecOps Platform Admin Portal, click the **Profile** menu in the top navigation bar.
+2. Click**Account Settings.** See image.
+3. In the left-side navigation, go to **User Management**. See image.
+4. Hover over the user and click the **Edit** icon, or select the checkbox next to the user and click**Edit**at the top of the page. The **Edit User** page appears.
+5. In the **Content Permissions** section, from the **Applied Permission Sets** drop-down menu, select the permission sets you want to remove.
+6. Click **Save**. Selected permission sets are removed on the user's next browser refresh.
+
+To remove multiple users' content permissions:
+
+1. Select the checkboxes next to the users you want to remove content permission from.
+2. Click the **Edit Permission Sets** drop-down menu, and select **Remove Permission Set/s**. See image.
+3. In the **Remove Permission Set/s**window, select the permission sets you want to remove from the selected users. See image.
+4. Click**Apply**. Assigned permission sets are applied on the user's next browser refresh.
+
+[Image: The Profile menu in the SecOps Platform Admin Portal]
+
+[Image: The Profile menu in the SecOps Platform Admin Portal]
+
+[Image: The User Management page]
+
+[Image: The User Management page]
+
+[Image: Editing a user from the User Management page]
+
+[Image: Adding permission sets to multiple users from the User Management page]
+
+[Image: The Add Permission Set/s window]
+
+[Image: The Remove Permission Set/s window]
+
+[Image: Select Permission Set/s to Remove]
+
+[Image: Select the role permission sets]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/attribute-reconciliation-default-functions","lastmod":"2026-10-07T08:18Z","nid":"1545204"} -->
+## Attribute Reconciliation Default Functions
+
+- Source: https://help.zscaler.com/unified/attribute-reconciliation-default-functions
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Data Unification > Attribute Reconciliation Default Functions
+- Last modified: 2026-10-07T08:18Z
+- Summary: Information about the attribute reconciliation default functions for reconciling conflicting values during data unification.
+
+Attribute reconciliation is the process of resolving conflicts that arise when merging duplicate entities during entity unification. This process ensures that the most accurate and up-to-date data is retained across your system, eliminating inconsistencies and inaccuracies. To learn more, see [What Is Data Unification?](https://help.zscaler.com/unified/what-data-unification) and [Configuring Entity Unification](https://help.zscaler.com/unified/configuring-entity-unification).
+
+For example, when merging multiple Asset records into a single asset, the Asset Operating System field might contain multiple values. In such cases, the system automatically selects the value that appears most frequently among the merged records.
+
+By default, every field has system-defined reconciliation logic based on industry best practices. These defaults can be adjusted upon request or manually replaced with Priority By Source reconciliation logic in field unification. To learn more, see [Configuring Field Unification](https://help.zscaler.com/unified/configuring-field-unification).
+
+## Default Functions by Field Type
+
+The following table outlines the system's default functions for determining field values during entity deduplication conflict resolution, categorized by field type.
+
+| Icon | Field Type | Default Function | Populated Value | Examples |
+| --- | --- | --- | --- | --- |
+| [Image: Text icon in Data Model] | Text | MAJORITY | The most frequent value from the set of values | Asset Owner ID Ticket Assignee |
+| [Image: Repeated message icon][Image: Repeated text icon] | Repeated (all types) | COLLECT_DISTINCT_FLAT | A list of distinct values | Ticket Sources |
+| [Image: Number icon] | Number | MAX | The maximum value for number type fields. MAX is the highest value. | Ticket Severity Score |
+| [Image: Boolean icon] | Boolean | MAX | The maximum value for Boolean fields is TRUE if at least one value is TRUE | Asset Is Behind Firewall Asset Is Critical Asset |
+| [Image: Date icon] | Date | MAX | The most recent date | Ticket SLA |
+| [Image: IP icon] | IP | COLLECT_DISTINCT_FLAT | A list of distinct IP addresses | External IP Addresses |
+| [Image: Fix icon] | Fix | COLLECT_DISTINCT_FLAT | A list of distinct fixes | Optimal Fix |
+|  | Message | MAX | The structured message data returned for the entity | Summary Attributes |
+
+## Commonly Used Fields
+
+The following table shows the default functions for commonly used fields:
+
+| Icon | Field | Default Function | Populated Value | Examples |
+| --- | --- | --- | --- | --- |
+| [Image: Date icon] | First Seen (for all entity types) | MIN | The earliest date value | Finding First Seen |
+| [Image: Date icon] | Last Seen (for all entity types) | MAX | Themost recent date value | Asset Last Seen |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/building-queries-and-searching-logs","lastmod":"2026-10-09T02:39Z","nid":"1545215"} -->
+## Building Queries and Searching Logs
+
+- Source: https://help.zscaler.com/unified/building-queries-and-searching-logs
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Analytics > Data Exploration > Building Queries and Searching Logs
+- Last modified: 2026-10-09T02:39Z
+- Summary: How to build queries and search for logs in the Agentic Security Operations Platform.
+
+You can search logs to view data collected by the Agentic Security Operations Platform (Agentic SecOps Platform) before it's processed and analyzed. This helps you to understand the raw data that's pulled from connected sources and subsequently pushed into the data model. You can search logs by building and using queries.
+
+## Building a Query
+
+To create a query using the basic query builder:
+
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), go to **Explore**>**Logs**. [Image: Build a basic query to search the logs] If you have not previously created a query, you can select from a list of prebuilt queries to get started. You can also select a saved query from the Queries Library. See image.
+2. Click the **+** icon to add a new query. A new query tab appears.
+3. Click the **Search Logs** box to open the query builder. [Image: Build a query]
+4. Select a field or enter a field name manually.
+5. Select an operator (e.g., **Equals**, **Contains**, **Starts With**, etc.).
+6. Enter or select the value you want to filter by.
+7. (Optional) Use **AND** or **OR** operators to add conditions to the query.
+8. (Optional) Click **Save**to save your query.
+9. Click **Search**. Log data appears.
+10. Use the time filter to filter results to a specific time frame. To learn more, see [Using Filters](https://help.zscaler.com/unified/using-filters). The selected time frame is not saved as part of the query, and must be configured for every result.
+
+Click **Export as CSV** at the top right of the logs table to export the data as a CSV file.
+See image.
+
+[Image: Select a prebuilt query to search for the logs]
+
+[Image: Export logs as CSV]
+
+To create an advanced query, you can use QL syntax in the advanced query editor. Click **Advanced**and enter values as necessary.
+
+[Image: Build an advanced query]
+
+The basic query builder and the advanced query editor are completely independent, even when they are within the same query. If you make changes to one, the other remains unchanged.
+
+### Adding a Query to the Queries Library
+
+You can save queries and add them to the Queries Library for quick access.
+
+To add a query to the Queries Library:
+
+1. Click **Save**at the top right of the page. [Image: Save the created query] The **Edit Detail** page appears.
+2. Enter a name for the query.
+3. Click **Save**. The query is saved to the library. [Image: View all the saved queries]
+
+Use the **Save As New** option to save a modified version of the current query to your library.
+[Image: Save a modified version of the query to the library]
+
+Click **Library** to access your saved queries.
+[Image: Click Library to access saved queries]
+
+## Searching Logs
+
+After you configure and run your query, a Logs table appears. Click a log in the table to open its drawer. You can search within the log using the search field, and copy the log using the Copy icon in the top-right corner of the drawer.
+[Image: Search for the logs]
+
+Hover over a field in the drawer to display the following icons:
+
+- **Breakdown By Field**: Use the selected field as the breakdown by field in the pie chart pane.
+- **Exclude**: Add a Not Equal filter to the query builder to return all logs for which the field's value is different from the value of the current log.
+- **Add to Search**: Add a filter to the basic query builder to return all logs for which the field's value is equal to the value in the current log.
+- **Add/Remove Column**: Add or remove a column in the log table.
+- **Copy Value**: Copy the value of the field.
+
+## Analyzing the Data
+
+You can filter and analyze the retrieved log data using the Time Series chart or a pie chart.
+
+### Time Series Chart
+
+The Time Series chart shows the number of logs (on the y-axis) that match the query conditions, retrieved from your sources within the time frame selected in the time filter.
+
+[Image: Number of logs that match the query conditions on the Time Series chart]
+
+You can click and drag the time filter to select a portion of the chart to define your desired time frame. This updates the table view as shown in the following image.
+
+[Image: Click and drag the time filter to view an updated view based on the desired time frame]
+
+The selected time filter is not saved as part of the query, and must be configured each time.
+
+### Pie Chart
+
+The pie chart displays all logs filtered by your query. Use the**Breakdown by** drop-down menu to select the field you want the logs to be grouped in, and the number of top values you want to be presented in the legend.
+
+[Image: Logs filtered by the query displayed on the Pie Chart]
+
+Select any number of slices to filter by their value. This also adds your selection as a filter in the table of logs.
+
+[Image: Filter the pie chart by the selected value]
+
+To remove a value from the filter created by the pie chart, deselect the slice on the chart itself or click the remove slicericon under the chart.
+
+[Image: Deselect a slice using the Remove Slicer icon in the Pie Chart]
 <!-- /ZS-ARTICLE -->

@@ -1,8 +1,8 @@
 # Zscaler Help — Risk & Exposure Management (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-05 09:38 UTC
-Articles in this file: 165
+Generated: 2026-10-12 09:45 UTC
+Articles in this file: 168
 
 ---
 
@@ -1627,6 +1627,55 @@ Refer to the following deployment guides for configuring connectors in Zscaler D
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/risk360/integrating-3rd-party-connectors-risk-factors-0","lastmod":"2026-10-05T22:53Z","nid":"1546620"} -->
+## Integrating 3rd-Party Connectors for Risk Factors
+
+- Source: https://help.zscaler.com/risk360/integrating-3rd-party-connectors-risk-factors-0
+- Product: Risk360
+- Path: Risk360 Help > 3rd-Party Integration > Integrating 3rd-Party Connectors for Risk Factors
+- Last modified: 2026-10-05T22:53Z
+- Summary: Information about 3rd-party app integration for risk factors in the Risk360.
+
+The Risk360 service's integration with Zscaler Data Fabric helps in providing better security and a risk assessment that creates a holistic risk quantification environment observed for Zscaler and other third-party technologies. Data Fabric ingests Zscaler and third-party data sources and then harmonizes, deduplicates, correlates, and enriches the ingested data that is used in the Risk360 service for risk quantification. You can configure connectors in the Data Fabric to ingest third-party data sources.
+
+Third-party integration is available with the Risk360 Advanced license.
+
+The following out-of-the-box risk factors based on third-party data sources are available in the Risk360 Admin Portal with a connector configuration:
+
+| Factor Name | Connector Name |
+| --- | --- |
+| CrowdStrike - Zero Trust Score | CrowdStrike Crowdscore |
+| CrowdStrike - Endpoint Security CrowdScore | CrowdStrike Crowdscore |
+| CrowdStrike - Unsupported Devices | CrowdStrike Environment Assets |
+| CrowdStrike - Unmanaged Devices | CrowdStrike Environment Assets |
+| CrowdStrike - End-of-Life Operating System | CrowdStrike Environment Assets |
+| CrowdStrike - Critical Domain Users Having High Privileges | CrowdStrike Identity Protection - Domain Users |
+| CrowdStrike - Identity Protection for Active Directory | CrowdStrike Identity Protection - Security Assessment |
+| CrowdStrike - Critical and High Incidents | CrowdStrike Incidents |
+| CrowdStrike - High Severity XDR Detections | CrowdStrike Alerts |
+| Critical and High Severity Vulnerabilities | CrowdStrike Vulnerabilities Qualys Vulnerabilities Tenable Vulnerability Management Rapid7 InsightVM Wiz Vulnerability Findings Microsoft Defender for Endpoints - Vulnerabilities |
+| Highly Exploitable Vulnerabilities | CrowdStrike Vulnerabilities Qualys Vulnerabilities Tenable Vulnerability Management Rapid7 InsightVM Wiz Vulnerability Findings Microsoft Defender for Endpoints - Vulnerabilities |
+| Unaddressed Critical and High Severity Vulnerabilities | CrowdStrike Vulnerabilities Qualys Vulnerabilities Tenable Vulnerability Management Rapid7 InsightVM Wiz Vulnerability Findings Microsoft Defender for Endpoints - Vulnerabilities |
+| Is WAF Enabled Is WAF Enforced Is DDoS Protection Enabled Reach out to your Zscaler Account team to implement these factors. | F5 WAF Data |
+
+Reach out to your Zscaler Account team to define and implement custom risk factors not listed in the preceding table to serve your organization's specific requirements.
+
+Refer to the following deployment guides for configuring connectors in Zscaler Data Fabric to implement the preceding factors:
+
+- Deployment Guides
+
+| Connector | Deployment Guides |
+| --- | --- |
+| Microsoft Defender for Endpoints - Vulnerabilities | [Zscaler UVM and Microsoft Services Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-microsoft-services-deployment-guide) |
+| CrowdStrike Incidents CrowdStrike Alerts CrowdStrike Environment Assets CrowdStrike Vulnerabilities | [Zscaler and CrowdStrike Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-crowdstrike-deployment-guide) |
+| Qualys Vulnerabilities | [Zscaler UVM and Qualys Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-qualys-deployment-guide) |
+| Tenable Vulnerability Management | [Zscaler UVM and Tenable Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-tenable-deployment-guide) |
+| Wiz Vulnerability Findings | [Zscaler UVM and Wiz Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-wiz-deployment-guide) |
+| Rapid7 InsightVM | [Zscaler and Rapid7 Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-rapid7-deployment-guide) |
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/risk360/investigating-sections-problem","lastmod":"2025-06-18T07:19Z","nid":"1461846"} -->
 ## Investigating Sections of a Problem
 
@@ -1892,13 +1941,13 @@ This article provides a summary of all new features and enhancements for Risk360
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/release-upgrade-summary-2026","lastmod":"2026-09-30T12:59Z","nid":"1534327"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/release-upgrade-summary-2026","lastmod":"2026-10-08T23:55Z","nid":"1534327"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/risk360/release-upgrade-summary-2026
 - Product: Risk360
 - Path: Risk360 Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-30T12:59Z
+- Last modified: 2026-10-08T23:55Z
 - Summary: Risk360 Advanced Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Risk360 Advanced.
@@ -3363,7 +3412,7 @@ To generate the API key in the AttackForge portal, go to Profile > Settings > Se
 
 ## Configuring the Connector
 
-To create the AttackForge data source in the Security Operations Platform (SecOps Platform):
+To create the AttackForge data source in the Agentic Security Operations Platform (SecOps Platform):
 
 1. Go to **Configure** > **Sources**.
 2. Click **Create**.
@@ -5467,6 +5516,54 @@ This drop-down menu is available in the Vulnerabilities stream.
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-email-outegration","lastmod":"2026-10-08T07:13Z","nid":"1546677"} -->
+## Configuring Email Outegration
+
+- Source: https://help.zscaler.com/uvm/configuring-email-outegration
+- Product: Unified Vulnerability Management (UVM)
+- Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Outegration Configuration Guides > Configuring Email Outegration
+- Last modified: 2026-10-08T07:13Z
+- Summary: How to configure email outegration in the Agentic Security Operations Platform.
+
+Email outegration is used to send email notifications from the Agentic Security Operations Platform (Agentic SecOps Platform) to specified recipients. You can configure the email format and map data to its fields.
+
+To configure email outegration:
+
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Outegrations**.
+3. Click **Create**. See image. The **Connect a New Outegration** page appears.
+4. On the **Connect a New Outegration** page, click **Email**. See image. The **Create Email Outegration** page appears.
+5. In the **Details** section: See image.
+  1. **Display Name**: `Email` appears in the field. You can enter a new name if necessary.
+  2. **Active**: Enable or disable to use the outegration in automation workflows.
+  3. **Recipients**: Enter email addresses for recipients. Press `Enter` to add multiple email addresses.
+6. Click **Test** to verify the connection.
+7. After the connection is verified, click **Next**.
+8. In the**Advanced Settings** section, from the **Create email item from** drop-down menu, select the primary entity to create the email for. See image.
+9. Click **Map**.
+10. In the **Data Mapping**section: The email outegration is created and email will be sent to recipients as configured.
+  1. Click **Mapping**.
+  2. From the **Select which field to populate** drop-down menu, select an option (e.g., **Subject**, **Body**, or **Recipients**), then click **Add Value** to add a mapping value. To learn more, see [Mapping Data Sources](https://help.zscaler.com/unified/mapping-data-sources).
+  3. (Optional) Click the **More**icon, and select the **Set As Mandatory** checkbox to make the field mandatory. See image.
+  4. Repeat these steps to map other email fields.
+  5. Click **Preview**to review the email mapping. See image.
+  6. Click **Finish**.
+
+[Image: Create button on Outegrations page]
+
+[Image: Email Outegration on Connect a New Outegration page]
+
+[Image: Details section on Create Email Outegration page]
+
+[Image: Advanced Settings section on Create Email Outegration page]
+
+[Image: Data Mapping section on Create Email Outegration page]
+
+[Image: Preview Mapping]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/uvm/configuring-endor-labs-connector","lastmod":"2026-03-06T06:06Z","nid":"1534051"} -->
 ## Configuring the Endor Labs Connector
 
@@ -7249,9 +7346,9 @@ To configure the Jira Issues connector, you need the source authentication confi
 
 ## Configuring the Connector
 
-To create the Jira data source in the Security Operations Platform:
+To create the Jira data source in the Agentic Security Operations Platform:
 
-1. In the SecOps Platform Admin Portal, go to **Configure** > **Sources**.
+1. In the Agentic SecOps Platform Admin Portal, go to **Configure** > **Sources**.
 2. Click **Create**.
 3. Search for and select the connector tile from the available data sources. See image.
 
@@ -8552,6 +8649,66 @@ See image.
 [Image: The NetBox URL in the NetBox platform]
 
 [Image: NetBox Authentication window]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-okta-workforce-identity-connector","lastmod":"2026-10-05T07:48Z","nid":"1546010"} -->
+## Configuring the Okta Workforce Identity Connector
+
+- Source: https://help.zscaler.com/uvm/configuring-okta-workforce-identity-connector
+- Product: Unified Vulnerability Management (UVM)
+- Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the Okta Workforce Identity Connector
+- Last modified: 2026-10-05T07:48Z
+- Summary: How to configure the Okta Workforce Identity connector.
+
+The Okta Workforce Identity connector integrates with your Okta platform to retrieve crucial identity and device data for use within the Agentic SOC application in the Agentic Security Operations Platform (Agentic SecOps Platform). This allows Agentic SOC to detect and respond to identity-based threats, including credential compromise. It retrieves system log activity (e.g., application, device, group, system, user authentication, user lifecycle, user multi-factor authentication (MFA), and zone activity) from Okta as telemetry and analyzes this data for suspicious activity.
+
+## Prerequisites
+
+To configure the Okta Workforce Identity connector, ensure you have active Internet & SaaS (ZIA) and Agentic SOC accounts. You also need the source authentication configuration. The following parameters are required for the specific authentication you select:
+
+- Token Hostname
+- Okta OAuth 2.0
+
+The Token Hostname authentication type requires the following parameters:
+
+- Token
+- Hostname
+
+To generate an API token, refer to the [Okta documentation](https://developer.okta.com/docs/guides/create-an-api-token/main/) or see the [Zscaler and Okta Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-okta-deployment-guide).
+
+The Okta OAuth 2.0 authentication requires the following parameters:
+
+- Domain
+- Client ID
+- Private Key
+- Key ID
+
+To create a public and private OAuth 2.0 key, refer to the [Okta documentation](https://developer.okta.com/docs/guides/set-up-oauth-api/main/).
+
+## Configuring the Connector
+
+To create the Okta Workforce Identity data source in the Agentic SecOps Platform:
+
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Sources**.
+3. Click **Create**. The **Create New Data Source** page appears.
+4. On the **Create New Data Source** page, search for and select the **Okta Workforce Identity** connector tile from the available data sources. See image.
+
+[Image: The Okta Workforce Identity connector tile]
+
+### Configuring Authentication
+
+After you create the Okta Workforce Identity data source, enter the following information in the source setup Retrieval section:
+
+1. In the **Authentication** section, click **Create New**. The **Okta Users Authentication** window appears.
+2. In the**Okta Users Authentication** window, enter the information from the Prerequisites section. See image.
+3. Click **Create**. After the data source is saved, you can't change its authentication. To use a different authentication, delete the existing data source and create a new one.
+
+[Image: The Okta Users Authentication window]
+
+To learn more, see [Configuring Authentication for Data Sources and Outegrations](https://help.zscaler.com/unified/configuring-authentication-data-sources-and-outegrations) and [Managing Authentication for Data Sources and Outegrations](https://help.zscaler.com/unified/managing-authentication-data-sources-and-outegrations). For complete configuration instructions, see [Creating Data Sources](https://help.zscaler.com/unified/creating-data-sources).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -10026,9 +10183,9 @@ Select the Verify SSL checkbox to allow the configuration of a root certificate 
 
 ## Configuring the Connector
 
-To create the ServiceNow data source in the Security Operations Platform:
+To create the ServiceNow data source in the Agentic Security Operations Platform:
 
-1. In the SecOps Platform Admin Portal, go to **Configure** > **Sources**.
+1. In the Agentic SecOps Platform Admin Portal, go to **Configure** > **Sources**.
 2. Click **Create**.
 3. Search for and select the connector tile from the available data sources. See image.
 
@@ -10178,9 +10335,9 @@ Select the Verify SSL checkbox to allow the configuration of a root certificate 
 
 ## Configuring the Connector
 
-To create the ServiceNow Generic data source in the Security Operations Platform:
+To create the ServiceNow Generic data source in the Agentic Security Operations Platform:
 
-1. In the SecOps Platform Admin Portal, go to **Configure** > **Sources**.
+1. In the Agentic SecOps Platform Admin Portal, go to **Configure** > **Sources**.
 2. Click **Create**.
 3. Search for and select the connector tile from the available data sources. See image.
 
@@ -11873,7 +12030,7 @@ To learn more about permissions for the other Wiz streams, see [Zscaler UVM and 
 
 ## Configuring the Connector
 
-To create the Wiz data source in the Security Operations Platform (SecOps Platform):
+To create the Wiz data source in the Agentic Security Operations Platform (SecOps Platform):
 
 1. Go to **Configure** > **Sources**.
 2. Click **Create**.
@@ -12070,13 +12227,13 @@ Your cloud name is located in the URL that the admin uses to log in to the Zscal
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-zscaler-advanced-detection-connector","lastmod":"2026-09-17T11:46Z","nid":"1543059"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-zscaler-advanced-detection-connector","lastmod":"2026-10-05T07:49Z","nid":"1543059"} -->
 ## Configuring the Zscaler Advanced Detection Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-zscaler-advanced-detection-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the Zscaler Advanced Detection Connector
-- Last modified: 2026-09-17T11:46Z
+- Last modified: 2026-10-05T07:49Z
 - Summary: How to configure the Zscaler Advanced Detection connector.
 
 Zscaler Advanced Detections uses expert-driven Internet & SaaS (ZIA) detections to find behavioral patterns that match adversarial techniques within your Zscaler-specific threats. When an attacker infiltrates your security environment, Zscaler Advanced Detection analyzes the raw telemetry — not just alerts — using two primary classes of analytics:
@@ -12104,7 +12261,7 @@ To configure the Zscaler Advanced Detections connector, ensure you have active I
 
 ## Configuring the Connector
 
-To create the Zscaler Advanced Detections data source in the Security Operations Platform (SecOps Platform):
+To create the Zscaler Advanced Detections data source in the Agentic Security Operations Platform (SecOps Platform):
 
 1. Go to **Configure** > **Sources**.
 2. Click **Create**. The **Create New Data Source**page appears.

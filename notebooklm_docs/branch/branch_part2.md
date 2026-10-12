@@ -1,8 +1,8 @@
 # Zscaler Help — Branch / Cellular / Cloud Connector (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-05 09:38 UTC
-Articles in this file: 112
+Generated: 2026-10-12 09:45 UTC
+Articles in this file: 114
 
 ---
 
@@ -415,6 +415,185 @@ For information about creating service accounts and assigning roles, see [Deploy
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/understanding-cloud-connector-repository-certificate-expiry-and-renewal","lastmod":"2026-10-08T08:08Z","nid":"1546120"} -->
+## Understanding Cloud Connector Repository Certificate Expiry and Renewal
+
+- Source: https://help.zscaler.com/cloud-branch-connector/understanding-cloud-connector-repository-certificate-expiry-and-renewal
+- Product: Cloud & Branch Connector
+- Path: Zscaler Cloud & Branch Connector Help > Troubleshooting > Understanding Cloud Connector Repository Certificate Expiry and Renewal
+- Last modified: 2026-10-08T08:08Z
+- Summary: Information on Cloud Connector repository certificate expiry and renewal.
+
+This article provides troubleshooting information and guidelines about the TLS server certificate for Cloud Connector expiration of the software update repository (`pkg-repo.zscaler.com`). When this certificate is renewed, the repository uses a new DigiCert G2 certificate chain. To learn more, see [End-of-Support for Cloud Connector Repository Certificate](https://help.zscaler.com/product-usage-terms/end-support-cloud-connector-repository-certificate).
+
+When updating your virtual machines (VMs) to use the latest marketplace images, consider the following:
+
+- Required Action to Take
+- Users Who Are Impacted
+- Cloud Connectors Are Not Automatically Updating
+- Redeploying Existing Cloud Connectors
+- Changes to ASG Deployments
+- Verifying that the AWS ASG Launch Template Is Set to Use the Latest Cloud Connector Image
+- Verifying that the Azure VMSS Is Set to Use the Latest Cloud Connector Image
+- Verifying that the GCP ASGs Are Set to Use the Latest Cloud Connector Image
+
+Existing, active Cloud Connectors update automatically through regularly scheduled upgrades. The Zscaler service monitors upgrade activity across all clouds and users, and regularly generates internal reports to identify any users whose connectors do not appear to be upgrading.
+
+For new Cloud Connector deployments, Zscaler-provided Infrastructure as Code (IaC) templates are designed to use the latest available image version by default. Unless you hard-code older image versions in custom IaC templates, the main requirement is to rerun or refresh your templates so that subsequent deployments use the latest images.
+
+- Amazon Web Services (AWS): Use image version ZS42.1.0 or later (Deployed AMI Name: starts with zs-cc-ga-03092026).
+- Microsoft Azure: Use image version 42.1.0 or later.
+- Google Cloud Platform (GCP): Use image version zs-cc-ga-03092026 or later.
+
+For autoscaling group (ASG) deployments, you must update your launch/instance template to reference the new marketplace image. If you do not update your launch/instance template, new instances cannot connect to the software update repository.
+
+To determine whether you are impacted:
+
+1. Check your Cloud Connector software version:
+  1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Zero Trust Cloud** > **Cloud Connector** > **Cloud Connector Groups**. The **Cloud Connector Groups** page appears.
+  2. On the **Cloud Connector Groups** page, expand a Cloud Connector group and click the **Edit** icon. The **Edit Cloud Connector** window appears.
+  3. In the **Edit Cloud Connector** window, click the **Upgrade Status** tab.
+  4. On the **Upgrade Status** tab, in the **Upgrade Information** section, locate the **Current Version**. Cloud Connectors running version 1.146.5 or later have received the automatic CA bundle update and are not affected. To learn more, see [About Cloud Connector Groups](https://help.zscaler.com/cloud-branch-connector/about-cloud-connector-groups).
+2. Check your deployment image version. If you are deploying new Cloud Connectors or using ASGs, verify the marketplace image version in your launch configuration. If the image version is older than the fixed versions, you are using an affected image and must update it. To learn more, see [Identifying the Zscaler Cloud Connector Version](https://help.zscaler.com/cloud-branch-connector/identifying-zscaler-cloud-connector-version).
+
+Cloud or Branch Connectors might not update automatically for reasons including:
+
+- Firewall and/or SSL inspection connectivity issues. Users can resolve this issue in their own environment.
+- Modifying the scheduled upgrade windows to circumvent automatic updates. Users can resolve this issue by stopping modifying configurations.
+- Zscaler-controlled block filtering (per user request and/or Zscaler debugging necessities). To disable filtering, contact Zscaler Support.
+- Cloud Connector appliance issues might prevent updates from proceeding (i.e., process errors, crashes, or disk partition space issues). To troubleshoot this issue, contact Zscaler Support.
+
+Existing Cloud Connectors do not need to be redeployed, as long as they remain current by running the latest software through regular, automatic scheduled upgrades.
+
+Some improvements (i.e., performance enhancements, operating system security fixes, and other platform updates) might only be available through newer image releases. Zscaler recommends that all new deployments use the latest marketplace images and that existing instance fleets be refreshed periodically.
+
+Refreshing existing fleets typically involves updating CI/CD deployment pipelines based on the original IaC method used, such as Terraform or CloudFormation, to ensure that future deployments are not unintentionally pinned to older image versions. This is important for autoscaling deployments, where cloud providers might rely on constructs such as launch templates or Virtual Machine Scale Set (VMSS) profiles.
+
+If you use ASGs (AWS ASG, Azure VMSS, or GCP Managed Instance Group (MIG)), you must update your launch/instance template to reference the new marketplace image.
+
+- AWS: Update the AMI ID in your launch template and create a new launch template version. Update your ASG to use the new launch template version.
+- Azure: Update the image reference in your VMSS model and trigger a model update.
+- GCP: Create a new instance template with the updated image and update your MIG to use the new template.
+
+If you do not update ASG configurations, newly scaled-out instances use the old image, which is unable to connect to the software update repository after expiration.
+
+The Terraform module templates utilize the following `aws_ami` data source. Without modification, this code asks to find the newest (`most_recent`) AMI ID available for the Cloud Connector image product code. The value is outputted to an attribute: `data.aws_ami.cloudconnector.id`.
+
+```
+################################################################################
+# Locate Latest CC AMI by product code
+################################################################################
+data "aws_ami" "cloudconnector" {
+most_recent = true
+filter {
+name = "product-code"
+values = var.aws_region == "cn-north-1" || var.aws_region == "cn-northwest-1" ? ["axnpwhsb4facossmbm1h9yad6"] : ["2l8tfysndbav4tv2nfjwak3cu"]
+#change product code value for China marketplace
+}
+owners = ["aws-marketplace"]
+}
+```
+
+The data source attribute is then fed into the `cc_asg module` as the input variable: `ami_id`.
+
+```
+# Create the specified CC VMs via Launch Template and Autoscaling Group
+module "cc_asg" {
+source = "../../modules/terraform-zscc-asg-aws"
+ami_id = contains(var.ami_id, "") ? [data.aws_ami.cloudconnector.id] : var.ami_id
+```
+
+You can verify the resulting deployment configuration in AWS within the ASG details.
+
+See image.
+
+By rerunning Terraform utilizing the original deployment state details, the AWS launch template where the `image_id` is changed from `ami-0b11365e64b30005e` (old ZS6.1.26.2) to new `ami-07c8a4afe978a3087` (new ZS42.1.0) is shown. AWS is also bumping the launch template version from two to three. Enter `yes` and press enter to apply the change. Applying this change has no effect on running Cloud Connector appliances on the ASGs that are using this launch template.
+
+See image.
+
+If you check the ASG details again, the launch template is still set to use the latest version, and the AMI ID is changed to `ami-07c8a4afe978a3087`.
+
+See image.
+
+Future scale-out or health-based replacement instances are automatically deployed from this new AMI. If you want to proactively refresh your instance, you can mandate instance replacements with this new AMI, either manually or with cloud native tools (i.e., Instance Refresh), which is recommended as a best practice to test and verify.
+
+Updating the launch template does not automatically replace existing EC2 instances. To roll out the new AMI to your running environment, use the following best practices:
+
+- Use the recommended Instance Refresh feature to replace instances in your ASG automatically. This performs a rolling update, ensuring availability is maintained.
+- In the AWS Console, navigate to your ASG's Instance Refresh page and click **Start instance refresh**.
+- In Terraform, ensure that your `aws_autoscaling_group` resource includes an `instance_refresh` block to automate this process upon launch template updates.
+- Manually terminate instances one by one. The ASG automatically launches replacement instances using the new launch template version and thus the new AMI.
+
+To verify that your Azure VMSS uses the latest Cloud Connector image:
+
+1. Deploy a VMSS deployment with Terraform version 24.3.5. See image.
+2. In the Azure portal, go to your VMSS deployment.
+3. In your VMSS deployment, from the left-side navigation, click **Operating system**.
+4. On the **Operating system** page, click **Change image reference**. See image. The **Change image reference** page appears.
+5. On the **Change image reference** page, configure the following:
+  - **Select image source**: Select **Platform image**.
+  - **Image**: Select the latest marketplace image for Zscaler Cloud Connector.
+  - **VM architecture**: Select **x64**. See image.
+6. Click **Apply** to apply the changes.
+7. On the **Scaling** page, in the **Instance limits** section, configure the following:
+  - **Minimum**: Enter `3`.
+  - **Maximum**: Enter `5`.
+  - **Default**: Enter `3`. See image.
+8. Save the profile.
+
+On the **Operating system** page, the newly scaled-out instance has the latest marketplace image, and the **Image Reference** shows the version as `latest`.
+
+See image.
+
+To verify that your GCP ASG uses the latest Cloud Connector image:
+
+1. Deploy a GCP ASG deployment with `production-image-cc-gcp-zs42-202601211704`. See image.
+2. In the GCP console, on the **Instance templates** page, create a new instance template.
+3. On the **Instance templates** page, search for and select your template.
+4. On the instance template page, click **Create similar**. See image.
+5. On the **Create an instance template** page, in the **Boot disk** section, click **Change**. The **Boot disk** window appears.
+6. In the **Boot disk** window, click the **Custom images** tab.
+7. From the **Image** drop-down menu, select the marketplace Zscaler GCP image. See image.
+8. Save your changes and create the instance template according to your preferences.
+9. Navigate to the **Instance Groups** page and select your GCP ASG instance group.
+10. On the instance group page, click **Edit**.
+11. In the **Instance template & overrides** section, from the **Instance template** drop-down menu, select the new instance template. See image.
+12. In the **Group size & autoscaling section**, reconfirm the minimum, maximum, and the metrics values.
+13. Click **Save** to update the new template to the GCP ASG deployment.
+
+Scale out a new instance by changing the minimum and maximum values in an instance group. The newly scaled-out instance appears with a newly selected instance template.
+
+See image.
+
+[Image: Verifying the resulting deployment in AWS]
+
+[Image: Configuration changes]
+
+[Image: The launch template using the latest version in AWS]
+
+[Image: VMSS deployment with Terraform version 24.3.5 in Azure]
+
+[Image: The Change image reference page in Azure]
+
+[Image: Instance limits on the Scaling page in Azure]
+
+[Image: Instance deployed with the latest version in Azure]
+
+[Image: A GCP ASG deployment with production-image-cc-gcp-zs42-202601211704.]
+
+[Image: Clicking Create similar on the Instance template page in Azure]
+
+[Image: Selecting the marketplace Zscaler GCP image from the drop-down menu in GCP]
+
+[Image: Selecting the new instance template from from the Instance template drop-down menu in the Instance template & overrides section in Azure]
+
+[Image: The newly scaled-out instance appearing with a newly selected instance template in GCP]
+
+[Image: Selecting Change image reference on the Operating system page in Azure]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/cloud-branch-connector/understanding-high-availability-and-failover","lastmod":"2026-08-07T21:06Z","nid":"1455436"} -->
 ## Understanding High Availability and Failover
 
@@ -724,13 +903,13 @@ In the [Amazon VPC console](https://console.aws.amazon.com/vpc/), you must assig
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/what-zero-trust-gateways","lastmod":"2026-09-21T12:51Z","nid":"1517756"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/what-zero-trust-gateways","lastmod":"2026-10-05T21:06Z","nid":"1517756"} -->
 ## What Are Zero Trust Gateways?
 
 - Source: https://help.zscaler.com/cloud-branch-connector/what-zero-trust-gateways
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > What Are Zero Trust Gateways?
-- Last modified: 2026-09-21T12:51Z
+- Last modified: 2026-10-05T21:06Z
 - Summary: Introductory information, key features, and benefits of Zero Trust Gateways accessible in the Zscaler Admin Console.
 
 The Zscaler Zero Trust Gateway service transforms how you can secure your workloads and workload traffic deployed in public clouds. Built on the Zscaler Zero Trust Exchange (ZTE), the Zero Trust Gateway service simplifies cloud workload security for enterprises.
@@ -1234,13 +1413,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/zscaler-client-connector-vdi-release-summary-2026","lastmod":"2026-09-15T10:37Z","nid":"1534300"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/zscaler-client-connector-vdi-release-summary-2026","lastmod":"2026-10-06T16:30Z","nid":"1534300"} -->
 ## Zscaler Client Connector for VDI Release Summary (2026)
 
 - Source: https://help.zscaler.com/cloud-branch-connector/zscaler-client-connector-vdi-release-summary-2026
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Release Notes > Zscaler Cloud & Branch Connector VDI Release Notes (per OS) > Zscaler Client Connector for VDI Release Summary (2026)
-- Last modified: 2026-09-15T10:37Z
+- Last modified: 2026-10-06T16:30Z
 - Summary: Zscaler Client Connector for VDI release summary for updates deployed, per OS and version, in 2026 on Zscaler Cloud & Branch Connector.
 
 This article provides a summary of all new features and enhancements released per operating system (OS) for the Zscaler Client Connector for VDI on Zscaler Cloud & Branch Connector.
@@ -1518,13 +1697,13 @@ To add a BGP configuration:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/adding-hub","lastmod":"2026-09-23T09:21Z","nid":"1525471"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/adding-hub","lastmod":"2026-10-07T21:06Z","nid":"1525471"} -->
 ## Adding a Hub
 
 - Source: https://help.zscaler.com/zero-trust-branch/adding-hub
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust SD-WAN > Adding a Hub
-- Last modified: 2026-09-23T09:21Z
+- Last modified: 2026-10-07T21:06Z
 - Summary: Adding a hub in Zero Trust Branch.
 
 Hubs can be physical or virtual Zero Trust Branch appliances. They are typically deployed in your data center. Launch hubs using the same image as the Zero Trust Branch appliance.
@@ -2222,13 +2401,13 @@ To verify whether SIEM integration works as expected:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-site-dns-policies","lastmod":"2026-10-01T15:30Z","nid":"1531196"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-site-dns-policies","lastmod":"2026-10-05T14:00Z","nid":"1531196"} -->
 ## Configuring Site DNS Policies
 
 - Source: https://help.zscaler.com/zero-trust-branch/configuring-site-dns-policies
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust SD-WAN > Site DNS Policies > Configuring Site DNS Policies
-- Last modified: 2026-10-01T15:30Z
+- Last modified: 2026-10-05T14:00Z
 - Summary: How to configure DNS policies in Zero Trust Branch.
 
 You can configure a site to manage DNS queries with the DNS policy engine. Zscaler provides several preconfigured DNS gateways, or you can create custom domain and DNS gateway objects as described in [Managing Objects](https://help.zscaler.com/zero-trust-branch/managing-objects).
@@ -2252,7 +2431,7 @@ To configure a site for DNS policies:
       - **Skip**: Disable this policy.
     - **Description**: Enter a detailed description of this DNS policy.
   3. Click **Add**to create the new policy.
-  4. (Optional) You can reorder the policies by clicking **Reorder**, dragging the policies into the order you want, and clicking **Save Policy Order**. DNS policies are processed based on first match. When a DNS query is matched to a query, subsequent policies are not evaluated. See image.
+  4. (Optional) You can reorder the policies by clicking **Reorder**, dragging the policies into the order you want, and clicking **Save Policy Order**. DNS policies are processed based on first match. When a DNS query is matched to a query, subsequent policies are not evaluated.
 4. To verify that the policies are working as expected, click **Troublshooting** > **Console**tab and view the last few entries of the DNS policy log using the `tail` command (e.g., `tail -n 20 /etc/airgap/dns_proxy/policy_logs/dns_policy.log`). See image.
 
 [Image: Accessing details for a site on the Sites page]
@@ -3632,7 +3811,7 @@ To review the ports that need to be open, see [Open Ports on the Upstream Device
 
 The activation process uses the activation code and URL that you saved during the [Adding a Site](https://help.zscaler.com/zero-trust-branch/managing-sites#adding-a-site) procedure in the Zscaler Admin Console. If you cannot find this information:
 
-1. Go to **Infrastructure** > **Connectors** > **Edge** > **Sites**.
+1. Go to **Zero Trust Branch** > **Deployments**> **Sites**.
 2. In the row for the required site, click the **Send Activation Link** icon. See image.
 
 Zscaler supports one subinterface per WAN interface. However, Zero Trust Branch activation is supported over the WAN interface on the main interface (which is tagged), not on a subinterface (which is untagged).
@@ -3658,7 +3837,7 @@ This method uses the URL that you saved during the [Adding a Site](https://help.
 
 1. Connect a laptop directly to the [Management port (GE1)](https://help.zscaler.com/zero-trust-branch/zero-trust-branch-physical-port-mapping#ZT400) on the appliance. The laptop automatically gets an IP address directly from the appliance. See image.
 2. Open a browser on the laptop and paste the URL that you copied when you created the site. After the appliance processes the configuration, it displays an **Activation is completed** message on the web page. See image.
-3. In the Zscaler Admin Console, go to **Infrastructure** > **Connectors** > **Edge** > **Sites**and click the site in the **Site Name**column. In the site details, verify that the appliance is activated. The **State**field value for an activated appliance is: Show image.
+3. Go to **Zero Trust Branch** > **Deployments**> **Sites**and click the site in the **Site Name**column. In the site details, verify that the appliance is activated. The **State**field value for an activated appliance is: Show image.
   - **Standalone**for a standalone appliance
   - **Active**for the primary node of an HA cluster
   - **Standby**for the secondary node of an HA cluster
@@ -4040,6 +4219,42 @@ To verify the Zero Trust Branch deployment:
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/deploying-zero-trust-branch-mainland-china","lastmod":"2026-10-09T08:54Z","nid":"1543212"} -->
+## Deploying Zero Trust Branch in Mainland China
+
+- Source: https://help.zscaler.com/zero-trust-branch/deploying-zero-trust-branch-mainland-china
+- Product: Zero Trust Branch
+- Path: Zero Trust Branch Help > Deployment > Deploying Zero Trust Branch in Mainland China
+- Last modified: 2026-10-09T08:54Z
+- Summary: Information on deploying a Zero Trust Branch appliance in mainland China using the appliance console CLI
+
+Zscaler supports mainland China proxy use for appliances with Zero Trust Branch version 8.1.2-P1 and later.
+
+## Meeting Prerequisites for Mainland China Support
+
+You must provide Zscaler with your appliance serial number as described in the following steps. Although you can do this after configuration, your appliance cannot connect to the proxy until it is authorized to do so.
+
+1. Connect your appliance and power it on.
+2. Log in with an admin account, via either a console cable or SSH, and note the serial number. No command is necessary, as the serial number appears when you log in.
+3. Open a support ticket with Zscaler Support to provide the serial number and request that your appliance be supported for use in mainland China.
+
+## Configuring the Appliance to Use the Connection Proxy for Mainland China
+
+For mainland China deployment support, enable the connection proxy as described in the following steps. This dedicated proxy provides a premium connection to its cloud control plane, mitigating connection challenges associated with restricted network environments. For details, contact Zscaler Support.
+
+1. Connect your appliance and power it on.
+2. Log in with an admin account, via either a console cable or SSH, and enter `zscaler-console`.
+3. Select option **1 - Configure Appliance**.
+4. Select option**3 - Configure CNP Client**.
+5. Update the CNP virtual IP address if instructed to do so by Zscaler Support.
+6. Update the web proxy and AS ports if instructed to do so by Zscaler Support.
+7. If asked to confirm the IP address, enter `y` and press `Enter`. (Press `Enter` for any remaining prompts as needed.)
+
+Your appliance is now configured for use in mainland China.
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/zero-trust-branch/deploying-zero-trust-branch-using-ebond-interface","lastmod":"2026-09-28T22:11Z","nid":"1538679"} -->
 ## Deploying Zero Trust Branch Using Ebond Interface
 
@@ -4311,13 +4526,13 @@ There are several ways to deploy Zero Trust Branch:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/integrating-armis-zero-trust-branch","lastmod":"2026-09-29T13:24Z","nid":"1535171"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/integrating-armis-zero-trust-branch","lastmod":"2026-10-05T11:25Z","nid":"1535171"} -->
 ## Integrating Armis with Zero Trust Branch
 
 - Source: https://help.zscaler.com/zero-trust-branch/integrating-armis-zero-trust-branch
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust Device Segmentation > Third-Party Integrations > Integrating Armis with Zero Trust Branch
-- Last modified: 2026-09-29T13:24Z
+- Last modified: 2026-10-05T11:25Z
 - Summary: How to integrate Armis with Zero Trust Branch.
 
 Zscaler Zero Trust Branch integrates with Armis to enable bidirectional data integration. With this integration:
@@ -4394,13 +4609,13 @@ To verify integration in the Zscaler Admin Console:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/integrating-crowdstrike-zero-trust-branch","lastmod":"2026-09-29T13:24Z","nid":"1534196"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/integrating-crowdstrike-zero-trust-branch","lastmod":"2026-10-05T13:39Z","nid":"1534196"} -->
 ## Integrating CrowdStrike with Zero Trust Branch
 
 - Source: https://help.zscaler.com/zero-trust-branch/integrating-crowdstrike-zero-trust-branch
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust Device Segmentation > Third-Party Integrations > Integrating CrowdStrike with Zero Trust Branch
-- Last modified: 2026-09-29T13:24Z
+- Last modified: 2026-10-05T13:39Z
 - Summary: How to integrate CrowdStrike with Zero Trust Branch.
 
 Zscaler Zero Trust Branch integrates with CrowdStrike Falcon to deliver endpoint-aware zero trust security across branches. By combining Zscaler's zero trust enforcement with CrowdStrike’s endpoint risk insights, organizations gain unified, adaptive access control for both on-premises and remote users. Organizations can dynamically adapt access based on device posture while extending Zscaler policies to remote endpoints through CrowdStrike Falcon, ensuring consistent zero trust protection across all environments.
@@ -4505,7 +4720,7 @@ To create device objects for high-, medium-, and low-risk devices in the Zscaler
   - High-risk device settings
   - Medium-risk device settings
   - Low-risk device settings
-4. Go to **Zero Trust Branch** > **Security**> **Device Segmentation Policy**and create policies that allow access based on device Secure Posture Score; for example: To learn more about creating firewall policies, see [Configuring Firewall Policies](https://help.zscaler.com/zero-trust-branch/configuring-firewall-policies).
+4. Go to **Zero Trust Branch** > **Deployments**> **Sites** > **[Site Name]** > **Security Policy** tab and create policies that allow access based on device Secure Posture Score; for example: To learn more about creating firewall policies, see [Configuring Firewall Policies](https://help.zscaler.com/zero-trust-branch/configuring-firewall-policies).
   - Low-risk devices: Allow all protocols.
   - Medium-risk devices: Only allow ICMP.
   - High-risk devices: Block all protocols. See image.
@@ -4562,13 +4777,13 @@ To create device objects for high-, medium-, and low-risk devices in the Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/integrating-sentinelone-zero-trust-branch","lastmod":"2026-09-29T13:25Z","nid":"1539720"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/integrating-sentinelone-zero-trust-branch","lastmod":"2026-10-05T11:05Z","nid":"1539720"} -->
 ## Integrating SentinelOne with Zero Trust Branch
 
 - Source: https://help.zscaler.com/zero-trust-branch/integrating-sentinelone-zero-trust-branch
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust Device Segmentation > Third-Party Integrations > Integrating SentinelOne with Zero Trust Branch
-- Last modified: 2026-09-29T13:25Z
+- Last modified: 2026-10-05T11:05Z
 - Summary: How to integrate SentinelOne with Zero Trust Branch.
 
 Zero Trust Branch integrates with SentinelOne to provide unified visibility, control, and automated threat response across distributed enterprise environments. You can extend endpoint intelligence into network and branch-level security decisions with an API-based, policy-driven framework.
@@ -5337,13 +5552,13 @@ To delete a template:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-your-assets","lastmod":"2026-09-29T13:20Z","nid":"1509846"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-your-assets","lastmod":"2026-10-06T15:36Z","nid":"1509846"} -->
 ## Managing Your Assets
 
 - Source: https://help.zscaler.com/zero-trust-branch/managing-your-assets
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust Device Segmentation > Asset Management > Managing Your Assets
-- Last modified: 2026-09-29T13:20Z
+- Last modified: 2026-10-06T15:36Z
 - Summary: How to view and edit Zero Trust Branch assets.
 
 The Assets section provides admins with visibility into all endpoints connected to the network along with their health status.
@@ -5418,13 +5633,13 @@ This article provides a summary of all new features and enhancements for Zero Tr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/release-upgrade-summary-2026","lastmod":"2026-10-02T16:48Z","nid":"1534294"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/release-upgrade-summary-2026","lastmod":"2026-10-08T20:02Z","nid":"1534294"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zero-trust-branch/release-upgrade-summary-2026
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-10-02T16:48Z
+- Last modified: 2026-10-08T20:02Z
 - Summary: Zero Trust Branch Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Zero Trust Branch.
@@ -6830,13 +7045,13 @@ You can activate any of the downloaded images. This step requires a system reboo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/using-zero-trust-branch-debug-console-for-troubleshooting","lastmod":"2026-10-02T17:13Z","nid":"1533903"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/using-zero-trust-branch-debug-console-for-troubleshooting","lastmod":"2026-10-08T18:01Z","nid":"1533903"} -->
 ## Using the Zero Trust Branch Debug Console for Troubleshooting
 
 - Source: https://help.zscaler.com/zero-trust-branch/using-zero-trust-branch-debug-console-for-troubleshooting
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Troubleshooting > Using the Zero Trust Branch Debug Console for Troubleshooting
-- Last modified: 2026-10-02T17:13Z
+- Last modified: 2026-10-08T18:01Z
 - Summary: Understanding and using the Zero Trust Branch Debug Console.
 
 The Zero Trust Branch Debug Console provides a purpose-built diagnostic framework that exposes the internal state of an appliance through simple, direct commands. Commands are grouped by functional area, so you can quickly locate the information you need—whether validating IPSec tunnels, checking DHCP leases, analyzing routing tables, or reviewing Virtual Router Redundancy Protocol (VRRP) status. The Zero Trust Branch Debug Console supports both deployment readiness checks and ongoing operational troubleshooting.
@@ -7008,13 +7223,13 @@ Zero Trust Branch appliances log all DNS activities and send a copy of the log t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/viewing-managing-security-insights","lastmod":"2026-10-02T14:33Z","nid":"1524951"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/viewing-managing-security-insights","lastmod":"2026-10-06T11:53Z","nid":"1524951"} -->
 ## Viewing and Managing Security Insights
 
 - Source: https://help.zscaler.com/zero-trust-branch/viewing-managing-security-insights
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Analytics & Monitoring > Viewing and Managing Security Insights
-- Last modified: 2026-10-02T14:33Z
+- Last modified: 2026-10-06T11:53Z
 - Summary: Information on the Security Insights dashboard in Zero Trust Branch.
 
 The Security Insights dashboard provides customizable widgets that display important information about the assets, VLANs, gateways, and devices in your organization to give you a real-time overview of your organization's security operations.
@@ -7061,7 +7276,7 @@ You can customize any or all of these widgets to show information in a different
   - **Title**: The widget's name. To bold any text, surround the text with `**` (e.g., `**Title**`). Hover over **?** to see a list of variables you can add to the description (e.g., `$groupBy` displays the field used to group the chart).
   - **Description**: (Optional) A description of the widget. To bold any text, surround the text with `**` (e.g., `**Title**`). Hover over **?** to see a list of variables you can add to the description (e.g., `$groupBy` displays the field used to group the chart).
   - **Chart Type**: Choose from pie or bar.
-  - **TopN**: The maximum number of categories to display, starting with the most populated categories.
+  - **TopN**: The maximum number of categories to display, starting with the most populated categories. Check **Include NULL values** (optional) if you want to include categories that aren't categorized.
   - **Group by**: Choose from Assignment type, Brand, Capability, Category, Group, Location, Model, Network, etc.
   - **Filter by Category**: Choose a category.
   - **Filter by Type**: Choose a type.
@@ -7190,13 +7405,13 @@ Zero Trust Branch provides the following tagging options:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/zero-trust-branch-appliances-wall-and-rack-mount-instruction-manual","lastmod":"2026-10-01T21:06Z","nid":"1529460"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/zero-trust-branch-appliances-wall-and-rack-mount-instruction-manual","lastmod":"2026-10-05T06:05Z","nid":"1529460"} -->
 ## Zero Trust Branch Appliances Wall and Rack Mount Instruction Manual
 
 - Source: https://help.zscaler.com/zero-trust-branch/zero-trust-branch-appliances-wall-and-rack-mount-instruction-manual
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Installation > Zero Trust Branch Appliances Wall and Rack Mount Instruction Manual
-- Last modified: 2026-10-01T21:06Z
+- Last modified: 2026-10-05T06:05Z
 - Summary: Instructions for wall and rack mounting the Zero Trust Branch appliances.
 
 After you receive the Zscaler Zero Trust Branch appliance, you can mount the Zero Trust Branch appliance as follows:
@@ -7225,13 +7440,15 @@ See appliance specifications
 The package includes the following items:
 
 1. 1x ZT400 unit
-2. 1x PSU
+2. 1x PSU (with 1x power cord)
 3. 1x USB serial console cable
 4. 1x RJ45 cable
 
 See image.
 
 Rack mounting kit:
+
+The rack mount kit is available only by request.
 
 1. 1x rack mounting tray
 2. 3x A screws for attaching the bracket to the appliance
@@ -7240,8 +7457,6 @@ Rack mounting kit:
 5. 5x cable ties
 
 See image.
-
-The rack mount kit is available only by request.
 
 To rack mount your Zero Trust Branch ZT400:
 
@@ -7259,7 +7474,7 @@ To rack mount your Zero Trust Branch ZT400:
 The package includes the following items:
 
 1. 1x ZT600 unit
-2. 1x PSU
+2. 1x PSU (with 1x power cord)
 3. 1x USB serial console cable
 4. 1x RJ45 cable
 5. 2x rack mounting brackets
@@ -7282,7 +7497,7 @@ To rack mount the Zero Trust Branch ZT600:
 The package includes the following items:
 
 1. 1x ZT800 unit
-2. 1x PSU
+2. 1x PSU (with 1x power cord)
 3. 1x USB serial console cable
 4. 2x RJ45 cables
 5. 2x rack mounting brackets
@@ -7292,14 +7507,14 @@ See image.
 
 Wall mount kit:
 
+The wall mount kit is available only by request.
+
 1. 2x wall mount brackets
 2. 4x A screws
 3. 4x mounting screws
 4. 4x white wall plugs
 
 See image.
-
-The wall mount kit is available only by request.
 
 To wall mount the Zero Trust Branch ZT800:
 
@@ -7325,8 +7540,8 @@ To rack mount the Zero Trust Branch ZT800:
 The package includes the following items:
 
 1. 1x ZT8010 unit
-2. 2x PSUs
-3. 4x SFP+ FTLX8574D3BCL
+2. 2x PSUs (with 2x power cords)
+3. 4x SFP+
 4. 2x RJ45 cables
 5. 1x USB serial console cable
 6. 2x ear brackets
@@ -7360,7 +7575,7 @@ The following table provides the environmental and power specifications for Zero
 | Typical Power Consumption | Idle Mode: 12W Full Load Mode: 20W | Idle Mode: 21W Full Load Mode: 29W | Idle Mode: 24W Full Load Mode: 43W | Idle Mode: 107.8W Full Load Mode: 225.5W |
 | Maximum Power Consumption | 40W | 60W | Redundant PSU: 300W Single PSU: 350W |  |
 | Power Cord Rating | C14 10A |  |  |  |
-| Input Range | Ac 100-240V @ 50-60 Hz | Redundant PSU: AC 100–240V @ 50–60 Hz Single PSU: AC 100–240V @ 47–63Hz |  |  |
+| Input Range | AC 100-240V @ 50-60 Hz | Redundant PSU: AC 100–240V @ 50–60 Hz Single PSU: AC 100–240V @ 47–63Hz |  |  |
 | Input Current | 1.7A (max) | 1.8A (max) | 5A (max) |  |
 | Output Rating | 11.4 to 12.6V |  |  |  |
 | Cooling | Fanless | Fan |  |  |
@@ -7509,13 +7724,13 @@ This section describes the physical port mapping on the ZT8010 appliance.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/about-network-events","lastmod":"2026-10-02T21:06Z","nid":"1518096"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/about-network-events","lastmod":"2026-10-07T03:27Z","nid":"1518096"} -->
 ## About Network Events
 
 - Source: https://help.zscaler.com/zscaler-cellular/about-network-events
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > Network Events and Logins Monitoring > About Network Events
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-07T03:27Z
 - Summary: Information on the Network Events page.
 
 The Network Events page offers a centralized interface for monitoring and analyzing network activity across all Zscaler SIMs provisioned to your organization. It provides detailed insights into network events and authorization events for each SIM. This comprehensive logging enables you to troubleshoot efficiently and ensure seamless connectivity.
@@ -7553,13 +7768,13 @@ On the Network Events page (Infrastructure > Cellular> Network Events), you can 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/about-sim-location-groups","lastmod":"2026-10-02T21:06Z","nid":"1534048"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/about-sim-location-groups","lastmod":"2026-10-07T03:26Z","nid":"1534048"} -->
 ## About SIM Location Groups
 
 - Source: https://help.zscaler.com/zscaler-cellular/about-sim-location-groups
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > Anomaly Detection > About SIM Location Groups
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-07T03:26Z
 - Summary: Explaining the Zscaler Cellular Anomaly detection SIM Location Groups.
 
 SIM Location Groups help you to manage and monitor SIM-enabled devices based on their geographic zone. You can enforce geofencing policies and detect anomalies in device movement. You can create groups based on the number of devices that need to be tracked within a specific geographic zone.
@@ -7601,13 +7816,13 @@ The policy assigned to the group, including anomaly name, type, enabled status, 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/about-sims","lastmod":"2026-10-02T21:06Z","nid":"1519081"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/about-sims","lastmod":"2026-10-07T03:28Z","nid":"1519081"} -->
 ## About SIMs
 
 - Source: https://help.zscaler.com/zscaler-cellular/about-sims
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > SIMs > About SIMs
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-07T03:28Z
 - Summary: Information about the SIMs page in the Zscaler Cellular Edge Admin Portal.
 
 A Zscaler SIM—both physical SIMs and eSIMs—serves as the gateway for a cellular-connected device to access the Zero Trust Exchange (ZTE). It is a data-only SIM that integrates directly with the ZTE, providing seamless security for IoT devices such as vending machines, EV chargers, machinery, and tablets/kiosks where agent-based solutions are not feasible. You can view essential details and statuses, and manage Zscaler SIMs provisioned to your organization, in the Zscaler Admin Console.
@@ -7704,13 +7919,13 @@ On the Zscaler Cellular Audit Logs page (Data Explorer > Audit Logs > Cellular),
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/adding-sim-location-group","lastmod":"2026-10-02T21:06Z","nid":"1534049"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/adding-sim-location-group","lastmod":"2026-10-07T03:26Z","nid":"1534049"} -->
 ## Adding a SIM Location Group
 
 - Source: https://help.zscaler.com/zscaler-cellular/adding-sim-location-group
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > Anomaly Detection > Adding a SIM Location Group
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-07T03:26Z
 - Summary: Explaining how to add a SIM Location Group.
 
 For Zscaler Cellular anomaly detection, creating a [SIM Location Group](https://help.zscaler.com/zscaler-cellular/about-sim-location-groups) serves as the initial step in enabling anomaly detection. Within each group, you can define the geofencing area and specify the number of tracked devices according to your requirements. After the group is created, it can be added to a policy. When the policy is enabled, the system monitors the movement of tracked devices and raises a violation if any device crosses the defined geofence area.
@@ -7735,13 +7950,13 @@ To add a SIM Location Group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/changing-imei-association-zscaler-sims","lastmod":"2026-10-02T21:06Z","nid":"1524936"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/changing-imei-association-zscaler-sims","lastmod":"2026-10-07T03:28Z","nid":"1524936"} -->
 ## Changing the IMEI Association for Zscaler SIMs
 
 - Source: https://help.zscaler.com/zscaler-cellular/changing-imei-association-zscaler-sims
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > SIMs > Changing the IMEI Association for Zscaler SIMs
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-07T03:28Z
 - Summary: How to update the IMEI associated with a Zscaler SIM.
 
 You can modify the IMEI associated with a Zscaler SIM provisioned to your organization from the SIMs page.
@@ -7780,13 +7995,13 @@ To change the IMEI association for a Zscaler SIM:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/changing-status-zscaler-sims","lastmod":"2026-10-02T21:06Z","nid":"1519086"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/changing-status-zscaler-sims","lastmod":"2026-10-07T03:28Z","nid":"1519086"} -->
 ## Changing the Status of Zscaler SIMs
 
 - Source: https://help.zscaler.com/zscaler-cellular/changing-status-zscaler-sims
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > SIMs > Changing the Status of Zscaler SIMs
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-07T03:28Z
 - Summary: How to modify the status of Zscaler SIMs.
 
 You can modify the status of the Zscaler SIMs—both physical SIMs and eSIMs—provisioned to your organization from the SIMs page.
@@ -7825,13 +8040,13 @@ To change the status of Zscaler SIMs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/configuring-and-updating-credentials-cellular-edge-deployment","lastmod":"2026-10-02T21:06Z","nid":"1519071"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/configuring-and-updating-credentials-cellular-edge-deployment","lastmod":"2026-10-07T03:09Z","nid":"1519071"} -->
 ## Configuring and Updating Credentials for Zscaler Cellular Service Deployment
 
 - Source: https://help.zscaler.com/zscaler-cellular/configuring-and-updating-credentials-cellular-edge-deployment
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > Dashboard, Deployment, and Configuration > Configuring and Updating Credentials for Zscaler Cellular Service Deployment
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-07T03:09Z
 - Summary: How to configure or update Cloud & Branch Connector credentials to deploy Cellular Service.
 
 Zscaler requires your organization's Cloud & Branch Connector credentials to initiate deployment of Zscaler Cellular Service across regions. You must set up Cloud & Branch Connector credentials to allow Zscaler to deploy Cellular Services.
@@ -7849,20 +8064,20 @@ If you change the super admin credentials of the Cloud & Branch Connector Admin 
   3. **Branch Connector API Key**: Enter the API key copied in the previous step.
 5. Click **Save**.
 
-[Image: Obtaining API key from the Cloud & Branch Connector Admin Portal]
+[Image: Obtaining Cloud & Branch Connector API key from the  Zscaler Admin Console]
 
 [Image: Updating the Branch Connector credentials]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/configuring-geofence-anomaly-detection-policies","lastmod":"2026-10-02T21:06Z","nid":"1534050"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/configuring-geofence-anomaly-detection-policies","lastmod":"2026-10-07T03:26Z","nid":"1534050"} -->
 ## Configuring Geofence Anomaly Detection Policies
 
 - Source: https://help.zscaler.com/zscaler-cellular/configuring-geofence-anomaly-detection-policies
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > Anomaly Detection > Configuring Geofence Anomaly Detection Policies
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-07T03:26Z
 - Summary: Explaining how to configure a new network detection anomaly policy for Zscaler Cellular Anomaly Detection.
 
 In Zscaler Cellular Anomaly Detection, you can configure the Geofence Anomaly Detection Policy. This policy allows administrators to define and manage rules that detect anomalies based on SIM Location Groups. It is designed to monitor device activity within a specified geofence area, and when a device moves outside its assigned boundary, the system triggers an anomaly.
@@ -7893,13 +8108,13 @@ To add a new anomaly detection policy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/deploying-new-cellular-edges","lastmod":"2026-10-02T21:06Z","nid":"1518161"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/deploying-new-cellular-edges","lastmod":"2026-10-07T03:10Z","nid":"1518161"} -->
 ## Deploying New Cellular Edges
 
 - Source: https://help.zscaler.com/zscaler-cellular/deploying-new-cellular-edges
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > Dashboard, Deployment, and Configuration > Deploying New Cellular Edges
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-07T03:10Z
 - Summary: How to request deployment of additional Cellular Edges.
 
 Deploying additional Cellular Edges ensures that your devices have seamless and secure connectivity to the Zscaler cloud in the designated regions where you need additional coverage or capacity. Zscaler Cellular offers coverage expansion in three regions: AMER (North and South America), EMEA (Europe, Middle East, and Africa), and APAC (Asia-Pacific). Deploying more Cellular Edges allows you to expand the reach of your Zscaler Cellular services, improve performance by reducing latency, and ensure reliable network access for IoT devices and other connected systems. On the Deployment Regions Page, you can identify regions requiring deployment and submit requests for provisioning new Cellular Edges.
@@ -7917,13 +8132,13 @@ To request deployment of new Cellular Edges:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/managing-assignment-and-activation-esims","lastmod":"2026-10-02T21:06Z","nid":"1532654"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/managing-assignment-and-activation-esims","lastmod":"2026-10-07T03:28Z","nid":"1532654"} -->
 ## Assigning and Activating eSIMs
 
 - Source: https://help.zscaler.com/zscaler-cellular/managing-assignment-and-activation-esims
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > SIMs > Assigning and Activating eSIMs
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-07T03:28Z
 - Summary: How to manage assignment and activation for eSIMs from the Zscaler Admin Console.
 
 You can manage eSIMs provisioned for your organization in the Zscaler Admin Console. After provisioning, the eSIMs are listed on the SIMs page. You can view the SIM details and assign or activate it.
@@ -7968,13 +8183,13 @@ To activate an eSIM:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/managing-tags-zscaler-sims","lastmod":"2026-10-02T21:06Z","nid":"1524941"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/managing-tags-zscaler-sims","lastmod":"2026-10-07T03:28Z","nid":"1524941"} -->
 ## Managing Tags for Zscaler SIMs
 
 - Source: https://help.zscaler.com/zscaler-cellular/managing-tags-zscaler-sims
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > SIMs > Managing Tags for Zscaler SIMs
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-07T03:28Z
 - Summary: How to create and manage tags for Zscaler SIMs.
 
 You can add tags to your Zscaler SIMs to group and classify them based on your business requirements. You can use tags to view all SIMs that have the tag associated with them by clicking that tag on the [SIMs page](https://help.zscaler.com/zscaler-cellular/about-sims) or [SIM details page](https://help.zscaler.com/zscaler-cellular/viewing-sim-details).
@@ -8013,13 +8228,13 @@ This article provides a summary of all new features and enhancements for Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/release-upgrade-summary-2026","lastmod":"2026-09-16T23:20Z","nid":"1534297"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/release-upgrade-summary-2026","lastmod":"2026-10-06T16:10Z","nid":"1534297"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zscaler-cellular/release-upgrade-summary-2026
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-16T23:20Z
+- Last modified: 2026-10-06T16:10Z
 - Summary: Zscaler Cellular Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Zscaler Cellular.
@@ -8148,13 +8363,13 @@ Cellular Edge is an intelligent mechanism to forward traffic from or to a Zscale
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/understanding-zscaler-cellular-dashboard","lastmod":"2026-10-02T21:06Z","nid":"1518151"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/understanding-zscaler-cellular-dashboard","lastmod":"2026-10-07T03:15Z","nid":"1518151"} -->
 ## Understanding the Zscaler Cellular Dashboard
 
 - Source: https://help.zscaler.com/zscaler-cellular/understanding-zscaler-cellular-dashboard
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > Dashboard, Deployment, and Configuration > Understanding the Zscaler Cellular Dashboard
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-07T03:15Z
 - Summary: Information on the Zscaler Cellular Dashboard.
 
 The Zscaler Cellular Dashboard (Infrastructure > Cellular > Dashboard) provides a centralized view of your organization's SIM card usage, network activity, and connectivity metrics. It offers a graphical representation of key metrics and real-time insights into your deployed SIM cards and their connection to the Zscaler cloud.
@@ -8229,13 +8444,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/viewing-and-monitoring-cellular-edge-deployments","lastmod":"2026-10-02T21:06Z","nid":"1518156"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/viewing-and-monitoring-cellular-edge-deployments","lastmod":"2026-10-07T03:12Z","nid":"1518156"} -->
 ## Viewing and Monitoring Cellular Edge Deployments
 
 - Source: https://help.zscaler.com/zscaler-cellular/viewing-and-monitoring-cellular-edge-deployments
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > Dashboard, Deployment, and Configuration > Viewing and Monitoring Cellular Edge Deployments
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-07T03:12Z
 - Summary: How to view and request regional Cellular Edge deployments.
 
 Zscaler deploys and maintains Cellular Edges that serve as secure access on-ramps to the Zscaler Zero Trust Exchange (ZTE), ensuring seamless and secure connectivity for your devices. Depending on your usage requirements, you can request additional Cellular Edges in your preferred regions. You can also monitor the deployment and service status of the Cellular Edges directly from the Zscaler Admin Console.
@@ -8243,7 +8458,7 @@ Zscaler deploys and maintains Cellular Edges that serve as secure access on-ramp
 To view the Cellular Edge deployments:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure**> **Cellular**> **Deployment Regions**. The **Deployment Regions** page appears.
-2. On the **Deployment Regions**page, you can view regions on the map where Cellular Edges are deployed. The regions are color-coded to indicate the following deployment and service statuses: See image. You can view and refresh the map to update deployment and service statuses.
+2. On the **Deployment Regions**page, you can view regions on the map where Cellular Edges are deployed. The regions are color coded to indicate the following deployment and service statuses: See image. You can view and refresh the map to update deployment and service statuses.
   - **Online**: Represented by a green color, indicating that the service is fully operational.
   - **Disruption**: Represented by a red color, signaling a complete service outage or unavailability.
   - **Degradation**: Represented by a gray color, highlighting reduced performance or partial service issues.
@@ -8256,13 +8471,13 @@ You can also request deployment of new Cellular Edges. To learn more, see [Deplo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/viewing-anomaly-dashboard","lastmod":"2026-10-02T21:06Z","nid":"1534047"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/viewing-anomaly-dashboard","lastmod":"2026-10-07T03:25Z","nid":"1534047"} -->
 ## Viewing the Anomaly Dashboard
 
 - Source: https://help.zscaler.com/zscaler-cellular/viewing-anomaly-dashboard
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > Anomaly Detection > Viewing the Anomaly Dashboard
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-07T03:25Z
 - Summary: Explaining all the features and insights available on the Zscaler Cellular Anomaly Detection dashboard.
 
 The Anomaly Dashboard provides an overview of all active anomaly detection policies and their associated violations when tracked devices move outside the specified geofence area. It provides a detailed breakdown of each policy. Additionally, you can easily manage existing policies and create new policies.
@@ -8295,13 +8510,13 @@ You can edit or delete a policy only when it is disabled.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/viewing-network-event-details","lastmod":"2026-10-02T21:06Z","nid":"1518101"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/viewing-network-event-details","lastmod":"2026-10-07T03:27Z","nid":"1518101"} -->
 ## Viewing Network Event Details
 
 - Source: https://help.zscaler.com/zscaler-cellular/viewing-network-event-details
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > Network Events and Logins Monitoring > Viewing Network Event Details
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-07T03:27Z
 - Summary: How to view detailed network events.
 
 You can access in-depth information about specific network events associated with each SIM provisioned to your organization. This detailed view helps you analyze connectivity behavior, troubleshoot issues, and understand event-specific details for enhanced network management.
@@ -8332,13 +8547,13 @@ To view the details of a specific network event:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/viewing-sim-details","lastmod":"2026-09-16T22:28Z","nid":"1518126"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/viewing-sim-details","lastmod":"2026-10-07T03:28Z","nid":"1518126"} -->
 ## Viewing SIM Details
 
 - Source: https://help.zscaler.com/zscaler-cellular/viewing-sim-details
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > SIMs > Viewing SIM Details
-- Last modified: 2026-09-16T22:28Z
+- Last modified: 2026-10-07T03:28Z
 - Summary: How to view details of each SIM card.
 
 You can access in-depth information about each SIM—both physical SIMs and eSIMs—provisioned to your organization. The SIM details page provides a comprehensive overview of a selected SIM's session activity, including its current status, historical data usage, key connectivity details, and location history.

@@ -1,8 +1,855 @@
 # Zscaler Help — API / SDK (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-05 09:38 UTC
-Articles in this file: 98
+Generated: 2026-10-12 09:45 UTC
+Articles in this file: 94
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-tag-namespaces-using-api","lastmod":"2026-09-27T07:06Z","nid":"1541693"} -->
+## Configuring Tag Namespaces Using API
+
+- Source: https://help.zscaler.com/legacy-apis/configuring-tag-namespaces-using-api
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Configuring Tag Namespaces Using API
+- Last modified: 2026-09-27T07:06Z
+- Summary: Information on configuring tag namespaces using Zscaler Private Access (ZPA) cloud service API.
+
+This article provides information on configuring ZPA [tag namespaces](https://help.zscaler.com/zpa/about-tag-management-application-segments) using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
+
+## Adding a Namespace
+
+To add a new namespace for the specified customer:
+
+1. Send a `POST` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/namespace?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/144118148382064640/namespace?microtenantId=145260601092866314`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+3. Include the request headers to specify the following parameters about the request context:
+  - Content-Type: `application/json`
+  - Authorization: `Bearer <access_token>`
+4. Use the following JSON payload and provide the following:
+  - `name`: The name of the namespace. The value must match the namespace name pattern.
+  - `origin`: The origin of the namespace. The supported value is `CUSTOM`.
+
+- View the JSON payload.
+
+```
+{
+  "name": "<name>",
+  "description": "<description>",
+  "enabled": true,
+  "origin": "CUSTOM",
+  "type": "STATIC"
+}
+```
+
+- View an example JSON payload.
+
+```
+{
+  "name": "Environment",
+  "description": "Deployment environment tags",
+  "enabled": true,
+  "origin": "CUSTOM",
+  "type": "STATIC"
+}
+```
+
+- View an example response.
+
+```
+{
+  "id": "145260601092866400",
+  "modifiedTime": "1705617359",
+  "creationTime": "1705617359",
+  "modifiedBy": "145260601092866482",
+  "name": "Environment",
+  "description": "Deployment environment tags",
+  "enabled": true,
+  "origin": "CUSTOM",
+  "type": "STATIC",
+  "microtenantId": "145260601092866314"
+}
+```
+
+A successful response returns code 201. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Getting Details of All Namespaces
+
+To get details of all namespaces based on the given filter, sort, and pagination criteria:
+
+1. Send a `POST` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/namespace/search?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/144118148382064640/namespace/145260601092866400?microtenantId=145260601092866314`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+3. Include the request headers to specify the following parameters about the request context:
+  - Content-Type: `application/json`
+  - Authorization: `Bearer <access_token>`
+4. Use the following JSON payload and provide the following:
+  - `sortBy.sortName`: Denotes the optional field name to sort by. The supported value is a string (e.g., `name`).
+  - `sortBy.sortOrder`: Denotes the optional field for sort direction, and sorts by ascending (`ASC`) or descending (`DESC`) order. The supported value is a string.
+  - `filterBy.operator`: Denotes the optional field for the logical operator that combines filter groups. The supported value is an enum (i.e., `AND` or `OR`).
+  - `filterBy.filterGroups[].operator`: Denotes the optional field for the logical operator that combines filters in the group. The supported value is an enum (i.e., `AND` or `OR`).
+  - `filterBy.filterGroups[].filters[].filterName`: Denotes the optional field for the field name to filter. The supported value is a string (e.g., `name`).
+  - `filterBy.filterGroups[].filters[].operator`: Denotes the optional field for the comparison operator. The supported values are a string (i.e., `EQ` and `LIKE`). The value `EQ` denotes the equals operator, and the value `LIKE` denotes the contains operator.
+  - `filterBy.filterGroups[].filters[].value`: Denotes the optional field for the value to compare against. The supported value is a string (e.g., `env`).
+  - `pageBy.page`: Specifies the page number. The supported value is an integer (e.g., `1`). The default value is `1`.
+  - `pageBy.pageSize`: Specifies the page size. The supported value is an integer (e.g., `20`). If not provided, the default page size is `20`. The maximum page size is `500`.
+
+- View the JSON payload.
+
+```
+{
+  "sortBy": { "sortName": "<sortName>", "sortOrder": "<sortOrder>" },
+  "filterBy": {
+    "operator": "<operator>",
+    "filterGroups": [
+      {
+        "operator": "<operator>",
+        "filters": [
+          { "filterName": "<filterName>", "operator": "<operator>", "value": "<value>" }
+        ]
+      }
+    ]
+  },
+  "pageBy": { "page": "<page>", "pageSize": "<pageSize>" }
+}
+```
+
+- View the sample JSON payload.
+
+```
+{
+  "sortBy": { "sortName": "name", "sortOrder": "ASC" },
+  "filterBy": {
+    "operator": "AND",
+    "filterGroups": [
+      {
+        "operator": "OR",
+        "filters": [
+          { "filterName": "name", "operator": "LIKE", "value": "env" }
+        ]
+      }
+    ]
+  },
+  "pageBy": { "page": "1", "pageSize": "20" }
+}
+```
+
+- View an example response.
+
+```
+{
+  "totalPages": "1",
+  "totalCount": "1",
+  "list": [
+    {
+      "id": "145260601092866400",
+      "name": "Environment",
+      "enabled": true,
+      "origin": "CUSTOM",
+      "type": "STATIC",
+      "microtenantId": "145260601092866314"
+    }
+  ]
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Getting Details of a Namespace
+
+To get the details of a namespace:
+
+1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/namespace/{namespaceId}?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/144118148382064640/namespace/145260601092866400?microtenantId=145260601092866314`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `namespaceId`: The unique identifier of the namespace. To learn more, see Getting Details of All Namespaces.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+
+- View an example response.
+
+```
+{
+  "id": "145260601092866400",
+  "modifiedTime": "1705617359",
+  "creationTime": "1705617359",
+  "modifiedBy": "145260601092866482",
+  "name": "Environment",
+  "description": "Deployment environment tags",
+  "enabled": true,
+  "origin": "CUSTOM",
+  "type": "STATIC",
+  "microtenantId": "145260601092866314"
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Updating a Namespace
+
+To update a namespace:
+
+1. Send a `PUT` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/namespace/{namespaceId}?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/144118148382064640/namespace/145260601092866400`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `namespaceId`: The unique identifier of the namespace. To learn more, see Getting Details of All Namespaces.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+3. Include the request headers to specify the following parameters about the request context:
+  - Content-Type: `application/json`
+  - Authorization: `Bearer <access_token>`
+4. Use the following JSON payload and provide the following fields you want to update for the namespace:
+  - `name`: The name of the namespace.
+  - `description`: The description of the namespace.
+  - `enabled`: Specifies if the namespace is enabled (`true`) or disabled (`false`).
+
+- View the JSON payload.
+
+```
+{
+  "name": "<updated name>",
+  "description": "<updated description>",
+  "enabled": true,
+  "origin": "CUSTOM",
+  "type": "STATIC"
+}
+```
+
+- View the sample JSON payload.
+
+```
+{
+  "name": "Environment",
+  "description": "Updated description",
+  "enabled": true,
+  "origin": "CUSTOM",
+  "type": "STATIC"
+}
+```
+
+A successful response returns code 204. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Deleting a Namespace
+
+To delete a namespace:
+
+1. Send a `DELETE` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/namespace/{namespaceId}?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/144118148382064640/namespace/145260601092866400`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `namespaceId`: The unique identifier of the namespace. To learn more, see Getting Details of All Namespaces.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+
+A successful response returns code 204. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Bulk Importing Tags
+
+To bulk import tags (including namespaces, keys, and values) for the specified customer:
+
+1. Send a `POST` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/tags/import?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/144118148382064640/tags/import?microtenantId=144118148382065713`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+3. Include the request headers to specify the following parameters about the request context:
+  - Content-Type: `application/json`
+  - Authorization: `Bearer <access_token>`
+4. Use the following JSON payload and provide the following:
+  - `duplicateResolutionStrategy`: This field is optional and resolves tags that already exist. The enum `MERGE` adds new values to existing keys or namespaces, while the enum `REPLACE_EXISTING` overwrites the existing definition.
+  - `data`: The nested map of tags to import. The key is by namespace name, then tag key name, whose value is the list of tag value names. The structure is as follows: `{ "namespaceName": { "tagKeyName": [ "tagValueName1", "tagValueName2" ] } }`
+
+- View an example JSON payload.
+
+```
+{
+  "duplicateResolutionStrategy": "MERGE",
+  "data": {
+    "Environment": {
+      "Region": [ "us-east-1", "us-west-2" ],
+      "Tier": [ "gold", "silver" ]
+    },
+    "Compliance": {
+      "Standard": [ "pci", "hipaa" ]
+    }
+  }
+}
+```
+
+A successful response returns code 200 with an empty response body. For example:
+
+```
+HTTP/1.1 200 OK
+(empty response body)
+```
+
+A partial or failed import returns the following error response:
+
+```
+HTTP/1.1 400 Bad Request
+
+{
+  "Environment": {
+    "Region": {
+      "errors": [
+        { "id": "invalid.tag.value.name", "params": [ "us east 1" ] }
+      ]
+    }
+  }
+}
+```
+
+To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Validating Bulk Imported Tags
+
+Zscaler recommends validating the tag namespaces, keys, and values before calling on a bulk import request to detect problems.
+
+To validate the bulk imported tags without persisting any changes:
+
+1. Send a `POST` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/tags/import/validate?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/144118148382064640/tags/import/validate?microtenantId=144118148382065713`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+3. Include the request headers to specify the following parameters about the request context:
+  - Content-Type: `application/json`
+  - Authorization: `Bearer <access_token>`
+4. Use the following JSON payload and provide the following:
+  - `duplicateResolutionStrategy`: This field is optional and resolves tags that already exist. The enum `MERGE` adds new values to existing keys or namespaces, while the enum `REPLACE_EXISTING` overwrites the existing definition.
+  - `data`: The nested map of tags to import. The key is by namespace name, then tag key name, whose value is the list of tag value names. The structure is as follows: `{ "namespaceName": { "tagKeyName": [ "tagValueName1", "tagValueName2" ] } }`
+
+- View an example JSON payload.
+
+```
+{
+  "duplicateResolutionStrategy": "MERGE",
+  "data": {
+    "Environment": {
+      "Region": [ "us-east-1", "us-west-2" ]
+    }
+  }
+}
+```
+
+A successful response returns code 204. For example:
+
+```
+HTTP/1.1 204 No Content
+(empty response body)
+```
+
+A failed validation returns code 400 with a nested error object identifying the offending namespace, key, or value. For example:
+
+```
+HTTP/1.1 400 Bad Request
+
+{
+  "Environment": {
+    "errors": [
+      { "id": "invalid.tag.namespace.name", "params": [ "Environment!" ] }
+    ]
+  }
+}
+```
+
+To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Enabling or Disabling a Predefined Namespace
+
+To enable or disable a predefined namespace for the specified customer:
+
+1. Send a `POST` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/namespace/{namespaceId}/status?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/144118148382064640/namespace/145260601092866400/status??microtenantId=144118148382065713`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `namespaceId`: The unique identifier of the namespace. To learn more, see Getting Details of All Namespaces.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+3. Include the request headers to specify the following parameters about the request context:
+  - Content-Type: `application/json`
+  - Authorization: `Bearer <access_token>`
+4. Use the following JSON payload and provide the `enabled` field to specify if the predefined namespace is enabled (`true`) or disabled (`false`).
+
+- View the JSON payload.
+
+```
+{
+  "enabled": false
+}
+```
+
+A successful response returns code 204. For example:
+
+```
+HTTP/1.1 204 No Content
+(empty response body)
+```
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-tags-and-tag-groups-policy-rules-using-api","lastmod":"2026-09-27T07:06Z","nid":"1541752"} -->
+## Configuring Tags and Tag Groups with Policy Rules Using API
+
+- Source: https://help.zscaler.com/legacy-apis/configuring-tags-and-tag-groups-policy-rules-using-api
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Configuring Tags and Tag Groups with Policy Rules Using API
+- Last modified: 2026-09-27T07:06Z
+- Summary: Information on managing tags and tag groups for policy rules applicable to the Zscaler Private Access (ZPA) cloud service API.
+
+This article provides information for managing ZPA tags and tag groups for poicy rules using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
+
+## Prerequisite API Calls
+
+Before you manage tags and tag groups within policy rules, you must get the following required details:
+
+- Tag key IDs and tag value IDs. To learn more, see [Configuring Tag Key-Value Pairs Using API](https://help.zscaler.com/legacy-apis/configuring-tag-key-value-pairs-using-api).
+- Tag group IDs. To learn more, see [Configuring Tag Groups Using API](https://help.zscaler.com/legacy-apis/configuring-tag-groups-using-api).
+- Policy set ID. To learn more, see [Configuring Access Policies Using API](https://help.zscaler.com/legacy-apis/configuring-access-policies-using-api#Prereq).
+
+## Adding a Policy Rule with Tags and Tag Groups
+
+To add a policy rule with tags and tag groups for the specified customer:
+
+1. Send a `POST` request to the following endpoint: `/mgmtconfig/v2/admin/customers/{customerId}/policySet/{policySetId}/rule?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/72057615512764416/application?microtenantId=145260601092866314`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+3. Include the request headers to provide information about the request context:
+  - Content-Type: `application/json`
+  - Authorization: `Bearer <access_token>`
+4. Use the following JSON payload and provide the following:
+  - `name`: The name of the policy rule.
+  - `action`: The action of the rule for the policy type. The supported enum values are:
+    - `ALLOW`: Denotes the Allow Access action when [configuring an access policy](https://help.zscaler.com/zpa/configuring-access-policies).
+    - `DENY`: Denotes the Block Access action when [configuring an access policy](https://help.zscaler.com/zpa/configuring-access-policies).
+    - `INTERCEPT`: Denotes the Forward to ZPA action when [configuring a client forwarding policy](https://help.zscaler.com/zpa/configuring-client-forwarding-policies).
+    - `INTERCEPT_ACCESIBLE`: Denotes the Only Forward Allowed Applications action when [configuring a client forwarding policy](https://help.zscaler.com/zpa/configuring-client-forwarding-policies).
+    - `BYPASS`: Denotes the Bypass ZPA action when [configuring a client forwarding policy](https://help.zscaler.com/zpa/configuring-client-forwarding-policies).
+    - `RE_AUTH`: Denotes the action when [configuring a timeout policy](https://help.zscaler.com/zpa/configuring-timeout-policies).
+  - `conditions`: The set of conditions for the policy rule. Each set must have an operator and a list of operands. The entire set of conditions must be included for any add, update, or delete actions.
+  - `conditions[].operands[].objectType`: The policy criteria. The supported values are:
+    - `ENTITY_TAG_VAL`: The unique identifier of the tag value. To learn more, see [Configuring Tag Key-Value Pairs Using API](https://help.zscaler.com/legacy-apis/configuring-tag-key-value-pairs-using-api).
+    - `ENTITY_TAG_GRP`: The unique identifier of the tag group. To learn more, see [Configuring Tag Groups Using API](https://help.zscaler.com/legacy-apis/configuring-tag-groups-using-api).
+  - `conditions[].operands[].lhs`: The key for the object type.
+  - `conditions[].operands[].rhs`: The value for the given object type. It's value depends on the key.
+  - `operator`: The operation type. The supported values are `AND` or `OR`.
+
+- View the JSON payload.
+
+```
+{
+  "name": "<policy rule name>",
+  "description": "<policy rule description>",
+  "action": "<ALLOW or DENY>",
+  "conditions": [
+    {
+      "operator": "<AND or OR>",
+      "operands": [
+        {
+          "objectType": "<object type>",
+          "lhs": "<LHS value>",
+          "rhs": "<RHS value>"
+        },
+        {
+          "objectType": "<object type>",
+          "rhs": "<RHS value>"
+        }
+      ]
+    }
+  ]
+}
+```
+
+- View an example JSON payload.
+
+```
+{
+  "name": "tag-based-access",
+  "description": "Allow access based on tag value and tag group",
+  "action": "ALLOW",
+  "conditions": [
+    {
+      "operator": "AND",
+      "operands": [
+        {
+          "objectType": "ENTITY_TAG_VAL",
+          "lhs": "145260601092866401",
+          "rhs": "145260601092866402"
+        },
+        {
+          "objectType": "ENTITY_TAG_GRP",
+          "rhs": "145260601092866500"
+        }
+      ]
+    }
+  ]
+}
+```
+
+- View an example response.
+
+```
+{
+  "id": "145260601092866900",
+  "modifiedTime": "1705617600",
+  "creationTime": "1705617600",
+  "modifiedBy": "145260601092866482",
+  "name": "tag-based-access",
+  "action": "ALLOW",
+  "policySetId": "145256180497776773",
+  "conditions": [
+    {
+      "id": "145260601092866901",
+      "operator": "AND",
+      "operands": [
+        {
+          "id": "145260601092866902",
+          "objectType": "ENTITY_TAG_VAL",
+          "lhs": "145260601092866401",
+          "rhs": "145260601092866402",
+          "name": "us-east-1"
+        },
+        {
+          "id": "145260601092866903",
+          "objectType": "ENTITY_TAG_GRP",
+          "rhs": "145260601092866500",
+          "name": "Prod Access"
+        }
+      ]
+    }
+  ]
+}
+```
+
+A successful response returns code 201. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Updating a Policy Rule with Tags and Tag Groups
+
+To update a policy rule with tags and tag groups:
+
+1. Send a `PUT` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/policySet/{policySetId}/rule/{ruleId}?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/72057615512764416/policySet/72057615512764474/rule/72057615512764645?microtenantId=145260601092866314`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `policySetId`: The unique identifier of the global policy set. To learn more, see [Configuring Access Policies Using API](https://help.zscaler.com/legacy-apis/configuring-access-policies-using-api#Prereq).
+  - `ruleId`: The unique identifier of the policy rule you want to update. To learn more, see [Configuring Access Policies Using API](https://help.zscaler.com/legacy-apis/configuring-access-policies-using-api#Prereq).
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+3. Include the request headers to provide information about the request context:
+  - Content-Type: `application/json`
+  - Authorization: `Bearer <access_token>`
+4. Use the following JSON payload and provide the following:
+  - `name`: The name of the policy rule.
+  - `action`: The action of the rule for the policy type. The supported enum values are:
+    - `ALLOW`: Denotes the Allow Access action when [configuring an access policy](https://help.zscaler.com/zpa/configuring-access-policies).
+    - `DENY`: Denotes the Block Access action when [configuring an access policy](https://help.zscaler.com/zpa/configuring-access-policies).
+    - `INTERCEPT`: Denotes the Forward to ZPA action when [configuring a client forwarding policy](https://help.zscaler.com/zpa/configuring-client-forwarding-policies).
+    - `INTERCEPT_ACCESIBLE`: Denotes the Only Forward Allowed Applications action when [configuring a client forwarding policy](https://help.zscaler.com/zpa/configuring-client-forwarding-policies).
+    - `BYPASS`: Denotes the Bypass ZPA action when [configuring a client forwarding policy](https://help.zscaler.com/zpa/configuring-client-forwarding-policies).
+    - `RE_AUTH`: Denotes the action when [configuring a timeout policy](https://help.zscaler.com/zpa/configuring-timeout-policies).
+  - `conditions`: The set of conditions for the policy rule. Each set must have an operator and a list of operands. The entire set of conditions must be included for any add, update, or delete actions.
+  - `conditions[].operands[].objectType`: The policy criteria. The supported values are:
+    - `ENTITY_TAG_VAL`: The unique identifier of the tag value. To learn more, see [Configuring Tag Key-Value Pairs Using API](https://help.zscaler.com/legacy-apis/configuring-tag-key-value-pairs-using-api).
+    - `ENTITY_TAG_GRP`: The unique identifier of the tag group. To learn more, see [Configuring Tag Groups Using API](https://help.zscaler.com/legacy-apis/configuring-tag-groups-using-api).
+  - `conditions[].operands[].lhs`: The key for the object type.
+  - `conditions[].operands[].rhs`: The value for the given object type. It's value depends on the key.
+  - `operator`: The operation type. The supported values are `AND` or `OR`.
+
+- View the JSON payload.
+
+```
+{
+  "name": "<policy rule name>",
+  "description": "<policy rule description>",
+  "action": "<ALLOW or DENY>",
+  "conditions": [
+    {
+      "operator": "<AND or OR>",
+      "operands": [
+        {
+          "objectType": "<object type>",
+          "lhs": "<LHS value>",
+          "rhs": "<RHS value>"
+        },
+        {
+          "objectType": "<object type>",
+          "rhs": "<RHS value>"
+        }
+      ]
+    }
+  ]
+}
+```
+
+- View an example JSON payload.
+
+```
+{
+  "name": "tag-based-access",
+  "description": "Allow access based on tag value and tag group",
+  "action": "ALLOW",
+  "conditions": [
+    {
+      "operator": "AND",
+      "operands": [
+        {
+          "objectType": "ENTITY_TAG_VAL",
+          "lhs": "145260601092866401",
+          "rhs": "145260601092866402"
+        },
+        {
+          "objectType": "ENTITY_TAG_GRP",
+          "rhs": "145260601092866500"
+        }
+      ]
+    }
+  ]
+}
+```
+
+A successful response returns code 204. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Field Descriptions
+
+The following table includes descriptions of available fields you can use for the tag and tag group policy rule use cases:
+
+| Field | Description | Required | Value |
+| --- | --- | --- | --- |
+| name | The name of the policy rule. | Yes | String |
+| description | The description of the policy rule. | No | String |
+| action | The rule action. | Yes | String Supported values: `ALLOW`: Denotes the Allow Access action when [configuring an access policy](https://help.zscaler.com/zpa/configuring-access-policies).; `DENY`: Denotes the Block Access action when [configuring an access policy](https://help.zscaler.com/zpa/configuring-access-policies).; `INTERCEPT`: Denotes the Forward to ZPA action when [configuring a client forwarding policy](https://help.zscaler.com/zpa/configuring-client-forwarding-policies).; `INTERCEPT_ACCESIBLE`: Denotes the Only Forward Allowed Applications action when [configuring a client forwarding policy](https://help.zscaler.com/zpa/configuring-client-forwarding-policies).; `BYPASS`: Denotes the Bypass ZPA action when [configuring a client forwarding policy](https://help.zscaler.com/zpa/configuring-client-forwarding-policies).; `RE_AUTH`: Denotes the action when [configuring a timeout policy](https://help.zscaler.com/zpa/configuring-timeout-policies). |
+| conditions | The set of conditions for the policy rule. Each set has an operator and a list of operands. | No | Array of operands |
+| conditions[].operands[].objectType | The policy criteria. | Yes (per operand) | Enum Supported values: `ENTITY_TAG_VAL`: The unique identifier of the tag value. To learn more, see [Configuring Tag Key-Value Pairs Using API](https://help.zscaler.com/legacy-apis/configuring-tag-key-value-pairs-using-api).; `ENTITY_TAG_GRP`: The unique identifier of the tag group. To learn more, see [Configuring Tag Groups Using API](https://help.zscaler.com/legacy-apis/configuring-tag-groups-using-api). |
+| conditions[].operands[].lhs | The key for the object type. To learn more, see [Configuring Access Policies Using API](https://help.zscaler.com/legacy-apis/configuring-access-policies-using-api#lhsandrhsvalues). | Conditional | String (e.g., `"id"`) For `ENTITY_TAG_VAL`, provide the tag key ID. For example: `"operands": [ { "objectType": "ENTITY_TAG_VAL", "lhs": "145260601092866401", "rhs": "145260601092866402" },` |
+| conditions[].operands[].rhs | The value for the given object type. It's value depends on the key. To learn more, see [Configuring Access Policies Using API](https://help.zscaler.com/legacy-apis/configuring-access-policies-using-api#lhsandrhsvalues). | Yes (per operand) | String For `ENTITY_TAG_VAL`, provide the tag value ID. For example: `"operands": [ { "objectType": "ENTITY_TAG_VAL", "lhs": "145260601092866401", "rhs": "145260601092866402" },`For `ENTITY_TAG_GRP`, provide the tag group ID. For example: `"operands": [ { "objectType": "ENTITY_TAG_VAL", "lhs": "145260601092866401", "rhs": "145260601092866402" }, { "objectType": "ENTITY_TAG_GRP", "rhs": "145260601092866500" } ]` |
+| operator | The operation type. |  | Supported values: `AND`: The AND logical operator.; `OR`: The OR logical operator. |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-tags-application-segments-using-api","lastmod":"2026-09-27T07:06Z","nid":"1541748"} -->
+## Configuring Tags for Application Segments Using API
+
+- Source: https://help.zscaler.com/legacy-apis/configuring-tags-application-segments-using-api
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Configuring Tags for Application Segments Using API
+- Last modified: 2026-09-27T07:06Z
+- Summary: Information on managing tags for application segments applicable to the Zscaler Private Access (ZPA) cloud service API.
+
+This article provides information for managing Zscaler Private Access (ZPA) application segments with tags using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
+
+## Prerequisite API Calls
+
+Before you manage tags within an application segment, you must get the following required details:
+
+- Details of the particular application segments you want to manage. To learn more, see [Configuring Application Segments Using API](https://help.zscaler.com/legacy-apis/configuring-application-segments-using-api).
+- Segment group IDs. To learn more, see [Configuring Segment Groups Using API](https://help.zscaler.com/zpa/configuring-segment-groups-using-api#getSegmentGroups).
+- Server Group IDs. To learn more, see [Configuring Server Groups Using API](https://help.zscaler.com/legacy-apis/configuring-server-groups-using-api).
+- Details of tags (including namespace, key, and value). To learn more, see:
+  - [Configuring Tag Namespaces Using API](https://help.zscaler.com/legacy-apis/configuring-tag-namespaces-using-api)
+  - [Configuring Tag Key-Value Pairs Using API](https://help.zscaler.com/legacy-apis/configuring-tag-key-value-pairs-using-api)
+
+## Adding an Application Segment with Tags
+
+To add an application segment with tags for the specified customer:
+
+1. Send a `POST` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/application?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/72057615512764416/application?microtenantId=145260601092866314`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+3. Include the request headers to provide information about the request context:
+  - Content-Type: `application/json`
+  - Authorization: `Bearer <access_token>`
+4. Use the following JSON payload and provide the following:
+  - The name of the application segment.
+  - The domains of the application.
+  - The TCP and UDP ports. You can provide multiple port ranges using the format in the JSON payload.
+  - The segment group and server group IDs.
+  - Tag namespace, key, and key-pair values. To learn more, see [Configuring Tag Namespaces Using API](https://help.zscaler.com/legacy-apis/configuring-tag-namespaces-using-api) and [Configuring Tag Key-Value Pairs Using API.](https://help.zscaler.com/legacy-apis/configuring-tag-key-value-pairs-using-api)
+
+- View the JSON payload.
+
+```
+{
+  "name": "<application segment name>",
+  "description": "<application segment description>",
+  "enabled": true,
+  "domainNames": [ "<domain name>" ],
+  "tcpPortRange": [ { "from": "443", "to": "443" } ],
+  "segmentGroupId": "<segment group ID>",
+  "serverGroups": [ { "id": "<server group ID>" } ],
+  "tags": [
+    {
+      "namespace": { "id": "<namespace ID>" },
+      "tagKey":    { "id": "<key ID>" },
+      "tagValue":  { "id": "<value ID>" },
+      "origin": "CUSTOM"
+    }
+  ]
+}
+```
+
+- View an example JSON payload.
+
+```
+{
+  "name": "app-seg-tagged.com",
+  "description": "Application segment with tags",
+  "enabled": true,
+  "domainNames": [ "app-seg-tagged.com" ],
+  "tcpPortRange": [ { "from": "443", "to": "443" } ],
+  "segmentGroupId": "145260601092866600",
+  "serverGroups": [ { "id": "145260601092866700" } ],
+  "tags": [
+    {
+      "namespace": { "id": "145260601092866400" },
+      "tagKey":    { "id": "145260601092866401" },
+      "tagValue":  { "id": "145260601092866402" },
+      "origin": "CUSTOM"
+    }
+  ]
+}
+```
+
+- View an example response.
+
+```
+{
+  "id": "145260601092866801",
+  "modifiedTime": "1705617500",
+  "creationTime": "1705617500",
+  "modifiedBy": "145260601092866482",
+  "name": "app-seg-tagged.com",
+  "enabled": true,
+  "domainNames": [ "app-seg-tagged.com" ],
+  "tags": [
+    {
+      "namespace": { "id": "145260601092866400", "name": "Environment" },
+      "tagKey":    { "id": "145260601092866401", "name": "Region" },
+      "tagValue":  { "id": "145260601092866402", "name": "us-east-1" },
+      "origin": "CUSTOM"
+    }
+  ]
+}
+```
+
+A successful response returns code 201. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Updating Tags for an Application Segment
+
+To update the tags for an application segment:
+
+1. Send a `PUT` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/application/{applicationId}`.
+2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v1/admin/customers/72057615512764416/application/72057615512764474`.
+3. Include the request headers to provide information about the request context:
+  - Content-Type: `application/json`
+  - Authorization: `Bearer <access_token>`
+4. Use the following JSON payload and provide the following:
+  - The name of the application segment.
+  - The domains of the application.
+  - The TCP and UDP ports. You can provide multiple port ranges using the format in the JSON payload.
+  - The segment group and server group IDs.
+  - Tag namespace, key, and key-pair values. To learn more, see [Configuring Tag Namespaces Using API](https://help.zscaler.com/legacy-apis/configuring-tag-namespaces-using-api) and [Configuring Tag Key-Value Pairs Using API.](https://help.zscaler.com/legacy-apis/configuring-tag-key-value-pairs-using-api)
+
+- View the JSON payload.
+
+```
+{
+  "name": "<application segment name>",
+  "enabled": true,
+  "domainNames": [ "<domain>" ],
+  "tcpPortRange": [ { "from": "443", "to": "443" } ],
+  "segmentGroupId": "<segment group ID>",
+  "serverGroups": [ { "id": "<server group ID>" } ],
+  "tags": [
+    {
+      "namespace": { "id": "<namespace ID>" },
+      "tagKey":    { "id": "<key ID>" },
+      "tagValue":  { "id": "<value ID>" },
+      "origin": "CUSTOM"
+    }
+  ]
+}
+```
+
+- View an example JSON payload.
+
+```
+{
+  "name": "app-seg-tagged.com",
+  "enabled": true,
+  "domainNames": [ "app-seg-tagged.com" ],
+  "tcpPortRange": [ { "from": "443", "to": "443" } ],
+  "segmentGroupId": "145260601092866600",
+  "serverGroups": [ { "id": "145260601092866700" } ],
+  "tags": [
+    {
+      "namespace": { "id": "145260601092866400" },
+      "tagKey":    { "id": "145260601092866401" },
+      "tagValue":  { "id": "145260601092866403" },
+      "origin": "CUSTOM"
+    }
+  ]
+}
+```
+
+A successful response returns code 204. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Updating Tags for Inherited or Shared Application Segments
+
+To update the tags for inherited or shared application segments:
+
+1. Send a `PUT` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/application/{applicationId}?microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/72057615512764416/application/72057615512764474?microtenantId=145260601092866314`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to update data from the Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api). Passing `microtenantId` in the request endpoint updates tags for an inherited or shared application segment. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant.
+3. Include the request headers to provide information about the request context:
+  - Content-Type: `application/json`
+  - Authorization: `Bearer <access_token>`
+4. Use the following JSON payload and provide the following in the tags model. The required fields are highlighted in red:
+  - `namespace.Id`: The unique identifier of the namespace. To learn more, see [Configuring Tag Namespaces Using API](https://help.zscaler.com/legacy-apis/configuring-tag-namespaces-using-api).
+  - `tagKey.Id`: The unique identifier of the key. To learn more, see [Configuring Tag Key-Value Pairs Using API.](https://help.zscaler.com/legacy-apis/configuring-tag-key-value-pairs-using-api)
+  - `tagValue.Id`: The unique identifier of the value. To learn more, see [Configuring Tag Key-Value Pairs Using API.](https://help.zscaler.com/legacy-apis/configuring-tag-key-value-pairs-using-api)
+
+- View the JSON payload.
+
+```
+{
+  "tags": [
+    {
+"namespace": { "id": "<namespace ID>" },
+"tagKey":    { "id": "<key ID>" },
+"tagValue":  { "id": "<value ID>" },
+"origin": "CUSTOM"
+    }
+  ]
+}
+```
+
+- View an example JSON payload.
+
+```
+{
+  "tags": [
+    {
+      "namespace": { "id": "145260601092866400" },
+      "tagKey":    { "id": "145260601092866401" },
+      "tagValue":  { "id": "145260601092866402" },
+      "origin": "CUSTOM"
+    }
+  ]
+}
+```
+
+A successful response returns code 204. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Deleting an Application
+
+To delete an application segment and remove the associated tags:
+
+1. Send a `DELETE` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/application/{applicationId}?forceDelete={true|false}&microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/72057615512764416/application/72057615512764474?forceDelete=true&microtenantId=145260601092866314`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `forceDelete`: Indicates if the mapping between the application segment and its segment group is deleted (`true`) or not (`false`). This field is optional and is set to `false` by default.
+  - `microtenantId`: The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to update data from the Microtenant. The `microtenantId` can be obtained on the [API Keys](https://help.zscaler.com/zpa/about-api-key-management) page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0` when making requests to retrieve data from the Default Microtenant. Pass `microtenantId` as null to retrieve data from all customers associated with the tenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api). Passing `microtenantId` in the request endpoint updates tags for an inherited or shared application segment. If the `microtenantId` is not passed in the request endpoint when creating or updating a resource, then the resource is created or updated in the Default Microtenant.
+
+A successful response returns code 204. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -5497,17 +6344,131 @@ Retrieves information about the registered device based on the device ID
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/dlp-incidents-workflow-automation-api","lastmod":"2026-08-14T08:47Z","nid":"1451946"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/dlp-incidents-workflow-automation-api","lastmod":"2026-10-05T07:37Z","nid":"1451946"} -->
 ## DLP Incidents
 
 - Source: https://help.zscaler.com/legacy-apis/dlp-incidents-workflow-automation-api
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > Workflow Automation API > API Developer & Reference Guide > Reference Guide > DLP Incidents
-- Last modified: 2026-08-14T08:47Z
+- Last modified: 2026-10-05T07:37Z
 
 Zscaler Workflow Automation - DLP Incident Management API.
 
 **Servers:** `https://api.us1.zsworkflow.net`
+
+### `POST /dlp/v1/incidents/{dlpIncidentId}/quarantine/release`
+
+Releases quarantined emails to specified recipients or all recipients for the DLP incident. This endpoint accepts a release request and processes it asynchronously and can mark an incident as a false positive if applicable.
+
+- Operation ID: `releaseQuarantinedEmail`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `dlpIncidentId` | path | yes | string | The DLP incident ID for which the quarantined email is released |
+
+**Request body:** `application/json` → ZSDLPIncidentQuarantineReleaseRequest
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful operation |
+| 400 | Bad Request |
+| 401 | Authorization failure |
+| 404 | Resource does not exist |
+| 500 | Failed to process the request |
+
+### `GET /dlp/v1/incidents/{dlpIncidentId}/quarantine/status`
+
+Fetches the status of quarantined email release process for the recipients of the DLP incident. Returns detailed information about each recipient's quarantined email status.
+
+- Operation ID: `getRecipientStatus`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `dlpIncidentId` | path | yes | string | The ID of the DLP incident |
+| `operationType` | query | yes | string (enum: RELEASE) | The operation type for getting the status |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful operation |
+| 400 | Bad Request |
+| 401 | Authorization failure |
+| 404 | Resource does not exist |
+| 500 | Failed to process the request |
+
+### `GET /dlp/v1/csv-user-data/{csv_user_data_uuid}/download`
+
+Fetches a pre-signed AWS S3 bucket link to download your previously uploaded CSV file and the validation error file, depending on the parameter type.
+
+- Operation ID: `getCsvUserDataDownloadUrl`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `csv_user_data_uuid` | path | yes | string(uuid) | The unique identifier (UUID) used to identify a specific user in the CSV file. |
+| `type` | query | no | string | The type of the file that is downloaded |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful operation |
+| 400 | Bad request |
+| 401 | Authorization failure |
+| 404 | Resource does not exist |
+| 500 | Failed to process the request |
+
+### `POST /dlp/v1/csv-user-data/import`
+
+Imports the end user attributes as a CSV file. Only a valid CSV file that is constructed based on one of the CSV template versions and the CSV template instructions can be imported.
+
+- Operation ID: `importCsvUserData`
+
+**Request body:** `multipart/form-data` → object
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 202 | Request accepted. The request has been received and processing. |
+| 400 | Bad request |
+| 401 | Authorization failure |
+| 500 | Failed to process the request |
+
+### `POST /v1/auth/api-key/token`
+
+Authenticate using the
+
+`key_id`
+
+and the
+
+`key_secret`
+
+. The response returns a session token in the header called
+
+`Bearer Token`
+
+that must be used in subsequent requests.
+
+- Operation ID: `getPublicAPISessionTokenForAPIKey`
+
+**Request body:** `application/json` → ZSDLPGetSessionTokenRequest
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 201 | Successful operation. A new authorization token is created. |
+| 401 | Authorization failure |
 
 ### `GET /dlp/v1/incidents/transactions/{transactionId}`
 
@@ -5685,7 +6646,7 @@ Adds notes to the incident during updates or status changes
 
 ### `POST /dlp/v1/incidents/{dlpIncidentId}/labels`
 
-Assign lables (a label name and it's associated value) to DLP incidents
+Assign lables (a label name and it's associated value) to DLP incidents.
 
 - Operation ID: `addLabelDLPIncident`
 
@@ -5783,7 +6744,7 @@ Downloads the actual trigger metadata of the incident in a nested structure orga
 
 | Code | Description |
 | --- | --- |
-| 200 | Successfully returned DLP incident trigger data |
+| 200 | Successful operation |
 | 401 | Authorization failure |
 | 404 | Resource does not exist |
 
@@ -5807,7 +6768,182 @@ Gets the evidence URL of the incident. You can use the evidence link to view and
 | 401 | Authorization failure |
 | 404 | Resource does not exist |
 
+### `POST /dlp/v1/customer/audit`
+
+Filters audit logs based on the specified time period and field values. The result includes audit information for every action made by the admins in the Workflow Automation Admin Portal and the actions made through APIs. The supported field values are:
+
+- Action
+- Resource
+- Admin
+- Module
+
+The supported time range values are:
+
+- Start date and time
+- End date and time
+
+- Operation ID: `searchAuditLogs`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `page` | query | no | integer | Specifies the page number of the incident in a multi-paginated response. This field is not required if page ID field is used. |
+| `pageSize` | query | no | integer | Specifies the page size (i.e., number of incidents per page). |
+| `pageId` | query | no | string | Specifies the page ID of the incident in a multi-paginated response. It is a unique identifier returned in the first search request. You can use the page ID instead of the page number in subsequent search requests for faster and more efficient results. |
+
+**Request body:** `application/json` → SearchRequestFilters
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful operation |
+| 400 | Bad request |
+| 401 | Authorization failure |
+| 500 | Failed to process the request |
+
 ### Schemas
+
+**`ZSDLPIncidentQuarantineReleaseRequest`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `recipients` | array<string(email)> | no |
+| `releaseToAll` | boolean | yes |
+| `justificationReason` | string | no |
+| `markAsFalsePositive` | boolean | no |
+
+**`ZSRecipientStatusResponse`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `incidentId` | string | yes |
+| `status` | string (enum: In Progress, Success, Failed, Partial) | yes |
+| `releaseToAll` | boolean | yes |
+| `message` | string | yes |
+| `recipients` | array<string(email)> | no |
+
+**`ZSDLPIncidentQuarantineReleaseResponse`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `incidentId` | string | yes |
+| `status` | string (enum: success, partial, failed, pending) | yes |
+| `message` | string | yes |
+| `totalRecipients` | integer | yes |
+| `successCount` | integer | yes |
+| `failedCount` | integer | yes |
+| `inProgressCount` | integer | yes |
+| `releaseToAll` | boolean | yes |
+| `recipientStatuses` | array<ZSEmailRecipientStatus> | no |
+
+**`ZSEmailRecipientStatus`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `emailId` | string(email) | yes |
+| `status` | string (enum: SUCCESS, FAILED, IN_PROGRESS, PENDING) | yes |
+| `message` | string | no |
+
+**`ErrorResponse`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `internalMessage` | string | no |
+
+**`DownloadUrlResponse`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `url` | string | no |
+
+**`MessageResponse`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `message` | string | no |
+
+**`ImportCsvUserDataAcceptedResponse`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `message` | string | no |
+| `csvUserDataActivityId` | string(uuid) | no |
+
+**`CsvValidationDetails`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `csvUserDataActivityId` | string | no |
+| `csvFileName` | string | no |
+| `csvFileSize` | string | no |
+| `totalRecords` | integer | no |
+| `globalError` | boolean | no |
+| `errorMessage` | string | no |
+
+**`ZSDLPIncidentChangeHistory`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `incidentId` | string | no |
+| `startDate` | string(date-time) | no |
+| `endDate` | string(date-time) | no |
+| `changeHistory` | array<ZSDLPIncidentChange> | no |
+
+**`ZSDLPIncidentChange`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `changeType` | ZSDLPIncidentChangeType | yes |
+| `changedAt` | string(date-time) | yes |
+| `changedByName` | string | yes |
+| `changeData` | ZSDLPIncidentChangeData | yes |
+| `comment` | string | yes |
+
+- `ZSDLPIncidentSearchableFields`: string (enum: severity, priority, transactionId, status, sourceDLPType, labels, incidentGroupIds, engine)
+
+**`ZSDLPIncidentChangeData`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `before` | string | yes |
+| `after` | string | yes |
+
+**`ZSDLPIncidentTicketList`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `cursor` | Cursor | no |
+| `tickets` | array<ZSDLPIncidentTicket> | no |
+
+**`ZSDLPIncidentTicket`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `ticketType` | ZSDLPTicketType | yes |
+| `ticketingSystemName` | string | yes |
+| `projectId` | string | no |
+| `projectName` | string | no |
+| `ticketInfo` | ZSDLPTicketInfo | yes |
+
+**`ZSDLPTicketInfo`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `ticketId` | string | yes |
+| `ticketUrl` | string | yes |
+| `state` | string | yes |
+
+**`Cursor`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `totalPages` | integer | yes |
+| `currentPageNumber` | integer | yes |
+| `currentPageSize` | integer | yes |
+| `pageId` | string | yes |
+| `totalElements` | integer | no |
 
 **`ZSDLPIncidentList`**
 
@@ -5850,81 +6986,50 @@ Gets the evidence URL of the incident. You can use the evidence link to view and
 | `dlpIncidentTickets` | array<ZSDLPIncidentTicket> | no |
 | `labels` | array<ZSDLPIncidentLabel> | no |
 
-**`ZSDLPIncidentChangeHistory`**
+**`ZSDLPIncidentNote`**
 
 | Property | Type | Required |
 | --- | --- | --- |
-| `incidentId` | string | no |
-| `startDate` | string(date-time) | no |
-| `endDate` | string(date-time) | no |
-| `changeHistory` | array<ZSDLPIncidentChange> | no |
+| `body` | string | yes |
+| `createdAt` | ZSDLPIncidentDate | yes |
+| `lastUpdatedAt` | ZSDLPIncidentDate | yes |
+| `createdBy` | integer | yes |
+| `lastUpdatedBy` | integer | yes |
 
-**`ZSDLPIncidentTicketList`**
+**`ZSDLPIncidentLabel`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `key` | string | yes |
+| `value` | string | no |
+
+**`ZSAuditLogResponseList`**
 
 | Property | Type | Required |
 | --- | --- | --- |
 | `cursor` | Cursor | no |
-| `tickets` | array<ZSDLPIncidentTicket> | no |
+| `logs` | array<ZSAuditLogResponse> | no |
 
-**`ZSDLPIncidentGroupInfoRequest`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `incidentGroupIds` | array<integer> | no |
-
-**`ZSDLPIncidentGroupInfoList`**
+**`ZSAuditLogResponse`**
 
 | Property | Type | Required |
 | --- | --- | --- |
-| `incidentGroups` | array<ZSDLPIncidentGroupInfo> | yes |
+| `action` | ZSAuditAction | yes |
+| `module` | string | yes |
+| `resource` | string | yes |
+| `changedAt` | ZSDLPIncidentDate | yes |
+| `changedBy` | string | no |
+| `oldRowJson` | object | no |
+| `newRowJson` | object | no |
+| `changeNote` | string | no |
 
-**`ZSDLPIncidentCloseRequest`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `resolutionLabel` | ZSDLPIncidentLabel | no |
-| `resolutionCode` | ZSDLPIncidentResolution | no |
-| `notes` | string | no |
-
-**`ZSDLPIncidentAddNoteRequest`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `notes` | string | no |
-
-**`ZSDLPIncidentAddLabelsRequest`**
+**`ZSAuditAction`**
 
 | Property | Type | Required |
 | --- | --- | --- |
-| `labels` | array<ZSDLPIncidentLabel> | no |
+| `action` | string (enum: INSERT, UPDATE, DELETE, CHECKPOINT, UNDEFINED) | no |
 
-**`SearchRequestFilters`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `fields` | array<ZSDLPIncidentSearchFieldValue> | no |
-| `timeRange` | ZSDLPIncidentSearchTimeRange | no |
-
-- `ZSDLPIncidentTriggerData`: object
-
-**`ZSDLPIncidentEvidenceInfo`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `fileName` | string | yes |
-| `fileType` | string | no |
-| `additionalInfo` | object | no |
-| `evidenceURL` | string | no |
-
-**`Cursor`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `totalPages` | integer | yes |
-| `currentPageNumber` | integer | yes |
-| `currentPageSize` | integer | yes |
-| `pageId` | string | yes |
-| `totalElements` | integer | no |
+- `ZSDLPTicketType`: string (enum: JIRA, SERVICE_NOW)
 
 - `ZSDLPIncidentSeverity`: string (enum: HIGH, MEDIUM, LOW)
 
@@ -5937,6 +7042,20 @@ Gets the evidence URL of the incident. You can use the evidence link to view and
 | `engines` | array<ZSDLPIncidentMatchingPoliciesEngine> | yes |
 | `rules` | array<ZSDLPIncidentMatchingPoliciesRule> | yes |
 | `dictionaries` | array<ZSDLPIncidentMatchingPoliciesDictionary> | yes |
+| `enginesHtmlLocations` | array<ZSDLPIncidentMatchingPoliciesEngine> | no |
+| `dictionariesHtmlLocations` | array<ZSDLPIncidentMatchingPoliciesDictionary> | no |
+| `enginesEmailBody` | array<ZSDLPIncidentMatchingPoliciesEngine> | no |
+| `dictionariesEmailBody` | array<ZSDLPIncidentMatchingPoliciesDictionary> | no |
+| `enginesEmailSubject` | array<ZSDLPIncidentMatchingPoliciesEngine> | no |
+| `dictionariesEmailSubject` | array<ZSDLPIncidentMatchingPoliciesDictionary> | no |
+| `enginesEmailAttachment` | array<ZSDLPIncidentMatchingPoliciesEngine> | no |
+| `dictionariesEmailAttachment` | array<ZSDLPIncidentMatchingPoliciesDictionary> | no |
+| `enginesPropertiesLocation` | array<ZSDLPIncidentMatchingPoliciesEngine> | no |
+| `dictionaryPropertiesLocation` | array<ZSDLPIncidentMatchingPoliciesDictionary> | no |
+| `dictionariesPropertiesLocation` | array<ZSDLPIncidentMatchingPoliciesDictionary> | no |
+| `enginesFilenameLocation` | array<ZSDLPIncidentMatchingPoliciesEngine> | no |
+| `dictionaryFilenameLocation` | array<ZSDLPIncidentMatchingPoliciesDictionary> | no |
+| `dictionariesFilenameLocation` | array<ZSDLPIncidentMatchingPoliciesDictionary> | no |
 
 **`ZSDLPIncidentMatchingPoliciesEngine`**
 
@@ -5984,17 +7103,90 @@ Gets the evidence URL of the incident. You can use the evidence link to view and
 
 - `ZSDLPIncidentResolution`: string (enum: FALSE_POSITIVE)
 
-**`ZSDLPIncidentNote`**
+**`ZSDLPIncidentCloseRequest`**
 
 | Property | Type | Required |
 | --- | --- | --- |
-| `body` | string | yes |
-| `createdAt` | ZSDLPIncidentDate | yes |
-| `lastUpdatedAt` | ZSDLPIncidentDate | yes |
-| `createdBy` | integer | yes |
-| `lastUpdatedBy` | integer | yes |
+| `resolutionLabel` | ZSDLPIncidentLabel | no |
+| `resolutionCode` | ZSDLPIncidentResolution | no |
+| `notes` | string | no |
+
+**`ZSDLPIncidentAddNoteRequest`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `notes` | string | no |
+
+**`ZSDLPIncidentAddLabelsRequest`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `labels` | array<ZSDLPIncidentLabel> | no |
+
+- `ZSDLPIncidentTriggerData`: object
+
+- `ZSDLPIncidentTriggersResponse`: object
+
+**`ZSDLPIncidentEvidenceInfo`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `fileName` | string | yes |
+| `fileType` | string | no |
+| `additionalInfo` | object | no |
+| `evidenceURL` | string | no |
 
 - `ZSDLPIncidentDate`: string(date-time)
+
+**`ZSDLPIncidentSearchTimeRange`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `startTime` | ZSDLPIncidentDate | no |
+| `endTime` | ZSDLPIncidentDate | no |
+
+**`SearchRequestFilters`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `fields` | array<ZSDLPIncidentSearchFieldValue> | no |
+| `timeRange` | ZSDLPIncidentSearchTimeRange | no |
+
+**`ZSDLPIncidentSearchFieldValue`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `name` | ZSDLPIncidentSearchableFields | no |
+| `value` | array<string> | no |
+
+- `ZSDLPIncidentChangeType`: string (enum: CHANGE_STATUS, CHANGE_PRIORITY, CHANGE_ASSIGNED_ADMIN, CHANGE_USER, JUSTIFICATION_SUBMITTED, NOTIFY_USER, NEW_COMMENT, CHANGE_APPROVER)
+
+**`ZSDLPGetSessionTokenRequest`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `key_id` | string | no |
+| `key_secret` | string | no |
+
+**`ZSDLPGetSessionTokenResponse`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `token` | string | no |
+| `token_type` | string | no |
+| `expires_in` | integer | no |
+
+**`ZSDLPIncidentGroupInfoRequest`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `incidentGroupIds` | array<integer> | no |
+
+**`ZSDLPIncidentGroupInfoList`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `incidentGroups` | array<ZSDLPIncidentGroupInfo> | yes |
 
 **`ZSDLPIncidentGroupInfoShort`**
 
@@ -6003,52 +7195,6 @@ Gets the evidence URL of the incident. You can use the evidence link to view and
 | `id` | integer | yes |
 | `name` | string | yes |
 | `description` | string | no |
-
-**`ZSDLPIncidentTicket`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `ticketType` | ZSDLPTicketType | yes |
-| `ticketingSystemName` | string | yes |
-| `projectId` | string | no |
-| `projectName` | string | no |
-| `ticketInfo` | ZSDLPTicketInfo | yes |
-
-- `ZSDLPTicketType`: string (enum: JIRA, SERVICE_NOW)
-
-**`ZSDLPTicketInfo`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `ticketId` | string | yes |
-| `ticketUrl` | string | yes |
-| `state` | string | yes |
-
-**`ZSDLPIncidentLabel`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `key` | string | yes |
-| `value` | string | no |
-
-**`ZSDLPIncidentChange`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `changeType` | ZSDLPIncidentChangeType | yes |
-| `changedAt` | string(date-time) | yes |
-| `changedByName` | string | yes |
-| `changeData` | ZSDLPIncidentChangeData | yes |
-| `comment` | string | yes |
-
-- `ZSDLPIncidentChangeType`: string (enum: CHANGE_STATUS, CHANGE_PRIORITY, CHANGE_ASSIGNED_ADMIN, CHANGE_USER, JUSTIFICATION_SUBMITTED, NOTIFY_USER, NEW_COMMENT, CHANGE_APPROVER)
-
-**`ZSDLPIncidentChangeData`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `before` | string | yes |
-| `after` | string | yes |
 
 **`ZSDLPIncidentGroupInfo`**
 
@@ -6061,22 +7207,6 @@ Gets the evidence URL of the incident. You can use the evidence link to view and
 | `incidentGroupType` | string | yes |
 | `isDLPIncidentGroupAlreadyMapped` | boolean | yes |
 | `isDLPAdminConfigAlreadyMapped` | boolean | yes |
-
-**`ZSDLPIncidentSearchFieldValue`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `name` | ZSDLPIncidentSearchableFields | no |
-| `value` | array<string> | no |
-
-- `ZSDLPIncidentSearchableFields`: string (enum: severity, priority, transactionId, status, sourceDLPType, labels, incidentGroupIds, engine)
-
-**`ZSDLPIncidentSearchTimeRange`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `startTime` | ZSDLPIncidentDate | no |
-| `endTime` | ZSDLPIncidentDate | no |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -8325,6 +9455,82 @@ Before sending this request, ensure that you generate a report using `POST /even
 | Code | Description |
 | --- | --- |
 | default | Successful Operation |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/external-iam-idp-mapping","lastmod":"2026-10-09T14:51Z","nid":"1546149"} -->
+## External IAM IdP Mapping
+
+- Source: https://help.zscaler.com/legacy-apis/external-iam-idp-mapping
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Reference Guide > External IAM IdP Mapping
+- Last modified: 2026-10-09T14:51Z
+
+To access detailed ZPA API documentation, including references and use cases, refer to the [Zscaler Help Portal](/zpa/about-zpa-api).
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/iamidpmapping`
+
+**Gets the external IAM identity provider (IdP) mapping details for the specified customer.**
+
+- Operation ID: `getIamIdpMapping`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The ZPA tenant ID of the customer. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### Schemas
+
+**`IamIdpMapping`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `iamIdpIdToIamIdMapping` | IamIdpIdToIamIdMapping | no |
+| `id` | integer(int32) | no |
+| `sequence` | integer(int64) | no |
+
+**`ZPathAPIError`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `reason` | string | no |
+| `id` | string | no |
+| `params` | array<object> | no |
+| `hostname` | string | no |
+
+**`IamIdpIdToIamIdMapping`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `deliveryTag` | integer(int64) | no |
+| `mappings` | array<Mapping> | no |
+| `orgId` | string | yes |
+| `syncVersion` | integer(int64) | no |
+
+**`Mapping`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `iamIdpId` | string | no |
+| `idpId` | integer(int64) | no |
+| `idpName` | string | no |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -14499,13 +15705,13 @@ Adds URLs to the exempted from SSL Inspection and policy evaluation list or remo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/inventory","lastmod":"2026-01-06T23:49Z","nid":"1471396"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/inventory","lastmod":"2026-10-08T16:39Z","nid":"1471396"} -->
 ## Inventory
 
 - Source: https://help.zscaler.com/legacy-apis/inventory
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZDX API > API Developer & Reference Guide > Reference Guide > Inventory
-- Last modified: 2026-01-06T23:49Z
+- Last modified: 2026-10-08T16:39Z
 
 APIs for Zscaler Digital Experience (ZDX).
 
@@ -14533,9 +15739,9 @@ Gets the current overview about your organization's distribution of software acr
 | 401 |  |
 | 403 |  |
 
-### `GET /inventory/softwares/{software_key}`
+### `GET /inventory/software/{software_key}`
 
-Gets the list of all users and devices for the given software name and version.
+Gets the list of all users and devices for a given software name and version.
 
 **Parameters:**
 
@@ -14552,7 +15758,7 @@ Gets the list of all users and devices for the given software name and version.
 
 | Code | Description |
 | --- | --- |
-| 200 | Software User List |
+| 200 | Software Group Overview |
 | 401 |  |
 | 403 |  |
 
@@ -14569,22 +15775,6 @@ Gets the list of all users and devices for the given software name and version.
 | `software_install_type` | string | no |
 | `user_total` | integer | no |
 | `device_total` | integer | no |
-
-**`SoftwareUserList`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `software_key` | string | no |
-| `software_name` | string | no |
-| `software_version` | string | no |
-| `software_group` | string | no |
-| `os` | string | no |
-| `vendor` | string | no |
-| `user_id` | integer | no |
-| `device_id` | integer | no |
-| `hostname` | string | no |
-| `username` | string | no |
-| `install_date` | string | no |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -26830,6 +28020,64 @@ A successful response returns code 200. To learn more, see [API Response Codes a
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-external-iam-idp-details-using-api","lastmod":"2026-10-09T14:51Z","nid":"1546147"} -->
+## Obtaining External IAM IdP Details Using API
+
+- Source: https://help.zscaler.com/legacy-apis/obtaining-external-iam-idp-details-using-api
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Obtaining External IAM IdP Details Using API
+- Last modified: 2026-10-09T14:51Z
+- Summary: Information on external IdP attributes configured in Authentication Service that are applicable to Zscaler Private Access (ZPA) cloud service API.
+
+This article provides information for obtaining Zscaler Private Access (ZPA) external IAM identity provider (IdP) details using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
+
+The external IAM IdP is an external IdP attribute configured in Authentication Service and is only supported for IdPs created in Authentication Service.
+
+## Getting Details of All External IAM IdPs
+
+To get details of all external IAM IdPs for a specific customer:
+
+1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/iamidpmapping`.
+2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v1/admin/customers/73189906330943488/iamidpmapping`.
+
+- View an example response.
+
+```
+{
+	"id": "3",
+	"iamIdpIdToIamIdMapping": {
+		"mappings": [
+			{
+				"idpName": "example IdP name",
+				"iamIdpId": "j39aksw98dn2q",
+				"idpId": "349187452093847561"
+			},
+			{
+				"idpName": "example IdP name 2",
+				"iamIdpId": "p2ls9dk47ah1v",
+				"idpId": "829374015629384710"
+			},
+			{
+				"idpName": "example IdP name 3",
+				"iamIdpId": "x7mt3wb19ky5s",
+				"idpId": "503928174620593847"
+			},
+			{
+				"idpName": "example IdP name 4",
+				"iamIdpId": "q8rz5pl23mo9c",
+				"idpId": "293847105928374615"
+			}
+		],
+		"deliveryTag": "0",
+		"orgId": "145311968901726208"
+	},
+	"sequence": "9"
+}
+```
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-idp-configuration-details-using-api","lastmod":"2026-01-06T23:49Z","nid":"1484821"} -->
 ## Obtaining IdP Configuration Details Using API
 
@@ -27106,1834 +28354,6 @@ For example: `/mgmtconfig/v1/admin/customers/72057615512764416/idp/7205761551276
   "redirectBinding": true
 }
 ```
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-isolation-profile-details-using-api","lastmod":"2026-01-06T23:49Z","nid":"1485731"} -->
-## Obtaining Isolation Profile Details Using API
-
-- Source: https://help.zscaler.com/legacy-apis/obtaining-isolation-profile-details-using-api
-- Product: Legacy Zscaler APIs
-- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Obtaining Isolation Profile Details Using API
-- Last modified: 2026-01-06T23:49Z
-- Summary: Information on isolation profile use cases applicable to Zscaler Private Access (ZPA) cloud service API.
-
-This article provides information for managing Zscaler Private Access (ZPA) isolation profiles using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
-
-## Getting Details of All Isolation Profiles
-
-To get details of all isolation profiles for a specific customer:
-
-1. Send a `GET` request to the following endpoint in the isolation-profile-controller: `/mgmtconfig/v1/admin/customers/{customerId}/isolation/profiles`.
-2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v1/admin/customers/73189906330943488/isolation/profiles`.
-
-- View an example response
-
-```
-{
-  "totalPages": "1",
-  "totalCount": "3",
-  "list": [
-    {
-      "id": "73186051597800349",
-      "creationTime": "1665399497",
-      "modifiedBy": "72057594037986137",
-      "name": "Test Isolation Profile",
-      "enabled": true,
-      "isolationTenantId": "5469af78-c8d5-48ab-8018-d499c9fb875b",
-      "isolationProfileId": "02b320ad-aef7-4cfa-a763-5cf8524544f7",
-      "isolationUrl": "https://fb.4af6eb6dad89.appsulate.com/profile/02b320ad-aef7-4cfa-a763-5cf8524544f7/zpa/render"
-    },
-    {
-      "id": "73186051597800311",
-      "modifiedTime": "1663869847",
-      "creationTime": "1663836249",
-      "modifiedBy": "72057594037986137",
-      "name": "Test Isolation Profile 1",
-      "enabled": true,
-      "isolationTenantId": "5469af78-c8d5-48ab-8018-d499c9fb875b",
-      "isolationProfileId": "92924d37-cb71-4a14-9bc4-cb5682062729",
-      "isolationUrl": "https://sf.4af6eb6dad89.appsulate.com/profile/92924d37-cb71-4a14-9bc4-cb5682062729/zpa/render"
-    },
-    {
-      "id": "73186051597800310",
-      "modifiedTime": "1663836536",
-      "creationTime": "1663836115",
-      "modifiedBy": "72057594037986137",
-      "name": "Test Isolation Profile 2",
-      "enabled": true,
-      "isolationTenantId": "5469af78-c8d5-48ab-8018-d499c9fb875b",
-      "isolationProfileId": "91a5ba7a-1e84-49a3-ba92-ccba306c6a29",
-      "isolationUrl": "https://sb.4af6eb6dad89.appsulate.com/profile/91a5ba7a-1e84-49a3-ba92-ccba306c6a29/zpa/render"
-    }
-  ]
-}
-```
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-This API supports pagination. To get a paginated response:
-
-1. Send a `GET` request to the following endpoint in the isolation-profile-controller: `/mgmtconfig/v1/admin/customers/{customerId}/isolation/profiles?page=1&pagesize=20`.
-2. Provide the following in the request endpoint:
-
-- `customerId`: the ZPA tenant ID of the customer, in the request endpoint.
-- Valid values for page and page size parameters.
-
-For example: `/mgmtconfig/v1/admin/customers/73189906330943488/isolation/profiles?page=1&pagesize=2`.
-
-- View an example response
-
-```
-{
-  "totalPages": "2",
-  "totalCount": "3",
-  "list": [
-    {
-      "id": "73186051597800349",
-      "creationTime": "1665399497",
-      "modifiedBy": "72057594037986137",
-      "name": "Test Isolation Profile",
-      "enabled": true,
-      "isolationTenantId": "5469af78-c8d5-48ab-8018-d499c9fb875b",
-      "isolationProfileId": "02b320ad-aef7-4cfa-a763-5cf8524544f7",
-      "isolationUrl": "https://fb.4af6eb6dad89.appsulate.com/profile/02b320ad-aef7-4cfa-a763-5cf8524544f7/zpa/render"
-    },
-    {
-      "id": "73186051597800311",
-      "modifiedTime": "1663869847",
-      "creationTime": "1663836249",
-      "modifiedBy": "72057594037986137",
-      "name": "Test Isolation Profile 1",
-      "enabled": true,
-      "isolationTenantId": "5469af78-c8d5-48ab-8018-d499c9fb875b",
-      "isolationProfileId": "92924d37-cb71-4a14-9bc4-cb5682062729",
-      "isolationUrl": "https://sf.4af6eb6dad89.appsulate.com/profile/92924d37-cb71-4a14-9bc4-cb5682062729/zpa/render"
-    }
-  ]
-}
-```
-
-If not provided, the default page size is 20. The maximum page size is 500.
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-machine-group-details-using-api","lastmod":"2026-01-06T23:49Z","nid":"1484856"} -->
-## Obtaining Machine Group Details Using API
-
-- Source: https://help.zscaler.com/legacy-apis/obtaining-machine-group-details-using-api
-- Product: Legacy Zscaler APIs
-- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Obtaining Machine Group Details Using API
-- Last modified: 2026-01-06T23:49Z
-- Summary: Information about machine group use cases applicable to the Zscaler Private Access (ZPA) cloud service API.
-
-This article provides information on managing Zscaler Private Access (ZPA) [machine group](https://help.zscaler.com/zpa/about-machine-groups) use cases using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
-
-## Getting Details for All Machine Groups
-
-To get details for all the machine groups:
-
-1. Send a `GET` request to the following endpoint in the machine-group-controller: `/mgmtconfig/v1/admin/customers/{customerId}/machineGroup`.
-2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v1/admin/customers/72057615512764416/machineGroup`.
-
-- View an example response
-
-```
-{
-  "totalPages": "1",
-  "list": [
-    {
-      "id": "73196561382769734",
-      "creationTime": "1612770231",
-      "modifiedBy": "73196561382768641",
-      "name": "Example machine group 1 DND",
-      "enabled": true
-    }
-  ]
-}
-```
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-This API supports pagination. To get a paginated response:
-
-1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/machineGroup?page=1&pagesize=20`.
-2. Provide the following in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- Valid values for page and page size parameters.
-
-For example: `/mgmtconfig/v1/admin/customers/217246660302995456/machineGroup?page=1&pagesize=2.`
-
-- View an example response
-
-```
-{
-  "totalPages": "2",
-  "list": [
-    {
-      "id": "217246660303025140",
-      "creationTime": "1624496602",
-      "modifiedBy": "217246660303023906",
-      "name": "test_machine_group",
-      "enabled": true,
-      "description": "test_machine_group"
-    },
-    {
-      "id": "217246660303023893",
-      "creationTime": "1594844294",
-      "modifiedBy": "72057594037935690",
-      "name": "Test",
-      "enabled": true,
-      "description": "test"
-    }
-  ]
-}
-```
-
-If not provided, the default page size is 20. The maximum page size is 500.
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-This API supports a search option to search by features and fields. To search by features and fields:
-
-1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/73186051597795328/machineGroup&search={searchString}`.
-2. Provide the following in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- Valid search string values. The search string values are in the format `fieldName operator fieldValue`. Only search string values that correspond to the values for valid fields and filters are supported. For example, the string `name%20LIKE%20123` is supported for the **Name**filter, using the **Contains**(`LIKE`) operator, for the filter value `123`.
-
-For example: `/mgmtconfig/v1/admin/customers/73186051597795328/machineGroup&search=name%20LIKE%20123`.
-
-- View an example response
-
-```
-{
-  "totalPages": "2",
-  "totalCount": "2",
-  "list": [
-    {
-      "id": "72057594037987359",
-      "modifiedTime": "1646157983",
-      "creationTime": "1610701957",
-      "modifiedBy": "72057594038052745",
-      "name": "123",
-      "enabled": true,
-      "description": "/&gt;&lt;img src=x onerror=alert(document.cookie)&gt;"
-    }
-  ]
-}
-```
-
-If you use the ZPA API Portal or the [Reference Guide](https://help.zscaler.com/zpa/zpa-api/api-developer-reference-guide/reference-guide) to make your API calls, the search field string does not require any characters. For example, `name%20LIKE%20123` is `name LIKE 123`.
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-## Getting Details for a Particular Machine Group
-
-To get details of a particular machine group:
-
-1. Send a `GET` request to the following endpoint in the machine-group-controller: `/mgmtconfig/v1/admin/customers/{customerId}/machineGroup/{Id}`.
-2. Provide the following values in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- `id`: The ID of the desired machine group.
-
-For example: `/mgmtconfig/v1/admin/customers/72057615512764416/machineGroup/73196561382769734`.
-
-- View an example response
-
-```
-{
-  "id": "73196561382769734",
-  "creationTime": "1612770231",
-  "modifiedBy": "73196561382768641",
-  "name": "Example machine group 1 DND",
-  "enabled": true
-}
-```
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-posture-profile-details-using-api","lastmod":"2026-01-06T23:49Z","nid":"1484836"} -->
-## Obtaining Posture Profile Details Using API
-
-- Source: https://help.zscaler.com/legacy-apis/obtaining-posture-profile-details-using-api
-- Product: Legacy Zscaler APIs
-- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Obtaining Posture Profile Details Using API
-- Last modified: 2026-01-06T23:49Z
-- Summary: Information about posture profile use cases applicable to the Zscaler Private Access (ZPA) cloud service API.
-
-This article provides information on managing Zscaler Private Access (ZPA) [posture profile](https://help.zscaler.com/client-connector/about-device-posture-profiles) use cases using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
-
-## Getting Details for All Posture Profiles V2
-
-To get the details for all posture profiles:
-
-1. Send a `GET` request to the following endpoint in the posture-profile-controller: `/mgmtconfig/v2/admin/customers/{customerId}/posture`.
-2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v2/admin/customers/217246660302995456/posture`.
-
-- View an example response
-
-```
-{
-  "totalPages": "13",
-  "list": [
-    {
-      "id": "217246660303020736",
-      "creationTime": "1502955460",
-      "modifiedBy": "72057594037928107",
-      "name": "39845-registryTest",
-      "postureUdid": "014b03ff-bcfd-4219-b574-5b7f74aa4a68",
-      "zscalerCloud": "zscalerbeta"
-    },
-    {
-      "id": "217246660303021896",
-      "modifiedTime": "1544470438",
-      "creationTime": "1511380873",
-      "modifiedBy": "72057594037928107",
-      "name": "Android Test",
-      "postureUdid": "4eb1ecd4-8e05-425f-b677-4340381ea849",
-      "zscalerCloud": "zscalerbeta"
-    }
-  ]
-}
-```
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-This API supports pagination. To get a paginated response:
-
-1. Send a `GET` request to the following endpoint: `/mgmtconfig/v2/admin/customers/{customerId}/posture?page=1&pagesize=20`.
-2. Provide the following in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- Valid values for page and page size parameters.
-
-For example: `/mgmtconfig/v2/admin/customers/217246660302995456/posture?page=1&pagesize=2.`
-
-- View an example response
-
-```
-{
-  "totalPages": "15",
-  "list": [
-    {
-      "id": "217246660303020736",
-      "creationTime": "1502955460",
-      "modifiedBy": "72057594037928107",
-      "name": "39845-registryTest (zscalerbeta.net)",
-      "postureUdid": "014b03ff-bcfd-4219-b574-5b7f74aa4a68",
-      "zscalerCloud": "zscalerbeta"
-    },
-    {
-      "id": "217246660303021896",
-      "modifiedTime": "1544470438",
-      "creationTime": "1511380873",
-      "modifiedBy": "72057594037928107",
-      "name": "Android Test (zscalerbeta.net)",
-      "postureUdid": "4eb1ecd4-8e05-425f-b677-4340381ea849",
-      "zscalerCloud": "zscalerbeta"
-    }
-  ]
-}
-```
-
-If not provided, the default page size is 20. The maximum page size is 500.
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-This API supports a search option to search by features and fields. To search by features and fields:
-
-1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/73186051597795328/posture&search={searchString}`.
-2. Provide the following in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- Valid search string values. The search string values are in the format `fieldName operator fieldValue`. Only search string values that correspond to the values for valid fields and filters are supported. For example, the string `name%20LIKE%20test` is supported for the **Name**filter, using the **Equals**(`EQ`) operator, for the filter value **test**.
-
-For example: `/mgmtconfig/v1/admin/customers/73186051597795328/posture&search=name%20EQ%20test`.
-
-- View an example response
-
-```
-{
-  "totalPages": "1",
-  "totalCount": "1",
-  "list": [
-    {
-      "id": "72057594038041099",
-      "modifiedTime": "0",
-      "creationTime": "1624340878",
-      "modifiedBy": "72057594037987389",
-      "name": "test (cloud.net)",
-      "postureUdid": "test",
-      "zscalerCloud": "cloud"
-    }
-  ]
-}
-```
-
-If you use the ZPA API Portal or the [Reference Guide](https://help.zscaler.com/zpa/zpa-api/api-developer-reference-guide/reference-guide) to make your API calls, the search field string does not require any characters. For example, `name%20LIKE%20test` is `name LIKE test`.
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-## Getting Details for a Particular Posture Profile
-
-To get details for a particular posture profile:
-
-1. Send a `GET` request to the following endpoint in the posture-profile-controller: `/mgmtconfig/v1/admin/customers/{customerId}/posture/{id}`.
-2. Provide the following values in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- `id`: The ID of the desired posture profile.
-
-For example: `/mgmtconfig/v1/admin/customers/72057615512764416/posture/217246660303022290`.
-
-- View an example response
-
-```
-{
-  "id": "217246660303022290",
-  "creationTime": "1531369746",
-  "modifiedBy": "72057594037928107",
-  "name": "test123",
-  "postureUdid": "519fe22c-bfd8-418a-ab9d-5c7f77f3ac54",
-  "zscalerCloud": "zscalerbeta"
-}
-```
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-saml-attribute-details-using-api","lastmod":"2026-01-06T23:49Z","nid":"1484826"} -->
-## Obtaining SAML Attribute Details Using API
-
-- Source: https://help.zscaler.com/legacy-apis/obtaining-saml-attribute-details-using-api
-- Product: Legacy Zscaler APIs
-- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Obtaining SAML Attribute Details Using API
-- Last modified: 2026-01-06T23:49Z
-- Summary: Information about SAML attributes use cases applicable to the Zscaler Private Access (ZPA) cloud service API.
-
-This article provides information on managing Zscaler Private Access (ZPA) SAML attribute use cases using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
-
-## Getting Details for a Particular SAML Attribute
-
-To get details by ID for a particular SAML attribute:
-
-1. Send a `GET` request to the following endpoint in the saml-attr-controller: `/mgmtconfig/v1/admin/customers/{customerId}/samlAttribute/{attrId}`.
-2. Use the following values in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- `attrId`: The ID of the desired SAML attribute.
-
-For example: `/mgmtconfig/v1/admin/customers/72057615512764416/samlAttribute/72057615512764585`.
-
-- View an example response
-
-```
-{
-  "id": "72057615512764585",
-  "creationTime": "1611878400",
-  "modifiedBy": "72057615512764552",
-  "name": "Department",
-  "userAttribute": false,
-  "idpId": "72057615512764429",
-  "samlName": "Department",
-  "idpName": "Okta"
-}
-```
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-## Getting Details of All SAML Attributes V2
-
-To get all SAML attributes by page:
-
-1. Send a `GET` request to the following endpoint in the saml-attr-controller: `/mgmtconfig/v2/admin/customers/{customerId}/samlAttribute`.
-2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v2/admin/customers/72057594037927936/samlAttribute`.
-
-- View an example response
-
-```
-{
-  "totalPages": "3",
-  "list": [
-    {
-      "id": "72057594038042068",
-      "creationTime": "1625606470",
-      "modifiedBy": "72057594038006701",
-      "name": "dssd",
-      "userAttribute": false,
-      "idpId": "72057594037961373",
-      "samlName": "ds",
-      "idpName": "test"
-    }
-  ]
-}
-```
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-This API supports pagination. To get a paginated response:
-
-1. Send a `GET` request to the following endpoint: `/mgmtconfig/v2/admin/customers/{customerId}/samlAttribute?page=1&pagesize=20`.
-2. Provide the following in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- Valid values for page and page size parameters.
-
-For example: `/mgmtconfig/v2/admin/customers/217246660302995456/samlAttribute?page=1&pagesize=2.`
-
-- View an example response
-
-```
-"totalPages": "9",
-  "list": [
-    {
-      "id": "217246660303022132",
-      "creationTime": "1521664572",
-      "modifiedBy": "217246660302996239",
-      "name": "Department",
-      "userAttribute": false,
-      "idpId": "217246660303022502",
-      "samlName": "Dept",
-      "idpName": "IDP Configuration - User SSO"
-    },
-    {
-      "id": "217246660303022772",
-      "creationTime": "1549853479",
-      "modifiedBy": "217246660302995744",
-      "name": "Department my1",
-      "userAttribute": false,
-      "idpId": "217246660303022502",
-      "samlName": "departmentmy1",
-      "idpName": "IDP Configuration - User SSO"
-    }
-  ]
-}
-```
-
-If not provided, the default page size is 20. The maximum page size is 500.
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-## Getting Details of All SAML Attributes by Given Customer
-
-To get all SAML attributes by customer:
-
-1. Send a `GET` request to the following endpoint in the saml-attr-controller: `/mgmtconfig/v2/admin/customers/{customerId}/samlAttribute/idp/{idpId}`.
-2. Use the following values in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- `idpId`: The ID of the IdP corresponding to the SAML attribute.
-
-For example: `/mgmtconfig/v2/admin/customers/217246660302995456/samlAttribute/idp/217246660303022670`.
-
-- View an example response
-
-```
-{
-  "totalPages": "1",
-  "list": [
-    {
-      "id": "217246660303022795",
-      "creationTime": "1550435486",
-      "modifiedBy": "217246660302995986",
-      "name": "login_Custom entityId IDP configuration - User sso - do NOT delete",
-      "userAttribute": false,
-      "idpId": "217246660303022670",
-      "samlName": "login"
-    },
-    {
-      "id": "217246660303024892",
-      "creationTime": "1617867425",
-      "modifiedBy": "217246660303024869",
-      "name": "s",
-      "userAttribute": false,
-      "idpId": "217246660303022670",
-      "samlName": "as"
-    },
-    {
-      "id": "217246660303022796",
-      "creationTime": "1550435486",
-      "modifiedBy": "217246660302995986",
-      "name": "username_Custom entityId IDP configuration - User sso - do NOT delete",
-      "userAttribute": false,
-      "idpId": "217246660303022670",
-      "samlName": "username"
-    }
-  ]
-}
-```
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-This API supports pagination. To get a paginated response:
-
-1. Send a `GET` request to the following endpoint: `/mgmtconfig/v2/admin/customers/{customerId}/samlAttribute/idp/{idpId}?page=1&pagesize=20`.
-2. Provide the following in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- `idpId`: The ID of the IdP corresponding to the SAML attribute.
-- Valid values for page and page size parameters.
-
-For example: `/mgmtconfig/v2/admin/customers/217246660302995456/samlAttribute/idp/217246660303022670?page=1&pagesize=2.`
-
-- View an example response
-
-```
-{
-  "totalPages": "2",
-  "list": [
-    {
-      "id": "217246660303022795",
-      "creationTime": "1550435486",
-      "modifiedBy": "217246660302995986",
-      "name": "login_Custom entityId IDP configuration - User sso - do NOT delete",
-      "userAttribute": false,
-      "idpId": "217246660303022670",
-      "samlName": "login"
-    },
-    {
-      "id": "217246660303024892",
-      "creationTime": "1617867425",
-      "modifiedBy": "217246660303024869",
-      "name": "s",
-      "userAttribute": false,
-      "idpId": "217246660303022670",
-      "samlName": "as"
-    }
-  ]
-}
-```
-
-If not provided, the default page size is 20. The maximum page size is 500.
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-sandbox-reports-using-api","lastmod":"2026-01-06T23:49Z","nid":"1400811"} -->
-## Obtaining Sandbox Reports Using API
-
-- Source: https://help.zscaler.com/legacy-apis/obtaining-sandbox-reports-using-api
-- Product: Legacy Zscaler APIs
-- Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Working with APIs > Obtaining Sandbox Reports Using API
-- Last modified: 2026-01-06T23:49Z
-- Summary: Information on Sandbox Report use cases applicable to Zscaler's cloud service API.
-
-Sandbox Report API resources are only accessible to Sandbox subscribers.
-
-Sandbox Report API resources allow you to get a Sandbox Detail Report for any file that was sent for analysis from any organization on Zscaler cloud. Zscaler stores Sandbox Detail Reports for all files that were detonated within Sandbox. Therefore, information such as the threat name, threat score, category, etc. is available within a report. However, the sample file itself and any potentially sensitive information such as screenshots or filenames are removed
-
-To learn more, see [About Sandbox](https://help.zscaler.com/zia/about-sandbox).
-
-## Determining your Quota for the Sandbox Report API
-
-The resource access quota for retrieving Sandbox Detail Reports is restricted to 3,000 requests per day, with a [rate limit](https://help.zscaler.com/zia/understanding-rate-limiting) of 2/sec and 1,000/hour.
-
-Getting the Sandbox Report API quota allows you to monitor your organization's used, unused, and allocated quota on a daily basis. To determine your quota, send a `GET` request to `/sandbox/report/quota`. For example, in Python:
-
-```
-conn.request("GET", "/api/v1/sandbox/report/quota", headers=headers)
-```
-
-To learn more, see Sandbox Report in the [API Reference](https://help.zscaler.com/zia/sandbox-report).
-
-## Getting a Full or Summary Sandbox Detail Report
-
-To get a full (i.e., complete) or summary Sandbox Detail Report, send a `GET` request to `/sandbox/report/{md5Hash}` and specify whether the `details` parameter should be `full` or `summary`. For example, in Python, you would use the following code to get a `summary` report:
-
-```
-conn.request("GET", "/api/v1/sandbox/report/8350dED6D39DF158E51D6CFBE36FB012?details=summary", headers=headers)
-```
-
-`GET /sandbox/report/{md5Hash}` returns a report only if the MD5 file was analyzed previously. If a report for a requested MD5 does not exist, the request still counts against your quota.
-
-To learn more about the API endpoint, see [API Reference](https://help.zscaler.com/zia/sandbox-report).
-
-A Sandbox Detail Report always provides the following information:
-
-- `Status`: The summary status of the file analysis, which includes one of the following values:
-  - `COMPLETED`: The file analysis was completed
-  - `NODYNAMIC`: The file analysis was completed, but dynamic analysis was not performed
-  - `INPROGRESS`: The file analysis is in progress
-  - `NOTFOUND`: The MD5 hash was not found
-
-For example (value highlighted in green):
-
-```
-"Summary": {
-            "Status": "
-COMPLETED
-",
-            "Category": "SCRIPT",
-            "FileType": "CMD",
-            "Start Time": 1509567511,
-            "Duration": 454557,
-            "Analysis": "0",
-            "Url": "",
-            "TimeUnit": "ms",
-            "StartTime": "Nov 1, 2017 1:18:31 PM"
-        },
-```
-
-- `Category`: The summary category of the analyzed file, which includes one of the following values:
-  - `SCRIPT`
-  - `PDF`
-  - `ANDROID`
-  - `ARCHIVE`
-  - `JAR`
-  - `DOCS`
-  - `FLASH`
-  - `EXECS`
-  - `OTHER`
-  - `ANY`
-
-For example (value highlighted in green):
-
-```
-"Summary": {
-            "Status": "COMPLETED",
-            "Category": "
-SCRIPT
-",
-            "FileType": "CMD",
-            "Start Time": 1509567511,
-            "Duration": 454557,
-            "Analysis": "0",
-            "Url": "",
-            "TimeUnit": "ms",
-            "StartTime": "Nov 1, 2017 1:18:31 PM"
-        },
-```
-
-- `Type`: The classification type of the analyzed file, which includes one of the following values:
-  - `MALICIOUS`
-  - `SUSPICIOUS`
-  - `BENIGN`
-
-For example (value highlighted in green):
-
-```
-"Classification": {
-            "Type": "
-MALICIOUS
-",
-            "Category": "MALWARE_BOTNET",
-            "Score": 86,
-            "Max Score": 100,
-            "DetectedMalware": ""
-        },
-```
-
-- `Category`: The classification category of the analyzed file, which includes one of the following values:
-  - `BENIGN`
-  - `SUSPICIOUS`
-  - `ADWARE`
-  - `MALWARE_BOTNET`
-  - `ANONYMIZER_P2P`
-
-For example (value highlighted in green):
-
-```
-"Classification": {
-            "Type": "MALICIOUS",
-            "Category": "
-MALWARE_BOTNET
-",
-            "Score": 86,
-            "Max Score": 100,
-            "DetectedMalware": ""
-        },
-```
-
-A summary Sandbox Detail Report only includes `Summary`, `Classification`, and `FileProperties` information.
-
-- Summary Sandbox Detail Report Example for a MALICIOUS File
-
-```
-{
-    "Summary": {
-        "Summary": {
-            "Status": "COMPLETED",
-            "Category": "EXECS",
-            "FileType": "DLL",
-            "StartTime": 1522111841,
-            "Duration": 481690
-        },
-        "Classification": {
-            "Type": "MALICIOUS",
-            "Category": "MALWARE_BOTNET",
-            "Score": 82,
-            "DetectedMalware": "Win32/TrojanDownloader.Banload.TNJ trojan"
-        },
-        "FileProperties": {
-            "FileType": "DLL",
-            "FileSize": 2358272,
-            "MD5": "b3b13c2fe5710507612106cb11ceced3",
-            "SHA1": "6f30404f8b30812758acc06455bc95348c86f9f2",
-            "Sha256": "c77ab4c60b73c8f8135d54162813ab7c63432058f17ff00754d5fd547c22db76",
-            "Issuer": "",
-            "DigitalCerificate": "",
-            "SSDeep": "49152:mQU0HSp/RcGuBLe/PESBbFVZ86MfBWPvGZxnBGVV3NcKRLFcTOJP:mQUn6LsPQp6vkoiKt",
-            "RootCA": ""
-        }
-    }
-}
-```
-
-A full Sandbox Detail Report includes the same information as in a summary report, and also includes `System Summary`, `Networking`, and other information specific to the analyzed file.
-
-- Full Sandbox Detail Report Example for a MALICIOUS File
-
-```
-{
-    "Full Details": {
-        "Summary": {
-            "Status": "COMPLETED",
-            "Category": "SCRIPT",
-            "FileType": "CMD",
-            "Start Time": 1509567511,
-            "Duration": 454557,
-            "Analysis": "0",
-            "Url": "",
-            "TimeUnit": "ms",
-            "StartTime": "Nov 1, 2017 1:18:31 PM"
-        },
-        "Classification": {
-            "Type": "MALICIOUS",
-            "Category": "MALWARE_BOTNET",
-            "Score": 86,
-            "Max Score": 100,
-            "DetectedMalware": ""
-        },
-        "File Properties": {
-            "File Type": "CMD",
-            "File Size": 9810,
-            "MD5": "8350ded6d39df158e51d6cfbe36fb012",
-            "SHA1": "f4dd1d176975c70ba8963ebc654a78a6e345cfb6",
-            "Sha256": "aff2d40828597fbf482753bec73cc9fc2714484262258875cc23c7d5a7372cee",
-            "Issuer": "",
-            "Digital Cerificate": "",
-            "SSDeep": "192:+cgNT7Zj4tvl2Drc+gEakjqBT1W431lXXH1TR8J:InZjevl2Drc+gEakmBT44rXVR8J",
-            "RootCA": ""
-        },
-        "System Summary": [
-            {
-                "Risk": "LOW",
-                "Signature": "Allocates memory within range which is reserved for system DLLs",
-                "Signature Sources": [
-                    "",
-                    "76E70000 page execute and read and write",
-                    "76E70000 page execute and read and write",
-                    "76E70000 page execute and read and write",
-                    "76E70000 page execute and read and write",
-                    "76F90000 page execute and read and write",
-                    "76F90000 page execute and read and write",
-                    "76F90000 page execute and read and write",
-                    "76F90000 page execute and read and write"
-                ]
-            },
-            {
-                "Risk": "LOW",
-                "Signature": "Classification label",
-                "Signature Sources": [
-                    "",
-                    "mal68.winCMD@53/26@0/0"
-                ]
-            },
-            {
-                "Risk": "LOW",
-                "Signature": "Creates files inside the user directory",
-                "Signature Sources": [
-                    "",
-                    "C:\\Users\\win_7_64bit\\Desktop\\WlanTraces"
-                ]
-            },
-            {
-                "Risk": "LOW",
-                "Signature": "Found command line output",
-                "Signature Sources": [
-                    ""
-                ]
-            },
-            {
-                "Risk": "LOW",
-                "Signature": "Queries the cryptographic machine GUID",
-                "Signature Sources": [
-                    "",
-                    "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Cryptography MachineGuid"
-                ]
-            },
-            {
-                "Risk": "LOW",
-                "Signature": "Reads software policies",
-                "Signature Sources": [
-                    "",
-                    "HKEY_USERS\\Software\\Policies\\Microsoft\\Windows\\Safer\\CodeIdentifiers"
-                ]
-            },
-            {
-                "Risk": "LOW",
-                "Signature": "Sample sleeps for a long time",
-                "Signature Sources": [
-                    ""
-                ]
-            },
-            {
-                "Risk": "LOW",
-                "Signature": "Spawns processes",
-                "Signature Sources": [
-                    "",
-                    "C:\\Windows\\SysWOW64\\cmd.exe ",
-                    "C:\\Windows\\SysWOW64\\cmd.exe ",
-                    "C:\\Windows\\SysWOW64\\cmd.exe ",
-                    "C:\\Windows\\SysWOW64\\find.exe ",
-                    "C:\\Windows\\SysWOW64\\find.exe ",
-                    "C:\\Windows\\SysWOW64\\logman.exe ",
-                    "C:\\Windows\\SysWOW64\\netsh.exe ",
-                    "C:\\Windows\\SysWOW64\\whoami.exe "
-                ]
-            },
-            {
-                "Risk": "LOW",
-                "Signature": "Uses an in-process (OLE) Automation server",
-                "Signature Sources": [
-                    "",
-                    "HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\Wow6432Node\\CLSID\\{03837525-098B-11D8-9414-505054503030}\\InprocServer32"
-                ]
-            }
-        ],
-        "Networking": [
-            {
-                "Risk": "MODERATE",
-                "Signature": "Uses ipconfig to modify the Windows network settings",
-                "Signature Sources": [
-                    "",
-                    "C:\\Windows\\SysWOW64\\ipconfig.exe "
-                ]
-            },
-            {
-                "Risk": "HIGH",
-                "Signature": "Uses netsh to modify the Windows network and firewall settings",
-                "Signature Sources": [
-                    "",
-                    "C:\\Windows\\SysWOW64\\netsh.exe "
-                ]
-            }
-        ],
-        "Security Bypass": [
-            {
-                "Risk": "LOW",
-                "Signature": "Checks for kernel debuggers",
-                "Signature Sources": [
-                    "",
-                    "KernelDebuggerInformation"
-                ]
-            },
-            {
-                "Risk": "LOW",
-                "Signature": "Executes massive amount of sleeps in a loop",
-                "Signature Sources": [
-                    "",
-                    "-60000ms >= -60000ms",
-                    "-60000ms >= -60000ms",
-                    "-60000ms >= -60000ms",
-                    "-60000ms >= -60000ms",
-                    "-60000ms >= -60000ms"
-                ]
-            },
-            {
-                "Risk": "MODERATE",
-                "Signature": "Enables debug privileges",
-                "Signature Sources": [
-                    "",
-                    "Debug"
-                ]
-            },
-            {
-                "Risk": "MODERATE",
-                "Signature": "Sample sleeps for a long time (installer files shows these property).",
-                "Signature Sources": [
-                    ""
-                ]
-            }
-        ],
-        "Stealth": [
-            {
-                "Risk": "LOW",
-                "Signature": "Disables application error messages",
-                "Signature Sources": [
-                    "",
-                    "NOOPENFILEERRORBOX",
-                    "NOOPENFILEERRORBOX",
-                    "NOOPENFILEERRORBOX",
-                    "NOOPENFILEERRORBOX"
-                ]
-            },
-            {
-                "Risk": "MODERATE",
-                "Signature": "Very long cmdline option found",
-                "Signature Sources": [
-                    "",
-                    "C:\\Windows\\SysWOW64\\logman.exe logman  create trace autosession\\IntelNetwfw02 -p  0xffffffff 255 -f bincirc -max 250 -o C:\\Users\\win_7_64bit\\Desktop\\WlanTraces\\WIN_7_64BIT-PC-11-01-2017_0825\\IntelNetwfw02_WIN_7_64BIT-PC_11-01-2017_0825.etl",
-                    "C:\\Windows\\SysWOW64\\logman.exe logman  create trace autosession\\bcrmwlan -p {CEA4623F-AA31-4286-B3A5-797EF8A75C17} 0xffffffff 255 -f bincirc -max 250 -o C:\\Users\\win_7_64bit\\Desktop\\WlanTraces\\WIN_7_64BIT-PC-11-01-2017_0825\\BCRMwlan_WIN_7_64BIT-PC_11-01-2",
-                    "C:\\Windows\\SysWOW64\\logman.exe logman  create trace autosession\\mwls97w8arm -p {BFA91C93-9E18-497C-971B-490D06089E97} 0x1 255 -f bincirc -max 250 -o C:\\Users\\win_7_64bit\\Desktop\\WlanTraces\\WIN_7_64BIT-PC-11-01-2017_0825\\Marvell_WIN_7_64BIT-PC_11-01-2017_0",
-                    "C:\\Windows\\SysWOW64\\logman.exe logman  create trace autosession\\qcwlan -p {BB6F5B93-635C-47BE-816F-E895E77064A8} 0xffff 18 -f bincirc -max 250 -o C:\\Users\\win_7_64bit\\Desktop\\WlanTraces\\WIN_7_64BIT-PC-11-01-2017_0825\\QCwlan_WIN_7_64BIT-PC_11-01-2017_0825.",
-                    "C:\\Windows\\SysWOW64\\logman.exe logman  start bcrmwlan -p {CEA4623F-AA31-4286-B3A5-797EF8A75C17} 0xffffffff 255 -f bincirc -max 150 -o C:\\Users\\win_7_64bit\\Desktop\\WlanTraces\\WIN_7_64BIT-PC-11-01-2017_0825\\BCRMwlan_WIN_7_64BIT-PC_11-01-2017_0825.etl -ets",
-                    "C:\\Windows\\SysWOW64\\logman.exe logman  start mwls97w8arm -p {BFA91C93-9E18-497C-971B-490D06089E97} 0x1 255 -f bincirc -max 150 -o C:\\Users\\win_7_64bit\\Desktop\\WlanTraces\\WIN_7_64BIT-PC-11-01-2017_0825\\Marvell_WIN_7_64BIT-PC_11-01-2017_0825.etl -ets",
-                    "C:\\Windows\\SysWOW64\\logman.exe logman  start qcwlan -p {BB6F5B93-635C-47BE-816F-E895E77064A8} 0xffff 18 -f bincirc -max 150 -o C:\\Users\\win_7_64bit\\Desktop\\WlanTraces\\WIN_7_64BIT-PC-11-01-2017_0825\\QCwlan_WIN_7_64BIT-PC_11-01-2017_0825.etl -ets",
-                    "C:\\Windows\\SysWOW64\\netsh.exe netsh  trace sta wireless_dbg provider={21ba7b61-05f8-41f1-9048-c09493dcfe38} 0xff globallevel=0xff persistent=yes trace=C:\\Users\\win_7_64bit\\Desktop\\WlanTraces\\WIN_7_64BIT-PC-11-01-2017_0825\\wlan_WIN_7_64BIT-PC_11-01-2017_08"
-                ]
-            }
-        ],
-        "Persistence": [
-            {
-                "Risk": "MODERATE",
-                "Signature": "Creates or modifies Windows services",
-                "Signature Sources": [
-                    "",
-                    "HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\services\\IKEEXT\\Parameters"
-                ]
-            },
-            {
-                "Risk": "HIGH",
-                "Signature": "Modifies security policies related information",
-                "Signature Sources": [
-                    "",
-                    "HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Control\\Lsa\\Kerberos\\Parameters KerbDebugLevel"
-                ]
-            },
-            {
-                "Risk": "HIGH",
-                "Signature": "Uses sc.exe to modify the status of services",
-                "Signature Sources": [
-                    "",
-                    "C:\\Windows\\SysWOW64\\sc.exe "
-                ]
-            }
-        ]
-    }
-}
-```
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-scim-attribute-details-using-api","lastmod":"2026-01-06T23:49Z","nid":"1484851"} -->
-## Obtaining SCIM Attribute Details Using API
-
-- Source: https://help.zscaler.com/legacy-apis/obtaining-scim-attribute-details-using-api
-- Product: Legacy Zscaler APIs
-- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Obtaining SCIM Attribute Details Using API
-- Last modified: 2026-01-06T23:49Z
-- Summary: Information about SCIM attribute use cases applicable to the Zscaler Private Access (ZPA) cloud service API.
-
-This article provides information on managing Zscaler Private Access (ZPA) SCIM attribute use cases using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
-
-## Getting Details for All SCIM Attributes
-
-To get details for all the SCIM attributes:
-
-1. Send a `GET` request to the endpoint `/mgmtconfig/v1/admin/customers/{customerId}/idp/{idpId}/scimattribute` in the scim-attribute-header-controller.
-2. Provide the following values in the request body:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- `idpId`: The ID of the IdP corresponding to the SCIM attribute.
-
-For example: `/mgmtconfig/v1/admin/customers/72057615512764416/idp/73196561382768893/scimattribute`.
-
-- View an example response
-
-```
-{
-  "totalPages": "1",
-  "list": [
-    {
-      "id": "73196561382768901",
-      "creationTime": "1610625597",
-      "modifiedBy": "73196561382768641",
-      "name": "active",
-      "idpId": "73196561382768893",
-      "dataType": "Boolean",
-      "schemaURI": "urn:ietf:params:scim:schemas:core:2.0:User",
-      "multivalued": false,
-      "required": false,
-      "caseSensitive": false,
-      "mutability": "readWrite",
-      "returned": "default",
-      "uniqueness": false
-    },
-    {
-      "id": "73196561382768904",
-      "creationTime": "1610625597",
-      "modifiedBy": "73196561382768641",
-      "name": "costCenter",
-      "idpId": "73196561382768893",
-      "dataType": "String",
-      "schemaURI": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
-      "multivalued": false,
-      "required": false,
-      "caseSensitive": false,
-      "mutability": "readWrite",
-      "returned": "default",
-      "uniqueness": false
-    },
-    {
-      "id": "73196561382768903",
-      "creationTime": "1610625597",
-      "modifiedBy": "73196561382768641",
-      "name": "department",
-      "idpId": "73196561382768893",
-      "dataType": "String",
-      "schemaURI": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
-      "multivalued": false,
-      "required": false,
-      "caseSensitive": false,
-      "mutability": "readWrite",
-      "returned": "default",
-      "uniqueness": false
-    },
-    {
-      "id": "73196561382768899",
-      "creationTime": "1610625597",
-      "modifiedBy": "73196561382768641",
-      "name": "displayName",
-      "idpId": "73196561382768893",
-      "dataType": "String",
-      "schemaURI": "urn:ietf:params:scim:schemas:core:2.0:User",
-      "multivalued": false,
-      "required": false,
-      "caseSensitive": false,
-      "mutability": "readWrite",
-      "returned": "default",
-      "uniqueness": false
-    },
-    {
-      "id": "73196561382768906",
-      "creationTime": "1610625597",
-      "modifiedBy": "73196561382768641",
-      "name": "division",
-      "idpId": "73196561382768893",
-      "dataType": "String",
-      "schemaURI": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
-      "multivalued": false,
-      "required": false,
-      "caseSensitive": false,
-      "mutability": "readWrite",
-      "returned": "default",
-      "uniqueness": false
-    },
-    {
-      "id": "73196561382768902",
-      "creationTime": "1610625597",
-      "modifiedBy": "73196561382768641",
-      "name": "emails.value",
-      "idpId": "73196561382768893",
-      "dataType": "String",
-      "schemaURI": "urn:ietf:params:scim:schemas:core:2.0:User",
-      "multivalued": true,
-      "required": false,
-      "canonicalValues": [
-        "work"
-      ],
-      "caseSensitive": false,
-      "mutability": "readWrite",
-      "returned": "default",
-      "uniqueness": false
-    },
-    {
-      "id": "73196561382768895",
-      "creationTime": "1610625597",
-      "modifiedBy": "73196561382768641",
-      "name": "name.familyName",
-      "idpId": "73196561382768893",
-      "dataType": "String",
-      "schemaURI": "urn:ietf:params:scim:schemas:core:2.0:User",
-      "multivalued": false,
-      "required": false,
-      "caseSensitive": false,
-      "mutability": "readWrite",
-      "returned": "default",
-      "uniqueness": false
-    },
-    {
-      "id": "73196561382768897",
-      "creationTime": "1610625597",
-      "modifiedBy": "73196561382768641",
-      "name": "name.formatted",
-      "idpId": "73196561382768893",
-      "dataType": "String",
-      "schemaURI": "urn:ietf:params:scim:schemas:core:2.0:User",
-      "multivalued": false,
-      "required": false,
-      "caseSensitive": false,
-      "mutability": "readWrite",
-      "returned": "default",
-      "uniqueness": false
-    },
-    {
-      "id": "73196561382768896",
-      "creationTime": "1610625597",
-      "modifiedBy": "73196561382768641",
-      "name": "name.givenName",
-      "idpId": "73196561382768893",
-      "dataType": "String",
-      "schemaURI": "urn:ietf:params:scim:schemas:core:2.0:User",
-      "multivalued": false,
-      "required": false,
-      "caseSensitive": false,
-      "mutability": "readWrite",
-      "returned": "default",
-      "uniqueness": false
-    },
-    {
-      "id": "73196561382768898",
-      "creationTime": "1610625597",
-      "modifiedBy": "73196561382768641",
-      "name": "nickName",
-      "idpId": "73196561382768893",
-      "dataType": "String",
-      "schemaURI": "urn:ietf:params:scim:schemas:core:2.0:User",
-      "multivalued": false,
-      "required": false,
-      "caseSensitive": false,
-      "mutability": "readWrite",
-      "returned": "default",
-      "uniqueness": false
-    },
-    {
-      "id": "73196561382768905",
-      "creationTime": "1610625597",
-      "modifiedBy": "73196561382768641",
-      "name": "organization",
-      "idpId": "73196561382768893",
-      "dataType": "String",
-      "schemaURI": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
-      "multivalued": false,
-      "required": false,
-      "caseSensitive": false,
-      "mutability": "readWrite",
-      "returned": "default",
-      "uniqueness": false
-    },
-    {
-      "id": "73196561382768894",
-      "creationTime": "1610625597",
-      "modifiedBy": "73196561382768641",
-      "name": "userName",
-      "idpId": "73196561382768893",
-      "dataType": "String",
-      "schemaURI": "urn:ietf:params:scim:schemas:core:2.0:User",
-      "multivalued": false,
-      "required": true,
-      "caseSensitive": false,
-      "mutability": "readWrite",
-      "returned": "default",
-      "uniqueness": true
-    },
-    {
-      "id": "73196561382768900",
-      "creationTime": "1610625597",
-      "modifiedBy": "73196561382768641",
-      "name": "userType",
-      "idpId": "73196561382768893",
-      "dataType": "String",
-      "schemaURI": "urn:ietf:params:scim:schemas:core:2.0:User",
-      "multivalued": false,
-      "required": false,
-      "caseSensitive": false,
-      "mutability": "readWrite",
-      "returned": "default",
-      "uniqueness": false
-    }
-  ]
-}
-```
-
-A successful response returns code 200. To learn more, see [About Error Codes](https://help.zscaler.com/zpa/about-error-codes).
-
-This API supports pagination. To get a paginated response:
-
-1. Send a `GET` request to the endpoint `/mgmtconfig/v1/admin/customers/{customerId}/idp/{idpId}/scimattribute?page=1&pagesize=20`.
-2. Provide the following in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer, in the request endpoint.
-- `idpId`: The ID of the IdP corresponding to the SCIM attribute.
-- Valid values for page and page size parameters.
-
-For example: `/mgmtconfig/v1/admin/customers/144118148382064640/idp/144118148382065427/scimattribute?page=1&pagesize=2.`
-
-- View an example response
-
-```
-{
-  "totalPages": "7",
-  "list": [
-    {
-      "id": "144118148382065476",
-      "creationTime": "1621016226",
-      "modifiedBy": "144118148382065457",
-      "name": "active",
-      "idpId": "144118148382065427",
-      "dataType": "Boolean",
-      "schemaURI": "urn:ietf:params:scim:schemas:core:2.0:User",
-      "multivalued": false,
-      "required": false,
-      "caseSensitive": false,
-      "mutability": "readWrite",
-      "returned": "default",
-      "uniqueness": false
-    },
-    {
-      "id": "144118148382065479",
-      "creationTime": "1621016226",
-      "modifiedBy": "144118148382065457",
-      "name": "costCenter",
-      "idpId": "144118148382065427",
-      "dataType": "String",
-      "schemaURI": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
-      "multivalued": false,
-      "required": false,
-      "caseSensitive": false,
-      "mutability": "readWrite",
-      "returned": "default",
-      "uniqueness": false
-    }
-  ]
-}
-```
-
-If not provided, the default page size is 20. The maximum page size is 500.
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-## Getting Details for a Particular SCIM Attribute
-
-To get the name, or key, for a particular SCIM attribute:
-
-1. Send a `GET` request to the endpoint `/mgmtconfig/v1/admin/customers/{customerId}/idp/{idpId}/scimattribute/``{scimAttributeId}` in the scim-attribute-header-controller.
-2. Provide the following values in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- `idpId`: The ID of the Idp corresponding to the SCIM attribute.
-- `scimAttributeId`: The ID of the SCIM attribute.
-
-For example: `/mgmtconfig/v1/admin/customers/72057615512764416/idp/73196561382768893/scimattribute/73196561382768901`.
-
-- View an example response
-
-```
-{
-  "id": "73196561382768901",
-  "creationTime": "1610625597",
-  "modifiedBy": "73196561382768641",
-  "name": "active",
-  "idpId": "73196561382768893",
-  "dataType": "Boolean",
-  "schemaURI": "urn:ietf:params:scim:schemas:core:2.0:User",
-  "multivalued": false,
-  "required": false,
-  "caseSensitive": false,
-  "mutability": "readWrite",
-  "returned": "default",
-  "uniqueness": false
-}
-```
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-## Getting Details for a SCIM Attribute Value
-
-To get the value of the particular key for a SCIM attribute value:
-
-1. Send a `GET` request to the endpoint `/userconfig/v1/customers/{customerId}/scimattribute/idpId/{idpId}/attributeId/{attributeId}` in the scim-attribute-header-controller**.**
-2. Provide the following values in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- `idpId`: The ID of the IdP corresponding to the SCIM attribute.
-- `attributeId`: The ID of the SCIM attribute.
-
-For example: `/mgmtconfig/v1/admin/customers/72057615512764416/idp/73196561382768893/scimattribute/73196561382768901`.
-
-- View an example response
-
-```
-{
-  "totalPages": "1",
-  "totalCount": "1",
-  "list": [
-    "true"
-  ]
-}
-```
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-This API supports pagination. To get a paginated response:
-
-1. Send a `GET` request to the endpoint `/userconfig/v1/customers/{customerId}/scimattribute/idpId/{idpId}/attributeId/{attributeId}?page=1&pagesize=20`.
-2. Provide the following in the request endpoint:
-
-- `customerId`, the ZPA tenant ID of the customer, in the request endpoint.
-- `idpId`: The ID of the IdP corresponding to the SCIM attribute.
-- `attributeId`: The ID of the SCIM attribute.
-- Valid values for page and page size parameters.
-
-For example: `/mgmtconfig/v1/admin/customers/217246660302995456/idp/217246660303022670/scimattribute/217246660303023460?page=1&pagesize=2.`
-
-- View an example response
-
-```
-{
-  "totalPages": 1,
-  "totalCount": 1,
-  "list": [
-    "true"
-  ]
-}
-```
-
-If not provided, the default page size is 20. The maximum page size is 500.
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-scim-group-details-using-api","lastmod":"2026-01-06T23:49Z","nid":"1484846"} -->
-## Obtaining SCIM Group Details Using API
-
-- Source: https://help.zscaler.com/legacy-apis/obtaining-scim-group-details-using-api
-- Product: Legacy Zscaler APIs
-- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Obtaining SCIM Group Details Using API
-- Last modified: 2026-01-06T23:49Z
-- Summary: Information about SCIM group use cases applicable to the Zscaler Private Access (ZPA) cloud service API.
-
-This article provides information on managing Zscaler Private Access (ZPA) SCIM group use cases using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
-
-## Getting Details of All SCIM Groups
-
-To get details of all SCIM groups for the specified IdP ID:
-
-1. Send a `GET` request to the following endpoint: `/userconfig/v1/customers/{customerId}/scimgroup/idpId/{idpId}`.
-2. Provide the following values in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- `idpId`: The ID of a particular IdP. To learn more, see [Obtaining IdP Configuration Details Using API](https://help.zscaler.com/zpa/obtaining-idp-configuration-details-using-api).
-
-For example: `/userconfig/v1/customers/72057615512764416/scimgroup/idpId/73196561382768893`.
-
-- View an example response
-
-```
-{
-  "totalPages": "1",
-  "totalCount": "2",
-  "list": [
-    {
-      "id": "20464",
-      "modifiedTime": "1610781818",
-      "creationTime": "1610626185",
-      "name": "group 2 public api",
-      "idpId": "73196561382768893",
-      "idpGroupId": null
-    },
-    {
-      "id": "20463",
-      "modifiedTime": "1610781110",
-      "creationTime": "1610626168",
-      "name": "group 1 public api",
-      "idpId": "73196561382768893",
-      "idpGroupId": null
-    }
-  ]
-}
-```
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-This API supports pagination and sort capabilities. To get a paginated response and sort:
-
-1. Send a `GET` request to the following endpoint: `/userconfig/v1/customers/{customerId}/scimgroup/idpId/{idpId}?page=1&pagesize=5&sortBy=name&sortOrder=DSC`.
-2. Provide the following in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer, in the request endpoint.
-- `idpId`: The ID of a particular IdP.
-- Valid values for page and page size parameters.
-- Valid `sortBy` string values (e.g., `name`).
-
-For example: `/userconfig/v1/customers/145254298228359168/scimgroup/idpId/145254298228359525?page=1&pagesize=5&sortBy=name&sortOrder=DSC`.
-
-- View an example response
-
-```
-{
-  "totalPages": 70000,
-  "totalCount": 350000,
-  "list": [
-    {
-      "id": 1981044,
-      "modifiedTime": 1666936258,
-      "creationTime": 1666073884,
-      "name": "grp99999",
-      "idpId": 145254298228359520,
-      "idpGroupId": "grp99999",
-      "internalId": "1981044"
-    },
-    {
-      "id": 1981043,
-      "modifiedTime": 1666936258,
-      "creationTime": 1666073884,
-      "name": "grp99998",
-      "idpId": 145254298228359520,
-      "idpGroupId": "grp99998",
-      "internalId": "1981043"
-    },
-    {
-      "id": 1981042,
-      "modifiedTime": 1666936258,
-      "creationTime": 1666073884,
-      "name": "grp99997",
-      "idpId": 145254298228359520,
-      "idpGroupId": "grp99997",
-      "internalId": "1981042"
-    },
-    {
-      "id": 1981041,
-      "modifiedTime": 1666936258,
-      "creationTime": 1666073884,
-      "name": "grp99996",
-      "idpId": 145254298228359520,
-      "idpGroupId": "grp99996",
-      "internalId": "1981041"
-    },
-    {
-      "id": 1981040,
-      "modifiedTime": 1666936258,
-      "creationTime": 1666073884,
-      "name": "grp99995",
-      "idpId": 145254298228359520,
-      "idpGroupId": "grp99995",
-      "internalId": "1981040"
-    }
-  ]
-}
-```
-
-If not provided, the default page size is 20. The maximum page size is 500.
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-## Getting Details for a Particular SCIM Group
-
-To get details of a particular SCIM group:
-
-1. Send a `GET` request to the following endpoint: `/userconfig/v1/customers/{customerId}/scimgroup/{scimGroupId}`.
-2. Use the following values in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- `scimGroupId`: The ID of a particular SCIM group.
-
-For example: `/userconfig/v1/customers/72057615512764416/scimgroup/20464`.
-
-- View an example response
-
-```
-{
-  "id": "20464",
-  "modifiedTime": "1610781818",
-  "creationTime": "1610626185",
-  "name": "group 2 public api",
-  "idpId": "73196561382768893",
-  "idpGroupId": null
-}
-```
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-## Field Descriptions
-
-The following table includes descriptions of available fields for the SCIM group use cases:
-
-| Field | Description | Required | Value |
-| --- | --- | --- | --- |
-| page | Indicates the page. If not provided, the default value is `1`. | No | Integer |
-| pageSize | Indicates the page size. If not provided, the default page size is `20`. The max page size is `500`. | No | Integer |
-| sortBy | Indicates the `sortBy` field name that is used to sort the results. If not provided, the results are sorted by `modifiedTime`. | No | Supported values: `id`; `name`; `creationTime`; `modifiedTime` |
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-trusted-network-details-using-api","lastmod":"2026-01-06T23:49Z","nid":"1484841"} -->
-## Obtaining Trusted Network Details Using API
-
-- Source: https://help.zscaler.com/legacy-apis/obtaining-trusted-network-details-using-api
-- Product: Legacy Zscaler APIs
-- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Obtaining Trusted Network Details Using API
-- Last modified: 2026-01-06T23:49Z
-- Summary: Information about trusted network use cases applicable to the Zscaler Private Access (ZPA) cloud service API.
-
-This article provides information on managing Zscaler Private Access (ZPA) trusted network use cases using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
-
-## Getting Details for All Trusted Networks V2
-
-To get details for all the trusted networks:
-
-1. Send a `GET` request to the following endpoint in the trusted-network-controller: `/mgmtconfig/v2/admin/customers/{customerId}/network`.
-2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v2/admin/customers/217246660302995456/network`.
-
-- View an example response
-
-```
-{
-  "totalPages": "3",
-  "list": [
-    {
-      "id": "217246660303023500",
-      "creationTime": "1568929136",
-      "modifiedBy": "72057594037928107",
-      "name": "example mac",
-      "networkId": "1cd35d99-e509-49c6-a0fe-a1e1f754ac3e",
-      "zscalerCloud": "zpadev"
-    },
-    {
-      "id": "217246660303023640",
-      "creationTime": "1578427726",
-      "modifiedBy": "72057594037959595",
-      "name": "test1",
-      "networkId": "f373dbe7-1a21-488e-bd2b-6557e702357c",
-      "zscalerCloud": "zscalerone"
-    }
-  ]
-}
-```
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-This API supports pagination. To get a paginated response:
-
-1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/network?page=1&pagesize=20`.
-2. Provide the following in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer, in the request endpoint.
-- Valid values for page and page size parameters.
-
-For example: `/mgmtconfig/v1/admin/customers/217246660302995456/network?page=1&pagesize=2.`
-
-- View an example response
-
-```
-{
-  "totalPages": "3",
-  "list": [
-    {
-      "id": "217246660303023500",
-      "creationTime": "1568929136",
-      "modifiedBy": "72057594037928107",
-      "name": "Test network",
-      "networkId": "1cd35d99-e509-49c6-a0fe-a1e1f754ac3e",
-      "zscalerCloud": "zpaTest"
-    },
-    {
-      "id": "217246660303023640",
-      "creationTime": "1578427726",
-      "modifiedBy": "72057594037959595",
-      "name": "test1 (zscalerone.net)",
-      "networkId": "f373dbe7-1a21-488e-bd2b-6557e702357c",
-      "zscalerCloud": "zscalerone"
-    }
-  ]
-}
-```
-
-If not provided, the default page size is 20. The maximum page size is 500.
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-This API supports a search option to search by features and fields. To search by features and fields:
-
-1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/73186051597795328/network&search={searchString}`.
-2. Provide the following in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- Valid search string values. The search string values are in the format `fieldName operator fieldValue`. Only search string values that correspond to the values for valid fields and filters are supported. For example, the string `enabled%20EQ%20true` is supported for the **Name**filter, using the **Contains**(`LIKE`) operator, for the filter value `test`.
-
-For example: `/mgmtconfig/v1/admin/customers/73186051597795328/network&search=name%20LIKE%20test`.
-
-- View an example response
-
-```
-{
-  "totalPages": "1",
-  "totalCount": "2",
-  "list": [
-    {
-      "id": "72057594038041097",
-      "creationTime": "1624340572",
-      "modifiedBy": "72057594037987389",
-      "name": "Test (cloud.net)",
-      "networkId": "1",
-      "zscalerCloud": "cloud"
-    },
-    {
-      "id": "72057594038041098",
-      "creationTime": "1624340631",
-      "modifiedBy": "72057594037987389",
-      "name": "Test 20 (cloud.net)",
-      "networkId": "2",
-      "zscalerCloud": "cloud"
-    }
-  ]
-}
-```
-
-If you use the ZPA API PortaI or the [Reference Guide](https://help.zscaler.com/zpa/zpa-api/api-developer-reference-guide/reference-guide) to make your API calls, the search field string does not require any characters. For example, `name%20LIKE%20test` is `name LIKE test`.
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-## Getting Details for a Particular Trusted Network
-
-To get details of a particular trusted network:
-
-1. Send a `GET` request to the following endpoint in the trusted-network-controller: `/mgmtconfig/v1/admin/customers/{customerId}/network/{id}`.
-2. Provide the following values in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- `id`: The ID of the desired trusted network.
-
-For example:`/mgmtconfig/v1/admin/customers/72057615512764416/network/72057615512764509`.
-
-- View an example response
-
-```
-{
-  "id": "72057615512764509",
-  "creationTime": "1571232759",
-  "modifiedBy": "72057594037927995",
-  "name": "Home",
-  "networkId": "2b8a83bd-3fab-4961-b12c-e64553f15327",
-  "zscalerCloud": "zscalerbeta"
-}
-```
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-version-profile-details-using-api","lastmod":"2026-01-06T23:49Z","nid":"1485041"} -->
-## Obtaining Version Profile Details Using API
-
-- Source: https://help.zscaler.com/legacy-apis/obtaining-version-profile-details-using-api
-- Product: Legacy Zscaler APIs
-- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Obtaining Version Profile Details Using API
-- Last modified: 2026-01-06T23:49Z
-- Summary: Information about version profile use cases applicable to the Zscaler Private Access (ZPA) cloud service API.
-
-This article provides information for managing Zscaler Private Access (ZPA) version profiles using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
-
-## Getting Details of All Version Profiles
-
-To get details of all version profiles:
-
-1. Send a `GET` request to the endpoint `/mgmtconfig/v1/admin/customers/{customerId}/visible/versionProfiles` in the customer-version-profile-controller.
-2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v1/admin/customers/72057594037927936/visible/versionProfiles`.
-
-- View an example response
-
-```
-{
-"totalPages": "1",
-"list": [
-{
-"id": "0",
-"modifiedTime": "1626626015",
-"modifiedBy": "72057594037939756",
-"name": "Default",
-"upgradePriority": "WEEK",
-"visibilityScope": "ALL",
-"customerId": "72057594037927936"
-},
-{
-"id": "1",
-"modifiedTime": "1629892276",
-"creationTime": "1624262913",
-"modifiedBy": "72057594037988570",
-"name": "Previous Default",
-"description": "Cloud wide previous stable/default build. Provides roll-back ability",
-"upgradePriority": "FORCE_NOW",
-"visibilityScope": "ALL",
-"customerId": "72057594037927936"
-},
-{
-"id": "2",
-"modifiedTime": "1631705841",
-"creationTime": "1624262914",
-"modifiedBy": "72057594037939756",
-"name": "New Release",
-"upgradePriority": "WEEK",
-"visibilityScope": "ALL",
-"customerId": "72057594037927936"
-}
-```
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-This API supports pagination. To get a paginated response:
-
-1. Send a `GET` request to the endpoint `/mgmtconfig/v1/admin/customers/{customerId}/visible/versionProfiles?page=1&pagesize=20`.
-2. Provide the following in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- Valid values for page and page size parameters.
-
-For example: `/mgmtconfig/v1/admin/customers/144118148382065089/server?page=1&pagesize=2.`
-
-- View an example response
-
-```
-{
-  "totalPages": "2",
-  "list": [
-    {
-      "id": "0",
-      "modifiedTime": "1644938687",
-      "creationTime": "1475127781",
-      "modifiedBy": "72057594037928187",
-      "name": "Default",
-      "upgradePriority": "WEEK",
-      "visibilityScope": "ALL",
-      "customerId": "72057594037927936"
-    },
-    {
-      "id": "1",
-      "modifiedTime": "1634285256",
-      "creationTime": "1631577657",
-      "modifiedBy": "72057594037928193",
-      "name": "Previous Default",
-      "upgradePriority": "DAY",
-      "visibilityScope": "ALL",
-      "customerId": "72057594037927936"
-    }
-  ]
-}
-```
-
-If not provided, the default page size is 20. The maximum page size is 500.
 
 A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
 <!-- /ZS-ARTICLE -->

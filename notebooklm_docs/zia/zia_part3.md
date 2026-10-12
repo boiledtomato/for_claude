@@ -1,8 +1,106 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-05 09:38 UTC
+Generated: 2026-10-12 09:45 UTC
 Articles in this file: 98
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-sandbox-verdict-logs","lastmod":"2026-06-23T06:55Z","nid":"1520331"} -->
+## Adding TCP NSS Feeds for Sandbox Verdict Logs
+
+- Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-sandbox-verdict-logs
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Sandbox Verdict Logs
+- Last modified: 2026-06-23T06:55Z
+- Summary: How to add TCP NSS feeds for Sandbox verdict logs in the Zscaler Admin Console.
+
+You can configure up to 8 TCP Nanolog Streaming Service (NSS) feeds to specify the data from the Sandbox verdict logs that the NSS sends to the security information and event management (SIEM) system.
+
+A large number of filters or complex filters, such as string searches, can impact the NSS performance. Before you start configuring a feed for Sandbox verdict logs, consider the [guidelines for configuring feeds](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats).
+
+To configure a TCP NSS feed for Sandbox verdict logs:
+
+1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+2. On the **NSS Feeds** tab, click **Add TCP NSS Feed**. The **Add TCP NSS Feed** window appears.
+3. In the**Add TCP NSS Feed** window:
+  - **Feed Name:**Enter the name of the feed. Each feed is a connection between the NSS and your SIEM.
+  - **NSS Type**: **NSS for Web** is selected by default.
+  - **NSS Server**:Select an NSS server from the list. A [configured NSS server](https://help.zscaler.com/zia/adding-nss-servers) is required to add an NSS feed.
+  - **Status:**The NSS feed is **Enabled** by default. Select **Disabled** if you want to activate it at a later time.
+  - **SIEM Destination Type**: Select the type of destination.
+    - **SIEM IP Address**:Appears when**IP Address**is selected as the destination type.Enter the IP address of the SIEM to which the logs are streamed.
+    - **SIEM FQDN**: Appears when**FQDN**is selected as the destination type. Enter the destination for the TCP connection to which the logs are streamed. This allows failover from one IP to the other without manual intervention, but rather relying on updating the DNS entry. NSS re-resolves the FQDN only when the existing connection goes down. This feature cannot be used for DNS-based load balancing.
+  - **SIEM TCP Port**: Enter the port number of the SIEM to which the logs are streamed. Ensure that the SIEM is configured to accept the feed from the NSS.
+  - **SIEM Rate**: Leave as **Unlimited**, unless you need to throttle the output stream due to SIEM licensing or other constraints.
+    - **SIEM Rate Limit (Events per Second)**: Enter an appropriate rate limit for the events per second that you want to be streamed to your SIEM. A limit that is too low for the traffic volume causes log loss. This field is available only if you select **Limited** in the **SIEM Rate**field.
+  - **Log Type**:Select **Sandbox Verdict**.
+  - **Feed Output Type**:The output is a comma-separated (**CSV**) list by default. Select **Tab-separated**to create a tab-separated list. Select **Custom**to use a different delimiter, such as a dash, and enter the delimiter when you specify the **Feed Output Format**.
+  - **Feed Escape Character**: The Zscaler service hex encodes all non-printable ASCII characters that are in URLs when it sends logs to the NSS. Any URL character that is less than 0x21, or above 0x7E, is encoded as `%HH`. This ensures that your SIEM is able to parse the URLs in case they contain non-printable characters. For example, a `\n` char in a URL is encoded as `%0A`, and a space is encoded as `%20`. In this field, you can specify additional characters that you want to encode. For example, enter a comma (`,`) to encode it as `%2C`. This is useful if you are using this character as your delimiter and want to ensure it does not cause erroneous delimitation. Note that the service encodes characters in URLs, hostnames, and referrer URLs only. If custom encoding is done for a record, the `%s{eedone}` field is `YES` for that record.
+  - **Feed Output Format**:These are the fields that display in the output. You can edit the default list and if you select **Custom**as the **Feed Output Type**, change the delimiter as well. To learn more about the available fields and their syntax, see [NSS Feed Output Format: Sandbox Verdict Logs](https://help.zscaler.com/zia/nss-feed-output-format-sandbox-verdict-logs).
+  - **Time Zone**:By default, this is set to the organization's time zone. The time zone you set applies to the time field in the output file. The time zone automatically adjusts to changes in daylight saving in the specific time zone. The configured time zone can be output to the logs as a separate field. The list of time zones is derived from the IANA Time Zone database. Direct GMT offsets can also be specified.
+  - **Duplicate Logs**: To ensure that no logs are skipped during downtime, specify the number of minutes that the NSS sends duplicate logs. Zscaler recommends setting the number to 5 minutes, or more if required. This allows the NSS to send up to 60 minutes (one hour) of logs to the SIEM after the connection is restored. To learn more, see [General Guidelines for NSS Feeds and Feed Formats](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats#duplicate-logs-example).
+4. Define the filters:
+  - Security
+  - File Type
+  - Sandbox Verdict
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+- **Threat Names**: Use this filter to limit the logs based on specific threats detected in the transaction. You can enter multiple threat names. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
+
+- **Download File Type**: Use this filter to limit the logs based on the type of file downloaded in the transaction. Multiple selections are allowed. This filter currently includes file types that are not eligible for Sandbox analysis. No log data is available for these file types, if selected. For a list of eligible file types, see [About Sandbox](https://help.zscaler.com/zia/about-sandbox#SandboxFileTypes).
+- **MD5**: Use this filter to limit the logs based on the MD5 hash of a file. You can enter multiple hashes. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
+- **SHA**: Use this filter to limit the logs based on the SHA-256 hash of a file. You can enter multiple hashes. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
+
+- **Sandbox Verdicts**: Use this filter to limit the logs based on the verdict of the Sandbox analysis. This filter includes verdicts related to [Sandbox](https://help.zscaler.com/zia/configuring-sandbox-policy) (e.g., Sandbox Adware), [Advanced Threat Protection](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy) (e.g., Suspicious Content), and [Malware Protection](https://help.zscaler.com/zia/configuring-malware-protection-policy) (e.g., Trojan) policies. Optionally, select **Benign** to limit the logs to non-malicious verdicts. Multiple selections are allowed.
+- **Tactic**: Use this filter to limit the logs based on the MITRE ATT&CK tactic (e.g., TAC028). You can enter multiple tactics. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears. If you do not specify tactics in this filter, verdicts associated with any possible MITRE ATT&CK tactic are displayed.
+- **Technique**: Use this filter to limit the logs based on the MITRE ATT&CK technique (e.g., T1005). You can enter multiple techniques. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears. If you do not specify techniques in this filter, verdicts associated with any possible MITRE ATT&CK technique are displayed.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-scim-logs","lastmod":"2026-06-23T07:00Z","nid":"1534220"} -->
+## Adding TCP NSS Feeds for SCIM Logs
+
+- Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-scim-logs
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for SCIM Logs
+- Last modified: 2026-06-23T07:00Z
+- Summary: How to add TCP NSS feeds for SCIM logs in the Zscaler Admin Console.
+
+The initial SCIM Nanolog Streaming Service (NSS) feed takes up to 5 hours to stream to the NSS and your security information and event management (SIEM) system. However, this delay does not occur if you have already configured and are streaming [Audit Logs](https://help.zscaler.com/zia/adding-nss-feeds-admin-audit-logs).
+
+You can configure up to 8 TCP Nanolog Streaming Service (NSS) feeds that define the SCIM logs that the NSS sends to the security information and event management (SIEM) system. You can also configure multiple types of filters. Many filters or complex filters, such as string searches, can impact the performance of the NSS.
+
+Ensure that you enable appropriate role permissions for Log Streaming in the Authentication Service.
+
+Before you start configuring a feed for SCIM logs, consider the [guidelines for configuring feeds](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats).
+
+To configure a TCP NSS feed for SCIM logs:
+
+1. Go to **Logs**>**Logs Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+2. On the **NSS Feeds** tab, click **Add TCP NSS Feed**. The **Add TCP NSS Feed** window appears.
+3. In the**Add TCP NSS Feed** window: See image.
+  - **Feed Name:**Enter or edit the name of the feed. Each feed is a connection between the NSS and your SIEM system.
+  - **NSS Type**: **NSS for Web** is selected by default.
+  - **NSS Server**: Select an NSS server from the list. A [configured NSS server](https://help.zscaler.com/zia/adding-nss-servers) is required to add an NSS feed.
+  - **Status:**The NSS feed is **Enabled** by default. Choose **Disabled** if you want to activate it at a later time.
+  - **SIEM Destination Type**: Select the type of destination:
+    - **SIEM IP Address**:Enter the IP address of the SIEM system to which the logs are streamed.
+    - **SIEM FQDN**: Enter the destination for the TCP connection to which the logs are streamed. This allows failover from one IP to the other without manual intervention, but rather relying on updating the DNS entry. The NSS re-resolves the FQDN only when the existing connection goes down. This feature cannot be used for DNS-based load balancing.
+  - **SIEM TCP Port**: Enter the port number of the SIEM system to which the logs are streamed. Ensure that the SIEM system is configured to accept the feed from the NSS.
+  - **SIEM Rate**: Leave as **Unlimited**, unless you need to throttle the output stream due to licensing or other constraints.
+    - **SIEM Rate Limit (Events per Second)**: This is only applicable if you selected **Limited** under SIEM Rate. Enter an appropriate rate limit for the events per second that you want streamed to your SIEM system. This number must be between 100 and 1,000,000. A limit that is too low for the traffic volume causes log loss.
+  - **Log Type**:Choose **SCIM**.
+  - **Feed Output Type**:The output is a comma-separated (**CSV**) list by default. Choose **Tab-separated**to create a tab-separated list. Choose **Custom**to use a different delimiter, such as a dash, and enter the delimiter when you specify the feed output format. This menu also lists feed output types for specific SIEM systems.
+  - **Feed Escape Character**: The Zscaler service hex encodes all non-printable ASCII characters that are in URLs when it sends logs to the NSS. Any URL character that is less than 0x21, or above 0x7E, is encoded as `%HH`. This ensures that your SIEM system is able to parse the URLs in case they contain non-printable characters. For example, a `\n` char in a URL is encoded as `%0A`, and a space is encoded as `%20`. In this field, you can specify additional characters that you want to encode. For example, type a comma (,) to encode it as `%2C`. This is useful if you are using this character as your delimiter and want to ensure it does not cause erroneous delimitation. Note that the service encodes characters in URLs, hostnames, and referrer URLs only. If custom encoding was done for a record, the `%s{eedone}` field is `YES` for that record.
+  - **Feed Output Format**:These are the fields that are displayed in the output. You can edit the default list and if you chose **Custom**as the **Feed Output Type**, change the delimiter as well. To learn more about the available fields and their syntax, see [NSS Feed Output Format: SCIM Logs](https://help.zscaler.com/zia/nss-feed-output-format-zidentity-authentication-logs).
+  - **Time Zone**:By default, this is set to the organization's time zone. The time zone you set applies to the time field in the output file. The time zone automatically adjusts to changes in daylight savings in the specific time zone. The configured time zone can be output to the logs as a separate field. The list of time zones is derived from the IANA Time Zone database. Direct GMT offsets can also be specified.
+  - **Duplicate Logs**: To ensure that no logs are skipped during downtime, specify the number of minutes that the NSS sends duplicate logs. Zscaler recommends setting the number to 5 minutes, or more if required. This allows the NSS to send up to 60 minutes (one hour) of logs to the SIEM system after the connection is restored. To learn more, see [General Guidelines for NSS Feeds and Feed Formats](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats#duplicate-logs-example).
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+[Image: The NSS configurations for SCIM logs in the Add TCP NSS Feed window]
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -523,13 +621,13 @@ To add a custom threat category,
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-urls-allowlist","lastmod":"2026-04-24T03:21Z","nid":"1399311"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-urls-allowlist","lastmod":"2026-10-06T12:34Z","nid":"1399311"} -->
 ## Adding URLs to the Allowlist
 
 - Source: https://help.zscaler.com/zia/adding-urls-allowlist
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > Adding URLs to the Allowlist
-- Last modified: 2026-04-24T03:21Z
+- Last modified: 2026-10-06T12:34Z
 - Summary: How to place URLs on the allowlist in Malware Protection, Advanced Threats Protection, and URL Filtering policies.
 
 There might be trusted websites of partners or vendors whose webmail or file downloads might otherwise be blocked due to anti-virus, anti-spyware, anti-malware, or URL filtering policies. You can exempt URLs from security scans, URL filtering, or both.
@@ -544,9 +642,9 @@ Adding URLs to the allowlist for security scans allows users to download content
 
 To add URLs to the allowlist for security policies:
 
-1. Go to one of the following pages:
-  - **Policies**> **Cybersecurity**> **Inline Security**> **Malware Protection**.
-  - **Policies**>**Cybersecurity**> **Inline Security**> **Advanced Threat Protection**
+1. From the[navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to one of the following pages:
+  - **Cyberthreat Protection**> **Policy**> **Malware Protection**
+  - **Cyberthreat Protection**> **Policy**> **Advanced Threat Protection**
 2. Click the **Security Exceptions** tab.
 3. In **Do Not Scan Content from these URLs**, enter the URLs you want to allowlist and click **Add Items**. You can enter multiple entries by pressing `Enter` after each entry. You can add up to 1,024 URLs. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). For guidance on entering URLs, see the [URL format guidelines](https://help.zscaler.com/zia/url-format-guidelines). For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
 
@@ -568,21 +666,21 @@ Ensure that the rule order of this rule is higher than the URL Filtering rule th
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-urls-denylist","lastmod":"2026-07-02T05:05Z","nid":"1398821"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-urls-denylist","lastmod":"2026-10-06T13:30Z","nid":"1398821"} -->
 ## Adding URLs to the ATP URL Allowlist or Denylist
 
 - Source: https://help.zscaler.com/zia/adding-urls-denylist
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Advanced Threat Protection > Adding URLs to the ATP URL Allowlist or Denylist
-- Last modified: 2026-07-02T05:05Z
+- Last modified: 2026-10-06T13:30Z
 - Summary: How to place URLs on the allowlist and denylist using the Zscaler Advanced Threats Protection policy.
 
 Manage URLs by adding them to the allowlist or denylist with the [Advanced Threat Protection policy](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy). You can grant specific URLs permissions to access designated websites, browsers, or applications by adding them to the allowlist. URLs that have been added to the allowlist are accessible even if they would otherwise be blocked by other security measures or policies. You can also add specific URLs to the denylist to block access to these URLs and prevent users from accessing potentially malicious content.
 
 To add a URL to the allowlist or denylist:
 
-1. Go to **Policies** > **Cybersecurity** > **Inline Security** > **Advanced Threat Protection**.
-2. On the **Advanced Threats Policy**page, under **Blocked Malicious URLs**, enter the URLs you want to block for your organization. See image. You can view the list of blocked malicious URLs on the [Advanced Threat Protection policy](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy#Malicious) page. Also, you can see the blocked URLs accessed by the users on the [Insights Logs](https://help.zscaler.com/zia/about-insights-logs) page. If you need further assistance, contact Zscaler Support.
+1. Go to **Cyberthreat Protection**> **Advanced Threat Protection**.
+2. On the **Advanced Threats Policy**page, in the **Malicious Active Content Protection** section, under **Blocked Malicious URLs**, enter the URLs you want to block for your organization. See image. You can view the list of blocked malicious URLs on the [Advanced Threat Protection policy](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy#Malicious) page. Also, you can see the blocked URLs accessed by the users on the [Insights Logs](https://help.zscaler.com/zia/about-insights-logs) page. If you need further assistance, contact Zscaler Support.
 3. Optional: To add a comment to a URL, enter two forward slashes (//) after each URL entry. Separate each entry by pressing `Shift+Enter`.
 4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
@@ -627,20 +725,20 @@ To add a user:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-virtual-service-edge-clusters-internet-saas","lastmod":"2026-05-11T21:06Z","nid":"1398936"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-virtual-service-edge-clusters-internet-saas","lastmod":"2026-10-06T04:42Z","nid":"1398936"} -->
 ## Adding Virtual Service Edge Clusters for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/adding-virtual-service-edge-clusters-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Virtual Service Edge > Adding Virtual Service Edge Clusters for Internet & SaaS
-- Last modified: 2026-05-11T21:06Z
+- Last modified: 2026-10-06T04:42Z
 - Summary: Information on how to add a Virtual Service Edge cluster for Internet & SaaS (ZIA) in the Zscaler Admin Console.
 
 Adding a Virtual Service Edge cluster for Internet & SaaS (ZIA) is one of the tasks you must complete when deploying Virtual Service Edge clusters. To learn more, see [Configuring Virtual Service Edge Clusters](https://help.zscaler.com/zia/configuring-virtual-service-edge-clusters).
 
 To add a Virtual Service Edge cluster:
 
-1. Go to **Infrastructure** > **Internet & SaaS** > **Traffic Forwarding** >**Virtual Service Edges**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure** > **Internet & SaaS** >**Virtual Service Edges**.
 2. Click the **Virtual Service Edge Clusters** tab.
 3. Click **Add Virtual Service Edge Cluster**. The **Add Virtual Service Edge Cluster** window appears.
 4. In the **Add Virtual Service Edge Cluster** window: See image. Ensure that the Virtual Service Edge cluster, proxy, load balancer, and gateway IP addresses are in the same subnet. To learn more, see [Adding Virtual Service Edge Instances for Internet & SaaS](https://help.zscaler.com/zia/adding-virtual-service-edge-instances-internet-saas).
@@ -658,20 +756,20 @@ To add a Virtual Service Edge cluster:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-virtual-service-edge-instances-internet-saas","lastmod":"2026-07-31T10:33Z","nid":"1398916"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-virtual-service-edge-instances-internet-saas","lastmod":"2026-10-06T04:39Z","nid":"1398916"} -->
 ## Adding Virtual Service Edge Instances for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/adding-virtual-service-edge-instances-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Virtual Service Edge > Adding Virtual Service Edge Instances for Internet & SaaS
-- Last modified: 2026-07-31T10:33Z
+- Last modified: 2026-10-06T04:39Z
 - Summary: How to add a Virtual Service Edge instance for Internet & SaaS (ZIA) in the Zscaler Admin Console.
 
 Adding a Virtual Service Edge instance for Internet & SaaS (ZIA) is one of the tasks you must complete when deploying Virtual Service Edge clusters. To learn more, see [Configuring Virtual Service Edge Clusters](https://help.zscaler.com/zia/configuring-virtual-service-edge-clusters).
 
 To add a Virtual Service Edge instance:
 
-1. Go to **Infrastructure**> **Internet & SaaS** > **Traffic Forwarding** > **Virtual Service Edges**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure**> **Internet & SaaS** > **Virtual Service Edges**.
 2. Click **Add Virtual Service Edge**. The **Add Virtual Service Edge** window appears.
 3. In the **Add Virtual Service Edge** window:
   - **Name**: Enter a name for the Virtual Service Edge.
@@ -683,7 +781,7 @@ To add a Virtual Service Edge instance:
   - **Default Gateway**: Enter the IP address of the default gateway to the internet.
   - **Load Balancer IP Address**: Appears only when **Cluster** is selected as the deployment mode. Enter the IP address of the load balancer.
   - **Deployment Mode**: Select either **Cluster**or **Standalone**if you have the VMware ESXi platform. Otherwise, select only **Standalone**. If clustering fault tolerance is required, ensure to have an external load balancer for **Standalone** deployment.
-  - **IPSec Local Termination**: Enable this option to terminate IPSec traffic from the client at the Virtual Service Edge node. By default, this option is disabled. If you select the deployment mode as **Cluster**, this option becomes read-only and displays the actual status of IPSec Local Termination of the Virtual Service Edge in the cluster. If you want to change the IPSec Local Termination status of the Virtual Service Edge in a cluster, you can do it from the **Infrastructure**>**Internet & SaaS**> **Traffic Forwarding** > **Virtual Service Edges** > **Virtual Service Edge** **Clusters** page. To learn more, see [Adding Virtual Service Edge Clusters](https://help.zscaler.com/zia/adding-virtual-service-edge-clusters). See image.
+  - **IPSec Local Termination**: Enable this option to terminate IPSec traffic from the client at the Virtual Service Edge node. By default, this option is disabled. If you select the deployment mode as **Cluster**, this option becomes read-only and displays the actual status of IPSec Local Termination of the Virtual Service Edge in the cluster. If you want to change the IPSec Local Termination status of the Virtual Service Edge in a cluster, you can do it from the **Infrastructure**>**Internet & SaaS**> **Virtual Service Edges** > **Virtual Service Edge** **Clusters** page. To learn more, see [Adding Virtual Service Edge Clusters](https://help.zscaler.com/zia/adding-virtual-service-edge-clusters). See image.
   - **Zscaler Initiated On-Demand Support Tunnel**: Enable this option to allow Zscaler to establish a support tunnel whenever required. This option is disabled by default. If this option is enabled, you cannot establish a support tunnel from the Zscaler Admin Console. Also, the **Establish Support Tunnel** option is greyed out.
   - **Establish Support Tunnel**: Enable this option to allow the service to establish a support tunnel for Zscaler Support to access the Virtual Service Edge. This option is disabled by default. This option is available only when the **Zscaler Initiated On-Demand Support Tunnel** is disabled.
   - **Virtual Service Edge ID**: You can see the Virtual Service Edge ID used by Zscaler to identify and access the Virtual Service Edge using the established support tunnel. See image.
@@ -788,13 +886,13 @@ To add a webhook:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-webmail-rule-cloud-app-control","lastmod":"2026-09-29T05:07Z","nid":"1400181"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-webmail-rule-cloud-app-control","lastmod":"2026-10-09T05:22Z","nid":"1400181"} -->
 ## Adding a Webmail Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-webmail-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Webmail Rule for Cloud App Control
-- Last modified: 2026-09-29T05:07Z
+- Last modified: 2026-10-09T05:22Z
 - Summary: Information on how to add a rule for Webmail cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -883,7 +981,7 @@ See image.
 
 - **Browser Notification Template**: Select a browser-based EUN message from the drop-down menu to display the message on the browser when the user activity triggers the Cloud App Control policy rule. This field appears when the application access is set to either **Caution** or **Block**. See image.
 - **End User Notification**: Select **Show** to show the Zscaler Client Connector-based EUN message on endpoints when the user activity triggers the Cloud App Control policy rule, or select **Hide** if you don't want an EUN message to appear. This field is set to **Show** by default. This field appears when the granular action is blocked for the selected applications. See image.
-  - **Custom Message**: Select a custom notification message that you want to show as the Zscaler Client Connector-based EUN. This field is set to the **Default** notification message if no message is selected from the drop-down menu.
+  - **Notification Message**: Select a notification message that you want to show as the Zscaler Client Connector-based EUN. This field is set to the **Default** notification message if no message is selected from the drop-down menu.
 
 - **Cloud Applications**: Select **Any** to apply the rule to all cloud applications in this category, or select any number of cloud applications. You can also search for applications. By default, this field displays the first 100 cloud applications.
 - **Cloud Application Instances**: Select the cloud application instances to which the rule applies. You can select a maximum of 8 instances per rule. The cloud application instance appears only if its parent application is selected as the cloud application.
@@ -914,7 +1012,7 @@ Choose to allow the users to view webmail, send webmail, and send webmail with a
 - **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
 - **Tenant Profile**: Appears only when **Gmail** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). Ensure that the applications selected under the tenant profiles are not exempted from SSL/TLS Inspection.
-- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Internet Access**>**Setting** > **Advanced Settings**).
 
 Choose to display an EUN that cautions users before allowing them to view webmail on the selected applications.
 
@@ -922,7 +1020,7 @@ You can select this action for only one of the following request methods: **CONN
 
 - **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
-- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Internet Access**>**Setting** > **Advanced Settings**).
 
 Choose toblock the users from viewing webmail, sending webmail, and sending webmail with attachments via the selected applications.
 
@@ -940,7 +1038,7 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 - **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
 - **Tenant Profile**: Appears only when **Gmail** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). Ensure that the applications selected under the tenant profiles are not exempted from SSL/TLS Inspection.
-- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Policies**>**Common Configuration**>**Advanced** > **Advanced Settings**).
+- **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Internet Access**>**Setting** > **Advanced Settings**).
 
 [Image: Criteria menu on the Webmail page]
 
@@ -1297,92 +1395,79 @@ You can add filters by clicking the [Image: The Add filters options allows you t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/analyzing-endpoint-dlp-scan-user","lastmod":"2026-05-27T03:05Z","nid":"1480106"} -->
-## Analyzing Endpoint DLP Scan for a User
+<!-- ZS-ARTICLE {"url":"/zia/analyzing-endpoint-dlp-scan-user-data-rest","lastmod":"2026-10-08T10:40Z","nid":"1541976"} -->
+## Analyzing Endpoint DLP Scan for a User: Data at Rest
 
-- Source: https://help.zscaler.com/zia/analyzing-endpoint-dlp-scan-user
+- Source: https://help.zscaler.com/zia/analyzing-endpoint-dlp-scan-user-data-rest
 - Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Analyzing Endpoint DLP Scan for a User
-- Last modified: 2026-05-27T03:05Z
+- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Analyzing Endpoint DLP Scan for a User: Data at Rest
+- Last modified: 2026-10-08T10:40Z
 - Summary: Information about the Endpoint DLP scan details for a user on the User Investigation page.
 
-The User Scan Details drawer (Analytics > Endpoint Data Scan > User Investigation > click a user) displays Endpoint Data Loss Prevention (DLP) scan details for the user you select on the [User Investigation](https://help.zscaler.com/zia/about-user-investigation) page. The drawer shows all the scan details from the user's perspective.
+The Data at Rest page (Analytics > Endpoint Data Scan > User Investigation > click a user > Data at Rest) displays Endpoint Data Loss Prevention (DLP) scan details for the user you select on the [User Investigation](https://help.zscaler.com/zia/about-user-investigation) page. The drawer shows the latest Endpoint Data Scan details from the user's perspective.
 
-The following sections are available in the drawer:
+The following sections are available on the Data at Rest page:
 
-- 1. User & Endpoint Details
-- 2. Overall Totals
-- 3. Sensitive Files Discovered
-- 4. Activities & Incidents
-
-- **User Details**:
-  - **Email Address**: The email address of the user.
-  - **User Risk Profile**: The risk profile assigned to the user (Low, Medium, High, or Critical). Zscaler analyzes your organization's user behavior trends and builds a risk profile dynamically by assigning a user risk score to each user. To learn more, see [Understanding User Risk Score](https://help.zscaler.com/zia/understanding-user-risk-score).
-  - **Department**: The name of the department that the user belongs to.
-- **Endpoint Details**:
-  - **Device Name**: The device name of the endpoint.
-  - **Device ID**: The device ID assigned to the endpoint. Each endpoint is assigned a unique device ID.
-  - **Device OS**: The operating system of the device on which it's running.
-  - **DLP Version**: The DLP version currently running on your Zscaler Client Connector. To learn more, see [Viewing Information About Zscaler Endpoint DLP on Zscaler Client Connector](https://help.zscaler.com/client-connector/viewing-information-about-zscaler-endpoint-dlp-zscaler-client-connector).
-  - **Device Trust Level**: The device trust level assigned to the device. To learn more, see [Adding ZIA Posture Profiles](https://help.zscaler.com/client-connector/adding-zia-posture-profiles).
-  - **Last Update**: The last update on the endpoint based on an incident, activity, or scan.
-  - **Last Scan**: The date and time when the last scan was performed on the endpoint.
-  - **Nearby Sharing Status**: The status of nearby sharing for the endpoint.
-
-[Image: This image shows the User & Endpoint Details]
-
-This section consists of the following widgets:
-
-- **Sensitive Files Discovered**: The total number of sensitive files discovered on the user's endpoints from the last scan. The scan is performed every day.
-- **Activities**:The total number of actions performed by the user over the last one month.
-- **Incidents**: The total number of incidents by the user over the last one month.
-
-[Image: This image shows the Overall Total section.]
-
-This tab shows sensitive file details discovered on the user's endpoints from the following perspectives:
-
-- **Number of Sensitive Files Found**: You can monitor the 30-day trend of sensitive data stored on each user's device, providing an easy way to track changes in a user's activity over time.
-- **Top Sensitive Data**:
-  - **DLP Engines**: The number of sensitive files discovered for theDLP engines category on the endpoints. Click **View All** to view a detailed list of sensitive files.
-  - **AI & ML Categories**: The number of sensitive files discovered for the AI & ML categories on the endpoints. Click **View All** to view a detailed list of sensitive files.
-- **Distribution by File Type:** The number of sensitive files discovered by the file type (e.g., PDF, TXT, ZIP).
-- **Top Sensitive Files Discovered**:This table shows all the sensitive files discovered on the endpoints. For each file, you can view:
-  - **Export**: You can export the details of the sensitive file discovered in a CSV format.
+1. Select **All Endpoints** or a specific endpoint for which you want to view the data for on this page. Applicable only when users have more than one endpoint.
+2. **Total Files Scanned**: View the number of files scanned on the user endpoint.
+3. **Top Sensitive Data**: The number of sensitive files discovered for theDLP engines and AI & ML categories on the endpoints. Click **View All** to view a detailed list of sensitive files.
+4. **Sensitive Data by File Type:** The number of sensitive files discovered by file type (e.g., PDF, TXT, ZIP).
+5. **Files with Sensitive Data**: View the number of sensitive files stored on the user endpoint. You can also view the increase or decrease in the percentage for the current week.
+6. **Top Sensitive Files Discovered**: The table shows the top 20 sensitive files based on DLP engines and AL & ML category match. Export the data to analyze the complete list of sensitive files discovered. For each file, you can view:
   - **File Name**: The name of the file.
   - **File Size**: The file size.
-  - **DLP Engines**: The DLP engines that the file triggered.
-  - **AI & ML Categories**: The AL & ML categories under which the file is classified.
+  - **DLP Engines**: The DLP engines triggered by the file.
+  - **AI & ML Categories**: The AL & ML categories for the file.
   - **Path**: The path where the file is stored on the endpoint.
   - **Dictionaries**: The list of DLP dictionaries triggered by the file.
   - **File Type**: The file type (TXT, ZIP, DOCX).
-  - **SHA-256**: The unique and irreversible hash of the file used for cryptographic security.
+  - **SHA256**: The unique and irreversible hash of the file used for cryptographic security.
+7. Export the data to analyze the complete list of sensitive files discovered.
+8. [Modify columns in the table](https://help.zscaler.com/unified/using-tables).
 
-[Image: This image shows the Sensitive Files Discovered tab. Details]
+[Image: Data at Rest tab in User Investigation]
+<!-- /ZS-ARTICLE -->
 
-This tab shows activities and incidents performed by the user from the following perspectives.
+---
 
-1. Filter the data shown in this tab by its **Type**(**Activity**or **Incident**). You can add filters by clicking the plus icon. The available filter options are: **Destination**, **Severity**, **DLP Engines**, and **AI & ML Categories**.
-2. **Analytics:**You can view the following information:
-  - **Activities and Incidents by Severity over the Last Month**: The graph shows the number of activities and incidents trend by their severity for the last 30 days. Hover over a date in the graph to view the number of activities, incidents, and split by severity (Info, Low, Medium, or High) for that day.
-  - **Top DLP Engines**: The DLP engines that the file triggered.
-  - **Top AI & ML Categories**: The AI & ML categories under which the file is classified.
-  - **Top Destinations**: This section shows the top destinations for the activities and incidents performed by the user, along with the total count (Removable Storage, My Printer, etc.).
-3. **Timeline**: The table shows the following information for each activity or incident:
-  - **Rule Name**: Name of the rule that got triggered.
-  - **Action**: The action taken when the policy rule got triggered.
-  - **Destination**: The destination of the file involved in the activity or incident
-4. **Event Details**: Click on a particular time on the timeline to view the event details:
-  - **Severity**: Displays the severity of the violation.
-  - **Transaction ID**: Allows you to copy the transaction ID for further analysis.
-  - **Time/Date**: The date and local time at the endpoint location when the activity or incident was performed.
-  - **Who**: Displays the user name and device name that triggered the rule.
-  - **Why**: Displays the triggered rule (the other rules that matched) and DLP engine name.
-  - **What**: Displays details of file name, source path, true file type, file extension, and SHA-256 details.
-  - **How**: Displays the destination, destination path, vendor ID, and product ID.
+<!-- ZS-ARTICLE {"url":"/zia/analyzing-endpoint-dlp-scan-user-timeline","lastmod":"2026-10-08T10:40Z","nid":"1541998"} -->
+## Analyzing Endpoint DLP Scan for a User: Timeline
 
-[Image: This image shows the Activities & Incidents tab.etails]
+- Source: https://help.zscaler.com/zia/analyzing-endpoint-dlp-scan-user-timeline
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Analyzing Endpoint DLP Scan for a User: Timeline
+- Last modified: 2026-10-08T10:40Z
+- Summary: Information about the Endpoint DLP scan details: Timeline for a user on the User Investigation page.
 
-[Image: This image shows the User Investigation Details Page.tails]
+The Timeline page (Analytics > Endpoint Data Scan > User Investigation > click a user > Timeline) provides a chronological view of Endpoint Data Loss Prevention (DLP) events for the selected user on the [User Investigation](https://help.zscaler.com/zia/about-user-investigation) page. It highlights trends and user activity over time, which includes the following event types that help analysts quickly understand user behavior, gain context, and identify areas that might require further investigation:
+
+- Sensitive Activities
+  - Outbound: Events are created based on DLP engines or AI & ML categories, without any rule being triggered, when sensitive file exfiltrations are identified to the supported channels (i.e., Removable Storage, Printer, Network Share, Personal Cloud Storage).
+  - Inbound: Events are created when sensitive files ingress to the endpoint from web, removable storage, and network share based on a DLP engine match. These events are aggregated based on the source with a rolling time of 15 minutes. These events contain a summary of the related files' metadata (URL, file name, size, DLP engines, etc.)
+- Incidents: Endpoint DLP or Device Control rules. When a rule is triggered, an incident is reported.
+- Indicators of Intent: Signals of risky user behavior on the endpoint, such as unusual data movement, policy bypass activity, security setting changes, or attempts to hide sensitive files.
+
+The following sections are available in the Timeline tab:
+
+1. Filter the data shown in this tab. You can add filters by clicking the **Add**icon ( ). The available filter options are **Type**, **Channel**, **Destinations**, **Destination Type**, **Severity**, **DLP Engines**, **AI & ML Categories**,**Transaction ID**, and**Rule Name**.
+2. **Trend**: This trend chart shows the number of activities, incidents, and intent trend by their severity for the last 30 days. Hover over a date to view the number of activities, incidents, intent, and their split by severity (Info, Low, Medium, or High) for that day. The color levels indicate impact based on a weighted calculation of incident number and severity.
+3. This section shows the following information for each activity, incident, or intent in descending time order for the last 30 days:
+  - **Rule Name**: Name of the triggered rule.
+  - **Action**: The action taken for the triggered policy rule.
+  - **Destination**: The destination of the file. Click the **Refresh** icon to update the section.
+4. For the activity selected in the preceding section, this section shows the following event details:
+  - **Severity**: The severity of the violation.
+  - **Date**: The date and local time at the endpoint location when the activity, incident, or intent was performed.
+  - The transaction ID that you can copy for further analysis.
+  - The event from a visual perspective.
+  - **Policy & Detection**: The triggered rule (the other rules that matched) with the actions.
+  - **File Details**: The file name, source path, true file type, file extension, and SHA256 details.
+  - **Source**: The endpoint name and the path.
+  - **Destination**: The destination name, destination path, vendor ID, and product ID.
+  - **Endpoint**: The endpoint details of name, network type, OS, Endpoint DLP version, etc. for the endpoint from where the event was performed.
+  - **User Details**: The username and the department the user belongs to that performed the event.
+
+[Image: Timeline tab in User Investigation]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2151,13 +2236,13 @@ These instructions allow Zscaler to make API calls to the project resource by en
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/authorizing-custom-zscaler-connector-microsoft-applications","lastmod":"2026-10-04T07:06Z","nid":"1483116"} -->
+<!-- ZS-ARTICLE {"url":"/zia/authorizing-custom-zscaler-connector-microsoft-applications","lastmod":"2026-10-11T07:06Z","nid":"1483116"} -->
 ## Authorizing a Custom Zscaler Connector for Microsoft Applications
 
 - Source: https://help.zscaler.com/zia/authorizing-custom-zscaler-connector-microsoft-applications
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > Authorizing a Custom Zscaler Connector for Microsoft Applications
-- Last modified: 2026-10-04T07:06Z
+- Last modified: 2026-10-11T07:06Z
 - Summary: Information on how to configure Microsoft applications to use a custom Zscaler connector.
 
 The Zscaler service supports custom, client-side connector onboarding for access to the following Microsoft applications: Exchange, Microsoft Information Protection (MIP) Labels, OneDrive, SharePoint, Microsoft Azure Blob Storage, Teams, Dynamics 365, Copilot, and Microsoft 365. With this functionality, instead of requiring full administrator credentials, the Zscaler service can use a minimum set of credentials to access your Microsoft applications.
@@ -2274,158 +2359,240 @@ For additional information about the files you need to create, refer to the foll
 | File Name | Description | Usage |
 | --- | --- | --- |
 | `private_key.pem` | AES-256 encrypted RSA private key | Used to create `combined.pem`. |
-| `certificate.pem` | Self-signed certificate | Upload on Azure Portal. |
+| `certificate.pem` | Self-signed certificate | Upload in Azure portal. |
 | `combined.pem` | Combined PEM file containing the private key and certificate | Upload on Internet & SaaS onboarding page. |
 
-To generate a certificate on a Windows device, copy the following code and run the commands using OpenSSL.
+To generate a certificate on a Windows device, copy the following code and run the commands using OpenSSL:
 
 ```
 <#
 .SYNOPSIS
-  Generate AES-encrypted RSA key and a self-signed certificate with an interactive pause.
+  Generate an AES-256 encrypted RSA private key + self-signed certificate,
+  then bundle them into combined.pem. Compatible with OpenSSL 1.1.1 and 3.x.
 
-.DESCRIPTION
-  - Prompts for a passphrase (masked).
-  - Generates encrypted private key using OpenSSL.
-  - Pauses so operator can choose interactive subject prompts or provide a subject string.
-  - Decrypts the private key, combines key + certificate into a single PEM.
-  - Cleans up temporary passfile and clears sensitive memory.
+.NOTES
+  Fixes vs. original:
+    - Auto-resolves openssl.exe (param -> PATH -> Git mingw64 -> Win64).
+    - Removes $ErrorActionPreference='Stop' (misfires on native stderr in PS 5.1);
+      relies on explicit $LASTEXITCODE checks instead.
+    - Prompts for the passphrase ONCE and passes it via an env var to every
+      openssl call (-pass / -passin env:PW) so there are no repeated/interactive
+      passphrase prompts and no stderr-prompt fragility.
+    - MSYS path-conversion guards so -subj is never mangled.
 #>
 
 [CmdletBinding()]
 param(
-    [string]$OpenSSL = 'C:\Program Files\OpenSSL-Win64\bin\openssl.exe',
+    [string]$OpenSSL    = '',                       # leave blank to auto-detect
     [string]$WorkingDir = "$env:USERPROFILE\Downloads",
-    [int]$Days = 365
+    [int]   $Days       = 0,
+    [string]$Subject    = '',                        # e.g. /C=US/ST=State/L=City/O=Org/CN=example.com
+    [string]$Passphrase = '',                         # non-interactive/automation only; omit for secure prompt
+    [switch]$EnableLog,                               # OFF by default. Pass -EnableLog to write a debug log file.
+    [string]$LogFile    = '',                         # optional custom log path; defaults to <WorkingDir>\New-CombinedPem.log
+    [version]$MinVersion = '3.0.0'                     # minimum supported OpenSSL; the script refuses to run below this
 )
 
 Set-StrictMode -Version Latest
-$ErrorActionPreference = 'Stop'
+# Do NOT use 'Stop' around native exes on PS 5.1 — openssl's stderr prompts
+# can be promoted to terminating errors. We check $LASTEXITCODE explicitly.
+$ErrorActionPreference = 'Continue'
 
-# Paths
-$EncryptedKey = Join-Path $WorkingDir "private_encrypted.pem"
-$DecryptedKey = Join-Path $WorkingDir "private_decrypted.pem"
-$Certificate  = Join-Path $WorkingDir "certificate.pem"
-$CombinedPEM  = Join-Path $WorkingDir "combined.pem"
+# Guard the MSYS/mingw runtime against mangling POSIX-looking args (e.g. -subj).
+$env:MSYS_NO_PATHCONV     = '1'
+$env:MSYS2_ARG_CONV_EXCL  = '*'
 
-# Validate OpenSSL
-if (-not (Test-Path -Path $OpenSSL)) {
-    Write-Error "OpenSSL not found at '$OpenSSL'. Update the path or install OpenSSL."
-    exit 1
+# ---- Optional debug logging (opt-in via -EnableLog) --------------------------    
+# When -EnableLog is NOT supplied, Write-Log is a no-op: no file is created and
+# nothing is written. Secrets (passphrase) are never logged.
+if ($EnableLog -and -not $LogFile) { $LogFile = Join-Path $WorkingDir 'New-CombinedPem.log' }
+function Write-Log {
+    param([string]$Message, [string]$Level = 'INFO')
+    if (-not $EnableLog) { return }
+    try {
+        $dir = Split-Path -Parent $LogFile
+        if ($dir -and -not (Test-Path $dir)) { New-Item -ItemType Directory -Path $dir -Force | Out-Null }
+        $line = '{0} [{1}] {2}' -f (Get-Date -Format 'yyyy-MM-dd HH:mm:ss'), $Level, $Message
+        Add-Content -Path $LogFile -Value $line -Encoding UTF8
+    } catch { }   # logging must never break the actual work
+}
+Write-Log ("=== New-CombinedPem started | PS {0} | {1} ===" -f $PSVersionTable.PSVersion, [Environment]::OSVersion.VersionString)
+if ($EnableLog) { Write-Host "Debug log: $LogFile" }
+
+function Resolve-OpenSSL {
+    param([string]$Preferred)
+    $candidates = @(
+        $Preferred,
+        (Get-Command openssl -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source -First 1),
+        'C:\Program Files\OpenSSL-Win64\bin\openssl.exe',
+        'C:\Program Files\Git\mingw64\bin\openssl.exe'
+    )
+    foreach ($c in $candidates) { if ($c -and (Test-Path -Path $c)) { return $c } }
+    return $null
 }
 
-# Ensure working directory exists
+$OpenSSL = Resolve-OpenSSL -Preferred $OpenSSL
+if (-not $OpenSSL) {
+    Write-Log 'OpenSSL not found on this machine.' 'ERROR'
+    Write-Error "OpenSSL not found. Install it or pass -OpenSSL 'C:\path\to\openssl.exe'."
+    exit 1
+}
+Write-Host "Using OpenSSL: $OpenSSL"
+Write-Log "OpenSSL resolved: $OpenSSL"
+$verLine = (& $OpenSSL version) | Select-Object -First 1
+if ($LASTEXITCODE -ne 0 -or -not $verLine) {
+    Write-Log "OpenSSL failed to run (exit $LASTEXITCODE)." 'ERROR'
+    Write-Error "OpenSSL failed to run."; exit 1
+}
+Write-Host "Detected: $verLine"
+
+# Enforce a minimum OpenSSL version. At >= 3.0.0 the modern `genpkey` path is
+# always available, so no legacy branching is needed. LibreSSL is not supported.
+if ($verLine -match 'LibreSSL') {
+    Write-Log "Unsupported toolkit: $verLine" 'ERROR'
+    Write-Error "LibreSSL is not supported. Use OpenSSL $MinVersion or newer."; exit 1
+}
+if ($verLine -notmatch 'OpenSSL\s+(\d+)\.(\d+)\.(\d+)') {
+    Write-Log "Could not parse OpenSSL version from: $verLine" 'ERROR'
+    Write-Error "Could not determine OpenSSL version from '$verLine'."; exit 1
+}
+$detected = [version]("{0}.{1}.{2}" -f $Matches[1], $Matches[2], $Matches[3])
+if ($detected -lt $MinVersion) {
+    Write-Log "OpenSSL $detected is below the minimum required ($MinVersion)." 'ERROR'
+    Write-Error "OpenSSL $detected found, but $MinVersion or newer is required."; exit 1
+}
+Write-Host "Version OK: $detected (>= $MinVersion)"
+Write-Log "Version: $verLine | detected $detected (min $MinVersion)"
+
+# ---- Paths -------------------------------------------------------------------
 if (-not (Test-Path -Path $WorkingDir)) {
     New-Item -ItemType Directory -Path $WorkingDir -Force | Out-Null
 }
+$EncryptedKey = Join-Path $WorkingDir 'private_key.pem'
+$Certificate  = Join-Path $WorkingDir 'certificate.pem'
+$CombinedPEM  = Join-Path $WorkingDir 'combined.pem'
 
-# Prompt for passphrase (masked)
-$passwordSecure = Read-Host -AsSecureString "Enter passphrase to encrypt the private key (masked)"
-if ($null -eq $passwordSecure) {
-    Write-Error "No passphrase provided. Aborting."
-    exit 1
+# ---- Validity days -----------------------------------------------------------
+if ($Days -le 0) {
+    $daysInput = Read-Host 'Enter certificate validity in days (e.g. 365)'
+    if (-not [int]::TryParse($daysInput, [ref]$Days) -or $Days -le 0) {
+        Write-Error 'Invalid days value. Must be a positive integer.'; exit 1
+    }
 }
 
-# Prompt for passphrase (masked)
-$Days = Read-Host -AsString "Enter cert days expiry"
-if ($null -eq $days) {
-    Write-Error "invalid days"
-    exit 1
+# ---- Passphrase --------------------------------------------------------------
+if ($Passphrase) {
+    # Non-interactive path (automation/CI). Passphrase supplied by caller.
+    if ($Passphrase.Length -lt 4) { Write-Error 'Passphrase too short (min 4 chars).'; exit 1 }
+    $env:PW = $Passphrase
+} else {
+    # Secure interactive path: prompt once, with confirmation.
+    $sec1 = Read-Host 'Enter a passphrase for the private key' -AsSecureString
+    $sec2 = Read-Host 'Confirm passphrase' -AsSecureString
+    $b1 = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($sec1)
+    $b2 = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($sec2)
+    try {
+        $p1 = [Runtime.InteropServices.Marshal]::PtrToStringBSTR($b1)
+        $p2 = [Runtime.InteropServices.Marshal]::PtrToStringBSTR($b2)
+        if ($p1 -ne $p2)      { Write-Error 'Passphrases do not match.'; exit 1 }
+        if ($p1.Length -lt 4) { Write-Error 'Passphrase too short (min 4 chars).'; exit 1 }
+        $env:PW = $p1
+    } finally {
+        [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($b1)
+        [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($b2)
+    }
 }
 
-# Convert SecureString to plain in memory briefly
-$BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($passwordSecure)
+Write-Log ("Run params | WorkingDir: {0} | Days: {1} | Subject: {2}" -f $WorkingDir, $Days, ($(if ($Subject) { $Subject } else { '(interactive)' })))
+
 try {
-    $PlainPassword = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
+    # ---- Step 1: encrypted RSA private key ----------------------------------
+    # OpenSSL >= 3.0.0 (enforced above) always supports genpkey with -pass.
+    Write-Host "`n[1/4] Generating AES-256 encrypted RSA private key (genpkey)..."
+    & $OpenSSL genpkey -algorithm RSA -aes256 -pkeyopt rsa_keygen_bits:2048 `
+        -pass env:PW -out "$EncryptedKey"
+    if ($LASTEXITCODE -ne 0 -or -not (Test-Path $EncryptedKey)) {
+        Write-Log "Step 1 FAILED: key not generated (openssl exit $LASTEXITCODE)." 'ERROR'
+        Write-Error 'Failed to generate encrypted private key.'; exit 1
+    }
+    Write-Host "      OK -> $EncryptedKey"
+    Write-Log 'Step 1 OK: private_key.pem generated.'
+
+    # ---- Step 2: self-signed certificate ------------------------------------
+    # `req` needs an openssl.cnf. Some builds (portable zips, relocated installs)
+    # have a compiled-in config path that doesn't exist -> req fails. We try the
+    # build's own config first, then transparently retry with a generated
+    # minimal config so the script works regardless of how OpenSSL was deployed.
+    Write-Host "`n[2/4] Creating self-signed certificate..."
+    $reqArgs = @('req','-new','-x509','-key',"$EncryptedKey",'-passin','env:PW','-days',"$Days",'-out',"$Certificate")
+    if (-not [string]::IsNullOrWhiteSpace($Subject)) { $reqArgs += @('-subj',"$Subject") }
+
+    & $OpenSSL @reqArgs
+    if ($LASTEXITCODE -ne 0 -or -not (Test-Path $Certificate)) {
+        Write-Host '      (default config unavailable; retrying with a generated minimal config)'
+        Write-Log "Step 2: default openssl.cnf unavailable (exit $LASTEXITCODE); using generated minimal config." 'WARN'
+        $fallbackCnf = Join-Path $WorkingDir '_min_openssl.cnf'
+        # A complete req template so BOTH modes work when the build has no config:
+        #   - with -subj  : the subject overrides these prompts (no interaction)
+        #   - without -subj: OpenSSL prompts interactively for each DN field below
+        $minCnf = @"
+[ req ]
+distinguished_name = req_dn
+prompt = yes
+[ req_dn ]
+countryName = Country Name (2 letter code)
+countryName_default = US
+countryName_min = 2
+countryName_max = 2
+stateOrProvinceName = State or Province Name
+localityName = Locality Name
+0.organizationName = Organization Name
+organizationalUnitName = Organizational Unit Name
+commonName = Common Name (e.g. server FQDN)
+commonName_max = 64
+emailAddress = Email Address
+emailAddress_max = 64
+"@
+        Set-Content -Path $fallbackCnf -Value $minCnf -Encoding ascii
+        $savedConf = if (Test-Path Env:\OPENSSL_CONF) { $env:OPENSSL_CONF } else { $null }
+        $env:OPENSSL_CONF = $fallbackCnf
+        try { & $OpenSSL @reqArgs }
+        finally {
+            if ($null -ne $savedConf) { $env:OPENSSL_CONF = $savedConf }
+            else { Remove-Item Env:\OPENSSL_CONF -ErrorAction SilentlyContinue }
+        }
+        if ($LASTEXITCODE -ne 0 -or -not (Test-Path $Certificate)) {
+            Write-Log "Step 2 FAILED: certificate not created even with fallback config (exit $LASTEXITCODE)." 'ERROR'
+            Write-Error 'Failed to create certificate.'; exit 1
+        }
+    }
+    Write-Host "      OK -> $Certificate"
+    Write-Log 'Step 2 OK: certificate.pem created.'
+
+    # ---- Step 3: combine (byte-level, like `cat`) ---------------------------
+    Write-Host "`n[3/4] Combining key + certificate into combined PEM..."
+    $keyBytes  = [System.IO.File]::ReadAllBytes($EncryptedKey)
+    $certBytes = [System.IO.File]::ReadAllBytes($Certificate)
+    [System.IO.File]::WriteAllBytes($CombinedPEM, $keyBytes + $certBytes)
+    Write-Host "      OK -> $CombinedPEM"
+    Write-Log ("Step 3 OK: combined.pem written ({0} bytes = {1} key + {2} cert)." -f ($keyBytes.Length + $certBytes.Length), $keyBytes.Length, $certBytes.Length)
+
+    # ---- Step 4: verify (works across all versions & key formats) -----------
+    Write-Host "`n[4/4] Verifying..."
+    Write-Host ("      Key header : {0}" -f (Get-Content $EncryptedKey -First 1))
+    # Confirm the key is genuinely encrypted AND the passphrase unlocks it.
+    & $OpenSSL pkey -in "$EncryptedKey" -passin env:PW -noout 2>$null
+    if ($LASTEXITCODE -eq 0) { Write-Host '      Key check  : passphrase unlocks the encrypted key (OK)'; Write-Log 'Step 4 OK: passphrase unlocks the encrypted key.' }
+    else                     { Write-Host '      Key check  : could not verify key (non-fatal)'; Write-Log 'Step 4 WARN: key unlock check inconclusive (non-fatal).' 'WARN' }
+    & $OpenSSL x509 -in "$Certificate" -noout -subject -enddate
+
+    Write-Host "`nDone. Combined PEM: $CombinedPEM"
+    Write-Log "=== Completed successfully. Output: $CombinedPEM ==="
 }
 finally {
-    # Zero and free the BSTR immediately
-    [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($BSTR)
+    # Always scrub the passphrase from the environment.
+    Remove-Item Env:\PW -ErrorAction SilentlyContinue
 }
-
-# Create a temporary passfile for OpenSSL to read (avoids exposing passphrase in process args)
-$passFile = [System.IO.Path]::GetTempFileName()
-
-try {
-    # Write passphrase without newline
-    Set-Content -Path $passFile -Value $PlainPassword -NoNewline -Encoding UTF8
-
-    # Best-effort: restrict ACL to current user
-    try {
-        $currentUser = (whoami)
-        $acl = Get-Acl -Path $passFile
-        $acl.SetAccessRuleProtection($true, $false)
-        $rule = New-Object System.Security.AccessControl.FileSystemAccessRule($currentUser, "FullControl", "Allow")
-        $acl.SetAccessRule($rule)
-        Set-Acl -Path $passFile -AclObject $acl
-    } catch {
-        Write-Warning "Could not tighten ACL on passfile: $_"
-    }
-
-    Write-Host ""
-    Write-Host "Step 1: Generating AES-256 encrypted RSA private key..."
-    & $OpenSSL genpkey -algorithm RSA -aes256 -pass file:"$passFile" -out "$EncryptedKey" -pkeyopt rsa_keygen_bits:2048
-    Write-Host "Encrypted key created at: $EncryptedKey"
-
-    Write-Host ""
-    Write-Host "Step 2: Prepare to create the self-signed certificate."
-    Write-Host "  Option A: Press Enter to let OpenSSL prompt you interactively for subject fields."
-    Write-Host "  Option B: Paste a subject string now to run non-interactive (example: /C=US/ST=State/L=City/O=Org/OU=Unit/CN=example.com)"
-    $userInput = Read-Host "Press Enter for interactive prompts, or paste subject and press Enter"
-
-    if ([string]::IsNullOrWhiteSpace($userInput)) {
-        Write-Host ""
-        Write-Host "Running OpenSSL in interactive mode. You will be prompted for subject fields."
-        & $OpenSSL req -new -x509 -key "$EncryptedKey" -passin file:"$passFile" -out "$Certificate" -days $Days
-    } else {
-        $subj = $userInput.Trim()
-        Write-Host ""
-        Write-Host "Creating certificate non-interactively with subject: $subj"
-        & $OpenSSL req -new -x509 -key "$EncryptedKey" -passin file:"$passFile" -out "$Certificate" -days $Days -subj $subj
-    }
-
-    Write-Host "Certificate created at: $Certificate"
-    Start-Sleep -Seconds 1
-
-    Write-Host ""
-    Write-Host "Step 3: Decrypting private key to plain PEM..."
-    & $OpenSSL pkey -in "$EncryptedKey" -passin file:"$passFile" -out "$DecryptedKey"
-    Write-Host "Decrypted key written to: $DecryptedKey"
-
-    Start-Sleep -Seconds 1
-
-    Write-Host ""
-    Write-Host "Step 4: Combining decrypted key and certificate into combined PEM..."
-    # Ensure private key first, then certificate
-    Get-Content -Path $EncryptedKey -Raw | Out-File -FilePath $CombinedPEM -Encoding ascii
-    Get-Content -Path $Certificate -Raw | Out-File -FilePath $CombinedPEM -Encoding ascii -Append
-    Write-Host "Combined PEM created at: $CombinedPEM"
-
-    Write-Host ""
-    Write-Host "Certificate expiry:"
-    & $OpenSSL x509 -in "$Certificate" -noout -enddate
-
-} finally {
-    # Cleanup: remove passfile and clear sensitive variables
-    if (Test-Path $passFile) {
-        try {
-            # Overwrite with zeros (best-effort) then delete
-            $zero = [byte[]]::new(1024)
-            $fs = [System.IO.File]::Open($passFile, [System.IO.FileMode]::Open, [System.IO.FileAccess]::Write)
-            try { $fs.Write($zero, 0, $zero.Length) } catch {}
-            finally { $fs.Close() }
-        } catch {}
-        Remove-Item -Path $passFile -Force -ErrorAction SilentlyContinue
-    }
-
-    # Clear sensitive variables
-    if ($null -ne $PlainPassword) { $PlainPassword = $null }
-    if ($null -ne $passwordSecure) { $passwordSecure.Dispose() }
-    [System.GC]::Collect(); [System.GC]::WaitForPendingFinalizers()
-}
-
-Write-Host ""
-Write-Host "Done. Files created in: $WorkingDir"
 ```
 
 1. In the Azure portal, go to **App registrations** and click on the client connector you created. In the left-side navigation, go to **Manage** > **Certificates & secrets**. See image.
@@ -2441,10 +2608,10 @@ For additional information about the files you need to create, refer to the foll
 | File Name | Description | Usage |
 | --- | --- | --- |
 | `private_key.pem` | AES-256 encrypted RSA private key | Used to create `combined.pem`. |
-| `certificate.pem` | Self-signed certificate | Upload on Azure Portal. |
+| `certificate.pem` | Self-signed certificate | Upload in Azure portal. |
 | `combined.pem` | Combined PEM file containing the private key and certificate | Upload on Internet & SaaS onboarding page. |
 
-To generate a certificate on a Mac device, copy the following code block, paste it into OpenSSL, and run.
+To generate a certificate on a Mac device, copy the following code and run the commands using OpenSSL:
 
 ```
 #!/bin/bash
@@ -2556,8 +2723,8 @@ To authorize a custom connector, you must first manually update the Azure login 
 - Creating a Custom Connector for a SaaS Application Tenant
 - Creating a Custom Connector for an MIP Account
 
-1. In the Zscaler Admin Console, go to **Data Security > DSPM > SaaS Application Tenants**.
-2. Click **Add**. The **Add SaaS Application Tenant** page is displayed.
+1. In the Zscaler Admin Console, go to **Policies > Common Configuration > Out-of-Band CASB > SaaS Application Tenants**.
+2. Click **Add SaaS Application Tenant**. The **Add SaaS Application Tenant** page is displayed.
 3. Under **Choose the SaaS Application Provider**, select a Microsoft SaaS application.
 4. In the **Tenant Name** field, provide a name.
 5. Copy one of the following URLs and paste it in a separate browser tab:
@@ -2577,7 +2744,7 @@ After adding the tenants, you can configure the Data at Rest Scanning [DLP polic
 
 [Image: Internet & SaaS option for selecting Client Secret or Private Key when onboarding a Microsoft application]
 
-1. In the Zscaler Admin Console, go to **Data Security > Common Resources > MIP Labels.**
+1. In the Zscaler Admin Console, go to **Policies > Data Protection > Common Resources > MIP Labels.**
 2. On the **Microsoft Information Protection (MIP) Labels** page, click **Add MIP Account.**
 
 The **Add MIP Account**window appears.
@@ -4292,13 +4459,13 @@ The following table shows native applications that use certificate pinning:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/checking-ip-addresses-on-denylist","lastmod":"2026-09-30T21:49Z","nid":"1400221"} -->
+<!-- ZS-ARTICLE {"url":"/zia/checking-ip-addresses-on-denylist","lastmod":"2026-10-06T04:35Z","nid":"1400221"} -->
 ## Checking for IP Addresses on the Denylist
 
 - Source: https://help.zscaler.com/zia/checking-ip-addresses-on-denylist
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Checking for IP Addresses on the Denylist
-- Last modified: 2026-09-30T21:49Z
+- Last modified: 2026-10-06T04:35Z
 - Summary: How to check for IP addresses placed on the denylist within the Zscaler Admin Console.
 
 You can check if the Zscaler service is placing service access from an IP address on the denylist, due to suspicious traffic activity.
@@ -4312,7 +4479,7 @@ The Zscaler service displays the results. If the Zscaler service placed the IP a
 
 See image.
 
-[Image: Denylist Lookup Results section in the Denylist IP Check window]
+[Image: The Denylist IP Check page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4757,13 +4924,13 @@ To classify an app:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/cloning-dlp-engines","lastmod":"2026-09-24T11:03Z","nid":"1450976"} -->
+<!-- ZS-ARTICLE {"url":"/zia/cloning-dlp-engines","lastmod":"2026-10-08T21:06Z","nid":"1450976"} -->
 ## Cloning DLP Engines
 
 - Source: https://help.zscaler.com/zia/cloning-dlp-engines
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Cloning DLP Engines
-- Last modified: 2026-09-24T11:03Z
+- Last modified: 2026-10-08T21:06Z
 - Summary: How to add clone predefined and custom Data Loss Prevention (DLP) engines in the Zscaler Admin Console.
 
 You can duplicate a predefined or custom Data Loss Prevention (DLP) engine if you need to easily copy the functionality of an existing engine for a different use.
@@ -4805,22 +4972,22 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/cloning-predefined-dlp-dictionaries","lastmod":"2026-09-24T11:01Z","nid":"1450991"} -->
+<!-- ZS-ARTICLE {"url":"/zia/cloning-predefined-dlp-dictionaries","lastmod":"2026-10-08T12:06Z","nid":"1450991"} -->
 ## Cloning Predefined DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/cloning-predefined-dlp-dictionaries
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Cloning Predefined DLP Dictionaries
-- Last modified: 2026-09-24T11:01Z
+- Last modified: 2026-10-08T12:06Z
 - Summary: How to clone predefined Data Loss Prevention (DLP) in the Zscaler Admin Console.
 
-Cloning a predefined Data Loss Prevention (DLP) dictionary allows you to easily leverage existing dictionaries and sub-dictionaries for a different purpose when [configuring DLP policy rules](https://help.zscaler.com/zia/how-do-i-configure-policy-using-zscaler-dlp-engines). You can use clones of the same dictionary with different Confidence Score Thresholds, as well as with different dictionary-specific parameters. For example, suppose you want to use one dictionary to look more aggressively for Bank Identification Numbers (BIN), and another dictionary to look less aggressively for other credit card data. In that scenario, you can clone the predefined Credit Card dictionary, and then add BIN numbers to the clone, with a Confidence Score Threshold of Medium. In the existing predefined Credit Card dictionary, you can leave out BIN numbers and set the Confidence Score Threshold to High.
+Cloning a predefined Data Loss Prevention (DLP) dictionary allows you to easily leverage existing dictionaries and sub-dictionaries for a different purpose when [configuring DLP policy rules](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection). You can use clones of the same dictionary with different Confidence Score Thresholds, as well as with different dictionary-specific parameters. For example, suppose you want to use one dictionary to look more aggressively for Bank Identification Numbers (BINs), and another dictionary to look less aggressively for other credit card data. In that scenario, you can clone the predefined Credit Card dictionary, and then add BINs to the clone, with a Confidence Score Threshold of Medium. In the existing predefined Credit Card dictionary, you can leave out BINs and set the Confidence Score Threshold to High.
 
 The Zscaler service supports cloning identification-based predefined dictionaries (e.g., Credit Cards, Social Security Numbers, National Identification Numbers). You can create up to 4 clones from a predefined dictionary.
 
 To clone a predefined DLP dictionary:
 
-1. Go to **Data Security**> **Common Resources**>**Dictionaries & Engines**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Common Resources**>**Dictionaries & Engines**.
 2. On the **DLP Dictionaries** tab, locate the predefined dictionary and click the **Clone**icon. The **Clone DLP Dictionary** window appears. See image.
 3. In the **Clone DLP Dictionary** window:
   - **Name**: Enter a name for the cloned dictionary.
@@ -4829,7 +4996,7 @@ To clone a predefined DLP dictionary:
   - **High Confidence Phrases**: This field only appears when the dictionary’s **Confidence Score Threshold** is **High**, if applicable. This field displays all of Zscaler’s default high confidence phrases that the dictionary matches when scanning content.
   - **Custom High Confidence Phrases**: This field only appears when the dictionary’s **Confidence Score Threshold** is **High**, if applicable. Enter up to 256 custom phrases you want the dictionary to match in addition to its default phrases when scanning content. You must enter phrases one at a time (i.e., one phrase per line).
     - General Guidelines for Phrases
-  - **BIN Number**: This field appears only for the predefined credit card dictionary or its clones. Specify whether to include or exclude specific BIN numbers, then enter up to 512 BIN values. You must enter numbers one at a time (i.e., one number per line). See image.
+  - **BIN Number**: This field appears only for the predefined credit card dictionary or its clones. Specify whether to include or exclude specific BINs , then enter up to 512 BIN values. You must enter numbers one at a time (i.e., one number per line). See image.
   - **Social Security Numbers**: This field appears only for the predefined Social Security Numbers (US) dictionary or its clones. Specify whether to include or exclude specific Social Security numbers, then enter up to 512 values. You must enter numbers one at a time (i.e., one number per line). See image.
   - (Optional) For **Description**, enter any additional notes or information. The description cannot exceed 255 characters.
 4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-portal).
@@ -4846,7 +5013,7 @@ Any combination of cloned, predefined, and custom dictionaries can be added to a
 - Dictionary phrase-matching is not case-sensitive and ignores punctuation.
 - You can place quotes around phrases to specify that the dictionary only detects phrases that exactly match the phrase in the order given within the quotes.
 
-The Zscaler service uses fuzzy matching techniques to ensure that phrases do not go undetected by dictionaries because of capitalization or spacing discrepancies and the existence of noise words (such as spurious words or HTML tags) between words. For example, the configured phrase “security service” would match the text “security <b>service</b>”.
+The Zscaler service uses fuzzy matching techniques to ensure that phrases do not go undetected by dictionaries because of capitalization or spacing discrepancies and the existence of noise words (such as spurious words or HTML tags) between words. For example, the configured phrase “security service” would match the text “security <b>service</b>.”
 
 Sometimes this fuzzy matching results in matching phrases from an irrelevant context and can cause false positives. In such cases, quotes or double quotes can be placed around the words of a phrase to disable fuzzy matching and match only the phrase within the quotes. Zscaler then ignores the different types of whitespace between the words. For example, “security service” matches “security-service,” “security,service,” and other such unrelated phrases.
 <!-- /ZS-ARTICLE -->
@@ -5273,20 +5440,20 @@ Replace option `restart` with `stop` and `start` as required.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-advanced-policy-settings","lastmod":"2026-09-16T22:07Z","nid":"1399326"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-advanced-policy-settings","lastmod":"2026-10-06T22:53Z","nid":"1399326"} -->
 ## Configuring Advanced Policy Settings
 
 - Source: https://help.zscaler.com/zia/configuring-advanced-policy-settings
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > Configuring Advanced Policy Settings
-- Last modified: 2026-09-16T22:07Z
+- Last modified: 2026-10-06T22:53Z
 - Summary: How to configure the advanced policy settings for Internet & SaaS (ZIA).
 
 [Watch a video about Configuring Advanced Policy Settings](https://fast.wistia.net/embed/iframe/i9mt7tmn0q) (shows legacy UI).
 
 To configure the advanced policy settings:
 
-1. Go to **Policies**>**Access Control**> **Internet & SaaS**> **Advanced Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**>**Inline CASB**> **Advanced Policy Settings**.
 2. On the **Advanced Policy Settings** page, configure the following sections:
   - CIPA Compliance Report
   - Advanced URL Filtering Options
@@ -5348,7 +5515,7 @@ In the **Advanced URL Filtering Options** section, you can enable the following 
 
 In the **Office 365 Configuration** section, you can enable local breakout for Microsoft 365 traffic:
 
-**Enable Microsoft-Recommended One Click Office 365 Configuration**: Enable this option to allow Zscaler to enable local breakout for Microsoft 365 traffic automatically without any manual configuration needed by customers. Enabling this option turns off SSL/TLS Inspection for all Microsoft 365 destinations as per Microsoft's recommendation. If you want to continue using existing granular controls for Microsoft 365, disable this option and enable the preexisting configuration. To learn more, see [Understanding Microsoft One Click Options](https://help.zscaler.com/zia/understanding-microsoft-one-click-options).
+**Enable Microsoft-Recommended One Click Office 365 Configuration**: Enable this option to allow Zscaler to enable local breakout for Microsoft 365 traffic automatically without any manual configuration needed by customers. Enabling this option turns off SSL/TLS Inspection for all Microsoft 365 destinations as per Microsoft's recommendation. If you want to continue using existing granular controls for Microsoft 365, disable this option and enable the pre-existing configuration. To learn more, see [Understanding Microsoft One Click Options](https://help.zscaler.com/zia/understanding-microsoft-one-click-options).
 
 [Image: Enable Microsoft-Recommended One Click Office 365 Configuration toggle]
 
@@ -5412,13 +5579,13 @@ Zscaler's DLP inspection and prompt capture capabilities are currently limited t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-advanced-settings","lastmod":"2026-09-30T21:06Z","nid":"1399146"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-advanced-settings","lastmod":"2026-10-08T21:42Z","nid":"1399146"} -->
 ## Configuring Advanced Settings
 
 - Source: https://help.zscaler.com/zia/configuring-advanced-settings
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Configuring Advanced Settings
-- Last modified: 2026-09-30T21:06Z
+- Last modified: 2026-10-08T21:42Z
 - Summary: Information on how to configure the Advanced Settings page in the Zscaler Admin Console.
 
 On the Advanced Settings page in the Zscaler Admin Console, you can configure settings for a variety of Zscaler service features.
@@ -5447,6 +5614,7 @@ To configure the advanced settings:
   - Settings for DNS Optimization for IPv6
   - Firewall Settings for Z-Tunnel 1.0 and PAC (Road Warriors)
   - Enable EDNS Client Subnet (ECS) Option
+  - Real Time Risk Score Updates
 
 See image.
 
@@ -5524,7 +5692,7 @@ This feature is not enabled by default. To have this feature enabled for your or
 
 **Log Internal IPs from XFF Headers**:When the Zscaler service logs a transaction, it includes the source IP address, which is always the public IP address of the Firewall or edge router that sent the traffic to the service. But if you use [proxy chaining](https://help.zscaler.com/zia/configuring-proxy-chaining) to forward traffic to the Zscaler service, a proxy server can insert an X-Forwarded-For (XFF) header in outbound HTTP requests. The XFF header identifies the IP address of the original client that sent the HTTP request through the proxy server.
 
-If you enable **Internal IP Logging**, the service logs the source IP address that is in the XFF header. Then, when the service forwards the traffic to its destination, it removes the original XFF header and replaces it with an XFF header that contains the IP address of the client gateway (the organization’s public IP address). Replacement of the original XFF header ensures that an organization's internal IP addresses are not exposed to the external world.
+If you enable **Internal IP Logging**, the service logs the source IP address that is in the XFF header. Then, when the service forwards the traffic to its destination, it removes the original XFF header and replaces it with an XFF header that contains the IP address of the client gateway (the organization's public IP address). Replacement of the original XFF header ensures that an organization's internal IP addresses are not exposed to the external world.
 
 Zscaler Client Connector also sends IP addresses as part of the XFF headers.
 
@@ -5639,6 +5807,8 @@ Before enabling the ECS option, ensure that you have [configured the ECS prefix 
 - **Enable ECS Option for Locations and Remote Users**: Enable this option to include the ECS option in all DNS queries, originating from all locations and remote users.
 - **ECS Prefix**: This field appears when the ECS option is enabled using the preceding setting. Select the ECS prefix that must be used in DNS queries. To learn how to configure ECS prefixes, see [Adding EDNS Client Subnet (ECS) Prefixes](https://help.zscaler.com/zia/adding-edns-client-subnet-ecs-prefixes).
 
+Enable this option to allow Public Service Edges for Internet & SaaS to track activities that might increase user risk in real time.
+
 When a new session from an organization arrives for the first time at the Zero Trust Exchange (ZTE) for processing, the Service Edge connects to the Zscaler Central Authority (CA) to get the policy configuration in a hierarchy, starting with the organization policy, followed by location policy and user policy. When traffic from an authenticated user or a known location arrives at a Service Edge, the policy enforcement requires the Service Edge to have the organization's full configurations, including security policies, locations, and users, downloaded from the CA.
 
 In rare scenarios caused by transient network disruptions or delays, the Service Edge might be unable to retrieve the full configurations from the CA for a given session and might need to operate with incomplete or cached tenant, user, or location configurations. The **Behavior When Partial Configuration Available** setting allows you to define how security policies are enforced when a Service Edge operates with incomplete configurations. It provides three different modes of control to balance security and connectivity during such rare disconnects:
@@ -5676,13 +5846,13 @@ The transactions are, however, made distinct using the **Configuration** column 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-advanced-threat-protection-policy","lastmod":"2026-09-24T14:36Z","nid":"1398741"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-advanced-threat-protection-policy","lastmod":"2026-10-06T13:26Z","nid":"1398741"} -->
 ## Configuring the Advanced Threat Protection Policy
 
 - Source: https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Advanced Threat Protection > Configuring the Advanced Threat Protection Policy
-- Last modified: 2026-09-24T14:36Z
+- Last modified: 2026-10-06T13:26Z
 - Summary: How to configure the Advanced Threat Protection policy, which protects traffic from fraud, unauthorized communication, and malicious objects and scripts.
 
 [Watch a video about configuring Advanced Threat Protection, including Security Exceptions.](https://fast.wistia.net/embed/iframe/j0lvovtkvd)
@@ -5706,8 +5876,8 @@ To learn how this policy fits into the overall order of policy enforcement, see 
 
 To configure the Advanced Threat Protection policy:
 
-1. Go to **Policies**> **Cybersecurity**>**Inline Security** > **Advanced Threat Protection**.
-2. On the **Advanced Threats Policy** tab, configure the following advanced threats. URLs on the allowlist take precedence over all the following options. For example, if a URL on the allowlist is hosted on a web server in a blocked country, the service allows users to download content from that website.
+1. Go to **Cyberthreat Protection**> **Advanced Threat Protection**.
+2. On the **Advanced Threats Policy** tab, configure the following advanced threats: URLs on the allowlist take precedence over all the following options. For example, if a URL on the allowlist is hosted on a web server in a blocked country, the service allows users to download content from that website.
 
 - Suspicious Content Protection (Page RiskTM)
 - Botnet Protection
@@ -5953,13 +6123,13 @@ To edit the list of user exceptions:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-application-service-groups","lastmod":"2026-09-24T04:45Z","nid":"1531909"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-application-service-groups","lastmod":"2026-10-08T21:06Z","nid":"1531909"} -->
 ## Configuring Application Service Groups
 
 - Source: https://help.zscaler.com/zia/configuring-application-service-groups
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > Configuring Application Service Groups
-- Last modified: 2026-09-24T04:45Z
+- Last modified: 2026-10-08T21:06Z
 - Summary: Information on how to group together application services in the Zscaler Admin Console.
 
 You can create custom application service groups to manage using Firewall policy rules. To learn more, see [About Application Services](https://help.zscaler.com/zia/about-application-services).
@@ -6074,22 +6244,22 @@ You can view all Azure hub locations from this tab under the **Locations** tab. 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-bandwidth-control-policy","lastmod":"2026-09-30T09:48Z","nid":"1398771"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-bandwidth-control-policy","lastmod":"2026-10-08T07:07Z","nid":"1398771"} -->
 ## Configuring the Bandwidth Control Policy
 
 - Source: https://help.zscaler.com/zia/configuring-bandwidth-control-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Bandwidth Control & Classes > Configuring the Bandwidth Control Policy
-- Last modified: 2026-09-30T09:48Z
-- Summary: How to configure the bandwidth control policy for a location in the ZIA Admin Portal.
+- Last modified: 2026-10-08T07:07Z
+- Summary: How to configure the bandwidth control policy for a location in the Zscaler Admin Console.
 
 [Click to watch a video about Configuring the Bandwidth Control Policy](https://fast.wistia.net/embed/iframe/z9h2f81rrs) (shows legacy UI).
 
 The Bandwidth Control policy specifies how an organization's bandwidth is allocated. You can add rules that prioritize business-critical apps and ensure that recreational or non-business-critical applications do not affect productivity. It contains a default rule, which you can edit, but not delete. To learn more, see [About Bandwidth Control](https://help.zscaler.com/zia/about-bandwidth-control).
 
-You can also define the bandwidth classes that you want to include in the Bandwidth Control policy before you add rules to the policy or while you're adding the rules. To learn more, see [About bandwidth classes](https://help.zscaler.com/zia/about-bandwidth-classes).
+You can also define the bandwidth classes that you want to include in the Bandwidth Control policy before you add rules to the policy or while you're adding the rules. To learn more, see [About Bandwidth Classes](https://help.zscaler.com/zia/about-bandwidth-classes).
 
-To see how this policy fits into the overall order of policy enforcement, see [About Policy Enforcement](https://help.zscaler.com/zia/6.1/about-policy-enforcement).
+To see how this policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
 
 ## Policy Execution
 
@@ -6106,7 +6276,7 @@ Before adding rules to the Bandwidth Control rule, ensure that you have configur
 - [Locations](https://help.zscaler.com/zia/about-locations)
 - [Location groups](https://help.zscaler.com/zia/about-location-groups)
 - [Time intervals](https://help.zscaler.com/zia/about-time-intervals)
-- [Bandwidth Classes](https://help.zscaler.com/zia/about-bandwidth-classes)
+- [Bandwidth classes](https://help.zscaler.com/zia/about-bandwidth-classes)
 - [Protocols](https://help.zscaler.com/zia/about-network-services)
 
 ## Configuring the Bandwidth Control Policy
@@ -6128,7 +6298,7 @@ You can then go to the [Bandwidth Control dashboard](https://help.zscaler.com/zi
 4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 1. Go to **Infrastructure** > **Location Management**> **Legacy Locations**.
-2. To [edit](https://help.zscaler.com/zia/editing-deleting-duplicating-items) the sublocation, click on the sublocation number. The**View Sublocation** window appears.
+2. To [edit](https://help.zscaler.com/zia/editing-deleting-duplicating-items) the sublocation, click the sublocation number. The**View Sublocation** window appears.
 3. Click the **Edit** icon for the sublocation.
 4. In the **Edit Location** window, configure the **Bandwidth Control** section: See image.
   1. **Use Location Bandwidth**:Enable this so that any potential bandwidth available at the location will be given to this sublocation. Sharing happens on a first-come, first-serve basis when using this option.
@@ -6136,9 +6306,9 @@ You can then go to the [Bandwidth Control dashboard](https://help.zscaler.com/zi
   3. **Disable**: Disable Bandwidth Control for this sublocation.
 5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-[Image: Enforce Bandwidth Control section for the Locations]
+[Image: Bandwidth Control section for the Locations]
 
-[Image: Enforce Bandwidth Control section for the Sublocations]
+[Image: Bandwidth Control section for the Sublocations]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6524,13 +6694,13 @@ Select the additional information that must be displayed in the notification for
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-cloud-hsm-protection-intermediate-ca-certificate","lastmod":"2026-09-25T05:01Z","nid":"1402646"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-cloud-hsm-protection-intermediate-ca-certificate","lastmod":"2026-10-09T21:06Z","nid":"1402646"} -->
 ## Configuring Cloud HSM Protection Intermediate CA Certificate
 
 - Source: https://help.zscaler.com/zia/configuring-cloud-hsm-protection-intermediate-ca-certificate
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SSL/TLS Inspection > Configuring Cloud HSM Protection Intermediate CA Certificate
-- Last modified: 2026-09-25T05:01Z
+- Last modified: 2026-10-09T21:06Z
 - Summary: How to configure or add an intermediate CA certificate from the Zscaler Admin Console for Zscaler traffic.
 
 To configure a Cloud HSM Protection certificate for your organization during SSL/TLS negotiations:
@@ -6834,13 +7004,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-custom-url-categories","lastmod":"2026-06-04T01:51Z","nid":"1399366"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-custom-url-categories","lastmod":"2026-10-06T22:57Z","nid":"1399366"} -->
 ## Configuring Custom URL Categories
 
 - Source: https://help.zscaler.com/zia/configuring-custom-url-categories
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > Configuring Custom URL Categories
-- Last modified: 2026-06-04T01:51Z
+- Last modified: 2026-10-06T22:57Z
 - Summary: Information on how to create and configure custom URL categories in the Zscaler Admin Console.
 
 [Watch a video about configuring custom URL categories](https://fast.wistia.net/embed/iframe/xi70acd2at) (shows legacy UI).
@@ -6851,7 +7021,7 @@ Custom categories can only be managed by super admins, admins with the Custom UR
 
 To add a custom URL category:
 
-1. Go to **Policies**>**Access Control**>**Internet & SaaS**> **URL Categories**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access**>**Resources**> **URL Categories**.
 2. Do one of the following:
   - Click **Add URL Category**.
   - Click the **Add** icon next to the super category you want to add your custom category to.
@@ -9767,13 +9937,13 @@ The attached content triggered an Endpoint DLP rule for your organization.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-content-inspection","lastmod":"2026-10-04T07:06Z","nid":"1400121"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-content-inspection","lastmod":"2026-10-11T07:06Z","nid":"1400121"} -->
 ## Configuring DLP Policy Rules with Content Inspection
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Configuring DLP Policy Rules with Content Inspection
-- Last modified: 2026-10-04T07:06Z
+- Last modified: 2026-10-11T07:06Z
 - Summary: How to configure a Data Loss Prevention (DLP) policy for the Zscaler service using Zscaler DLP engines.
 
 [Watch a video about configuring Data Loss Prevention (DLP) Policy with or without content inspection](https://fast.wistia.net/embed/iframe/za6nr8ax7t) (shows legacy UI).
@@ -9944,13 +10114,13 @@ If you enabled the policy for unauthenticated users under[Advanced Settings](htt
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled","lastmod":"2026-10-04T07:06Z","nid":"1471836"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled","lastmod":"2026-10-11T07:06Z","nid":"1471836"} -->
 ## Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled
-- Last modified: 2026-10-04T07:06Z
+- Last modified: 2026-10-11T07:06Z
 - Summary: How to configure a Data Loss Prevention (DLP) policy for the Zscaler service using Evaluate All Rules mode.
 
 This article applies only to organizations with Evaluate All Rules mode enabled. To access this feature, contact your Zscaler Account team.
@@ -10476,13 +10646,13 @@ Otherwise, the information that Zscaler sends to your solution regarding a parti
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-without-content-inspection","lastmod":"2026-10-04T07:06Z","nid":"1400126"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-without-content-inspection","lastmod":"2026-10-11T07:06Z","nid":"1400126"} -->
 ## Configuring DLP Policy Rules without Content Inspection
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-policy-rules-without-content-inspection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Configuring DLP Policy Rules without Content Inspection
-- Last modified: 2026-10-04T07:06Z
+- Last modified: 2026-10-11T07:06Z
 - Summary: How to configure a Data Loss Prevention (DLP) policy for the Zscaler service using external DLP engines.
 
 This article does not apply to organizations with Evaluate All Rules mode enabled. To learn more, see [Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled](https://help.zscaler.com/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled).
@@ -10652,13 +10822,13 @@ If you've enabled the policy for unauthenticated users under[Advanced Settings](
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dns-application-groups","lastmod":"2026-09-21T04:35Z","nid":"1400681"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dns-application-groups","lastmod":"2026-10-05T21:06Z","nid":"1400681"} -->
 ## Configuring DNS Application Groups
 
 - Source: https://help.zscaler.com/zia/configuring-dns-application-groups
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > Configuring DNS Application Groups
-- Last modified: 2026-09-21T04:35Z
+- Last modified: 2026-10-05T21:06Z
 - Summary: How to create DNS application groups that allow grouping together DNS tunnel types and specific web applications for use in DNS policy rules.
 
 You can group together [DNS tunnels](https://help.zscaler.com/zia/detecting-and-controlling-dns-tunnels) and web applications using DNS application groups to manage them via [DNS Control rules](https://help.zscaler.com/zia/configuring-dns-control-policy). To learn more, see [About DNS Application Groups](https://help.zscaler.com/zia/about-dns-application-groups).
@@ -11245,13 +11415,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-endpoint-data-scan-endpoint-settings-channels","lastmod":"2026-06-01T21:30Z","nid":"1515466"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-endpoint-data-scan-endpoint-settings-channels","lastmod":"2026-10-08T10:35Z","nid":"1515466"} -->
 ## Configuring Endpoint Data Scan, Endpoint Settings, and Channels
 
 - Source: https://help.zscaler.com/zia/configuring-endpoint-data-scan-endpoint-settings-channels
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Configuration > Configuring Endpoint Data Scan, Endpoint Settings, and Channels
-- Last modified: 2026-06-01T21:30Z
+- Last modified: 2026-10-08T10:35Z
 - Summary: Information about Data Scan configuration, Endpoint settings, and Channels configurations.
 
 Administrators can configure the following:
@@ -11260,36 +11430,36 @@ Administrators can configure the following:
 - **Endpoint Settings**: Comprises configuration settings for file classification features, such as continuous and real-time classification options. These settings address handling larger files, optical character recognition (OCR) functionality, and exception management for high-volume applications like compilers. Exception settings specifically allow excluding certain applications from immediate scanning to prevent performance issues.
 - **Channels**: Channel configuration governs data loss prevention across printers, clipboard, removable storage, and network shares. It includes enabling Microsoft Office add-ins for comprehensive printer inspection (otherwise limited to print text) and defining exceptions for applications, specific printers, or removable storage devices to prevent conflicts, ensure compatibility, and optimize performance across these channels.
 
-Endpoint Data Loss Prevention (DLP) performs classification scans on an endpoint to detect and categorize data. Whenever the DLP Engines or dictionaries are modified, a classification scan is applied on the endpoint.
+Endpoint Data Loss Prevention (DLP) performs classification scans on an endpoint to detect and categorize data. Whenever the DLP engines or dictionaries are modified, a classification scan is applied on the endpoint.
 
-On the Configuration page (Analytics > Endpoint Data Scan > Configuration), you can configure the following:
-
-- Endpoint Data Scan
-- Endpoint Settings
-- Channels
+1. Go to **Analytics**> **Endpoint Data Scan** > **Configuration**.
+2. You can configure the following:
+  - Endpoint Data Scan
+  - Endpoint Settings
+  - Channels
 
 You can configure the Endpoint Data Scan Report and the End User Report on the Endpoint Data Scan page:
 
-- **Report Endpoint Data Scan**: Enable the toggle to view the data on the Endpoint Data Scan page. You can set exceptions to the Endpoint Data Scan in the Exception Settings.
+1. **Report Endpoint Data Scan**: Enable the toggle to view the data on the Endpoint Data Scan page. You can set exceptions to the Endpoint Data Scan in the Exception Settings.
   - Exception Settings
-- **End User Reports**
+2. **End User Reports**
   - **Display Report to End User**: Enable this toggle to configure the days of the week and to set other criteria to display in the End User Report.
   - **Schedule Days**: Select the days on which you wish to display the End User Report.
   - **Display End User Report Within**: Set the time range within which you would like to display the End User Report. The default time range is from 09:00 to 17:00.
   - **Display End User Report if Sensitive Files Found Exceed**: Set a threshold value for displaying the End User Report by selecting a value between the range 10 and 100,000. The default value is 10.
   - **Select Sensitive Data Categories to Display to End Users**: Select from the available sensitive data categories: **Dictionaries**, **DLP Engines**, or **AI & ML Categories**.
   - **Message Displayed to End Users**: Use either the default message or create a custom message to display to end users.
-- Click **Save**and [activate the change](https://help.zscaler.com/zia/activating-device-control-policy-rules).
+3. Click **Save**and [activate the change](https://help.zscaler.com/zia/activating-device-control-policy-rules).
 
 [Image: Configure the Endpoint Data Scan Report]
 
 Choose an option to specify what you want to exclude from the Endpoint Data Scan:
 
-- **Entities**: Enter the following details to exclude specified users, user groups, departments, or endpoints from Endpoint Data Scan. See image.
+- **Entities**: Enter the following details to exclude specified users, user groups, departments, or endpoints from Endpoint Data Scan.
   - **Condition Type**: Choose from **User**, **User Group**, **Department**, or **Endpoint**.
   - **Value**: Provide the corresponding value for the entity.
   - **Description**: Add a description for the configured settings.
-- **Files and Folders**: Enter the following details to exclude the specified folders, files, or file extensions from Endpoint Data Scan: See image.
+- **Files and Folders**: Enter the following details to exclude the specified folders, files, or file extensions from Endpoint Data Scan:
   - **OS**: Choose either Windows or macOS as the operating system.
   - **Apply To**: Specify whether the settings apply to a directory or a file.
   - **Condition**: Choose a file selection condition from the following options: **Path Starts With**, **Path Contains**, or **xattr** (for macOS).
@@ -11301,507 +11471,121 @@ You can configure the following in the Endpoint Settings page:
 1. **Continuous Classification**: Enable the toggle to enhance performance by enforcing rules immediately, eliminating the need for real-time file classification. When disabled, files are classified during exfiltration based on your configuration settings. You can configure the following:
   - **Maximum File Size for Scanning at Rest**: Select the maximum file size from the drop-down menu. The available file sizes are **30 MB**, **50 MB**, and **100 MB**. Files exceeding the set size are evaluated in real-time based on your configuration settings.
   - **Enable Continuous Classification on HDD Drives (Windows Only)**: Enable the toggle to run the continuous classification on HDD drives. By default, only SSD drives are scanned. This is available only for Windows.
+  - **Pause Scanning if Overall System CPU Usage Is Above**: Set the maximum CPU usage percentage to automatically pause scanning when exceeded. The service checks CPU usage every minute and resumes scanning when usage drops below the limit.
   - **Enable Continuous Classification OCR**: Enable the toggle to run the continuous classification on optical character recognition (OCR).
-  - Exception Settings
+  - **Enable Exact Data Matching (EDM)**: Enable to allow Endpoint DLP to send EDM candidate files for cloud inspection.
+    - Exception Settings
 2. **Real-Time Classification**
   - **Maximum File Size for Real-Time Content Inspection:** Select the maximum file size from the drop-down menu for real-time content inspection. The available options are **30 MB**, **50 MB**, and **100 MB**. For files larger than the set value, configure an Endpoint Data Loss Prevention (DLP) rule with file size criteria.
   - **Timeout Duration**: Set the real-time file classification timeout period by selecting from the following options: **15 seconds**, **30 seconds**, **60 seconds**, or **120 seconds**. The default value is **30 seconds**. This time duration depends on the maximum file size set in the previous option.
   - **Timeout Action**: Set the timeout action as **Allow**or **Block** for maximum file size and time duration of the real-time classification. The default value is **Allow**.
-  - **Enable OCR on Print Activity (Windows Only)**: Enable the toggle to run OCR on print activity. This function is available only for Windows.
+  - **Enable OCR**: Enable the toggle to run real-time OCR for printing, clipboard, removable storage, network shares, and personal cloud storage. This is not available for application file access.
 3. **Miscellaneous**
+  - **Enable Indicators of Intent**: Enable to enforce Indicator of Intent rules. When disabled, rules remain visible and configurable, but are not enforced on the endpoints.
   - **Exemption Duration**: Select the exemption duration from the drop-down menu of the Endpoint DLP and Device Control, during which the user activities are not blocked but are monitored. You can set the duration of **5 Minutes**, **10 Minutes**, **15 Minutes**, **60 Minutes**, **2 Hours**, **6 Hours**, or **12 Hours**.
   - **Enable File Protection Option for End Users**: Enable this toggle to allow end users to manually encrypt files directly from their desktop via the **Context**menu (**Right-click** > **Zscaler**> **Protect**). When disabled, this option is not available to users in the **Context**menu. This option does not impact the **Remove Protection** option in the **Context** menu. Zscaler Endpoint Data Loss Prevention (DLP) encrypts individual files, ensuring that only users within the same organization who also use Zscaler Endpoint DLP can access them through decryption.
-  - **Exclude events triggered by macOS out of bundle helper executables**: Enable this toggle to exclude events triggered by macOS out of bundle helper executables. This configuration affects the macOS Application File Access channel.
-4. **Endpoint Protection**
+  - **Suppress Subsequent User Confirmations During This Interval for Endpoint DLP Channels**: Select a rolling window during which subsequent confirmation prompts for Endpoint DLP channel for the same actions are suppressed. Incidents are still reported per file, based on the user's initial response.
+  - **Suppress Subsequent User Confirmations During This Interval for Inline Web DLP**: Select a rolling window during which subsequent confirmation prompts for Inline Web DLP for the same actions are suppressed. Incidents are still reported per file, based on the user's initial response.
+  - **Report All DLP Engines, Dictionaries, and AI & ML Categories Detected in the File**: Enable to log all DLP engine, dictionary, and AI & ML categories matches found in the file, including non-contributing rule matches in Endpoint DLP Insights Logs. Disable to log only matches that contributed to rules in Endpoint DLP Insights Logs.
+4. **Trusted Applications**: Add applications to exclude from Endpoint DLP monitoring. This can help improve compatibility or performance for trusted applications, such as XDR, indexers, or antivirus tools, that do not pose an exfiltration risk and reduces Endpoint DLP event volume.
+  - Edit List
+5. **Endpoint Protection**
   - **Run the Application Inventory Scan**: Enable this toggle to view the list of applications on the **Application Inventory** page. To learn more, see [About Inventory](https://help.zscaler.com/zia/about-inventory) and [Analyzing Applications Details](https://help.zscaler.com/zia/analyzing-application-details).
-5. Click **Save**and [activate the change](https://help.zscaler.com/zia/activating-device-control-policy-rules).
+    - Exception Settings
+6. Click **Save**and [activate the change](https://help.zscaler.com/zia/activating-device-control-policy-rules).
 
-[Image: Configuration of Endpoint Settings comprises of Continuous Classification, Real-Time Classification, and Endpoint Protection.]
+[Image: Configuration of Endpoint Settings comprises of Continuous Classification, Real-Time Classification, and Endpoint Protection]
 
-You can exclude Continuous Classification for files that are created or modified by specific applications.
+You can set exceptions for the following:
 
-This setting is recommended to exclude applications that generate or modify numerous files or might impact endpoint performance, such as compilers or approved backup software, from endpoint data scan.
+- **Applications**: You can exclude continuous classification for files that are created or modified by specific applications. This setting is recommended to exclude applications that generate or modify numerous files or might impact endpoint performance, such as compilers or approved backup software, from endpoint data scan:
+  - **OS**: Choose either **Windows**or **macOS**as the operating system.
+  - **Executable File Name**: The executable file name for the application.
+  - **Description**: Add a description for the configured settings.
+- **Entities**: Enter the following details to exclude specified users, user groups, departments, or endpoints from continuous classification.
+  - **Condition Type**: Choose from **User**, **User Group**, **Department**, or **Endpoint**.
+  - **Value**: Provide the corresponding value for the entity.
+  - **Description**: Add a description for the configured settings.
+- **Files and Folders**: Enter the following details to exclude the specified folders, files, or file extensions from continuous classification:
+  - **OS**: Choose either **Windows**or **macOS**as the operating system.
+  - **Apply To**: Specify whether the settings apply to a directory or a file. **Condition**: Choose a file selection condition from the following options: **Path Starts With**, P**ath Contains**, or **xattr**(for macOS).
+  - **Value**: Provide the corresponding value for the condition. If a directory path ends with a backslash (e.g., `C:\Recovery\`), the Zscaler service excludes only its subdirectories, not the files in the root directory (e.g., `C:\Recovery\reagent-old.xml`). Remove the suffix \ (e.g., `C:\Recovery`) to exclude the entire folder, its root files, and all subdirectories.
+  - **Description**: Add a description for the configured settings.
 
-[Image: Exception Settings for Continuous Classification for files created or modified by specified applications.]
+[Image: Exception Settings for Continuous Classification for files created or modified by specified applications]
+
+To add an application to the trusted applications list:
+
+1. Click **Add**.
+2. Specify the following fields:
+  - Select **Windows** or **macOS**.
+  - **OS**: Choose either Windows or macOS as the operating system.
+  - **Executable File Name**: The executable file name for the application.
+  - **Description**: Add a description for the configured settings.
+3. Click **Save**.
+
+You can edit or delete applications from the list as needed.
+
+You can set exceptions for the following:
+
+- **Entities**: Enter the following details to exclude specified users, user groups, departments, or endpoints from continuous classification.
+  - **Condition Type**: Choose from **User**, **User Group**, **Department**, or **Endpoint**.
+  - **Value**: Provide the corresponding value for the entity.
+  - **Description**: Add a description for the configured settings.
+- **Files and Folders**: Enter the following details to exclude the specified folders, files, or file extensions from continuous classification:
+  - **OS**: Choose either Windows or macOS as the operating system.
+  - **Apply To**: Specify whether the settings apply to a directory or a file. **Condition**: Choose a file selection condition from the following options: Path Starts With, Path Contains, or xattr (for macOS).
+  - **Value**: Provide the corresponding value for the condition. If a directory path ends with a backslash (e.g., `C:\Recovery\`), the Zscaler service excludes only its subdirectories, not the files in the root directory (e.g., `C:\Recovery\reagent-old.xml`). Remove the suffix \ (e.g., `C:\Recovery`) to exclude the entire folder, its root files, and all subdirectories.
+  - **Description**: Add a description for the configured settings.
 
 You can configure exception rules for the following types of channels:
 
 1. **Printers**
   - **Use Add-ins for Supported Applications on Windows**: Enable the toggle to activate add-ins for Microsoft Office Word, Excel, and PowerPoint. When disabled, Endpoint DLP inspects only the text sent for printing and does not perform a complete full file inspection, making file metadata (e.g., MIP labels, full size) unavailable.
-  - **Exception Settings**: You can set exceptions for the following:
-    - **Applications**: You can exclude the specified applications from being intercepted by Endpoint DLP printing rules. This setting is recommended to prevent conflicts with applications that might not be compatible with Endpoint DLP printer controls. See image.
-    - **Printer**: You can exclude the listed printers that do not support pause-resume from blocking when print rules are configured as **Block**; their print activity is monitored instead. See image.
-2. **Clipboard Exception Settings**: You can exclude the specified applications from being intercepted by Endpoint DLP clipboard rules. This setting is recommended to prevent conflicts or compatibility issues with applications and Endpoint DLP clipboard controls. See image.
-3. **Removable Storage:**You can set exceptions for the following:
-  - **Removable Storage Devices**: You can exclude specific devices from removable storage rule enforcement. This setting is designed to exclude local hard drives that are incorrectly identified as removable storage devices by the operating system. See image.
-  - **Applications**: You can exclude specific applications from Endpoint DLP removable storage rules. This setting is recommended for applications with high file activity or those causing compatibility issues that affect performance. See image.
-4. **Network Share:**You can exclude specified applications from Endpoint DLP network share rules. This setting is recommended for applications that create or modify many files or those causing compatibility issues that affect performance. See image.
-5. Click **Save**and [activate the change](https://help.zscaler.com/zia/activating-device-control-policy-rules).
-
-[Image: Configuration of channels - Printer, Clipboard, Removable Storage, and Network Share in the Endpoint Data Scan page..]
-
-[Image: Exclude entities from Endpoint Data Scan.]
-
-[Image: Exclude files and folders from Endpoint Data Scan.]
-
-[Image: Configuration of Exceptions for Printers- Application in the Endpoint Data Scan page.]
-
-[Image: Configuration of Exceptions for Printers in the Endpoint Data Scan page.]
-
-[Image: Configuration of Exceptions for Clipboard-Applications in the Endpoint Data Scan page.]
-
-[Image: Configuration of Exceptions for Removable Storage Devices - Applications in the Endpoint Data Scan page.]
-
-[Image: Configuration of Exceptions for Removable Storage Devices - Removable Storage Devices in the Endpoint Data Scan page.]
-
-[Image: Configuration of Exceptions for Network Share - Applications in the Endpoint Data Scan page.]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/configuring-endpoint-dlp-policy-rules","lastmod":"2026-09-30T21:06Z","nid":"1463231"} -->
-## Configuring Endpoint DLP Policy Rules
-
-- Source: https://help.zscaler.com/zia/configuring-endpoint-dlp-policy-rules
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Configuring Endpoint DLP Policy Rules
-- Last modified: 2026-09-30T21:06Z
-- Summary: How to configure an Endpoint Data Loss Prevention (DLP) policy using Endpoint Data Loss Prevention (DLP) to prevent data loss on endpoints.
-
-You can use Zscaler Endpoint Data Loss Prevention (DLP) to detect data, allow or block activities, require end users to confirm activities, protect files saved to removable storage devices, and notify your organization's auditor when a user's activity on an endpoint triggers an Endpoint DLP rule. If your organization uses a Zscaler Incident Receiver, the service can forward information about end user activities that trigger a DLP policy to your Incident Receiver via secure Internet Content Adaptation Protocol (ICAP). However, Zscaler does not take ICAP responses from your Incident Receiver; instead, the service only monitors or blocks content according to the policy you configure, then forwards information about activities so that your organization can take necessary remediation steps.
-
-The Zscaler DLP engines support files up to 100 MB. The maximum size also applies to files extracted from archive files.
-
-To configure an Endpoint DLP policy rule:
-
-- [1. Configure DLP dictionaries and engines, if necessary.](https://help.zscaler.com/zia/about-dlp-dictionaries) Use DLP dictionaries and engines as they are or modify them to suit your needs. You can also create custom dictionaries or engines. Skip this step if you don't want to modify or create custom DLP dictionaries and engines.
-- [2. Configure DLP notification templates](https://help.zscaler.com/zia/configuring-dlp-notification-templates) if you want to send email notifications to your organization's auditor when your users' activities violate Endpoint DLP policy rules.
-- [3. (Optional) Configure a Zscaler Incident Receiver](https://help.zscaler.com/zia/about-zscaler-incident-receiver) to forward information about content that triggers an Endpoint DLP policy rule to your Incident Receiver via secure Internet Content Adaptation Protocol (ICAP). Zscaler does not take ICAP responses from your Incident Receiver; instead, the service only monitors or blocks content according to the policy you configure, then forwards information about activities so that your organization can take necessary remediation steps.
-- [4. (Optional) Configure DLP Cloud-to-Cloud Incident Forwarding](https://help.zscaler.com/zia/configuring-dlp-cloud-cloud-incident-forwarding) to send metadata and evidence about transactions that violate a DLP policy rule directly to your public cloud storage without deploying appliances.
-- 5. Define your policy rules.
-- 6. (Optional) Define exception rules.
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Endpoint DLP** > **Endpoint DLP Web**. The **Endpoint Data Loss Prevention** page appears.
-2. Click **Add Rule**.
-3. On the **Add Rule** page, you can configure the following sections:
-  - Criteria
-  - Actions
-  - Details
-  - DLP Incident Receiver
-  - Notification
-4. Save and [activate the change.](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console)
-
-For example, if an endpoint policy rule using predefined Zscaler DLP engines is configured as shown in the following image, the Zscaler service encrypts all PDF files that:
-
-- Contain medical information
-- Are any size
-- Are being saved by any user to removable storage devices
-
-See image.
-
-The Zscaler service doesn't send an email notification regarding the policy violation to an auditor or forward information to an incident receiver. End users receive the default notification configured for the Removable Storage channel.
-
-In the **Criteria**section, when you click **Add Criteria**, you see individual rule conditions (e.g., **Users**, **Groups**) under each category.
-
-See image.
-
-Some conditions contain preconfigured values (e.g., **File Type** and **DLP Engines**) and others require manual value specification (e.g., **Minimum Data Size (KB)**).
-
-- Criteria with Preconfigured Values
-- Criteria Requiring Manual Value Specification
-
-You can configure individual conditions within each of the following categories:
-
-- Who is accessing
-- Where is it being accessed
-- What is being accessed
-
-See image.
-
-To remove an individual condition from the rule, click the **Delete** icon. You can expand or collapse individual criteria tiles as needed.
-
-In the **Actions** section:
-
-- In the **Action** drop-down menu, select the action the Zscaler service must apply when messages trigger the rule:
-  - **Allow**: The service allows and logs the activity.
-  - **Block**: The service blocks and logs the activity. The **Block** action behaves slightly differently depending on the rule channel: **Removable Storage** and **Network Share**: If a user saves a file directly to a destination without a detectable source path (e.g., a user in Microsoft Word uses **Save As** to save the file), the Zscaler service doesn't block the operation, as that would lose the copy of the file being exfiltrated. Instead, the Zscaler service creates a placeholder file and notifies the user that the original file is located in one of the following **Lost & Found** locations:**Windows**: `/ProgramData/Zscaler/ZDP/User Files/<username>/Lost and Found/`; **macOS**: `/Library/Application Support/Zscaler/ZDP/User Files/<username>/Lost and Found/`; **Personal Cloud Storage**: If a user tries to save a file that triggers a policy with a **Block** action to a personal cloud storage service, the Zscaler service saves a placeholder file in one of the same **Lost & Found** locations listed above. In this case, however, the placeholder file ensures that the Zscaler service doesn't repeatedly block attempts by the personal cloud storage service to sync the original file.
-  - **Confirm**: The user can either justify the activity to continue, or cancel the activity altogether; in both cases, the Zscaler service logs the activity accordingly. Admins can choose to display a default template or a custom template. To learn more, see [Configuring User Confirmation Notification Templates](https://help.zscaler.com/zia/configuring-user-confirmation-notification-templates). The **Confirm** action is supported only for the **Removable Storage**, **Network Share**, **Printing**, and **Personal Cloud Storage** channels. If you select the **Confirm** action when the **Channel** is **Printing**, end users on macOS receive a prompt to justify the activity, but they can't cancel the action. Instead, the Zscaler service monitors and reports the activity.
-  - **Protect**: This option appears only when the **Channel** is **Removable Storage**. When this setting is enabled, the Zscaler service applies encryption only to affected files, not to the removable storage device itself. After it is encrypted, the file can only be decrypted by members of the same organization who are running Endpoint DLP on their device.
-
-- This functionality is designed to keep files that contain sensitive data within organizational boundaries, while allowing the use of removable storage devices. It is designed specifically for short-term file transfers and should not be used to encrypt files for long-term backup.
-- The encryption applied by the Zscaler service does not require additional key management because the encryption key is unique to each organization.
-- When a file that contains sensitive data is saved to a removable storage device, the Zscaler service saves only a separate encrypted (`.zenc`) file on the removable storage device. The Zscaler service does not alter the original file or file path.
-- Users who receive the encrypted file via a removable storage device must right-click the file and select **Decrypt** to use the Zscaler service to decrypt the file. The Zscaler service saves and automatically opens the decrypted file in the following directory:
-  - **Windows**: `/ProgramData/Zscaler/ZDP/Decrypted Files/<username>/`
-  - **macOS**: `/Library/Application Support/Zscaler/ZDP/Decrypted Files/<username>/`
-- If a file that contains sensitive data is saved to a removable storage device but does not have an original source path (i.e., the file is cut and pasted onto the removable storage device), then the Zscaler service saves the `.zenc` file to the removable storage device and saves a copy of the decrypted file in the following directory:
-  - **Windows**: `/ProgramData/Zscaler/ZDP/User Files/<username>/Lost and Found/`
-  - **macOS**: `/Library/Application Support/Zscaler/ZDP/User Files/<username>/Lost and Found/`
-
-See image.
-
-In the **Details**section, provide general information about the rule:
-
-- **Rule Name**: Enter a unique name for the DLP rule or use the default name.
-- **Channel**: Select whether the rule applies to **Printing**, **Removable Storage**, **Network Share**, **Personal Cloud Storage**, **Application File Access**, or **Clipboard**.
-  - To learn more, see [About DLP & Endpoint Resources](https://help.zscaler.com/zia/about-dlp-endpoint-resources).
-  - To access the **Application File Access** and **Clipboard** features, contact your Zscaler Account team.
-- **Printers**: This field appears only when the **Channel** is **Printing**. Select one or more printers from the drop-down menu, then click **Done**. You can also search for printers.
-- **Printer Tag**: This field appears only when the **Channel** is **Printing**. Select one or more network printers from the drop-down menu, then click **Done**. You can also search for printer tags.
-- **Removable Storage Devices**: This field appears only when the **Channel** is **Removable Storage**. Select one or more removable storage device tags from the drop-down menu, then click **Done**. You can also search for removable storage devices.
-- **Removable Storage Device Tags**: This field appears only when the **Channel** is **Removable Storage**. Select one or more removable storage devices from the drop-down menu, then click **Done**. You can also search for removable storage device tags.
-- **Network Shares**: This field appears only when the **Channel** is **Network Share**. Select one or more network shares from the drop-down menu, then click **Done**. You can also search for network shares.
-- **Network Share Tags**: This field appears only when the **Channel** is **Network Share**. Select one or more network shares from the drop-down menu, then click **Done**. You can also search for network share tags.
-- **Personal Clouds**: This field appears only when the **Channel** is **Personal Cloud Storage**. Select one or more personal cloud accounts from the drop-down menu, then click **Done**.
-
-iCloud is supported only for macOS.
-
-- **Applications**: This field appears only when the **Channel** is **Application File Access**. Select up to 8 applications from the drop-down menu, then click **Done**. If you select **Application File Access** as the **Channel** for your rule, you must specify an application or an application tag for the policy rule.
-- **Application Tags**: This field appears only when the **Channel** is **Application File Access**. Select up to 8 application tags from the drop-down menu, then click **Done**. If you select **Application File Access** as the **Channel** for your rule, you must specify an application or an application tag for the policy rule.
-
-The Zscaler service enforces Application File Access rules when users open files that contain sensitive information. However, the service doesn't monitor activity the application takes after opening the file (e.g., sending, transferring, etc.). Zscaler recommends that you do not use an Application File Access rule with browsers or email clients, as the service can't distinguish some necessary destinations and blocks legitimate transactions.
-
-- **Destination Application**: This field appears only when the **Channel** is **Clipboard**. Select up to 8 destination applications from the drop-down menu, then click **Done**. This setting monitors for sensitive content pasted from users' clipboards into the specified applications. If you select **Any**, the Zscaler service applies the rule to all destination applications.
-- **Destination Application Tags**: This field appears only when the **Channel** is **Clipboard**. Select up to 8 destination application tags from the drop-down menu, then click **Done**. This setting monitors for sensitive content pasted from users' clipboards into the applications in the selected application tag. If you select **Any**, the Zscaler service applies the rule to all destination application tags.
-- **Description**: (Optional) Click **Add Description** and enter additional notes or information about the rule in the text field. You can adjust this field's size as needed, depending on your content length. The description cannot exceed 10,240 characters.
-- **Rule Label**: (Optional) Click **Add Rule Label** and select a [label](https://help.zscaler.com/zia/about-rule-labels) from the drop-down menu. You can also search for rule labels.
-- **Rule Order**: All parent rules are evaluated. If multiple rules match, the rule with the most restrictive action and highest rule order is applied. Exception rule evaluation stops at the first match, and an exception replaces a parent rule upon match. To modify the rule order:
-  1. Click **Edit**.
-  2. In the **Edit Rule Order** drawer that appears, enter the required rule order under **Current Rule**. You can review the existing rules shown in the drawer and modify your current rule order. You can also adjust the number of rules displayed per page and navigate through the next and previous pages.
-  3. Click **Apply**.
-- **Rule Status**:An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order; the service skips it and moves to the next rule.
-- **Severity**: Select the severity of the violation from the drop-down menu (i.e., **High**, **Medium**, **Low**, or **Information**).
-
-See Image.
-
-(Optional) In the **DLP Incident Receiver** section:
-
-- **Zscaler Incident Receiver**: Select the applicable Zscaler Incident Receiver from the **Zscaler Incident Receiver**drop-down menu. You must configure your [Zscaler Incident Receivers](https://help.zscaler.com/zia/configuring-zscaler-incident-receiver) to complete this step.
-- **Cloud-to-Cloud Forwarding**: Select the applicable **Tenant** and **Cloud-to-Cloud Forwarding Configuration** from the drop-down menus. You must configure [Cloud-to-Cloud Forwarding](https://help.zscaler.com/zia/configure-dlp-cloud-cloud-incident-forwarding) to complete this step.
-
-(Optional) Configure an email notification for the rule. If you do not select an auditor and notification template, a notification is not sent for this rule.
-
-- **Email Auditor Type**: Select whether the auditor is from a **Hosted** database or **External**to your organization.
-  - Select the **Auditor**:
-    - **Email Auditor**: If the auditor is from a hosted database, select or search for the auditor.
-    - **Auditor Email Address**: If the auditor is external, enter the auditor’s email address.
-- **Email Notification Template**: Select a [notification template](https://help.zscaler.com/zia/configuring-dlp-notification-templates) from the drop-down menu.
-- Configure the end user notification (EUN) for the rule. The type of EUN messages that appear on the endpoint depends on the **Action** configured for the rule.
-  - **End User Notification**: Select **Show** to show an EUN message on endpoints when a user's activity triggers the Endpoint DLP policy rule, or select **Hide** if you don't want an EUN message to appear.
-  - **Notification Message**: Select **Default** to use the default EUN message configured for the channel, or select a custom EUN message from the drop-down menu. You can also search for custom messages or click the **Add** icon to add a new custom message.
-
-To learn about configuring custom messages for the **Allow**, **Block**, and **Protect** actions, see [Configuring EUNs for Endpoint DLP](https://help.zscaler.com/zia/configuring-euns-endpoint-dlp). To learn about configuring custom messages for the **Confirm** action, see [Configuring User Confirmation Notification Templates](https://help.zscaler.com/zia/configuring-user-confirmation-notification-templates).
-
-See image.
-
-For conditions with preconfigured values, a multi-select window with a search bar appears. You can select values by selecting the checkbox for individual items or by clicking **Select All**. After selecting the values, click outside the window to close it.
-
-To clear selected items, click the field to open the multi-select window, then use the **Remove** icon displayed for individual entries. To remove all selected values, click **Remove All**.
-
-See image.
-
-For conditions without preconfigured values, manually enter the value in the field, then click **Add**. To add multiple entries, enter each value and click **Add** or press `Enter`.
-
-You can also perform the following actions:
-
-- Remove items by clicking the **Delete** icon for individual entries or by using the **Remove All** option.
-- The entries are paginated, and you can select the number of items to display per page.
-- You can specify the page number to view, or use the **Next** and **Previous** icons to navigate through different pages.
-
-See image.
-
-In the **Who is accessing** section:
-
-- **Users**: You can specify how the Endpoint DLP rule applies to your [users](https://help.zscaler.com/zia/about-users). You can also search for users.
-- **Groups**:You can specify how the Endpoint DLP rule applies to your [groups](https://help.zscaler.com/zia/about-groups). You can also search for groups.
-- **Departments**:You can specify how the DLP rule applies to your [departments](https://help.zscaler.com/zia/about-departments). You can also search for departments.
-
-The DLP policy applies OR logic to the **Users**, **Groups**, and **Departments**fields when inspecting your organization’s traffic. In order for the DLP rule to trigger, the Zscaler service must detect at least one of the rule’s selected users, groups, or departments.
-
-- **User Risk Profile**: Select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. You can also search for user risk profiles. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
-  - **Low**: Level with user risk scores ranging from 0 to 29
-  - **Medium**: Level with user risk scores ranging from 30 to 59
-  - **High**: Level with user risk scores ranging from 60 to 79
-  - **Critical**: Level with user risk scores ranging from 80 to 100
-
-In the **Where is it being accessed**section:
-
-- **Devices**: From the drop-down menu, select one or more devices that the rule applies to. To include all devices, select **Any**. You can also search for devices.
-- **Device Groups**: From the drop-down menu, select one or more device groups that the rule applies to. To include all device groups, select **Any**. You can also search for device groups.
-- **Device Trust Level**: Select the necessary device trust levels (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**). The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console. You can also search for device trust levels.
-
-In the **What is being accessed**section:
-
-- **Content Matching**: Choose **Select DLP Engines** to select up to 4 engines. You can also search for DLP engines. If you select **None**, then the Zscaler service doesn't use DLP engines to scan the content; instead, the service functions as a filter, only flagging content based on the criteria you specify.
-- **DLP Engines**: Select a DLP Engine from the drop-down menu.
-- **File Type**: From the drop-down menu, choose the file types for the rule. The list of available file types changes based on whether you're using DLP engines for content inspection. You can create Endpoint DLP policy rules that apply only to content being sent via specific file types. Zscaler DLP engines can scan files of up to 100 MB. For an archived file, the size of individual files when decompressed can also be a maximum of 100 MB. You can also search for file types.
-- **Minimum Data Size (KB)**: Enter the minimum size requirement that data must meet before the DLP rule applies. The default minimum data size, 0 KB, means there is no minimum data size requirement.
-
-[Image: Selecting values for fields with predefined values in an Endpoint DLP rule]
-
-[Image: Specifying a field value manually in an Endpoint DLP rule rule]
-
-[Image: List of criteria grouped into categories in an Endpoint DLP Rule]
-
-[Image: Selecting criteria and building a ruleset for matching traffic in an Endpoint DLP rule]
-
-[Image: Specifying details about an Endpoint DLP rule]
-
-[Image: Endpoint DLP rule Actions section]
-
-[Image: Enabling or disabling notification for an Endpoint DLP rule and selecting Notification message]
-
-[Image: Screenshot of an Endpoint Policy rule using predefined Zscaler DLP engines]
-
-1. Go to **Data Security** > **Endpoint DLP** > **Endpoint DLP Web**. The **Endpoint Data Loss Prevention** page appears.
-2. Find an existing rule in the list, then click the **Add Exception Rule**icon. The **Edit Rule** page appears.
-3. On the **Edit Rule** page, you can configure the following sections:
-  - Criteria
-  - Actions
-  - Details
-  - DLP Incident Receiver
-  - Notification
-4. Save and [activate the change.](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console)
-
-For example, if an endpoint policy exception rule using predefined Zscaler DLP engines is configured as shown in the following image, the Zscaler service encrypts all PDF files that:
-
-- Contain medical information
-- Are any size
-- Are being saved to removable storage devices by members of the HR Department
-
-See image.
-
-The Zscaler service doesn't send an email notification regarding the policy violation to an auditor or forward information to an incident receiver. End users receive the default notification configured for the Removable Storage channel.
-
-In the **Criteria**section, when you click **Add Criteria**, you see individual rule conditions (e.g., **Users**, **Groups**) under each category.
-
-See image.
-
-Some conditions contain preconfigured values (e.g., **File Type** and **DLP Engines**) and others require manual value specification (e.g., **Minimum Data Size (KB)**).
-
-- Criteria with Preconfigured Values
-- Criteria Requiring Manual Value Specification
-
-You can configure individual conditions within each of the following categories:
-
-- Who is accessing
-- Where is it being accessed
-- What is being accessed
-
-See image.
-
-To remove an individual condition from the rule, click the **Delete** icon. You can expand or collapse individual criteria tiles as needed.
-
-In the **Actions** section:
-
-- In the **Action** drop-down menu, select the action the Zscaler service must apply when messages trigger the rule:
-  - **Allow**: The service allows and logs the activity.
-  - **Block**: The service blocks and logs the activity. The **Block** action behaves slightly differently depending on the rule channel: **Removable Storage** and **Network Share**: If a user saves a file directly to a destination without a detectable source path (e.g., a user in Microsoft Word uses **Save As** to save the file), the Zscaler service doesn't block the operation, as that would lose the copy of the file being exfiltrated. Instead, the Zscaler service creates a placeholder file and notifies the user that the original file is located in one of the following **Lost & Found** locations:**Windows**: `/ProgramData/Zscaler/ZDP/User Files/<username>/Lost and Found/`; **macOS**: `/Library/Application Support/Zscaler/ZDP/User Files/<username>/Lost and Found/`; **Personal Cloud Storage**: If a user tries to save a file that triggers a policy with a **Block** action to a personal cloud storage service, the Zscaler service saves a placeholder file in one of the same **Lost & Found** locations listed above. In this case, however, the placeholder file ensures that the Zscaler service doesn't repeatedly block attempts by the personal cloud storage service to sync the original file.
-  - **Confirm**: The user can either justify the activity to continue, or cancel the activity altogether; in both cases, the Zscaler service logs the activity accordingly. Admins can choose to display a default template or a custom template. To learn more, see [Configuring User Confirmation Notification Templates](https://help.zscaler.com/zia/configuring-user-confirmation-notification-templates). The **Confirm** action is supported only for the **Removable Storage**, **Network Share**, **Printing**, and **Personal Cloud Storage** channels. If you select the **Confirm** action when the **Channel** is **Printing**, end users on macOS receive a prompt to justify the activity, but they can't cancel the action. Instead, the Zscaler service monitors and reports the activity.
-  - **Protect**: This option appears only when the **Channel** is **Removable Storage**. When this setting is enabled, the Zscaler service applies encryption only to affected files, not to the removable storage device itself. After it is encrypted, the file can only be decrypted by members of the same organization who are running Endpoint DLP on their device.
-
-- This functionality is designed to keep files that contain sensitive data within organizational boundaries, while allowing the use of removable storage devices. It is designed specifically for short-term file transfers and should not be used to encrypt files for long-term backup.
-- The encryption applied by the Zscaler service does not require additional key management because the encryption key is unique to each organization.
-- When a file that contains sensitive data is saved to a removable storage device, the Zscaler service saves only a separate encrypted (`.zenc`) file on the removable storage device. The Zscaler service does not alter the original file or file path.
-- Users who receive the encrypted file via a removable storage device must right-click the file and select **Decrypt** to use the Zscaler service to decrypt the file. The Zscaler service saves and automatically opens the decrypted file in the following directory:
-  - **Windows**: `/ProgramData/Zscaler/ZDP/Decrypted Files/<username>/`
-  - **macOS**: `/Library/Application Support/Zscaler/ZDP/Decrypted Files/<username>/`
-- If a file that contains sensitive data is saved to a removable storage device but does not have an original source path (i.e., the file is cut and pasted onto the removable storage device), then the Zscaler service saves the `.zenc` file to the removable storage device and saves a copy of the decrypted file in the following directory:
-  - **Windows**: `/ProgramData/Zscaler/ZDP/User Files/<username>/Lost and Found/`
-  - **macOS**: `/Library/Application Support/Zscaler/ZDP/User Files/<username>/Lost and Found/`
-
-See image.
-
-In the **Details**section, provide general information about the rule:
-
-- **Rule Name**: Enter a unique name for the DLP rule or use the default name.
-- **Channel**: This field is inherited from the parent rule and cannot be changed. Depending on the channel of the parent rule, you can update the following settings:
-  - **Printers**: This field appears only when the **Channel** is **Printing**. Select one or more printers from the drop-down menu, then click **Done**. You can also search for printers.
-  - **Printer Tag**: This field appears only when the **Channel** is **Printing**. Select one or more network printers from the drop-down menu, then click **Done**. You can also search for printer tags.
-  - **Removable Storage Devices**: This field appears only when the **Channel** is **Removable Storage**. Select one or more removable storage device tags from the drop-down menu, then click **Done**. You can also search for removable storage devices.
-  - **Removable Storage Device Tags**: This field appears only when the **Channel** is **Removable Storage**. Select one or more removable storage devices from the drop-down menu, then click **Done**. You can also search for removable storage device tags.
-  - **Network Shares**: This field appears only when the **Channel** is **Network Share**. Select one or more network shares from the drop-down menu, then click **Done**. You can also search for network shares.
-  - **Network Share Tags**: This field appears only when the **Channel** is **Network Share**. Select one or more network shares from the drop-down menu, then click **Done**. You can also search for network share tags.
-  - **Personal Clouds**: This field appears only when the **Channel** is **Personal Cloud Storage**. Select one or more personal cloud accounts from the drop-down menu, then click **Done**. iCloud is supported only for macOS.
-  - **Applications**: This field appears only when the **Channel** is **Application File Access**. Select up to 8 applications from the drop-down menu, then click **Done**. If you select **Application File Access** as the **Channel** for your rule, you must specify an application or an application tag for the policy rule.
-  - **Application Tags**: This field appears only when the **Channel** is **Application File Access**. Select up to 8 application tags from the drop-down menu, then click **Done**. If you select **Application File Access** as the **Channel** for your rule, you must specify an application or an application tag for the policy rule. The Zscaler service enforces Application File Access rules when users open files that contain sensitive information. However, the service doesn't monitor activity the application takes after opening the file (e.g., sending, transferring, etc.). Zscaler recommends that you do not use an Application File Access rule with browsers or email clients, as the service can't distinguish some necessary destinations and blocks legitimate transactions.
-  - **Destination Application**: This field appears only when the **Channel** is **Clipboard**. Select up to 8 destination applications from the drop-down menu, then click **Done**. This setting monitors for sensitive content pasted from users' clipboards into the specified applications. If you select **Any**, the Zscaler service applies the rule to all destination applications.
-  - **Destination Application Tags**: This field appears only when the **Channel** is **Clipboard**. Select up to 8 destination application tags from the drop-down menu, then click **Done**. This setting monitors for sensitive content pasted from users' clipboards into the applications in the selected application tag. If you select **Any**, the Zscaler service applies the rule to all destination application tags.
-- **Description**: (Optional) Click **Add Description** and enter additional notes or information about the rule in the text field. You can adjust this field's size as needed, depending on your content length. The description cannot exceed 10,240 characters.
-- **Rule Label**: (Optional) Click **Add Rule Label** and select a [label](https://help.zscaler.com/zia/about-rule-labels) from the drop-down menu. You can also search for rule labels.
-- **Rule Order**: All parent rules are evaluated. If multiple rules match, the rule with the most restrictive action and highest rule order is applied. Exception rule evaluation stops at the first match, and an exception replaces a parent rule upon match. To modify the rule order:
-  1. Click **Edit**.
-  2. In the **Edit Rule Order** drawer that appears, enter the required rule order under **Current Rule**. You can review the existing rules shown in the drawer and modify your current rule order. You can also adjust the number of rules displayed per page and navigate through the next and previous pages.
-  3. Click **Apply**.
-- **Rule Status**:An enabled rule is actively enforced. A disabled rule is not actively enforced but does not lose its place in the rule order; the service skips it and moves to the next rule.
-- **Severity**: Select the severity of the violation from the drop-down menu (i.e., **High**, **Medium**, **Low**, or **Information**).
-
-See Image.
-
-(Optional) In the **DLP Incident Receiver** section:
-
-- **Zscaler Incident Receiver**: Select the applicable Zscaler Incident Receiver from the **Zscaler Incident Receiver**drop-down menu. You must configure your [Zscaler Incident Receivers](https://help.zscaler.com/zia/configuring-zscaler-incident-receiver) to complete this step.
-- **Cloud-to-Cloud Forwarding**: Select the applicable **Tenant** and **Cloud-to-Cloud Forwarding Configuration** from the drop-down menus. You must configure [Cloud-to-Cloud Forwarding](https://help.zscaler.com/zia/configure-dlp-cloud-cloud-incident-forwarding) to complete this step.
-
-(Optional) Configure an email notification for the rule. If you do not select an auditor and notification template, a notification is not sent for this rule.
-
-- **Email Auditor Type**: Select whether the auditor is from a **Hosted** database or **External**to your organization.
-  - Select the **Auditor**:
-    - **Email Auditor**: If the auditor is from a hosted database, select or search for the auditor.
-    - **Auditor Email Address**: If the auditor is external, enter the auditor’s email address.
-- **Email Notification Template**: Select a [notification template](https://help.zscaler.com/zia/configuring-dlp-notification-templates) from the drop-down menu.
-- Configure the end user notification (EUN) for the rule. The type of EUN messages that appear on the endpoint depends on the **Action** configured for the rule.
-  - **End User Notification**: Select **Show** to show an EUN message on endpoints when a user's activity triggers the Endpoint DLP policy rule, or select **Hide** if you don't want an EUN message to appear.
-  - **Notification Message**: Select **Default** to use the default EUN message configured for the channel, or select a custom EUN message from the drop-down menu. You can also search for custom messages or click the **Add** icon to add a new custom message.
-
-To learn about configuring custom messages for the **Allow**, **Block**, and **Protect** actions, see [Configuring EUNs for Endpoint DLP](https://help.zscaler.com/zia/configuring-euns-endpoint-dlp). To learn about configuring custom messages for the **Confirm** action, see [Configuring User Confirmation Notification Templates](https://help.zscaler.com/zia/configuring-user-confirmation-notification-templates).
-
-See image.
-
-For conditions with preconfigured values, a multi-select window with a search bar appears. You can select values by selecting the checkbox for individual items or by clicking **Select All**. After selecting the values, click outside the window to close it.
-
-To clear selected items, click the field to open the multi-select window, then use the **Remove** icon displayed for individual entries. To remove all selected values, click **Remove All**.
-
-See image.
-
-For conditions without preconfigured values, manually enter the value in the field, then click **Add**. To add multiple entries, enter each value and click **Add** or press `Enter`.
-
-You can also perform the following actions:
-
-- Remove items by clicking the **Delete** icon for individual entries or by using the **Remove All** option.
-- The entries are paginated, and you can select the number of items to display per page.
-- You can specify the page number to view, or use the **Next** and **Previous** icons to navigate through different pages.
-
-See image.
-
-In the **Who is accessing** section:
-
-- **Users**: You can specify how the Endpoint DLP rule applies to your [users](https://help.zscaler.com/zia/about-users). You can also search for users.
-- **Groups**:You can specify how the Endpoint DLP rule applies to your [groups](https://help.zscaler.com/zia/about-groups). You can also search for groups.
-- **Departments**:You can specify how the DLP rule applies to your [departments](https://help.zscaler.com/zia/about-departments). You can also search for departments.
-
-The DLP policy applies OR logic to the **Users**, **Groups**, and **Departments**fields when inspecting your organization’s traffic. In order for the DLP rule to trigger, the Zscaler service must detect at least one of the rule’s selected users, groups, or departments.
-
-- **User Risk Profile**: Select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. You can also search for user risk profiles. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
-  - **Low**: Level with user risk scores ranging from 0 to 29
-  - **Medium**: Level with user risk scores ranging from 30 to 59
-  - **High**: Level with user risk scores ranging from 60 to 79
-  - **Critical**: Level with user risk scores ranging from 80 to 100
-
-In the **Where is it being accessed**section:
-
-- **Devices**: From the drop-down menu, select one or more devices that the rule applies to. To include all devices, select **Any**. You can also search for devices.
-- **Device Groups**: From the drop-down menu, select one or more device groups that the rule applies to. To include all device groups, select **Any**. You can also search for device groups.
-- **Device Trust Level**: Select the necessary device trust levels (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**). The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console. You can also search for device trust levels.
-
-In the **What is being accessed**section:
-
-- **Content Matching**: Choose **Select DLP Engines** to select up to 4 engines. You can also search for DLP engines. If you select **None**, then the Zscaler service doesn't use DLP engines to scan the content; instead, the service functions as a filter, only flagging content based on the criteria you specify.
-- **DLP Engines**: Select a DLP Engine from the drop-down menu.
-- **File Type**: From the drop-down menu, choose the file types for the rule. The list of available file types changes based on whether you're using DLP engines for content inspection. You can create Endpoint DLP policy rules that apply only to content being sent via specific file types. Zscaler DLP engines can scan files of up to 100 MB. For an archived file, the size of individual files when decompressed can also be a maximum of 100 MB. You can also search for file types.
-- **Minimum Data Size (KB)**: Enter the minimum size requirement that data must meet before the DLP rule applies. The default minimum data size, 0 KB, means there is no minimum data size requirement.
-
-[Image: Selecting values for fields with predefined values in an Endpoint DLP rule]
-
-[Image: Specifying a field value manually in an Endpoint DLP rule rule]
-
-[Image: List of criteria grouped into categories in an Endpoint DLP Rule]
-
-[Image: Selecting criteria and building a ruleset for matching traffic in an Endpoint DLP rule]
-
-[Image: Specifying details about an Endpoint DLP rule]
-
-[Image: Endpoint DLP rule Actions section]
-
-[Image: Enabling or disabling notification for an Endpoint DLP rule and selecting Notification message]
-
-[Image: Screenshot of an Endpoint Policy exception rule using predefined Zscaler DLP engines]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/configuring-euns-cloud-app-control","lastmod":"2026-09-15T12:36Z","nid":"1486501"} -->
-## Configuring EUNs for Cloud App Control
-
-- Source: https://help.zscaler.com/zia/configuring-euns-cloud-app-control
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Configuring EUNs for Cloud App Control
-- Last modified: 2026-09-15T12:36Z
-- Summary: How to customize notification messages for Zscaler Client Connector-based EUNs triggered by Cloud App Control policy in the Zscaler Admin Console.
-
-You can customize the Zscaler Client Connector-based notifications displayed to end users when a [Cloud App Control policy](https://help.zscaler.com/zia/about-cloud-app-control) is triggered by their activity. For example, if your policy blocks users from interacting with or uploading files to AI and ML applications, you can display a notification to users explaining the policy violation when the block occurs. The end user notifications (EUN) are supported only for Block rules under specific conditions where application access is allowed, but certain interactions with the application are blocked (for example, viewing a social networking site is allowed, but posting content is blocked).
-
-These EUNs are triggered by Zscaler service based on your policy configuration and are delivered by Zscaler Client Connector installed on users' endpoints. The Zscaler service provides a default notification for the Cloud App Control policy. You can also create custom messages and associate distinct notifications with individual Cloud App Control rules based on context. To learn more, see [About Zscaler Client Connector-Based End User Notifications](https://help.zscaler.com/zia/about-zscaler-client-connector-based-end-user-notifications).
-
-To create a custom notification message:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **End User Notification** > **End User Notifications**.
-2. Select the **Client Connector** tab.
-3. Click **Add Custom Message**. The **Add Custom Message** drawer appears.
-4. In the **Add Custom Message** drawer: See image.
-  1. Under **General**:
-    - **Name**: Enter a unique name for the custom message.
-    - **Channel**: Select **Cloud Application**.
-  2. Under **Message**, select the language in which you want to customize the notification message from the drop-down menu. A preconfigured message appears for the **Block** policy action in the selected language. In the **Block** field, you can customize the notification message that appears when an end user's activity triggers a Cloud App Control rule and the service blocks the activity. The EUN is supported only for Block rules of the Cloud App Control policy under specific conditions. To learn more, see [Adding Rules to the Cloud App Control Policy](https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy). You can embed links in the message content by using the following format: `__url[Link text | example.com]` (note the double underscore at the beginning). For example, `__url[Learn more | https://acme.com/policy]`. You can also introduce line breaks in the message content by using the `//n` character. When the preconfigured message is modified, a **Reset All** option that allows you to restore the original message appears.
-  3. Under **Additional Information**, select the matched rule details that you want to display in the notification:
-    - **Destination**: Include the destination IP address or domain name that triggered the rule.
-    - **Rule Name**: Include the name of the triggered rule.
-    - **App Activity**: Include the user activity performed in the cloud application that triggered the rule.
-    - **URL**: Include the URL that triggered the rule.
-    - **App Category**: Include the cloud application's category that triggered the rule.
-  4. Under **Preview**, you can view your configured notification message. You can view the full notification by clicking **Show more**. The notification preview also includes the customization made under [Settings](https://help.zscaler.com/zia/configuring-settings-zscaler-client-connector-based-euns), which are general settings applicable to all Zscaler Client Connector-based EUNs.
-5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-You can edit custom notification messages, but the **Channel** field cannot be modified.
-
-After customizing the notification message, you must enable the EUN for a [Cloud App Control rule](https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy) and associate the appropriate notification message. To learn more, see the [Step-by-Step Configuration Guide for Zscaler Client Connector-Based EUNs](https://help.zscaler.com/zia/step-step-configuration-guide-zscaler-client-connector-based-euns).
-
-[Image: Custom Zscaler Client Connector-based EUN for Cloud Application]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/configuring-euns-dns-control","lastmod":"2026-09-15T12:38Z","nid":"1532833"} -->
-## Configuring EUNs for DNS Control
-
-- Source: https://help.zscaler.com/zia/configuring-euns-dns-control
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Configuring EUNs for DNS Control
-- Last modified: 2026-09-15T12:38Z
-- Summary: How to customize notification messages for Zscaler Client Connector-based EUNs triggered by the DNS Control policy in the Zscaler Admin Console.
-
-When network traffic from your users' devices is blocked by the [DNS Control policy](https://help.zscaler.com/zia/configuring-dns-control-policy) or a DNS redirect is performed, the Zscaler service can notify users of the policy action through Zscaler Client Connector installed on users' endpoints. The Zscaler service provides a default notification message that can be readily associated with policy rules. Additionally, you can create custom messages and associate distinct notification messages with individual DNS Control rules, depending on your requirements. To learn more, see [About Zscaler Client Connector-Based End User Notifications](https://help.zscaler.com/zia/about-zscaler-client-connector-based-end-user-notifications).
-
-- This feature configuration requires Advanced DNS which is provided by the Advanced Firewall.
-- The EUN is supported on Windows devices running Zscaler Client Connector version 4.8 or later over Z-Tunnel 2.0. You must also have configured the required settings in Zscaler Client Connector in the Zscaler Admin Console to display these EUNs for DNS Control. To learn more, see [Configuring Zscaler Client Connector App Profiles](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles).
-
-To add a custom notification message:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **End User Notification** > **End User Notifications**.
-2. Select the **Client Connector** tab.
-3. Click **Add Custom Message**. The **Add Custom Message** drawer appears.
-4. In the **Add Custom Message** drawer: See image.
-  1. Under **General**:
-    - **Name**: Enter a unique name for the custom message.
-    - **Channel**: Select **DNS**.
-  2. Under **Message**, select the language in which you want to customize the notification message from the drop-down menu. Preconfigured messages appear for supported policy actions in the selected language. You can customize this message for each policy action as needed: You can embed links in the message content by using the following format: `__url[``Link text``|``example.com``]` (note the double underscore at the beginning). For example, `__url[Learn more | https://acme.com/policy]`. You can also introduce line breaks in the message content by using the `//n` character. When you modify one or more preconfigured messages, a **Reset All** option appears. Clicking this option restores the original messages for all available actions.
-    - **Block**: Customize the notification message that appears when the service blocks the user activity. The **Block** message applies to both **Block** and **Block with Response Code** actions of the DNS Control policy.
-    - **Redirect Response**: Customize the notification message that appears when a DNS redirect is performed.
-  3. Under **Additional Information**, select the matched rule details that you want to display in the notification:
-    - **Request Category**: The URL category of the DNS request.
-    - **Response Category**: The URL category of the DNS response.
-    - **Resolved IP**: The IP address to which the DNS request was resolved.
-    - **DNS Tunnel**: DNS tunnels and network applications identified in the DNS traffic.
-    - **Requested Domain**: The domain name for which DNS resolution was requested.
-    - **Server IP**: The DNS server IP address.
-    - **Protocol**: The protocol used by the DNS request.
-    - **Resolved IP-Based Country**: The country where the destination server is located.
-  4. Under **Preview**, you can view your configured notification messages by clicking the respective message tabs. You can view the full message by clicking **Show more**. The notification preview also includes the customization made under [Settings](https://help.zscaler.com/zia/configuring-settings-zscaler-client-connector-based-euns), which are general settings applicable to all Zscaler Client Connector-based EUNs.
-5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-You can edit custom notification messages, but the **Channel** field cannot be modified.
-
-After customizing the notification message, you must enable the EUN for a [DNS Control rule](https://help.zscaler.com/zia/configuring-dns-control-policy) and associate an appropriate notification message. To learn more, see the [Step-by-Step Configuration Guide for Zscaler Client Connector-Based EUNs](https://help.zscaler.com/zia/step-step-configuration-guide-zscaler-client-connector-based-euns).
-
-[Image: Add custom message for DNS channel of Zscaler Client Connector EUN]
+  - **Console Applications (Windows Only)**: Select one of the following options for monitoring print activity for console applications. Console applications are programs operating through a text-only interface without a graphical user interface (GUI) (e.g., ipconfig, ping, git, or npm).
+    - **Enforce Endpoint DLP Print Rules for All Console Applications**: Select this option to monitor print action for all console applications.
+    - **Enforce Endpoint DLP Print Rules for Specific Console Applications**: Select this option to monitor print action for specific console applications that you add to the Edit List.
+      - Exception Settings
+2. **Application File Access**
+  - **Exclude Events Triggered by macOS Outside Bundle Helper Executables**: Enable to exclude events that were triggered by macOS outside bundle helper executables.
+  - **Monitored macOS Unsigned Applications**: Click **Edit List** to specify unsigned macOS applications to monitor or block using the Application File Access rule. Unsigned macOS applications are excluded from Application File Access monitoring to reduce potential performance impact.
+3. **Clipboard**
+  - **Console Applications (Windows Only)**: Select one of the following options for monitoring clipboard activity for console applications. Console applications are programs operating through a text-only interface without a graphical user interface (GUI) (e.g., ipconfig, ping, git, or npm).
+    - **Enforce Endpoint DLP Print Rules for All Console Applications**: Select this option to monitor clipboard action for all console applications.
+    - **Enforce Endpoint DLP Print Rules for Specific Console Applications**: Select this option to monitor clipboard action for specific console applications that you add to the Edit List.
+      - Exception Settings
+4. **Removable Storage:**You can set exceptions for the following:
+  - **Removable Storage Devices**: You can exclude specific devices from removable storage rule enforcement. This setting is designed to exclude local hard drives that are incorrectly identified as removable storage devices by the operating system.
+  - **Applications**: You can exclude specific applications from Endpoint DLP removable storage rules. This setting is recommended for applications with high file activity or those causing compatibility issues that affect performance.
+  - **File Save Control**: You can exclude specific applications for which you want to set the file save behavior to Monitor Only. Use this setting to prevent conflicts or compatibility issues when endpoint DLP attempts to block file-saving activities.
+5. **Network Share**: You can set exceptions for the following:
+  - **Applications**: You can exclude specified applications from Endpoint DLP network share rules. This setting is recommended for applications that create or modify many files or those causing compatibility issues that affect performance.
+  - **File Save Control**: You can exclude specific applications for which you want to set the file save behavior to Monitor Only. Use this setting to prevent conflicts or compatibility issues when endpoint DLP attempts to block file-saving activities.
+6. Click **Save**and [activate the change](https://help.zscaler.com/zia/activating-device-control-policy-rules).
+
+[Image: Configuration of channels - Printer, Clipboard, Removable Storage, and Network Share in the Endpoint Data Scan page]
+
+You can exclude the specified applications and entities from being intercepted by Endpoint DLP printer rules. This setting is recommended to prevent conflicts or compatibility issues with applications and Endpoint DLP printer controls.
+
+- **Entities**: Enter the following details to exclude specified users, user groups, departments, or endpoints from being intercepted by Endpoint DLP printer rules.
+  - **Condition Type**: Choose from **User**, **User Group**, **Department**, or **Endpoint**.
+  - **Value**: Provide the corresponding value for the entity.
+  - **Description**: Add a description for the configured settings.
+- **Applications**: Enter the following details to exclude specific applications from being intercepted by Endpoint DLP printing rules:
+  - **Executable File Name**: The executable file name for the application (e.g., chrome.exe).
+  - **Description**: Add a description for the configured settings.
+- **Printer**: Enter printers that require special handling to apply override actions for Endpoint DLP and Device Control rules.
+  - **Non-Intrusive Block**: An alternative method to stop unauthorized printing. Recommended for printers without pause/resume support.
+  - **Monitor Only**: Allow the print job and monitor it, even when the rule is set to Block.
+  - **Disabled**: Exclude the printer from all DLP inspection, rule enforcement, and reporting.
+
+You can exclude the specified applications and entities from being intercepted by Endpoint DLP clipboard rules. This setting is recommended to prevent conflicts or compatibility issues with applications and Endpoint DLP clipboard controls:
+
+- **Entities**: Enter the following details to exclude specified users, user groups, departments, or endpoints from being intercepted by Endpoint DLP clipboard rules.
+  - **Condition Type**: Choose from **User**, **User Group**, **Department**, or **Endpoint**.
+  - **Value**: Provide the corresponding value for the entity.
+  - **Description**: Add a description for the configured settings.
+- **Applications**: Enter the following details to exclude specific applications from being intercepted by Endpoint DLP clipboard rules:
+  - **Executable File Name**: The executable file name for the application (e.g., chrome.exe).
+  - **Description**: Add a description for the configured settings.
 <!-- /ZS-ARTICLE -->

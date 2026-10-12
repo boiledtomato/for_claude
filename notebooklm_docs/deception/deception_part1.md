@@ -1,8 +1,8 @@
 # Zscaler Help — Zscaler Deception (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-05 09:38 UTC
-Articles in this file: 297
+Generated: 2026-10-12 09:45 UTC
+Articles in this file: 296
 
 ---
 
@@ -2517,7 +2517,7 @@ To add a dynamic file dataset:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/adding-ip-addresses-allowlist","lastmod":"2026-06-24T21:06Z","nid":"1540455"} -->
+<!-- ZS-ARTICLE {"url":"/deception/adding-ip-addresses-allowlist","lastmod":"2026-06-24T21:06Z","nid":"1542370"} -->
 ## Adding IP Addresses to the Allowlist
 
 - Source: https://help.zscaler.com/deception/adding-ip-addresses-allowlist
@@ -2633,7 +2633,7 @@ After you create the static application dataset, you can use it to deploy a [net
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/adding-static-file-dataset","lastmod":"2026-04-10T01:37Z","nid":"1539301"} -->
+<!-- ZS-ARTICLE {"url":"/deception/adding-static-file-dataset","lastmod":"2026-04-10T01:37Z","nid":"1542423"} -->
 ## Adding a Static File Dataset
 
 - Source: https://help.zscaler.com/deception/adding-static-file-dataset
@@ -3168,7 +3168,7 @@ Before creating the decoy, clone the business-critical web application’s login
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/best-practice-guide-using-containment-integrations","lastmod":"2026-07-09T21:06Z","nid":"1540644"} -->
+<!-- ZS-ARTICLE {"url":"/deception/best-practice-guide-using-containment-integrations","lastmod":"2026-07-09T21:06Z","nid":"1542559"} -->
 ## Best Practice Guide for Using Containment Integrations
 
 - Source: https://help.zscaler.com/deception/best-practice-guide-using-containment-integrations
@@ -3879,13 +3879,13 @@ To configure the management network:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-defense-evasion","lastmod":"2026-04-27T07:06Z","nid":"1539168"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-defense-evasion","lastmod":"2026-10-09T04:04Z","nid":"1542290"} -->
 ## Configuring Defense Evasion
 
 - Source: https://help.zscaler.com/deception/configuring-defense-evasion
 - Product: Deception
 - Path: Deception Help > Deceive  > Landmine Decoys > Policies > Configuring Defense Evasion
-- Last modified: 2026-04-27T07:06Z
+- Last modified: 2026-10-09T04:04Z
 - Summary: How to configure landmine policies to detect adversarial defense evasion attempts on endpoints.
 
 The Defense Evasion module enables you to create fake security processes on endpoint machines to trap adversaries who attempt to stop security processes, such as antivirus, endpoint detection and response (EDR), data loss prevention (DLP), etc.
@@ -3900,7 +3900,7 @@ To configure defense evasion via a landmine policy:
 4. Under the **Fake Security Processes**section: See image.
   1. **Enabled**:Select to deploy fake security processes on endpoints using the landmine policy.
   2. **Process Name**: Enter a name for the fake process.
-  3. **Process Path**: Enter a path for the fake process.
+  3. **Process Path**: Enter a path for the fake process. Beginning with Zscaler Client Connector-integrated Agent version 6.1, certain system and protected file paths cannot be used to configure file-based lures and decoys. To learn more, see [Restricted File Paths for Lures and Decoys](https://help.zscaler.com/deception/restricted-file-paths-lures-and-decoys).
 5. Click **Save**.
 
 The configured process can take more than two minutes to restart after it is stopped.
@@ -3912,13 +3912,13 @@ The configured process can take more than two minutes to restart after it is sto
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-file-decoys","lastmod":"2026-09-18T02:33Z","nid":"1542295"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-file-decoys","lastmod":"2026-10-09T04:04Z","nid":"1542295"} -->
 ## Configuring File Decoys
 
 - Source: https://help.zscaler.com/deception/configuring-file-decoys
 - Product: Deception
 - Path: Deception Help > Deceive  > Landmine Decoys > Policies > Configuring File Decoys
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-10-09T04:04Z
 - Summary: How to configure landmine policies to deploy various types file decoys on endpoints.
 
 The File Decoys module enables you to place decoy files on endpoints. The Zscaler Deception Admin Portal generates alerts when an adversary attempts to interact with these file decoys.
@@ -3943,7 +3943,7 @@ To configure a custom file decoy:
 1. Under the **Custom Files**section: See image.
   1. Click **Add**.
   2. **Name**: Enter a name for the custom file decoy.
-  3. **Path**: Enter thepath to the custom file decoy.
+  3. **Path**: Enter thepath to the custom file decoy. Beginning with Zscaler Client Connector-integrated Agent version 6.1, certain system and protected file paths cannot be used to configure path-based lures and decoys. To learn more, see [Restricted File Paths for Lures and Decoys](https://help.zscaler.com/deception/restricted-file-paths-lures-and-decoys).
   4. **File Type**: Select a file type from the drop-down menu (e.g., **PPT**,**XLSX**, **DOCX**, or **HTML**).
   5. **Comment**: (Optional) Enter a comment.
   6. **Hidden**: (Optional) Enable if you want to hide the file.
@@ -3960,7 +3960,7 @@ To configure a credential file decoy:
 1. Go to the **Network Credential** section or the **Credential**section. The **Network Credential** section supports generating credential files (in CSV format only) for network and Threat Intelligence (TI) decoys. The **Credential** section supports generating credential files (in TXT format only) for all types of decoys (network decoys, cloud decoys, TI decoys, and Active Directory decoys).
 2. Click **Add**.
 3. **Name**: Enter a name for the credential file decoy.
-4. **Path**: Enter the path to the credential file decoy.
+4. **Path**: Enter the path to the credential file decoy. Beginning with Zscaler Client Connector-integrated Agent version 6.1, certain system and protected file paths cannot be used to configure path-based lures and decoys. To learn more, see [Restricted File Paths for Lures and Decoys](https://help.zscaler.com/deception/restricted-file-paths-lures-and-decoys).
 5. **Comment**: (Optional) Enter a comment.
 6. **Hidden**: (Optional) Enable if you want to hide the file. This option applies only to policies for Windows endpoints applied through Landmine Agents. For policies applied to Linux endpoints through Landmine Agentless, you can hide the file by prefixing the file name with a dot (.). See image.
 7. **Target Decoys**: Select one or more decoys from the drop-down menu as targets to generate credentials. Credentials to access the decoys are generated and placed in the credential file. When no decoy is selected, a target decoy is chosen randomly if a decoy with a supported service is enabled and deployed. You can select interactive generative AI decoys as target decoys. If the target decoy is an authentication-enabled generative AI decoy, then adversaries can use the fake credentials stored in the credential file decoy to log in to the generative AI decoys. To learn more about authentication-enabled generative AI decoys, see [Configuring Services on a Network Decoy](https://help.zscaler.com/deception/configuring-services-network-decoy/#deception-config-service-gen-ai-hi-interaction-app-section). See image.
@@ -3978,7 +3978,7 @@ To configure a preconfigured file dataset decoy:
   1. Click **Add**.
   2. **Dataset**: Select a Miragemaker file dataset. You can select generative AI file datasets to deploy [file-based generative AI decoys](https://help.zscaler.com/deception/creating-and-deploying-file-based-gen-ai-decoys) on endpoints.
   3. **Name**: Enter a name of your choice that must be used for the file decoy.
-  4. **Path**: Enter the path to the file decoy.
+  4. **Path**: Enter the path to the file decoy. Beginning with Zscaler Client Connector-integrated Agent version 6.1, certain system and protected file paths cannot be used to configure path-based lures and decoys. To learn more, see [Restricted File Paths for Lures and Decoys](https://help.zscaler.com/deception/restricted-file-paths-lures-and-decoys).
   5. **Comment**: (Optional) Enter a comment.
   6. **Hidden**: (Optional) Enable if you want to hide the file.
 2. Click **Save**.
@@ -5073,7 +5073,7 @@ To configure proxy settings for a Decoy Connector:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-safe-process","lastmod":"2026-07-05T07:06Z","nid":"1540516"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-safe-process","lastmod":"2026-07-05T07:06Z","nid":"1542431"} -->
 ## Configuring a Safe Process
 
 - Source: https://help.zscaler.com/deception/configuring-safe-process
@@ -6097,7 +6097,7 @@ A custom service enables you to add a TCP or UDP port to the network decoy. You 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-session-lures","lastmod":"2026-03-24T05:30Z","nid":"1539172"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-session-lures","lastmod":"2026-03-24T05:30Z","nid":"1542294"} -->
 ## Configuring Session Lures
 
 - Source: https://help.zscaler.com/deception/configuring-session-lures
@@ -8566,7 +8566,7 @@ To learn how to configure lures using Gen AI decoys, see [Configuring Lures Usin
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-high-interaction-docker-container-image","lastmod":"2025-05-12T02:39Z","nid":"1539304"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-high-interaction-docker-container-image","lastmod":"2025-05-12T02:39Z","nid":"1542426"} -->
 ## Creating a High-Interaction Docker Container Image
 
 - Source: https://help.zscaler.com/deception/creating-high-interaction-docker-container-image
@@ -11587,7 +11587,7 @@ To disable access to support users:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/downloading-active-directory-decoy-personality","lastmod":"2025-05-12T03:32Z","nid":"1539392"} -->
+<!-- ZS-ARTICLE {"url":"/deception/downloading-active-directory-decoy-personality","lastmod":"2025-05-12T03:32Z","nid":"1542514"} -->
 ## Downloading an Active Directory Decoy Personality
 
 - Source: https://help.zscaler.com/deception/downloading-active-directory-decoy-personality
@@ -11787,7 +11787,7 @@ To download a landmine agent:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/downloading-landmine-decoy-personality","lastmod":"2023-12-21T04:27Z","nid":"1539387"} -->
+<!-- ZS-ARTICLE {"url":"/deception/downloading-landmine-decoy-personality","lastmod":"2023-12-21T04:27Z","nid":"1542509"} -->
 ## Downloading a Landmine Decoy Personality
 
 - Source: https://help.zscaler.com/deception/downloading-landmine-decoy-personality
@@ -11808,7 +11808,7 @@ To download a landmine decoy personality:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/downloading-network-decoy-personality","lastmod":"2025-05-19T06:08Z","nid":"1539377"} -->
+<!-- ZS-ARTICLE {"url":"/deception/downloading-network-decoy-personality","lastmod":"2025-05-19T06:08Z","nid":"1542499"} -->
 ## Downloading a Network Decoy Personality
 
 - Source: https://help.zscaler.com/deception/downloading-network-decoy-personality
@@ -11874,7 +11874,7 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/downloading-scadaiot-dataset","lastmod":"2025-05-12T02:41Z","nid":"1539373"} -->
+<!-- ZS-ARTICLE {"url":"/deception/downloading-scadaiot-dataset","lastmod":"2025-05-12T02:41Z","nid":"1542495"} -->
 ## Downloading a SCADA/IoT Dataset
 
 - Source: https://help.zscaler.com/deception/downloading-scadaiot-dataset
@@ -11941,7 +11941,7 @@ The strategy configuration details are downloaded in the JSON format.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/downloading-threat-intelligence-decoy-personality","lastmod":"2025-05-12T03:29Z","nid":"1539382"} -->
+<!-- ZS-ARTICLE {"url":"/deception/downloading-threat-intelligence-decoy-personality","lastmod":"2025-05-12T03:29Z","nid":"1542504"} -->
 ## Downloading a Threat Intelligence Decoy Personality
 
 - Source: https://help.zscaler.com/deception/downloading-threat-intelligence-decoy-personality
@@ -11966,7 +11966,7 @@ The TI decoy personality is downloaded to your system as a JSON file.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/downloading-vulnerable-application-dataset","lastmod":"2025-05-12T01:30Z","nid":"1539408"} -->
+<!-- ZS-ARTICLE {"url":"/deception/downloading-vulnerable-application-dataset","lastmod":"2025-05-12T01:30Z","nid":"1542530"} -->
 ## Downloading a Vulnerable Application Dataset
 
 - Source: https://help.zscaler.com/deception/downloading-vulnerable-application-dataset
@@ -12798,7 +12798,7 @@ The default static application datasets cannot be deleted.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-subnet","lastmod":"2026-06-24T21:06Z","nid":"1540475"} -->
+<!-- ZS-ARTICLE {"url":"/deception/editing-or-deleting-subnet","lastmod":"2026-06-24T21:06Z","nid":"1542390"} -->
 ## Editing or Deleting a Subnet
 
 - Source: https://help.zscaler.com/deception/editing-or-deleting-subnet
@@ -12959,7 +12959,7 @@ The default vulnerable application datasets cannot be deleted.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/editing-user-profile","lastmod":"2025-06-10T07:12Z","nid":"1539133"} -->
+<!-- ZS-ARTICLE {"url":"/deception/editing-user-profile","lastmod":"2025-06-10T07:12Z","nid":"1542255"} -->
 ## Editing the User Profile
 
 - Source: https://help.zscaler.com/deception/editing-user-profile
@@ -13012,7 +13012,7 @@ To enable the auto clean-up of duplicate landmine agents:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/enabling-phased-updates-using-agent-update-groups","lastmod":"2024-03-15T07:06Z","nid":"1539187"} -->
+<!-- ZS-ARTICLE {"url":"/deception/enabling-phased-updates-using-agent-update-groups","lastmod":"2024-03-15T07:06Z","nid":"1542309"} -->
 ## Enabling Phased Updates Using Agent Update Groups
 
 - Source: https://help.zscaler.com/deception/enabling-phased-updates-using-agent-update-groups
@@ -13664,7 +13664,7 @@ After exporting the CA certificate, change the file extension of the certificate
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/exporting-strategies","lastmod":"2025-05-19T05:02Z","nid":"1539317"} -->
+<!-- ZS-ARTICLE {"url":"/deception/exporting-strategies","lastmod":"2025-05-19T05:02Z","nid":"1542439"} -->
 ## Exporting Strategies
 
 - Source: https://help.zscaler.com/deception/exporting-strategies
@@ -13714,7 +13714,7 @@ All TI decoy personalities are downloaded to your system in a compressed (.zip) 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/exporting-threat-intelligence-decoys-configuration","lastmod":"2025-05-12T05:33Z","nid":"1539156"} -->
+<!-- ZS-ARTICLE {"url":"/deception/exporting-threat-intelligence-decoys-configuration","lastmod":"2025-05-12T05:33Z","nid":"1542278"} -->
 ## Exporting Threat Intelligence Decoys Configuration
 
 - Source: https://help.zscaler.com/deception/exporting-threat-intelligence-decoys-configuration
@@ -15312,7 +15312,7 @@ To delete one or more landmine policies:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/managing-openid-idp-configurations","lastmod":"2026-07-28T19:16Z","nid":"1540648"} -->
+<!-- ZS-ARTICLE {"url":"/deception/managing-openid-idp-configurations","lastmod":"2026-07-28T19:16Z","nid":"1542563"} -->
 ## Managing OpenID IdP Configurations
 
 - Source: https://help.zscaler.com/deception/managing-openid-idp-configurations
@@ -15550,7 +15550,7 @@ To delete a SIEM integration:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/obtaining-agent-registration-token","lastmod":"2024-03-15T07:06Z","nid":"1539161"} -->
+<!-- ZS-ARTICLE {"url":"/deception/obtaining-agent-registration-token","lastmod":"2024-03-15T07:06Z","nid":"1542283"} -->
 ## Obtaining the Agent Registration Token
 
 - Source: https://help.zscaler.com/deception/obtaining-agent-registration-token
@@ -15911,13 +15911,13 @@ The illusionblack.com cloud represents all clouds, and updates to specific cloud
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/release-upgrade-summary-2026","lastmod":"2026-09-24T02:41Z","nid":"1542588"} -->
+<!-- ZS-ARTICLE {"url":"/deception/release-upgrade-summary-2026","lastmod":"2026-10-08T22:55Z","nid":"1542588"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/deception/release-upgrade-summary-2026
 - Product: Deception
 - Path: Deception Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-24T02:41Z
+- Last modified: 2026-10-08T22:55Z
 - Summary: Zscaler Deception release summary for updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Zscaler Deception.
@@ -16009,7 +16009,124 @@ To reset 2FA:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/running-decoy-deployment-script-active-directory","lastmod":"2025-02-10T23:42Z","nid":"1539202"} -->
+<!-- ZS-ARTICLE {"url":"/deception/restricted-file-paths-lures-and-decoys","lastmod":"2026-10-09T03:51Z","nid":"1546704"} -->
+## Restricted File Paths for Lures and Decoys
+
+- Source: https://help.zscaler.com/deception/restricted-file-paths-lures-and-decoys
+- Product: Deception
+- Path: Deception Help > Deceive  > Landmine Decoys > Endpoint Deception With Zscaler Client Connector > Restricted File Paths for Lures and Decoys
+- Last modified: 2026-10-09T03:51Z
+- Summary: List of restricted file paths for landmine-based lures and decoys.
+
+Beginning with Zscaler Client Connector-integrated Agent 6.1, landmine validates certain file paths specified in policies before creating or managing path-based lures and decoys. Paths that target the operating system, security, credential, or other protected locations are rejected. The blocked paths vary depending on the endpoint operating system.
+
+The following sections list the blocked paths for each operating system.
+
+- Windows
+- Linux
+- macOS
+
+The following locations and their contents are blocked:
+
+Path validation is case-insensitive and uses the actual Windows and system directories configured on the endpoint.
+
+- The Windows installation directory, typically `C:\Windows`, including `System32`, `SysWOW64`, `WinSxS`, and other subdirectories.
+- `<SystemDrive>\Boot`
+- `<SystemDrive>\System Volume Information`
+- `<ProgramData>\Microsoft\Crypto`
+- `<ProgramData>\Microsoft\Windows Defender`
+- `<ProgramData>\Microsoft\Windows\Hyper-V`
+- The all-users Startup folder, typically`C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp`
+
+The following user-specific locations are also blocked:
+
+- `%APPDATA%\Microsoft\Protect`
+- `%LOCALAPPDATA%\Microsoft\Credentials`
+- `%LOCALAPPDATA%\Microsoft\Vault`
+- `%LOCALAPPDATA%\Microsoft\SystemCertificates`
+- `%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup`
+- `%LOCALAPPDATA%\Microsoft\WindowsApps`
+- `%APPDATA%\Microsoft\Templates`
+- `NTUSER.DAT`
+- `%LOCALAPPDATA%\Microsoft\Windows\UsrClass.dat`
+
+The following paths are blocked:
+
+- `/etc/`
+- `/proc/`
+- `/sys/`
+- `/dev/`
+- `/boot/`
+- `/bin/`
+- `/sbin/`
+- `/usr/bin/`
+- `/usr/sbin/`
+- `/usr/local/`
+- `/lib/`
+- `/lib64/`
+- `/usr/lib/`
+- `/usr/lib64/`
+- `/lib/x86_64-linux-gnu/`
+- `/usr/lib/x86_64-linux-gnu/`
+- `/usr/share/keyrings/`
+- `/usr/share/polkit-1/`
+- `/usr/share/dbus-1/system-services/`
+- `/var/spool/cron/`
+- `/lib/systemd/`
+- `/usr/lib/systemd/`
+- `/lib/modules/`
+- `/usr/lib/modules/`
+- `/var/lib/dpkg/`
+- `/var/lib/rpm/`
+- `/var/lib/docker/`
+- `/tmp/`
+- `/var/tmp/`
+- `/run/docker.sock`
+
+The following paths are blocked:
+
+- `/System/`
+- `/bin/`
+- `/sbin/`
+- `/usr/bin/`
+- `/usr/sbin/`
+- `/usr/lib/`
+- `/usr/libexec/`
+- `/usr/local/`
+- `/opt/homebrew/`
+- `/Library/LaunchDaemons/`
+- `/Library/LaunchAgents/`
+- `/Library/StartupItems/`
+- `/Library/Security/SecurityAgentPlugins/`
+- `/Library/ScriptingAdditions/`
+- `/Library/Audio/Plug-Ins/HAL/`
+- `/Library/Spotlight/`
+- `/Library/ColorSync/Profiles/`
+- `/Library/Fonts/`
+- `/Library/Keychains/`
+- `/Library/Application Support/com.apple.TCC/`
+- `/Library/Managed Preferences/`
+- `/var/db/ConfigurationProfiles/`
+- `/Library/Apple/System/Library/CoreServices/`
+- `/tmp/`
+- `/private/tmp/`
+- `/var/tmp/`
+- `/private/var/run/`
+- `/etc/`
+- `/private/etc/`
+- `/private/var/db/auth.db`
+
+The corresponding per-user locations under the following directories are also blocked:
+
+- `/Library/LaunchAgents/`
+- `/Library/Keychains/`
+- `/Library/Spotlight/`
+- `/Library/Application Support/com.apple.TCC/`
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/deception/running-decoy-deployment-script-active-directory","lastmod":"2025-02-10T23:42Z","nid":"1542324"} -->
 ## Running the Decoy Deployment Script on an Active Directory
 
 - Source: https://help.zscaler.com/deception/running-decoy-deployment-script-active-directory
@@ -17307,7 +17424,7 @@ You can add Orchestrate rules to create alerts when something happens on the dec
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/storing-passwords-hashes","lastmod":"2023-08-03T22:02Z","nid":"1539208"} -->
+<!-- ZS-ARTICLE {"url":"/deception/storing-passwords-hashes","lastmod":"2023-08-03T22:02Z","nid":"1542330"} -->
 ## Storing Passwords as Hashes
 
 - Source: https://help.zscaler.com/deception/storing-passwords-hashes
@@ -17798,7 +17915,7 @@ To test a rule:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/testing-threat-intelligence-decoy","lastmod":"2025-05-12T05:33Z","nid":"1539160"} -->
+<!-- ZS-ARTICLE {"url":"/deception/testing-threat-intelligence-decoy","lastmod":"2025-05-12T05:33Z","nid":"1542282"} -->
 ## Testing a Threat Intelligence Decoy
 
 - Source: https://help.zscaler.com/deception/testing-threat-intelligence-decoy
@@ -18107,64 +18224,4 @@ Application datasets are resources used to build and deploy decoy web applicatio
 - **Vulnerable Application Datasets**: Allows you to configure requests and responses to mimic dynamic web applications. Typically, the requests and responses are created based on CVE disclosures for specific applications. You can also create custom requests and responses for dynamic web applications that mimic any vulnerability. To learn more, see [About Vulnerable Application Datasets (CVE Datasets)](https://help.zscaler.com/deception/about-vulnerable-application-datasets-cve-datasets).
 - **Dynamic Application Datasets**: Combines appropriate front ends (static application datasets) and dynamic interactions (vulnerable application datasets) to create interactive decoy web applications. To learn more, see [About Dynamic Application Datasets](https://help.zscaler.com/deception/about-dynamic-application-datasets).
 - **High-Interaction Container Datasets**: Self-contained docker container datasets that are fully interactive application decoys. To learn more, see [About High-Interaction Containers](https://help.zscaler.com/deception/about-high-interaction-containers).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/deception/understanding-cloud-deception","lastmod":"2026-02-04T04:42Z","nid":"1539357"} -->
-## Understanding Cloud Deception
-
-- Source: https://help.zscaler.com/deception/understanding-cloud-deception
-- Product: Deception
-- Path: Deception Help > Deceive  > Cloud Deception > Understanding Cloud Deception
-- Last modified: 2026-02-04T04:42Z
-- Summary: Information on Cloud Deception with Azure and AWS.
-
-Cloud Deception is a set of tools that allow you to configure and deploy decoys that mimic legitimate resources and assets in public cloud platforms. You can integrate a supported public cloud platform with Zscaler Deception and deploy decoy resources specific to the cloud platform. Depending on the type of decoy and its configuration, an adversary can access, interact, or perform malicious operations with the cloud decoys in different ways. Such activities are considered malicious activities and they are logged as attacks. You can view and analyze the attack details from the Deception dashboard.
-
-## Deploying Decoys
-
-You can deploy Microsoft Azure or Amazon Web Services (AWS) decoys to detect malicious activities originating from adversaries within or outside your organization, depending on the type and configuration of the decoys. For example, lures for Azure or AWS decoys configured using landmine policies detect malicious activities by users within an organization, as the landmine policies are deployed in devices managed by the organization. On the other hand, decoys with public visibility can detect malicious activities from external adversaries who enumerate them with various tools.
-
-Deception uses a deployment script to set up the integration and deploy decoys in the Azure or AWS cloud. For Azure, the script deploys all necessary resources such as secrets, resource groups, function apps, etc., to manage Cloud Deception with Azure. A health check function app is also deployed that monitors and updates the health status of the deployed decoys to the Zscaler Deception Admin Portal every 15 minutes. For AWS, the script deploys all necessary resources such as functions, users, policies, etc. to manage Cloud Deception with AWS. A health check lambda function is also deployed that monitors and updates the health status of the deployed decoys to the Deception Admin Portal every 15 minutes.
-
-### Cloud Deception with Azure
-
-The following diagram illustrates the interactions between various components in Deception and Azure.
-
-[Image: An illustration of Cloud Deception with Azure]
-
-### Cloud Deception with AWS
-
-The following diagram illustrates the interactions between various components in Deception and AWS.
-
-[Image: An illustration of Cloud Deception with AWS]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/deception/understanding-event-notification-templates","lastmod":"2026-09-18T02:33Z","nid":"1542597"} -->
-## Understanding Event Notification Templates
-
-- Source: https://help.zscaler.com/deception/understanding-event-notification-templates
-- Product: Deception
-- Path: Deception Help > Orchestrate  > Event Templates > Understanding Event Notification Templates
-- Last modified: 2026-09-18T02:33Z
-- Summary: Information about event notification templates.
-
-Zscaler Deception allows you to send event notifications as emails when a threat is detected. You can enable notifications and customize the notification subject and the event fields included in the email body to provide the information most relevant to your organization.
-
-By default, the subject line for the email notification uses the following text:
-
-```
-{kill_chain_phase}
-activity on
-{decoy.appliance.name}
-```
-
-You can modify this text using the built-in events.
-
-You cannot change the template of the email body. However, you can include more event fields in the email body.
-
-To learn more, see [Customizing Event Notification Templates](https://help.zscaler.com/deception/customizing-event-notification-templates).
 <!-- /ZS-ARTICLE -->

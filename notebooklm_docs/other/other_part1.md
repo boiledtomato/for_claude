@@ -1,7 +1,7 @@
 # Zscaler Help — Other (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-05 09:38 UTC
+Generated: 2026-10-12 09:45 UTC
 Articles in this file: 18
 
 ---
@@ -152,7 +152,7 @@ For each alert in the list, you can click to see a detailed view of data about t
 - Product: Agentic SOC
 - Path: Agentic SOC Help > Administration > Assets > About Assets in Agentic SOC
 - Last modified: 2026-09-02T11:46Z
-- Summary: Information on the Assets page in the Agentic SOC application of the Security Operations Platform.
+- Summary: Information on the Assets page in the Agentic SOC application of the Agentic Security Operations Platform.
 
 The Assets page provides a centralized view of the assets in Agentic SOC.Each asset represents a single entity in your environment, unified (i.e., merged) and enriched with information from multiple sources. On this page, you can explore asset details and statuses, view the sources and records from which it was merged, view the findings it contains, and view the tickets it's related to.
 
@@ -205,13 +205,13 @@ The **Assets** page includes system views with predefined filter selections, pro
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/about-incidents","lastmod":"2026-09-23T15:39Z","nid":"1534211"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/about-incidents","lastmod":"2026-10-08T13:28Z","nid":"1534211"} -->
 ## About Incidents
 
 - Source: https://help.zscaler.com/agentic-soc/about-incidents
 - Product: Agentic SOC
 - Path: Agentic SOC Help > Administration > Incidents & Alerts > About Incidents
-- Last modified: 2026-09-23T15:39Z
+- Last modified: 2026-10-08T13:28Z
 - Summary: Information on how the Zscaler Agentic SOC Incidents page helps your team monitor incident activity across your organization.
 
 Agentic SOC incidents are designed to quickly provide complete context for all incidents and to let you pivot to specific asset information for deeper insights, enabling your Security Operations Center (SOC) team to make faster, more effective decisions. When you open the Incidents page, it provides high-level information at a glance about the incidents affecting your organization, and you can merge, sort, update, and add comments to the incidents listed in the table. To learn how to investigate and remediate an incident, see [Viewing Incident Details](https://help.zscaler.com/agentic-soc/viewing-incident-details).
@@ -232,18 +232,13 @@ On the Incidents page (Agentic SOC > Incidents), you can do the following:
 2. Search for specific incidents by entering keywords in the search bar.
 3. [Save your view](https://help.zscaler.com/unified/creating-managing-saved-views) for quick access after making adjustments to it (e.g., applying filters, adjusting columns, grouping).
 4. [Filter](https://help.zscaler.com/unified/using-filters) the incident information on the page, and add new filters to control the information you see.
-5. See the number of incidents by status displayed as a line chart.
-6. See the cumulative impact of risk on your organization, based on incident risk score, displayed as a pie chart.
-7. See the number of incidents per user displayed as a donut chart.
-8. Update information for one or more incidents selected in the table.
-9. Merge one or more incidents selected in the table.
-10. Add comments to one or more incidents selected in the table.
-11. [Specify grouping](https://help.zscaler.com/unified/grouping-data-entity-pages) for the incidents in the table (e.g., incident first seen, incident last seen, incident tags).
-12. Refresh table data, export table data to a CSV file, and specify the columns available in the table.
-13. View a list of all incidents affecting your organization. For each incident, you can see the following by default:
+5. See the number of incidents by status, severity, and verdict, displayed as charts.
+6. Modify multiple incidents at once, such as updating the status, merging incidents together, and adding comments.
+7. [Specify grouping](https://help.zscaler.com/unified/grouping-data-entity-pages) for the incidents in the table (e.g., incident first seen, incident last seen, incident tags).
+8. Refresh table data, export table data to a CSV file, and configure the columns displayed in the table.
+9. View a list of all incidents affecting your organization. The table displays the following columns by default:
   - **ID**: The ID number of the incident.
   - **Severity**: The severity of the incident (e.g., **Critical**, **High**, **Medium**).
-  - **Risk Mass**: The risk mass of the incident.
   - **Type**: The type of incident (e.g., **AI**, **Platform**, **Custom**).
   - **Title**: The title of the incident.
   - **Created**: The date the incident was created.
@@ -255,7 +250,7 @@ On the Incidents page (Agentic SOC > Incidents), you can do the following:
 
 For each incident in the list, you can click to see a detailed view of data about that incident. You can also customize the detailed view for incidents. To learn more, see [Customizing Alert and Incident Detail Pages](https://help.zscaler.com/agentic-soc/customizing-alert-and-incident-detail-pages).
 
-[Image: Incidents landing page]
+[Image: An annotated screenshot of the Incidents landing page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -709,13 +704,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/release-upgrade-summary-2026","lastmod":"2026-09-22T08:13Z","nid":"1534331"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/release-upgrade-summary-2026","lastmod":"2026-10-10T07:06Z","nid":"1534331"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/agentic-soc/release-upgrade-summary-2026
 - Product: Agentic SOC
 - Path: Agentic SOC Help > 	Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-22T08:13Z
+- Last modified: 2026-10-10T07:06Z
 - Summary: Agentic SOC Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Agentic SOC.
@@ -746,14 +741,14 @@ To configure Agentic SOC:
 - Step 1: Ensure Completion of Prerequisite Tasks
 - Step 2: Assess the Security Threats to Your Organization
 - Step 3: Use Agentic SOC Dashboards and Reports to Further Analyze Data
-- Step 4: Configure the Zscaler Security Operations Platform
+- Step 4: Configure the Zscaler Agentic Security Operations Platform
 
 1. License Agentic SOC: Agentic SOC is a standalone product that is licensed separately from other parts of the Zscaler ecosystem. To learn more about provisioning Agentic SOC for your organization, contact your Zscaler Account team.
 2. [Configure Internet & SaaS (ZIA)](https://help.zscaler.com/zia/step-step-configuration-guide-internet-saas): To ensure that Internet & SaaS logs are available for Agentic SOC, Internet & SaaS must be fully configured for your organization. If your organization already uses Internet & SaaS, no extra configuration is required for Agentic SOC to access Internet & SaaS logs.
 3. [Configure Deception](https://help.zscaler.com/deception/step-step-configuration-guide-zscaler-deception): To ensure that Deception logs are available for Agentic SOC, Deception must be fully configured for your organization. If your organization already uses Deception, no extra configuration is required for Agentic SOC to access Deception logs.
 4. Integrate with third-party applications: Agentic SOC also ingests log data from third-party sources like CrowdStrike and Gmail. To learn more about application integrations, see [Data Sources & Outegrations Integration Guides](https://help.zscaler.com/uvm/data-sources-outegration-configuration-guides).
 
-Agentic SOC uses easy-to-understand charts, tables, and graphs to give you visibility into vast amounts of threat data across your organization. As you navigate the SecOps Platform Admin Portal, you can use the interconnected data points to easily switch from macro to micro views of the data (e.g., clicking incident information on the **Agentic SOC** dashboard opens the list of incidents associated with the verdict or criticality level). Throughout the admin portal, you can drill down to get granular detail, including AI summaries, entity information, threat data, etc. You can use the following basic workflow to assess your threat risk:
+Agentic SOC uses easy-to-understand charts, tables, and graphs to give you visibility into vast amounts of threat data across your organization. As you navigate the Agentic SecOps Platform Admin Portal, you can use the interconnected data points to easily switch from macro to micro views of the data (e.g., clicking incident information on the **Agentic SOC** dashboard opens the list of incidents associated with the verdict or criticality level). Throughout the admin portal, you can drill down to get granular detail, including AI summaries, entity information, threat data, etc. You can use the following basic workflow to assess your threat risk:
 
 - a. Evaluate your overall threat landscape on the Agentic SOC dashboard.
 - b. Examine the incidents affecting your organization.
@@ -761,9 +756,9 @@ Agentic SOC uses easy-to-understand charts, tables, and graphs to give you visib
 
 After you've examined the Agentic SOC data for your organization, you might need to move beyond the dashboards and reports available by default. You can set up custom [dashboards and reports](https://help.zscaler.com/unified/getting-started-security-operations-platform/security-operations-platform-analytics) to help your SOC team better analyze threat data across your organization.
 
-Using the SecOps Platform Admin Portal, you can customize and manage the data in the platform, including data sources, integrations, and outbound integrations (i.e., outegrations). To learn more, see [Data Sources, Outegrations, & Data Management](https://help.zscaler.com/unified/getting-started-security-operations-platform/data-sources-outegrations-data-management).
+Using the Agentic SecOps Platform Admin Portal, you can customize and manage the data in the platform, including data sources, integrations, and outbound integrations (i.e., outegrations). To learn more, see [Data Sources, Outegrations, & Data Management](https://help.zscaler.com/unified/getting-started-security-operations-platform/data-sources-outegrations-data-management).
 
-On the [Agentic SOC dashboard](https://help.zscaler.com/soc-workbench/about-agentic-soc), you can not only see an overview of the alerts in your environment, but also how many alerts have actually become incidents. Additionally, you can see high-level triage information about each incident, including its verdict (e.g., Malicious, Benign, etc.) and criticality (e.g., Critical, High, Medium, etc.). The **Agentic SOC** dashboard is the starting point each time you access the SecOps Platform Admin Portal.
+On the [Agentic SOC dashboard](https://help.zscaler.com/soc-workbench/about-agentic-soc), you can not only see an overview of the alerts in your environment, but also how many alerts have actually become incidents. Additionally, you can see high-level triage information about each incident, including its verdict (e.g., Malicious, Benign, etc.) and criticality (e.g., Critical, High, Medium, etc.). The **Agentic SOC** dashboard is the starting point each time you access the Agentic SecOps Platform Admin Portal.
 
 On the [Incidents](https://help.zscaler.com/soc-workbench/about-incidents) page, you can see an overview of risk metrics across incidents, incidents categorized by assignees, and a list of specific incidents. Clicking an incident lets you drill down to see more granular data, including an AI-based summary that explains what's happening, affected users and assets, specific recommended actions, and additional details about how the incident is affecting your organization. The **Incidents** page lets you focus on real threats instead of being distracted by alert overload.
 
@@ -845,56 +840,45 @@ With specific recommended actions from the Agentic SOC Response Agent, you can r
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/viewing-incident-details","lastmod":"2026-10-02T12:55Z","nid":"1540782"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/viewing-incident-details","lastmod":"2026-10-08T12:08Z","nid":"1540782"} -->
 ## Viewing Incident Details
 
 - Source: https://help.zscaler.com/agentic-soc/viewing-incident-details
 - Product: Agentic SOC
 - Path: Agentic SOC Help > Administration > Incidents & Alerts > Viewing Incident Details
-- Last modified: 2026-10-02T12:55Z
+- Last modified: 2026-10-08T12:08Z
 - Summary: Information on how to view incident details in Zscaler Agentic SOC.
 
-As incidents are the most important and actionable element in Agentic SOC, you can find information about specific incidents affecting your organization in several ways. Starting with the [Agentic SOC dashboard](https://help.zscaler.com/soc-workbench/about-agentic-soc) and extending to nearly every other page in the Agentic SecOps Platform Admin Portal, you can easily access specific and actionable incident information.
+The Incidents page is your starting point for investigating and remediating threats. From this page, you can review a list of all incidents and select one to see a detailed breakdown.
+
+On an incident's detail page, you can:
+
+- Review the current verdict and findings and get suggestions for next steps.
+- See which assets and users are impacted.
+- Visualize the threat's progression chronologically and across the [MITRE ATT&CK matrix](https://attack.mitre.org/tactics/enterprise/).
+- Examine individual investigative leads and review how they confirm or eliminate potential threat paths.
+- Coordinate with other analysts by adding comments.
 
 To view incident details:
 
-1. [Access the Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal).
-2. From the top navigation, click **Agentic SOC**.
-3. In the left-side navigation, go to **Settings** > **Incidents**. The **Incidents**page opens.
-4. On the **Incidents**page, click on an incident in the table to view the detail page for that incident. See image.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Agentic SOC**.
+2. In the left-side navigation, click **Incidents**.
+3. On the **Incidents**page, click an incident in the table. See image.
 
-To learn more about the layout of the **Incidents** page, see [About Incidents](https://help.zscaler.com/soc-workbench/about-incidents).
+On the incident's detail page, you can view the following tabs:
 
-1. On the **Details** tab, you can see basic details, risk mass, an AI incident summary created by the Agentic SOC Summary Agent, the [MITRE ATT&CK](https://attack.mitre.org/tactics/enterprise/) path for the incident, and the AI response recommendation created by the Agentic SOC Response Agent. See image.
+1. **Details**: Summarizes the activity included in the incident, including the current status of the investigation, any verdict reached so far, and AI-recommended response actions to remediate the incident (if applicable).
+2. **Affected Entities**: Lists the assets and users involved in the incident.
+3. **Timeline**: Displays the chronological order of events included in the incident.
+4. **Attack Path**: Overlays events on the [MITRE ATT&CK matrix](https://attack.mitre.org/tactics/enterprise/), helping you visualize how an adversary might be progressing through an attack chain.
+5. **Analysis**: Summarizes the investigative leads explored by the Investigation Agent.
+6. **Alerts**: Shows which alerts and sources Agentic SOC's Enrichment and Correlation Agents used to create the incident.
+7. **Activity**:Shows an audit log of all activities related to the incident (e.g., user action, sync from third-party systems).
+8. **Comments:** Shows all comments added by analysts.
 
-You can click different elements on the **Details** tab to see additional information that provides more context about the current incident. For example, if you click a response recommendation, you'll see expanded information that includes specific configuration steps.
+[Image: Tabs on the incident's details page]
 
-See image.
-
-1. Click the **Affected Entities** tab to see the affected assets and users. You can click the arrows on an entity to open a panel that contains expanded information. See image.
-2. Click the **Triage** tab to see the information that the Agentic SOC Triage Agent uses to determine the incident's verdict and criticality (e.g., date, time, source, affected entity). See image.
-3. Click the **Attack Path** tab to see how the incident has moved across the [MITRE ATT&CK matrix](https://attack.mitre.org/). As a threat moves further to the right in the matrix, your organization is at a higher risk of a data breach. You can easily determine whether a technique has actually been observed, or whether Agentic SOC is predicting its advancement. Some events are identified as **Possible**, meaning that they might have happened but were not captured as part of the Agentic SOC threat detection. See image.
-4. Click the **Alerts** tab to see which alerts and sources Agentic SOC's Enrichment and Correlation Agents used to create the incident. You can click any of the alerts in the list to see more advanced information. See image.
-5. Click the **Activity** tab to see the activities (e.g., user action, sync from third party, system) that led to the incident. See image.
-6. Click the **Comments** tab to add comments or see comments from other admins. See image.
-
-[Image: The detail page for an incident in the Agentic SOC Portal]
-
-[Image: The Details tab for an incident in the Agentic SOC Portal]
-
-[Image: The response recommendation for an incident in the Agentic SOC Portal]
-
-[Image: The Affected Entities tab for an incident in the Agentic SOC Portal]
-
-[Image: The Triage tab for an incident in the Agentic SOC Portal]
-
-[Image: The Attack Path tab for an incident in the Agentic SOC Portal]
-
-[Image: The Alerts tab for an incident in the Agentic SOC Portal]
-
-[Image: The Activity tab for an incident in the Agentic SOC Portal]
-
-[Image: The Comments tab for an incident in the Agentic SOC Portal]
+[Image: Select an incident from the Incidents table to see more details]
 <!-- /ZS-ARTICLE -->
 
 ---

@@ -1,8 +1,2245 @@
 # Zscaler Help — API / SDK (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-05 09:38 UTC
-Articles in this file: 91
+Generated: 2026-10-12 09:45 UTC
+Articles in this file: 104
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-isolation-profile-details-using-api","lastmod":"2026-01-06T23:49Z","nid":"1485731"} -->
+## Obtaining Isolation Profile Details Using API
+
+- Source: https://help.zscaler.com/legacy-apis/obtaining-isolation-profile-details-using-api
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Obtaining Isolation Profile Details Using API
+- Last modified: 2026-01-06T23:49Z
+- Summary: Information on isolation profile use cases applicable to Zscaler Private Access (ZPA) cloud service API.
+
+This article provides information for managing Zscaler Private Access (ZPA) isolation profiles using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
+
+## Getting Details of All Isolation Profiles
+
+To get details of all isolation profiles for a specific customer:
+
+1. Send a `GET` request to the following endpoint in the isolation-profile-controller: `/mgmtconfig/v1/admin/customers/{customerId}/isolation/profiles`.
+2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v1/admin/customers/73189906330943488/isolation/profiles`.
+
+- View an example response
+
+```
+{
+  "totalPages": "1",
+  "totalCount": "3",
+  "list": [
+    {
+      "id": "73186051597800349",
+      "creationTime": "1665399497",
+      "modifiedBy": "72057594037986137",
+      "name": "Test Isolation Profile",
+      "enabled": true,
+      "isolationTenantId": "5469af78-c8d5-48ab-8018-d499c9fb875b",
+      "isolationProfileId": "02b320ad-aef7-4cfa-a763-5cf8524544f7",
+      "isolationUrl": "https://fb.4af6eb6dad89.appsulate.com/profile/02b320ad-aef7-4cfa-a763-5cf8524544f7/zpa/render"
+    },
+    {
+      "id": "73186051597800311",
+      "modifiedTime": "1663869847",
+      "creationTime": "1663836249",
+      "modifiedBy": "72057594037986137",
+      "name": "Test Isolation Profile 1",
+      "enabled": true,
+      "isolationTenantId": "5469af78-c8d5-48ab-8018-d499c9fb875b",
+      "isolationProfileId": "92924d37-cb71-4a14-9bc4-cb5682062729",
+      "isolationUrl": "https://sf.4af6eb6dad89.appsulate.com/profile/92924d37-cb71-4a14-9bc4-cb5682062729/zpa/render"
+    },
+    {
+      "id": "73186051597800310",
+      "modifiedTime": "1663836536",
+      "creationTime": "1663836115",
+      "modifiedBy": "72057594037986137",
+      "name": "Test Isolation Profile 2",
+      "enabled": true,
+      "isolationTenantId": "5469af78-c8d5-48ab-8018-d499c9fb875b",
+      "isolationProfileId": "91a5ba7a-1e84-49a3-ba92-ccba306c6a29",
+      "isolationUrl": "https://sb.4af6eb6dad89.appsulate.com/profile/91a5ba7a-1e84-49a3-ba92-ccba306c6a29/zpa/render"
+    }
+  ]
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+This API supports pagination. To get a paginated response:
+
+1. Send a `GET` request to the following endpoint in the isolation-profile-controller: `/mgmtconfig/v1/admin/customers/{customerId}/isolation/profiles?page=1&pagesize=20`.
+2. Provide the following in the request endpoint:
+
+- `customerId`: the ZPA tenant ID of the customer, in the request endpoint.
+- Valid values for page and page size parameters.
+
+For example: `/mgmtconfig/v1/admin/customers/73189906330943488/isolation/profiles?page=1&pagesize=2`.
+
+- View an example response
+
+```
+{
+  "totalPages": "2",
+  "totalCount": "3",
+  "list": [
+    {
+      "id": "73186051597800349",
+      "creationTime": "1665399497",
+      "modifiedBy": "72057594037986137",
+      "name": "Test Isolation Profile",
+      "enabled": true,
+      "isolationTenantId": "5469af78-c8d5-48ab-8018-d499c9fb875b",
+      "isolationProfileId": "02b320ad-aef7-4cfa-a763-5cf8524544f7",
+      "isolationUrl": "https://fb.4af6eb6dad89.appsulate.com/profile/02b320ad-aef7-4cfa-a763-5cf8524544f7/zpa/render"
+    },
+    {
+      "id": "73186051597800311",
+      "modifiedTime": "1663869847",
+      "creationTime": "1663836249",
+      "modifiedBy": "72057594037986137",
+      "name": "Test Isolation Profile 1",
+      "enabled": true,
+      "isolationTenantId": "5469af78-c8d5-48ab-8018-d499c9fb875b",
+      "isolationProfileId": "92924d37-cb71-4a14-9bc4-cb5682062729",
+      "isolationUrl": "https://sf.4af6eb6dad89.appsulate.com/profile/92924d37-cb71-4a14-9bc4-cb5682062729/zpa/render"
+    }
+  ]
+}
+```
+
+If not provided, the default page size is 20. The maximum page size is 500.
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-machine-group-details-using-api","lastmod":"2026-01-06T23:49Z","nid":"1484856"} -->
+## Obtaining Machine Group Details Using API
+
+- Source: https://help.zscaler.com/legacy-apis/obtaining-machine-group-details-using-api
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Obtaining Machine Group Details Using API
+- Last modified: 2026-01-06T23:49Z
+- Summary: Information about machine group use cases applicable to the Zscaler Private Access (ZPA) cloud service API.
+
+This article provides information on managing Zscaler Private Access (ZPA) [machine group](https://help.zscaler.com/zpa/about-machine-groups) use cases using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
+
+## Getting Details for All Machine Groups
+
+To get details for all the machine groups:
+
+1. Send a `GET` request to the following endpoint in the machine-group-controller: `/mgmtconfig/v1/admin/customers/{customerId}/machineGroup`.
+2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v1/admin/customers/72057615512764416/machineGroup`.
+
+- View an example response
+
+```
+{
+  "totalPages": "1",
+  "list": [
+    {
+      "id": "73196561382769734",
+      "creationTime": "1612770231",
+      "modifiedBy": "73196561382768641",
+      "name": "Example machine group 1 DND",
+      "enabled": true
+    }
+  ]
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+This API supports pagination. To get a paginated response:
+
+1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/machineGroup?page=1&pagesize=20`.
+2. Provide the following in the request endpoint:
+
+- `customerId`: The ZPA tenant ID of the customer.
+- Valid values for page and page size parameters.
+
+For example: `/mgmtconfig/v1/admin/customers/217246660302995456/machineGroup?page=1&pagesize=2.`
+
+- View an example response
+
+```
+{
+  "totalPages": "2",
+  "list": [
+    {
+      "id": "217246660303025140",
+      "creationTime": "1624496602",
+      "modifiedBy": "217246660303023906",
+      "name": "test_machine_group",
+      "enabled": true,
+      "description": "test_machine_group"
+    },
+    {
+      "id": "217246660303023893",
+      "creationTime": "1594844294",
+      "modifiedBy": "72057594037935690",
+      "name": "Test",
+      "enabled": true,
+      "description": "test"
+    }
+  ]
+}
+```
+
+If not provided, the default page size is 20. The maximum page size is 500.
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+This API supports a search option to search by features and fields. To search by features and fields:
+
+1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/73186051597795328/machineGroup&search={searchString}`.
+2. Provide the following in the request endpoint:
+
+- `customerId`: The ZPA tenant ID of the customer.
+- Valid search string values. The search string values are in the format `fieldName operator fieldValue`. Only search string values that correspond to the values for valid fields and filters are supported. For example, the string `name%20LIKE%20123` is supported for the **Name**filter, using the **Contains**(`LIKE`) operator, for the filter value `123`.
+
+For example: `/mgmtconfig/v1/admin/customers/73186051597795328/machineGroup&search=name%20LIKE%20123`.
+
+- View an example response
+
+```
+{
+  "totalPages": "2",
+  "totalCount": "2",
+  "list": [
+    {
+      "id": "72057594037987359",
+      "modifiedTime": "1646157983",
+      "creationTime": "1610701957",
+      "modifiedBy": "72057594038052745",
+      "name": "123",
+      "enabled": true,
+      "description": "/&gt;&lt;img src=x onerror=alert(document.cookie)&gt;"
+    }
+  ]
+}
+```
+
+If you use the ZPA API Portal or the [Reference Guide](https://help.zscaler.com/zpa/zpa-api/api-developer-reference-guide/reference-guide) to make your API calls, the search field string does not require any characters. For example, `name%20LIKE%20123` is `name LIKE 123`.
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Getting Details for a Particular Machine Group
+
+To get details of a particular machine group:
+
+1. Send a `GET` request to the following endpoint in the machine-group-controller: `/mgmtconfig/v1/admin/customers/{customerId}/machineGroup/{Id}`.
+2. Provide the following values in the request endpoint:
+
+- `customerId`: The ZPA tenant ID of the customer.
+- `id`: The ID of the desired machine group.
+
+For example: `/mgmtconfig/v1/admin/customers/72057615512764416/machineGroup/73196561382769734`.
+
+- View an example response
+
+```
+{
+  "id": "73196561382769734",
+  "creationTime": "1612770231",
+  "modifiedBy": "73196561382768641",
+  "name": "Example machine group 1 DND",
+  "enabled": true
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-policy-group-set-details-using-api","lastmod":"2026-10-09T11:57Z","nid":"1542936"} -->
+## Obtaining Policy Group Set Details Using API
+
+- Source: https://help.zscaler.com/legacy-apis/obtaining-policy-group-set-details-using-api
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Obtaining Policy Group Set Details Using API
+- Last modified: 2026-10-09T11:57Z
+- Summary: Information on obtaining policy group set details using Zscaler Private Access (ZPA) cloud service API.
+
+This article provides information on obtaining ZPA policy group set details using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
+
+## Getting Details of All Policy Group Sets
+
+To get details of all policy group sets:
+
+1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/policyGroupSet&microtenantId={microtenantId}&createIfNotExist={true/false}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/73255551684837376/policyGroupSet&microtenantId=0&createIfNotExist=true`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `microtenantId`: The unique identifier of the Microtenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0`when making requests to retrieve data from the Default Microtenant. If the `microtenantId` is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+  - `createIfNotExist`: Indicates if the global policy set does not exist and must be created (i.e., `createIfNotExist=true`).
+
+- View an example response.
+
+```
+[
+  {
+    "id": "73255551684837495",
+    "name": "Global_Policy_GROUP_SET-0",
+    "policyGroupSummaryList": [
+      {
+        "id": "73255551684837496",
+        "name": "Global Policy Group",
+        "ruleCount": "2",
+        "groupCriteriaCount": "0",
+        "type": "GLOBAL",
+        "groupOrder": "1",
+        "permissionLevel": "FULL"
+      },
+      {
+        "id": "73255551684837609",
+        "name": "test-group-6",
+        "ruleCount": "0",
+        "groupCriteriaCount": "0",
+        "type": "CUSTOM",
+        "groupOrder": "2",
+        "permissionLevel": "FULL"
+      },
+      {
+        "id": "73255551684837655",
+        "name": "test-group",
+        "ruleCount": "1",
+        "groupCriteriaCount": "1",
+        "type": "CUSTOM",
+        "groupOrder": "3",
+        "permissionLevel": "FULL"
+      },
+      {
+        "id": "73255551684837659",
+        "name": "ZCC policy group",
+        "ruleCount": "1",
+        "groupCriteriaCount": "1",
+        "type": "CUSTOM",
+        "groupOrder": "4",
+        "permissionLevel": "FULL"
+      },
+      {
+        "id": "73255551684837663",
+        "name": "Contractors",
+        "ruleCount": "0",
+        "groupCriteriaCount": "0",
+        "type": "CUSTOM",
+        "groupOrder": "5",
+        "permissionLevel": "FULL"
+      },
+      {
+        "id": "73255551684837665",
+        "name": "Contracter Ayhan",
+        "ruleCount": "0",
+        "groupCriteriaCount": "0",
+        "type": "CUSTOM",
+        "groupOrder": "6",
+        "permissionLevel": "FULL"
+      },
+      {
+        "id": "73255551684837667",
+        "name": "Ayhan Group",
+        "ruleCount": "0",
+        "groupCriteriaCount": "0",
+        "type": "CUSTOM",
+        "groupOrder": "7",
+        "permissionLevel": "FULL"
+      },
+      {
+        "id": "73255551684837608",
+        "name": "test-group-5",
+        "ruleCount": "0",
+        "groupCriteriaCount": "0",
+        "type": "CUSTOM",
+        "groupOrder": "8",
+        "permissionLevel": "FULL"
+      },
+      {
+        "id": "73255551684837497",
+        "name": "Default Policy Group",
+        "ruleCount": "3",
+        "groupCriteriaCount": "0",
+        "type": "DEFAULT",
+        "groupOrder": "9",
+        "permissionLevel": "FULL"
+      }
+    ],
+    "policyType": "1",
+    "groupCountExcludingGlobal": "8",
+    "groupTypeStats": {
+      "customCount": "7",
+      "globalCount": "1",
+      "defaultCount": "1"
+    }
+  }
+]
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Getting Details of a Specific Policy Group Set
+
+To get details of a specific policy group set by ID:
+
+1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/policyGroupSet/{groupSetId}&microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/73255551684837376/policyGroupSet/73255551684837495&microtenantId=0`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `microtenantId`: The unique identifier of the Microtenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0`when making requests to retrieve data from the Default Microtenant. If the `microtenantId` is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+
+- View an example response.
+
+```
+{
+  "modifiedTime": "1787094718",
+  "creationTime": "1772652338",
+  "modifiedBy": "73255551684837662",
+  "id": "73255551684837495",
+  "name": "Global_Policy_GROUP_SET-0",
+  "defaultPolicyGroupGid": "73255551684837497",
+  "globalPolicyGroupGid": "73255551684837496",
+  "customPolicyGroupGids": [
+    "73255551684837609",
+    "73255551684837655",
+    "73255551684837659",
+    "73255551684837663",
+    "73255551684837665",
+    "73255551684837667",
+    "73255551684837608"
+  ],
+  "policyType": "1"
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Getting Policy Group Set Details by Policy Type
+
+To get the policy group set details by policy type:
+
+1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/policyGroupSet/policyType/{policyType}&microtenantId={microtenantId}&createIfNotExist={true/false}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/73255551684837376/policyGroupSet/policyType/ACCESS_POLICY&microtenantId=0&createIfNotExist=true`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `policyType`: The policy type. The supported value must be `GLOBAL_POLICY` or `ACCESS_POLICY`.
+  - `microtenantId`: The unique identifier of the Microtenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0`when making requests to retrieve data from the Default Microtenant. If the `microtenantId` is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+  - `createIfNotExist`: Indicates if the global policy set does not exist and must be created (i.e., `createIfNotExist=true`).
+
+- View an example response.
+
+```
+{
+  "id": "73255551684837495",
+  "name": "Global_Policy_GROUP_SET-0",
+  "policyGroupSummaryList": [
+    {
+      "id": "73255551684837496",
+      "name": "Global Policy Group",
+      "ruleCount": "2",
+      "groupCriteriaCount": "0",
+      "type": "GLOBAL",
+      "groupOrder": "1",
+      "permissionLevel": "FULL"
+    },
+    {
+      "id": "73255551684837609",
+      "name": "test-group-6",
+      "ruleCount": "0",
+      "groupCriteriaCount": "0",
+      "type": "CUSTOM",
+      "groupOrder": "2",
+      "permissionLevel": "FULL"
+    },
+    {
+      "id": "73255551684837655",
+      "name": "group",
+      "ruleCount": "1",
+      "groupCriteriaCount": "1",
+      "type": "CUSTOM",
+      "groupOrder": "3",
+      "permissionLevel": "FULL"
+    },
+    {
+      "id": "73255551684837659",
+      "name": "ZCC policy group",
+      "ruleCount": "1",
+      "groupCriteriaCount": "1",
+      "type": "CUSTOM",
+      "groupOrder": "4",
+      "permissionLevel": "FULL"
+    },
+    {
+      "id": "73255551684837663",
+      "name": "Contractors",
+      "ruleCount": "0",
+      "groupCriteriaCount": "0",
+      "type": "CUSTOM",
+      "groupOrder": "5",
+      "permissionLevel": "FULL"
+    },
+    {
+      "id": "73255551684837665",
+      "name": "Contracter Ayhan",
+      "ruleCount": "0",
+      "groupCriteriaCount": "0",
+      "type": "CUSTOM",
+      "groupOrder": "6",
+      "permissionLevel": "FULL"
+    },
+    {
+      "id": "73255551684837667",
+      "name": "Ayhan Group",
+      "ruleCount": "0",
+      "groupCriteriaCount": "0",
+      "type": "CUSTOM",
+      "groupOrder": "7",
+      "permissionLevel": "FULL"
+    },
+    {
+      "id": "73255551684837608",
+      "name": "test-group-5",
+      "ruleCount": "0",
+      "groupCriteriaCount": "0",
+      "type": "CUSTOM",
+      "groupOrder": "8",
+      "permissionLevel": "FULL"
+    },
+    {
+      "id": "73255551684837497",
+      "name": "Default Policy Group",
+      "ruleCount": "3",
+      "groupCriteriaCount": "0",
+      "type": "DEFAULT",
+      "groupOrder": "9",
+      "permissionLevel": "FULL"
+    }
+  ],
+  "policyType": "1",
+  "groupCountExcludingGlobal": "8",
+  "groupTypeStats": {
+    "customCount": "7",
+    "globalCount": "1",
+    "defaultCount": "1"
+  }
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Getting a Policy Group Set Summary by Policy Type
+
+To get a policy group set summary by policy type:
+
+1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/policyGroupSet/policyType/{policyType}/summary&microtenantId={microtenantId}&createIfNotExist={true/false}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/73255551684837376/policyGroupSet/policyType/ACCESS_POLICY/summary&microtenantId=0&createIfNotExist=true`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `policyType`: The policy type. The supported value must be `GLOBAL_POLICY` or `ACCESS_POLICY`.
+  - `microtenantId`: The unique identifier of the Microtenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0`when making requests to retrieve data from the Default Microtenant. If the `microtenantId` is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+  - `createIfNotExist`: Indicates if the global policy set does not exist and must be created (i.e., `createIfNotExist=true`).
+
+- View an example response.
+
+```
+{
+  "id": "73255551684837495",
+  "name": "Global_Policy_GROUP_SET-0",
+  "policyGroupSummaryList": [
+    {
+      "id": "73255551684837496",
+      "name": "Global Policy Group",
+      "ruleCount": "2",
+      "groupCriteriaCount": "0",
+      "type": "GLOBAL",
+      "groupOrder": "1",
+      "permissionLevel": "FULL"
+    },
+    {
+      "id": "73255551684837609",
+      "name": "test-group-6",
+      "ruleCount": "0",
+      "groupCriteriaCount": "0",
+      "type": "CUSTOM",
+      "groupOrder": "2",
+      "permissionLevel": "FULL"
+    },
+    {
+      "id": "73255551684837655",
+      "name": "raja-group",
+      "ruleCount": "1",
+      "groupCriteriaCount": "1",
+      "type": "CUSTOM",
+      "groupOrder": "3",
+      "permissionLevel": "FULL"
+    },
+    {
+      "id": "73255551684837659",
+      "name": "ZCC policy group",
+      "ruleCount": "1",
+      "groupCriteriaCount": "1",
+      "type": "CUSTOM",
+      "groupOrder": "4",
+      "permissionLevel": "FULL"
+    },
+    {
+      "id": "73255551684837663",
+      "name": "Contractors",
+      "ruleCount": "0",
+      "groupCriteriaCount": "0",
+      "type": "CUSTOM",
+      "groupOrder": "5",
+      "permissionLevel": "FULL"
+    },
+    {
+      "id": "73255551684837665",
+      "name": "Contracter Ayhan",
+      "ruleCount": "0",
+      "groupCriteriaCount": "0",
+      "type": "CUSTOM",
+      "groupOrder": "6",
+      "permissionLevel": "FULL"
+    },
+    {
+      "id": "73255551684837667",
+      "name": "Ayhan Group",
+      "ruleCount": "0",
+      "groupCriteriaCount": "0",
+      "type": "CUSTOM",
+      "groupOrder": "7",
+      "permissionLevel": "FULL"
+    },
+    {
+      "id": "73255551684837608",
+      "name": "punit-test-group-5",
+      "ruleCount": "0",
+      "groupCriteriaCount": "0",
+      "type": "CUSTOM",
+      "groupOrder": "8",
+      "permissionLevel": "FULL"
+    },
+    {
+      "id": "73255551684837497",
+      "name": "Default Policy Group",
+      "ruleCount": "3",
+      "groupCriteriaCount": "0",
+      "type": "DEFAULT",
+      "groupOrder": "9",
+      "permissionLevel": "FULL"
+    }
+  ],
+  "policyType": "1",
+  "groupCountExcludingGlobal": "8",
+  "groupTypeStats": {
+    "customCount": "7",
+    "globalCount": "1",
+    "defaultCount": "1"
+  }
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Getting the Policy Group Set Summary Stats by Policy Type
+
+To get the aggregate counts across all groups and rules within the policy group set for the specified policy type:
+
+1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/policyGroupSet/policyType/{policyType}/summaryStats&microtenantId={microtenantId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/73255551684837376/policyGroupSet/policyType/GLOBAL_POLICY/summaryStats&microtenantId=0`.
+  - `customerId`: The ZPA tenant ID of the customer.
+  - `policyType`: The policy type. The supported value must be `GLOBAL_POLICY` or `ACCESS_POLICY`.
+  - `microtenantId`: The unique identifier of the Microtenant. If you are within a Microtenant, you must pass the `microtenantId` field when making an API call to retrieve data from that Microtenant. The `microtenantId` can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass `microtenantId` as `0`when making requests to retrieve data from the Default Microtenant. If the `microtenantId` is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. To learn more, see [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
+
+- View an example response.
+
+```
+{
+  "totalRules": "7",
+  "totalPolicyGroups": "9",
+  "disabledRules": "1",
+  "enabledRules": "6"
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-posture-profile-details-using-api","lastmod":"2026-01-06T23:49Z","nid":"1484836"} -->
+## Obtaining Posture Profile Details Using API
+
+- Source: https://help.zscaler.com/legacy-apis/obtaining-posture-profile-details-using-api
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Obtaining Posture Profile Details Using API
+- Last modified: 2026-01-06T23:49Z
+- Summary: Information about posture profile use cases applicable to the Zscaler Private Access (ZPA) cloud service API.
+
+This article provides information on managing Zscaler Private Access (ZPA) [posture profile](https://help.zscaler.com/client-connector/about-device-posture-profiles) use cases using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
+
+## Getting Details for All Posture Profiles V2
+
+To get the details for all posture profiles:
+
+1. Send a `GET` request to the following endpoint in the posture-profile-controller: `/mgmtconfig/v2/admin/customers/{customerId}/posture`.
+2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v2/admin/customers/217246660302995456/posture`.
+
+- View an example response
+
+```
+{
+  "totalPages": "13",
+  "list": [
+    {
+      "id": "217246660303020736",
+      "creationTime": "1502955460",
+      "modifiedBy": "72057594037928107",
+      "name": "39845-registryTest",
+      "postureUdid": "014b03ff-bcfd-4219-b574-5b7f74aa4a68",
+      "zscalerCloud": "zscalerbeta"
+    },
+    {
+      "id": "217246660303021896",
+      "modifiedTime": "1544470438",
+      "creationTime": "1511380873",
+      "modifiedBy": "72057594037928107",
+      "name": "Android Test",
+      "postureUdid": "4eb1ecd4-8e05-425f-b677-4340381ea849",
+      "zscalerCloud": "zscalerbeta"
+    }
+  ]
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+This API supports pagination. To get a paginated response:
+
+1. Send a `GET` request to the following endpoint: `/mgmtconfig/v2/admin/customers/{customerId}/posture?page=1&pagesize=20`.
+2. Provide the following in the request endpoint:
+
+- `customerId`: The ZPA tenant ID of the customer.
+- Valid values for page and page size parameters.
+
+For example: `/mgmtconfig/v2/admin/customers/217246660302995456/posture?page=1&pagesize=2.`
+
+- View an example response
+
+```
+{
+  "totalPages": "15",
+  "list": [
+    {
+      "id": "217246660303020736",
+      "creationTime": "1502955460",
+      "modifiedBy": "72057594037928107",
+      "name": "39845-registryTest (zscalerbeta.net)",
+      "postureUdid": "014b03ff-bcfd-4219-b574-5b7f74aa4a68",
+      "zscalerCloud": "zscalerbeta"
+    },
+    {
+      "id": "217246660303021896",
+      "modifiedTime": "1544470438",
+      "creationTime": "1511380873",
+      "modifiedBy": "72057594037928107",
+      "name": "Android Test (zscalerbeta.net)",
+      "postureUdid": "4eb1ecd4-8e05-425f-b677-4340381ea849",
+      "zscalerCloud": "zscalerbeta"
+    }
+  ]
+}
+```
+
+If not provided, the default page size is 20. The maximum page size is 500.
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+This API supports a search option to search by features and fields. To search by features and fields:
+
+1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/73186051597795328/posture&search={searchString}`.
+2. Provide the following in the request endpoint:
+
+- `customerId`: The ZPA tenant ID of the customer.
+- Valid search string values. The search string values are in the format `fieldName operator fieldValue`. Only search string values that correspond to the values for valid fields and filters are supported. For example, the string `name%20LIKE%20test` is supported for the **Name**filter, using the **Equals**(`EQ`) operator, for the filter value **test**.
+
+For example: `/mgmtconfig/v1/admin/customers/73186051597795328/posture&search=name%20EQ%20test`.
+
+- View an example response
+
+```
+{
+  "totalPages": "1",
+  "totalCount": "1",
+  "list": [
+    {
+      "id": "72057594038041099",
+      "modifiedTime": "0",
+      "creationTime": "1624340878",
+      "modifiedBy": "72057594037987389",
+      "name": "test (cloud.net)",
+      "postureUdid": "test",
+      "zscalerCloud": "cloud"
+    }
+  ]
+}
+```
+
+If you use the ZPA API Portal or the [Reference Guide](https://help.zscaler.com/zpa/zpa-api/api-developer-reference-guide/reference-guide) to make your API calls, the search field string does not require any characters. For example, `name%20LIKE%20test` is `name LIKE test`.
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Getting Details for a Particular Posture Profile
+
+To get details for a particular posture profile:
+
+1. Send a `GET` request to the following endpoint in the posture-profile-controller: `/mgmtconfig/v1/admin/customers/{customerId}/posture/{id}`.
+2. Provide the following values in the request endpoint:
+
+- `customerId`: The ZPA tenant ID of the customer.
+- `id`: The ID of the desired posture profile.
+
+For example: `/mgmtconfig/v1/admin/customers/72057615512764416/posture/217246660303022290`.
+
+- View an example response
+
+```
+{
+  "id": "217246660303022290",
+  "creationTime": "1531369746",
+  "modifiedBy": "72057594037928107",
+  "name": "test123",
+  "postureUdid": "519fe22c-bfd8-418a-ab9d-5c7f77f3ac54",
+  "zscalerCloud": "zscalerbeta"
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-saml-attribute-details-using-api","lastmod":"2026-01-06T23:49Z","nid":"1484826"} -->
+## Obtaining SAML Attribute Details Using API
+
+- Source: https://help.zscaler.com/legacy-apis/obtaining-saml-attribute-details-using-api
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Obtaining SAML Attribute Details Using API
+- Last modified: 2026-01-06T23:49Z
+- Summary: Information about SAML attributes use cases applicable to the Zscaler Private Access (ZPA) cloud service API.
+
+This article provides information on managing Zscaler Private Access (ZPA) SAML attribute use cases using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
+
+## Getting Details for a Particular SAML Attribute
+
+To get details by ID for a particular SAML attribute:
+
+1. Send a `GET` request to the following endpoint in the saml-attr-controller: `/mgmtconfig/v1/admin/customers/{customerId}/samlAttribute/{attrId}`.
+2. Use the following values in the request endpoint:
+
+- `customerId`: The ZPA tenant ID of the customer.
+- `attrId`: The ID of the desired SAML attribute.
+
+For example: `/mgmtconfig/v1/admin/customers/72057615512764416/samlAttribute/72057615512764585`.
+
+- View an example response
+
+```
+{
+  "id": "72057615512764585",
+  "creationTime": "1611878400",
+  "modifiedBy": "72057615512764552",
+  "name": "Department",
+  "userAttribute": false,
+  "idpId": "72057615512764429",
+  "samlName": "Department",
+  "idpName": "Okta"
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Getting Details of All SAML Attributes V2
+
+To get all SAML attributes by page:
+
+1. Send a `GET` request to the following endpoint in the saml-attr-controller: `/mgmtconfig/v2/admin/customers/{customerId}/samlAttribute`.
+2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v2/admin/customers/72057594037927936/samlAttribute`.
+
+- View an example response
+
+```
+{
+  "totalPages": "3",
+  "list": [
+    {
+      "id": "72057594038042068",
+      "creationTime": "1625606470",
+      "modifiedBy": "72057594038006701",
+      "name": "dssd",
+      "userAttribute": false,
+      "idpId": "72057594037961373",
+      "samlName": "ds",
+      "idpName": "test"
+    }
+  ]
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+This API supports pagination. To get a paginated response:
+
+1. Send a `GET` request to the following endpoint: `/mgmtconfig/v2/admin/customers/{customerId}/samlAttribute?page=1&pagesize=20`.
+2. Provide the following in the request endpoint:
+
+- `customerId`: The ZPA tenant ID of the customer.
+- Valid values for page and page size parameters.
+
+For example: `/mgmtconfig/v2/admin/customers/217246660302995456/samlAttribute?page=1&pagesize=2.`
+
+- View an example response
+
+```
+"totalPages": "9",
+  "list": [
+    {
+      "id": "217246660303022132",
+      "creationTime": "1521664572",
+      "modifiedBy": "217246660302996239",
+      "name": "Department",
+      "userAttribute": false,
+      "idpId": "217246660303022502",
+      "samlName": "Dept",
+      "idpName": "IDP Configuration - User SSO"
+    },
+    {
+      "id": "217246660303022772",
+      "creationTime": "1549853479",
+      "modifiedBy": "217246660302995744",
+      "name": "Department my1",
+      "userAttribute": false,
+      "idpId": "217246660303022502",
+      "samlName": "departmentmy1",
+      "idpName": "IDP Configuration - User SSO"
+    }
+  ]
+}
+```
+
+If not provided, the default page size is 20. The maximum page size is 500.
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Getting Details of All SAML Attributes by Given Customer
+
+To get all SAML attributes by customer:
+
+1. Send a `GET` request to the following endpoint in the saml-attr-controller: `/mgmtconfig/v2/admin/customers/{customerId}/samlAttribute/idp/{idpId}`.
+2. Use the following values in the request endpoint:
+
+- `customerId`: The ZPA tenant ID of the customer.
+- `idpId`: The ID of the IdP corresponding to the SAML attribute.
+
+For example: `/mgmtconfig/v2/admin/customers/217246660302995456/samlAttribute/idp/217246660303022670`.
+
+- View an example response
+
+```
+{
+  "totalPages": "1",
+  "list": [
+    {
+      "id": "217246660303022795",
+      "creationTime": "1550435486",
+      "modifiedBy": "217246660302995986",
+      "name": "login_Custom entityId IDP configuration - User sso - do NOT delete",
+      "userAttribute": false,
+      "idpId": "217246660303022670",
+      "samlName": "login"
+    },
+    {
+      "id": "217246660303024892",
+      "creationTime": "1617867425",
+      "modifiedBy": "217246660303024869",
+      "name": "s",
+      "userAttribute": false,
+      "idpId": "217246660303022670",
+      "samlName": "as"
+    },
+    {
+      "id": "217246660303022796",
+      "creationTime": "1550435486",
+      "modifiedBy": "217246660302995986",
+      "name": "username_Custom entityId IDP configuration - User sso - do NOT delete",
+      "userAttribute": false,
+      "idpId": "217246660303022670",
+      "samlName": "username"
+    }
+  ]
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+This API supports pagination. To get a paginated response:
+
+1. Send a `GET` request to the following endpoint: `/mgmtconfig/v2/admin/customers/{customerId}/samlAttribute/idp/{idpId}?page=1&pagesize=20`.
+2. Provide the following in the request endpoint:
+
+- `customerId`: The ZPA tenant ID of the customer.
+- `idpId`: The ID of the IdP corresponding to the SAML attribute.
+- Valid values for page and page size parameters.
+
+For example: `/mgmtconfig/v2/admin/customers/217246660302995456/samlAttribute/idp/217246660303022670?page=1&pagesize=2.`
+
+- View an example response
+
+```
+{
+  "totalPages": "2",
+  "list": [
+    {
+      "id": "217246660303022795",
+      "creationTime": "1550435486",
+      "modifiedBy": "217246660302995986",
+      "name": "login_Custom entityId IDP configuration - User sso - do NOT delete",
+      "userAttribute": false,
+      "idpId": "217246660303022670",
+      "samlName": "login"
+    },
+    {
+      "id": "217246660303024892",
+      "creationTime": "1617867425",
+      "modifiedBy": "217246660303024869",
+      "name": "s",
+      "userAttribute": false,
+      "idpId": "217246660303022670",
+      "samlName": "as"
+    }
+  ]
+}
+```
+
+If not provided, the default page size is 20. The maximum page size is 500.
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-sandbox-reports-using-api","lastmod":"2026-01-06T23:49Z","nid":"1400811"} -->
+## Obtaining Sandbox Reports Using API
+
+- Source: https://help.zscaler.com/legacy-apis/obtaining-sandbox-reports-using-api
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Working with APIs > Obtaining Sandbox Reports Using API
+- Last modified: 2026-01-06T23:49Z
+- Summary: Information on Sandbox Report use cases applicable to Zscaler's cloud service API.
+
+Sandbox Report API resources are only accessible to Sandbox subscribers.
+
+Sandbox Report API resources allow you to get a Sandbox Detail Report for any file that was sent for analysis from any organization on Zscaler cloud. Zscaler stores Sandbox Detail Reports for all files that were detonated within Sandbox. Therefore, information such as the threat name, threat score, category, etc. is available within a report. However, the sample file itself and any potentially sensitive information such as screenshots or filenames are removed
+
+To learn more, see [About Sandbox](https://help.zscaler.com/zia/about-sandbox).
+
+## Determining your Quota for the Sandbox Report API
+
+The resource access quota for retrieving Sandbox Detail Reports is restricted to 3,000 requests per day, with a [rate limit](https://help.zscaler.com/zia/understanding-rate-limiting) of 2/sec and 1,000/hour.
+
+Getting the Sandbox Report API quota allows you to monitor your organization's used, unused, and allocated quota on a daily basis. To determine your quota, send a `GET` request to `/sandbox/report/quota`. For example, in Python:
+
+```
+conn.request("GET", "/api/v1/sandbox/report/quota", headers=headers)
+```
+
+To learn more, see Sandbox Report in the [API Reference](https://help.zscaler.com/zia/sandbox-report).
+
+## Getting a Full or Summary Sandbox Detail Report
+
+To get a full (i.e., complete) or summary Sandbox Detail Report, send a `GET` request to `/sandbox/report/{md5Hash}` and specify whether the `details` parameter should be `full` or `summary`. For example, in Python, you would use the following code to get a `summary` report:
+
+```
+conn.request("GET", "/api/v1/sandbox/report/8350dED6D39DF158E51D6CFBE36FB012?details=summary", headers=headers)
+```
+
+`GET /sandbox/report/{md5Hash}` returns a report only if the MD5 file was analyzed previously. If a report for a requested MD5 does not exist, the request still counts against your quota.
+
+To learn more about the API endpoint, see [API Reference](https://help.zscaler.com/zia/sandbox-report).
+
+A Sandbox Detail Report always provides the following information:
+
+- `Status`: The summary status of the file analysis, which includes one of the following values:
+  - `COMPLETED`: The file analysis was completed
+  - `NODYNAMIC`: The file analysis was completed, but dynamic analysis was not performed
+  - `INPROGRESS`: The file analysis is in progress
+  - `NOTFOUND`: The MD5 hash was not found
+
+For example (value highlighted in green):
+
+```
+"Summary": {
+            "Status": "
+COMPLETED
+",
+            "Category": "SCRIPT",
+            "FileType": "CMD",
+            "Start Time": 1509567511,
+            "Duration": 454557,
+            "Analysis": "0",
+            "Url": "",
+            "TimeUnit": "ms",
+            "StartTime": "Nov 1, 2017 1:18:31 PM"
+        },
+```
+
+- `Category`: The summary category of the analyzed file, which includes one of the following values:
+  - `SCRIPT`
+  - `PDF`
+  - `ANDROID`
+  - `ARCHIVE`
+  - `JAR`
+  - `DOCS`
+  - `FLASH`
+  - `EXECS`
+  - `OTHER`
+  - `ANY`
+
+For example (value highlighted in green):
+
+```
+"Summary": {
+            "Status": "COMPLETED",
+            "Category": "
+SCRIPT
+",
+            "FileType": "CMD",
+            "Start Time": 1509567511,
+            "Duration": 454557,
+            "Analysis": "0",
+            "Url": "",
+            "TimeUnit": "ms",
+            "StartTime": "Nov 1, 2017 1:18:31 PM"
+        },
+```
+
+- `Type`: The classification type of the analyzed file, which includes one of the following values:
+  - `MALICIOUS`
+  - `SUSPICIOUS`
+  - `BENIGN`
+
+For example (value highlighted in green):
+
+```
+"Classification": {
+            "Type": "
+MALICIOUS
+",
+            "Category": "MALWARE_BOTNET",
+            "Score": 86,
+            "Max Score": 100,
+            "DetectedMalware": ""
+        },
+```
+
+- `Category`: The classification category of the analyzed file, which includes one of the following values:
+  - `BENIGN`
+  - `SUSPICIOUS`
+  - `ADWARE`
+  - `MALWARE_BOTNET`
+  - `ANONYMIZER_P2P`
+
+For example (value highlighted in green):
+
+```
+"Classification": {
+            "Type": "MALICIOUS",
+            "Category": "
+MALWARE_BOTNET
+",
+            "Score": 86,
+            "Max Score": 100,
+            "DetectedMalware": ""
+        },
+```
+
+A summary Sandbox Detail Report only includes `Summary`, `Classification`, and `FileProperties` information.
+
+- Summary Sandbox Detail Report Example for a MALICIOUS File
+
+```
+{
+    "Summary": {
+        "Summary": {
+            "Status": "COMPLETED",
+            "Category": "EXECS",
+            "FileType": "DLL",
+            "StartTime": 1522111841,
+            "Duration": 481690
+        },
+        "Classification": {
+            "Type": "MALICIOUS",
+            "Category": "MALWARE_BOTNET",
+            "Score": 82,
+            "DetectedMalware": "Win32/TrojanDownloader.Banload.TNJ trojan"
+        },
+        "FileProperties": {
+            "FileType": "DLL",
+            "FileSize": 2358272,
+            "MD5": "b3b13c2fe5710507612106cb11ceced3",
+            "SHA1": "6f30404f8b30812758acc06455bc95348c86f9f2",
+            "Sha256": "c77ab4c60b73c8f8135d54162813ab7c63432058f17ff00754d5fd547c22db76",
+            "Issuer": "",
+            "DigitalCerificate": "",
+            "SSDeep": "49152:mQU0HSp/RcGuBLe/PESBbFVZ86MfBWPvGZxnBGVV3NcKRLFcTOJP:mQUn6LsPQp6vkoiKt",
+            "RootCA": ""
+        }
+    }
+}
+```
+
+A full Sandbox Detail Report includes the same information as in a summary report, and also includes `System Summary`, `Networking`, and other information specific to the analyzed file.
+
+- Full Sandbox Detail Report Example for a MALICIOUS File
+
+```
+{
+    "Full Details": {
+        "Summary": {
+            "Status": "COMPLETED",
+            "Category": "SCRIPT",
+            "FileType": "CMD",
+            "Start Time": 1509567511,
+            "Duration": 454557,
+            "Analysis": "0",
+            "Url": "",
+            "TimeUnit": "ms",
+            "StartTime": "Nov 1, 2017 1:18:31 PM"
+        },
+        "Classification": {
+            "Type": "MALICIOUS",
+            "Category": "MALWARE_BOTNET",
+            "Score": 86,
+            "Max Score": 100,
+            "DetectedMalware": ""
+        },
+        "File Properties": {
+            "File Type": "CMD",
+            "File Size": 9810,
+            "MD5": "8350ded6d39df158e51d6cfbe36fb012",
+            "SHA1": "f4dd1d176975c70ba8963ebc654a78a6e345cfb6",
+            "Sha256": "aff2d40828597fbf482753bec73cc9fc2714484262258875cc23c7d5a7372cee",
+            "Issuer": "",
+            "Digital Cerificate": "",
+            "SSDeep": "192:+cgNT7Zj4tvl2Drc+gEakjqBT1W431lXXH1TR8J:InZjevl2Drc+gEakmBT44rXVR8J",
+            "RootCA": ""
+        },
+        "System Summary": [
+            {
+                "Risk": "LOW",
+                "Signature": "Allocates memory within range which is reserved for system DLLs",
+                "Signature Sources": [
+                    "",
+                    "76E70000 page execute and read and write",
+                    "76E70000 page execute and read and write",
+                    "76E70000 page execute and read and write",
+                    "76E70000 page execute and read and write",
+                    "76F90000 page execute and read and write",
+                    "76F90000 page execute and read and write",
+                    "76F90000 page execute and read and write",
+                    "76F90000 page execute and read and write"
+                ]
+            },
+            {
+                "Risk": "LOW",
+                "Signature": "Classification label",
+                "Signature Sources": [
+                    "",
+                    "mal68.winCMD@53/26@0/0"
+                ]
+            },
+            {
+                "Risk": "LOW",
+                "Signature": "Creates files inside the user directory",
+                "Signature Sources": [
+                    "",
+                    "C:\\Users\\win_7_64bit\\Desktop\\WlanTraces"
+                ]
+            },
+            {
+                "Risk": "LOW",
+                "Signature": "Found command line output",
+                "Signature Sources": [
+                    ""
+                ]
+            },
+            {
+                "Risk": "LOW",
+                "Signature": "Queries the cryptographic machine GUID",
+                "Signature Sources": [
+                    "",
+                    "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Cryptography MachineGuid"
+                ]
+            },
+            {
+                "Risk": "LOW",
+                "Signature": "Reads software policies",
+                "Signature Sources": [
+                    "",
+                    "HKEY_USERS\\Software\\Policies\\Microsoft\\Windows\\Safer\\CodeIdentifiers"
+                ]
+            },
+            {
+                "Risk": "LOW",
+                "Signature": "Sample sleeps for a long time",
+                "Signature Sources": [
+                    ""
+                ]
+            },
+            {
+                "Risk": "LOW",
+                "Signature": "Spawns processes",
+                "Signature Sources": [
+                    "",
+                    "C:\\Windows\\SysWOW64\\cmd.exe ",
+                    "C:\\Windows\\SysWOW64\\cmd.exe ",
+                    "C:\\Windows\\SysWOW64\\cmd.exe ",
+                    "C:\\Windows\\SysWOW64\\find.exe ",
+                    "C:\\Windows\\SysWOW64\\find.exe ",
+                    "C:\\Windows\\SysWOW64\\logman.exe ",
+                    "C:\\Windows\\SysWOW64\\netsh.exe ",
+                    "C:\\Windows\\SysWOW64\\whoami.exe "
+                ]
+            },
+            {
+                "Risk": "LOW",
+                "Signature": "Uses an in-process (OLE) Automation server",
+                "Signature Sources": [
+                    "",
+                    "HKEY_LOCAL_MACHINE\\SOFTWARE\\Classes\\Wow6432Node\\CLSID\\{03837525-098B-11D8-9414-505054503030}\\InprocServer32"
+                ]
+            }
+        ],
+        "Networking": [
+            {
+                "Risk": "MODERATE",
+                "Signature": "Uses ipconfig to modify the Windows network settings",
+                "Signature Sources": [
+                    "",
+                    "C:\\Windows\\SysWOW64\\ipconfig.exe "
+                ]
+            },
+            {
+                "Risk": "HIGH",
+                "Signature": "Uses netsh to modify the Windows network and firewall settings",
+                "Signature Sources": [
+                    "",
+                    "C:\\Windows\\SysWOW64\\netsh.exe "
+                ]
+            }
+        ],
+        "Security Bypass": [
+            {
+                "Risk": "LOW",
+                "Signature": "Checks for kernel debuggers",
+                "Signature Sources": [
+                    "",
+                    "KernelDebuggerInformation"
+                ]
+            },
+            {
+                "Risk": "LOW",
+                "Signature": "Executes massive amount of sleeps in a loop",
+                "Signature Sources": [
+                    "",
+                    "-60000ms >= -60000ms",
+                    "-60000ms >= -60000ms",
+                    "-60000ms >= -60000ms",
+                    "-60000ms >= -60000ms",
+                    "-60000ms >= -60000ms"
+                ]
+            },
+            {
+                "Risk": "MODERATE",
+                "Signature": "Enables debug privileges",
+                "Signature Sources": [
+                    "",
+                    "Debug"
+                ]
+            },
+            {
+                "Risk": "MODERATE",
+                "Signature": "Sample sleeps for a long time (installer files shows these property).",
+                "Signature Sources": [
+                    ""
+                ]
+            }
+        ],
+        "Stealth": [
+            {
+                "Risk": "LOW",
+                "Signature": "Disables application error messages",
+                "Signature Sources": [
+                    "",
+                    "NOOPENFILEERRORBOX",
+                    "NOOPENFILEERRORBOX",
+                    "NOOPENFILEERRORBOX",
+                    "NOOPENFILEERRORBOX"
+                ]
+            },
+            {
+                "Risk": "MODERATE",
+                "Signature": "Very long cmdline option found",
+                "Signature Sources": [
+                    "",
+                    "C:\\Windows\\SysWOW64\\logman.exe logman  create trace autosession\\IntelNetwfw02 -p  0xffffffff 255 -f bincirc -max 250 -o C:\\Users\\win_7_64bit\\Desktop\\WlanTraces\\WIN_7_64BIT-PC-11-01-2017_0825\\IntelNetwfw02_WIN_7_64BIT-PC_11-01-2017_0825.etl",
+                    "C:\\Windows\\SysWOW64\\logman.exe logman  create trace autosession\\bcrmwlan -p {CEA4623F-AA31-4286-B3A5-797EF8A75C17} 0xffffffff 255 -f bincirc -max 250 -o C:\\Users\\win_7_64bit\\Desktop\\WlanTraces\\WIN_7_64BIT-PC-11-01-2017_0825\\BCRMwlan_WIN_7_64BIT-PC_11-01-2",
+                    "C:\\Windows\\SysWOW64\\logman.exe logman  create trace autosession\\mwls97w8arm -p {BFA91C93-9E18-497C-971B-490D06089E97} 0x1 255 -f bincirc -max 250 -o C:\\Users\\win_7_64bit\\Desktop\\WlanTraces\\WIN_7_64BIT-PC-11-01-2017_0825\\Marvell_WIN_7_64BIT-PC_11-01-2017_0",
+                    "C:\\Windows\\SysWOW64\\logman.exe logman  create trace autosession\\qcwlan -p {BB6F5B93-635C-47BE-816F-E895E77064A8} 0xffff 18 -f bincirc -max 250 -o C:\\Users\\win_7_64bit\\Desktop\\WlanTraces\\WIN_7_64BIT-PC-11-01-2017_0825\\QCwlan_WIN_7_64BIT-PC_11-01-2017_0825.",
+                    "C:\\Windows\\SysWOW64\\logman.exe logman  start bcrmwlan -p {CEA4623F-AA31-4286-B3A5-797EF8A75C17} 0xffffffff 255 -f bincirc -max 150 -o C:\\Users\\win_7_64bit\\Desktop\\WlanTraces\\WIN_7_64BIT-PC-11-01-2017_0825\\BCRMwlan_WIN_7_64BIT-PC_11-01-2017_0825.etl -ets",
+                    "C:\\Windows\\SysWOW64\\logman.exe logman  start mwls97w8arm -p {BFA91C93-9E18-497C-971B-490D06089E97} 0x1 255 -f bincirc -max 150 -o C:\\Users\\win_7_64bit\\Desktop\\WlanTraces\\WIN_7_64BIT-PC-11-01-2017_0825\\Marvell_WIN_7_64BIT-PC_11-01-2017_0825.etl -ets",
+                    "C:\\Windows\\SysWOW64\\logman.exe logman  start qcwlan -p {BB6F5B93-635C-47BE-816F-E895E77064A8} 0xffff 18 -f bincirc -max 150 -o C:\\Users\\win_7_64bit\\Desktop\\WlanTraces\\WIN_7_64BIT-PC-11-01-2017_0825\\QCwlan_WIN_7_64BIT-PC_11-01-2017_0825.etl -ets",
+                    "C:\\Windows\\SysWOW64\\netsh.exe netsh  trace sta wireless_dbg provider={21ba7b61-05f8-41f1-9048-c09493dcfe38} 0xff globallevel=0xff persistent=yes trace=C:\\Users\\win_7_64bit\\Desktop\\WlanTraces\\WIN_7_64BIT-PC-11-01-2017_0825\\wlan_WIN_7_64BIT-PC_11-01-2017_08"
+                ]
+            }
+        ],
+        "Persistence": [
+            {
+                "Risk": "MODERATE",
+                "Signature": "Creates or modifies Windows services",
+                "Signature Sources": [
+                    "",
+                    "HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\services\\IKEEXT\\Parameters"
+                ]
+            },
+            {
+                "Risk": "HIGH",
+                "Signature": "Modifies security policies related information",
+                "Signature Sources": [
+                    "",
+                    "HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Control\\Lsa\\Kerberos\\Parameters KerbDebugLevel"
+                ]
+            },
+            {
+                "Risk": "HIGH",
+                "Signature": "Uses sc.exe to modify the status of services",
+                "Signature Sources": [
+                    "",
+                    "C:\\Windows\\SysWOW64\\sc.exe "
+                ]
+            }
+        ]
+    }
+}
+```
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-scim-attribute-details-using-api","lastmod":"2026-01-06T23:49Z","nid":"1484851"} -->
+## Obtaining SCIM Attribute Details Using API
+
+- Source: https://help.zscaler.com/legacy-apis/obtaining-scim-attribute-details-using-api
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Obtaining SCIM Attribute Details Using API
+- Last modified: 2026-01-06T23:49Z
+- Summary: Information about SCIM attribute use cases applicable to the Zscaler Private Access (ZPA) cloud service API.
+
+This article provides information on managing Zscaler Private Access (ZPA) SCIM attribute use cases using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
+
+## Getting Details for All SCIM Attributes
+
+To get details for all the SCIM attributes:
+
+1. Send a `GET` request to the endpoint `/mgmtconfig/v1/admin/customers/{customerId}/idp/{idpId}/scimattribute` in the scim-attribute-header-controller.
+2. Provide the following values in the request body:
+
+- `customerId`: The ZPA tenant ID of the customer.
+- `idpId`: The ID of the IdP corresponding to the SCIM attribute.
+
+For example: `/mgmtconfig/v1/admin/customers/72057615512764416/idp/73196561382768893/scimattribute`.
+
+- View an example response
+
+```
+{
+  "totalPages": "1",
+  "list": [
+    {
+      "id": "73196561382768901",
+      "creationTime": "1610625597",
+      "modifiedBy": "73196561382768641",
+      "name": "active",
+      "idpId": "73196561382768893",
+      "dataType": "Boolean",
+      "schemaURI": "urn:ietf:params:scim:schemas:core:2.0:User",
+      "multivalued": false,
+      "required": false,
+      "caseSensitive": false,
+      "mutability": "readWrite",
+      "returned": "default",
+      "uniqueness": false
+    },
+    {
+      "id": "73196561382768904",
+      "creationTime": "1610625597",
+      "modifiedBy": "73196561382768641",
+      "name": "costCenter",
+      "idpId": "73196561382768893",
+      "dataType": "String",
+      "schemaURI": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+      "multivalued": false,
+      "required": false,
+      "caseSensitive": false,
+      "mutability": "readWrite",
+      "returned": "default",
+      "uniqueness": false
+    },
+    {
+      "id": "73196561382768903",
+      "creationTime": "1610625597",
+      "modifiedBy": "73196561382768641",
+      "name": "department",
+      "idpId": "73196561382768893",
+      "dataType": "String",
+      "schemaURI": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+      "multivalued": false,
+      "required": false,
+      "caseSensitive": false,
+      "mutability": "readWrite",
+      "returned": "default",
+      "uniqueness": false
+    },
+    {
+      "id": "73196561382768899",
+      "creationTime": "1610625597",
+      "modifiedBy": "73196561382768641",
+      "name": "displayName",
+      "idpId": "73196561382768893",
+      "dataType": "String",
+      "schemaURI": "urn:ietf:params:scim:schemas:core:2.0:User",
+      "multivalued": false,
+      "required": false,
+      "caseSensitive": false,
+      "mutability": "readWrite",
+      "returned": "default",
+      "uniqueness": false
+    },
+    {
+      "id": "73196561382768906",
+      "creationTime": "1610625597",
+      "modifiedBy": "73196561382768641",
+      "name": "division",
+      "idpId": "73196561382768893",
+      "dataType": "String",
+      "schemaURI": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+      "multivalued": false,
+      "required": false,
+      "caseSensitive": false,
+      "mutability": "readWrite",
+      "returned": "default",
+      "uniqueness": false
+    },
+    {
+      "id": "73196561382768902",
+      "creationTime": "1610625597",
+      "modifiedBy": "73196561382768641",
+      "name": "emails.value",
+      "idpId": "73196561382768893",
+      "dataType": "String",
+      "schemaURI": "urn:ietf:params:scim:schemas:core:2.0:User",
+      "multivalued": true,
+      "required": false,
+      "canonicalValues": [
+        "work"
+      ],
+      "caseSensitive": false,
+      "mutability": "readWrite",
+      "returned": "default",
+      "uniqueness": false
+    },
+    {
+      "id": "73196561382768895",
+      "creationTime": "1610625597",
+      "modifiedBy": "73196561382768641",
+      "name": "name.familyName",
+      "idpId": "73196561382768893",
+      "dataType": "String",
+      "schemaURI": "urn:ietf:params:scim:schemas:core:2.0:User",
+      "multivalued": false,
+      "required": false,
+      "caseSensitive": false,
+      "mutability": "readWrite",
+      "returned": "default",
+      "uniqueness": false
+    },
+    {
+      "id": "73196561382768897",
+      "creationTime": "1610625597",
+      "modifiedBy": "73196561382768641",
+      "name": "name.formatted",
+      "idpId": "73196561382768893",
+      "dataType": "String",
+      "schemaURI": "urn:ietf:params:scim:schemas:core:2.0:User",
+      "multivalued": false,
+      "required": false,
+      "caseSensitive": false,
+      "mutability": "readWrite",
+      "returned": "default",
+      "uniqueness": false
+    },
+    {
+      "id": "73196561382768896",
+      "creationTime": "1610625597",
+      "modifiedBy": "73196561382768641",
+      "name": "name.givenName",
+      "idpId": "73196561382768893",
+      "dataType": "String",
+      "schemaURI": "urn:ietf:params:scim:schemas:core:2.0:User",
+      "multivalued": false,
+      "required": false,
+      "caseSensitive": false,
+      "mutability": "readWrite",
+      "returned": "default",
+      "uniqueness": false
+    },
+    {
+      "id": "73196561382768898",
+      "creationTime": "1610625597",
+      "modifiedBy": "73196561382768641",
+      "name": "nickName",
+      "idpId": "73196561382768893",
+      "dataType": "String",
+      "schemaURI": "urn:ietf:params:scim:schemas:core:2.0:User",
+      "multivalued": false,
+      "required": false,
+      "caseSensitive": false,
+      "mutability": "readWrite",
+      "returned": "default",
+      "uniqueness": false
+    },
+    {
+      "id": "73196561382768905",
+      "creationTime": "1610625597",
+      "modifiedBy": "73196561382768641",
+      "name": "organization",
+      "idpId": "73196561382768893",
+      "dataType": "String",
+      "schemaURI": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+      "multivalued": false,
+      "required": false,
+      "caseSensitive": false,
+      "mutability": "readWrite",
+      "returned": "default",
+      "uniqueness": false
+    },
+    {
+      "id": "73196561382768894",
+      "creationTime": "1610625597",
+      "modifiedBy": "73196561382768641",
+      "name": "userName",
+      "idpId": "73196561382768893",
+      "dataType": "String",
+      "schemaURI": "urn:ietf:params:scim:schemas:core:2.0:User",
+      "multivalued": false,
+      "required": true,
+      "caseSensitive": false,
+      "mutability": "readWrite",
+      "returned": "default",
+      "uniqueness": true
+    },
+    {
+      "id": "73196561382768900",
+      "creationTime": "1610625597",
+      "modifiedBy": "73196561382768641",
+      "name": "userType",
+      "idpId": "73196561382768893",
+      "dataType": "String",
+      "schemaURI": "urn:ietf:params:scim:schemas:core:2.0:User",
+      "multivalued": false,
+      "required": false,
+      "caseSensitive": false,
+      "mutability": "readWrite",
+      "returned": "default",
+      "uniqueness": false
+    }
+  ]
+}
+```
+
+A successful response returns code 200. To learn more, see [About Error Codes](https://help.zscaler.com/zpa/about-error-codes).
+
+This API supports pagination. To get a paginated response:
+
+1. Send a `GET` request to the endpoint `/mgmtconfig/v1/admin/customers/{customerId}/idp/{idpId}/scimattribute?page=1&pagesize=20`.
+2. Provide the following in the request endpoint:
+
+- `customerId`: The ZPA tenant ID of the customer, in the request endpoint.
+- `idpId`: The ID of the IdP corresponding to the SCIM attribute.
+- Valid values for page and page size parameters.
+
+For example: `/mgmtconfig/v1/admin/customers/144118148382064640/idp/144118148382065427/scimattribute?page=1&pagesize=2.`
+
+- View an example response
+
+```
+{
+  "totalPages": "7",
+  "list": [
+    {
+      "id": "144118148382065476",
+      "creationTime": "1621016226",
+      "modifiedBy": "144118148382065457",
+      "name": "active",
+      "idpId": "144118148382065427",
+      "dataType": "Boolean",
+      "schemaURI": "urn:ietf:params:scim:schemas:core:2.0:User",
+      "multivalued": false,
+      "required": false,
+      "caseSensitive": false,
+      "mutability": "readWrite",
+      "returned": "default",
+      "uniqueness": false
+    },
+    {
+      "id": "144118148382065479",
+      "creationTime": "1621016226",
+      "modifiedBy": "144118148382065457",
+      "name": "costCenter",
+      "idpId": "144118148382065427",
+      "dataType": "String",
+      "schemaURI": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+      "multivalued": false,
+      "required": false,
+      "caseSensitive": false,
+      "mutability": "readWrite",
+      "returned": "default",
+      "uniqueness": false
+    }
+  ]
+}
+```
+
+If not provided, the default page size is 20. The maximum page size is 500.
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Getting Details for a Particular SCIM Attribute
+
+To get the name, or key, for a particular SCIM attribute:
+
+1. Send a `GET` request to the endpoint `/mgmtconfig/v1/admin/customers/{customerId}/idp/{idpId}/scimattribute/``{scimAttributeId}` in the scim-attribute-header-controller.
+2. Provide the following values in the request endpoint:
+
+- `customerId`: The ZPA tenant ID of the customer.
+- `idpId`: The ID of the Idp corresponding to the SCIM attribute.
+- `scimAttributeId`: The ID of the SCIM attribute.
+
+For example: `/mgmtconfig/v1/admin/customers/72057615512764416/idp/73196561382768893/scimattribute/73196561382768901`.
+
+- View an example response
+
+```
+{
+  "id": "73196561382768901",
+  "creationTime": "1610625597",
+  "modifiedBy": "73196561382768641",
+  "name": "active",
+  "idpId": "73196561382768893",
+  "dataType": "Boolean",
+  "schemaURI": "urn:ietf:params:scim:schemas:core:2.0:User",
+  "multivalued": false,
+  "required": false,
+  "caseSensitive": false,
+  "mutability": "readWrite",
+  "returned": "default",
+  "uniqueness": false
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Getting Details for a SCIM Attribute Value
+
+To get the value of the particular key for a SCIM attribute value:
+
+1. Send a `GET` request to the endpoint `/userconfig/v1/customers/{customerId}/scimattribute/idpId/{idpId}/attributeId/{attributeId}` in the scim-attribute-header-controller**.**
+2. Provide the following values in the request endpoint:
+
+- `customerId`: The ZPA tenant ID of the customer.
+- `idpId`: The ID of the IdP corresponding to the SCIM attribute.
+- `attributeId`: The ID of the SCIM attribute.
+
+For example: `/mgmtconfig/v1/admin/customers/72057615512764416/idp/73196561382768893/scimattribute/73196561382768901`.
+
+- View an example response
+
+```
+{
+  "totalPages": "1",
+  "totalCount": "1",
+  "list": [
+    "true"
+  ]
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+This API supports pagination. To get a paginated response:
+
+1. Send a `GET` request to the endpoint `/userconfig/v1/customers/{customerId}/scimattribute/idpId/{idpId}/attributeId/{attributeId}?page=1&pagesize=20`.
+2. Provide the following in the request endpoint:
+
+- `customerId`, the ZPA tenant ID of the customer, in the request endpoint.
+- `idpId`: The ID of the IdP corresponding to the SCIM attribute.
+- `attributeId`: The ID of the SCIM attribute.
+- Valid values for page and page size parameters.
+
+For example: `/mgmtconfig/v1/admin/customers/217246660302995456/idp/217246660303022670/scimattribute/217246660303023460?page=1&pagesize=2.`
+
+- View an example response
+
+```
+{
+  "totalPages": 1,
+  "totalCount": 1,
+  "list": [
+    "true"
+  ]
+}
+```
+
+If not provided, the default page size is 20. The maximum page size is 500.
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-scim-group-details-using-api","lastmod":"2026-01-06T23:49Z","nid":"1484846"} -->
+## Obtaining SCIM Group Details Using API
+
+- Source: https://help.zscaler.com/legacy-apis/obtaining-scim-group-details-using-api
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Obtaining SCIM Group Details Using API
+- Last modified: 2026-01-06T23:49Z
+- Summary: Information about SCIM group use cases applicable to the Zscaler Private Access (ZPA) cloud service API.
+
+This article provides information on managing Zscaler Private Access (ZPA) SCIM group use cases using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
+
+## Getting Details of All SCIM Groups
+
+To get details of all SCIM groups for the specified IdP ID:
+
+1. Send a `GET` request to the following endpoint: `/userconfig/v1/customers/{customerId}/scimgroup/idpId/{idpId}`.
+2. Provide the following values in the request endpoint:
+
+- `customerId`: The ZPA tenant ID of the customer.
+- `idpId`: The ID of a particular IdP. To learn more, see [Obtaining IdP Configuration Details Using API](https://help.zscaler.com/zpa/obtaining-idp-configuration-details-using-api).
+
+For example: `/userconfig/v1/customers/72057615512764416/scimgroup/idpId/73196561382768893`.
+
+- View an example response
+
+```
+{
+  "totalPages": "1",
+  "totalCount": "2",
+  "list": [
+    {
+      "id": "20464",
+      "modifiedTime": "1610781818",
+      "creationTime": "1610626185",
+      "name": "group 2 public api",
+      "idpId": "73196561382768893",
+      "idpGroupId": null
+    },
+    {
+      "id": "20463",
+      "modifiedTime": "1610781110",
+      "creationTime": "1610626168",
+      "name": "group 1 public api",
+      "idpId": "73196561382768893",
+      "idpGroupId": null
+    }
+  ]
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+This API supports pagination and sort capabilities. To get a paginated response and sort:
+
+1. Send a `GET` request to the following endpoint: `/userconfig/v1/customers/{customerId}/scimgroup/idpId/{idpId}?page=1&pagesize=5&sortBy=name&sortOrder=DSC`.
+2. Provide the following in the request endpoint:
+
+- `customerId`: The ZPA tenant ID of the customer, in the request endpoint.
+- `idpId`: The ID of a particular IdP.
+- Valid values for page and page size parameters.
+- Valid `sortBy` string values (e.g., `name`).
+
+For example: `/userconfig/v1/customers/145254298228359168/scimgroup/idpId/145254298228359525?page=1&pagesize=5&sortBy=name&sortOrder=DSC`.
+
+- View an example response
+
+```
+{
+  "totalPages": 70000,
+  "totalCount": 350000,
+  "list": [
+    {
+      "id": 1981044,
+      "modifiedTime": 1666936258,
+      "creationTime": 1666073884,
+      "name": "grp99999",
+      "idpId": 145254298228359520,
+      "idpGroupId": "grp99999",
+      "internalId": "1981044"
+    },
+    {
+      "id": 1981043,
+      "modifiedTime": 1666936258,
+      "creationTime": 1666073884,
+      "name": "grp99998",
+      "idpId": 145254298228359520,
+      "idpGroupId": "grp99998",
+      "internalId": "1981043"
+    },
+    {
+      "id": 1981042,
+      "modifiedTime": 1666936258,
+      "creationTime": 1666073884,
+      "name": "grp99997",
+      "idpId": 145254298228359520,
+      "idpGroupId": "grp99997",
+      "internalId": "1981042"
+    },
+    {
+      "id": 1981041,
+      "modifiedTime": 1666936258,
+      "creationTime": 1666073884,
+      "name": "grp99996",
+      "idpId": 145254298228359520,
+      "idpGroupId": "grp99996",
+      "internalId": "1981041"
+    },
+    {
+      "id": 1981040,
+      "modifiedTime": 1666936258,
+      "creationTime": 1666073884,
+      "name": "grp99995",
+      "idpId": 145254298228359520,
+      "idpGroupId": "grp99995",
+      "internalId": "1981040"
+    }
+  ]
+}
+```
+
+If not provided, the default page size is 20. The maximum page size is 500.
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Getting Details for a Particular SCIM Group
+
+To get details of a particular SCIM group:
+
+1. Send a `GET` request to the following endpoint: `/userconfig/v1/customers/{customerId}/scimgroup/{scimGroupId}`.
+2. Use the following values in the request endpoint:
+
+- `customerId`: The ZPA tenant ID of the customer.
+- `scimGroupId`: The ID of a particular SCIM group.
+
+For example: `/userconfig/v1/customers/72057615512764416/scimgroup/20464`.
+
+- View an example response
+
+```
+{
+  "id": "20464",
+  "modifiedTime": "1610781818",
+  "creationTime": "1610626185",
+  "name": "group 2 public api",
+  "idpId": "73196561382768893",
+  "idpGroupId": null
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Field Descriptions
+
+The following table includes descriptions of available fields for the SCIM group use cases:
+
+| Field | Description | Required | Value |
+| --- | --- | --- | --- |
+| page | Indicates the page. If not provided, the default value is `1`. | No | Integer |
+| pageSize | Indicates the page size. If not provided, the default page size is `20`. The max page size is `500`. | No | Integer |
+| sortBy | Indicates the `sortBy` field name that is used to sort the results. If not provided, the results are sorted by `modifiedTime`. | No | Supported values: `id`; `name`; `creationTime`; `modifiedTime` |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-trusted-network-details-using-api","lastmod":"2026-01-06T23:49Z","nid":"1484841"} -->
+## Obtaining Trusted Network Details Using API
+
+- Source: https://help.zscaler.com/legacy-apis/obtaining-trusted-network-details-using-api
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Obtaining Trusted Network Details Using API
+- Last modified: 2026-01-06T23:49Z
+- Summary: Information about trusted network use cases applicable to the Zscaler Private Access (ZPA) cloud service API.
+
+This article provides information on managing Zscaler Private Access (ZPA) trusted network use cases using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
+
+## Getting Details for All Trusted Networks V2
+
+To get details for all the trusted networks:
+
+1. Send a `GET` request to the following endpoint in the trusted-network-controller: `/mgmtconfig/v2/admin/customers/{customerId}/network`.
+2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v2/admin/customers/217246660302995456/network`.
+
+- View an example response
+
+```
+{
+  "totalPages": "3",
+  "list": [
+    {
+      "id": "217246660303023500",
+      "creationTime": "1568929136",
+      "modifiedBy": "72057594037928107",
+      "name": "example mac",
+      "networkId": "1cd35d99-e509-49c6-a0fe-a1e1f754ac3e",
+      "zscalerCloud": "zpadev"
+    },
+    {
+      "id": "217246660303023640",
+      "creationTime": "1578427726",
+      "modifiedBy": "72057594037959595",
+      "name": "test1",
+      "networkId": "f373dbe7-1a21-488e-bd2b-6557e702357c",
+      "zscalerCloud": "zscalerone"
+    }
+  ]
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+This API supports pagination. To get a paginated response:
+
+1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/network?page=1&pagesize=20`.
+2. Provide the following in the request endpoint:
+
+- `customerId`: The ZPA tenant ID of the customer, in the request endpoint.
+- Valid values for page and page size parameters.
+
+For example: `/mgmtconfig/v1/admin/customers/217246660302995456/network?page=1&pagesize=2.`
+
+- View an example response
+
+```
+{
+  "totalPages": "3",
+  "list": [
+    {
+      "id": "217246660303023500",
+      "creationTime": "1568929136",
+      "modifiedBy": "72057594037928107",
+      "name": "Test network",
+      "networkId": "1cd35d99-e509-49c6-a0fe-a1e1f754ac3e",
+      "zscalerCloud": "zpaTest"
+    },
+    {
+      "id": "217246660303023640",
+      "creationTime": "1578427726",
+      "modifiedBy": "72057594037959595",
+      "name": "test1 (zscalerone.net)",
+      "networkId": "f373dbe7-1a21-488e-bd2b-6557e702357c",
+      "zscalerCloud": "zscalerone"
+    }
+  ]
+}
+```
+
+If not provided, the default page size is 20. The maximum page size is 500.
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+This API supports a search option to search by features and fields. To search by features and fields:
+
+1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/73186051597795328/network&search={searchString}`.
+2. Provide the following in the request endpoint:
+
+- `customerId`: The ZPA tenant ID of the customer.
+- Valid search string values. The search string values are in the format `fieldName operator fieldValue`. Only search string values that correspond to the values for valid fields and filters are supported. For example, the string `enabled%20EQ%20true` is supported for the **Name**filter, using the **Contains**(`LIKE`) operator, for the filter value `test`.
+
+For example: `/mgmtconfig/v1/admin/customers/73186051597795328/network&search=name%20LIKE%20test`.
+
+- View an example response
+
+```
+{
+  "totalPages": "1",
+  "totalCount": "2",
+  "list": [
+    {
+      "id": "72057594038041097",
+      "creationTime": "1624340572",
+      "modifiedBy": "72057594037987389",
+      "name": "Test (cloud.net)",
+      "networkId": "1",
+      "zscalerCloud": "cloud"
+    },
+    {
+      "id": "72057594038041098",
+      "creationTime": "1624340631",
+      "modifiedBy": "72057594037987389",
+      "name": "Test 20 (cloud.net)",
+      "networkId": "2",
+      "zscalerCloud": "cloud"
+    }
+  ]
+}
+```
+
+If you use the ZPA API PortaI or the [Reference Guide](https://help.zscaler.com/zpa/zpa-api/api-developer-reference-guide/reference-guide) to make your API calls, the search field string does not require any characters. For example, `name%20LIKE%20test` is `name LIKE test`.
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Getting Details for a Particular Trusted Network
+
+To get details of a particular trusted network:
+
+1. Send a `GET` request to the following endpoint in the trusted-network-controller: `/mgmtconfig/v1/admin/customers/{customerId}/network/{id}`.
+2. Provide the following values in the request endpoint:
+
+- `customerId`: The ZPA tenant ID of the customer.
+- `id`: The ID of the desired trusted network.
+
+For example:`/mgmtconfig/v1/admin/customers/72057615512764416/network/72057615512764509`.
+
+- View an example response
+
+```
+{
+  "id": "72057615512764509",
+  "creationTime": "1571232759",
+  "modifiedBy": "72057594037927995",
+  "name": "Home",
+  "networkId": "2b8a83bd-3fab-4961-b12c-e64553f15327",
+  "zscalerCloud": "zscalerbeta"
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-version-profile-details-using-api","lastmod":"2026-01-06T23:49Z","nid":"1485041"} -->
+## Obtaining Version Profile Details Using API
+
+- Source: https://help.zscaler.com/legacy-apis/obtaining-version-profile-details-using-api
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Obtaining Version Profile Details Using API
+- Last modified: 2026-01-06T23:49Z
+- Summary: Information about version profile use cases applicable to the Zscaler Private Access (ZPA) cloud service API.
+
+This article provides information for managing Zscaler Private Access (ZPA) version profiles using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
+
+## Getting Details of All Version Profiles
+
+To get details of all version profiles:
+
+1. Send a `GET` request to the endpoint `/mgmtconfig/v1/admin/customers/{customerId}/visible/versionProfiles` in the customer-version-profile-controller.
+2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v1/admin/customers/72057594037927936/visible/versionProfiles`.
+
+- View an example response
+
+```
+{
+"totalPages": "1",
+"list": [
+{
+"id": "0",
+"modifiedTime": "1626626015",
+"modifiedBy": "72057594037939756",
+"name": "Default",
+"upgradePriority": "WEEK",
+"visibilityScope": "ALL",
+"customerId": "72057594037927936"
+},
+{
+"id": "1",
+"modifiedTime": "1629892276",
+"creationTime": "1624262913",
+"modifiedBy": "72057594037988570",
+"name": "Previous Default",
+"description": "Cloud wide previous stable/default build. Provides roll-back ability",
+"upgradePriority": "FORCE_NOW",
+"visibilityScope": "ALL",
+"customerId": "72057594037927936"
+},
+{
+"id": "2",
+"modifiedTime": "1631705841",
+"creationTime": "1624262914",
+"modifiedBy": "72057594037939756",
+"name": "New Release",
+"upgradePriority": "WEEK",
+"visibilityScope": "ALL",
+"customerId": "72057594037927936"
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+This API supports pagination. To get a paginated response:
+
+1. Send a `GET` request to the endpoint `/mgmtconfig/v1/admin/customers/{customerId}/visible/versionProfiles?page=1&pagesize=20`.
+2. Provide the following in the request endpoint:
+
+- `customerId`: The ZPA tenant ID of the customer.
+- Valid values for page and page size parameters.
+
+For example: `/mgmtconfig/v1/admin/customers/144118148382065089/server?page=1&pagesize=2.`
+
+- View an example response
+
+```
+{
+  "totalPages": "2",
+  "list": [
+    {
+      "id": "0",
+      "modifiedTime": "1644938687",
+      "creationTime": "1475127781",
+      "modifiedBy": "72057594037928187",
+      "name": "Default",
+      "upgradePriority": "WEEK",
+      "visibilityScope": "ALL",
+      "customerId": "72057594037927936"
+    },
+    {
+      "id": "1",
+      "modifiedTime": "1634285256",
+      "creationTime": "1631577657",
+      "modifiedBy": "72057594037928193",
+      "name": "Previous Default",
+      "upgradePriority": "DAY",
+      "visibilityScope": "ALL",
+      "customerId": "72057594037927936"
+    }
+  ]
+}
+```
+
+If not provided, the default page size is 20. The maximum page size is 500.
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -2558,6 +4795,2532 @@ The API response is one ZIP file containing JSON representation of the exported 
 | Code | Description |
 | --- | --- |
 | default | Successful Operation |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/policy-group-management","lastmod":"2026-10-09T11:59Z","nid":"1546126"} -->
+## Policy Group Management
+
+- Source: https://help.zscaler.com/legacy-apis/policy-group-management
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Reference Guide > Policy Group Management
+- Last modified: 2026-10-09T11:59Z
+
+To access detailed ZPA API documentation, including references and use cases, refer to the [Zscaler Help Portal](/zpa/about-zpa-api).
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/policyGroupSet/{groupSetId}/group/{groupId}`
+
+**Gets a policy group within a policy group set for the specified ID.**
+
+- Operation ID: `getPolicyGroup`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `groupSetId` | path | yes | integer(int64) | The unique identifier of the policy group set. |
+| `groupId` | path | yes | integer(int64) | The unique identifier of the policy group within a policy group set. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `PUT /mgmtconfig/v1/admin/customers/{customerId}/policyGroupSet/{groupSetId}/group/{groupId}`
+
+**Updates an existing policy group for the specified ID.**
+
+- Operation ID: `updatePolicyGroup`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `groupSetId` | path | yes | integer(int64) | The unique identifier of the policy group set. |
+| `groupId` | path | yes | integer(int64) | The unique identifier of the policy group within a policy group set. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Request body:** `application/json` → PolicyGroupResource
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | No Content |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `DELETE /mgmtconfig/v1/admin/customers/{customerId}/policyGroupSet/{groupSetId}/group/{groupId}`
+
+**Deletes a policy group for the specified ID.**
+
+- Operation ID: `deletePolicyGroup`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `groupSetId` | path | yes | integer(int64) | The unique identifier of the policy group set. |
+| `groupId` | path | yes | integer(int64) | The unique identifier of the policy group within a policy group set. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | No Content |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `POST /mgmtconfig/v1/admin/customers/{customerId}/policyGroupSet/{groupSetId}/group/search`
+
+**Gets all policy groups within a policy group set for the specified ID with advanced search and pagination.**
+
+- Operation ID: `getAllPolicyGroupByPage`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `groupSetId` | path | yes | integer(int64) | The unique identifier of the policy group set. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Request body:** `application/json` → AdvancedFilterAndSortDto
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `PUT /mgmtconfig/v1/admin/customers/{customerId}/policyGroupSet/{groupSetId}/group/{groupId}/reorder/{newOrder}`
+
+**Updates the policy evaluation rule order for the existing policy group by the specified ID.**
+
+- Operation ID: `updatePolicyGroupOrder`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The ZPA tenant ID of the customer. |
+| `groupSetId` | path | yes | integer(int64) | The unique identifier of the policy group set. |
+| `groupId` | path | yes | integer(int64) | The unique identifier of the policy group within a policy group set. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `newOrder` | path | yes | integer(int32) | The new policy evaluation order of the policy group. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | No Content |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/policyGroupSet/{groupSetId}/group/all`
+
+**Gets all policy groups within a policy group set for the specified ID.**
+
+- Operation ID: `getAllPolicyGroups`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `groupSetId` | path | yes | integer(int64) | The unique identifier of the policy group set. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `POST /mgmtconfig/v1/admin/customers/{customerId}/policyGroupSet/{groupSetId}/group`
+
+**Adds a new policy group to a policy group set for the specified customer.**
+
+- Operation ID: `addPolicyGroup`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `groupSetId` | path | yes | integer(int64) | The unique identifier of the policy group set. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Request body:** `application/json` → PolicyGroupResource
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 201 | Created |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### Schemas
+
+**`PolicyGroup`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `creationTime` | integer(int32) | no |
+| `description` | string | no |
+| `groupCriteriaRule` | PolicyRule | no |
+| `groupCriteriaRuleGid` | integer(int64) | no |
+| `groupOrder` | integer(int64) | no |
+| `id` | string | no |
+| `modifiedBy` | string | no |
+| `modifiedTime` | integer(int32) | no |
+| `name` | string | yes |
+| `policyGroupSetGid` | integer(int64) | no |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `type` | string (enum: GLOBAL, CUSTOM, DEFAULT) | no |
+
+**`ZPathAPIError`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `reason` | string | no |
+| `id` | string | no |
+| `params` | array<object> | no |
+| `hostname` | string | no |
+
+**`PolicyGroupResource`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `creationTime` | integer(int32) | no |
+| `description` | string | no |
+| `groupCriteria` | PolicyRuleResource | no |
+| `id` | string | no |
+| `modifiedBy` | string | no |
+| `modifiedTime` | integer(int32) | no |
+| `name` | string | yes |
+| `policyGroupSetGid` | integer(int64) | no |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `type` | string (enum: GLOBAL, CUSTOM, DEFAULT) | no |
+
+**`AdvancedFilterAndSortDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `filterBy` | FilterGroupDto | no |
+| `pageBy` | PaginationDto | no |
+| `sortBy` | SortDto | no |
+
+**`PageListPolicyGroupDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `currentCount` | integer(int64) | no |
+| `list` | array<PolicyGroup> | no |
+| `totalCount` | integer(int64) | no |
+| `totalPages` | integer(int32) | no |
+
+**`PolicyRule`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `description` | string | no |
+| `ruleOrder` | integer(int32) | no |
+| `priority` | integer(int32) | no |
+| `policyType` | integer(int32) | yes |
+| `operator` | string (enum: AND, OR) | yes |
+| `actionId` | integer(int64) | no |
+| `action` | string (enum: ALLOW, DENY, LOG, RE_AUTH, NEVER, BYPASS, INTERCEPT, NO_DOWNLOAD) | yes |
+| `reauthTimeout` | integer(int32) | no |
+| `reauthIdleTimeout` | integer(int32) | no |
+| `customMsg` | string | no |
+| `disabled` | integer(int32) | no |
+| `serviceEdgeGroups` | array<ServiceEdgeGroup> | no |
+| `appConnectorGroups` | array<AppConnectorGroup> | no |
+| `credential` | NameIdDto | no |
+| `credentialPool` | NameIdDto | no |
+| `zpnIsolationProfileId` | integer(int64) | no |
+| `zpnInspectionProfileId` | integer(int64) | no |
+| `postActionTypes` | array<string> | no |
+| `postActions` | object | no |
+| `zpnInspectionProfileName` | string | no |
+| `extranetDTO` | ExtranetDTO | no |
+| `extranetEnabled` | boolean | no |
+| `inconsistentConfigDetails` | InconsistentConfigDetails | no |
+| `policySetId` | integer(int64) | no |
+| `privilegedCapabilities` | PrivilegedCapabilities | no |
+| `privilegedPortalCapabilities` | PrivilegedPortalCapabilities | no |
+| `conditions` | array<ConditionSet> | no |
+| `appServerGroups` | array<AppServerGroup> | no |
+| `defaultRule` | boolean | no |
+| `defaultRuleName` | string | no |
+
+**`ServiceEdgeGroup`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `enabled` | boolean | no |
+| `description` | string | no |
+| `geoLocationId` | integer(int64) | no |
+| `versionProfileId` | integer(int64) | no |
+| `overrideVersionProfile` | boolean | no |
+| `siteId` | string | no |
+| `versionProfileName` | string | no |
+| `upgradePriority` | string (enum: WEEK, DAY, FORCE_NOW, NOW) | no |
+| `versionProfileVisibilityScope` | string (enum: ALL, NONE, CUSTOM) | no |
+| `upgradeTimeInSecs` | string | no |
+| `upgradeDay` | string | no |
+| `siteName` | string | no |
+| `isPublic` | string | no |
+| `location` | string | no |
+| `serviceEdges` | array<ServiceEdge> | no |
+| `latitude` | string | no |
+| `city` | string | no |
+| `longitude` | string | no |
+| `cityCountry` | string | no |
+| `countryCode` | string | no |
+| `useInDrMode` | boolean | no |
+| `graceDistanceEnabled` | boolean | no |
+| `graceDistanceValue` | number(double) | no |
+| `graceDistanceValueUnit` | string (enum: MILES, KMS) | no |
+| `trustedNetworks` | array<TrustedNetwork> | no |
+| `altCloud` | string | no |
+
+**`ServiceEdge`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `description` | string | no |
+| `fingerprint` | string | no |
+| `issuedCertId` | integer(int64) | no |
+| `enabled` | boolean | no |
+| `ipAcl` | array<string> | no |
+| `listenIps` | array<string> | no |
+| `publishIps` | array<string> | no |
+| `publishIpv6` | boolean | no |
+| `privateBrokerVersion` | PrivateBrokerVersion | no |
+| `provisioningKeyId` | integer(int64) | no |
+| `provisioningKeyName` | string | no |
+| `serviceEdgeGroupId` | string | no |
+| `serviceEdgeGroupName` | string | no |
+| `enrollmentCert` | object | no |
+| `latitude` | string | no |
+| `longitude` | string | no |
+| `location` | string | no |
+| `expectedVersion` | string | no |
+| `currentVersion` | string | no |
+| `previousVersion` | string | no |
+| `lastUpgradeTime` | integer(int64) | no |
+| `expectedUpgradeTime` | integer(int64) | no |
+| `upgradeStatus` | string (enum: COMPLETE, IN_PROGRESS, FAILED, UNKNOWN, RESTARTING, PARTIAL_FAILURE, REMOVAL_IN_PROGRESS) | no |
+| `controlChannelStatus` | string (enum: UNKNOWN, ZPN_STATUS_AUTHENTICATED, ZPN_STATUS_DISCONNECTED) | no |
+| `upgradeAttempt` | integer(int32) | no |
+| `ctrlBrokerName` | string | no |
+| `lastBrokerConnectTime` | integer(int64) | no |
+| `lastBrokerConnectTimeDuration` | string | no |
+| `lastBrokerDisconnectTime` | integer(int64) | no |
+| `lastBrokerDisconnectTimeDuration` | string | no |
+| `privateIp` | string | no |
+| `publicIp` | string | no |
+| `platform` | string | no |
+| `runtimeOS` | string | no |
+| `applicationStartTime` | integer(int64) | no |
+| `sargeVersion` | string | no |
+| `platformDetail` | string | no |
+| `zpnSubModuleUpgradeList` | array<ZpnSubModuleUpgrade> | no |
+
+**`PrivateBrokerVersion`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `expectedVersion` | string | no |
+| `currentVersion` | string | no |
+| `systemStartTime` | integer(int64) | no |
+| `applicationStartTime` | integer(int64) | no |
+| `lastConnectTime` | integer(int64) | no |
+| `lastDisconnectTime` | integer(int64) | no |
+| `platform` | string | no |
+| `runtimeOS` | string | no |
+| `brokerId` | integer(int64) | no |
+| `serviceEdgeGroupId` | integer(int64) | no |
+| `restartTimeInSec` | integer(int64) | no |
+| `upgradeStatus` | string (enum: COMPLETE, IN_PROGRESS, FAILED, UNKNOWN, RESTARTING, PARTIAL_FAILURE, REMOVAL_IN_PROGRESS) | no |
+| `ctrlChannelStatus` | string (enum: UNKNOWN, ZPN_STATUS_AUTHENTICATED, ZPN_STATUS_DISCONNECTED) | no |
+| `privateIp` | string | no |
+| `publicIp` | string | no |
+| `loneWarrior` | boolean | no |
+| `tunnelId` | string | no |
+| `previousVersion` | string | no |
+| `lastUpgradedTime` | integer(int64) | no |
+| `restartInstructions` | string (enum: DELETE, FLUSHDB) | no |
+| `upgradeAttempt` | integer(int32) | no |
+| `disableAutoUpdate` | boolean | no |
+| `sargeVersion` | string | no |
+| `zpnSubModuleUpgrade` | array<ZpnSubModuleUpgrade> | no |
+| `platformDetail` | string | no |
+| `upgradeNowOnce` | boolean | no |
+
+**`ZpnSubModuleUpgrade`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `entityGid` | integer(int64) | yes |
+| `entityType` | string (enum: ASSISTANT, PRIVATE_BROKER, MMDB_GEOIP, MMDB_ISP, GUACD, SITE_CONTROLLER) | no |
+| `role` | string (enum: ASSISTANT, PRIVATE_BROKER, MMDB_GEOIP, MMDB_ISP, GUACD, SITE_CONTROLLER) | yes |
+| `expectedVersion` | string | no |
+| `currentVersion` | string | no |
+| `previousVersion` | string | no |
+| `upgradeStatus` | string (enum: COMPLETE, IN_PROGRESS, FAILED, UNKNOWN, RESTARTING, PARTIAL_FAILURE, REMOVAL_IN_PROGRESS) | no |
+| `upgradeTime` | integer(int64) | no |
+
+**`TrustedNetwork`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `networkId` | string | no |
+| `zscalerCloud` | string | no |
+| `domain` | string | no |
+| `masterCustomerId` | string | no |
+
+**`AppConnectorGroup`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `enabled` | boolean | no |
+| `description` | string | no |
+| `geoLocationId` | integer(int64) | no |
+| `versionProfileId` | integer(int64) | no |
+| `overrideVersionProfile` | boolean | no |
+| `siteId` | string | no |
+| `versionProfileName` | string | no |
+| `upgradePriority` | string (enum: WEEK, DAY, FORCE_NOW, NOW) | no |
+| `versionProfileVisibilityScope` | string (enum: ALL, NONE, CUSTOM) | no |
+| `upgradeTimeInSecs` | string | no |
+| `upgradeDay` | string | no |
+| `siteName` | string | no |
+| `connectors` | array<Connector> | no |
+| `location` | string | no |
+| `latitude` | string | no |
+| `city` | string | no |
+| `longitude` | string | no |
+| `serverGroups` | array<AppServerGroup> | no |
+| `dnsQueryType` | string (enum: IPV4_IPV6, IPV4, IPV6) | no |
+| `cityCountry` | string | no |
+| `countryCode` | string | no |
+| `tcpQuickAckApp` | boolean | no |
+| `tcpQuickAckAssistant` | boolean | no |
+| `tcpQuickAckReadAssistant` | boolean | no |
+| `ipAcl` | array<string> | no |
+| `praEnabled` | boolean | no |
+| `useInDrMode` | boolean | no |
+| `connectorGroupType` | string (enum: APP, NP) | no |
+| `dcHostingInfo` | string | no |
+| `wafDisabled` | boolean | no |
+| `npAssistantGroup` | NPAssistantGroup | no |
+| `lssAppConnectorGroup` | boolean | no |
+
+**`Connector`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `description` | string | no |
+| `fingerprint` | string | no |
+| `issuedCertId` | integer(int64) | no |
+| `enabled` | boolean | no |
+| `ipAcl` | array<string> | no |
+| `provisioningKeyId` | integer(int64) | no |
+| `connectorType` | string (enum: APP, NP) | no |
+| `provisioningKeyName` | string | no |
+| `enrollmentCert` | object | no |
+| `appConnectorGroupId` | string | no |
+| `appConnectorGroupName` | string | no |
+| `assistantVersion` | AssistantVersion | no |
+| `expectedVersion` | string | no |
+| `currentVersion` | string | no |
+| `previousVersion` | string | no |
+| `lastUpgradeTime` | integer(int64) | no |
+| `expectedUpgradeTime` | integer(int64) | no |
+| `upgradeStatus` | string (enum: COMPLETE, IN_PROGRESS, FAILED, UNKNOWN, RESTARTING, PARTIAL_FAILURE, REMOVAL_IN_PROGRESS) | no |
+| `controlChannelStatus` | string (enum: UNKNOWN, ZPN_STATUS_AUTHENTICATED, ZPN_STATUS_DISCONNECTED) | no |
+| `upgradeAttempt` | integer(int32) | no |
+| `ctrlBrokerName` | string | no |
+| `lastBrokerConnectTime` | integer(int64) | no |
+| `lastBrokerConnectTimeDuration` | string | no |
+| `sargeVersion` | string | no |
+| `lastBrokerDisconnectTime` | integer(int64) | no |
+| `lastBrokerDisconnectTimeDuration` | string | no |
+| `privateIp` | string | no |
+| `publicIp` | string | no |
+| `platform` | string | no |
+| `runtimeOS` | string | no |
+| `applicationStartTime` | integer(int64) | no |
+| `latitude` | number(double) | no |
+| `longitude` | number(double) | no |
+| `location` | string | no |
+| `platformDetail` | string | no |
+| `zpnSubModuleUpgradeList` | array<ZpnSubModuleUpgrade> | no |
+| `npAssistant` | NPAssistant | no |
+
+**`AssistantVersion`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `expectedVersion` | string | no |
+| `currentVersion` | string | no |
+| `systemStartTime` | integer(int64) | no |
+| `applicationStartTime` | integer(int64) | no |
+| `lastBrokerConnectTime` | integer(int64) | no |
+| `lastBrokerDisconnectTime` | integer(int64) | no |
+| `brokerId` | integer(int64) | no |
+| `restartTimeInSec` | integer(int64) | no |
+| `disableAutoUpdate` | boolean | no |
+| `appConnectorGroupId` | integer(int64) | no |
+| `platform` | string | no |
+| `runtimeOS` | string | no |
+| `upgradeStatus` | string (enum: COMPLETE, IN_PROGRESS, FAILED, UNKNOWN, RESTARTING, PARTIAL_FAILURE, REMOVAL_IN_PROGRESS) | no |
+| `ctrlChannelStatus` | string (enum: UNKNOWN, ZPN_STATUS_AUTHENTICATED, ZPN_STATUS_DISCONNECTED) | no |
+| `latitude` | number(double) | no |
+| `longitude` | number(double) | no |
+| `privateIp` | string | no |
+| `publicIp` | string | no |
+| `loneWarrior` | boolean | no |
+| `mtunnelId` | string | no |
+| `previousVersion` | string | no |
+| `lastUpgradedTime` | integer(int64) | no |
+| `upgradeNowOnce` | boolean | no |
+| `upgradeAttempt` | integer(int32) | no |
+| `sargeVersion` | string | no |
+| `platformDetail` | string | no |
+
+**`NPAssistant`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `publicKey` | string | no |
+| `publicKeyExpiry` | integer(int64) | no |
+| `connectorState` | integer(int32) | no |
+| `connectorId` | integer(int64) | yes |
+
+**`AppServerGroup`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `enabled` | boolean | yes |
+| `dynamicDiscovery` | boolean | no |
+| `description` | string | no |
+| `configSpace` | string (enum: DEFAULT, SIEM) | yes |
+| `weight` | integer(int32) | no |
+| `passive` | boolean | no |
+| `extranetEnabled` | boolean | no |
+| `zpnErId` | ZpnExtranetResource | no |
+
+**`ZpnExtranetResource`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `ziaErId` | integer(int64) | yes |
+| `ziaErName` | string | yes |
+| `ziaCloud` | string | yes |
+| `ziaOrgId` | integer(int64) | yes |
+| `ziaModifiedTime` | integer(int64) | no |
+
+**`NPAssistantGroup`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `appConnectorGroupId` | integer(int64) | yes |
+| `lanSubnets` | array<NpLanSubnet> | no |
+
+**`NpLanSubnet`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `description` | string | no |
+| `subnet` | string | yes |
+| `appConnectorGroupId` | integer(int64) | yes |
+| `npDnsNsRecord` | NpDnsNsRecord | no |
+| `fqdns` | array<string> | no |
+| `npserverips` | array<string> | no |
+| `oldAuditString` | string | no |
+
+**`NpDnsNsRecord`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `nameserverIps` | array<string> | yes |
+| `fqdn` | array<string> | yes |
+
+**`NameIdDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `name` | string | no |
+
+**`ExtranetDTO`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | string | no |
+| `id` | string | no |
+| `ziaErName` | string | no |
+| `zpnErId` | integer(int64) | yes |
+| `locationGroupDTO` | array<LocationGroupDTO> | yes |
+| `locationDTO` | array<NameIdDto> | yes |
+
+**`LocationGroupDTO`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `name` | string | no |
+| `id` | integer(int64) | yes |
+| `ziaLocations` | array<NameIdDto> | no |
+
+**`InconsistentConfigDetails`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `application` | array<InconsistentConfigNameReasonDto> | no |
+| `sraApplication` | array<InconsistentConfigNameReasonDto> | no |
+| `segmentGroup` | array<InconsistentConfigNameReasonDto> | no |
+| `serverGroup` | array<InconsistentConfigNameReasonDto> | no |
+| `appConnectorGroup` | array<InconsistentConfigNameReasonDto> | no |
+| `baCertificate` | array<InconsistentConfigNameReasonDto> | no |
+| `postureProfile` | array<InconsistentConfigNameReasonDto> | no |
+| `trustedNetwork` | array<InconsistentConfigNameReasonDto> | no |
+| `branchConnectorGroup` | array<InconsistentConfigNameReasonDto> | no |
+| `cloudConnectorGroup` | array<InconsistentConfigNameReasonDto> | no |
+| `samlAttributes` | array<InconsistentConfigNameReasonDto> | no |
+| `scimAttributes` | array<InconsistentConfigNameReasonDto> | no |
+| `machineGroup` | array<InconsistentConfigNameReasonDto> | no |
+| `idp` | array<InconsistentConfigNameReasonDto> | no |
+| `location` | array<InconsistentConfigNameReasonDto> | no |
+| `workloadTagGroup` | array<InconsistentConfigNameReasonDto> | no |
+| `userPortal` | array<InconsistentConfigNameReasonDto> | no |
+
+**`InconsistentConfigNameReasonDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `name` | string | no |
+| `reason` | string | no |
+
+**`PrivilegedCapabilities`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `microtenantId` | integer(int64) | no |
+| `capabilities` | array<string> | no |
+
+**`PrivilegedPortalCapabilities`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `microtenantId` | integer(int64) | no |
+| `capabilities` | array<string> | no |
+
+**`ConditionSet`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `microtenantId` | integer(int64) | no |
+| `operator` | string (enum: AND, OR) | no |
+| `negated` | boolean | yes |
+| `operands` | array<Operand> | no |
+
+**`Operand`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `microtenantId` | integer(int64) | no |
+| `objectType` | string (enum: USER, USER_GROUP, APP, APP_GROUP, LOCATION, WORKLOAD_TAG_GROUP, SAML, POSTURE) | no |
+| `lhs` | string | yes |
+| `rhs` | string | yes |
+| `name` | string | no |
+| `idpId` | integer(int64) | no |
+| `idpName` | string | no |
+
+**`PolicyRuleResource`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | string | no |
+| `id` | string | no |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `action` | string (enum: ALLOW, DENY, LOG, RE_AUTH, NEVER, BYPASS, INTERCEPT, NO_DOWNLOAD) | yes |
+| `appServerGroups` | array<AppServerGroupResource> | no |
+| `serviceEdgeGroups` | array<ServiceEdgeGroupResource> | no |
+| `appConnectorGroups` | array<AppConnectorGroupResource> | no |
+| `conditions` | array<ConditionSetResource> | no |
+| `extranetEnabled` | boolean | no |
+| `extranetDTO` | ExtranetDTO | no |
+| `customMsg` | string | no |
+| `description` | string | no |
+| `reauthTimeout` | integer(int32) | no |
+| `reauthIdleTimeout` | integer(int32) | no |
+| `version` | integer(int64) | no |
+| `disabled` | integer(int32) | no |
+| `name` | string | yes |
+| `policySetId` | integer(int64) | no |
+| `ruleOrder` | integer(int32) | no |
+| `zpnIsolationProfileId` | integer(int64) | no |
+| `priority` | integer(int32) | no |
+| `operator` | string (enum: AND, OR) | no |
+| `policyType` | integer(int32) | no |
+| `actionId` | integer(int64) | no |
+| `zpnInspectionProfileId` | integer(int64) | no |
+| `zpnInspectionProfileName` | string | no |
+| `credential` | NameIdDto | no |
+| `credentialPool` | NameIdDto | no |
+| `privilegedCapabilities` | PrivilegedCapabilitiesResource | no |
+| `privilegedPortalCapabilities` | PrivilegedPortalCapabilitiesResource | no |
+| `postActions` | object | no |
+
+**`AppServerGroupResource`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `name` | string | no |
+
+**`ServiceEdgeGroupResource`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `name` | string | no |
+
+**`AppConnectorGroupResource`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `name` | string | no |
+
+**`ConditionSetResource`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | string | no |
+| `id` | string | no |
+| `negated` | boolean | no |
+| `operands` | array<OperandResource> | no |
+| `operator` | string (enum: AND, OR) | no |
+| `setIds` | array<integer(int64)> | no |
+
+**`OperandResource`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | string | no |
+| `id` | string | no |
+| `entryValues` | array<LhsRhsValueResource> | no |
+| `idpId` | integer(int64) | no |
+| `idpName` | string | no |
+| `objectType` | string (enum: USER, USER_GROUP, APP, APP_GROUP, LOCATION, WORKLOAD_TAG_GROUP, SAML, POSTURE) | yes |
+| `values` | array<string> | no |
+| `commonProperties` | Operand | no |
+
+**`LhsRhsValueResource`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `lhs` | string | no |
+| `rhs` | string | no |
+
+**`PrivilegedCapabilitiesResource`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `capabilities` | array<string> | no |
+
+**`PrivilegedPortalCapabilitiesResource`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `capabilities` | array<string> | no |
+
+**`FilterGroupDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `filterGroups` | array<NestedFilterGroupDto> | no |
+| `operator` | string (enum: AND, OR) | no |
+
+**`NestedFilterGroupDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `filters` | array<FilterDto> | no |
+| `operator` | string (enum: AND, OR) | no |
+
+**`FilterDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `commaSepValues` | string | no |
+| `filterName` | string | no |
+| `operator` | string | no |
+| `value` | string | no |
+| `values` | array<string> | no |
+
+**`PaginationDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `page` | string | no |
+| `pageSize` | string | no |
+| `validPageSize` | integer(int32) | no |
+| `validPage` | integer(int32) | no |
+
+**`SortDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `sortName` | string | no |
+| `sortOrder` | string | no |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/policy-group-rule-management","lastmod":"2026-10-09T12:00Z","nid":"1546127"} -->
+## Policy Group Rule Management
+
+- Source: https://help.zscaler.com/legacy-apis/policy-group-rule-management
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Reference Guide > Policy Group Rule Management
+- Last modified: 2026-10-09T12:00Z
+
+To access detailed ZPA API documentation, including references and use cases, refer to the [Zscaler Help Portal](/zpa/about-zpa-api).
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/policyGroupSet/{groupSetId}/group/{groupId}/rule/{ruleId}`
+
+**Gets a policy rule within a policy group for the specified ID.**
+
+- Operation ID: `getPolicyRule`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `groupSetId` | path | yes | integer(int64) | The unique identifier of the policy group set. |
+| `groupId` | path | yes | integer(int64) | The unique identifier of the policy group within a policy group set. |
+| `ruleId` | path | yes | integer(int64) | The unique identifier of a policy rule within a policy group. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `DELETE /mgmtconfig/v1/admin/customers/{customerId}/policyGroupSet/{groupSetId}/group/{groupId}/rule/{ruleId}`
+
+**Deletes a policy rule within a policy group for the specified ID.**
+
+- Operation ID: `deletePolicyRule`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `groupSetId` | path | yes | integer(int64) | The unique identifier of the policy group set. |
+| `groupId` | path | yes | integer(int64) | The unique identifier of the policy group within a policy group set. |
+| `ruleId` | path | yes | integer(int64) | The unique identifier of a policy rule within a policy group. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/policyGroupSet/{groupSetId}/group/{groupId}/rule`
+
+**Gets all policy group rules within a policy group with advanced search and pagination.**
+
+- Operation ID: `getAllPolicyGroupRulesByPageWithAdvancedFilterAndSort`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `groupSetId` | path | yes | integer(int64) | The unique identifier of the policy group set. |
+| `groupId` | path | yes | integer(int64) | The unique identifier of the policy group within a policy group set. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `search` | query | no | string | The search string used to support search by features and fields for the API. |
+| `page` | query | no | integer(int32) | Specifies the page number. |
+| `pagesize` | query | no | integer(int32) | Specifies the page size. If not provided, the default page size is 20. The max page size is 500. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `POST /mgmtconfig/v1/admin/customers/{customerId}/policyGroupSet/{groupSetId}/group/{groupId}/rule`
+
+**Adds a new policy rule for a given policy group.**
+
+- Operation ID: `addRuleToPolicyGroup`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `groupSetId` | path | yes | integer(int64) | The unique identifier of the policy group set. |
+| `groupId` | path | yes | integer(int64) | The unique identifier of the policy group within a policy group set. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Request body:** `application/json` → PolicyRuleResource
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 201 | Created |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `PUT /mgmtconfig/v1/admin/customers/{customerId}/policyGroupSet/{groupSetId}/group/{groupId}/rule/{ruleId}/reorder/{newOrder}`
+
+**Updates the policy evaluation rule order of a rule within policy group for the specified ID.**
+
+- Operation ID: `updateRuleOrderInPolicyGroup`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `groupSetId` | path | yes | integer(int64) | The unique identifier of the policy group set. |
+| `groupId` | path | yes | integer(int64) | The unique identifier of the policy group within a policy group set. |
+| `ruleId` | path | yes | integer(int64) | The unique identifier of the rule. |
+| `newOrder` | path | yes | integer(int32) | The new policy evaluation order of the policy group. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | No Content |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### Schemas
+
+**`PolicyRule`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `description` | string | no |
+| `ruleOrder` | integer(int32) | no |
+| `priority` | integer(int32) | no |
+| `policyType` | integer(int32) | yes |
+| `operator` | string (enum: AND, OR) | yes |
+| `actionId` | integer(int64) | no |
+| `action` | string (enum: ALLOW, DENY, LOG, RE_AUTH, NEVER, BYPASS, INTERCEPT, NO_DOWNLOAD) | yes |
+| `reauthTimeout` | integer(int32) | no |
+| `reauthIdleTimeout` | integer(int32) | no |
+| `customMsg` | string | no |
+| `disabled` | integer(int32) | no |
+| `serviceEdgeGroups` | array<ServiceEdgeGroup> | no |
+| `appConnectorGroups` | array<AppConnectorGroup> | no |
+| `credential` | NameIdDto | no |
+| `credentialPool` | NameIdDto | no |
+| `zpnIsolationProfileId` | integer(int64) | no |
+| `zpnInspectionProfileId` | integer(int64) | no |
+| `postActionTypes` | array<string> | no |
+| `postActions` | object | no |
+| `zpnInspectionProfileName` | string | no |
+| `extranetDTO` | ExtranetDTO | no |
+| `extranetEnabled` | boolean | no |
+| `inconsistentConfigDetails` | InconsistentConfigDetails | no |
+| `policySetId` | integer(int64) | no |
+| `privilegedCapabilities` | PrivilegedCapabilities | no |
+| `privilegedPortalCapabilities` | PrivilegedPortalCapabilities | no |
+| `conditions` | array<ConditionSet> | no |
+| `appServerGroups` | array<AppServerGroup> | no |
+| `defaultRule` | boolean | no |
+| `defaultRuleName` | string | no |
+
+**`ZPathAPIError`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `reason` | string | no |
+| `id` | string | no |
+| `params` | array<object> | no |
+| `hostname` | string | no |
+
+**`PageListPolicyRule`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `totalPages` | integer(int32) | no |
+| `currentCount` | integer(int64) | no |
+| `totalCount` | integer(int64) | no |
+| `list` | array<PolicyRule> | no |
+
+**`PolicyRuleResource`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | string | no |
+| `id` | string | no |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `action` | string (enum: ALLOW, DENY, LOG, RE_AUTH, NEVER, BYPASS, INTERCEPT, NO_DOWNLOAD) | yes |
+| `appServerGroups` | array<AppServerGroupResource> | no |
+| `serviceEdgeGroups` | array<ServiceEdgeGroupResource> | no |
+| `appConnectorGroups` | array<AppConnectorGroupResource> | no |
+| `conditions` | array<ConditionSetResource> | no |
+| `extranetEnabled` | boolean | no |
+| `extranetDTO` | ExtranetDTO | no |
+| `customMsg` | string | no |
+| `description` | string | no |
+| `reauthTimeout` | integer(int32) | no |
+| `reauthIdleTimeout` | integer(int32) | no |
+| `version` | integer(int64) | no |
+| `disabled` | integer(int32) | no |
+| `name` | string | yes |
+| `policySetId` | integer(int64) | no |
+| `ruleOrder` | integer(int32) | no |
+| `zpnIsolationProfileId` | integer(int64) | no |
+| `priority` | integer(int32) | no |
+| `operator` | string (enum: AND, OR) | no |
+| `policyType` | integer(int32) | no |
+| `actionId` | integer(int64) | no |
+| `zpnInspectionProfileId` | integer(int64) | no |
+| `zpnInspectionProfileName` | string | no |
+| `credential` | NameIdDto | no |
+| `credentialPool` | NameIdDto | no |
+| `privilegedCapabilities` | PrivilegedCapabilitiesResource | no |
+| `privilegedPortalCapabilities` | PrivilegedPortalCapabilitiesResource | no |
+| `postActions` | object | no |
+
+**`ServiceEdgeGroup`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `enabled` | boolean | no |
+| `description` | string | no |
+| `geoLocationId` | integer(int64) | no |
+| `versionProfileId` | integer(int64) | no |
+| `overrideVersionProfile` | boolean | no |
+| `siteId` | string | no |
+| `versionProfileName` | string | no |
+| `upgradePriority` | string (enum: WEEK, DAY, FORCE_NOW, NOW) | no |
+| `versionProfileVisibilityScope` | string (enum: ALL, NONE, CUSTOM) | no |
+| `upgradeTimeInSecs` | string | no |
+| `upgradeDay` | string | no |
+| `siteName` | string | no |
+| `isPublic` | string | no |
+| `location` | string | no |
+| `serviceEdges` | array<ServiceEdge> | no |
+| `latitude` | string | no |
+| `city` | string | no |
+| `longitude` | string | no |
+| `cityCountry` | string | no |
+| `countryCode` | string | no |
+| `useInDrMode` | boolean | no |
+| `graceDistanceEnabled` | boolean | no |
+| `graceDistanceValue` | number(double) | no |
+| `graceDistanceValueUnit` | string (enum: MILES, KMS) | no |
+| `trustedNetworks` | array<TrustedNetwork> | no |
+| `altCloud` | string | no |
+
+**`ServiceEdge`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `description` | string | no |
+| `fingerprint` | string | no |
+| `issuedCertId` | integer(int64) | no |
+| `enabled` | boolean | no |
+| `ipAcl` | array<string> | no |
+| `listenIps` | array<string> | no |
+| `publishIps` | array<string> | no |
+| `publishIpv6` | boolean | no |
+| `privateBrokerVersion` | PrivateBrokerVersion | no |
+| `provisioningKeyId` | integer(int64) | no |
+| `provisioningKeyName` | string | no |
+| `serviceEdgeGroupId` | string | no |
+| `serviceEdgeGroupName` | string | no |
+| `enrollmentCert` | object | no |
+| `latitude` | string | no |
+| `longitude` | string | no |
+| `location` | string | no |
+| `expectedVersion` | string | no |
+| `currentVersion` | string | no |
+| `previousVersion` | string | no |
+| `lastUpgradeTime` | integer(int64) | no |
+| `expectedUpgradeTime` | integer(int64) | no |
+| `upgradeStatus` | string (enum: COMPLETE, IN_PROGRESS, FAILED, UNKNOWN, RESTARTING, PARTIAL_FAILURE, REMOVAL_IN_PROGRESS) | no |
+| `controlChannelStatus` | string (enum: UNKNOWN, ZPN_STATUS_AUTHENTICATED, ZPN_STATUS_DISCONNECTED) | no |
+| `upgradeAttempt` | integer(int32) | no |
+| `ctrlBrokerName` | string | no |
+| `lastBrokerConnectTime` | integer(int64) | no |
+| `lastBrokerConnectTimeDuration` | string | no |
+| `lastBrokerDisconnectTime` | integer(int64) | no |
+| `lastBrokerDisconnectTimeDuration` | string | no |
+| `privateIp` | string | no |
+| `publicIp` | string | no |
+| `platform` | string | no |
+| `runtimeOS` | string | no |
+| `applicationStartTime` | integer(int64) | no |
+| `sargeVersion` | string | no |
+| `platformDetail` | string | no |
+| `zpnSubModuleUpgradeList` | array<ZpnSubModuleUpgrade> | no |
+
+**`PrivateBrokerVersion`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `expectedVersion` | string | no |
+| `currentVersion` | string | no |
+| `systemStartTime` | integer(int64) | no |
+| `applicationStartTime` | integer(int64) | no |
+| `lastConnectTime` | integer(int64) | no |
+| `lastDisconnectTime` | integer(int64) | no |
+| `platform` | string | no |
+| `runtimeOS` | string | no |
+| `brokerId` | integer(int64) | no |
+| `serviceEdgeGroupId` | integer(int64) | no |
+| `restartTimeInSec` | integer(int64) | no |
+| `upgradeStatus` | string (enum: COMPLETE, IN_PROGRESS, FAILED, UNKNOWN, RESTARTING, PARTIAL_FAILURE, REMOVAL_IN_PROGRESS) | no |
+| `ctrlChannelStatus` | string (enum: UNKNOWN, ZPN_STATUS_AUTHENTICATED, ZPN_STATUS_DISCONNECTED) | no |
+| `privateIp` | string | no |
+| `publicIp` | string | no |
+| `loneWarrior` | boolean | no |
+| `tunnelId` | string | no |
+| `previousVersion` | string | no |
+| `lastUpgradedTime` | integer(int64) | no |
+| `restartInstructions` | string (enum: DELETE, FLUSHDB) | no |
+| `upgradeAttempt` | integer(int32) | no |
+| `disableAutoUpdate` | boolean | no |
+| `sargeVersion` | string | no |
+| `zpnSubModuleUpgrade` | array<ZpnSubModuleUpgrade> | no |
+| `platformDetail` | string | no |
+| `upgradeNowOnce` | boolean | no |
+
+**`ZpnSubModuleUpgrade`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `entityGid` | integer(int64) | yes |
+| `entityType` | string (enum: ASSISTANT, PRIVATE_BROKER, MMDB_GEOIP, MMDB_ISP, GUACD, SITE_CONTROLLER) | no |
+| `role` | string (enum: ASSISTANT, PRIVATE_BROKER, MMDB_GEOIP, MMDB_ISP, GUACD, SITE_CONTROLLER) | yes |
+| `expectedVersion` | string | no |
+| `currentVersion` | string | no |
+| `previousVersion` | string | no |
+| `upgradeStatus` | string (enum: COMPLETE, IN_PROGRESS, FAILED, UNKNOWN, RESTARTING, PARTIAL_FAILURE, REMOVAL_IN_PROGRESS) | no |
+| `upgradeTime` | integer(int64) | no |
+
+**`TrustedNetwork`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `networkId` | string | no |
+| `zscalerCloud` | string | no |
+| `domain` | string | no |
+| `masterCustomerId` | string | no |
+
+**`AppConnectorGroup`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `enabled` | boolean | no |
+| `description` | string | no |
+| `geoLocationId` | integer(int64) | no |
+| `versionProfileId` | integer(int64) | no |
+| `overrideVersionProfile` | boolean | no |
+| `siteId` | string | no |
+| `versionProfileName` | string | no |
+| `upgradePriority` | string (enum: WEEK, DAY, FORCE_NOW, NOW) | no |
+| `versionProfileVisibilityScope` | string (enum: ALL, NONE, CUSTOM) | no |
+| `upgradeTimeInSecs` | string | no |
+| `upgradeDay` | string | no |
+| `siteName` | string | no |
+| `connectors` | array<Connector> | no |
+| `location` | string | no |
+| `latitude` | string | no |
+| `city` | string | no |
+| `longitude` | string | no |
+| `serverGroups` | array<AppServerGroup> | no |
+| `dnsQueryType` | string (enum: IPV4_IPV6, IPV4, IPV6) | no |
+| `cityCountry` | string | no |
+| `countryCode` | string | no |
+| `tcpQuickAckApp` | boolean | no |
+| `tcpQuickAckAssistant` | boolean | no |
+| `tcpQuickAckReadAssistant` | boolean | no |
+| `ipAcl` | array<string> | no |
+| `praEnabled` | boolean | no |
+| `useInDrMode` | boolean | no |
+| `connectorGroupType` | string (enum: APP, NP) | no |
+| `dcHostingInfo` | string | no |
+| `wafDisabled` | boolean | no |
+| `npAssistantGroup` | NPAssistantGroup | no |
+| `lssAppConnectorGroup` | boolean | no |
+
+**`Connector`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `description` | string | no |
+| `fingerprint` | string | no |
+| `issuedCertId` | integer(int64) | no |
+| `enabled` | boolean | no |
+| `ipAcl` | array<string> | no |
+| `provisioningKeyId` | integer(int64) | no |
+| `connectorType` | string (enum: APP, NP) | no |
+| `provisioningKeyName` | string | no |
+| `enrollmentCert` | object | no |
+| `appConnectorGroupId` | string | no |
+| `appConnectorGroupName` | string | no |
+| `assistantVersion` | AssistantVersion | no |
+| `expectedVersion` | string | no |
+| `currentVersion` | string | no |
+| `previousVersion` | string | no |
+| `lastUpgradeTime` | integer(int64) | no |
+| `expectedUpgradeTime` | integer(int64) | no |
+| `upgradeStatus` | string (enum: COMPLETE, IN_PROGRESS, FAILED, UNKNOWN, RESTARTING, PARTIAL_FAILURE, REMOVAL_IN_PROGRESS) | no |
+| `controlChannelStatus` | string (enum: UNKNOWN, ZPN_STATUS_AUTHENTICATED, ZPN_STATUS_DISCONNECTED) | no |
+| `upgradeAttempt` | integer(int32) | no |
+| `ctrlBrokerName` | string | no |
+| `lastBrokerConnectTime` | integer(int64) | no |
+| `lastBrokerConnectTimeDuration` | string | no |
+| `sargeVersion` | string | no |
+| `lastBrokerDisconnectTime` | integer(int64) | no |
+| `lastBrokerDisconnectTimeDuration` | string | no |
+| `privateIp` | string | no |
+| `publicIp` | string | no |
+| `platform` | string | no |
+| `runtimeOS` | string | no |
+| `applicationStartTime` | integer(int64) | no |
+| `latitude` | number(double) | no |
+| `longitude` | number(double) | no |
+| `location` | string | no |
+| `platformDetail` | string | no |
+| `zpnSubModuleUpgradeList` | array<ZpnSubModuleUpgrade> | no |
+| `npAssistant` | NPAssistant | no |
+
+**`AssistantVersion`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `expectedVersion` | string | no |
+| `currentVersion` | string | no |
+| `systemStartTime` | integer(int64) | no |
+| `applicationStartTime` | integer(int64) | no |
+| `lastBrokerConnectTime` | integer(int64) | no |
+| `lastBrokerDisconnectTime` | integer(int64) | no |
+| `brokerId` | integer(int64) | no |
+| `restartTimeInSec` | integer(int64) | no |
+| `disableAutoUpdate` | boolean | no |
+| `appConnectorGroupId` | integer(int64) | no |
+| `platform` | string | no |
+| `runtimeOS` | string | no |
+| `upgradeStatus` | string (enum: COMPLETE, IN_PROGRESS, FAILED, UNKNOWN, RESTARTING, PARTIAL_FAILURE, REMOVAL_IN_PROGRESS) | no |
+| `ctrlChannelStatus` | string (enum: UNKNOWN, ZPN_STATUS_AUTHENTICATED, ZPN_STATUS_DISCONNECTED) | no |
+| `latitude` | number(double) | no |
+| `longitude` | number(double) | no |
+| `privateIp` | string | no |
+| `publicIp` | string | no |
+| `loneWarrior` | boolean | no |
+| `mtunnelId` | string | no |
+| `previousVersion` | string | no |
+| `lastUpgradedTime` | integer(int64) | no |
+| `upgradeNowOnce` | boolean | no |
+| `upgradeAttempt` | integer(int32) | no |
+| `sargeVersion` | string | no |
+| `platformDetail` | string | no |
+
+**`NPAssistant`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `publicKey` | string | no |
+| `publicKeyExpiry` | integer(int64) | no |
+| `connectorState` | integer(int32) | no |
+| `connectorId` | integer(int64) | yes |
+
+**`AppServerGroup`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `enabled` | boolean | yes |
+| `dynamicDiscovery` | boolean | no |
+| `description` | string | no |
+| `configSpace` | string (enum: DEFAULT, SIEM) | yes |
+| `weight` | integer(int32) | no |
+| `passive` | boolean | no |
+| `extranetEnabled` | boolean | no |
+| `zpnErId` | ZpnExtranetResource | no |
+
+**`ZpnExtranetResource`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `ziaErId` | integer(int64) | yes |
+| `ziaErName` | string | yes |
+| `ziaCloud` | string | yes |
+| `ziaOrgId` | integer(int64) | yes |
+| `ziaModifiedTime` | integer(int64) | no |
+
+**`NPAssistantGroup`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `appConnectorGroupId` | integer(int64) | yes |
+| `lanSubnets` | array<NpLanSubnet> | no |
+
+**`NpLanSubnet`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `description` | string | no |
+| `subnet` | string | yes |
+| `appConnectorGroupId` | integer(int64) | yes |
+| `npDnsNsRecord` | NpDnsNsRecord | no |
+| `fqdns` | array<string> | no |
+| `npserverips` | array<string> | no |
+| `oldAuditString` | string | no |
+
+**`NpDnsNsRecord`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `nameserverIps` | array<string> | yes |
+| `fqdn` | array<string> | yes |
+
+**`NameIdDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `name` | string | no |
+
+**`ExtranetDTO`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | string | no |
+| `id` | string | no |
+| `ziaErName` | string | no |
+| `zpnErId` | integer(int64) | yes |
+| `locationGroupDTO` | array<LocationGroupDTO> | yes |
+| `locationDTO` | array<NameIdDto> | yes |
+
+**`LocationGroupDTO`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `name` | string | no |
+| `id` | integer(int64) | yes |
+| `ziaLocations` | array<NameIdDto> | no |
+
+**`InconsistentConfigDetails`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `application` | array<InconsistentConfigNameReasonDto> | no |
+| `sraApplication` | array<InconsistentConfigNameReasonDto> | no |
+| `segmentGroup` | array<InconsistentConfigNameReasonDto> | no |
+| `serverGroup` | array<InconsistentConfigNameReasonDto> | no |
+| `appConnectorGroup` | array<InconsistentConfigNameReasonDto> | no |
+| `baCertificate` | array<InconsistentConfigNameReasonDto> | no |
+| `postureProfile` | array<InconsistentConfigNameReasonDto> | no |
+| `trustedNetwork` | array<InconsistentConfigNameReasonDto> | no |
+| `branchConnectorGroup` | array<InconsistentConfigNameReasonDto> | no |
+| `cloudConnectorGroup` | array<InconsistentConfigNameReasonDto> | no |
+| `samlAttributes` | array<InconsistentConfigNameReasonDto> | no |
+| `scimAttributes` | array<InconsistentConfigNameReasonDto> | no |
+| `machineGroup` | array<InconsistentConfigNameReasonDto> | no |
+| `idp` | array<InconsistentConfigNameReasonDto> | no |
+| `location` | array<InconsistentConfigNameReasonDto> | no |
+| `workloadTagGroup` | array<InconsistentConfigNameReasonDto> | no |
+| `userPortal` | array<InconsistentConfigNameReasonDto> | no |
+
+**`InconsistentConfigNameReasonDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `name` | string | no |
+| `reason` | string | no |
+
+**`PrivilegedCapabilities`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `microtenantId` | integer(int64) | no |
+| `capabilities` | array<string> | no |
+
+**`PrivilegedPortalCapabilities`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `microtenantId` | integer(int64) | no |
+| `capabilities` | array<string> | no |
+
+**`ConditionSet`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `microtenantId` | integer(int64) | no |
+| `operator` | string (enum: AND, OR) | no |
+| `negated` | boolean | yes |
+| `operands` | array<Operand> | no |
+
+**`Operand`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `microtenantId` | integer(int64) | no |
+| `objectType` | The criteria of the policy. (enum: USER, USER_GROUP, APP, APP_GROUP, LOCATION, WORKLOAD_TAG_GROUP, SAML, POSTURE) | no |
+| `lhs` | string | yes |
+| `rhs` | string | yes |
+| `name` | string | no |
+| `idpId` | integer(int64) | no |
+| `idpName` | string | no |
+
+**`AppServerGroupResource`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `name` | string | no |
+
+**`ServiceEdgeGroupResource`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `name` | string | no |
+
+**`AppConnectorGroupResource`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `name` | string | no |
+
+**`ConditionSetResource`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | string | no |
+| `id` | string | no |
+| `negated` | boolean | no |
+| `operands` | array<OperandResource> | no |
+| `operator` | string (enum: AND, OR) | no |
+| `setIds` | array<integer(int64)> | no |
+
+**`OperandResource`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | string | no |
+| `id` | string | no |
+| `entryValues` | array<LhsRhsValueResource> | no |
+| `idpId` | integer(int64) | no |
+| `idpName` | string | no |
+| `objectType` | string (enum: USER, USER_GROUP, APP, APP_GROUP, LOCATION, WORKLOAD_TAG_GROUP, SAML, POSTURE) | yes |
+| `values` | array<string> | no |
+| `commonProperties` | Operand | no |
+
+**`LhsRhsValueResource`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `lhs` | string | no |
+| `rhs` | string | no |
+
+**`PrivilegedCapabilitiesResource`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `capabilities` | array<string> | no |
+
+**`PrivilegedPortalCapabilitiesResource`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `capabilities` | array<string> | no |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/policy-group-sets","lastmod":"2026-10-09T12:00Z","nid":"1546128"} -->
+## Policy Group Sets
+
+- Source: https://help.zscaler.com/legacy-apis/policy-group-sets
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Reference Guide > Policy Group Sets
+- Last modified: 2026-10-09T12:00Z
+
+To access detailed ZPA API documentation, including references and use cases, refer to the [Zscaler Help Portal](/zpa/about-zpa-api).
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/policyGroupSet/{groupSetId}`
+
+**Gets details for a policy group set by the specified ID.**
+
+- Operation ID: `getPolicyGroupSet`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `groupSetId` | path | yes | integer(int64) | The unique identifier of the policy group set. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/policyGroupSet`
+
+**Gets details of all policy group sets for the specified customer.**
+
+- Operation ID: `getOrCreatePolicyGroupSetsAll`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `createIfNotExist` | query | no | boolean | If set to true, creates a global policy set if missing. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/policyGroupSet/policyType/{policyType}/rules`
+
+**Gets details of all paginated rules across groups within a policy group set.**
+
+- Operation ID: `getPolicyGroupSetAllRules`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `policyType` | path | yes | string | Specifies the policy type. The supported values are: `ACCESS_POLICY` or `GLOBAL_POLICY`: Access policy; `TIMEOUT_POLICY` or `REAUTH_POLICY`: Timeout policy; `CLIENT_FORWARDING_POLICY` or `BYPASS_POLICY`: Client forwarding policy; `INSPECTION_POLICY`: AppProtection policy; `CREDENTIAL_POLICY`: Privileged credentials policy; `CAPABILITIES_POLICY`: Privileged capabilities policy; `ISOLATION_POLICY`: Isolation policy; `CLIENTLESS_SESSION_PROTECTION_POLICY`: Browser Protection policy; `REDIRECTION_POLICY`: Redirection policy; `PRIVILEGED_PORTAL_POLICY`: Privileged portals policy |
+| `search` | query | no | string | The search string used to support search by features and fields for the API. |
+| `page` | query | no | integer(int32) | Specifies the page number. |
+| `pagesize` | query | no | integer(int32) | Specifies the page size. If not provided, the default page size is 20. The max page size is 500. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/policyGroupSet/policyType/{policyType}/summary`
+
+**Gets the policy group set summary details of a customer by the policy type.**
+
+- Operation ID: `getPolicyGroupSetSummaryByPolicyType`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `policyType` | path | yes | string | Specifies the policy type. The supported values are: `ACCESS_POLICY` or `GLOBAL_POLICY`: Access policy; `TIMEOUT_POLICY` or `REAUTH_POLICY`: Timeout policy; `CLIENT_FORWARDING_POLICY` or `BYPASS_POLICY`: Client forwarding policy; `INSPECTION_POLICY`: AppProtection policy; `CREDENTIAL_POLICY`: Privileged credentials policy; `CAPABILITIES_POLICY`: Privileged capabilities policy; `ISOLATION_POLICY`: Isolation policy; `CLIENTLESS_SESSION_PROTECTION_POLICY`: Browser Protection policy; `REDIRECTION_POLICY`: Redirection policy; `PRIVILEGED_PORTAL_POLICY`: Privileged portals policy |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `createIfNotExist` | query | no | boolean | If set to true, creates a global policy set if missing. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/policyGroupSet/policyType/{policyType}`
+
+**Gets details of a policy group set for the specified customer by the policy type.**
+
+- Operation ID: `getOrAddPolicyGroupSetByPolicyType`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `policyType` | path | yes | string | Specifies the policy type. The supported values are: `ACCESS_POLICY` or `GLOBAL_POLICY`: Access policy; `TIMEOUT_POLICY` or `REAUTH_POLICY`: Timeout policy; `CLIENT_FORWARDING_POLICY` or `BYPASS_POLICY`: Client forwarding policy; `INSPECTION_POLICY`: AppProtection policy; `CREDENTIAL_POLICY`: Privileged credentials policy; `CAPABILITIES_POLICY`: Privileged capabilities policy; `ISOLATION_POLICY`: Isolation policy; `CLIENTLESS_SESSION_PROTECTION_POLICY`: Browser Protection policy; `REDIRECTION_POLICY`: Redirection policy; `PRIVILEGED_PORTAL_POLICY`: Privileged portals policy |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+| `createIfNotExist` | query | no | boolean | If set to true, creates a global policy set if missing. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/policyGroupSet/policyType/{policyType}/summaryStats`
+
+**Gets the summary stats for groups and rules within a policy group set for the specified ID.**
+
+- Operation ID: `getPolicyGroupSetSummaryStats`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `policyType` | path | yes | string | Specifies the policy type. The supported values are: `ACCESS_POLICY` or `GLOBAL_POLICY`: Access policy; `TIMEOUT_POLICY` or `REAUTH_POLICY`: Timeout policy; `CLIENT_FORWARDING_POLICY` or `BYPASS_POLICY`: Client forwarding policy; `INSPECTION_POLICY`: AppProtection policy; `CREDENTIAL_POLICY`: Privileged credentials policy; `CAPABILITIES_POLICY`: Privileged capabilities policy; `ISOLATION_POLICY`: Isolation policy; `CLIENTLESS_SESSION_PROTECTION_POLICY`: Browser Protection policy; `REDIRECTION_POLICY`: Redirection policy; `PRIVILEGED_PORTAL_POLICY`: Privileged portals policy |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### Schemas
+
+**`PolicyGroupSet`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `creationTime` | integer(int32) | no |
+| `customPolicyGroupGids` | array<integer(int64)> | no |
+| `defaultPolicyGroupGid` | integer(int64) | no |
+| `globalPolicyGroupGid` | integer(int64) | no |
+| `id` | string | no |
+| `modifiedBy` | string | no |
+| `modifiedTime` | integer(int32) | no |
+| `name` | string | yes |
+| `policyType` | integer(int32) | no |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+
+**`ZPathAPIError`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `reason` | string | no |
+| `id` | string | no |
+| `params` | array<object> | no |
+| `hostname` | string | no |
+
+**`PolicyGroupSetSummary`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `groupCountExcludingGlobal` | integer(int32) | no |
+| `id` | integer(int64) | no |
+| `name` | string | yes |
+| `policyGroupSummaryList` | array<PolicyGroupSummary> | no |
+| `policyType` | integer(int32) | no |
+
+**`PageListPolicyRule`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `totalPages` | integer(int32) | no |
+| `currentCount` | integer(int64) | no |
+| `totalCount` | integer(int64) | no |
+| `list` | array<PolicyRule> | no |
+
+**`PolicyGroupSetSummaryStat`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `disabledRules` | integer(int64) | no |
+| `enabledRules` | integer(int64) | no |
+| `totalPolicyGroups` | integer(int64) | no |
+| `totalRules` | integer(int64) | no |
+
+**`PolicyGroupSummary`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `groupCriteriaCount` | integer(int64) | no |
+| `groupOrder` | integer(int64) | no |
+| `id` | integer(int64) | no |
+| `name` | string | yes |
+| `ruleCount` | integer(int64) | no |
+| `type` | string (enum: GLOBAL, CUSTOM, DEFAULT) | no |
+
+**`PolicyRule`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `description` | string | no |
+| `ruleOrder` | integer(int32) | no |
+| `priority` | integer(int32) | no |
+| `policyType` | integer(int32) | yes |
+| `operator` | string (enum: AND, OR) | yes |
+| `actionId` | integer(int64) | no |
+| `action` | string (enum: ALLOW, DENY, LOG, RE_AUTH, NEVER, BYPASS, INTERCEPT, NO_DOWNLOAD) | yes |
+| `reauthTimeout` | integer(int32) | no |
+| `reauthIdleTimeout` | integer(int32) | no |
+| `customMsg` | string | no |
+| `disabled` | integer(int32) | no |
+| `serviceEdgeGroups` | array<ServiceEdgeGroup> | no |
+| `appConnectorGroups` | array<AppConnectorGroup> | no |
+| `credential` | NameIdDto | no |
+| `credentialPool` | NameIdDto | no |
+| `zpnIsolationProfileId` | integer(int64) | no |
+| `zpnInspectionProfileId` | integer(int64) | no |
+| `postActionTypes` | array<string> | no |
+| `postActions` | object | no |
+| `zpnInspectionProfileName` | string | no |
+| `extranetDTO` | ExtranetDTO | no |
+| `extranetEnabled` | boolean | no |
+| `inconsistentConfigDetails` | InconsistentConfigDetails | no |
+| `policySetId` | integer(int64) | no |
+| `privilegedCapabilities` | PrivilegedCapabilities | no |
+| `privilegedPortalCapabilities` | PrivilegedPortalCapabilities | no |
+| `conditions` | array<ConditionSet> | no |
+| `appServerGroups` | array<AppServerGroup> | no |
+| `defaultRule` | boolean | no |
+| `defaultRuleName` | string | no |
+
+**`ServiceEdgeGroup`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `enabled` | boolean | no |
+| `description` | string | no |
+| `geoLocationId` | integer(int64) | no |
+| `versionProfileId` | integer(int64) | no |
+| `overrideVersionProfile` | boolean | no |
+| `siteId` | string | no |
+| `versionProfileName` | string | no |
+| `upgradePriority` | string (enum: WEEK, DAY, FORCE_NOW, NOW) | no |
+| `versionProfileVisibilityScope` | string (enum: ALL, NONE, CUSTOM) | no |
+| `upgradeTimeInSecs` | string | no |
+| `upgradeDay` | string | no |
+| `siteName` | string | no |
+| `isPublic` | string | no |
+| `location` | string | no |
+| `serviceEdges` | array<ServiceEdge> | no |
+| `latitude` | string | no |
+| `city` | string | no |
+| `longitude` | string | no |
+| `cityCountry` | string | no |
+| `countryCode` | string | no |
+| `useInDrMode` | boolean | no |
+| `graceDistanceEnabled` | boolean | no |
+| `graceDistanceValue` | number(double) | no |
+| `graceDistanceValueUnit` | string (enum: MILES, KMS) | no |
+| `trustedNetworks` | array<TrustedNetwork> | no |
+| `altCloud` | string | no |
+
+**`ServiceEdge`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `description` | string | no |
+| `fingerprint` | string | no |
+| `issuedCertId` | integer(int64) | no |
+| `enabled` | boolean | no |
+| `ipAcl` | array<string> | no |
+| `listenIps` | array<string> | no |
+| `publishIps` | array<string> | no |
+| `publishIpv6` | boolean | no |
+| `privateBrokerVersion` | PrivateBrokerVersion | no |
+| `provisioningKeyId` | integer(int64) | no |
+| `provisioningKeyName` | string | no |
+| `serviceEdgeGroupId` | string | no |
+| `serviceEdgeGroupName` | string | no |
+| `enrollmentCert` | object | no |
+| `latitude` | string | no |
+| `longitude` | string | no |
+| `location` | string | no |
+| `expectedVersion` | string | no |
+| `currentVersion` | string | no |
+| `previousVersion` | string | no |
+| `lastUpgradeTime` | integer(int64) | no |
+| `expectedUpgradeTime` | integer(int64) | no |
+| `upgradeStatus` | string (enum: COMPLETE, IN_PROGRESS, FAILED, UNKNOWN, RESTARTING, PARTIAL_FAILURE, REMOVAL_IN_PROGRESS) | no |
+| `controlChannelStatus` | string (enum: UNKNOWN, ZPN_STATUS_AUTHENTICATED, ZPN_STATUS_DISCONNECTED) | no |
+| `upgradeAttempt` | integer(int32) | no |
+| `ctrlBrokerName` | string | no |
+| `lastBrokerConnectTime` | integer(int64) | no |
+| `lastBrokerConnectTimeDuration` | string | no |
+| `lastBrokerDisconnectTime` | integer(int64) | no |
+| `lastBrokerDisconnectTimeDuration` | string | no |
+| `privateIp` | string | no |
+| `publicIp` | string | no |
+| `platform` | string | no |
+| `runtimeOS` | string | no |
+| `applicationStartTime` | integer(int64) | no |
+| `sargeVersion` | string | no |
+| `platformDetail` | string | no |
+| `zpnSubModuleUpgradeList` | array<ZpnSubModuleUpgrade> | no |
+
+**`PrivateBrokerVersion`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `expectedVersion` | string | no |
+| `currentVersion` | string | no |
+| `systemStartTime` | integer(int64) | no |
+| `applicationStartTime` | integer(int64) | no |
+| `lastConnectTime` | integer(int64) | no |
+| `lastDisconnectTime` | integer(int64) | no |
+| `platform` | string | no |
+| `runtimeOS` | string | no |
+| `brokerId` | integer(int64) | no |
+| `serviceEdgeGroupId` | integer(int64) | no |
+| `restartTimeInSec` | integer(int64) | no |
+| `upgradeStatus` | string (enum: COMPLETE, IN_PROGRESS, FAILED, UNKNOWN, RESTARTING, PARTIAL_FAILURE, REMOVAL_IN_PROGRESS) | no |
+| `ctrlChannelStatus` | string (enum: UNKNOWN, ZPN_STATUS_AUTHENTICATED, ZPN_STATUS_DISCONNECTED) | no |
+| `privateIp` | string | no |
+| `publicIp` | string | no |
+| `loneWarrior` | boolean | no |
+| `tunnelId` | string | no |
+| `previousVersion` | string | no |
+| `lastUpgradedTime` | integer(int64) | no |
+| `restartInstructions` | string (enum: DELETE, FLUSHDB) | no |
+| `upgradeAttempt` | integer(int32) | no |
+| `disableAutoUpdate` | boolean | no |
+| `sargeVersion` | string | no |
+| `zpnSubModuleUpgrade` | array<ZpnSubModuleUpgrade> | no |
+| `platformDetail` | string | no |
+| `upgradeNowOnce` | boolean | no |
+
+**`ZpnSubModuleUpgrade`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `entityGid` | integer(int64) | yes |
+| `entityType` | string (enum: ASSISTANT, PRIVATE_BROKER, MMDB_GEOIP, MMDB_ISP, GUACD, SITE_CONTROLLER) | no |
+| `role` | string (enum: ASSISTANT, PRIVATE_BROKER, MMDB_GEOIP, MMDB_ISP, GUACD, SITE_CONTROLLER) | yes |
+| `expectedVersion` | string | no |
+| `currentVersion` | string | no |
+| `previousVersion` | string | no |
+| `upgradeStatus` | string (enum: COMPLETE, IN_PROGRESS, FAILED, UNKNOWN, RESTARTING, PARTIAL_FAILURE, REMOVAL_IN_PROGRESS) | no |
+| `upgradeTime` | integer(int64) | no |
+
+**`TrustedNetwork`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `networkId` | string | no |
+| `zscalerCloud` | string | no |
+| `domain` | string | no |
+| `masterCustomerId` | string | no |
+
+**`AppConnectorGroup`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `enabled` | boolean | no |
+| `description` | string | no |
+| `geoLocationId` | integer(int64) | no |
+| `versionProfileId` | integer(int64) | no |
+| `overrideVersionProfile` | boolean | no |
+| `siteId` | string | no |
+| `versionProfileName` | string | no |
+| `upgradePriority` | string (enum: WEEK, DAY, FORCE_NOW, NOW) | no |
+| `versionProfileVisibilityScope` | string (enum: ALL, NONE, CUSTOM) | no |
+| `upgradeTimeInSecs` | string | no |
+| `upgradeDay` | string | no |
+| `siteName` | string | no |
+| `connectors` | array<Connector> | no |
+| `location` | string | no |
+| `latitude` | string | no |
+| `city` | string | no |
+| `longitude` | string | no |
+| `serverGroups` | array<AppServerGroup> | no |
+| `dnsQueryType` | string (enum: IPV4_IPV6, IPV4, IPV6) | no |
+| `cityCountry` | string | no |
+| `countryCode` | string | no |
+| `tcpQuickAckApp` | boolean | no |
+| `tcpQuickAckAssistant` | boolean | no |
+| `tcpQuickAckReadAssistant` | boolean | no |
+| `ipAcl` | array<string> | no |
+| `praEnabled` | boolean | no |
+| `useInDrMode` | boolean | no |
+| `connectorGroupType` | string (enum: APP, NP) | no |
+| `dcHostingInfo` | string | no |
+| `wafDisabled` | boolean | no |
+| `npAssistantGroup` | NPAssistantGroup | no |
+| `lssAppConnectorGroup` | boolean | no |
+
+**`Connector`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `description` | string | no |
+| `fingerprint` | string | no |
+| `issuedCertId` | integer(int64) | no |
+| `enabled` | boolean | no |
+| `ipAcl` | array<string> | no |
+| `provisioningKeyId` | integer(int64) | no |
+| `connectorType` | string (enum: APP, NP) | no |
+| `provisioningKeyName` | string | no |
+| `enrollmentCert` | object | no |
+| `appConnectorGroupId` | string | no |
+| `appConnectorGroupName` | string | no |
+| `assistantVersion` | AssistantVersion | no |
+| `expectedVersion` | string | no |
+| `currentVersion` | string | no |
+| `previousVersion` | string | no |
+| `lastUpgradeTime` | integer(int64) | no |
+| `expectedUpgradeTime` | integer(int64) | no |
+| `upgradeStatus` | string (enum: COMPLETE, IN_PROGRESS, FAILED, UNKNOWN, RESTARTING, PARTIAL_FAILURE, REMOVAL_IN_PROGRESS) | no |
+| `controlChannelStatus` | string (enum: UNKNOWN, ZPN_STATUS_AUTHENTICATED, ZPN_STATUS_DISCONNECTED) | no |
+| `upgradeAttempt` | integer(int32) | no |
+| `ctrlBrokerName` | string | no |
+| `lastBrokerConnectTime` | integer(int64) | no |
+| `lastBrokerConnectTimeDuration` | string | no |
+| `sargeVersion` | string | no |
+| `lastBrokerDisconnectTime` | integer(int64) | no |
+| `lastBrokerDisconnectTimeDuration` | string | no |
+| `privateIp` | string | no |
+| `publicIp` | string | no |
+| `platform` | string | no |
+| `runtimeOS` | string | no |
+| `applicationStartTime` | integer(int64) | no |
+| `latitude` | number(double) | no |
+| `longitude` | number(double) | no |
+| `location` | string | no |
+| `platformDetail` | string | no |
+| `zpnSubModuleUpgradeList` | array<ZpnSubModuleUpgrade> | no |
+| `npAssistant` | NPAssistant | no |
+
+**`AssistantVersion`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `expectedVersion` | string | no |
+| `currentVersion` | string | no |
+| `systemStartTime` | integer(int64) | no |
+| `applicationStartTime` | integer(int64) | no |
+| `lastBrokerConnectTime` | integer(int64) | no |
+| `lastBrokerDisconnectTime` | integer(int64) | no |
+| `brokerId` | integer(int64) | no |
+| `restartTimeInSec` | integer(int64) | no |
+| `disableAutoUpdate` | boolean | no |
+| `appConnectorGroupId` | integer(int64) | no |
+| `platform` | string | no |
+| `runtimeOS` | string | no |
+| `upgradeStatus` | string (enum: COMPLETE, IN_PROGRESS, FAILED, UNKNOWN, RESTARTING, PARTIAL_FAILURE, REMOVAL_IN_PROGRESS) | no |
+| `ctrlChannelStatus` | string (enum: UNKNOWN, ZPN_STATUS_AUTHENTICATED, ZPN_STATUS_DISCONNECTED) | no |
+| `latitude` | number(double) | no |
+| `longitude` | number(double) | no |
+| `privateIp` | string | no |
+| `publicIp` | string | no |
+| `loneWarrior` | boolean | no |
+| `mtunnelId` | string | no |
+| `previousVersion` | string | no |
+| `lastUpgradedTime` | integer(int64) | no |
+| `upgradeNowOnce` | boolean | no |
+| `upgradeAttempt` | integer(int32) | no |
+| `sargeVersion` | string | no |
+| `platformDetail` | string | no |
+
+**`NPAssistant`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `publicKey` | string | no |
+| `publicKeyExpiry` | integer(int64) | no |
+| `connectorState` | integer(int32) | no |
+| `connectorId` | integer(int64) | yes |
+
+**`AppServerGroup`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `enabled` | boolean | yes |
+| `dynamicDiscovery` | boolean | no |
+| `description` | string | no |
+| `configSpace` | string (enum: DEFAULT, SIEM) | yes |
+| `weight` | integer(int32) | no |
+| `passive` | boolean | no |
+| `extranetEnabled` | boolean | no |
+| `zpnErId` | ZpnExtranetResource | no |
+
+**`ZpnExtranetResource`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `ziaErId` | integer(int64) | yes |
+| `ziaErName` | string | yes |
+| `ziaCloud` | string | yes |
+| `ziaOrgId` | integer(int64) | yes |
+| `ziaModifiedTime` | integer(int64) | no |
+
+**`NPAssistantGroup`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `appConnectorGroupId` | integer(int64) | yes |
+| `lanSubnets` | array<NpLanSubnet> | no |
+
+**`NpLanSubnet`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `description` | string | no |
+| `subnet` | string | yes |
+| `appConnectorGroupId` | integer(int64) | yes |
+| `npDnsNsRecord` | NpDnsNsRecord | no |
+| `fqdns` | array<string> | no |
+| `npserverips` | array<string> | no |
+| `oldAuditString` | string | no |
+
+**`NpDnsNsRecord`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `name` | string | yes |
+| `nameserverIps` | array<string> | yes |
+| `fqdn` | array<string> | yes |
+
+**`NameIdDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `name` | string | no |
+
+**`ExtranetDTO`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | string | no |
+| `id` | string | no |
+| `ziaErName` | string | no |
+| `zpnErId` | integer(int64) | yes |
+| `locationGroupDTO` | array<LocationGroupDTO> | yes |
+| `locationDTO` | array<NameIdDto> | yes |
+
+**`LocationGroupDTO`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `name` | string | no |
+| `id` | integer(int64) | yes |
+| `ziaLocations` | array<NameIdDto> | no |
+
+**`InconsistentConfigDetails`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `application` | array<InconsistentConfigNameReasonDto> | no |
+| `sraApplication` | array<InconsistentConfigNameReasonDto> | no |
+| `segmentGroup` | array<InconsistentConfigNameReasonDto> | no |
+| `serverGroup` | array<InconsistentConfigNameReasonDto> | no |
+| `appConnectorGroup` | array<InconsistentConfigNameReasonDto> | no |
+| `baCertificate` | array<InconsistentConfigNameReasonDto> | no |
+| `postureProfile` | array<InconsistentConfigNameReasonDto> | no |
+| `trustedNetwork` | array<InconsistentConfigNameReasonDto> | no |
+| `branchConnectorGroup` | array<InconsistentConfigNameReasonDto> | no |
+| `cloudConnectorGroup` | array<InconsistentConfigNameReasonDto> | no |
+| `samlAttributes` | array<InconsistentConfigNameReasonDto> | no |
+| `scimAttributes` | array<InconsistentConfigNameReasonDto> | no |
+| `machineGroup` | array<InconsistentConfigNameReasonDto> | no |
+| `idp` | array<InconsistentConfigNameReasonDto> | no |
+| `location` | array<InconsistentConfigNameReasonDto> | no |
+| `workloadTagGroup` | array<InconsistentConfigNameReasonDto> | no |
+| `userPortal` | array<InconsistentConfigNameReasonDto> | no |
+
+**`InconsistentConfigNameReasonDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `name` | string | no |
+| `reason` | string | no |
+
+**`PrivilegedCapabilities`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `microtenantId` | integer(int64) | no |
+| `capabilities` | array<string> | no |
+
+**`PrivilegedPortalCapabilities`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `microtenantId` | integer(int64) | no |
+| `capabilities` | array<string> | no |
+
+**`ConditionSet`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `microtenantId` | integer(int64) | no |
+| `operator` | string (enum: AND, OR) | no |
+| `negated` | boolean | yes |
+| `operands` | array<Operand> | no |
+
+**`Operand`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `creationTime` | integer(int32) | no |
+| `modifiedBy` | integer(int64) | no |
+| `microtenantId` | integer(int64) | no |
+| `objectType` | string (enum: USER, USER_GROUP, APP, APP_GROUP, LOCATION, WORKLOAD_TAG_GROUP, SAML, POSTURE) | no |
+| `lhs` | string | yes |
+| `rhs` | string | yes |
+| `name` | string | no |
+| `idpId` | integer(int64) | no |
+| `idpName` | string | no |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -18541,13 +23304,13 @@ To learn more, see:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/understanding-zpa-api","lastmod":"2026-08-21T07:06Z","nid":"1484766"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/understanding-zpa-api","lastmod":"2026-10-09T15:10Z","nid":"1484766"} -->
 ## Understanding the ZPA API
 
 - Source: https://help.zscaler.com/legacy-apis/understanding-zpa-api
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > Understanding the ZPA API
-- Last modified: 2026-08-21T07:06Z
+- Last modified: 2026-10-09T15:10Z
 - Summary: Introductory information about the Zscaler Private Access (ZPA) API, which gives programmatic access to various ZPA features.
 
 The Zscaler Private Access (ZPA) API gives you programmatic access to manage the following ZPA features:
@@ -18568,6 +23331,7 @@ The Zscaler Private Access (ZPA) API gives you programmatic access to manage the
 - Customer Domains
 - Emergency Access
 - Enrollment Certificates
+- External IAM Identity Provider (IdP) Mapping
 - Feature Configurations
 - IdP Configurations
 - Isolation Profiles
@@ -18578,6 +23342,9 @@ The Zscaler Private Access (ZPA) API gives you programmatic access to manage the
 - Isolation Policies
 - Privileged Policies
 - Redirection Policies
+- Policy Groups
+- Policy Group Rules
+- Policy Group Sets
 - Log Streaming Service (LSS) Configurations
 - Machine Groups
 - Microtenants
@@ -18724,6 +23491,11 @@ Enrollment certificate API resources allow you to read enrollment certificates. 
 - [Configuring Enrollment Certificate Details Using API](https://help.zscaler.com/zpa/obtaining-enrollment-certificate-details-using-api)
 - [About Enrollment (CA) Certificates](https://help.zscaler.com/zpa/about-enrollment-ca-certificates)
 
+External IAM IdP mapping API resources allow you to read external IAM IdP mapping details. To learn more, see:
+
+- [Reference Guide > External IAM IdP Mapping](https://help.zscaler.com/legacy-apis/external-iam-idp-mapping)
+- [Obtaining External IAM IdP Mapping Details Using API](https://help.zscaler.com/legacy-apis/external-iam-idp-mapping)
+
 Feature configuration API resources allow you to create, read, and update feature configurations. To learn more, see:
 
 - [Reference Guide > Feature Configuration Management](https://help.zscaler.com/zpa/feature-configuration-management)
@@ -18775,13 +23547,30 @@ Policy management API resources allow you to create, read, update, and delete pr
 - [Reference Guide > Policy Management](https://help.zscaler.com/zpa/policy-management)
 - [Configuring Privileged Policies Using API](https://help.zscaler.com/zpa/configuring-privileged-policies-using-api)
 - [About Privileged Credentials Policy](https://help.zscaler.com/zpa/about-privileged-credentials-policy)
-- [About Privileged Capabilities Policy](https://help.zscaler.com/zpa/about-privileged-capabilities-policy)
 
 Policy management API resources allow you to create, read, update, and delete redirection policies. To learn more, see:
 
 - [Reference Guide > Policy Management](https://help.zscaler.com/zpa/policy-management)
 - [Configuring Redirection Policies Using API](https://help.zscaler.com/zpa/configuring-redirection-policies-using-api)
 - [About Redirection Policy](https://help.zscaler.com/zpa/about-redirection-policy)
+
+Policy group API resources allow you to create, read, update, and delete policy groups. To learn more, see:
+
+- [Reference Guide > Policy Group Management](https://help.zscaler.com/legacy-apis/policy-group-management)
+- [Configuring Policy Groups Using API](https://help.zscaler.com/legacy-apis/configuring-policy-groups-using-api)
+- [About Access Policies for Policy Groups](https://help.zscaler.com/zpa/about-access-policies-policy-groups)
+
+Policy group rule API resources allow you to create, read, update, and delete policy group rules. To learn more, see:
+
+- [Reference Guide > Policy Group Rule Management](https://help.zscaler.com/legacy-apis/policy-group-rule-management)
+- [Configuring Policy Group Rules Using API](https://help.zscaler.com/legacy-apis/configuring-policy-group-rules-using-api)
+- [About Access Policies for Policy Groups](https://help.zscaler.com/zpa/about-access-policies-policy-groups)
+
+Policy group set API resources allow you to read policy group set details. To learn more, see:
+
+- [Reference Guide > Policy Group Sets](https://help.zscaler.com/legacy-apis/policy-group-sets)
+- [Obtaining Policy Group Set Details Using API](https://help.zscaler.com/legacy-apis/obtaining-policy-group-set-details-using-api)
+- [About Access Policies for Policy Groups](https://help.zscaler.com/zpa/about-access-policies-policy-groups)
 
 LSS configuration API resources allow you to create, read, update, and delete LSS configurations. To learn more, see:
 
@@ -22038,13 +26827,13 @@ Share a ZDX Snapshot for a given user ID to monitor user details (i.e., device a
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/zero-trust-gateway","lastmod":"2026-09-08T22:26Z","nid":"1545353"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/zero-trust-gateway","lastmod":"2026-10-09T07:06Z","nid":"1545353"} -->
 ## Zero Trust Gateway
 
 - Source: https://help.zscaler.com/legacy-apis/zero-trust-gateway
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > Zscaler Cloud & Branch Connector API > API Developer & Reference Guide > Reference Guide > Zero Trust Gateway
-- Last modified: 2026-09-08T22:26Z
+- Last modified: 2026-10-09T07:06Z
 
 **Servers:** `https://{host}:{port}/wapi/v1`, `https://{host}:{port}/api/v1`
 

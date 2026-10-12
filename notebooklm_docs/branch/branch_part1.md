@@ -1,8 +1,8 @@
 # Zscaler Help — Branch / Cellular / Cloud Connector (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-05 09:38 UTC
-Articles in this file: 158
+Generated: 2026-10-12 09:45 UTC
+Articles in this file: 159
 
 ---
 
@@ -102,13 +102,13 @@ On the Accounts page (Zero Trust Cloud > Common Resources > AWS > Accounts), you
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-amazon-web-services-zero-trust-gateways","lastmod":"2026-09-21T13:15Z","nid":"1516706"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-amazon-web-services-zero-trust-gateways","lastmod":"2026-10-05T21:06Z","nid":"1516706"} -->
 ## About Amazon Web Services Zero Trust Gateways
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-zero-trust-gateways
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > AWS Zero Trust Gateway Management > About Amazon Web Services Zero Trust Gateways
-- Last modified: 2026-09-21T13:15Z
+- Last modified: 2026-10-05T21:06Z
 - Summary: Information about the Amazon Web Services (AWS) Zero Trust Gateway page in the Zscaler Admin Console.
 
 Amazon Web Services (AWS) Zero Trust Gateways are a Zscaler cloud native service offering in public clouds.
@@ -151,13 +151,13 @@ On the AWS page (Zero Trust Cloud > Zero Trust Gateway > AWS), you can do the fo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-audit-logs","lastmod":"2026-09-30T13:38Z","nid":"1420581"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-audit-logs","lastmod":"2026-10-06T08:45Z","nid":"1420581"} -->
 ## About Audit Logs
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-audit-logs
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Administrator & Role Management > About Audit Logs
-- Last modified: 2026-09-30T13:38Z
+- Last modified: 2026-10-06T08:45Z
 - Summary: Information regarding audit logs, including policy and configuration change logs, within the Zscaler Admin Console.
 
 Zscaler records the login name and IP address of every admin who logs in to the Zscaler Admin Console and changes policies or configuration settings. Audit logs display an admin's login and logout record (time stamps, actions, IP, etc.) and any configuration changes they completed. If an admin account makes 5 unsuccessful attempts to log in within one minute, the account is locked out for 5 minutes and the failed attempts are recorded.
@@ -307,6 +307,43 @@ On the Branch Configuration page for virtual devices (Infrastructure > Branch Co
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-cloud-branch-connector-api-management","lastmod":"2026-09-30T10:08Z","nid":"1420801"} -->
+## About Cloud & Branch Connector API Management
+
+- Source: https://help.zscaler.com/cloud-branch-connector/about-cloud-branch-connector-api-management
+- Product: Cloud & Branch Connector
+- Path: Zscaler Cloud & Branch Connector Help > Administration > API Key Management > About Cloud & Branch Connector API Management
+- Last modified: 2026-09-30T10:08Z
+- Summary: Information on Cloud & Branch Connector API key management within the Zscaler Admin Console.
+
+Your organization's API key is initially provisioned by Zscaler, enabled, and displayed within the Cloud & Branch Connector API page along with the base URL. The base URL and key are required to authenticate via the API and create a session.
+
+Cloud & Branch Connector API provides the following benefits and enables you to:
+
+- Provide API key access only to authorized admins configured with appropriate functional scope access to the API services.
+- Regenerate the API key whenever required or in events when you suspect vulnerabilities for an attack.
+- Ensure that no further API requests are possible after you finish consuming the API services by deleting the API key.
+
+An organization can have only one API key. However, if you are managing multiple organizations within the Zscaler Admin Console and want to maintain the same key string across them, Zscaler recommends editing the key instead of adding a new one or regenerating it. This allows you to use the same key string across organizations, if necessary.
+
+## About the Cloud & Branch Connector API Page
+
+On the API Key Management page (Administration > Legacy API > Cloud & Branch Connector API), you can do the following:
+
+1. View the base URL for the API.
+2. [Add a new Cloud Service API Key](https://help.zscaler.com/cloud-branch-connector/managing-organization-api-keys#AddNewKey). You must delete the existing key before you can add a new one.
+3. View information regarding your organization's API key. For the key, you can see:
+  - **Key**: The API key string.
+  - **Last Modified By**: Only Zscaler modifies the key.
+  - **Last Modified On**: The date and time the key was last modified.
+4. Modify the table and its columns.
+5. [Edit the API key](https://help.zscaler.com/cloud-branch-connector/managing-organization-api-keys#EditNewKey).
+6. [Regenerate the API key](https://help.zscaler.com/cloud-branch-connector/managing-organization-api-keys#RegenerateKey).
+7. [Delete the API key](https://help.zscaler.com/cloud-branch-connector/managing-organization-api-keys#DeleteKey).
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-cloud-connector-groups","lastmod":"2026-09-30T12:39Z","nid":"1420476"} -->
 ## About Cloud Connector Groups
 
@@ -361,13 +398,13 @@ On the Overview page (Zero Trust Cloud > Cloud Connector > Cloud Connector Group
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-cloud-nss-feeds","lastmod":"2026-09-25T15:19Z","nid":"1452731"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-cloud-nss-feeds","lastmod":"2026-10-09T21:06Z","nid":"1452731"} -->
 ## About Cloud NSS Feeds
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-cloud-nss-feeds
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > NSS Feeds > About Cloud NSS Feeds
-- Last modified: 2026-09-25T15:19Z
+- Last modified: 2026-10-09T21:06Z
 - Summary: Information on the Cloud NSS Feeds page in the Zscaler Cloud & Branch Connector Admin Portal.
 
 Cloud NSS allows you to instantly stream logs from the Zscaler Cloud & Branch Connector Admin Portal directly into a compatible cloud-based security information and event management (SIEM) system without the need to deploy an NSS VM. To learn more, see [Understanding Nanolog Streaming Service](https://help.zscaler.com/zia/understanding-nanolog-streaming-service).
@@ -536,13 +573,13 @@ On the DNS Gateway page (Zero Trust Cloud > Gateways > DNS Gateway), you can do 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-dns-policies","lastmod":"2026-09-23T14:37Z","nid":"1420511"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-dns-policies","lastmod":"2026-10-07T21:06Z","nid":"1420511"} -->
 ## About DNS Policies
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-dns-policies
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Forwarding > DNS Policies > About DNS Policies
-- Last modified: 2026-09-23T14:37Z
+- Last modified: 2026-10-07T21:06Z
 - Summary: Information on the Zscaler service's DNS Policies. Using the Zscaler Admin Console, you can define rules that control DNS requests and responses.
 
 DNS is a key part of the internet, offering the power of quickly translating between the human language of the URL and the computer language of the IP address. With DNS policies, you can define rules that control DNS requests and responses.
@@ -622,13 +659,13 @@ On the GCP page (Zero Trust Cloud > Common Resources > GCP), you can do the foll
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-google-cloud-platform-zero-trust-gateways","lastmod":"2026-09-21T14:02Z","nid":"1540272"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-google-cloud-platform-zero-trust-gateways","lastmod":"2026-10-05T21:06Z","nid":"1540272"} -->
 ## About Google Cloud Platform Zero Trust Gateways
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-google-cloud-platform-zero-trust-gateways
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > GCP Zero Trust Gateway Management > About Google Cloud Platform Zero Trust Gateways
-- Last modified: 2026-09-21T14:02Z
+- Last modified: 2026-10-05T21:06Z
 - Summary: Information about the Google Cloud Platform (GCP) Zero Trust Gateway page in the Zscaler Admin Console.
 
 Google Cloud Platform (GCP) Zero Trust Gateways are a Zscaler cloud native service offering in public clouds that is supported in GCP.
@@ -680,13 +717,13 @@ On the GCP page (Zero Trust Cloud > Zero Trust Gateway > GCP), you can do the fo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-insights","lastmod":"2026-09-23T15:50Z","nid":"1420536"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-insights","lastmod":"2026-10-07T21:06Z","nid":"1420536"} -->
 ## About Insights
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-insights
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Insights > About Insights
-- Last modified: 2026-09-23T15:50Z
+- Last modified: 2026-10-07T21:06Z
 - Summary: Information on Zscaler Cloud & Branch Connectors Insights pages, the different types of traffic you can view, and the different sections on the pages.
 
 The Insights pages are where you can view and define traffic information when analyzing traffic through charts. To learn more about how to analyze your traffic on the Insights pages, see [Analyzing Traffic Using Insights](https://help.zscaler.com/cloud-branch-connector/analyzing-traffic-using-insights).
@@ -735,13 +772,13 @@ As you work with your data, the history bar records the workflow. Each time you 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-insights-logs","lastmod":"2026-09-23T15:51Z","nid":"1420541"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-insights-logs","lastmod":"2026-10-07T21:06Z","nid":"1420541"} -->
 ## About Insights Logs
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-insights-logs
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Insights > Logs > About Insights Logs
-- Last modified: 2026-09-23T15:51Z
+- Last modified: 2026-10-07T21:06Z
 - Summary: Information on Cloud & Branch Connector's Insights Logs pages, the different types of logs you can view, and the different sections on the pages.
 
 The Zscaler service provides real-time log consolidation across the globe, so you can view every transaction performed by your users regardless of where they are in the world.
@@ -939,13 +976,13 @@ When you click the number in the **Sublocations** column, the **View Sublocation
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-log-and-control-forwarding","lastmod":"2026-09-23T14:29Z","nid":"1420501"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-log-and-control-forwarding","lastmod":"2026-10-07T21:06Z","nid":"1420501"} -->
 ## About Log and Control Forwarding
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-log-and-control-forwarding
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Forwarding > Log and Control Forwarding > About Log and Control Forwarding
-- Last modified: 2026-09-23T14:29Z
+- Last modified: 2026-10-07T21:06Z
 - Summary: Information on Log and Control Forwarding policy in the Zscaler Admin Console.
 
 [Watch a video about Log and Control Forwarding](https://fast.wistia.net/embed/iframe/a7m0d6dlg8) (shows legacy UI).
@@ -1217,13 +1254,13 @@ On the Network Services page (Internet Access > Resources > Network Services > S
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-nss-feeds","lastmod":"2026-09-25T10:48Z","nid":"1420626"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-nss-feeds","lastmod":"2026-10-09T21:06Z","nid":"1420626"} -->
 ## About NSS Feeds
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-nss-feeds
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > NSS Feeds > About NSS Feeds
-- Last modified: 2026-09-25T10:48Z
+- Last modified: 2026-10-09T21:06Z
 - Summary: Information on NSS feeds and the NSS feeds page on the Zscaler Admin Console.
 
 A Nanolog Streaming Service (NSS) feed specifies the data from the logs that the NSS sends to the security information and event management (SIEM) system. Both Cloud Connector and Branch Connector can generate Session, DNS, Event, and Metrics logs.
@@ -1417,13 +1454,13 @@ On the Source IP Groups page (Internet Access > Resources > IP & FQDN Groups > S
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-traffic-forwarding","lastmod":"2026-09-23T14:14Z","nid":"1420486"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-traffic-forwarding","lastmod":"2026-10-07T21:06Z","nid":"1420486"} -->
 ## About Traffic Forwarding
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-traffic-forwarding
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Forwarding > Traffic Forwarding > About Traffic Forwarding
-- Last modified: 2026-09-23T14:14Z
+- Last modified: 2026-10-07T21:06Z
 - Summary: Information on Traffic Forwarding Policy in the Zscaler Admin Console.
 
 Traffic Forwarding enables you to forward select traffic to specific destinations based on your needs. For example, if you want to forward specific traffic through Internet & SaaS (ZIA) or application traffic through Private Access (ZPA), use the traffic forwarding method by configuring appropriate rules.
@@ -1555,13 +1592,13 @@ On the VDI Devices page (Infrastructure > Client Connector > VDI Device Manageme
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-vdi-forwarding-profiles","lastmod":"2026-09-21T14:28Z","nid":"1471721"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-vdi-forwarding-profiles","lastmod":"2026-10-05T21:06Z","nid":"1471721"} -->
 ## About VDI Forwarding Profiles
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-vdi-forwarding-profiles
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > About VDI Forwarding Profiles
-- Last modified: 2026-09-21T14:28Z
+- Last modified: 2026-10-05T21:06Z
 - Summary: Information on the VDI Forwarding Profiles page in the Zscaler Admin Console.
 
 In the Zscaler Admin Console, the VDI Forwarding Profile page displays the current forwarding profiles and allows you to create new forwarding profiles. Additionally, Zscaler Client Connector for VDI automatically fetches VDI forwarding profile policies every 60 minutes.
@@ -1641,13 +1678,13 @@ On the VDI Groups page (Infrastructure > Client Connector > VDI Device Managemen
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-vdi-templates","lastmod":"2026-09-15T14:56Z","nid":"1471706"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/about-vdi-templates","lastmod":"2026-09-29T21:06Z","nid":"1471706"} -->
 ## About VDI Templates
 
 - Source: https://help.zscaler.com/cloud-branch-connector/about-vdi-templates
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > About VDI Templates
-- Last modified: 2026-09-15T14:56Z
+- Last modified: 2026-09-29T21:06Z
 - Summary: Information on the VDI Templates page in the Zscaler Admin Console.
 
 In the Zscaler Admin Console, the VDI Template page displays the current templates and allows you to create new templates. Virtual Desktop Infrastructure (VDI) templates provide the VDI provisioning URL and the VDI access token, which are required for installing Zscaler Client Connector for VDI. To learn more, see [Step-by-Step Configuration Guide for Zscaler Client Connector for VDI](https://help.zscaler.com/cloud-branch-connector/step-step-configuration-guide-zscaler-client-connector-vdi).
@@ -1766,13 +1803,13 @@ On the ZT Devices page (Infrastructure > Branch Connector > ZT Devices), you can
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/accessing-cloud-branch-connector-monitoring","lastmod":"2026-09-23T15:42Z","nid":"1420526"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/accessing-cloud-branch-connector-monitoring","lastmod":"2026-10-07T21:06Z","nid":"1420526"} -->
 ## Accessing Cloud & Branch Connector Monitoring
 
 - Source: https://help.zscaler.com/cloud-branch-connector/accessing-cloud-branch-connector-monitoring
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Accessing Cloud & Branch Connector Monitoring
-- Last modified: 2026-09-23T15:42Z
+- Last modified: 2026-10-07T21:06Z
 - Summary: Information on accessing Cloud & Branch Connector Monitoring in the Zscaler Admin Console.
 
 The Cloud & Branch Connector Monitoring pages provide information on the name, group, location, geolocation, and status of your Cloud and Branch Connector virtual machines (VMs) deployed in your cloud or branch accounts. You can use the **Refresh**icon to refresh the dashboard to view the most recent information. To view the Cloud Connector Monitoring page, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud** > **Cloud Connector** > **Cloud Connector Overview**. To view the Branch Connector Monitoring Page, go to **Infrastructure**> **Branch Connector** > **Branch Connector Monitoring**.
@@ -1871,31 +1908,29 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-admin-roles","lastmod":"2026-09-29T14:46Z","nid":"1420576"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-admin-roles","lastmod":"2026-10-06T08:56Z","nid":"1420576"} -->
 ## Adding Admin Roles
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-admin-roles
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Administrator & Role Management > Adding Admin Roles
-- Last modified: 2026-09-29T14:46Z
+- Last modified: 2026-10-06T08:56Z
 - Summary: How to add administrator roles in the Zscaler Admin Console.
 
 Configuring admin roles is one of the tasks you must complete when configuring role-based permissions for [admins](https://help.zscaler.com/cloud-branch-connector/adding-cloud-connector-admins) in the Zscaler Admin Console.
-
-If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Cloud & Branch Connector are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
 
 ## Prerequisites
 
 When configuring roles:
 
-- You must have the proper permissions to do so.
+- You must have the proper permissions to do so, as detailed below.
 - You must have organizational scope.
 
 ## Adding Admin Roles
 
 To configure admin roles:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Administration** > **Role Management** > **Branch and Cloud Connector**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Role Management** > **Branch and Cloud Connector**.
 2. Select **Add Admin Role**.
 
 The **Add Admin Role** window appears.
@@ -1915,6 +1950,7 @@ See image.
     - Forwarding (Traffic, DNS & Logs)
     - Remote Assistance Management
     - Public Cloud Config Management
+    - VDI Provisioning
 2. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 You can edit or delete admin roles at any time.
@@ -1990,9 +2026,7 @@ Choose one of the following permissions:
 - **Full**: Allows admins full access to features in **Remote Assistance Management**.
 - **View** **Only**: Allows admins to view, but not edit, items in **Remote Assistance Management**.
 
-[Image: The Add Admin Role window accessed from the Zscaler Admin Console]
-
-In **Public Cloud Config Management**, admins can create, edit, delete, and view [Partner Integrations](https://help.zscaler.com/cloud-branch-connector/about-partner-integrations).
+In **Public Cloud Config Management**, admins can create, edit, delete, and view [Partner Integrations](https://help.zscaler.com/cloud-branch-connector/administration/cloud-connector-partner-integrations).
 
 Choose one of the following permissions:
 
@@ -2001,6 +2035,14 @@ Choose one of the following permissions:
 - **None**: Doesn't allow admins access to **Public Cloud Config Management**.
 
 To enable this feature, contact Zscaler Support.
+
+In **VDI Provisioning**, admins can manage [Zscaler Client Connector for VDI](https://help.zscaler.com/cloud-branch-connector/zscaler-client-connector-vdi-management) operations.
+
+- **Full**: Allows admins full access to features in VDI Provisioning, which allows them to edit and view all the Zscaler Client Connector for VDI-related entities.
+- **View Only**: Allows admins to view, but not edit, items in **VDI Provisioning**.
+- **None**: Doesn't allow admins access to **VDI Provisioning**.
+
+[Image: The Add Admin Role window accessed from the Zscaler Admin Console]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2055,13 +2097,13 @@ After the CloudFormation template is executed, your account is onboarded into th
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-amazon-web-services-account-group","lastmod":"2026-09-30T14:29Z","nid":"1479496"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-amazon-web-services-account-group","lastmod":"2026-10-08T08:11Z","nid":"1479496"} -->
 ## Adding an Amazon Web Services Account Group
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-amazon-web-services-account-group
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > AWS Partner Integrations > Adding an Amazon Web Services Account Group
-- Last modified: 2026-09-30T14:29Z
+- Last modified: 2026-10-08T08:11Z
 - Summary: How to add an Amazon Web Services account group on the Partner Integrations Groups page of the Zscaler Admin Console.
 
 This article provides information on how to add an Amazon Web Services (AWS) account group in the Zscaler Admin Console. To learn more, see [About Amazon Web Services Account Groups](https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-account-groups).
@@ -2092,13 +2134,13 @@ To add an AWS account group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-amazon-web-services-zero-trust-gateway","lastmod":"2026-09-21T13:30Z","nid":"1516711"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-amazon-web-services-zero-trust-gateway","lastmod":"2026-10-05T21:06Z","nid":"1516711"} -->
 ## Adding an Amazon Web Services Zero Trust Gateway
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-amazon-web-services-zero-trust-gateway
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > AWS Zero Trust Gateway Management > Adding an Amazon Web Services Zero Trust Gateway
-- Last modified: 2026-09-21T13:30Z
+- Last modified: 2026-10-05T21:06Z
 - Summary: Information on how to add an Amazon Web Services (AWS) Zero Trust Gateway on the AWS page of the Zscaler Admin Console.
 
 This article provides information on adding an Amazon Web Services (AWS) Zero Trust Gateway in the Zscaler Admin Console. To learn more, see [About Amazon Web Services Zero Trust Gateways](https://help.zscaler.com/cloud-branch-connector/about-zero-trust-gateways).
@@ -2156,13 +2198,13 @@ A Cloud NSS feed specifies the data from the logs that the Cloud NSS sends to th
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-cloud-nss-feeds-dns-logs","lastmod":"2026-09-25T15:02Z","nid":"1452746"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-cloud-nss-feeds-dns-logs","lastmod":"2026-10-09T21:06Z","nid":"1452746"} -->
 ## Adding Cloud NSS Feeds for DNS Logs
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-cloud-nss-feeds-dns-logs
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for DNS Logs
-- Last modified: 2026-09-25T15:02Z
+- Last modified: 2026-10-09T21:06Z
 - Summary: How to add Cloud NSS feeds for DNS logs in the Zscaler Cloud & Branch Connector Admin Portal.
 
 To configure a Cloud Nanolog Streaming Service (NSS) feed for DNS logs:
@@ -2238,13 +2280,13 @@ You can enter multiple entries separated by commas. For item lists, you can view
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-cloud-nss-feeds-event-logs","lastmod":"2026-09-25T15:03Z","nid":"1458976"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-cloud-nss-feeds-event-logs","lastmod":"2026-10-09T21:06Z","nid":"1458976"} -->
 ## Adding Cloud NSS Feeds for Event Logs
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-cloud-nss-feeds-event-logs
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Event Logs
-- Last modified: 2026-09-25T15:03Z
+- Last modified: 2026-10-09T21:06Z
 - Summary: How to add Cloud NSS feeds for Event logs in the Zscaler Cloud & Branch Connector Admin Portal.
 
 To configure a Cloud Nanolog Streaming Service (NSS) feed for Event logs:
@@ -2290,13 +2332,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-cloud-nss-feeds-metrics-logs","lastmod":"2026-09-25T15:04Z","nid":"1458981"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-cloud-nss-feeds-metrics-logs","lastmod":"2026-10-09T21:06Z","nid":"1458981"} -->
 ## Adding Cloud NSS Feeds for Metrics Logs
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-cloud-nss-feeds-metrics-logs
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Metrics Logs
-- Last modified: 2026-09-25T15:04Z
+- Last modified: 2026-10-09T21:06Z
 - Summary: How to add Cloud NSS feeds for Metrics logs in the Zscaler Cloud & Branch Connector Admin Portal.
 
 To configure a Cloud Nanolog Streaming Service (NSS) feed for Metrics logs:
@@ -2346,13 +2388,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-cloud-nss-feeds-session-logs","lastmod":"2026-09-25T14:59Z","nid":"1452741"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-cloud-nss-feeds-session-logs","lastmod":"2026-10-09T21:06Z","nid":"1452741"} -->
 ## Adding Cloud NSS Feeds for Session Logs
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-cloud-nss-feeds-session-logs
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Session Logs
-- Last modified: 2026-09-25T14:59Z
+- Last modified: 2026-10-09T21:06Z
 - Summary: How to add Cloud NSS feeds for Session logs in the Zscaler Cloud & Branch Connector Admin Portal.
 
 To configure a Cloud Nanolog Streaming Service (NSS) feed for Session logs:
@@ -2453,13 +2495,13 @@ To add a GCP account:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-google-cloud-platform-zero-trust-gateway","lastmod":"2026-09-21T14:16Z","nid":"1540310"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-google-cloud-platform-zero-trust-gateway","lastmod":"2026-10-05T21:06Z","nid":"1540310"} -->
 ## Adding a Google Cloud Platform Zero Trust Gateway
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-google-cloud-platform-zero-trust-gateway
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > GCP Zero Trust Gateway Management > Adding a Google Cloud Platform Zero Trust Gateway
-- Last modified: 2026-09-21T14:16Z
+- Last modified: 2026-10-05T21:06Z
 - Summary: Information on how to add a Google Cloud Platform (GCP) Zero Trust Gateway on the GCP Gateway page of the Zscaler Admin Console.
 
 This article provides information on adding a Google Cloud Platform (GCP) Zero Trust Gateway in the Zscaler Admin Console. To learn more, see [About Google Cloud Platform Zero Trust Gateways](https://help.zscaler.com/cloud-branch-connector/about-google-cloud-platform-zero-trust-gateways).
@@ -2517,13 +2559,13 @@ A Nanolog Streaming Service (NSS) feed specifies the data from the logs that the
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-nss-feeds-dns-logs","lastmod":"2026-09-25T11:02Z","nid":"1420716"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-nss-feeds-dns-logs","lastmod":"2026-10-09T21:06Z","nid":"1420716"} -->
 ## Adding NSS Feeds for DNS Logs
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-nss-feeds-dns-logs
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > NSS Feeds > Adding NSS Feeds > Adding NSS Feeds for DNS Logs
-- Last modified: 2026-09-25T11:02Z
+- Last modified: 2026-10-09T21:06Z
 - Summary: Information on how to add NSS feeds for DNS logs in the Zscaler Admin Console.
 
 You can configure up to 16 Nanolog Streaming Service (NSS) feeds to specify the data from the DNS logs that the NSS sends to the security information and event management (SIEM) system. For each feed, you can configure multiple types of filters. A large number of filters or complex filters, such as string searches, can impact the performance of the NSS.
@@ -2601,13 +2643,13 @@ For item lists, you can view up to 500 items on a page; filter the list by searc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-nss-feeds-event-logs","lastmod":"2026-09-25T11:03Z","nid":"1458956"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-nss-feeds-event-logs","lastmod":"2026-10-09T21:06Z","nid":"1458956"} -->
 ## Adding NSS Feeds for Event Logs
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-nss-feeds-event-logs
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > NSS Feeds > Adding NSS Feeds > Adding NSS Feeds for Event Logs
-- Last modified: 2026-09-25T11:03Z
+- Last modified: 2026-10-09T21:06Z
 - Summary: Information on how to add NSS feeds for Event logs in the Zscaler Admin Console.
 
 You can configure up to 16 Nanolog Streaming Service (NSS) feeds to specify the data from the Event logs that the NSS sends to the security information and event management (SIEM) system. For each feed, you can configure multiple types of filters. A large number of filters or complex filters, such as string searches, can impact the performance of the NSS.
@@ -2640,13 +2682,13 @@ To configure a feed for Event logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-nss-feeds-metrics-logs","lastmod":"2026-09-25T11:04Z","nid":"1458961"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-nss-feeds-metrics-logs","lastmod":"2026-10-09T21:06Z","nid":"1458961"} -->
 ## Adding NSS Feeds for Metrics Logs
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-nss-feeds-metrics-logs
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > NSS Feeds > Adding NSS Feeds > Adding NSS Feeds for Metrics Logs
-- Last modified: 2026-09-25T11:04Z
+- Last modified: 2026-10-09T21:06Z
 - Summary: Information on how to add NSS feeds for Metrics logs in the Zscaler Admin Console.
 
 You can configure up to 16 NSS feeds to specify the data from the Metrics logs that the Nanolog Streaming Service (NSS) sends to the security information and event management (SIEM) system. For each feed, you can configure multiple types of filters. A large number of filters or complex filters, such as string searches, can impact the performance of the NSS.
@@ -2683,13 +2725,13 @@ To configure a feed for Metrics logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-nss-feeds-session-logs","lastmod":"2026-09-25T11:01Z","nid":"1420721"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-nss-feeds-session-logs","lastmod":"2026-10-09T21:06Z","nid":"1420721"} -->
 ## Adding NSS Feeds for Session Logs
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-nss-feeds-session-logs
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > NSS Feeds > Adding NSS Feeds > Adding NSS Feeds for Session Logs
-- Last modified: 2026-09-25T11:01Z
+- Last modified: 2026-10-09T21:06Z
 - Summary: Information on how to add NSS feeds for Session logs in the Zscaler Admin Console.
 
 You can configure up to 8 Nanolog Streaming Service (NSS) feeds to specify the data from the Session logs that the NSS sends to the security information and event management (SIEM) system. For each feed, you can configure multiple types of filters. A large number of filters or complex filters, such as string searches, can impact the performance of the NSS.
@@ -2745,13 +2787,13 @@ You can enter multiple entries. Press **Enter** after each entry, then click **A
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-nss-servers","lastmod":"2026-09-25T10:38Z","nid":"1420616"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/adding-nss-servers","lastmod":"2026-10-09T21:06Z","nid":"1420616"} -->
 ## Adding NSS Servers
 
 - Source: https://help.zscaler.com/cloud-branch-connector/adding-nss-servers
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > Adding NSS Servers
-- Last modified: 2026-09-25T10:38Z
+- Last modified: 2026-10-09T21:06Z
 - Summary: How to add an NSS server on the NSS page from the Zscaler Admin Console.
 
 Before you set up a Nanolog Streaming Service (NSS) server on the Zscaler Admin Console, you must enter information about your traffic and users so the Zscaler service can compute the appropriate resources for your NSS. The NSS buffers the logs for at least one hour. If a security information and event management (SIEM) system goes offline for maintenance or if the connection between the NSS and the SIEM is disrupted, the NSS buffers the logs and sends them after the connection is re-established. The amount of memory required to buffer the logs is incorporated into the VM spec computation. The buffer size increases proportionally to the amount of RAM allocated to the NSS.
@@ -3402,13 +3444,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-branch-connector-details","lastmod":"2026-09-23T15:38Z","nid":"1447011"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-branch-connector-details","lastmod":"2026-10-07T21:06Z","nid":"1447011"} -->
 ## Analyzing Branch Connector Details
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-branch-connector-details
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Analyzing Branch Connector Details
-- Last modified: 2026-09-23T15:38Z
+- Last modified: 2026-10-07T21:06Z
 - Summary: Information on the Branch Connector Details page in the Zscaler Cloud & Branch Connector Admin Portal.
 
 The Branch Connector details page provides general, management, and forwarding information for a selected Branch Connector. You can access the Branch Connector details page by clicking the **View** icon ([Image: View Icon in the Cloud & Branch Connector Monitoring Table]) in the [Cloud & Branch Connector Monitoring](https://help.zscaler.com/cloud-branch-connector/accessing-cloud-branch-connector-monitoring) table (from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure**> **Branch Connector** > **Branch Connector Monitoring**) for a selected Branch Connector.
@@ -3677,13 +3719,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-cloud-connector-details","lastmod":"2026-09-23T15:44Z","nid":"1420706"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-cloud-connector-details","lastmod":"2026-10-07T21:06Z","nid":"1420706"} -->
 ## Analyzing Cloud Connector Details
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-cloud-connector-details
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Analyzing Cloud Connector Details
-- Last modified: 2026-09-23T15:44Z
+- Last modified: 2026-10-07T21:06Z
 - Summary: Information on the Cloud Connector Details page in the Zscaler Cloud & Branch Connector Admin Portal.
 
 The Cloud Connector details page provides general, forwarding, and management information for a selected Cloud Connector. You can access the Cloud Connector details page by clicking the **View** icon ([Image: View Icon in the Cloud & Branch Connector Monitoring Table]) in the [Cloud & Branch Connector Monitoring](https://help.zscaler.com/cloud-branch-connector/accessing-cloud-branch-connector-monitoring) table (from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud** > **Cloud Connector** > **Cloud Connector Overview**) for a selected Cloud Connector.
@@ -3768,13 +3810,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-google-cloud-platform-account-details","lastmod":"2026-09-24T12:17Z","nid":"1528942"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-google-cloud-platform-account-details","lastmod":"2026-10-08T21:06Z","nid":"1528942"} -->
 ## Analyzing Google Cloud Platform Account Details
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-google-cloud-platform-account-details
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > GCP Partner Integrations > Analyzing Google Cloud Platform Account Details
-- Last modified: 2026-09-24T12:17Z
+- Last modified: 2026-10-08T21:06Z
 - Summary: Information on the Google Cloud Platform account details in the Zscaler Admin Console.
 
 The Google Cloud Platform (GCP) account details page provides general and management information for a selected GCP account. You can access the GCP account details page by clicking the name of an account on the [GCP accounts](https://help.zscaler.com/cloud-branch-connector/about-google-cloud-platform-accounts) page.
@@ -3865,13 +3907,13 @@ On the **Pub/Sub** tab, you can view the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-google-cloud-platform-zero-trust-gateway-details","lastmod":"2026-09-21T14:16Z","nid":"1540927"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-google-cloud-platform-zero-trust-gateway-details","lastmod":"2026-10-05T21:06Z","nid":"1540927"} -->
 ## Analyzing Google Cloud Platform Zero Trust Gateway Details
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-google-cloud-platform-zero-trust-gateway-details
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > GCP Zero Trust Gateway Management > Analyzing Google Cloud Platform Zero Trust Gateway Details
-- Last modified: 2026-09-21T14:16Z
+- Last modified: 2026-10-05T21:06Z
 - Summary: Information on the Google Cloud Platform (GCP) Zero Trust Gateway details in the Zscaler Admin Console.
 
 The Google Cloud Platform (GCP) Gateway page provides management and operational information about the selected gateway. You can access the GCP Gateway page by selecting a GCP gateway on the [GCP Gateway](https://help.zscaler.com/cloud-branch-connector/about-google-cloud-platform-zero-trust-gateways) page.
@@ -3978,13 +4020,13 @@ In the table, you can view the following for each test:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-microsoft-azure-account-details","lastmod":"2026-09-22T13:43Z","nid":"1507806"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-microsoft-azure-account-details","lastmod":"2026-10-06T21:06Z","nid":"1507806"} -->
 ## Analyzing Microsoft Azure Account Details
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-microsoft-azure-account-details
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > Azure Partner Integrations > Analyzing Microsoft Azure Account Details
-- Last modified: 2026-09-22T13:43Z
+- Last modified: 2026-10-06T21:06Z
 - Summary: Information on the Microsoft Azure account details in the Zscaler Admin Console.
 
 The Microsoft Azure Account Details page provides general and management information for a selected Azure account. You can access the Azure Account Details page by clicking the **Regions**, **Subscriptions**, **Cloud Connectors**, or **Event Grid** number on the [Azure accounts](https://help.zscaler.com/cloud-branch-connector/about-microsoft-azure-accounts) page for a selected Azure account.
@@ -4098,13 +4140,13 @@ The Storage Account list shows you the storage account details associated with t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-traffic-flow","lastmod":"2026-09-23T15:46Z","nid":"1420711"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-traffic-flow","lastmod":"2026-10-07T21:06Z","nid":"1420711"} -->
 ## Analyzing Traffic Flow
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-traffic-flow
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Analyzing Traffic Flow
-- Last modified: 2026-09-23T15:46Z
+- Last modified: 2026-10-07T21:06Z
 - Summary: Information about Traffic Flow page in the Zscaler Admin Console.
 
 The Traffic Flow page provides information about the Traffic and DNS Overview. You can access the Traffic Flow page by clicking the **View** icon ([Image: Traffic Monitoring View Icon in the Cloud & Branch Connector Table]) in the [Traffic Monitoring](https://help.zscaler.com/cloud-branch-connector/analyzing-traffic-monitoring)'s Cloud & Branch Connector table (from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud** > **Dashboard**), where you can see the throughput and session count forwarded via Internet & SaaS (ZIA), Private Access (ZPA), Direct, or Log & Control for the selected Cloud or Branch Connector.
@@ -4163,13 +4205,13 @@ Click a point on the graph to see the value for the specified time period. **Cli
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-traffic-monitoring","lastmod":"2026-09-23T15:45Z","nid":"1420531"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-traffic-monitoring","lastmod":"2026-10-07T21:06Z","nid":"1420531"} -->
 ## Analyzing Traffic Monitoring
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-traffic-monitoring
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Analyzing Traffic Monitoring
-- Last modified: 2026-09-23T15:45Z
+- Last modified: 2026-10-07T21:06Z
 - Summary: Information on Traffic Monitoring page in the Zscaler Cloud & Branch Connector Admin Portal.
 
 The Traffic Monitoring page provides information on the name, group, location, throughput, and session data across services of your Cloud or Branch Connector. You can use the **Refresh**icon ([Image: Refresh Icon on the Traffic Monitoring Page in the Zscaler Cloud & Branch Connector Admin Portal]) to refresh the dashboard to view the most recent information (from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud** > **Dashboard**).
@@ -4244,13 +4286,13 @@ Click the **View** icon to access the [Traffic Flow](https://help.zscaler.com/cl
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-traffic-using-insights","lastmod":"2026-09-23T15:53Z","nid":"1420666"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-traffic-using-insights","lastmod":"2026-10-07T21:06Z","nid":"1420666"} -->
 ## Analyzing Traffic Using Insights
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-traffic-using-insights
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Insights > Analyzing Traffic Using Insights
-- Last modified: 2026-09-23T15:53Z
+- Last modified: 2026-10-07T21:06Z
 - Summary: How to analyze your traffic using Insights pages in the Zscaler Admin Console Admin Portal.
 
 From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** > **Zero Trust Cloud**> **Session/DNS/Tunnel Insights** to interactively drill down to specific transactions. To learn more about the Insights pages, see [About Insights](https://help.zscaler.com/cloud-branch-connector/about-insights).
@@ -4299,13 +4341,13 @@ You can:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-zero-trust-gateways","lastmod":"2026-09-21T12:51Z","nid":"1516906"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/analyzing-zero-trust-gateways","lastmod":"2026-10-05T21:06Z","nid":"1516906"} -->
 ## Analyzing Zero Trust Gateways
 
 - Source: https://help.zscaler.com/cloud-branch-connector/analyzing-zero-trust-gateways
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > Analyzing Zero Trust Gateways
-- Last modified: 2026-09-21T12:51Z
+- Last modified: 2026-10-05T21:06Z
 - Summary: Information on the Zero Trust Gateway page in the Zscaler Admin Console.
 
 The Zero Trust Gateway page provides information on the name, location, entitlement status, and health status of your Zero Trust Gateway. You can use the **Refresh**icon ([Image: Refresh Icon on the Traffic Monitoring Page in the Zscaler Cloud & Branch Connector Admin Portal]) to refresh the dashboard to view the most recent information.
@@ -4379,13 +4421,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-advanced-settings-cloud-connector","lastmod":"2026-09-24T14:46Z","nid":"1420861"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-advanced-settings-cloud-connector","lastmod":"2026-10-08T21:06Z","nid":"1420861"} -->
 ## Configuring Advanced Settings for Cloud Connector
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-advanced-settings-cloud-connector
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Configuring Advanced Settings for Cloud Connector
-- Last modified: 2026-09-24T14:46Z
+- Last modified: 2026-10-08T21:06Z
 - Summary: Information on how to configure advanced settings in the Zscaler Admin Console.
 
 On the Cloud Provider Account Import page, your imported ID is added to your [session logs](https://help.zscaler.com/cloud-branch-connector/session-insights-logs-columns)to correlate your workloads with your Amazon Web Services (AWS) account, Microsoft Azure subscription, and/or Google Cloud Platform (GCP) subscription.
@@ -4990,13 +5032,13 @@ To use wildcard FQDN destination IP groups, design your network so that workload
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-dns-filtering-rule","lastmod":"2026-09-23T14:41Z","nid":"1420516"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-dns-filtering-rule","lastmod":"2026-10-07T21:06Z","nid":"1420516"} -->
 ## Configuring the DNS Filtering Rule
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-dns-filtering-rule
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Forwarding > DNS Policies > Configuring the DNS Filtering Rule
-- Last modified: 2026-09-23T14:41Z
+- Last modified: 2026-10-07T21:06Z
 - Summary: How to create a DNS filtering rule to control DNS requests and responses in the Zscaler Admin Console.
 
 Configuring a DNS Filtering rule provides you with greater control over how your DNS traffic is forwarded.
@@ -5273,13 +5315,13 @@ To configure a location template:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-log-and-control-forwarding-rule","lastmod":"2026-09-23T14:33Z","nid":"1420506"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-log-and-control-forwarding-rule","lastmod":"2026-10-07T21:06Z","nid":"1420506"} -->
 ## Configuring a Log and Control Forwarding Rule
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-log-and-control-forwarding-rule
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Forwarding > Log and Control Forwarding > Configuring a Log and Control Forwarding Rule
-- Last modified: 2026-09-23T14:33Z
+- Last modified: 2026-10-07T21:06Z
 - Summary: How to add a log and control forwarding rule in the Zscaler Cloud & Branch Connector Admin Portal.
 
 [Watch a video about Log and Control Forwarding](https://fast.wistia.net/embed/iframe/a7m0d6dlg8) (shows legacy UI).
@@ -5501,13 +5543,13 @@ To create a source IP address group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-traffic-forwarding-rule","lastmod":"2026-09-23T14:21Z","nid":"1420496"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-traffic-forwarding-rule","lastmod":"2026-10-07T21:06Z","nid":"1420496"} -->
 ## Configuring Traffic Forwarding Rules
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-traffic-forwarding-rule
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Forwarding > Traffic Forwarding > Configuring Traffic Forwarding Rules
-- Last modified: 2026-09-23T14:21Z
+- Last modified: 2026-10-07T21:06Z
 - Summary: How to configure traffic forwarding rules in the Zscaler Admin Console.
 
 [Watch a video on Traffic Forwarding.](https://fast.wistia.net/embed/iframe/90oj4vknhx)
@@ -5845,13 +5887,13 @@ The local forwarding method facilitates subnet-to-subnet or virtual private clou
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-vdi-forwarding-profiles","lastmod":"2026-09-21T12:35Z","nid":"1471726"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-vdi-forwarding-profiles","lastmod":"2026-10-05T21:06Z","nid":"1471726"} -->
 ## Configuring VDI Forwarding Profiles
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-vdi-forwarding-profiles
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > Configuring VDI Forwarding Profiles
-- Last modified: 2026-09-21T12:35Z
+- Last modified: 2026-10-05T21:06Z
 - Summary: Information on how to configure a VDI Forwarding Profile in the Zscaler Admin Console.
 
 This article provides information on how to configure a Virtual Desktop Infrastructure (VDI) forwarding profile and bypass information. To learn more about VDI forwarding profiles, see [About VDI Forwarding Profiles](https://help.zscaler.com/cloud-branch-connector/about-vdi-agent-forwarding-profiles).
@@ -5894,13 +5936,13 @@ If your Citrix environment uses any of the Rendezvous protocols, then it might n
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-vdi-groups","lastmod":"2026-09-21T12:46Z","nid":"1471701"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-vdi-groups","lastmod":"2026-10-05T21:06Z","nid":"1471701"} -->
 ## Configuring VDI Groups
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-vdi-groups
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > Configuring VDI Groups
-- Last modified: 2026-09-21T12:46Z
+- Last modified: 2026-10-05T21:06Z
 - Summary: How to configure a VDI group in the Zscaler Admin Console.
 
 This article provides information on how to configure a dynamic Virtual Desktop Infrastructure (VDI) group. To learn more, see [About VDI Groups](https://help.zscaler.com/cloud-branch-connector/about-vdi-groups).
@@ -5932,13 +5974,13 @@ To add a VDI group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-vdi-templates","lastmod":"2026-09-21T12:46Z","nid":"1471711"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-vdi-templates","lastmod":"2026-10-05T21:06Z","nid":"1471711"} -->
 ## Configuring VDI Templates
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-vdi-templates
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > Configuring VDI Templates
-- Last modified: 2026-09-21T12:46Z
+- Last modified: 2026-10-05T21:06Z
 - Summary: Information on how to configure a VDI template in the Zscaler Admin Console.
 
 This article provides information on how to configure a Virtual Desktop Infrastructure (VDI) template. To learn more, see [About VDI Templates.](https://help.zscaler.com/cloud-branch-connector/about-vdi-agent-templates)
@@ -6277,13 +6319,13 @@ The workload discovery service communicates through API calls and a publish-subs
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-workload-discovery-workloads-google-cloud-platform","lastmod":"2026-09-24T12:03Z","nid":"1531144"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/configuring-workload-discovery-workloads-google-cloud-platform","lastmod":"2026-10-08T21:06Z","nid":"1531144"} -->
 ## Configuring Workload Discovery for Workloads in Google Cloud Platform
 
 - Source: https://help.zscaler.com/cloud-branch-connector/configuring-workload-discovery-workloads-google-cloud-platform
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Administration > Cloud Connector Partner Integrations > GCP Partner Integrations > Configuring Workload Discovery for Workloads in Google Cloud Platform
-- Last modified: 2026-09-24T12:03Z
+- Last modified: 2026-10-08T21:06Z
 - Summary: Information on how to configure workload discovery for workloads in Google Cloud Platform (GCP).
 
 The workload discovery service is a Zscaler-managed service that discovers workloads in your Google Cloud Platform (GCP) account. The service also fetches associated metadata such as user-defined tags and attributes generated by cloud service providers. These tags and attributes are used in security policies.
@@ -7508,13 +7550,13 @@ For Cloud & Branch Connector, consider only theNSS for Firewall configurations i
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-zero-trust-sd-wan-devices","lastmod":"2026-09-22T11:46Z","nid":"1468301"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-zero-trust-sd-wan-devices","lastmod":"2026-10-06T21:06Z","nid":"1468301"} -->
 ## Deploying Zero Trust SD-WAN Devices
 
 - Source: https://help.zscaler.com/cloud-branch-connector/deploying-zero-trust-sd-wan-devices
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Physical Devices > Deploying Zero Trust SD-WAN Devices
-- Last modified: 2026-09-22T11:46Z
+- Last modified: 2026-10-06T21:06Z
 - Summary: Information on deploying Zero Trust SD-WAN Devices.
 
 Enabled by the Zscaler Zero Trust Exchange (ZTE), Zero Trust Software-Defined Wide Area Network (SD-WAN) Devices are [Zscaler Branch Connector](https://help.zscaler.com/cloud-branch-connector/what-zscaler-branch-connector) hardware devices that use Zero Trust Branch Connectivity to simplify traffic forwarding to Zscaler services. To learn more, see [Understanding Zero Trust SD-WAN Devices](https://help.zscaler.com/cloud-branch-connector/understanding-zero-trust-sd-wan-devices).
@@ -7563,13 +7605,13 @@ passwd zsroot
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-zscaler-cloud-connector-amazon-web-services","lastmod":"2026-09-24T14:56Z","nid":"1420746"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-zscaler-cloud-connector-amazon-web-services","lastmod":"2026-10-08T21:06Z","nid":"1420746"} -->
 ## Deploying Zscaler Cloud Connector with Amazon Web Services
 
 - Source: https://help.zscaler.com/cloud-branch-connector/deploying-zscaler-cloud-connector-amazon-web-services
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Cloud Connector Deployment Management for AWS > Deploying Zscaler Cloud Connector with Amazon Web Services
-- Last modified: 2026-09-24T14:56Z
+- Last modified: 2026-10-08T21:06Z
 - Summary: Information on deploying Zscaler Cloud Connector with Amazon Web Services.
 
 This deployment guide provides information on prerequisites, how to deploy Zscaler Cloud Connector as an Amazon Machine Image (AMI) on Amazon Web Services (AWS), and post-deployment configurations.
@@ -7985,13 +8027,13 @@ If you face any issues with your Cloud Connector deployment, see[Troubleshooting
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-zscaler-cloud-connector-google-cloud-platform","lastmod":"2026-09-25T07:43Z","nid":"1461611"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-zscaler-cloud-connector-google-cloud-platform","lastmod":"2026-10-09T21:06Z","nid":"1461611"} -->
 ## Deploying Zscaler Cloud Connector on the Google Cloud Platform
 
 - Source: https://help.zscaler.com/cloud-branch-connector/deploying-zscaler-cloud-connector-google-cloud-platform
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Cloud Connector Deployment Management for GCP > Deploying Zscaler Cloud Connector on the Google Cloud Platform
-- Last modified: 2026-09-25T07:43Z
+- Last modified: 2026-10-09T21:06Z
 - Summary: Information on deploying Zscaler Cloud Connector on the Google Cloud Platform.
 
 This deployment guide provides information on prerequisites, how to deploy Zscaler Cloud Connector as a virtual machine (VM) on the Google Cloud Platform (GCP), and post-deployment configurations. This procedure describes the steps for deploying Zscaler Cloud Connector using Terraform. To learn more about the resources created when deploying Zscaler Cloud Connector, see [Deployment Templates for Zscaler Cloud Connector](https://help.zscaler.com/cloud-branch-connector/deployment-templates-zscaler-cloud-connector).
@@ -8285,13 +8327,13 @@ After verifying deployment, you can configure the following policies:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-zscaler-cloud-connector-microsoft-azure","lastmod":"2026-09-25T07:38Z","nid":"1420751"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deploying-zscaler-cloud-connector-microsoft-azure","lastmod":"2026-10-09T21:06Z","nid":"1420751"} -->
 ## Deploying Zscaler Cloud Connector with Microsoft Azure
 
 - Source: https://help.zscaler.com/cloud-branch-connector/deploying-zscaler-cloud-connector-microsoft-azure
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Cloud Connector Deployment Management for Azure > Deploying Zscaler Cloud Connector with Microsoft Azure
-- Last modified: 2026-09-25T07:38Z
+- Last modified: 2026-10-09T21:06Z
 - Summary: How to deploy Zscaler Cloud Connector on Microsoft Azure, including prerequisites and post-deployment verification checks.
 
 When deploying a Cloud Connector, only deploy an autoscaling group (ASG) with an ASG template or a non-ASG with a non-ASG template. Additionally, do not run both Virtual Machine Scale Sets (VMSS) and non-VMSS deployments within the same virtual network (VNet).
@@ -8789,13 +8831,13 @@ Use the Starter Deployment Template with App Connector and High-Availability (bc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deployment-templates-zscaler-cloud-connector","lastmod":"2026-09-24T14:44Z","nid":"1443361"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/deployment-templates-zscaler-cloud-connector","lastmod":"2026-10-08T21:06Z","nid":"1443361"} -->
 ## Deployment Templates for Zscaler Cloud Connector
 
 - Source: https://help.zscaler.com/cloud-branch-connector/deployment-templates-zscaler-cloud-connector
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Deployment Templates for Zscaler Cloud Connector
-- Last modified: 2026-09-24T14:44Z
+- Last modified: 2026-10-08T21:06Z
 - Summary: Information about the Zscaler Cloud Connector deployment templates on GitHub.
 
 Infrastructure as Code (IaC) deployment templates are available in [GitHub](https://github.com/zscaler) to assist in the deployment of Zscaler Cloud Connector in Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP). AWS deployment templates are available in CloudFormation and Terraform repositories. Azure and GCP deployment templates are available in Terraform repositories. Links to the repositories are included in this article and in the Zscaler Admin Console (**Zero Trust Cloud** > **Cloud Connector** > **Deployment Templates**).
@@ -11840,13 +11882,13 @@ module.network.google_compute_subnetwork.service_subnet[0]
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/dns-insights-logs-columns","lastmod":"2026-09-23T16:04Z","nid":"1420671"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/dns-insights-logs-columns","lastmod":"2026-10-07T21:06Z","nid":"1420671"} -->
 ## DNS Insights Logs: Columns
 
 - Source: https://help.zscaler.com/cloud-branch-connector/dns-insights-logs-columns
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Insights > Logs > DNS Insights Logs: Columns
-- Last modified: 2026-09-23T16:04Z
+- Last modified: 2026-10-07T21:06Z
 - Summary: Information on the different columns in the DNS Insights Logs page in the Zscaler Zscaler Admin Console.
 
 You can customize your DNS logs by using column fields. To learn more about logs, see [About Insights Logs.](https://help.zscaler.com/cloud-branch-connector/about-insights-logs)
@@ -11885,13 +11927,13 @@ From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/dns-insights-logs-filters","lastmod":"2026-09-23T16:05Z","nid":"1420676"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/dns-insights-logs-filters","lastmod":"2026-10-07T21:06Z","nid":"1420676"} -->
 ## DNS Insights Logs: Filters
 
 - Source: https://help.zscaler.com/cloud-branch-connector/dns-insights-logs-filters
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Insights > Logs > DNS Insights Logs: Filters
-- Last modified: 2026-09-23T16:05Z
+- Last modified: 2026-10-07T21:06Z
 - Summary: Information on the different filters in the DNS Insights Logs page in the Zscaler Cloud & Branch Connector Admin Portal.
 
 Filters define the DNS traffic information that you view in your DNS Insights Logs. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/cloud-branch-connector/about-insights-logs).
@@ -11924,13 +11966,13 @@ From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/downloading-branch-connector-images","lastmod":"2026-09-22T12:56Z","nid":"1420741"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/downloading-branch-connector-images","lastmod":"2026-10-06T21:06Z","nid":"1420741"} -->
 ## Downloading Branch Connector Images
 
 - Source: https://help.zscaler.com/cloud-branch-connector/downloading-branch-connector-images
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Branch Connector Deployment Management > Downloading Branch Connector Images
-- Last modified: 2026-09-22T12:56Z
+- Last modified: 2026-10-06T21:06Z
 - Summary: Information on downloading your Branch Connector Virtual Machine (VM) images.
 
 The Branch Connector Images page in the Zscaler Admin Console provides the ability to download your Branch Connector or Branch Connector & App Connector virtual machine (VM) images. Branch Connector images include App Connectors that have not yet been provisioned. To deploy Branch Connector & App Connector, you must select the combined instance and configure the deployment properties accordingly.
@@ -11945,13 +11987,13 @@ To download the VM image:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/downloading-zscaler-client-connector-vdi","lastmod":"2026-09-21T14:26Z","nid":"1475381"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/downloading-zscaler-client-connector-vdi","lastmod":"2026-10-05T21:06Z","nid":"1475381"} -->
 ## Downloading Zscaler Client Connector for VDI
 
 - Source: https://help.zscaler.com/cloud-branch-connector/downloading-zscaler-client-connector-vdi
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > Downloading Zscaler Client Connector for VDI
-- Last modified: 2026-09-21T14:26Z
+- Last modified: 2026-10-05T21:06Z
 - Summary: How to download Zscaler Client Connector for VDI from the Zscaler Admin Console.
 
 In the Zscaler Admin Console, on the VDI App Store page, you can download Zscaler Client Connector for Virtual Desktop Infrastructure (VDI) for Windows. You can download the latest version or one of the older versions still available for download. To learn more about Zscaler Client Connector for VDI, see [What Is Zscaler Client Connector for VDI?](https://help.zscaler.com/cloud-branch-connector/what-zscaler-vdi-agent)
@@ -12230,13 +12272,13 @@ To edit a Zero Trust Branch Device:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/editing-zero-trust-gateways","lastmod":"2026-09-21T13:05Z","nid":"1529794"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/editing-zero-trust-gateways","lastmod":"2026-10-05T21:06Z","nid":"1529794"} -->
 ## Editing Zero Trust Gateways
 
 - Source: https://help.zscaler.com/cloud-branch-connector/editing-zero-trust-gateways
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > Editing Zero Trust Gateways
-- Last modified: 2026-09-21T13:05Z
+- Last modified: 2026-10-05T21:06Z
 - Summary: How to modify the Zero Trust Gateway details from the Cloud Connector Groups page in the Zscaler Admin Console.
 
 Modifying Zscaler Zero Trust Gateway groups or viewing individual Zero Trust Gateways are some of the tasks you can complete after deployment.
@@ -12299,13 +12341,13 @@ To enable remote assistance:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/general-guidelines-nss-feeds-and-feed-formats","lastmod":"2026-09-25T11:23Z","nid":"1420831"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/general-guidelines-nss-feeds-and-feed-formats","lastmod":"2026-10-09T21:06Z","nid":"1420831"} -->
 ## General Guidelines for NSS Feeds and Feed Formats
 
 - Source: https://help.zscaler.com/cloud-branch-connector/general-guidelines-nss-feeds-and-feed-formats
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > General Guidelines for NSS Feeds and Feed Formats
-- Last modified: 2026-09-25T11:23Z
+- Last modified: 2026-10-09T21:06Z
 - Summary: Guidelines on how to format NSS field outputs in the Zscaler Admin Console.
 
 This article provides guidelines and information about the different feeds and fields that you can include in the Nanolog Streaming Service (NSS) output for the logs.
@@ -12816,13 +12858,13 @@ After confirmation, the key is immediately removed and invalidated.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/modifying-default-dns-control-rule","lastmod":"2026-09-23T14:43Z","nid":"1420546"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/modifying-default-dns-control-rule","lastmod":"2026-10-07T21:06Z","nid":"1420546"} -->
 ## Modifying the Default DNS Control Rule
 
 - Source: https://help.zscaler.com/cloud-branch-connector/modifying-default-dns-control-rule
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Forwarding > DNS Policies > Modifying the Default DNS Control Rule
-- Last modified: 2026-09-23T14:43Z
+- Last modified: 2026-10-07T21:06Z
 - Summary: How to modify the default DNS Control rule in the Zscaler Admin Console.
 
 The DNS Control policy has a default rule that allows all DNS traffic. The default rule always maintains the lowest precedence. You can modify its actions, but you cannot delete or duplicate it.
@@ -13668,13 +13710,13 @@ When the Zscaler service sends logs to the NSS, it hex encodes all nonprintable 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/registering-endpoint-amazon-web-services","lastmod":"2026-09-21T13:39Z","nid":"1519146"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/registering-endpoint-amazon-web-services","lastmod":"2026-10-05T21:06Z","nid":"1519146"} -->
 ## Registering an Endpoint in Amazon Web Services
 
 - Source: https://help.zscaler.com/cloud-branch-connector/registering-endpoint-amazon-web-services
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > AWS Zero Trust Gateway Management > Registering an Endpoint in Amazon Web Services
-- Last modified: 2026-09-21T13:39Z
+- Last modified: 2026-10-05T21:06Z
 - Summary: Information on how to register an endpoint in Amazon Web Services (AWS).
 
 Zero Trust Gateways allow you to register an endpoint in Amazon Web Services (AWS). Registering your endpoint with the Zscaler service allows you to route and secure your traffic to the Zero Trust Exchange (ZTE).
@@ -14000,13 +14042,13 @@ This article provides a summary of all new features and enhancements for Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/release-upgrade-summary-2026","lastmod":"2026-09-30T14:44Z","nid":"1534301"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/release-upgrade-summary-2026","lastmod":"2026-10-06T19:20Z","nid":"1534301"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/cloud-branch-connector/release-upgrade-summary-2026
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Release Notes > Zscaler Cloud & Branch Connector Service Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-30T14:44Z
+- Last modified: 2026-10-06T19:20Z
 - Summary: Zscaler Cloud & Branch Connector Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Zscaler Cloud & Branch Connector. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -14058,13 +14100,13 @@ passwd zsroot
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/session-data-types-filters","lastmod":"2026-09-23T15:56Z","nid":"1420701"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/session-data-types-filters","lastmod":"2026-10-07T21:06Z","nid":"1420701"} -->
 ## Session Data Types and Filters
 
 - Source: https://help.zscaler.com/cloud-branch-connector/session-data-types-filters
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Insights > Session Data Types and Filters
-- Last modified: 2026-09-23T15:56Z
+- Last modified: 2026-10-07T21:06Z
 - Summary: Information on Session data types to define Session traffic information in a dashboard and charts in Session Insights.
 
 There are two ways to view Session data types and filters to define Session traffic information. You can view them on a dashboard or when analyzing charts on an Insights page. To learn more about how to analyze your Insights traffic, see [Analyzing Traffic Using Insights](https://help.zscaler.com/cloud-branch-connector/analyzing-traffic-using-insights).
@@ -14110,13 +14152,13 @@ Using the following filters, you can further drill down into the Session Insight
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/session-insights-logs-columns","lastmod":"2026-09-23T16:02Z","nid":"1420691"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/session-insights-logs-columns","lastmod":"2026-10-07T21:06Z","nid":"1420691"} -->
 ## Session Insights Logs: Columns
 
 - Source: https://help.zscaler.com/cloud-branch-connector/session-insights-logs-columns
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Insights > Logs > Session Insights Logs: Columns
-- Last modified: 2026-09-23T16:02Z
+- Last modified: 2026-10-07T21:06Z
 - Summary: Information on the different columns in the Session Insights Logs page in the Zscaler Admin Console.
 
 You can customize your Session logs by using column fields. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/cloud-branch-connector/about-insights-logs).
@@ -14166,13 +14208,13 @@ From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/session-insights-logs-filters","lastmod":"2026-09-23T16:03Z","nid":"1420696"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/session-insights-logs-filters","lastmod":"2026-10-07T21:06Z","nid":"1420696"} -->
 ## Session Insights Logs: Filters
 
 - Source: https://help.zscaler.com/cloud-branch-connector/session-insights-logs-filters
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Insights > Logs > Session Insights Logs: Filters
-- Last modified: 2026-09-23T16:03Z
+- Last modified: 2026-10-07T21:06Z
 - Summary: Information on the different filters in the Session Insights Logs page in the Zscaler Cloud & Branch Connector Admin Portal.
 
 Filters define the traffic information that you view in your Session Insight logs. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/cloud-branch-connector/about-insights-logs).
@@ -14701,13 +14743,13 @@ Gather the following information to respond to Terraform deployment wizard promp
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/supported-regions-zero-trust-gateways","lastmod":"2026-09-21T12:51Z","nid":"1538721"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/supported-regions-zero-trust-gateways","lastmod":"2026-10-05T21:06Z","nid":"1538721"} -->
 ## Supported Regions for Zero Trust Gateways
 
 - Source: https://help.zscaler.com/cloud-branch-connector/supported-regions-zero-trust-gateways
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zero Trust Gateway Management > Supported Regions for Zero Trust Gateways
-- Last modified: 2026-09-21T12:51Z
+- Last modified: 2026-10-05T21:06Z
 - Summary: Information about the supported regions for Zscaler Zero Trust Gateways in the Zscaler Admin Console.
 
 Zscaler Zero Trust Gateways are supported in the following regions:
@@ -15502,13 +15544,13 @@ To access the CLI via the Bastion subnet:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/troubleshooting-zscaler-client-connector-vdi","lastmod":"2026-09-21T12:39Z","nid":"1494866"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/troubleshooting-zscaler-client-connector-vdi","lastmod":"2026-10-05T21:06Z","nid":"1494866"} -->
 ## Troubleshooting Zscaler Client Connector for VDI
 
 - Source: https://help.zscaler.com/cloud-branch-connector/troubleshooting-zscaler-client-connector-vdi
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Zscaler Client Connector for VDI Management > Troubleshooting Zscaler Client Connector for VDI
-- Last modified: 2026-09-21T12:39Z
+- Last modified: 2026-10-05T21:06Z
 - Summary: Information on various issue that may occur in Zscaler Client Connector for VDI and their solutions.
 
 This article provides troubleshooting information and guidelines for Zscaler Client Connector for Virtual Desktop Infrastructure (VDI) deployment. You can review issues and corresponding solutions for Zscaler Client Connector for VDI. If you cannot reach a solution, contact Zscaler Support. Additionally, ensure that you bypass services you want to keep local to Microsoft Azure or Citrix. To learn more about bypasses, see [Configuring VDI Forwarding Profiles](https://help.zscaler.com/cloud-branch-connector/configuring-vdi-forwarding-profiles).
@@ -15585,13 +15627,13 @@ The following table lists Zscaler Client Connector for VDI Private Access data p
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/tunnel-data-types-filters","lastmod":"2026-09-23T15:54Z","nid":"1420661"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/tunnel-data-types-filters","lastmod":"2026-10-07T21:06Z","nid":"1420661"} -->
 ## Tunnel Data Types and Filters
 
 - Source: https://help.zscaler.com/cloud-branch-connector/tunnel-data-types-filters
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Insights > Tunnel Data Types and Filters
-- Last modified: 2026-09-23T15:54Z
+- Last modified: 2026-10-07T21:06Z
 - Summary: Information on tunnel, location, and VPN credential data types to define traffic information in a dashboard or when analyzing charts in Tunnel Insights.
 
 You can use tunnel data types and filters to define the tunnel traffic information that you want to view when analyzing charts on an Insights page. To learn more about how to analyze your traffic insights, see [Analyzing Traffic Using Insights](https://help.zscaler.com/cloud-branch-connector/analyzing-traffic-using-insights).
@@ -15614,13 +15656,13 @@ The following are the tunnel data types and their filters:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/tunnel-insights-logs-columns","lastmod":"2026-09-23T16:06Z","nid":"1420681"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/tunnel-insights-logs-columns","lastmod":"2026-10-07T21:06Z","nid":"1420681"} -->
 ## Tunnel Insights Logs: Columns
 
 - Source: https://help.zscaler.com/cloud-branch-connector/tunnel-insights-logs-columns
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Insights > Logs > Tunnel Insights Logs: Columns
-- Last modified: 2026-09-23T16:06Z
+- Last modified: 2026-10-07T21:06Z
 - Summary: Information on the different columns in the Tunnel Insights Logs page in the Zscaler Zscaler Admin Console.
 
 You can customize your tunnel logs using the columns. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/cloud-branch-connector/about-insights-logs).
@@ -15672,13 +15714,13 @@ From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/tunnel-insights-logs-filters","lastmod":"2026-09-23T16:07Z","nid":"1420686"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/tunnel-insights-logs-filters","lastmod":"2026-10-07T21:06Z","nid":"1420686"} -->
 ## Tunnel Insights Logs: Filters
 
 - Source: https://help.zscaler.com/cloud-branch-connector/tunnel-insights-logs-filters
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Analytics & Monitoring > Insights > Logs > Tunnel Insights Logs: Filters
-- Last modified: 2026-09-23T16:07Z
+- Last modified: 2026-10-07T21:06Z
 - Summary: Information on the different filters in the Tunnel Insights logs page in the Zscaler Cloud & Branch Connector Admin Portal.
 
 Filters define the traffic information that you view in your Tunnel Insights logs. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/cloud-branch-connector/about-insights-logs).
@@ -15699,13 +15741,13 @@ From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/understanding-cloud-connector-deployments-amazon-web-services-auto-scaling-groups","lastmod":"2026-09-24T15:00Z","nid":"1529197"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/understanding-cloud-connector-deployments-amazon-web-services-auto-scaling-groups","lastmod":"2026-10-08T21:06Z","nid":"1529197"} -->
 ## Understanding Cloud Connector Deployments with Amazon Web Services Autoscaling Groups
 
 - Source: https://help.zscaler.com/cloud-branch-connector/understanding-cloud-connector-deployments-amazon-web-services-auto-scaling-groups
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Cloud Connector Deployment Management for AWS > Understanding Cloud Connector Deployments with Amazon Web Services Autoscaling Groups
-- Last modified: 2026-09-24T15:00Z
+- Last modified: 2026-10-08T21:06Z
 - Summary: Information about Autoscaling Groups with Zscaler Cloud Connector.
 
 An AWS Elastic Compute Cloud (EC2) Autoscaling deployment dynamically adds Cloud Connector virtual machines (VMs), which are EC2 instances, to an Autoscaling group to meet the current load, and removes Cloud Connector VMs from the group when the load decreases. You define the desired capacity and the minimum and maximum number of VMs in the group.

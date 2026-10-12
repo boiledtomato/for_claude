@@ -1,570 +1,8 @@
 # Zscaler Help — ZCC — Zscaler Client Connector (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-05 09:38 UTC
-Articles in this file: 54
-
----
-
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/understanding-alternative-cloud-domains","lastmod":"2026-03-31T13:09Z","nid":"1529036"} -->
-## Understanding Alternative Cloud Domains
-
-- Source: https://help.zscaler.com/zscaler-client-connector/understanding-alternative-cloud-domains
-- Product: Client Connector
-- Path: Zscaler Client Connector Help > Interoperability > Understanding Alternative Cloud Domains
-- Last modified: 2026-03-31T13:09Z
-- Summary: Information about using alternative cloud domains
-
-In China, only a content provider who is serving content from mainland China is required to have an Internet Content Provider (ICP) license. Zscaler does not generate or serve content in mainland China or offer additional encryption services. However, when a Zscaler Client Connector user in China connects to a Zscaler server also located in China, the connection might be blocked because the cloud on which your organization is provisioned is not registered in China.
-
-You can use an alternative cloud domain registered in China that can override the default cloud domain when connecting to the Internet & SaaS service and the Private Access service.
-
-## Prerequisites
-
-Make sure the following prerequisites are met:
-
-- Ensure Zscaler Client Connector is upgraded to one of the following versions:
-  - Zscaler Client Connector version 4.4 or later for Windows
-  - Zscaler Client Connector version 4.2 or later for macOS
-- If you use Internet & SaaS with Zscaler Tunnel (Z-Tunnel) 2.0, configure a forwarding profile with these settings:
-  - A Tunnel Driver Type of Packet Filter-Based (Zscaler Client Connector for Windows only)
-  - A forwarding profile action of Tunnel.
-  - A Tunnel Version Selection of Z-Tunnel 2.0
-
-## How it works
-
-When a Zscaler Client Connector user in China connects to the Zscaler service, Zscaler Client Connector determines whether an alternative cloud domain is configured as part of the Service Edge Discovery. Zscaler Client Connector then uses the alternative cloud domain that was discovered to connect to the Service Edge for Internet & SaaS and Service Edge for Private Access.
-
-Zscaler Client Connector automatically connects to the alternative cloud domain if you use a compatible version of the app. If required, you can disable this feature for your organization by contacting Zscaler Support.
-
-## Connecting to Specific Public Service Edges for Internet & SaaS
-
-If you use Zscaler Client Connector version 4.7 or later for Windows, Zscaler Client Connector locates the alternative cloud name in the default return statement of the PAC file associated with the app profile. If the PAC file uses the `${GATEWAY_FX}` macro or a similar macro, the PAC server replaces the macro with the alternative cloud domain along with the Public Service Edge for Internet & SaaS IP address and port.
-
-If the return statement does not include an alternative domain, Zscaler Client Connector uses the alternative domain in the HTTP response header of the PAC file and connects based on the Zscaler Client Connector location (and not the Service Edge location).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/understanding-zscaler-client-connector-app-downloads","lastmod":"2026-09-22T15:58Z","nid":"1285451"} -->
-## Understanding Zscaler Client Connector App Downloads
-
-- Source: https://help.zscaler.com/zscaler-client-connector/understanding-zscaler-client-connector-app-downloads
-- Product: Client Connector
-- Path: Zscaler Client Connector Help > Downloading & Deployment > Understanding Zscaler Client Connector App Downloads
-- Last modified: 2026-09-22T15:58Z
-- Summary: How to navigate to the Zscaler Admin Console and manually download Zscaler Client Connector from the Zscaler Client Connector App Store page.
-
-IT Admins can download installation files to use when deploying Zscaler Client Connector to end users.
-
-There are no download links for Zscaler Client Connector in this article. This article applies only to admins for the Zscaler Admin Console. If you are an end user, contact your organization’s IT admin, IT support team, or equivalent for information about installing Zscaler Client Connector.
-
-If you are an IT Admin, you can download Zscaler Client Connector for Windows, macOS, Linux, or Android from the Zscaler Client Connector App Store in the Zscaler Admin Console. You can download either the latest version or one of the older versions still available for download.
-
-You cannot manually download and install the iOS version of Zscaler Client Connector from the Zscaler Admin Console. You must download and deploy the app with the Mobile Device Management (MDM) used by your organization. To learn more, see [Customizing Zscaler Client Connector with Install Options for iOS](https://help.zscaler.com/zscaler-client-connector/customizing-zscaler-client-connector-install-options-ios).
-
-You can also configure app updates to automatically update Zscaler Client Connector for end users with Windows, Linux, or macOS devices. To learn more, see [Configuring an App Update in the Zscaler Client Connector App Store](https://help.zscaler.com/zscaler-client-connector/configuring-app-update-zscaler-client-connector-app-store).
-
-To download from the Zscaler Client Connector App Store:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Infrastructure** > **Client Connector** > **App Store**.
-2. On the **New Releases** tab, you can view and enable the latest Zscaler Client Connector versions for Windows, macOS, and Linux. In the**EXE URL** and**MSI URL** columns for Windows, the **Download APP** or **Download PKG** columns for macOS, or the **Download Link** column for Linux, click the **Download** icon for the version you want to download. After you enable a particular build, it is listed under the **Registered Devices** tab. See image.
-3. On the **Registered Devices** tab, you can view the released versions of Zscaler Client Connector versions for Windows, macOS, Linux, and Android (SDK file only). Click the **Download** icon for the version you want to download in the **EXE URL** and **MSI URL** columns for Windows, the **Download APP** or **Download PKG** columns for macOS, or the **Download Link** column for Linux or Android. The most recent release is listed at the top of each table. Versions that are not grayed out are still available to download. To learn more, see [About the Zscaler Client Connector Store](https://help.zscaler.com/zscaler-client-connector/about-zscaler-client-connector-store). See image.
-
-After downloading the file, you can use it to deploy Zscaler Client Connector to end users. To learn more, see the article that corresponds to the OS and any MDM used by your organization in the [Downloading and Deployment](https://help.zscaler.com/zscaler-client-connector/downloading-deployment) section.
-
-[Image: Download options for the Registered Devices tab]
-
-[Image: Download options for the New Releases tab]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/understanding-zscaler-client-connector-dashboard","lastmod":"2026-09-22T10:58Z","nid":"1296751"} -->
-## Understanding the Zscaler Client Connector Dashboard
-
-- Source: https://help.zscaler.com/zscaler-client-connector/understanding-zscaler-client-connector-dashboard
-- Product: Client Connector
-- Path: Zscaler Client Connector Help > Monitoring Usage > Understanding the Zscaler Client Connector Dashboard
-- Last modified: 2026-09-22T10:58Z
-- Summary: Information on the Zscaler Client Connector Portal Dashboard and its widgets, which display information about enrolled devices.
-
-The Zscaler Client Connector Dashboard provides information [about enrolled devices](https://help.zscaler.com/zscaler-client-connector/about-enrolled-devices) for your organization, including information about service status.
-
-From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics**> **Infrastructure**> **Platform Details**.
-
-## Dashboard
-
-The Dashboard option in the left-side navigation covers the following information:
-
-[Image: Zscaler Client Connector Dashboard]
-
-- Platform Details
-- Device Posture
-- Device Events
-
-This page provides OS platform details such as device model and device state.
-
-### Dashboard Filters
-
-Use the following filters to modify the content shown in the Platform Details page widgets. After you select filters, click **Apply** in the upper-right corner of the page.
-
-- **States**: View data for devices with all device states, or a specific state (i.e., **Registered**, **Unregistered**, **Removal Pending**, **Removed**, **Quarantined**).
-- **OS**: View data for all operating systems or a specific operating system.
-
-### Widgets
-
-The Platform Details page provides the following details:
-
-- Version Distribution
-- Device Model
-- Device OS
-- Device State
-- Enrolled Devices by Platform
-- License Usage
-
-[Image: Zscaler Client Connector Dashboard]
-
-This widget displays your organization's subscription and license information.
-
-This widget only applies to Internet & SaaS. You won't see this widget if you only have Private Access.
-
-[Image: Zscaler Client Connector Dashboard - License Usage chart]
-
-- Hover over the chart to view the following: Licenses are calculated based on the unique username. For example, even if a user has Zscaler Client Connector installed on three devices, the user still has only one license.
-  - **Subscribed**: The number of user subscriptions for Zscaler Client Connector.
-  - **Used**: The number of users that are enrolled to Zscaler Client Connector.
-- To view a list of all enrolled devices, click a category in the chart.
-
-This widget displays the enrolled device models. It displays the top 5 device models and groups all other models in the Others category.
-
-[Image: Zscaler Client Connector Dashboard - Device Model chart]
-
-- Hover over the chart to view the following:
-  - The details for a specific device model, which includes:
-    - The model name
-    - The number of enrolled devices for the model
-    - The percentage of enrolled devices for the model
-  - The details for the Others category, which includes:
-    - The number of enrolled devices grouped under Others
-    - The percentage of enrolled devices grouped under Others
-- To view a list in **Enrolled Devices**for all devices for a specific model, click the model in the chart.
-- To view a list in **Enrolled Devices** for all devices in the Others category, click **Others**in the chart. The list of devices is organized by device model.
-
-This widget displays the enrolled devices operating systems. It displays the top 5 OSs and groups all other OSs in the Others category.
-
-[Image: Zscaler Client Connector Dashboard - Device OS chart]
-
-- Hover over the chart to view the following:
-  - The details for a specific OS, which includes:
-    - The OS name
-    - The number of enrolled devices for the OS
-    - The percentage of enrolled devices for the OS
-  - The details for the Other category, which includes:
-    - The number of enrolled devices grouped under Others
-    - The percentage of enrolled devices grouped under Others
-- To view a list in **Enrolled Devices** for all devices for a specific OS, click the OS in the chart.
-- To view a list in **Enrolled Devices** for all devices in the Others category, click **Others**in the chart. The list of devices is organized by OS.
-
-This widget displays the states of the enrolled devices and the [app profiles](https://help.zscaler.com/zscaler-client-connector/about-zscaler-app-profiles) applied to the devices.
-
-The possible device states are:
-
-- Registered
-- Unregistered
-- Removal Pending
-- Removed
-- Quarantined
-
-To learn more about device states, see [Device States for Enrolled Devices](https://help.zscaler.com/zscaler-client-connector/device-states-enrolled-devices).
-
-[Image: Zscaler Client Connector Dashboard - Device State chart]
-
-- Hover over the chart to view the following:
-  - The state name
-  - The number of enrolled devices for the state
-  - The percentage of enrolled devices for the state
-- To view a list in **Enrolled Devices** for all devices for a specific state, click the state in the chart.
-
-This widget displays the enrolled devices platforms.
-
-[Image: Zscaler Client Connector Dashboard - Enrolled Devices by Platform chart]
-
-- Hover over the chart to view the following:
-  - The platform name
-  - The number of enrolled devices for the platform
-- To view a list in **Enrolled Devices** for all devices for a specific platform, click the platform in the chart.
-
-This widget displays the number of devices installed with supported and unsupported versions of Zscaler Client Connector, defined as:
-
-- **Supported**: Zscaler Client Connector versions enabled on the [New Releases tab](https://help.zscaler.com/zscaler-client-connector/about-zscaler-client-connector-app-store) of the Client Connector App Store and listed on the [Update Settings tab](https://help.zscaler.com/zscaler-client-connector/about-zscaler-client-connector-app-store) of the Client Connector App Store.
-- **Unsupported**: Zscaler Client Connector versions enabled on the [New Releases tab](https://help.zscaler.com/zscaler-client-connector/about-zscaler-client-connector-app-store) of the Client Connector App Store but are earlier than the supported versions listed on the [Update Settings tab](https://help.zscaler.com/zscaler-client-connector/about-zscaler-client-connector-app-store) of the Client Connector App Store.
-
-[Image: Zscaler Client Connector Dashboard - Version Distribution chart]
-
-Hover over the chart to view the number of devices installed with supported and unsupported versions of Zscaler Client Connector, shown by percentage for each OS. Click the graph to view a list of all devices, by User ID, installed with either supported or unsupported versions of Zscaler Client Connector in [Enrolled Devices](https://help.zscaler.com/zscaler-client-connector/about-enrolled-devices). You can use this list to view which Zscaler Client Connector versions are installed and identify users who must update to a supported version of Zscaler Client Connector.
-
-This page provides information about Internet & SaaS and Private Access service status and about users turning off the services via passwords.
-
-This page is available for Windows users only. You must also have Digital Experience (ZDX) or Zscaler Client Connector Telemetry enabled.
-
-### Dashboard Filter
-
-Use the **Time Range** filter to view data for the selected time range. After you select the filter, click**Apply** in the upper-right corner of the page.
-
-### Widgets
-
-The Device Events page provides the following widgets:
-
-- ZIA and ZPA Device Service Status
-- ZIA Service Turn Off
-- ZPA Service Turn Off
-- Number of Times ZIA and ZPA Turned Off
-- Password Usage
-- Password Usage By Type
-
-[Image: View the Device Events page of the Dashboard]
-
-This widget displays information about the total number of devices enrolled in each service. You can view the following:
-
-- **ZDX**: The number of enrolled devices with the ZDX service enabled.
-- **Non-ZDX**: The number of enrolled devices without the ZDX service enabled.
-- **ZIA**: The number of enrolled devices with the Internet & SaaS service enabled.
-- **ZPA**: The number of enrolled devices with the Private Access service enabled.
-- **Off ZIA**: The number of enrolled devices that have had the Internet & SaaS service turned off
-- **Off ZPA**: The number of enrolled devices that have had the Private Access service turned off.
-
-This widget displays information about the enrolled devices that have had the Internet & SaaS service turned off. You can view the following:
-
-- **Users**: The number of unique users who have turned off the service, even if they have turned it back on.
-- **Total Number**: The total number of times the service has been turned off by the users, even if a user has turned it back on.
-
-This widget displays information about the enrolled devices that have had the Private Access service turned off. You can view the following:
-
-- **Users**: The number of unique users who have turned off the service, even if they have turned it back on.
-- **Total Number**: The total number of times the service has been turned off by the users, even if a user has turned it back on.
-
-This widget displays information about the number of times Internet & SaaS and Private Access were turned off over the course of the past 24 hours. Hover over the graph lines to display the number of devices turned off per service for a particular time.
-
-This widget displays information about the passwords used to turn off the services. You can view the following:
-
-- **Users**: The number of individual users who have turned off the service.
-- **OTP**: The number of users who used the Disable ZIA OTP password or Disable ZPA OTP password from the [Device Details](https://help.zscaler.com/zscaler-client-connector/viewing-device-fingerprint-enrolled-device) for the enrolled device.
-- **Master**: The number of users who used the Disable Password ZIA password or Disable Password ZPA password from the [app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles).
-
-This widget displays information about the passwords used to turn off the services. You can view the following:
-
-- **ZIA OTP**: The number of times ZIA was turned off using the Disable ZIA OTP password.
-- **ZPA OTP**:The number of times ZPA was turned off using the Disable ZPA OTP password.
-- **ZPA Master**: The number of times ZPA was turned off using the Disable Password ZPA password.
-- **ZIA Master**: The number of times ZIA was turned off using the Disable Password ZIA password.
-
-This page provides information about devices that fail their [device posture checks](https://help.zscaler.com/zscaler-client-connector/about-device-posture-profiles).
-
-The Device Posture page is available only if you have Digital Experience (ZDX) or Zscaler Client Connector Telemetry enabled.
-
-### Dashboard Filters
-
-Use the following filters to modify the content shown in the Device Posture page widgets. After you select filters, click **Apply** in the upper-right corner of the page.
-
-- **Time**: Modify the failed postures times ranging from three-hour intervals up to 24 hours. You can set the filter to show data up to the past 7 days.
-- **OS**: View devices for either Windows or macOS or for both of the operating systems. By default, both operating systems are shown.
-
-### Widgets
-
-The Device Posture page provides the following widgets:
-
-- Top 10 Failed Device Posture Trend
-- Top 50 Failed Posture Profiles
-- Top 10 Non-Compliant Devices
-- Compliant vs Non-Compliant
-
-This widget displays the trendline of the top 10 device posture profiles that have the highest number of devices failing their device posture checks. You can select a different set of up to 10 device posture profiles in the Top 50 Failed Posture Profiles widget to view the trendline for those profiles.
-
-This widget displays the top 50 device posture profiles that have the highest number of devices failing their posture checks. The trendline for the selected device posture profiles displays in the Top 10 Failed Device Posture Trend widget. You can click a device posture profile to view the failed devices on the [Failed Devices](https://help.zscaler.com/zscaler-client-connector/about-failed-posture-devices) page.
-
-This widget displays the total number of non-compliant devices for the top 10 device posture failures and the distribution of the devices by device posture profile. Hover over the chart to view the number of devices with posture failures for the specific device posture profile.
-
-This widget displays the number of devices with the top 10 failed device posture profiles that are compliant (passed the posture check) and non-compliant (failed the posture check). For the non-compliant devices, the widget displays the total number of posture failures and the upwards or downwards trend for each device posture profile.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/uninstalling-zscaler-client-connector","lastmod":"2026-08-27T15:45Z","nid":"1285486"} -->
-## Uninstalling Zscaler Client Connector
-
-- Source: https://help.zscaler.com/zscaler-client-connector/uninstalling-zscaler-client-connector
-- Product: Client Connector
-- Path: Zscaler Client Connector Help > Downloading & Deployment > Uninstalling Zscaler Client Connector
-- Last modified: 2026-08-27T15:45Z
-- Summary: Information on various methods of uninstalling Zscaler Client Connector from a device.
-
-This article is for Zscaler Client Connector admin use only. If you are not a Zscaler Client Connector admin, contact your organization's support team about uninstalling Zscaler Client Connector.
-
-This article provides instructions for uninstalling Zscaler Client Connector. When [configuring the app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-app-profiles), you have the option of providing an **Uninstall Password** that users must enter to uninstall the app. You can also utilize a single-use Uninstall One-Time Password (OTP) in [Enrolled Devices](https://help.zscaler.com/zscaler-client-connector/viewing-device-fingerprint-enrolled-device).
-
-You can manually uninstall the app from individual devices on each of the following platforms:
-
-- Manually Uninstall Zscaler Client Connector in Windows
-- Manually Uninstall Zscaler Client Connector in macOS
-- Manually Uninstall Zscaler Client Connector in Linux
-- Manually Uninstall Zscaler Client Connector in Android
-- Manually Uninstall Zscaler Client Connector in Android on ChromeOS
-- Manually Uninstall Zscaler Client Connector in iOS
-
-To uninstall Zscaler Client Connector:
-
-1. On the device, go to **Zscaler >** **ZSAInstaller**.
-2. Double-click the **uninstall**application. [Image: The Zscaler Client Connector uninstall application for Windows]
-3. Provide the **Uninstall Password** as [configured in the app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-profiles).
-
-To uninstall Zscaler Client Connector:
-
-1. Go to the Zscaler folder on the device.
-2. Double-click **UninstallApplication**. [Image: The Zscaler Client Connector uninstall application for macOS]
-3. Provide the **Uninstall Password** as [configured in the app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-profiles).
-
-To uninstall Zscaler Client Connector:
-
-1. Run the following command: sudo /opt/zscaler/UninstallApplication
-2. Provide the **Uninstall Password** as [configured in the app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-profiles).
-
-To uninstall Zscaler Client Connector:
-
-1. On the device, tap and hold the Zscaler Client Connector icon on the home screen.
-2. Drag the Zscaler Client Connector icon to the top of the home screen to the **Uninstall** icon.
-3. Click **OK** in the message that displays.
-
-[Image: Uninstalling the Zscaler Client Connector app from the Andriod home screen]
-
-A message appears at the bottom of the home screen indicating that the app was uninstalled.
-
-To uninstall Zscaler Client Connector:
-
-1. Locate Zscaler Client Connector on the device.
-2. Touch and hold Zscaler Client Connector, and then tap the **Uninstall**icon ([Image: The Uninstall icon for iOS]).
-3. Tap **Delete**. [Image: Uninstalling the Zscaler Client Connector on iOS]
-4. For iPhone X and later, tap **Done**. For iPhone 8 or earlier, tap the home button.
-
-To uninstall Zscaler Client Connector:
-
-1. On the device, right-click the Zscaler Client Connector icon and select the **Uninstall**icon.
-2. Click **Uninstall** in the message that displays.
-
-[Image: Uninstalling the Zscaler Client Connector app from Chromebook]
-
-The icon and app are removed from the device.
-
-You can also uninstall the app from your users' devices using one of the following options:
-
-- Uninstall from the command-line using the MSI file
-- Uninstall by removing the MST file from GPO
-- Uninstall in macOS with a shell script
-- Uninstall in Windows with a batch file
-- Uninstall in Windows with PowerShell
-
-If you are a Zscaler Client Connector admin and are unable to uninstall Zscaler Client Connector using the methods provided here, contact Zscaler Support.
-
-To uninstall Zscaler Client Connector from your user's device:
-
-1. Start a command prompt as an administrator.
-2. Enter the following command: msiexec /x <complete path> /quiet UNINSTALLPASSWORD=<uninstall password>[Image: Running the MSI file with a command-line option to uninstall Zscaler Client Connector]
-  - Replace <complete path> with the absolute pathname to the MSI install file (e.g., C:\Users\User\Downloads\Zscaler-windows-1.1.0.000213-installer.msi).
-  - Use the /quiet switch to uninstall the app in silent mode.
-  - Replace <uninstall password> with the password that was [configured in the app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-app-profiles). In this example, the organization's password is safemarch123.
-  - If you [configured a password for access in unattended mode](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode), replace `UNINSTALLPASSWORD` with `UNINSTALLPASSWORDCMDLINE`, and replace `<uninstall password>` with the uninstall **Password** that was generated in the platform settings.
-
-Ensure that the [password you added to the MST file](https://help.zscaler.com/zscaler-client-connector/customizing-zscaler-app-install-options-msi#uninstallpw) is the same as the **Uninstall Password** that was [configured in the app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-app-profiles) or, if you [configured a password for access in unattended mode](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode), the uninstall **Password** that was generated in the platform settings.
-
-To remove the MST file from your users' devices in an Active Directory (AD) environment:
-
-1. Log in to the AD environment (Domain Controller) as an admin user.
-2. For your OU, right-click the GPO Policy and select **Edit**.
-3. Go to **User Configuration**>**Policies**>**Software Settings**>**Software installation**.
-4. Right-click the MST file, then select **All Tasks**> **Remove...**. [Image: Removing the MST file from GPO to uninstall Zscaler Client Connector]
-
-After the file is removed, the app is uninstalled from your users' devices.
-
-To uninstall Zscaler Client Connector from your user’s macOS device:
-
-1. Go to the **Utilities** folder.
-2. Double-click the **Terminal** icon.
-3. Enter the following command: sudo sh /Applications/Zscaler/.Uninstaller.sh <uninstall password>Replace <uninstall password> with the password that was [configured in the app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-app-profiles). In this example, the organization's password is safemarch123. [Image: Using a shell script to uninstall the Zscaler Client Connector from macOS devices]
-
-To uninstall Zscaler Client Connector from your users’ Windows device:
-
-1. Create a `.bat` file with the following batch script: @ECHO OFF SET ZSCALER_PASSWORD=<uninstall password> IF EXIST ""%PROGRAMFILES(X86)%"\Zscaler\ZSAInstaller\uninstall.exe" ( "%PROGRAMFILES(X86)%"\Zscaler\ZSAInstaller\uninstall.exe --mode unattended ) ELSE ( "%PROGRAMFILES%"\Zscaler\ZSAInstaller\uninstall.exe --mode unattended )Replace <uninstall password> with the password that was [configured in the app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-profiles). In this example, the organization’s password is safemarch123. If you [configured a password for access in unattended mode](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode), replace `ZSCALER_PASSWORD` with `ZSCALER_UNINSTALL_PASSWORD_JWT`, and replace <uninstall password> with the uninstall **Password** that was generated in the platform settings.
-2. Start a command prompt as an administrator.
-3. To run the batch file, enter its absolute path. In this example, the batch file is Uninstall-Z-App.bat and its absolute path is C:\Users\Administrator\Desktop\batch\Uninstall-Z-App.bat [Image: Running the batch file to uninstall the Zscaler Client Connector]
-
-If you are still running into issues with batch file, consider using Windows PowerShell as an alternative to uninstalling Zscaler Client Connector. For example, if you are using complex passwords that include a combination of numbers, letters, and special characters (e.g., 123jsf%2!!@&jaK), then Windows PowerShell is more suitable to use.
-
-To uninstall Zscaler Client Connector via PowerShell from your user's device:
-
-1. Go to PowerShell.
-2. Enter the following command to ensure `ExecutionPolicy` is not restricted: Set-ExecutionPolicy RemoteSigned
-3. You can enter the commands individually or create a PowerShell script to start the uninstallation process.
-  - To enter the commands individually
-  - To create a PowerShell script in NotePad
-4. After uninstallation, enter the following to reset the password: [Environment]::SetEnvironmentVariable('ZSCALER_PASSWORD','', 'User')
-
-1. To set the variable to your <uninstall password>, enter the following: [Environment]::SetEnvironmentVariable('ZSCALER_PASSWORD','<uninstall password>','User')Replace `<uninstall password>` with the password that was [configured in the app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-profiles). If you [configured a password for access in unattended mode](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode), replace `ZSCALER_PASSWORD` with `ZSCALER_UNINSTALL_PASSWORD_JWT`, and replace <uninstall password> with the uninstall **Password** that was generated in the platform settings.
-2. To confirm the variable is set correctly, enter the following: [Environment]::GetEnvironmentVariable('ZSCALER_PASSWORD', 'User')The `<uninstall password>` is returned.
-3. To start the uninstall process, enter the following. Start-Process -FilePath "C:\Program Files\Zscaler\ZSAInstaller\uninstall.exe" "--mode unattended"You might need to change the file path if it is incorrect. Check where your `Zscaler` folder is located to find the file path to `uninstall.exe`.
-
-1. In NotePad, create a PowerShell script with the following script. [Environment]::SetEnvironmentVariable('ZSCALER_PASSWORD','<uninstall password>','User') [Environment]::GetEnvironmentVariable('ZSCALER_PASSWORD', 'User') Start-Process -FilePath "C:\Program Files\Zscaler\ZSAInstaller\uninstall.exe" -ArgumentList "--mode unattended"Replace `<uninstall password>` with the password that was [configured in the app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-profiles). If you [configured a password for access in unattended mode](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode), replace `ZSCALER_PASSWORD` with `ZSCALER_UNINSTALL_PASSWORD_JWT`, and replace <uninstall password> with the uninstall **Password** that was generated in the platform settings. You might need to change the file path if it is incorrect. Check where your `Zscaler` folder is located to find the file path to `uninstall.exe`.
-2. Save it as `test.ps1`.
-3. Return to PowerShell to enter the following to start uninstallation. .\test.ps1
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/upgrading-android-1.9","lastmod":"2024-10-23T03:51Z","nid":"1390666"} -->
-## Upgrading to Zscaler Client Connector version 1.9 for Android
-
-- Source: https://help.zscaler.com/zscaler-client-connector/upgrading-android-1.9
-- Product: Client Connector
-- Path: Zscaler Client Connector Help > Troubleshooting > Upgrading to Zscaler Client Connector version 1.9 for Android
-- Last modified: 2024-10-23T03:51Z
-- Summary: Steps to take when upgrading to Zscaler Client Connector version 1.9 for Android.
-
-If you are currently running a 32-bit version, you must first remove the current version of Zscaler Client Connector (version 1.7.2 or earlier) before installing Zscaler Client Connector version 1.9 for Android on your device.
-
-To learn more, [see March 20, 2022 Release Notes: Zscaler Client Connector 1.9 for Android](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2022?applicable_category=Android&applicable_version=1.9&deployment_date=2022-04-20&id=1394271).
-
-If you already installed Zscaler Client Connector version 1.9 for Android on your device, but you are currently using Zscaler Client Connector version 1.7.2 or a version that did not originate from the Google Play Store, only the current version will run. You must remove the current version to run Zscaler Client Connector version 1.9 for Android.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/upgrading-android-10","lastmod":"2024-10-23T03:55Z","nid":"1352181"} -->
-## Upgrading to Android 10
-
-- Source: https://help.zscaler.com/zscaler-client-connector/upgrading-android-10
-- Product: Client Connector
-- Path: Zscaler Client Connector Help > Troubleshooting > Upgrading to Android 10
-- Last modified: 2024-10-23T03:55Z
-- Summary: Information on what steps to take for Zscaler Client Connector when upgrading to Android 10.
-
-If you want to upgrade to Android 10, you must:
-
-- Upgrade your devices (excluding Samsung devices) to Zscaler Client Connector 1.5.2 for Android. To learn more, see [January 6, 2020 Release Notes: Zscaler Client Connector 1.5.2 for Android](https://help.zscaler.com/zscaler-client-connector/january-6-2020-release-notes-zscaler-app-1.5.2-android).
-- Upgrade your Samsung devices to Zscaler Client Connector 1.5.3 for Android. To learn more, see [March 17, 2020 Release Notes: Zscaler Client Connector 1.5.3 for Android](https://help.zscaler.com/zscaler-client-connector/march-17-2020-release-notes-zscaler-app-1.5.3-android).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/upgrading-macos-big-sur","lastmod":"2021-03-24T12:11Z","nid":"1370126"} -->
-## Upgrading to macOS Big Sur
-
-- Source: https://help.zscaler.com/zscaler-client-connector/upgrading-macos-big-sur
-- Product: Client Connector
-- Path: Zscaler Client Connector Help > Troubleshooting > Upgrading to macOS Big Sur
-- Last modified: 2021-03-24T12:11Z
-- Summary: Information on upgrading to macOS Big Sur.
-
-If you want to upgrade to macOS Big Sur, you must first upgrade Zscaler Client Connector to [version 2.2.4](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2020?applicable_category=macOS&applicable_version=2.2.4) or later.
-
-Also, on macOS Big Sur devices, Apple requires password confirmation for the user's account before Zscaler Client Connector can install and trust the root certificate. As a workaround, certificates can be installed via MDM for trust.
-
-To learn more, see the Security section of the [macOS Big Sur release notes](https://developer.apple.com/documentation/macos-release-notes/macos-big-sur-11_0_1-release-notes).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/upgrading-macos-catalina","lastmod":"2023-11-28T15:30Z","nid":"1352046"} -->
-## Upgrading to macOS Catalina
-
-- Source: https://help.zscaler.com/zscaler-client-connector/upgrading-macos-catalina
-- Product: Client Connector
-- Path: Zscaler Client Connector Help > Troubleshooting > Upgrading to macOS Catalina
-- Last modified: 2023-11-28T15:30Z
-- Summary: Information on what steps to take for Zscaler Client Connector when upgrading to macOS Catalina.
-
-Zscaler Client Connector 2.1 and Catalina are no longer supported. To learn more, see [Supported Versions](https://help.zscaler.com/eos-eol/supported-versions).
-
-If you want to upgrade to macOS Catalina, you must use Zscaler Client Connector 2.1 or later. To learn more, see [(General Availability) Zscaler Client Connector 2.1.0.190 for macOS](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2020?applicable_category=macOS&applicable_version=2.1.0.190).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/upgrading-windows-10-version-2004","lastmod":"2023-02-07T14:06Z","nid":"1356096"} -->
-## Upgrading to Windows 10, Version 2004
-
-- Source: https://help.zscaler.com/zscaler-client-connector/upgrading-windows-10-version-2004
-- Product: Client Connector
-- Path: Zscaler Client Connector Help > Troubleshooting > Upgrading to Windows 10, Version 2004
-- Last modified: 2023-02-07T14:06Z
-- Summary: Information on the limitation that Windows 10, version 2004 introduced, which affects organizations using Zscaler Client Connector for Zscaler Private Access (ZPA).
-
-If you are using Zscaler Client Connector for Zscaler Private Access (ZPA), be aware of the new limitation that Windows 10 introduced in version 2004 and later. This new version of Windows only supports up to 50 DNS suffixes per system. So, when you configure DNS search domains in the ZPA Admin Portal, you must ensure that no system will exceed 50 DNS suffixes. To learn more, see [Adding DNS Search Domains](https://help.zscaler.com/zpa/about-applications/dnsDomains).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/upgrading-zscaler-client-connector","lastmod":"2026-05-07T16:11Z","nid":"1472721"} -->
-## Upgrading Zscaler Client Connector
-
-- Source: https://help.zscaler.com/zscaler-client-connector/upgrading-zscaler-client-connector
-- Product: Client Connector
-- Path: Zscaler Client Connector Help > Downloading & Deployment > Upgrading Zscaler Client Connector
-- Last modified: 2026-05-07T16:11Z
-- Summary: How to upgrade Zscaler Client Connector using a command line
-
-This feature applies only to Zscaler Client Connector version 4.2.1 for Windows or later.
-
-You can require an upgrade password if you update Zscaler Client Connector in unattended mode on your users' devices (e.g., you use GPO, SCCM, or other device management methods).
-
-You can [configure update settings](https://help.zscaler.com/zscaler-client-connector/configuring-update-settings-zscaler-client-connector) to update Zscaler Client Connector automatically to the latest version or to a version you specify. If you disable the auto-update option, you can use this password to provide additional security.
-
-Before you can upgrade using the password, you need to configure it. To learn more, see [Configuring Passwords for Access in Unattended Mode.](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode)
-
-You can upgrade the app on your users' devices using one of the following options:
-
-- Create an MST and Deploy it Using GPO or a Compatible Device Management Tool
-- Upgrade From a CLI Using the MSI File
-- Upgrade Using the EXE Install File with CLI Options
-
-To create an MST file:
-
-1. Download the Zscaler Client Connector MSI installer file in the[Zscaler Admin Console](https://help.zscaler.com/zscaler-client-connector/about-zscaler-client-connector-store).
-2. Follow the instructions to [create an MST file using Orca](https://help.zscaler.com/zscaler-client-connector/customizing-zscaler-client-connector-install-options-msi), and add UPGRADEPASSWORDCMDLINE as one of the install options:
-  1. Click **Tables** from the top menu, and then click **Add Row**.
-  2. In the **Add Row** window:
-    1. For **Property**, enter `UPGRADEPASSWORDCMDLINE`.
-    2. Press `Enter` or click the **Value** field.
-    3. For **Value**, enter the [generated upgrade password from the platform settings](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode).
-3. Click **OK**.
-
-The install option appears on a new line.
-
-After creating the MST, you can use it when [deploying Zscaler Client Connector to your users with Active Directory](https://help.zscaler.com/zscaler-client-connector/deploying-zscaler-client-connector-active-directory-windows).
-
-To upgrade from a CLI using the MSI file:
-
-1. Start a command prompt as an administrator.
-2. Enter the following command:
-
-```
-msiexec /i
-<complete path>
-/quiet UPGRADEPASSWORDCMDLINE=
-<upgrade password>
-```
-
-- Replace `complete path` with the absolute pathname to the MSI install file. For example, `C:\Users\User\Downloads\Zscaler-windows-1.1.0.000213-installer.msi`
-- Use the `/quiet` switch to upgrade the app in silent mode.
-- Replace `upgrade password` with the upgrade password that was [generated in the platform settings](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode).
-
-To upgrade using the EXE install file:
-
-1. Start a command prompt as an administrator.
-  1. Click **Start**.
-  2. In the **Start Search** box, enter `cmd`, then press `CTRL+SHIFT+ENTER`.
-  3. If the User Account Control (UAC) dialog window appears, confirm that you want to continue.
-2. Add the upgrade password install option to the absolute path. To add this option, enter `--upgradePasswordCmdLine``<upgrade password>`, and replace `<upgrade password>` with the upgrade password that was [generated in the platform settings](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode).
-3. Add additional install options to customize the file based on your organization's needs. To learn more, see [Customizing Zscaler Client Connector Install Options for EXE](https://help.zscaler.com/zscaler-client-connector/customizing-zscaler-client-connector-install-options-exe).
-<!-- /ZS-ARTICLE -->
+Generated: 2026-10-12 09:45 UTC
+Articles in this file: 41
 
 ---
 
@@ -843,203 +281,6 @@ To use Zscaler Client Connector as an IdP for your users, you must pass the devi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/using-zscaler-client-connector","lastmod":"2026-07-12T07:06Z","nid":"1361641"} -->
-## Using Zscaler Client Connector
-
-- Source: https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector
-- Product: Client Connector
-- Path: Zscaler Client Connector Help > End User Guide > Using Zscaler Client Connector
-- Last modified: 2026-07-12T07:06Z
-- Summary: Information on Zscaler Client Connector and its features for the supported versions of OS.
-
-[Watch a video about Using Zscaler Client Connector.](https://fast.wistia.net/embed/iframe/g4bd3u21b2)
-
-## Overview
-
-Zscaler Client Connector is an application installed on your device to ensure that your internet traffic and access to your organization's internal apps are secure and in compliance with your organization’s policies, even when you're off your corporate network.
-
-No matter where you're accessing the web, Zscaler Client Connector ensures that your traffic is forwarded to and protected by the [Internet & SaaS](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture) service. You might also have the following services enabled:
-
-- [Private Access](https://help.zscaler.com/zpa/what-zscaler-private-access): Securely access your organization's internal resources from any location.
-- [Digital Experience (ZDX)](https://help.zscaler.com/zdx/what-is-zscaler-digital-experience): Perform synthetic probing to a desired Software as a Service (SaaS) application or internet-based service (e.g., OneDrive, Gmail, etc.) to triage and pinpoint the source of performance issues.
-- [Zscaler Endpoint Data Loss Prevention (DLP)](https://help.zscaler.com/zia/about-endpoint-dlp): Protect your organization from data loss on endpoints.
-
-Zscaler Client Connector is designed to provide a seamless user experience. It automatically recognizes when you are connected to a trusted network (for example, your corporate office network) and depending on your organization's configuration, can disable Internet & SaaS, Private Access, ZDX, and Endpoint DLP services accordingly. It can also recognize when you connect to Wi-Fi hotspots (for example, at airports, hotels, and cafés) where you must pay or accept a use policy before connecting. The app disables its services for a period of time and re-enables itself after you've had a chance to complete the steps necessary to connect.
-
-After you log in with your user ID and complete a one-step device enrollment process, you can begin safely connecting to the web and to your organization's internal applications and services with Zscaler Client Connector. To learn more, see [Enrolling in the Zscaler Service on Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/enrolling-zscaler-service-zscaler-client-connector).
-
-## Zscaler Client Connector Features
-
-After you enroll with the Zscaler service, you can view the features that are supported on your OS within the Zscaler Client Connector app interface:
-
-- Windows
-- macOS
-- Linux
-- Android
-- Android on ChromeOS
-- iOS
-
-To learn more about the tasks you can perform with Zscaler Client Connector, see the following articles:
-
-- [Viewing Information About Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/viewing-information-about-zscaler-client-connector)
-- [Viewing Information About Private Access on Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/viewing-information-about-private-access-zscaler-client-connector)
-- [Viewing Information About Internet Security on Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/viewing-information-about-internet-security-zscaler-client-connector)
-- [Viewing Information About Digital Experience on Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/viewing-information-about-digital-experience-zscaler-client-connector)
-- [Viewing Information About Zscaler Endpoint DLP on Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/viewing-information-about-zscaler-endpoint-dlp-zscaler-client-connector)
-- [Viewing Notifications on Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/viewing-notifications-zscaler-client-connector)
-- [Troubleshooting Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/troubleshooting-zscaler-client-connector)
-
-To navigate the main controls in the app:
-
-- Click the **Log Out** icon on the top right-side corner to log out of Zscaler Client Connector. You might be required to enter a password your organization's admin has set for the app. If you log out of the app, you must complete enrollment again when you log back in.
-- Click the **Minimize** icon to minimize the window without closing it.
-- Click the **Maximize** icon to maximize the window.
-- Click the **Close** icon to close the window. This does not log you out of the app.
-
-The Zscaler Client Connector app displays services your organization subscribes to in the left-side navigation. The following image shows that an organization has subscribed to the Private Access, Internet & SaaS, and ZDX services. If your organization is not subscribed to one of these services, you do not see that option in the left-side navigation.
-
-The app might display in a language other than English based on your system language. To learn more, see [Localization Support](https://help.zscaler.com/zscaler-client-connector/localization-support).
-
-[Image: The features of Zscaler Client Connector for Windows]
-
-### Zscaler Client Connector System Tray Icon Options
-
-Zscaler Client Connector displays an icon in the system tray, as shown in the following image:
-
-[Image: Zscaler Client Connector system tray icon]
-
-You can right-click the icon to display the following options:
-
-- **Open Zscaler**: Click to open the app window.
-- **Authenticate:** Click to authenticate Zscaler Client Connector without opening the application.
-- **Authenticate Early**: Click to reauthenticate before your authentication expires.
-- **Register**: Click to complete the device enrollment.
-- **Notifications**: If you use Zscaler Client Connector version 4.9 and later and the [Zscaler Notification Framework](https://help.zscaler.com/zscaler-client-connector/about-zscaler-notification-framework), you can select to view options to pause pop-up notifications: [Image: System Tray Notifications Options]
-  - **Mute for 30 minutes**: Do not display pop-up notifications for 30 minutes.
-  - **Mute for 1 hour**: Do not display pop-up notifications for 1 hour.
-  - **Mute for 2 hours**: Do not display pop-up notifications for 2 hours.
-  - **Until Resumed**: Do not display pop-up notifications until you select to resume them. When you select this option, the Notifications option displays as **Notifications (Paused)**. You must click **Notifications** and then select **Resume** to turn the notifications back on.
-- **Export Logs**: Click to export logs. Logs are saved as a text file on your device.
-- **Report an Issue**: If your organization has enabled this option, you can click to report an issue. For instructions on completing the form, see [Reporting an Issue with Zscaler Client Connector for Windows](https://help.zscaler.com/zscaler-client-connector/reporting-issue-zscaler-client-connector#win).
-- **Exit**: Click to exit the app and disable the Zscaler service. Depending on your organization's policies, you might be required to enter a password configured by your organization's admin.
-
-[Image: Enabling Zscaler Client Connector for Windows to show system tray notifications]
-
-If notifications are enabled, you see notifications in the system tray icon, as shown in the following images. To learn how to enable the system tray notifications, see [Viewing Notifications on Zscaler Client Connector for Windows](https://help.zscaler.com/zscaler-client-connector/viewing-notifications-zscaler-client-connector#win).
-
-[Image: Zscaler Client Connector system tray notifications]
-
-To navigate the main controls in the app:
-
-- Click the **Log Out** icon on the top right-side corner to log out of Zscaler Client Connector. You might be required to enter a password your organization's admin has set for the app. If you log out of the app, you must complete enrollment again when you log back in.
-- Click the **Minimize** icon to minimize the window without closing it.
-- Click the **Maximize** icon to maximize the window.
-- Click the **Close** icon to close the window. This does not log you out of the app.
-
-The Zscaler Client Connector app displays services your organization subscribes to in the left-side navigation. The following image shows that an organization has subscribed to the Private Access, Internet & SaaS, and ZDX services. If your organization is not subscribed to one of these services, you do not see that option in the left-side navigation.
-
-The app might display in a language other than English based on your system language. To learn more, see [Localization Support](https://help.zscaler.com/zscaler-client-connector/localization-support).
-
-[Image: The features of Zscaler Client Connector for macOS]
-
-### Zscaler Client Connector Menu Bar Options
-
-Zscaler Client Connector displays an icon in the menu bar, as shown in the following image.
-
-[Image: Zscaler Client Connector menu bar icon]
-
-You can click the icon to display the following options:
-
-- **Open**: Click to open the app window.
-- **Export Logs**: Click to export logs. Logs are saved as a text file on your device.
-- **Report an Issue**: If your organization has enabled this option, you can click to report an issue. For instructions on completing the form, see [Reporting an Issue with Zscaler Client Connector for macOS](https://help.zscaler.com/zscaler-client-connector/reporting-issue-zscaler-client-connector#macos).
-- **Exit**: Click to exit the app and disable the Zscaler service. Depending on your organization's policies, you might be required to enter a password configured by your organization's admin.
-
-[Image: Zscaler Client Connector menu bar icon options]
-
-If notifications are enabled, you see notifications, as shown in the following image. To learn how to enable the menu bar notifications, see [Viewing Notifications on Zscaler Client Connector for macOS](https://help.zscaler.com/zscaler-client-connector/viewing-notifications-zscaler-client-connector#macos).
-
-[Image: Zscaler Client Connector menu bar notifications]
-
-To navigate the main controls in the app:
-
-- Click the **Minimize**icon to hide the window to your system tray without closing the app.
-- Click the **Close**icon to close the window. This does not sign you out of the app. If you click the **Log Out**icon instead of clicking **Close**, you must complete enrollment again when you sign in.
-- Click the **Log Out** icon on the top menu bar to log out of Zscaler Client Connector. Enter a password if required.
-
-The Zscaler Client Connector app displays services your organization subscribes to in the left-side navigation. The following image shows that an organization has subscribed to both the Private Access and Internet & SaaS services. If your organization is not subscribed to one of these services, you do not see that option in the left-side navigation.
-
-[Image: Features of Zscaler Client Connector for Linux]
-
-### Zscaler Client Connector System Tray Icon Options
-
-Zscaler Client Connector displays an icon in the system tray, as shown in the following image. Right-click the Zscaler Client Connector icon to display the following options:
-
-- **Open Zscaler**: Opens the app window.
-- **Export Logs**: Exports log files and saves them as text files on your device.
-- **Report An Issue**: Your organization must enable this option. For instructions on completing the form, see [Reporting an Issue with Zscaler Client Connector for Linux](https://help.zscaler.com/zscaler-client-connector/reporting-issue-zscaler-client-connector#linux).
-- **Exit**: Exits the app and disables the Zscaler service. Depending on your organization's policies, you might be required to enter a password configured by your organization's admin.
-
-[Image: Zscaler Client Connector for Linux task bar icon]
-
-If notifications are enabled, they appear in the system tray icon as shown in the following images.
-
-[Image: Zscaler Client Connector for Linux status notification on the task bar]
-
-In the Zscaler Client Connector window for Android, you can:
-
-- Tap the **Log Out** icon in the top right-side corner to log out of the app. You might be required to enter a password that your organization’s admin has set for the app. If you log out of the app, you must complete enrollment again when you log back in.
-- View Zscaler Client Connector’s services in the menu at the bottom. The following image shows that an organization has subscribed to the Private Access, Internet & SaaS, and ZDX services. If your organization is not subscribed to one of these services, that service does not display.
-
-[Image: Features of Zscaler Client Connector for Android]
-
-### Zscaler Client Connector Home Screen Icon Options
-
-Zscaler Client Connector displays an icon on the device’s home screen, as shown in the following image:
-
-[Image: Zscaler Client Connector for Android home screen icon]
-
-When authentication expires, the Zscaler Client Connector icon displays with an exclamation point([Image: Authentication expired notification icon for Android]).
-
-Press and hold the icon to display the following options:
-
-- **Reauthenticate**: This option only displays when your authentication expires. Click to authenticate.
-- **Export Logs**: Click to export logs. Logs are saved as a text file on your device.
-- **Report an Issue**: If your organization has enabled this option, you can click to report an issue to Zscaler. For instructions on completing the form, see [Reporting an Issue with Zscaler Client Connector for Android](https://help.zscaler.com/zscaler-client-connector/reporting-issue-zscaler-client-connector#android).
-
-[Image: Zscaler Client Connector for Android Shortcut Menu]
-
-In the Zscaler Client Connector window for Android on ChromeOS, you can:
-
-- Tap the **Log Out** icon in the top right-side corner to log out of the app. You might be required to enter a password that your organization’s admin has set for the app. If you log out of the app, you must complete enrollment again when you log back in.
-- View Zscaler Client Connector's services in the left-side navigation. The following image shows that an organization has subscribed to the Private Access, Internet & SaaS, and ZDX services. If your organization is not subscribed to one of these services, that service does not display.
-
-[Image: Features of Zscaler Client Connector for Android on ChromeOS]
-
-### Zscaler Client Connector Home Screen Icon Options
-
-Zscaler Client Connector displays an icon on the device’s home screen, as shown in the following image:
-
-[Image: Zscaler Client Connector for Android on ChromeOS home screen icon]
-
-When authentication expires, the Zscaler Client Connector icon displays with an exclamation point ([Image: Authentication expired notification icon for Android on ChromeOS]).
-
-Press and hold the icon to display the following options:
-
-- **Reauthenticate**: This option only displays when your authentication expires. Click to authenticate.
-- **Export Logs**: Click to export logs. Logs are saved as a text file on your device.
-- **Report an Issue**: If your organization has enabled this option, you can click to report an issue to Zscaler. For instructions on completing the form, see [Reporting an Issue with Zscaler Client Connector for Android on ChromeOS](https://help.zscaler.com/zscaler-client-connector/reporting-issue-zscaler-client-connector#chrome).
-
-[Image: Zscaler Client Connector for Android on ChromeOS Shortcut Menu Options]
-
-- Tap the **Log Out** icon on the top right-side corner to log out of the app. You might be required to enter a password your organization’s admin has set for the app. If you log out of the app, you must complete enrollment again when you log back in.
-- The app displays Zscaler Client Connector’s services in the menu at the bottom. The following image shows that an organization has subscribed to both the Private Access and Internet & SaaS services. If your organization is not subscribed to one of those services, you do not see that option on the bottom menu.
-
-[Image: Features of Zscaler Client Connector for iOS]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/zscaler-client-connector/using-zscaler-client-connector-cisco-anyconnect-macos-catalina","lastmod":"2023-02-07T15:50Z","nid":"1355851"} -->
 ## Using Zscaler Client Connector with Cisco AnyConnect on macOS Catalina
 
@@ -1054,79 +295,74 @@ If you are using Zscaler Client Connector with Cisco AnyConnect on macOS Catalin
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/using-zscaler-diagnostics","lastmod":"2025-12-14T06:06Z","nid":"1374426"} -->
-## Using Zscaler Diagnostics
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/using-zscaler-client-connector-modern-ui","lastmod":"2026-10-07T10:20Z","nid":"1546617"} -->
+## Using Zscaler Client Connector in the Modern UI
 
-- Source: https://help.zscaler.com/zscaler-client-connector/using-zscaler-diagnostics
+- Source: https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector-modern-ui
 - Product: Client Connector
-- Path: Zscaler Client Connector Help > End User Guide > Using Zscaler Diagnostics
-- Last modified: 2025-12-14T06:06Z
-- Summary: Information on the Zscaler Diagnostic menu features of Zscaler Client Connector for Windows and macOS.
+- Path: Zscaler Client Connector Help > End User Guide for the Modern UI > Using Zscaler Client Connector in the Modern UI
+- Last modified: 2026-10-07T10:20Z
+- Summary: Information on Zscaler Client Connector and its features for the supported versions of OS using the Modern UI.
 
-This article details how to access Zscaler Diagnostics features that are available for use after IdP authentication. This is the same information as provided in [Troubleshooting Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/troubleshooting-zscaler-client-connector), except users can access this information without being logged in to Zscaler Client Connector on a Windows or macOS device.
+## Overview
+
+Zscaler Client Connector is an application installed on your device to ensure that your internet traffic and access to your organization's internal apps are secure and in compliance with your organization’s policies, even when you're off your corporate network.
+
+No matter where you're accessing the web, Zscaler Client Connector ensures that your traffic is forwarded to and protected by the [Internet & SaaS](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture) service. You might also have the following services enabled:
+
+- [Private Access](https://help.zscaler.com/zpa/what-zscaler-private-access) (ZPA): Securely access your organization's internal resources from any location.
+- [Digital Experience](https://help.zscaler.com/zdx/what-is-zscaler-digital-experience): Perform synthetic probing to a desired Software as a Service (SaaS) application or internet-based service (e.g., OneDrive, Gmail, etc.) to triage and pinpoint the source of performance issues.
+- [Zscaler Endpoint Data Loss Prevention (DLP)](https://help.zscaler.com/zia/about-endpoint-dlp): Protect your organization from data loss on endpoints.
+
+Zscaler Client Connector is designed to provide a seamless user experience. It automatically recognizes when you are connected to a trusted network (for example, your corporate office network) and depending on your organization's configuration, can disable Internet & SaaS, Private Access, Digital Experience, and Endpoint DLP services accordingly. It can also recognize when you connect to Wi-Fi hotspots (for example, at airports, hotels, and cafés) where you must pay or accept a use policy before connecting. The app disables its services for a period of time and re-enables itself after you've had a chance to complete the steps necessary to connect.
+
+After you log in with your user ID and complete a one-step device enrollment process, you can begin safely connecting to the web and to your organization's internal applications and services with Zscaler Client Connector. To learn more, see [Enrolling in the Zscaler Service on Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/enrolling-zscaler-service-zscaler-client-connector).
+
+## Using the Zscaler Client Connector App
+
+After you enroll with the Zscaler service, you can access and use the app in multiple ways, depending on your device's OS:
 
 - Windows
-- macOS
 
-This feature is available with Zscaler Client Connector version 3.2 or later for Windows.
+To learn more about the tasks you can perform with Zscaler Client Connector, see the following articles:
 
-The Windows Policy setting for **ZPA Machine Authentication** must be enabled so users can authenticate and start the machine tunnel.
+- [Viewing Information About Zscaler Client Connector in the Modern UI](https://help.zscaler.com/zscaler-client-connector/viewing-information-about-zscaler-client-connector-modern-ui)
+- [Viewing Information About Private Access on Zscaler Client Connector in the Modern UI](https://help.zscaler.com/zscaler-client-connector/viewing-information-about-private-access-zscaler-client-connector-modern-ui)
+- [Viewing Information About Internet & SaaS on Zscaler Client Connector in the Modern UI](https://help.zscaler.com/zscaler-client-connector/viewing-information-about-internet-saas-zscaler-client-connector-modern-ui)
+- [Viewing Information About Digital Experience on Zscaler Client Connector in the Modern UI](https://help.zscaler.com/zscaler-client-connector/viewing-information-about-digital-experience-zscaler-client-connector-modern-ui)
+- [in the Modern UI](https://help.zscaler.com/zscaler-client-connector/viewing-information-about-data-protection-zscaler-client-connector-modern-ui)
+- [Troubleshooting Zscaler Client Connector in the Modern UI](https://help.zscaler.com/zscaler-client-connector/troubleshooting-zscaler-client-connector-modern-ui)
 
-To authenticate and start the machine tunnel from the Windows login screen:
+Zscaler Client Connector displays an icon in the system tray:
 
-1. In the bottom-left corner of the screen, click **Zscaler Diagnostics**.
-2. Click **Zscaler Options**. See image.
-3. Based on your organization’s authentication mechanism, you are prompted to complete one of the following steps:
-  1. Enter the IdP credentials for Username and Password. See image.
-  2. On a separate device (e.g., a mobile phone), enter the link that displays in a browser and then enter the passcode. You can scan the QR code to automatically go to the verification site. See image.
+[Image: The Zscaler Client Connector icon in the system tray]
 
-After successful authentication, the **Tunnel Status** window displays current information about the machine tunnel, including the number of packets sent or received, and whether the tunnel is running on a trusted network. Users have the option to stop the machine tunnel by clicking **Turn Off**.
+You can right-click the icon to [access quick actions](https://help.zscaler.com/zscaler-client-connector/quick-actions-zscaler-client-connector).
 
-See image.
+You can click the icon to display the home screen along with the following options:
 
-The following options are available in the **Diagnostics**menu:
+- **Status Check**: View the Status Orb to view the status of the security services. Possible options include:
+  - **Green**: All enabled services are connected and active.
+  - **Orange**: One or more of the enabled services requires user action (e.g., authentication).
+  - **Blue**: One or more of the enabled services is currently unavailable. An additional message displays with more information (e.g., the internet isn't connected or a service is in the process of connecting).
+- **Notifications**: Click the **Notifications** icon to open the app and view the Notifications window. If you have pending notifications, a red number displays on the Notifications icon indicating the number of notifications.
+- **Settings**: Click the **Settings** icon to open the app and view the Troubleshooting window.
 
-- **Start Packet Capture**: If your organization's admin enabled packet captures, you can use this feature when reproducing an issue. To learn more, see [Using the Start Packet Capture Option](https://help.zscaler.com/zscaler-client-connector/enabling-packet-capture-zscaler-app#using-start-packet-capture).
-- **Restart Service**: You can restart the [machine tunnel](https://help.zscaler.com/zscaler-client-connector/about-machine-tunnels). Restarting does not impact security enforcement.
-- **Report an Issue**: If your organization's admin enabled support access, you can use this feature to report an issue. When you submit the form, depending on your organization's setup, Zscaler Client Connector can send an email to your organization's support admin or submit a ticket directly to Zscaler Support (your support admin also receives a copy of this ticket). To learn more, see [Reporting an Issue with Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/reporting-issue-zscaler-client-connector).
-- **Include Packet Captures**: Select this option to include [packet capture](https://help.zscaler.com/zscaler-client-connector/enabling-packet-capture-zscaler-app#using-start-packet-capture) files when using the Report an Issue feature.
-- **Clear Logs**: You can clear stored logs.
-- **Update Policy**: You can manually refresh the [machine tunnel](https://help.zscaler.com/zscaler-client-connector/about-machine-tunnels) policy.
+You can click anywhere in the home screen to open the app and view the Overview window:
 
-See image.
+- Click the **Sign Out** option to sign out of Zscaler Client Connector. You might be required to enter a password your organization's admin has set for the app. If you sign out of the app, you must complete enrollment again when you log back in. Clicking the **Exit** icon on the top-right corner of the app closes the app but does not sign you out, and the services continue to run.
+- Click **Service Details** to view details about the specific enabled services.
+- Click **Notifications** to view the Notifications window.
+- Click **Settings** to access the following options:
+  - **Notifications**: Control how Zscaler Client Connector displays your notifications.
+  - **Troubleshooting**: Perform troubleshooting actions (e.g., restarting services or reporting an issue).
+  - **Application**: View information about Zscaler Client Connector.
 
-[Image: Windows login screen]
+The Overview window displays services your organization subscribes to. The following image shows that an organization has subscribed to the Internet & SaaS, Private Access, Digital Experience, and Data Protection services. If your organization is not subscribed to one of these services, you do not see that option.
 
-[Image: IdP authentication screen]
+The app might display in a language other than English based on your system language. To learn more, see [Localization Support](https://help.zscaler.com/zscaler-client-connector/localization-support).
 
-[Image: OAuth 2.0 authentication screen]
-
-[Image: Tunnel Status screen]
-
-[Image: Diagnostics options screen]
-
-To start the machine tunnel from the macOS login screen, in the bottom-left corner of the screen, click the Zscaler icon. This machine tunnel icon is only visible when a device logs out or reboots. The icon is not visible when a user locks the screen.
-
-See image.
-
-[Image: zscaler icon]
-
-The **Tunnel Status** window displays current information about the machine tunnel, including the number of packets sent or received, and whether the tunnel is running on a trusted network.
-
-See image.
-
-[Image: Tunnel status]
-
-The following options are available in the **Diagnostics**menu:
-
-- **Restart Service**: You can restart the [machine tunnel](https://help.zscaler.com/zscaler-client-connector/about-machine-tunnels). Restarting does not impact security enforcement.
-- **Report an Issue**: If your organization's admin enabled support access, you can use this feature to report an issue. When you submit the form, depending on your organization's setup, Zscaler Client Connector can send an email to your organization's support admin or submit a ticket directly to Zscaler Support (your support admin also receives a copy of this ticket). To learn more, see [Reporting an Issue with Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/reporting-issue-zscaler-client-connector).
-- **Clear Logs**: You can clear stored logs.
-- **Update Policy**: You can manually refresh the [machine tunnel](https://help.zscaler.com/zscaler-client-connector/about-machine-tunnels) policy.
-
-See image.
-
-[Image: Diagnostics]
+[Image: The features of Zscaler Client Connector for Windows]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1168,32 +404,6 @@ To enable the Zscaler Notification Framework on macOS devices:
 2. On the **App Profiles** tab, click **Add macOS Policy**. The **Add macOS Policy** window appears.
 3. In the **Add macOS Policy** window, enable **Use Zscaler Notification Framework**. [Image: Use Zscaler Notification Framework option]
 4. Click **Save**.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/verifying-access-applications","lastmod":"2026-08-05T17:12Z","nid":"1514426"} -->
-## Verifying Access to Applications
-
-- Source: https://help.zscaler.com/zscaler-client-connector/verifying-access-applications
-- Product: Client Connector
-- Path: Zscaler Client Connector Help > End User Guide > Verifying Access to Applications
-- Last modified: 2026-08-05T17:12Z
-- Summary: How to verify access with additional authentication
-
-Your organization can require additional levels of authentication to access specific applications (e.g., your default access requires only a username and password, but an application with sensitive financial information requires multi-factor authentication). If you try to access an application that requires additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access.
-
-This feature is available for Private Access only with Zscaler Client Connector version 4.6 and later for Windows and for Internet & SaaS (ZIA) only with Zscaler Client Connector version 4.7 and later for Windows. This feature is also available for Private Access and Internet & SaaS with Zscaler Client Connector version 4.7 and later for macOS and Zscaler Client Connector version 4.2 for both Android and Android on ChromeOS. Additional authentication requirements are set up by administrators in the Zscaler Admin Console and are available only if you are subscribed to Authentication Service. To use this feature with Internet & SaaS, you must enable Use Zscaler Notification Framework in the [app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles#notification) and Enable ZIA Notifications in the [end user notifications](https://help.zscaler.com/zscaler-client-connector/configuring-end-user-notifications-zscaler-client-connector).
-
-To learn more, see [Understanding Step-Up Authentication](https://help.zscaler.com/zidentity/understanding-step-up-authentication), [Configuring Access Policies](https://help.zscaler.com/zpa/configuring-access-policies), and [Configuring the URL Filtering Policy](https://help.zscaler.com/zia/configuring-url-filtering-policy).
-
-To verify access to applications:
-
-1. Open Zscaler Client Connector and click **Private Access** or **Internet Security**. The pending verification status message appears. [Image: Verification status message]
-2. Click **Verify Now**.
-3. Based on your organization’s authentication requirements, you might be prompted to complete one of the following steps:
-  - You might be redirected to your organization’s single sign-on (SSO) form. Enter your credentials and log in.
-  - You might be directed to a window where you can select the application you want to access (if your organization requires verification for multiple applications). Select the application you want to access and click **Verify**. You are redirected to your organization’s authentication form. Enter your credentials and log in. [Image: Verification page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1258,13 +468,13 @@ If you want to delay a rollout beyond the 180-day maximum (e.g., you encountered
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-device-fingerprint-enrolled-device","lastmod":"2026-09-22T12:29Z","nid":"1317631"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-device-fingerprint-enrolled-device","lastmod":"2026-10-07T10:43Z","nid":"1317631"} -->
 ## Viewing Device Fingerprint for an Enrolled Device
 
 - Source: https://help.zscaler.com/zscaler-client-connector/viewing-device-fingerprint-enrolled-device
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Monitoring Usage > Viewing Device Fingerprint for an Enrolled Device
-- Last modified: 2026-09-22T12:29Z
+- Last modified: 2026-10-07T10:43Z
 - Summary: How to view device fingerprint information for enrolled devices in the Zscaler Client Connector Portal.
 
 From the Zscaler Admin Console, you can view device fingerprint information for [enrolled devices](https://help.zscaler.com/zscaler-client-connector/about-enrolled-devices).
@@ -1390,6 +600,10 @@ See image.
 
 See image.
 
+- Under **Classic UI Switch**: Displays the reason a user disabled the **Modern Experience** option on the Applications window of the Zscaler Client Connector app to switch from the Modern UI to the Classic UI. To learn more, see [Viewing Information About Zscaler Client Connector in the Modern UI.](https://help.zscaler.com/zscaler-client-connector/viewing-information-about-zscaler-client-connector-modern-ui)
+
+See image.
+
 - Under **Device Upgrade Status**: Displays the status of an upgrade that is in progress.
   - **Upgrade Status**: Possible values are:
     - **In Progress**: Waiting for upgrade status from Zscaler Client Connector.
@@ -1428,18 +642,20 @@ See image.
 
 [Image: ZPA Partner Logins on the Registered Device Details window]
 
+[Image: View the reason for switching from Modern UI in the Classic UI Switch]
+
 [Image: Device Upgrade Status on the Registered Device Details window]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-device-fingerprint-partner-device","lastmod":"2026-09-21T18:30Z","nid":"1420311"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-device-fingerprint-partner-device","lastmod":"2026-10-05T21:06Z","nid":"1420311"} -->
 ## Viewing Device Fingerprint Information for a Partner Device
 
 - Source: https://help.zscaler.com/zscaler-client-connector/viewing-device-fingerprint-partner-device
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Monitoring Usage > Viewing Device Fingerprint Information for a Partner Device
-- Last modified: 2026-09-21T18:30Z
+- Last modified: 2026-10-05T21:06Z
 - Summary: How to view device fingerprint information for partner devices in the Zscaler Admin Console.
 
 From the Zscaler Admin Console, you can view device fingerprint information for [partner devices](https://help.zscaler.com/zscaler-client-connector/about-partner-devices).
@@ -1505,311 +721,128 @@ When viewing device fingerprint information for a partner device, you can also f
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-digital-experience-zscaler-client-connector","lastmod":"2025-06-02T15:11Z","nid":"1370036"} -->
-## Viewing Information About Digital Experience on Zscaler Client Connector
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-data-protection-zscaler-client-connector-modern-ui","lastmod":"2026-10-07T10:24Z","nid":"1546662"} -->
+## Viewing Information About Data Protection on Zscaler Client Connector in the Modern UI
 
-- Source: https://help.zscaler.com/zscaler-client-connector/viewing-information-about-digital-experience-zscaler-client-connector
+- Source: https://help.zscaler.com/zscaler-client-connector/viewing-information-about-data-protection-zscaler-client-connector-modern-ui
 - Product: Client Connector
-- Path: Zscaler Client Connector Help > End User Guide > Viewing Information About Digital Experience on Zscaler Client Connector
-- Last modified: 2025-06-02T15:11Z
-- Summary: Information on the Digital Experience page on Zscaler Client Connector.
+- Path: Zscaler Client Connector Help > End User Guide for the Modern UI > Viewing Information About Data Protection on Zscaler Client Connector in the Modern UI
+- Last modified: 2026-10-07T10:24Z
+- Summary: Information on the Data Protection window on Zscaler Client Connector.
 
-This article provides an overview of the Digital Experience window of Zscaler Client Connector. This window features connectivity information and troubleshooting options for [Digital Experience (ZDX)](https://help.zscaler.com/zdx/what-is-zscaler-digital-experience).
-
-This service is only available if you are using Zscaler Client Connector version 2.2.1 or later for Windows and macOS devices or Zscaler Client Connector version 1.12 or later for Android and Android on ChromeOS devices.
-
-- Windows
-- macOS
-- iOS
-- Android
-- Android on ChromeOS
-
-For information about other Zscaler Client Connector features, see [Using Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector).
-
-[Image: Digital Experience window]
+This article provides an overview of the Data Protection window on Zscaler Client Connector. This window features connectivity information and troubleshooting steps for the [Zscaler Endpoint Data Loss Prevention (DLP)](https://help.zscaler.com/zia/about-endpoint-dlp) feature on Windows and macOS devices.
 
 ## Connectivity
 
-This section displays the following connectivity information:
+- **Service Status**: Displays the app connection status. Click **Turn Off** if you want to disable the Data Protection service while remaining logged in to the app. A password might be required if configured by your IT admin. The Data Protection service is disabled until you click **Turn On**.
+- **Product Version:**Displays the current version of the Data Protection feature.
 
-- **Username**: Displays the username with which you are logged in to the app.
-- **Service Status**: Displays the app connection status. Tap **Turn Off** if you want to turn off the Zscaler Tunnel (Z-Tunnel) and disable the Digital Experience (i.e., ZDX) service while remaining logged in to the app. The Digital Experience service is disabled until you tap **Turn On**.
-- **Authentication Status**: Displays the current authentication state, i.e., whether you are currently authenticated or not.
-- **Server**: Displays the IP Address of the server to which your traffic is being forwarded.
-- **Time Connected**: Displays your initial connection time for the present session.
-- **ZDX Service Version**: Displays the ZDX version your organization is using.
+## Troubleshooting
 
-## Troubleshoot
+- **Exemption Mode**: Users that are blocked by the Endpoint DLP due to a rule violation can request to be exempted from the block action, and instead be monitored. To request an exemption, enable this option, enter a **Disable Reason** on the **Request exemption** window, and click **Continue**. You might be prompted to enter a password. If the exemption is granted, a message displays that indicates traffic is monitored but not blocked and provides the expiration time (12 hours after the exemption is granted).
+- **Update DLP Policy**: Click **Update** to manually refresh your endpoint DLP policy. The DLP policy refreshes every 15 minutes.
+- **Open Quarantine Folder**: The quarantine folder includes the files that moved to this folder as a result of a block action for the personal cloud storage rules (e.g., Dropbox) or by other channels where the file source information is missing (e.g., copying an extract ZIP file to a removable storage device). Click this option to view the folder.
 
-This section displays the following troubleshooting information:
-
-- **Clear ZDX Data**: Tap to clear the ZDX data that Zscaler Client Connector stored.
-- **Restart ZDX Service**: Tap to restart the ZDX service.
-
-[Image: Digital Experience window]
-
-## Connectivity
-
-This section displays the following connectivity information:
-
-- **Username**: Displays the username with which you are logged in to the app.
-- **Service Status**: Displays the app connection status. Tap **Turn Off** if you want to turn off the Zscaler Tunnel (Z-Tunnel) and disable the Digital Experience (i.e., ZDX) service while remaining logged in to the app. The Digital Experience service is disabled until you tap **Turn On**.
-- **Authentication Status**: Displays the current authentication state, i.e., whether you are currently authenticated or not.
-- **Server Address**: Displays the IP address of the server to which your traffic is being forwarded.
-- **Time Connected**: Displays your initial connection time for the present session.
-- **ZDX Service Version**: Displays the ZDX version your organization is using.
-
-## Troubleshoot
-
-This section displays the following troubleshooting information:
-
-- **Clear ZDX Data**: Tap to clear the ZDX data that Zscaler Client Connector stored.
-- **Restart ZDX Service**: Tap to restart the ZDX service.
-
-[Image: iOS ZDX]
-
-## Zero Trust Connectivity
-
-This section displays the following connectivity information:
-
-- **Username**: Displays the username with which you are logged in to the app.
-- **Service Status**: Displays the app connection status. Tap **Turn Off** if you want to turn off the Zscaler Tunnel (Z-Tunnel) and disable the Digital Experience (i.e., ZDX) service while remaining logged in to the app. The Digital Experience service is disabled until you tap **Turn On**.
-- **Authentication Status**: Displays the current authentication state, i.e., whether you are currently authenticated or not.
-- **Server Address**: Displays the IP address of the server to which your traffic is being forwarded.
-- **Time Connected**: Displays your initial connection time for the present session.
-- **ZDX Service Version**: Displays the ZDX version your organization is using.
-
-## Troubleshoot
-
-This section displays the following troubleshooting information:
-
-- **Clear ZDX Data**: Tap to clear the ZDX data that Zscaler Client Connector stored.
-- **Restart ZDX Service**: Tap to restart the ZDX service.
-
-[Image: Digital Experience window]
-
-## Connectivity
-
-This section displays the following connectivity information:
-
-- **Username**: Displays the username with which you are logged in to the app.
-- **Service Status**: Displays the app connection status. Tap **Turn Off** if you want to turn off the Zscaler Tunnel (Z-Tunnel) and disable the Digital Experience (i.e., ZDX) service while remaining logged in to the app. The Digital Experience service is disabled until you tap **Turn On**.
-- **Authentication Status**: Displays the current authentication state, i.e., whether you are currently authenticated or not.
-- **Server Address**: Displays the IP address of the server to which your traffic is being forwarded.
-- **Time Connected**: Displays your initial connection time for the present session.
-- **ZDX Service Version**: Displays the ZDX version your organization is using.
-
-## Troubleshoot
-
-This section displays the following troubleshooting information:
-
-- **Restart ZDX Service**: Tap to restart the ZDX service. You can tap **Restart ZDX Service** only once within a 30-second period. Applies to Zscaler Client Connector version 3.8 and later for Android.
-- **Clear ZDX Data**: Tap to clear the ZDX data that Zscaler Client Connector stored.
-
-[Image: Digital Experience window]
-
-## Connectivity
-
-This section displays the following connectivity information:
-
-- **Username**: Displays the username with which you are logged in to the app.
-- **Service Status**: Displays the app connection status. Tap **Turn Off** if you want to turn off the Zscaler Tunnel (Z-Tunnel) and disable the Digital Experience (i.e., ZDX) service while remaining logged in to the app. The Digital Experience service is disabled until you tap **Turn On**.
-- **Authentication Status**: Displays the current authentication state, i.e., whether you are currently authenticated or not.
-- **Server Address**: Displays the IP address of the server to which your traffic is being forwarded.
-- **Time Connected**: Displays your initial connection time for the present session.
-- **ZDX Service Version**: Displays the ZDX version your organization is using.
-
-## Troubleshoot
-
-This section displays the following troubleshooting information:
-
-- **Restart ZDX Service**: Tap to restart the ZDX service. You can tap **Restart ZDX Service** only once within a 30-second period. Applies to Zscaler Client Connector version 3.8 and later for Android on ChromeOS.
-- **Clear ZDX Data**: Tap to clear the ZDX data that Zscaler Client Connector stored.
+[Image: View details in the Data Protection window on Zscaler Client Connector]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-internet-security-zscaler-client-connector","lastmod":"2026-05-06T11:22Z","nid":"1363056"} -->
-## Viewing Information About Internet Security on Zscaler Client Connector
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-digital-experience-zscaler-client-connector-modern-ui","lastmod":"2026-10-08T15:51Z","nid":"1546661"} -->
+## Viewing Information About Digital Experience on Zscaler Client Connector in the Modern UI
 
-- Source: https://help.zscaler.com/zscaler-client-connector/viewing-information-about-internet-security-zscaler-client-connector
+- Source: https://help.zscaler.com/zscaler-client-connector/viewing-information-about-digital-experience-zscaler-client-connector-modern-ui
 - Product: Client Connector
-- Path: Zscaler Client Connector Help > End User Guide > Viewing Information About Internet Security on Zscaler Client Connector
-- Last modified: 2026-05-06T11:22Z
-- Summary: Information on the Internet Security page of the Zscaler Client Connector.
+- Path: Zscaler Client Connector Help > End User Guide for the Modern UI > Viewing Information About Digital Experience on Zscaler Client Connector in the Modern UI
+- Last modified: 2026-10-08T15:51Z
+- Summary: Information on the Digital Experience window on Zscaler Client Connector.
 
-This article provides an overview of the **Internet Security**window on Zscaler Client Connector for different OSs. This window features connectivity information and traffic statistics for [Internet & SaaS](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture).
+This article provides an overview of the Digital Experience window of Zscaler Client Connector. This window features connectivity information and troubleshooting options for [Digital Experience](https://help.zscaler.com/zdx/what-is-zscaler-digital-experience).
 
 - Windows
-- macOS
-- Linux
-- Android
-- Android on ChromeOS
-- iOS
 
-For information about other Zscaler Client Connector features, see [Using Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector).
+For information about other Zscaler Client Connector features, see [Using Zscaler Client Connector in the Modern UI](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector-modern-ui).
+
+## Connectivity
+
+This section displays the following connectivity information:
+
+- **Service Status**: Displays the app connection status. Click **Turn Off** if you want to turn off the Zscaler Tunnel (Z-Tunnel) and disable the Digital Experience (ZDX) service while remaining logged in to the app. A password might be required if configured by your IT admin. The Digital Experience service is disabled until you click **Turn On**.
+- **Authentication Status**: Displays the current authentication state, i.e., whether you are currently authenticated or not.
+- **Time Connected**: Displays your initial connection time for the present session.
+- **ZDX Service Version**: Displays the Digital Experience version your organization is using.
+- **Server**: Displays the IP Address of the server to which your traffic is being forwarded.
+
+[Image: View Connectivity details in the Digital Experience window]
+
+## Troubleshooting
+
+This section displays the following troubleshooting information:
+
+- **Clear ZDX Data**: Click **Clear** to remove historical data collected by Digital Experience.
+- **Restart ZDX Services**: Click **Restart** to restart the core services for Digital Experience monitoring.
+
+[Image: Perform Troubleshooting actions in the Digital Experience window]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-internet-saas-zscaler-client-connector-modern-ui","lastmod":"2026-10-07T10:23Z","nid":"1546639"} -->
+## Viewing Information About Internet & SaaS on Zscaler Client Connector in the Modern UI
+
+- Source: https://help.zscaler.com/zscaler-client-connector/viewing-information-about-internet-saas-zscaler-client-connector-modern-ui
+- Product: Client Connector
+- Path: Zscaler Client Connector Help > End User Guide for the Modern UI > Viewing Information About Internet & SaaS on Zscaler Client Connector in the Modern UI
+- Last modified: 2026-10-07T10:23Z
+- Summary: Information on the Internet & SaaS page of the Zscaler Client Connector in the Modern UI
+
+This article provides an overview of the **Internet & SaaS** (ZIA) window on Zscaler Client Connector for different OSs. This window features connectivity information and traffic statistics for [Internet & SaaS](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture).
+
+- Windows
+
+For information about other Zscaler Client Connector features, see [Using Zscaler Client Connector in the Modern UI](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector-modern-ui).
 
 This window includes the following features on Windows devices.
 
-[Image: Internet Security Window]
-
 ## Connectivity
 
 This section displays the following connectivity information:
 
-- **Username**: Displays the username with which you are logged in to the app.
-- **Service Status**: Displays the app connection status. Click **Turn Off**if you want to disable the Internet & SaaS service while remaining logged in to the app. Depending on your organization's policies, you might be required to enter a password. The Internet & SaaS service is disabled until you click**Turn On**.
+- **Service Status**: Displays the app connection status. Click **Turn Off**if you want to disable the Internet & SaaS service while remaining logged in to the app. A password might be required if configured by your IT admin. The Internet & SaaS service is disabled until you click**Turn On**.
+- **Time Connected**: Displays your initial connection time for the present session.
 - **Network Type:** Displays the type of network you are connected to (Trusted Network, VPN Trusted Network, Split VPN Trusted Network, or Off-Trusted Network).
+- **Tunnel Version**: Displays the version of the Zscaler Tunnel (Z-Tunnel) that Zscaler Client Connector forwards your traffic through.
 - **Server**: Displays the IP address of the server to which your traffic is being forwarded.
 - **Client**: Displays your client IP address.
-- **Time Connected**: Displays your initial connection time for the present session.
-- **Tunnel Version**: Displays the version of the Zscaler Tunnel (Z-Tunnel) that Zscaler Client Connector forwards your traffic through.
+
+[Image: View Connectivity details in the Internet & SaaS window]
 
 ## Statistics
 
 This section displays the following traffic statistics:
 
-- **Total Bytes Sent:** Displays, in real time, bytes of traffic sent from your computer through the app.
-- **Total Bytes Received**: Displays, in real time, bytes of traffic received by your computer through the app.
+- **Total Traffic Sent:** Displays, in real time, bytes of traffic sent from your computer through the app.
+- **Total Traffic Received**: Displays, in real time, bytes of traffic received by your computer through the app.
 
-This window includes the following features on macOS devices.
-
-[Image: Internet Security Window]
-
-## Connectivity
-
-This section displays the following connectivity information:
-
-- **Username**: Displays the username with which you are logged in to the app.
-- **Service Status**: Displays the app connection status. Click **Turn Off**if you want to disable the Internet & SaaS service while remaining logged in to the app. Depending on your organization's policies, you might be required to enter a password. The Internet & SaaS service is disabled until you click**Turn On**.
-- **Network Type**: Displays the type of network you are connected to (Trusted Network, VPN Trusted Network, Split VPN Trusted Network, or Off-Trusted Network).
-- **Server**: Displays the IP address of the server to which your traffic is being forwarded.
-- **Client IP**: Displays your client IP address.
-- **Time Connected**: Displays your initial connection time for the present session.
-- **Tunnel Version**: Displays the version of the Zscaler Tunnel (Z-Tunnel) that Zscaler Client Connector forwards your traffic through.
-
-## Statistics
-
-This section displays the following traffic statistics:
-
-- **Total Bytes Sent:** Displays, in real time, bytes of traffic sent from your computer through the app.
-- **Total Bytes Received**: Displays, in real time, bytes of traffic received by your computer through the app.
-
-This window includes the following features on Linux devices.
-
-[Image: Internet Security Window]
-
-## Connectivity
-
-This section displays the following connectivity information:
-
-- **Username**: Displays the username with which you are logged in to the app.
-- **Service Status**: Displays the app connection status. Click **Turn Off** if you want to disable the Internet & SaaS service while remaining logged in to the app. Depending on your organization's policies, you might be required to enter a password. The Internet & SaaS service is disabled until you click**Turn On**.
-- **Network Type:** Displays the type of network you are connected to (Trusted Network, VPN Trusted Network, Split VPN Trusted Network, or Off Trusted Network).
-- **Server**: Displays the IP address of the server to which your traffic is being forwarded.
-- **Client**: Displays your client IP address.
-- **Time Connected**: Displays your initial connection time for the present session.
-- **Tunnel Version**: Displays the version of the Zscaler Tunnel (Z-Tunnel) that Zscaler Client Connector forwards your traffic through.
-
-## Statistics
-
-This section displays the following traffic statistics:
-
-- **Total Bytes Sent:** Displays, in real time, bytes of traffic sent from your computer through the app.
-- **Total Bytes Received**: Displays, in real time, bytes of traffic received by your computer through the app.
-
-This screen includes the following features on Android devices:
-
-## Connectivity
-
-This section displays the following connectivity information:
-
-- **Username**: Displays the username with which you are logged in to the app.
-- **Service Status**: Displays the app connection status. Tap **Turn Off** if you want to disable the Internet & SaaS service while remaining logged in to the app. Depending on your organization’s policies, you might be required to enter a password. The Internet & SaaS service is disabled until you tap **Turn On**.
-- **Network Type**: Displays the type of network you are connected to (Trusted Network or Off-Trusted Network).
-- **Proxy Server**: Displays the IP address of the server to which your traffic is being forwarded.
-- **Client IP**: Displays your client IP address.
-- **Time Connected**: Displays your initial connection time for the present session.
-- **Tunnel Version**: Displays the version and protocol of the Zscaler Tunnel (Z-Tunnel) that Zscaler Client Connector forwards your traffic through.
-
-## Statistics
-
-This section displays the following traffic statistics:
-
-- **Total Bytes Sent**: Displays, in real time, bytes of traffic sent from your device through the app.
-- **Total Bytes Received**: Displays, in real time, bytes of traffic received by your device through the app.
-
-[Image: Internet Security Screen]
-
-This screen includes the following features on Android on ChromeOS devices:
-
-## Connectivity
-
-This section displays the following connectivity information:
-
-- **Username**: Displays the username with which you are logged in to the app.
-- **Service Status**: Displays the app connection status. Tap **Turn Off** if you want to disable the Internet & SaaS service while remaining logged in to the app. Depending on your organization’s policies, you might be required to enter a password. The Internet & SaaS service is disabled until you tap **Turn On**.
-- **Network Type**: Displays the type of network you are connected to (Trusted Network or Off-Trusted Network).
-- **Proxy Server**: Displays the IP address of the server to which your traffic is being forwarded.
-- **Client IP**: Displays your client IP address.
-- **Time Connected**: Displays your initial connection time for the present session.
-- **Tunnel Version**: Displays the version and protocol of the Zscaler Tunnel (Z-Tunnel) that Zscaler Client Connector forwards your traffic through.
-
-## Statistics
-
-This section displays the following traffic statistics:
-
-- **Total Bytes Sent**: Displays, in real time, bytes of traffic sent from your Chromebook through the app.
-- **Total Bytes Received**: Displays, in real time, bytes of traffic received by your Chromebook through the app.
-
-[Image: Internet Security Window]
-
-This screen features connectivity information and traffic statistics for Internet & SaaS on iOS devices.
-
-[Image: Internet Security Screen]
-
-## Connectivity
-
-This section displays the following connectivity information:
-
-- **Username**: Displays the username with which you are logged in to the app.
-- **Service Status**: Displays the app connection status. Tap **Turn Off** if you want to disable the Internet & SaaS service while remaining logged in to the app. Depending on your organization’s policies, you might be required to enter a password. The Internet & SaaS service is disabled until you tap **Turn On**.
-- **Network Status**: Displays the type of network you are connected to (Trusted Network, VPN-Trusted Network, Split VPN Trusted Network, or Off-Trusted Network).
-- **Server IP**: Displays the IP address of the server to which your traffic is being forwarded.
-- **Client IP**: Displays your client IP address.
-- **Time Connected**: Displays your initial connection time for the present session.
-- **Tunnel SDK Version**: The current tunnel SDK version.
-- **Tunnel Version**: Displays the version of the Zscaler Tunnel (Z-Tunnel) that Zscaler Client Connector forwards your traffic through.
-
-## Statistics
-
-This section displays the following traffic statistics:
-
-- **Bytes Sent**: Displays, in real time, bytes of traffic sent from your mobile device through the app.
-- **Bytes Received**: Displays, in real time, bytes of traffic received by your computer through the app.
+[Image: View Statistics details in the Internet & SaaS window]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-private-access-zscaler-client-connector","lastmod":"2026-05-06T10:40Z","nid":"1363051"} -->
-## Viewing Information About Private Access on Zscaler Client Connector
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-private-access-zscaler-client-connector-modern-ui","lastmod":"2026-10-07T10:22Z","nid":"1546638"} -->
+## Viewing Information About Private Access on Zscaler Client Connector in the Modern UI
 
-- Source: https://help.zscaler.com/zscaler-client-connector/viewing-information-about-private-access-zscaler-client-connector
+- Source: https://help.zscaler.com/zscaler-client-connector/viewing-information-about-private-access-zscaler-client-connector-modern-ui
 - Product: Client Connector
-- Path: Zscaler Client Connector Help > End User Guide > Viewing Information About Private Access on Zscaler Client Connector
-- Last modified: 2026-05-06T10:40Z
+- Path: Zscaler Client Connector Help > End User Guide for the Modern UI > Viewing Information About Private Access on Zscaler Client Connector in the Modern UI
+- Last modified: 2026-10-07T10:22Z
 - Summary: Information on the Private Access window on Zscaler Client Connector.
 
-This article provides an overview of the Private Accesswindow of Zscaler Client Connector for different OSs. This window features connectivity information and traffic statistics for [Private Access](https://help.zscaler.com/zpa/what-zscaler-private-access).
+This article provides an overview of the Private Access(ZPA) window of Zscaler Client Connector for different OSs. This window features connectivity information and traffic statistics for [Private Access](https://help.zscaler.com/zpa/what-zscaler-private-access).
 
 - Windows
-- macOS
-- Linux
-- Android
-- Android on ChromeOS
-- iOS
 
-For information about other Zscaler Client Connector features, see [Using Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector).
+For information about other Zscaler Client Connector features, see [Using Zscaler Client Connector in the Modern UI](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector-modern-ui).
 
 This window includes the following features on Windows devices.
 
@@ -1817,424 +850,64 @@ This window includes the following features on Windows devices.
 
 This section displays the following connectivity information:
 
-- **Username**: Displays the username with which you are logged into the app.
-- **Service Status**: Displays the app connection status. Click **Turn Off** if you want to turn off the Zscaler Tunnel (Z-Tunnel) and disable the Private Access service while remaining logged in to the app. The Private Access service is disabled until you click**Turn On**.
-- **Network Type:** Displays the type of network you are connected to (**Trusted Network**, **VPN-Trusted Network**, **Split VPN-Trusted Network**, or **Off-Trusted Network**).
+- **Service Status**: Displays the app connection status. Click **Turn Off** if you want to turn off the Zscaler Tunnel (Z-Tunnel) and disable the Private Access service while remaining logged in to the app. A password might be required if configured by your IT admin. The Private Access service is disabled until you click**Turn On**.
 - **Authentication Status**: Displays the current authentication state (i.e., whether you are currently authenticated or not).
-- **Authenticate Early**: Click **Authenticate Early** to reauthenticate Private Access before your authentication expires. To learn more, see [Configuring Zscaler Client Connector Profiles](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-profiles).
-- **Broker:** Displays the IP address of the server to which your traffic is being forwarded.
-- **Client:**Displays the local IP address of your device.
-- **Time Connected**: Displays your initial connection time for the present session.
-- **Protocol:** Displays the protocol used for the tunnel (TLS or DTLS).
-
-## Statistics
-
-This section displays the following traffic statistics:
-
-- **Total Bytes Sent**: Displays, in real time, bytes of traffic sent from your computer through the Z-Tunnel.
-- **Total Bytes Received**: Displays, in real time, bytes of traffic received by your computer through the Z-Tunnel.
-
-[Image: Private Access Window]
-
-## VPN Tunnel
-
-This section displays only if you are connected to the Zscaler cloud using a VPN connection. To learn more, see [About VPN Service Edges](https://help.zscaler.com/zpa/about-vpn-service-edges).
-
-This section displays the following connectivity information:
-
-- **VPN Service Edge**: Displays the IP address of the VPN Service Edge to which your traffic is being forwarded. This field displays as **Network Service Edge** in previous versions of Zscaler Client Connector.
-- **Client IP**: Displays the IP address assigned to your device by the VPN Service Edge for the session.
-- **Time Connected**: Displays your initial connection time for the present session.
-- **Total Bytes Sent**: Displays, in real time, bytes of traffic sent from your computer through the VPN Tunnel.
-- **Total Bytes Received**: Displays, in real time, bytes of traffic received from your computer through the VPN Tunnel.
-
-[Image: VPN Tunnel section]
-
-This window includes the following features on macOS devices.
-
-## Zero Trust Connectivity
-
-This section displays the following connectivity information:
-
-- **Username**: Displays the username with which you are logged into the app.
-- **Service Status**: Displays the app connection status. Click **Turn Off** if you want to turn off the Zscaler Tunnel (Z-Tunnel) and disable the Private Access service while remaining logged in to the app. The Private Access service is disabled until you click**Turn On**.
-- **Network Type:** Displays the type of network you are connected to (Trusted Network, VPN-Trusted Network, Split VPN-Trusted Network, or Off-Trusted Network).
-- **Authentication Status**: Displays the current authentication state (i.e., whether you are currently authenticated or not).
-- **Authenticate Early**: Click **Authenticate Early** to reauthenticate Private Access before your authentication expires. To learn more, see [Configuring Zscaler Client Connector Profiles](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-profiles).
-- **Broker:** Displays the IP address of the server to which your traffic is being forwarded.
-- **Client:**Displays the local IP address of your device.
-- **Time Connected**: Displays your initial connection time for the present session.
-- **Tunnel Protocol:** Displays the protocol used for the tunnel (TLS or DTLS).
-
-## Statistics
-
-This section displays the following traffic statistics:
-
-- **Total Bytes Sent**: Displays, in real time, bytes of traffic sent from your computer through the Z-Tunnel.
-- **Total Bytes Received**: Displays, in real time, bytes of traffic received by your computer through the Z-Tunnel.
-
-[Image: Private Access Window]
-
-## VPN Tunnel
-
-This section displays only if you are connected to the Zscaler cloud using a VPN connection. To learn more, see [About VPN Service Edges](https://help.zscaler.com/zpa/about-vpn-service-edges).
-
-This section displays the following connectivity information:
-
-- **VPN Service Edge**: Displays the IP address of the VPN Service Edge to which your traffic is being forwarded. This field displays as **Network Service Edge** in previous versions of Zscaler Client Connector.
-- **Client IP**: Displays the IP address assigned to your device by the VPN Service Edge for the session.
-- **Time Connected**: Displays your initial connection time for the present session.
-- **Total Bytes Sent**: Displays, in real time, bytes of traffic sent from your computer through the VPN Tunnel.
-- **Total Bytes Received**: Displays, in real time, bytes of traffic received from your computer through the VPN Tunnel.
-
-[Image: VPN Tunnel section]
-
-This window includes the following features on Linux devices.
-
-## Zero Trust Connectivity
-
-This section displays the following connectivity information:
-
-- **Username**: Displays the username with which you are logged into the app.
-- **Service Status**: Displays the app connection status. Click **Turn Off** if you want to turn off the Zscaler Tunnel (Z-Tunnel) and disable the Private Access service while remaining logged in to the app. The Private Access service is disabled until you click**Turn On**.
-- **Network Type**: Displays the type of network you are connected to (Trusted Network, VPN-Trusted Network, Split VPN-Trusted Network, or Off-Trusted Network).
-- **Authentication Status**: Displays the current authentication state (i.e., whether you are currently authenticated or not).
-- **Authenticate Early**: Click **Authenticate Early** to reauthenticate Private Access before your authentication expires. To learn more, see [Configuring Zscaler Client Connector Profiles](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-profiles).
-- **Broker**: Displays the IP address of the server to which your traffic is being forwarded.
-- **Client**: Displays the local IP address of your device.
-- **Time Connected**: Displays your initial connection time for the present session.
-
-## Statistics
-
-This section displays the following traffic statistics:
-
-- **Total Bytes Sent:** Displays, in real time, bytes of traffic that your mobile device has sent through the Z-Tunnel.
-- **Total Bytes Received**: Displays, in real time, bytes of traffic that your mobile device has received through the Z-Tunnel.
-
-[Image: Private Access Window]
-
-This window includes the following features on Android devices:
-
-## Zero Trust Connectivity
-
-This section displays the following connectivity information:
-
-- **Username**: Displays the username with which you are logged in to the app.
-- **Service Status**: Displays the app connection status. Tap **Turn Off** if you want to turn off the Zscaler Tunnel (Z-Tunnel) and disable the Private Access service while remaining logged in to the app. The Private Access service is disabled until you tap **Turn On**.
-- **Network Type**: Displays the type of network you're connected to (Trusted Network or Off-Trusted Network).
-- **Authentication Status**: Displays whether the user is authenticated to the Private Access service.
-- **Authenticate Early**: Click to reauthenticate Private Access before your authentication expires.
-- **Broker**: Displays the IP address of the server to which your traffic is being forwarded.
-- **Time Connected**: Displays your initial connection time for the present session.
-- **Protocol**: Displays the protocol used for the tunnel (TLS or DTLS).
-
-## Statistics
-
-This section displays the following traffic statistics:
-
-- **Total Bytes Sent**: Displays, in real time, bytes of traffic that your mobile device has sent through the Z-Tunnel.
-- **Total Bytes Received**: Displays, in real time, bytes of traffic that your mobile device has received through the Z-Tunnel.
-
-[Image: Private Access Screen]
-
-This window includes the following features of Android on ChromeOS devices:
-
-## Connectivity
-
-This section displays the following connectivity information:
-
-- **Username**: Displays the username with which you are logged into the app.
-- **Service Status**: Displays the app connection status. Tap **Turn Off** if you want to turn off the Zscaler Tunnel (Z-Tunnel) and disable the Private Access service while remaining logged in to the app. The Private Access service is disabled until you tap **Turn On**.
-- **Network Type**: Displays the type of network you're connected to (Trusted Network or Off-Trusted Network).
-- **Authentication Status**: Displays whether the user is authenticated to the Private Access service.
-- **Authenticate Early**: Click to reauthenticate Private Access before your authentication expires.
-- **Broker**: Displays the IP address of the server to which your traffic is being forwarded.
-- **Client**: Displays the local IP address of your device.
-- **Time Connected**: Displays your initial connection time for the present session.
-- **Tunnel Protocol**: Displays the protocol used for the tunnel (TLS or DTLS).
-
-## Statistics
-
-This section displays the following traffic statistics:
-
-- **Total Bytes Sent**: Displays, in real time, bytes of traffic that your mobile device has sent through the Z-Tunnel.
-- **Total Bytes Received**: Displays, in real time, bytes of traffic that your mobile device has received through the Z-Tunnel.
-
-[Image: Private Access Window]
-
-This screen includes the following features on iOS devices.
-
-## Zero Trust Connectivity
-
-This section displays the following connectivity information:
-
-- **Username**: Displays the username with which you are logged into the app.
-- **Service Status**: Displays the app connection status. Tap **Turn Off** if you want to turn off the Zscaler Tunnel (Z-Tunnel) and disable the Private Access service while remaining logged in to the app. Depending on your organization’s policies, you might be required to enter a password. The Private Access service is disabled until you tap **Turn On**.
-- **Network Status**: Displays the type of network you are connected to (Trusted Network, VPN Trusted Network, Split VPN Trusted Network, or Off-Trusted Network).
-- **Authentication Status**: Displays whether or not the user is authenticated to the Private Access service.
 - **Authenticate Early**: Click **Authenticate Early** to reauthenticate Private Access before your authentication expires.
-- **Broker**: Displays the broker Zscaler Client Connector is connected to.
-- **Client**: Displays your client IP address.
 - **Time Connected**: Displays your initial connection time for the present session.
-- **Tunnel Version**: Displays the version of the Zscaler Tunnel (Z-Tunnel) that Zscaler Client Connector forwards your traffic through.
-- **Tunnel SDK Version**: The current tunnel SDK version.
+- **Network Type:** Displays the type of network you are connected to (Trusted Network, VPN-Trusted Network, Split VPN-Trusted Network, or Off-Trusted Network).
+- **Tunnel Version:** Displays the type of tunnel and the associated protocol.
+- **Client:**Displays the local IP address of your device.
+- **Server:** Displays the IP address of the server to which your traffic is being forwarded.
+
+[Image: View Zero Trust Connectivity information in the Private Access window]
 
 ## Statistics
 
 This section displays the following traffic statistics:
 
-- **Data Sent**: Displays, in real time, bytes of traffic sent from your mobile device through the Z-Tunnel.
-- **Data Received**: Displays, in real time, bytes of traffic received by your mobile device through the Z-Tunnel.
+- **Total Traffic Sent**: Displays, in real time, bytes of traffic sent from your computer through the Z-Tunnel.
+- **Total Traffic Received**: Displays, in real time, bytes of traffic received by your computer through the Z-Tunnel.
 
-[Image: Private Access Screen]
+[Image: View Statistics details in the Private Access window]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-zscaler-client-connector","lastmod":"2024-07-05T12:05Z","nid":"1363026"} -->
-## Viewing Information About Zscaler Client Connector
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-zscaler-client-connector-modern-ui","lastmod":"2026-10-07T10:22Z","nid":"1546636"} -->
+## Viewing Information About Zscaler Client Connector in the Modern UI
 
-- Source: https://help.zscaler.com/zscaler-client-connector/viewing-information-about-zscaler-client-connector
+- Source: https://help.zscaler.com/zscaler-client-connector/viewing-information-about-zscaler-client-connector-modern-ui
 - Product: Client Connector
-- Path: Zscaler Client Connector Help > End User Guide > Viewing Information About Zscaler Client Connector
-- Last modified: 2024-07-05T12:05Z
-- Summary: Information on the About menu features on Zscaler Client Connector.
+- Path: Zscaler Client Connector Help > End User Guide for the Modern UI > Viewing Information About Zscaler Client Connector in the Modern UI
+- Last modified: 2026-10-07T10:22Z
+- Summary: Information about the Application window on Zscaler Client Connector in the Modern UI.
 
-html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"
-
-?xml version='1.0' encoding='UTF-8'?
-
-In the **About**section of the **More** window in Zscaler Client Connector, you can view information about the app and also update the app or internet security policies on your device using the following fields:
+In the **Application** window in Zscaler Client Connector, you can view information about the app and also update the app or internet security policies on your device using the following fields:
 
 - **App Version**: Displays the app version number.
 - **Update App**: You can click or tap to update the app to the latest version approved by your organization if an update has not already occurred. For Android devices, this option is not available. If you think your app needs to be updated, contact your IT administrator.
 - **App Policy**: Displays the name of the app profile assigned to the device.
 - **Update Policy**: You can click or tap to manually refresh your internet security policies and PAC file.
-- **License Agreement**: Applies to macOS. You can click to view the **License Agreement for Zscaler Software**.
-- **License and Credits**: Applies to Android and Linux. You can click to view the **License Agreement for Zscaler Software**and **Third-Party Software Notice**.
-- **License Agreement and Third Party Software Notice**: Applies to Windows, macOS and iOS. You can click to view the **License Agreement and Third-Party Software Notice**for Zscaler.
+- **UI Language**: The language in which the Zscaler Client Connector app displays. The default language is based on the app profile. Applies to Zscaler Client Connector for Windows.
+- **Theme**: The color theme in which the app displays. You can select **Light** or **Dark** mode, or you can select to follow the **Device Theme** setting.
+- **Modern Experience**: Enable this setting to view the Zscaler Client Connector app using the modernized UI available with Zscaler Client Connector version 5.0. If you disable this setting, the app displays in the Classic UI used with Zscaler Client Connector versions earlier than 5.0.
+- **License Agreement**: You can click to view the License Agreement for Zscaler Software.
+- **Third Party Software Notice**: You can click to view the Third-Party Software Noticefor Zscaler.
 
 The following is a sample screenshot from the Windows platform. The screen might slightly differ based on the OS of your device:
 
-[Image: About Menu for Zscaler Client Connector]
-
-For information about other Zscaler Client Connector features, see [Using Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector).
+[Image: View information about Zscaler Client Connector on the Application window]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-zscaler-endpoint-dlp-zscaler-client-connector","lastmod":"2026-10-01T14:57Z","nid":"1464141"} -->
-## Viewing Information About Zscaler Endpoint DLP on Zscaler Client Connector
-
-- Source: https://help.zscaler.com/zscaler-client-connector/viewing-information-about-zscaler-endpoint-dlp-zscaler-client-connector
-- Product: Client Connector
-- Path: Zscaler Client Connector Help > End User Guide > Viewing Information About Zscaler Endpoint DLP on Zscaler Client Connector
-- Last modified: 2026-10-01T14:57Z
-- Summary: Information on the Data Protection page on Zscaler Client Connector.
-
-This article provides an overview of the Data Protection window on Zscaler Client Connector. This window features connectivity information and troubleshooting steps for the Data Protection feature on Windows and macOS devices.
-
-[Image: Data Protection window]
-
-## Connectivity
-
-- **Service Status**: Displays the app connection status. Click **Turn Off** if you want to disable the Data Protection service while remaining logged in to the app. The Data Protection service is disabled until you click **Turn On**. You can disable the service using the [Password to Disable Endpoint DLP](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-profiles#windows) in App Profiles or by using a One-Time Password (OTP). Admins can access an OTP code from the Zscaler Admin Console:
-  1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure > Client Connector > Device Overview**.
-  2. Click the View icon to view the device fingerprint for the enrolled device.
-  3. Under **Compliance Status**, copy the password listed under **Disable Endpoint DLP OTP**. See image.
-- **Product Version:**Displays the current version of the Data Protection feature.
-
-## Troubleshoot
-
-- **Request exemption**: Users that are blocked by the Endpoint DLP due to a rule violation can request to be exempted from the block action, and instead be monitored. Clicking this option prompts you to enter a password. Admins can access an OTP code from the Zscaler Admin Console: The OTP also works if you are in offline mode. Exemptions are granted for 12 hours.
-  1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure > Client Connector > Device Overview**.
-  2. Click the View icon to view the device fingerprint for the enrolled device.
-  3. Under **Compliance Status**, copy the password listed under **Disable Endpoint DLP OTP**.
-- **Update DLP Policy**: Click to manually refresh your endpoint DLP policy. The DLP policy refreshes every 15 minutes. If you want to update immediately, click **Update DLP Policy**.
-- **Open Quarantine Folder**: Contains the files that moved to this folder as a result of a block action for the personal cloud storage rules (e.g., Dropbox) or by other channels where the file source information is missing (e.g., copying an extract ZIP file to a removable storage device).
-
-[Image: Disable Endpoint DLP OTP]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-notifications-zscaler-client-connector","lastmod":"2026-05-06T12:02Z","nid":"1370041"} -->
-## Viewing Notifications on Zscaler Client Connector
-
-- Source: https://help.zscaler.com/zscaler-client-connector/viewing-notifications-zscaler-client-connector
-- Product: Client Connector
-- Path: Zscaler Client Connector Help > End User Guide > Viewing Notifications on Zscaler Client Connector
-- Last modified: 2026-05-06T12:02Z
-- Summary: Information on the Notifications window of Zscaler Client Connector.
-
-This article provides an overview of the **Notifications**window of Zscaler Client Connector.
-
-- Windows
-- macOS
-- Linux
-- Android
-- Android on ChromeOS
-- iOS
-
-For information about other Zscaler Client Connector features, see [Using Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector).
-
-This section covers the following topics:
-
-- Viewing Notifications on Windows
-- Enabling Notifications in the System Tray
-
-In the Notifications window, you can view the following information:
-
-- **Application**: Displays the name of the application relevant to the action that triggered the notification. In the following example, **Zscaler Client Connector** is listed in the **Application** column when the notification is relevant only to Zscaler Client Connector. For example, you received a notification after the app required you to reauthenticate into the Private Access service, in order to access internal applications. As another example, if you attempted to upload content to Dropbox.com in violation of one of your organization's cloud app control policies in the Internet & SaaS service, you would receive a notification and see Dropbox.com in the **Application** column.
-- **Time**: Displays the time when the notification was received.
-- **Message**:Displays the notification message.
-
-Click **Clear All** to clear all notifications from this page.
-
-[Image: Notifications Window]
-
-To display notifications from the system tray icon:
-
-1. Click **More**.
-2. In the **Settings**section, you can:
-
-- Manually enable or disable [pop-up notifications](https://help.zscaler.com/zscaler-client-connector/zscaler-client-connector-pop-notifications). The default setting is set by the admin. If notifications are enabled, notifications appear in the tray icon. This setting doesn’t affect Private Access reauthentication notifications.
-- Override the default setting that was configured in the Zscaler Admin Console to show Private Access reauthentication notifications.
-- Pause notifications by enabling **Do Not Disturb (DND) Mode**. You can pause notifications in 30-minute, 1-hour, or 2-hour increments. If you use Zscaler Client Connector version 4.9, you can select **Enabled** to pause notifications indefinitely until you select **Disabled**.
-
-[Image: Show notifications in Zscaler tray icon]
-
-For Zscaler Client Connector version 3.8 and later for Windows, you can instead use Zscaler's Notification Framework. You cannot disable notifications in Windows settings. To learn more, see [About the Zscaler Notification Framework](https://help.zscaler.com/zscaler-client-connector/about-zscaler-notification-framework).
-
-This section covers the following topics:
-
-- Viewing Notifications on macOS
-- Enabling Notifications on the Menu Bar
-
-In the Notifications window, you can view the following information:
-
-- **Application**: Displays the name of the application relevant to the action that triggered the notification. In the following example, **Zscaler Client Connector**is listed in the **Application**column because the notification was relevant only to Zscaler Client Connector. For example, you received the notification after disabling the app's Internet & SaaS service. As another example, if you attempted to upload content to Dropbox.com in violation of one of your organization's cloud app control policies, you would receive a notification and see Dropbox.com in the **Application** column.
-- **Time**: Displays the time when the notification was received.
-- **Message**:Displays the notification message.
-
-Click **Clear All** to clear all notifications from this page.
-
-[Image: Notifications Window]
-
-To display notifications from the menu bar icon:
-
-1. Click **More**.
-2. In the **Settings** section, you can:
-  - Manually enable or disable menu bar notifications. The default setting is set by the admin. If notifications are enabled, you see notifications on the app icon.
-  - Override the default setting that was configured in the Zscaler Admin Console to show Private Access reauthentication notifications.
-
-[Image: Enabling Zscaler Client Connector for macOS to show menu bar notifications]
-
-This section covers the following topics:
-
-- Viewing Notifications on Linux
-- Enabling Notifications in the System Tray
-
-In the Notifications window, you can view the following information:
-
-- **Application**: Displays the name of the application relevant to the action that triggered the notification. **Zscaler**is listed in the **Application**column because the notification was relevant only to Zscaler Client Connector. For example, you received the notification after disabling the app's Internet & SaaS service. As another example, if you attempted to upload content to Dropbox.com in violation of one of your organization's cloud app control policies, you would receive a notification and see Dropbox.com in the **Application** column.
-- **Time**: Displays the time when the notification was received.
-- **Message**:Displays the notification message.
-
-Click **Clear All** to clear all notifications from this page.
-
-[Image: Notifications Window]
-
-To display notifications in the system tray:
-
-1. Click **More**.
-2. In the **Settings** section, you can:
-  - Manually enable or disable system tray notifications. The default setting is set by the admin. If notifications are enabled, you see notifications on the app icon. This setting doesn't affect Private Access reauthentication notifications.
-  - Override the default setting that was configured in the Zscaler Admin Console to show Private Access reauthentication notifications.
-
-[Image: Enabling Zscaler Client Connector for Linux to show system tray notifications]
-
-This section covers the following topics:
-
-- Viewing Notifications on Android
-- Enabling Notifications on the App Icon
-
-In the Notifications screen, you can view the following information:
-
-- The name of the application and the action that triggered it. For example, the following image shows a notification you’d receive after the app’s Private Access service started. As another example, if you attempted to upload content to Dropbox.com in violation of one of your organization’s cloud app control policies, you'd receive a notification with Dropbox.com listed.
-- The notification message and the time when it was received.
-
-Tap the **Delete** icon in the top-right corner to clear all notifications from this screen.
-
-Use the drop-down menu to filter the notifications by the predefined time frames. You can view notifications from **Today**, the **Last 7 Days**, the **Last 10 Days**, or view **All** notifications.
-
-[Image: The Notifications screen of Zscaler Client Connector for Android]
-
-To display notifications on the app icon:
-
-1. Tap **More**.
-2. In the **Settings** section, you can:
-  - Manually enable or disable pop-up notifications. The default setting is set by the admin. If notifications are enabled, notifications appear on the app icon. This setting doesn’t affect Private Access reauthentication notifications.
-  - Override the default setting that was configured in the Zscaler Admin Console to enable or disable Private Access reauthentication notifications.
-
-[Image: Enabling notifications for Android devices]
-
-This section covers the following topics:
-
-- Viewing Notifications on Android on ChromeOS
-- Enabling Notifications on the App Icon
-
-In the Notifications screen, you can view the following information:
-
-- The name of the application and the action that triggered it. For example, the following image shows a notification you’d receive after the app’s Private Access service started. As another example, if you attempted to upload content to Dropbox.com in violation of one of your organization’s cloud app control policies, you'd receive a notification with Dropbox.com listed.
-- The notification message and the time when it was received.
-
-Tap the **Delete** icon in the top-right corner to clear all notifications from this screen.
-
-Use the drop-down menu to filter the notifications by the predefined time frames. You can view notifications from **Today**, the **Last 7 Days**, the **Last 10 Days**, or view **All** notifications.
-
-[Image: The Notifications screen of Zscaler Client Connector for Android on ChromeOS]
-
-To display notifications on the app icon:
-
-1. Tap **More**.
-2. In the **Settings** section, you can:
-  - Manually enable or disable menu bar notifications. The default setting is set by the admin. If notifications are enabled, you see notifications on the app icon.
-  - Override the default setting that was configured in the Zscaler Admin Console to enable or disable Private Access reauthentication notifications.
-
-[Image: Enabling notifications for Android on ChromeOS devices]
-
-This section covers the following topics:
-
-- Viewing Notifications on iOS
-- Enabling Notifications on the App Icon
-
-In the Notifications screen, you can view the following information:
-
-- The name of the application relevant to the action that triggered it. In the following example, **Zscaler Client Connector Private Access** is listed because the notification was relevant only to Zscaler Client Connector. For example, you received the notification after the app’s Internet & SaaS service was turned on. For example, if you attempted to upload content to Dropbox.com in violation of one of your organization’s cloud app control policies, you would receive a notification and see Dropbox.com listed.
-- The notification message and the time when it was received.
-
-Tap the **Delete** icon in the top-right corner to clear all notifications from this screen.
-
-[Image: Notifications Screen for iOS]
-
-To display notifications on the app icon:
-
-1. Tap **More**.
-2. In the **Settings** section, you can enable or disable app icon notifications.
-
-[Image: Enabling notifications for iOS devices]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-policy-token-zscaler-client-connector-app-profile","lastmod":"2026-09-22T15:37Z","nid":"1328911"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-policy-token-zscaler-client-connector-app-profile","lastmod":"2026-10-06T21:06Z","nid":"1328911"} -->
 ## Viewing the Policy Token for a Zscaler Client Connector App Profile
 
 - Source: https://help.zscaler.com/zscaler-client-connector/viewing-policy-token-zscaler-client-connector-app-profile
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Profile Management > Viewing the Policy Token for a Zscaler Client Connector App Profile
-- Last modified: 2026-09-22T15:37Z
+- Last modified: 2026-10-06T21:06Z
 - Summary: How to view the policy token, which is automatically generated for each saved Zscaler Client Connector app profile.
 
 After you save your Zscaler Client Connector [app profile](https://help.zscaler.com/zscaler-client-connector/about-zscaler-app-profiles), a policy token is automatically generated for the profile.
@@ -2251,14 +924,16 @@ To view the policy token for an app profile:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/what-is-zscaler-client-connector","lastmod":"2026-10-01T12:18Z","nid":"1285401"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/what-is-zscaler-client-connector","lastmod":"2026-10-06T09:40Z","nid":"1285401"} -->
 ## What Is Zscaler Client Connector?
 
 - Source: https://help.zscaler.com/zscaler-client-connector/what-is-zscaler-client-connector
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > What Is Zscaler Client Connector?
-- Last modified: 2026-10-01T12:18Z
+- Last modified: 2026-10-06T09:40Z
 - Summary: Information on Zscaler Client Connector, its key features, and how it works.
+
+[Watch a video about Zscaler Client Connector.](https://fast.wistia.net/embed/iframe/sq0jjgyieg)
 
 The Zscaler Client Connector app is a lightweight, tamper-resistant software agent installed on end-user devices that automatically forwards all user and device traffic through the Zscaler Zero Trust Exchange (ZTE) for security inspection, policy enforcement, and secure access to both internet and internal resources, regardless of user location.
 
@@ -3037,13 +1712,13 @@ The table below provides a list of error messages your users might see for Zscal
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-processes-allowlist","lastmod":"2026-10-04T07:06Z","nid":"1285511"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-processes-allowlist","lastmod":"2026-10-11T07:06Z","nid":"1285511"} -->
 ## Zscaler Client Connector Processes to Allowlist
 
 - Source: https://help.zscaler.com/zscaler-client-connector/zscaler-client-connector-processes-allowlist
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Interoperability > Zscaler Client Connector Processes to Allowlist
-- Last modified: 2026-10-04T07:06Z
+- Last modified: 2026-10-11T07:06Z
 - Summary: Information on Zscaler Client Connector binaries and processes that the users' devices should allowlist.
 
 Zscaler recommends that your users' devices have inbound rules that allow the Zscaler Client Connector binaries and processes.
@@ -3187,9 +1862,7 @@ Zscaler Client Connector automatically adds required firewall rules to the Windo
 
 If machine tunnels are used with Transparent Proxy-based Interception mode enabled, be sure to enable inbound traffic to ZscalerTunnel in your firewall rules to allow access to Private Access apps. In addition, be sure to disable FileVault to allow Private Access connections before a user logs in to Zscaler Client Connector on their device.
 
-- `Zscaler: Inbound`
 - `Zscaler: Outbound`
-- `ZscalerService: Inbound`
 - `ZscalerService: Outbound`
 - `ZscalerTunnel: Inbound`
 - `ZscalerTunnel: Outbound`

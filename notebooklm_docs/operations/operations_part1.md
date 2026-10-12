@@ -1,7 +1,7 @@
 # Zscaler Help — Deployment / Operations / Terms (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-05 09:38 UTC
+Generated: 2026-10-12 09:45 UTC
 Articles in this file: 94
 
 ---
@@ -430,6 +430,45 @@ If your organization currently uses the Client Certificate posture type for Andr
 Failing to update these policies may result in Private Access access issues for Android users.
 
 Announcement date: Jun 11, 2026
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/product-usage-terms/end-support-cloud-connector-repository-certificate","lastmod":"2026-10-07T14:56Z","nid":"1546096"} -->
+## End-of-Support for Cloud Connector Repository Certificate
+
+- Source: https://help.zscaler.com/product-usage-terms/end-support-cloud-connector-repository-certificate
+- Product: Product Usage Terms & Policies
+- Path: Product Usage Terms & Policies > EOS & EOL Announcements > End-of-Support for Cloud Connector Repository Certificate
+- Last modified: 2026-10-07T14:56Z
+- Summary: End-of-Support (EOS) for Cloud Connector TLS repository certificate.
+
+The TLS certificate for the Zscaler Cloud Connector software update repository will expire on March 18, 2027. To preserve software update functionality and avoid deployment failures, customers must update their virtual machines or use the latest marketplace images. Zscaler recommends that all customers complete these updates by December 31, 2026:
+
+- Existing Cloud Connector Deployments: No action is required. Zscaler is deploying an automatic update to patch the CA trust bundle. No restart is required.
+- New Cloud Connector Deployments: The updated marketplace image is required when deploying new Cloud Connectors after March 18, 2027.
+
+You are impacted if you are running Cloud Connector or Branch Connector virtual machines with versions lower than 1.146. These versions lack the DigiCert G2 certificate chain required to validate the newly updated software packages published to the package repo after March 18, 2027. Zscaler published an automatic software patch in March 2026 that recognizes the new DigiCert G2 certificate chain. It is included in the following software versions:
+
+- Cloud Connector: Version 1.146.5 or higher
+- Branch Connector: Version 1.146.0 or higher
+
+If you do not take action before March 18, 2027:
+
+- Existing Cloud Connector Deployments: If the automatic fix is not applied, existing Cloud Connectors lose the ability to receive future software updates, including critical security patches and bug fixes.
+- New Cloud Connector Deployments: Deployments using older marketplace images after March 18, 2027 are unable to connect to the update repository and come online.
+- Autoscaling Group (ASG) and/or Custom Deployment Templates: ASGs using old launch templates, warm pool (Amazon Web Services (AWS)), or instance templates (Microsoft Azure/Google Cloud Platform (GCP)) spin up new instances that cannot connect to the update repository, resulting in scale out failures.
+
+To determine whether you are impacted, check your Cloud Connector software version:
+
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Zero Trust Cloud** > **Cloud Connector** > **Cloud Connector Groups**. The **Cloud Connector Groups** page appears.
+2. On the **Cloud Connector Groups** page, expand a Cloud Connector group and click the **Edit** icon. The **Edit Cloud Connector** window appears.
+3. In the **Edit Cloud Connector** window, click the **Upgrade Status** tab.
+4. On the **Upgrade Status** tab, in the **Upgrade Information** section, locate the **Current Version**.
+
+To learn more, see [Understanding Cloud Connector Repository Certificate Expiry and Renewal](https://help.zscaler.com/cloud-branch-connector/understanding-cloud-connector-repository-certificate-expiry-and-renewal).
+
+Announcement date: October 8, 2026
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1003,13 +1042,13 @@ As designed, Offerings may produce Outputs that reveal latent security vulnerabi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/product-usage-terms/supported-versions","lastmod":"2026-10-02T13:21Z","nid":"1269771"} -->
+<!-- ZS-ARTICLE {"url":"/product-usage-terms/supported-versions","lastmod":"2026-10-09T13:55Z","nid":"1269771"} -->
 ## Supported Versions
 
 - Source: https://help.zscaler.com/product-usage-terms/supported-versions
 - Product: Product Usage Terms & Policies
 - Path: Product Usage Terms & Policies > Software Policy & Support > Supported Versions
-- Last modified: 2026-10-02T13:21Z
+- Last modified: 2026-10-09T13:55Z
 - Summary: Matrix of the supported endpoint application versions for Zscaler.
 
 ## Zscaler Client Connector Supported Versions
@@ -1031,12 +1070,12 @@ Zscaler limits the enrollment of devices or the transmission to the Zscaler clou
 
 These versions of Zscaler Client Connector for Windows are supported by Zscaler, and the following table indicates the Windows versions compatible with each supported version of Zscaler Client Connector.
 
-| Compatible OS | Supported Zscaler Client Connector Versions | Notes |  |  |  |
-| --- | --- | --- | --- | --- | --- |
-| OS Version | [4.7 (LTS)](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2025?applicable_category=Windows&applicable_version=4.7) | [4.8](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2025?applicable_category=Windows&applicable_version=4.8) | [4.9](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=Windows&applicable_version=4.9) | [4.10](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=Windows&applicable_version=4.10) |  |
-| Windows 10 | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] | Windows 10 is supported by Zscaler for a limited time. To learn more, see [Zscaler Client Connector Support of Windows 10](https://trust.zscaler.com/zscaler.net/posts/31736). |
-| Windows 11 | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] |  |
-| Amazon Workspaces | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] |  |
+| Compatible OS | Supported Zscaler Client Connector Versions | Notes |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- |
+| OS Version | [4.7 (LTS)](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2025?applicable_category=Windows&applicable_version=4.7) | [4.8](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2025?applicable_category=Windows&applicable_version=4.8) | [4.9](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=Windows&applicable_version=4.9) | [4.10](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=Windows&applicable_version=4.10) | [5.0](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=Windows&applicable_version=5.0) |  |
+| Windows 10 | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Not supported] | Windows 10 is supported by Zscaler for a limited time. To learn more, see [Zscaler Client Connector Support of Windows 10](https://trust.zscaler.com/zscaler.net/posts/31736). |
+| Windows 11 | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] |  |
+| Amazon Workspaces | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] |  |
 
 These versions of Zscaler Client Connector for macOS are supported by Zscaler, and the following table indicates the macOS versions compatible with each supported version of Zscaler Client Connector.
 
@@ -4074,7 +4113,7 @@ See image.
 
 ##### Evaluating ZDX Data
 
-Use this section when your organization has a Zscaler Digital Experience (ZDX) subscription, and you must narrow down performance issues using user‑level experience, network path, and device metrics.
+Use this section when your organization has a Digital Experience (ZDX) subscription, and you must narrow down performance issues using user‑level experience, network path, and device metrics.
 
 Confirm ZDX probes are configured for at least one of the impacted applications before proceeding. See [About Probes](https://help.zscaler.com/zdx/about-probes) for probe and feature availability by subscription level.
 
@@ -4549,13 +4588,13 @@ Provide the following data:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/internet-saas-traffic-forwarding-support-troubleshooting-runbook","lastmod":"2026-09-20T07:06Z","nid":"1532271"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/internet-saas-traffic-forwarding-support-troubleshooting-runbook","lastmod":"2026-10-08T11:25Z","nid":"1532271"} -->
 ## Internet & SaaS Traffic Forwarding Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/internet-saas-traffic-forwarding-support-troubleshooting-runbook
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Traffic Forwarding Support Troubleshooting Runbook
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-10-08T11:25Z
 - Summary: The Internet & SaaS Traffic Forwarding Support Troubleshooting Runbook outlines troubleshooting steps for Internet & SaaS traffic forwarding performance issues.
 
 The Internet & SaaS Traffic Forwarding Support Troubleshooting Runbook provides troubleshooting steps for improving Internet & SaaS's traffic forwarding performance.
@@ -4954,10 +4993,10 @@ Perform the following checks to rule out issues caused by misconfiguration or un
 
 Zscaler recommends customers configure an Active/Standby pair of IPSec tunnels with automatic failover based on application-layer health monitoring. When the IPSec tunnel alternates between up and down states frequently, take the following steps:
 
-1. Validate Tunnel Monitoring Configuration. Verify if proper health monitoring is in place. Zscaler recommends configuring HTTP probes for GRE tunnels to monitor health.
+1. Validate Tunnel Monitoring Configuration. Verify if proper health monitoring is in place. Zscaler recommends configuring HTTP probes for IPSec tunnels to monitor health.
 2. You can use ICMP probes if HTTP probes are not supported by the gateway device.
 3. Confirm that the health probes are targeting gateway.<cloudname>.net/vpntest.
-4. Test automatic failover by ensuring traffic shifts seamlessly to the secondary GRE tunnel if the primary fails.
+4. Test automatic failover by ensuring traffic shifts seamlessly to the secondary IPSec tunnel if the primary fails.
 5. Enter `show ip sla summary` on a Cisco gateway to confirm the status of IP SLA probes. `IP SLAs Latest Operation Summary Codes: * active, ^ inactive, ~ pending ID Type Destination Stats Return Last (ms) Code Run ----------------------------------------------------------------------- *1 http 172.17.27.2 RTT=619 OK 3 seconds ago *2 http 172.17.27.6 RTT=1377 OK 3 seconds ago`
 6. Enter `show ip sla statistics` command to see operation statistics information. `IP SLAs Latest Operation Statistics IP SLA operation id: 1 Latest RTT: NoConnection/Busy/Timeout Latest operation start time: *02:29:07.511 UTC Sat May 19 2012 Latest operation return code: Timeout Number of successes: 0 Number of failures: 2 Operation time to live: Forever`
 
@@ -4965,7 +5004,7 @@ To learn more, see [Configuring an IPSec VPN Tunnel](https://help.zscaler.com/zi
 
 #### Check for Maintenance Activities on Zscaler DC.
 
-Scheduled maintenance or events on the Zscaler DC might temporarily affect GRE tunnels. Verify whether there were any ongoing activities for the given time period.
+Scheduled maintenance or events on the Zscaler DC might temporarily affect IPSec tunnels. Verify whether there were any ongoing activities for the given time period.
 
 Zscaler recommends configuring Failover tunnel and IP SLA monitoring to seamlessly switch the traffic to secondary DC in cases of any issue with the primary DC.
 
@@ -6946,13 +6985,13 @@ The following section describes resolutions.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/private-access-performance-support-troubleshooting-runbook","lastmod":"2026-10-02T14:39Z","nid":"1533933"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/private-access-performance-support-troubleshooting-runbook","lastmod":"2026-10-09T15:12Z","nid":"1533933"} -->
 ## Private Access Performance Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/private-access-performance-support-troubleshooting-runbook
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Private Access Performance Support Troubleshooting Runbook
-- Last modified: 2026-10-02T14:39Z
+- Last modified: 2026-10-09T15:12Z
 - Summary: This Zscaler runbook outlines troubleshooting steps for general Private Access performance issues, categorized into four scopes: issues accessing a applications, issues with all applications from a specific App Connector, issues that affect a specific location or locations, or an issue with a single broker or the whole data center.
 
 The Private Access Performance Support Troubleshooting Runbook outlines a systematic approach to troubleshooting performance slowness experienced by users. It emphasizes understanding the scope of issues, including isolating between affected applications types. The troubleshooting steps involve validating Private Access slowness check points, configurations, collecting and analyzing data through network diagnostic tools and Digital Experience (ZDX) (if available). By following this methodology, engineers can effectively identify the root causes of performance issues and implement corrective actions to optimize the user experience.
@@ -8665,13 +8704,13 @@ There are three types of actions you can view:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/adding-email-notification-templates","lastmod":"2026-08-11T08:16Z","nid":"1495191"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/adding-email-notification-templates","lastmod":"2026-10-09T07:06Z","nid":"1495191"} -->
 ## Adding Email Notification Templates
 
 - Source: https://help.zscaler.com/workflow-automation/adding-email-notification-templates
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Notifications > Adding Email Notification Templates
-- Last modified: 2026-08-11T08:16Z
+- Last modified: 2026-10-09T07:06Z
 - Summary: Information on how to configure various email notification templates on the Notification Template page in Workflow Automation.
 
 Workflow Automation allows you to create various email notification templates using the email template builder to send notifications to the DLP admins, managers, approvers, and end users. The email template builder ensures that the email notification template displays properly to all email clients.
@@ -9929,13 +9968,13 @@ To add a Slack notification template:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-amazon-web-services-dlp-application-integration-using-cloud-cloud-incident-forwarding","lastmod":"2026-10-01T21:06Z","nid":"1531125"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-amazon-web-services-dlp-application-integration-using-cloud-cloud-incident-forwarding","lastmod":"2026-10-06T12:45Z","nid":"1531125"} -->
 ## Configuring the Amazon Web Services DLP Application Integration Using Cloud-to-Cloud Incident Forwarding
 
 - Source: https://help.zscaler.com/workflow-automation/configuring-amazon-web-services-dlp-application-integration-using-cloud-cloud-incident-forwarding
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Configuring the Amazon Web Services DLP Application Integration Using Cloud-to-Cloud Incident Forwarding
-- Last modified: 2026-10-01T21:06Z
+- Last modified: 2026-10-06T12:45Z
 - Summary: Information on integrating Workflow Automation DLP Application with AWS using Zscaler Cloud-to-Cloud Incident Forwarding.
 
 Workflow Automation DLP application integration with an Amazon Web Services (AWS) EC2 instance using Zscaler Cloud-to-Cloud Incident Forwarding enables your organization to send Data Loss Prevention (DLP) incident metadata and evidence files to your organization's AWS Simple Storage Service (S3) buckets in your AWS account without deploying appliances.
@@ -10266,7 +10305,7 @@ To learn more, see [Managing DLP AWS Application Integrations in Workflow Automa
 
 Configure the DLP Cloud-to-Cloud Incident Forwarding on an AWS EC2 instance for Workflow Automation. Zscaler recommends that you use the AWS S3 storage bucket when configuring Cloud-to-Cloud Incident Forwarding in AWS.
 
-To learn more, see [Configuring DLP Cloud-to-Cloud Incident Forwarding](https://help.zscaler.com/zia/configuring-dlp-cloud-cloud-incident-forwarding).
+To learn more, see [Configuring DLP Cloud-to-Cloud Incident Forwarding for AWS](https://help.zscaler.com/zia/configuring-dlp-cloud-cloud-incident-forwarding-aws).
 
 [Image: Viewing the AWS DLP tile in the tile view on the Integrations dashboard]
 
@@ -10869,33 +10908,36 @@ To learn more about configuring the ZIR in AWS, see [Configuring the Zscaler Inc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-azure-dlp-application-integration-using-cloud-cloud-incident-forwarding","lastmod":"2026-10-01T21:06Z","nid":"1531120"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-azure-dlp-application-integration-using-cloud-cloud-incident-forwarding","lastmod":"2026-10-06T06:01Z","nid":"1531120"} -->
 ## Configuring the Azure DLP Application Integration Using Cloud-to-Cloud Incident Forwarding
 
 - Source: https://help.zscaler.com/workflow-automation/configuring-azure-dlp-application-integration-using-cloud-cloud-incident-forwarding
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Configuring the Azure DLP Application Integration Using Cloud-to-Cloud Incident Forwarding
-- Last modified: 2026-10-01T21:06Z
+- Last modified: 2026-10-06T06:01Z
 - Summary: Information on how to configure Workflow Automation Azure DLP application integration using Cloud-to-Cloud Incident Forwarding.
 
 Workflow Automation DLP application integration with an Azure instance using Zscaler Cloud-to-Cloud Incident Forwarding enables your organization to send Data Loss Prevention (DLP) incident metadata and evidence files to your organization's Azure storage containers in your Azure account without deploying appliances.
 
+You can configure the Workflow Automation DLP application integration to use separate service principals for Internet & SaaS (ZIA) and Workflow Automation, or to use shared credentials between Internet & SaaS and Workflow Automation (i.e., certificate-based authentication).
+
 To configure the DLP application integration using Cloud-to-Cloud Incident Forwarding:
 
-- 1. Create a resource in Microsoft Azure.
-- 2. (Optional) Set up Azure Front Door to access the storage account through a private endpoint.
-- 3. Add a DLP Azure application integration in Workflow Automation using the output from the bash script and the Azure resource manager stack.
+- 1. (Optional) Generate the Azure client certificate using the aes_certificate.sh shell script in Azure.
+- 2. Create a resource in Microsoft Azure.
+- 3. (Optional) Set up Azure Front Door to access the storage account through a private endpoint.
 - 4. Set Up the DLP Cloud-to-Cloud Incident Forwarding.
+- 5. Add or Edit a DLP Azure application integration in Workflow Automation using the output from the Bash script and the Azure resource manager stack.
 
-You can create Microsoft Azure resources automatically by using a bash script in Azure, or you can create them manually.
+You can create Microsoft Azure resources automatically by using a Bash script in Azure, or you can create them manually.
 
-- Creating resources automatically using a bash script
+- Creating resources automatically using a Bash script
 - Creating resources manually using the Azure console
 
-- a. Download the Zscaler bash script and the Azure resource manager template files from the Zscaler Admin Console.
+- a. Download the Zscaler Bash script and the Azure resource manager template files from the Zscaler Admin Console.
 - b. Set up the resource manager stack in Azure using the script and template files that Zscaler provides.
 
-You can set up the resource manager stack in the Azure portal using the bash script and the template files you previously downloaded from the Zscaler Admin Console.
+You can set up the resource manager stack in the Azure portal using the Bash script and the template files you previously downloaded from the Zscaler Admin Console.
 
 To set up the resource manager stack:
 
@@ -10911,27 +10953,29 @@ You must complete the following steps to deploy the resource manager template fo
 - Create Role Assignments
 - Create Event Grid System Topics
 
-Configure the DLP Cloud-to-Cloud Incident Forwarding on an Azure instance for Workflow Automation. To learn more about configuring Cloud-to-Cloud Forwarding in Azure, see [Configuring DLP Cloud-to-Cloud Incident Forwarding](https://help.zscaler.com/zia/configure-dlp-cloud-cloud-incident-forwarding).
+If you want to use shared credentials between Internet & SaaS and Workflow Automation (i.e., certificate-based authentication), you must generate a private key and self-signed certificate in Azure. Otherwise, this step is not required. To learn more, see [Configuring DLP Cloud-to-Cloud Incident Forwarding for Microsoft Azure](https://help.zscaler.com/zia/configuring-dlp-cloud-cloud-incident-forwarding-microsoft-azure).
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP Azure** application tile. The **Tile View** icon is selected by default. See image.
+Configure the DLP Cloud-to-Cloud Incident Forwarding on an Azure instance for Workflow Automation. To learn more about configuring Cloud-to-Cloud Forwarding in Azure, see [Configuring DLP Cloud-to-Cloud Incident Forwarding for Microsoft Azure](https://help.zscaler.com/zia/configuring-dlp-cloud-cloud-incident-forwarding-microsoft-azure).
+
+1. Go to **Administration**>**Workflow Automation** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP Azure** application tile. The **Tile View** icon is selected by default. See image.
 2. Click anywhere within the **DLP Azure** application tile. The **Zscaler DLP Azure Integration** details page appears, displaying a **Configuration Steps** tab and a **Configuration** tab. See image.
-3. Click the **Configuration Steps** tab. Under **Azure Resource Stack Setup**, click the following links:
-  1. Click the **create-app-registration-c2c.sh**link to download the Zscaler bash script.
-  2. Click the **ZscalerAzureIntegrationRM_C2C.json** link to download the Azure DLP Integration resource manager template.
+3. Click the **Configuration Steps** tab. Under **Azure Resource Stack Setup**:
+  1. Click the **create-app-registration-c2c.sh**link to download the Zscaler Bash script.
+  2. If you want to use separate service principals for Internet & SaaS and Workflow Automation, click the **ZscalerAzureIntegrationRM_C2C.json** link to download the Azure DLP Integration resource manager template. Otherwise, if you want to use shared credentials between Internet & SaaS and Workflow Automation (i.e., certificate-based authentication), click the **ZscalerAzureIntegrationRM_C2C_shared.json** link.
 
 See image.
 
 1. Log in to the Azure portal as a user with Owner permission in Azure.
 2. In the top right of the Azure portal, click the **Cloud Shell** icon and select **Bash** as a shell. The Cloud Shell virtual terminal appears at the bottom of the page. See image.
 3. At the top of the Cloud Shell virtual terminal, click the **Upload/Download**icon. See image.
-4. Click **Upload** and select the bash script file (create-app-registration-c2c.sh) that you previously downloaded from the Zscaler Admin Console. A message appears at the bottom right when the upload is complete. See image.
+4. Click **Upload** and select the Bash script file (create-app-registration-c2c.sh) that you previously downloaded from the Zscaler Admin Console. A message appears at the bottom right when the upload is complete. See image.
 5. Enter the following command and press `Enter`: `bash create-app-registration-c2c.sh -d <customer display name> -y <number of years in which the secret is valid>`For example, `bash create-app-registration-c2c.sh -d zscaler-Azure-Integration - y 3`. This script creates the app registrations for both the DLP Integration, along with the client secrets for those apps. By default, the script creates a password/secret with one-year validity for the service principal, but you can change the number of years. The customer display name value that you enter in the command is used for the containers and storage accounts in Azure.
-6. Copy and save the output values you receive from the script for the DLP Integration app registration. You use the output values for the DLP Integration app registration later when you set up the integration in Workflow Automation. The following is an example of output received from the DLP Integration app registration: `{ "applicationClientSecret": "bwY8Q~jvE61AxBxxx-xxx-xxxxxx", "tenantId": "aa698f79-a76e-4d05-xxx-xxx-xxxxxx", "appName": "zscaler-Azure-Integration", "applicationObjectId": "c7d48793-63c5-xxx-xxx-xxxxxx", "applicationClientId": "9092c4c9-bd8b-xxx-xxx-xxxxxx", "servicePrincipalObjectId": "1c2d7d35-b1a9-xxx-xxx-xxxxxx" }`The system enters the customer display name value that you entered in the bash command as the `appName` for the registration. The output values from the script include credentials that you must protect and keep secure.
+6. Copy and save the output values you receive from the script for the DLP Integration app registration. You use the output values for the DLP Integration app registration later when you set up the integration in Workflow Automation. The following is an example of output received from the DLP Integration app registration: `{ "applicationClientSecret": "bwY8Q~jvE61AxBxxx-xxx-xxxxxx", "tenantId": "aa698f79-a76e-4d05-xxx-xxx-xxxxxx", "appName": "zscaler-Azure-Integration", "applicationObjectId": "c7d48793-63c5-xxx-xxx-xxxxxx", "applicationClientId": "9092c4c9-bd8b-xxx-xxx-xxxxxx", "servicePrincipalObjectId": "1c2d7d35-b1a9-xxx-xxx-xxxxxx" }`The system enters the customer display name value that you entered in the Bash command as the `appName` for the registration. The output values from the script include credentials that you must protect and keep secure.
 
 1. Log in to the Azure portal as a user with Owner permission in Azure. Owner permission is required because you add role definitions and assignments during this procedure.
 2. In the Azure portal, under Azure services, click the **Deploy a custom template** icon. The **Custom deployment** page appears. See image.
 3. On the **Custom deployment** page, click **Build your own template in the editor**. The **Edit template** page appears. See image.
-4. On the **Edit template** page, click the **Load file** icon at the top of the page and select the DLP Integration resource manager template (ZscalerAzureIntegrationRM_C2C.json) you previously downloaded from Workflow Automation. The template file is displayed on the **Edit template** page. See image.
+4. On the **Edit template** page, click the **Load file** icon at the top of the page and select the DLP Integration resource manager template (ZscalerAzureIntegrationRM_C2C.json or ZscalerAzureIntegrationRM_C2C_shared.json) you previously downloaded from Workflow Automation. The template file is displayed on the **Edit template** page. The following image is an example of the ZscalerAzureIntegrationRM_C2C.json file. See image.
 5. Click **Save**. The **Custom deployment** page reappears. See image.
 6. On the **Custom deployment** page:
   - In the **Project details** section:
@@ -10960,7 +11004,7 @@ For more information about the app registration process on the Microsoft Azure c
   - **Supported account types**: Select **Accounts in any organizational directory and personal Microsoft accounts**. This option allows you to register a multitenant application that can support users who have organizational and personal Microsoft accounts.
   - **Redirect URI (optional)**: From the drop-down menu, select **Web**.
 4. Click **Register** to complete the app registration. The new application's overview page appears. See image.
-5. On the overview page, copy and save the following details for future use: See image.
+5. On the overview page, copy and save the following details for future use: See image. If you want to use shared credentials between Internet & SaaS and Workflow Automation (i.e., certificate-based authentication), then the remaining steps are not required.
   - Display name
   - Application (client) ID
   - Object ID
@@ -11022,7 +11066,9 @@ To create a role for DLP:
 3. On the **Access control (IAM)**page, select**Add** > **Add custom role**. The **Create a custom role** page appears. See image.
 4. On the **Create a custom role** page:
   - On the **Basics** tab, enter a name for the role in the **Custom role name** field. You can leave the other default settings on the page. See image.
-  - On the **JSON** tab, click**Edit** and replace the action parameters that appear by default with the following JSON. Then click **Save**. "actions": [ "Microsoft.Storage/storageAccounts/blobServices/containers/read", "Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action", "Microsoft.EventGrid/systemTopics/eventSubscriptions/write", "Microsoft.EventGrid/systemTopics/eventSubscriptions/read", "Microsoft.EventGrid/systemTopics/eventSubscriptions/delete" ] "dataActions": [ "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read" ]See image.
+  - On the **JSON** tab:
+    - If you are using separate service principals for Internet & SaaS and Workflow Automation, click**Edit** and replace the action parameters that appear by default with the following JSON. Then click **Save**. `"actions": [ "Microsoft.Storage/storageAccounts/blobServices/containers/read", "Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action", "Microsoft.EventGrid/systemTopics/eventSubscriptions/write", "Microsoft.EventGrid/systemTopics/eventSubscriptions/read", "Microsoft.EventGrid/systemTopics/eventSubscriptions/delete" ], "dataActions": [ "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read" ]`See image.
+    - If you are using shared credentials between Internet & SaaS andWorkflow Automation, click**Edit** and replace the action parameters that appear by default with the following JSON. Then click **Save.** `"actions": [ "Microsoft.Storage/storageAccounts/blobServices/containers/read", "Microsoft.Storage/storageAccounts/blobServices/containers/write", "Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action", "Microsoft.EventGrid/systemTopics/eventSubscriptions/write", "Microsoft.EventGrid/systemTopics/eventSubscriptions/read", "Microsoft.EventGrid/systemTopics/eventSubscriptions/delete" ], "dataActions": [ "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read", "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write" ]`
 5. Click **Create**. The **Review + create** tab appears.
 6. On the **Review + create** tab, review the values and settings you entered, and then click **Create**. See image.
 
@@ -11084,23 +11130,29 @@ To set up private endpoints to access the storage account:
 
 Similarly, you can create additional private endpoints.
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP** **Azure** application tile. The **Tile View** icon is selected by default. See image.
+1. Go to **Administration**>**Workflow Automation** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP** **Azure** application tile. The **Tile View** icon is selected by default. See image.
 2. (Optional) On the **Integrations**dashboard, change the format for the dashboard. Click the **List View** icon to view the integrations in a list. See image.
-3. After you select a view option, perform one of the following procedures:
-  - In the tile view: In the DLP Azure application tile, click the **Add** icon. The add **Zscaler DLP Azure Integration** page appears.
+3. After you select a view option, perform one of the following procedures. If you are using separate service principals for Internet & SaaS and Workflow Automation, you need to add a new DLP Azure integration. If you are using shared credentials between Internet & SaaS and Workflow Automation, after you onboard an Azure tenant in Internet & SaaS, a new DLP Azure integration in disabled state is automatically added for you. In this case, edit that DLP Azure integration instead of adding a new integration.
+  - Adding a DLP Azure Application Integration
+  - Editing a DLP Azure Application Integration
+
+To add a DLP Azure application integration:
+
+1. Go to the add **Zscaler DLP Azure Integration** page by performing one of the following steps:
+  - In the tile view: In the DLP Azure application tile, click the **Add** icon.
   - In the list view:
-    1. Next to the DLP Azure application integration, click **Connect**. The **Zscaler DLP Azure Integration** details page appears, displaying a **Configuration Steps** tab and a **Configuration** tab. See image. The **Configuration Steps** tab provides the instructions for configuring a DLP Azure application integration, a link to download the bash script, and links to download the Zscaler resource manager template files.
-    2. On the **Configuration** tab, click **Add New**. The add **Zscaler DLP Azure Integration** page appears.
-4. On the add **Zscaler DLP Azure Integration** page, in the **Zscaler Azure DLP Integration** section, enter an **Integration Name**.
-5. In the **Account Credentials** section:
-  - **Tenant ID**: Copy the `tenantId` output from the bash script for the DLP integration and enter it here.
-  - **Client ID**: Copy the `applicationClientId` output from the bash script for the DLP integration and enter it here.
-  - **Client Secret**: Copy the `applicationClientSecret` output from the bash script for the DLP integration and enter it here.
-6. In the **Zscaler Azure DLP Integration** section:
+    1. Next to the DLP Azure application integration, click **Connect**. The **Zscaler DLP Azure Integration** details page appears, displaying a **Configuration Steps** tab and a **Configuration** tab. See image. The **Configuration Steps** tab provides the instructions for configuring a DLP Azure application integration, a link to download the Bash script, and links to download the Zscaler resource manager template files.
+    2. On the **Configuration** tab, click **Add New**.
+2. On the add **Zscaler DLP Azure Integration** page, in the **Zscaler Azure DLP Integration** section, enter an **Integration Name**.
+3. In the **Account Credentials** section: If you manually created resources, in this section, enter the values that were created through that procedure.
+  - **Tenant ID**: Copy the `tenantId` output from the Bash script for the DLP integration and enter it here.
+  - **Client ID**: Copy the `applicationClientId` output from the Bash script for the DLP integration and enter it here.
+  - **Client Secret**: Copy the `applicationClientSecret` output from the Bash script for the DLP integration and enter it here.
+4. In the **Zscaler Azure DLP Integration** section:
   - **Storage Account Name**: Copy the `storageAccountName` output from the deployment of the resource manager template for DLP integration and enter it here.
   - **Custom Storage Endpoint URL**: (Optional) If you do not want Workflow Automation to access the storage account through a default public endpoint, enter a custom storage endpoint URL in the format `https://<custom endpoint>`. If you want to use a public endpoint, leave the field blank.
   - **Event Grid System Topic Resource ID**: Copy the `systemTopicResourceID` output from the deployment of the resource manager template for DLP integration and enter it here.
-7. In the **Privacy Settings** section: See image. If you disable **Hide Evidence Data** or **Hide Trigger Data** in the integration, but you did not enable read access to the data blob when creating the resource manager stack, no one can generate evidence links or view trigger data in the Zscaler Admin Console.
+5. In the **Privacy Settings** section: See image. If you disable **Hide Evidence Data** or **Hide Trigger Data** in the integration, but you did not enable read access to the data blob when creating the resource manager stack, no one can generate evidence links or view trigger data in the Zscaler Admin Console.
   - **Hide Evidence Data - Admin**: Select if you do not want admins to be able to generate presigned evidence links for an incident on the **Violation Content** tab of the**Incident Details** drawer. Otherwise, they can generate evidence links. This checkbox is selected by default.
   - **Hide Trigger Data - Admin**: Select if you do not want admins to be able to see the trigger data for an incident on the **Violation Content** tab of the **Incident Details** drawer. Otherwise, they can see the trigger data. This checkbox is selected by default.
   - **Hide Policy Details - Admin**: Select if you do not want the admins to be able to view any of the policy details for the incident on the **Violation Details** tab of the **Incident Details** drawer. Otherwise, they can view the policy details for the incident. This checkbox is not selected by default.
@@ -11113,10 +11165,43 @@ Similarly, you can create additional private endpoints.
   - **Hide Trigger Data - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to see the trigger data for the incident. Otherwise, they can see the trigger data. This checkbox is selected by default.
   - **Hide Policy Details - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to view the policy details for the incident. Otherwise, they can view the policy details for the incident. This checkbox is selected by default.
   - **Hide Policy Details for Non-Triggered Matches - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to view the **Non-Triggered Engines and Dictionaries** section and the **Other Matched Rules** section of the policy details for the incident. Otherwise, they can view these sections of the policy details for the incident. This checkbox is only available if you do not select the **Hide Policy Details - Manager/Approver** checkbox.
-8. Click **Validate**. The system validates the account credentials that are entered with the Azure integration. It also checks whether the format is correct for the **Event Grid System Topic Resource ID** You can only add the integration if it passes validation. If the validation fails for any reason, or if the configuration has been created or updated with the wrong values, you must disable the integration, correct the values for the integration, and re-enable it.
-9. Click **Add**. The **Zscaler DLP Azure Integration** details page appears, displaying the DLP integration under **Connected Accounts** with an **Enabled** status. See image.
+6. Click **Validate**. The system validates the account credentials that are entered with the Azure integration. It also checks whether the format is correct for the **Event Grid System Topic Resource ID** You can only add the integration if it passes validation. If the validation fails for any reason, or if the configuration has been created or updated with the wrong values, you must disable the integration, correct the values for the integration, and re-enable it.
+7. Click **Add**. The **Zscaler DLP Azure Integration** details page appears, displaying the DLP integration under **Connected Accounts** with an **Enabled** status. See image.
 
 To learn more, see [Managing DLP Azure Application Integrations in Workflow Automation](https://help.zscaler.com/workflow-automation/managing-dlp-azure-application-integrations-workflow-automation).
+
+To edit a DLP Azure application integration:
+
+1. Go to the **Zscaler DLP Azure Integration** details page by performing one of the following steps: The **Zscaler DLP Azure Integration** details page appears, displaying all the DLP Azure application integrations on the **Configuration** tab along with their specific statuses (**Enabled**, **Disabled**, and **Failed**) in the **Connected Accounts** section. The integrations that Internet & SaaS automatically creates use the tenant name as the DLP application integration name.
+  - In the tile view, click anywhere on the **DLP Azure** tile under **Connected Apps**.
+  - In the list view, click **View Details** next to the **DLP Azure** app integration in the **Connected Apps** section.
+2. On the **Zscaler DLP Azure Integration** details page, click the **Edit** icon next to the connected account that Internet & SaaS automatically created for you with a status of **Disabled**. The edit **Zscaler DLP Azure Integration** page appears. See image.
+3. On the edit **Zscaler DLP Azure Integration** page, in the **Zscaler Azure DLP Integration** section, the **Integration Name**that appears is synced from Internet & SaaS. You can edit the name.
+4. In the **ZIA Tenant Information** section:
+  - **Enterprise Tenant ID**: The tenant ID that is created when configuring DLP cloud-to-cloud incident forwarding in Internet & SaaS appears. This value is synced from Internet & SaaS.
+  - **Tenant Name**: The tenant name that was used when configuring DLP cloud-to-cloud incident forwarding in Internet & SaaS appears. This value that appears is synced from Internet & SaaS.
+5. In the **Zscaler Azure DLP Integration** section:
+  - **Storage Account Name**: Copy the `storageAccountName` output from the deployment of the resource manager template for DLP integration and enter it here.
+  - **Custom Storage Endpoint URL**: (Optional) If you do not want Workflow Automation to access the storage account through a default public endpoint, enter a custom storage endpoint URL in the format `https://<custom endpoint>`. If you want to use a public endpoint, leave the field blank.
+  - **Event Grid System Topic Resource ID**: Copy the `systemTopicResourceID` output from the deployment of the resource manager template for DLP integration and enter it here.
+6. In the **Privacy Settings** section: See image. If you disable **Hide Evidence Data** or **Hide Trigger Data** in the integration, but you did not enable read access to the data blob when creating the resource manager stack, no one can generate evidence links or view trigger data in the Zscaler Admin Console.
+  - **Hide Evidence Data - Admin**: Select if you do not want admins to be able to generate presigned evidence links for an incident on the **Violation Content** tab of the**Incident Details** drawer. Otherwise, they can generate evidence links. This checkbox is selected by default.
+  - **Hide Trigger Data - Admin**: Select if you do not want admins to be able to see the trigger data for an incident on the **Violation Content** tab of the **Incident Details** drawer. Otherwise, they can see the trigger data. This checkbox is selected by default.
+  - **Hide Policy Details - Admin**: Select if you do not want the admins to be able to view any of the policy details for the incident on the **Violation Details** tab of the **Incident Details** drawer. Otherwise, they can view the policy details for the incident. This checkbox is not selected by default.
+  - **Hide Policy Details for Non-Triggered Matches - Admin**: Select if you do not want the admins to be able to view the **Non-Triggered Engines and Dictionaries** section and the **Other Matched Rules** section of the policy details for the incident on the **Violation Details** tab of the **Incident Details** drawer. Otherwise, they can view these sections of the policy details for the incident. This checkbox is only available if you do not select the **Hide Policy Details - Admin** checkbox. This checkbox is not selected by default.
+  - **Hide Evidence Data - End User**: Select if you do not want the end users responding to an incident notification to be able to generate presigned evidence links for an incident. Otherwise, they can generate evidence links. This checkbox is selected by default.
+  - **Hide Trigger Data - End User**: Select if you do not want the end users responding to an incident notification to be able to see the trigger data for an incident. Otherwise, they can see the trigger data. This checkbox is selected by default.
+  - **Hide Policy Details - End User**: Select if you do not want the end users responding to an incident notification to be able to view any of the policy details for the incident. Otherwise, they can view the policy details for the incident. This checkbox is selected by default.
+  - **Hide Policy Details for Non-Triggered Matches - End User**: Select if you do not want the end users responding to an incident notification to be able to view the **Non-Triggered Engines and Dictionaries** section and the **Other Matched Rules** section of the policy details for the incident. Otherwise, they can view these sections of the policy details for the incident. This checkbox is only available if you do not select the **Hide Policy Details - End User** checkbox.
+  - **Hide Evidence Data - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to generate presigned evidence links for the incident. Otherwise, they can generate evidence links. This checkbox is selected by default.
+  - **Hide Trigger Data - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to see the trigger data for the incident. Otherwise, they can see the trigger data. This checkbox is selected by default.
+  - **Hide Policy Details - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to view the policy details for the incident. Otherwise, they can view the policy details for the incident. This checkbox is selected by default.
+  - **Hide Policy Details for Non-Triggered Matches - Manager/Approver**: Select if you do not want the approvers or managers responding to an incident escalation notification to be able to view the **Non-Triggered Engines and Dictionaries** section and the **Other Matched Rules** section of the policy details for the incident. Otherwise, they can view these sections of the policy details for the incident. This checkbox is only available if you do not select the **Hide Policy Details - Manager/Approver** checkbox.
+7. Click **Validate**. The system validates the account credentials that are entered with the Azure integration. It also checks whether the format is correct for the **Event Grid System Topic Resource ID**. You can only add the integration if it passes validation. If the validation fails for any reason, or if the configuration has been created or updated with the wrong values, you must disable the integration, correct the values for the integration, and re-enable it.
+8. Click **Save Changes.**
+9. Click **Enable Integration**. The status of the integration changes to **Enabled**.
+
+To learn more, see [Managing DLP Azure Application Integrations in Workflow Automation](https://help.zscaler.com/workflow-automation/managing-dlp-azure-application-integrations-workflow-automation) and [Configuring DLP Cloud-to-Cloud Incident Forwarding for Microsoft Azure](https://help.zscaler.com/zia/configuring-dlp-cloud-cloud-incident-forwarding-microsoft-azure).
 
 [Image: Viewing the App registrations option in the Azure console]
 
@@ -11167,6 +11252,10 @@ To learn more, see [Managing DLP Azure Application Integrations in Workflow Auto
 [Image: Adding a Zscaler DLP Azure integration on the add Zscaler Azure DLP Integration page]
 
 [Image: Viewing the Zscaler DLP Azure Integration details page with an integration enabled]
+
+[Image: Viewing the Zscaler DLP Azure Integration details page with an integration that was automatically created with shared credentials from Internet & SaaS. The edit icon is highlighted next to the integration.]
+
+[Image: Editing a Zscaler DLP Azure integration that was automatically created from Internet & SaaS on the edit Zscaler Azure DLP Integration page]
 
 [Image: Viewing the Create icon on the Storage accounts page]
 
@@ -11974,13 +12063,13 @@ After you configure the DLP application integration, the DLP incidents that occu
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-dlp-application-integration-using-google-cloud-platform","lastmod":"2026-10-01T21:06Z","nid":"1532057"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-dlp-application-integration-using-google-cloud-platform","lastmod":"2026-10-06T12:52Z","nid":"1532057"} -->
 ## Configuring the DLP Application Integration Using Google Cloud Platform
 
 - Source: https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-google-cloud-platform
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Configuring the DLP Application Integration Using Google Cloud Platform
-- Last modified: 2026-10-01T21:06Z
+- Last modified: 2026-10-06T12:52Z
 - Summary: How to configure DLP application integration using Google Cloud Platform.
 
 Google Cloud Platform (GCP) only supports the Cloud-to-Cloud Incident Forwarding method for DLP application integration in Workflow Automation.
@@ -12498,7 +12587,7 @@ See image.
 
 You can view the DLP GCP integration you added in the Zscaler Admin Console.
 
-Configure the DLP Cloud-to-Cloud Incident Forwarding on a GCP instance for Workflow Automation. To learn more about configuring Cloud-to-Cloud Incident Forwarding in GCP, see [Configuring DLP Cloud-to-Cloud Incident Forwarding](https://help.zscaler.com/zia/configure-dlp-cloud-cloud-incident-forwarding).
+Configure the DLP Cloud-to-Cloud Incident Forwarding on a GCP instance for Workflow Automation. To learn more about configuring Cloud-to-Cloud Incident Forwarding in GCP, see [Configuring DLP Cloud-to-Cloud Incident Forwarding for Google Cloud](https://help.zscaler.com/zia/configuring-dlp-cloud-cloud-incident-forwarding-google-cloud-0).
 
 [Image: Viewing the Integrations dashboard in tile view with no integrations configured]
 
@@ -13795,13 +13884,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-group-mappings","lastmod":"2026-10-04T07:06Z","nid":"1418161"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-group-mappings","lastmod":"2026-10-11T07:06Z","nid":"1418161"} -->
 ## Managing Incident Group Mappings
 
 - Source: https://help.zscaler.com/workflow-automation/managing-incident-group-mappings
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Incident Group Mappings
-- Last modified: 2026-10-04T07:06Z
+- Last modified: 2026-10-11T07:06Z
 - Summary: How to manage incident group mappings in Workflow Automation.
 
 An incident group mapping specifies the incidents that are associated with the incident group. Only admins with full access to Workflow Automation can map the incident groups. Incident groups are mapped to one or more of the attributes available in an incident transaction. These mappings can be simple or more complex to meet your requirements. After incident groups are configured, admins with full access can then assign these incident groups to the admins with restricted access who will be responsible for them. They do these assignments in the Zscaler Admin Console, on the Admin Assignment page. To learn more, see [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
@@ -14281,169 +14370,4 @@ To view incident group details:
 [Image: Accessing incident group mapping from the Incident Group page]
 
 [Image: Viewing incident group details on the View Incident Group window]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-summaries","lastmod":"2026-09-24T21:06Z","nid":"1535401"} -->
-## Managing Incident Summaries
-
-- Source: https://help.zscaler.com/workflow-automation/managing-incident-summaries
-- Product: Workflow Automation
-- Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Incident Summaries
-- Last modified: 2026-09-24T21:06Z
-- Summary: Information on how to manage incident summaries in Workflow Automation.
-
-On the Incident Summary page, you can view aggregate incident counts for a specified date range by using various selectable attributes and filters. Workflow Automation provides several attributes (i.e., summary criteria) that you can use to summarize the number of incidents that have occurred in your organization. This page provides a table that lists the summary criteria attributes, the total incident count for the summary criteria, and the total incident count broken out by either the incident priority or incident severity.
-
-## Viewing Incident Summaries
-
-To view incident summaries:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Workflow Automation** > **Incident Summary**. The **Incident Summary** page appears, with no information displayed. See image.
-2. [Select a date range for the incidents that you want to summarize on the Incident Summary page.](https://help.zscaler.com/workflow-automation/managing-incident-summaries#date-range-filter)
-3. (Optional) Filter the incidents you want to summarize by selecting one or more filter options. The filter options are the same as those on the **Incidents** page. To learn more, see [Using Incident Filters in Workflow Automation](https://help.zscaler.com/workflow-automation/using-incident-filters-workflow-automation). To reset the filter options, click the **Reset** icon.
-4. Configure the summary criteria for the incident summary. On the **Incident Summary** page:
-  1. **Group by**: Select how you want to break out and display the total incident counts that appear in the incident summary. If you want to break out the incident counts by incident priority (e.g., Critical, High, Medium, and Low), select **Priority**. If you want to break out the incident counts by incident severity (e.g., High, Medium, Low, and Info), select **Severity**.
-  2. **Summary Criteria**: From the drop-down menu, select the first summary criterion for the incident summary. You can select a maximum of two criteria. Summary criteria are:
-    - **Action**: The action taken in the incident.
-    - **Application Category**: The category of the application associated with the incident.
-    - **Application Name**: The name of the application associated with the incident.
-    - **Attachments**: Whether the incident has attachments or not. Values are **Yes** and **No**.
-    - **DLP Type**: The type of DLP incident associated with the incident.
-    - **Department**: The department of the end user who caused the incident.
-    - **Destination Type**: The Endpoint DLP destination type for the incident.
-    - **Dictionary**: The DLP dictionary associated with an incident.
-    - **Engine**: The DLP engine associated with an incident.
-    - **File Name**: The name of the file associated with the incident.
-    - **File Source Location**: The path of the file associated with the incident.
-    - **File Type**: The type or extension of the file associated with the incident.
-    - **Home Location**: The home location of the end user responsible for the incident.
-    - **Originating User Email**: The email address of the user responsible for the incident.
-    - **Referrer URL**: The URL of the previous page a user was on before they performed the action that caused the incident.
-    - **Remediation Owner Email**: The email address of the person responsible for remediating the incident.
-    - **Rule**: The DLP rule associated with an incident.
-    - **Source DLP Type**: The type of DLP policy that the incident violated. Source DLP types are **Inline**, **Email**, **Endpoint**, and **SaaS Security**.
-    - **URL**: The URL of the application associated with the incident.
-    - **Work Location**: The work location of the end user responsible for the incident.
-  3. (Optional) Add another summary criterion: To reorder the summary criteria, click the **Reorder** icon next to a criterion field and drag and drop the criterion in the order that you want. To delete summary criteria, click the **Delete** icon next to a criterion field. See image.
-    1. Under the first summary criterion that you added, click **Add More**.
-    2. From the drop-down menu, select the second summary criterion.
-5. Click **Submit**. The matching incidentsappear on the page in a table format. See image. Each one of the summary criteria values you configured appears as a column in the table. In addition, the table contains a column for the total incident count for those incidents that match the given criteria, along with columns for the total incident count broken out by incident priority or the severity of the incident. Each row in the table is a specific combination of the summary criteria that triggered incidents along with the total incident count for that combination. This table can display up to 10,000 rows. In the table, you can view the following information: When you click any of these links, a new tab opens, displaying the **Selected Criteria** page. The tab is labeled with the criteria associated with the link. This page displays the criteria associated with the link in the **Selected Criteria** section of the page, and lists the actual incidents with the relevant filters applied for that combination of criteria. This page is similar to the **Incidents** page except that no action can be taken on an incident. To learn more, see [Managing Incidents](https://help.zscaler.com/workflow-automation/managing-incidents). See image.
-  - **Summary Criteria**: The first one or two columns in the table are titled with the names of the summary criteria you configured for the incident summary (e.g., **Dictionary** and **Engine**). The incident values associated with these summary criteria appear in those table columns.
-  - **Total**: The total number of incidents that match the given summary criteria.
-  - **Critical**: The total number of incidents with a critical priority that match the given summary criteria. If you selected to group by severity, this column does not appear.
-  - **High**: The total number of incidents with either a high priority or a high severity that match the given summary criteria. This column depends on the option you selected in the **Group by**field.
-  - **Medium**: The total number of incidents with either a medium priority or a medium severity that match the given summary criteria. This column depends on the option you selected in the **Group by** field.
-  - **Low**: The total number of incidents with either a low priority or a low severity that match the given summary criteria. This column depends on the option you selected in the **Group by** field.
-  - **Info**: The total number of incidents with an info severity that match the given summary criteria. If you selected to group by priority, this column does not appear.
-
-## Managing Incident Summaries
-
-The Incident Summary page allows you to perform certain actions to manage the incident summaries.
-
-- Apply Time Range Filter
-- Export an Incident Summary
-- Manage Summary Criteria
-- Modify Items Per Page
-
-You can filter the incidents summarized on the Incident Summary page by the date and time of occurrence. By default, this page summarizes information about the incidents that occurred in the current calendar week (Sunday through Saturday). Time ranges are:
-
-- Hours
-  - Current Hour
-  - Last Hour
-  - Last 2 Hours
-  - Last 6 Hours
-  - Last 12 Hours
-- Days
-  - Current Day
-  - Last Day
-- Weeks
-  - Current Week
-  - Last Week
-- Months
-  - Current Month
-  - Last Month
-- Custom Date Range To view the incidents that occurred in a specific date range, you can use the **Custom Date Range** option and specify the start and end dates and times. To specify a custom date range: The **Custom Date Range** option only supports incidents that are up to 6 months old, and you can only search for a maximum of a three-month window.
-  1. Select the **Custom Date Range** option. A calendar appears with the current date selected. To the right of the calendar, three columns appear, displaying the hours, minutes, and seconds for a day. See image.
-  2. Select the start date on the calendar, and then in the columns to the right, select the start time (i.e., hour, minute, and second). As you select the date and time, they appear in the **Start date** field under the calendar. See image.
-  3. Click **OK**. The date and time you selected appear in the **Start date** field, and the **End date** field is selected.
-  4. Select the end date in the calendar, and then in the columns to the right, select the end time (i.e., hour, minute, and second). See image.
-  5. Click **OK**.
-
-See image.
-
-You can export the information that appears in the Incident Summary table to a CSV file. To export the incident summary:
-
-1. On the **Incident Summary** page, configure the summary criteria.
-2. Click **Submit**. The Incident Summary table appears.
-3. Click the **Export** icon at the top right of the table. A CSV file is created and downloaded to your local system. The CSV file lists the information that is in the incident summary table. See image.
-
-On the Incident Summary page, you can manage the summary criteria for the incident summaries that appear on the page. You can do the following:
-
-- Save Summary Criteria
-- Apply Saved Summary Criteria
-- Update Saved Summary Criteria
-- Delete Saved Summary Criteria
-
-To save summary criteria:
-
-1. On the **Incident Summary** page, configure the summary criteria.
-2. Click **Save**. The **Save Criteria** dialog window appears.
-3. In the **Save Criteria** dialog window, enter a name for the combination of summary criteria in the **Name** field.
-4. (Optional) If you want the summary criteria combination to appear by default on the **Incident Summary** page, select **Set as default**. See image.
-5. Click **Save As**. The set of summary criteria is saved and appears in the **Saved Criteria** field. After you save the summary criteria combination, you can reuse it by selecting it from the **Saved** **Criteria** drop-down menu at the top of the page. If you set it as the default criteria, the system automatically selects it in the **Saved** **Criteria** drop-down menu when you access the page at a later date.
-
-To apply saved summary criteria, select the saved summary criteria name from the **Saved Criteria** drop-down menu at the top of the page. The **Incident Summary** page appears, displaying the incident summary table and displaying the fields for the saved summary criteria on the left side of the page.
-
-See image.
-
-To update saved summary criteria:
-
-1. On the **Incident Summary** page, select the saved summary criteria from the **Saved Criteria** drop-down menu. The **Incident Summary** page appears, displaying the incident summary table and displaying the fields for the saved summary criteria on the left side of the page. See image.
-2. Modify the summary criteria. You can: See image.
-  - Change the **Group by** option.
-  - Delete existing summary criteria.
-  - Add new summary criteria. You can only add another criterion if there is already one criterion saved.
-  - Rearrange the order of the summary criteria.
-3. Click **Update**.
-
-To delete saved summary criteria:
-
-1. On the **Incident Summary** page, from the **Saved** **Criteria** drop-down menu, click the **Delete** icon next to the saved summary criteria that you want to delete. A message appears asking whether you are sure that you want to delete the saved summary criteria. See image.
-2. Click **Yes**. The saved summary criteria are deleted.
-
-To modify the number of items displayed per page, click the **Items per page** drop-down menu and select the number of items. Options are **10**, **20**, **25**, **50**, and **100**. The default display is **10**.
-
-See image.
-
-[Image: Viewing the Incident Summary page with no summary information displayed]
-
-[Image: Viewing the Summary Criteria section on the Incident Summary page]
-
-[Image: Viewing the Incident Summary page with the summary criteria information entered and the Incident Summary table populated with data]
-
-[Image: Viewing the Selected Criteria page for a Total link]
-
-[Image: Selecting the time range to apply for the incidents displayed on the Incident Summary page]
-
-[Image: Viewing the calendar and time columns that appear after selecting the Custom Date Range option in the Time Range drop-down menu on the Incident Summary page. The current date and time columns for hours, minutes, and seconds are highlighted.]
-
-[Image: Viewing the calendar and time columns after a date and time have been selected for the start date. The start date (January 1) is highlighted on the calendar, the time (6:30 AM) is highlighted in the time options, and the start date field (2026-01-01 06:30:00) under the calendar is highlighted to show the date and time selected.]
-
-[Image: Viewing the calendar and time columns after a date and time have been selected for the end date. The end date (January 15) is highlighted in the calendar, the time (6:30 AM) is highlighted in the time options, and the end date field (2026-01-15 06:30:00) is highlighted to show the date and time selected.]
-
-[Image: Viewing the Incident Summary page with the Export icon highlighted at the top of the Incident Summary table]
-
-[Image: Viewing the Save Criteria dialog window]
-
-[Image: Viewing the Incident Summary page after the Saved Criteria is selected in the Saved Criteria drop-down menu. The Saved Criteria field is highlighted and the summary criteria fields associated with that saved criteria are displayed and highlighted on the left side of the page.]
-
-[Image: Viewing the Incident Summary page after the Saved Criteria is selected in the Saved Criteria drop-down menu]
-
-[Image: Viewing the Incident Summary page after the Saved Criteria is selected and updated. The saved criteria section on the left side of the page and the Update button are highlighted.]
-
-[Image: Viewing the Incident Summary page with the Saved Criteria drop-down menu showing all the available saved criteria. The Delete icon next to a saved criterion is highlighted along with the message that is displayed after you click the Delete icon.]
-
-[Image: Viewing the Items per page drop-down menu on the Incident Summary page]
 <!-- /ZS-ARTICLE -->

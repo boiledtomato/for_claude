@@ -1,8 +1,68 @@
 # Zscaler Help — Zscaler Deception (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-05 09:38 UTC
-Articles in this file: 26
+Generated: 2026-10-12 09:45 UTC
+Articles in this file: 28
+
+---
+
+<!-- ZS-ARTICLE {"url":"/deception/understanding-cloud-deception","lastmod":"2026-02-04T04:42Z","nid":"1542479"} -->
+## Understanding Cloud Deception
+
+- Source: https://help.zscaler.com/deception/understanding-cloud-deception
+- Product: Deception
+- Path: Deception Help > Deceive  > Cloud Deception > Understanding Cloud Deception
+- Last modified: 2026-02-04T04:42Z
+- Summary: Information on Cloud Deception with Azure and AWS.
+
+Cloud Deception is a set of tools that allow you to configure and deploy decoys that mimic legitimate resources and assets in public cloud platforms. You can integrate a supported public cloud platform with Zscaler Deception and deploy decoy resources specific to the cloud platform. Depending on the type of decoy and its configuration, an adversary can access, interact, or perform malicious operations with the cloud decoys in different ways. Such activities are considered malicious activities and they are logged as attacks. You can view and analyze the attack details from the Deception dashboard.
+
+## Deploying Decoys
+
+You can deploy Microsoft Azure or Amazon Web Services (AWS) decoys to detect malicious activities originating from adversaries within or outside your organization, depending on the type and configuration of the decoys. For example, lures for Azure or AWS decoys configured using landmine policies detect malicious activities by users within an organization, as the landmine policies are deployed in devices managed by the organization. On the other hand, decoys with public visibility can detect malicious activities from external adversaries who enumerate them with various tools.
+
+Deception uses a deployment script to set up the integration and deploy decoys in the Azure or AWS cloud. For Azure, the script deploys all necessary resources such as secrets, resource groups, function apps, etc., to manage Cloud Deception with Azure. A health check function app is also deployed that monitors and updates the health status of the deployed decoys to the Zscaler Deception Admin Portal every 15 minutes. For AWS, the script deploys all necessary resources such as functions, users, policies, etc. to manage Cloud Deception with AWS. A health check lambda function is also deployed that monitors and updates the health status of the deployed decoys to the Deception Admin Portal every 15 minutes.
+
+### Cloud Deception with Azure
+
+The following diagram illustrates the interactions between various components in Deception and Azure.
+
+[Image: An illustration of Cloud Deception with Azure]
+
+### Cloud Deception with AWS
+
+The following diagram illustrates the interactions between various components in Deception and AWS.
+
+[Image: An illustration of Cloud Deception with AWS]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/deception/understanding-event-notification-templates","lastmod":"2026-09-18T02:33Z","nid":"1542597"} -->
+## Understanding Event Notification Templates
+
+- Source: https://help.zscaler.com/deception/understanding-event-notification-templates
+- Product: Deception
+- Path: Deception Help > Orchestrate  > Event Templates > Understanding Event Notification Templates
+- Last modified: 2026-09-18T02:33Z
+- Summary: Information about event notification templates.
+
+Zscaler Deception allows you to send event notifications as emails when a threat is detected. You can enable notifications and customize the notification subject and the event fields included in the email body to provide the information most relevant to your organization.
+
+By default, the subject line for the email notification uses the following text:
+
+```
+{kill_chain_phase}
+activity on
+{decoy.appliance.name}
+```
+
+You can modify this text using the built-in events.
+
+You cannot change the template of the email body. However, you can include more event fields in the email body.
+
+To learn more, see [Customizing Event Notification Templates](https://help.zscaler.com/deception/customizing-event-notification-templates).
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -239,7 +299,7 @@ To learn how to configure MITM detection, see [Configuring MITM Attack Detection
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/understanding-quality-service-qos-events","lastmod":"2025-12-22T06:06Z","nid":"1539455"} -->
+<!-- ZS-ARTICLE {"url":"/deception/understanding-quality-service-qos-events","lastmod":"2025-12-22T06:06Z","nid":"1542577"} -->
 ## Understanding Quality of Service Events
 
 - Source: https://help.zscaler.com/deception/understanding-quality-service-qos-events
@@ -1007,13 +1067,13 @@ To export event logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/viewing-managing-evidence","lastmod":"2026-09-25T04:21Z","nid":"1542356"} -->
+<!-- ZS-ARTICLE {"url":"/deception/viewing-managing-evidence","lastmod":"2026-10-06T11:23Z","nid":"1542356"} -->
 ## Viewing and Managing Evidence
 
 - Source: https://help.zscaler.com/deception/viewing-managing-evidence
 - Product: Deception
 - Path: Deception Help > Investigate  > Extended Details > Viewing and Managing Evidence
-- Last modified: 2026-09-25T04:21Z
+- Last modified: 2026-10-06T11:23Z
 - Summary: How to view and manage evidence files in the Zscaler Deception Admin Portal.
 
 When an attacker interacts with a decoy, Zscaler Deception generates evidence files that capture details of the attack. These files provide valuable information to investigate the incident and understand the attacker's tactics, techniques, and procedures (TTPs). They can be analyzed through integration with Zscaler Sandbox or third-party sandbox solutions, with reports available directly from the Zscaler Deception Admin Portal. Evidence files can also be downloaded in their original format for external analysis, and records of files generated for individual attack events can be exported for further review.
@@ -1036,15 +1096,15 @@ To view the evidence files:
     - HTTP Request (http_request)
   - **Metadata**: The attribute associated with each log file.
 
-For web events across static, dynamic, and high‑interaction containers, attackers send POST requests with unusually large payloads. Large payloads are uploaded as evidence as **http_request**. This applies to both TI decoys and internal decoys where the Services type is [Web](https://help.zscaler.com/deception/configuring-services-network-decoy#evidence_page). You can download the evidence that contains the attacker's request payload as a text file.
+For web events across static, dynamic, and high‑interaction containers, attackers send POST requests with unusually large payloads. Large payloads are uploaded as evidence as **http_request**. This applies to both [TI decoys](https://help.zscaler.com/deception/v9.0/about-threat-intelligence-decoys) and internal decoys with [Web](https://help.zscaler.com/deception/configuring-services-network-decoy#evidence_page) Services type. You can download the evidence that contains the attacker's request payload as a text file.
 
 Provides a packet capture for a specific session where an attacker interacts with a decoy. It records the raw network traffic exchanged during the session, revealing the attacker's behavior and techniques for threat analysis.
 
-RDP files generated when an attacker interacts with a window decoy. These files capture a detailed attacker's activity in a downloadable video recording.
+Video recordings of attacker interaction generated during an RDP session by capturing sequential screenshots. These attack screenshots are sent to the backend server, where they are combined and converted into downloadable mp4 and srt. (subtitle) files.
 
-Identifies new files that an attacker copies to a Windows RDP decoy.
+Identifies new files that an attacker copies to a Windows RDP decoy and makes them available for download for analysis.
 
-Captures instances in which an attacker sends excessive requests. The system applies rate limiting and stores the blocked requests as evidence.
+Captures instances where an attacker sends excessive requests. When the request volume exceeds the threshold, it gets removed from the event log and stored as evidence.
 
 [Image: Evidence type]
 

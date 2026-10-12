@@ -1,7 +1,7 @@
 # Zscaler Help — Risk & Exposure Management (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-05 09:38 UTC
+Generated: 2026-10-12 09:45 UTC
 Articles in this file: 202
 
 ---
@@ -1688,13 +1688,13 @@ On the **Asset Info**tab, you can view:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/viewing-tool-coverage-and-gap-dashboard","lastmod":"2026-08-26T23:16Z","nid":"1542198"} -->
+<!-- ZS-ARTICLE {"url":"/aem/viewing-tool-coverage-and-gap-dashboard","lastmod":"2026-10-09T07:06Z","nid":"1542198"} -->
 ## Viewing the Tool Coverage and Gap Dashboard
 
 - Source: https://help.zscaler.com/aem/viewing-tool-coverage-and-gap-dashboard
 - Product: Asset Exposure Management
 - Path: Asset Exposure Management (AEM) Help > Analyze for AEM > Viewing the Tool Coverage and Gap Dashboard
-- Last modified: 2026-08-26T23:16Z
+- Last modified: 2026-10-09T07:06Z
 - Summary: How to view and interpret the Tool Coverage and Gap dashboard in Asset Exposure Management (AEM).
 
 The Tool Coverage and Gap dashboard provides a consolidated view of asset discovery across integrated asset sources in Asset Exposure Management (AEM). You can identify coverage gaps, compare asset discovery between sources, and understand where multiple sources detect the same assets.
@@ -9358,13 +9358,13 @@ To create the AWSCloudFormationStackSetExecutionRole role:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-azure-subscription","lastmod":"2026-08-31T22:10Z","nid":"1542892"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-azure-subscription","lastmod":"2026-10-08T23:11Z","nid":"1542892"} -->
 ## Onboarding an Azure Subscription
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/onboarding-azure-subscription
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Microsoft Azure Cloud Accounts > Microsoft Azure Subscription > Onboarding an Azure Subscription
-- Last modified: 2026-08-31T22:10Z
+- Last modified: 2026-10-08T23:11Z
 - Summary: Information on how to onboard a single Azure subscription.
 
 You can onboard a single Azure subscription for AI Security to monitor and scan the data stores to identify sensitive data, misconfigurations, and vulnerabilities.
@@ -9378,7 +9378,6 @@ Before onboarding an Azure subscription, ensure you have completed the following
   2. Client secret: A confidential string that is used as a password for the application created. See instructions.
   3. API permissions: Add API permissions and grant admin consent to the application to access resources within the subscription. See instructions.
 - Identify an Azure subscription as the orchestrator account. The AI Security template is deployed in this account to scan the data in the target accounts.
-- Assign the User Access Administrator role to the created application or service principal on the orchestrator and target subscriptions. This is required for the application to manage user permissions and role assignments for Azure resources. See instructions.
 - You must have the following roles to deploy the templates:
   | Scope | Role |
   | --- | --- |
@@ -9431,21 +9430,6 @@ See image.
 7. Click **Add**.
 8. In the **Client secrets** table, under **Value**, click the **Copy**icon to copy the string to the clipboard. See image.
 
-1. Sign in to the Azure portal and go to **Subscriptions**. The **Subscriptions**page with the list of subscriptions appears.
-2. On the **Subscriptions**page, select the subscription you want AI Security to monitor.
-3. In the left-side navigation, go to **Access control (IAM)**. The **Access control (IAM)**page appears.
-4. On the **Access control (IAM)**page, click **+ Add** and select **Add role assignment**. The **Add role assignment**page appears.
-5. On the **Add role assignment**page, under the **Role**tab, select the **Privileged administrator roles**tab.
-6. Search for and select the **User Access Administrator** role and click **Next**. See image.
-7. On the **Members**tab: See image.
-  1. **Assign access to**: Select **User, group, or service principal**.
-  2. **Members**: Click **+ Select members**. The **Select members**drawer appears.
-  3. In the **Select members**drawer, search and select the applicationyou created and click **Select**. See image.
-  4. Click **Next**.
-8. On the **Conditions**tab, for **What users can do**, select **Allow user to assign all roles (highly privileged)**and click **Review + assign**. See image.
-
-Repeat this for all the subscriptions that you want AI Security to monitor.
-
 1. Sign in to the Azure portal and go to **Microsoft Entra ID**.
 2. In the left-side navigation, go to **Manage**> **App registrations**. The **App registrations** page appears.
 3. On the **App registrations** page, search for and select the applicationyou created.
@@ -9463,7 +9447,7 @@ Repeat this for all the subscriptions that you want AI Security to monitor.
   | RoleManagement.Read.Directory | Optional | Application | Read all directory RBAC settings |
   | RoleManagementPolicy.Read.Directory | Optional | Application | Read all policies for privileged role assignments of your company's directory |
   | UserAuthenticationMethod.Read.All | Optional | Application | Read all users' authentication methods |
-7. On the **API permissions** page, click **Grant admin consent for <application name>**.
+7. On the **API permissions** page, click **Grant admin consent for <application name>**. You must have the Privileged Role Administrator role in the Microsoft Entra ID to grant API permissions.
 8. In the **Grand admin consent confirmation** window, click **Yes**.
 
 Resource groups are logical containers that comprises a group of Azure resources. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal).
@@ -10545,13 +10529,13 @@ To onboard an AWS account:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/release-upgrade-summary-2026","lastmod":"2026-09-22T21:15Z","nid":"1539122"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/release-upgrade-summary-2026","lastmod":"2026-10-06T20:00Z","nid":"1539122"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/release-upgrade-summary-2026
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-22T21:15Z
+- Last modified: 2026-10-06T20:00Z
 - Summary: AI Asset Management Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for AI Asset Management.
@@ -15632,13 +15616,13 @@ On the Identity Findings page (Identities > Identity Findings), you can do the f
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/identity-protection/about-remediation-dashboard","lastmod":"2026-09-30T06:36Z","nid":"1545650"} -->
+<!-- ZS-ARTICLE {"url":"/identity-protection/about-remediation-dashboard","lastmod":"2026-10-06T10:07Z","nid":"1545650"} -->
 ## About the Remediation Dashboard
 
 - Source: https://help.zscaler.com/identity-protection/about-remediation-dashboard
 - Product: Identity Protection
 - Path: Identity Protection Help > Analytics > About the Remediation Dashboard
-- Last modified: 2026-09-30T06:36Z
+- Last modified: 2026-10-06T10:07Z
 - Summary: Information on the Remediation dashboard in Identity Protection.
 
 The Remediation dashboard in Identity Protection provides insights into critical identity risks such as insecure account management, credential exposure, etc. You can view metrics related to severity distribution, exploitability, remediation ease, and findings across tenant, type, and identities. This helps security teams to assess the risks, prioritize recurring issues, and remediate quickly.

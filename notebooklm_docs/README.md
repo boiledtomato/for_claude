@@ -5,9 +5,9 @@ Markdown へまとめたものです。NotebookLM に読み込ませる用途を
 
 - 生成: `scripts/build_help_docs.py`
 - 更新: `.github/workflows/notebooklm-weekly.yml`（毎週月曜 09:00 JST）
-- 記事数: **4,131**
-- ファイル数: **34** / 総語数: **4,065,301**
-- 最終更新: 2026-10-05T09:38:43Z
+- 記事数: **4,140**
+- ファイル数: **34** / 総語数: **4,097,426**
+- 最終更新: 2026-10-12T09:45:37Z
 
 ## NotebookLM への読み込み
 
@@ -37,54 +37,54 @@ NotebookLM の制限は「1ノートブックあたりのソース数」と「1�
 
 | ファイル | カテゴリ | 語数 | サイズ |
 |---|---|---|---|
-| `zia/zia_part1.md` | ZIA — Internet & SaaS | 170,383 | 1,166 KB |
-| `zia/zia_part2.md` | ZIA — Internet & SaaS | 170,834 | 1,167 KB |
-| `zia/zia_part3.md` | ZIA — Internet & SaaS | 167,875 | 1,163 KB |
-| `zia/zia_part4.md` | ZIA — Internet & SaaS | 164,050 | 1,161 KB |
-| `zia/zia_part5.md` | ZIA — Internet & SaaS | 171,801 | 1,156 KB |
-| `zia/zia_part6.md` | ZIA — Internet & SaaS | 175,833 | 1,170 KB |
-| `zia/zia_part7.md` | ZIA — Internet & SaaS | 173,012 | 1,165 KB |
-| `zia/zia_part8.md` | ZIA — Internet & SaaS | 1,432 | 11 KB |
-| *(ZIA — Internet & SaaS 記事数: 860)* | | | |
-| `zpa/zpa_part1.md` | ZPA — Private Access | 162,932 | 1,155 KB |
-| `zpa/zpa_part2.md` | ZPA — Private Access | 160,089 | 1,159 KB |
-| `zpa/zpa_part3.md` | ZPA — Private Access | 157,793 | 1,169 KB |
-| `zpa/zpa_part4.md` | ZPA — Private Access | 46,193 | 312 KB |
-| *(ZPA — Private Access 記事数: 560)* | | | |
+| `zia/zia_part1.md` | ZIA — Internet & SaaS | 171,084 | 1,171 KB |
+| `zia/zia_part2.md` | ZIA — Internet & SaaS | 170,417 | 1,166 KB |
+| `zia/zia_part3.md` | ZIA — Internet & SaaS | 164,980 | 1,143 KB |
+| `zia/zia_part4.md` | ZIA — Internet & SaaS | 165,395 | 1,171 KB |
+| `zia/zia_part5.md` | ZIA — Internet & SaaS | 171,856 | 1,160 KB |
+| `zia/zia_part6.md` | ZIA — Internet & SaaS | 169,729 | 1,137 KB |
+| `zia/zia_part7.md` | ZIA — Internet & SaaS | 173,079 | 1,152 KB |
+| `zia/zia_part8.md` | ZIA — Internet & SaaS | 21,518 | 150 KB |
+| *(ZIA — Internet & SaaS 記事数: 872)* | | | |
+| `zpa/zpa_part1.md` | ZPA — Private Access | 164,961 | 1,170 KB |
+| `zpa/zpa_part2.md` | ZPA — Private Access | 161,893 | 1,170 KB |
+| `zpa/zpa_part3.md` | ZPA — Private Access | 156,725 | 1,160 KB |
+| `zpa/zpa_part4.md` | ZPA — Private Access | 54,242 | 371 KB |
+| *(ZPA — Private Access 記事数: 567)* | | | |
 | `zdx/zdx_part1.md` | ZDX — Digital Experience Monitoring | 115,277 | 789 KB |
 | *(ZDX — Digital Experience Monitoring 記事数: 128)* | | | |
-| `zcc/zcc_part1.md` | ZCC — Zscaler Client Connector | 155,689 | 1,169 KB |
-| `zcc/zcc_part2.md` | ZCC — Zscaler Client Connector | 40,113 | 288 KB |
-| *(ZCC — Zscaler Client Connector 記事数: 254)* | | | |
-| `api/api_part1.md` | API / SDK | 148,066 | 1,167 KB |
-| `api/api_part2.md` | API / SDK | 137,085 | 1,171 KB |
-| `api/api_part3.md` | API / SDK | 144,942 | 880 KB |
-| *(API / SDK 記事数: 277)* | | | |
-| `deception/deception_part1.md` | Zscaler Deception | 162,186 | 1,169 KB |
-| `deception/deception_part2.md` | Zscaler Deception | 13,116 | 95 KB |
-| *(Zscaler Deception 記事数: 323)* | | | |
-| `data_security/data_security_part1.md` | Data Security — DSPM | 170,505 | 1,170 KB |
+| `zcc/zcc_part1.md` | ZCC — Zscaler Client Connector | 155,029 | 1,170 KB |
+| `zcc/zcc_part2.md` | ZCC — Zscaler Client Connector | 27,717 | 199 KB |
+| *(ZCC — Zscaler Client Connector 記事数: 247)* | | | |
+| `api/api_part1.md` | API / SDK | 145,645 | 1,156 KB |
+| `api/api_part2.md` | API / SDK | 138,862 | 1,168 KB |
+| `api/api_part3.md` | API / SDK | 170,721 | 1,062 KB |
+| *(API / SDK 記事数: 285)* | | | |
+| `deception/deception_part1.md` | Zscaler Deception | 162,147 | 1,170 KB |
+| `deception/deception_part2.md` | Zscaler Deception | 13,677 | 99 KB |
+| *(Zscaler Deception 記事数: 324)* | | | |
+| `data_security/data_security_part1.md` | Data Security — DSPM | 170,164 | 1,169 KB |
 | `data_security/data_security_part2.md` | Data Security — DSPM | 15,426 | 109 KB |
-| *(Data Security — DSPM 記事数: 202)* | | | |
-| `exposure_mgmt/exposure_mgmt_part1.md` | Risk & Exposure Management | 170,876 | 1,169 KB |
-| `exposure_mgmt/exposure_mgmt_part2.md` | Risk & Exposure Management | 127,482 | 904 KB |
-| *(Risk & Exposure Management 記事数: 367)* | | | |
-| `branch/branch_part1.md` | Branch / Cellular / Cloud Connector | 152,246 | 1,157 KB |
-| `branch/branch_part2.md` | Branch / Cellular / Cloud Connector | 83,928 | 586 KB |
-| *(Branch / Cellular / Cloud Connector 記事数: 270)* | | | |
-| `partners/partners_part1.md` | Technology Partners | 28,269 | 271 KB |
+| *(Data Security — DSPM 記事数: 201)* | | | |
+| `exposure_mgmt/exposure_mgmt_part1.md` | Risk & Exposure Management | 170,678 | 1,167 KB |
+| `exposure_mgmt/exposure_mgmt_part2.md` | Risk & Exposure Management | 128,819 | 915 KB |
+| *(Risk & Exposure Management 記事数: 370)* | | | |
+| `branch/branch_part1.md` | Branch / Cellular / Cloud Connector | 152,623 | 1,160 KB |
+| `branch/branch_part2.md` | Branch / Cellular / Cloud Connector | 86,068 | 601 KB |
+| *(Branch / Cellular / Cloud Connector 記事数: 273)* | | | |
+| `partners/partners_part1.md` | Technology Partners | 28,264 | 271 KB |
 | *(Technology Partners 記事数: 146)* | | | |
-| `platform/platform_part1.md` | Unified Platform / Admin / Logs | 162,737 | 1,162 KB |
-| `platform/platform_part2.md` | Unified Platform / Admin / Logs | 134,430 | 934 KB |
-| *(Unified Platform / Admin / Logs 記事数: 430)* | | | |
-| `ai_security/ai_security_part1.md` | AI Security | 67,650 | 455 KB |
+| `platform/platform_part1.md` | Unified Platform / Admin / Logs | 161,186 | 1,149 KB |
+| `platform/platform_part2.md` | Unified Platform / Admin / Logs | 126,758 | 885 KB |
+| *(Unified Platform / Admin / Logs 記事数: 412)* | | | |
+| `ai_security/ai_security_part1.md` | AI Security | 67,651 | 455 KB |
 | *(AI Security 記事数: 88)* | | | |
 | `browser/browser_part1.md` | Zero Trust Browser | 21,216 | 169 KB |
 | *(Zero Trust Browser 記事数: 54)* | | | |
-| `operations/operations_part1.md` | Deployment / Operations / Terms | 169,783 | 1,162 KB |
-| `operations/operations_part2.md` | Deployment / Operations / Terms | 111,703 | 806 KB |
-| *(Deployment / Operations / Terms 記事数: 154)* | | | |
-| `other/other_part1.md` | Other | 10,349 | 70 KB |
+| `operations/operations_part1.md` | Deployment / Operations / Terms | 169,528 | 1,162 KB |
+| `operations/operations_part2.md` | Deployment / Operations / Terms | 114,041 | 821 KB |
+| *(Deployment / Operations / Terms 記事数: 155)* | | | |
+| `other/other_part1.md` | Other | 10,050 | 69 KB |
 | *(Other 記事数: 18)* | | | |
 
 ## 注意

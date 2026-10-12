@@ -1,7 +1,7 @@
 # Zscaler Help — ZDX — Digital Experience Monitoring (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-05 09:38 UTC
+Generated: 2026-10-12 09:45 UTC
 Articles in this file: 128
 
 ---
@@ -60,7 +60,7 @@ On the Admin Groups page (Administrator > Administrator Management > Administrat
 
 [Watch a video about Administrators in ZDX](https://fast.wistia.net/embed/iframe/eidy76se80) (shows legacy UI).
 
-On the Administrators page for Zscaler Digital Experience (ZDX), admins can manage users, create new admins, and reassign existing admins. With Zscaler role-based administration, you can add as many additional admins as necessary to meet the specific needs of your organization. You can also edit and delete admins as necessary at any time. Also, depending on their admin role and scope, configured admins can add, edit, or delete admin accounts.
+On the Administrators page for Digital Experience (ZDX), admins can manage users, create new admins, and reassign existing admins. With Zscaler role-based administration, you can add as many additional admins as necessary to meet the specific needs of your organization. You can also edit and delete admins as necessary at any time. Also, depending on their admin role and scope, configured admins can add, edit, or delete admin accounts.
 
 ZDX Administration provides the following benefits and enables you to:
 
@@ -97,13 +97,13 @@ On the Administrators page (Administration > Admin Management > Role Based Acces
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/about-alerts","lastmod":"2026-10-01T11:21Z","nid":"1364426"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/about-alerts","lastmod":"2026-10-07T12:31Z","nid":"1364426"} -->
 ## About Alerts
 
 - Source: https://help.zscaler.com/zdx/about-alerts
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > About Alerts
-- Last modified: 2026-10-01T11:21Z
+- Last modified: 2026-10-07T12:31Z
 - Summary: Information on alerts for Digital Experience (ZDX).
 
 [Watch a video about Alerts in ZDX.](https://fast.wistia.net/embed/iframe/q2kipsz543)
@@ -156,7 +156,7 @@ On the Alerts Overview page (Digital Experience > Alerts > Alerts Overview), you
 - **Monitoring**: The type of monitoring for this rule. End User indicates the alert rule was created by the user. Managed indicates the alert rule was created for Managed Monitoring.
 - **Type**: The type is Application, Network, or Device.
 - **Impacted Application**: The number of applications impacted by this alert.
-- **Impacted Geolocation**: The number of geolocations impacted by this alert.
+- **Impacted Geolocations**: The number of geolocations impacted by this alert.
 - **Impacted Devices / Users**: Depending on the type of alert rule, you see the number of impacted devices or users.
 - **Started On**: The date and time this alert was triggered.
 - **Ended On**: The date and time this alert ended. This column is on the Alert History tab.
@@ -508,13 +508,13 @@ On the Diagnostics page (Digital Experience > Reports > Diagnostics), you can do
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/about-labels","lastmod":"2026-10-02T11:55Z","nid":"1461826"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/about-labels","lastmod":"2026-10-06T18:07Z","nid":"1461826"} -->
 ## About Labels
 
 - Source: https://help.zscaler.com/zdx/about-labels
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Alert Rule Configuration > About Labels
-- Last modified: 2026-10-02T11:55Z
+- Last modified: 2026-10-06T18:07Z
 - Summary: Provides an overview of Digital Experience (ZDX) labels that are used to group alert rules.
 
 Admins can create Digital Experience (ZDX) labels and then assign the labels as an option during alert rule configuration. After assigning the label, the label becomes part of the alert details and is seen in the delivered alert details when you configure webhooks.
@@ -547,13 +547,13 @@ On the Labels page (Administration > Alerts > Digital Experience > Labels), you 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/about-rules","lastmod":"2026-10-02T10:08Z","nid":"1364451"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/about-rules","lastmod":"2026-10-07T17:01Z","nid":"1364451"} -->
 ## About Rules
 
 - Source: https://help.zscaler.com/zdx/about-rules
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Alert Rule Configuration > About Rules
-- Last modified: 2026-10-02T10:08Z
+- Last modified: 2026-10-07T17:01Z
 - Summary: Provides an overview about alert rules for Digital Experience (ZDX).
 
 [Watch a video about alerts and alert rules in ZDX.](https://fast.wistia.net/embed/iframe/5ozc9luba9)
@@ -601,13 +601,13 @@ After a rule is configured and if the rule's criteria [trigger an alert](https:/
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/about-scripts","lastmod":"2026-09-22T18:30Z","nid":"1531183"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/about-scripts","lastmod":"2026-10-06T21:06Z","nid":"1531183"} -->
 ## About Scripts
 
 - Source: https://help.zscaler.com/zdx/about-scripts
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Troubleshoot > Remediation > About Scripts
-- Last modified: 2026-09-22T18:30Z
+- Last modified: 2026-10-06T21:06Z
 - Summary: Overview information on the Scripts page where you can manage the number of scripts.
 
 You can run PowerShell scripts remotely to schedule system updates, gather information on the issue, or fix the issue on impacted devices. You can configure for two types of scripts: customized scripts or predefined scripts. If you create a customized script or import a predefined script and configure it specific to your needs, then you can store the scripts for on-demand or later use. You can then monitor the progress of any script jobs on the Remediation Jobs page.
@@ -711,13 +711,13 @@ On the Templates page (Administration > Alerts > Digital Experience > Templates)
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/about-webhooks","lastmod":"2026-10-02T15:46Z","nid":"1534194"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/about-webhooks","lastmod":"2026-10-07T16:27Z","nid":"1534194"} -->
 ## About Webhooks
 
 - Source: https://help.zscaler.com/zdx/about-webhooks
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > About Webhooks
-- Last modified: 2026-10-02T15:46Z
+- Last modified: 2026-10-07T16:27Z
 - Summary: Information about webhooks for Digital Experience (ZDX).
 
 [Watch a video about Configuring Webhooks](https://fast.wistia.net/embed/iframe/sizniej3b3) (shows legacy UI).
@@ -2288,13 +2288,13 @@ To configure SCIM protocol for admins:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/configuring-alert-rule","lastmod":"2026-10-01T14:53Z","nid":"1364456"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/configuring-alert-rule","lastmod":"2026-10-07T12:33Z","nid":"1364456"} -->
 ## Configuring an Alert Rule
 
 - Source: https://help.zscaler.com/zdx/configuring-alert-rule
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Alert Rule Configuration > Configuring an Alert Rule
-- Last modified: 2026-10-01T14:53Z
+- Last modified: 2026-10-07T12:33Z
 - Summary: How to configure alert rules for Digital Experience (ZDX).
 
 [Watch a video about Configuring Alerts for ZDX.](https://fast.wistia.net/embed/iframe/5ozc9luba9)
@@ -2303,9 +2303,9 @@ For Digital Experience (ZDX), you can configure alert rules to modify an express
 
 To configure a rule for an alert:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Administration** > **Alerts** > **Digital Experience** > **Rules**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Alerts** > **Digital Experience** > **Rules**.
 2. Click **Add Alert Rule**. The **Add Alert Rule** window appears. See image.
-3. In the **Add New Alert Rule** window:
+3. In the **Add Alert Rule** window:
   - a. Configure Rule
   - b. Filters
   - c. Criteria
@@ -2438,13 +2438,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/configuring-data-explorer-views","lastmod":"2026-09-25T15:52Z","nid":"1487146"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/configuring-data-explorer-views","lastmod":"2026-10-09T21:06Z","nid":"1487146"} -->
 ## Configuring Data Explorer Views
 
 - Source: https://help.zscaler.com/zdx/configuring-data-explorer-views
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Configuration > Configuring Data Explorer Views
-- Last modified: 2026-09-25T15:52Z
+- Last modified: 2026-10-09T21:06Z
 - Summary: How to configure Data Explorer views in the Zscaler Admin Console.
 
 Data Explorer provides the flexibility to build and organize your own customized views of applications and metrics to analyze data. To learn more, see [Monitoring Data Explorer Views](https://help.zscaler.com/zdx/monitoring-data-explorer-views).
@@ -3403,13 +3403,13 @@ To learn more about managing your collections, see [Managing Collections](https:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/configuring-webhooks","lastmod":"2026-10-02T16:28Z","nid":"1364556"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/configuring-webhooks","lastmod":"2026-10-07T17:00Z","nid":"1364556"} -->
 ## Configuring Webhooks
 
 - Source: https://help.zscaler.com/zdx/configuring-webhooks
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Configuring Webhooks
-- Last modified: 2026-10-02T16:28Z
+- Last modified: 2026-10-07T17:00Z
 - Summary: Information on configuring webhooks to deliver alerts for Digital Experience (ZDX).
 
 [Watch a video about Configuring Webhooks for ZDX](https://fast.wistia.net/embed/iframe/sizniej3b3) (shows legacy UI).
@@ -3418,7 +3418,7 @@ You can configure webhooks for Digital Experience (ZDX) to deliver alerts about 
 
 To configure a new webhook for ZDX:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Digital Experience** > **Settings & Configurations** > **Webhooks**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Digital Experience** > **Settings & Configurations** > **Webhooks**.
 2. Click **Add Webhook**.
 3. In the **Add Webhook** window:
   - **Name**: Enter the name of the webhook.
@@ -3748,13 +3748,13 @@ Click **Next**.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/downloading-quarterly-business-review-reports","lastmod":"2026-09-24T13:57Z","nid":"1456811"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/downloading-quarterly-business-review-reports","lastmod":"2026-10-08T21:06Z","nid":"1456811"} -->
 ## Downloading Quarterly Business Review Reports
 
 - Source: https://help.zscaler.com/zdx/downloading-quarterly-business-review-reports
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Downloading Quarterly Business Review Reports
-- Last modified: 2026-09-24T13:57Z
+- Last modified: 2026-10-08T21:06Z
 - Summary: How to download QBR reports from the left-side navigation menu of the Zscaler Admin Console.
 
 The Quarterly Business Review (QBR) report provides extensive insight into how Zscaler is helping protect your network, quarter to quarter. The reports can help you observe emerging traffic trends and the types of threats that Zscaler is blocking. To learn more, see [Viewing Quarterly Business Review Reports](https://help.zscaler.com/zdx/viewing-quarterly-business-review-reports).
@@ -3775,13 +3775,13 @@ Use the search field if you're unable to find a report. Search for any character
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/editing-alert-rule","lastmod":"2026-10-01T15:00Z","nid":"1364461"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/editing-alert-rule","lastmod":"2026-10-06T18:05Z","nid":"1364461"} -->
 ## Editing an Alert Rule
 
 - Source: https://help.zscaler.com/zdx/editing-alert-rule
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Alert Rule Configuration > Editing an Alert Rule
-- Last modified: 2026-10-01T15:00Z
+- Last modified: 2026-10-06T18:05Z
 - Summary: Provide step-by-step instructions on how to edit an alert rule.
 
 After configuring an alert rule for Digital Experience (ZDX) and saving it, you can edit certain rule fields. The editable fields for a rule depend on the rule type.
@@ -3797,7 +3797,7 @@ The ZDX Score alert rule type is no longer recommended for use. Any pre-existing
 
 The throttling and other field values remain the same.
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Administration** > **Alerts** > **Digital Experience** > **Rules**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Alerts** > **Digital Experience** > **Rules**.
 2. Click the **Edit** icon listed next to the details for a particular rule. The **Edit**window opens.
 3. In the **Edit**window:
   - a. Configure Rule
@@ -4256,13 +4256,13 @@ By default, the lists are sorted by the Start Time, displaying the session with 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/evaluating-individual-alert-details","lastmod":"2026-10-02T14:19Z","nid":"1414451"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/evaluating-individual-alert-details","lastmod":"2026-10-07T12:36Z","nid":"1414451"} -->
 ## Evaluating Individual Alert Details
 
 - Source: https://help.zscaler.com/zdx/evaluating-individual-alert-details
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Evaluating Individual Alert Details
-- Last modified: 2026-10-02T14:19Z
+- Last modified: 2026-10-07T12:36Z
 - Summary: Information on individual alert details where you can view the impacted devices and their respective departments and locations.
 
 Individual alert details about Digital Experience (ZDX) can provide insight into impacted devices and their respective departments and locations.
@@ -4778,13 +4778,13 @@ To view an admin group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/managing-collections","lastmod":"2026-09-25T15:40Z","nid":"1535219"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/managing-collections","lastmod":"2026-10-09T21:06Z","nid":"1535219"} -->
 ## Managing Collections
 
 - Source: https://help.zscaler.com/zdx/managing-collections
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Configuration > Managing Collections
-- Last modified: 2026-09-25T15:40Z
+- Last modified: 2026-10-09T21:06Z
 - Summary: Information on managing collections in the Zscaler Admin Console.
 
 ZDX allows you to manage your collections to easily organize your applications and probes.
@@ -4948,13 +4948,13 @@ After you have deleted the probe, you can delete the application on the Managed 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/managing-labels","lastmod":"2026-10-01T14:45Z","nid":"1458916"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/managing-labels","lastmod":"2026-10-06T18:15Z","nid":"1458916"} -->
 ## Managing Labels
 
 - Source: https://help.zscaler.com/zdx/managing-labels
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Alert Rule Configuration > Managing Labels
-- Last modified: 2026-10-01T14:45Z
+- Last modified: 2026-10-06T18:15Z
 - Summary: To provide instructions on how to manage labels on the Labels page for alert rules.
 
 After you have acquired the full permission for Alerts, you can manage your labels and access the Labels page for alert rules.
@@ -4966,12 +4966,12 @@ To manage your labels, you can:
 - Edit the label.
 - Delete the label.
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to one of the following to add a label:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to one of the following to add a label:
   - **Administration** > **Alerts**> **Digital Experience** > **Labels** > **Add New Label** See image.
   - **Administration**> **Alerts** > **Digital Experience** > **Rules**> **Add Alert Rule** > **Labels (Optional)** > **Add New Label** See image.
 2. In the **Create New Label** window:
   - **Name**: Enter the name of the label.
-  - **Description** (Optional): Enter the description of the label. The **Label Name** and **Description** can each consist of a maximum 120 alphanumeric characters including: hyphen (-), space ( ), or underscore (_). See image.
+  - **Description** (Optional): Enter the description of the label. The **Name** and **Description** can each consist of a maximum 120 alphanumeric characters including: hyphen (-), space ( ), or underscore (_). See image.
 3. Click **Save**.
 
 You can assign the label to an alert rule in either the**Add New Alert Rule** or **Edit Alert Rule** window. To learn more, see [Configuring an Alert Rule](https://help.zscaler.com/zdx/configuring-alert-rule) and [Editing an Alert Rule](https://help.zscaler.com/zdx/editing-alert-rule).
@@ -4989,7 +4989,7 @@ On the Labels page (Administration > Alerts > Digital Experience > Labels):
 1. Click the **Edit**icon on your selected label.
 2. In the **Edit Label** window:
   - **Name**: Enter the name of the label.
-  - **Description** (Optional): Enter the description of the label. The **Label Name** and **Description** can each consist of a maximum 120 alphanumeric characters including: hyphen (-), space ( ), or underscore (_). See image.
+  - **Description** (Optional): Enter the description of the label. The **Name** and **Description** can each consist of a maximum 120 alphanumeric characters including: hyphen (-), space ( ), or underscore (_). See image.
 3. Click **Save**.
 
 You cannot delete a label if an alert rule is tagged with it.
@@ -5016,13 +5016,13 @@ On the Labels page (Administration > Alerts > Digital Experience > Labels):
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/managing-scripts","lastmod":"2026-09-23T13:49Z","nid":"1526076"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/managing-scripts","lastmod":"2026-10-07T21:06Z","nid":"1526076"} -->
 ## Managing Scripts
 
 - Source: https://help.zscaler.com/zdx/managing-scripts
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Troubleshoot > Remediation > Managing Scripts
-- Last modified: 2026-09-23T13:49Z
+- Last modified: 2026-10-07T21:06Z
 - Summary: Configuration steps on remote scripts for remediation.
 
 Scripts are a great way to automate PowerShell scripts for specific device tasks. Zscaler provides predefined scripts to help you get started.
@@ -5133,13 +5133,13 @@ View the job's progress on the [Jobs](https://help.zscaler.com/zdx/viewing-and-m
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/managing-templates","lastmod":"2026-10-01T15:02Z","nid":"1499921"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/managing-templates","lastmod":"2026-10-06T18:06Z","nid":"1499921"} -->
 ## Managing Templates
 
 - Source: https://help.zscaler.com/zdx/managing-templates
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Alert Rule Configuration > Managing Templates
-- Last modified: 2026-10-01T15:02Z
+- Last modified: 2026-10-06T18:06Z
 - Summary: To provide steps for managing or configuring templates.
 
 [Watch a video about Templates for ZDX](https://fast.wistia.net/embed/iframe/t4mafl179c) (shows legacy UI).
@@ -5155,7 +5155,7 @@ Before you manage templates, ensure that:
 
 ## Managing Templates
 
-To manage your templates (Administration > Alerts > Templates), you can perform the following actions:
+To manage your templates (Administration > Alerts > Digital Experience > Templates), you can perform the following actions:
 
 - Add a new template.
 - Edit a template.
@@ -5874,13 +5874,13 @@ The table displays the following information about applications and the impact t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/monitoring-data-explorer-views","lastmod":"2026-09-24T16:44Z","nid":"1487211"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/monitoring-data-explorer-views","lastmod":"2026-10-08T21:06Z","nid":"1487211"} -->
 ## Monitoring Data Explorer Views
 
 - Source: https://help.zscaler.com/zdx/monitoring-data-explorer-views
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Monitoring Data Explorer Views
-- Last modified: 2026-09-24T16:44Z
+- Last modified: 2026-10-08T21:06Z
 - Summary: Information about monitoring the Data Explorer views configured for ZDX.
 
 Data Explorer offers the flexibility to build and organize your own customized views of applications and metrics. This flexibility can help provide context when analyzing and correlating data across your organization.
@@ -5915,13 +5915,13 @@ Only the Super Admin, or the admin who created the view, can edit or delete a co
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/monitoring-devices-overview","lastmod":"2026-10-02T21:06Z","nid":"1529520"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/monitoring-devices-overview","lastmod":"2026-10-09T10:35Z","nid":"1529520"} -->
 ## Monitoring the Devices Overview
 
 - Source: https://help.zscaler.com/zdx/monitoring-devices-overview
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Monitoring the Devices Overview
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-09T10:35Z
 - Summary: Information on devices and their Device Health Score to determine the overall device health across an organization.
 
 The Devices overview uses existing user and device data to create a comprehensive device health scoreboard that monitors the performance of Windows and macOS devices. The dashboard provides useful data in evaluating trends to identify and understand the root causes of poor-performing devices. Then you can proactively collect device data and identify which devices require an IT admin's attention to remedy the device's poor performance (e.g., high CPU usage). With a dedicated dashboard, you can target hardware upgrades based on the device's usage for greater cost-effectiveness.
@@ -5943,7 +5943,7 @@ To monitor device performance within the Devices overview, ensure:
 
 ## Viewing the Devices Overview
 
-To access the Devices overview, go to **Analytics** > **Digital Experience** > **Devices Overview**. You can view Thresholds to understand the device metrics.
+To access the Devices overview, from the [navigation menu](https://help.zscaler.com/unified/1.0/signing-zscaler-admin-console), go to **Digital Experience** > **Devices** > **Devices Overview**. You can view Thresholds to understand the device metrics.
 
 Access the Summary, Device List, or Hardware Analysis tab to monitor device performance at varying levels in your organization.
 
@@ -6679,13 +6679,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/monitoring-performance-dashboard","lastmod":"2026-09-24T17:25Z","nid":"1355786"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/monitoring-performance-dashboard","lastmod":"2026-10-08T21:06Z","nid":"1355786"} -->
 ## Monitoring the Performance Dashboard
 
 - Source: https://help.zscaler.com/zdx/monitoring-performance-dashboard
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Monitoring the Performance Dashboard
-- Last modified: 2026-09-24T17:25Z
+- Last modified: 2026-10-08T21:06Z
 - Summary: Information on the ZDX dashboard and widgets accessible within the Zscaler Admin Console.
 
 The Performance Dashboard provides an overview about the Digital Experience (ZDX) for your organization.
@@ -7186,13 +7186,13 @@ A table that identifies each user connected to the access point provides additio
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/monitoring-zia-private-service-edge-dashboard","lastmod":"2026-09-24T16:51Z","nid":"1525341"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/monitoring-zia-private-service-edge-dashboard","lastmod":"2026-10-08T21:06Z","nid":"1525341"} -->
 ## Monitoring the ZIA Private Service Edge Dashboard
 
 - Source: https://help.zscaler.com/zdx/monitoring-zia-private-service-edge-dashboard
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Monitoring the ZIA Private Service Edge Dashboard
-- Last modified: 2026-09-24T16:51Z
+- Last modified: 2026-10-08T21:06Z
 - Summary: A statistical overview of Private Service Edges for Internet & SaaS in data centers.
 
 Internet & SaaS (ZIA) Private Service Edge Health provides a statistical overview of Zscaler Private Service Edges deployed in your data centers. View details of overall traffic, internal latency, and transactions within the previous 24 hours to 14 days, as allowed per your ZDX subscription level.
@@ -7391,7 +7391,7 @@ This guide provides information on using PagerDuty for configuring webhooks for 
   6. **Copy** the Events API Endpoint address as the URL to use when configuring a webhook in the Zscaler Admin Console. See image.
   7. Click **Save**.
 3. [Configure a webhook in the Zscaler Admin Console.](https://help.zscaler.com/zdx/configuring-webhooks)
-  1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Digital Experience** > **Settings & Configurations** > **Webhooks**.
+  1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Digital Experience** > **Settings & Configurations** > **Webhooks**.
   2. Click **Add Webhook**.
   3. In the **Add Webhook** window:
     - **Name**: Enter the name of the webhook for PagerDuty.
@@ -7968,13 +7968,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/release-upgrade-summary-2026","lastmod":"2026-09-30T12:57Z","nid":"1534310"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/release-upgrade-summary-2026","lastmod":"2026-10-06T21:55Z","nid":"1534310"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zdx/release-upgrade-summary-2026
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-30T12:57Z
+- Last modified: 2026-10-06T21:55Z
 - Summary: Digital Experience (ZDX) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for Digital Experience (ZDX). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -8113,7 +8113,7 @@ In your ServiceNow Console:
 3. Click **Save**.
 4. [Activate the changes.](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console)
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Digital Experience** > **Settings & Configurations** > **Webhooks**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Digital Experience** > **Settings & Configurations** > **Webhooks**.
 2. Click **Add Webhook**.
 3. In the **Add Webhook** window:
   - **Name**: Enter a name for the webhook.
@@ -9207,13 +9207,13 @@ Start a Diagnostics session to analyze any issues that users might be facing. To
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/supported-versions-feature-compatibility","lastmod":"2026-08-27T13:34Z","nid":"1433851"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/supported-versions-feature-compatibility","lastmod":"2026-10-09T07:06Z","nid":"1433851"} -->
 ## Supported Versions & Feature Compatibility
 
 - Source: https://help.zscaler.com/zdx/supported-versions-feature-compatibility
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Supported Versions & Feature Compatibility
-- Last modified: 2026-08-27T13:34Z
+- Last modified: 2026-10-09T07:06Z
 - Summary: To provide information on version compatibility and operating system that a user needs in order to use specific features of ZDX with Zscaler Client Connector.
 
 To begin configuring Digital Experience (ZDX), you must first deploy the minimum required or later version of Zscaler Client Connector based on your OS.
@@ -9745,16 +9745,16 @@ The alert for Call Quality triggers only if all the criteria and conditions are 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/understanding-alerts-email","lastmod":"2026-09-14T11:05Z","nid":"1364566"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/understanding-alerts-email","lastmod":"2026-10-06T17:53Z","nid":"1364566"} -->
 ## Understanding the Alert Email
 
 - Source: https://help.zscaler.com/zdx/understanding-alerts-email
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Understanding the Alert Email
-- Last modified: 2026-09-14T11:05Z
+- Last modified: 2026-10-06T17:53Z
 - Summary: Information about the alert email sent.
 
-Alert notifications are sent via email if this option is chosen when configuring the alert rule. To learn more, see [Configuring a Rule](https://help.zscaler.com/zdx/configuring-rule).
+Alert notifications are sent via email if this option is chosen when configuring the alert rule. To learn more, see [Configuring an Alert Rule](https://help.zscaler.com/zdx/configuring-alert-rule).
 
 The alert email shows the following:
 
@@ -9802,13 +9802,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/understanding-collections","lastmod":"2026-09-25T15:34Z","nid":"1535199"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/understanding-collections","lastmod":"2026-10-09T21:06Z","nid":"1535199"} -->
 ## Understanding Collections
 
 - Source: https://help.zscaler.com/zdx/understanding-collections
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Configuration > Understanding Collections
-- Last modified: 2026-09-25T15:34Z
+- Last modified: 2026-10-09T21:06Z
 - Summary: Information on collections in the Zscaler Admin Console.
 
 A collection is useful in organizing and categorizing your applications with their probes. Each collection consists of the following:
@@ -9894,13 +9894,13 @@ Diagnostics Sessions in the **History** table can have one of the following stat
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/understanding-managed-monitoring","lastmod":"2026-09-24T16:41Z","nid":"1505966"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/understanding-managed-monitoring","lastmod":"2026-10-08T21:06Z","nid":"1505966"} -->
 ## Understanding Managed Monitoring
 
 - Source: https://help.zscaler.com/zdx/understanding-managed-monitoring
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Understanding Managed Monitoring
-- Last modified: 2026-09-24T16:41Z
+- Last modified: 2026-10-08T21:06Z
 - Summary: Understanding Zscaler Managed collections and probes.
 
 [Watch a video about Managed Monitoring.](https://fast.wistia.net/embed/iframe/vcmq8namoq)
@@ -10174,13 +10174,13 @@ To learn more about **Software Reliability**, see the [Microsoft documentation](
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/understanding-microsoft-teams-call-quality-zdx","lastmod":"2026-09-24T13:28Z","nid":"1386191"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/understanding-microsoft-teams-call-quality-zdx","lastmod":"2026-10-08T21:06Z","nid":"1386191"} -->
 ## Understanding Microsoft Teams Call Quality for ZDX
 
 - Source: https://help.zscaler.com/zdx/understanding-microsoft-teams-call-quality-zdx
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Applications > Understanding Microsoft Teams Call Quality for ZDX
-- Last modified: 2026-09-24T13:28Z
+- Last modified: 2026-10-08T21:06Z
 - Summary: Information about monitoring Microsoft Teams Call Quality in the Zscaler Admin Console.
 
 Microsoft Teams Call Quality allows you to monitor actual one-to-one calls or meetings among two or more participants in a configured Microsoft Teams tenant. The ZDX Score for Call Quality can reflect either a Mean Opinion Score (MOS) average, or metric thresholds for latency, jitter, and packet loss. Call Quality works in parallel with Cloud Path probes, device metrics, and device events to help you identify issues that are unique to a device, application, or network.
@@ -10608,13 +10608,13 @@ If the client connects to an application using a Direct Request, then this situa
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/understanding-webex-call-quality-zdx","lastmod":"2026-09-24T13:30Z","nid":"1446941"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/understanding-webex-call-quality-zdx","lastmod":"2026-10-08T21:06Z","nid":"1446941"} -->
 ## Understanding Webex Call Quality for ZDX
 
 - Source: https://help.zscaler.com/zdx/understanding-webex-call-quality-zdx
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Applications > Understanding Webex Call Quality for ZDX
-- Last modified: 2026-09-24T13:30Z
+- Last modified: 2026-10-08T21:06Z
 - Summary: Information about monitoring Webex Call Quality in the Zscaler Admin Console.
 
 Webex Call Quality allows you to monitor actual one-to-one calls or meetings among two or more participants in a configured Webex tenant. The ZDX Score for Call Quality can reflect either a Mean Opinion Score (MOS) average, or metric thresholds for latency, jitter, and packet loss. Call Quality works in parallel with cloud path probes, device metrics, and device events to help you identify issues that are unique to a device, application, or network.
@@ -10825,9 +10825,9 @@ See image.
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Understanding the ZDX Cloud Architecture
 - Last modified: 2026-03-31T12:57Z
-- Summary: Information on the Zscaler Digital Experience (ZDX) service and key components.
+- Summary: Information on the Digital Experience (ZDX) service and key components.
 
-With Zscaler Digital Experience (ZDX), organizations can fully monitor the cloud application experience simply and intuitively from the end user perspective. ZDX delivers holistic, end-to-end user experience monitoring across any network, helping IT teams streamline troubleshooting and improve user productivity.
+With Digital Experience (ZDX), organizations can fully monitor the cloud application experience simply and intuitively from the end user perspective. ZDX delivers holistic, end-to-end user experience monitoring across any network, helping IT teams streamline troubleshooting and improve user productivity.
 
 ZDX provides application performance monitoring for customer-defined applications and predefined applications such as Zoom, Box, Salesforce, ServiceNow, and Microsoft 365 applications, including Microsoft Teams, SharePoint Online, OneDrive for Business, and Outlook.
 
@@ -10885,13 +10885,13 @@ An aggregated user experience performance score is tracked over time at the user
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/understanding-zdx-score","lastmod":"2026-09-24T16:55Z","nid":"1355816"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/understanding-zdx-score","lastmod":"2026-10-08T21:06Z","nid":"1355816"} -->
 ## Understanding the ZDX Score
 
 - Source: https://help.zscaler.com/zdx/understanding-zdx-score
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Understanding the ZDX Score
-- Last modified: 2026-09-24T16:55Z
+- Last modified: 2026-10-08T21:06Z
 - Summary: Information on Digital Experience (ZDX) scores for an organization, applications, locations, departments, and users.
 
 [Watch a video about the ZDX Score](https://fast.wistia.net/embed/iframe/1dbnua67qk) (shows legacy UI).
@@ -11178,13 +11178,13 @@ The protocol used is visible in the Cloud Path section on the user details page.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/viewing-and-managing-jobs","lastmod":"2026-09-23T18:43Z","nid":"1528756"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/viewing-and-managing-jobs","lastmod":"2026-10-07T21:06Z","nid":"1528756"} -->
 ## Viewing and Managing Jobs
 
 - Source: https://help.zscaler.com/zdx/viewing-and-managing-jobs
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Troubleshoot > Remediation > Viewing and Managing Jobs
-- Last modified: 2026-09-23T18:43Z
+- Last modified: 2026-10-07T21:06Z
 - Summary: Information about viewing and managing Remediation jobs.
 
 Remediation Jobs runs a script on selected devices as a job, and you can schedule the job as needed. Scripts are useful for remediating software issues by running PowerShell scripts on the selected devices. The Jobs page gathers parameter support and script output to categorize each job into the In Progress, Completed, or Scheduled tables for easy visibility and management. If a script fails, you can re-run the job or edit the script as required to run the job again.
@@ -11516,13 +11516,13 @@ In this scenario, there are two users and one device.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/viewing-diagnostics-session-results","lastmod":"2026-09-22T17:51Z","nid":"1370176"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/viewing-diagnostics-session-results","lastmod":"2026-10-06T21:06Z","nid":"1370176"} -->
 ## Viewing Diagnostics Session Results
 
 - Source: https://help.zscaler.com/zdx/viewing-diagnostics-session-results
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Troubleshoot > Diagnostics > Viewing Diagnostics Session Results
-- Last modified: 2026-09-22T17:51Z
+- Last modified: 2026-10-06T21:06Z
 - Summary: How to view and store Diagnostics session results in the Zscaler Admin Console.
 
 Diagnostics sessions for Digital Experience (ZDX) can provide much more granular information to analyze any issues that your users might be facing. After a session is run, you can see the results by clicking the View icon in the session row.
@@ -11785,13 +11785,13 @@ To view IPv6 configurations, see:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/viewing-predefined-reports","lastmod":"2026-09-24T13:44Z","nid":"1456566"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/viewing-predefined-reports","lastmod":"2026-10-08T21:06Z","nid":"1456566"} -->
 ## Viewing Predefined Reports
 
 - Source: https://help.zscaler.com/zdx/viewing-predefined-reports
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Viewing Predefined Reports
-- Last modified: 2026-09-24T13:44Z
+- Last modified: 2026-10-08T21:06Z
 - Summary: Provides details about predefined reports, available in the Zscaler Admin Console.
 
 Predefined reports allow you to view user data across your organization that can reveal distinctive patterns among various metrics and applications. Details for each report are aggregated day-to-day and most reports are captured in a rolling 14-day cycle.
@@ -12379,11 +12379,11 @@ The details page for a specific user provides the following software patch infor
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Reference Architecture > Visualizing User Connectivity with Zscaler Digital Experience
 - Last modified: 2025-06-07T07:06Z
-- Summary: The Visualizing User Connectivity with Zscaler Digital Experience (ZDX) reference architecture guide steers you through the architecture process, and provides technical deep dives into specific platform functionality and integrations.
+- Summary: The Visualizing User Connectivity with Digital Experience (ZDX) reference architecture guide steers you through the architecture process, and provides technical deep dives into specific platform functionality and integrations.
 
 The Zscaler Reference Architecture series delivers best practices based on real-world deployments. The recommendations in this series were developed by Zscaler's transformation experts from across the company. This guide will steer you through the architecture process and provide technical deep dives into specific platform functionality and integrations. The Zscaler Reference Architecture series is designed to be modular, so this guide will show you how to configure a different aspect of the platform in order to allow you meet your specific policy goals.
 
-Zscaler Digital Experience (ZDX) provides visibility into the experience for your end user. ZDX delivers Digital Experience Monitoring (DEM) via Zscaler Client Connector, a small agent that probes the device itself. Zscaler Client Connector sends probes to cloud applications you define and performs network health checks from your client devices. ZDX also proactively alerts you to problems that are occurring.
+Digital Experience (ZDX) provides visibility into the experience for your end user. ZDX delivers Digital Experience Monitoring (DEM) via Zscaler Client Connector, a small agent that probes the device itself. Zscaler Client Connector sends probes to cloud applications you define and performs network health checks from your client devices. ZDX also proactively alerts you to problems that are occurring.
 
 [Visualizing User Connectivity with Zscaler Digital Experience: Reference Architecture Guide](https://help.zscaler.com/downloads/zdx/reference-architecture/visualizing-user-connectivity-zscaler-digital-experience/visualizing-user-connectivity-with-zscaler-digital-experience.pdf) [Download PDF](https://help.zscaler.com/downloads/zdx/reference-architecture/visualizing-user-connectivity-zscaler-digital-experience/visualizing-user-connectivity-with-zscaler-digital-experience.pdf)
 <!-- /ZS-ARTICLE -->
@@ -12716,13 +12716,13 @@ The following list describes what each process is used for:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/zoom-call-quality-zdx-integration-requirements","lastmod":"2026-09-24T13:35Z","nid":"1389081"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/zoom-call-quality-zdx-integration-requirements","lastmod":"2026-10-08T21:06Z","nid":"1389081"} -->
 ## Zoom Call Quality for ZDX Integration Requirements
 
 - Source: https://help.zscaler.com/zdx/zoom-call-quality-zdx-integration-requirements
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Analytics > Applications > Zoom Call Quality for ZDX Integration Requirements
-- Last modified: 2026-09-24T13:35Z
+- Last modified: 2026-10-08T21:06Z
 - Summary: Integration requirements for Zoom Call Quality.
 
 Review the following Zoom application requirements before configuring and using Zoom Call Quality for Digital Experience (ZDX). You must already have a ZDX subscription and ZDX admin access.

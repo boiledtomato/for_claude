@@ -1,18 +1,18 @@
 # Zscaler Help — ZPA — Private Access (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-05 09:38 UTC
-Articles in this file: 178
+Generated: 2026-10-12 09:45 UTC
+Articles in this file: 181
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-IP-address-object","lastmod":"2026-10-02T08:43Z","nid":"1533891"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-IP-address-object","lastmod":"2026-10-08T12:07Z","nid":"1533891"} -->
 ## About IP Address Object
 
 - Source: https://help.zscaler.com/zpa/about-IP-address-object
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > VPN Access Policy > About IP Address Object
-- Last modified: 2026-10-02T08:43Z
+- Last modified: 2026-10-08T12:07Z
 - Summary: Information on the address book that enables you to implement network-based access control in the VPN Access Policy page.
 
 IP address objects are reusable components that allow you to organize your network resources. These objects can contain IP addresses, Classless Inter-Domain Routings (CIDRs), and FQDNs. They allow you to use a single-named object as the source or destination criteria when [configuring VPN access policies](https://help.zscaler.com/zpa/configuring-vpn-access-policies).
@@ -43,39 +43,191 @@ On the IP Address Object page (Private Access > VPN (for Legacy Apps) > VPN Acce
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-access-policies-defined-partners","lastmod":"2026-09-24T13:49Z","nid":"1540799"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-access-policies-defined-my-tenant","lastmod":"2026-10-05T05:51Z","nid":"1546118"} -->
+## About Access Policies Defined by My Tenant
+
+- Source: https://help.zscaler.com/zpa/about-access-policies-defined-my-tenant
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Policies > Access Policy > About Access Policies Defined by My Tenant
+- Last modified: 2026-10-05T05:51Z
+- Summary: Information on access policy rules that are defined by your tenant and the Defined by My Tenant page within the Zscaler Admin Console.
+
+Access policy rules can be created by the guest partner admin for [Business-to-Business (B2B) Federation](https://help.zscaler.com/zpa/understanding-business-business-b2b-federation) for shared access to your tenant's applications. This article describes access policy rules that are defined by your tenant. To learn more about access policy rules that are created by your partner, see [About Access Policies Defined by Partners](https://help.zscaler.com/zpa/about-access-policies-defined-partners).
+
+Access policies defined by your tenant provide the following benefits and enable you to:
+
+- Manage access policies for both internal applications and B2B federated applications from a single place.
+- Maintain full ownership and control over who can access your applications, whether you are acting as a host or a guest tenant.
+- Enforce your organization's security standards and compliance requirements across all access.
+
+## About the Defined by My Tenant Page
+
+On the Defined by My Tenant page, you can create and manage access policy rules for internal applications and users, as well as applications federated by the host.
+
+On the Defined by My Tenant page (Private Access > Policy > Access Policy > Rules > Defined by My Tenant), you can do the following:
+
+1. View a list of policy groups or rules.
+2. View the total rules, total policy groups, number of enabled rules, and number of disabled rules for the information that appears in the table.
+3. [Modify the columns displayed in the table.](https://help.zscaler.com/unified/using-tables)
+4. Click the **Filter**icon to show or hide the filters. The number displayed in parentheses next to the icon indicates the number of applied filters.
+5. Filter the information that appears in the table. By default, no filters are applied. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables).
+6. View a list of all configured access policy rules. For each rule, you can see:
+  - **Rule Order**: The [policy evaluation order](https://help.zscaler.com/zpa/about-access-and-application-group-policies#PolicyEvalOrder) number for the rule. Private Access (ZPA) applies policy rules based on the order they are listed here. To change the rule order, go to the [Global Rules](https://help.zscaler.com/zpa/about-access-policies-global-rules) or [Policy Groups](https://help.zscaler.com/zpa/about-access-policies-policy-groups) page, and click the rule order number and manually enter a new value. Updating the rule order of an access policy configured using Zscaler Deception is not supported. When changing the rule order of a regular access policy and there is an access policy configured using Deception, the rule order of the regular access policy must be greater than the rule order for an access policy configured using Deception.
+  - **Rule Name**: The name of the rule.
+  - **Policy Groups**: The name of the policy group that the policy rule is associated with.
+  - **Rule Action**: Indicates the action for the rule (i.e., **Allow Access**, **Block Access**, or **Require Approval**).
+  - **Status**: Indicates if the rule is enabled or disabled.
+7. Display more rows or a different page of the table.
+8. Go to the [Defined by Partners](https://help.zscaler.com/zpa/about-access-policies-defined-partners) page to view access policy rules that are defined by your partners for your federated applications.
+
+[Image: Viewing the Defined by My Tenant page in the Zscaler Admin Console]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/about-access-policies-defined-partners","lastmod":"2026-10-09T10:56Z","nid":"1540799"} -->
 ## About Access Policies Defined by Partners
 
 - Source: https://help.zscaler.com/zpa/about-access-policies-defined-partners
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Policies > Access Policy > About Access Policies Defined by Partners
-- Last modified: 2026-09-24T13:49Z
+- Last modified: 2026-10-09T10:56Z
 - Summary: Information on access policy rules, which enable you to implement role-based access control, and the Defined by Partners page within the Zscaler Admin Console.
 
-Access policy rules defined by partners enable you to implement role-based access control and provide access to a partner's applications for [Business-to-Business (B2B) Federation](https://help.zscaler.com/zpa/understanding-business-business-federation). The Defined by Partners page displays the list of policy rules created by the guest partner for the host partner's applications. The Defined by My Tenant page displays the list of policy rules that are defined by the host partner for internal applications and users. Additionally, a guest partner configures the policy rules for all the host partner's applications. To learn more about access policy rules defined by your tenant, see [About Access Policy](https://help.zscaler.com/zpa/about-access-policy).
+Access policy rules defined by partners enable you to implement role-based access control and provide access to a partner's applications for [Business-to-Business (B2B) Federation](https://help.zscaler.com/zpa/understanding-business-business-federation). The Defined by Partners page displays the list of policy rules created by the guest partner for the host partner's applications. The Defined by My Tenant page displays the list of policy rules that are defined by the host partner for internal applications and users. Additionally, a guest partner configures the policy rules for all the host partner's applications. To learn more about access policy rules defined by your tenant, see [About Access Policies Defined by My Tenant](https://help.zscaler.com/zpa/about-access-policies-defined-my-tenant).
 
-Federated access policies provide the following benefits and enable you to:
+Access policies defined by partners provide the following benefits and enable you to:
 
-- Facilitate secure, controlled access between two partners, specifically for selected application segments.
-- Establish a Zero Trust connection with access control between the host partner and the guest partner.
+- Gain visibility into how your guest partners have configured access policies on your hosted applications, without managing them directly.
+- Maintain oversight across all B2B access configurations to ensure partner-defined rules align with your acceptable use and security expectations.
 
 ## About the Defined by Partners Page
 
-On the Defined by Partners page (Private Access > Policy > Access Policy > Defined by Partners), you can do the following:
+On the Defined by Partners page (Private Access > Policy > Access Policy > Rules > Defined by Partners), you can do the following:
 
-1. View a list of applied filters available from the current and previous user sessions. Applied filters must be saved to the user session first before they can be viewed. Use the drop-down menu to select the applied filters to view. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables).
-2. Hide the filters on the page by clicking **Hide Filters**. Click **Show Filters** to show the filters.
-3. Refresh the Defined by Partners page to reflect the most current information.
+1. View a list of policy groups or rules.
+2. [Modify the columns displayed in the table.](https://help.zscaler.com/unified/using-tables)
+3. Click the **Filter** icon to show or hide the filters. The number displayed in parentheses next to the icon indicates the number of applied filters.
 4. Filter the information that appears in the table. By default, the **Partner** filter is applied to show the most recent federated partner. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables#filter).
-5. Expand all the rows in the table to see more information about each policy rule.
-6. View a list of all access policy rules that were defined by partners. For each rule, you can see:
-  - **Name**: The name of the rule.
+5. View a list of all access policy rules that were defined by partners. For each rule, you can see:
+  - **Name**: The name of the rule. Click the rule name to open a drawer with additional details (i.e., name, description, rule action, applied criteria).
   - **Rule Action**: Indicates the action for the rule (i.e., **Allow Access**, **Block Access**, or **Require Approval**).
-7. [Modify the columns displayed in the table.](https://help.zscaler.com/unified/using-tables)
-8. Display more rows or a different page of the table.
-9. Go to the [Defined by My Tenant](https://help.zscaler.com/zpa/about-access-policy) page to view access policy rules that are created and defined by your tenant.
+6. Display more rows or a different page of the table.
+7. Go to the [Defined by My Tenant](https://help.zscaler.com/zpa/about-access-policy) page to view access policy rules that are created and defined by your tenant.
 
-[Image: Viewing access policy rules that are defined by your partner in the Zscaler Admin Console]
+[Image: Viewing the Defined by My Tenant page in the Zscaler Admin Console]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/about-access-policies-global-rules","lastmod":"2026-10-05T06:31Z","nid":"1546212"} -->
+## About Access Policies for Global Rules
+
+- Source: https://help.zscaler.com/zpa/about-access-policies-global-rules
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Policies > Access Policy > About Access Policies for Global Rules
+- Last modified: 2026-10-05T06:31Z
+- Summary: Information on access policy global rules and the Global Rules page in the Zscaler Admin Console.
+
+This feature is in limited availability. To learn more, contact Zscaler Support.
+
+You can implement role-based access control using access policy rules. To configure an access policy, you must first define the global rules and policy groups. To configure a global rule, you must first define the users and then define which applications they can access. For a complete list of ranges and limitations for global rules, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
+
+Global rules provide the following benefits and enable you to:
+
+- Apply organization-wide access policies consistently across all applications without duplicating rules.
+- Simplify policy management by defining common rules once and automatically applying them throughout your environment.
+- Improve policy consistency and reduce configuration errors by centralizing shared access controls.
+- Reduce administrative overhead by eliminating the need to maintain the same rules across multiple policy groups.
+
+Private Access (ZPA) evaluates access policy rules using the most specific application segment and a top-down, first-match principle. To learn more, see [Policy Evaluation Order](https://help.zscaler.com/zpa/about-policies#PolicyEvalOrder).
+
+## Prerequisites
+
+Before you enable global rules, review the following prerequisites and migration considerations:
+
+1. Ensure that Application Scaling is enabled and that all of its specific prerequisites are fully met. To learn more, see [Using Application Scaling](https://help.zscaler.com/zpa/using-application-scaling).
+2. Have Zscaler Experience Center enabled. To learn more, see [What Is Zscaler Experience Center?](https://help.zscaler.com/unified/what-zscaler-experience-center) Global rules are only supported for Experience Center.
+3. Ensure that legacy cloud service API automation and workflows for access policies are updated. The legacy Private Access cloud service API calls are not supported for managing policies after global rules and policy groups are enabled. To learn more, see [Configuring Policy Groups Using API](https://help.zscaler.com/legacy-apis/configuring-policy-groups-using-api), [Configuring Policy Group Rules Using API](https://help.zscaler.com/legacy-apis/configuring-policy-group-rules-using-api), and [Configuring Access Policies Using API](https://help.zscaler.com/legacy-apis/configuring-access-policies-using-api).
+
+## About the Global Rules Page
+
+On the Global Rules page (Private Access > Policy > Access Policy > Global Rules), you can do the following:
+
+1. View the page by policy groups or rules.
+2. [Add a new global rule.](https://help.zscaler.com/zpa/configuring-access-policies-global-rules-and-policy-groups)
+3. [Modify the columns displayed in the table.](https://help.zscaler.com/unified/using-tables)
+4. Show or hide the filters on the page.
+5. [Filter the information](https://help.zscaler.com/unified/using-tables) that appears in the table. By default, no filters are applied.
+6. View a list of configured global rules. For each rule, you can see:
+  - **Rule Order**: The [policy evaluation order](https://help.zscaler.com/zpa/about-access-and-application-group-policies#PolicyEvalOrder) number for the rule. Private Access applies policy rules based on the order they are listed here. Change the rule order by clicking the number and manually entering a new value. Updating the rule order of an access policy configured using Zscaler Deception is not supported. When changing the rule order of a regular access policy and there is an access policy configured using Deception, the rule order of the regular access policy must be greater than the rule order for an access policy configured using Deception. Click the rule to open a drawer showing its criteria.
+  - **Rule Name**: The name of the rule.
+  - **Status**: The status of the rule (i.e., **Enabled** or **Disabled**).
+  - **Rule Action**: Indicates the action for the rule (i.e., **Allow Access**, **Block Access**, or **Require Approval**).
+7. Edit a global rule.
+8. Delete a global rule.
+9. Move or copy the global rule.
+10. Display more rows or a different page of the table.
+11. Go to the [Policy Groups](https://help.zscaler.com/zpa/about-access-policies-policy-groups) page to view all configured policy groups.
+
+[Image: Global Rules page]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/about-access-policies-policy-groups","lastmod":"2026-10-05T06:31Z","nid":"1546213"} -->
+## About Access Policies for Policy Groups
+
+- Source: https://help.zscaler.com/zpa/about-access-policies-policy-groups
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Policies > Access Policy > About Access Policies for Policy Groups
+- Last modified: 2026-10-05T06:31Z
+- Summary: Information on policy groups and the Policy Groups page in the Zscaler Admin Console.
+
+This feature is in limited availability. To learn more, contact Zscaler Support.
+
+A policy group is a collection of access rules that share the same common criteria. The configured criteria are automatically applied to every rule within the group. The following conditions for common criteria apply:
+
+- Each policy group can have its own unique common criteria.
+- The AND operator is used to logically configure the criteria defined in each rule in the group.
+- Changes to common criteria automatically affect every rule within that policy group.
+
+Policy groups provide the following benefits and enable you to:
+
+- Organize related access rules into logical groups that share common criteria.
+- Simplify policy management and reduce the number of individual rules you need to maintain.
+- Improve scalability by grouping applications, business units, or locations under separate policy groups.
+
+Access policies for policy groups help organize application access rules by grouping rules that share common criteria. Instead of managing numerous individual rules, you can organize related rules into logical groups and apply shared criteria. This simplifies policy management and improves scalability across your organization.
+
+## Prerequisites
+
+Before you enable policy groups, review the following prerequisites and migration considerations:
+
+1. Ensure that Application Scaling is enabled and that all of its specific prerequisites are fully met. To learn more, see [Using Application Scaling](https://help.zscaler.com/zpa/using-application-scaling).
+2. Have Zscaler Experience Center enabled. To learn more, see [What Is Zscaler Experience Center?](https://help.zscaler.com/unified/what-zscaler-experience-center) Policy groups are only supported for Experience Center.
+3. Ensure that legacy cloud service API automation and workflows for access policies are updated. The legacy Private Access (ZPA) cloud service API calls are not supported for managing policies after global rules and policy groups are enabled. To learn more, see [Configuring Policy Groups Using API](https://help.zscaler.com/legacy-apis/configuring-policy-groups-using-api), [Configuring Policy Group Rules Using API](https://help.zscaler.com/legacy-apis/configuring-policy-group-rules-using-api), and [Configuring Access Policies Using API](https://help.zscaler.com/legacy-apis/configuring-access-policies-using-api).
+
+## About the Policy Groups Page
+
+On the Policy Groups page (Private Access > Policy > Access Policy > Policy Groups), you can do the following:
+
+1. View the page by policy groups or rules.
+2. [Add a new policy group.](https://help.zscaler.com/zpa/configuring-access-policies-global-rules-and-policy-groups)
+3. [Modify the columns displayed in the table.](https://help.zscaler.com/unified/using-tables)
+4. View a list of configured policy groups. For each policy group, you can see:
+  - **Group Order**: The [policy evaluation order](https://help.zscaler.com/zpa/about-access-and-application-group-policies#PolicyEvalOrder) number for the policy group. Private Access applies policy rules based on the order they are listed here. Change the rule order by clicking the number and manually entering a new value. Click the group to open a drawer showing its criteria.
+  - **Group Name**: The name of the policy group.
+  - **# of Rules**: The number of rules contained in the policy group.
+  - **Common Criteria**: Indicates whether common criteria are defined for the policy group.
+5. Edit a policy group.
+6. Delete a policy group.
+7. Browse the list of configured policy groups. You can search for a policy group, [create additional groups](https://help.zscaler.com/zpa/configuring-access-policies-global-rules-and-policy-groups), and view the number of criteria and rules contained in each group.
+8. View existing access policies created in the legacy UI. These policies are automatically moved to default policy groups.
+9. Display more rows or a different page of the table.
+10. Go to the [Global Rules](https://help.zscaler.com/zpa/about-access-policies-global-rules) page to view the global rules configured for your organization.
+
+[Image: Policy Groups page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -297,13 +449,13 @@ On the Agent Connection Status Logs page (Data Explorer > Microsegmentation > Ag
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-agent-groups","lastmod":"2026-10-02T21:06Z","nid":"1531955"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-agent-groups","lastmod":"2026-10-08T08:56Z","nid":"1531955"} -->
 ## About Agent Groups
 
 - Source: https://help.zscaler.com/zpa/about-agent-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Agent Management > Agent Groups > About Agent Groups
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-08T08:56Z
 - Summary: Information about the Agent Groups page for Microsegmentation in the Zscaler Admin Console.
 
 The Agent Groups page gives insight into your organization's agent group data. It allows you to monitor and analyze the data for all configured agent groups in your organization.
@@ -450,13 +602,13 @@ On the Agent Telemetry page (Data Explorer > Microsegmentation > Agent Telemetry
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-agents","lastmod":"2026-09-28T21:06Z","nid":"1531950"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-agents","lastmod":"2026-10-08T08:54Z","nid":"1531950"} -->
 ## About Agents
 
 - Source: https://help.zscaler.com/zpa/about-agents
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Agent Management > Agents > About Agents
-- Last modified: 2026-09-28T21:06Z
+- Last modified: 2026-10-08T08:54Z
 - Summary: Information about the Agents page for Microsegmentation in the Zscaler Admin Console.
 
 The Agents page gives insight into your organization's agent data. It allows you to monitor and analyze the data for all configured agents in your organization.
@@ -1143,7 +1295,7 @@ You can't edit or delete the default AppProtection profile.
 
 - Source: https://help.zscaler.com/zpa/about-appzones
 - Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Microsegmentation > Resource Management > AppZones > About AppZones
+- Path: Private Access (ZPA) Help > Microsegmentation > AppZone Management > About AppZones
 - Last modified: 2026-09-08T07:15Z
 - Summary: Information about the AppZone page for Microsegmentation in the Zscaler Admin Console.
 
@@ -2021,13 +2173,13 @@ On the Cloud Connectors page (Private Access > Private Infrastructure > Cloud Co
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-connector-groups","lastmod":"2026-10-01T09:02Z","nid":"1483586"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-connector-groups","lastmod":"2026-10-09T08:40Z","nid":"1483586"} -->
 ## About App Connector Groups
 
 - Source: https://help.zscaler.com/zpa/about-connector-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Groups > About App Connector Groups
-- Last modified: 2026-10-01T09:02Z
+- Last modified: 2026-10-09T08:40Z
 - Summary: Information on App Connector groups and the App Connector Groups page within the Zscaler Admin Console.
 
 [Watch a video about App Connector Groups.](https://fast.wistia.net/embed/iframe/zbtq82bmh0)
@@ -2056,7 +2208,8 @@ On the App Connector Groups page (Private Access > Private Infrastructure > App 
 7. Filter the information that appears in the table. By default, no filters are applied. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables).
 8. [Add an App Connector group.](https://help.zscaler.com/zpa/configuring-app-connector-groups)
 9. View a list of all App Connector groups that are configured for your organization. For each App Connector group, you can see: If you accessed the App Connector Groups page from the Log Receivers page, then you only see groups with App Connectors that are set up for log streaming. The group also has a Log Streaming Service (LSS) icon next to the name within the table. See image.
-  - **Name**: The name of the App Connector group. Click the name to view the details for the App Connector group. View details for each deployed App Connector group.
+  - **Name**: The name of the App Connector group. Click the name to view the details for the App Connector group.
+    - View details for each deployed App Connector group.
   - **App Connector Count**: The number of enrolled App Connectors associated with this group.
   - **Status**: Indicates whether the App Connector group is enabled or disabled.
   - **Version Profile**: The profile used to specify an App Connector build for the group.
@@ -2064,7 +2217,7 @@ On the App Connector Groups page (Private Access > Private Infrastructure > App 
 10. [Modify the columns displayed in the table.](https://help.zscaler.com/unified/using-tables)
 11. [View a configuration graph of connected objects.](https://help.zscaler.com/zpa/viewing-configuration-graphs)
 12. [Edit a configured App Connector group.](https://help.zscaler.com/zpa/editing-connector-groups)
-13. Delete an App Connector group.
+13. Edit network settings or delete an App Connector group.
 
 If an App Connector group is configured using Zscaler Deception or is managed by Zscaler, then the edit and delete options are unavailable.
 
@@ -2072,21 +2225,25 @@ See image.
 
 1. Display more rows or a different page of the table.
 
+- **Name**: The name of the App Connector group.
 - **Description**: The description of the App Connector group.
-- **Location**: The location where the App Connector group, which the App Connector belongs to, is set up.
 - **Status**: Indicates whether the App Connector group is enabled or disabled.
 - **Enrollment Certificate**: The certificate the App Connector uses for enrollment. You can click the **Edit**icon to edit the properties of the certificate.
+- **DNS Resolution Option**: Indicates whether the App Connector group uses IPv4, IPv6, or a combination of the two IP addresses.
+- **Persist Local Version Profile**: Indicates whether the version profile set at the customer level is enabled for this App Connector group. To learn more, see [Configuring a Version Profile](https://help.zscaler.com/zpa/configuring-version-profile).
+- **Location**: The location where the App Connector group, which the App Connector belongs to, is set up.
+- **Location Coordinates**: The latitude and longitude coordinates where the App Connector group, which the App Connector belongs to, is set up.
 - **Disaster Recovery**: Indicates whether Disaster Recovery is enabled or disabled.
-- **Disable AppProtection**: Indicates whether AppProtection is enabled or disabled.
 - **Privileged Remote Access**: Indicates whether Privileged Remote Access (PRA) is enabled or disabled
-- **Private Cloud Controllers**: Click this tab to view a list of deployed Private Cloud Controllers that are included in the group.
-- **Provisioning Keys**: Click this tab to view a list of provisioning keys used by Private Cloud Controllers in this group.
+- **Disable AppProtection**: Indicates whether AppProtection is enabled or disabled.
+- **Version Profile**: The version profile configured for this App Connector group. To learn more, see [Configuring a Version Profile](https://help.zscaler.com/zpa/configuring-version-profile).
+- **Next Periodic Software Update**: The date and time of the next periodic software update for all of the App Connectors within the group.
+- **App Connectors**: Click this tab to view a list of deployed App Connectors that are included in the group.
+- **Provisioning Keys**: Click this tab to view a list of provisioning keys used by App Connectors in this group.
 
 **[Image: App Connector Groups page within the Zscaler Admin Console]**
 
 [Image: App Connector Group with Log Streaming Service Icon]
-
-[Image: Edit object from Graphical View]
 
 [Image: Deception App Connector Group]
 <!-- /ZS-ARTICLE -->
@@ -2337,13 +2494,13 @@ On the Consoles Policy page (Zero Trust Browser > Privileged Remote Access > Con
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-credential-classes","lastmod":"2026-08-17T11:28Z","nid":"1541027"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-credential-classes","lastmod":"2026-10-09T07:06Z","nid":"1541027"} -->
 ## About Credential Classes
 
 - Source: https://help.zscaler.com/zpa/about-credential-classes
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Credentials > About Credential Classes
-- Last modified: 2026-08-17T11:28Z
+- Last modified: 2026-10-09T07:06Z
 - Summary: Information about credential classes for Privileged Remote Access (PRA) in the Zscaler Admin Console.
 
 A credential class is a rotation schedule that you can assign to rotate the password for a [managed credential](https://help.zscaler.com/zpa/about-privileged-managed-credentials). You can set the rotation policy to determine when the rotation for a managed credential is triggered.
@@ -2377,13 +2534,13 @@ On the Credential Classes page (Policies > Access Control > Clientless > Credent
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-credential-providers","lastmod":"2026-08-17T11:23Z","nid":"1541004"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-credential-providers","lastmod":"2026-10-09T07:06Z","nid":"1541004"} -->
 ## About Credential Providers
 
 - Source: https://help.zscaler.com/zpa/about-credential-providers
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Credentials > About Credential Providers
-- Last modified: 2026-08-17T11:23Z
+- Last modified: 2026-10-09T07:06Z
 - Summary: Information about credential providers for Privileged Remote Access (PRA) in the Zscaler Admin Console.
 
 A credential provider is the external identity source (e.g., Active Directory (AD) or Entra ID) used to [discover credentials](https://help.zscaler.com/zpa/about-discovered-credentials) after you set up the credential agent for a designated identity provider (IdP). You can manage the credential providers in the Zscaler Admin Console. When you create a credential provider, you can map the credential agent application segment to the external identity source.
@@ -2868,18 +3025,18 @@ On the Event Logs page (Data Explorer > Microsegmentation > Event Logs), you can
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-external-routers","lastmod":"2026-09-21T09:48Z","nid":"1534091"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-external-routers","lastmod":"2026-10-08T13:38Z","nid":"1534091"} -->
 ## About External Routers
 
 - Source: https://help.zscaler.com/zpa/about-external-routers
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Network Connector Management > External Routers > About External Routers
-- Last modified: 2026-09-21T09:48Z
+- Last modified: 2026-10-08T13:38Z
 - Summary: Information about external routers in the Zscaler Admin Console.
 
 To ensure high availability and fault tolerance by providing alternate paths to reach applications during Network Connector node failures and Network Connector to VPN Service Edge path or link failures, Border Gateway Protocol (BGP) relies on external routers called BGP peers. Peering occurs when BGP peers form connections with other BGP peers. If a failure occurs on a Network Connector within a Network Connector group, VPN Service Edges use peering to reroute traffic to another Network Connector for the specific IP address subnet.
 
-You can configure BGP at a global level. To learn more, see[Configuring Border Gateway Protocols for VPN Service Edges](https://help.zscaler.com/zpa/configuring-border-gateway-protocol-vpn-service-edges) and [Configuring a Border Gateway Protocol for a Network Connector](https://help.zscaler.com/zpa/configuring-border-gateway-protocol-network-connectors).
+You can configure BGP at a global level. To learn more, see[Configuring Border Gateway Protocols for Network Connectors](https://help.zscaler.com/zpa/configuring-border-gateway-protocol-vpn-service-edges) and [Configuring a Border Gateway Protocol for a Network Connector](https://help.zscaler.com/zpa/configuring-border-gateway-protocol-network-connectors).
 
 BGP is enabled when the [Advertise LAN Segments Locally](https://help.zscaler.com/zpa/configuring-network-connectors#add) option is disabled for a Network Connector group.
 
@@ -3041,13 +3198,13 @@ If two or more matching events occur within the flow log aggregation interval, t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-idp-attribute-objects","lastmod":"2026-10-02T09:07Z","nid":"1546235"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-idp-attribute-objects","lastmod":"2026-10-08T11:08Z","nid":"1546235"} -->
 ## About IdP Attribute Objects
 
 - Source: https://help.zscaler.com/zpa/about-idp-attribute-objects
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > VPN Access Policy > About IdP Attribute Objects
-- Last modified: 2026-10-02T09:07Z
+- Last modified: 2026-10-08T11:08Z
 - Summary: Information about the IdP attribute objects that enable you to organize users based on their identity attributes.
 
 IdP attribute objects are reusable components that allow you to organize users based on their identity attributes. These objects use SAML attributes and SCIM data sourced from your identity provider (IdP) to define specific user populations. They are designed to shift policy creation from being network-centric to identity-centric, allowing you to build rules based on who the user is, not just their location. IdP attribute objects allow you to use a named object to define the user identity criteria when [configuring VPN access policies](https://help.zscaler.com/zpa/configuring-vpn-access-policies).
@@ -3434,13 +3591,13 @@ On the Log Connector Groups page (Data Explorer > Log Streaming > Private Log St
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-log-streaming-service","lastmod":"2026-09-21T09:56Z","nid":"1483941"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-log-streaming-service","lastmod":"2026-10-06T08:23Z","nid":"1483941"} -->
 ## About the Log Streaming Service
 
 - Source: https://help.zscaler.com/zpa/about-log-streaming-service
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Log Streaming Service > About the Log Streaming Service
-- Last modified: 2026-09-21T09:56Z
+- Last modified: 2026-10-06T08:23Z
 - Summary: Information on how the Private Access Log Streaming Service (LSS) is deployed, including information on the log types captured by configured log receivers within the Zscaler Admin Console.
 
 [Watch a video about the Log Streaming Service](https://fast.wistia.net/embed/iframe/fycyoh6xk5) (shows legacy UI).
@@ -3828,13 +3985,13 @@ On the Private App Microtenants page (Private Access > B2B Exchange > Microtenan
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-ml-recommendations-resource-groups","lastmod":"2026-10-02T11:49Z","nid":"1531949"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-ml-recommendations-resource-groups","lastmod":"2026-10-09T09:57Z","nid":"1531949"} -->
 ## About ML Recommendations for Resource Groups
 
 - Source: https://help.zscaler.com/zpa/about-ml-recommendations-resource-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Resource Management > About ML Recommendations for Resource Groups
-- Last modified: 2026-10-02T11:49Z
+- Last modified: 2026-10-09T09:57Z
 - Summary: Information about the ML Recommendations for Resource Groups page for Microsegmentation in the Zscaler Admin Console.
 
 When [configuring resource groups](https://help.zscaler.com/zpa/configuring-resource-groups) for [Microsegmentation policies](https://help.zscaler.com/zpa/configuring-microsegmentation-policies), admins can eliminate manual time and effort spent on reviewing [resources](https://help.zscaler.com/zpa/about-resources). To help admins easily find resources with enough similarities to group together, admins can generate machine-learning (ML) recommendations to provide suggestions for configuration. To learn more, see [About Resources](https://help.zscaler.com/zpa/about-resources).
@@ -3857,8 +4014,9 @@ On the ML Recommendations for Resource Groups page (Zero Trust Cloud > Microsegm
 2. Refresh the page to reflect the most current information.
 3. Show or hide available columns.
 4. View a list of all ML recommendations for your organization. For each recommendation, you can see:
-  - **Name**: The name of the recommendation.
+  - **Name**: The name of the recommendation. Names are generated based on Dynamic Membership criteria, which you can view by clicking an individual recommendation.
   - **Resource Type**: The type of resource (**Managed** or **Unmanaged**).
+  - **Member Count**: The number of resources in the resource group.
   - **Confidence Score**: The likelihood from 1 to 100 of how optimal the recommendation is for configuration. A score of 1 is considered the lowest confidence, and a score of 100 is considered the highest confidence.
 5. Click an individual ML recommendation to view its complete information and accept or ignore it for configuration. The criteria in the **Dynamic Membership** section are generated based on the priority of tags automated by the Zscaler Microsegmentation (ZMS) engine. See image. By default, resource groups can include up to 10 different dynamic criteria tags. When more than 10 tags are available for the recommendation, they are ranked by priority, and the top 10 ranking tags are selected for the recommendation. Custom tags are the highest ranked, followed by cloud tags, ML tags, then network identifiers and environment fields, with agent group IDs as the lowest ranked.
 6. Review a recommendation.
@@ -4011,13 +4169,13 @@ On the My Reviews page (PRA Portal > My Approvals icon > My Reviews), you can do
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-network-connector-groups","lastmod":"2026-09-21T09:45Z","nid":"1529073"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-network-connector-groups","lastmod":"2026-10-08T13:36Z","nid":"1529073"} -->
 ## About Network Connector Groups
 
 - Source: https://help.zscaler.com/zpa/about-network-connector-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Network Connector Management > Network Connector Groups > About Network Connector Groups
-- Last modified: 2026-09-21T09:45Z
+- Last modified: 2026-10-08T13:36Z
 - Summary: Information on Network Connector groups and the Network Connector Groups page in the Zscaler Admin Console.
 
 [Watch a video about Network Connector Groups.](https://fast.wistia.net/embed/iframe/dt7qtvdrqj)
@@ -4114,13 +4272,13 @@ On the Network Connector Provisioning Keys page (Private Access > VPN (for Legac
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-network-connectors","lastmod":"2026-09-21T09:42Z","nid":"1529067"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-network-connectors","lastmod":"2026-10-08T13:32Z","nid":"1529067"} -->
 ## About Network Connectors
 
 - Source: https://help.zscaler.com/zpa/about-network-connectors
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Network Connector Management > Network Connectors > About Network Connectors
-- Last modified: 2026-09-21T09:42Z
+- Last modified: 2026-10-08T13:32Z
 - Summary: Information on Network Connectors and the Network Connectors page.
 
 [Watch a video about Network Connectors.](https://fast.wistia.net/embed/iframe/oshtd63t0g)
@@ -4186,13 +4344,13 @@ On the Network Connectors page (Private Access > VPN (for Legacy Apps) > Network
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-network-segments","lastmod":"2026-09-21T09:37Z","nid":"1529078"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-network-segments","lastmod":"2026-10-08T13:27Z","nid":"1529078"} -->
 ## About Network Segments
 
 - Source: https://help.zscaler.com/zpa/about-network-segments
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > VPN Configuration > About Network Segments
-- Last modified: 2026-09-21T09:37Z
+- Last modified: 2026-10-08T13:27Z
 - Summary: Information on the Network Segments page and key configuration options within a Network segment.
 
 A Network segment is a local area network (LAN) IP subnet that is assigned to a [Network Connector group](https://help.zscaler.com/zpa/about-network-connector-groups) to define access to servers that are accessed via the VPN tunnel. Network segments define which traffic flows through the VPN tunnel from [Zscaler Client Connector](https://help.zscaler.com/client-connector/using-zscaler-client-connector). Each Network segment has a LAN IP address range for a data center with running servers. You can also assign an FQDN and domain name server to the Network segment. You can create multiple Network segments to define which traffic flows over the VPN tunnel. When you assign a Network segment to a Network Connector group, ensure that the Network Connector and the server associated with the LAN IP address are from the same data center.
@@ -4336,7 +4494,7 @@ On the Pending Requests page (Private Access > B2B Federation > Federation > Pen
 
 - Source: https://help.zscaler.com/zpa/about-perimeter-policies
 - Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Microsegmentation > Policy > About Perimeter Policies
+- Path: Private Access (ZPA) Help > Microsegmentation > Policy Management > About Perimeter Policies
 - Last modified: 2026-09-18T10:09Z
 - Summary: Information on the Perimeter Policies page for Microsegmentation in the Zscaler Admin Console.
 
@@ -5100,7 +5258,7 @@ Privileged credentials that are created in the Default Microtenant are inherited
 
 - Source: https://help.zscaler.com/zpa/about-privileged-credentials-policy
 - Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Policies > Privileged Remote Access Policy > About Privileged Credentials Policy
+- Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Remote Access Policy > About Privileged Credentials Policy
 - Last modified: 2026-09-24T21:06Z
 - Summary: Information on privileged credentials policy rules, which enable you to designate privileged consoles with allocated credentials. There is also information on the Privileged Credentials Policy page within the Zscaler Admin Console.
 
@@ -6036,13 +6194,13 @@ If a server is missing required settings, the **Incomplete Configuration**icon a
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-service-edge-provisioning-keys","lastmod":"2026-09-21T14:48Z","nid":"1484501"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-service-edge-provisioning-keys","lastmod":"2026-10-05T21:06Z","nid":"1484501"} -->
 ## About Private Service Edge Provisioning Keys
 
 - Source: https://help.zscaler.com/zpa/about-service-edge-provisioning-keys
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Provisioning Keys > About Private Service Edge Provisioning Keys
-- Last modified: 2026-09-21T14:48Z
+- Last modified: 2026-10-05T21:06Z
 - Summary: Information on Private Service Edge for Private Access (ZPA) provision keys and the Private Service Edge Provisioning Keys page within the Zscaler Admin Console.
 
 A provisioning key is a text string that is generated when you [add a new Private Service Edge for Private Access (ZPA)](https://help.zscaler.com/zpa/configuring-service-edges). When [deploying a Private Service Edge](https://help.zscaler.com/zpa/about-deploying-service-edges), you are prompted to enter this key. The provisioning key functions like a credential for the Private Service Edge, enabling the Private Access cloud to verify the Private Service Edge's authenticity and complete the deployment process. Furthermore, each key is associated with a specific [Private Service Edge group](https://help.zscaler.com/zpa/about-service-edge-groups), so the key allows the Private Access cloud to identify the Private Service Edge group to which a Private Service Edge must be deployed.
@@ -6426,18 +6584,18 @@ Jane reauthenticates and can access BudgetApp again. With this reauthentication,
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-usage-insights","lastmod":"2026-09-24T06:10Z","nid":"1519181"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-usage-insights","lastmod":"2026-10-09T14:12Z","nid":"1519181"} -->
 ## About Usage Insights
 
 - Source: https://help.zscaler.com/zpa/about-usage-insights
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Applications & Users Monitoring > Applications & Users Insights > About Usage Insights
-- Last modified: 2026-09-24T06:10Z
+- Last modified: 2026-10-09T14:12Z
 - Summary: Overview information about Usage Insights in the Zscaler Admin Console.
 
 The Usage page provides actionable insights into an organization's usage patterns between users and applications. To provide more granular details, you can categorize the collected data based on application segments, segment groups, or user groups to review similarities across your organization.
 
-Usage insights provide the following benefits and enables you to:
+Usage insights provide the following benefits and enable you to:
 
 - Present usage patterns of the application across an organization.
 - Analyze granular details of usage patterns based on segment groups, user groups, and users.
@@ -6448,14 +6606,15 @@ Usage insights provide the following benefits and enables you to:
 
 On the Usage page (Data Explorer > Private Access > Usage), you can do the following:
 
-1. Go to the [Application and User Group Relationships](https://help.zscaler.com/zpa/viewing-application-and-user-group-relationships) page to view insights into which application segments are accessed by which user groups.
-2. Go to the [Policy Usage](https://help.zscaler.com/zpa/viewing-policy-usage) page to view insights into actively used policy rules.
-3. Go to the [Application Segments Usage](https://help.zscaler.com/zpa/viewing-application-segments-usage) page to view insights into actively used application segments.
-4. Click **Settings** to [configure report distribution](https://help.zscaler.com/zpa/configuring-cloud-report-distribution).
+1. Click **Settings** to [configure report distribution](https://help.zscaler.com/zpa/configuring-cloud-report-distribution).
+2. Go to the [Application and User Group Relationships](https://help.zscaler.com/zpa/viewing-application-and-user-group-relationships) page to view insights into which application segments are accessed by which user groups.
+3. Go to the [Policy Usage](https://help.zscaler.com/zpa/viewing-policy-usage) page to view insights into actively used policy rules.
+4. Go to the [Application Segments Usage](https://help.zscaler.com/zpa/viewing-application-segments-usage) page to view insights into actively used application segments.
 5. Go to the [Quarterly Business Review (QBR) Reports](https://help.zscaler.com/zpa/viewing-quarterly-business-review-reports) page to view quarterly insights on private application usage.
 6. Go to the [Where are my apps being served from?](https://help.zscaler.com/zpa/viewing-where-your-apps-are-served) page to view hosting providers and analytical details of the App Connectors that have been serving your applications for the last quarter.
+7. Go to the [Business Continuity Insights](https://help.zscaler.com/zpa/viewing-business-continuity-insights) page to view how Business Continuity helps keep your workforce productive, secure, and seamlessly connected, regardless of any disruption.
 
-[Image: Usage Insights Page within the Zscaler Admin Console]
+[Image: Usage page within the Zscaler Admin Console]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6615,13 +6774,13 @@ On the User Risk Scores page (Administration > Authentication > User Risk Scores
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-vpn-access-policy","lastmod":"2026-10-02T07:37Z","nid":"1533872"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-vpn-access-policy","lastmod":"2026-10-08T13:22Z","nid":"1533872"} -->
 ## About VPN Access Policy
 
 - Source: https://help.zscaler.com/zpa/about-vpn-access-policy
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > VPN Access Policy > About VPN Access Policy
-- Last modified: 2026-10-02T07:37Z
+- Last modified: 2026-10-08T13:22Z
 - Summary: Information on VPN access policy rules that enable you to implement network-based access control within the Zscaler Admin Console.
 
 VPN access policy rules enable you to allow or block network traffic on VPN Service Edges. Before you configure an access policy rule, configure the components that define the traffic's source and destination:
@@ -6667,13 +6826,13 @@ On the Access Policies page (Private Access > VPN (for Legacy Apps) > VPN Access
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-vpn-access-policy-data-diagnostics","lastmod":"2026-09-03T12:03Z","nid":"1535427"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-vpn-access-policy-data-diagnostics","lastmod":"2026-10-08T11:53Z","nid":"1535427"} -->
 ## About VPN Access Policy Data Diagnostics
 
 - Source: https://help.zscaler.com/zpa/about-vpn-access-policy-data-diagnostics
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Dashboard & Diagnostics > About VPN Access Policy Data Diagnostics
-- Last modified: 2026-09-03T12:03Z
+- Last modified: 2026-10-08T11:53Z
 - Summary: Information about the VPN Access Policy Data Diagnostics page for VPN (for Legacy Apps) in the Zscaler Admin Console.
 
 The Access Policy Data Diagnostics page provides logs and diagnostics data for traffic that matches an access policy rule. Traffic that does not match any access policy rules is blocked by default, and you can also view that data on this page. The logs displayed on this page can help you troubleshoot issues.
@@ -6728,13 +6887,13 @@ You can hover over the chart to view the values at different points in time. Use
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-vpn-connected-users","lastmod":"2026-09-21T09:40Z","nid":"1529059"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-vpn-connected-users","lastmod":"2026-10-08T13:29Z","nid":"1529059"} -->
 ## About VPN Connected Users
 
 - Source: https://help.zscaler.com/zpa/about-vpn-connected-users
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > VPN Configuration > About VPN Connected Users
-- Last modified: 2026-09-21T09:40Z
+- Last modified: 2026-10-08T13:29Z
 - Summary: Information on the VPN Connected Users page.
 
 The VPN Connected Users page shows a user's connection status to a VPN Service Edge. It also displays the username, assigned client IP address, connected VPN Service Edge, and the current VPN connection status.
@@ -6766,13 +6925,13 @@ On the VPN Connected Users page (Private Access > VPN (for Legacy Apps) > VPN Co
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-vpn-service-edges","lastmod":"2026-09-21T09:35Z","nid":"1529070"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-vpn-service-edges","lastmod":"2026-10-08T13:24Z","nid":"1529070"} -->
 ## About VPN Service Edges
 
 - Source: https://help.zscaler.com/zpa/about-vpn-service-edges
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > VPN Configuration > About VPN Service Edges
-- Last modified: 2026-09-21T09:35Z
+- Last modified: 2026-10-08T13:24Z
 - Summary: Information on VPN Service Edges and the VPN Service Edges page in the Zscaler Admin Console.
 
 A VPN Service Edge manages the connections between [Zscaler Client Connector](https://help.zscaler.com/client-connector/using-zscaler-client-connector) and [Network Connectors](https://help.zscaler.com/zpa/about-network-connectors). VPN Service Edges are a single-tenant instance, deployed in the Zscaler cloud. They are managed and maintained by Zscaler. The VPN Service Edge assigns Zscaler Client Connector the region and an IP address based on the client IP address pool that is assigned to the VPN Service Edge.
@@ -6819,13 +6978,13 @@ On the VPN Service Edges page (Private Access > VPN (for Legacy Apps) > VPN Serv
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-vpn-support-information","lastmod":"2026-09-21T08:42Z","nid":"1533989"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-vpn-support-information","lastmod":"2026-10-08T13:20Z","nid":"1533989"} -->
 ## About VPN Support Information
 
 - Source: https://help.zscaler.com/zpa/about-vpn-support-information
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Dashboard & Diagnostics > About VPN Support Information
-- Last modified: 2026-09-21T08:42Z
+- Last modified: 2026-10-08T13:20Z
 - Summary: Information about the Support Information page in VPN (for Legacy Apps).
 
 VPN Support Information allows you to create VPN diagnostic sessions that run commands on VPN Service Edges, Network Connectors, and Network Connector groups. You can then filter and view the outputs of these diagnostic sessions to assist in troubleshooting.
@@ -6867,13 +7026,13 @@ On the VPN Support Information page (Private Access > VPN (for Legacy Apps) > VP
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-vpn-traffic-flow-logs-diagnostics","lastmod":"2026-09-03T11:58Z","nid":"1535400"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-vpn-traffic-flow-logs-diagnostics","lastmod":"2026-10-08T13:14Z","nid":"1535400"} -->
 ## About VPN Traffic Flow Logs Diagnostics
 
 - Source: https://help.zscaler.com/zpa/about-vpn-traffic-flow-logs-diagnostics
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Dashboard & Diagnostics > About VPN Traffic Flow Logs Diagnostics
-- Last modified: 2026-09-03T11:58Z
+- Last modified: 2026-10-08T13:14Z
 - Summary: Information about the Traffic Flow Logs Diagnostics page for VPN (for Legacy Apps).
 
 The Traffic Flow Logs Diagnostics page provides VPN connection traffic flow logs and diagnostics data. The logs can help you troubleshoot issues.
@@ -6934,13 +7093,13 @@ On the VPN Diagnostics page (Private Access > VPN (for Legacy Apps) > VPN Diagno
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-vpn-user-enablement","lastmod":"2026-09-21T09:40Z","nid":"1529081"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-vpn-user-enablement","lastmod":"2026-10-08T13:29Z","nid":"1529081"} -->
 ## About VPN User Enablement
 
 - Source: https://help.zscaler.com/zpa/about-vpn-user-enablement
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > VPN Configuration > About VPN User Enablement
-- Last modified: 2026-09-21T09:40Z
+- Last modified: 2026-10-08T13:29Z
 - Summary: Information on the VPN (for Legacy Apps) User Enablement page.
 
 User enablement rules define which users gain access to VPN tunnels. A [VPN connected user](https://help.zscaler.com/zpa/about-vpn-connected-users) can't connect to the VPN Service Edge if they aren't entitled for VPN (for Legacy Apps). The user enablement rules validate if the VPN connected user is allowed to access VPN (for Legacy Apps).
@@ -6982,13 +7141,13 @@ On the User Enablement page (Private Access > VPN (for Legacy Apps) > User Enabl
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-vpn-user-logs-diagnostics","lastmod":"2026-09-03T11:48Z","nid":"1535387"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-vpn-user-logs-diagnostics","lastmod":"2026-10-08T13:13Z","nid":"1535387"} -->
 ## About VPN User Logs Diagnostics
 
 - Source: https://help.zscaler.com/zpa/about-vpn-user-logs-diagnostics
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Dashboard & Diagnostics > About VPN User Logs Diagnostics
-- Last modified: 2026-09-03T11:48Z
+- Last modified: 2026-10-08T13:13Z
 - Summary: Information about the User Logs Diagnostics page for VPN (for Legacy Apps) in the Zscaler Admin Console.
 
 The User Logs Diagnostics page provides user logs and diagnostics data for your VPN connection. The logs can help you troubleshoot issues.
@@ -10682,7 +10841,7 @@ IPv6 IP address ranges and IPv6 IP address subsets are not supported. IP address
 
 - Source: https://help.zscaler.com/zpa/adding-perimeter-policy
 - Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Microsegmentation > Policy > Adding a Perimeter Policy
+- Path: Private Access (ZPA) Help > Microsegmentation > Policy Management > Adding a Perimeter Policy
 - Last modified: 2026-09-18T10:10Z
 - Summary: How to add a perimeter policy for Microsegmentation in the Zscaler Admin Console.
 
@@ -10830,21 +10989,21 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/app-connector-deployment-guide-docker","lastmod":"2026-10-02T09:27Z","nid":"1484921"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/app-connector-deployment-guide-docker","lastmod":"2026-10-05T11:45Z","nid":"1484921"} -->
 ## App Connector Deployment Guide for Docker
 
 - Source: https://help.zscaler.com/zpa/app-connector-deployment-guide-docker
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Deployment Guides for Supported Platforms > App Connector Deployment Guide for Docker
-- Last modified: 2026-10-02T09:27Z
+- Last modified: 2026-10-05T11:45Z
 - Summary: Information on how to deploy an App Connector on a Docker container.
 
-The App Connector Docker image is available on Docker Hub for both the arm64 and amd64 platforms:
+The App Connector Docker image is available on Docker Hub for both the ARM64 and AMD64 platforms:
 
-- `docker pull zscaler/zpa-connector:latest.amd64`
 - `docker pull zscaler/zpa-connector:latest.arm64`
+- `docker pull zscaler/zpa-connector:latest.amd64`
 
-To learn more about the different repositories available, see [Docker Hub](https://hub.docker.com/r/zscaler/zpa-connector/tags?page=1&ordering=last_updated).
+To learn more about the different repositories available, refer to the [Docker Hub](https://hub.docker.com/r/zscaler/zpa-connector/tags?page=1&ordering=last_updated).
 
 Docker support is not available for Kubernetes.
 
@@ -10886,7 +11045,7 @@ If needed, configure log rotation to ensure that container logs do not reach ful
 
 ## Deploying a Docker Image on an Arm Platform
 
-A minimum of 2 cores and 4 GB RAM is required for arm64 systems.
+A minimum of 2 cores and 4 GB RAM is required for ARM64 systems.
 
 To deploy the Docker image on ARM64 architecture, create a new container using the run command and provisioning key.
 
@@ -10914,9 +11073,9 @@ To deploy the Docker container, ensure `--init` is included in the `run` command
 
 If needed, configure log rotation to ensure that container logs do not reach full capacity. You can also configure the [networking for the deployed software component](https://help.zscaler.com/zpa/networking-deployed-software-components).
 
-### Configure Log Rotation
+### Configuring Log Rotation
 
-By default, Docker logs do not rotate and can continue to grow until the root partition reaches full capacity, which can cause servers to power down. To avoid this, you can configure log rotation, so the logs roll over after they reach the limit for the Docker container.
+By default, Docker logs do not rotate and can continue to grow until the root partition reaches full capacity, which can cause servers to power down. To avoid this, you can configure log rotation so the logs roll over after they reach the limit for the Docker container.
 
 To configure log rotation for a Docker container, enter the following command:
 
@@ -14432,13 +14591,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/app-connector-release-summary-2026","lastmod":"2026-09-30T11:33Z","nid":"1534306"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/app-connector-release-summary-2026","lastmod":"2026-10-06T19:05Z","nid":"1534306"} -->
 ## App Connector Release Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/app-connector-release-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA App Connector Release Notes > App Connector Release Summary (2026)
-- Last modified: 2026-09-30T11:33Z
+- Last modified: 2026-10-06T19:05Z
 - Summary: Zscaler Private Access (ZPA) App Connector release summary for updates deployed, per version, in 2026.
 
 This article provides a summary of all new features and enhancements released per Zscaler Private Access (ZPA) App Connector version.
@@ -15525,13 +15684,13 @@ The following table includes admin permissions at the Default Microtenant (i.e.,
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-IP-address-objects","lastmod":"2026-10-02T08:58Z","nid":"1533892"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-IP-address-objects","lastmod":"2026-10-07T15:31Z","nid":"1533892"} -->
 ## Configuring IP Address Objects
 
 - Source: https://help.zscaler.com/zpa/configuring-IP-address-objects
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > VPN Access Policy > Configuring IP Address Objects
-- Last modified: 2026-10-02T08:58Z
+- Last modified: 2026-10-07T15:31Z
 - Summary: How to configure IP address objects.
 
 You can use an IP address object to group and manage static IP addresses and subnets under a single name. To learn more about IP address objects, see [About IP Address Objects](https://help.zscaler.com/zpa/about-IP-address-object).
@@ -15541,7 +15700,7 @@ To configure an IP address object:
 1. Go to **Private Access > VPN (for Legacy Apps) > VPN Access Policy IP Address**.
 2. Click **Add Rule**. The **Add IP Address Object**page appears.
 3. On the **Add IP Address Object** page:
-  - **IP Address**: Enter an IP address, and click **Add**. A maximum of 64 IP addresses or IP subnets is allowed. You can also click **Import LAN/Client Subnets**or**Address Book**to define destinations from a predefined list.
+  - **IP Address**: Enter an IP address, and click **Add**. A maximum of 64 IP addresses or IP subnets is allowed. You can also click **Import LAN/Client Subnets**to define destinations from a predefined list.
   - **Name**: Enter name of the IP address object. See image.
 4. Click **Save**.
 
@@ -15628,13 +15787,13 @@ Private Access requires an application to be defined as a wildcard with *any* po
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-access-policies","lastmod":"2026-09-25T09:08Z","nid":"1483501"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-access-policies","lastmod":"2026-10-06T08:49Z","nid":"1483501"} -->
 ## Configuring Access Policies
 
 - Source: https://help.zscaler.com/zpa/configuring-access-policies
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Policies > Access Policy > Configuring Access Policies
-- Last modified: 2026-09-25T09:08Z
+- Last modified: 2026-10-06T08:49Z
 - Summary: How to configure an access policy rule within the Zscaler Admin Console.
 
 Access policy rules enable you to implement role-based access control. For a complete list of ranges and limitations for access policy rules, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
@@ -15659,7 +15818,7 @@ To configure an access policy rule:
       1. **Connector Type**: If you select **Specific App Connector or Server groups for the application**, choose a connector option:
         1. Select**App Connector**,and then choose which App Connector groups, server groups, or a mixture of both you want the access policy to use. The maximum limit of selected App Connector groups is 48. If **All App Connector groups for the application** is selected and there are more than 48 configured for your organization, then only 48 App Connector groups are used. This limit applies to newly created or edited policy rules after March 4, 2024.
         2. Select **Extranet**, and then choose a partner, location group, and/or location you want the access policy to use. There is a maximum of 10 location groups and 50 locations per policy for extranet. Additionally, some features in application segments are not available for extranet. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-application-segments).
-    4. For **Criteria**, click **Add Criteria** to add any of the available criteria types. View the criteria
+    4. For **Criteria**, click **Add Criteria** to add any of the available criteria types. View the criteria.
 4. Click **Add Rule**.
 
 [Image: Add Rule window]
@@ -15669,6 +15828,7 @@ The drop-down menu only displays criteria that are not already in use by the rul
 **Who**:
 
 - SAML and SCIM Attributes
+- External IAM IdPs
 
 **What**:
 
@@ -15696,6 +15856,10 @@ Choose the application segments and segment groups to which this rule applies:
 - **Segment Groups**: Choose the [segment groups](https://help.zscaler.com/zpa/about-segment-groups), and click **Done**. You can search for a specific segment group, click **Select All** to apply all segment groups, or click **Clear Selection** to remove all selections. The [segment groups you've configured](https://help.zscaler.com/zpa/configuring-segment-groups) appear in the menu. There is no limit to the number you can select. If you added multiple segment groups to the policy rule, Private Access uses an OR Boolean operator between them.
 - **Tags**: Choose the [tags](https://help.zscaler.com/zpa/about-tag-management-application-segments), and click Save. Predefined tags and [tags you've configured](https://help.zscaler.com/zpa/configuring-tags-and-namespaces-application-segments) appear in the menu. You can search for a specific tag, click **Select All Displayed** to apply all tags, or click **Clear All** to remove all selections.
 - **Tag Groups**: Choose the [tag groups](https://help.zscaler.com/zpa/about-tag-management-application-segments), and click Save. [Tag groups you've configured](https://help.zscaler.com/zpa/configuring-tags-and-namespaces-application-segments) appear in the menu. You can search for a specific tag group, click **Select All Displayed** to apply all tag groups, or click **Clear All** to remove all selections.
+
+To use External IAM IdP, select the IdP from the drop-down menu. You can search for a specific IAM IdP, click **Select All Displayed** to apply the IdPs listed, click **Clear All** to remove all selections, or click the **Delete**icon to the right of a selected IdP to remove it from your list. There is no limit to the number you can select. Click **Cancel**to exit the drop-down menu.
+
+This criteria is the external IdP attribute configured in Authentication Service and is only supported for IdPs created in Authentication Service.
 
 Choose the Branch Connector groups to which the rule applies. You can search for a specific Branch Connector group, click **Select All Displayed** to apply all Branch Connector groups, or click **Clear All** to remove all selections.
 

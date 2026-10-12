@@ -1,7 +1,7 @@
 # Zscaler Help — AI Security (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-05 09:38 UTC
+Generated: 2026-10-12 09:45 UTC
 Articles in this file: 88
 
 ---
@@ -3656,13 +3656,13 @@ To register a Red Teaming broker, do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/release-upgrade-summary-2026","lastmod":"2026-10-02T16:53Z","nid":"1539124"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/release-upgrade-summary-2026","lastmod":"2026-10-06T18:20Z","nid":"1539124"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/release-upgrade-summary-2026
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-10-02T16:53Z
+- Last modified: 2026-10-06T18:20Z
 - Summary: Secure AI Apps & Infrastructure Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Secure AI Apps & Infrastructure.
@@ -6025,13 +6025,13 @@ To create a custom block message:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/integrating-zia-ai-guard","lastmod":"2026-10-02T08:15Z","nid":"1540870"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/integrating-zia-ai-guard","lastmod":"2026-10-09T11:32Z","nid":"1540870"} -->
 ## Integrating ZIA with AI Guard
 
 - Source: https://help.zscaler.com/secure-ai-users/integrating-zia-ai-guard
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > AI Guard for Users > Getting Started > Integrating ZIA with AI Guard
-- Last modified: 2026-10-02T08:15Z
+- Last modified: 2026-10-09T11:32Z
 - Summary: Learn how to forward traffic from ZIA to AI Guard for processing AI traffic for AI users.
 
 Thanks to the integration of AI Guard with Internet & SaaS (ZIA), you can configure ZIA to invoke AI Guard for processing user's AI traffic.
@@ -6065,7 +6065,7 @@ Before you can integrate ZIA with AI Guard, ensure that you:
   | Grok (xAI) | Web Browsers | `*.grok.com` |
   | Lovable | Web Browsers | `api.lovable.dev` |
   | MaxAI | Web Browsers | `*.api.maxai.me` |
-  | Microsoft 365 Copilot | M365 Web Experience (Web Browser); M365 Desktop App (Windows and Mac); Copilot.com (Web Browser); Copilot in Word (Desktop App and Web Browser); Copilot in Excel (Web Browser); Copilot in Outlook (Web Browser) | `substrate.office.com` `substrate.svc.cloud.microsoft` `copilot.microsoft.com` `api.business.githubcopilot.com` `api.enterprise.githubcopilot.com` `api.individual.githubcopilot.com` `augloop.office.com` `www.copilot.com` |
+  | Microsoft 365 Copilot | M365 Web Experience (Web Browser); M365 Desktop App (Windows and Mac); Copilot.com (Web Browser); Copilot in Word (Desktop App and Web Browser); Copilot in Excel (Web Browser); Copilot in Outlook (Web Browser) | `substrate.office.com` `substrate.svc.cloud.microsoft` `copilot.microsoft.com` `api.business.githubcopilot.com` `api.enterprise.githubcopilot.com` `api.individual.githubcopilot.com` `augloop.office.com` `www.copilot.com` `.cloud.microsoft` |
   | Mistral AI | Mistral Vibe (formerly Le Chat) backend | `*.mistral.ai` |
   | Napkin AI | Web Browsers | `*.app.napkin.ai` |
   | NotebookLM | Web Browsers | `*.notebooklm.google.com` |
@@ -6106,7 +6106,7 @@ To configure your ZIA proxy:
 2. In the **Proxies** tab, click **Add Proxy**. The **Add Proxy** window appears. See image.
 3. In the **Add Proxy** window:
   - **Proxy Name**: Enter a user-friendly name for the third-party proxy that you are defining.
-  - **IP Address/FQDN**: `forward.zsaiguard.net`.
+  - **IP Address/FQDN**: `forward.prod.zsaiguard.net`.
   - **Port**: `9443`.
   - **Proxy's Root Certificate**: Select the root certificate you previously created.
   - **Insert X-Authenticated-User**: Enable this setting.
@@ -6661,13 +6661,13 @@ With the webhook integrated, create a policy to detect webhook traffic and creat
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/quick-start-guide-chatgpt","lastmod":"2026-10-02T08:23Z","nid":"1541877"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/quick-start-guide-chatgpt","lastmod":"2026-10-09T11:33Z","nid":"1541877"} -->
 ## Quick Start Guide for ChatGPT
 
 - Source: https://help.zscaler.com/secure-ai-users/quick-start-guide-chatgpt
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > AI Guard for Users > Getting Started > Quick Start Guide for ChatGPT
-- Last modified: 2026-10-02T08:23Z
+- Last modified: 2026-10-09T11:33Z
 - Summary: This guide takes you through the configuration steps you need to set up AI Guard, integrate with ZIA, and set up the policies necessary to provide run-time protection for your ChatGPT applications.
 
 This guide takes you through the configuration steps you need to set up AI Guard, integrate with Zscaler Internet Access (ZIA), and set up the policies necessary to provide run-time protection for your ChatGPT applications.
@@ -6720,7 +6720,7 @@ To configure your ZIA proxy:
 2. In the **Proxies** tab, click **Add Proxy**. The **Add Proxy** window appears. See image.
 3. In the **Add Proxy** window:
   - **Proxy Name**: Enter a user-friendly name for the third-party proxy that you are defining.
-  - **IP Address/FQDN**: Enter `forward.zsaiguard.net`.
+  - **IP Address/FQDN**: Enter `forward.prod.zsaiguard.net`.
   - **Port**: Enter `9443`.
   - **Proxy's Root Certificate**: Select the root certificate you previously created.
   - **Insert X-Authenticated-User**: Enable this setting.
@@ -6841,13 +6841,13 @@ To create a ChatGPT application policy control:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/quick-start-guide-microsoft-365-copilot","lastmod":"2026-10-02T08:22Z","nid":"1541876"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/quick-start-guide-microsoft-365-copilot","lastmod":"2026-10-09T11:32Z","nid":"1541876"} -->
 ## Quick Start Guide for Microsoft 365 Copilot
 
 - Source: https://help.zscaler.com/secure-ai-users/quick-start-guide-microsoft-365-copilot
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > AI Guard for Users > Getting Started > Quick Start Guide for Microsoft 365 Copilot
-- Last modified: 2026-10-02T08:22Z
+- Last modified: 2026-10-09T11:32Z
 - Summary: This guide takes you through the configuration steps you need to set up AI Guard, integrate with ZIA, and set up the policies necessary to provide run-time protection for your Microsoft 365 Copilot applications.
 
 This guide takes you through the configuration steps you need to set up AI Guard, integrate with Zscaler Internet Access (ZIA), and set up the policies necessary to provide run-time protection for your Microsoft 365 Copilot applications.
@@ -6900,7 +6900,7 @@ To configure your ZIA proxy:
 2. In the **Proxies** tab, click **Add Proxy**. The **Add Proxy** window appears. See image.
 3. In the **Add Proxy** window:
   - **Proxy Name**: Enter a user-friendly name for the third-party proxy that you are defining.
-  - **IP Address/FQDN**: Enter `forward.zsaiguard.net`.
+  - **IP Address/FQDN**: Enter `forward.prod.zsaiguard.net`.
   - **Port**: Enter `9443`.
   - **Proxy's Root Certificate**: Select the root certificate you previously created.
   - **Insert X-Authenticated-User**: Enable this setting.
@@ -7025,13 +7025,13 @@ To create a Microsoft 365 Copilot application policy control:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/release-upgrade-summary-2026","lastmod":"2026-09-28T13:14Z","nid":"1539123"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/release-upgrade-summary-2026","lastmod":"2026-10-06T18:15Z","nid":"1539123"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/secure-ai-users/release-upgrade-summary-2026
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-28T13:14Z
+- Last modified: 2026-10-06T18:15Z
 - Summary: Secure Access to AI Apps Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Secure Access to AI Apps.
