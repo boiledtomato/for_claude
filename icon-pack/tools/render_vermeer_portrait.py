@@ -209,11 +209,11 @@ def dark_cloth(base, rng):
     X, Y = ra.X, ra.Y
     fold = np.sin(X / 52 + np.sin(X / 150) * 2.2 + fbm(rng, (128,)) * 4)
     t = np.where(Y < rv.FRONT, 0.6 + 0.1 * fold, 0.42 + 0.26 * fold - (Y - rv.FRONT) / 520)
-    blue = ramp(["#0a0e22", "#1c2a62", "#3c56a8", "#7e92cc", "#c4cce4"], t)
+    blue = ramp(["#0a1030", "#1a3488", "#2f5cc4", "#6f98e0", "#c8d8f4"], t)
     yellow = ramp(["#2a1e0a", "#6a5220", "#b89a48", "#e6d08c", "#f6ecc4"], t + 0.05)
     tail = np.clip((X - 560 - 40 * np.sin(Y / 60)) / 30, 0, 1) * (Y > rv.FRONT - 10)
     col = ra.mix(blue, yellow, tail)
-    fall = np.clip(1.15 - X / 950, 0.3, 1) * (1 - tail) + np.clip(1.25 - X / 1300, 0.5, 1) * tail
+    fall = np.clip(1.2 - X / 1000, 0.45, 1) * (1 - tail) + np.clip(1.3 - X / 1300, 0.6, 1) * tail
     col = col * fall[..., None]
     return ra.mix(base, col, ra.blur((Y >= rv.TABLE).astype(float), 1.5))
 
